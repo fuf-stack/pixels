@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.29.2](https://github.com/fuf-stack/pixels/compare/pixels-v0.29.1...pixels-v0.29.2) (2024-12-03)
+
+
+### Bug Fixes
+
+* **deps:** update dependency framer-motion to v11.12.0 ([#543](https://github.com/fuf-stack/pixels/issues/543)) ([7576487](https://github.com/fuf-stack/pixels/commit/75764872730bef460aa56bffa0c6db1c85a69559))
+
 ## [0.29.1](https://github.com/fuf-stack/pixels/compare/pixels-v0.29.0...pixels-v0.29.1) (2024-11-27)
 
 
