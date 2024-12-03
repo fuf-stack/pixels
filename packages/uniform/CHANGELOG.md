@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.13.0](https://github.com/fuf-stack/pixels/compare/uniform-v0.12.1...uniform-v0.13.0) (2024-12-03)
+
+
+### Features
+
+* **uniform:** fix multiple form validation and style issues ([c33294f](https://github.com/fuf-stack/pixels/commit/c33294fb911ef208bd72bda44808e070e9a527a9))
+
 ## [0.12.1](https://github.com/fuf-stack/pixels/compare/uniform-v0.12.0...uniform-v0.12.1) (2024-11-29)
 
 
