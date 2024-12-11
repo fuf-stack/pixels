@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.29.3](https://github.com/fuf-stack/pixels/compare/pixels-v0.29.2...pixels-v0.29.3) (2024-12-11)
+
+
+### Bug Fixes
+
+* **deps:** update [@nextui](https://github.com/nextui) monorepo ([#616](https://github.com/fuf-stack/pixels/issues/616)) ([0e52467](https://github.com/fuf-stack/pixels/commit/0e524675f0019e9cbf7db7ba3b8bbea7d994a6fd))
+* **storybook-config:** fix story-storyshots types ([8b071dd](https://github.com/fuf-stack/pixels/commit/8b071ddd6388396e87601e45c1bfafbca8cb26fa))
+
 ## [0.29.2](https://github.com/fuf-stack/pixels/compare/pixels-v0.29.1...pixels-v0.29.2) (2024-12-10)
 
 
