@@ -14,6 +14,9 @@ importers:
       '@fuf-stack/project-cli-tools':
         specifier: 1.0.1
         version: 1.0.1(@types/node@22.10.2)(babel-plugin-macros@3.1.0)(typescript@5.7.2)
+      '@fuf-stack/typescript-config':
+        specifier: 0.2.0
+        version: 0.2.0
       '@fuf-stack/vitest-config':
         specifier: 1.0.0
         version: 1.0.0(@types/node@22.10.2)(jsdom@25.0.1)
@@ -1049,6 +1052,9 @@ packages:
 
   '@fuf-stack/project-cli-tools@1.0.1':
     resolution: {integrity: sha512-c10ud572bSeCL/bpZK0Oj038YEozyzerKdZFDeXip0cDosA0oFjxuZ84cc1dAhs+Ql9686kODRb1l/RuWQRAvQ==}
+
+  '@fuf-stack/typescript-config@0.2.0':
+    resolution: {integrity: sha512-mazoH+ZwS5TSxQmgWIkIwvRQFiyasQ1NeuK8u6t0iNZlaMvykdqPbFT88585/0ujAeU6MZtNTAiW7F/CVESZPw==}
 
   '@fuf-stack/vitest-config@1.0.0':
     resolution: {integrity: sha512-DtST+GGTDKdnv4TK1q8Kf++FG70Cu2G/qNvK0KanyhpxpJO2ONT0f6wCjyz70xt5WgyABlGe7F7XMa5WC40Mzw==}
@@ -7853,6 +7859,8 @@ snapshots:
       - debug
       - supports-color
       - typescript
+
+  '@fuf-stack/typescript-config@0.2.0': {}
 
   '@fuf-stack/vitest-config@1.0.0(@types/node@22.10.2)(jsdom@25.0.1)':
     dependencies:

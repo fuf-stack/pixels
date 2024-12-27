@@ -1,17 +1,11 @@
 {
-  "extends": "./tsconfig.base.json",
-  "compilerOptions": {
-    "types": ["@types/node"],
-    "noEmit": true,
-    "allowJs": true
-  },
+  "extends": "@fuf-stack/typescript-config/eslint.json",
   "include": [
     "./**/*.ts",
     "./**/*.tsx",
     ".eslintrc.js",
     "prettier.config.js",
-    "vitest.config.ts",
+    "vitest.config.mts",
     "vitest.workspace.ts"
-  ],
-  "references": []
+  ]
 }

@@ -1,12 +1,12 @@
 {
-  "extends": "../../tsconfig.base.json",
+  "extends": "@fuf-stack/typescript-config/react-library.json",
   "compilerOptions": {
-    "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "paths": {
       "@fuf-stack/pixels/*": ["../pixels/src/*"],
       "@fuf-stack/veto/*": ["../veto/src/*"],
       "src/": ["./src/"]
-    }
+    },
+    "tsBuildInfoFile": "node_modules/.cache/tsbuildinfo.json"
   },
   "include": ["src", "globals.d.ts"],
   "references": [{ "path": "../pixels" }, { "path": "../veto" }]

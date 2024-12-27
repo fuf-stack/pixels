@@ -1,12 +1,16 @@
 {
-  "extends": "../../tsconfig.base.json",
+  "extends": "@fuf-stack/typescript-config/base.json",
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
       "src/*": ["./src/*"],
       "test/*": ["./test/*"]
     },
-    "rootDir": "."
+    "rootDir": ".",
+    "tsBuildInfoFile": "node_modules/.cache/tsbuildinfo.json",
+
+    // see: https://github.com/colinhacks/zod/issues/121
+    "strictNullChecks": true
   },
   "include": ["src", "test"]
 }

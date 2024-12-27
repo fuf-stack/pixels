@@ -1,7 +1,7 @@
 {
-  "extends": "../../tsconfig.base.json",
+  "extends": "@fuf-stack/typescript-config/react-library.json",
   "compilerOptions": {
-    "lib": ["DOM", "DOM.Iterable", "ESNext"]
+    "tsBuildInfoFile": "node_modules/.cache/tsbuildinfo.json"
   },
   "include": ["src"]
 }
