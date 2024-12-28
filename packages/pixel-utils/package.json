@@ -38,7 +38,7 @@
   },
   "scripts": {
     "build": "tsup --config node_modules/@repo/tsup-config/config.ts",
-    "prepack": "rm -rf ./dist && pnpm build"
+    "prepack": "pnpm build"
   },
   "dependencies": {
     "@nextui-org/theme": "2.4.4",

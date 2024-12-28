@@ -39,7 +39,7 @@
   },
   "scripts": {
     "build": "tsup --config node_modules/@repo/tsup-config/config.ts",
-    "prepack": "rm -rf ./dist && pnpm build"
+    "prepack": "pnpm build"
   },
   "dependencies": {
     "framer-motion": "11.15.0"

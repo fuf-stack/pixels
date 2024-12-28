@@ -26,7 +26,7 @@
     "url": "https://github.com/fuf-stack/pixels/issues"
   },
   "scripts": {
-    "build": "rm -rf ./dist && tsup --dts-resolve",
+    "build": "tsup --dts-resolve",
     "build:dts": "pnpm dts-bundle-generator --config ./dtsbundle.config.js",
     "dev": "tsup --watch",
     "test": "vitest ./src"

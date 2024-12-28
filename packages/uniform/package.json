@@ -108,7 +108,7 @@
   },
   "scripts": {
     "build": "tsup --config node_modules/@repo/tsup-config/config.ts",
-    "prepack": "rm -rf ./dist && pnpm build",
+    "prepack": "pnpm build",
     "test": "vitest ./src"
   },
   "peerDependencies": {
