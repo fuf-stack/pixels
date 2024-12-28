@@ -18,8 +18,8 @@ importers:
         specifier: 0.2.0
         version: 0.2.0
       '@fuf-stack/vitest-config':
-        specifier: 1.0.0
-        version: 1.0.0(@types/node@22.10.2)(jsdom@25.0.1)
+        specifier: 1.1.1
+        version: 1.1.1(@types/node@22.10.2)(jsdom@25.0.1)
       '@types/node':
         specifier: 22.10.2
         version: 22.10.2
@@ -1056,8 +1056,8 @@ packages:
   '@fuf-stack/typescript-config@0.2.0':
     resolution: {integrity: sha512-mazoH+ZwS5TSxQmgWIkIwvRQFiyasQ1NeuK8u6t0iNZlaMvykdqPbFT88585/0ujAeU6MZtNTAiW7F/CVESZPw==}
 
-  '@fuf-stack/vitest-config@1.0.0':
-    resolution: {integrity: sha512-DtST+GGTDKdnv4TK1q8Kf++FG70Cu2G/qNvK0KanyhpxpJO2ONT0f6wCjyz70xt5WgyABlGe7F7XMa5WC40Mzw==}
+  '@fuf-stack/vitest-config@1.1.1':
+    resolution: {integrity: sha512-4sL9qIpkjw6kB7hhTbmTrm30TPpKb6tyvZmyjWl+LmrGxvz0eN7HLYte4+fCOX25dVB6702kA4MWoKI4Lfqbhw==}
 
   '@gwhitney/detect-indent@7.0.1':
     resolution: {integrity: sha512-7bQW+gkKa2kKZPeJf6+c6gFK9ARxQfn+FKy9ScTBppyKRWH2KzsmweXUoklqeEiHiNVWaeP5csIdsNq6w7QhzA==}
@@ -7848,7 +7848,7 @@ snapshots:
 
   '@fuf-stack/typescript-config@0.2.0': {}
 
-  '@fuf-stack/vitest-config@1.0.0(@types/node@22.10.2)(jsdom@25.0.1)':
+  '@fuf-stack/vitest-config@1.1.1(@types/node@22.10.2)(jsdom@25.0.1)':
     dependencies:
       '@vitest/coverage-v8': 2.1.8(vitest@2.1.8(@types/node@22.10.2)(jsdom@25.0.1))
       vitest: 2.1.8(@types/node@22.10.2)(jsdom@25.0.1)
