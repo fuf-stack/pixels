@@ -1,5 +1,35 @@
 # Changelog
 
+## [0.15.0](https://github.com/fuf-stack/pixels/compare/uniform-v0.14.5...uniform-v0.15.0) (2024-12-29)
+
+
+### Features
+
+* add tailwind info color range ([061291e](https://github.com/fuf-stack/pixels/commit/061291ecbaa8105512f3c5b7ab7a7f52c4b101fd))
+* **pixels,uniform:** add Table to pixels and fix story of FieldArray ([179dd1a](https://github.com/fuf-stack/pixels/commit/179dd1aa7e0867bf897f08f859f175f98c70ff6f))
+* **uniform:** big refactoring of fieldArray implementation ([cd84a2c](https://github.com/fuf-stack/pixels/commit/cd84a2ca15310f4b897cb920a09eae23df4f0456))
+
+
+### Bug Fixes
+
+* **deps:** update [@nextui](https://github.com/nextui) monorepo ([#647](https://github.com/fuf-stack/pixels/issues/647)) ([aaa6914](https://github.com/fuf-stack/pixels/commit/aaa69144cd2d0fd4b22b6b03f632f2fdc8dbe1cf))
+* **deps:** update dependency framer-motion to v11.15.0 ([#632](https://github.com/fuf-stack/pixels/issues/632)) ([38246f9](https://github.com/fuf-stack/pixels/commit/38246f9b8ff340594bdd26f8f041d1d195b547aa))
+* **deps:** update dependency react-hook-form to v7.54.2 ([#644](https://github.com/fuf-stack/pixels/issues/644)) ([e0a4274](https://github.com/fuf-stack/pixels/commit/e0a42745737dcb107fdec703cedd4d54e6a64fcd))
+* **uniform:** add FieldCopyTestIdButton test ([31233a8](https://github.com/fuf-stack/pixels/commit/31233a80a6523834a0f804ecf5e3917866730999))
+* **uniform:** add tests for Form component ([ecb4318](https://github.com/fuf-stack/pixels/commit/ecb4318404fd4f94f6a6c9bcd5474f3404a647c5))
+* **uniform:** adjust removeNullishFields to only remove nullish fields from objects ([e800345](https://github.com/fuf-stack/pixels/commit/e800345d562ccb6617c7f19e1f1586c7665048c7))
+* **uniform:** always disable debug in tests ([28476a9](https://github.com/fuf-stack/pixels/commit/28476a9e1c7f90740f98c4b070517bf3d58bbbc2))
+* **uniform:** export useInput hook ([d75c8c3](https://github.com/fuf-stack/pixels/commit/d75c8c398df2537d724135d3dde1086438afa93c))
+* **uniform:** fix hooks index file ([6875186](https://github.com/fuf-stack/pixels/commit/68751862280816bbb76bcfc2b13864a5e361b366))
+* **uniform:** fixes for FieldArray ([1d9bba9](https://github.com/fuf-stack/pixels/commit/1d9bba926d16fd5da30f6994235d717a87a6a538))
+* **uniform:** more refactoring and fixes for FieldArray ([b8514fa](https://github.com/fuf-stack/pixels/commit/b8514fa7833aa09bc9da91abf98e18186d3e0fb3))
+* **uniform:** refactor Controller tests ([add109e](https://github.com/fuf-stack/pixels/commit/add109e79d1b8367fb80dc212b8d106cb2b32160))
+* **uniform:** refactor nullish fields logic ([de92895](https://github.com/fuf-stack/pixels/commit/de92895b44dd39eb9eacb08277b285dd55970f8b))
+* **uniform:** restructure FieldArray components ([cb719af](https://github.com/fuf-stack/pixels/commit/cb719af2debbf6c04df69e8ca6acf3c95a130f4d))
+* **uniform:** some tailwind variants refactoring of FieldArray ([96a135b](https://github.com/fuf-stack/pixels/commit/96a135bc5a6d169a4d0da2421fb8b2b4987f698b))
+* **uniform:** use useInput from hooks ([8c7f6c9](https://github.com/fuf-stack/pixels/commit/8c7f6c943433312aecd755d14bac7130be13f26c))
+* use v8 for coverage + exclude some code ([d2cc6d8](https://github.com/fuf-stack/pixels/commit/d2cc6d8d4c95c183de6b2427d4520bf43b24cc9f))
+
 ## [0.14.5](https://github.com/fuf-stack/pixels/compare/uniform-v0.14.4...uniform-v0.14.5) (2024-12-15)
 
 
