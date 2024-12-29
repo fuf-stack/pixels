@@ -6,17 +6,13 @@ import { useSortable } from '@dnd-kit/sortable';
 
 import { cn } from '@fuf-stack/pixel-utils';
 
-import { slugify } from '../../helpers';
-
 interface SortDragHandleProps {
   /** Optional CSS class name */
   className?: ClassValue;
   /** Unique identifier for sortable item */
   id: string | number;
-  /** Item index for test ID generation */
-  index: number;
-  /** Base name for test ID generation */
-  name: string;
+  /** HTML data-testid attribute used in e2e tests */
+  testId?: string;
 }
 
 /**
@@ -26,8 +22,7 @@ interface SortDragHandleProps {
 const SortDragHandle = ({
   className = undefined,
   id,
-  index,
-  name,
+  testId = undefined,
 }: SortDragHandleProps) => {
   // Get dnd-kit sortable attributes and listeners
   const { attributes, listeners } = useSortable({ id });
@@ -35,7 +30,7 @@ const SortDragHandle = ({
   return (
     <div
       className={cn(className)}
-      data-testid={slugify(`${name}_${index}_sort_drag_handle`)}
+      data-testid={testId}
       // eslint-disable-next-line react/jsx-props-no-spreading
       {...attributes}
       // eslint-disable-next-line react/jsx-props-no-spreading

@@ -15,18 +15,14 @@ import SortContext from './subcomponents/SortContext';
 
 export const fieldArrayVariants = tv({
   slots: {
-    appendButton: '',
-    content: 'flex-grow',
-    contentInner: 'mb-2 flex items-center',
-    contentWrapper: 'w-full',
-    sortDragHandle: 'mr-2 text-base text-xl',
-    element: 'mb-3 mt-5 flex flex-row items-center',
-    errorWrapper: 'block',
+    appendButton: 'w-full',
+    elementContent: 'flex-grow',
     insertAfterButton: 'text-xs font-medium',
     label: '!pointer-events-auto !static !z-0 -mb-1 ml-1 !inline-block',
-    list: 'm-0 w-full list-none p-0',
+    list: 'm-0 w-full list-none',
+    listItem: 'mb-4 flex w-full flex-row items-center',
     removeButton: 'ml-1',
-    wrapper: 'flex w-full flex-col gap-2',
+    sortDragHandle: 'mr-2 text-base text-xl',
   },
 });
 
@@ -34,6 +30,7 @@ export const fieldArrayVariants = tv({
  * FieldArray component using TODO
  */
 const FieldArray = ({
+  appendButtonText = 'Add Element',
   children,
   className: _className = undefined,
   duplicate = false,
@@ -130,7 +127,6 @@ const FieldArray = ({
           return (
             <FieldArrayElement
               className={className}
-              field={field}
               fields={fields}
               id={field.id}
               index={index}
@@ -159,9 +155,9 @@ const FieldArray = ({
           className={className.appendButton}
           onClick={() => append(elementInitialValue)}
           size="sm"
-          testId={`${testId}_append`}
+          testId={`${testId}_append_button`}
         >
-          Add
+          {appendButtonText}
         </Button>
 
         {/* top level field array errors */}

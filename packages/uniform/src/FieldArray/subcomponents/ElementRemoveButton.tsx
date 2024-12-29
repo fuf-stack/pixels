@@ -10,11 +10,14 @@ interface ElementRemoveButtonProps {
   className?: ClassValue;
   /** click handler */
   onClick: () => void;
+  /** HTML data-testid attribute used in e2e tests */
+  testId?: string;
 }
 
 const ElementRemoveButton = ({
   className = undefined,
   onClick,
+  testId = undefined,
 }: ElementRemoveButtonProps) => {
   return (
     <Button
@@ -23,6 +26,7 @@ const ElementRemoveButton = ({
       color="danger"
       icon={<FaTimes />}
       onClick={onClick}
+      testId={testId}
       variant="light"
     />
   );

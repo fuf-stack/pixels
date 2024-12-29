@@ -155,7 +155,7 @@ export const Invalid: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    const appendButton = canvas.getByTestId('arrayfield_append');
+    const appendButton = canvas.getByTestId('arrayfield_append_button');
     appendButton.click();
 
     const input = canvas.getByTestId('arrayfield_0_name');

@@ -30,8 +30,10 @@ interface FieldArrayElementProps extends FieldArrayFeatures {
   children: React.ReactNode;
   /** CSS class names for component parts */
   className: {
-    /** Class for the array element container */
-    element?: ClassValue;
+    /** Class of the content of the li */
+    elementContent?: ClassValue;
+    /** Class for the li */
+    listItem?: ClassValue;
     /** Class for the insert button between elements */
     insertAfterButton?: ClassValue;
     /** Class for the remove element button */
@@ -39,8 +41,6 @@ interface FieldArrayElementProps extends FieldArrayFeatures {
     /** Class for the drag handle when sorting enabled */
     sortDragHandle?: ClassValue;
   };
-  /** Current field data with unique ID */
-  field: Record<'id', string>;
   /** All fields in the form array */
   fields: Record<'id', string>[];
   /** Unique identifier for drag/drop */
@@ -53,7 +53,7 @@ interface FieldArrayElementProps extends FieldArrayFeatures {
   methods: FieldArrayElementMethods;
   /** Base field name for form context */
   name: string;
-  /** Optional test identifier */
+  /** HTML data-testid attribute used in e2e tests */
   testId?: string;
 }
 
@@ -64,7 +64,6 @@ interface FieldArrayElementProps extends FieldArrayFeatures {
 const FieldArrayElement = ({
   children,
   className,
-  field,
   fields,
   id,
   index,
@@ -101,46 +100,41 @@ const FieldArrayElement = ({
   return (
     <>
       <li
-        className={cn(className.element)}
+        className={cn(className.listItem)}
         ref={setNodeRef}
         style={sortingStyle}
       >
         {/** sorting drag handle */}
         {sortable && (
-          <div className="mr-6 flex flex-row items-center">
-            <SortDragHandle
-              className={className.sortDragHandle}
-              id={id}
-              index={index}
-              name={name}
-            />
-          </div>
+          <SortDragHandle
+            className={className.sortDragHandle}
+            id={id}
+            testId={`${testId}_sort_drag_handle`}
+          />
         )}
 
-        <div key={`rest-${field.id}`} className="w-full">
-          <div className="mb-2 flex items-center">
-            {/** render element fields */}
-            <div className="flex-grow" data-testid={testId}>
-              {children}
-            </div>
-
-            {/** remove element */}
-            {lastNotDeletable && fields.length === 1 ? null : (
-              <ElementRemoveButton
-                className={className.removeButton}
-                onClick={() => methods.remove()}
-              />
-            )}
-          </div>
-
-          {/** insertAfter feature when not last element */}
-          {insertAfter && index !== fields.length - 1 && (
-            <ElementInsertAfterButton
-              className={className.insertAfterButton}
-              onClick={() => methods.insert()}
-            />
-          )}
+        {/** render element fields */}
+        <div className={cn(className.elementContent)} data-testid={testId}>
+          {children}
         </div>
+
+        {/** remove element */}
+        {lastNotDeletable && fields.length === 1 ? null : (
+          <ElementRemoveButton
+            className={className.removeButton}
+            onClick={() => methods.remove()}
+            testId={`${testId}_remove_button`}
+          />
+        )}
+
+        {/** insertAfter feature when not last element */}
+        {insertAfter && index !== fields.length - 1 && (
+          <ElementInsertAfterButton
+            className={className.insertAfterButton}
+            onClick={() => methods.insert()}
+            testId={`${testId}_insert_after_button`}
+          />
+        )}
       </li>
 
       {/** element error */}

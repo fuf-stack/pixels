@@ -10,11 +10,14 @@ interface ElementInsertAfterButtonProps {
   className?: ClassValue;
   /** click handler */
   onClick: () => void;
+  /** HTML data-testid attribute used in e2e tests */
+  testId?: string;
 }
 
 const ElementInsertAfterButton = ({
   className = undefined,
   onClick,
+  testId = undefined,
 }: ElementInsertAfterButtonProps) => {
   return (
     <Button
@@ -23,6 +26,7 @@ const ElementInsertAfterButton = ({
       icon={<FaPlus />}
       onClick={onClick}
       size="sm"
+      testId={testId}
       variant="light"
     />
   );
