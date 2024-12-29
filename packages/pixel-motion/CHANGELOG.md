@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.0.6](https://github.com/fuf-stack/pixels/compare/pixel-motion-v1.0.5...pixel-motion-v1.0.6) (2024-12-29)
+
+
+### Bug Fixes
+
+* **deps:** update dependency framer-motion to v11.14.1 ([#623](https://github.com/fuf-stack/pixels/issues/623)) ([44e96cb](https://github.com/fuf-stack/pixels/commit/44e96cbd0517233cc45217578e18a29041e3cbf0))
+* **deps:** update dependency framer-motion to v11.14.3 ([#626](https://github.com/fuf-stack/pixels/issues/626)) ([2a76d24](https://github.com/fuf-stack/pixels/commit/2a76d2497f57a1ac4d5e86dd1ad584e36748ed43))
+* **deps:** update dependency framer-motion to v11.14.4 ([#627](https://github.com/fuf-stack/pixels/issues/627)) ([d0eb6aa](https://github.com/fuf-stack/pixels/commit/d0eb6aa0d587ba96e550ec4ca78cd0b5880aae1c))
+* **deps:** update dependency framer-motion to v11.15.0 ([#632](https://github.com/fuf-stack/pixels/issues/632)) ([38246f9](https://github.com/fuf-stack/pixels/commit/38246f9b8ff340594bdd26f8f041d1d195b547aa))
+* **pixel-motion:** fix test sort sonarqube issue ([1557944](https://github.com/fuf-stack/pixels/commit/1557944624c89ffc56d2a82486f108abe3afab31))
+* **uniform:** more refactoring and fixes for FieldArray ([b8514fa](https://github.com/fuf-stack/pixels/commit/b8514fa7833aa09bc9da91abf98e18186d3e0fb3))
+* use v8 for coverage + exclude some code ([d2cc6d8](https://github.com/fuf-stack/pixels/commit/d2cc6d8d4c95c183de6b2427d4520bf43b24cc9f))
+
 ## [1.0.5](https://github.com/fuf-stack/pixels/compare/pixel-motion-v1.0.4...pixel-motion-v1.0.5) (2024-12-10)
 
 
