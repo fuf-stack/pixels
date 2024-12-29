@@ -1,5 +1,25 @@
 # Changelog
 
+## [0.30.0](https://github.com/fuf-stack/pixels/compare/pixels-v0.29.3...pixels-v0.30.0) (2024-12-29)
+
+
+### Features
+
+* add tailwind info color range ([061291e](https://github.com/fuf-stack/pixels/commit/061291ecbaa8105512f3c5b7ab7a7f52c4b101fd))
+* **pixels,uniform:** add Table to pixels and fix story of FieldArray ([179dd1a](https://github.com/fuf-stack/pixels/commit/179dd1aa7e0867bf897f08f859f175f98c70ff6f))
+* **uniform:** big refactoring of fieldArray implementation ([cd84a2c](https://github.com/fuf-stack/pixels/commit/cd84a2ca15310f4b897cb920a09eae23df4f0456))
+
+
+### Bug Fixes
+
+* **deps:** update [@nextui](https://github.com/nextui) monorepo ([#647](https://github.com/fuf-stack/pixels/issues/647)) ([aaa6914](https://github.com/fuf-stack/pixels/commit/aaa69144cd2d0fd4b22b6b03f632f2fdc8dbe1cf))
+* **deps:** update dependency framer-motion to v11.15.0 ([#632](https://github.com/fuf-stack/pixels/issues/632)) ([38246f9](https://github.com/fuf-stack/pixels/commit/38246f9b8ff340594bdd26f8f041d1d195b547aa))
+* **pixels:** improve code structure of Json component ([a85f796](https://github.com/fuf-stack/pixels/commit/a85f796ea0fac97b774d3474cbdb553436680856))
+* **pixels:** refactor Json renderer into components ([1c1402e](https://github.com/fuf-stack/pixels/commit/1c1402ea6b5413f20f16252070c1217a634f8f76))
+* **uniform:** lower Table row count to avoid timeout ([8f1333f](https://github.com/fuf-stack/pixels/commit/8f1333fb51bbe86f267039c94e22553d4f4083ca))
+* **uniform:** more refactoring and fixes for FieldArray ([b8514fa](https://github.com/fuf-stack/pixels/commit/b8514fa7833aa09bc9da91abf98e18186d3e0fb3))
+* use v8 for coverage + exclude some code ([d2cc6d8](https://github.com/fuf-stack/pixels/commit/d2cc6d8d4c95c183de6b2427d4520bf43b24cc9f))
+
 ## [0.29.3](https://github.com/fuf-stack/pixels/compare/pixels-v0.29.2...pixels-v0.29.3) (2024-12-15)
 
 
