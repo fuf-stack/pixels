@@ -1,5 +1,15 @@
 # Changelog
 
+## [0.4.3](https://github.com/fuf-stack/pixels/compare/pixel-utils-v0.4.2...pixel-utils-v0.4.3) (2024-12-29)
+
+
+### Bug Fixes
+
+* **deps:** update [@nextui](https://github.com/nextui) monorepo ([#647](https://github.com/fuf-stack/pixels/issues/647)) ([aaa6914](https://github.com/fuf-stack/pixels/commit/aaa69144cd2d0fd4b22b6b03f632f2fdc8dbe1cf))
+* **deps:** update dependency tailwind-merge to v2.6.0 ([#646](https://github.com/fuf-stack/pixels/issues/646)) ([17ed278](https://github.com/fuf-stack/pixels/commit/17ed2788e40c8776ea805794ef03895f5ab5ba06))
+* **uniform:** more refactoring and fixes for FieldArray ([b8514fa](https://github.com/fuf-stack/pixels/commit/b8514fa7833aa09bc9da91abf98e18186d3e0fb3))
+* **uniform:** some tailwind variants refactoring of FieldArray ([96a135b](https://github.com/fuf-stack/pixels/commit/96a135bc5a6d169a4d0da2421fb8b2b4987f698b))
+
 ## [0.4.2](https://github.com/fuf-stack/pixels/compare/pixel-utils-v0.4.1...pixel-utils-v0.4.2) (2024-12-10)
 
 
