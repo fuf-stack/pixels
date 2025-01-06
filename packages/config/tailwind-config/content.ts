@@ -19,6 +19,7 @@ const NEXTUI_THEME_USED_COMPONENT_PATHS = [
   'chip',
   'checkbox',
   'divider',
+  'drawer',
   'dropdown',
   'input',
   'modal',
