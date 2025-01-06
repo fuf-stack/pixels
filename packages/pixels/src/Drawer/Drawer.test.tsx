@@ -70,6 +70,6 @@ describe('Drawer Component', () => {
     expect(screen.getByTestId('drawer-header')).toBeInTheDocument();
     // Check if body and footer are NOT in the document
     expect(screen.queryByTestId('drawer-body')).not.toBeInTheDocument();
-    expect(screen.queryByRole('footer')).not.toBeInTheDocument(); // or queryByTestId if you add a testId
+    expect(screen.queryByRole('footer')).not.toBeInTheDocument();
   });
 });
