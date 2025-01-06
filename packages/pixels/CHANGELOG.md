@@ -1,5 +1,24 @@
 # Changelog
 
+## [0.31.1](https://github.com/fuf-stack/pixels/compare/pixels-v0.31.0...pixels-v0.31.1) (2025-01-06)
+
+
+### Bug Fixes
+
+* **pixels:** add export for Drawer types ([270ee80](https://github.com/fuf-stack/pixels/commit/270ee807508c739abbe6dd38a56f5fa0acca8f22))
+
+## [0.31.0](https://github.com/fuf-stack/pixels/compare/pixels-v0.30.0...pixels-v0.31.0) (2025-01-06)
+
+
+### Features
+
+* **pixels:** add Drawer component ([afc46b2](https://github.com/fuf-stack/pixels/commit/afc46b27b3da45d6beab5dd7d659423dfe023ccf))
+
+
+### Bug Fixes
+
+* **deps:** update [@nextui](https://github.com/nextui) monorepo ([#661](https://github.com/fuf-stack/pixels/issues/661)) ([adcf767](https://github.com/fuf-stack/pixels/commit/adcf767ab176a2345f969641c398601a76368c9d))
+
 ## [0.30.0](https://github.com/fuf-stack/pixels/compare/pixels-v0.29.3...pixels-v0.30.0) (2024-12-29)
 
 
