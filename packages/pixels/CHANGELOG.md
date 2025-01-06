@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.31.1](https://github.com/fuf-stack/pixels/compare/pixels-v0.31.0...pixels-v0.31.1) (2025-01-06)
+
+
+### Bug Fixes
+
+* **pixels:** add export for Drawer types ([270ee80](https://github.com/fuf-stack/pixels/commit/270ee807508c739abbe6dd38a56f5fa0acca8f22))
+
 ## [0.31.0](https://github.com/fuf-stack/pixels/compare/pixels-v0.30.0...pixels-v0.31.0) (2025-01-06)
 
 
