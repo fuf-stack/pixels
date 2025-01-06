@@ -75,39 +75,44 @@ const Switch = ({
       disabled={disabled}
       render={({
         field: { disabled: isDisabled, value, ref, onBlur, onChange },
-      }) => (
-        <div className={classNames.outerWrapper}>
-          <NextSwitch
-            aria-describedby={getInputProps()['aria-describedby']}
-            classNames={classNames}
-            // See NextUI styles for group-data condition (data-invalid), e.g.: https://github.com/nextui-org/nextui/blob/main/packages/components/select/src/use-select.ts
-            data-invalid={invalid}
-            data-required={required}
-            data-testid={testId}
-            isDisabled={isDisabled}
-            isSelected={!!value}
-            name={name}
-            onBlur={onBlur}
-            onChange={onChange}
-            ref={ref}
-            required={required}
-            value={value}
-          >
-            {label}
-            {showTestIdCopyButton && <FieldCopyTestIdButton testId={testId} />}
-          </NextSwitch>
-          {error && (
-            <div className={classNames.errorMessage}>
-              <div
-                /* eslint-disable-next-line react/jsx-props-no-spreading */
-                {...getErrorMessageProps()}
-              >
-                <FieldValidationError error={error} />
+      }) => {
+        console.log('value', value, typeof value);
+        return (
+          <div className={classNames.outerWrapper}>
+            <NextSwitch
+              aria-describedby={getInputProps()['aria-describedby']}
+              classNames={classNames}
+              // See NextUI styles for group-data condition (data-invalid), e.g.: https://github.com/nextui-org/nextui/blob/main/packages/components/select/src/use-select.ts
+              data-invalid={invalid}
+              data-required={required}
+              data-testid={testId}
+              isDisabled={isDisabled}
+              isSelected={!!value}
+              name={name}
+              onBlur={onBlur}
+              onValueChange={onChange}
+              ref={ref}
+              required={required}
+              value={value}
+            >
+              {label}
+              {showTestIdCopyButton && (
+                <FieldCopyTestIdButton testId={testId} />
+              )}
+            </NextSwitch>
+            {error && (
+              <div className={classNames.errorMessage}>
+                <div
+                  /* eslint-disable-next-line react/jsx-props-no-spreading */
+                  {...getErrorMessageProps()}
+                >
+                  <FieldValidationError error={error} />
+                </div>
               </div>
-            </div>
-          )}
-        </div>
-      )}
+            )}
+          </div>
+        );
+      }}
     />
   );
 };

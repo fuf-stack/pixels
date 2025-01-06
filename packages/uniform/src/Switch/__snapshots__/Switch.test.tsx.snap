@@ -133,6 +133,7 @@ exports[`Story Snapshots > Invalid 1`] = `
           data-hover="true"
           data-invalid="true"
           data-required="true"
+          data-selected="true"
           data-testid="switchfield"
           required=""
         >
@@ -142,7 +143,7 @@ exports[`Story Snapshots > Invalid 1`] = `
             name="switchField"
             role="switch"
             type="checkbox"
-            value=""
+            value="true"
           />
           <span
             aria-hidden="true"
@@ -168,12 +169,12 @@ exports[`Story Snapshots > Invalid 1`] = `
             id="react-aria-react-useId-mock"
           >
             <ul
-              aria-label="Error: Field is required"
-              data-testid="field_is_required"
+              aria-label="Error: I want to be switched off"
+              data-testid="i_want_to_be_switched_off"
             >
               <li>
                 <div>
-                  Field is required
+                  I want to be switched off
                 </div>
               </li>
             </ul>
