@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.31.2](https://github.com/fuf-stack/pixels/compare/pixels-v0.31.1...pixels-v0.31.2) (2025-01-07)
+
+
+### Bug Fixes
+
+* **deps:** update dependency framer-motion to v11.16.0 ([#671](https://github.com/fuf-stack/pixels/issues/671)) ([3b537ba](https://github.com/fuf-stack/pixels/commit/3b537ba370cd27b31c8ced4a6be157347fc86c51))
+* **pixels:** fix Drawer exports ([10e3cc9](https://github.com/fuf-stack/pixels/commit/10e3cc990ecf4a4372ab7be46de5184dc12844c8))
+
 ## [0.31.1](https://github.com/fuf-stack/pixels/compare/pixels-v0.31.0...pixels-v0.31.1) (2025-01-06)
 
 
