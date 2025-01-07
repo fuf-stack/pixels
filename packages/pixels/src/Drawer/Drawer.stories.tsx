@@ -1,11 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import type {
-  DrawerBackdrop,
-  DrawerPlacement,
-  DrawerProps,
-  DrawerRadius,
-  DrawerSizes,
-} from './Drawer';
+import type { DrawerProps } from './Drawer';
 
 import { Fragment, useState } from 'react';
 
@@ -27,15 +21,6 @@ const meta: Meta<typeof Drawer> = {
 
 export default meta;
 type Story = StoryObj<DrawerProps>;
-
-// Helper type for drawer sizes
-type OpenDrawersState = {
-  [K in
-    | DrawerSizes
-    | DrawerRadius
-    | DrawerPlacement
-    | DrawerBackdrop]?: boolean;
-};
 
 const Template: Story['render'] = (args, { canvasElement }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -114,7 +99,7 @@ export const CustomWidth: Story = {
 
 const SizeTemplate: Story['render'] = (args) => {
   const [{ openDrawers }, updateArgs] = useArgs<{
-    openDrawers: OpenDrawersState;
+    openDrawers: Record<string, boolean>;
   }>();
 
   return (
@@ -178,7 +163,7 @@ export const AllSizes: Story = {
 
 const RadiiTemplate: Story['render'] = (args) => {
   const [{ openDrawers }, updateArgs] = useArgs<{
-    openDrawers: OpenDrawersState;
+    openDrawers: Record<string, boolean>;
   }>();
 
   return (
@@ -242,7 +227,7 @@ export const AllRadii: Story = {
 
 const PlacementTemplate: Story['render'] = (args) => {
   const [{ openDrawers }, updateArgs] = useArgs<{
-    openDrawers: OpenDrawersState;
+    openDrawers: Record<string, boolean>;
   }>();
 
   return (
@@ -306,7 +291,7 @@ export const AllPlacements: Story = {
 
 const BackdropTemplate: Story['render'] = (args) => {
   const [{ openDrawers }, updateArgs] = useArgs<{
-    openDrawers: OpenDrawersState;
+    openDrawers: Record<string, boolean>;
   }>();
 
   return (
