@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.31.3](https://github.com/fuf-stack/pixels/compare/pixels-v0.31.2...pixels-v0.31.3) (2025-01-07)
+
+
+### Bug Fixes
+
+* **pixels:** small fixes for Drawer ([34c6886](https://github.com/fuf-stack/pixels/commit/34c6886f2f463f3699ea97ced33ba464a1b86499))
+
 ## [0.31.2](https://github.com/fuf-stack/pixels/compare/pixels-v0.31.1...pixels-v0.31.2) (2025-01-07)
 
 
