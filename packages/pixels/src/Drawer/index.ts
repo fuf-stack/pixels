@@ -6,15 +6,10 @@ import Drawer, {
   drawerVariants,
 } from './Drawer';
 
-export type {
-  DrawerProps,
-  DrawerSizes,
-  DrawerRadius,
-  DrawerBackdrop,
-  DrawerPlacement,
-} from './Drawer';
+export type { DrawerProps } from './Drawer';
 
 export {
+  Drawer,
   drawerBackdrops,
   drawerPlacements,
   drawerRadii,

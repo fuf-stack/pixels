@@ -11,7 +11,7 @@ import { Fragment, useState } from 'react';
 
 import { useArgs } from '@storybook/preview-api';
 
-import Drawer from '.';
+import { Drawer } from '.';
 import { Button } from '../Button';
 import {
   drawerBackdrops,
