@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.9.0](https://github.com/fuf-stack/pixels/compare/veto-v0.8.1...veto-v0.9.0) (2025-01-10)
+
+
+### Features
+
+* **veto:** add custom validation to refineArray ([f001291](https://github.com/fuf-stack/pixels/commit/f001291ad42e63ad1f31d4a63eef07167861debe))
+
 ## [0.8.1](https://github.com/fuf-stack/pixels/compare/veto-v0.8.0...veto-v0.8.1) (2024-12-20)
 
 
