@@ -91,8 +91,10 @@ const makeElementsUnique = (options: MakeElementsUniqueOptions) => {
 
 /** Configuration options for array validation refinements */
 type ArrayRefinements = {
+  /** Custom refinement function that takes the object data and context */
+  custom?: (data: Record<string, unknown>, ctx: VetoRefinementCtx) => void;
   /** Ensures array elements are unique based on specified criteria or comparison function */
-  unique: MakeElementsUniqueOptions;
+  unique?: MakeElementsUniqueOptions;
 };
 
 type RefineArrayInputArray =
@@ -116,8 +118,21 @@ type ExtractElement<T> =
  *
  * @example
  * ```ts
+ * // Add unique validation
  * const schema = refineArray(array(string()))({
  *   unique: true
+ * });
+ *
+ * // Add custom validation
+ * const schema = refineArray(array(string()))({
+ *   custom: (val, ctx) => {
+ *     if (val.length < 2) {
+ *       ctx.addIssue({
+ *         code: 'custom',
+ *         message: 'Array must have at least 2 elements'
+ *       });
+ *     }
+ *   }
  * });
  * ```
  */
@@ -129,11 +144,18 @@ export const refineArray = <T extends RefineArrayInputArray>(schema: T) => {
   ): VetoEffects<VArraySchema<Element>> => {
     let _schema = schema as unknown as VetoEffects<VArraySchema<Element>>;
 
-    // add unique refinement
-    if (refinements.unique) {
+    // if refinements provided
+    if (Object.keys(refinements).length) {
       _schema = z.preprocess((val, ctx) => {
-        if (Array.isArray(val)) {
-          makeElementsUnique(refinements.unique)(val, ctx);
+        // add custom refinement
+        if (refinements.custom) {
+          refinements.custom(val as Record<string, unknown>, ctx);
+        }
+        // add unique refinement
+        if (refinements.unique) {
+          if (Array.isArray(val)) {
+            makeElementsUnique(refinements.unique)(val, ctx);
+          }
         }
         return val;
       }, schema) as VetoEffects<VArraySchema<Element>>;
