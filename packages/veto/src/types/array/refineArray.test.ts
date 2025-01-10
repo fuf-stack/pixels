@@ -47,7 +47,8 @@ describe('custom refinement', () => {
         custom: (val, ctx) => {
           if (Array.isArray(val)) {
             val.forEach((item, index) => {
-              if (item.value < 0) {
+              // @ts-expect-error this is ok
+              if (item?.value < 0) {
                 ctx.addIssue({
                   code: 'custom',
                   message: 'Value must be positive',

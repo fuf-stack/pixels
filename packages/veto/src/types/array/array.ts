@@ -92,7 +92,7 @@ const makeElementsUnique = (options: MakeElementsUniqueOptions) => {
 /** Configuration options for array validation refinements */
 type ArrayRefinements = {
   /** Custom refinement function that takes the object data and context */
-  custom?: (data: Record<string, unknown>, ctx: VetoRefinementCtx) => void;
+  custom?: (data: unknown[], ctx: VetoRefinementCtx) => void;
   /** Ensures array elements are unique based on specified criteria or comparison function */
   unique?: MakeElementsUniqueOptions;
 };
@@ -148,14 +148,12 @@ export const refineArray = <T extends RefineArrayInputArray>(schema: T) => {
     if (Object.keys(refinements).length) {
       _schema = z.preprocess((val, ctx) => {
         // add custom refinement
-        if (refinements.custom) {
-          refinements.custom(val as Record<string, unknown>, ctx);
+        if (refinements.custom && Array.isArray(val)) {
+          refinements.custom(val as unknown[], ctx);
         }
         // add unique refinement
-        if (refinements.unique) {
-          if (Array.isArray(val)) {
-            makeElementsUnique(refinements.unique)(val, ctx);
-          }
+        if (refinements.unique && Array.isArray(val)) {
+          makeElementsUnique(refinements.unique)(val, ctx);
         }
         return val;
       }, schema) as VetoEffects<VArraySchema<Element>>;
