@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.9.1](https://github.com/fuf-stack/pixels/compare/veto-v0.9.0...veto-v0.9.1) (2025-01-10)
+
+
+### Bug Fixes
+
+* **veto:** fix types for custom refineArray ([7497136](https://github.com/fuf-stack/pixels/commit/74971362be37db8f0024ab45f766cf6d70d78436))
+
 ## [0.9.0](https://github.com/fuf-stack/pixels/compare/veto-v0.8.1...veto-v0.9.0) (2025-01-10)
 
 
