@@ -34,6 +34,8 @@ export interface CardProps extends VariantProps {
   footer?: ReactNode;
   /** header content */
   header?: ReactNode;
+  /** ref */
+  ref?: React.RefObject<HTMLDivElement | null> | undefined;
   /** HTML data-testid attribute used in e2e tests */
   testId?: string;
 }
@@ -44,9 +46,11 @@ export interface CardProps extends VariantProps {
 const Card = ({
   children = null,
   className = undefined,
-  testId = undefined,
-  header = undefined,
   footer = undefined,
+  header = undefined,
+  ref = undefined,
+  testId = undefined,
+
 }: CardProps) => {
   // classNames from slots
   const variants = cardVariants();
@@ -64,6 +68,7 @@ const Card = ({
       data-testid={testId && `card_${testId}`}
       fullWidth
       radius="sm"
+      ref={ref}
       shadow="none"
     >
       {header && (

@@ -1,12 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import type { DrawerProps } from './Drawer';
 
-import { Fragment, useState } from 'react';
+import { Fragment, useEffect, useRef, useState } from 'react';
 
 import { useArgs } from '@storybook/preview-api';
 
 import { Drawer } from '.';
 import { Button } from '../Button';
+import { Card } from '../Card';
 import {
   drawerBackdrops,
   drawerPlacements,
@@ -346,6 +347,78 @@ export const AllBackdrops: Story = {
   },
   argTypes: {
     backdrop: {
+      table: {
+        disable: true,
+      },
+    },
+  },
+};
+
+const CardTemplate: Story['render'] = (args) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [isRefReady, setIsRefReady] = useState(false);
+  const drawerContainerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (drawerContainerRef?.current && !isRefReady) {
+      setIsRefReady(true);
+    }
+  }, [drawerContainerRef, isRefReady]);
+
+  const onClick = () => setIsOpen(true);
+  const onClose = () => setIsOpen(false);
+
+  const isTestEnv = process.env.NODE_ENV === 'test';
+
+  const card = (
+    <Card
+      ref={drawerContainerRef}
+      header={
+        <Button
+          disableAnimation={isTestEnv}
+          onClick={onClick}
+          testId="drawer_trigger"
+        >
+          Open Drawer
+        </Button>
+      }
+    >
+      <div className="h-48 w-96">Content</div>
+    </Card>
+  );
+
+  if (!isRefReady) {
+    return card;
+  }
+
+  return (
+    <>
+      {card}
+      <Drawer
+        {...args}
+        className={{
+          wrapper: 'absolute right-0 h-full w-full',
+          backdrop: 'absolute right-0 h-full w-full',
+        }}
+        isOpen={isOpen}
+        onClose={onClose}
+        portalContainer={drawerContainerRef.current || undefined}
+        size="xs"
+        header="Drawer"
+      >
+        Drawer in Card Content
+      </Drawer>
+    </>
+  );
+};
+
+export const CardWithDrawer: Story = {
+  render: CardTemplate,
+  args: {
+    isOpen: false,
+  },
+  argTypes: {
+    size: {
       table: {
         disable: true,
       },
