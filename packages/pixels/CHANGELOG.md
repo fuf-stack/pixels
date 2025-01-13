@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.31.5](https://github.com/fuf-stack/pixels/compare/pixels-v0.31.4...pixels-v0.31.5) (2025-01-13)
+
+
+### Bug Fixes
+
+* **pixels:** fix Card ref for drawer portal ([2d153cf](https://github.com/fuf-stack/pixels/commit/2d153cf87a2a4772af0f0cfabbeea6dcbc188d85))
+
 ## [0.31.4](https://github.com/fuf-stack/pixels/compare/pixels-v0.31.3...pixels-v0.31.4) (2025-01-13)
 
 
