@@ -1,12 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import type { DrawerProps } from './Drawer';
 
-import { Fragment, useState } from 'react';
+import { Fragment, useEffect, useRef, useState } from 'react';
 
 import { useArgs } from '@storybook/preview-api';
 
 import { Drawer } from '.';
 import { Button } from '../Button';
+import { Card } from '../Card';
 import {
   drawerBackdrops,
   drawerPlacements,
@@ -37,7 +38,7 @@ const Template: Story['render'] = (args, { canvasElement }) => {
         onClick={onClick}
         testId="drawer_trigger"
       >
-        Open Drawer
+        Reveal the Secrets!
       </Button>
       <Drawer
         {...args}
@@ -57,30 +58,31 @@ export const Default: Story = {
 export const Header: Story = {
   render: Template,
   args: {
-    header: 'Drawer Header',
+    header: 'Just the Top Bit, Sorry',
   },
 };
 
 export const Content: Story = {
   render: Template,
   args: {
-    children: 'Drawer Content',
+    children: 'Just the meat of the drawer, no fluff.',
   },
 };
 
 export const Footer: Story = {
   render: Template,
   args: {
-    footer: 'Drawer Footer',
+    footer: 'The bottom line. Literally.',
   },
 };
 
 export const DefaultOpen: Story = {
   render: Template,
   args: {
-    header: 'Drawer Header',
-    children: 'Drawer Content',
-    footer: 'Drawer Footer',
+    header: "The Drawer That Doesn't Need an Introduction (or a click)",
+    children: "Just chillin', being opened by default. Nothing to see here.",
+    footer:
+      "The end! (but actually the beginning, since you didn't have to do anything)",
     isOpen: true,
   },
 };
@@ -88,10 +90,11 @@ export const DefaultOpen: Story = {
 export const CustomWidth: Story = {
   render: Template,
   args: {
-    header: 'Drawer Header',
-    footer: 'Drawer Footer',
-    children: 'Drawer Content',
-    className: { base: 'w-1/4' },
+    header: 'A Drawer of Unique Proportions!',
+    footer: 'A standard footer, on a very non-standard width.',
+    children:
+      "You know what they say: 'A drawer a day keeps the boredom at bay.' Well, we've halved that promise – and quadrupled the fun! Okay, maybe not quadrupled, but there are some nice views in here.",
+    className: { base: 'w-1/2' },
     // fractionals needs full size to work with larger than 1/4.
     size: 'full',
   },
@@ -346,6 +349,87 @@ export const AllBackdrops: Story = {
   },
   argTypes: {
     backdrop: {
+      table: {
+        disable: true,
+      },
+    },
+  },
+};
+
+const CardTemplate: Story['render'] = (args) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [isRefReady, setIsRefReady] = useState(false);
+  const drawerContainerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (drawerContainerRef?.current && !isRefReady) {
+      setIsRefReady(true);
+    }
+  }, [drawerContainerRef, isRefReady]);
+
+  const onClick = () => setIsOpen(true);
+  const onClose = () => setIsOpen(false);
+
+  const isTestEnv = process.env.NODE_ENV === 'test';
+
+  const card = (
+    <Card
+      ref={drawerContainerRef}
+      header={
+        <>
+          Behold! A Portal to More Stuff!
+          <Button
+            className="ml-auto"
+            disableAnimation={isTestEnv}
+            onClick={onClick}
+            testId="drawer_trigger"
+          >
+            Unleash the Drawer!
+          </Button>
+        </>
+      }
+    >
+      <div className="h-48 w-full">
+        This is just a placeholder. But a very handsome placeholder.
+      </div>
+    </Card>
+  );
+
+  if (!isRefReady) {
+    return card;
+  }
+
+  const drawerContent =
+    "And here's all the stuff you didn't see before! (Mostly more text)";
+
+  return (
+    <>
+      {card}
+      <Drawer
+        {...args}
+        className={{
+          wrapper: 'absolute right-0 h-full w-full',
+          backdrop: 'absolute right-0 h-full w-full',
+        }}
+        isOpen={isOpen}
+        onClose={onClose}
+        portalContainer={drawerContainerRef.current || undefined}
+        size="xs"
+        header="So you made it. High five!"
+      >
+        {drawerContent}
+      </Drawer>
+    </>
+  );
+};
+
+export const CardWithDrawer: Story = {
+  render: CardTemplate,
+  args: {
+    isOpen: false,
+  },
+  argTypes: {
+    size: {
       table: {
         disable: true,
       },
