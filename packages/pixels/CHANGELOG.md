@@ -1,5 +1,15 @@
 # Changelog
 
+## [0.31.4](https://github.com/fuf-stack/pixels/compare/pixels-v0.31.3...pixels-v0.31.4) (2025-01-13)
+
+
+### Bug Fixes
+
+* **deps:** update dependency framer-motion to v11.16.1 ([#675](https://github.com/fuf-stack/pixels/issues/675)) ([1850bf4](https://github.com/fuf-stack/pixels/commit/1850bf495a54da52a8e8c6ea5285a08c58279803))
+* **deps:** update dependency framer-motion to v11.16.4 ([#681](https://github.com/fuf-stack/pixels/issues/681)) ([0a01cc4](https://github.com/fuf-stack/pixels/commit/0a01cc48ca4d2f9a6ccd6cf83c20bbb3946d8707))
+* **deps:** update dependency framer-motion to v11.17.0 ([#683](https://github.com/fuf-stack/pixels/issues/683)) ([943c20d](https://github.com/fuf-stack/pixels/commit/943c20df14d50f0dab81c09e5c424513056e997b))
+* **pixels:** add ref property to Card and create Drawer story with drawer opening in a Card ([6e17a83](https://github.com/fuf-stack/pixels/commit/6e17a83b77ae8db5afd22683ca38e900872db189))
+
 ## [0.31.3](https://github.com/fuf-stack/pixels/compare/pixels-v0.31.2...pixels-v0.31.3) (2025-01-07)
 
 
