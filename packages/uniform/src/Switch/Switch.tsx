@@ -76,7 +76,6 @@ const Switch = ({
       render={({
         field: { disabled: isDisabled, value, ref, onBlur, onChange },
       }) => {
-        console.log('value', value, typeof value);
         return (
           <div className={classNames.outerWrapper}>
             <NextSwitch

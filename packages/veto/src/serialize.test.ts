@@ -113,7 +113,6 @@ describe('checkSerializedSchemaPath', () => {
     // Helper to show the actual result for debugging
     const debugPath = (path: (string | number)[]) => {
       const isStringType = (type: SzType | null) => {
-        console.log('Type for path', path, ':', type?.type);
         return type?.type === 'string';
       };
       return checkSerializedSchemaPath(schema, isStringType, path);
