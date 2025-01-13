@@ -1,6 +1,8 @@
 import type { TVClassName, TVProps } from '@fuf-stack/pixel-utils';
 import type { ReactNode } from 'react';
 
+import { forwardRef } from 'react';
+
 import {
   Card as NextCard,
   CardBody as NextCardBody,
@@ -34,8 +36,6 @@ export interface CardProps extends VariantProps {
   footer?: ReactNode;
   /** header content */
   header?: ReactNode;
-  /** ref */
-  ref?: React.RefObject<HTMLDivElement | null> | undefined;
   /** HTML data-testid attribute used in e2e tests */
   testId?: string;
 }
@@ -43,55 +43,58 @@ export interface CardProps extends VariantProps {
 /**
  * Card component based on [NextUI Card](https://nextui.org/docs/components/card)
  */
-const Card = ({
-  children = null,
-  className = undefined,
-  footer = undefined,
-  header = undefined,
-  ref = undefined,
-  testId = undefined,
+const Card = forwardRef<HTMLDivElement, CardProps>(
+  (
+    {
+      children = null,
+      className = undefined,
+      footer = undefined,
+      header = undefined,
+      testId = undefined,
+    },
+    ref,
+  ) => {
+    // classNames from slots
+    const variants = cardVariants();
+    const { divider: dividerClassName, ...classNames } = variantsToClassNames(
+      variants,
+      className,
+      'base',
+    );
 
-}: CardProps) => {
-  // classNames from slots
-  const variants = cardVariants();
-  const { divider: dividerClassName, ...classNames } = variantsToClassNames(
-    variants,
-    className,
-    'base',
-  );
+    const divider = <NextDivider className={dividerClassName} />;
 
-  const divider = <NextDivider className={dividerClassName} />;
-
-  return (
-    <NextCard
-      classNames={classNames}
-      data-testid={testId && `card_${testId}`}
-      fullWidth
-      radius="sm"
-      ref={ref}
-      shadow="none"
-    >
-      {header && (
-        <>
-          <NextCardHeader data-testid={testId && `card_header_${testId}`}>
-            {header}
-          </NextCardHeader>
-          {divider}
-        </>
-      )}
-      <NextCardBody data-testid={testId && `card_body_${testId}`}>
-        {children}
-      </NextCardBody>
-      {footer && (
-        <>
-          {divider}
-          <NextCardFooter data-testid={testId && `card_footer_${testId}`}>
-            {footer}
-          </NextCardFooter>
-        </>
-      )}
-    </NextCard>
-  );
-};
+    return (
+      <NextCard
+        classNames={classNames}
+        data-testid={testId && `card_${testId}`}
+        fullWidth
+        radius="sm"
+        ref={ref}
+        shadow="none"
+      >
+        {header && (
+          <>
+            <NextCardHeader data-testid={testId && `card_header_${testId}`}>
+              {header}
+            </NextCardHeader>
+            {divider}
+          </>
+        )}
+        <NextCardBody data-testid={testId && `card_body_${testId}`}>
+          {children}
+        </NextCardBody>
+        {footer && (
+          <>
+            {divider}
+            <NextCardFooter data-testid={testId && `card_footer_${testId}`}>
+              {footer}
+            </NextCardFooter>
+          </>
+        )}
+      </NextCard>
+    );
+  },
+);
 
 export default Card;
