@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.32.0](https://github.com/fuf-stack/pixels/compare/pixels-v0.31.5...pixels-v0.32.0) (2025-01-15)
+
+
+### Features
+
+* **pixels:** add progress component ([e25570d](https://github.com/fuf-stack/pixels/commit/e25570d4d465b651369ef1d89d49265e63c97278))
+
+
+### Bug Fixes
+
+* **deps:** update dependency framer-motion to v11.18.0 ([#693](https://github.com/fuf-stack/pixels/issues/693)) ([ab02054](https://github.com/fuf-stack/pixels/commit/ab02054fdd69d65e3b144eecfbb1d93cf6f58227))
+
 ## [0.31.5](https://github.com/fuf-stack/pixels/compare/pixels-v0.31.4...pixels-v0.31.5) (2025-01-13)
 
 
