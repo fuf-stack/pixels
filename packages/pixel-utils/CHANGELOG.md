@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.4](https://github.com/fuf-stack/pixels/compare/pixel-utils-v0.4.3...pixel-utils-v0.4.4) (2025-01-15)
+
+
+### Bug Fixes
+
+* **deps:** update [@nextui](https://github.com/nextui) monorepo ([#661](https://github.com/fuf-stack/pixels/issues/661)) ([adcf767](https://github.com/fuf-stack/pixels/commit/adcf767ab176a2345f969641c398601a76368c9d))
+
 ## [0.4.3](https://github.com/fuf-stack/pixels/compare/pixel-utils-v0.4.2...pixel-utils-v0.4.3) (2024-12-29)
 
 
