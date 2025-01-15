@@ -11,6 +11,7 @@ import path from 'path';
  */
 const NEXTUI_THEME_USED_COMPONENT_PATHS = [
   'accordion',
+  'alert',
   'autocomplete',
   'avatar',
   'badge',
@@ -24,6 +25,7 @@ const NEXTUI_THEME_USED_COMPONENT_PATHS = [
   'input',
   'modal',
   'popover',
+  'progress',
   'radio',
   'select',
   'scroll-shadow',

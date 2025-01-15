@@ -84,6 +84,11 @@
       "import": "./dist/Popover/index.js",
       "require": "./dist/Popover/index.cjs"
     },
+    "./Progress": {
+      "types": "./dist/Progress/index.d.ts",
+      "import": "./dist/Progress/index.js",
+      "require": "./dist/Progress/index.cjs"
+    },
     "./ScrollShadow": {
       "types": "./dist/ScrollShadow/index.d.ts",
       "import": "./dist/ScrollShadow/index.js",
@@ -136,6 +141,7 @@
   },
   "dependencies": {
     "@fuf-stack/pixel-utils": "workspace:*",
+    "@nextui-org/alert": "2.2.9",
     "@nextui-org/avatar": "2.2.6",
     "@nextui-org/accordion": "2.2.7",
     "@nextui-org/badge": "2.2.5",
@@ -148,6 +154,7 @@
     "@nextui-org/dropdown": "2.3.9",
     "@nextui-org/modal": "2.2.7",
     "@nextui-org/popover": "2.3.9",
+    "@nextui-org/progress": "2.2.6",
     "@nextui-org/scroll-shadow": "2.3.5",
     "@nextui-org/system": "2.4.6",
     "@nextui-org/table": "2.2.8",
