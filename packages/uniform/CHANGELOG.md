@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.15.1](https://github.com/fuf-stack/pixels/compare/uniform-v0.15.0...uniform-v0.15.1) (2025-01-15)
+
+
+### Bug Fixes
+
+* **deps:** update [@nextui](https://github.com/nextui) monorepo ([#661](https://github.com/fuf-stack/pixels/issues/661)) ([adcf767](https://github.com/fuf-stack/pixels/commit/adcf767ab176a2345f969641c398601a76368c9d))
+* **deps:** update dependency framer-motion to v11.16.0 ([#671](https://github.com/fuf-stack/pixels/issues/671)) ([3b537ba](https://github.com/fuf-stack/pixels/commit/3b537ba370cd27b31c8ced4a6be157347fc86c51))
+* **deps:** update dependency framer-motion to v11.16.1 ([#675](https://github.com/fuf-stack/pixels/issues/675)) ([1850bf4](https://github.com/fuf-stack/pixels/commit/1850bf495a54da52a8e8c6ea5285a08c58279803))
+* **deps:** update dependency framer-motion to v11.16.4 ([#681](https://github.com/fuf-stack/pixels/issues/681)) ([0a01cc4](https://github.com/fuf-stack/pixels/commit/0a01cc48ca4d2f9a6ccd6cf83c20bbb3946d8707))
+* **deps:** update dependency framer-motion to v11.17.0 ([#683](https://github.com/fuf-stack/pixels/issues/683)) ([943c20d](https://github.com/fuf-stack/pixels/commit/943c20df14d50f0dab81c09e5c424513056e997b))
+* **deps:** update dependency framer-motion to v11.18.0 ([#693](https://github.com/fuf-stack/pixels/issues/693)) ([ab02054](https://github.com/fuf-stack/pixels/commit/ab02054fdd69d65e3b144eecfbb1d93cf6f58227))
+* **uniform:** fix switch not switchable ([16de743](https://github.com/fuf-stack/pixels/commit/16de74314f1212e93c3ed7fc44d98ad8d916594f)), closes [#654](https://github.com/fuf-stack/pixels/issues/654)
+
 ## [0.15.0](https://github.com/fuf-stack/pixels/compare/uniform-v0.14.5...uniform-v0.15.0) (2024-12-29)
 
 
