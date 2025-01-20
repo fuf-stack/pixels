@@ -60,7 +60,7 @@ export interface ProgressProps extends VariantProps {
   /** whether to show the value label */
   showValueLabel?: boolean;
   /** size of the progress bar */
-  size?: 'sm' | 'md' | 'lg' | undefined;
+  size?: 'sm' | 'md' | 'lg';
   /** whether to show success color on complete */
   successOnComplete?: boolean;
   /** HTML data-testid attribute used in e2e tests */
@@ -101,7 +101,7 @@ const Progress = ({
       showValueLabel={showValueLabel}
       size={size}
       value={percent || 0}
-      valueLabel={percent && value}
+      valueLabel={!!percent && value}
     />
   );
 };

@@ -13,6 +13,7 @@ export const tabsVariants = tv({
     tab: 'data-[hover-unselected=true]:opacity-100',
     tabContent: 'text-foreground',
     tabList: '',
+    tabWrapper: '',
   },
 });
 

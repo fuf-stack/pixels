@@ -75,13 +75,13 @@ export interface DrawerProps extends VariantProps {
   /** Handler that is called when the drawer's open state changes. */
   onOpenChange?: (isOpen: boolean) => void;
   /** The drawer position. */
-  placement?: DrawerPlacement | undefined;
+  placement?: DrawerPlacement;
   /** The container element in which the overlay portal will be placed */
   portalContainer?: NextDrawerProps['portalContainer'];
   /** The drawer border radius. */
-  radius?: DrawerRadius | undefined;
+  radius?: DrawerRadius;
   /** The drawer size. */
-  size?: DrawerSizes | undefined;
+  size?: DrawerSizes;
   /** HTML data-testid attribute used in e2e tests */
   testId?: string;
 }
