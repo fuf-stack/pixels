@@ -1,16 +1,16 @@
 import type { TVClassName, TVProps } from '@fuf-stack/pixel-utils';
-import type { DividerProps } from '@nextui-org/divider';
+import type { DividerProps } from '@heroui/divider';
 import type { ReactNode } from 'react';
 
 import {
   Accordion as NextAccordion,
   AccordionItem as NextAccordionItem,
-} from '@nextui-org/accordion';
+} from '@heroui/accordion';
 
 import { tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 
 // accordion styling variants
-// see: https://nextui.org/docs/components/accordion#accordion-item-slots
+// see: https://www.heroui.com//docs/components/accordion#accordion-item-slots
 export const accordionVariants = tv({
   slots: {
     base: '',
@@ -90,7 +90,7 @@ export interface AccordionProps extends VariantProps {
 }
 
 /**
- * Accordion component based on [NextUI Accordion](https://nextui.org/docs/components/accordion)
+ * Accordion component based on [HeroUI Accordion](https://www.heroui.com//docs/components/accordion)
  */
 const Accordion = ({
   accordionItems,

@@ -1,7 +1,7 @@
 import type { TVClassName, TVProps } from '@fuf-stack/pixel-utils';
 import type { ReactNode } from 'react';
 
-import { Tab as NextTab, Tabs as NextTabs } from '@nextui-org/tabs';
+import { Tab as NextTab, Tabs as NextTabs } from '@heroui/tabs';
 
 import { tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 
@@ -63,7 +63,7 @@ export interface TabsProps extends VariantProps {
 }
 
 /**
- * Tabs component based on [NextUI Tabs](https://nextui.org/docs/components/tabs)
+ * Tabs component based on [HeroUI Tabs](https://www.heroui.com//docs/components/tabs)
  */
 const Tabs = ({
   ariaLabel = undefined,

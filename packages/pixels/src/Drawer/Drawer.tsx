@@ -1,5 +1,5 @@
 import type { TVClassName, TVProps } from '@fuf-stack/pixel-utils';
-import type { DrawerProps as NextDrawerProps } from '@nextui-org/drawer';
+import type { DrawerProps as NextDrawerProps } from '@heroui/drawer';
 import type { ReactNode } from 'react';
 
 import {
@@ -8,7 +8,7 @@ import {
   DrawerContent as NextDrawerContent,
   DrawerFooter as NextDrawerFooter,
   DrawerHeader as NextDrawerHeader,
-} from '@nextui-org/drawer';
+} from '@heroui/drawer';
 
 import { tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 
@@ -87,7 +87,7 @@ export interface DrawerProps extends VariantProps {
 }
 
 /**
- * Drawer component based on [NextUI Drawer](https://nextui.org/docs/components/drawer)
+ * Drawer component based on [HeroUI Drawer](https://www.heroui.com//docs/components/drawer)
  */
 const Drawer = ({
   backdrop = 'opaque',

@@ -1,7 +1,7 @@
-import { ButtonGroup as NextButtonGroup } from '@nextui-org/button';
+import { ButtonGroup as NextButtonGroup } from '@heroui/button';
 
 /**
- * Button Group based on [NextUI Button Group](https://nextui.org/docs/components/button#button-group)
+ * Button Group based on [HeroUI Button Group](https://www.heroui.com//docs/components/button#button-group)
  */
 const ButtonGroup = NextButtonGroup;
 

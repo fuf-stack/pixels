@@ -1,2 +1,2 @@
 /* eslint-disable import/prefer-default-export */
-export { useInput } from '@nextui-org/input';
+export { useInput } from '@heroui/input';

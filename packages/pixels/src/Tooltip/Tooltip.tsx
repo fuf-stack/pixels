@@ -1,7 +1,7 @@
 import type { TVClassName, TVProps } from '@fuf-stack/pixel-utils';
 import type { ReactNode } from 'react';
 
-import { Tooltip as NextTooltip } from '@nextui-org/tooltip';
+import { Tooltip as NextTooltip } from '@heroui/tooltip';
 
 import { tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 
@@ -47,7 +47,7 @@ export interface TooltipProps extends VariantProps {
 }
 
 /**
- * Tooltip component based on [NextUI Tooltip](https://nextui.org/docs/components/tooltip)
+ * Tooltip component based on [HeroUI Tooltip](https://www.heroui.com//docs/components/tooltip)
  */
 const Tooltip = ({
   children,

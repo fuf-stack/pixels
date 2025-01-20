@@ -1,8 +1,8 @@
 import type { TVProps } from '@fuf-stack/pixel-utils';
-import type { ButtonProps as NextButtonProps } from '@nextui-org/button';
+import type { ButtonProps as NextButtonProps } from '@heroui/button';
 import type { ReactNode } from 'react';
 
-import { Button as NextButton } from '@nextui-org/button';
+import { Button as NextButton } from '@heroui/button';
 
 import { tv } from '@fuf-stack/pixel-utils';
 
@@ -77,7 +77,7 @@ export interface ButtonProps extends VariantProps {
 }
 
 /**
- * Button component based on [NextUI Button](https://nextui.org/docs/components/button)
+ * Button component based on [HeroUI Button](https://www.heroui.com//docs/components/button)
  */
 const Button = ({
   ariaLabel = undefined,

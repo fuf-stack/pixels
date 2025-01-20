@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 
-import { Input as NextInput } from '@nextui-org/input';
+import { Input as NextInput } from '@heroui/input';
 
 import { cn } from '@fuf-stack/pixel-utils';
 
@@ -38,7 +38,7 @@ export interface InputProps {
 }
 
 /**
- * Input component based on [NextUI Input](https://nextui.org/docs/components/input)
+ * Input component based on [HeroUI Input](https://www.heroui.com//docs/components/input)
  */
 const Input = ({
   className = undefined,

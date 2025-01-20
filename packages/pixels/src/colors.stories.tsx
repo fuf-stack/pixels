@@ -1,6 +1,6 @@
 /* eslint-disable react/no-array-index-key */
 
-// see: https://github.com/nextui-org/nextui/blob/canary/packages/core/theme/stories/colors.stories.tsx
+// see: https://github.comnextui-orgnextui/blob/canary/packages/core/theme/stories/colors.stories.tsx
 
 import type { Meta, StoryObj } from '@storybook/react';
 

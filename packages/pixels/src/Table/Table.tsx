@@ -9,7 +9,7 @@ import {
   TableColumn,
   TableHeader,
   TableRow,
-} from '@nextui-org/table';
+} from '@heroui/table';
 
 import { tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 
@@ -105,7 +105,7 @@ export interface TableProps extends VariantProps {
 }
 
 /**
- * Table component based on [NextUI Table](https://nextui.org/docs/components/table)
+ * Table component based on [HeroUI Table](https://www.heroui.com//docs/components/table)
  */
 const Table = ({
   ariaLabel = undefined,

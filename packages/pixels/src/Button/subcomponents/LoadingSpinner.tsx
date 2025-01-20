@@ -1,6 +1,6 @@
 /**
  * svg loading spinner for button
- * @see https://nextui.org/docs/components/button#loading
+ * @see https://www.heroui.com//docs/components/button#loading
  * */
 export default () => (
   <svg

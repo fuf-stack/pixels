@@ -3,13 +3,13 @@ import type { ContentConfig } from 'tailwindcss/types/config';
 import path from 'path';
 
 /**
- * nextui used components
- * @see https://nextui.org/docs/guide/installation#tailwind-css-setup-1
+ * heroui used components
+ * @see https://heroui.org/docs/guide/installation#tailwind-css-setup-1
  *
- * all nextui components that are in use for theme
- * update with: pnpm list "@nextui-org/*" --recursive | grep @nextui-org/ | sort | uniq -u
+ * all heroui components that are in use for theme
+ * update with: pnpm list "@heroui/*" --recursive | grep @heroui/ | sort | uniq -u
  */
-const NEXTUI_THEME_USED_COMPONENT_PATHS = [
+const HEROUI_THEME_USED_COMPONENT_PATHS = [
   'accordion',
   'alert',
   'autocomplete',
@@ -37,7 +37,7 @@ const NEXTUI_THEME_USED_COMPONENT_PATHS = [
 ].map((c) =>
   path.resolve(
     __dirname,
-    `./node_modules/@nextui-org/theme/dist/components/${c}.js`,
+    `./node_modules/@heroui/theme/dist/components/${c}.js`,
   ),
 );
 
@@ -50,8 +50,8 @@ const content: ContentConfig = [
   path.resolve(__dirname, '../../pixels/src/**/*.tsx'),
   path.resolve(__dirname, '../../uniform/src/**/*.tsx'),
 
-  // nextui theme component paths
-  ...NEXTUI_THEME_USED_COMPONENT_PATHS,
+  // heroui theme component paths
+  ...HEROUI_THEME_USED_COMPONENT_PATHS,
 ];
 
 export default content;

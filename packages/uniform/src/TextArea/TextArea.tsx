@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 
-import { Textarea as NextTextArea } from '@nextui-org/input';
+import { Textarea as NextTextArea } from '@heroui/input';
 
 import { cn } from '@fuf-stack/pixel-utils';
 
@@ -27,7 +27,7 @@ export interface TextAreaProps {
 }
 
 /**
- * TextArea component based on [NextUI TextArea](https://nextui.org/docs/components/textarea)
+ * TextArea component based on [HeroUI TextArea](https://www.heroui.com//docs/components/textarea)
  */
 const TextArea = ({
   children = null,

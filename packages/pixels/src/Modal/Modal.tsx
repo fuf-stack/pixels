@@ -1,5 +1,5 @@
 import type { TVClassName, TVProps } from '@fuf-stack/pixel-utils';
-import type { ModalProps as NextModalProps } from '@nextui-org/modal';
+import type { ModalProps as NextModalProps } from '@heroui/modal';
 import type { ReactNode } from 'react';
 
 import {
@@ -8,7 +8,7 @@ import {
   ModalContent as NextModalContent,
   ModalFooter as NextModalFooter,
   ModalHeader as NextModalHeader,
-} from '@nextui-org/modal';
+} from '@heroui/modal';
 
 import { tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 
@@ -61,7 +61,7 @@ export interface ModalProps extends VariantProps {
 }
 
 /**
- * Modal component based on [NextUI Modal](https://nextui.org/docs/components/modal)
+ * Modal component based on [HeroUI Modal](https://www.heroui.com//docs/components/modal)
  */
 const Modal = ({
   children = null,

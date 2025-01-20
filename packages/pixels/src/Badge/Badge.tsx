@@ -1,7 +1,7 @@
 import type { TVClassName, TVProps } from '@fuf-stack/pixel-utils';
-import type { BadgeProps as NextBadgeProps } from '@nextui-org/badge';
+import type { BadgeProps as NextBadgeProps } from '@heroui/badge';
 
-import { Badge as NextBadge } from '@nextui-org/badge';
+import { Badge as NextBadge } from '@heroui/badge';
 
 import { tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 
@@ -36,7 +36,7 @@ export interface BadgeProps extends VariantProps {
 }
 
 /**
- * Badge component based on [NextUI Badge](https://nextui.org/docs/components/badge)
+ * Badge component based on [HeroUI Badge](https://www.heroui.com//docs/components/badge)
  */
 const Avatar = ({
   children,

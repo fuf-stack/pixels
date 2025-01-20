@@ -1,7 +1,7 @@
 import type { TVClassName, TVProps } from '@fuf-stack/pixel-utils';
 import type { ReactNode } from 'react';
 
-import { Progress as NextProgress } from '@nextui-org/progress';
+import { Progress as NextProgress } from '@heroui/progress';
 
 import { tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 
@@ -70,7 +70,7 @@ export interface ProgressProps extends VariantProps {
 const defaultFormat = (percent: number) => `${percent}%`;
 
 /**
- * Progress component based on [NextUI Progress](https://nextui.org/docs/components/progress)
+ * Progress component based on [HeroUI Progress](https://www.heroui.com//docs/components/progress)
  */
 const Progress = ({
   className = undefined,

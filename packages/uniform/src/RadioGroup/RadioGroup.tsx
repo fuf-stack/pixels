@@ -2,7 +2,7 @@ import type { TVClassName, TVProps } from '@fuf-stack/pixel-utils';
 import type { TabProps } from '@fuf-stack/pixels/Tabs';
 import type { ReactElement, ReactNode } from 'react';
 
-import { RadioGroup as NextRadioGroup, Radio } from '@nextui-org/radio';
+import { RadioGroup as NextRadioGroup, Radio } from '@heroui/radio';
 
 import { cn, tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 import { ButtonGroup } from '@fuf-stack/pixels';
@@ -29,7 +29,7 @@ export const radioGroupVariants = tv({
     itemLabelWrapper: '',
     itemWrapper:
       'group-data-[invalid=true]:!border-danger [&:not(group-data-[invalid="true"]):not(group-data-[selected="false"])]:border-focus', // TODO: get rid of !.
-    // See NextUI styles for group-data condition, e.g.: https://github.com/nextui-org/nextui/blob/main/packages/core/theme/src/components/select.ts
+    // See HeroUI styles for group-data condition, e.g.: https://github.com/nextui-org/nextui/blob/main/packages/core/theme/src/components/select.ts
     label:
       'text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger',
     wrapper: '',
@@ -84,7 +84,7 @@ export interface RadioGroupProps<
 }
 
 /**
- * RadioGroup component based on [NextUI RadioGroup](https://nextui.org/docs/components/radio-group)
+ * RadioGroup component based on [HeroUI RadioGroup](https://www.heroui.com//docs/components/radio-group)
  */
 const RadioGroup = ({
   className = undefined,
@@ -214,7 +214,7 @@ const RadioGroup = ({
         return (
           <NextRadioGroup
             classNames={classNames}
-            // See NextUI styles for group-data condition (data-invalid), e.g.: https://github.com/nextui-org/nextui/blob/main/packages/components/select/src/use-select.ts
+            // See HeroUI styles for group-data condition (data-invalid), e.g.: https://github.com/nextui-org/nextui/blob/main/packages/components/select/src/use-select.ts
             data-invalid={invalid}
             data-required={required}
             data-testid={testId}

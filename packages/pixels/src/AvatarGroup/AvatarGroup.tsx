@@ -1,7 +1,7 @@
 import type { JSX } from 'react';
 import type { AvatarProps } from '../Avatar/Avatar';
 
-import { AvatarGroup as NextAvatarGroup } from '@nextui-org/avatar';
+import { AvatarGroup as NextAvatarGroup } from '@heroui/avatar';
 
 import { Avatar } from '../Avatar';
 
@@ -28,7 +28,7 @@ export interface AvatarGroupProps {
 }
 
 /**
- * AvatarGroup component based on [NextUI AvatarGroup](https://nextui.org/docs/components/avatar)
+ * AvatarGroup component based on [HeroUI AvatarGroup](https://www.heroui.com//docs/components/avatar)
  */
 const AvatarGroup = ({
   bordered = false,

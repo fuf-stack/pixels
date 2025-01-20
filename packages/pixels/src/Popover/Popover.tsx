@@ -1,8 +1,8 @@
 import type { TVClassName, TVProps } from '@fuf-stack/pixel-utils';
-import type { PopoverProps as NextPopoverProps } from '@nextui-org/popover';
+import type { PopoverProps as NextPopoverProps } from '@heroui/popover';
 import type { ReactNode } from 'react';
 
-import { Popover, PopoverContent, PopoverTrigger } from '@nextui-org/popover';
+import { Popover, PopoverContent, PopoverTrigger } from '@heroui/popover';
 
 import { tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 
@@ -48,7 +48,7 @@ export interface PopoverProps extends VariantProps {
 }
 
 /**
- * Popover component based on [NextUI Card](https://nextui.org/docs/components/popover)
+ * Popover component based on [HeroUI Card](https://www.heroui.com//docs/components/popover)
  */
 export default ({
   children = null,

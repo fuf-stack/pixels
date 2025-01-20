@@ -1,4 +1,4 @@
-import type { VariantProps } from '@nextui-org/theme';
+import type { VariantProps } from '@heroui/theme';
 import type { ClassProp, TV } from 'tailwind-variants';
 
 import { tv as tailwindVariants } from 'tailwind-variants';

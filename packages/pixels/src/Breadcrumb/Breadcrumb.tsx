@@ -4,12 +4,12 @@ import type { ReactNode } from 'react';
 import {
   Breadcrumbs as NextBreadcrumb,
   BreadcrumbItem as NextBreadcrumbItem,
-} from '@nextui-org/breadcrumbs';
+} from '@heroui/breadcrumbs';
 
 import { tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 
 // breadcrumb styling variants
-// see: https://nextui.org/docs/components/breadcrumbs#breadcrumbitem-props
+// see: https://www.heroui.com//docs/components/breadcrumbs#breadcrumbitem-props
 export const breadcrumbVariants = tv({
   slots: {
     /** ellipsis slot */
@@ -22,7 +22,7 @@ export const breadcrumbVariants = tv({
     list: '',
     /** separator slot */
     separator: '',
-    /** nav slot, breadcrumb base slot in nextui */
+    /** nav slot, breadcrumb base slot in heroui */
     nav: '',
   },
 });
@@ -75,7 +75,7 @@ export interface BreadcrumbProps extends VariantProps {
 }
 
 /**
- * Breadcrumb component based on [NextUI Breadcrumbs](https://nextui.org/docs/components/breadcrumbs)
+ * Breadcrumb component based on [HeroUI Breadcrumbs](https://www.heroui.com//docs/components/breadcrumbs)
  */
 const Breadcrumb = ({
   breadcrumbItems,

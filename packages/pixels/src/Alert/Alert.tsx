@@ -1,9 +1,9 @@
 import type { TVClassName, TVProps } from '@fuf-stack/pixel-utils';
-import type { AlertProps as NextAlertProps } from '@nextui-org/alert';
+import type { AlertProps as NextAlertProps } from '@heroui/alert';
 import type { ReactNode } from 'react';
 
-import { Alert as NextAlert } from '@nextui-org/alert';
-import { alert as nextAlertVariants } from '@nextui-org/theme';
+import { Alert as NextAlert } from '@heroui/alert';
+import { alert as nextAlertVariants } from '@heroui/theme';
 
 import { tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 
@@ -18,7 +18,7 @@ export const alertVariants = tv({
     alertIcon: '',
   },
   variants: {
-    // See: https://github.com/nextui-org/nextui/blob/canary/packages/core/theme/src/components/alert.ts
+    // See: https://github.comnextui-orgnextui/blob/canary/packages/core/theme/src/components/alert.ts
     color: {
       info: {
         mainWrapper: 'text-inherit',
@@ -104,7 +104,7 @@ export interface AlertProps extends VariantProps {
 }
 
 /**
- * Alert component based on [NextUI Alert](https://nextui.org/docs/components/alert)
+ * Alert component based on [HeroUI Alert](https://www.heroui.com//docs/components/alert)
  */
 const Alert = ({
   children = undefined,
@@ -123,7 +123,7 @@ const Alert = ({
     color,
     variant,
   });
-  const isNextUIColor = Object.keys(nextAlertVariants.variants.color).includes(
+  const isHeroUIColor = Object.keys(nextAlertVariants.variants.color).includes(
     color,
   );
   const classNames = variantsToClassNames(variants, className, 'base');
@@ -131,7 +131,7 @@ const Alert = ({
   return (
     <NextAlert
       classNames={classNames}
-      color={isNextUIColor ? (color as NextAlertProps['color']) : undefined}
+      color={isHeroUIColor ? (color as NextAlertProps['color']) : undefined}
       data-testid={testId}
       description={title ? children : undefined}
       endContent={endContent}

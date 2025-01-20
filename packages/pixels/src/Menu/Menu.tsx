@@ -1,16 +1,16 @@
-import type { DropdownSectionProps } from '@nextui-org/dropdown';
+import type { DropdownSectionProps } from '@heroui/dropdown';
 import type { Key, MouseEventHandler, ReactNode } from 'react';
 
 import { FaEllipsisVertical } from 'react-icons/fa6';
 
-import { Button } from '@nextui-org/button';
+import { Button } from '@heroui/button';
 import {
   Dropdown as NextDropdown,
   DropdownItem as NextDropdownItem,
   DropdownMenu as NextDropdownMenu,
   DropdownSection as NextDropdownSection,
   DropdownTrigger as NextDropdownTrigger,
-} from '@nextui-org/dropdown';
+} from '@heroui/dropdown';
 
 import { cn } from '@fuf-stack/pixel-utils';
 
@@ -91,7 +91,7 @@ const renderMenuItem = (item: MenuItem) => (
 );
 
 /**
- * Dropdown menu component based on [NextUI Dropdown](https://nextui.org/docs/components/dropdown)
+ * Dropdown menu component based on [HeroUI Dropdown](https://www.heroui.com//docs/components/dropdown)
  */
 const Menu = ({
   children = null,

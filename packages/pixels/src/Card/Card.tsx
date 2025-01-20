@@ -8,8 +8,8 @@ import {
   CardBody as NextCardBody,
   CardFooter as NextCardFooter,
   CardHeader as NextCardHeader,
-} from '@nextui-org/card';
-import { Divider as NextDivider } from '@nextui-org/divider';
+} from '@heroui/card';
+import { Divider as NextDivider } from '@heroui/divider';
 
 import { tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 
@@ -41,7 +41,7 @@ export interface CardProps extends VariantProps {
 }
 
 /**
- * Card component based on [NextUI Card](https://nextui.org/docs/components/card)
+ * Card component based on [HeroUI Card](https://www.heroui.com//docs/components/card)
  */
 const Card = forwardRef<HTMLDivElement, CardProps>(
   (

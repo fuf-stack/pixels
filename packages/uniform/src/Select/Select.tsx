@@ -4,7 +4,7 @@ import type { Props } from 'react-select';
 import { useState } from 'react';
 import ReactSelect, { components } from 'react-select';
 
-import { useSelect } from '@nextui-org/select';
+import { useSelect } from '@heroui/select';
 
 import { cn, tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 
@@ -31,7 +31,7 @@ export const selectVariants = tv({
     indicatorsContainer: 'gap-1 p-1',
     indicatorSeparator: 'bg-default-300',
     input: 'py-0.5 pl-1',
-    // See NextUI styles for group-data condition, e.g.: https://github.com/nextui-org/nextui/blob/main/packages/core/theme/src/components/select.ts
+    // See HeroUI styles for group-data condition, e.g.: https://github.com/nextui-org/nextui/blob/main/packages/core/theme/src/components/select.ts
     label:
       'pointer-events-auto relative bottom-1.5 ml-1 text-small subpixel-antialiased group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]',
     loadingIndicator: '',
@@ -146,7 +146,7 @@ const DropdownIndicatorComponent: typeof components.DropdownIndicator = (
   );
 };
 
-/** Select component based on [NextUI Select](https://nextui.org/docs/components/select) and [React-Select](https://react-select.com/home) */
+/** Select component based on [HeroUI Select](https://www.heroui.com//docs/components/select) and [React-Select](https://react-select.com/home) */
 const Select = ({
   className = undefined,
   clearable = true,
@@ -208,7 +208,7 @@ const Select = ({
           {...getBaseProps()}
           className={cn(classNames.base)}
           data-testid={`${testId}_wrapper`}
-          // See NextUI styles for group-data condition (data-invalid), e.g.: https://github.com/nextui-org/nextui/blob/main/packages/components/select/src/use-select.ts
+          // See HeroUI styles for group-data condition (data-invalid), e.g.: https://github.com/nextui-org/nextui/blob/main/packages/components/select/src/use-select.ts
           data-required={required}
         >
           {showLabel && (

@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 
-import { ScrollShadow } from '@nextui-org/scroll-shadow';
+import { ScrollShadow } from '@heroui/scroll-shadow';
 
 import { cn } from '@fuf-stack/pixel-utils';
 
@@ -14,7 +14,7 @@ export interface ScrollShadowProps {
 }
 
 /**
- * Scroll Shadow component based on [NextUI Scroll Shadow](https://nextui.org/docs/components/scroll-shadow)
+ * Scroll Shadow component based on [HeroUI Scroll Shadow](https://www.heroui.com//docs/components/scroll-shadow)
  */
 export default ({
   children = null,

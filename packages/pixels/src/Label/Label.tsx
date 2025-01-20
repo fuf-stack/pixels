@@ -1,8 +1,8 @@
 import type { TVClassName, TVProps } from '@fuf-stack/pixel-utils';
-import type { ChipProps } from '@nextui-org/chip';
+import type { ChipProps } from '@heroui/chip';
 import type { ReactNode } from 'react';
 
-import { Chip as NextLabel } from '@nextui-org/chip';
+import { Chip as NextLabel } from '@heroui/chip';
 
 import { tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 
@@ -40,7 +40,7 @@ export interface LabelProps extends VariantProps {
 }
 
 /**
- * Label component based on [NextUI Chip](https://nextui.org/docs/components/chip)
+ * Label component based on [HeroUI Chip](https://www.heroui.com//docs/components/chip)
  */
 const Label = ({
   children,

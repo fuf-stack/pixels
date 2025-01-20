@@ -1,9 +1,6 @@
 import type { TVClassName, TVProps } from '@fuf-stack/pixel-utils';
 
-import {
-  Checkbox,
-  CheckboxGroup as NextCheckboxGroup,
-} from '@nextui-org/checkbox';
+import { Checkbox, CheckboxGroup as NextCheckboxGroup } from '@heroui/checkbox';
 
 import { tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 
@@ -21,7 +18,7 @@ export const checkboxGroupVariants = tv({
     itemIcon: '',
     itemLabel: 'text-sm',
     itemWrapper: '',
-    // See NextUI styles for group-data condition, e.g.: https://github.com/nextui-org/nextui/blob/main/packages/core/theme/src/components/select.ts
+    // See HeroUI styles for group-data condition, e.g.: https://github.com/nextui-org/nextui/blob/main/packages/core/theme/src/components/select.ts
     label:
       'text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger',
     wrapper: '',
@@ -58,7 +55,7 @@ export interface CheckboxGroupProps extends VariantProps {
 }
 
 /**
- * CheckboxGroup component based on [NextUI CheckboxGroup](https://nextui.org/docs/components/checkbox-group)
+ * CheckboxGroup component based on [HeroUI CheckboxGroup](https://www.heroui.com//docs/components/checkbox-group)
  */
 const CheckboxGroup = ({
   className = undefined,
@@ -139,7 +136,7 @@ const CheckboxGroup = ({
             name={name}
             classNames={itemGroupClassName}
             data-testid={testId}
-            // See NextUI styles for group-data condition (data-invalid), e.g.: https://github.com/nextui-org/nextui/blob/main/packages/components/select/src/use-select.ts
+            // See HeroUI styles for group-data condition (data-invalid), e.g.: https://github.com/nextui-org/nextui/blob/main/packages/components/select/src/use-select.ts
             data-invalid={invalid}
             errorMessage={
               error && (

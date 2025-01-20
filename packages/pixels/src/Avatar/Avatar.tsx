@@ -1,7 +1,7 @@
 import type { TVClassName, TVProps } from '@fuf-stack/pixel-utils';
 import type React from 'react';
 
-import { Avatar as NextAvatar } from '@nextui-org/avatar';
+import { Avatar as NextAvatar } from '@heroui/avatar';
 
 import { tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 
@@ -36,7 +36,7 @@ export interface AvatarProps extends VariantProps {
 }
 
 /**
- * Avatar component based on [NextUI Avatar](https://nextui.org/docs/components/avatar)
+ * Avatar component based on [HeroUI Avatar](https://www.heroui.com//docs/components/avatar)
  */
 const Avatar = ({
   bordered = false,

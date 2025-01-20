@@ -1,6 +1,6 @@
 import type { TVClassName, TVProps } from '@fuf-stack/pixel-utils';
 
-import { Switch as NextSwitch } from '@nextui-org/switch';
+import { Switch as NextSwitch } from '@heroui/switch';
 
 import { tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 
@@ -14,7 +14,7 @@ export const switchVariants = tv({
     base: '',
     endContent: '',
     errorMessage: 'ml-1 mt-1',
-    // See NextUI styles for group-data condition, e.g.: https://github.com/nextui-org/nextui/blob/main/packages/core/theme/src/components/select.ts
+    // See HeroUI styles for group-data condition, e.g.: https://github.com/nextui-org/nextui/blob/main/packages/core/theme/src/components/select.ts
     label:
       'text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]',
     outerWrapper: 'place-content-center',
@@ -42,7 +42,7 @@ export interface SwitchProps extends VariantProps {
 }
 
 /**
- *  Switch component based on [NextUI Switch](https://nextui.org/docs/components/switch)
+ *  Switch component based on [HeroUI Switch](https://www.heroui.com//docs/components/switch)
  */
 const Switch = ({
   className = undefined,
@@ -81,7 +81,7 @@ const Switch = ({
             <NextSwitch
               aria-describedby={getInputProps()['aria-describedby']}
               classNames={classNames}
-              // See NextUI styles for group-data condition (data-invalid), e.g.: https://github.com/nextui-org/nextui/blob/main/packages/components/select/src/use-select.ts
+              // See HeroUI styles for group-data condition (data-invalid), e.g.: https://github.com/nextui-org/nextui/blob/main/packages/components/select/src/use-select.ts
               data-invalid={invalid}
               data-required={required}
               data-testid={testId}

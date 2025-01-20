@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'vitest';
 
-import { useInput } from '@nextui-org/input';
+import { useInput } from '@heroui/input';
 import { act, renderHook } from '@testing-library/react';
 
 describe('useInput hook', () => {

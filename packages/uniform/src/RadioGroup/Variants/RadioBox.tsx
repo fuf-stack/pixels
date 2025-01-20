@@ -1,7 +1,7 @@
-import type { RadioProps as NextRadioProps } from '@nextui-org/radio';
+import type { RadioProps as NextRadioProps } from '@heroui/radio';
 import type { ReactNode } from 'react';
 
-import { useRadio } from '@nextui-org/radio';
+import { useRadio } from '@heroui/radio';
 import { VisuallyHidden } from '@react-aria/visually-hidden';
 
 import { cn } from '@fuf-stack/pixel-utils';

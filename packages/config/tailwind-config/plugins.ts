@@ -2,11 +2,11 @@
 
 import type { PluginsConfig } from 'tailwindcss/types/config';
 
-import { nextui } from '@nextui-org/theme';
+import { heroui } from '@heroui/theme';
 
 const plugins: Partial<PluginsConfig> = [
-  // see: https://nextui.org/docs/guide/installation#tailwind-css-setup-1
-  nextui({}),
+  // see: https://www.heroui.com//docs/guide/installation#tailwind-css-setup-1
+  heroui({}),
 ];
 
 export default plugins;
