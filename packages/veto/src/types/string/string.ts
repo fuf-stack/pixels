@@ -1,4 +1,4 @@
-import type { VetoRefinementCtx } from 'src/types';
+import type { VetoOptional, VetoRefinementCtx } from 'src/types';
 import type { ZodString } from 'zod';
 
 // eslint-disable-next-line import/no-extraneous-dependencies
@@ -111,9 +111,18 @@ type StringRefinements = {
  * });
  * ```
  */
-export const refineString = <T extends VStringSchema>(schema: T) => {
+export const refineString = <
+  T extends VStringSchema | VetoOptional<VStringSchema>,
+>(
+  schema: T,
+) => {
   return (refinements: StringRefinements) => {
     return schema.superRefine((val, ctx) => {
+      // Skip refinements if value is null or undefined
+      if (val === null || val === undefined) {
+        return;
+      }
+
       // add custom refinement first
       if (refinements.custom) {
         refinements.custom(val, ctx);

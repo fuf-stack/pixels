@@ -152,3 +152,70 @@ describe('noConsecutiveCharacters', () => {
     });
   });
 });
+
+describe('optional strings', () => {
+  it('should accept undefined for optional fields', () => {
+    const schema = {
+      field: refineString(string().optional())({
+        blacklist: { patterns: ['invalid'] },
+        noConsecutiveCharacters: { characters: ['!'] },
+      }),
+    };
+    const result = v(schema).validate({});
+    expect(result).toMatchObject({
+      success: true,
+    });
+  });
+
+  it('should still validate present values in optional fields', () => {
+    const schema = {
+      field: refineString(string().optional())({
+        blacklist: { patterns: ['invalid'] },
+      }),
+    };
+    const result = v(schema).validate({ field: 'invalid' });
+    expect(result).toMatchObject({
+      success: false,
+      errors: {
+        field: [
+          {
+            code: 'custom',
+            message: "Value 'invalid' is blacklisted",
+          },
+        ],
+      },
+    });
+  });
+
+  it('should run all refinements on present values in optional fields', () => {
+    const schema = {
+      field: refineString(string().optional())({
+        custom: (val, ctx) => {
+          ctx.addIssue({ code: 'custom', message: 'Custom check failed' });
+        },
+        blacklist: { patterns: ['test*'] },
+        noConsecutiveCharacters: { characters: ['!'] },
+      }),
+    };
+    const result = v(schema).validate({ field: 'test!!' });
+    expect(result).toMatchObject({
+      success: false,
+      errors: {
+        field: [
+          {
+            code: 'custom',
+            message: 'Custom check failed',
+          },
+          {
+            code: 'custom',
+            message: "Value 'test!!' is blacklisted",
+          },
+          {
+            code: 'custom',
+            message: "Character '!' cannot appear consecutively",
+          },
+        ],
+      },
+    });
+  });
+});
