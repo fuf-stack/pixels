@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.9.4](https://github.com/fuf-stack/pixels/compare/veto-v0.9.3...veto-v0.9.4) (2025-01-21)
+
+
+### Bug Fixes
+
+* **veto:** do not return VetoOptional in VStringRefined ([f9b7400](https://github.com/fuf-stack/pixels/commit/f9b74001370c3172575bb5edc54cf86bc0a60780))
+
 ## [0.9.3](https://github.com/fuf-stack/pixels/compare/veto-v0.9.2...veto-v0.9.3) (2025-01-21)
 
 
