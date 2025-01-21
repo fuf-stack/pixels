@@ -22,7 +22,7 @@ export type VStringSchema = ZodString;
 /** when used with refine or superRefine */
 export type VStringRefined<Options = undefined> = (
   options?: Options,
-) => VetoEffects<VStringSchema | VetoOptional<VStringSchema>>;
+) => VetoEffects<VStringSchema>;
 
 type BlacklistOptions = {
   /** Custom error message function */
@@ -118,8 +118,8 @@ export const refineString = <
 ) => {
   return (refinements: StringRefinements) => {
     return schema.superRefine((val, ctx) => {
-      // Skip refinements if value is null or undefined
-      if (val === null || val === undefined) {
+      // Skip refinements if value is undefined (because it is optional)
+      if (val === undefined) {
         return;
       }
 
