@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.9.3](https://github.com/fuf-stack/pixels/compare/veto-v0.9.2...veto-v0.9.3) (2025-01-21)
+
+
+### Bug Fixes
+
+* **veto:** fix type issue in refineString ([eb6609d](https://github.com/fuf-stack/pixels/commit/eb6609d3620ff2e0ac83be7e97afc654a05dc7df))
+
 ## [0.9.2](https://github.com/fuf-stack/pixels/compare/veto-v0.9.1...veto-v0.9.2) (2025-01-20)
 
 
