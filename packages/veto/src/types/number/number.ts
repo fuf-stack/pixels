@@ -1,3 +1,5 @@
+import type { VetoEffects } from 'src/types';
+
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { z } from 'zod';
 
@@ -10,4 +12,4 @@ export type VVNumberSchema = ReturnType<VNumber>;
 /** when used with refine or superRefine */
 export type VNumberRefined<Options = undefined> = (
   options?: Options,
-) => z.ZodEffects<VVNumberSchema, string, string>;
+) => VetoEffects<VVNumberSchema>;

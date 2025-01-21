@@ -1,4 +1,4 @@
-import type { VetoOptional, VetoRefinementCtx } from 'src/types';
+import type { VetoEffects, VetoOptional, VetoRefinementCtx } from 'src/types';
 import type { ZodString } from 'zod';
 
 // eslint-disable-next-line import/no-extraneous-dependencies
@@ -22,7 +22,7 @@ export type VStringSchema = ZodString;
 /** when used with refine or superRefine */
 export type VStringRefined<Options = undefined> = (
   options?: Options,
-) => z.ZodEffects<VStringSchema, string, string>;
+) => VetoEffects<VStringSchema | VetoOptional<VStringSchema>>;
 
 type BlacklistOptions = {
   /** Custom error message function */
