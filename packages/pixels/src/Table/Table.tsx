@@ -11,9 +11,7 @@ import {
   TableRow,
 } from '@heroui/table';
 
-import { tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
-
-// import { slugify } from '../helpers';
+import { slugify, tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 
 // table styling variants
 export const tableVariants = tv({
@@ -130,7 +128,7 @@ const Table = ({
       aria-label={ariaLabel}
       bottomContent={bottomContent}
       classNames={classNames}
-      data-testid={testId} // TODO: should we use slugify here? && slugify(testId)
+      data-testid={testId && slugify(testId)}
       hideHeader={hideHeader}
       isHeaderSticky={stickyHeader}
       isStriped={separation === 'striped' || separation === 'striped-divider-x'}
@@ -150,12 +148,7 @@ const Table = ({
         {(item: TableRowProps) => (
           <TableRow
             key={item.key}
-            data-testid={
-              testId &&
-              (item?.testId || item?.key) &&
-              `${testId || 'table'}_item_${JSON.stringify(item.testId || item.key)}`
-            }
-            // TODO: sluggify? data-testid={`${slugify(testId || 'table')}_item_${slugify(JSON.stringify(item.testId || item.key))}`}
+            // data-testid={`${slugify(testId || 'table')}_item_${slugify(JSON.stringify(item.testId || item.key))}`}
           >
             {(columnKey) => (
               <TableCell>{getKeyValue(item, columnKey)}</TableCell>
