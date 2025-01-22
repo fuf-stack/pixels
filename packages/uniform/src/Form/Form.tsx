@@ -3,9 +3,8 @@ import type { ReactNode } from 'react';
 import type { FieldValues, SubmitHandler } from 'react-hook-form';
 import type { DebugModeSettings } from './subcomponents/FormContext';
 
-import { cn } from '@fuf-stack/pixel-utils';
+import { cn, slugify } from '@fuf-stack/pixel-utils';
 
-import { slugify } from '../helpers';
 import FormProvider from './subcomponents/FormContext';
 import FormDebugViewer from './subcomponents/FormDebugViewer';
 

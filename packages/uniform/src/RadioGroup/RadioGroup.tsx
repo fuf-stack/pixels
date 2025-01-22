@@ -4,12 +4,11 @@ import type { ReactElement, ReactNode } from 'react';
 
 import { RadioGroup as NextRadioGroup, Radio } from '@heroui/radio';
 
-import { cn, tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
+import { cn, slugify, tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 import { ButtonGroup } from '@fuf-stack/pixels';
 import Tabs from '@fuf-stack/pixels/Tabs';
 
 import { Controller } from '../Controller';
-import { slugify } from '../helpers';
 import { useFormContext } from '../hooks';
 import { FieldCopyTestIdButton } from '../partials/FieldCopyTestIdButton';
 import { FieldValidationError } from '../partials/FieldValidationError';

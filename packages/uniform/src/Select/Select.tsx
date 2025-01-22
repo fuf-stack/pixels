@@ -6,10 +6,9 @@ import ReactSelect, { components } from 'react-select';
 
 import { useSelect } from '@heroui/select';
 
-import { cn, tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
+import { cn, slugify, tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 
 import { Controller } from '../Controller';
-import { slugify } from '../helpers';
 import { useFormContext } from '../hooks';
 import { FieldCopyTestIdButton } from '../partials/FieldCopyTestIdButton';
 import { FieldValidationError } from '../partials/FieldValidationError';

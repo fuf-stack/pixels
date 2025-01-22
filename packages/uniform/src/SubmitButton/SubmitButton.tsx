@@ -1,10 +1,9 @@
 import type { ButtonProps } from '@fuf-stack/pixels';
 import type { ReactNode } from 'react';
 
-import { cn } from '@fuf-stack/pixel-utils';
+import { cn, slugify } from '@fuf-stack/pixel-utils';
 import { Button } from '@fuf-stack/pixels';
 
-import { slugify } from '../helpers';
 import { useFormContext } from '../hooks';
 
 export interface SubmitButtonProps {

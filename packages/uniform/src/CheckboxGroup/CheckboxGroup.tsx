@@ -2,10 +2,9 @@ import type { TVClassName, TVProps } from '@fuf-stack/pixel-utils';
 
 import { Checkbox, CheckboxGroup as NextCheckboxGroup } from '@heroui/checkbox';
 
-import { tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
+import { slugify, tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 
 import { Controller } from '../Controller';
-import { slugify } from '../helpers';
 import { useFormContext } from '../hooks';
 import { FieldCopyTestIdButton } from '../partials/FieldCopyTestIdButton';
 import { FieldValidationError } from '../partials/FieldValidationError';

@@ -4,8 +4,9 @@ import type { FieldError } from 'react-hook-form';
 import { useContext } from 'react';
 import { useFormContext as useHookFormContext } from 'react-hook-form';
 
+import { slugify } from '@fuf-stack/pixel-utils';
+
 import { UniformContext } from '../../Form/subcomponents/FormContext';
-import { slugify } from '../../helpers';
 
 /** Schema check whether a field is required or optional */
 export const checkFieldIsRequired = (

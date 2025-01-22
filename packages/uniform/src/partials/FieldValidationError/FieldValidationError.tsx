@@ -1,6 +1,6 @@
 import type { FieldError } from 'react-hook-form';
 
-import { slugify } from '../../helpers';
+import { slugify } from '@fuf-stack/pixel-utils';
 
 export interface FieldValidationErrorProps {
   className?: string;

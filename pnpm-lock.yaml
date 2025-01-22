@@ -147,6 +147,9 @@ importers:
       classnames:
         specifier: 2.5.1
         version: 2.5.1
+      slug:
+        specifier: 9.1.0
+        version: 9.1.0
       tailwind-merge:
         specifier: 2.6.0
         version: 2.6.0
@@ -157,6 +160,9 @@ importers:
       '@repo/tsup-config':
         specifier: workspace:*
         version: link:../config/tsup-config
+      '@types/slug':
+        specifier: 5.0.9
+        version: 5.0.9
 
   packages/pixels:
     dependencies:
@@ -326,9 +332,6 @@ importers:
       react-select:
         specifier: 5.9.0
         version: 5.9.0(@types/react@19.0.7)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
-      slug:
-        specifier: 9.1.0
-        version: 9.1.0
     devDependencies:
       '@repo/storybook-config':
         specifier: workspace:*
@@ -351,9 +354,6 @@ importers:
       '@types/react-dom':
         specifier: 19.0.3
         version: 19.0.3(@types/react@19.0.7)
-      '@types/slug':
-        specifier: 5.0.9
-        version: 5.0.9
       react:
         specifier: 19.0.0
         version: 19.0.0
