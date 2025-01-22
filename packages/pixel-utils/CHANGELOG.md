@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.5.0](https://github.com/fuf-stack/pixels/compare/pixel-utils-v0.4.3...pixel-utils-v0.5.0) (2025-01-22)
+
+
+### Features
+
+* **tailwind-config,pixels,uniform,pixel-utils:** migrate nextUI to heroUI ([1cb768e](https://github.com/fuf-stack/pixels/commit/1cb768e83f8a2c8589c81886d6f8065b239f855b))
+
+
+### Bug Fixes
+
+* **deps:** update [@nextui](https://github.com/nextui) monorepo ([#661](https://github.com/fuf-stack/pixels/issues/661)) ([adcf767](https://github.com/fuf-stack/pixels/commit/adcf767ab176a2345f969641c398601a76368c9d))
+* **deps:** update dependency tailwind-variants to v0.3.1 ([#701](https://github.com/fuf-stack/pixels/issues/701)) ([fc5a945](https://github.com/fuf-stack/pixels/commit/fc5a94553e6153d62f492ea75b36203b95edef30))
+* **pixel-utils:** move slugify from uniform to pixel-utils package ([d60e06e](https://github.com/fuf-stack/pixels/commit/d60e06e4ea43614ac2166fbb1e91331a27b67906))
+
 ## [0.4.3](https://github.com/fuf-stack/pixels/compare/pixel-utils-v0.4.2...pixel-utils-v0.4.3) (2024-12-29)
 
 
