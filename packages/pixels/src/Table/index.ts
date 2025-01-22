@@ -7,6 +7,6 @@ export type {
   VariantProps,
 } from './Table';
 
-export { tableVariants };
+export { Table, tableVariants };
 
 export default Table;
