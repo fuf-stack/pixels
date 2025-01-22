@@ -1,5 +1,22 @@
 # Changelog
 
+## [0.32.0](https://github.com/fuf-stack/pixels/compare/pixels-v0.31.5...pixels-v0.32.0) (2025-01-22)
+
+
+### Features
+
+* **pixels:** add alert component and fix some issues ([09dbebf](https://github.com/fuf-stack/pixels/commit/09dbebf0a7ff72ebd6f0e4a33e09e1728ffd5137))
+* **pixels:** add progress component ([e25570d](https://github.com/fuf-stack/pixels/commit/e25570d4d465b651369ef1d89d49265e63c97278))
+* **tailwind-config,pixels,uniform,pixel-utils:** migrate nextUI to heroUI ([1cb768e](https://github.com/fuf-stack/pixels/commit/1cb768e83f8a2c8589c81886d6f8065b239f855b))
+
+
+### Bug Fixes
+
+* **deps:** update dependency framer-motion to v11.18.0 ([#693](https://github.com/fuf-stack/pixels/issues/693)) ([ab02054](https://github.com/fuf-stack/pixels/commit/ab02054fdd69d65e3b144eecfbb1d93cf6f58227))
+* **deps:** update dependency framer-motion to v11.18.1 ([#699](https://github.com/fuf-stack/pixels/issues/699)) ([4b6ceac](https://github.com/fuf-stack/pixels/commit/4b6ceac98527f52b07998ebd37a15142628e0f10))
+* **deps:** update dependency framer-motion to v11.18.2 ([#706](https://github.com/fuf-stack/pixels/issues/706)) ([1e552c9](https://github.com/fuf-stack/pixels/commit/1e552c9d3e6d60f63a916d08eb82f2e82cec6bee))
+* **pixels:** slugify table testid ([6a6db55](https://github.com/fuf-stack/pixels/commit/6a6db557f2b4e415f65e94a3fca8cd59910876e7))
+
 ## [0.31.5](https://github.com/fuf-stack/pixels/compare/pixels-v0.31.4...pixels-v0.31.5) (2025-01-13)
 
 
