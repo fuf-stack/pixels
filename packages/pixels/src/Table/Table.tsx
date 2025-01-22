@@ -54,7 +54,7 @@ export const tableVariants = tv({
   },
 });
 
-type VariantProps = TVProps<typeof tableVariants>;
+export type VariantProps = TVProps<typeof tableVariants>;
 type ClassName = TVClassName<typeof tableVariants>;
 
 export interface TableColumnProps {
@@ -62,7 +62,7 @@ export interface TableColumnProps {
   label: ReactNode;
 }
 
-interface TableRowProps {
+export interface TableRowProps {
   key: string | number;
   [key: string | number]: ReactNode;
 }
