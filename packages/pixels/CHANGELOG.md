@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.32.3](https://github.com/fuf-stack/pixels/compare/pixels-v0.32.2...pixels-v0.32.3) (2025-01-22)
+
+
+### Bug Fixes
+
+* **pixels:** table export ([7d1a5d9](https://github.com/fuf-stack/pixels/commit/7d1a5d9ab4422b6704a5b2a22db6275fa45518a1))
+
 ## [0.32.2](https://github.com/fuf-stack/pixels/compare/pixels-v0.32.1...pixels-v0.32.2) (2025-01-22)
 
 
