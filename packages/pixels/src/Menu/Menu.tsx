@@ -5,11 +5,11 @@ import { FaEllipsisVertical } from 'react-icons/fa6';
 
 import { Button } from '@heroui/button';
 import {
-  Dropdown as NextDropdown,
-  DropdownItem as NextDropdownItem,
-  DropdownMenu as NextDropdownMenu,
-  DropdownSection as NextDropdownSection,
-  DropdownTrigger as NextDropdownTrigger,
+  Dropdown as HeroDropdown,
+  DropdownItem as HeroDropdownItem,
+  DropdownMenu as HeroDropdownMenu,
+  DropdownSection as HeroDropdownSection,
+  DropdownTrigger as HeroDropdownTrigger,
 } from '@heroui/dropdown';
 
 import { cn } from '@fuf-stack/pixel-utils';
@@ -78,7 +78,7 @@ const getDisabledKeys = (items: (MenuSection | MenuItem)[]) => {
 };
 
 const renderMenuItem = (item: MenuItem) => (
-  <NextDropdownItem
+  <HeroDropdownItem
     className={item.className}
     data-testid={item.testId || item.key}
     description={item.description}
@@ -87,7 +87,7 @@ const renderMenuItem = (item: MenuItem) => (
     startContent={item.icon}
   >
     {item.label}
-  </NextDropdownItem>
+  </HeroDropdownItem>
 );
 
 /**
@@ -102,19 +102,19 @@ const Menu = ({
   items,
 }: MenuProps) => {
   return (
-    <NextDropdown isDisabled={isDisabled}>
-      <NextDropdownTrigger className={cn(className)} data-testid={testId}>
+    <HeroDropdown isDisabled={isDisabled}>
+      <HeroDropdownTrigger className={cn(className)} data-testid={testId}>
         {children ? (
           // eslint-disable-next-line react/button-has-type
           <button>{children}</button>
         ) : (
-          // INFO: we use next button here so that ref passing works
+          // INFO: we use hero button here so that ref passing works
           <Button size="sm" variant="flat" className="min-w-0">
             <FaEllipsisVertical />
           </Button>
         )}
-      </NextDropdownTrigger>
-      <NextDropdownMenu
+      </HeroDropdownTrigger>
+      <HeroDropdownMenu
         // aria-label="Dynamic Actions"
         items={items}
         disabledKeys={getDisabledKeys(items)}
@@ -123,7 +123,7 @@ const Menu = ({
         {(item) => {
           if ('items' in item) {
             return (
-              <NextDropdownSection
+              <HeroDropdownSection
                 items={item.items as MenuSection['items']}
                 title={item.label as DropdownSectionProps['title']}
                 key={item.key}
@@ -131,13 +131,13 @@ const Menu = ({
                 {(sectionItem) => {
                   return renderMenuItem(sectionItem);
                 }}
-              </NextDropdownSection>
+              </HeroDropdownSection>
             );
           }
           return renderMenuItem(item);
         }}
-      </NextDropdownMenu>
-    </NextDropdown>
+      </HeroDropdownMenu>
+    </HeroDropdown>
   );
 };
 

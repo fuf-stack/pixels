@@ -1,8 +1,8 @@
-import { ButtonGroup as NextButtonGroup } from '@heroui/button';
+import { ButtonGroup as HeroButtonGroup } from '@heroui/button';
 
 /**
  * Button Group based on [HeroUI Button Group](https://www.heroui.com//docs/components/button#button-group)
  */
-const ButtonGroup = NextButtonGroup;
+const ButtonGroup = HeroButtonGroup;
 
 export default ButtonGroup;

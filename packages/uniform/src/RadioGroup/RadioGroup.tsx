@@ -2,7 +2,7 @@ import type { TVClassName, TVProps } from '@fuf-stack/pixel-utils';
 import type { TabProps } from '@fuf-stack/pixels/Tabs';
 import type { ReactElement, ReactNode } from 'react';
 
-import { RadioGroup as NextRadioGroup, Radio } from '@heroui/radio';
+import { RadioGroup as HeroRadioGroup, Radio } from '@heroui/radio';
 
 import { cn, slugify, tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 import { ButtonGroup } from '@fuf-stack/pixels';
@@ -28,7 +28,8 @@ export const radioGroupVariants = tv({
     itemLabelWrapper: '',
     itemWrapper:
       'group-data-[invalid=true]:!border-danger [&:not(group-data-[invalid="true"]):not(group-data-[selected="false"])]:border-focus', // TODO: get rid of !.
-    // See HeroUI styles for group-data condition, e.g.: https://github.com/nextui-org/nextui/blob/main/packages/core/theme/src/components/select.ts
+    // see HeroUI styles for group-data condition,
+    // e.g.: https://github.com/heroui-inc/heroui/blob/main/packages/core/theme/src/components/select.ts
     label:
       'text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger',
     wrapper: '',
@@ -211,9 +212,10 @@ const RadioGroup = ({
         }
 
         return (
-          <NextRadioGroup
+          <HeroRadioGroup
             classNames={classNames}
-            // See HeroUI styles for group-data condition (data-invalid), e.g.: https://github.com/nextui-org/nextui/blob/main/packages/components/select/src/use-select.ts
+            // see HeroUI styles for group-data condition (data-invalid),
+            // e.g.: https://github.com/heroui-inc/heroui/blob/main/packages/components/select/src/use-select.ts
             data-invalid={invalid}
             data-required={required}
             data-testid={testId}
@@ -245,7 +247,7 @@ const RadioGroup = ({
             ) : (
               RadioComponents
             )}
-          </NextRadioGroup>
+          </HeroRadioGroup>
         );
       }}
     />

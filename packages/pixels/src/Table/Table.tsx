@@ -3,7 +3,7 @@ import type { ReactNode } from 'react';
 
 import {
   getKeyValue,
-  Table as NextTable,
+  Table as HeroTable,
   TableBody,
   TableCell,
   TableColumn,
@@ -124,7 +124,7 @@ const Table = ({
   const classNames = variantsToClassNames(variants, className, 'base');
 
   return (
-    <NextTable
+    <HeroTable
       aria-label={ariaLabel}
       bottomContent={bottomContent}
       classNames={classNames}
@@ -156,7 +156,7 @@ const Table = ({
           </TableRow>
         )}
       </TableBody>
-    </NextTable>
+    </HeroTable>
   );
 };
 

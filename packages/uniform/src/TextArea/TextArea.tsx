@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 
-import { Textarea as NextTextArea } from '@heroui/input';
+import { Textarea as HeroTextArea } from '@heroui/input';
 
 import { cn } from '@fuf-stack/pixel-utils';
 
@@ -79,7 +79,7 @@ const TextArea = ({
         const displayValue = value?.toString() ?? '';
 
         return (
-          <NextTextArea
+          <HeroTextArea
             className={cn(className)}
             classNames={{
               inputWrapper: 'group-data-[focus=true]:border-focus',
@@ -109,7 +109,7 @@ const TextArea = ({
             variant="bordered"
           >
             {children}
-          </NextTextArea>
+          </HeroTextArea>
         );
       }}
     />

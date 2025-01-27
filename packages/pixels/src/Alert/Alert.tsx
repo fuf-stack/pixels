@@ -1,9 +1,9 @@
 import type { TVClassName, TVProps } from '@fuf-stack/pixel-utils';
-import type { AlertProps as NextAlertProps } from '@heroui/alert';
+import type { AlertProps as HeroAlertProps } from '@heroui/alert';
 import type { ReactNode } from 'react';
 
-import { Alert as NextAlert } from '@heroui/alert';
-import { alert as nextAlertVariants } from '@heroui/theme';
+import { Alert as HeroAlert } from '@heroui/alert';
+import { alert as heroAlertVariants } from '@heroui/theme';
 
 import { tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 
@@ -18,21 +18,21 @@ export const alertVariants = tv({
     alertIcon: '',
   },
   variants: {
-    // See: https://github.comnextui-orgnextui/blob/canary/packages/core/theme/src/components/alert.ts
+    // see:  https://github.com/heroui-inc/heroui/blob/canary/packages/core/theme/src/components/alert.ts
     color: {
       info: {
         mainWrapper: 'text-inherit',
         title: 'text-inherit',
         description: 'text-inherit',
       },
-      ...nextAlertVariants.variants.color,
+      ...heroAlertVariants.variants.color,
     },
     variant: {
-      ...nextAlertVariants.variants.variant,
+      ...heroAlertVariants.variants.variant,
     },
   },
   compoundVariants: [
-    ...nextAlertVariants.compoundVariants,
+    ...heroAlertVariants.compoundVariants,
     {
       color: 'info',
       variant: 'solid',
@@ -123,15 +123,15 @@ const Alert = ({
     color,
     variant,
   });
-  const isHeroUIColor = Object.keys(nextAlertVariants.variants.color).includes(
+  const isHeroUIColor = Object.keys(heroAlertVariants.variants.color).includes(
     color,
   );
   const classNames = variantsToClassNames(variants, className, 'base');
 
   return (
-    <NextAlert
+    <HeroAlert
       classNames={classNames}
-      color={isHeroUIColor ? (color as NextAlertProps['color']) : undefined}
+      color={isHeroUIColor ? (color as HeroAlertProps['color']) : undefined}
       data-testid={testId}
       description={title ? children : undefined}
       endContent={endContent}

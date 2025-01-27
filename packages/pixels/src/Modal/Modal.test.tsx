@@ -57,7 +57,7 @@ describe('Coverage', () => {
     );
 
     // Check if header and footer are NOT in the document
-    expect(screen.queryByRole('heading')).not.toBeInTheDocument(); // Assuming NextModalHeader renders a heading
+    expect(screen.queryByRole('heading')).not.toBeInTheDocument(); // Assuming HeroModalHeader renders a heading
     expect(screen.queryByTestId('modal-footer')).not.toBeInTheDocument();
 
     // Body should still be present

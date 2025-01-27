@@ -1,13 +1,13 @@
 import type { TVClassName, TVProps } from '@fuf-stack/pixel-utils';
-import type { DrawerProps as NextDrawerProps } from '@heroui/drawer';
+import type { DrawerProps as HeroDrawerProps } from '@heroui/drawer';
 import type { ReactNode } from 'react';
 
 import {
-  Drawer as NextDrawer,
-  DrawerBody as NextDrawerBody,
-  DrawerContent as NextDrawerContent,
-  DrawerFooter as NextDrawerFooter,
-  DrawerHeader as NextDrawerHeader,
+  Drawer as HeroDrawer,
+  DrawerBody as HeroDrawerBody,
+  DrawerContent as HeroDrawerContent,
+  DrawerFooter as HeroDrawerFooter,
+  DrawerHeader as HeroDrawerHeader,
 } from '@heroui/drawer';
 
 import { tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
@@ -77,7 +77,7 @@ export interface DrawerProps extends VariantProps {
   /** The drawer position. */
   placement?: DrawerPlacement;
   /** The container element in which the overlay portal will be placed */
-  portalContainer?: NextDrawerProps['portalContainer'];
+  portalContainer?: HeroDrawerProps['portalContainer'];
   /** The drawer border radius. */
   radius?: DrawerRadius;
   /** The drawer size. */
@@ -112,7 +112,7 @@ const Drawer = ({
   const classNames = variantsToClassNames(variants, className, 'base');
 
   return (
-    <NextDrawer
+    <HeroDrawer
       backdrop={backdrop}
       classNames={classNames}
       closeButton={closeButton}
@@ -128,16 +128,16 @@ const Drawer = ({
       scrollBehavior="inside"
       size={size}
     >
-      <NextDrawerContent data-testid={testId ? `drawer_${testId}` : 'drawer'}>
+      <HeroDrawerContent data-testid={testId ? `drawer_${testId}` : 'drawer'}>
         {() => (
           <>
-            {header && <NextDrawerHeader>{header}</NextDrawerHeader>}
-            <NextDrawerBody id="drawer_body">{children}</NextDrawerBody>
-            {footer && <NextDrawerFooter>{footer}</NextDrawerFooter>}
+            {header && <HeroDrawerHeader>{header}</HeroDrawerHeader>}
+            <HeroDrawerBody id="drawer_body">{children}</HeroDrawerBody>
+            {footer && <HeroDrawerFooter>{footer}</HeroDrawerFooter>}
           </>
         )}
-      </NextDrawerContent>
-    </NextDrawer>
+      </HeroDrawerContent>
+    </HeroDrawer>
   );
 };
 

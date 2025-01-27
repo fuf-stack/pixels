@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 
-import { Input as NextInput } from '@heroui/input';
+import { Input as HeroInput } from '@heroui/input';
 
 import { cn } from '@fuf-stack/pixel-utils';
 
@@ -115,7 +115,7 @@ const Input = ({
         };
 
         return (
-          <NextInput
+          <HeroInput
             className={cn(className)}
             classNames={{
               inputWrapper: 'group-data-[focus=true]:border-focus',

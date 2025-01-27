@@ -3,8 +3,8 @@ import type { DividerProps } from '@heroui/divider';
 import type { ReactNode } from 'react';
 
 import {
-  Accordion as NextAccordion,
-  AccordionItem as NextAccordionItem,
+  Accordion as HeroAccordion,
+  AccordionItem as HeroAccordionItem,
 } from '@heroui/accordion';
 
 import { tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
@@ -116,7 +116,7 @@ const Accordion = ({
   const classNames = variantsToClassNames(variants, _className, 'wrapper');
 
   return (
-    <NextAccordion
+    <HeroAccordion
       className={classNames.wrapper}
       defaultSelectedKeys={defaultSelectedKeys}
       disabledKeys={disabledKeys}
@@ -131,7 +131,7 @@ const Accordion = ({
       variant={variant}
     >
       {accordionItems.map((item, index) => (
-        <NextAccordionItem
+        <HeroAccordionItem
           // eslint-disable-next-line react/no-array-index-key
           key={index}
           isDisabled={disabled || item?.disabled}
@@ -139,7 +139,7 @@ const Accordion = ({
           {...item}
         />
       ))}
-    </NextAccordion>
+    </HeroAccordion>
   );
 };
 

@@ -2,7 +2,7 @@ import type { TVClassName, TVProps } from '@fuf-stack/pixel-utils';
 import type { ChipProps } from '@heroui/chip';
 import type { ReactNode } from 'react';
 
-import { Chip as NextLabel } from '@heroui/chip';
+import { Chip as HeroLabel } from '@heroui/chip';
 
 import { tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 
@@ -57,7 +57,7 @@ const Label = ({
   const classNames = variantsToClassNames(variants, _className, 'base');
 
   return (
-    <NextLabel
+    <HeroLabel
       classNames={classNames}
       color={color}
       endContent={endContent}
@@ -67,7 +67,7 @@ const Label = ({
       variant={variant}
     >
       {children}
-    </NextLabel>
+    </HeroLabel>
   );
 };
 

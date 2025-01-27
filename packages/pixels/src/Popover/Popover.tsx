@@ -1,5 +1,5 @@
 import type { TVClassName, TVProps } from '@fuf-stack/pixel-utils';
-import type { PopoverProps as NextPopoverProps } from '@heroui/popover';
+import type { PopoverProps as HeroPopoverProps } from '@heroui/popover';
 import type { ReactNode } from 'react';
 
 import { Popover, PopoverContent, PopoverTrigger } from '@heroui/popover';
@@ -36,9 +36,9 @@ export interface PopoverProps extends VariantProps {
   /** use as controlled component  */
   openControlled?: { open: boolean; setOpen: (open: boolean) => void };
   /** placement of the popover relative to its trigger reference */
-  placement?: NextPopoverProps['placement'];
+  placement?: HeroPopoverProps['placement'];
   /** The container element in which the overlay portal will be placed. */
-  portalContainer?: NextPopoverProps['portalContainer'];
+  portalContainer?: HeroPopoverProps['portalContainer'];
   /** Whether to block scrolling outside the popover */
   shouldBlockScroll?: boolean;
   /** HTML data-testid attribute used in e2e tests */

@@ -1,7 +1,7 @@
 import type { JSX } from 'react';
 import type { AvatarProps } from '../Avatar/Avatar';
 
-import { AvatarGroup as NextAvatarGroup } from '@heroui/avatar';
+import { AvatarGroup as HeroAvatarGroup } from '@heroui/avatar';
 
 import { Avatar } from '../Avatar';
 
@@ -41,7 +41,7 @@ const AvatarGroup = ({
   avatarWrapper: AvatarWrapper = undefined,
 }: AvatarGroupProps) => {
   return (
-    <NextAvatarGroup
+    <HeroAvatarGroup
       max={max}
       className={className}
       isBordered={bordered}
@@ -75,7 +75,7 @@ const AvatarGroup = ({
           />
         );
       })}
-    </NextAvatarGroup>
+    </HeroAvatarGroup>
   );
 };
 

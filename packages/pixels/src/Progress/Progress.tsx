@@ -1,7 +1,7 @@
 import type { TVClassName, TVProps } from '@fuf-stack/pixel-utils';
 import type { ReactNode } from 'react';
 
-import { Progress as NextProgress } from '@heroui/progress';
+import { Progress as HeroProgress } from '@heroui/progress';
 
 import { tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 
@@ -16,7 +16,7 @@ export const progressVariants = tv({
     value: '', // span around the progress value
   },
   variants: {
-    // See: https://github.com/nextui-org/nextui/blob/canary/packages/core/theme/src/components/progress.ts
+    // see: https://github.com/heroui-inc/heroui/blob/canary/packages/core/theme/src/components/progress.ts
     color: {
       danger: {
         indicator: 'bg-danger',
@@ -92,7 +92,7 @@ const Progress = ({
   const value = format(percent);
 
   return (
-    <NextProgress
+    <HeroProgress
       aria-label="Loading..."
       classNames={classNames}
       data-testid={testId}

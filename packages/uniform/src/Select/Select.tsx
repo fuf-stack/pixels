@@ -30,7 +30,8 @@ export const selectVariants = tv({
     indicatorsContainer: 'gap-1 p-1',
     indicatorSeparator: 'bg-default-300',
     input: 'py-0.5 pl-1',
-    // See HeroUI styles for group-data condition, e.g.: https://github.com/nextui-org/nextui/blob/main/packages/core/theme/src/components/select.ts
+    // see HeroUI styles for group-data condition,
+    // e.g.: https://github.com/heroui-inc/heroui/blob/main/packages/core/theme/src/components/select.ts
     label:
       'pointer-events-auto relative bottom-1.5 ml-1 text-small subpixel-antialiased group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]',
     loadingIndicator: '',
@@ -38,7 +39,7 @@ export const selectVariants = tv({
     menu: 'mt-2 rounded-xl border border-default-200 bg-content1 p-1 shadow-lg',
     menuList: '',
     // ensure menu has same z-index as modal so it is visible when rendered in modal
-    // see: https://github.com/nextui-org/nextui/blob/main/packages/core/theme/src/components/modal.ts (see z-50)
+    // see: https://github.com/heroui-inc/heroui/blob/main/packages/core/theme/src/components/modal.ts (see z-50)
     menuPortal: '!z-50',
     multiValue: 'items-center gap-1.5 rounded bg-default-100 py-0.5 pl-2 pr-1',
     multiValueContainer: '',
@@ -207,7 +208,8 @@ const Select = ({
           {...getBaseProps()}
           className={cn(classNames.base)}
           data-testid={`${testId}_wrapper`}
-          // See HeroUI styles for group-data condition (data-invalid), e.g.: https://github.com/nextui-org/nextui/blob/main/packages/components/select/src/use-select.ts
+          // see HeroUI styles for group-data condition (data-invalid),
+          // e.g.: https://github.com/heroui-inc/heroui/blob/main/packages/components/select/src/use-select.ts
           data-required={required}
         >
           {showLabel && (

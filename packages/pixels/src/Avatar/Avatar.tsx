@@ -1,7 +1,7 @@
 import type { TVClassName, TVProps } from '@fuf-stack/pixel-utils';
 import type React from 'react';
 
-import { Avatar as NextAvatar } from '@heroui/avatar';
+import { Avatar as HeroAvatar } from '@heroui/avatar';
 
 import { tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 
@@ -52,7 +52,7 @@ const Avatar = ({
   const className = variantsToClassNames(variants, _className, 'base');
 
   return (
-    <NextAvatar
+    <HeroAvatar
       classNames={className}
       fallback={fallback}
       isBordered={bordered}

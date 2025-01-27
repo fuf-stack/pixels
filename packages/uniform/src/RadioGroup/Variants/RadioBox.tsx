@@ -1,4 +1,4 @@
-import type { RadioProps as NextRadioProps } from '@heroui/radio';
+import type { RadioProps as HeroRadioProps } from '@heroui/radio';
 import type { ReactNode } from 'react';
 
 import { useRadio } from '@heroui/radio';
@@ -6,7 +6,7 @@ import { VisuallyHidden } from '@react-aria/visually-hidden';
 
 import { cn } from '@fuf-stack/pixel-utils';
 
-interface RadioProps extends NextRadioProps {
+interface RadioProps extends HeroRadioProps {
   /** icon for the option */
   icon?: ReactNode;
 }

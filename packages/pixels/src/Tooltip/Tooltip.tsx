@@ -1,7 +1,7 @@
 import type { TVClassName, TVProps } from '@fuf-stack/pixel-utils';
 import type { ReactNode } from 'react';
 
-import { Tooltip as NextTooltip } from '@heroui/tooltip';
+import { Tooltip as HeroTooltip } from '@heroui/tooltip';
 
 import { tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 
@@ -65,7 +65,7 @@ const Tooltip = ({
   const classNames = variantsToClassNames(variants, _className, 'base');
 
   return (
-    <NextTooltip
+    <HeroTooltip
       classNames={classNames}
       closeDelay={closeDelay}
       containerPadding={containerPadding}
@@ -79,7 +79,7 @@ const Tooltip = ({
       showArrow
     >
       <span className={classNames.wrapper}>{children}</span>
-    </NextTooltip>
+    </HeroTooltip>
   );
 };
 

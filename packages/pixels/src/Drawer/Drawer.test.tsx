@@ -54,7 +54,7 @@ describe('Drawer Component', () => {
       </Drawer>,
     );
     // Check if header and footer are NOT in the document
-    expect(screen.queryByRole('heading')).not.toBeInTheDocument(); // Assuming NextDrawerHeader renders a heading
+    expect(screen.queryByRole('heading')).not.toBeInTheDocument(); // Assuming HeroDrawerHeader renders a heading
     expect(screen.queryByTestId('drawer-footer')).not.toBeInTheDocument();
     // Body should still be present
     expect(screen.getByTestId('drawer-body')).toHaveTextContent('Body Content');

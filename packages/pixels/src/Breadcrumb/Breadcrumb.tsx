@@ -2,8 +2,8 @@ import type { TVClassName, TVProps } from '@fuf-stack/pixel-utils';
 import type { ReactNode } from 'react';
 
 import {
-  Breadcrumbs as NextBreadcrumb,
-  BreadcrumbItem as NextBreadcrumbItem,
+  Breadcrumbs as HeroBreadcrumb,
+  BreadcrumbItem as HeroBreadcrumbItem,
 } from '@heroui/breadcrumbs';
 
 import { tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
@@ -96,7 +96,7 @@ const Breadcrumb = ({
   const classNames = variantsToClassNames(variants, _className, 'nav');
 
   return (
-    <NextBreadcrumb
+    <HeroBreadcrumb
       classNames={{
         base: classNames.nav,
         ellipsis: classNames.separator,
@@ -119,7 +119,7 @@ const Breadcrumb = ({
       variant={variant}
     >
       {breadcrumbItems.map((item, index) => (
-        <NextBreadcrumbItem
+        <HeroBreadcrumbItem
           // eslint-disable-next-line react/no-array-index-key
           key={index}
           isDisabled={disabled || item?.disabled}
@@ -127,7 +127,7 @@ const Breadcrumb = ({
           {...item}
         />
       ))}
-    </NextBreadcrumb>
+    </HeroBreadcrumb>
   );
 };
 

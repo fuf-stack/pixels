@@ -1,13 +1,13 @@
 import type { TVClassName, TVProps } from '@fuf-stack/pixel-utils';
-import type { ModalProps as NextModalProps } from '@heroui/modal';
+import type { ModalProps as HeroModalProps } from '@heroui/modal';
 import type { ReactNode } from 'react';
 
 import {
-  Modal as NextModal,
-  ModalBody as NextModalBody,
-  ModalContent as NextModalContent,
-  ModalFooter as NextModalFooter,
-  ModalHeader as NextModalHeader,
+  Modal as HeroModal,
+  ModalBody as HeroModalBody,
+  ModalContent as HeroModalContent,
+  ModalFooter as HeroModalFooter,
+  ModalHeader as HeroModalHeader,
 } from '@heroui/modal';
 
 import { tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
@@ -53,7 +53,7 @@ export interface ModalProps extends VariantProps {
   /** close event handler */
   onClose: () => void;
   /** The container element in which the overlay portal will be placed */
-  portalContainer?: NextModalProps['portalContainer'];
+  portalContainer?: HeroModalProps['portalContainer'];
   /** modal size */
   size?: VariantProps['size'];
   /** HTML data-testid attribute used in e2e tests */
@@ -80,7 +80,7 @@ const Modal = ({
   const classNames = variantsToClassNames(variants, className, 'base');
 
   return (
-    <NextModal
+    <HeroModal
       backdrop="opaque"
       classNames={classNames}
       data-testid={testId}
@@ -91,16 +91,16 @@ const Modal = ({
       portalContainer={portalContainer}
       scrollBehavior="inside"
     >
-      <NextModalContent data-testid={testId ? `modal_${testId}` : 'modal'}>
+      <HeroModalContent data-testid={testId ? `modal_${testId}` : 'modal'}>
         {() => (
           <>
-            {header && <NextModalHeader>{header}</NextModalHeader>}
-            <NextModalBody id="modal_body">{children}</NextModalBody>
-            {footer && <NextModalFooter>{footer}</NextModalFooter>}
+            {header && <HeroModalHeader>{header}</HeroModalHeader>}
+            <HeroModalBody id="modal_body">{children}</HeroModalBody>
+            {footer && <HeroModalFooter>{footer}</HeroModalFooter>}
           </>
         )}
-      </NextModalContent>
-    </NextModal>
+      </HeroModalContent>
+    </HeroModal>
   );
 };
 

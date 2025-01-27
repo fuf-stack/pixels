@@ -4,12 +4,12 @@ import type { ReactNode } from 'react';
 import { forwardRef } from 'react';
 
 import {
-  Card as NextCard,
-  CardBody as NextCardBody,
-  CardFooter as NextCardFooter,
-  CardHeader as NextCardHeader,
+  Card as HeroCard,
+  CardBody as HeroCardBody,
+  CardFooter as HeroCardFooter,
+  CardHeader as HeroCardHeader,
 } from '@heroui/card';
-import { Divider as NextDivider } from '@heroui/divider';
+import { Divider as HeroDivider } from '@heroui/divider';
 
 import { tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 
@@ -62,10 +62,10 @@ const Card = forwardRef<HTMLDivElement, CardProps>(
       'base',
     );
 
-    const divider = <NextDivider className={dividerClassName} />;
+    const divider = <HeroDivider className={dividerClassName} />;
 
     return (
-      <NextCard
+      <HeroCard
         classNames={classNames}
         data-testid={testId && `card_${testId}`}
         fullWidth
@@ -75,24 +75,24 @@ const Card = forwardRef<HTMLDivElement, CardProps>(
       >
         {header && (
           <>
-            <NextCardHeader data-testid={testId && `card_header_${testId}`}>
+            <HeroCardHeader data-testid={testId && `card_header_${testId}`}>
               {header}
-            </NextCardHeader>
+            </HeroCardHeader>
             {divider}
           </>
         )}
-        <NextCardBody data-testid={testId && `card_body_${testId}`}>
+        <HeroCardBody data-testid={testId && `card_body_${testId}`}>
           {children}
-        </NextCardBody>
+        </HeroCardBody>
         {footer && (
           <>
             {divider}
-            <NextCardFooter data-testid={testId && `card_footer_${testId}`}>
+            <HeroCardFooter data-testid={testId && `card_footer_${testId}`}>
               {footer}
-            </NextCardFooter>
+            </HeroCardFooter>
           </>
         )}
-      </NextCard>
+      </HeroCard>
     );
   },
 );

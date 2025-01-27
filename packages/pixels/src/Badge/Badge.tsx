@@ -1,7 +1,7 @@
 import type { TVClassName, TVProps } from '@fuf-stack/pixel-utils';
-import type { BadgeProps as NextBadgeProps } from '@heroui/badge';
+import type { BadgeProps as HeroBadgeProps } from '@heroui/badge';
 
-import { Badge as NextBadge } from '@heroui/badge';
+import { Badge as HeroBadge } from '@heroui/badge';
 
 import { tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 
@@ -18,21 +18,21 @@ type ClassName = TVClassName<typeof badgeVariants>;
 
 export interface BadgeProps extends VariantProps {
   /** component which is wrapped by the batch */
-  children: NextBadgeProps['children'];
+  children: HeroBadgeProps['children'];
   /** CSS class name */
   className?: ClassName;
   /** badge content */
-  content?: NextBadgeProps['content'];
+  content?: HeroBadgeProps['content'];
   /** color of the badge */
-  color?: NextBadgeProps['color'];
+  color?: HeroBadgeProps['color'];
   /** if set the badge have the same height and width */
-  isOneChar?: NextBadgeProps['isOneChar'];
+  isOneChar?: HeroBadgeProps['isOneChar'];
   /** removes the badge outline */
   noOutline?: boolean;
   /** placement of the badge */
-  placement?: NextBadgeProps['placement'];
+  placement?: HeroBadgeProps['placement'];
   /** size of the badge */
-  size?: NextBadgeProps['size'];
+  size?: HeroBadgeProps['size'];
 }
 
 /**
@@ -56,7 +56,7 @@ const Avatar = ({
   const className = variantsToClassNames(variants, _className, 'base');
 
   return (
-    <NextBadge
+    <HeroBadge
       classNames={className}
       color={color}
       content={content}
@@ -66,7 +66,7 @@ const Avatar = ({
       size={size}
     >
       {children}
-    </NextBadge>
+    </HeroBadge>
   );
 };
 

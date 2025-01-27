@@ -1,8 +1,8 @@
 import type { TVProps } from '@fuf-stack/pixel-utils';
-import type { ButtonProps as NextButtonProps } from '@heroui/button';
+import type { ButtonProps as HeroButtonProps } from '@heroui/button';
 import type { ReactNode } from 'react';
 
-import { Button as NextButton } from '@heroui/button';
+import { Button as HeroButton } from '@heroui/button';
 
 import { tv } from '@fuf-stack/pixel-utils';
 
@@ -54,8 +54,8 @@ export interface ButtonProps extends VariantProps {
   children?: ReactNode;
   /** CSS class name */
   className?: string;
-  /** next ui button color  */
-  color?: NextButtonProps['color'];
+  /** hero ui button color  */
+  color?: HeroButtonProps['color'];
   /** disables function of the button. */
   disabled?: boolean;
   /** disables all button animations */
@@ -65,15 +65,15 @@ export interface ButtonProps extends VariantProps {
   /** optional icon */
   icon?: ReactNode;
   /** on click event */
-  onClick?: NextButtonProps['onPress'];
+  onClick?: HeroButtonProps['onPress'];
   /** 3 size options */
-  size?: NextButtonProps['size'];
+  size?: HeroButtonProps['size'];
   /** HTML data-testid attribute used in e2e tests */
   testId?: string;
   /** sets the button type. */
   type?: 'button' | 'submit' | 'reset' | undefined;
-  /** next ui button variants */
-  variant?: NextButtonProps['variant'];
+  /** hero ui button variants */
+  variant?: HeroButtonProps['variant'];
 }
 
 /**
@@ -95,7 +95,7 @@ const Button = ({
   variant = 'solid',
 }: ButtonProps) => {
   return (
-    <NextButton
+    <HeroButton
       aria-label={ariaLabel}
       className={buttonVariants({ color, variant, className })}
       color={color}
@@ -113,7 +113,7 @@ const Button = ({
     >
       {icon}
       {children}
-    </NextButton>
+    </HeroButton>
   );
 };
 

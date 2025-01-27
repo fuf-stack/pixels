@@ -1,7 +1,7 @@
 import type { TVClassName, TVProps } from '@fuf-stack/pixel-utils';
 import type { ReactNode } from 'react';
 
-import { Tab as NextTab, Tabs as NextTabs } from '@heroui/tabs';
+import { Tab as HeroTab, Tabs as HeroTabs } from '@heroui/tabs';
 
 import { tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 
@@ -85,7 +85,7 @@ const Tabs = ({
   const classNames = variantsToClassNames(variants, className, 'base');
 
   return (
-    <NextTabs
+    <HeroTabs
       aria-label={ariaLabel}
       classNames={classNames}
       defaultSelectedKey={defaultSelectedKey}
@@ -102,11 +102,11 @@ const Tabs = ({
       variant={variant}
     >
       {(item) => (
-        <NextTab key={item.key} isDisabled={!!item.disabled} title={item.label}>
+        <HeroTab key={item.key} isDisabled={!!item.disabled} title={item.label}>
           {item.content}
-        </NextTab>
+        </HeroTab>
       )}
-    </NextTabs>
+    </HeroTabs>
   );
 };
 
