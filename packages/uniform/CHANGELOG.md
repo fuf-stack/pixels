@@ -1,5 +1,30 @@
 # Changelog
 
+## [0.16.0](https://github.com/fuf-stack/pixels/compare/uniform-v0.15.0...uniform-v0.16.0) (2025-01-27)
+
+
+### Features
+
+* **tailwind-config,pixels,uniform,pixel-utils:** migrate nextUI to heroUI ([1cb768e](https://github.com/fuf-stack/pixels/commit/1cb768e83f8a2c8589c81886d6f8065b239f855b))
+
+
+### Bug Fixes
+
+* **deps:** update [@nextui](https://github.com/nextui) monorepo ([#661](https://github.com/fuf-stack/pixels/issues/661)) ([adcf767](https://github.com/fuf-stack/pixels/commit/adcf767ab176a2345f969641c398601a76368c9d))
+* **deps:** update dependency @react-aria/visually-hidden to v3.8.19 ([#696](https://github.com/fuf-stack/pixels/issues/696)) ([ed2c4ad](https://github.com/fuf-stack/pixels/commit/ed2c4ad5ce33aad44110b51a2d85dfd38d340c3d))
+* **deps:** update dependency framer-motion to v11.16.0 ([#671](https://github.com/fuf-stack/pixels/issues/671)) ([3b537ba](https://github.com/fuf-stack/pixels/commit/3b537ba370cd27b31c8ced4a6be157347fc86c51))
+* **deps:** update dependency framer-motion to v11.16.1 ([#675](https://github.com/fuf-stack/pixels/issues/675)) ([1850bf4](https://github.com/fuf-stack/pixels/commit/1850bf495a54da52a8e8c6ea5285a08c58279803))
+* **deps:** update dependency framer-motion to v11.16.4 ([#681](https://github.com/fuf-stack/pixels/issues/681)) ([0a01cc4](https://github.com/fuf-stack/pixels/commit/0a01cc48ca4d2f9a6ccd6cf83c20bbb3946d8707))
+* **deps:** update dependency framer-motion to v11.17.0 ([#683](https://github.com/fuf-stack/pixels/issues/683)) ([943c20d](https://github.com/fuf-stack/pixels/commit/943c20df14d50f0dab81c09e5c424513056e997b))
+* **deps:** update dependency framer-motion to v11.18.0 ([#693](https://github.com/fuf-stack/pixels/issues/693)) ([ab02054](https://github.com/fuf-stack/pixels/commit/ab02054fdd69d65e3b144eecfbb1d93cf6f58227))
+* **deps:** update dependency framer-motion to v11.18.1 ([#699](https://github.com/fuf-stack/pixels/issues/699)) ([4b6ceac](https://github.com/fuf-stack/pixels/commit/4b6ceac98527f52b07998ebd37a15142628e0f10))
+* **deps:** update dependency framer-motion to v11.18.2 ([#706](https://github.com/fuf-stack/pixels/issues/706)) ([1e552c9](https://github.com/fuf-stack/pixels/commit/1e552c9d3e6d60f63a916d08eb82f2e82cec6bee))
+* **deps:** update dependency framer-motion to v12 ([b5b0cbb](https://github.com/fuf-stack/pixels/commit/b5b0cbb7454ff015fabb2c31ee4542d6f936ead8))
+* **deps:** update dependency react-select to v5.10.0 ([#723](https://github.com/fuf-stack/pixels/issues/723)) ([696fc13](https://github.com/fuf-stack/pixels/commit/696fc1360d3ce540acf36618fe838c0598b37d58))
+* **pixel-utils:** move slugify from uniform to pixel-utils package ([d60e06e](https://github.com/fuf-stack/pixels/commit/d60e06e4ea43614ac2166fbb1e91331a27b67906))
+* **pixels,uniform:** rename everything from next to hero ([6f5cb9c](https://github.com/fuf-stack/pixels/commit/6f5cb9c4cfeb93ed63a8773475381d36afb6cbde))
+* **uniform:** fix switch not switchable ([16de743](https://github.com/fuf-stack/pixels/commit/16de74314f1212e93c3ed7fc44d98ad8d916594f)), closes [#654](https://github.com/fuf-stack/pixels/issues/654)
+
 ## [0.15.0](https://github.com/fuf-stack/pixels/compare/uniform-v0.14.5...uniform-v0.15.0) (2024-12-29)
 
 
