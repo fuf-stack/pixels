@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.32.4](https://github.com/fuf-stack/pixels/compare/pixels-v0.32.3...pixels-v0.32.4) (2025-01-27)
+
+
+### Bug Fixes
+
+* **deps:** update dependency framer-motion to v12 ([b5b0cbb](https://github.com/fuf-stack/pixels/commit/b5b0cbb7454ff015fabb2c31ee4542d6f936ead8))
+* **pixels,uniform:** rename everything from next to hero ([6f5cb9c](https://github.com/fuf-stack/pixels/commit/6f5cb9c4cfeb93ed63a8773475381d36afb6cbde))
+
 ## [0.32.3](https://github.com/fuf-stack/pixels/compare/pixels-v0.32.2...pixels-v0.32.3) (2025-01-22)
 
 
