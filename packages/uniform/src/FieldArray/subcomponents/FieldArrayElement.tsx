@@ -26,6 +26,8 @@ export type FieldArrayElementMethods = {
 };
 
 interface FieldArrayElementProps extends FieldArrayFeatures {
+  /** Base field name for form context */
+  arrayFieldName: string;
   /** Form elements to render inside array element */
   children: React.ReactNode;
   /** CSS class names for component parts */
@@ -51,8 +53,6 @@ interface FieldArrayElementProps extends FieldArrayFeatures {
   lastNotDeletable?: boolean;
   /** Field array operation methods */
   methods: FieldArrayElementMethods;
-  /** Base field name for form context */
-  name: string;
   /** HTML data-testid attribute used in e2e tests */
   testId?: string;
 }
@@ -62,6 +62,7 @@ interface FieldArrayElementProps extends FieldArrayFeatures {
  * and validation capabilities
  */
 const FieldArrayElement = ({
+  arrayFieldName,
   children,
   className,
   fields,
@@ -70,12 +71,11 @@ const FieldArrayElement = ({
   insertAfter = false,
   lastNotDeletable = true,
   methods,
-  name,
   sortable = false,
   testId = undefined,
 }: FieldArrayElementProps) => {
   const { getFieldState } = useFormContext();
-  const { error, invalid } = getFieldState(`${name}`, undefined);
+  const { error, invalid } = getFieldState(arrayFieldName, undefined);
 
   // TODO: what about input props? and label props? Do we need a label?
   const { getHelperWrapperProps, getErrorMessageProps } = useInput({

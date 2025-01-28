@@ -6,11 +6,17 @@ import type { FieldArrayElementMethods } from './subcomponents/FieldArrayElement
 type VariantProps = TVProps<typeof fieldArrayVariants>;
 type ClassName = TVClassName<typeof fieldArrayVariants>;
 
+/** provided all data and methods to render a field array element */
 export type FieldArrayChildrenRenderFn = (args: {
+  /** index of the current element in the field array */
   index: number;
+  /** total length of the field array */
   length: number;
+  /** methods of the current element to change the field array */
   methods: FieldArrayElementMethods;
+  /** HTML data-testid attribute used in e2e tests of the current element */
   name: string;
+  /** field name of the current element */
   testId: string;
 }) => JSX.Element;
 
@@ -34,8 +40,8 @@ export interface FieldArrayProps extends FieldArrayFeatures, VariantProps {
   elementInitialValue?: unknown;
   /** label of the field array */
   label?: React.ReactNode;
-  /** when true last element can not be deleted and will be shown even if empty */
-  lastElementNotDeletable?: boolean;
+  /** when true (default false) last element can not be removed and will be shown even if field array is empty */
+  lastElementNotRemovable?: boolean;
   /** form field name */
   name: string;
   /** HTML data-testid attribute used in e2e tests */

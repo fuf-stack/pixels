@@ -27,7 +27,7 @@ export const fieldArrayVariants = tv({
 });
 
 /**
- * FieldArray component using TODO
+ * FieldArray component based in [RHF useFieldArray](https://react-hook-form.com/docs/usefieldarray)
  */
 const FieldArray = ({
   appendButtonText = 'Add Element',
@@ -37,7 +37,7 @@ const FieldArray = ({
   elementInitialValue: _elementInitialValue = null,
   insertAfter = false,
   label: _label = undefined,
-  lastElementNotDeletable = true,
+  lastElementNotRemovable = false,
   name,
   sortable = false,
   testId: _testId = undefined,
@@ -77,7 +77,9 @@ const FieldArray = ({
   // TODO: add info
   const elementInitialValue = toNullishString(_elementInitialValue);
 
-  if (lastElementNotDeletable && fields.length === 0) {
+  // When lastElementNotRemovable is set and the field array is empty,
+  // add an initial element to ensure there's always at least one visible element
+  if (lastElementNotRemovable && fields.length === 0) {
     append(elementInitialValue);
   }
 
@@ -113,8 +115,11 @@ const FieldArray = ({
         )}
 
         {fields.map((field, index) => {
+          const elementName = `${name}.${index}`;
+          const elementTestId = `${testId}${index}`;
+
           // create methods for element
-          const methods: FieldArrayElementMethods = {
+          const elementMethods: FieldArrayElementMethods = {
             append: () => append(elementInitialValue),
             duplicate: () => {
               const values = getValues(name);
@@ -126,6 +131,7 @@ const FieldArray = ({
 
           return (
             <FieldArrayElement
+              arrayFieldName={name}
               className={className}
               fields={fields}
               id={field.id}
@@ -133,18 +139,17 @@ const FieldArray = ({
               duplicate={duplicate}
               insertAfter={insertAfter}
               key={field.id}
-              lastNotDeletable={lastElementNotDeletable}
-              methods={methods}
-              name={name}
+              lastNotDeletable={lastElementNotRemovable}
+              methods={elementMethods}
               sortable={sortable}
-              testId={`${testId}_${index}`}
+              testId={elementTestId}
             >
               {children({
                 index,
                 length: fields.length,
-                methods,
-                name: `${name}.${index}`,
-                testId: `${testId}_${index}`,
+                methods: elementMethods,
+                name: elementName,
+                testId: elementTestId,
               })}
             </FieldArrayElement>
           );

@@ -158,12 +158,12 @@ export const Invalid: Story = {
     const appendButton = canvas.getByTestId('arrayfield_append_button');
     appendButton.click();
 
-    const input = canvas.getByTestId('arrayfield_0_name');
+    const input = canvas.getByTestId('arrayfield0_name');
     await userEvent.type(input, 'invälid', {
       delay: 100,
     });
 
-    const inputTwo = canvas.getByTestId('arrayfield_1_name');
+    const inputTwo = canvas.getByTestId('arrayfield1_name');
     await userEvent.type(inputTwo, 'invälid', {
       delay: 100,
     });
@@ -186,7 +186,7 @@ export const Invalid: Story = {
     );
     await expect(errorGlobal).toBeInTheDocument();
 
-    const elementZero = canvas.getByTestId('arrayfield_0');
+    const elementZero = canvas.getByTestId('arrayfield0');
     await expect(elementZero).toContainHTML(
       'Must only contain alphanumeric characters and spaces.',
     );
@@ -194,7 +194,7 @@ export const Invalid: Story = {
       'String must contain at least 8 character(s)',
     );
 
-    const elementOne = canvas.getByTestId('arrayfield_1');
+    const elementOne = canvas.getByTestId('arrayfield1');
     await expect(elementOne).toContainHTML(
       'Must only contain alphanumeric characters and spaces.',
     );
@@ -212,10 +212,10 @@ export const Invalid: Story = {
   },
 };
 
-export const AllowDeleteAllElements: Story = {
+export const LastElementNotRemovable: Story = {
   parameters: {
     formProps: {
-      initialValues: { arrayField: [{}] },
+      initialValues: {},
     },
   },
   args: {
@@ -223,7 +223,7 @@ export const AllowDeleteAllElements: Story = {
     children: ({ name, index }) => (
       <Input name={`${name}.name`} label={`name ${index}`} />
     ),
-    lastElementNotDeletable: false,
+    lastElementNotRemovable: true,
   },
 };
 
@@ -312,8 +312,8 @@ export const Sortable: Story = {
   // play: async ({ canvasElement }) => {
   //   const user = userEvent.setup();
   //   const canvas = within(canvasElement);
-  //   // const fieldArrayItemButton = canvas.getByTestId('arrayfield_1_movebutton');
-  //   // const fieldArray = canvas.getByTestId('arrayfield_0_movebutton');
+  //   // const fieldArrayItemButton = canvas.getByTestId('arrayfield1_movebutton');
+  //   // const fieldArray = canvas.getByTestId('arrayfield0_movebutton');
 
   //   // await fieldArrayItemButton.dispatchEvent(new MouseEvent('mousedown'));
   //   // await new Promise((resolve) => setTimeout(resolve, 2000));
@@ -328,10 +328,10 @@ export const Sortable: Story = {
   //   //   delay: 500,
   //   // });
   //   // const canvas = within(canvasElement);
-  //   // const dropTarget = canvas.getByTestId('arrayfield_1_movebutton');
+  //   // const dropTarget = canvas.getByTestId('arrayfield1_movebutton');
 
   //   await new Promise((resolve) => setTimeout(resolve, 2000));
-  //   const draggable = canvas.getByTestId('arrayfield_0_movebutton');
+  //   const draggable = canvas.getByTestId('arrayfield0_movebutton');
   //   const dropTarget = canvas.getByText('Add');
 
   //   // user.
