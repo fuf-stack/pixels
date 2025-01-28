@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.16.1](https://github.com/fuf-stack/pixels/compare/uniform-v0.16.0...uniform-v0.16.1) (2025-01-28)
+
+
+### Bug Fixes
+
+* **uniform:** fix FieldArray testId + refactor lastElementNotRemovable ([15785d3](https://github.com/fuf-stack/pixels/commit/15785d334328ac7286f805aa05cf8de461233caf))
+
 ## [0.16.0](https://github.com/fuf-stack/pixels/compare/uniform-v0.15.0...uniform-v0.16.0) (2025-01-27)
 
 
