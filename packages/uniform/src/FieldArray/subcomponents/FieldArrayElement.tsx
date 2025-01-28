@@ -32,8 +32,8 @@ interface FieldArrayElementProps extends FieldArrayFeatures {
   children: React.ReactNode;
   /** CSS class names for component parts */
   className: {
-    /** Class of the content of the li */
-    elementContent?: ClassValue;
+    /** Class of wrapper div inside the li that wraps the rendered element fields directly */
+    elementWrapper?: ClassValue;
     /** Class for the li */
     listItem?: ClassValue;
     /** Class for the insert button between elements */
@@ -53,7 +53,7 @@ interface FieldArrayElementProps extends FieldArrayFeatures {
   lastNotDeletable?: boolean;
   /** Field array operation methods */
   methods: FieldArrayElementMethods;
-  /** HTML data-testid attribute used in e2e tests */
+  /** HTML data-testid of the element */
   testId?: string;
 }
 
@@ -114,7 +114,10 @@ const FieldArrayElement = ({
         )}
 
         {/** render element fields */}
-        <div className={cn(className.elementContent)} data-testid={testId}>
+        <div
+          className={cn(className.elementWrapper)}
+          data-testid={`${testId}_element_wrapper`}
+        >
           {children}
         </div>
 

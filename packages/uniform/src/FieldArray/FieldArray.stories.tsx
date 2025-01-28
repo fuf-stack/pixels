@@ -186,7 +186,7 @@ export const Invalid: Story = {
     );
     await expect(errorGlobal).toBeInTheDocument();
 
-    const elementZero = canvas.getByTestId('arrayfield0');
+    const elementZero = canvas.getByTestId('arrayfield0_element_wrapper');
     await expect(elementZero).toContainHTML(
       'Must only contain alphanumeric characters and spaces.',
     );
@@ -194,7 +194,7 @@ export const Invalid: Story = {
       'String must contain at least 8 character(s)',
     );
 
-    const elementOne = canvas.getByTestId('arrayfield1');
+    const elementOne = canvas.getByTestId('arrayfield1_element_wrapper');
     await expect(elementOne).toContainHTML(
       'Must only contain alphanumeric characters and spaces.',
     );
