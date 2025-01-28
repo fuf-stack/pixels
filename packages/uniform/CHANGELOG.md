@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.16.2](https://github.com/fuf-stack/pixels/compare/uniform-v0.16.1...uniform-v0.16.2) (2025-01-28)
+
+
+### Bug Fixes
+
+* **uniform:** refactor testids and slots of FieldArray ([a61b3c0](https://github.com/fuf-stack/pixels/commit/a61b3c00cf2c6b0f14c4de182647829d69a323bc))
+
 ## [0.16.1](https://github.com/fuf-stack/pixels/compare/uniform-v0.16.0...uniform-v0.16.1) (2025-01-28)
 
 
