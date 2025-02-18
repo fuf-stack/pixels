@@ -8,6 +8,7 @@ import { useArgs } from '@storybook/preview-api';
 import { Drawer } from '.';
 import { Button } from '../Button';
 import { Card } from '../Card';
+import { Tabs } from '../Tabs';
 import {
   drawerBackdrops,
   drawerPlacements,
@@ -434,5 +435,29 @@ export const CardWithDrawer: Story = {
         disable: true,
       },
     },
+  },
+};
+
+export const DrawerWithTabs: Story = {
+  render: Template,
+  args: {
+    children: (
+      <Tabs
+        ariaLabel="Top tabs"
+        placement="top"
+        tabs={[
+          {
+            key: '1',
+            label: 'Plan A',
+            content: "When all else fails, this won't work either",
+          },
+          {
+            key: '2',
+            label: 'Plan B',
+            content: 'Same as Plan A, but with more panic',
+          },
+        ]}
+      />
+    ),
   },
 };

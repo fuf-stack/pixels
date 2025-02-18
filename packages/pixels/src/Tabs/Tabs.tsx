@@ -40,6 +40,8 @@ export interface TabsProps extends VariantProps {
   defaultSelectedKey?: string | number;
   /** Whether to destroy inactive tab panel DOM nodes */
   destroyInactiveTabPanel?: boolean;
+  /** Whether the animation should be disabled. */
+  disableAnimation?: boolean;
   /** Array of keys for the tabs to disable */
   disabledKeys?: string[];
   /** Whether tabs should take up full container width */
@@ -70,6 +72,7 @@ const Tabs = ({
   className = undefined,
   defaultSelectedKey = undefined,
   destroyInactiveTabPanel = true,
+  disableAnimation = false,
   disabledKeys = undefined,
   fullWidth = true,
   onSelectionChange = undefined,
@@ -90,6 +93,7 @@ const Tabs = ({
       classNames={classNames}
       defaultSelectedKey={defaultSelectedKey}
       destroyInactiveTabPanel={destroyInactiveTabPanel}
+      disableAnimation={disableAnimation}
       disabledKeys={disabledKeys}
       fullWidth={fullWidth}
       isVertical={vertical}
