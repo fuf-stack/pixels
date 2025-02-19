@@ -1,5 +1,25 @@
 # Changelog
 
+## [0.33.0](https://github.com/fuf-stack/pixels/compare/pixels-v0.32.4...pixels-v0.33.0) (2025-02-19)
+
+
+### Features
+
+* **pixels:** added disableAnimation property to tabs component ([5dbd4b7](https://github.com/fuf-stack/pixels/commit/5dbd4b7a8af9bfa19e167b6f7baacde9bbaa7082))
+
+
+### Bug Fixes
+
+* **deps:** update dependency framer-motion to v12.0.11 ([#734](https://github.com/fuf-stack/pixels/issues/734)) ([1f7c344](https://github.com/fuf-stack/pixels/commit/1f7c34466c5995d01e3507639ffc58085f0e7870))
+* **deps:** update dependency framer-motion to v12.1.0 ([#740](https://github.com/fuf-stack/pixels/issues/740)) ([546c15a](https://github.com/fuf-stack/pixels/commit/546c15ab2cadc6eea3e7e51e5be0e2ae1be20d91))
+* **deps:** update dependency framer-motion to v12.2.0 ([#741](https://github.com/fuf-stack/pixels/issues/741)) ([ba2b031](https://github.com/fuf-stack/pixels/commit/ba2b031884aa86858d87f1dde63ac9fdf51456c9))
+* **deps:** update dependency framer-motion to v12.3.1 ([#743](https://github.com/fuf-stack/pixels/issues/743)) ([a57bc95](https://github.com/fuf-stack/pixels/commit/a57bc95c11dcaa1af535722bfbf4db5a2366fd4d))
+* **deps:** update dependency framer-motion to v12.4.0 ([#744](https://github.com/fuf-stack/pixels/issues/744)) ([1e0843f](https://github.com/fuf-stack/pixels/commit/1e0843fbce285f91c97bfb8ddec86ed1ca570e4b))
+* **deps:** update dependency framer-motion to v12.4.1 ([#746](https://github.com/fuf-stack/pixels/issues/746)) ([ee31453](https://github.com/fuf-stack/pixels/commit/ee31453651f46031ee82352784aeb759f17f87e0))
+* **deps:** update dependency framer-motion to v12.4.2 ([#751](https://github.com/fuf-stack/pixels/issues/751)) ([e27ed5e](https://github.com/fuf-stack/pixels/commit/e27ed5ed1fa770f67703b68402aac7c6a2fbe42e))
+* **deps:** update dependency framer-motion to v12.4.3 ([#761](https://github.com/fuf-stack/pixels/issues/761)) ([32fea4e](https://github.com/fuf-stack/pixels/commit/32fea4ee7c4542b226a4627c252ca1b0c03eed07))
+* **deps:** update dependency framer-motion to v12.4.4 ([#767](https://github.com/fuf-stack/pixels/issues/767)) ([4a8ea8a](https://github.com/fuf-stack/pixels/commit/4a8ea8a23ca3a1682e8683d2a704aa350511fc51))
+
 ## [0.32.4](https://github.com/fuf-stack/pixels/compare/pixels-v0.32.3...pixels-v0.32.4) (2025-01-27)
 
 
