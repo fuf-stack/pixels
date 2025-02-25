@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.33.1](https://github.com/fuf-stack/pixels/compare/pixels-v0.33.0...pixels-v0.33.1) (2025-02-25)
+
+
+### Bug Fixes
+
+* **deps:** update dependency framer-motion to v12.4.5 ([#775](https://github.com/fuf-stack/pixels/issues/775)) ([127826c](https://github.com/fuf-stack/pixels/commit/127826c3d401a9e92981d5480a44a10dc682d96e))
+* **deps:** update dependency framer-motion to v12.4.7 ([#777](https://github.com/fuf-stack/pixels/issues/777)) ([a411247](https://github.com/fuf-stack/pixels/commit/a41124713ff68aa0cb6e79780388fb47ccf81e25))
+* **deps:** update dependency react-icons to v5.5.0 ([#771](https://github.com/fuf-stack/pixels/issues/771)) ([2c84c05](https://github.com/fuf-stack/pixels/commit/2c84c05ee6fdbcb8c64d7819f5d7cc4d4cf2371c))
+
 ## [0.33.0](https://github.com/fuf-stack/pixels/compare/pixels-v0.32.4...pixels-v0.33.0) (2025-02-19)
 
 
