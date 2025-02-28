@@ -17,6 +17,9 @@ rm -rf ./node_modules
 rm -rf ./packages/*/node_modules
 rm -rf ./packages/config/*/node_modules
 
+echo "$(date) - Removing turbo cache..."
+rm -rf ./.turbo-cache
+
 echo "$(date) - Removing other files..."
 find . -name ".pnpm-debug.log" -type f -prune -exec rm -rf "{}" \;
 find . -name "lerna-debug.log" -type f -prune -exec rm -rf "{}" \;
