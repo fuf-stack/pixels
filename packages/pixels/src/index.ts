@@ -7,6 +7,7 @@ export * from './AvatarGroup';
 export * from './Badge';
 export * from './Breadcrumb';
 export * from './Button';
+export * from './ButtonGroup';
 export * from './Card';
 export * from './Drawer';
 export * from './Json';

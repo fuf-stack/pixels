@@ -16,15 +16,18 @@ exports[`Story Snapshots > AllDisabled 1`] = `
     <div
       class="opacity-disabled pointer-events-none"
       data-disabled="true"
+      data-slot="base"
     >
       <h2
         class="px-4"
         data-disabled="true"
+        data-slot="heading"
       >
         <button
           aria-expanded="false"
           class="flex py-4 w-full h-full gap-3 items-center tap-highlight-transparent outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 transition-opacity"
           data-disabled="true"
+          data-slot="trigger"
           disabled=""
           id=":r1a:"
           type="button"
@@ -35,6 +38,7 @@ exports[`Story Snapshots > AllDisabled 1`] = `
             <span
               class="text-foreground text-medium"
               data-disabled="true"
+              data-slot="title"
             >
               1.
             </span>
@@ -43,6 +47,7 @@ exports[`Story Snapshots > AllDisabled 1`] = `
             aria-hidden="true"
             class="text-default-400 transition-transform rotate-0 data-[open=true]:-rotate-90 rtl:-rotate-180 rtl:data-[open=true]:-rotate-90"
             data-disabled="true"
+            data-slot="indicator"
           >
             <svg
               aria-hidden="true"
@@ -68,15 +73,18 @@ exports[`Story Snapshots > AllDisabled 1`] = `
     <div
       class="opacity-disabled pointer-events-none"
       data-disabled="true"
+      data-slot="base"
     >
       <h2
         class="px-4"
         data-disabled="true"
+        data-slot="heading"
       >
         <button
           aria-expanded="false"
           class="flex py-4 w-full h-full gap-3 items-center tap-highlight-transparent outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 transition-opacity"
           data-disabled="true"
+          data-slot="trigger"
           disabled=""
           id=":r1c:"
           type="button"
@@ -87,6 +95,7 @@ exports[`Story Snapshots > AllDisabled 1`] = `
             <span
               class="text-foreground text-medium"
               data-disabled="true"
+              data-slot="title"
             >
               2.
             </span>
@@ -95,6 +104,7 @@ exports[`Story Snapshots > AllDisabled 1`] = `
             aria-hidden="true"
             class="text-default-400 transition-transform rotate-0 data-[open=true]:-rotate-90 rtl:-rotate-180 rtl:data-[open=true]:-rotate-90"
             data-disabled="true"
+            data-slot="indicator"
           >
             <svg
               aria-hidden="true"
@@ -120,15 +130,18 @@ exports[`Story Snapshots > AllDisabled 1`] = `
     <div
       class="opacity-disabled pointer-events-none"
       data-disabled="true"
+      data-slot="base"
     >
       <h2
         class="px-4"
         data-disabled="true"
+        data-slot="heading"
       >
         <button
           aria-expanded="false"
           class="flex py-4 w-full h-full gap-3 items-center tap-highlight-transparent outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 transition-opacity"
           data-disabled="true"
+          data-slot="trigger"
           disabled=""
           id=":r1e:"
           type="button"
@@ -139,6 +152,7 @@ exports[`Story Snapshots > AllDisabled 1`] = `
             <span
               class="text-foreground text-medium"
               data-disabled="true"
+              data-slot="title"
             >
               3.
             </span>
@@ -147,6 +161,7 @@ exports[`Story Snapshots > AllDisabled 1`] = `
             aria-hidden="true"
             class="text-default-400 transition-transform rotate-0 data-[open=true]:-rotate-90 rtl:-rotate-180 rtl:data-[open=true]:-rotate-90"
             data-disabled="true"
+            data-slot="indicator"
           >
             <svg
               aria-hidden="true"
@@ -182,13 +197,17 @@ exports[`Story Snapshots > AllVariants 1`] = `
       class="w-full px-0 divide-y divide-solid divide-divider border-b border-t border-solid border-divider mb-12"
       data-orientation="vertical"
     >
-      <div>
+      <div
+        data-slot="base"
+      >
         <h2
           class="px-4"
+          data-slot="heading"
         >
           <button
             aria-expanded="false"
             class="flex py-4 w-full h-full gap-3 items-center tap-highlight-transparent outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 transition-opacity"
+            data-slot="trigger"
             id=":rc:"
             type="button"
           >
@@ -197,6 +216,7 @@ exports[`Story Snapshots > AllVariants 1`] = `
             >
               <span
                 class="text-foreground text-medium"
+                data-slot="title"
               >
                 1.
               </span>
@@ -204,6 +224,7 @@ exports[`Story Snapshots > AllVariants 1`] = `
             <span
               aria-hidden="true"
               class="text-default-400 transition-transform rotate-0 data-[open=true]:-rotate-90 rtl:-rotate-180 rtl:data-[open=true]:-rotate-90"
+              data-slot="indicator"
             >
               <svg
                 aria-hidden="true"
@@ -226,13 +247,17 @@ exports[`Story Snapshots > AllVariants 1`] = `
           </button>
         </h2>
       </div>
-      <div>
+      <div
+        data-slot="base"
+      >
         <h2
           class="px-4"
+          data-slot="heading"
         >
           <button
             aria-expanded="false"
             class="flex py-4 w-full h-full gap-3 items-center tap-highlight-transparent outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 transition-opacity"
+            data-slot="trigger"
             id=":re:"
             type="button"
           >
@@ -241,6 +266,7 @@ exports[`Story Snapshots > AllVariants 1`] = `
             >
               <span
                 class="text-foreground text-medium"
+                data-slot="title"
               >
                 2.
               </span>
@@ -248,6 +274,7 @@ exports[`Story Snapshots > AllVariants 1`] = `
             <span
               aria-hidden="true"
               class="text-default-400 transition-transform rotate-0 data-[open=true]:-rotate-90 rtl:-rotate-180 rtl:data-[open=true]:-rotate-90"
+              data-slot="indicator"
             >
               <svg
                 aria-hidden="true"
@@ -270,13 +297,17 @@ exports[`Story Snapshots > AllVariants 1`] = `
           </button>
         </h2>
       </div>
-      <div>
+      <div
+        data-slot="base"
+      >
         <h2
           class="px-4"
+          data-slot="heading"
         >
           <button
             aria-expanded="false"
             class="flex py-4 w-full h-full gap-3 items-center tap-highlight-transparent outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 transition-opacity"
+            data-slot="trigger"
             id=":rg:"
             type="button"
           >
@@ -285,6 +316,7 @@ exports[`Story Snapshots > AllVariants 1`] = `
             >
               <span
                 class="text-foreground text-medium"
+                data-slot="title"
               >
                 3.
               </span>
@@ -292,6 +324,7 @@ exports[`Story Snapshots > AllVariants 1`] = `
             <span
               aria-hidden="true"
               class="text-default-400 transition-transform rotate-0 data-[open=true]:-rotate-90 rtl:-rotate-180 rtl:data-[open=true]:-rotate-90"
+              data-slot="indicator"
             >
               <svg
                 aria-hidden="true"
@@ -319,13 +352,17 @@ exports[`Story Snapshots > AllVariants 1`] = `
       class="shadow-medium rounded-medium bg-content1 w-full px-0 divide-y divide-solid divide-divider mb-12"
       data-orientation="vertical"
     >
-      <div>
+      <div
+        data-slot="base"
+      >
         <h2
           class="px-4"
+          data-slot="heading"
         >
           <button
             aria-expanded="false"
             class="flex py-4 w-full h-full gap-3 items-center tap-highlight-transparent outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 transition-opacity"
+            data-slot="trigger"
             id=":ri:"
             type="button"
           >
@@ -334,6 +371,7 @@ exports[`Story Snapshots > AllVariants 1`] = `
             >
               <span
                 class="text-foreground text-medium"
+                data-slot="title"
               >
                 1.
               </span>
@@ -341,6 +379,7 @@ exports[`Story Snapshots > AllVariants 1`] = `
             <span
               aria-hidden="true"
               class="text-default-400 transition-transform rotate-0 data-[open=true]:-rotate-90 rtl:-rotate-180 rtl:data-[open=true]:-rotate-90"
+              data-slot="indicator"
             >
               <svg
                 aria-hidden="true"
@@ -363,13 +402,17 @@ exports[`Story Snapshots > AllVariants 1`] = `
           </button>
         </h2>
       </div>
-      <div>
+      <div
+        data-slot="base"
+      >
         <h2
           class="px-4"
+          data-slot="heading"
         >
           <button
             aria-expanded="false"
             class="flex py-4 w-full h-full gap-3 items-center tap-highlight-transparent outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 transition-opacity"
+            data-slot="trigger"
             id=":rk:"
             type="button"
           >
@@ -378,6 +421,7 @@ exports[`Story Snapshots > AllVariants 1`] = `
             >
               <span
                 class="text-foreground text-medium"
+                data-slot="title"
               >
                 2.
               </span>
@@ -385,6 +429,7 @@ exports[`Story Snapshots > AllVariants 1`] = `
             <span
               aria-hidden="true"
               class="text-default-400 transition-transform rotate-0 data-[open=true]:-rotate-90 rtl:-rotate-180 rtl:data-[open=true]:-rotate-90"
+              data-slot="indicator"
             >
               <svg
                 aria-hidden="true"
@@ -407,13 +452,17 @@ exports[`Story Snapshots > AllVariants 1`] = `
           </button>
         </h2>
       </div>
-      <div>
+      <div
+        data-slot="base"
+      >
         <h2
           class="px-4"
+          data-slot="heading"
         >
           <button
             aria-expanded="false"
             class="flex py-4 w-full h-full gap-3 items-center tap-highlight-transparent outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 transition-opacity"
+            data-slot="trigger"
             id=":rm:"
             type="button"
           >
@@ -422,6 +471,7 @@ exports[`Story Snapshots > AllVariants 1`] = `
             >
               <span
                 class="text-foreground text-medium"
+                data-slot="title"
               >
                 3.
               </span>
@@ -429,6 +479,7 @@ exports[`Story Snapshots > AllVariants 1`] = `
             <span
               aria-hidden="true"
               class="text-default-400 transition-transform rotate-0 data-[open=true]:-rotate-90 rtl:-rotate-180 rtl:data-[open=true]:-rotate-90"
+              data-slot="indicator"
             >
               <svg
                 aria-hidden="true"
@@ -456,13 +507,17 @@ exports[`Story Snapshots > AllVariants 1`] = `
       class="border-medium border-divider rounded-medium w-full px-0 divide-y divide-solid divide-divider mb-12"
       data-orientation="vertical"
     >
-      <div>
+      <div
+        data-slot="base"
+      >
         <h2
           class="px-4"
+          data-slot="heading"
         >
           <button
             aria-expanded="false"
             class="flex py-4 w-full h-full gap-3 items-center tap-highlight-transparent outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 transition-opacity"
+            data-slot="trigger"
             id=":ro:"
             type="button"
           >
@@ -471,6 +526,7 @@ exports[`Story Snapshots > AllVariants 1`] = `
             >
               <span
                 class="text-foreground text-medium"
+                data-slot="title"
               >
                 1.
               </span>
@@ -478,6 +534,7 @@ exports[`Story Snapshots > AllVariants 1`] = `
             <span
               aria-hidden="true"
               class="text-default-400 transition-transform rotate-0 data-[open=true]:-rotate-90 rtl:-rotate-180 rtl:data-[open=true]:-rotate-90"
+              data-slot="indicator"
             >
               <svg
                 aria-hidden="true"
@@ -500,13 +557,17 @@ exports[`Story Snapshots > AllVariants 1`] = `
           </button>
         </h2>
       </div>
-      <div>
+      <div
+        data-slot="base"
+      >
         <h2
           class="px-4"
+          data-slot="heading"
         >
           <button
             aria-expanded="false"
             class="flex py-4 w-full h-full gap-3 items-center tap-highlight-transparent outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 transition-opacity"
+            data-slot="trigger"
             id=":rq:"
             type="button"
           >
@@ -515,6 +576,7 @@ exports[`Story Snapshots > AllVariants 1`] = `
             >
               <span
                 class="text-foreground text-medium"
+                data-slot="title"
               >
                 2.
               </span>
@@ -522,6 +584,7 @@ exports[`Story Snapshots > AllVariants 1`] = `
             <span
               aria-hidden="true"
               class="text-default-400 transition-transform rotate-0 data-[open=true]:-rotate-90 rtl:-rotate-180 rtl:data-[open=true]:-rotate-90"
+              data-slot="indicator"
             >
               <svg
                 aria-hidden="true"
@@ -544,13 +607,17 @@ exports[`Story Snapshots > AllVariants 1`] = `
           </button>
         </h2>
       </div>
-      <div>
+      <div
+        data-slot="base"
+      >
         <h2
           class="px-4"
+          data-slot="heading"
         >
           <button
             aria-expanded="false"
             class="flex py-4 w-full h-full gap-3 items-center tap-highlight-transparent outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 transition-opacity"
+            data-slot="trigger"
             id=":rs:"
             type="button"
           >
@@ -559,6 +626,7 @@ exports[`Story Snapshots > AllVariants 1`] = `
             >
               <span
                 class="text-foreground text-medium"
+                data-slot="title"
               >
                 3.
               </span>
@@ -566,6 +634,7 @@ exports[`Story Snapshots > AllVariants 1`] = `
             <span
               aria-hidden="true"
               class="text-default-400 transition-transform rotate-0 data-[open=true]:-rotate-90 rtl:-rotate-180 rtl:data-[open=true]:-rotate-90"
+              data-slot="indicator"
             >
               <svg
                 aria-hidden="true"
@@ -595,13 +664,16 @@ exports[`Story Snapshots > AllVariants 1`] = `
     >
       <div
         class="px-4 bg-content1 shadow-medium rounded-medium"
+        data-slot="base"
       >
         <h2
           class="px-4"
+          data-slot="heading"
         >
           <button
             aria-expanded="false"
             class="flex py-4 w-full h-full gap-3 items-center tap-highlight-transparent outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 transition-opacity"
+            data-slot="trigger"
             id=":ru:"
             type="button"
           >
@@ -610,6 +682,7 @@ exports[`Story Snapshots > AllVariants 1`] = `
             >
               <span
                 class="text-foreground text-medium"
+                data-slot="title"
               >
                 1.
               </span>
@@ -617,6 +690,7 @@ exports[`Story Snapshots > AllVariants 1`] = `
             <span
               aria-hidden="true"
               class="text-default-400 transition-transform rotate-0 data-[open=true]:-rotate-90 rtl:-rotate-180 rtl:data-[open=true]:-rotate-90"
+              data-slot="indicator"
             >
               <svg
                 aria-hidden="true"
@@ -641,13 +715,16 @@ exports[`Story Snapshots > AllVariants 1`] = `
       </div>
       <div
         class="px-4 bg-content1 shadow-medium rounded-medium"
+        data-slot="base"
       >
         <h2
           class="px-4"
+          data-slot="heading"
         >
           <button
             aria-expanded="false"
             class="flex py-4 w-full h-full gap-3 items-center tap-highlight-transparent outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 transition-opacity"
+            data-slot="trigger"
             id=":r10:"
             type="button"
           >
@@ -656,6 +733,7 @@ exports[`Story Snapshots > AllVariants 1`] = `
             >
               <span
                 class="text-foreground text-medium"
+                data-slot="title"
               >
                 2.
               </span>
@@ -663,6 +741,7 @@ exports[`Story Snapshots > AllVariants 1`] = `
             <span
               aria-hidden="true"
               class="text-default-400 transition-transform rotate-0 data-[open=true]:-rotate-90 rtl:-rotate-180 rtl:data-[open=true]:-rotate-90"
+              data-slot="indicator"
             >
               <svg
                 aria-hidden="true"
@@ -687,13 +766,16 @@ exports[`Story Snapshots > AllVariants 1`] = `
       </div>
       <div
         class="px-4 bg-content1 shadow-medium rounded-medium"
+        data-slot="base"
       >
         <h2
           class="px-4"
+          data-slot="heading"
         >
           <button
             aria-expanded="false"
             class="flex py-4 w-full h-full gap-3 items-center tap-highlight-transparent outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 transition-opacity"
+            data-slot="trigger"
             id=":r12:"
             type="button"
           >
@@ -702,6 +784,7 @@ exports[`Story Snapshots > AllVariants 1`] = `
             >
               <span
                 class="text-foreground text-medium"
+                data-slot="title"
               >
                 3.
               </span>
@@ -709,6 +792,7 @@ exports[`Story Snapshots > AllVariants 1`] = `
             <span
               aria-hidden="true"
               class="text-default-400 transition-transform rotate-0 data-[open=true]:-rotate-90 rtl:-rotate-180 rtl:data-[open=true]:-rotate-90"
+              data-slot="indicator"
             >
               <svg
                 aria-hidden="true"
@@ -744,13 +828,16 @@ exports[`Story Snapshots > CustomStyles 1`] = `
   >
     <div
       class="py-0"
+      data-slot="base"
     >
       <h2
         class="px-4"
+        data-slot="heading"
       >
         <button
           aria-expanded="false"
           class="w-full gap-3 tap-highlight-transparent outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 transition-opacity py-0 data-[hover=true]:bg-blue-100 rounded-lg h-14 flex items-center"
+          data-slot="trigger"
           id=":r23:"
           type="button"
         >
@@ -759,6 +846,7 @@ exports[`Story Snapshots > CustomStyles 1`] = `
           >
             <span
               class="text-foreground font-normal text-medium"
+              data-slot="title"
             >
               1.
             </span>
@@ -766,6 +854,7 @@ exports[`Story Snapshots > CustomStyles 1`] = `
           <span
             aria-hidden="true"
             class="text-default-400 transition-transform rtl:-rotate-180 rtl:data-[open=true]:-rotate-90 text-medium rotate-180 data-[open=true]:rotate-90"
+            data-slot="indicator"
           >
             <svg
               aria-hidden="true"
@@ -790,13 +879,16 @@ exports[`Story Snapshots > CustomStyles 1`] = `
     </div>
     <div
       class="py-0"
+      data-slot="base"
     >
       <h2
         class="px-4"
+        data-slot="heading"
       >
         <button
           aria-expanded="false"
           class="w-full gap-3 tap-highlight-transparent outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 transition-opacity py-0 data-[hover=true]:bg-blue-100 rounded-lg h-14 flex items-center"
+          data-slot="trigger"
           id=":r25:"
           type="button"
         >
@@ -805,6 +897,7 @@ exports[`Story Snapshots > CustomStyles 1`] = `
           >
             <span
               class="text-foreground font-normal text-medium"
+              data-slot="title"
             >
               2.
             </span>
@@ -812,6 +905,7 @@ exports[`Story Snapshots > CustomStyles 1`] = `
           <span
             aria-hidden="true"
             class="text-default-400 transition-transform rtl:-rotate-180 rtl:data-[open=true]:-rotate-90 text-medium rotate-180 data-[open=true]:rotate-90"
+            data-slot="indicator"
           >
             <svg
               aria-hidden="true"
@@ -836,13 +930,16 @@ exports[`Story Snapshots > CustomStyles 1`] = `
     </div>
     <div
       class="py-0"
+      data-slot="base"
     >
       <h2
         class="px-4"
+        data-slot="heading"
       >
         <button
           aria-expanded="false"
           class="w-full gap-3 tap-highlight-transparent outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 transition-opacity py-0 data-[hover=true]:bg-blue-100 rounded-lg h-14 flex items-center"
+          data-slot="trigger"
           id=":r27:"
           type="button"
         >
@@ -851,6 +948,7 @@ exports[`Story Snapshots > CustomStyles 1`] = `
           >
             <span
               class="text-foreground font-normal text-medium"
+              data-slot="title"
             >
               3.
             </span>
@@ -858,6 +956,7 @@ exports[`Story Snapshots > CustomStyles 1`] = `
           <span
             aria-hidden="true"
             class="text-default-400 transition-transform rtl:-rotate-180 rtl:data-[open=true]:-rotate-90 text-medium rotate-180 data-[open=true]:rotate-90"
+            data-slot="indicator"
           >
             <svg
               aria-hidden="true"
@@ -890,13 +989,17 @@ exports[`Story Snapshots > Default 1`] = `
     class="px-0 divide-y divide-solid divide-divider border-b border-t border-solid border-divider w-96"
     data-orientation="vertical"
   >
-    <div>
+    <div
+      data-slot="base"
+    >
       <h2
         class="px-4"
+        data-slot="heading"
       >
         <button
           aria-expanded="false"
           class="flex py-4 w-full h-full gap-3 items-center tap-highlight-transparent outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 transition-opacity"
+          data-slot="trigger"
           id=":r0:"
           type="button"
         >
@@ -905,6 +1008,7 @@ exports[`Story Snapshots > Default 1`] = `
           >
             <span
               class="text-foreground text-medium"
+              data-slot="title"
             >
               1.
             </span>
@@ -912,6 +1016,7 @@ exports[`Story Snapshots > Default 1`] = `
           <span
             aria-hidden="true"
             class="text-default-400 transition-transform rotate-0 data-[open=true]:-rotate-90 rtl:-rotate-180 rtl:data-[open=true]:-rotate-90"
+            data-slot="indicator"
           >
             <svg
               aria-hidden="true"
@@ -934,13 +1039,17 @@ exports[`Story Snapshots > Default 1`] = `
         </button>
       </h2>
     </div>
-    <div>
+    <div
+      data-slot="base"
+    >
       <h2
         class="px-4"
+        data-slot="heading"
       >
         <button
           aria-expanded="false"
           class="flex py-4 w-full h-full gap-3 items-center tap-highlight-transparent outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 transition-opacity"
+          data-slot="trigger"
           id=":r2:"
           type="button"
         >
@@ -949,6 +1058,7 @@ exports[`Story Snapshots > Default 1`] = `
           >
             <span
               class="text-foreground text-medium"
+              data-slot="title"
             >
               2.
             </span>
@@ -956,6 +1066,7 @@ exports[`Story Snapshots > Default 1`] = `
           <span
             aria-hidden="true"
             class="text-default-400 transition-transform rotate-0 data-[open=true]:-rotate-90 rtl:-rotate-180 rtl:data-[open=true]:-rotate-90"
+            data-slot="indicator"
           >
             <svg
               aria-hidden="true"
@@ -978,13 +1089,17 @@ exports[`Story Snapshots > Default 1`] = `
         </button>
       </h2>
     </div>
-    <div>
+    <div
+      data-slot="base"
+    >
       <h2
         class="px-4"
+        data-slot="heading"
       >
         <button
           aria-expanded="false"
           class="flex py-4 w-full h-full gap-3 items-center tap-highlight-transparent outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 transition-opacity"
+          data-slot="trigger"
           id=":r4:"
           type="button"
         >
@@ -993,6 +1108,7 @@ exports[`Story Snapshots > Default 1`] = `
           >
             <span
               class="text-foreground text-medium"
+              data-slot="title"
             >
               3.
             </span>
@@ -1000,6 +1116,7 @@ exports[`Story Snapshots > Default 1`] = `
           <span
             aria-hidden="true"
             class="text-default-400 transition-transform rotate-0 data-[open=true]:-rotate-90 rtl:-rotate-180 rtl:data-[open=true]:-rotate-90"
+            data-slot="indicator"
           >
             <svg
               aria-hidden="true"
@@ -1032,13 +1149,17 @@ exports[`Story Snapshots > DefaultOpen 1`] = `
     class="px-0 divide-y divide-solid divide-divider border-b border-t border-solid border-divider w-96"
     data-orientation="vertical"
   >
-    <div>
+    <div
+      data-slot="base"
+    >
       <h2
         class="px-4"
+        data-slot="heading"
       >
         <button
           aria-expanded="false"
           class="flex py-4 w-full h-full gap-3 items-center tap-highlight-transparent outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 transition-opacity"
+          data-slot="trigger"
           id=":r1m:"
           type="button"
         >
@@ -1047,6 +1168,7 @@ exports[`Story Snapshots > DefaultOpen 1`] = `
           >
             <span
               class="text-foreground text-medium"
+              data-slot="title"
             >
               1.
             </span>
@@ -1054,6 +1176,7 @@ exports[`Story Snapshots > DefaultOpen 1`] = `
           <span
             aria-hidden="true"
             class="text-default-400 transition-transform rotate-0 data-[open=true]:-rotate-90 rtl:-rotate-180 rtl:data-[open=true]:-rotate-90"
+            data-slot="indicator"
           >
             <svg
               aria-hidden="true"
@@ -1078,16 +1201,19 @@ exports[`Story Snapshots > DefaultOpen 1`] = `
     </div>
     <div
       data-open="true"
+      data-slot="base"
     >
       <h2
         class="px-4"
         data-open="true"
+        data-slot="heading"
       >
         <button
           aria-controls=":r1p:"
           aria-expanded="true"
           class="flex py-4 w-full h-full gap-3 items-center tap-highlight-transparent outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 transition-opacity"
           data-open="true"
+          data-slot="trigger"
           id=":r1o:"
           type="button"
         >
@@ -1097,6 +1223,7 @@ exports[`Story Snapshots > DefaultOpen 1`] = `
             <span
               class="text-foreground text-medium"
               data-open="true"
+              data-slot="title"
             >
               2.
             </span>
@@ -1105,6 +1232,7 @@ exports[`Story Snapshots > DefaultOpen 1`] = `
             aria-hidden="true"
             class="text-default-400 transition-transform rotate-0 data-[open=true]:-rotate-90 rtl:-rotate-180 rtl:data-[open=true]:-rotate-90"
             data-open="true"
+            data-slot="indicator"
           >
             <svg
               aria-hidden="true"
@@ -1133,6 +1261,7 @@ exports[`Story Snapshots > DefaultOpen 1`] = `
           aria-labelledby=":r1o:"
           class="py-2 px-4"
           data-open="true"
+          data-slot="content"
           id=":r1p:"
           role="region"
         >
@@ -1142,13 +1271,17 @@ exports[`Story Snapshots > DefaultOpen 1`] = `
         </div>
       </section>
     </div>
-    <div>
+    <div
+      data-slot="base"
+    >
       <h2
         class="px-4"
+        data-slot="heading"
       >
         <button
           aria-expanded="false"
           class="flex py-4 w-full h-full gap-3 items-center tap-highlight-transparent outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 transition-opacity"
+          data-slot="trigger"
           id=":r1r:"
           type="button"
         >
@@ -1157,6 +1290,7 @@ exports[`Story Snapshots > DefaultOpen 1`] = `
           >
             <span
               class="text-foreground text-medium"
+              data-slot="title"
             >
               3.
             </span>
@@ -1164,6 +1298,7 @@ exports[`Story Snapshots > DefaultOpen 1`] = `
           <span
             aria-hidden="true"
             class="text-default-400 transition-transform rotate-0 data-[open=true]:-rotate-90 rtl:-rotate-180 rtl:data-[open=true]:-rotate-90"
+            data-slot="indicator"
           >
             <svg
               aria-hidden="true"
@@ -1196,13 +1331,17 @@ exports[`Story Snapshots > IndicatorLeft 1`] = `
     class="px-0 divide-y divide-solid divide-divider border-b border-t border-solid border-divider w-96"
     data-orientation="vertical"
   >
-    <div>
+    <div
+      data-slot="base"
+    >
       <h2
         class="px-4"
+        data-slot="heading"
       >
         <button
           aria-expanded="false"
           class="flex py-4 w-full h-full gap-3 items-center tap-highlight-transparent outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 transition-opacity flex-row-reverse"
+          data-slot="trigger"
           id=":r1t:"
           type="button"
         >
@@ -1211,6 +1350,7 @@ exports[`Story Snapshots > IndicatorLeft 1`] = `
           >
             <span
               class="text-foreground text-medium"
+              data-slot="title"
             >
               1.
             </span>
@@ -1218,6 +1358,7 @@ exports[`Story Snapshots > IndicatorLeft 1`] = `
           <span
             aria-hidden="true"
             class="text-default-400 transition-transform rtl:-rotate-180 rtl:data-[open=true]:-rotate-90 -rotate-180 data-[open=true]:-rotate-90"
+            data-slot="indicator"
           >
             <svg
               aria-hidden="true"
@@ -1240,13 +1381,17 @@ exports[`Story Snapshots > IndicatorLeft 1`] = `
         </button>
       </h2>
     </div>
-    <div>
+    <div
+      data-slot="base"
+    >
       <h2
         class="px-4"
+        data-slot="heading"
       >
         <button
           aria-expanded="false"
           class="flex py-4 w-full h-full gap-3 items-center tap-highlight-transparent outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 transition-opacity flex-row-reverse"
+          data-slot="trigger"
           id=":r1v:"
           type="button"
         >
@@ -1255,6 +1400,7 @@ exports[`Story Snapshots > IndicatorLeft 1`] = `
           >
             <span
               class="text-foreground text-medium"
+              data-slot="title"
             >
               2.
             </span>
@@ -1262,6 +1408,7 @@ exports[`Story Snapshots > IndicatorLeft 1`] = `
           <span
             aria-hidden="true"
             class="text-default-400 transition-transform rtl:-rotate-180 rtl:data-[open=true]:-rotate-90 -rotate-180 data-[open=true]:-rotate-90"
+            data-slot="indicator"
           >
             <svg
               aria-hidden="true"
@@ -1284,13 +1431,17 @@ exports[`Story Snapshots > IndicatorLeft 1`] = `
         </button>
       </h2>
     </div>
-    <div>
+    <div
+      data-slot="base"
+    >
       <h2
         class="px-4"
+        data-slot="heading"
       >
         <button
           aria-expanded="false"
           class="flex py-4 w-full h-full gap-3 items-center tap-highlight-transparent outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 transition-opacity flex-row-reverse"
+          data-slot="trigger"
           id=":r21:"
           type="button"
         >
@@ -1299,6 +1450,7 @@ exports[`Story Snapshots > IndicatorLeft 1`] = `
           >
             <span
               class="text-foreground text-medium"
+              data-slot="title"
             >
               3.
             </span>
@@ -1306,6 +1458,7 @@ exports[`Story Snapshots > IndicatorLeft 1`] = `
           <span
             aria-hidden="true"
             class="text-default-400 transition-transform rtl:-rotate-180 rtl:data-[open=true]:-rotate-90 -rotate-180 data-[open=true]:-rotate-90"
+            data-slot="indicator"
           >
             <svg
               aria-hidden="true"
@@ -1338,13 +1491,17 @@ exports[`Story Snapshots > OnlySingleSelection 1`] = `
     class="px-0 divide-y divide-solid divide-divider border-b border-t border-solid border-divider w-96"
     data-orientation="vertical"
   >
-    <div>
+    <div
+      data-slot="base"
+    >
       <h2
         class="px-4"
+        data-slot="heading"
       >
         <button
           aria-expanded="false"
           class="flex py-4 w-full h-full gap-3 items-center tap-highlight-transparent outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 transition-opacity"
+          data-slot="trigger"
           id=":r14:"
           type="button"
         >
@@ -1353,6 +1510,7 @@ exports[`Story Snapshots > OnlySingleSelection 1`] = `
           >
             <span
               class="text-foreground text-medium"
+              data-slot="title"
             >
               1.
             </span>
@@ -1360,6 +1518,7 @@ exports[`Story Snapshots > OnlySingleSelection 1`] = `
           <span
             aria-hidden="true"
             class="text-default-400 transition-transform rotate-0 data-[open=true]:-rotate-90 rtl:-rotate-180 rtl:data-[open=true]:-rotate-90"
+            data-slot="indicator"
           >
             <svg
               aria-hidden="true"
@@ -1382,13 +1541,17 @@ exports[`Story Snapshots > OnlySingleSelection 1`] = `
         </button>
       </h2>
     </div>
-    <div>
+    <div
+      data-slot="base"
+    >
       <h2
         class="px-4"
+        data-slot="heading"
       >
         <button
           aria-expanded="false"
           class="flex py-4 w-full h-full gap-3 items-center tap-highlight-transparent outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 transition-opacity"
+          data-slot="trigger"
           id=":r16:"
           type="button"
         >
@@ -1397,6 +1560,7 @@ exports[`Story Snapshots > OnlySingleSelection 1`] = `
           >
             <span
               class="text-foreground text-medium"
+              data-slot="title"
             >
               2.
             </span>
@@ -1404,6 +1568,7 @@ exports[`Story Snapshots > OnlySingleSelection 1`] = `
           <span
             aria-hidden="true"
             class="text-default-400 transition-transform rotate-0 data-[open=true]:-rotate-90 rtl:-rotate-180 rtl:data-[open=true]:-rotate-90"
+            data-slot="indicator"
           >
             <svg
               aria-hidden="true"
@@ -1426,13 +1591,17 @@ exports[`Story Snapshots > OnlySingleSelection 1`] = `
         </button>
       </h2>
     </div>
-    <div>
+    <div
+      data-slot="base"
+    >
       <h2
         class="px-4"
+        data-slot="heading"
       >
         <button
           aria-expanded="false"
           class="flex py-4 w-full h-full gap-3 items-center tap-highlight-transparent outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 transition-opacity"
+          data-slot="trigger"
           id=":r18:"
           type="button"
         >
@@ -1441,6 +1610,7 @@ exports[`Story Snapshots > OnlySingleSelection 1`] = `
           >
             <span
               class="text-foreground text-medium"
+              data-slot="title"
             >
               3.
             </span>
@@ -1448,6 +1618,7 @@ exports[`Story Snapshots > OnlySingleSelection 1`] = `
           <span
             aria-hidden="true"
             class="text-default-400 transition-transform rotate-0 data-[open=true]:-rotate-90 rtl:-rotate-180 rtl:data-[open=true]:-rotate-90"
+            data-slot="indicator"
           >
             <svg
               aria-hidden="true"
@@ -1483,16 +1654,19 @@ exports[`Story Snapshots > SomeDisabled 1`] = `
     <div
       class="opacity-disabled pointer-events-none"
       data-disabled="true"
+      data-slot="base"
       disabled=""
     >
       <h2
         class="px-4"
         data-disabled="true"
+        data-slot="heading"
       >
         <button
           aria-expanded="false"
           class="flex py-4 w-full h-full gap-3 items-center tap-highlight-transparent outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 transition-opacity"
           data-disabled="true"
+          data-slot="trigger"
           disabled=""
           id=":r1g:"
           type="button"
@@ -1503,6 +1677,7 @@ exports[`Story Snapshots > SomeDisabled 1`] = `
             <span
               class="text-foreground text-medium"
               data-disabled="true"
+              data-slot="title"
             >
               1.
             </span>
@@ -1511,6 +1686,7 @@ exports[`Story Snapshots > SomeDisabled 1`] = `
             aria-hidden="true"
             class="text-default-400 transition-transform rotate-0 data-[open=true]:-rotate-90 rtl:-rotate-180 rtl:data-[open=true]:-rotate-90"
             data-disabled="true"
+            data-slot="indicator"
           >
             <svg
               aria-hidden="true"
@@ -1536,15 +1712,18 @@ exports[`Story Snapshots > SomeDisabled 1`] = `
     <div
       class="opacity-disabled pointer-events-none"
       data-disabled="true"
+      data-slot="base"
     >
       <h2
         class="px-4"
         data-disabled="true"
+        data-slot="heading"
       >
         <button
           aria-expanded="false"
           class="flex py-4 w-full h-full gap-3 items-center tap-highlight-transparent outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 transition-opacity"
           data-disabled="true"
+          data-slot="trigger"
           disabled=""
           id=":r1i:"
           type="button"
@@ -1555,6 +1734,7 @@ exports[`Story Snapshots > SomeDisabled 1`] = `
             <span
               class="text-foreground text-medium"
               data-disabled="true"
+              data-slot="title"
             >
               2.
             </span>
@@ -1563,6 +1743,7 @@ exports[`Story Snapshots > SomeDisabled 1`] = `
             aria-hidden="true"
             class="text-default-400 transition-transform rotate-0 data-[open=true]:-rotate-90 rtl:-rotate-180 rtl:data-[open=true]:-rotate-90"
             data-disabled="true"
+            data-slot="indicator"
           >
             <svg
               aria-hidden="true"
@@ -1585,13 +1766,17 @@ exports[`Story Snapshots > SomeDisabled 1`] = `
         </button>
       </h2>
     </div>
-    <div>
+    <div
+      data-slot="base"
+    >
       <h2
         class="px-4"
+        data-slot="heading"
       >
         <button
           aria-expanded="false"
           class="flex py-4 w-full h-full gap-3 items-center tap-highlight-transparent outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 transition-opacity"
+          data-slot="trigger"
           id=":r1k:"
           type="button"
         >
@@ -1600,6 +1785,7 @@ exports[`Story Snapshots > SomeDisabled 1`] = `
           >
             <span
               class="text-foreground text-medium"
+              data-slot="title"
             >
               3.
             </span>
@@ -1607,6 +1793,7 @@ exports[`Story Snapshots > SomeDisabled 1`] = `
           <span
             aria-hidden="true"
             class="text-default-400 transition-transform rotate-0 data-[open=true]:-rotate-90 rtl:-rotate-180 rtl:data-[open=true]:-rotate-90"
+            data-slot="indicator"
           >
             <svg
               aria-hidden="true"
@@ -1639,13 +1826,17 @@ exports[`Story Snapshots > WithSubtitle 1`] = `
     class="px-0 divide-y divide-solid divide-divider border-b border-t border-solid border-divider w-96"
     data-orientation="vertical"
   >
-    <div>
+    <div
+      data-slot="base"
+    >
       <h2
         class="px-4"
+        data-slot="heading"
       >
         <button
           aria-expanded="false"
           class="flex py-4 w-full h-full gap-3 items-center tap-highlight-transparent outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 transition-opacity"
+          data-slot="trigger"
           id=":r6:"
           type="button"
         >
@@ -1654,11 +1845,13 @@ exports[`Story Snapshots > WithSubtitle 1`] = `
           >
             <span
               class="text-foreground text-medium"
+              data-slot="title"
             >
               1.
             </span>
             <span
               class="text-small text-foreground-500 font-normal"
+              data-slot="subtitle"
             >
               Subtitle
             </span>
@@ -1666,6 +1859,7 @@ exports[`Story Snapshots > WithSubtitle 1`] = `
           <span
             aria-hidden="true"
             class="text-default-400 transition-transform rotate-0 data-[open=true]:-rotate-90 rtl:-rotate-180 rtl:data-[open=true]:-rotate-90"
+            data-slot="indicator"
           >
             <svg
               aria-hidden="true"
@@ -1688,13 +1882,17 @@ exports[`Story Snapshots > WithSubtitle 1`] = `
         </button>
       </h2>
     </div>
-    <div>
+    <div
+      data-slot="base"
+    >
       <h2
         class="px-4"
+        data-slot="heading"
       >
         <button
           aria-expanded="false"
           class="flex py-4 w-full h-full gap-3 items-center tap-highlight-transparent outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 transition-opacity"
+          data-slot="trigger"
           id=":r8:"
           type="button"
         >
@@ -1703,11 +1901,13 @@ exports[`Story Snapshots > WithSubtitle 1`] = `
           >
             <span
               class="text-foreground text-medium"
+              data-slot="title"
             >
               2.
             </span>
             <span
               class="text-small text-foreground-500 font-normal"
+              data-slot="subtitle"
             >
               Subtitle
             </span>
@@ -1715,6 +1915,7 @@ exports[`Story Snapshots > WithSubtitle 1`] = `
           <span
             aria-hidden="true"
             class="text-default-400 transition-transform rotate-0 data-[open=true]:-rotate-90 rtl:-rotate-180 rtl:data-[open=true]:-rotate-90"
+            data-slot="indicator"
           >
             <svg
               aria-hidden="true"
@@ -1737,13 +1938,17 @@ exports[`Story Snapshots > WithSubtitle 1`] = `
         </button>
       </h2>
     </div>
-    <div>
+    <div
+      data-slot="base"
+    >
       <h2
         class="px-4"
+        data-slot="heading"
       >
         <button
           aria-expanded="false"
           class="flex py-4 w-full h-full gap-3 items-center tap-highlight-transparent outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 transition-opacity"
+          data-slot="trigger"
           id=":ra:"
           type="button"
         >
@@ -1752,11 +1957,13 @@ exports[`Story Snapshots > WithSubtitle 1`] = `
           >
             <span
               class="text-foreground text-medium"
+              data-slot="title"
             >
               3.
             </span>
             <span
               class="text-small text-foreground-500 font-normal"
+              data-slot="subtitle"
             >
               Subtitle
             </span>
@@ -1764,6 +1971,7 @@ exports[`Story Snapshots > WithSubtitle 1`] = `
           <span
             aria-hidden="true"
             class="text-default-400 transition-transform rotate-0 data-[open=true]:-rotate-90 rtl:-rotate-180 rtl:data-[open=true]:-rotate-90"
+            data-slot="indicator"
           >
             <svg
               aria-hidden="true"
