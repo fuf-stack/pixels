@@ -5,6 +5,8 @@ on:
   push:
     branches:
       - '**'
+      # not for renovate branches
+      - '!renovate/**'
 
 # Cancel in-progress runs when a new workflow is triggered
 concurrency:
