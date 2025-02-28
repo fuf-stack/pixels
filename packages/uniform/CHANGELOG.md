@@ -1,5 +1,25 @@
 # Changelog
 
+## [0.16.3](https://github.com/fuf-stack/pixels/compare/uniform-v0.16.2...uniform-v0.16.3) (2025-02-28)
+
+
+### Bug Fixes
+
+* **deps:** update [@heroui](https://github.com/heroui) monorepo ([299f66e](https://github.com/fuf-stack/pixels/commit/299f66efad44c85ee157053b12a56245b96b2bf0))
+* **deps:** update dependency framer-motion to v12.0.11 ([#734](https://github.com/fuf-stack/pixels/issues/734)) ([1f7c344](https://github.com/fuf-stack/pixels/commit/1f7c34466c5995d01e3507639ffc58085f0e7870))
+* **deps:** update dependency framer-motion to v12.1.0 ([#740](https://github.com/fuf-stack/pixels/issues/740)) ([546c15a](https://github.com/fuf-stack/pixels/commit/546c15ab2cadc6eea3e7e51e5be0e2ae1be20d91))
+* **deps:** update dependency framer-motion to v12.2.0 ([#741](https://github.com/fuf-stack/pixels/issues/741)) ([ba2b031](https://github.com/fuf-stack/pixels/commit/ba2b031884aa86858d87f1dde63ac9fdf51456c9))
+* **deps:** update dependency framer-motion to v12.3.1 ([#743](https://github.com/fuf-stack/pixels/issues/743)) ([a57bc95](https://github.com/fuf-stack/pixels/commit/a57bc95c11dcaa1af535722bfbf4db5a2366fd4d))
+* **deps:** update dependency framer-motion to v12.4.0 ([#744](https://github.com/fuf-stack/pixels/issues/744)) ([1e0843f](https://github.com/fuf-stack/pixels/commit/1e0843fbce285f91c97bfb8ddec86ed1ca570e4b))
+* **deps:** update dependency framer-motion to v12.4.1 ([#746](https://github.com/fuf-stack/pixels/issues/746)) ([ee31453](https://github.com/fuf-stack/pixels/commit/ee31453651f46031ee82352784aeb759f17f87e0))
+* **deps:** update dependency framer-motion to v12.4.2 ([#751](https://github.com/fuf-stack/pixels/issues/751)) ([e27ed5e](https://github.com/fuf-stack/pixels/commit/e27ed5ed1fa770f67703b68402aac7c6a2fbe42e))
+* **deps:** update dependency framer-motion to v12.4.3 ([#761](https://github.com/fuf-stack/pixels/issues/761)) ([32fea4e](https://github.com/fuf-stack/pixels/commit/32fea4ee7c4542b226a4627c252ca1b0c03eed07))
+* **deps:** update dependency framer-motion to v12.4.4 ([#767](https://github.com/fuf-stack/pixels/issues/767)) ([4a8ea8a](https://github.com/fuf-stack/pixels/commit/4a8ea8a23ca3a1682e8683d2a704aa350511fc51))
+* **deps:** update dependency framer-motion to v12.4.5 ([#775](https://github.com/fuf-stack/pixels/issues/775)) ([127826c](https://github.com/fuf-stack/pixels/commit/127826c3d401a9e92981d5480a44a10dc682d96e))
+* **deps:** update dependency framer-motion to v12.4.7 ([#777](https://github.com/fuf-stack/pixels/issues/777)) ([a411247](https://github.com/fuf-stack/pixels/commit/a41124713ff68aa0cb6e79780388fb47ccf81e25))
+* **deps:** update dependency react-icons to v5.5.0 ([#771](https://github.com/fuf-stack/pixels/issues/771)) ([2c84c05](https://github.com/fuf-stack/pixels/commit/2c84c05ee6fdbcb8c64d7819f5d7cc4d4cf2371c))
+* **pixels,uniform:** small fixes and snapshut updates for heroui v2.7 ([7118508](https://github.com/fuf-stack/pixels/commit/711850840f1c1da4b95bec29fe9580b6ba1c4bd2))
+
 ## [0.16.2](https://github.com/fuf-stack/pixels/compare/uniform-v0.16.1...uniform-v0.16.2) (2025-01-28)
 
 
