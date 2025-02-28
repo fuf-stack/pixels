@@ -5,7 +5,7 @@ import type { ReactElement, ReactNode } from 'react';
 import { RadioGroup as HeroRadioGroup, Radio } from '@heroui/radio';
 
 import { cn, slugify, tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
-import { ButtonGroup } from '@fuf-stack/pixels';
+import ButtonGroup from '@fuf-stack/pixels/ButtonGroup';
 import Tabs from '@fuf-stack/pixels/Tabs';
 
 import { Controller } from '../Controller';
