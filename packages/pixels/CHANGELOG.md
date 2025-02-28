@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.33.1](https://github.com/fuf-stack/pixels/compare/pixels-v0.33.0...pixels-v0.33.1) (2025-02-28)
+
+
+### Bug Fixes
+
+* **deps:** update [@heroui](https://github.com/heroui) monorepo ([299f66e](https://github.com/fuf-stack/pixels/commit/299f66efad44c85ee157053b12a56245b96b2bf0))
+* **deps:** update dependency framer-motion to v12.4.5 ([#775](https://github.com/fuf-stack/pixels/issues/775)) ([127826c](https://github.com/fuf-stack/pixels/commit/127826c3d401a9e92981d5480a44a10dc682d96e))
+* **deps:** update dependency framer-motion to v12.4.7 ([#777](https://github.com/fuf-stack/pixels/issues/777)) ([a411247](https://github.com/fuf-stack/pixels/commit/a41124713ff68aa0cb6e79780388fb47ccf81e25))
+* **deps:** update dependency react-icons to v5.5.0 ([#771](https://github.com/fuf-stack/pixels/issues/771)) ([2c84c05](https://github.com/fuf-stack/pixels/commit/2c84c05ee6fdbcb8c64d7819f5d7cc4d4cf2371c))
+* **pixels,uniform:** small fixes and snapshut updates for heroui v2.7 ([7118508](https://github.com/fuf-stack/pixels/commit/711850840f1c1da4b95bec29fe9580b6ba1c4bd2))
+* **pixels:** move ButtonGroup to top level ([3221ee8](https://github.com/fuf-stack/pixels/commit/3221ee85cda545bc6f0b3f61c37a37e9978688da))
+
 ## [0.33.0](https://github.com/fuf-stack/pixels/compare/pixels-v0.32.4...pixels-v0.33.0) (2025-02-19)
 
 
