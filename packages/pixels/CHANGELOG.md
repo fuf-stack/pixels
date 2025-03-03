@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.34.0](https://github.com/fuf-stack/pixels/compare/pixels-v0.33.2...pixels-v0.34.0) (2025-03-03)
+
+
+### Features
+
+* **pixels:** make Json copy the raw value instead of the string ([8fc97af](https://github.com/fuf-stack/pixels/commit/8fc97afa951a6656c58c6795a817f7e45af671e5))
+
 ## [0.33.2](https://github.com/fuf-stack/pixels/compare/pixels-v0.33.1...pixels-v0.33.2) (2025-03-03)
 
 
