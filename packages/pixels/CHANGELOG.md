@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.34.1](https://github.com/fuf-stack/pixels/compare/pixels-v0.34.0...pixels-v0.34.1) (2025-03-03)
+
+
+### Bug Fixes
+
+* **pixels:** fix copy logic in Json component for object like copy ([3b6d155](https://github.com/fuf-stack/pixels/commit/3b6d155639f5ef789c316846e822a3fe9e42ddb4))
+
 ## [0.34.0](https://github.com/fuf-stack/pixels/compare/pixels-v0.33.2...pixels-v0.34.0) (2025-03-03)
 
 
