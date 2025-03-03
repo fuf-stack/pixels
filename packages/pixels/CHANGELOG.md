@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.34.2](https://github.com/fuf-stack/pixels/compare/pixels-v0.34.1...pixels-v0.34.2) (2025-03-03)
+
+
+### Bug Fixes
+
+* **pixels:** copy object like values with indentation in Json component ([49dc362](https://github.com/fuf-stack/pixels/commit/49dc3624f60b17365496187fe60cebd3aeb8219a))
+
 ## [0.34.1](https://github.com/fuf-stack/pixels/compare/pixels-v0.34.0...pixels-v0.34.1) (2025-03-03)
 
 
