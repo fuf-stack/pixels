@@ -70,6 +70,8 @@ export interface JsonProps {
   maxHeight?: string | number;
   /** Callback when copy action is performed */
   onCopy?: (copiedValue: string) => void;
+  /** Color scheme, if not provided component tries to determine it with next-themes and body dark class */
+  theme?: 'light' | 'dark';
   /** Object to be visualized JSON string or object */
   value: string | object;
 }
@@ -81,20 +83,25 @@ export interface JsonProps {
 const Json = ({
   className = undefined,
   collapsed = false,
-  value,
+  errorRenderer = undefined,
   maxHeight = undefined,
   onCopy = undefined,
-  errorRenderer = undefined,
+  theme = undefined,
+  value,
 }: JsonProps) => {
   const [showDetails, setShowDetails] = useState(false);
 
-  // determine theme, if no theme context available (next-themes)
-  // it will be determined by if body has dark class
+  // Determine the current theme
+  // First check if theme prop is provided directly
+  // Otherwise use next-themes' resolvedTheme
+  // If neither is available, fall back to checking body.classList
   const { resolvedTheme } = useTheme();
-  const isDarkMode = useMemo(
-    () => resolvedTheme === 'dark' || document.body.classList.contains('dark'),
-    [resolvedTheme],
-  );
+  const isDarkMode = useMemo(() => {
+    if (theme) {
+      return theme === 'dark';
+    }
+    return resolvedTheme === 'dark' || document.body.classList.contains('dark');
+  }, [resolvedTheme, theme]);
 
   let content: ReactNode = null;
   let error: ReactNode = null;
