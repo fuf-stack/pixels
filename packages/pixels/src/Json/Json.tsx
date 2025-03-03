@@ -46,7 +46,7 @@ const handleCopy = (rawValue?: unknown, onCopy?: JsonProps['onCopy']) => {
     // ignore
   }
   const copyValue = isObject
-    ? JSON.stringify(rawValue as string)
+    ? JSON.stringify(rawValue as string, null, 2)
     : (rawValue as string);
 
   // JsonView (CopiedRenderer) does copy on its own but doesn't handle
