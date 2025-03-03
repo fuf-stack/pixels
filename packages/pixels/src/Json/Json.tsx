@@ -2,7 +2,7 @@
 
 import type { ReactNode } from 'react';
 
-import { useMemo, useState } from 'react';
+import { useMemo, useRef, useState } from 'react';
 
 // INFO: react-json-view is bundled with --dts-resolve for now (dev dep)
 import JsonView from '@uiw/react-json-view';
@@ -45,6 +45,8 @@ const Json = ({
   errorRenderer = undefined,
 }: JsonProps) => {
   const [showDetails, setShowDetails] = useState(false);
+  // Needed to allow copying the raw value.
+  const valueToCopyRef = useRef<string>('');
 
   // determine theme, if no theme context available (next-themes)
   // it will be determined by if body has dark class
@@ -54,9 +56,10 @@ const Json = ({
     [resolvedTheme],
   );
 
-  const handleCopy = (event: React.ClipboardEvent<HTMLDivElement>) => {
-    const copiedValue = event.currentTarget.textContent || '';
-    onCopy?.(copiedValue);
+  // const handleCopy = (event: React.ClipboardEvent<HTMLDivElement>) => {
+  const handleCopy = (text: string, rawValue?: unknown) => {
+    valueToCopyRef.current = rawValue as string;
+    onCopy?.(text || '');
   };
 
   let content: ReactNode = null;
@@ -78,9 +81,9 @@ const Json = ({
             backgroundColor: 'unset',
           }}
           value={parsedValue}
-          onCopy={handleCopy}
+          onCopied={handleCopy}
         >
-          <CopiedRenderer />
+          <CopiedRenderer valueToCopyRef={valueToCopyRef} />
           <NullRenderer />
         </JsonView>
       </div>
