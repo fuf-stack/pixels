@@ -2,7 +2,7 @@
 
 import type { ReactNode } from 'react';
 
-import { useMemo, useRef, useState } from 'react';
+import { useMemo, useState } from 'react';
 
 // INFO: react-json-view is bundled with --dts-resolve for now (dev dep)
 import JsonView from '@uiw/react-json-view';
@@ -16,6 +16,49 @@ import { getValue } from './jsonParser';
 import CopiedRenderer from './subcomponents/CopiedRenderer';
 import ErrorRenderer from './subcomponents/ErrorRenderer';
 import NullRenderer from './subcomponents/NullRenderer';
+
+/**
+ * Handles copying text or object values to clipboard.
+ *
+ * @param text - The formatted text representation to display (not directly used for copying)
+ * @param rawValue - The original value to copy (can be an object or primitive)
+ * @param onCopy - Optional callback function triggered after copying with the copied value
+ *
+ * This function:
+ * 1. Detects if the value is an object (not null and typeof 'object')
+ * 2. Converts objects to JSON strings for clipboard copying
+ * 3. Uses setTimeout to write the value to clipboard in the next render cycle
+ *    - This is necessary because JsonView (CopiedRenderer) normally handles copying itself,
+ *      but its copied value doesn't follow the same isObject logic
+ *    - By using setTimeout, we ensure our properly formatted value overwrites any previous copy operation
+ * 4. Calls the optional onCopy callback with the copied value if provided
+ *
+ * Note: The text parameter is kept for API consistency but is not used in the copying process
+ */
+const handleCopy = (rawValue?: unknown, onCopy?: JsonProps['onCopy']) => {
+  // determine of copied value is object-like
+  let isObject = false;
+  try {
+    if (rawValue !== NullRenderer && typeof rawValue === 'object') {
+      isObject = true;
+    }
+  } catch (_err) {
+    // ignore
+  }
+  const copyValue = isObject
+    ? JSON.stringify(rawValue as string)
+    : (rawValue as string);
+
+  // JsonView (CopiedRenderer) does copy on its own but doesn't handle
+  // object serialization correctly. We use setTimeout to overwrite its
+  // clipboard value with our properly formatted version in the next tick.
+  setTimeout(() => navigator.clipboard.writeText(copyValue), 1);
+
+  // if cb provided call it with copyValue
+  if (onCopy) {
+    onCopy(copyValue);
+  }
+};
 
 export interface JsonProps {
   /** CSS class name */
@@ -45,8 +88,6 @@ const Json = ({
   errorRenderer = undefined,
 }: JsonProps) => {
   const [showDetails, setShowDetails] = useState(false);
-  // Needed to allow copying the raw value.
-  const valueToCopyRef = useRef<string>('');
 
   // determine theme, if no theme context available (next-themes)
   // it will be determined by if body has dark class
@@ -55,12 +96,6 @@ const Json = ({
     () => resolvedTheme === 'dark' || document.body.classList.contains('dark'),
     [resolvedTheme],
   );
-
-  // const handleCopy = (event: React.ClipboardEvent<HTMLDivElement>) => {
-  const handleCopy = (text: string, rawValue?: unknown) => {
-    valueToCopyRef.current = rawValue as string;
-    onCopy?.(text || '');
-  };
 
   let content: ReactNode = null;
   let error: ReactNode = null;
@@ -81,9 +116,9 @@ const Json = ({
             backgroundColor: 'unset',
           }}
           value={parsedValue}
-          onCopied={handleCopy}
+          onCopied={(_, rawValue) => handleCopy(rawValue, onCopy)}
         >
-          <CopiedRenderer valueToCopyRef={valueToCopyRef} />
+          <CopiedRenderer />
           <NullRenderer />
         </JsonView>
       </div>

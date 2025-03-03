@@ -9,10 +9,6 @@ import JsonView from '@uiw/react-json-view';
 
 import { cn } from '@fuf-stack/pixel-utils';
 
-interface CopiedRendererProps {
-  valueToCopyRef: React.RefObject<string>;
-}
-
 /**
  * A custom renderer for the JsonView's copy functionality that provides an accessible
  * and interactive copy button with visual feedback.
@@ -26,7 +22,7 @@ interface CopiedRendererProps {
  *
  * @returns A JsonView.Copied component with custom render implementation
  */
-const CopiedRenderer = ({ valueToCopyRef }: CopiedRendererProps) => {
+const CopiedRenderer = () => {
   return (
     <JsonView.Copied
       render={(props) => {
@@ -43,13 +39,6 @@ const CopiedRenderer = ({ valueToCopyRef }: CopiedRendererProps) => {
           { 'text-success': isCopied },
         );
 
-        const handleCopy = async (e: MouseEvent<HTMLSpanElement>) => {
-          // Trigger the original onClick to maintain the copied state visual feedback
-          await onClick?.(e as unknown as MouseEvent<SVGSVGElement>);
-          // Then copy the raw value to the clipboard
-          navigator.clipboard.writeText(valueToCopyRef.current);
-        };
-
         const handleKeyDown = (e: KeyboardEvent<HTMLSpanElement>) => {
           if (e.key === 'Enter' || e.key === ' ') {
             onClick?.(e as unknown as MouseEvent<SVGSVGElement>);
@@ -64,7 +53,9 @@ const CopiedRenderer = ({ valueToCopyRef }: CopiedRendererProps) => {
             role="button"
             tabIndex={0}
             onKeyDown={handleKeyDown}
-            onClick={(e) => handleCopy(e)}
+            onClick={(e) =>
+              onClick?.(e as unknown as MouseEvent<SVGSVGElement>)
+            }
             aria-label={isCopied ? 'Copied to clipboard' : 'Copy to clipboard'}
           >
             {isCopied ? (
