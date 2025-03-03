@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.35.0](https://github.com/fuf-stack/pixels/compare/pixels-v0.34.2...pixels-v0.35.0) (2025-03-03)
+
+
+### Features
+
+* **pixels:** allow to set theme as prop in Json component ([8a3435e](https://github.com/fuf-stack/pixels/commit/8a3435eb2152b8480c52bf7e9a13a1114f132720))
+
 ## [0.34.2](https://github.com/fuf-stack/pixels/compare/pixels-v0.34.1...pixels-v0.34.2) (2025-03-03)
 
 
