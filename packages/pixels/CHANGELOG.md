@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.33.2](https://github.com/fuf-stack/pixels/compare/pixels-v0.33.1...pixels-v0.33.2) (2025-03-03)
+
+
+### Bug Fixes
+
+* **pixels:** add export for Alert ([284f6f5](https://github.com/fuf-stack/pixels/commit/284f6f5338833b5b14f9705b4309ef7bda2f6558))
+
 ## [0.33.1](https://github.com/fuf-stack/pixels/compare/pixels-v0.33.0...pixels-v0.33.1) (2025-02-28)
 
 
