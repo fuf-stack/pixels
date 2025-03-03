@@ -20,7 +20,6 @@ import NullRenderer from './subcomponents/NullRenderer';
 /**
  * Handles copying text or object values to clipboard.
  *
- * @param text - The formatted text representation to display (not directly used for copying)
  * @param rawValue - The original value to copy (can be an object or primitive)
  * @param onCopy - Optional callback function triggered after copying with the copied value
  *
