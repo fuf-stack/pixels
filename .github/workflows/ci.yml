@@ -5,8 +5,6 @@ on:
   push:
     branches:
       - '**'
-      # not for renovate branches
-      - '!renovate/**'
 
 # Cancel in-progress runs when a new workflow is triggered
 concurrency:
@@ -32,6 +30,8 @@ jobs:
 
   sonar:
     name: SonarQube Analysis
+    # Only run sonar if we're not on a renovate branch
+    if: ${{ !startsWith(github.ref, 'refs/heads/renovate/') }}
     needs: [test]
     runs-on: ubuntu-latest
     timeout-minutes: 10
