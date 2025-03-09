@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.35.1](https://github.com/fuf-stack/pixels/compare/pixels-v0.35.0...pixels-v0.35.1) (2025-03-09)
+
+
+### Bug Fixes
+
+* **deps:** update dependency framer-motion to v12.4.10 ([#795](https://github.com/fuf-stack/pixels/issues/795)) ([3a14111](https://github.com/fuf-stack/pixels/commit/3a14111b8fbd40292df19aaf550357cc352c95cf))
+
 ## [0.35.0](https://github.com/fuf-stack/pixels/compare/pixels-v0.34.2...pixels-v0.35.0) (2025-03-03)
 
 
