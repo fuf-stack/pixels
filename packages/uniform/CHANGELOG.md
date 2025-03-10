@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.16.4](https://github.com/fuf-stack/pixels/compare/uniform-v0.16.3...uniform-v0.16.4) (2025-03-10)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @react-aria/visually-hidden to v3.8.20 ([#803](https://github.com/fuf-stack/pixels/issues/803)) ([42d279e](https://github.com/fuf-stack/pixels/commit/42d279e8acfa0d8a1e2c05f1518f09e0b0b5c852))
+* **deps:** update dependency framer-motion to v12.4.10 ([#795](https://github.com/fuf-stack/pixels/issues/795)) ([3a14111](https://github.com/fuf-stack/pixels/commit/3a14111b8fbd40292df19aaf550357cc352c95cf))
+* **deps:** update dependency react-select to v5.10.1 ([#796](https://github.com/fuf-stack/pixels/issues/796)) ([f73b36a](https://github.com/fuf-stack/pixels/commit/f73b36a9bed56768a408d83fd12ff24b7e0fa5f0))
+
 ## [0.16.3](https://github.com/fuf-stack/pixels/compare/uniform-v0.16.2...uniform-v0.16.3) (2025-02-28)
 
 
