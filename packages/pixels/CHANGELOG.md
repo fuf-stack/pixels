@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.36.0](https://github.com/fuf-stack/pixels/compare/pixels-v0.35.0...pixels-v0.36.0) (2025-03-10)
+
+
+### Features
+
+* **pixels:** add virtualized option prop to Table ([f1013fb](https://github.com/fuf-stack/pixels/commit/f1013fb705635b7c4d7a5e01ce2774ca04d04745))
+
+
+### Bug Fixes
+
+* **deps:** update dependency framer-motion to v12.4.10 ([#795](https://github.com/fuf-stack/pixels/issues/795)) ([3a14111](https://github.com/fuf-stack/pixels/commit/3a14111b8fbd40292df19aaf550357cc352c95cf))
+* **deps:** update dependency next-themes to v0.4.5 ([#811](https://github.com/fuf-stack/pixels/issues/811)) ([88b9727](https://github.com/fuf-stack/pixels/commit/88b97274a793ff3daa8f1d492c6ce39ff1d8dc20))
+
 ## [0.35.0](https://github.com/fuf-stack/pixels/compare/pixels-v0.34.2...pixels-v0.35.0) (2025-03-03)
 
 
