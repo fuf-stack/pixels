@@ -100,6 +100,8 @@ export interface TableProps extends VariantProps {
   stickyHeader?: boolean;
   /** HTML data-testid attribute used in e2e tests */
   testId?: string;
+  /** Virtualize allows efficient rendering of large lists by only rendering items that are visible in the viewport. */
+  virtualized?: boolean;
 }
 
 /**
@@ -119,6 +121,7 @@ const Table = ({
   separation = 'none',
   stickyHeader = false,
   testId = undefined,
+  virtualized = false,
 }: TableProps) => {
   const variants = tableVariants({ separation });
   const classNames = variantsToClassNames(variants, className, 'base');
@@ -132,6 +135,7 @@ const Table = ({
       hideHeader={hideHeader}
       isHeaderSticky={stickyHeader}
       isStriped={separation === 'striped' || separation === 'striped-divider-x'}
+      isVirtualized={virtualized}
       removeWrapper={!hasWrapper}
     >
       <TableHeader columns={columns}>
