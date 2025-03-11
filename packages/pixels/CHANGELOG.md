@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.38.0](https://github.com/fuf-stack/pixels/compare/pixels-v0.37.1...pixels-v0.38.0) (2025-03-11)
+
+
+### Features
+
+* **pixels:** add custom trigger button to Popover ([2124234](https://github.com/fuf-stack/pixels/commit/21242344cb5c4106602842a795fda9f709086daa))
+
 ## [0.37.1](https://github.com/fuf-stack/pixels/compare/pixels-v0.37.0...pixels-v0.37.1) (2025-03-11)
 
 
