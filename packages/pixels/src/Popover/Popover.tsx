@@ -101,10 +101,12 @@ export default ({
           // TODO: currently we have to use @heroui/button because
           // passing ref does not work (even with forwardRef in Button)
           // eslint-disable-next-line react/jsx-props-no-spreading
-          <Button {...triggerButtonProps}>{children}</Button>
+          <Button className={className.trigger} {...triggerButtonProps}>
+            {children}
+          </Button>
         ) : (
           //  eslint-disable-next-line react/button-has-type
-          <button>{children}</button>
+          <button className={className.trigger}>{children}</button>
         )}
       </PopoverTrigger>
       <PopoverContent data-testid={contentTestId}>
