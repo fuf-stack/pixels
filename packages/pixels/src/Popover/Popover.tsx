@@ -55,7 +55,6 @@ export interface PopoverProps extends VariantProps {
     | 'color'
     | 'disableAnimation'
     | 'disabled'
-    | 'icon'
     | 'size'
     | 'testId'
     | 'variant'
