@@ -1,4 +1,5 @@
 import type { TVClassName, TVProps } from '@fuf-stack/pixel-utils';
+import type { TooltipPlacement as HeroTooltipPlacement } from '@heroui/tooltip';
 import type { ReactNode } from 'react';
 
 import { Tooltip as HeroTooltip } from '@heroui/tooltip';
@@ -17,13 +18,7 @@ export const tooltipVariants = tv({
 type VariantProps = TVProps<typeof tooltipVariants>;
 type ClassName = TVClassName<typeof tooltipVariants>;
 
-export const tooltipPlacementOptions = [
-  'top',
-  'bottom',
-  'left',
-  'right',
-] as const;
-export type TooltipPlacement = (typeof tooltipPlacementOptions)[number];
+export type TooltipPlacement = HeroTooltipPlacement;
 
 export interface TooltipProps extends VariantProps {
   /** trigger child components */

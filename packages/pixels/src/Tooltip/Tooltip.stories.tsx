@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
+import type { TooltipPlacement } from './Tooltip';
 
-import Tooltip, { tooltipPlacementOptions } from './Tooltip';
+import Tooltip from './Tooltip';
 
 const meta: Meta<typeof Tooltip> = {
   title: 'pixels/Tooltip',
@@ -33,11 +34,26 @@ export const CloseDelay: Story = {
   },
 };
 
+const tooltipPlacementOptions: TooltipPlacement[] = [
+  'top',
+  'bottom',
+  'left',
+  'right',
+  'top-start',
+  'top-end',
+  'bottom-start',
+  'bottom-end',
+  'left-start',
+  'left-end',
+  'right-start',
+  'right-end',
+];
+
 export const AllPlacements: Story = {
   render: (args) => (
     <>
       {tooltipPlacementOptions.map((placement) => (
-        <div key={placement} className="mb-12">
+        <div key={placement} className="mb-6">
           <Tooltip placement={placement} {...args}>
             {placement}
           </Tooltip>
