@@ -86,6 +86,10 @@ export interface TableProps extends VariantProps {
   loading?: boolean;
   /** Loading animation component. */
   loadingContent?: ReactNode;
+  /** The maximum height of the table in pixels. Required when using virtualization. */
+  maxTableHeight?: number;
+  /** The fixed height of each row item in pixels. Required when using virtualization. */
+  rowHeight?: number;
   /** Items displayed as rows in the Table. Should have key-value pair for each column. */
   rows?: TableRowProps[];
   /** Separation style for the rows & columns. */
@@ -117,6 +121,8 @@ const Table = ({
   hideHeader = false,
   loading = false,
   loadingContent = undefined,
+  maxTableHeight = undefined,
+  rowHeight = undefined,
   rows = [],
   separation = 'none',
   stickyHeader = false,
@@ -136,7 +142,9 @@ const Table = ({
       isHeaderSticky={stickyHeader}
       isStriped={separation === 'striped' || separation === 'striped-divider-x'}
       isVirtualized={virtualized}
+      maxTableHeight={maxTableHeight}
       removeWrapper={!hasWrapper}
+      rowHeight={rowHeight}
     >
       <TableHeader columns={columns}>
         {(column: TableColumnProps) => (

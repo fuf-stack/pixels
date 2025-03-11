@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.36.1](https://github.com/fuf-stack/pixels/compare/pixels-v0.36.0...pixels-v0.36.1) (2025-03-10)
+
+
+### Bug Fixes
+
+* **pixels:** add required props for virtualization to table ([7aedcd3](https://github.com/fuf-stack/pixels/commit/7aedcd3a63b5ac5554e65763e03613b51a0a54cc))
+
 ## [0.36.0](https://github.com/fuf-stack/pixels/compare/pixels-v0.35.0...pixels-v0.36.0) (2025-03-10)
 
 

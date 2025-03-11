@@ -114,3 +114,29 @@ export const ManyElements: Story = {
     );
   },
 };
+
+export const Virtualized: Story = {
+  args: {
+    columns,
+    className: {
+      wrapper: 'h-[400px] w-[600px] bg-transparent border-none shadow-none',
+    },
+    maxTableHeight: 400,
+    rowHeight: 40,
+    hasWrapper: true,
+    virtualized: true,
+  },
+  render: (args) => {
+    const rows2 = Array.from({ length: 1000 }).map((_, index) => ({
+      key: index + 1,
+      name: `Person ${index + 1}`,
+      role: `Role ${(index % 5) + 1}`,
+      status: index % 2 ? 'Active' : 'Inactive',
+    }));
+    return (
+      <div className="h-[800px] w-[600px]">
+        <Table {...args} rows={rows2} />
+      </div>
+    );
+  },
+};
