@@ -1,7 +1,9 @@
 import type { TVClassName, TVProps } from '@fuf-stack/pixel-utils';
 import type { PopoverProps as HeroPopoverProps } from '@heroui/popover';
 import type { ReactNode } from 'react';
+import type { ButtonProps } from '../Button';
 
+import { Button } from '@heroui/button';
 import { Popover, PopoverContent, PopoverTrigger } from '@heroui/popover';
 
 import { tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
@@ -43,8 +45,21 @@ export interface PopoverProps extends VariantProps {
   shouldBlockScroll?: boolean;
   /** HTML data-testid attribute used in e2e tests */
   testId?: string;
-  /** popover title */
+  /** Popover title */
   title?: ReactNode;
+  /** When defined a Button will be rendered as trigger (with provided props) instead of unstyled html button */
+  triggerButtonProps?: Pick<
+    ButtonProps,
+    | 'ariaLabel'
+    | 'className'
+    | 'color'
+    | 'disableAnimation'
+    | 'disabled'
+    | 'icon'
+    | 'size'
+    | 'testId'
+    | 'variant'
+  >;
 }
 
 /**
@@ -62,6 +77,7 @@ export default ({
   shouldBlockScroll = undefined,
   testId = undefined,
   title = undefined,
+  triggerButtonProps = undefined,
 }: PopoverProps) => {
   // className from slots
   const variants = popoverVariants();
@@ -82,8 +98,15 @@ export default ({
     >
       <PopoverTrigger data-testid={testId}>
         {/* NOTE: type and aria properties are injected by PopoverTrigger */}
-        {/* eslint-disable-next-line react/button-has-type */}
-        <button>{children}</button>
+        {triggerButtonProps ? (
+          // TODO: currently we have to use @heroui/button because
+          // passing ref does not work (even with forwardRef in Button)
+          // eslint-disable-next-line react/jsx-props-no-spreading
+          <Button {...triggerButtonProps}>{children}</Button>
+        ) : (
+          //  eslint-disable-next-line react/button-has-type
+          <button>{children}</button>
+        )}
       </PopoverTrigger>
       <PopoverContent data-testid={contentTestId}>
         {title && (

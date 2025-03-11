@@ -101,3 +101,14 @@ export const Footer: Story = {
     content: 'i am the content',
   },
 };
+
+export const WithCustomTriggerButton: Story = {
+  args: {
+    content: 'i am the content',
+    triggerButtonProps: {
+      color: 'success',
+      variant: 'shadow',
+    },
+    children: 'i am a custom trigger',
+  },
+};

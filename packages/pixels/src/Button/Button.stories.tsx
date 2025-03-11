@@ -3,11 +3,16 @@ import type { ButtonProps } from './Button';
 
 import { FaEnvelope } from 'react-icons/fa';
 
+import { action } from '@storybook/addon-actions';
+
 import Button, { buttonVariants } from './Button';
 
 const meta: Meta<typeof Button> = {
   title: 'pixels/Button',
   component: Button,
+  args: {
+    onClick: action('onClick'),
+  },
   argTypes: {
     color: {
       control: { type: 'radio' },
