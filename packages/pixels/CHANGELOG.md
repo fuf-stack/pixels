@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.37.1](https://github.com/fuf-stack/pixels/compare/pixels-v0.37.0...pixels-v0.37.1) (2025-03-11)
+
+
+### Bug Fixes
+
+* **deps:** update dependency framer-motion to v12.4.12 ([#818](https://github.com/fuf-stack/pixels/issues/818)) ([38bf3b2](https://github.com/fuf-stack/pixels/commit/38bf3b207b744aba3a35a1715a8712b4e950d06c))
+* **pixels:** export type TooltipPlacement ([91530c2](https://github.com/fuf-stack/pixels/commit/91530c26a2eba13a25fcc06faa8f4c42fb3d284d))
+
 ## [0.37.0](https://github.com/fuf-stack/pixels/compare/pixels-v0.36.1...pixels-v0.37.0) (2025-03-11)
 
 
