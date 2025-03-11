@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.37.0](https://github.com/fuf-stack/pixels/compare/pixels-v0.36.1...pixels-v0.37.0) (2025-03-11)
+
+
+### Features
+
+* **pixels:** expose all placements in Tooltip ([97e892c](https://github.com/fuf-stack/pixels/commit/97e892cdf4154e7f3ecd1442bf6f23f542363eb1))
+
+
+### Bug Fixes
+
+* **deps:** update dependency framer-motion to v12.4.11 ([#815](https://github.com/fuf-stack/pixels/issues/815)) ([248b02f](https://github.com/fuf-stack/pixels/commit/248b02f0f6e96e3c2792c7a12b1df9f09e25d861))
+
 ## [0.36.1](https://github.com/fuf-stack/pixels/compare/pixels-v0.36.0...pixels-v0.36.1) (2025-03-10)
 
 
