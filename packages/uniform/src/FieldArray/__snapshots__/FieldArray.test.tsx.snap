@@ -60,6 +60,7 @@ exports[`Story Snapshots > Custom 1`] = `
                       id="react-aria-react-useId-mock"
                       name="arrayField.0.name"
                       placeholder=" "
+                      tabindex="0"
                       title=""
                       type="text"
                       value=""
@@ -108,6 +109,7 @@ exports[`Story Snapshots > Custom 1`] = `
                       id="react-aria-react-useId-mock"
                       name="arrayField.0.age"
                       placeholder=" "
+                      tabindex="0"
                       title=""
                       type="text"
                       value=""
@@ -118,6 +120,7 @@ exports[`Story Snapshots > Custom 1`] = `
             </div>
             <button
               class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover mt-2"
+              tabindex="0"
               type="button"
             >
               <span
@@ -128,6 +131,7 @@ exports[`Story Snapshots > Custom 1`] = `
             </button>
             <button
               class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover mt-2"
+              tabindex="0"
               type="button"
             >
               <span
@@ -141,6 +145,7 @@ exports[`Story Snapshots > Custom 1`] = `
             aria-label="remove element"
             class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small gap-2 rounded-medium px-0 !gap-0 transition-transform-colors-opacity motion-reduce:transition-none bg-transparent text-danger data-[hover=true]:bg-danger/20 min-w-10 w-10 h-10 ml-1"
             data-testid="some_test_id0_remove_button"
+            tabindex="0"
             type="button"
           >
             <span
@@ -153,6 +158,7 @@ exports[`Story Snapshots > Custom 1`] = `
         <button
           class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-3 min-w-16 h-8 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover w-full"
           data-testid="some_test_id_append_button"
+          tabindex="0"
           type="button"
         >
           Add Element
@@ -164,6 +170,7 @@ exports[`Story Snapshots > Custom 1`] = `
         <button
           class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
           data-testid="form_submit_button"
+          tabindex="0"
           type="submit"
         >
           Submit
@@ -190,6 +197,7 @@ exports[`Story Snapshots > Default 1`] = `
         <button
           class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-3 min-w-16 h-8 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover w-full"
           data-testid="some_test_id_append_button"
+          tabindex="0"
           type="button"
         >
           Add Element
@@ -201,6 +209,7 @@ exports[`Story Snapshots > Default 1`] = `
         <button
           class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
           data-testid="form_submit_button"
+          tabindex="0"
           type="submit"
         >
           Submit
@@ -271,6 +280,7 @@ exports[`Story Snapshots > Duplicate 1`] = `
                       id="react-aria-react-useId-mock"
                       name="arrayField.0.name"
                       placeholder=" "
+                      tabindex="0"
                       title=""
                       type="text"
                       value=""
@@ -319,6 +329,7 @@ exports[`Story Snapshots > Duplicate 1`] = `
                       id="react-aria-react-useId-mock"
                       name="arrayField.0.age"
                       placeholder=" "
+                      tabindex="0"
                       title=""
                       type="text"
                       value=""
@@ -329,6 +340,7 @@ exports[`Story Snapshots > Duplicate 1`] = `
             </div>
             <button
               class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover mt-2"
+              tabindex="0"
               type="button"
             >
               <span
@@ -339,6 +351,7 @@ exports[`Story Snapshots > Duplicate 1`] = `
             </button>
             <button
               class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover mt-2"
+              tabindex="0"
               type="button"
             >
               <span
@@ -352,6 +365,7 @@ exports[`Story Snapshots > Duplicate 1`] = `
             aria-label="remove element"
             class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small gap-2 rounded-medium px-0 !gap-0 transition-transform-colors-opacity motion-reduce:transition-none bg-transparent text-danger data-[hover=true]:bg-danger/20 min-w-10 w-10 h-10 ml-1"
             data-testid="some_test_id0_remove_button"
+            tabindex="0"
             type="button"
           >
             <span
@@ -364,6 +378,7 @@ exports[`Story Snapshots > Duplicate 1`] = `
         <button
           class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-3 min-w-16 h-8 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover w-full"
           data-testid="some_test_id_append_button"
+          tabindex="0"
           type="button"
         >
           Add Element
@@ -375,6 +390,7 @@ exports[`Story Snapshots > Duplicate 1`] = `
         <button
           class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
           data-testid="form_submit_button"
+          tabindex="0"
           type="submit"
         >
           Submit
@@ -401,6 +417,7 @@ exports[`Story Snapshots > FlatArray 1`] = `
         <button
           class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-3 min-w-16 h-8 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover w-full"
           data-testid="arrayfield_append_button"
+          tabindex="0"
           type="button"
         >
           Add Element
@@ -412,6 +429,7 @@ exports[`Story Snapshots > FlatArray 1`] = `
         <button
           class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
           data-testid="form_submit_button"
+          tabindex="0"
           type="submit"
         >
           Submit
@@ -484,6 +502,7 @@ exports[`Story Snapshots > InsertAfter 1`] = `
                       id="react-aria-react-useId-mock"
                       name="arrayField.0.name"
                       placeholder=" "
+                      tabindex="0"
                       title=""
                       type="text"
                       value="Max"
@@ -497,6 +516,7 @@ exports[`Story Snapshots > InsertAfter 1`] = `
             aria-label="remove element"
             class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small gap-2 rounded-medium px-0 !gap-0 transition-transform-colors-opacity motion-reduce:transition-none bg-transparent text-danger data-[hover=true]:bg-danger/20 min-w-10 w-10 h-10 ml-1"
             data-testid="arrayfield0_remove_button"
+            tabindex="0"
             type="button"
           >
             <span
@@ -508,6 +528,7 @@ exports[`Story Snapshots > InsertAfter 1`] = `
           <button
             class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 gap-2 rounded-small px-0 !gap-0 transition-transform-colors-opacity motion-reduce:transition-none bg-transparent text-success data-[hover=true]:bg-success/20 min-w-8 w-8 h-8 text-xs font-medium"
             data-testid="arrayfield0_insert_after_button"
+            tabindex="0"
             type="button"
           >
             <svg
@@ -574,6 +595,7 @@ exports[`Story Snapshots > InsertAfter 1`] = `
                       id="react-aria-react-useId-mock"
                       name="arrayField.1.name"
                       placeholder=" "
+                      tabindex="0"
                       title=""
                       type="text"
                       value="Maria"
@@ -587,6 +609,7 @@ exports[`Story Snapshots > InsertAfter 1`] = `
             aria-label="remove element"
             class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small gap-2 rounded-medium px-0 !gap-0 transition-transform-colors-opacity motion-reduce:transition-none bg-transparent text-danger data-[hover=true]:bg-danger/20 min-w-10 w-10 h-10 ml-1"
             data-testid="arrayfield1_remove_button"
+            tabindex="0"
             type="button"
           >
             <span
@@ -599,6 +622,7 @@ exports[`Story Snapshots > InsertAfter 1`] = `
         <button
           class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-3 min-w-16 h-8 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover w-full"
           data-testid="arrayfield_append_button"
+          tabindex="0"
           type="button"
         >
           Add Element
@@ -610,6 +634,7 @@ exports[`Story Snapshots > InsertAfter 1`] = `
         <button
           class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
           data-testid="form_submit_button"
+          tabindex="0"
           type="submit"
         >
           Submit
@@ -656,7 +681,6 @@ exports[`Story Snapshots > Invalid 1`] = `
               data-has-helper="true"
               data-has-label="true"
               data-has-value="true"
-              data-hover="true"
               data-invalid="true"
               data-required="true"
               data-slot="base"
@@ -667,7 +691,6 @@ exports[`Story Snapshots > Invalid 1`] = `
               >
                 <div
                   class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-sm px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 h-10 min-h-10 rounded-small transition-background !duration-150 transition-colors motion-reduce:transition-none !border-danger group-data-[focus=true]:!border-danger group-data-[focus=true]:border-focus is-filled"
-                  data-hover="true"
                   data-slot="input-wrapper"
                   style="cursor: text;"
                 >
@@ -697,6 +720,7 @@ exports[`Story Snapshots > Invalid 1`] = `
                       name="arrayField.0.name"
                       placeholder=" "
                       required=""
+                      tabindex="0"
                       title=""
                       type="text"
                       value="invälid"
@@ -776,6 +800,7 @@ String must contain at least 8 character(s)"
                       name="arrayField.0.test"
                       placeholder=" "
                       required=""
+                      tabindex="0"
                       title=""
                       type="text"
                       value=""
@@ -810,6 +835,7 @@ String must contain at least 8 character(s)"
             aria-label="remove element"
             class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small gap-2 rounded-medium px-0 !gap-0 transition-transform-colors-opacity motion-reduce:transition-none bg-transparent text-danger data-[hover=true]:bg-danger/20 min-w-10 w-10 h-10 ml-1"
             data-testid="arrayfield0_remove_button"
+            tabindex="0"
             type="button"
           >
             <span
@@ -844,7 +870,6 @@ String must contain at least 8 character(s)"
               data-has-helper="true"
               data-has-label="true"
               data-has-value="true"
-              data-hover="true"
               data-invalid="true"
               data-required="true"
               data-slot="base"
@@ -855,7 +880,6 @@ String must contain at least 8 character(s)"
               >
                 <div
                   class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-sm px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 h-10 min-h-10 rounded-small transition-background !duration-150 transition-colors motion-reduce:transition-none !border-danger group-data-[focus=true]:!border-danger group-data-[focus=true]:border-focus is-filled"
-                  data-hover="true"
                   data-slot="input-wrapper"
                   style="cursor: text;"
                 >
@@ -885,6 +909,7 @@ String must contain at least 8 character(s)"
                       name="arrayField.1.name"
                       placeholder=" "
                       required=""
+                      tabindex="0"
                       title=""
                       type="text"
                       value="invälid"
@@ -964,6 +989,7 @@ String must contain at least 8 character(s)"
                       name="arrayField.1.test"
                       placeholder=" "
                       required=""
+                      tabindex="0"
                       title=""
                       type="text"
                       value=""
@@ -998,6 +1024,7 @@ String must contain at least 8 character(s)"
             aria-label="remove element"
             class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small gap-2 rounded-medium px-0 !gap-0 transition-transform-colors-opacity motion-reduce:transition-none bg-transparent text-danger data-[hover=true]:bg-danger/20 min-w-10 w-10 h-10 ml-1"
             data-testid="arrayfield1_remove_button"
+            tabindex="0"
             type="button"
           >
             <span
@@ -1031,6 +1058,7 @@ String must contain at least 8 character(s)"
         <button
           class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-3 min-w-16 h-8 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover w-full"
           data-testid="arrayfield_append_button"
+          tabindex="0"
           type="button"
         >
           Add Element
@@ -1069,6 +1097,7 @@ Array must contain at least 3 element(s)"
         <button
           class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
           data-testid="form_submit_button"
+          tabindex="0"
           type="submit"
         >
           Submit
@@ -1142,6 +1171,7 @@ exports[`Story Snapshots > LastElementNotRemovable 1`] = `
                       id="react-aria-react-useId-mock"
                       name="arrayField.0.name"
                       placeholder=" "
+                      tabindex="0"
                       title=""
                       type="text"
                       value=""
@@ -1155,6 +1185,7 @@ exports[`Story Snapshots > LastElementNotRemovable 1`] = `
         <button
           class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-3 min-w-16 h-8 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover w-full"
           data-testid="arrayfield_append_button"
+          tabindex="0"
           type="button"
         >
           Add Element
@@ -1166,6 +1197,7 @@ exports[`Story Snapshots > LastElementNotRemovable 1`] = `
         <button
           class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
           data-testid="form_submit_button"
+          tabindex="0"
           type="submit"
         >
           Submit
@@ -1238,6 +1270,7 @@ exports[`Story Snapshots > Required 1`] = `
                       name="arrayField.0.name"
                       placeholder=" "
                       required=""
+                      tabindex="0"
                       title=""
                       type="text"
                       value=""
@@ -1251,6 +1284,7 @@ exports[`Story Snapshots > Required 1`] = `
             aria-label="remove element"
             class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small gap-2 rounded-medium px-0 !gap-0 transition-transform-colors-opacity motion-reduce:transition-none bg-transparent text-danger data-[hover=true]:bg-danger/20 min-w-10 w-10 h-10 ml-1"
             data-testid="arrayfield0_remove_button"
+            tabindex="0"
             type="button"
           >
             <span
@@ -1263,6 +1297,7 @@ exports[`Story Snapshots > Required 1`] = `
         <button
           class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-3 min-w-16 h-8 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover w-full"
           data-testid="arrayfield_append_button"
+          tabindex="0"
           type="button"
         >
           Add Element
@@ -1274,6 +1309,7 @@ exports[`Story Snapshots > Required 1`] = `
         <button
           class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
           data-testid="form_submit_button"
+          tabindex="0"
           type="submit"
         >
           Submit
@@ -1361,6 +1397,7 @@ exports[`Story Snapshots > Sortable 1`] = `
                       id="react-aria-react-useId-mock"
                       name="arrayField.0.name"
                       placeholder=" "
+                      tabindex="0"
                       title=""
                       type="text"
                       value="The First"
@@ -1374,6 +1411,7 @@ exports[`Story Snapshots > Sortable 1`] = `
             aria-label="remove element"
             class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small gap-2 rounded-medium px-0 !gap-0 transition-transform-colors-opacity motion-reduce:transition-none bg-transparent text-danger data-[hover=true]:bg-danger/20 min-w-10 w-10 h-10 ml-1"
             data-testid="arrayfield0_remove_button"
+            tabindex="0"
             type="button"
           >
             <span
@@ -1447,6 +1485,7 @@ exports[`Story Snapshots > Sortable 1`] = `
                       id="react-aria-react-useId-mock"
                       name="arrayField.1.name"
                       placeholder=" "
+                      tabindex="0"
                       title=""
                       type="text"
                       value="The Second"
@@ -1460,6 +1499,7 @@ exports[`Story Snapshots > Sortable 1`] = `
             aria-label="remove element"
             class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small gap-2 rounded-medium px-0 !gap-0 transition-transform-colors-opacity motion-reduce:transition-none bg-transparent text-danger data-[hover=true]:bg-danger/20 min-w-10 w-10 h-10 ml-1"
             data-testid="arrayfield1_remove_button"
+            tabindex="0"
             type="button"
           >
             <span
@@ -1472,6 +1512,7 @@ exports[`Story Snapshots > Sortable 1`] = `
         <button
           class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-3 min-w-16 h-8 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover w-full"
           data-testid="arrayfield_append_button"
+          tabindex="0"
           type="button"
         >
           Add Element
@@ -1500,6 +1541,7 @@ exports[`Story Snapshots > Sortable 1`] = `
         <button
           class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
           data-testid="form_submit_button"
+          tabindex="0"
           type="submit"
         >
           Submit
@@ -1572,6 +1614,7 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
                       id="react-aria-react-useId-mock"
                       name="arrayField.0.name"
                       placeholder=" "
+                      tabindex="0"
                       title=""
                       type="text"
                       value="Max"
@@ -1585,6 +1628,7 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
             aria-label="remove element"
             class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small gap-2 rounded-medium px-0 !gap-0 transition-transform-colors-opacity motion-reduce:transition-none bg-transparent text-danger data-[hover=true]:bg-danger/20 min-w-10 w-10 h-10 ml-1"
             data-testid="arrayfield0_remove_button"
+            tabindex="0"
             type="button"
           >
             <span
@@ -1643,6 +1687,7 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
                       id="react-aria-react-useId-mock"
                       name="arrayField.1.name"
                       placeholder=" "
+                      tabindex="0"
                       title=""
                       type="text"
                       value="Maria"
@@ -1656,6 +1701,7 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
             aria-label="remove element"
             class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small gap-2 rounded-medium px-0 !gap-0 transition-transform-colors-opacity motion-reduce:transition-none bg-transparent text-danger data-[hover=true]:bg-danger/20 min-w-10 w-10 h-10 ml-1"
             data-testid="arrayfield1_remove_button"
+            tabindex="0"
             type="button"
           >
             <span
@@ -1668,6 +1714,7 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
         <button
           class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-3 min-w-16 h-8 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover w-full"
           data-testid="arrayfield_append_button"
+          tabindex="0"
           type="button"
         >
           Add Element
@@ -1679,6 +1726,7 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
         <button
           class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
           data-testid="form_submit_button"
+          tabindex="0"
           type="submit"
         >
           Submit

@@ -36,6 +36,7 @@ exports[`Story Snapshots > Default 1`] = `
               id="react-aria-react-useId-mock"
               name="textareaField"
               placeholder=" "
+              tabindex="0"
               title=""
             />
           </div>
@@ -47,6 +48,7 @@ exports[`Story Snapshots > Default 1`] = `
         <button
           class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
           data-testid="form_submit_button"
+          tabindex="0"
           type="submit"
         >
           Submit
@@ -116,6 +118,7 @@ exports[`Story Snapshots > Invalid 1`] = `
               name="textareaField"
               placeholder=" "
               required=""
+              tabindex="0"
               title=""
             />
           </div>
@@ -148,6 +151,7 @@ exports[`Story Snapshots > Invalid 1`] = `
         <button
           class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
           data-testid="form_submit_button"
+          tabindex="0"
           type="submit"
         >
           Submit
@@ -207,6 +211,7 @@ exports[`Story Snapshots > Required 1`] = `
               name="textareaField"
               placeholder=" "
               required=""
+              tabindex="0"
               title=""
             />
           </div>
@@ -218,6 +223,7 @@ exports[`Story Snapshots > Required 1`] = `
         <button
           class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
           data-testid="form_submit_button"
+          tabindex="0"
           type="submit"
         >
           Submit
@@ -266,6 +272,7 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
               id="react-aria-react-useId-mock"
               name="textareaField"
               placeholder=" "
+              tabindex="0"
               title=""
             >
               Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
@@ -279,6 +286,7 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
         <button
           class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
           data-testid="form_submit_button"
+          tabindex="0"
           type="submit"
         >
           Submit
