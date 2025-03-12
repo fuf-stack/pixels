@@ -121,8 +121,6 @@ export const Virtualized: Story = {
     className: {
       wrapper: 'h-[400px] w-[600px] bg-transparent border-none shadow-none',
     },
-    maxTableHeight: 400,
-    rowHeight: 40,
     hasWrapper: true,
     virtualized: true,
   },

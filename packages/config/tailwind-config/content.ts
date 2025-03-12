@@ -31,6 +31,7 @@ const HEROUI_THEME_USED_COMPONENT_PATHS = [
   'scroll-shadow',
   'table',
   'tabs',
+  'toast',
   'toggle', // switch is toggle for some reason...
   'tooltip',
   // theme is not required

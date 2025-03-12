@@ -143,7 +143,7 @@ const Table = ({
       isStriped={separation === 'striped' || separation === 'striped-divider-x'}
       isVirtualized={virtualized}
       maxTableHeight={maxTableHeight}
-      removeWrapper={!hasWrapper}
+      removeWrapper={virtualized ? false : !hasWrapper} // always show wrapper if virtualized
       rowHeight={rowHeight}
     >
       <TableHeader columns={columns}>

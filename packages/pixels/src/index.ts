@@ -18,6 +18,7 @@ export * from './Modal';
 export * from './Popover';
 export * from './Table';
 export * from './Tabs';
+export * from './Toast';
 export * from './Tooltip';
 
 // hooks
