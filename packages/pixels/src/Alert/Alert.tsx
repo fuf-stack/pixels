@@ -30,6 +30,17 @@ export const alertVariants = tv({
     variant: {
       ...heroAlertVariants.variants.variant,
     },
+    sizeLimit: {
+      height: {
+        base: 'max-h-[150px] overflow-y-auto overflow-x-hidden',
+      },
+      width: {
+        base: 'max-w-[480px] overflow-x-auto overflow-y-hidden',
+      },
+      both: {
+        base: 'max-h-[150px] max-w-[480px] overflow-y-auto overflow-x-hidden',
+      },
+    },
   },
   compoundVariants: [
     ...heroAlertVariants.compoundVariants,
@@ -95,6 +106,8 @@ export interface AlertProps extends VariantProps {
   onClose?: () => void | undefined;
   /** Whether to show the icon at the start */
   showIcon?: boolean;
+  /** limit height to 150px or width to 480px or both */
+  sizeLimit?: VariantProps['sizeLimit'];
   /** HTML data-testid attribute used in e2e tests */
   testId?: string;
   /** Title displayed in the Alert above the content */
@@ -114,6 +127,7 @@ const Alert = ({
   icon = undefined,
   isClosable = false,
   onClose = undefined,
+  sizeLimit = undefined,
   showIcon = true,
   testId = undefined,
   title = undefined,
@@ -122,6 +136,7 @@ const Alert = ({
   const variants = alertVariants({
     color,
     variant,
+    sizeLimit,
   });
   const isHeroUIColor = Object.keys(heroAlertVariants.variants.color).includes(
     color,

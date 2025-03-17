@@ -151,6 +151,7 @@ export const AllColorsWithShowMoreButton: Story = {
   },
   args: {
     title: 'Alert Issued',
+    variant: 'faded',
   },
 };
 
@@ -158,5 +159,130 @@ export const SpecialFullWidth: Story = {
   args: {
     showIcon: false,
     className: 'w-screen',
+  },
+};
+
+export const LimitHeight: Story = {
+  args: {
+    showIcon: false,
+    sizeLimit: 'height',
+    children: (
+      <div>
+        Our team of highly trained monkeys has detected a minor issue.
+        Don&apos;t worry, it&apos;s not the end of the world (but we can&apos;t
+        promise anything). <br /> Seriously though, please review the following
+        info: We&apos;ve got some stuff to tell you, and it&apos;s probably
+        going to be boring. But hey, at least you&apos;ll know what&apos;s up!
+        Our team of highly trained monkeys has detected a minor issue.
+        Don&apos;t worry, it&apos;s not the end of the world (but we can&apos;t
+        promise anything). <br /> Seriously though, please review the following
+        info: We&apos;ve got some stuff to tell you, and it&apos;s probably
+        going to be boring. But hey, at least you&apos;ll know what&apos;s up!
+        Our team of highly trained monkeys has detected a minor issue.
+        Don&apos;t worry, it&apos;s not the end of the world (but we can&apos;t
+        promise anything). <br /> Seriously though, please review the following
+        info: We&apos;ve got some stuff to tell you, and it&apos;s probably
+        going to be boring. But hey, at least you&apos;ll know what&apos;s up!
+        Our team of highly trained monkeys has detected a minor issue.
+        Don&apos;t worry, it&apos;s not the end of the world (but we can&apos;t
+        promise anything). <br /> Seriously though, please review the following
+        info: We&apos;ve got some stuff to tell you, and it&apos;s probably
+        going to be boring. But hey, at least you&apos;ll know what&apos;s up!
+        Our team of highly trained monkeys has detected a minor issue.
+        Don&apos;t worry, it&apos;s not the end of the world (but we can&apos;t
+        promise anything). <br /> Seriously though, please review the following
+        info: We&apos;ve got some stuff to tell you, and it&apos;s probably
+        going to be boring. But hey, at least you&apos;ll know what&apos;s up!
+        Our team of highly trained monkeys has detected a minor issue.
+        Don&apos;t worry, it&apos;s not the end of the world (but we can&apos;t
+        promise anything). <br /> Seriously though, please review the following
+        info: We&apos;ve got some stuff to tell you, and it&apos;s probably
+        going to be boring. But hey, at least you&apos;ll know what&apos;s up!
+      </div>
+    ),
+  },
+  render: (args) => <Alert {...args} />,
+};
+
+export const LimitWidth: Story = {
+  args: {
+    showIcon: false,
+    sizeLimit: 'width',
+    children: (
+      <div>
+        Our team of highly trained monkeys has detected a minor issue.
+        Don&apos;t worry, it&apos;s not the end of the world (but we can&apos;t
+        promise anything). <br /> Seriously though, please review the following
+        info: We&apos;ve got some stuff to tell you, and it&apos;s probably
+        going to be boring. But hey, at least you&apos;ll know what&apos;s up!
+        Our team of highly trained monkeys has detected a minor issue.
+        Don&apos;t worry, it&apos;s not the end of the world (but we can&apos;t
+        promise anything). <br /> Seriously though, please review the following
+        info: We&apos;ve got some stuff to tell you, and it&apos;s probably
+        going to be boring. But hey, at least you&apos;ll know what&apos;s up!
+        Our team of highly trained monkeys has detected a minor issue.
+        Don&apos;t worry, it&apos;s not the end of the world (but we can&apos;t
+        promise anything). <br /> Seriously though, please review the following
+        info: We&apos;ve got some stuff to tell you, and it&apos;s probably
+        going to be boring. But hey, at least you&apos;ll know what&apos;s up!
+        Our team of highly trained monkeys has detected a minor issue.
+        Don&apos;t worry, it&apos;s not the end of the world (but we can&apos;t
+        promise anything). <br /> Seriously though, please review the following
+        info: We&apos;ve got some stuff to tell you, and it&apos;s probably
+        going to be boring. But hey, at least you&apos;ll know what&apos;s up!
+        Our team of highly trained monkeys has detected a minor issue.
+        Don&apos;t worry, it&apos;s not the end of the world (but we can&apos;t
+        promise anything). <br /> Seriously though, please review the following
+        info: We&apos;ve got some stuff to tell you, and it&apos;s probably
+        going to be boring. But hey, at least you&apos;ll know what&apos;s up!
+        Our team of highly trained monkeys has detected a minor issue.
+        Don&apos;t worry, it&apos;s not the end of the world (but we can&apos;t
+        promise anything). <br /> Seriously though, please review the following
+        info: We&apos;ve got some stuff to tell you, and it&apos;s probably
+        going to be boring. But hey, at least you&apos;ll know what&apos;s up!
+      </div>
+    ),
+  },
+  render: (args) => <Alert {...args} />,
+};
+
+export const LimitHeightWidth: Story = {
+  args: {
+    showIcon: false,
+    sizeLimit: 'both',
+    children: (
+      <div>
+        Our team of highly trained monkeys has detected a minor issue.
+        Don&apos;t worry, it&apos;s not the end of the world (but we can&apos;t
+        promise anything). <br /> Seriously though, please review the following
+        info: We&apos;ve got some stuff to tell you, and it&apos;s probably
+        going to be boring. But hey, at least you&apos;ll know what&apos;s up!
+        Our team of highly trained monkeys has detected a minor issue.
+        Don&apos;t worry, it&apos;s not the end of the world (but we can&apos;t
+        promise anything). <br /> Seriously though, please review the following
+        info: We&apos;ve got some stuff to tell you, and it&apos;s probably
+        going to be boring. But hey, at least you&apos;ll know what&apos;s up!
+        Our team of highly trained monkeys has detected a minor issue.
+        Don&apos;t worry, it&apos;s not the end of the world (but we can&apos;t
+        promise anything). <br /> Seriously though, please review the following
+        info: We&apos;ve got some stuff to tell you, and it&apos;s probably
+        going to be boring. But hey, at least you&apos;ll know what&apos;s up!
+        Our team of highly trained monkeys has detected a minor issue.
+        Don&apos;t worry, it&apos;s not the end of the world (but we can&apos;t
+        promise anything). <br /> Seriously though, please review the following
+        info: We&apos;ve got some stuff to tell you, and it&apos;s probably
+        going to be boring. But hey, at least you&apos;ll know what&apos;s up!
+        Our team of highly trained monkeys has detected a minor issue.
+        Don&apos;t worry, it&apos;s not the end of the world (but we can&apos;t
+        promise anything). <br /> Seriously though, please review the following
+        info: We&apos;ve got some stuff to tell you, and it&apos;s probably
+        going to be boring. But hey, at least you&apos;ll know what&apos;s up!
+        Our team of highly trained monkeys has detected a minor issue.
+        Don&apos;t worry, it&apos;s not the end of the world (but we can&apos;t
+        promise anything). <br /> Seriously though, please review the following
+        info: We&apos;ve got some stuff to tell you, and it&apos;s probably
+        going to be boring. But hey, at least you&apos;ll know what&apos;s up!
+      </div>
+    ),
   },
 };
