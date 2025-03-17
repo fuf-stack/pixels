@@ -1,5 +1,24 @@
 # Changelog
 
+## [0.39.0](https://github.com/fuf-stack/pixels/compare/pixels-v0.38.0...pixels-v0.39.0) (2025-03-17)
+
+
+### Features
+
+* **pixels:** add sizeLimit property to alert component ([523a9c6](https://github.com/fuf-stack/pixels/commit/523a9c6cb05ea5772ef879a2f4ad9b4f537c3bd2))
+* **pixels:** add toast component ([2c138ae](https://github.com/fuf-stack/pixels/commit/2c138ae8d1f34b3c3846ba30188f8f85cb661e7e))
+
+
+### Bug Fixes
+
+* **deps:** update [@heroui](https://github.com/heroui) monorepo ([4ce4270](https://github.com/fuf-stack/pixels/commit/4ce4270fbcd923be29c93f74534924a0ca5bd8d8))
+* **deps:** update [@heroui](https://github.com/heroui) monorepo ([f2ce15c](https://github.com/fuf-stack/pixels/commit/f2ce15cb0a353fbf9923eee58787bbdff02d2b2f))
+* **deps:** update dependency framer-motion to v12.4.13 ([#821](https://github.com/fuf-stack/pixels/issues/821)) ([5ea5b69](https://github.com/fuf-stack/pixels/commit/5ea5b69564a53431f38ebde3c688129d08816ea0))
+* **deps:** update dependency framer-motion to v12.5.0 ([#823](https://github.com/fuf-stack/pixels/issues/823)) ([41b115e](https://github.com/fuf-stack/pixels/commit/41b115eab7bf4979e3edb6d29ef86490ef158e88))
+* **deps:** update dependency next-themes to v0.4.6 ([#824](https://github.com/fuf-stack/pixels/issues/824)) ([ae0ff5a](https://github.com/fuf-stack/pixels/commit/ae0ff5a0094269067ab3ebc6328bcbdd5be70d37))
+* **pixels:** remove icon prop from  triggerButtonProps in Popover ([e6ebdd3](https://github.com/fuf-stack/pixels/commit/e6ebdd387c393be22f627c634377b31930e1c6cc))
+* **pixels:** use trigger slot in Popover ([0545146](https://github.com/fuf-stack/pixels/commit/0545146475cdb10dfb2eae8bd3f9e93b197b3cf3))
+
 ## [0.38.0](https://github.com/fuf-stack/pixels/compare/pixels-v0.37.1...pixels-v0.38.0) (2025-03-11)
 
 
