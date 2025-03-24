@@ -367,8 +367,8 @@ importers:
   packages/veto:
     dependencies:
       validator:
-        specifier: 13.12.0
-        version: 13.12.0
+        specifier: 13.15.0
+        version: 13.15.0
       zodex:
         specifier: 0.18.2
         version: 0.18.2(zod@3.24.2)
@@ -7028,8 +7028,8 @@ packages:
     resolution: {integrity: sha512-OljLrQ9SQdOUqTaQxqL5dEfZWrXExyyWsozYlAWFawPVNuD83igl7uJD2RTkNMbniIYgt8l81eCJGIdQF7avLQ==}
     engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0}
 
-  validator@13.12.0:
-    resolution: {integrity: sha512-c1Q0mCiPlgdTVVVIJIrBuxNicYE+t/7oKeI9MWLj3fh/uq2Pxh/3eeWbVZ4OcGW1TUf53At0njHw5SMdA3tmMg==}
+  validator@13.15.0:
+    resolution: {integrity: sha512-36B2ryl4+oL5QxZ3AzD0t5SsMNGvTtQHpjgFO5tbNxfXbMFkY822ktCDe1MnlqV3301QQI9SLHDNJokDI+Z9pA==}
     engines: {node: '>= 0.10'}
 
   vite-node@2.1.9:
@@ -15521,7 +15521,7 @@ snapshots:
 
   validate-npm-package-name@5.0.1: {}
 
-  validator@13.12.0: {}
+  validator@13.15.0: {}
 
   vite-node@2.1.9(@types/node@22.13.13):
     dependencies:
