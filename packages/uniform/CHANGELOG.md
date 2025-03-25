@@ -1,5 +1,25 @@
 # Changelog
 
+## [0.16.4](https://github.com/fuf-stack/pixels/compare/uniform-v0.16.3...uniform-v0.16.4) (2025-03-25)
+
+
+### Bug Fixes
+
+* **deps:** update [@heroui](https://github.com/heroui) monorepo ([4ce4270](https://github.com/fuf-stack/pixels/commit/4ce4270fbcd923be29c93f74534924a0ca5bd8d8))
+* **deps:** update [@heroui](https://github.com/heroui) monorepo ([f2ce15c](https://github.com/fuf-stack/pixels/commit/f2ce15cb0a353fbf9923eee58787bbdff02d2b2f))
+* **deps:** update dependency @react-aria/visually-hidden to v3.8.20 ([#803](https://github.com/fuf-stack/pixels/issues/803)) ([42d279e](https://github.com/fuf-stack/pixels/commit/42d279e8acfa0d8a1e2c05f1518f09e0b0b5c852))
+* **deps:** update dependency @react-aria/visually-hidden to v3.8.21 ([#816](https://github.com/fuf-stack/pixels/issues/816)) ([c098c84](https://github.com/fuf-stack/pixels/commit/c098c84b03e18f91a2914a0b91fd1fcce250f852))
+* **deps:** update dependency framer-motion to v12.4.10 ([#795](https://github.com/fuf-stack/pixels/issues/795)) ([3a14111](https://github.com/fuf-stack/pixels/commit/3a14111b8fbd40292df19aaf550357cc352c95cf))
+* **deps:** update dependency framer-motion to v12.4.11 ([#815](https://github.com/fuf-stack/pixels/issues/815)) ([248b02f](https://github.com/fuf-stack/pixels/commit/248b02f0f6e96e3c2792c7a12b1df9f09e25d861))
+* **deps:** update dependency framer-motion to v12.4.12 ([#818](https://github.com/fuf-stack/pixels/issues/818)) ([38bf3b2](https://github.com/fuf-stack/pixels/commit/38bf3b207b744aba3a35a1715a8712b4e950d06c))
+* **deps:** update dependency framer-motion to v12.4.13 ([#821](https://github.com/fuf-stack/pixels/issues/821)) ([5ea5b69](https://github.com/fuf-stack/pixels/commit/5ea5b69564a53431f38ebde3c688129d08816ea0))
+* **deps:** update dependency framer-motion to v12.5.0 ([#823](https://github.com/fuf-stack/pixels/issues/823)) ([41b115e](https://github.com/fuf-stack/pixels/commit/41b115eab7bf4979e3edb6d29ef86490ef158e88))
+* **deps:** update dependency framer-motion to v12.6.0 ([#845](https://github.com/fuf-stack/pixels/issues/845)) ([c5dab1d](https://github.com/fuf-stack/pixels/commit/c5dab1d1bb9714d5e484ce031ccbbfe3d45810b1))
+* **deps:** update dependency react-select to v5.10.1 ([#796](https://github.com/fuf-stack/pixels/issues/796)) ([f73b36a](https://github.com/fuf-stack/pixels/commit/f73b36a9bed56768a408d83fd12ff24b7e0fa5f0))
+* **uniform:** fix disabled state in Select ([7436212](https://github.com/fuf-stack/pixels/commit/74362120536b1bc1e50c259bd8a24c5f72776e92))
+* **uniform:** prevent Cannot update component during rendering warning ([bdfc71e](https://github.com/fuf-stack/pixels/commit/bdfc71e3e57185da2cbfabc0045b4091f899287f))
+* **uniform:** prevent Cannot update component during rendering warning in Controller ([4ab185a](https://github.com/fuf-stack/pixels/commit/4ab185a4fdd04c0ef3abd6d9953ef29a60466353))
+
 ## [0.16.3](https://github.com/fuf-stack/pixels/compare/uniform-v0.16.2...uniform-v0.16.3) (2025-02-28)
 
 
