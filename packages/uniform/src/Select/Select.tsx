@@ -198,6 +198,7 @@ const Select = ({
   return (
     <Controller
       control={control}
+      disabled={disabled}
       name={name}
       render={({
         // eslint-disable-next-line @typescript-eslint/no-unused-vars

@@ -132,6 +132,13 @@ export const Invalid: Story = {
   },
 };
 
+export const Disabled: Story = {
+  args: {
+    ...args,
+    disabled: true,
+  },
+};
+
 export const MenuIsVisibleInCard: Story = {
   args,
   render: (renderArgs) => {
