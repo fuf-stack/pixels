@@ -73,7 +73,7 @@ const Switch = ({
     <Controller
       name={name}
       control={control}
-      disabled={disabled}
+      disabled={disabled || undefined}
       render={({
         field: { disabled: isDisabled, value, ref, onBlur, onChange },
       }) => {

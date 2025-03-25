@@ -90,7 +90,7 @@ const CheckboxGroup = ({
     <Controller
       control={control}
       name={name}
-      disabled={disabled}
+      disabled={disabled || undefined}
       render={({ field: { onChange, value = [], ref, onBlur } }) => {
         /**
          * Handles the checkbox group value changes based on the number of options:
