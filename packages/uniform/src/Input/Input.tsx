@@ -61,7 +61,7 @@ const Input = ({
   return (
     <Controller
       control={control}
-      disabled={disabled || undefined}
+      disabled={disabled}
       name={name}
       render={({
         field: { disabled: isDisabled, onChange, onBlur, value = '', ref },

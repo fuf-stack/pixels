@@ -48,7 +48,7 @@ const TextArea = ({
     <Controller
       control={control}
       name={name}
-      disabled={disabled || undefined}
+      disabled={disabled}
       render={({
         field: { disabled: isDisabled, onChange, onBlur, value = '', ref },
       }) => {

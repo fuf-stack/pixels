@@ -54,6 +54,8 @@ const Controller = <TFieldValues extends object = object>({
     <RHFController<TFieldValues>
       // eslint-disable-next-line react/jsx-props-no-spreading
       {...props}
+      // INFO: prevent 'A component is changing an uncontrolled input to be controlled'
+      disabled={props.disabled || undefined}
       render={({ field, ...rest }) => {
         return render({
           field: {

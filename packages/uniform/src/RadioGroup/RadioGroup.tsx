@@ -111,7 +111,7 @@ const RadioGroup = ({
   return (
     <Controller
       control={control}
-      disabled={disabled || undefined}
+      disabled={disabled}
       name={name}
       render={({ field: { onChange, disabled: isDisabled, onBlur, ref } }) => {
         let RadioComponents: ReactNode;
