@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.39.1](https://github.com/fuf-stack/pixels/compare/pixels-v0.39.0...pixels-v0.39.1) (2025-03-26)
+
+
+### Bug Fixes
+
+* **deps:** update dependency framer-motion to v12.6.0 ([#845](https://github.com/fuf-stack/pixels/issues/845)) ([c5dab1d](https://github.com/fuf-stack/pixels/commit/c5dab1d1bb9714d5e484ce031ccbbfe3d45810b1))
+* **pixels:** fix aria onClick deprecated with menu component ([7594524](https://github.com/fuf-stack/pixels/commit/7594524728beb7795da31fdde7dc3852519783c6))
+
 ## [0.39.0](https://github.com/fuf-stack/pixels/compare/pixels-v0.38.0...pixels-v0.39.0) (2025-03-17)
 
 
