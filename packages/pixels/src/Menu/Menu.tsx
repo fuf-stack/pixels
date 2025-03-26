@@ -1,5 +1,8 @@
-import type { DropdownSectionProps } from '@heroui/dropdown';
-import type { Key, MouseEventHandler, ReactNode } from 'react';
+import type {
+  DropdownSectionProps,
+  DropdownItemProps as HeroDropdownItemProps,
+} from '@heroui/dropdown';
+import type { Key, ReactNode } from 'react';
 
 import { FaEllipsisVertical } from 'react-icons/fa6';
 
@@ -31,7 +34,7 @@ export interface MenuItem {
   /** menu item name */
   label: ReactNode;
   /** click event handler */
-  onClick?: MouseEventHandler<HTMLLIElement>;
+  onClick?: HeroDropdownItemProps['onPress'];
   /** e2e test identifier */
   testId?: string;
 }
@@ -83,7 +86,7 @@ const renderMenuItem = (item: MenuItem) => (
     data-testid={item.testId || item.key}
     description={item.description}
     key={item.key}
-    onClick={item.onClick}
+    onPress={item.onClick}
     startContent={item.icon}
   >
     {item.label}
