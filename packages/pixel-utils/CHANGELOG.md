@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.5.2](https://github.com/fuf-stack/pixels/compare/pixel-utils-v0.5.1...pixel-utils-v0.5.2) (2025-03-26)
+
+
+### Bug Fixes
+
+* **deps:** update [@heroui](https://github.com/heroui) monorepo ([4ce4270](https://github.com/fuf-stack/pixels/commit/4ce4270fbcd923be29c93f74534924a0ca5bd8d8))
+* **deps:** update [@heroui](https://github.com/heroui) monorepo ([f2ce15c](https://github.com/fuf-stack/pixels/commit/f2ce15cb0a353fbf9923eee58787bbdff02d2b2f))
+
 ## [0.5.1](https://github.com/fuf-stack/pixels/compare/pixel-utils-v0.5.0...pixel-utils-v0.5.1) (2025-02-28)
 
 
