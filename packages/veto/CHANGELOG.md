@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.9.5](https://github.com/fuf-stack/pixels/compare/veto-v0.9.4...veto-v0.9.5) (2025-03-31)
+
+
+### Bug Fixes
+
+* **deps:** update dependency validator to v13.15.0 ([#842](https://github.com/fuf-stack/pixels/issues/842)) ([75940e1](https://github.com/fuf-stack/pixels/commit/75940e12f481b827a5083403ddcb932c395fa4e1))
+* **veto:** bundle zodex + remove validator dep ([50a21df](https://github.com/fuf-stack/pixels/commit/50a21df8b469adbdda14ec3597c994017aeb084c))
+
 ## [0.9.4](https://github.com/fuf-stack/pixels/compare/veto-v0.9.3...veto-v0.9.4) (2025-01-21)
 
 
