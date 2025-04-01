@@ -26,13 +26,11 @@
     "url": "https://github.com/fuf-stack/pixels/issues"
   },
   "scripts": {
-    "build": "tsup --dts-resolve",
-    "build:dts": "pnpm dts-bundle-generator --config ./dtsbundle.config.js",
+    "build": "tsx scripts/build-with-types.ts",
     "dev": "tsup --watch",
     "test": "vitest ./src"
   },
-  "devDependencies": {
-    "dts-bundle-generator": "9.5.1",
+  "dependencies": {
     "zod": "3.24.2",
     "zodex": "0.18.2"
   }
