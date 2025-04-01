@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.9.6](https://github.com/fuf-stack/pixels/compare/veto-v0.9.5...veto-v0.9.6) (2025-04-01)
+
+
+### Bug Fixes
+
+* **veto:** improve build process to bundle all dts types ([7a7c440](https://github.com/fuf-stack/pixels/commit/7a7c440f344da3d5ea52e7bcdca80e84eb9d8e5a))
+
 ## [0.9.5](https://github.com/fuf-stack/pixels/compare/veto-v0.9.4...veto-v0.9.5) (2025-03-31)
 
 
