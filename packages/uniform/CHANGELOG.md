@@ -1,5 +1,15 @@
 # Changelog
 
+## [0.16.5](https://github.com/fuf-stack/pixels/compare/uniform-v0.16.4...uniform-v0.16.5) (2025-04-04)
+
+
+### Bug Fixes
+
+* **deps:** update dependency framer-motion to v12.6.1 ([#848](https://github.com/fuf-stack/pixels/issues/848)) ([0491f0e](https://github.com/fuf-stack/pixels/commit/0491f0e49e8b96f6c39c79ea6be6e1ad07840333))
+* **deps:** update dependency framer-motion to v12.6.2 ([#853](https://github.com/fuf-stack/pixels/issues/853)) ([dc73174](https://github.com/fuf-stack/pixels/commit/dc7317466b138b6ecffda47b8eafe1b6b10c9f67))
+* **deps:** update dependency framer-motion to v12.6.3 ([#865](https://github.com/fuf-stack/pixels/issues/865)) ([deadb5f](https://github.com/fuf-stack/pixels/commit/deadb5fbfc6010aa589bf2663057cc149617bb02))
+* **deps:** update dependency react-hook-form to v7.55.0 ([#857](https://github.com/fuf-stack/pixels/issues/857)) ([27f1778](https://github.com/fuf-stack/pixels/commit/27f1778b9443170e68d454179bdbdec76b737742))
+
 ## [0.16.4](https://github.com/fuf-stack/pixels/compare/uniform-v0.16.3...uniform-v0.16.4) (2025-03-25)
 
 
