@@ -9,11 +9,26 @@ import { tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 // label variants
 export const labelVariants = tv({
   slots: {
-    avatar: '',
     base: '',
     closeButton: '',
     content: '',
     dot: '',
+    icon: '',
+  },
+  variants: {
+    isIconOnly: {
+      true: {
+        content: 'px-1',
+      },
+      false: {
+        content: 'flex items-center gap-2',
+      },
+    },
+    hasEndContent: {
+      true: {
+        base: 'pr-2',
+      },
+    },
   },
 });
 
@@ -29,12 +44,14 @@ export interface LabelProps extends VariantProps {
   color?: ChipProps['color'];
   /** element to be rendered in the right side of the label */
   endContent?: ChipProps['endContent'];
+  /** optional label icon, when only icon provided without children and endContent  */
+  icon?: ReactNode;
+  /** add close button to endContent */
+  onClose?: ChipProps['onClose'];
   /** radius of the label */
   radius?: ChipProps['radius'];
   /** size of the label */
   size?: ChipProps['size'];
-  /** element to be rendered in the left side of the label */
-  startContent?: ChipProps['startContent'];
   /** style variant of the label */
   variant?: 'solid' | 'bordered' | 'light' | 'flat' | 'faded' | 'dot';
 }
@@ -47,13 +64,18 @@ const Label = ({
   className: _className = undefined,
   color = 'default',
   endContent = undefined,
+  icon = undefined,
+  onClose = undefined,
   radius = 'full',
   size = 'md',
-  startContent = undefined,
   variant = 'solid',
 }: LabelProps) => {
+  // determine variants based on props
+  const isIconOnly = !!icon && !children && !endContent;
+  const hasEndContent = !!endContent;
+
   // classNames from slots
-  const variants = labelVariants();
+  const variants = labelVariants({ isIconOnly, hasEndContent });
   const classNames = variantsToClassNames(variants, _className, 'base');
 
   return (
@@ -62,10 +84,11 @@ const Label = ({
       color={color}
       endContent={endContent}
       radius={radius}
+      onClose={onClose}
       size={size}
-      startContent={startContent}
       variant={variant}
     >
+      {icon && <span className={classNames.icon}>{icon}</span>}
       {children}
     </HeroLabel>
   );

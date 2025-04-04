@@ -3,6 +3,8 @@ import type { LabelProps } from './Label';
 
 import { FaRocket } from 'react-icons/fa6';
 
+import { action } from '@storybook/addon-actions';
+
 import Label from './Label';
 
 const meta: Meta<typeof Label> = {
@@ -19,10 +21,16 @@ export const Default: Story = {
   },
 };
 
-export const StartContent: Story = {
+export const IconOnly: Story = {
   args: {
+    icon: <FaRocket />,
+  },
+};
+
+export const IconAndContent: Story = {
+  args: {
+    icon: <FaRocket />,
     children: 'Some Label',
-    startContent: <FaRocket />,
   },
 };
 
@@ -30,6 +38,13 @@ export const EndContent: Story = {
   args: {
     children: 'Some Label',
     endContent: <FaRocket />,
+  },
+};
+
+export const WithCloseButton: Story = {
+  args: {
+    children: 'Some Label',
+    onClose: action('onClose'),
   },
 };
 
