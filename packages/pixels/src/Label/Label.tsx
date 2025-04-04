@@ -37,7 +37,7 @@ type ClassName = TVClassName<typeof labelVariants>;
 
 export interface LabelProps extends VariantProps {
   /** content of the label */
-  children: ReactNode;
+  children?: ReactNode;
   /** CSS class name */
   className?: ClassName;
   /** color of the label */
@@ -60,7 +60,7 @@ export interface LabelProps extends VariantProps {
  * Label component based on [HeroUI Chip](https://www.heroui.com//docs/components/chip)
  */
 const Label = ({
-  children,
+  children = undefined,
   className: _className = undefined,
   color = 'default',
   endContent = undefined,
