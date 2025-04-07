@@ -40,12 +40,11 @@ export const AllProps: Story = {
   args: {
     className: { progressIndicator: 'moep1' },
     title: "Something's Up",
-    children: 'A message of varying importance has been detected.',
+    description: 'A message of varying importance has been detected.',
     color: 'info' as ToastProps['color'],
     variant: 'bordered' as ToastProps['variant'],
     timeout: 60000,
     closeIcon: undefined,
-    // description,
     endContent: 'the end',
     icon: undefined,
     loadingIcon: undefined,
@@ -80,7 +79,7 @@ export const AllColors: Story = {
   ),
   args: {
     title: "Something's Up",
-    children: 'A message of varying importance has been detected.',
+    description: 'A message of varying importance has been detected.',
     variant: 'bordered' as ToastProps['variant'],
   },
 };
@@ -106,8 +105,32 @@ export const AllVariants: Story = {
   ),
   args: {
     title: "Something's Up",
-    children: 'A message of varying importance has been detected.',
+    description: 'A message of varying importance has been detected.',
     color: 'info' as ToastProps['color'],
     timeout: 0,
   },
+};
+
+export const LongContent: Story = {
+  args: {
+    className: { progressIndicator: 'moep1' },
+    title: "The Toast That Won't Shut Up (and Other Charming Qualities)",
+    description:
+      "Ever needed to tell your users something important, but also wanted to channel your inner toddler and just yell it at them repeatedly? Then you've come to the right place! This story showcases the HeroUI/NextUI Toast component – a powerful tool for delivering notifications, alerts, and passive-aggressive messages to your unsuspecting audience. Here, you can tweak the Toast's appearance, duration, and severity (from a gentle 'heads up' to a full-blown 'CODE RED! THE COFFEE MACHINE IS EMPTY!'). Be warned: overuse can lead to user frustration and potentially feature requests for a 'mute all toasts' button. But hey, sometimes you just need to make sure they really see that discount code, right? Explore different variations, from the subtly informative to the gloriously attention-grabbing. Just remember, with great toast power comes great responsibility... or at least a well-placed 'X' button.",
+    color: 'info' as ToastProps['color'],
+    variant: 'bordered' as ToastProps['variant'],
+    timeout: 60000,
+    closeIcon: undefined,
+    // description,
+    endContent: 'the end',
+    icon: undefined,
+    loadingIcon: undefined,
+    shouldShowTimeoutProgress: true,
+    showCloseButton: true,
+    showIcon: true,
+    placement: 'top-right',
+  },
+  render: (args) => (
+    <Button onPress={() => addToast({ ...args })}>Show toast</Button>
+  ),
 };

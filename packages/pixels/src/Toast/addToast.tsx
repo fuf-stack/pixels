@@ -80,28 +80,35 @@ export type AddToastVariantProps = TVProps<typeof toastVariants>;
 type ClassName = TVClassName<typeof toastVariants>;
 
 export interface ToastProps extends AddToastVariantProps {
-  children?: ReactNode;
+  /** CSS class name */
   className?: ClassName;
+  /** Icon displayed at the end of the Alert */
   closeIcon?: ReactNode;
+  /** Color of the alert */
   color?: AddToastVariantProps['color'];
+  /** Content displayed inside the Alert */
   description?: ReactNode;
+  /** Content displayed at the end of the Alert */
   endContent?: ReactNode;
+  /** Icon displayed at the start of the Alert */
   icon?: ReactNode;
+  /** Icon or animation displayed until promise is resolved */
   loadingIcon?: ReactNode;
+  /** Callback function called when the toast is closed */
   onClose?: () => void;
-  // severity?:
-  //   | 'default'
-  //   | 'primary'
-  //   | 'secondary'
-  //   | 'success'
-  //   | 'warning'
-  //   | 'danger';
+  /** Promise based on which the notification will be styled */
+  promise?: Promise<void>;
+  /** Whether the toast should show a progress bar */
   shouldShowTimeoutProgress?: boolean;
+  /** Whether the toast should show a close button */
   showCloseButton?: boolean;
+  /** Whether the toast should show an icon */
   showIcon?: boolean;
-  // testId?: string;
+  /** Time the toast is displayed */
   timeout?: number;
+  /** Content displayed at the top of the toast */
   title?: ReactNode;
+  /** Variant of the toast */
   variant?: AddToastVariantProps['variant'];
 }
 
@@ -109,7 +116,6 @@ export interface ToastProps extends AddToastVariantProps {
  * addToast function based on [HeroUI Toast](https://www.heroui.com//docs/components/toast)
  */
 export const addToast = ({
-  children = undefined,
   className = undefined,
   closeIcon = undefined,
   color = 'default',
@@ -118,11 +124,10 @@ export const addToast = ({
   icon = undefined,
   loadingIcon = undefined,
   onClose = undefined,
-  // severity = 'default',
+  promise = undefined,
   shouldShowTimeoutProgress = false,
   showCloseButton = true,
   showIcon = true,
-  // testId = undefined,
   timeout = 5000,
   title = undefined,
   variant = 'bordered',
@@ -139,20 +144,20 @@ export const addToast = ({
     classNames,
     closeIcon,
     color: isHeroUIColor ? (color as HeroToastProps['color']) : undefined,
-    // 'data-testid': testId,
+    // TODO: 'data-testid': testId,
     // https://github.com/heroui-inc/heroui/issues/5033
     // @ts-expect-error bug in hero-toast: description should be ReactNode
-    description: description || title ? children : undefined,
+    description,
     endContent,
     hideCloseButton: !showCloseButton,
     hideIcon: !showIcon,
     icon,
     loadingIcon,
     onClose,
-    // severity={severity}
+    promise,
     shouldShowTimeoutProgress,
     timeout,
-    title: (title || children) as string,
+    title,
     variant,
   });
 };
