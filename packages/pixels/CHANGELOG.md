@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.39.4](https://github.com/fuf-stack/pixels/compare/pixels-v0.39.3...pixels-v0.39.4) (2025-04-07)
+
+
+### Bug Fixes
+
+* **pixels:** expose labelVariants from Label ([61d193d](https://github.com/fuf-stack/pixels/commit/61d193df168a1f61b6c068b4b53c7b0ca8e8af0b))
+
 ## [0.39.3](https://github.com/fuf-stack/pixels/compare/pixels-v0.39.2...pixels-v0.39.3) (2025-04-04)
 
 
