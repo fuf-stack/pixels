@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.39.5](https://github.com/fuf-stack/pixels/compare/pixels-v0.39.4...pixels-v0.39.5) (2025-04-07)
+
+
+### Bug Fixes
+
+* **pixels:** clean up toast and fix minor issues ([c703b57](https://github.com/fuf-stack/pixels/commit/c703b579e0a3ab4a75ec37d2cc9c62275e1bd2ac))
+
 ## [0.39.4](https://github.com/fuf-stack/pixels/compare/pixels-v0.39.3...pixels-v0.39.4) (2025-04-07)
 
 
