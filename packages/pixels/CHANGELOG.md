@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.39.3](https://github.com/fuf-stack/pixels/compare/pixels-v0.39.2...pixels-v0.39.3) (2025-04-04)
+
+
+### Bug Fixes
+
+* **pixels:** make Label children prop optional ([e5d4a03](https://github.com/fuf-stack/pixels/commit/e5d4a032e7a4e1e83f3b87952f578dccca795f8a))
+
 ## [0.39.2](https://github.com/fuf-stack/pixels/compare/pixels-v0.39.1...pixels-v0.39.2) (2025-04-04)
 
 
