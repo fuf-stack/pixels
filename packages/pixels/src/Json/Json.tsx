@@ -2,13 +2,10 @@
 
 import type { ReactNode } from 'react';
 
-import { useMemo, useState } from 'react';
+import { useState } from 'react';
 
 // INFO: react-json-view is bundled with --dts-resolve for now (dev dep)
 import JsonView from '@uiw/react-json-view';
-import { lightTheme } from '@uiw/react-json-view/light';
-import { vscodeTheme } from '@uiw/react-json-view/vscode';
-import { useTheme } from 'next-themes';
 
 import { cn } from '@fuf-stack/pixel-utils';
 
@@ -16,6 +13,8 @@ import { getValue } from './jsonParser';
 import CopiedRenderer from './subcomponents/CopiedRenderer';
 import ErrorRenderer from './subcomponents/ErrorRenderer';
 import NullRenderer from './subcomponents/NullRenderer';
+
+import './theme.css';
 
 /**
  * Handles copying text or object values to clipboard.
@@ -70,8 +69,6 @@ export interface JsonProps {
   maxHeight?: string | number;
   /** Callback when copy action is performed */
   onCopy?: (copiedValue: string) => void;
-  /** Color scheme, if not provided component tries to determine it with next-themes and body dark class */
-  theme?: 'light' | 'dark';
   /** Object to be visualized JSON string or object */
   value: string | object;
 }
@@ -86,22 +83,9 @@ const Json = ({
   errorRenderer = undefined,
   maxHeight = undefined,
   onCopy = undefined,
-  theme = undefined,
   value,
 }: JsonProps) => {
   const [showDetails, setShowDetails] = useState(false);
-
-  // Determine the current theme
-  // First check if theme prop is provided directly
-  // Otherwise use next-themes' resolvedTheme
-  // If neither is available, fall back to checking body.classList
-  const { resolvedTheme } = useTheme();
-  const isDarkMode = useMemo(() => {
-    if (theme) {
-      return theme === 'dark';
-    }
-    return resolvedTheme === 'dark' || document.body.classList.contains('dark');
-  }, [resolvedTheme, theme]);
 
   let content: ReactNode = null;
   let error: ReactNode = null;
@@ -117,10 +101,6 @@ const Json = ({
           className="pr-5"
           collapsed={collapsed}
           displayDataTypes={false}
-          style={{
-            ...(isDarkMode ? vscodeTheme : lightTheme),
-            backgroundColor: 'unset',
-          }}
           value={parsedValue}
           onCopied={(_, rawValue) => handleCopy(rawValue, onCopy)}
         >

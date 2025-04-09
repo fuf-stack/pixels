@@ -72,11 +72,3 @@ export const DayInTheLifeOfAProgrammer: Story = {
     value: programmersLife,
   },
 };
-
-export const ForcedDarkTheme: Story = {
-  args: {
-    className: 'bg-gray-900',
-    theme: 'dark',
-    value: testObject,
-  },
-};
