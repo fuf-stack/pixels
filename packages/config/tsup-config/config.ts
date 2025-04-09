@@ -52,6 +52,17 @@ export default defineConfig({
         import: file,
         require: file.replace('.js', '.cjs'),
       };
+
+      // include css exports
+      // https://github.com/vitejs/vite/discussions/2657
+      const cssPath = file.replace('.js', '.css');
+      // Check if a corresponding CSS file exists
+      if (cssPath !== './dist/index.css' && fs.existsSync(cssPath)) {
+        // @ts-expect-error this is ok
+        // eslint-disable-next-line no-param-reassign
+        exports[`${key}.css`] = cssPath;
+      }
+
       return exports;
     }, {});
 
