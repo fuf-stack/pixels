@@ -74,7 +74,10 @@
       "import": "./dist/Json/index.js",
       "require": "./dist/Json/index.cjs"
     },
-    "./Json.css": "./dist/Json/index.css",
+    "./Json.css": {
+      "import": "./dist/Json/index.css",
+      "require": "./dist/Json/index.css"
+    },
     "./Label": {
       "types": "./dist/Label/index.d.ts",
       "import": "./dist/Label/index.js",

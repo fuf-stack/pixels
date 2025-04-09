@@ -60,7 +60,10 @@ export default defineConfig({
       if (cssPath !== './dist/index.css' && fs.existsSync(cssPath)) {
         // @ts-expect-error this is ok
         // eslint-disable-next-line no-param-reassign
-        exports[`${key}.css`] = cssPath;
+        exports[`${key}.css`] = {
+          import: cssPath,
+          require: cssPath,
+        };
       }
 
       return exports;
