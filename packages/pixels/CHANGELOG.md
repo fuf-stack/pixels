@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.39.7](https://github.com/fuf-stack/pixels/compare/pixels-v0.39.6...pixels-v0.39.7) (2025-04-09)
+
+
+### Bug Fixes
+
+* **pixels:** use css based theme logic for Json ([29b0f2a](https://github.com/fuf-stack/pixels/commit/29b0f2a6d687fcfce6a7b2ea11d7ad543a4ffd13))
+* **tailwind-config,pixels:** tailwind opacity modifier not working ([a52066b](https://github.com/fuf-stack/pixels/commit/a52066ba07aea9894d8b7fdf3c71066350105356))
+
 ## [0.39.6](https://github.com/fuf-stack/pixels/compare/pixels-v0.39.5...pixels-v0.39.6) (2025-04-09)
 
 
