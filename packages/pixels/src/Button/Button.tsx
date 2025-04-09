@@ -13,9 +13,7 @@ export const buttonVariants = tv({
   base: '',
   variants: {
     color: {
-      info: {
-        base: 'text-info-foreground',
-      },
+      info: '',
       ...heroButtonVariants.variants.color,
     },
     variant: {
@@ -41,12 +39,12 @@ export const buttonVariants = tv({
     {
       color: 'info',
       variant: 'solid',
-      class: 'bg-info text-primary-foreground',
+      class: 'bg-info text-info-foreground',
     },
     {
       color: 'info',
       variant: 'shadow',
-      class: 'bg-info text-info-foreground shadow-lg shadow-info-200',
+      class: 'shadow-lg shadow-info/40 bg-info text-info-foreground"',
     },
     {
       color: 'info',
@@ -56,7 +54,7 @@ export const buttonVariants = tv({
     {
       color: 'info',
       variant: 'flat',
-      class: 'bg-info-100 text-info-600',
+      class: 'bg-info/20 text-info-600',
     },
     {
       color: 'info',
