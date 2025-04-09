@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.16.6](https://github.com/fuf-stack/pixels/compare/uniform-v0.16.5...uniform-v0.16.6) (2025-04-09)
+
+
+### Bug Fixes
+
+* **uniform:** update snapshots with button ([a574e54](https://github.com/fuf-stack/pixels/commit/a574e54090272b2f2f45097e3a813960cd72a4e4))
+
 ## [0.16.5](https://github.com/fuf-stack/pixels/compare/uniform-v0.16.4...uniform-v0.16.5) (2025-04-04)
 
 
