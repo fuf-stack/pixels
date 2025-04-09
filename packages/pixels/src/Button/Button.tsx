@@ -3,6 +3,7 @@ import type { ButtonProps as HeroButtonProps } from '@heroui/button';
 import type { ReactNode } from 'react';
 
 import { Button as HeroButton } from '@heroui/button';
+import { button as heroButtonVariants } from '@heroui/theme';
 
 import { tv } from '@fuf-stack/pixel-utils';
 
@@ -12,21 +13,16 @@ export const buttonVariants = tv({
   base: '',
   variants: {
     color: {
-      default: '',
-      primary: '',
-      secondary: '',
-      success: '',
-      warning: '',
-      danger: '',
+      info: {
+        base: 'text-info-foreground',
+      },
+      ...heroButtonVariants.variants.color,
     },
     variant: {
-      solid: '',
-      bordered: '',
-      light: '',
-      flat: '',
-      faded: '',
-      shadow: '',
-      ghost: '',
+      ...heroButtonVariants.variants.variant,
+    },
+    size: {
+      ...heroButtonVariants.variants.size,
     },
   },
   compoundVariants: [
@@ -42,10 +38,46 @@ export const buttonVariants = tv({
       variant: ['solid', 'shadow'],
       class: 'text-white',
     },
+    {
+      color: 'info',
+      variant: 'solid',
+      class: 'bg-info text-primary-foreground',
+    },
+    {
+      color: 'info',
+      variant: 'shadow',
+      class: 'bg-info text-info-foreground shadow-lg shadow-info-200',
+    },
+    {
+      color: 'info',
+      variant: 'bordered',
+      class: 'border-medium border-info bg-transparent text-info',
+    },
+    {
+      color: 'info',
+      variant: 'flat',
+      class: 'bg-info-100 text-info-600',
+    },
+    {
+      color: 'info',
+      variant: 'faded',
+      class: 'border-default bg-default-100 text-info',
+    },
+    {
+      color: 'info',
+      variant: 'light',
+      class: 'bg-transparent text-info data-[hover=true]:bg-info-100',
+    },
+    {
+      color: 'info',
+      variant: 'ghost',
+      class:
+        'border-info text-info data-[hover=true]:!bg-info data-[hover=true]:!text-info-foreground',
+    },
   ],
 });
 
-type VariantProps = TVProps<typeof buttonVariants>;
+export type VariantProps = TVProps<typeof buttonVariants>;
 
 export interface ButtonProps extends VariantProps {
   /** sets HTML aria-label attribute */

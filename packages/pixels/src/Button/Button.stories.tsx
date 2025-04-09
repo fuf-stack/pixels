@@ -24,6 +24,10 @@ const meta: Meta<typeof Button> = {
 export default meta;
 type Story = StoryObj<typeof Button>;
 
+const colors = [...Object.keys(buttonVariants.variants.color)];
+const variants = [...Object.keys(buttonVariants.variants.variant)];
+const sizes = [...Object.keys(buttonVariants.variants.size)];
+
 export const Default: Story = {
   args: {},
 };
@@ -66,13 +70,11 @@ export const DisabledAnimation: Story = {
 export const AllColors: Story = {
   render: () => (
     <>
-      {['default', 'primary', 'secondary', 'success', 'warning', 'danger'].map(
-        (color) => (
-          <div key={color} style={{ marginTop: '10px' }}>
-            <Button color={color as ButtonProps['color']}>{color}</Button>
-          </div>
-        ),
-      )}
+      {colors.map((color) => (
+        <div key={color} style={{ marginTop: '10px' }}>
+          <Button color={color as ButtonProps['color']}>{color}</Button>
+        </div>
+      ))}
     </>
   ),
 };
@@ -80,7 +82,7 @@ export const AllColors: Story = {
 export const AllSizes: Story = {
   render: () => (
     <>
-      {['sm', 'md', 'lg'].map((size) => (
+      {sizes.map((size) => (
         <div key={size} style={{ marginTop: '10px' }}>
           <Button size={size as ButtonProps['size']}>{size}</Button>
         </div>
@@ -92,15 +94,13 @@ export const AllSizes: Story = {
 export const AllVariants: Story = {
   render: (args) => (
     <>
-      {['solid', 'bordered', 'light', 'flat', 'faded', 'shadow', 'ghost'].map(
-        (variant) => (
-          <div key={variant} style={{ marginTop: '10px' }}>
-            <Button variant={variant as ButtonProps['variant']} {...args}>
-              {variant}
-            </Button>
-          </div>
-        ),
-      )}
+      {variants.map((variant) => (
+        <div key={variant} style={{ marginTop: '10px' }}>
+          <Button variant={variant as ButtonProps['variant']} {...args}>
+            {variant}
+          </Button>
+        </div>
+      ))}
     </>
   ),
 };
