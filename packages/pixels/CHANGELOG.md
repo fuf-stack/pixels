@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.39.6](https://github.com/fuf-stack/pixels/compare/pixels-v0.39.5...pixels-v0.39.6) (2025-04-09)
+
+
+### Bug Fixes
+
+* **pixels:** add info color to button ([c662b5a](https://github.com/fuf-stack/pixels/commit/c662b5a09ad2459a7a69914d42e46523bfee92ee))
+
 ## [0.39.5](https://github.com/fuf-stack/pixels/compare/pixels-v0.39.4...pixels-v0.39.5) (2025-04-07)
 
 
