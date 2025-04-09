@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.39.9](https://github.com/fuf-stack/pixels/compare/pixels-v0.39.8...pixels-v0.39.9) (2025-04-09)
+
+
+### Bug Fixes
+
+* **pixels:** add css file exports when exists with correct format ([c943df5](https://github.com/fuf-stack/pixels/commit/c943df52f23c91ab317b7d8ed07fc6278133db2e))
+
 ## [0.39.8](https://github.com/fuf-stack/pixels/compare/pixels-v0.39.7...pixels-v0.39.8) (2025-04-09)
 
 
