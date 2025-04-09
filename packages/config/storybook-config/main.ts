@@ -37,6 +37,13 @@ const config: StorybookConfig = {
   docs: {
     autodocs: true,
   },
+  // TEMP FIX: Attempted to resolveName for an unsupported path. resolveName does not accept ObjectMethod
+  // see: https://storybook.js.org/docs/api/main-config-typescript#reactdocgen
+  // see: https://github.com/storybookjs/storybook/issues/26652
+  // see: https://github.com/reactjs/react-docgen/issues/902
+  typescript: {
+    reactDocgen: false,
+  },
 };
 
 export default config;
