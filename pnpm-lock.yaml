@@ -10,7 +10,7 @@ importers:
     devDependencies:
       '@fuf-stack/eslint-config-fuf':
         specifier: 0.12.2
-        version: 0.12.2(@babel/core@7.26.9)(typescript@5.8.3)(vitest@2.1.9(@types/node@22.14.1)(jsdom@26.0.0))
+        version: 0.12.2(@babel/core@7.26.9)(typescript@5.8.3)(vitest@2.1.9(@types/node@22.14.1)(jsdom@26.1.0))
       '@fuf-stack/project-cli-tools':
         specifier: 1.0.5
         version: 1.0.5(@types/node@22.14.1)(babel-plugin-macros@3.1.0)(typescript@5.8.3)
@@ -19,7 +19,7 @@ importers:
         version: 0.3.0
       '@fuf-stack/vitest-config':
         specifier: 1.1.2
-        version: 1.1.2(@types/node@22.14.1)(jsdom@26.0.0)
+        version: 1.1.2(@types/node@22.14.1)(jsdom@26.1.0)
       '@types/node':
         specifier: 22.14.1
         version: 22.14.1
@@ -84,8 +84,8 @@ importers:
         specifier: 2.1.0
         version: 2.1.0(playwright@1.50.1)
       jsdom:
-        specifier: 26.0.0
-        version: 26.0.0
+        specifier: 26.1.0
+        version: 26.1.0
       react:
         specifier: 19.0.0
         version: 19.0.0
@@ -5181,8 +5181,8 @@ packages:
     resolution: {integrity: sha512-Hicd6JK5Njt2QB6XYFS7ok9e37O8AYk3jTcppG4YVQnYjOemymvTcmc7OWsmq/Qqj5TdRFO5/x/tIPmBeRtGHg==}
     engines: {node: '>=12.0.0'}
 
-  jsdom@26.0.0:
-    resolution: {integrity: sha512-BZYDGVAIriBWTpIxYzrXjv3E/4u8+/pSG5bQdIYCbNCGOvsPkDQfTVLAIXAf9ETdCpduCVTkDe2NNZ8NIwUVzw==}
+  jsdom@26.1.0:
+    resolution: {integrity: sha512-Cvc9WUhxSMEo4McES3P7oK3QaXldCfNWp7pl2NNeiIFlCoLr3kfq9kb1fxftiwk1FLV7CvpvDfonxtzUDeSOPg==}
     engines: {node: '>=18'}
     peerDependencies:
       canvas: ^3.0.0
@@ -8132,7 +8132,7 @@ snapshots:
     dependencies:
       tslib: 2.8.1
 
-  '@fuf-stack/eslint-config-fuf@0.12.2(@babel/core@7.26.9)(typescript@5.8.3)(vitest@2.1.9(@types/node@22.14.1)(jsdom@26.0.0))':
+  '@fuf-stack/eslint-config-fuf@0.12.2(@babel/core@7.26.9)(typescript@5.8.3)(vitest@2.1.9(@types/node@22.14.1)(jsdom@26.1.0))':
     dependencies:
       '@babel/eslint-parser': 7.26.8(@babel/core@7.26.9)(eslint@8.57.1)
       '@ianvs/prettier-plugin-sort-imports': 4.4.1(prettier@3.5.0)
@@ -8150,7 +8150,7 @@ snapshots:
       eslint-plugin-react: 7.37.4(eslint@8.57.1)
       eslint-plugin-react-hooks: 5.1.0(eslint@8.57.1)
       eslint-plugin-storybook: 0.11.2(eslint@8.57.1)(typescript@5.8.3)
-      eslint-plugin-vitest: 0.4.1(@typescript-eslint/eslint-plugin@7.18.0(@typescript-eslint/parser@7.18.0(eslint@8.57.1)(typescript@5.8.3))(eslint@8.57.1)(typescript@5.8.3))(eslint@8.57.1)(typescript@5.8.3)(vitest@2.1.9(@types/node@22.14.1)(jsdom@26.0.0))
+      eslint-plugin-vitest: 0.4.1(@typescript-eslint/eslint-plugin@7.18.0(@typescript-eslint/parser@7.18.0(eslint@8.57.1)(typescript@5.8.3))(eslint@8.57.1)(typescript@5.8.3))(eslint@8.57.1)(typescript@5.8.3)(vitest@2.1.9(@types/node@22.14.1)(jsdom@26.1.0))
       prettier: 3.5.0
       prettier-plugin-astro: 0.14.1
       prettier-plugin-tailwindcss: 0.6.11(@ianvs/prettier-plugin-sort-imports@4.4.1(prettier@3.5.0))(prettier-plugin-astro@0.14.1)(prettier@3.5.0)
@@ -8206,10 +8206,10 @@ snapshots:
 
   '@fuf-stack/typescript-config@0.3.0': {}
 
-  '@fuf-stack/vitest-config@1.1.2(@types/node@22.14.1)(jsdom@26.0.0)':
+  '@fuf-stack/vitest-config@1.1.2(@types/node@22.14.1)(jsdom@26.1.0)':
     dependencies:
-      '@vitest/coverage-v8': 2.1.9(vitest@2.1.9(@types/node@22.14.1)(jsdom@26.0.0))
-      vitest: 2.1.9(@types/node@22.14.1)(jsdom@26.0.0)
+      '@vitest/coverage-v8': 2.1.9(vitest@2.1.9(@types/node@22.14.1)(jsdom@26.1.0))
+      vitest: 2.1.9(@types/node@22.14.1)(jsdom@26.1.0)
     transitivePeerDependencies:
       - '@edge-runtime/vm'
       - '@types/node'
@@ -11067,7 +11067,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@vitest/coverage-v8@2.1.9(vitest@2.1.9(@types/node@22.14.1)(jsdom@26.0.0))':
+  '@vitest/coverage-v8@2.1.9(vitest@2.1.9(@types/node@22.14.1)(jsdom@26.1.0))':
     dependencies:
       '@ampproject/remapping': 2.3.0
       '@bcoe/v8-coverage': 0.2.3
@@ -11081,7 +11081,7 @@ snapshots:
       std-env: 3.8.1
       test-exclude: 7.0.1
       tinyrainbow: 1.2.0
-      vitest: 2.1.9(@types/node@22.14.1)(jsdom@26.0.0)
+      vitest: 2.1.9(@types/node@22.14.1)(jsdom@26.1.0)
     transitivePeerDependencies:
       - supports-color
 
@@ -12388,13 +12388,13 @@ snapshots:
       - supports-color
       - typescript
 
-  eslint-plugin-vitest@0.4.1(@typescript-eslint/eslint-plugin@7.18.0(@typescript-eslint/parser@7.18.0(eslint@8.57.1)(typescript@5.8.3))(eslint@8.57.1)(typescript@5.8.3))(eslint@8.57.1)(typescript@5.8.3)(vitest@2.1.9(@types/node@22.14.1)(jsdom@26.0.0)):
+  eslint-plugin-vitest@0.4.1(@typescript-eslint/eslint-plugin@7.18.0(@typescript-eslint/parser@7.18.0(eslint@8.57.1)(typescript@5.8.3))(eslint@8.57.1)(typescript@5.8.3))(eslint@8.57.1)(typescript@5.8.3)(vitest@2.1.9(@types/node@22.14.1)(jsdom@26.1.0)):
     dependencies:
       '@typescript-eslint/utils': 7.18.0(eslint@8.57.1)(typescript@5.8.3)
       eslint: 8.57.1
     optionalDependencies:
       '@typescript-eslint/eslint-plugin': 7.18.0(@typescript-eslint/parser@7.18.0(eslint@8.57.1)(typescript@5.8.3))(eslint@8.57.1)(typescript@5.8.3)
-      vitest: 2.1.9(@types/node@22.14.1)(jsdom@26.0.0)
+      vitest: 2.1.9(@types/node@22.14.1)(jsdom@26.1.0)
     transitivePeerDependencies:
       - supports-color
       - typescript
@@ -13726,12 +13726,11 @@ snapshots:
 
   jsdoc-type-pratt-parser@4.1.0: {}
 
-  jsdom@26.0.0:
+  jsdom@26.1.0:
     dependencies:
       cssstyle: 4.2.1
       data-urls: 5.0.0
       decimal.js: 10.5.0
-      form-data: 4.0.2
       html-encoding-sniffer: 4.0.0
       http-proxy-agent: 7.0.2
       https-proxy-agent: 7.0.6
@@ -15732,7 +15731,7 @@ snapshots:
       tsx: 4.19.3
       yaml: 2.7.0
 
-  vitest@2.1.9(@types/node@22.14.1)(jsdom@26.0.0):
+  vitest@2.1.9(@types/node@22.14.1)(jsdom@26.1.0):
     dependencies:
       '@vitest/expect': 2.1.9
       '@vitest/mocker': 2.1.9(vite@5.4.14(@types/node@22.14.1))
@@ -15756,7 +15755,7 @@ snapshots:
       why-is-node-running: 2.3.0
     optionalDependencies:
       '@types/node': 22.14.1
-      jsdom: 26.0.0
+      jsdom: 26.1.0
     transitivePeerDependencies:
       - less
       - lightningcss
