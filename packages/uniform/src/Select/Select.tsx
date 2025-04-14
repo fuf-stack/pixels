@@ -35,7 +35,7 @@ export const selectVariants = tv({
     label:
       'pointer-events-auto relative bottom-1.5 ml-1 text-small subpixel-antialiased group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]',
     loadingIndicator: '',
-    loadingMessage: '',
+    loadingMessage: 'rounded-sm p-2 text-foreground-500',
     menu: 'mt-2 rounded-xl border border-default-200 bg-content1 p-1 shadow-lg',
     menuList: '',
     // ensure menu has same z-index as modal so it is visible when rendered in modal
