@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.40.0](https://github.com/fuf-stack/pixels/compare/pixels-v0.39.9...pixels-v0.40.0) (2025-04-14)
+
+
+### Features
+
+* **pixels:** add initial circular progress component ([77ef76d](https://github.com/fuf-stack/pixels/commit/77ef76d8b61113cbdb74afc4f3c02c39ba8f67dd))
+
+
+### Bug Fixes
+
+* **deps:** update dependency framer-motion to v12.6.5 ([#885](https://github.com/fuf-stack/pixels/issues/885)) ([865b2e7](https://github.com/fuf-stack/pixels/commit/865b2e7714f0fc8a4d92c5958f395d7addcbc746))
+* **deps:** update dependency framer-motion to v12.7.1 ([#890](https://github.com/fuf-stack/pixels/issues/890)) ([0b89539](https://github.com/fuf-stack/pixels/commit/0b895395ece31b874088790af6b93773c15ddfb2))
+* **deps:** update dependency framer-motion to v12.7.2 ([#893](https://github.com/fuf-stack/pixels/issues/893)) ([95912b3](https://github.com/fuf-stack/pixels/commit/95912b35ec95d9492e339c9160abf26acb0224eb))
+
 ## [0.39.9](https://github.com/fuf-stack/pixels/compare/pixels-v0.39.8...pixels-v0.39.9) (2025-04-09)
 
 
