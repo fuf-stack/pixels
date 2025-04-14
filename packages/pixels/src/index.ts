@@ -16,6 +16,7 @@ export * from './Label';
 export * from './Menu';
 export * from './Modal';
 export * from './Popover';
+export * from './CircularProgress';
 export * from './Table';
 export * from './Tabs';
 export * from './Toast';
