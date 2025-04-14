@@ -1,5 +1,16 @@
 # Changelog
 
+## [0.16.7](https://github.com/fuf-stack/pixels/compare/uniform-v0.16.6...uniform-v0.16.7) (2025-04-14)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @react-aria/visually-hidden to v3.8.22 ([#884](https://github.com/fuf-stack/pixels/issues/884)) ([75229d6](https://github.com/fuf-stack/pixels/commit/75229d61a99f120626f537cddf9886b061d4c849))
+* **deps:** update dependency framer-motion to v12.6.5 ([#885](https://github.com/fuf-stack/pixels/issues/885)) ([865b2e7](https://github.com/fuf-stack/pixels/commit/865b2e7714f0fc8a4d92c5958f395d7addcbc746))
+* **deps:** update dependency framer-motion to v12.7.1 ([#890](https://github.com/fuf-stack/pixels/issues/890)) ([0b89539](https://github.com/fuf-stack/pixels/commit/0b895395ece31b874088790af6b93773c15ddfb2))
+* **uniform:** fix loading message style in Select ([d2ec84a](https://github.com/fuf-stack/pixels/commit/d2ec84a5fc78d87c93f623ac9f1bf6bb640dd286))
+* **uniform:** try to import Json.css in FormDebugViewer ([781780f](https://github.com/fuf-stack/pixels/commit/781780fcd57079cdfebdbb6188ee1e75d6764883))
+
 ## [0.16.6](https://github.com/fuf-stack/pixels/compare/uniform-v0.16.5...uniform-v0.16.6) (2025-04-09)
 
 
