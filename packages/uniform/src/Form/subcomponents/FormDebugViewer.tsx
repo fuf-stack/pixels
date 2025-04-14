@@ -5,10 +5,15 @@ import { FaTimes } from 'react-icons/fa';
 import { FaBug, FaBullseye } from 'react-icons/fa6';
 
 import { cn } from '@fuf-stack/pixel-utils';
-import { Button, Card, Json } from '@fuf-stack/pixels';
+import { Button } from '@fuf-stack/pixels/Button';
+import { Card } from '@fuf-stack/pixels/Card';
+import { Json } from '@fuf-stack/pixels/Json';
 
 import { toValidationFormat } from '../../helpers';
 import { useFormContext } from '../../hooks';
+
+// import Json css (theme)
+import '@fuf-stack/pixels/Json.css';
 
 interface FormDebugViewerProps {
   /** CSS class name */
