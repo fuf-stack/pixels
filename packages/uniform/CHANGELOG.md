@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.16.8](https://github.com/fuf-stack/pixels/compare/uniform-v0.16.7...uniform-v0.16.8) (2025-04-14)
+
+
+### Bug Fixes
+
+* **deps:** update dependency framer-motion to v12.7.2 ([#893](https://github.com/fuf-stack/pixels/issues/893)) ([95912b3](https://github.com/fuf-stack/pixels/commit/95912b35ec95d9492e339c9160abf26acb0224eb))
+* **uniform:** fix loading styles in Select component ([0f539c3](https://github.com/fuf-stack/pixels/commit/0f539c32312b0df10f1e0255ed01b71d517e48b7))
+
 ## [0.16.7](https://github.com/fuf-stack/pixels/compare/uniform-v0.16.6...uniform-v0.16.7) (2025-04-14)
 
 
