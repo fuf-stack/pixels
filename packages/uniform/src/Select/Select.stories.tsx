@@ -139,6 +139,29 @@ export const Disabled: Story = {
   },
 };
 
+export const Loading: Story = {
+  args: {
+    ...args,
+    loading: true,
+  },
+  play: async ({ canvasElement }) => {
+    const body = within(canvasElement?.parentElement as HTMLElement);
+    const select = body.getByTestId('selectfield');
+    await userEvent.type(select, 'search for something');
+  },
+};
+
+export const NoResults: Story = {
+  args: {
+    ...args,
+  },
+  play: async ({ canvasElement }) => {
+    const body = within(canvasElement?.parentElement as HTMLElement);
+    const select = body.getByTestId('selectfield');
+    await userEvent.type(select, 'search for something');
+  },
+};
+
 export const MenuIsVisibleInCard: Story = {
   args,
   render: (renderArgs) => {
