@@ -126,3 +126,30 @@ export const jsonObject = (levels = 10) =>
  * Type representing the JSON object validator function
  */
 export type VJsonObject = typeof jsonObject;
+
+/**
+ * Transforms a JSON string into its parsed JavaScript value
+ *
+ * Handles standard JSON types (strings, numbers, booleans, null, objects, arrays)
+ * and rejects malformed JSON, JavaScript-specific values (undefined, BigInt),
+ * and non-JSON formats.
+ *
+ * @returns veto schema that parses JSON strings into JavaScript values
+ *
+ * @example
+ * // Basic usage
+ * const result = stringToJSON().parse('{"name":"John","age":30}');
+ *
+ * // With additional validation using pipe
+ * const userSchema = stringToJSON().pipe(z.object({ name: z.string() }));
+ * const user = userSchema.parse('{"name":"Alice"}');
+ */
+export const stringToJSON = () =>
+  z.string().transform((str, ctx): z.infer<ReturnType<typeof json>> => {
+    try {
+      return JSON.parse(str);
+    } catch (e) {
+      ctx.addIssue({ code: 'custom', message: 'Invalid JSON' });
+      return z.NEVER;
+    }
+  });
