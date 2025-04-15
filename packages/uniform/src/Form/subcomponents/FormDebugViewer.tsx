@@ -71,10 +71,11 @@ const FormDebugViewer = ({ className = undefined }: FormDebugViewerProps) => {
         <div className="flex w-full flex-row justify-between">
           <span className="text-lg">Debug Mode</span>
           <Button
-            icon={<FaTimes className="text-danger" />}
+            color="danger"
+            icon={<FaTimes />}
             onClick={() => setDebugMode('off')}
             size="sm"
-            variant="flat"
+            variant="light"
           />
         </div>
       }

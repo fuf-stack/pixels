@@ -158,6 +158,7 @@ const FieldArray = ({
         {/* append elements */}
         <Button
           className={className.appendButton}
+          disableAnimation
           onClick={() => append(elementInitialValue)}
           size="sm"
           testId={`${testId}_append_button`}
