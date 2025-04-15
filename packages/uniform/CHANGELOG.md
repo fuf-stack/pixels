@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.16.9](https://github.com/fuf-stack/pixels/compare/uniform-v0.16.8...uniform-v0.16.9) (2025-04-15)
+
+
+### Bug Fixes
+
+* **uniform:** some style fixes for FieldArray ([b3efbbe](https://github.com/fuf-stack/pixels/commit/b3efbbe78c28babe372125d2a2cd33e9d5b10b52))
+
 ## [0.16.8](https://github.com/fuf-stack/pixels/compare/uniform-v0.16.7...uniform-v0.16.8) (2025-04-14)
 
 
