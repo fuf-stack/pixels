@@ -55,7 +55,7 @@ export interface ProgressProps extends VariantProps {
   format?: (percent: number) => ReactNode;
   /** label of the progress bar */
   label?: ReactNode;
-  /** percentage/progress of the progress bar */
+  /** percentage / progress of the progress bar */
   percent: number;
   /** whether to show the value label */
   showValueLabel?: boolean;

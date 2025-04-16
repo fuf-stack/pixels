@@ -1,5 +1,5 @@
+import type { ProgressProps } from '@heroui/progress';
 import type { Meta, StoryObj } from '@storybook/react';
-import type { VariantProps } from './Progress';
 
 import Progress, { progressVariants } from './Progress';
 
@@ -52,7 +52,7 @@ export const AllStyleVariants: Story = {
             {...args}
             label={color}
             percent={42}
-            color={color as VariantProps['color']}
+            color={color as ProgressProps['color']}
           />
         </div>
       ))}
