@@ -1,11 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import type { ToastProps } from './addToast';
 
-import { Button } from '@heroui/button';
-import { Toast } from '@heroui/toast';
 import { action } from '@storybook/addon-actions';
 
-import { addToast, toastVariants } from './addToast';
+import { Button } from '../Button';
+import { addToast, Toast, toastVariants } from './index';
 import ToastProvider from './ToastProvider';
 
 const meta: Meta<typeof addToast> = {
@@ -32,7 +31,7 @@ export const Default: Story = {
     title: "Something's Up",
   },
   render: (args) => (
-    <Button onPress={() => addToast({ ...args })}>Show success toast</Button>
+    <Button onClick={() => addToast({ ...args })}>Show success toast</Button>
   ),
 };
 
@@ -54,7 +53,7 @@ export const AllProps: Story = {
     placement: 'top-right',
   },
   render: (args) => (
-    <Button onPress={() => addToast({ ...args })}>Show toast</Button>
+    <Button onClick={() => addToast({ ...args })}>Show toast</Button>
   ),
 };
 
@@ -65,7 +64,7 @@ export const AllColors: Story = {
         <div key={color} className="mb-12">
           <h2 className="mb-4 text-lg font-bold">{color}</h2>
           <Button
-            onPress={() =>
+            onClick={() =>
               addToast({
                 ...args,
 
@@ -91,7 +90,7 @@ export const AllVariants: Story = {
         <div key={`${variant}`} className="mb-6">
           <div className="mb-2 text-sm text-foreground">{variant}</div>
           <Button
-            onPress={() =>
+            onClick={() =>
               addToast({
                 ...args,
 
@@ -131,6 +130,6 @@ export const LongContent: Story = {
     placement: 'top-right',
   },
   render: (args) => (
-    <Button onPress={() => addToast({ ...args })}>Show toast</Button>
+    <Button onClick={() => addToast({ ...args })}>Show toast</Button>
   ),
 };

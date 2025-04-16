@@ -140,6 +140,7 @@ export const addToast = ({
     color,
   );
   const classNames = variantsToClassNames(variants, className, 'base');
+
   heroAddToast({
     classNames,
     closeIcon,
