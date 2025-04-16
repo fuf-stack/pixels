@@ -689,35 +689,111 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                     data-orientation="horizontal"
                     role="presentation"
                   >
-                    <div
-                      class="inline-flex items-center justify-center h-auto rounded-xl group-data-[invalid=true]:border group-data-[invalid=true]:border-danger"
-                      role="group"
+                    <label
+                      aria-required="true"
+                      class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
+                      data-testid="radiobuttonfield_option_value0"
                     >
-                      <button
-                        class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 [&:not(:first-child):not(:last-child)]:rounded-none [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground rounded-none first:rounded-s-medium last:rounded-e-medium data-[hover=true]:opacity-hover bg-opacity-50"
-                        data-testid="radiobuttonfield_option_value0"
+                      <input
+                        aria-describedby=":rb: react-aria-react-useId-mock"
+                        aria-labelledby=":ra:"
+                        class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
+                        name="radioButtonField"
+                        required=""
                         tabindex="0"
-                        type="button"
+                        title=""
+                        type="radio"
+                        value="Value0"
+                      />
+                      <span
+                        aria-hidden="true"
+                        class="relative inline-flex items-center justify-center flex-shrink-0 overflow-hidden border-solid border-medium box-border border-default rounded-full group-data-[hover-unselected=true]:bg-default-100 outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:border-primary w-5 h-5 group-data-[pressed=true]:scale-95 transition-transform-colors motion-reduce:transition-none group-data-[invalid=true]:!border-danger [&:not(group-data-[invalid="true"]):not(group-data-[selected="false"])]:border-focus"
                       >
-                        LabelA
-                      </button>
-                      <button
-                        class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 [&:not(:first-child):not(:last-child)]:rounded-none [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground rounded-none first:rounded-s-medium last:rounded-e-medium data-[hover=true]:opacity-hover bg-opacity-50"
-                        data-testid="radiobuttonfield_option_value1"
+                        <span
+                          class="z-10 opacity-0 scale-0 origin-center rounded-full group-data-[selected=true]:opacity-100 group-data-[selected=true]:scale-100 text-primary-foreground w-2 h-2 transition-transform-opacity motion-reduce:transition-none bg-focus group-data-[invalid=true]:bg-danger"
+                        />
+                      </span>
+                      <div
+                        class="flex flex-col ml-1 ms-2"
+                      >
+                        <span
+                          class="relative text-foreground select-none transition-colors motion-reduce:transition-none text-sm"
+                          id=":ra:"
+                        >
+                          LabelA
+                        </span>
+                      </div>
+                    </label>
+                    <label
+                      aria-required="true"
+                      class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
+                      data-testid="radiobuttonfield_option_value1"
+                    >
+                      <input
+                        aria-describedby=":rd: react-aria-react-useId-mock"
+                        aria-labelledby=":rc:"
+                        class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
+                        name="radioButtonField"
+                        required=""
                         tabindex="0"
-                        type="button"
+                        title=""
+                        type="radio"
+                        value="Value1"
+                      />
+                      <span
+                        aria-hidden="true"
+                        class="relative inline-flex items-center justify-center flex-shrink-0 overflow-hidden border-solid border-medium box-border border-default rounded-full group-data-[hover-unselected=true]:bg-default-100 outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:border-primary w-5 h-5 group-data-[pressed=true]:scale-95 transition-transform-colors motion-reduce:transition-none group-data-[invalid=true]:!border-danger [&:not(group-data-[invalid="true"]):not(group-data-[selected="false"])]:border-focus"
                       >
-                        LabelB
-                      </button>
-                      <button
-                        class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 [&:not(:first-child):not(:last-child)]:rounded-none [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground rounded-none first:rounded-s-medium last:rounded-e-medium data-[hover=true]:opacity-hover bg-opacity-50"
-                        data-testid="radiobuttonfield_option_value2"
+                        <span
+                          class="z-10 opacity-0 scale-0 origin-center rounded-full group-data-[selected=true]:opacity-100 group-data-[selected=true]:scale-100 text-primary-foreground w-2 h-2 transition-transform-opacity motion-reduce:transition-none bg-focus group-data-[invalid=true]:bg-danger"
+                        />
+                      </span>
+                      <div
+                        class="flex flex-col ml-1 ms-2"
+                      >
+                        <span
+                          class="relative text-foreground select-none transition-colors motion-reduce:transition-none text-sm"
+                          id=":rc:"
+                        >
+                          LabelB
+                        </span>
+                      </div>
+                    </label>
+                    <label
+                      aria-required="true"
+                      class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
+                      data-testid="radiobuttonfield_option_value2"
+                    >
+                      <input
+                        aria-describedby=":rf: react-aria-react-useId-mock"
+                        aria-labelledby=":re:"
+                        class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
+                        name="radioButtonField"
+                        required=""
                         tabindex="0"
-                        type="button"
+                        title=""
+                        type="radio"
+                        value="Value2"
+                      />
+                      <span
+                        aria-hidden="true"
+                        class="relative inline-flex items-center justify-center flex-shrink-0 overflow-hidden border-solid border-medium box-border border-default rounded-full group-data-[hover-unselected=true]:bg-default-100 outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:border-primary w-5 h-5 group-data-[pressed=true]:scale-95 transition-transform-colors motion-reduce:transition-none group-data-[invalid=true]:!border-danger [&:not(group-data-[invalid="true"]):not(group-data-[selected="false"])]:border-focus"
                       >
-                        LabelC
-                      </button>
-                    </div>
+                        <span
+                          class="z-10 opacity-0 scale-0 origin-center rounded-full group-data-[selected=true]:opacity-100 group-data-[selected=true]:scale-100 text-primary-foreground w-2 h-2 transition-transform-opacity motion-reduce:transition-none bg-focus group-data-[invalid=true]:bg-danger"
+                        />
+                      </span>
+                      <div
+                        class="flex flex-col ml-1 ms-2"
+                      >
+                        <span
+                          class="relative text-foreground select-none transition-colors motion-reduce:transition-none text-sm"
+                          id=":re:"
+                        >
+                          LabelC
+                        </span>
+                      </div>
+                    </label>
                   </div>
                 </div>
                 <div
@@ -746,24 +822,20 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                   >
                     <label
                       aria-required="true"
-                      class="group inline-flex flex-auto cursor-pointer items-center justify-between gap-4 rounded-lg border-2 border-default p-4 hover:bg-content2 data-[selected=true]:border-focus"
+                      class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
                       data-testid="radioboxfield_option_value0"
                     >
-                      <div
-                        style="border: 0px; clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
-                      >
-                        <input
-                          aria-describedby=":rb: react-aria-react-useId-mock"
-                          aria-labelledby=":ra:"
-                          class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
-                          name="radioBoxField"
-                          required=""
-                          tabindex="0"
-                          title=""
-                          type="radio"
-                          value="Value0"
-                        />
-                      </div>
+                      <input
+                        aria-describedby=":rh: react-aria-react-useId-mock"
+                        aria-labelledby=":rg:"
+                        class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
+                        name="radioBoxField"
+                        required=""
+                        tabindex="0"
+                        title=""
+                        type="radio"
+                        value="Value0"
+                      />
                       <span
                         aria-hidden="true"
                         class="relative inline-flex items-center justify-center flex-shrink-0 overflow-hidden border-solid border-medium box-border border-default rounded-full group-data-[hover-unselected=true]:bg-default-100 outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:border-primary w-5 h-5 group-data-[pressed=true]:scale-95 transition-transform-colors motion-reduce:transition-none group-data-[invalid=true]:!border-danger [&:not(group-data-[invalid="true"]):not(group-data-[selected="false"])]:border-focus"
@@ -773,11 +845,11 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                         />
                       </span>
                       <div
-                        class="flex flex-col ml-1 ms-2 grow"
+                        class="flex flex-col ml-1 ms-2"
                       >
                         <span
                           class="relative text-foreground select-none transition-colors motion-reduce:transition-none text-sm"
-                          id=":ra:"
+                          id=":rg:"
                         >
                           LabelA
                         </span>
@@ -785,24 +857,20 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                     </label>
                     <label
                       aria-required="true"
-                      class="group inline-flex flex-auto cursor-pointer items-center justify-between gap-4 rounded-lg border-2 border-default p-4 hover:bg-content2 data-[selected=true]:border-focus"
+                      class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
                       data-testid="radioboxfield_option_value1"
                     >
-                      <div
-                        style="border: 0px; clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
-                      >
-                        <input
-                          aria-describedby=":rd: react-aria-react-useId-mock"
-                          aria-labelledby=":rc:"
-                          class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
-                          name="radioBoxField"
-                          required=""
-                          tabindex="0"
-                          title=""
-                          type="radio"
-                          value="Value1"
-                        />
-                      </div>
+                      <input
+                        aria-describedby=":rj: react-aria-react-useId-mock"
+                        aria-labelledby=":ri:"
+                        class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
+                        name="radioBoxField"
+                        required=""
+                        tabindex="0"
+                        title=""
+                        type="radio"
+                        value="Value1"
+                      />
                       <span
                         aria-hidden="true"
                         class="relative inline-flex items-center justify-center flex-shrink-0 overflow-hidden border-solid border-medium box-border border-default rounded-full group-data-[hover-unselected=true]:bg-default-100 outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:border-primary w-5 h-5 group-data-[pressed=true]:scale-95 transition-transform-colors motion-reduce:transition-none group-data-[invalid=true]:!border-danger [&:not(group-data-[invalid="true"]):not(group-data-[selected="false"])]:border-focus"
@@ -812,11 +880,11 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                         />
                       </span>
                       <div
-                        class="flex flex-col ml-1 ms-2 grow"
+                        class="flex flex-col ml-1 ms-2"
                       >
                         <span
                           class="relative text-foreground select-none transition-colors motion-reduce:transition-none text-sm"
-                          id=":rc:"
+                          id=":ri:"
                         >
                           LabelB
                         </span>
@@ -824,24 +892,20 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                     </label>
                     <label
                       aria-required="true"
-                      class="group inline-flex flex-auto cursor-pointer items-center justify-between gap-4 rounded-lg border-2 border-default p-4 hover:bg-content2 data-[selected=true]:border-focus"
+                      class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
                       data-testid="radioboxfield_option_value2"
                     >
-                      <div
-                        style="border: 0px; clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
-                      >
-                        <input
-                          aria-describedby=":rf: react-aria-react-useId-mock"
-                          aria-labelledby=":re:"
-                          class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
-                          name="radioBoxField"
-                          required=""
-                          tabindex="0"
-                          title=""
-                          type="radio"
-                          value="Value2"
-                        />
-                      </div>
+                      <input
+                        aria-describedby=":rl: react-aria-react-useId-mock"
+                        aria-labelledby=":rk:"
+                        class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
+                        name="radioBoxField"
+                        required=""
+                        tabindex="0"
+                        title=""
+                        type="radio"
+                        value="Value2"
+                      />
                       <span
                         aria-hidden="true"
                         class="relative inline-flex items-center justify-center flex-shrink-0 overflow-hidden border-solid border-medium box-border border-default rounded-full group-data-[hover-unselected=true]:bg-default-100 outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:border-primary w-5 h-5 group-data-[pressed=true]:scale-95 transition-transform-colors motion-reduce:transition-none group-data-[invalid=true]:!border-danger [&:not(group-data-[invalid="true"]):not(group-data-[selected="false"])]:border-focus"
@@ -851,11 +915,11 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                         />
                       </span>
                       <div
-                        class="flex flex-col ml-1 ms-2 grow"
+                        class="flex flex-col ml-1 ms-2"
                       >
                         <span
                           class="relative text-foreground select-none transition-colors motion-reduce:transition-none text-sm"
-                          id=":re:"
+                          id=":rk:"
                         >
                           LabelC
                         </span>

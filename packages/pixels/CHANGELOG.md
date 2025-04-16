@@ -1,5 +1,20 @@
 # Changelog
 
+## [0.41.0](https://github.com/fuf-stack/pixels/compare/pixels-v0.40.0...pixels-v0.41.0) (2025-04-16)
+
+
+### Features
+
+* **pixels:** refactor CircularProgress to ProgressCircular ([71893b1](https://github.com/fuf-stack/pixels/commit/71893b17a4d499d4c79524bfc91699d63829564c))
+
+
+### Bug Fixes
+
+* **deps:** update [@heroui](https://github.com/heroui) monorepo ([1408d98](https://github.com/fuf-stack/pixels/commit/1408d98b831a17e833634dca1ff1bdd7f60bd1f9))
+* **deps:** update [@heroui](https://github.com/heroui) monorepo ([4c481ac](https://github.com/fuf-stack/pixels/commit/4c481ac4a5aecce6e834768a957c3ebecc8b6e7d))
+* **deps:** update dependency framer-motion to v12.7.3 ([#896](https://github.com/fuf-stack/pixels/issues/896)) ([eb8d43d](https://github.com/fuf-stack/pixels/commit/eb8d43d17bdb1825a26f9bf742708e366850604a))
+* **pixels:** refactor Progress component ([4014fbf](https://github.com/fuf-stack/pixels/commit/4014fbfff7d01a832131cdaa5f65b482eb955364))
+
 ## [0.40.0](https://github.com/fuf-stack/pixels/compare/pixels-v0.39.9...pixels-v0.40.0) (2025-04-14)
 
 

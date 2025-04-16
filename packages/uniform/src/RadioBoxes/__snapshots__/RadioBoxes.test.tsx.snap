@@ -16,7 +16,7 @@ exports[`Story Snapshots > Default 1`] = `
         class="relative flex flex-col gap-2 group"
         data-invalid="false"
         data-required="false"
-        data-testid="radiogroupfield"
+        data-testid="radioboxesfield"
         id="react-aria-react-useId-mock"
         role="radiogroup"
       >
@@ -26,19 +26,23 @@ exports[`Story Snapshots > Default 1`] = `
           role="presentation"
         >
           <label
-            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
-            data-testid="radiogroupfield_option_1"
+            class="group inline-flex flex-auto cursor-pointer items-center justify-between gap-4 rounded-lg border-2 border-default p-4 hover:bg-content2 data-[selected=true]:border-focus"
+            data-testid="radioboxesfield_option_1"
           >
-            <input
-              aria-describedby=":r1: react-aria-react-useId-mock"
-              aria-labelledby=":r0:"
-              class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
-              name="radioGroupField"
-              tabindex="0"
-              title=""
-              type="radio"
-              value="1"
-            />
+            <div
+              style="border: 0px; clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+            >
+              <input
+                aria-describedby=":r1: react-aria-react-useId-mock"
+                aria-labelledby=":r0:"
+                class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
+                name="radioBoxesField"
+                tabindex="0"
+                title=""
+                type="radio"
+                value="1"
+              />
+            </div>
             <span
               aria-hidden="true"
               class="relative inline-flex items-center justify-center flex-shrink-0 overflow-hidden border-solid border-medium box-border border-default rounded-full group-data-[hover-unselected=true]:bg-default-100 outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:border-primary w-5 h-5 group-data-[pressed=true]:scale-95 transition-transform-colors motion-reduce:transition-none group-data-[invalid=true]:!border-danger [&:not(group-data-[invalid="true"]):not(group-data-[selected="false"])]:border-focus"
@@ -47,8 +51,13 @@ exports[`Story Snapshots > Default 1`] = `
                 class="z-10 opacity-0 scale-0 origin-center rounded-full group-data-[selected=true]:opacity-100 group-data-[selected=true]:scale-100 text-primary-foreground w-2 h-2 transition-transform-opacity motion-reduce:transition-none bg-focus group-data-[invalid=true]:bg-danger"
               />
             </span>
+            <span
+              data-testid="icon-FaRocket"
+            >
+              FaRocket
+            </span>
             <div
-              class="flex flex-col ml-1 ms-2"
+              class="flex flex-col ml-1 ms-2 grow"
             >
               <span
                 class="relative text-foreground select-none transition-colors motion-reduce:transition-none text-sm"
@@ -56,22 +65,31 @@ exports[`Story Snapshots > Default 1`] = `
               >
                 option 1
               </span>
+              <span
+                class="text-small text-foreground opacity-70"
+              >
+                Neutral element for multiplication.
+              </span>
             </div>
           </label>
           <label
-            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
-            data-testid="radiogroupfield_option_2"
+            class="group inline-flex flex-auto cursor-pointer items-center justify-between gap-4 rounded-lg border-2 border-default p-4 hover:bg-content2 data-[selected=true]:border-focus"
+            data-testid="radioboxesfield_option_2"
           >
-            <input
-              aria-describedby=":r3: react-aria-react-useId-mock"
-              aria-labelledby=":r2:"
-              class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
-              name="radioGroupField"
-              tabindex="0"
-              title=""
-              type="radio"
-              value="2"
-            />
+            <div
+              style="border: 0px; clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+            >
+              <input
+                aria-describedby=":r3: react-aria-react-useId-mock"
+                aria-labelledby=":r2:"
+                class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
+                name="radioBoxesField"
+                tabindex="0"
+                title=""
+                type="radio"
+                value="2"
+              />
+            </div>
             <span
               aria-hidden="true"
               class="relative inline-flex items-center justify-center flex-shrink-0 overflow-hidden border-solid border-medium box-border border-default rounded-full group-data-[hover-unselected=true]:bg-default-100 outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:border-primary w-5 h-5 group-data-[pressed=true]:scale-95 transition-transform-colors motion-reduce:transition-none group-data-[invalid=true]:!border-danger [&:not(group-data-[invalid="true"]):not(group-data-[selected="false"])]:border-focus"
@@ -80,8 +98,13 @@ exports[`Story Snapshots > Default 1`] = `
                 class="z-10 opacity-0 scale-0 origin-center rounded-full group-data-[selected=true]:opacity-100 group-data-[selected=true]:scale-100 text-primary-foreground w-2 h-2 transition-transform-opacity motion-reduce:transition-none bg-focus group-data-[invalid=true]:bg-danger"
               />
             </span>
+            <span
+              data-testid="icon-FaFlask"
+            >
+              FaFlask
+            </span>
             <div
-              class="flex flex-col ml-1 ms-2"
+              class="flex flex-col ml-1 ms-2 grow"
             >
               <span
                 class="relative text-foreground select-none transition-colors motion-reduce:transition-none text-sm"
@@ -89,22 +112,31 @@ exports[`Story Snapshots > Default 1`] = `
               >
                 option 2
               </span>
+              <span
+                class="text-small text-foreground opacity-70"
+              >
+                The number for Nerds.
+              </span>
             </div>
           </label>
           <label
-            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
-            data-testid="radiogroupfield_option_3"
+            class="group inline-flex flex-auto cursor-pointer items-center justify-between gap-4 rounded-lg border-2 border-default p-4 hover:bg-content2 data-[selected=true]:border-focus"
+            data-testid="radioboxesfield_option_3"
           >
-            <input
-              aria-describedby=":r5: react-aria-react-useId-mock"
-              aria-labelledby=":r4:"
-              class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
-              name="radioGroupField"
-              tabindex="0"
-              title=""
-              type="radio"
-              value="3"
-            />
+            <div
+              style="border: 0px; clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+            >
+              <input
+                aria-describedby=":r5: react-aria-react-useId-mock"
+                aria-labelledby=":r4:"
+                class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
+                name="radioBoxesField"
+                tabindex="0"
+                title=""
+                type="radio"
+                value="3"
+              />
+            </div>
             <span
               aria-hidden="true"
               class="relative inline-flex items-center justify-center flex-shrink-0 overflow-hidden border-solid border-medium box-border border-default rounded-full group-data-[hover-unselected=true]:bg-default-100 outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:border-primary w-5 h-5 group-data-[pressed=true]:scale-95 transition-transform-colors motion-reduce:transition-none group-data-[invalid=true]:!border-danger [&:not(group-data-[invalid="true"]):not(group-data-[selected="false"])]:border-focus"
@@ -113,14 +145,24 @@ exports[`Story Snapshots > Default 1`] = `
                 class="z-10 opacity-0 scale-0 origin-center rounded-full group-data-[selected=true]:opacity-100 group-data-[selected=true]:scale-100 text-primary-foreground w-2 h-2 transition-transform-opacity motion-reduce:transition-none bg-focus group-data-[invalid=true]:bg-danger"
               />
             </span>
+            <span
+              data-testid="icon-FaPhone"
+            >
+              FaPhone
+            </span>
             <div
-              class="flex flex-col ml-1 ms-2"
+              class="flex flex-col ml-1 ms-2 grow"
             >
               <span
                 class="relative text-foreground select-none transition-colors motion-reduce:transition-none text-sm"
                 id=":r4:"
               >
                 option 3
+              </span>
+              <span
+                class="text-small text-foreground opacity-70"
+              >
+                first prime number to be devisable by something other than 1.
               </span>
             </div>
           </label>
@@ -159,7 +201,7 @@ exports[`Story Snapshots > DisabledCompletely 1`] = `
         class="relative flex flex-col gap-2 group"
         data-invalid="false"
         data-required="false"
-        data-testid="radiogroupfield"
+        data-testid="radioboxesfield"
         id="react-aria-react-useId-mock"
         role="radiogroup"
       >
@@ -169,19 +211,23 @@ exports[`Story Snapshots > DisabledCompletely 1`] = `
           role="presentation"
         >
           <label
-            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none opacity-disabled pointer-events-none"
+            class="group inline-flex flex-auto cursor-pointer items-center justify-between gap-4 rounded-lg border-2 border-default p-4 hover:bg-content2 data-[selected=true]:border-focus pointer-events-none opacity-disabled"
             data-disabled="true"
-            data-testid="radiogroupfield_option_option_1"
+            data-testid="radioboxesfield_option_1"
           >
-            <input
-              aria-describedby=":rj: react-aria-react-useId-mock"
-              aria-labelledby=":ri:"
-              class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
-              disabled=""
-              name="radioGroupField"
-              type="radio"
-              value="option 1"
-            />
+            <div
+              style="border: 0px; clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+            >
+              <input
+                aria-describedby=":rj: react-aria-react-useId-mock"
+                aria-labelledby=":ri:"
+                class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
+                disabled=""
+                name="radioBoxesField"
+                type="radio"
+                value="1"
+              />
+            </div>
             <span
               aria-hidden="true"
               class="relative inline-flex items-center justify-center flex-shrink-0 overflow-hidden border-solid border-medium box-border border-default rounded-full group-data-[hover-unselected=true]:bg-default-100 outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:border-primary w-5 h-5 group-data-[pressed=true]:scale-95 transition-transform-colors motion-reduce:transition-none group-data-[invalid=true]:!border-danger [&:not(group-data-[invalid="true"]):not(group-data-[selected="false"])]:border-focus"
@@ -190,8 +236,13 @@ exports[`Story Snapshots > DisabledCompletely 1`] = `
                 class="z-10 opacity-0 scale-0 origin-center rounded-full group-data-[selected=true]:opacity-100 group-data-[selected=true]:scale-100 text-primary-foreground w-2 h-2 transition-transform-opacity motion-reduce:transition-none bg-focus group-data-[invalid=true]:bg-danger"
               />
             </span>
+            <span
+              data-testid="icon-FaRocket"
+            >
+              FaRocket
+            </span>
             <div
-              class="flex flex-col ml-1 ms-2"
+              class="flex flex-col ml-1 ms-2 grow"
             >
               <span
                 class="relative text-foreground select-none transition-colors motion-reduce:transition-none text-sm"
@@ -199,22 +250,31 @@ exports[`Story Snapshots > DisabledCompletely 1`] = `
               >
                 option 1
               </span>
+              <span
+                class="text-small text-foreground opacity-70"
+              >
+                Neutral element for multiplication.
+              </span>
             </div>
           </label>
           <label
-            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none opacity-disabled pointer-events-none"
+            class="group inline-flex flex-auto cursor-pointer items-center justify-between gap-4 rounded-lg border-2 border-default p-4 hover:bg-content2 data-[selected=true]:border-focus pointer-events-none opacity-disabled"
             data-disabled="true"
-            data-testid="radiogroupfield_option_option_2"
+            data-testid="radioboxesfield_option_2"
           >
-            <input
-              aria-describedby=":rl: react-aria-react-useId-mock"
-              aria-labelledby=":rk:"
-              class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
-              disabled=""
-              name="radioGroupField"
-              type="radio"
-              value="option 2"
-            />
+            <div
+              style="border: 0px; clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+            >
+              <input
+                aria-describedby=":rl: react-aria-react-useId-mock"
+                aria-labelledby=":rk:"
+                class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
+                disabled=""
+                name="radioBoxesField"
+                type="radio"
+                value="2"
+              />
+            </div>
             <span
               aria-hidden="true"
               class="relative inline-flex items-center justify-center flex-shrink-0 overflow-hidden border-solid border-medium box-border border-default rounded-full group-data-[hover-unselected=true]:bg-default-100 outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:border-primary w-5 h-5 group-data-[pressed=true]:scale-95 transition-transform-colors motion-reduce:transition-none group-data-[invalid=true]:!border-danger [&:not(group-data-[invalid="true"]):not(group-data-[selected="false"])]:border-focus"
@@ -223,8 +283,13 @@ exports[`Story Snapshots > DisabledCompletely 1`] = `
                 class="z-10 opacity-0 scale-0 origin-center rounded-full group-data-[selected=true]:opacity-100 group-data-[selected=true]:scale-100 text-primary-foreground w-2 h-2 transition-transform-opacity motion-reduce:transition-none bg-focus group-data-[invalid=true]:bg-danger"
               />
             </span>
+            <span
+              data-testid="icon-FaFlask"
+            >
+              FaFlask
+            </span>
             <div
-              class="flex flex-col ml-1 ms-2"
+              class="flex flex-col ml-1 ms-2 grow"
             >
               <span
                 class="relative text-foreground select-none transition-colors motion-reduce:transition-none text-sm"
@@ -232,22 +297,31 @@ exports[`Story Snapshots > DisabledCompletely 1`] = `
               >
                 option 2
               </span>
+              <span
+                class="text-small text-foreground opacity-70"
+              >
+                The number for Nerds.
+              </span>
             </div>
           </label>
           <label
-            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none opacity-disabled pointer-events-none"
+            class="group inline-flex flex-auto cursor-pointer items-center justify-between gap-4 rounded-lg border-2 border-default p-4 hover:bg-content2 data-[selected=true]:border-focus pointer-events-none opacity-disabled"
             data-disabled="true"
-            data-testid="radiogroupfield_option_option_3"
+            data-testid="radioboxesfield_option_3"
           >
-            <input
-              aria-describedby=":rn: react-aria-react-useId-mock"
-              aria-labelledby=":rm:"
-              class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
-              disabled=""
-              name="radioGroupField"
-              type="radio"
-              value="option 3"
-            />
+            <div
+              style="border: 0px; clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+            >
+              <input
+                aria-describedby=":rn: react-aria-react-useId-mock"
+                aria-labelledby=":rm:"
+                class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
+                disabled=""
+                name="radioBoxesField"
+                type="radio"
+                value="3"
+              />
+            </div>
             <span
               aria-hidden="true"
               class="relative inline-flex items-center justify-center flex-shrink-0 overflow-hidden border-solid border-medium box-border border-default rounded-full group-data-[hover-unselected=true]:bg-default-100 outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:border-primary w-5 h-5 group-data-[pressed=true]:scale-95 transition-transform-colors motion-reduce:transition-none group-data-[invalid=true]:!border-danger [&:not(group-data-[invalid="true"]):not(group-data-[selected="false"])]:border-focus"
@@ -256,14 +330,24 @@ exports[`Story Snapshots > DisabledCompletely 1`] = `
                 class="z-10 opacity-0 scale-0 origin-center rounded-full group-data-[selected=true]:opacity-100 group-data-[selected=true]:scale-100 text-primary-foreground w-2 h-2 transition-transform-opacity motion-reduce:transition-none bg-focus group-data-[invalid=true]:bg-danger"
               />
             </span>
+            <span
+              data-testid="icon-FaPhone"
+            >
+              FaPhone
+            </span>
             <div
-              class="flex flex-col ml-1 ms-2"
+              class="flex flex-col ml-1 ms-2 grow"
             >
               <span
                 class="relative text-foreground select-none transition-colors motion-reduce:transition-none text-sm"
                 id=":rm:"
               >
                 option 3
+              </span>
+              <span
+                class="text-small text-foreground opacity-70"
+              >
+                first prime number to be devisable by something other than 1.
               </span>
             </div>
           </label>
@@ -302,7 +386,7 @@ exports[`Story Snapshots > DisabledOption 1`] = `
         class="relative flex flex-col gap-2 group"
         data-invalid="false"
         data-required="false"
-        data-testid="radiogroupfield"
+        data-testid="radioboxesfield"
         id="react-aria-react-useId-mock"
         role="radiogroup"
       >
@@ -312,19 +396,23 @@ exports[`Story Snapshots > DisabledOption 1`] = `
           role="presentation"
         >
           <label
-            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
-            data-testid="radiogroupfield_option_option_1"
+            class="group inline-flex flex-auto cursor-pointer items-center justify-between gap-4 rounded-lg border-2 border-default p-4 hover:bg-content2 data-[selected=true]:border-focus"
+            data-testid="radioboxesfield_option_1"
           >
-            <input
-              aria-describedby=":rp: react-aria-react-useId-mock"
-              aria-labelledby=":ro:"
-              class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
-              name="radioGroupField"
-              tabindex="0"
-              title=""
-              type="radio"
-              value="option 1"
-            />
+            <div
+              style="border: 0px; clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+            >
+              <input
+                aria-describedby=":rp: react-aria-react-useId-mock"
+                aria-labelledby=":ro:"
+                class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
+                name="radioBoxesField"
+                tabindex="0"
+                title=""
+                type="radio"
+                value="1"
+              />
+            </div>
             <span
               aria-hidden="true"
               class="relative inline-flex items-center justify-center flex-shrink-0 overflow-hidden border-solid border-medium box-border border-default rounded-full group-data-[hover-unselected=true]:bg-default-100 outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:border-primary w-5 h-5 group-data-[pressed=true]:scale-95 transition-transform-colors motion-reduce:transition-none group-data-[invalid=true]:!border-danger [&:not(group-data-[invalid="true"]):not(group-data-[selected="false"])]:border-focus"
@@ -333,8 +421,13 @@ exports[`Story Snapshots > DisabledOption 1`] = `
                 class="z-10 opacity-0 scale-0 origin-center rounded-full group-data-[selected=true]:opacity-100 group-data-[selected=true]:scale-100 text-primary-foreground w-2 h-2 transition-transform-opacity motion-reduce:transition-none bg-focus group-data-[invalid=true]:bg-danger"
               />
             </span>
+            <span
+              data-testid="icon-FaRocket"
+            >
+              FaRocket
+            </span>
             <div
-              class="flex flex-col ml-1 ms-2"
+              class="flex flex-col ml-1 ms-2 grow"
             >
               <span
                 class="relative text-foreground select-none transition-colors motion-reduce:transition-none text-sm"
@@ -342,22 +435,31 @@ exports[`Story Snapshots > DisabledOption 1`] = `
               >
                 option 1
               </span>
+              <span
+                class="text-small text-foreground opacity-70"
+              >
+                Neutral element for multiplication.
+              </span>
             </div>
           </label>
           <label
-            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none opacity-disabled pointer-events-none"
+            class="group inline-flex flex-auto cursor-pointer items-center justify-between gap-4 rounded-lg border-2 border-default p-4 hover:bg-content2 data-[selected=true]:border-focus pointer-events-none opacity-disabled"
             data-disabled="true"
-            data-testid="radiogroupfield_option_disabled_option"
+            data-testid="radioboxesfield_option_2"
           >
-            <input
-              aria-describedby=":rr: react-aria-react-useId-mock"
-              aria-labelledby=":rq:"
-              class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
-              disabled=""
-              name="radioGroupField"
-              type="radio"
-              value="disabled option"
-            />
+            <div
+              style="border: 0px; clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+            >
+              <input
+                aria-describedby=":rr: react-aria-react-useId-mock"
+                aria-labelledby=":rq:"
+                class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
+                disabled=""
+                name="radioBoxesField"
+                type="radio"
+                value="2"
+              />
+            </div>
             <span
               aria-hidden="true"
               class="relative inline-flex items-center justify-center flex-shrink-0 overflow-hidden border-solid border-medium box-border border-default rounded-full group-data-[hover-unselected=true]:bg-default-100 outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:border-primary w-5 h-5 group-data-[pressed=true]:scale-95 transition-transform-colors motion-reduce:transition-none group-data-[invalid=true]:!border-danger [&:not(group-data-[invalid="true"]):not(group-data-[selected="false"])]:border-focus"
@@ -366,31 +468,45 @@ exports[`Story Snapshots > DisabledOption 1`] = `
                 class="z-10 opacity-0 scale-0 origin-center rounded-full group-data-[selected=true]:opacity-100 group-data-[selected=true]:scale-100 text-primary-foreground w-2 h-2 transition-transform-opacity motion-reduce:transition-none bg-focus group-data-[invalid=true]:bg-danger"
               />
             </span>
+            <span
+              data-testid="icon-FaFlask"
+            >
+              FaFlask
+            </span>
             <div
-              class="flex flex-col ml-1 ms-2"
+              class="flex flex-col ml-1 ms-2 grow"
             >
               <span
                 class="relative text-foreground select-none transition-colors motion-reduce:transition-none text-sm"
                 id=":rq:"
               >
-                disabled option
+                option 2
+              </span>
+              <span
+                class="text-small text-foreground opacity-70"
+              >
+                The number for Nerds.
               </span>
             </div>
           </label>
           <label
-            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
-            data-testid="radiogroupfield_option_option_3"
+            class="group inline-flex flex-auto cursor-pointer items-center justify-between gap-4 rounded-lg border-2 border-default p-4 hover:bg-content2 data-[selected=true]:border-focus"
+            data-testid="radioboxesfield_option_3"
           >
-            <input
-              aria-describedby=":rt: react-aria-react-useId-mock"
-              aria-labelledby=":rs:"
-              class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
-              name="radioGroupField"
-              tabindex="0"
-              title=""
-              type="radio"
-              value="option 3"
-            />
+            <div
+              style="border: 0px; clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+            >
+              <input
+                aria-describedby=":rt: react-aria-react-useId-mock"
+                aria-labelledby=":rs:"
+                class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
+                name="radioBoxesField"
+                tabindex="0"
+                title=""
+                type="radio"
+                value="3"
+              />
+            </div>
             <span
               aria-hidden="true"
               class="relative inline-flex items-center justify-center flex-shrink-0 overflow-hidden border-solid border-medium box-border border-default rounded-full group-data-[hover-unselected=true]:bg-default-100 outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:border-primary w-5 h-5 group-data-[pressed=true]:scale-95 transition-transform-colors motion-reduce:transition-none group-data-[invalid=true]:!border-danger [&:not(group-data-[invalid="true"]):not(group-data-[selected="false"])]:border-focus"
@@ -399,14 +515,24 @@ exports[`Story Snapshots > DisabledOption 1`] = `
                 class="z-10 opacity-0 scale-0 origin-center rounded-full group-data-[selected=true]:opacity-100 group-data-[selected=true]:scale-100 text-primary-foreground w-2 h-2 transition-transform-opacity motion-reduce:transition-none bg-focus group-data-[invalid=true]:bg-danger"
               />
             </span>
+            <span
+              data-testid="icon-FaPhone"
+            >
+              FaPhone
+            </span>
             <div
-              class="flex flex-col ml-1 ms-2"
+              class="flex flex-col ml-1 ms-2 grow"
             >
               <span
                 class="relative text-foreground select-none transition-colors motion-reduce:transition-none text-sm"
                 id=":rs:"
               >
                 option 3
+              </span>
+              <span
+                class="text-small text-foreground opacity-70"
+              >
+                first prime number to be devisable by something other than 1.
               </span>
             </div>
           </label>
@@ -445,7 +571,7 @@ exports[`Story Snapshots > Inline 1`] = `
         class="relative flex flex-col gap-2 group"
         data-invalid="false"
         data-required="false"
-        data-testid="radiogroupfield"
+        data-testid="radioboxesfield"
         id="react-aria-react-useId-mock"
         role="radiogroup"
       >
@@ -455,19 +581,23 @@ exports[`Story Snapshots > Inline 1`] = `
           role="presentation"
         >
           <label
-            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
-            data-testid="radiogroupfield_option_option_1"
+            class="group inline-flex flex-auto cursor-pointer items-center justify-between gap-4 rounded-lg border-2 border-default p-4 hover:bg-content2 data-[selected=true]:border-focus"
+            data-testid="radioboxesfield_option_1"
           >
-            <input
-              aria-describedby=":r7: react-aria-react-useId-mock"
-              aria-labelledby=":r6:"
-              class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
-              name="radioGroupField"
-              tabindex="0"
-              title=""
-              type="radio"
-              value="option 1"
-            />
+            <div
+              style="border: 0px; clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+            >
+              <input
+                aria-describedby=":r7: react-aria-react-useId-mock"
+                aria-labelledby=":r6:"
+                class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
+                name="radioBoxesField"
+                tabindex="0"
+                title=""
+                type="radio"
+                value="1"
+              />
+            </div>
             <span
               aria-hidden="true"
               class="relative inline-flex items-center justify-center flex-shrink-0 overflow-hidden border-solid border-medium box-border border-default rounded-full group-data-[hover-unselected=true]:bg-default-100 outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:border-primary w-5 h-5 group-data-[pressed=true]:scale-95 transition-transform-colors motion-reduce:transition-none group-data-[invalid=true]:!border-danger [&:not(group-data-[invalid="true"]):not(group-data-[selected="false"])]:border-focus"
@@ -476,8 +606,13 @@ exports[`Story Snapshots > Inline 1`] = `
                 class="z-10 opacity-0 scale-0 origin-center rounded-full group-data-[selected=true]:opacity-100 group-data-[selected=true]:scale-100 text-primary-foreground w-2 h-2 transition-transform-opacity motion-reduce:transition-none bg-focus group-data-[invalid=true]:bg-danger"
               />
             </span>
+            <span
+              data-testid="icon-FaRocket"
+            >
+              FaRocket
+            </span>
             <div
-              class="flex flex-col ml-1 ms-2"
+              class="flex flex-col ml-1 ms-2 grow"
             >
               <span
                 class="relative text-foreground select-none transition-colors motion-reduce:transition-none text-sm"
@@ -485,22 +620,31 @@ exports[`Story Snapshots > Inline 1`] = `
               >
                 option 1
               </span>
+              <span
+                class="text-small text-foreground opacity-70"
+              >
+                Neutral element for multiplication.
+              </span>
             </div>
           </label>
           <label
-            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
-            data-testid="radiogroupfield_option_option_2"
+            class="group inline-flex flex-auto cursor-pointer items-center justify-between gap-4 rounded-lg border-2 border-default p-4 hover:bg-content2 data-[selected=true]:border-focus"
+            data-testid="radioboxesfield_option_2"
           >
-            <input
-              aria-describedby=":r9: react-aria-react-useId-mock"
-              aria-labelledby=":r8:"
-              class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
-              name="radioGroupField"
-              tabindex="0"
-              title=""
-              type="radio"
-              value="option 2"
-            />
+            <div
+              style="border: 0px; clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+            >
+              <input
+                aria-describedby=":r9: react-aria-react-useId-mock"
+                aria-labelledby=":r8:"
+                class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
+                name="radioBoxesField"
+                tabindex="0"
+                title=""
+                type="radio"
+                value="2"
+              />
+            </div>
             <span
               aria-hidden="true"
               class="relative inline-flex items-center justify-center flex-shrink-0 overflow-hidden border-solid border-medium box-border border-default rounded-full group-data-[hover-unselected=true]:bg-default-100 outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:border-primary w-5 h-5 group-data-[pressed=true]:scale-95 transition-transform-colors motion-reduce:transition-none group-data-[invalid=true]:!border-danger [&:not(group-data-[invalid="true"]):not(group-data-[selected="false"])]:border-focus"
@@ -509,8 +653,13 @@ exports[`Story Snapshots > Inline 1`] = `
                 class="z-10 opacity-0 scale-0 origin-center rounded-full group-data-[selected=true]:opacity-100 group-data-[selected=true]:scale-100 text-primary-foreground w-2 h-2 transition-transform-opacity motion-reduce:transition-none bg-focus group-data-[invalid=true]:bg-danger"
               />
             </span>
+            <span
+              data-testid="icon-FaFlask"
+            >
+              FaFlask
+            </span>
             <div
-              class="flex flex-col ml-1 ms-2"
+              class="flex flex-col ml-1 ms-2 grow"
             >
               <span
                 class="relative text-foreground select-none transition-colors motion-reduce:transition-none text-sm"
@@ -518,22 +667,31 @@ exports[`Story Snapshots > Inline 1`] = `
               >
                 option 2
               </span>
+              <span
+                class="text-small text-foreground opacity-70"
+              >
+                The number for Nerds.
+              </span>
             </div>
           </label>
           <label
-            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
-            data-testid="radiogroupfield_option_option_3"
+            class="group inline-flex flex-auto cursor-pointer items-center justify-between gap-4 rounded-lg border-2 border-default p-4 hover:bg-content2 data-[selected=true]:border-focus"
+            data-testid="radioboxesfield_option_3"
           >
-            <input
-              aria-describedby=":rb: react-aria-react-useId-mock"
-              aria-labelledby=":ra:"
-              class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
-              name="radioGroupField"
-              tabindex="0"
-              title=""
-              type="radio"
-              value="option 3"
-            />
+            <div
+              style="border: 0px; clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+            >
+              <input
+                aria-describedby=":rb: react-aria-react-useId-mock"
+                aria-labelledby=":ra:"
+                class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
+                name="radioBoxesField"
+                tabindex="0"
+                title=""
+                type="radio"
+                value="3"
+              />
+            </div>
             <span
               aria-hidden="true"
               class="relative inline-flex items-center justify-center flex-shrink-0 overflow-hidden border-solid border-medium box-border border-default rounded-full group-data-[hover-unselected=true]:bg-default-100 outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:border-primary w-5 h-5 group-data-[pressed=true]:scale-95 transition-transform-colors motion-reduce:transition-none group-data-[invalid=true]:!border-danger [&:not(group-data-[invalid="true"]):not(group-data-[selected="false"])]:border-focus"
@@ -542,14 +700,24 @@ exports[`Story Snapshots > Inline 1`] = `
                 class="z-10 opacity-0 scale-0 origin-center rounded-full group-data-[selected=true]:opacity-100 group-data-[selected=true]:scale-100 text-primary-foreground w-2 h-2 transition-transform-opacity motion-reduce:transition-none bg-focus group-data-[invalid=true]:bg-danger"
               />
             </span>
+            <span
+              data-testid="icon-FaPhone"
+            >
+              FaPhone
+            </span>
             <div
-              class="flex flex-col ml-1 ms-2"
+              class="flex flex-col ml-1 ms-2 grow"
             >
               <span
                 class="relative text-foreground select-none transition-colors motion-reduce:transition-none text-sm"
                 id=":ra:"
               >
                 option 3
+              </span>
+              <span
+                class="text-small text-foreground opacity-70"
+              >
+                first prime number to be devisable by something other than 1.
               </span>
             </div>
           </label>
@@ -590,7 +758,7 @@ exports[`Story Snapshots > Invalid 1`] = `
         class="relative flex flex-col gap-2 group"
         data-invalid="true"
         data-required="true"
-        data-testid="radiogroupfield"
+        data-testid="radioboxesfield"
         id="react-aria-react-useId-mock"
         role="radiogroup"
       >
@@ -598,7 +766,7 @@ exports[`Story Snapshots > Invalid 1`] = `
           class="relative after:content-['*'] after:text-danger after:ml-0.5 text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger"
         >
           <label>
-            radioGroupField
+            radioBoxesField
           </label>
         </span>
         <div
@@ -608,21 +776,25 @@ exports[`Story Snapshots > Invalid 1`] = `
         >
           <label
             aria-required="true"
-            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
+            class="group inline-flex flex-auto cursor-pointer items-center justify-between gap-4 rounded-lg border-2 border-default p-4 hover:bg-content2 data-[selected=true]:border-focus"
             data-invalid="true"
-            data-testid="radiogroupfield_option_one"
+            data-testid="radioboxesfield_option_one"
           >
-            <input
-              aria-describedby=":r15: react-aria-react-useId-mock react-aria-react-useId-mock"
-              aria-labelledby=":r14:"
-              class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
-              name="radioGroupField"
-              required=""
-              tabindex="-1"
-              title=""
-              type="radio"
-              value="one"
-            />
+            <div
+              style="border: 0px; clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+            >
+              <input
+                aria-describedby=":r15: react-aria-react-useId-mock react-aria-react-useId-mock"
+                aria-labelledby=":r14:"
+                class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
+                name="radioBoxesField"
+                required=""
+                tabindex="-1"
+                title=""
+                type="radio"
+                value="one"
+              />
+            </div>
             <span
               aria-hidden="true"
               class="relative inline-flex items-center justify-center flex-shrink-0 overflow-hidden border-solid border-medium box-border rounded-full group-data-[hover-unselected=true]:bg-default-100 outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background w-5 h-5 border-danger group-data-[selected=true]:border-danger group-data-[pressed=true]:scale-95 transition-transform-colors motion-reduce:transition-none group-data-[invalid=true]:!border-danger [&:not(group-data-[invalid="true"]):not(group-data-[selected="false"])]:border-focus"
@@ -631,37 +803,51 @@ exports[`Story Snapshots > Invalid 1`] = `
                 class="z-10 opacity-0 scale-0 origin-center rounded-full group-data-[selected=true]:opacity-100 group-data-[selected=true]:scale-100 w-2 h-2 text-danger-foreground transition-transform-opacity motion-reduce:transition-none bg-focus group-data-[invalid=true]:bg-danger"
               />
             </span>
+            <span
+              data-testid="icon-FaRocket"
+            >
+              FaRocket
+            </span>
             <div
-              class="flex flex-col ml-1 ms-2"
+              class="flex flex-col ml-1 ms-2 grow"
             >
               <span
                 class="relative select-none text-danger transition-colors motion-reduce:transition-none text-sm"
                 id=":r14:"
               >
-                one
+                option 1
+              </span>
+              <span
+                class="text-small text-foreground opacity-70"
+              >
+                Neutral element for multiplication.
               </span>
             </div>
           </label>
           <label
             aria-required="true"
-            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
+            class="group inline-flex flex-auto cursor-pointer items-center justify-between gap-4 rounded-lg border-2 border-default p-4 hover:bg-content2 data-[selected=true]:border-focus"
             data-focus="true"
             data-hover="true"
             data-invalid="true"
             data-selected="true"
-            data-testid="radiogroupfield_option_two"
+            data-testid="radioboxesfield_option_two"
           >
-            <input
-              aria-describedby=":r17: react-aria-react-useId-mock react-aria-react-useId-mock"
-              aria-labelledby=":r16:"
-              class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
-              name="radioGroupField"
-              required=""
-              tabindex="0"
-              title=""
-              type="radio"
-              value="two"
-            />
+            <div
+              style="border: 0px; clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+            >
+              <input
+                aria-describedby=":r17: react-aria-react-useId-mock react-aria-react-useId-mock"
+                aria-labelledby=":r16:"
+                class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
+                name="radioBoxesField"
+                required=""
+                tabindex="0"
+                title=""
+                type="radio"
+                value="two"
+              />
+            </div>
             <span
               aria-hidden="true"
               class="relative inline-flex items-center justify-center flex-shrink-0 overflow-hidden border-solid border-medium box-border rounded-full group-data-[hover-unselected=true]:bg-default-100 outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background w-5 h-5 border-danger group-data-[selected=true]:border-danger group-data-[pressed=true]:scale-95 transition-transform-colors motion-reduce:transition-none group-data-[invalid=true]:!border-danger [&:not(group-data-[invalid="true"]):not(group-data-[selected="false"])]:border-focus"
@@ -670,34 +856,48 @@ exports[`Story Snapshots > Invalid 1`] = `
                 class="z-10 opacity-0 scale-0 origin-center rounded-full group-data-[selected=true]:opacity-100 group-data-[selected=true]:scale-100 w-2 h-2 text-danger-foreground transition-transform-opacity motion-reduce:transition-none bg-focus group-data-[invalid=true]:bg-danger"
               />
             </span>
+            <span
+              data-testid="icon-FaFlask"
+            >
+              FaFlask
+            </span>
             <div
-              class="flex flex-col ml-1 ms-2"
+              class="flex flex-col ml-1 ms-2 grow"
             >
               <span
                 class="relative select-none text-danger transition-colors motion-reduce:transition-none text-sm"
                 id=":r16:"
               >
-                two
+                option 2
+              </span>
+              <span
+                class="text-small text-foreground opacity-70"
+              >
+                The number for Nerds.
               </span>
             </div>
           </label>
           <label
             aria-required="true"
-            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
+            class="group inline-flex flex-auto cursor-pointer items-center justify-between gap-4 rounded-lg border-2 border-default p-4 hover:bg-content2 data-[selected=true]:border-focus"
             data-invalid="true"
-            data-testid="radiogroupfield_option_three"
+            data-testid="radioboxesfield_option_three"
           >
-            <input
-              aria-describedby=":r19: react-aria-react-useId-mock react-aria-react-useId-mock"
-              aria-labelledby=":r18:"
-              class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
-              name="radioGroupField"
-              required=""
-              tabindex="-1"
-              title=""
-              type="radio"
-              value="three"
-            />
+            <div
+              style="border: 0px; clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+            >
+              <input
+                aria-describedby=":r19: react-aria-react-useId-mock react-aria-react-useId-mock"
+                aria-labelledby=":r18:"
+                class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
+                name="radioBoxesField"
+                required=""
+                tabindex="-1"
+                title=""
+                type="radio"
+                value="three"
+              />
+            </div>
             <span
               aria-hidden="true"
               class="relative inline-flex items-center justify-center flex-shrink-0 overflow-hidden border-solid border-medium box-border rounded-full group-data-[hover-unselected=true]:bg-default-100 outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background w-5 h-5 border-danger group-data-[selected=true]:border-danger group-data-[pressed=true]:scale-95 transition-transform-colors motion-reduce:transition-none group-data-[invalid=true]:!border-danger [&:not(group-data-[invalid="true"]):not(group-data-[selected="false"])]:border-focus"
@@ -706,14 +906,24 @@ exports[`Story Snapshots > Invalid 1`] = `
                 class="z-10 opacity-0 scale-0 origin-center rounded-full group-data-[selected=true]:opacity-100 group-data-[selected=true]:scale-100 w-2 h-2 text-danger-foreground transition-transform-opacity motion-reduce:transition-none bg-focus group-data-[invalid=true]:bg-danger"
               />
             </span>
+            <span
+              data-testid="icon-FaPhone"
+            >
+              FaPhone
+            </span>
             <div
-              class="flex flex-col ml-1 ms-2"
+              class="flex flex-col ml-1 ms-2 grow"
             >
               <span
                 class="relative select-none text-danger transition-colors motion-reduce:transition-none text-sm"
                 id=":r18:"
               >
-                three
+                option 3
+              </span>
+              <span
+                class="text-small text-foreground opacity-70"
+              >
+                first prime number to be devisable by something other than 1.
               </span>
             </div>
           </label>
@@ -768,7 +978,7 @@ exports[`Story Snapshots > Required 1`] = `
         class="relative flex flex-col gap-2 group"
         data-invalid="false"
         data-required="true"
-        data-testid="radiogroupfield"
+        data-testid="radioboxesfield"
         id="react-aria-react-useId-mock"
         role="radiogroup"
       >
@@ -776,7 +986,7 @@ exports[`Story Snapshots > Required 1`] = `
           class="relative after:content-['*'] after:text-danger after:ml-0.5 text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger"
         >
           <label>
-            radioGroupField
+            radioBoxesField
           </label>
         </span>
         <div
@@ -786,20 +996,24 @@ exports[`Story Snapshots > Required 1`] = `
         >
           <label
             aria-required="true"
-            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
-            data-testid="radiogroupfield_option_1"
+            class="group inline-flex flex-auto cursor-pointer items-center justify-between gap-4 rounded-lg border-2 border-default p-4 hover:bg-content2 data-[selected=true]:border-focus"
+            data-testid="radioboxesfield_option_1"
           >
-            <input
-              aria-describedby=":rv: react-aria-react-useId-mock"
-              aria-labelledby=":ru:"
-              class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
-              name="radioGroupField"
-              required=""
-              tabindex="0"
-              title=""
-              type="radio"
-              value="1"
-            />
+            <div
+              style="border: 0px; clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+            >
+              <input
+                aria-describedby=":rv: react-aria-react-useId-mock"
+                aria-labelledby=":ru:"
+                class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
+                name="radioBoxesField"
+                required=""
+                tabindex="0"
+                title=""
+                type="radio"
+                value="1"
+              />
+            </div>
             <span
               aria-hidden="true"
               class="relative inline-flex items-center justify-center flex-shrink-0 overflow-hidden border-solid border-medium box-border border-default rounded-full group-data-[hover-unselected=true]:bg-default-100 outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:border-primary w-5 h-5 group-data-[pressed=true]:scale-95 transition-transform-colors motion-reduce:transition-none group-data-[invalid=true]:!border-danger [&:not(group-data-[invalid="true"]):not(group-data-[selected="false"])]:border-focus"
@@ -808,33 +1022,47 @@ exports[`Story Snapshots > Required 1`] = `
                 class="z-10 opacity-0 scale-0 origin-center rounded-full group-data-[selected=true]:opacity-100 group-data-[selected=true]:scale-100 text-primary-foreground w-2 h-2 transition-transform-opacity motion-reduce:transition-none bg-focus group-data-[invalid=true]:bg-danger"
               />
             </span>
+            <span
+              data-testid="icon-FaRocket"
+            >
+              FaRocket
+            </span>
             <div
-              class="flex flex-col ml-1 ms-2"
+              class="flex flex-col ml-1 ms-2 grow"
             >
               <span
                 class="relative text-foreground select-none transition-colors motion-reduce:transition-none text-sm"
                 id=":ru:"
               >
-                1
+                option 1
+              </span>
+              <span
+                class="text-small text-foreground opacity-70"
+              >
+                Neutral element for multiplication.
               </span>
             </div>
           </label>
           <label
             aria-required="true"
-            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
-            data-testid="radiogroupfield_option_2"
+            class="group inline-flex flex-auto cursor-pointer items-center justify-between gap-4 rounded-lg border-2 border-default p-4 hover:bg-content2 data-[selected=true]:border-focus"
+            data-testid="radioboxesfield_option_2"
           >
-            <input
-              aria-describedby=":r11: react-aria-react-useId-mock"
-              aria-labelledby=":r10:"
-              class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
-              name="radioGroupField"
-              required=""
-              tabindex="0"
-              title=""
-              type="radio"
-              value="2"
-            />
+            <div
+              style="border: 0px; clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+            >
+              <input
+                aria-describedby=":r11: react-aria-react-useId-mock"
+                aria-labelledby=":r10:"
+                class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
+                name="radioBoxesField"
+                required=""
+                tabindex="0"
+                title=""
+                type="radio"
+                value="2"
+              />
+            </div>
             <span
               aria-hidden="true"
               class="relative inline-flex items-center justify-center flex-shrink-0 overflow-hidden border-solid border-medium box-border border-default rounded-full group-data-[hover-unselected=true]:bg-default-100 outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:border-primary w-5 h-5 group-data-[pressed=true]:scale-95 transition-transform-colors motion-reduce:transition-none group-data-[invalid=true]:!border-danger [&:not(group-data-[invalid="true"]):not(group-data-[selected="false"])]:border-focus"
@@ -843,33 +1071,47 @@ exports[`Story Snapshots > Required 1`] = `
                 class="z-10 opacity-0 scale-0 origin-center rounded-full group-data-[selected=true]:opacity-100 group-data-[selected=true]:scale-100 text-primary-foreground w-2 h-2 transition-transform-opacity motion-reduce:transition-none bg-focus group-data-[invalid=true]:bg-danger"
               />
             </span>
+            <span
+              data-testid="icon-FaFlask"
+            >
+              FaFlask
+            </span>
             <div
-              class="flex flex-col ml-1 ms-2"
+              class="flex flex-col ml-1 ms-2 grow"
             >
               <span
                 class="relative text-foreground select-none transition-colors motion-reduce:transition-none text-sm"
                 id=":r10:"
               >
-                2
+                option 2
+              </span>
+              <span
+                class="text-small text-foreground opacity-70"
+              >
+                The number for Nerds.
               </span>
             </div>
           </label>
           <label
             aria-required="true"
-            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
-            data-testid="radiogroupfield_option_3"
+            class="group inline-flex flex-auto cursor-pointer items-center justify-between gap-4 rounded-lg border-2 border-default p-4 hover:bg-content2 data-[selected=true]:border-focus"
+            data-testid="radioboxesfield_option_3"
           >
-            <input
-              aria-describedby=":r13: react-aria-react-useId-mock"
-              aria-labelledby=":r12:"
-              class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
-              name="radioGroupField"
-              required=""
-              tabindex="0"
-              title=""
-              type="radio"
-              value="3"
-            />
+            <div
+              style="border: 0px; clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+            >
+              <input
+                aria-describedby=":r13: react-aria-react-useId-mock"
+                aria-labelledby=":r12:"
+                class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
+                name="radioBoxesField"
+                required=""
+                tabindex="0"
+                title=""
+                type="radio"
+                value="3"
+              />
+            </div>
             <span
               aria-hidden="true"
               class="relative inline-flex items-center justify-center flex-shrink-0 overflow-hidden border-solid border-medium box-border border-default rounded-full group-data-[hover-unselected=true]:bg-default-100 outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:border-primary w-5 h-5 group-data-[pressed=true]:scale-95 transition-transform-colors motion-reduce:transition-none group-data-[invalid=true]:!border-danger [&:not(group-data-[invalid="true"]):not(group-data-[selected="false"])]:border-focus"
@@ -878,14 +1120,24 @@ exports[`Story Snapshots > Required 1`] = `
                 class="z-10 opacity-0 scale-0 origin-center rounded-full group-data-[selected=true]:opacity-100 group-data-[selected=true]:scale-100 text-primary-foreground w-2 h-2 transition-transform-opacity motion-reduce:transition-none bg-focus group-data-[invalid=true]:bg-danger"
               />
             </span>
+            <span
+              data-testid="icon-FaPhone"
+            >
+              FaPhone
+            </span>
             <div
-              class="flex flex-col ml-1 ms-2"
+              class="flex flex-col ml-1 ms-2 grow"
             >
               <span
                 class="relative text-foreground select-none transition-colors motion-reduce:transition-none text-sm"
                 id=":r12:"
               >
-                3
+                option 3
+              </span>
+              <span
+                class="text-small text-foreground opacity-70"
+              >
+                first prime number to be devisable by something other than 1.
               </span>
             </div>
           </label>
@@ -924,7 +1176,7 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
         class="relative flex flex-col gap-2 group"
         data-invalid="false"
         data-required="false"
-        data-testid="radiogroupfield"
+        data-testid="radioboxesfield"
         id="react-aria-react-useId-mock"
         role="radiogroup"
       >
@@ -934,19 +1186,23 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
           role="presentation"
         >
           <label
-            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
-            data-testid="radiogroupfield_option_option_1"
+            class="group inline-flex flex-auto cursor-pointer items-center justify-between gap-4 rounded-lg border-2 border-default p-4 hover:bg-content2 data-[selected=true]:border-focus"
+            data-testid="radioboxesfield_option_1"
           >
-            <input
-              aria-describedby=":rd: react-aria-react-useId-mock"
-              aria-labelledby=":rc:"
-              class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
-              name="radioGroupField"
-              tabindex="-1"
-              title=""
-              type="radio"
-              value="option 1"
-            />
+            <div
+              style="border: 0px; clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+            >
+              <input
+                aria-describedby=":rd: react-aria-react-useId-mock"
+                aria-labelledby=":rc:"
+                class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
+                name="radioBoxesField"
+                tabindex="-1"
+                title=""
+                type="radio"
+                value="1"
+              />
+            </div>
             <span
               aria-hidden="true"
               class="relative inline-flex items-center justify-center flex-shrink-0 overflow-hidden border-solid border-medium box-border border-default rounded-full group-data-[hover-unselected=true]:bg-default-100 outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:border-primary w-5 h-5 group-data-[pressed=true]:scale-95 transition-transform-colors motion-reduce:transition-none group-data-[invalid=true]:!border-danger [&:not(group-data-[invalid="true"]):not(group-data-[selected="false"])]:border-focus"
@@ -955,8 +1211,13 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
                 class="z-10 opacity-0 scale-0 origin-center rounded-full group-data-[selected=true]:opacity-100 group-data-[selected=true]:scale-100 text-primary-foreground w-2 h-2 transition-transform-opacity motion-reduce:transition-none bg-focus group-data-[invalid=true]:bg-danger"
               />
             </span>
+            <span
+              data-testid="icon-FaRocket"
+            >
+              FaRocket
+            </span>
             <div
-              class="flex flex-col ml-1 ms-2"
+              class="flex flex-col ml-1 ms-2 grow"
             >
               <span
                 class="relative text-foreground select-none transition-colors motion-reduce:transition-none text-sm"
@@ -964,24 +1225,31 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
               >
                 option 1
               </span>
+              <span
+                class="text-small text-foreground opacity-70"
+              >
+                Neutral element for multiplication.
+              </span>
             </div>
           </label>
           <label
-            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
-            data-selected="true"
-            data-testid="radiogroupfield_option_option_2"
+            class="group inline-flex flex-auto cursor-pointer items-center justify-between gap-4 rounded-lg border-2 border-default p-4 hover:bg-content2 data-[selected=true]:border-focus"
+            data-testid="radioboxesfield_option_2"
           >
-            <input
-              aria-describedby=":rf: react-aria-react-useId-mock"
-              aria-labelledby=":re:"
-              checked=""
-              class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
-              name="radioGroupField"
-              tabindex="0"
-              title=""
-              type="radio"
-              value="option 2"
-            />
+            <div
+              style="border: 0px; clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+            >
+              <input
+                aria-describedby=":rf: react-aria-react-useId-mock"
+                aria-labelledby=":re:"
+                class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
+                name="radioBoxesField"
+                tabindex="-1"
+                title=""
+                type="radio"
+                value="2"
+              />
+            </div>
             <span
               aria-hidden="true"
               class="relative inline-flex items-center justify-center flex-shrink-0 overflow-hidden border-solid border-medium box-border border-default rounded-full group-data-[hover-unselected=true]:bg-default-100 outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:border-primary w-5 h-5 group-data-[pressed=true]:scale-95 transition-transform-colors motion-reduce:transition-none group-data-[invalid=true]:!border-danger [&:not(group-data-[invalid="true"]):not(group-data-[selected="false"])]:border-focus"
@@ -990,8 +1258,13 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
                 class="z-10 opacity-0 scale-0 origin-center rounded-full group-data-[selected=true]:opacity-100 group-data-[selected=true]:scale-100 text-primary-foreground w-2 h-2 transition-transform-opacity motion-reduce:transition-none bg-focus group-data-[invalid=true]:bg-danger"
               />
             </span>
+            <span
+              data-testid="icon-FaFlask"
+            >
+              FaFlask
+            </span>
             <div
-              class="flex flex-col ml-1 ms-2"
+              class="flex flex-col ml-1 ms-2 grow"
             >
               <span
                 class="relative text-foreground select-none transition-colors motion-reduce:transition-none text-sm"
@@ -999,22 +1272,33 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
               >
                 option 2
               </span>
+              <span
+                class="text-small text-foreground opacity-70"
+              >
+                The number for Nerds.
+              </span>
             </div>
           </label>
           <label
-            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
-            data-testid="radiogroupfield_option_option_3"
+            class="group inline-flex flex-auto cursor-pointer items-center justify-between gap-4 rounded-lg border-2 border-default p-4 hover:bg-content2 data-[selected=true]:border-focus"
+            data-selected="true"
+            data-testid="radioboxesfield_option_3"
           >
-            <input
-              aria-describedby=":rh: react-aria-react-useId-mock"
-              aria-labelledby=":rg:"
-              class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
-              name="radioGroupField"
-              tabindex="-1"
-              title=""
-              type="radio"
-              value="option 3"
-            />
+            <div
+              style="border: 0px; clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+            >
+              <input
+                aria-describedby=":rh: react-aria-react-useId-mock"
+                aria-labelledby=":rg:"
+                checked=""
+                class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
+                name="radioBoxesField"
+                tabindex="0"
+                title=""
+                type="radio"
+                value="3"
+              />
+            </div>
             <span
               aria-hidden="true"
               class="relative inline-flex items-center justify-center flex-shrink-0 overflow-hidden border-solid border-medium box-border border-default rounded-full group-data-[hover-unselected=true]:bg-default-100 outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:border-primary w-5 h-5 group-data-[pressed=true]:scale-95 transition-transform-colors motion-reduce:transition-none group-data-[invalid=true]:!border-danger [&:not(group-data-[invalid="true"]):not(group-data-[selected="false"])]:border-focus"
@@ -1023,14 +1307,24 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
                 class="z-10 opacity-0 scale-0 origin-center rounded-full group-data-[selected=true]:opacity-100 group-data-[selected=true]:scale-100 text-primary-foreground w-2 h-2 transition-transform-opacity motion-reduce:transition-none bg-focus group-data-[invalid=true]:bg-danger"
               />
             </span>
+            <span
+              data-testid="icon-FaPhone"
+            >
+              FaPhone
+            </span>
             <div
-              class="flex flex-col ml-1 ms-2"
+              class="flex flex-col ml-1 ms-2 grow"
             >
               <span
                 class="relative text-foreground select-none transition-colors motion-reduce:transition-none text-sm"
                 id=":rg:"
               >
                 option 3
+              </span>
+              <span
+                class="text-small text-foreground opacity-70"
+              >
+                first prime number to be devisable by something other than 1.
               </span>
             </div>
           </label>

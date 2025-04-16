@@ -1,7 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { FaFlask, FaPhone, FaRocket } from 'react-icons/fa';
-
 import { action } from '@storybook/addon-actions';
 import { userEvent, within } from '@storybook/test';
 
@@ -41,80 +39,6 @@ export const Default: Story = {
       { value: '1', label: 'option 1' },
       { value: '2', label: 'option 2' },
       { value: '3', label: 'option 3' },
-    ],
-  },
-};
-
-export const RadioBox: Story = {
-  args: {
-    name: 'radioGroupField',
-    variant: 'radioBox',
-    options: [
-      {
-        description: 'Neutral element for multiplication.',
-        icon: <FaRocket className="w-8 text-3xl" />,
-        label: 'option 1',
-        value: '1',
-      },
-      {
-        description: 'The number for Nerds.',
-        icon: <FaFlask className="w-8 text-3xl" />,
-        label: 'option 2',
-        value: '2',
-      },
-      {
-        description:
-          'first prime number to be devisable by something other than 1.',
-        icon: <FaPhone className="w-8 text-3xl" />,
-        label: 'option 3',
-        value: '3',
-      },
-    ],
-  },
-};
-
-export const RadioButton: Story = {
-  args: {
-    name: 'radioGroupField',
-    variant: 'radioButton',
-    options: [
-      {
-        value: '1',
-        label: 'option 1',
-        description: 'Neutral element for multiplication.',
-      },
-      { value: '2', label: 'option 2', description: 'The number for Nerds.' },
-      {
-        value: '3',
-        label: 'option 3',
-        description:
-          'first prime number to be devisable by something other than 1.',
-      },
-    ],
-  },
-};
-
-export const RadioTabs: Story = {
-  args: {
-    name: 'radioGroupField',
-    variant: 'tabs',
-    options: [
-      {
-        content: 'Neutral element for multiplication.',
-        label: 'option 1',
-        id: '1',
-      },
-      {
-        content: 'The number for Nerds.',
-        label: 'option 2',
-        id: '2',
-      },
-      {
-        content:
-          'first prime number to be devisable by something other than 1.',
-        label: 'option 3',
-        id: '3',
-      },
     ],
   },
 };

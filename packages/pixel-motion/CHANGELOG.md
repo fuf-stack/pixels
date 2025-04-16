@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.13](https://github.com/fuf-stack/pixels/compare/pixel-motion-v1.0.12...pixel-motion-v1.0.13) (2025-04-16)
+
+
+### Bug Fixes
+
+* **deps:** update dependency framer-motion to v12.7.3 ([#896](https://github.com/fuf-stack/pixels/issues/896)) ([eb8d43d](https://github.com/fuf-stack/pixels/commit/eb8d43d17bdb1825a26f9bf742708e366850604a))
+
 ## [1.0.12](https://github.com/fuf-stack/pixels/compare/pixel-motion-v1.0.11...pixel-motion-v1.0.12) (2025-04-14)
 
 
