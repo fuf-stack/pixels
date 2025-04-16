@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.16.10](https://github.com/fuf-stack/pixels/compare/uniform-v0.16.9...uniform-v0.16.10) (2025-04-16)
+
+
+### Bug Fixes
+
+* **deps:** update [@heroui](https://github.com/heroui) monorepo ([1408d98](https://github.com/fuf-stack/pixels/commit/1408d98b831a17e833634dca1ff1bdd7f60bd1f9))
+* **deps:** update [@heroui](https://github.com/heroui) monorepo ([4c481ac](https://github.com/fuf-stack/pixels/commit/4c481ac4a5aecce6e834768a957c3ebecc8b6e7d))
+* **deps:** update dependency framer-motion to v12.7.3 ([#896](https://github.com/fuf-stack/pixels/issues/896)) ([eb8d43d](https://github.com/fuf-stack/pixels/commit/eb8d43d17bdb1825a26f9bf742708e366850604a))
+
 ## [0.16.9](https://github.com/fuf-stack/pixels/compare/uniform-v0.16.8...uniform-v0.16.9) (2025-04-15)
 
 
