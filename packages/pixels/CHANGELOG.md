@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.41.2](https://github.com/fuf-stack/pixels/compare/pixels-v0.41.1...pixels-v0.41.2) (2025-04-16)
+
+
+### Bug Fixes
+
+* **pixels:** some refactoring of Toast ([c62c9ed](https://github.com/fuf-stack/pixels/commit/c62c9edd4090a14b5550998f07a05b59c039febb))
+
 ## [0.41.1](https://github.com/fuf-stack/pixels/compare/pixels-v0.41.0...pixels-v0.41.1) (2025-04-16)
 
 
