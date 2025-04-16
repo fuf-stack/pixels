@@ -9,7 +9,7 @@ import { circularProgress as heroCircularProgressVariants } from '@heroui/theme'
 
 import { tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 
-export const ProgressCircularVariants = tv({
+export const progressCircularVariants = tv({
   slots: {
     // wrapper around the whole component
     base: '',
@@ -64,8 +64,8 @@ export const ProgressCircularVariants = tv({
   },
 });
 
-type VariantProps = TVProps<typeof ProgressCircularVariants>;
-type ClassName = TVClassName<typeof ProgressCircularVariants>;
+type VariantProps = TVProps<typeof progressCircularVariants>;
+type ClassName = TVClassName<typeof progressCircularVariants>;
 
 export interface ProgressCircularProps extends VariantProps {
   /** sets HTML aria-label attribute */
@@ -102,7 +102,7 @@ const ProgressCircular = ({
   size = 'md',
   color = 'info',
 }: ProgressCircularProps) => {
-  const variants = ProgressCircularVariants({ color, hasError, size });
+  const variants = progressCircularVariants({ color, hasError, size });
   const classNames = variantsToClassNames(variants, className, 'base');
 
   // format value

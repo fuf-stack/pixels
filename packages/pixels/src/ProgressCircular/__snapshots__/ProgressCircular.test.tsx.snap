@@ -1608,3 +1608,57 @@ exports[`Story Snapshots > WithoutPercent 1`] = `
   </div>
 </div>
 `;
+
+exports[`Story Snapshots > WithoutPercentProp 1`] = `
+<div>
+  <div
+    aria-label="progress"
+    aria-valuemax="100"
+    aria-valuemin="0"
+    aria-valuenow="0"
+    aria-valuetext="0%"
+    class="flex flex-col justify-center gap-1 max-w-fit items-center"
+    id="react-aria-:r2n:"
+    role="progressbar"
+  >
+    <div
+      class="relative block"
+    >
+      <svg
+        class="z-0 relative overflow-hidden text-info h-16 w-16"
+        fill="none"
+        stroke-width="2"
+        viewBox="0 0 32 32"
+      >
+        <circle
+          class="h-full stroke-default-50"
+          cx="16"
+          cy="16"
+          r="14"
+          role="presentation"
+          stroke-dasharray="87.96459430051421 87.96459430051421"
+          stroke-dashoffset="0"
+          stroke-linecap="round"
+          transform="rotate(-90 16 16)"
+        />
+        <circle
+          class="h-full stroke-current transition-all !duration-500"
+          cx="16"
+          cy="16"
+          r="14"
+          role="presentation"
+          stroke-dasharray="87.96459430051421 87.96459430051421"
+          stroke-dashoffset="87.96459430051421"
+          stroke-linecap="round"
+          transform="rotate(-90 16 16)"
+        />
+      </svg>
+      <span
+        class="absolute font-normal inset-0 flex items-center justify-center text-md"
+      >
+        0%
+      </span>
+    </div>
+  </div>
+</div>
+`;

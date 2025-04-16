@@ -1,7 +1,7 @@
-import ProgressCircular, { ProgressCircularVariants } from './ProgressCircular';
+import ProgressCircular, { progressCircularVariants } from './ProgressCircular';
 
 export type { ProgressCircularProps } from './ProgressCircular';
 
-export { ProgressCircular, ProgressCircularVariants };
+export { ProgressCircular, progressCircularVariants };
 
 export default ProgressCircular;

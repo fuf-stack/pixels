@@ -18,32 +18,47 @@ const meta: Meta<typeof Progress> = {
 export default meta;
 type Story = StoryObj<typeof Progress>;
 
-export const Default: Story = {};
+export const Default: Story = {
+  args: {
+    percent: 42,
+  },
+};
+
+export const Finished: Story = {
+  args: {
+    percent: 100,
+  },
+};
+
+export const Indeterminate: Story = {
+  args: {
+    indeterminate: true,
+  },
+};
+
+export const ShowValueLabel: Story = {
+  args: {
+    showValueLabel: true,
+    percent: 42,
+  },
+};
 
 export const WithLabel: Story = {
   args: {
-    label: 'label',
+    label: 'Some Label',
+    percent: 42,
   },
 };
 
-export const NoValueLabel: Story = {
+export const WithLabelAndValueLabel: Story = {
   args: {
-    showValueLabel: false,
+    label: 'Some Label',
+    showValueLabel: true,
+    percent: 42,
   },
 };
 
-export const CompletedSuccess: Story = {
-  render: (args) => (
-    <>
-      <Progress {...args} percent={42} successOnComplete />
-      <Progress {...args} percent={100} successOnComplete />
-      <Progress {...args} percent={150} successOnComplete />
-    </>
-  ),
-  args: {},
-};
-
-export const AllStyleVariants: Story = {
+export const AllColors: Story = {
   render: (args) => (
     <>
       {Object.keys(progressVariants.variants.color).map((color) => (
@@ -68,12 +83,37 @@ export const AllStyleVariants: Story = {
   },
 };
 
-/** SOME PERCENTAGES */
-const percent = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 150] as number[];
+export const AllSizes: Story = {
+  render: (args) => (
+    <>
+      {['sm', 'md', 'lg'].map((size) => (
+        <div key={size} style={{ marginTop: '10px' }}>
+          <Progress
+            {...args}
+            label={size}
+            size={size as ProgressProps['size']}
+          />
+        </div>
+      ))}
+    </>
+  ),
+  args: {
+    percent: 42,
+  },
+  argTypes: {
+    // do not show size in controls table
+    size: {
+      table: {
+        disable: true,
+      },
+    },
+  },
+};
+
 export const SomePercentages: Story = {
   render: (args) => (
     <>
-      {percent.map((p) => (
+      {[0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 150].map((p) => (
         <div key={p} style={{ marginTop: '10px' }}>
           <Progress {...args} percent={p} />
         </div>
@@ -89,3 +129,5 @@ export const SomePercentages: Story = {
     },
   },
 };
+
+export const WithoutPercentProp: Story = {};

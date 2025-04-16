@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import type { ProgressCircularProps } from './ProgressCircular';
 
-import ProgressCircular, { ProgressCircularVariants } from './ProgressCircular';
+import ProgressCircular, { progressCircularVariants } from './ProgressCircular';
 
 const meta: Meta<typeof ProgressCircular> = {
   title: 'pixels/ProgressCircular',
@@ -33,7 +33,7 @@ export const HasError: Story = {
 export const AllColors: Story = {
   render: (args) => (
     <>
-      {Object.keys(ProgressCircularVariants.variants.color).map((color) => (
+      {Object.keys(progressCircularVariants.variants.color).map((color) => (
         <div key={color} style={{ marginTop: '10px' }}>
           <ProgressCircular
             {...args}
@@ -59,7 +59,7 @@ export const AllColors: Story = {
 export const AllSizes: Story = {
   render: (args) => (
     <>
-      {Object.keys(ProgressCircularVariants.variants.size).map((size) => (
+      {Object.keys(progressCircularVariants.variants.size).map((size) => (
         <div key={size} style={{ marginTop: '10px' }}>
           <ProgressCircular
             {...args}
@@ -102,4 +102,4 @@ export const SomePercentages: Story = {
   },
 };
 
-export const WithoutPercent: Story = {};
+export const WithoutPercentProp: Story = {};
