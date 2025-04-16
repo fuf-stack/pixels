@@ -50,7 +50,7 @@ export const toastVariants = tv({
       color: 'info',
       variant: 'flat',
       className: {
-        base: 'dark:bg-info-50/50 bg-info-50 text-info-600',
+        base: 'bg-info-50 text-info-600 dark:bg-info-50/50',
         title: 'text-info-600',
         description: 'text-info-500',
         icon: 'text-info-600',
@@ -145,8 +145,6 @@ export const addToast = ({
     closeIcon,
     color: isHeroUIColor ? (color as HeroToastProps['color']) : undefined,
     // TODO: 'data-testid': testId,
-    // https://github.com/heroui-inc/heroui/issues/5033
-    // @ts-expect-error bug in hero-toast: description should be ReactNode
     description,
     endContent,
     hideCloseButton: !showCloseButton,
