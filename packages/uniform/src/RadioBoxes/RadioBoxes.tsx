@@ -1,7 +1,7 @@
 import type { TVClassName, TVProps } from '@fuf-stack/pixel-utils';
 import type { ReactElement, ReactNode } from 'react';
 
-import { RadioGroup as HeroRadioGroup, Radio } from '@heroui/radio';
+import { RadioGroup as HeroRadioGroup } from '@heroui/radio';
 
 import { slugify, tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 
@@ -9,8 +9,9 @@ import { Controller } from '../Controller';
 import { useFormContext } from '../hooks';
 import { FieldCopyTestIdButton } from '../partials/FieldCopyTestIdButton';
 import { FieldValidationError } from '../partials/FieldValidationError';
+import { RadioBox } from './RadioBox';
 
-export const radioGroupVariants = tv({
+export const radioBoxesVariants = tv({
   slots: {
     base: 'group', // Needs group for group-data condition
     itemBase: '',
@@ -28,16 +29,16 @@ export const radioGroupVariants = tv({
   },
 });
 
-type VariantProps = TVProps<typeof radioGroupVariants>;
-type ClassName = TVClassName<typeof radioGroupVariants>;
+type VariantProps = TVProps<typeof radioBoxesVariants>;
+type ClassName = TVClassName<typeof radioBoxesVariants>;
 
-export interface RadioGroupOption {
+export interface RadioBoxesOption {
   /** Description of the value. Works with variant radioBox. */
-  description?: React.ReactNode;
+  description?: ReactNode;
   /** disables the option */
   disabled?: boolean;
   /** option label */
-  label?: React.ReactNode;
+  label?: ReactNode;
   /** option icon */
   icon?: ReactNode;
   /** HTML data-testid attribute of the option */
@@ -46,7 +47,7 @@ export interface RadioGroupOption {
   value: string;
 }
 
-export interface RadioGroupProps extends VariantProps {
+export interface RadioBoxesProps extends VariantProps {
   /** CSS class name */
   className?: ClassName;
   /** Determines if the Buttons are disabled or not. */
@@ -58,15 +59,15 @@ export interface RadioGroupProps extends VariantProps {
   /** Name the RadioButtons are registered at in HTML forms (react-hook-form). */
   name: string;
   /** Radio button configuration. */
-  options: RadioGroupOption[];
+  options: RadioBoxesOption[];
   /** Id to grab element in internal tests. */
   testId?: string;
 }
 
 /**
- * RadioGroup component based on [HeroUI RadioGroup](https://www.heroui.com//docs/components/radio-group)
+ * RadioBoxes component based on [HeroUI RadioGroup](https://www.heroui.com//docs/components/radio-group)
  */
-const RadioGroup = ({
+const RadioBoxes = ({
   className = undefined,
   disabled = false,
   inline = false,
@@ -74,7 +75,7 @@ const RadioGroup = ({
   name,
   options,
   testId: _testId = undefined,
-}: RadioGroupProps): ReactElement => {
+}: RadioBoxesProps): ReactElement => {
   const { control, debugMode, getFieldState, getValues } = useFormContext();
 
   const { error, invalid, required, testId } = getFieldState(name, _testId);
@@ -82,7 +83,7 @@ const RadioGroup = ({
   const showTestIdCopyButton = debugMode === 'debug-testids';
   const showLabel = label || showTestIdCopyButton;
 
-  const variants = radioGroupVariants();
+  const variants = radioBoxesVariants();
   const classNames = variantsToClassNames(variants, className, 'base');
 
   return (
@@ -133,18 +134,20 @@ const RadioGroup = ({
             {options.map((option) => {
               if ('value' in option) {
                 return (
-                  <Radio
+                  <RadioBox
                     classNames={itemClassNames}
                     data-testid={slugify(
                       `${testId}_option_${option.testId || option.value}`,
                     )}
+                    description={option.description}
+                    icon={option.icon}
                     isDisabled={isDisabled || option.disabled}
                     key={option.value}
                     onChange={onChange}
                     value={option.value}
                   >
                     {option.label ? option.label : option.value}
-                  </Radio>
+                  </RadioBox>
                 );
               }
               return null;
@@ -156,4 +159,4 @@ const RadioGroup = ({
   );
 };
 
-export default RadioGroup;
+export default RadioBoxes;
