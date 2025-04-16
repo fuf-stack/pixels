@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.41.1](https://github.com/fuf-stack/pixels/compare/pixels-v0.41.0...pixels-v0.41.1) (2025-04-16)
+
+
+### Bug Fixes
+
+* **pixels:** add correct index export for Toast ([f7740fb](https://github.com/fuf-stack/pixels/commit/f7740fbd09f8767b15b6f55d0c8a8a5d6ea0d4f3))
+
 ## [0.41.0](https://github.com/fuf-stack/pixels/compare/pixels-v0.40.0...pixels-v0.41.0) (2025-04-16)
 
 
