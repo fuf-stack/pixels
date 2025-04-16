@@ -44,7 +44,7 @@ export const buttonVariants = tv({
     {
       color: 'info',
       variant: 'shadow',
-      class: 'shadow-lg shadow-info/40 bg-info text-info-foreground"',
+      class: 'text-info-foreground" bg-info shadow-lg shadow-info/40',
     },
     {
       color: 'info',

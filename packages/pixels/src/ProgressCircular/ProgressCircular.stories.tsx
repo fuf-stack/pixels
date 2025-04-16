@@ -1,22 +1,15 @@
-import type { ProgressProps } from '@heroui/progress';
 import type { Meta, StoryObj } from '@storybook/react';
+import type { ProgressCircularProps } from './ProgressCircular';
 
-import Progress, { progressVariants } from './Progress';
+import ProgressCircular, { progressCircularVariants } from './ProgressCircular';
 
-const meta: Meta<typeof Progress> = {
-  title: 'pixels/Progress',
-  component: Progress,
-  decorators: [
-    (Story) => (
-      <div style={{ width: '300px' }}>
-        <Story />
-      </div>
-    ),
-  ],
-} as Meta<typeof Progress>;
+const meta: Meta<typeof ProgressCircular> = {
+  title: 'pixels/ProgressCircular',
+  component: ProgressCircular,
+} as Meta<typeof ProgressCircular>;
 
 export default meta;
-type Story = StoryObj<typeof Progress>;
+type Story = StoryObj<typeof ProgressCircular>;
 
 export const Default: Story = {
   args: {
@@ -30,30 +23,9 @@ export const Finished: Story = {
   },
 };
 
-export const Indeterminate: Story = {
+export const HasError: Story = {
   args: {
-    indeterminate: true,
-  },
-};
-
-export const ShowValueLabel: Story = {
-  args: {
-    showValueLabel: true,
-    percent: 42,
-  },
-};
-
-export const WithLabel: Story = {
-  args: {
-    label: 'Some Label',
-    percent: 42,
-  },
-};
-
-export const WithLabelAndValueLabel: Story = {
-  args: {
-    label: 'Some Label',
-    showValueLabel: true,
+    hasError: true,
     percent: 42,
   },
 };
@@ -61,21 +33,22 @@ export const WithLabelAndValueLabel: Story = {
 export const AllColors: Story = {
   render: (args) => (
     <>
-      {Object.keys(progressVariants.variants.color).map((color) => (
+      {Object.keys(progressCircularVariants.variants.color).map((color) => (
         <div key={color} style={{ marginTop: '10px' }}>
-          <Progress
+          <ProgressCircular
             {...args}
-            label={color}
-            percent={42}
-            color={color as ProgressProps['color']}
+            color={color as ProgressCircularProps['color']}
           />
         </div>
       ))}
     </>
   ),
+  args: {
+    percent: 42,
+  },
   argTypes: {
-    // do not show styleVariant in controls table
-    color: {
+    // do not show size in controls table
+    size: {
       table: {
         disable: true,
       },
@@ -86,12 +59,11 @@ export const AllColors: Story = {
 export const AllSizes: Story = {
   render: (args) => (
     <>
-      {['sm', 'md', 'lg'].map((size) => (
+      {Object.keys(progressCircularVariants.variants.size).map((size) => (
         <div key={size} style={{ marginTop: '10px' }}>
-          <Progress
+          <ProgressCircular
             {...args}
-            label={size}
-            size={size as ProgressProps['size']}
+            size={size as ProgressCircularProps['size']}
           />
         </div>
       ))}
@@ -115,7 +87,7 @@ export const SomePercentages: Story = {
     <>
       {[0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 150].map((p) => (
         <div key={p} style={{ marginTop: '10px' }}>
-          <Progress {...args} percent={p} />
+          <ProgressCircular {...args} percent={p} />
         </div>
       ))}
     </>

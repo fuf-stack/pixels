@@ -1,6 +1,14 @@
 import { describe, expect, it } from 'vitest';
 
-import v, { json, jsonObject } from 'src';
+import v, {
+  boolean,
+  json,
+  jsonObject,
+  number,
+  object,
+  string,
+  stringToJSON,
+} from 'src';
 
 // Test data
 const literalsData = [
@@ -227,5 +235,94 @@ describe('jsonObject validator', () => {
       expect(result).toHaveProperty('data', null);
       expect(result.errors).toBeTruthy();
     });
+  });
+});
+
+describe('stringToJSON validator', () => {
+  const schema = stringToJSON();
+
+  it('parses valid JSON primitives', () => {
+    /* allowed primitives */
+    expect(schema.parse('"foo"')).toBe('foo');
+    expect(schema.parse('42')).toBe(42);
+    expect(schema.parse('true')).toBe(true);
+    expect(schema.parse('false')).toBe(false);
+    expect(schema.parse('null')).toBeNull();
+  });
+
+  it('rejects disallowed primitives', () => {
+    /* disallowed primitives */
+    expect(() => schema.parse('42n')).toThrow();
+    expect(() => schema.parse('undefined')).toThrow();
+  });
+
+  it('parses valid objects', () => {
+    const nested = { one: ['two', { three: 4 }] };
+    expect(schema.parse(JSON.stringify(nested))).toEqual(nested);
+  });
+
+  it('rejects invalid JSON', () => {
+    /* invalid JSON */
+    expect(() => schema.parse('{ keys: "must be quoted" }')).toThrow();
+    expect(() => schema.parse('{ "objects": "must be closed"')).toThrow();
+    expect(() => schema.parse('"arrays", "must", "be", "opened" ]')).toThrow();
+    expect(() => schema.parse('<html>is not JSON</html>')).toThrow();
+  });
+
+  it('supports piping to other schemas', () => {
+    /* piping */
+    const jsonNumberSchema = stringToJSON().pipe(number());
+    expect(jsonNumberSchema.parse('500')).toBe(500);
+    expect(() => jsonNumberSchema.parse('"JSON, but not a number"')).toThrow();
+  });
+
+  it('parses arrays and other JSON types', () => {
+    expect(schema.parse('true')).toBe(true);
+    expect(schema.parse('null')).toBeNull();
+    expect(schema.parse('["one", "two", "three"]')).toEqual([
+      'one',
+      'two',
+      'three',
+    ]);
+    expect(() => schema.parse('<html>not a JSON string</html>')).toThrow();
+  });
+
+  it('validates JSON content with piped schema validation', () => {
+    // Define a schema for a user object
+    const userSchema = stringToJSON().pipe(
+      object({
+        id: number().positive(),
+        name: string().min(2),
+        isActive: boolean(),
+      }),
+    );
+
+    // Test valid user JSON
+    const validUser = JSON.stringify({ id: 1, name: 'Alice', isActive: true });
+    expect(userSchema.parse(validUser)).toEqual({
+      id: 1,
+      name: 'Alice',
+      isActive: true,
+    });
+
+    // Test invalid user JSON - missing required field
+    const missingField = JSON.stringify({ id: 2, isActive: false });
+    expect(() => userSchema.parse(missingField)).toThrow();
+
+    // Test invalid user JSON - wrong type
+    const wrongType = JSON.stringify({
+      id: 'invalid',
+      name: 'Bob',
+      isActive: true,
+    });
+    expect(() => userSchema.parse(wrongType)).toThrow();
+
+    // Test invalid user JSON - constraint violation
+    const constraintViolation = JSON.stringify({
+      id: -5,
+      name: 'Eve',
+      isActive: true,
+    });
+    expect(() => userSchema.parse(constraintViolation)).toThrow();
   });
 });

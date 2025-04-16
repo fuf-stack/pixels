@@ -8,12 +8,18 @@ import { tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 // progress styling variants
 export const progressVariants = tv({
   slots: {
-    base: '', // wrapper around the whole component
-    indicator: '', // indicator of the progress (finished part)
-    label: '', // label at the top left of the progress bar
-    labelWrapper: '', // wrapper around progress label and label span
-    track: '', // track of the progress (not finished part)
-    value: '', // span around the progress value
+    // wrapper around the whole component
+    base: '',
+    // indicator of the progress (finished part)
+    indicator: '',
+    // label at the top left of the progress bar
+    label: '',
+    // wrapper around progress label and label span
+    labelWrapper: '',
+    // track of the progress (not finished part)
+    track: '',
+    // span around the progress value
+    value: '',
   },
   variants: {
     // see: https://github.com/heroui-inc/heroui/blob/canary/packages/core/theme/src/components/progress.ts
@@ -47,56 +53,68 @@ export type VariantProps = TVProps<typeof progressVariants>;
 type ClassName = TVClassName<typeof progressVariants>;
 
 export interface ProgressProps extends VariantProps {
+  /** sets HTML aria-label attribute */
+  ariaLabel?: string;
   /** CSS class name */
   className?: ClassName;
   /** color of the progress bar */
   color?: VariantProps['color'];
+  /** disables all animations */
+  disableAnimation?: boolean;
   /** function to format the progress value */
   format?: (percent: number) => ReactNode;
+  /** shows indeterminate progress animation */
+  indeterminate?: boolean;
   /** label of the progress bar */
   label?: ReactNode;
-  /** percentage/progress of the progress bar */
+  /** percentage / progress of the progress bar */
   percent: number;
   /** whether to show the value label */
   showValueLabel?: boolean;
   /** size of the progress bar */
   size?: 'sm' | 'md' | 'lg';
-  /** whether to show success color on complete */
-  successOnComplete?: boolean;
   /** HTML data-testid attribute used in e2e tests */
   testId?: string;
 }
 
-const defaultFormat = (percent: number) => `${percent}%`;
+/** formats percent with percent sign */
+const defaultFormat = (percent = 0) => `${percent}%`;
 
 /**
  * Progress component based on [HeroUI Progress](https://www.heroui.com//docs/components/progress)
  */
 const Progress = ({
+  ariaLabel = 'progress',
   className = undefined,
-  color = 'primary',
+  color = 'info',
+  disableAnimation = false,
   format = defaultFormat,
+  indeterminate = false,
   label = undefined,
   percent,
-  showValueLabel = true,
+  showValueLabel = false,
   size = 'md',
-  successOnComplete = false,
   testId = undefined,
 }: ProgressProps) => {
-  const processedColor =
-    successOnComplete && percent >= 100 ? 'success' : color;
+  // handle special states
+  let progressColor: VariantProps['color'] = color;
+  if (percent >= 100) {
+    progressColor = 'success';
+  }
 
-  const variants = progressVariants({ color: processedColor });
+  const variants = progressVariants({ color: progressColor });
   const classNames = variantsToClassNames(variants, className, 'base');
 
   const value = format(percent);
 
   return (
     <HeroProgress
-      aria-label="Loading..."
+      aria-label={ariaLabel}
       classNames={classNames}
       data-testid={testId}
+      disableAnimation={disableAnimation}
       formatOptions={undefined}
+      isIndeterminate={indeterminate}
       label={label}
       showValueLabel={showValueLabel}
       size={size}
