@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.41.5](https://github.com/fuf-stack/pixels/compare/pixels-v0.41.4...pixels-v0.41.5) (2025-04-22)
+
+
+### Bug Fixes
+
+* **pixels:** optimise ProgressCircular styles ([7950cdc](https://github.com/fuf-stack/pixels/commit/7950cdca1958c8b12cfb3bae79744cab92fccb14))
+
 ## [0.41.4](https://github.com/fuf-stack/pixels/compare/pixels-v0.41.3...pixels-v0.41.4) (2025-04-22)
 
 
