@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.41.6](https://github.com/fuf-stack/pixels/compare/pixels-v0.41.5...pixels-v0.41.6) (2025-04-22)
+
+
+### Bug Fixes
+
+* **pixels:** optimise strokeWidth in ProgressCircular ([8ae54ea](https://github.com/fuf-stack/pixels/commit/8ae54ea977187191f62da1380ce64824880209e2))
+
 ## [0.41.5](https://github.com/fuf-stack/pixels/compare/pixels-v0.41.4...pixels-v0.41.5) (2025-04-22)
 
 
