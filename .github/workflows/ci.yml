@@ -29,9 +29,9 @@ jobs:
           path: coverage/
 
   sonar:
-    name: SonarQube Analysis
-    # Only run sonar if we're not on a renovate branch
-    if: ${{ !startsWith(github.ref, 'refs/heads/renovate/') }}
+    name: Sonarqube Analysis
+    # Only run sonar if we're not on a renovate or release-please branch
+    if: ${{ !startsWith(github.ref, 'refs/heads/renovate/') && !startsWith(github.ref, 'refs/heads/release-please') }}
     needs: [test]
     runs-on: ubuntu-latest
     timeout-minutes: 10
@@ -39,7 +39,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # Required for SonarQube
+          fetch-depth: 0 # Required for Sonarqube
 
       - name: Download coverage report
         uses: actions/download-artifact@v4
