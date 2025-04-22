@@ -125,15 +125,16 @@ const ProgressCircular = ({
   let value = format(percent);
 
   // set strokeWidth based on size prop
-  let strokeWidth = 1.6;
+  let strokeWidth: number;
   switch (size) {
     case 'xs':
-      strokeWidth = 2.2;
-      break;
-    case 'sm':
       strokeWidth = 2;
       break;
+    case 'sm':
+      strokeWidth = 1.8;
+      break;
     default:
+      strokeWidth = 1.6;
       break;
   }
 
