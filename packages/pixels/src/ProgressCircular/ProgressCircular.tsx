@@ -24,7 +24,7 @@ export const progressCircularVariants = tv({
     // wrapper around progress svg and value span
     svgWrapper: '',
     // track of the circle (not finished part)
-    track: 'stroke-default-50',
+    track: 'stroke-default-300',
     // outer span next to the svg
     value: '',
   },
@@ -49,11 +49,11 @@ export const progressCircularVariants = tv({
     size: {
       xs: {
         svg: 'h-10 w-10',
-        value: 'text-xs',
+        value: 'text-[0.6rem]',
       },
       sm: {
         svg: 'h-12 w-12',
-        value: 'text-sm',
+        value: 'text-xs',
       },
       md: {
         svg: 'h-16 w-16',
@@ -124,6 +124,19 @@ const ProgressCircular = ({
   // format value
   let value = format(percent);
 
+  // set strokeWidth based on size prop
+  let strokeWidth = 1.6;
+  switch (size) {
+    case 'xs':
+      strokeWidth = 2.2;
+      break;
+    case 'sm':
+      strokeWidth = 2;
+      break;
+    default:
+      break;
+  }
+
   // handle special states
   let progressColor: VariantProps['color'] = color;
   if (hasError) {
@@ -148,7 +161,7 @@ const ProgressCircular = ({
       color={heroUiColor}
       disableAnimation={isInitialRenderCycle || disableAnimation}
       showValueLabel
-      strokeWidth={2}
+      strokeWidth={strokeWidth}
       // we do not use spinner animation when no percent provided
       value={percent || 0}
       valueLabel={value}
