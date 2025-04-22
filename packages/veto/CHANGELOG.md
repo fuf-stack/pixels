@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.10.1](https://github.com/fuf-stack/pixels/compare/veto-v0.10.0...veto-v0.10.1) (2025-04-22)
+
+
+### Bug Fixes
+
+* **deps:** update dependency zod to v3.24.3 ([#907](https://github.com/fuf-stack/pixels/issues/907)) ([684df63](https://github.com/fuf-stack/pixels/commit/684df6370326895488620775ed96eef2e559d0f2))
+
 ## [0.10.0](https://github.com/fuf-stack/pixels/compare/veto-v0.9.6...veto-v0.10.0) (2025-04-15)
 
 
