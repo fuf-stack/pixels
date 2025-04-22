@@ -41,6 +41,11 @@ export const progressCircularVariants = tv({
         svg: 'text-danger',
       },
     },
+    isFinished: {
+      true: {
+        svg: 'text-success',
+      },
+    },
     size: {
       xs: {
         svg: 'h-10 w-10',
@@ -107,7 +112,13 @@ const ProgressCircular = ({
   // used to disable animation on initial render cycle
   const isInitialRenderCycle = useIsInitialRenderCycle();
 
-  const variants = progressCircularVariants({ color, hasError, size });
+  const isFinished = !hasError && percent >= 100;
+  const variants = progressCircularVariants({
+    color,
+    hasError,
+    isFinished,
+    size,
+  });
   const classNames = variantsToClassNames(variants, className, 'base');
 
   // format value
@@ -118,7 +129,7 @@ const ProgressCircular = ({
   if (hasError) {
     progressColor = 'danger';
     value = <FaTimes className="text-danger" />;
-  } else if (percent >= 100) {
+  } else if (isFinished) {
     progressColor = 'success';
     value = <FaCheck className="text-success" />;
   }
@@ -135,7 +146,7 @@ const ProgressCircular = ({
       aria-label={ariaLabel}
       classNames={classNames}
       color={heroUiColor}
-      disableAnimation={isInitialRenderCycle && disableAnimation}
+      disableAnimation={isInitialRenderCycle || disableAnimation}
       showValueLabel
       strokeWidth={2}
       // we do not use spinner animation when no percent provided
