@@ -9,6 +9,8 @@ import { circularProgress as heroCircularProgressVariants } from '@heroui/theme'
 
 import { tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 
+import { useIsInitialRenderCycle } from '../hooks';
+
 export const progressCircularVariants = tv({
   slots: {
     // wrapper around the whole component
@@ -102,6 +104,9 @@ const ProgressCircular = ({
   size = 'md',
   color = 'info',
 }: ProgressCircularProps) => {
+  // used to disable animation on initial render cycle
+  const isInitialRenderCycle = useIsInitialRenderCycle();
+
   const variants = progressCircularVariants({ color, hasError, size });
   const classNames = variantsToClassNames(variants, className, 'base');
 
@@ -130,8 +135,7 @@ const ProgressCircular = ({
       aria-label={ariaLabel}
       classNames={classNames}
       color={heroUiColor}
-      disableAnimation={disableAnimation}
-      formatOptions={undefined}
+      disableAnimation={isInitialRenderCycle && disableAnimation}
       showValueLabel
       strokeWidth={2}
       // we do not use spinner animation when no percent provided

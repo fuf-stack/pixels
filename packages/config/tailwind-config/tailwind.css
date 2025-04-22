@@ -7,7 +7,7 @@
  ********************************************************************/
  :root {
 
-  /* info light */
+  /* info color palette dark */
   --theme-info: var(--theme-info-500);
   --theme-info-foreground: 0 0% 100%;     /** #ffffff */
   --theme-info-50: 213 92% 95%;           /** #e6f1fe */
@@ -28,7 +28,7 @@
  ********************************************************************/
 :root[data-theme="dark"] {
 
-  /* info dark */
+  /* info color palette dark */
   --theme-info: var(--theme-info-400);
   --theme-info-foreground: 0, 0%, 100%;   /** #ffffff */
   --theme-info-50: 212 100%, 10%;         /** #001731 */

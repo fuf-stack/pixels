@@ -5,6 +5,8 @@ import { Progress as HeroProgress } from '@heroui/progress';
 
 import { tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 
+import { useIsInitialRenderCycle } from '../hooks';
+
 // progress styling variants
 export const progressVariants = tv({
   slots: {
@@ -96,6 +98,9 @@ const Progress = ({
   size = 'md',
   testId = undefined,
 }: ProgressProps) => {
+  // used to disable animation on initial render cycle
+  const isInitialRenderCycle = useIsInitialRenderCycle();
+
   // handle special states
   let progressColor: VariantProps['color'] = color;
   if (percent >= 100) {
@@ -112,8 +117,7 @@ const Progress = ({
       aria-label={ariaLabel}
       classNames={classNames}
       data-testid={testId}
-      disableAnimation={disableAnimation}
-      formatOptions={undefined}
+      disableAnimation={isInitialRenderCycle && disableAnimation}
       isIndeterminate={indeterminate}
       label={label}
       showValueLabel={showValueLabel}
