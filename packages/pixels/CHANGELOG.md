@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.41.4](https://github.com/fuf-stack/pixels/compare/pixels-v0.41.3...pixels-v0.41.4) (2025-04-22)
+
+
+### Bug Fixes
+
+* **pixels:** fix initial render cycle condition in Progress and ProgressCircular ([d321a91](https://github.com/fuf-stack/pixels/commit/d321a911e7563718f78b10552799dcbbafbe8c6c))
+
 ## [0.41.3](https://github.com/fuf-stack/pixels/compare/pixels-v0.41.2...pixels-v0.41.3) (2025-04-22)
 
 
