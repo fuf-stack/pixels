@@ -129,7 +129,7 @@ const ProgressCircular = ({
 
   // set strokeWidth based on size prop
   let strokeWidth = _strokeWidth;
-  if (_strokeWidth) {
+  if (!_strokeWidth) {
     switch (size) {
       case 'xs':
         strokeWidth = 2;
