@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.5.4](https://github.com/fuf-stack/pixels/compare/pixel-utils-v0.5.3...pixel-utils-v0.5.4) (2025-04-23)
+
+
+### Bug Fixes
+
+* **uniform:** version bump only ([da5b132](https://github.com/fuf-stack/pixels/commit/da5b13241beb7ccfadecaa5ec9b958d4fc4e7ba7))
+
 ## [0.5.3](https://github.com/fuf-stack/pixels/compare/pixel-utils-v0.5.2...pixel-utils-v0.5.3) (2025-04-16)
 
 
