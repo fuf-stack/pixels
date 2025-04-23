@@ -113,12 +113,13 @@ const RadioTabs = ({
             ref={ref}
           >
             <Tabs
-              disabledKeys={disabled ? disabledKeys : undefined}
-              variant={variant}
-              fullWidth={false}
-              tabs={options as TabProps[]}
-              onSelectionChange={onChange}
               defaultSelectedKey={getValues()[name]}
+              disabledKeys={disabled ? disabledKeys : undefined}
+              fullWidth={false}
+              onSelectionChange={onChange}
+              tabs={options as TabProps[]}
+              testId={testId}
+              variant={variant}
             />
           </HeroRadioGroup>
         );

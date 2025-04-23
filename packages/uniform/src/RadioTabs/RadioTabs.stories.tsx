@@ -114,6 +114,7 @@ export const Invalid: Story = {
   args: {
     name: 'radioTabsField',
     label: 'radioTabsField',
+    testId: 'radioTabsField',
     options: [
       { key: 'option_1', label: 'Option 1' },
       { key: 'option_2', label: 'Option 2' },
@@ -122,14 +123,9 @@ export const Invalid: Story = {
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    // const optionOne = canvas.getByTestId('radiogroupfield_option_one');
-    const optionOne = canvas.getByText('Option 2');
-    await userEvent.click(optionOne, {
+    const optionTwo = canvas.getByTestId('radiotabsfield_option_option_2');
+    await userEvent.click(optionTwo, {
       delay: 100,
     });
-    // const optionTwo = canvas.getByTestId('radiogroupfield_option_two');
-    // await userEvent.click(optionTwo, {
-    //   delay: 100,
-    // });
   },
 };

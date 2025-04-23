@@ -3,7 +3,7 @@ import type { ReactNode } from 'react';
 
 import { Tab as HeroTab, Tabs as HeroTabs } from '@heroui/tabs';
 
-import { tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
+import { slugify, tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 
 export const tabsVariants = tv({
   slots: {
@@ -29,6 +29,8 @@ export interface TabProps {
   key: React.Key;
   /** Label content displayed in the tab button */
   label: ReactNode;
+  /** HTML data-testid attribute used in e2e tests */
+  testId?: string;
 }
 
 export interface TabsProps extends VariantProps {
@@ -58,6 +60,8 @@ export interface TabsProps extends VariantProps {
   size?: 'sm' | 'md' | 'lg';
   /** Array of tab configurations */
   tabs: TabProps[];
+  /** HTML data-testid attribute used in e2e tests */
+  testId?: string;
   /** Style variant of the tabs */
   variant?: 'bordered' | 'light' | 'solid' | 'underlined';
   /** Whether to display tabs vertically */
@@ -81,6 +85,7 @@ const Tabs = ({
   selectedKey = undefined,
   size = 'md',
   tabs,
+  testId = 'tabs',
   variant = 'solid',
   vertical = false,
 }: TabsProps) => {
@@ -106,7 +111,12 @@ const Tabs = ({
       variant={variant}
     >
       {(item) => (
-        <HeroTab key={item.key} isDisabled={!!item.disabled} title={item.label}>
+        <HeroTab
+          key={item.key}
+          isDisabled={!!item.disabled}
+          title={item.label}
+          data-testid={slugify(`${testId}_option_${item.testId || item.key}`)}
+        >
           {item.content}
         </HeroTab>
       )}
