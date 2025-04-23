@@ -1,5 +1,26 @@
 # Changelog
 
+## [0.11.0](https://github.com/fuf-stack/pixels/compare/veto-v0.10.2...veto-v0.11.0) (2025-04-23)
+
+
+### Features
+
+* **veto:** add custom validation to refineArray ([f001291](https://github.com/fuf-stack/pixels/commit/f001291ad42e63ad1f31d4a63eef07167861debe))
+* **veto:** add stringToJSON validator ([f693c20](https://github.com/fuf-stack/pixels/commit/f693c20967b5dc904b5ce2afbc09483ae4d4b783))
+
+
+### Bug Fixes
+
+* **deps:** update dependency validator to v13.15.0 ([#842](https://github.com/fuf-stack/pixels/issues/842)) ([75940e1](https://github.com/fuf-stack/pixels/commit/75940e12f481b827a5083403ddcb932c395fa4e1))
+* **deps:** update dependency zod to v3.24.3 ([#907](https://github.com/fuf-stack/pixels/issues/907)) ([684df63](https://github.com/fuf-stack/pixels/commit/684df6370326895488620775ed96eef2e559d0f2))
+* **uniform:** version bump only ([da5b132](https://github.com/fuf-stack/pixels/commit/da5b13241beb7ccfadecaa5ec9b958d4fc4e7ba7))
+* **veto:** allow optional strings in refineString ([00debd6](https://github.com/fuf-stack/pixels/commit/00debd63561b3227b5a85d46072c77faf314e04b))
+* **veto:** bundle zodex + remove validator dep ([50a21df](https://github.com/fuf-stack/pixels/commit/50a21df8b469adbdda14ec3597c994017aeb084c))
+* **veto:** do not return VetoOptional in VStringRefined ([f9b7400](https://github.com/fuf-stack/pixels/commit/f9b74001370c3172575bb5edc54cf86bc0a60780))
+* **veto:** fix type issue in refineString ([eb6609d](https://github.com/fuf-stack/pixels/commit/eb6609d3620ff2e0ac83be7e97afc654a05dc7df))
+* **veto:** fix types for custom refineArray ([7497136](https://github.com/fuf-stack/pixels/commit/74971362be37db8f0024ab45f766cf6d70d78436))
+* **veto:** improve build process to bundle all dts types ([7a7c440](https://github.com/fuf-stack/pixels/commit/7a7c440f344da3d5ea52e7bcdca80e84eb9d8e5a))
+
 ## [0.10.2](https://github.com/fuf-stack/pixels/compare/veto-v0.10.1...veto-v0.10.2) (2025-04-23)
 
 
