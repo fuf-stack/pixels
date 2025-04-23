@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.17.1](https://github.com/fuf-stack/pixels/compare/uniform-v0.17.0...uniform-v0.17.1) (2025-04-23)
+
+
+### Bug Fixes
+
+* **uniform:** version bump only ([da5b132](https://github.com/fuf-stack/pixels/commit/da5b13241beb7ccfadecaa5ec9b958d4fc4e7ba7))
+
 ## [0.17.0](https://github.com/fuf-stack/pixels/compare/uniform-v0.16.11...uniform-v0.17.0) (2025-04-23)
 
 
