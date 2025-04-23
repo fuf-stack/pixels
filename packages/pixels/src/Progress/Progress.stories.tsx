@@ -130,4 +130,8 @@ export const SomePercentages: Story = {
   },
 };
 
+export const DisableFinishedState: Story = {
+  args: { percent: 101, disableFinishedState: true, showValueLabel: true },
+};
+
 export const WithoutPercentProp: Story = {};

@@ -63,6 +63,8 @@ export interface ProgressProps extends VariantProps {
   color?: VariantProps['color'];
   /** disables all animations */
   disableAnimation?: boolean;
+  /** disables special finished state (checkmark icon and success color) */
+  disableFinishedState?: boolean;
   /** function to format the progress value */
   format?: (percent: number) => ReactNode;
   /** shows indeterminate progress animation */
@@ -90,6 +92,7 @@ const Progress = ({
   className = undefined,
   color = 'info',
   disableAnimation = false,
+  disableFinishedState = false,
   format = defaultFormat,
   indeterminate = false,
   label = undefined,
@@ -101,9 +104,12 @@ const Progress = ({
   // used to disable animation on initial render cycle
   const isInitialRenderCycle = useIsInitialRenderCycle();
 
+  // Apply finished state if percent is 100 or more and not disabled by disableFinishedState
+  const isFinished = percent >= 100 && !disableFinishedState;
+
   // handle special states
   let progressColor: VariantProps['color'] = color;
-  if (percent >= 100) {
+  if (isFinished) {
     progressColor = 'success';
   }
 

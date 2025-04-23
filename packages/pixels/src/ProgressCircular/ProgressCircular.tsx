@@ -83,6 +83,8 @@ export interface ProgressCircularProps extends VariantProps {
   color?: VariantProps['color'];
   /** disables all animations */
   disableAnimation?: boolean;
+  /** disables special finished state (checkmark icon and success color) */
+  disableFinishedState?: boolean;
   /** formats the display value of the progress in the center */
   format?: (percent?: number) => ReactNode;
   /** enables error version */
@@ -108,14 +110,17 @@ const ProgressCircular = ({
   hasError = false,
   percent,
   disableAnimation = false,
+  disableFinishedState = false,
   size = 'md',
   color = 'info',
-  strokeWidth: _strokeWidth = undefined,
+  strokeWidth: strokeWidthProp = undefined,
 }: ProgressCircularProps) => {
   // used to disable animation on initial render cycle
   const isInitialRenderCycle = useIsInitialRenderCycle();
 
-  const isFinished = !hasError && percent >= 100;
+  // Apply finished state if percent is 100 or more and not disabled by disableFinishedState
+  const isFinished = !hasError && percent >= 100 && !disableFinishedState;
+
   const variants = progressCircularVariants({
     color,
     hasError,
@@ -127,9 +132,9 @@ const ProgressCircular = ({
   // format value
   let value = format(percent);
 
-  // set strokeWidth based on size prop
-  let strokeWidth = _strokeWidth;
-  if (!_strokeWidth) {
+  let strokeWidth = strokeWidthProp;
+  // set strokeWidth based on size prop when no strokeWidth provided
+  if (!strokeWidth) {
     switch (size) {
       case 'xs':
         strokeWidth = 2;
@@ -168,7 +173,7 @@ const ProgressCircular = ({
       disableAnimation={isInitialRenderCycle || disableAnimation}
       showValueLabel
       strokeWidth={strokeWidth}
-      // we do not use spinner animation when no percent provided
+      // INFO: we do NOT use spinner animation when no percent provided
       value={percent || 0}
       valueLabel={value}
     />
