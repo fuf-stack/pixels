@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.42.2](https://github.com/fuf-stack/pixels/compare/pixels-v0.42.1...pixels-v0.42.2) (2025-04-23)
+
+
+### Bug Fixes
+
+* **pixels:** stroke width wrong condition ([673ca83](https://github.com/fuf-stack/pixels/commit/673ca83f52e7f9959f4e18189993c642be1bad0a))
+
 ## [0.42.1](https://github.com/fuf-stack/pixels/compare/pixels-v0.42.0...pixels-v0.42.1) (2025-04-23)
 
 
