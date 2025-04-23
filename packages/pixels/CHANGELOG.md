@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.42.1](https://github.com/fuf-stack/pixels/compare/pixels-v0.42.0...pixels-v0.42.1) (2025-04-23)
+
+
+### Bug Fixes
+
+* **pixels:** add strokewidth prop to ProgressCircular ([ed6016f](https://github.com/fuf-stack/pixels/commit/ed6016f01aa66ea0141dd3fa67c8cc1edefb9a61))
+* **uniform:** version bump only ([da5b132](https://github.com/fuf-stack/pixels/commit/da5b13241beb7ccfadecaa5ec9b958d4fc4e7ba7))
+
 ## [0.42.0](https://github.com/fuf-stack/pixels/compare/pixels-v0.41.6...pixels-v0.42.0) (2025-04-23)
 
 
