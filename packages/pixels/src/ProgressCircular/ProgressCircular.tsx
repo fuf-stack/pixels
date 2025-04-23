@@ -91,6 +91,8 @@ export interface ProgressCircularProps extends VariantProps {
   percent: number;
   /** size options */
   size?: VariantProps['size'];
+  /** stroke width of the circular progress bar */
+  strokeWidth?: number;
 }
 
 /** formats percent with percent sign */
@@ -108,6 +110,7 @@ const ProgressCircular = ({
   disableAnimation = false,
   size = 'md',
   color = 'info',
+  strokeWidth: _strokeWidth = undefined,
 }: ProgressCircularProps) => {
   // used to disable animation on initial render cycle
   const isInitialRenderCycle = useIsInitialRenderCycle();
@@ -125,17 +128,19 @@ const ProgressCircular = ({
   let value = format(percent);
 
   // set strokeWidth based on size prop
-  let strokeWidth: number;
-  switch (size) {
-    case 'xs':
-      strokeWidth = 2;
-      break;
-    case 'sm':
-      strokeWidth = 1.8;
-      break;
-    default:
-      strokeWidth = 1.6;
-      break;
+  let strokeWidth = _strokeWidth;
+  if (_strokeWidth) {
+    switch (size) {
+      case 'xs':
+        strokeWidth = 2;
+        break;
+      case 'sm':
+        strokeWidth = 1.8;
+        break;
+      default:
+        strokeWidth = 1.6;
+        break;
+    }
   }
 
   // handle special states
