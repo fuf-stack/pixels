@@ -4,7 +4,7 @@
  * */
 export default () => (
   <svg
-    className="animate-spin h-5 w-5 text-current"
+    className="h-5 w-5 animate-spin text-current"
     fill="none"
     viewBox="0 0 24 24"
     xmlns="http://www.w3.org/2000/svg"

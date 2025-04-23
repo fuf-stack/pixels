@@ -75,34 +75,36 @@ export const buttonVariants = tv({
   ],
 });
 
-export type VariantProps = TVProps<typeof buttonVariants>;
+type VariantProps = TVProps<typeof buttonVariants>;
 
 export interface ButtonProps extends VariantProps {
   /** sets HTML aria-label attribute */
   ariaLabel?: string;
-  /** child components */
+  /** content of the button */
   children?: ReactNode;
   /** CSS class name */
   className?: string;
-  /** hero ui button color  */
+  /** color of the button */
   color?: HeroButtonProps['color'];
-  /** disables function of the button. */
+  /** disables the button */
   disabled?: boolean;
-  /** disables all button animations */
+  /** disables all animations */
   disableAnimation?: boolean;
-  /** If set loading animation is shown */
+  /** shows loading animation */
   loading?: boolean;
   /** optional icon */
   icon?: ReactNode;
-  /** on click event */
+  /** click event handler */
   onClick?: HeroButtonProps['onPress'];
-  /** 3 size options */
+  /** border radius size */
+  radius?: HeroButtonProps['radius'];
+  /** size options */
   size?: HeroButtonProps['size'];
   /** HTML data-testid attribute used in e2e tests */
   testId?: string;
-  /** sets the button type. */
+  /** HTML button type attribute */
   type?: 'button' | 'submit' | 'reset' | undefined;
-  /** hero ui button variants */
+  /** visual style variant */
   variant?: HeroButtonProps['variant'];
 }
 
@@ -119,6 +121,7 @@ const Button = ({
   icon = undefined,
   loading = false,
   onClick = undefined,
+  radius = undefined,
   size = undefined,
   testId = undefined,
   type = undefined,
@@ -136,6 +139,7 @@ const Button = ({
       isIconOnly={!!(icon && !children)}
       isLoading={loading}
       onPress={onClick}
+      radius={radius}
       size={size}
       spinner={<LoadingSpinner />}
       type={type}

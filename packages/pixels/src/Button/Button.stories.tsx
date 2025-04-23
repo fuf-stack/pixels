@@ -79,12 +79,28 @@ export const AllColors: Story = {
   ),
 };
 
+export const AllRadius: Story = {
+  render: (args) => (
+    <>
+      {['sm', 'md', 'lg', 'none', 'full'].map((radius) => (
+        <div key={radius} style={{ marginTop: '10px' }}>
+          <Button radius={radius as ButtonProps['radius']} {...args}>
+            {radius}
+          </Button>
+        </div>
+      ))}
+    </>
+  ),
+};
+
 export const AllSizes: Story = {
-  render: () => (
+  render: (args) => (
     <>
       {sizes.map((size) => (
         <div key={size} style={{ marginTop: '10px' }}>
-          <Button size={size as ButtonProps['size']}>{size}</Button>
+          <Button size={size as ButtonProps['size']} {...args}>
+            {size}
+          </Button>
         </div>
       ))}
     </>
