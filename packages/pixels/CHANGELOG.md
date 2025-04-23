@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.42.0](https://github.com/fuf-stack/pixels/compare/pixels-v0.41.6...pixels-v0.42.0) (2025-04-23)
+
+
+### Features
+
+* **pixels,uniform:** add testId to tabs and radioTabs ([97f2a06](https://github.com/fuf-stack/pixels/commit/97f2a063902b03a8e40eb999b5ba95a667401417))
+
+
+### Bug Fixes
+
+* **deps:** update dependency framer-motion to v12.8.0 ([#920](https://github.com/fuf-stack/pixels/issues/920)) ([39090aa](https://github.com/fuf-stack/pixels/commit/39090aa3203bf6384fa1484335e449026be4318f))
+* **uniform,pixels:** fix testIds for tab ([4c78d63](https://github.com/fuf-stack/pixels/commit/4c78d632c339651da850d6486fd6d0a75868ecc1))
+
 ## [0.41.6](https://github.com/fuf-stack/pixels/compare/pixels-v0.41.5...pixels-v0.41.6) (2025-04-22)
 
 
