@@ -91,8 +91,8 @@ const RadioTabs = ({
   const tabOptions = options.map<TabProps>((option) => ({
     content: option?.content,
     disabled: option?.disabled,
-    label: slugify(`option_${option?.label || option?.value}`),
-    testId: option?.testId,
+    label: option?.label || option?.value,
+    testId: slugify(`option_${option?.testId || option?.value}`),
     key: option.value,
   }));
 
