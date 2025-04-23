@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.18.0](https://github.com/fuf-stack/pixels/compare/uniform-v0.17.1...uniform-v0.18.0) (2025-04-23)
+
+
+### Features
+
+* **pixels:** add disableFinishedState prop to Progress and ProgressCircular ([6078b99](https://github.com/fuf-stack/pixels/commit/6078b99a87c8b749451102a0fd588ebab75929dc))
+* **pixels:** add radius prop to Button ([7389ed0](https://github.com/fuf-stack/pixels/commit/7389ed072cc3fed32164f2dc5d17642f16d53ced))
+
 ## [0.17.1](https://github.com/fuf-stack/pixels/compare/uniform-v0.17.0...uniform-v0.17.1) (2025-04-23)
 
 
