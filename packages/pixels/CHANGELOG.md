@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.43.0](https://github.com/fuf-stack/pixels/compare/pixels-v0.42.2...pixels-v0.43.0) (2025-04-23)
+
+
+### Features
+
+* **pixels:** add disableFinishedState prop to Progress and ProgressCircular ([6078b99](https://github.com/fuf-stack/pixels/commit/6078b99a87c8b749451102a0fd588ebab75929dc))
+* **pixels:** add radius prop to Button ([7389ed0](https://github.com/fuf-stack/pixels/commit/7389ed072cc3fed32164f2dc5d17642f16d53ced))
+
 ## [0.42.2](https://github.com/fuf-stack/pixels/compare/pixels-v0.42.1...pixels-v0.42.2) (2025-04-23)
 
 
