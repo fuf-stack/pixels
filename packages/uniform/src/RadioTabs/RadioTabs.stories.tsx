@@ -36,9 +36,9 @@ export const Default: Story = {
   args: {
     name: 'radioTabsField',
     options: [
-      { key: 'option_1', label: 'Option 1' },
-      { key: 'option_2', label: 'Option 2' },
-      { key: 'option_3', label: 'Option 3' },
+      { value: 'option_1', label: 'Option 1' },
+      { value: 'option_2', label: 'Option 2' },
+      { value: 'option_3', label: 'Option 3' },
     ],
   },
 };
@@ -50,9 +50,9 @@ export const WithInitialValue: Story = {
   args: {
     name: 'radioTabsField',
     options: [
-      { key: 'option_1', label: 'Option 1' },
-      { key: 'option_2', label: 'Option 2' },
-      { key: 'option_3', label: 'Option 3' },
+      { value: 'option_1', label: 'Option 1' },
+      { value: 'option_2', label: 'Option 2' },
+      { value: 'option_3', label: 'Option 3' },
     ],
   },
 };
@@ -62,9 +62,9 @@ export const DisabledCompletely: Story = {
     name: 'radioTabsField',
     disabled: true,
     options: [
-      { key: 'option_1', label: 'Option 1' },
-      { key: 'option_2', label: 'Option 2' },
-      { key: 'option_3', label: 'Option 3' },
+      { value: 'option_1', label: 'Option 1' },
+      { value: 'option_2', label: 'Option 2' },
+      { value: 'option_3', label: 'Option 3' },
     ],
   },
 };
@@ -73,13 +73,13 @@ export const DisabledOption: Story = {
   args: {
     name: 'radioTabsField',
     options: [
-      { key: 'option_1', label: 'Option 1' },
+      { value: 'option_1', label: 'Option 1' },
       {
-        key: 'option_2',
+        value: 'option_2',
         label: 'option 2',
         disabled: true,
       },
-      { key: 'option_3', label: 'Option 3' },
+      { value: 'option_3', label: 'Option 3' },
     ],
   },
 };
@@ -94,9 +94,9 @@ export const Required: Story = {
     label: 'radioTabsField',
     name: 'radioTabsField',
     options: [
-      { key: 'option_1', label: 'Option 1' },
-      { key: 'option_2', label: 'Option 2' },
-      { key: 'option_3', label: 'Option 3' },
+      { value: 'option_1', label: 'Option 1' },
+      { value: 'option_2', label: 'Option 2' },
+      { value: 'option_3', label: 'Option 3' },
     ],
   },
 };
@@ -116,9 +116,9 @@ export const Invalid: Story = {
     label: 'radioTabsField',
     testId: 'radioTabsField',
     options: [
-      { key: 'option_1', label: 'Option 1' },
-      { key: 'option_2', label: 'Option 2' },
-      { key: 'option_3', label: 'Option 3' },
+      { value: 'option_1', label: 'Option 1' },
+      { value: 'option_2', label: 'Option 2' },
+      { value: 'option_3', label: 'Option 3' },
     ],
   },
   play: async ({ canvasElement }) => {

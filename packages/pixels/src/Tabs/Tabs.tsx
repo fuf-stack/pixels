@@ -85,7 +85,7 @@ const Tabs = ({
   selectedKey = undefined,
   size = 'md',
   tabs,
-  testId = 'tabs',
+  testId = 'tab',
   variant = 'solid',
   vertical = false,
 }: TabsProps) => {
@@ -115,7 +115,7 @@ const Tabs = ({
           key={item.key}
           isDisabled={!!item.disabled}
           title={item.label}
-          data-testid={slugify(`${testId}_option_${item.testId || item.key}`)}
+          data-testid={slugify(`${testId}_${item.testId || item.key}`)}
         >
           {item.content}
         </HeroTab>

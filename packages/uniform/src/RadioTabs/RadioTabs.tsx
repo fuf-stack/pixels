@@ -5,7 +5,7 @@ import type { ReactElement, ReactNode } from 'react';
 
 import { RadioGroup as HeroRadioGroup } from '@heroui/radio';
 
-import { tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
+import { slugify, tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 import Tabs from '@fuf-stack/pixels/Tabs';
 
 import { Controller } from '../Controller';
@@ -30,6 +30,21 @@ export const radioTabsVariants = tv({
 type VariantProps = TVProps<typeof radioTabsVariants>;
 type ClassName = TVClassName<typeof radioTabsVariants>;
 
+export interface RadioTabsOption {
+  /** Optional content inside of the tab */
+  content?: ReactNode;
+  /** disables the option */
+  disabled?: boolean;
+  /** option label */
+  label?: React.ReactNode;
+  /** option icon */
+  icon?: ReactNode;
+  /** HTML data-testid attribute of the option */
+  testId?: string;
+  /** option value */
+  value: string;
+}
+
 export interface RadioTabsProps extends VariantProps {
   /** CSS class name */
   className?: ClassName;
@@ -42,7 +57,7 @@ export interface RadioTabsProps extends VariantProps {
   /** Name the RadioButtons are registered at in HTML forms (react-hook-form). */
   name: string;
   /** Radio button configuration. */
-  options: (Omit<TabProps, 'content'> & { content?: ReactNode })[];
+  options: RadioTabsOption[];
   /** Id to grab element in internal tests. */
   testId?: string;
   /** How the RadioTabs should look like. */
@@ -73,7 +88,15 @@ const RadioTabs = ({
   const variants = radioTabsVariants();
   const classNames = variantsToClassNames(variants, className, 'base');
 
-  const disabledKeys: string[] | undefined = options?.map(
+  const tabOptions = options.map<TabProps>((option) => ({
+    content: option?.content,
+    disabled: option?.disabled,
+    label: slugify(`option_${option?.label || option?.value}`),
+    testId: option?.testId,
+    key: option.value,
+  }));
+
+  const disabledKeys: string[] | undefined = tabOptions?.map(
     (option) => option.key as string,
   );
 
@@ -117,7 +140,7 @@ const RadioTabs = ({
               disabledKeys={disabled ? disabledKeys : undefined}
               fullWidth={false}
               onSelectionChange={onChange}
-              tabs={options as TabProps[]}
+              tabs={tabOptions as TabProps[]}
               testId={testId}
               variant={variant}
             />

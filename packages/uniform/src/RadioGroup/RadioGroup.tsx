@@ -32,8 +32,6 @@ type VariantProps = TVProps<typeof radioGroupVariants>;
 type ClassName = TVClassName<typeof radioGroupVariants>;
 
 export interface RadioGroupOption {
-  /** Description of the value. Works with variant radioBox. */
-  description?: React.ReactNode;
   /** disables the option */
   disabled?: boolean;
   /** option label */
