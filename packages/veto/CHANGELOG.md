@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.10.2](https://github.com/fuf-stack/pixels/compare/veto-v0.10.1...veto-v0.10.2) (2025-04-23)
+
+
+### Bug Fixes
+
+* **uniform:** version bump only ([da5b132](https://github.com/fuf-stack/pixels/commit/da5b13241beb7ccfadecaa5ec9b958d4fc4e7ba7))
+
 ## [0.10.1](https://github.com/fuf-stack/pixels/compare/veto-v0.10.0...veto-v0.10.1) (2025-04-22)
 
 
