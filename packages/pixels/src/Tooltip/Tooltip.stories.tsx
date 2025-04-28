@@ -66,6 +66,17 @@ export const AllPlacements: Story = {
   },
 };
 
+export const TooltipInTooltip: Story = {
+  args: {
+    content: (
+      <Tooltip content="2nd tooltip content">
+        hover for 2nd tooltip content
+      </Tooltip>
+    ),
+    children: 'hover me',
+  },
+};
+
 export const DefaultOpen: Story = {
   args: {
     content: 'tooltip content',

@@ -150,7 +150,7 @@ exports[`Story Snapshots > Default 1`] = `
 exports[`Story Snapshots > DefaultOpen 1`] = `
 <div>
   <span
-    aria-describedby=":ru:"
+    aria-describedby=":r10:"
     class="cursor-pointer"
     tabindex="0"
   >
@@ -166,6 +166,17 @@ exports[`Story Snapshots > Delay 1`] = `
     tabindex="0"
   >
     1000 ms delay
+  </span>
+</div>
+`;
+
+exports[`Story Snapshots > TooltipInTooltip 1`] = `
+<div>
+  <span
+    class="cursor-pointer"
+    tabindex="0"
+  >
+    hover me
   </span>
 </div>
 `;
