@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.43.2](https://github.com/fuf-stack/pixels/compare/pixels-v0.43.1...pixels-v0.43.2) (2025-04-28)
+
+
+### Bug Fixes
+
+* **pixels:** add tooltip in tooltip story ([ac45c8e](https://github.com/fuf-stack/pixels/commit/ac45c8e268d1ff2be7a5bb70ae08ff77ec37252d))
+* **pixels:** rename title prop to header in popover and make tooltip behave like popover ([c966c9c](https://github.com/fuf-stack/pixels/commit/c966c9c9ccd91f48a9ddd03fb3229f98d49a0913))
+
 ## [0.43.1](https://github.com/fuf-stack/pixels/compare/pixels-v0.43.0...pixels-v0.43.1) (2025-04-28)
 
 
