@@ -11,6 +11,21 @@ exports[`Coverage > renders no trigger with no children 1`] = `
 />
 `;
 
+exports[`Story Snapshots > AllSections 1`] = `
+<div>
+  <button
+    aria-expanded="false"
+    aria-haspopup="dialog"
+    class="z-10 aria-expanded:scale-[0.97] aria-expanded:opacity-70 subpixel-antialiased"
+    data-slot="trigger"
+    tabindex="0"
+    type="button"
+  >
+    i am the trigger
+  </button>
+</div>
+`;
+
 exports[`Story Snapshots > BlockOuterScrollbar 1`] = `
 <div>
   <div

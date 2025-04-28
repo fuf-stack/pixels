@@ -10,7 +10,7 @@ import { tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 export const tooltipVariants = tv({
   slots: {
     base: '',
-    content: '',
+    content: 'px-3 py-1.5',
     wrapper: 'cursor-pointer',
   },
 });

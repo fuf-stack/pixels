@@ -13,10 +13,14 @@ import ScrollShadow from '../ScrollShadow/ScrollShadow';
 // popover styling variants
 export const popoverVariants = tv({
   slots: {
-    body: 'w-full px-2.5 py-1',
+    body: 'möp w-full px-4 py-2',
     content: 'flex max-h-[80vh] flex-col p-0',
-    footer: 'w-full px-2.5 py-1',
-    header: 'w-full px-2.5 py-1',
+    footer: 'w-full px-4 py-2',
+    footerWrapper: 'w-full',
+    footerDivider: 'm-0 w-full p-0',
+    header: 'w-full px-4 pb-1 pt-2 text-lg font-semibold',
+    headerWrapper: 'w-full',
+    headerDivider: 'm-0 w-full p-0',
     trigger: '',
   },
 });
@@ -111,16 +115,16 @@ export default ({
       </PopoverTrigger>
       <PopoverContent data-testid={contentTestId}>
         {title && (
-          <div className={className.header}>
-            {title}
-            <hr />
+          <div className={className.headerWrapper}>
+            <div className={className.header}>{title}</div>
+            <hr className={className.headerDivider} />
           </div>
         )}
         <ScrollShadow className={className.body}>{content}</ScrollShadow>
         {footer && (
-          <div className={className.footer}>
-            <hr />
-            {footer}
+          <div className={className.footerWrapper}>
+            <hr className={className.footerDivider} />
+            <div className={className.footer}>{footer}</div>
           </div>
         )}
       </PopoverContent>

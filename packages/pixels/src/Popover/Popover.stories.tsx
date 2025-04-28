@@ -112,3 +112,12 @@ export const WithCustomTriggerButton: Story = {
     children: 'i am a custom trigger',
   },
 };
+
+export const AllSections: Story = {
+  args: {
+    title: 'i am the title',
+    footer: 'i am the footer',
+    children: 'i am the trigger',
+    content: 'i am the content',
+  },
+};

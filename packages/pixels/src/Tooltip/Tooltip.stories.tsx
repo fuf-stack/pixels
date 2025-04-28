@@ -65,3 +65,11 @@ export const AllPlacements: Story = {
     content: 'tooltip content',
   },
 };
+
+export const DefaultOpen: Story = {
+  args: {
+    content: 'tooltip content',
+    children: 'hover me',
+    defaultOpen: true,
+  },
+};
