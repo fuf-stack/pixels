@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.43.3](https://github.com/fuf-stack/pixels/compare/pixels-v0.43.2...pixels-v0.43.3) (2025-04-28)
+
+
+### Bug Fixes
+
+* **pixels:** popover story and make title smaller ([800a9e0](https://github.com/fuf-stack/pixels/commit/800a9e08e91e931562db9d31b0d13803a802d78b))
+
 ## [0.43.2](https://github.com/fuf-stack/pixels/compare/pixels-v0.43.1...pixels-v0.43.2) (2025-04-28)
 
 
