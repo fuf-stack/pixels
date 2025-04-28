@@ -6,11 +6,19 @@ import { Tooltip as HeroTooltip } from '@heroui/tooltip';
 
 import { tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 
+import ScrollShadow from '../ScrollShadow/ScrollShadow';
+
 // tooltip variants
 export const tooltipVariants = tv({
   slots: {
     base: '',
-    content: 'px-3 py-1.5',
+    body: 'w-full px-4 py-2',
+    content: 'flex max-h-[80vh] flex-col p-0',
+    divider: 'm-0 w-full p-0',
+    footer: 'w-full px-4 py-2',
+    footerWrapper: 'w-full',
+    header: 'w-full px-4 pb-1 pt-2 font-semibold',
+    headerWrapper: 'w-full',
     wrapper: 'cursor-pointer',
   },
 });
@@ -35,6 +43,10 @@ export interface TooltipProps extends VariantProps {
   content: ReactNode;
   /** open overlay initially when uncontrolled */
   defaultOpen?: boolean;
+  /** tooltip footer */
+  footer?: ReactNode;
+  /** tooltip header */
+  header?: ReactNode;
   /** handler that is called when the overlay's open state changes */
   onOpenChange?: (isOpen: boolean) => void;
   /** placement if the tooltip */
@@ -52,6 +64,8 @@ const Tooltip = ({
   content,
   defaultOpen = false,
   delay = 0,
+  footer = undefined,
+  header = undefined,
   onOpenChange = undefined,
   placement = 'top',
 }: TooltipProps) => {
@@ -64,7 +78,23 @@ const Tooltip = ({
       classNames={classNames}
       closeDelay={closeDelay}
       containerPadding={containerPadding}
-      content={content}
+      content={
+        <div>
+          {header && (
+            <div className={classNames.headerWrapper}>
+              <div className={classNames.header}>{header}</div>
+              <hr className={classNames.divider} />
+            </div>
+          )}
+          <ScrollShadow className={classNames.body}>{content}</ScrollShadow>
+          {footer && (
+            <div className={classNames.footerWrapper}>
+              <hr className={classNames.divider} />
+              <div className={classNames.footer}>{footer}</div>
+            </div>
+          )}
+        </div>
+      }
       defaultOpen={defaultOpen}
       delay={delay}
       onClick={(e) => e.preventDefault()}

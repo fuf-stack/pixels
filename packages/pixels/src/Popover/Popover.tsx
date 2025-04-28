@@ -15,12 +15,11 @@ export const popoverVariants = tv({
   slots: {
     body: 'w-full px-4 py-2',
     content: 'flex max-h-[80vh] flex-col p-0',
+    divider: 'm-0 w-full p-0',
     footer: 'w-full px-4 py-2',
     footerWrapper: 'w-full',
-    footerDivider: 'm-0 w-full p-0',
     header: 'w-full px-4 pb-1 pt-2 text-lg font-semibold',
     headerWrapper: 'w-full',
-    headerDivider: 'm-0 w-full p-0',
     trigger: '',
   },
 });
@@ -39,6 +38,8 @@ export interface PopoverProps extends VariantProps {
   contentTestId?: string;
   /** popover footer */
   footer?: ReactNode;
+  /** Popover title */
+  header?: ReactNode;
   /** use as controlled component  */
   openControlled?: { open: boolean; setOpen: (open: boolean) => void };
   /** placement of the popover relative to its trigger reference */
@@ -49,8 +50,6 @@ export interface PopoverProps extends VariantProps {
   shouldBlockScroll?: boolean;
   /** HTML data-testid attribute used in e2e tests */
   testId?: string;
-  /** Popover title */
-  title?: ReactNode;
   /** When defined a Button will be rendered as trigger (with provided props) instead of unstyled html button */
   triggerButtonProps?: Pick<
     ButtonProps,
@@ -74,12 +73,12 @@ export default ({
   content,
   contentTestId = undefined,
   footer = undefined,
+  header = undefined,
   openControlled = undefined,
   placement = 'top',
   portalContainer = undefined,
   shouldBlockScroll = undefined,
   testId = undefined,
-  title = undefined,
   triggerButtonProps = undefined,
 }: PopoverProps) => {
   // className from slots
@@ -114,16 +113,16 @@ export default ({
         )}
       </PopoverTrigger>
       <PopoverContent data-testid={contentTestId}>
-        {title && (
+        {header && (
           <div className={className.headerWrapper}>
-            <div className={className.header}>{title}</div>
-            <hr className={className.headerDivider} />
+            <div className={className.header}>{header}</div>
+            <hr className={className.divider} />
           </div>
         )}
         <ScrollShadow className={className.body}>{content}</ScrollShadow>
         {footer && (
           <div className={className.footerWrapper}>
-            <hr className={className.footerDivider} />
+            <hr className={className.divider} />
             <div className={className.footer}>{footer}</div>
           </div>
         )}
