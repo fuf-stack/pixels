@@ -13,7 +13,7 @@ import ScrollShadow from '../ScrollShadow/ScrollShadow';
 // popover styling variants
 export const popoverVariants = tv({
   slots: {
-    body: 'möp w-full px-4 py-2',
+    body: 'w-full px-4 py-2',
     content: 'flex max-h-[80vh] flex-col p-0',
     footer: 'w-full px-4 py-2',
     footerWrapper: 'w-full',
