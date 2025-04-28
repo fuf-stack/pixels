@@ -52,7 +52,7 @@ export const DoubleScrollbar: Story = {
     ),
     footer: 'i am the footer',
     testId: 'testId42',
-    title: 'i am the title',
+    header: 'i am the title',
   },
   render: (args) => (
     <div className="h-[2000px]">
@@ -77,7 +77,7 @@ export const BlockOuterScrollbar: Story = {
     placement: 'right',
     shouldBlockScroll: true,
     testId: 'testId42',
-    title: 'i am the title',
+    header: 'i am the title',
   },
   render: (args) => (
     <div className="h-[2000px]">
@@ -88,7 +88,7 @@ export const BlockOuterScrollbar: Story = {
 
 export const Title: Story = {
   args: {
-    title: 'i am the title',
+    header: 'i am the title',
     children: 'i am the trigger',
     content: 'i am the content',
   },
@@ -115,7 +115,7 @@ export const WithCustomTriggerButton: Story = {
 
 export const AllSections: Story = {
   args: {
-    title: 'i am the title',
+    header: 'i am the title',
     footer: 'i am the footer',
     children: 'i am the trigger',
     content: 'i am the content',

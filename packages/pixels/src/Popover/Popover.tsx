@@ -18,7 +18,7 @@ export const popoverVariants = tv({
     divider: 'm-0 w-full p-0',
     footer: 'w-full px-4 py-2',
     footerWrapper: 'w-full',
-    header: 'w-full px-4 pb-1 pt-2 text-lg font-semibold',
+    header: 'w-full px-4 pb-1 pt-2 font-semibold',
     headerWrapper: 'w-full',
     trigger: '',
   },
