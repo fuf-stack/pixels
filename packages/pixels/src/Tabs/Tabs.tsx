@@ -20,13 +20,15 @@ export const tabsVariants = tv({
 type VariantProps = TVProps<typeof tabsVariants>;
 type ClassName = TVClassName<typeof tabsVariants>;
 
+type Key = string | number;
+
 export interface TabProps {
   /** Content to be displayed in the tab panel */
   content: ReactNode;
   /** Disables the tab so it can not be selected */
   disabled?: boolean;
   /** Unique identifier for the tab */
-  key: React.Key;
+  key: Key;
   /** Label content displayed in the tab button */
   label: ReactNode;
   /** HTML data-testid attribute used in e2e tests */
@@ -49,13 +51,13 @@ export interface TabsProps extends VariantProps {
   /** Whether tabs should take up full container width */
   fullWidth?: boolean;
   /** Callback fired when tab selection changes */
-  onSelectionChange?: (key: React.Key) => void;
+  onSelectionChange?: (key: Key) => void;
   /** Position of the tab list relative to the content */
   placement?: 'top' | 'bottom' | 'start' | 'end' | undefined;
   /** Radius of the tabs */
   radius?: 'none' | 'sm' | 'md' | 'lg' | 'full';
   /** Selected tab key (controlled) */
-  selectedKey?: string | number | null;
+  selectedKey?: Key;
   /** Size of the tabs */
   size?: 'sm' | 'md' | 'lg';
   /** Array of tab configurations */

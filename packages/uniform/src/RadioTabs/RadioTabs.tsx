@@ -66,7 +66,7 @@ export interface RadioTabsProps extends VariantProps {
 
 /**
  * RadioTabs component based on [HeroUI RadioGroup](https://www.heroui.com//docs/components/radio-group)
- *                          and [HeroUI Tabs](https://www.heroui.com//docs/components/tabs)
+ * and [HeroUI Tabs](https://www.heroui.com//docs/components/tabs)
  */
 const RadioTabs = ({
   className = undefined,
@@ -105,13 +105,7 @@ const RadioTabs = ({
       disabled={disabled}
       name={name}
       render={({
-        field: {
-          disabled: isDisabled,
-          onBlur,
-          onChange,
-          ref,
-          value: initialValue,
-        },
+        field: { disabled: isDisabled, onBlur, onChange, ref, value },
       }) => {
         return (
           <HeroRadioGroup
@@ -139,14 +133,13 @@ const RadioTabs = ({
             name={name}
             orientation={inline ? 'horizontal' : 'vertical'}
             onBlur={onBlur}
-            onChange={onChange}
             ref={ref}
           >
             <Tabs
-              defaultSelectedKey={initialValue}
               disabledKeys={disabled ? disabledAllKeys : undefined}
               fullWidth={false}
               onSelectionChange={onChange}
+              selectedKey={value}
               tabs={tabOptions as TabProps[]}
               testId={testId}
               variant={variant}

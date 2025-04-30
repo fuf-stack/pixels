@@ -128,7 +128,6 @@ const RadioBoxes = ({
             name={name}
             orientation={inline ? 'horizontal' : 'vertical'}
             onBlur={onBlur}
-            onChange={onChange}
             ref={ref}
           >
             {options.map((option) => {
