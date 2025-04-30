@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.18.2](https://github.com/fuf-stack/pixels/compare/uniform-v0.18.1...uniform-v0.18.2) (2025-04-30)
+
+
+### Bug Fixes
+
+* **uniform:** try to fix render loop in forms caused by RadioTabs again ([a3703c5](https://github.com/fuf-stack/pixels/commit/a3703c5cd83cd26c0c324bc0f23ea2e4c5562928))
+
 ## [0.18.1](https://github.com/fuf-stack/pixels/compare/uniform-v0.18.0...uniform-v0.18.1) (2025-04-30)
 
 
