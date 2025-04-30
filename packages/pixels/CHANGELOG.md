@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.43.5](https://github.com/fuf-stack/pixels/compare/pixels-v0.43.4...pixels-v0.43.5) (2025-04-30)
+
+
+### Bug Fixes
+
+* **pixels:** tooltip content overflow ([ec1c234](https://github.com/fuf-stack/pixels/commit/ec1c234fcf75e2867dca3b97431657f1838c4849))
+
 ## [0.43.4](https://github.com/fuf-stack/pixels/compare/pixels-v0.43.3...pixels-v0.43.4) (2025-04-30)
 
 
