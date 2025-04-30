@@ -78,8 +78,7 @@ const RadioTabs = ({
   testId: _testId = undefined,
   variant = undefined,
 }: RadioTabsProps): ReactElement => {
-  const { control, debugMode, getFieldState, getValues } = useFormContext();
-
+  const { control, debugMode, getFieldState } = useFormContext();
   const { error, invalid, required, testId } = getFieldState(name, _testId);
 
   const showTestIdCopyButton = debugMode === 'debug-testids';
@@ -96,7 +95,7 @@ const RadioTabs = ({
     key: option.value,
   }));
 
-  const disabledKeys: string[] | undefined = tabOptions?.map(
+  const disabledAllKeys: string[] | undefined = tabOptions?.map(
     (option) => option.key as string,
   );
 
@@ -105,7 +104,15 @@ const RadioTabs = ({
       control={control}
       disabled={disabled}
       name={name}
-      render={({ field: { onChange, disabled: isDisabled, onBlur, ref } }) => {
+      render={({
+        field: {
+          disabled: isDisabled,
+          onBlur,
+          onChange,
+          ref,
+          value: initialValue,
+        },
+      }) => {
         return (
           <HeroRadioGroup
             classNames={classNames}
@@ -136,8 +143,8 @@ const RadioTabs = ({
             ref={ref}
           >
             <Tabs
-              defaultSelectedKey={getValues()[name]}
-              disabledKeys={disabled ? disabledKeys : undefined}
+              defaultSelectedKey={initialValue}
+              disabledKeys={disabled ? disabledAllKeys : undefined}
               fullWidth={false}
               onSelectionChange={onChange}
               tabs={tabOptions as TabProps[]}

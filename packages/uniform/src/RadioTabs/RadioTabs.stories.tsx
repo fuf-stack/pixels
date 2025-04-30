@@ -43,6 +43,17 @@ export const Default: Story = {
   },
 };
 
+export const WithContent: Story = {
+  args: {
+    name: 'radioTabsField',
+    options: [
+      { value: 'option_1', label: 'Option 1', content: 'Option 1 Content' },
+      { value: 'option_2', label: 'Option 2', content: 'Option 2 Content' },
+      { value: 'option_3', label: 'Option 3', content: 'Option 3 Content' },
+    ],
+  },
+};
+
 export const WithInitialValue: Story = {
   parameters: {
     formProps: { initialValues: { radioTabsField: 'option_2' } },

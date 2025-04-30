@@ -673,6 +673,146 @@ exports[`Story Snapshots > Required 1`] = `
 </div>
 `;
 
+exports[`Story Snapshots > WithContent 1`] = `
+<div>
+  <div
+    class="flex w-full flex-row justify-between gap-6"
+  >
+    <form
+      class="flex-grow min-w-60"
+      data-testid=""
+    >
+      <div
+        aria-describedby="react-aria-react-useId-mock-tab-option_3 react-aria-react-useId-mock-tab-option_3"
+        aria-label=" "
+        aria-orientation="vertical"
+        class="relative flex flex-col gap-2 group"
+        data-invalid="false"
+        data-required="false"
+        data-testid="radiotabsfield"
+        id="react-aria-react-useId-mock-tab-option_3"
+        role="radiogroup"
+      >
+        <div
+          class="flex flex-col flex-wrap gap-2 data-[orientation=horizontal]:flex-row"
+          data-orientation="vertical"
+          role="presentation"
+        >
+          <div
+            data-placement="top"
+            data-slot="tabWrapper"
+            data-vertical="horizontal"
+          >
+            <div
+              class="inline-flex"
+              data-slot="base"
+            >
+              <div
+                aria-orientation="horizontal"
+                class="flex p-1 h-fit gap-2 items-center flex-nowrap overflow-x-scroll scrollbar-hide bg-default-100 rounded-medium"
+                data-collection="react-aria-react-useId-mock-tab-option_3"
+                data-slot="tabList"
+                id="react-aria-react-useId-mock-tab-option_3"
+                role="tablist"
+              >
+                <button
+                  aria-controls="react-aria-react-useId-mock-tab-option_3-tabpanel-option_1"
+                  aria-selected="true"
+                  class="z-0 w-full px-3 py-1 flex group relative justify-center items-center cursor-pointer transition-opacity tap-highlight-transparent data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 h-8 text-small rounded-small data-[hover-unselected=true]:opacity-100"
+                  data-collection="react-aria-react-useId-mock-tab-option_3"
+                  data-key="option_1"
+                  data-selected="true"
+                  data-slot="tab"
+                  data-testid="radiotabsfield_option_option_1"
+                  id="react-aria-react-useId-mock-tab-option_3-tab-option_1"
+                  role="tab"
+                  tabindex="0"
+                  type="button"
+                >
+                  <span
+                    class="absolute z-0 inset-0 rounded-small bg-background dark:bg-default shadow-small"
+                    data-slot="cursor"
+                    style="opacity: 1;"
+                  />
+                  <div
+                    class="relative z-10 whitespace-nowrap transition-colors group-data-[selected=true]:text-default-foreground text-foreground"
+                    data-slot="tabContent"
+                  >
+                    Option 1
+                  </div>
+                </button>
+                <button
+                  aria-selected="false"
+                  class="z-0 w-full px-3 py-1 flex group relative justify-center items-center cursor-pointer transition-opacity tap-highlight-transparent data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 h-8 text-small rounded-small data-[hover-unselected=true]:opacity-100"
+                  data-collection="react-aria-react-useId-mock-tab-option_3"
+                  data-key="option_2"
+                  data-slot="tab"
+                  data-testid="radiotabsfield_option_option_2"
+                  id="react-aria-react-useId-mock-tab-option_3-tab-option_2"
+                  role="tab"
+                  tabindex="-1"
+                  type="button"
+                >
+                  <div
+                    class="relative z-10 whitespace-nowrap transition-colors group-data-[selected=true]:text-default-foreground text-foreground"
+                    data-slot="tabContent"
+                  >
+                    Option 2
+                  </div>
+                </button>
+                <button
+                  aria-selected="false"
+                  class="z-0 w-full px-3 py-1 flex group relative justify-center items-center cursor-pointer transition-opacity tap-highlight-transparent data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 h-8 text-small rounded-small data-[hover-unselected=true]:opacity-100"
+                  data-collection="react-aria-react-useId-mock-tab-option_3"
+                  data-key="option_3"
+                  data-slot="tab"
+                  data-testid="radiotabsfield_option_option_3"
+                  id="react-aria-react-useId-mock-tab-option_3-tab-option_3"
+                  role="tab"
+                  tabindex="-1"
+                  type="button"
+                >
+                  <div
+                    class="relative z-10 whitespace-nowrap transition-colors group-data-[selected=true]:text-default-foreground text-foreground"
+                    data-slot="tabContent"
+                  >
+                    Option 3
+                  </div>
+                </button>
+              </div>
+            </div>
+            <div
+              aria-labelledby="react-aria-react-useId-mock-tab-option_3-tab-option_1"
+              class="py-3 px-1 data-[inert=true]:hidden outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2"
+              data-focus="false"
+              data-focus-visible="false"
+              data-slot="panel"
+              id="react-aria-react-useId-mock-tabpanel-option_1"
+              role="tabpanel"
+              tabindex="0"
+            >
+              Option 1 Content
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="mt-4 flex justify-end"
+      >
+        <button
+          class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
+          data-testid="form_submit_button"
+          tabindex="0"
+          type="submit"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
 exports[`Story Snapshots > WithInitialValue 1`] = `
 <div>
   <div
