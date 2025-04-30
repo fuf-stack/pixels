@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.18.1](https://github.com/fuf-stack/pixels/compare/uniform-v0.18.0...uniform-v0.18.1) (2025-04-30)
+
+
+### Bug Fixes
+
+* **deps:** update dependency framer-motion to v12.9.1 ([#935](https://github.com/fuf-stack/pixels/issues/935)) ([22884e7](https://github.com/fuf-stack/pixels/commit/22884e774d141e5da7187fc9ef5eba119a8cbd34))
+* **deps:** update dependency framer-motion to v12.9.2 ([#941](https://github.com/fuf-stack/pixels/issues/941)) ([fe59b0b](https://github.com/fuf-stack/pixels/commit/fe59b0bec1cb0e697919ea61e7a3a8d97ca3d7e8))
+* **uniform:** try to fix render loop in forms caused by RadioTabs ([e774a0b](https://github.com/fuf-stack/pixels/commit/e774a0bf3cdba58d651803a358ca09b29eed9869))
+
 ## [0.18.0](https://github.com/fuf-stack/pixels/compare/uniform-v0.17.1...uniform-v0.18.0) (2025-04-23)
 
 
