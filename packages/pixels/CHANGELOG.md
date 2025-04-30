@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.43.6](https://github.com/fuf-stack/pixels/compare/pixels-v0.43.5...pixels-v0.43.6) (2025-04-30)
+
+
+### Bug Fixes
+
+* **pixels:** test if tooltip size works without applying to base slot ([0b48b62](https://github.com/fuf-stack/pixels/commit/0b48b6263555b5bc5376ca64ad3738d27b79c243))
+
 ## [0.43.5](https://github.com/fuf-stack/pixels/compare/pixels-v0.43.4...pixels-v0.43.5) (2025-04-30)
 
 
