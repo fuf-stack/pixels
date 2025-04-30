@@ -23,11 +23,48 @@ export const tooltipVariants = tv({
   },
   variants: {
     size: {
-      xs: { base: 'max-w-xs' },
-      sm: { base: 'max-w-sm' },
-      md: { base: 'max-w-md' },
-      lg: { base: 'max-w-lg' },
-      xl: { base: 'max-w-5xl' },
+      xs: {
+        base: 'max-w-xs',
+        body: 'max-w-xs',
+        footer: 'max-w-xs',
+        header: 'max-w-xs',
+      },
+      sm: {
+        base: 'max-w-sm',
+        body: 'max-w-sm',
+        footer: 'max-w-sm',
+        header: 'max-w-sm',
+      },
+      md: {
+        base: 'max-w-md',
+        body: 'max-w-md',
+        footer: 'max-w-md',
+        header: 'max-w-md',
+      },
+      lg: {
+        base: 'max-w-lg',
+        body: 'max-w-lg',
+        footer: 'max-w-lg',
+        header: 'max-w-lg',
+      },
+      xl: {
+        base: 'max-w-xl',
+        body: 'max-w-xl',
+        footer: 'max-w-xl',
+        header: 'max-w-xl',
+      },
+      '2xl': {
+        base: 'max-w-2xl',
+        body: 'max-w-2xl',
+        footer: 'max-w-2xl',
+        header: 'max-w-2xl',
+      },
+      '3xl': {
+        base: 'max-w-3xl',
+        body: 'max-w-3xl',
+        footer: 'max-w-3xl',
+        header: 'max-w-3xl',
+      },
       full: { base: '' },
     },
   },

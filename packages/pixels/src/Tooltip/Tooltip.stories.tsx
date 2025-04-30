@@ -82,7 +82,7 @@ export const TooltipInTooltip: Story = {
 export const Sizes: Story = {
   args: {
     content:
-      'tooltip content. this can be very long. Or not. Depending on what you want. Just make sure to test it! To test it, we need a longer text. So I will just keep on writing more words.',
+      'tooltip content. this can be very long. Or not. Depending on what you want. Just make sure to test it! To test it, we need a longer text. So I will just keep on writing more words. adjuifgoreiaidofgreougdnfigerigahrisuiasoghureiidfgjjuirghuidsghuegijuifghreugdjagvioeruhgidugdfsihguirghreuigjaiuhgfuidofhgidhgsuihagiuohegiofdpsjguoeriirgidosfhguihoeg',
     children: 'hover me',
   },
   render: (args) => {
