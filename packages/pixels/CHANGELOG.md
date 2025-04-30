@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.43.4](https://github.com/fuf-stack/pixels/compare/pixels-v0.43.3...pixels-v0.43.4) (2025-04-30)
+
+
+### Bug Fixes
+
+* **pixels:** add size prop to Tooltip ([fef27e6](https://github.com/fuf-stack/pixels/commit/fef27e620e4035378c3b2e1a05581f143b5420a2))
+
 ## [0.43.3](https://github.com/fuf-stack/pixels/compare/pixels-v0.43.2...pixels-v0.43.3) (2025-04-28)
 
 
