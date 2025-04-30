@@ -150,7 +150,7 @@ exports[`Story Snapshots > Default 1`] = `
 exports[`Story Snapshots > DefaultOpen 1`] = `
 <div>
   <span
-    aria-describedby=":r10:"
+    aria-describedby=":r1g:"
     class="cursor-pointer"
     tabindex="0"
   >
@@ -167,6 +167,63 @@ exports[`Story Snapshots > Delay 1`] = `
   >
     1000 ms delay
   </span>
+</div>
+`;
+
+exports[`Story Snapshots > Sizes 1`] = `
+<div>
+  <div
+    class="flex flex-col gap-4"
+  >
+    <span
+      class="cursor-pointer"
+      tabindex="0"
+    >
+      xs
+    </span>
+    <span
+      class="cursor-pointer"
+      tabindex="0"
+    >
+      sm
+    </span>
+    <span
+      class="cursor-pointer"
+      tabindex="0"
+    >
+      md
+    </span>
+    <span
+      class="cursor-pointer"
+      tabindex="0"
+    >
+      lg
+    </span>
+    <span
+      class="cursor-pointer"
+      tabindex="0"
+    >
+      xl
+    </span>
+    <span
+      class="cursor-pointer"
+      tabindex="0"
+    >
+      2xl
+    </span>
+    <span
+      class="cursor-pointer"
+      tabindex="0"
+    >
+      3xl
+    </span>
+    <span
+      class="cursor-pointer"
+      tabindex="0"
+    >
+      full
+    </span>
+  </div>
 </div>
 `;
 

@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import type { TooltipPlacement } from './Tooltip';
+import type { TooltipPlacement, TooltipProps } from './Tooltip';
 
-import Tooltip from './Tooltip';
+import Tooltip, { tooltipVariants as heroTooltipVariants } from './Tooltip';
 
 const meta: Meta<typeof Tooltip> = {
   title: 'pixels/Tooltip',
@@ -10,6 +10,8 @@ const meta: Meta<typeof Tooltip> = {
 
 export default meta;
 type Story = StoryObj<typeof Tooltip>;
+
+const sizes = Object.keys(heroTooltipVariants.variants.size);
 
 export const Default: Story = {
   args: {
@@ -74,6 +76,25 @@ export const TooltipInTooltip: Story = {
       </Tooltip>
     ),
     children: 'hover me',
+  },
+};
+
+export const Sizes: Story = {
+  args: {
+    content:
+      'tooltip content. this can be very long. Or not. Depending on what you want. Just make sure to test it! To test it, we need a longer text. So I will just keep on writing more words. adjuifgoreiaidofgreougdnfigerigahrisuiasoghureiidfgjjuirghuidsghuegijuifghreugdjagvioeruhgidugdfsihguirghreuigjaiuhgfuidofhgidhgsuihagiuohegiofdpsjguoeriirgidosfhguihoeg',
+    children: 'hover me',
+  },
+  render: (args) => {
+    return (
+      <div className="flex flex-col gap-4">
+        {sizes.map((size) => (
+          <Tooltip key={size} size={size as TooltipProps['size']} {...args}>
+            {size}
+          </Tooltip>
+        ))}
+      </div>
+    );
   },
 };
 

@@ -19,7 +19,54 @@ export const tooltipVariants = tv({
     footerWrapper: 'w-full',
     header: 'w-full px-4 pb-1 pt-2 font-semibold',
     headerWrapper: 'w-full',
-    wrapper: 'cursor-pointer',
+    trigger: 'cursor-pointer',
+  },
+  variants: {
+    size: {
+      xs: {
+        // base: 'max-w-xs',
+        body: 'max-w-xs',
+        footer: 'max-w-xs',
+        header: 'max-w-xs',
+      },
+      sm: {
+        // base: 'max-w-sm',
+        body: 'max-w-sm',
+        footer: 'max-w-sm',
+        header: 'max-w-sm',
+      },
+      md: {
+        // base: 'max-w-md',
+        body: 'max-w-md',
+        footer: 'max-w-md',
+        header: 'max-w-md',
+      },
+      lg: {
+        // base: 'max-w-lg',
+        body: 'max-w-lg',
+        footer: 'max-w-lg',
+        header: 'max-w-lg',
+      },
+      xl: {
+        // base: 'max-w-xl',
+        body: 'max-w-xl',
+        footer: 'max-w-xl',
+        header: 'max-w-xl',
+      },
+      '2xl': {
+        // base: 'max-w-2xl',
+        body: 'max-w-2xl',
+        footer: 'max-w-2xl',
+        header: 'max-w-2xl',
+      },
+      '3xl': {
+        // base: 'max-w-3xl',
+        body: 'max-w-3xl',
+        footer: 'max-w-3xl',
+        header: 'max-w-3xl',
+      },
+      full: { base: '' },
+    },
   },
 });
 
@@ -35,14 +82,14 @@ export interface TooltipProps extends VariantProps {
   className?: ClassName;
   /** delay in milliseconds before the tooltip opens. */
   closeDelay?: number;
-  /** delay in milliseconds before the tooltip opens. */
-  delay?: number;
   /** placement padding in px */
   containerPadding?: number;
   /** content displayed in the tooltip */
   content: ReactNode;
   /** open overlay initially when uncontrolled */
   defaultOpen?: boolean;
+  /** delay in milliseconds before the tooltip opens. */
+  delay?: number;
   /** tooltip footer */
   footer?: ReactNode;
   /** tooltip header */
@@ -51,6 +98,8 @@ export interface TooltipProps extends VariantProps {
   onOpenChange?: (isOpen: boolean) => void;
   /** placement if the tooltip */
   placement?: TooltipPlacement;
+  /** size of the tooltip */
+  size?: VariantProps['size'];
 }
 
 /**
@@ -68,9 +117,10 @@ const Tooltip = ({
   header = undefined,
   onOpenChange = undefined,
   placement = 'top',
+  size = 'full',
 }: TooltipProps) => {
   // classNames from slots
-  const variants = tooltipVariants();
+  const variants = tooltipVariants({ size });
   const classNames = variantsToClassNames(variants, _className, 'base');
 
   return (
@@ -103,7 +153,7 @@ const Tooltip = ({
       shouldFlip
       showArrow
     >
-      <span className={classNames.wrapper}>{children}</span>
+      <span className={classNames.trigger}>{children}</span>
     </HeroTooltip>
   );
 };
