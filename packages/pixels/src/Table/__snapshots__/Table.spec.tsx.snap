@@ -72,6 +72,7 @@ exports[`Story Snapshots > AllSeparators 1`] = `
             />
           </thead>
           <tbody
+            class="after:block"
             role="rowgroup"
           >
             <tr
@@ -337,6 +338,7 @@ exports[`Story Snapshots > AllSeparators 1`] = `
             />
           </thead>
           <tbody
+            class="after:block"
             role="rowgroup"
           >
             <tr
@@ -602,6 +604,7 @@ exports[`Story Snapshots > AllSeparators 1`] = `
             />
           </thead>
           <tbody
+            class="after:block"
             role="rowgroup"
           >
             <tr
@@ -867,6 +870,7 @@ exports[`Story Snapshots > AllSeparators 1`] = `
             />
           </thead>
           <tbody
+            class="after:block"
             role="rowgroup"
           >
             <tr
@@ -1132,6 +1136,7 @@ exports[`Story Snapshots > AllSeparators 1`] = `
             />
           </thead>
           <tbody
+            class="after:block"
             role="rowgroup"
           >
             <tr
@@ -1397,6 +1402,7 @@ exports[`Story Snapshots > AllSeparators 1`] = `
             />
           </thead>
           <tbody
+            class="after:block"
             role="rowgroup"
           >
             <tr
@@ -1660,6 +1666,7 @@ exports[`Story Snapshots > Default 1`] = `
         />
       </thead>
       <tbody
+        class="after:block"
         role="rowgroup"
       >
         <tr
@@ -1920,6 +1927,7 @@ exports[`Story Snapshots > EmptyContent 1`] = `
         />
       </thead>
       <tbody
+        class="after:block"
         data-empty="true"
         role="rowgroup"
       >
@@ -2003,6 +2011,7 @@ exports[`Story Snapshots > Loading 1`] = `
         />
       </thead>
       <tbody
+        class="after:block"
         data-loading="true"
         role="rowgroup"
       >
@@ -2279,6 +2288,7 @@ exports[`Story Snapshots > ManyElements 1`] = `
           />
         </thead>
         <tbody
+          class="after:block"
           role="rowgroup"
         >
           <tr
@@ -49851,6 +49861,7 @@ exports[`Story Snapshots > StickyHeader 1`] = `
         />
       </thead>
       <tbody
+        class="after:block"
         role="rowgroup"
       >
         <tr
@@ -50061,73 +50072,71 @@ exports[`Story Snapshots > Virtualized 1`] = `
         class="p-4 z-0 flex flex-col relative justify-between gap-4 overflow-auto rounded-large h-[400px] w-[600px] bg-transparent border-none shadow-none"
         style="height: 600px; display: block;"
       >
-        <div
+        <table
+          aria-colcount="3"
+          aria-describedby=""
+          aria-rowcount="1001"
+          class="min-w-full h-auto table-auto w-full"
+          data-collection="react-aria-:r44c:"
+          id="react-aria-:r44b:"
+          role="grid"
           style="height: calc(40000px);"
+          tabindex="0"
         >
-          <table
-            aria-colcount="3"
-            aria-describedby=""
-            aria-rowcount="1001"
-            class="min-w-full h-auto table-auto w-full"
-            data-collection="react-aria-:r44c:"
-            id="react-aria-:r44b:"
-            role="grid"
-            tabindex="0"
+          <thead
+            class="[&>tr]:first:rounded-lg"
+            role="rowgroup"
           >
-            <thead
-              class="[&>tr]:first:rounded-lg"
-              role="rowgroup"
+            <tr
+              class="group/tr outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2"
+              role="row"
             >
-              <tr
-                class="group/tr outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2"
-                role="row"
-              >
-                <th
-                  aria-colindex="1"
-                  class="group/th px-3 h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny font-semibold first:rounded-s-lg last:rounded-e-lg data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start bg-content2"
-                  data-collection="react-aria-:r44c:"
-                  data-key="name"
-                  id="react-aria-:r44b:-name"
-                  role="columnheader"
-                  tabindex="-1"
-                >
-                  NAME
-                </th>
-                <th
-                  aria-colindex="2"
-                  class="group/th px-3 h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny font-semibold first:rounded-s-lg last:rounded-e-lg data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start bg-content2"
-                  data-collection="react-aria-:r44c:"
-                  data-key="role"
-                  id="react-aria-:r44b:-role"
-                  role="columnheader"
-                  tabindex="-1"
-                >
-                  ROLE
-                </th>
-                <th
-                  aria-colindex="3"
-                  class="group/th px-3 h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny font-semibold first:rounded-s-lg last:rounded-e-lg data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start bg-content2"
-                  data-collection="react-aria-:r44c:"
-                  data-key="status"
-                  id="react-aria-:r44b:-status"
-                  role="columnheader"
-                  tabindex="-1"
-                >
-                  STATUS
-                </th>
-              </tr>
-              <tr
-                aria-hidden="true"
-                class="w-px h-px block"
-                style="margin-left: 0.25rem; margin-top: 0.25rem;"
+              <th
+                aria-colindex="1"
+                class="group/th px-3 h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny font-semibold first:rounded-s-lg last:rounded-e-lg data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start bg-content2"
+                data-collection="react-aria-:r44c:"
+                data-key="name"
+                id="react-aria-:r44b:-name"
+                role="columnheader"
                 tabindex="-1"
-              />
-            </thead>
-            <tbody
-              role="rowgroup"
+              >
+                NAME
+              </th>
+              <th
+                aria-colindex="2"
+                class="group/th px-3 h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny font-semibold first:rounded-s-lg last:rounded-e-lg data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start bg-content2"
+                data-collection="react-aria-:r44c:"
+                data-key="role"
+                id="react-aria-:r44b:-role"
+                role="columnheader"
+                tabindex="-1"
+              >
+                ROLE
+              </th>
+              <th
+                aria-colindex="3"
+                class="group/th px-3 h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny font-semibold first:rounded-s-lg last:rounded-e-lg data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start bg-content2"
+                data-collection="react-aria-:r44c:"
+                data-key="status"
+                id="react-aria-:r44b:-status"
+                role="columnheader"
+                tabindex="-1"
+              >
+                STATUS
+              </th>
+            </tr>
+            <tr
+              aria-hidden="true"
+              class="w-px h-px block"
+              style="margin-left: 0.25rem; margin-top: 0.25rem;"
+              tabindex="-1"
             />
-          </table>
-        </div>
+          </thead>
+          <tbody
+            class="after:block"
+            role="rowgroup"
+          />
+        </table>
       </div>
     </div>
   </div>
@@ -50200,6 +50209,7 @@ exports[`Story Snapshots > WithWrapper 1`] = `
           />
         </thead>
         <tbody
+          class="after:block"
           role="rowgroup"
         >
           <tr
