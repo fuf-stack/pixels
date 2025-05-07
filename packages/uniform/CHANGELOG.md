@@ -1,5 +1,15 @@
 # Changelog
 
+## [0.18.3](https://github.com/fuf-stack/pixels/compare/uniform-v0.18.2...uniform-v0.18.3) (2025-05-07)
+
+
+### Bug Fixes
+
+* **deps:** update dependency framer-motion to v12.10.0 ([#964](https://github.com/fuf-stack/pixels/issues/964)) ([87d90b7](https://github.com/fuf-stack/pixels/commit/87d90b7847b4f7611fb8fee1fdbe14a04ff59642))
+* **deps:** update dependency framer-motion to v12.9.4 ([#956](https://github.com/fuf-stack/pixels/issues/956)) ([27e7f9d](https://github.com/fuf-stack/pixels/commit/27e7f9d6eddd359fd0a7a70083904671787bb1de))
+* **deps:** update dependency framer-motion to v12.9.7 ([#961](https://github.com/fuf-stack/pixels/issues/961)) ([edea062](https://github.com/fuf-stack/pixels/commit/edea0625c3389b258864a7f53d8b5c4571be7c50))
+* **uniform:** add inline option for checkboxgroup and add story for select in popover ([051ac81](https://github.com/fuf-stack/pixels/commit/051ac81377eae3be0ac5d31ec7cfdda29fe5821a))
+
 ## [0.18.2](https://github.com/fuf-stack/pixels/compare/uniform-v0.18.1...uniform-v0.18.2) (2025-04-30)
 
 
