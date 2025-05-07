@@ -42,6 +42,8 @@ export type CheckboxGroupOption = {
 export interface CheckboxGroupProps extends VariantProps {
   /** CSS class name. ClassName: string | { buttons?: string | { base?: string; active?: string }; base?: string;} */
   className?: ClassName;
+  /** determines orientation of the boxes. */
+  inline?: boolean;
   /** label displayed above the Checkboxes */
   label?: React.ReactNode;
   /** Name the Field is registered on the form. */
@@ -59,6 +61,7 @@ export interface CheckboxGroupProps extends VariantProps {
  */
 const CheckboxGroup = ({
   className = undefined,
+  inline = false,
   label = undefined,
   options,
   disabled = false,
@@ -162,6 +165,7 @@ const CheckboxGroup = ({
               )
             }
             onBlur={onBlur}
+            orientation={inline ? 'horizontal' : 'vertical'}
             ref={ref}
             // eslint-disable-next-line react/jsx-props-no-spreading
             {...checkboxGroupProps}

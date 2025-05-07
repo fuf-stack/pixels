@@ -209,7 +209,7 @@ exports[`Story Snapshots > DisabledCompletely 1`] = `
             <input
               aria-describedby="react-aria-react-useId-mock"
               aria-label="1"
-              aria-labelledby=":r7:"
+              aria-labelledby=":ra:"
               class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
               disabled=""
               name="checkboxField"
@@ -240,7 +240,7 @@ exports[`Story Snapshots > DisabledCompletely 1`] = `
             </span>
             <span
               class="relative text-foreground select-none transition-colors-opacity before:transition-width motion-reduce:transition-none text-sm"
-              id=":r7:"
+              id=":ra:"
             >
               1
             </span>
@@ -254,7 +254,7 @@ exports[`Story Snapshots > DisabledCompletely 1`] = `
             <input
               aria-describedby="react-aria-react-useId-mock"
               aria-label="2"
-              aria-labelledby=":r8:"
+              aria-labelledby=":rb:"
               class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
               disabled=""
               name="checkboxField"
@@ -285,7 +285,7 @@ exports[`Story Snapshots > DisabledCompletely 1`] = `
             </span>
             <span
               class="relative text-foreground select-none transition-colors-opacity before:transition-width motion-reduce:transition-none text-sm"
-              id=":r8:"
+              id=":rb:"
             >
               2
             </span>
@@ -299,7 +299,7 @@ exports[`Story Snapshots > DisabledCompletely 1`] = `
             <input
               aria-describedby="react-aria-react-useId-mock"
               aria-label="3"
-              aria-labelledby=":r9:"
+              aria-labelledby=":rc:"
               class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
               disabled=""
               name="checkboxField"
@@ -330,7 +330,7 @@ exports[`Story Snapshots > DisabledCompletely 1`] = `
             </span>
             <span
               class="relative text-foreground select-none transition-colors-opacity before:transition-width motion-reduce:transition-none text-sm"
-              id=":r9:"
+              id=":rc:"
             >
               3
             </span>
@@ -385,7 +385,7 @@ exports[`Story Snapshots > DisabledOption 1`] = `
             <input
               aria-describedby="react-aria-react-useId-mock"
               aria-label="1"
-              aria-labelledby=":ra:"
+              aria-labelledby=":rd:"
               class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
               name="checkboxField"
               tabindex="0"
@@ -417,7 +417,7 @@ exports[`Story Snapshots > DisabledOption 1`] = `
             </span>
             <span
               class="relative text-foreground select-none transition-colors-opacity before:transition-width motion-reduce:transition-none text-sm"
-              id=":ra:"
+              id=":rd:"
             >
               1
             </span>
@@ -431,7 +431,7 @@ exports[`Story Snapshots > DisabledOption 1`] = `
             <input
               aria-describedby="react-aria-react-useId-mock"
               aria-label="disabled"
-              aria-labelledby=":rb:"
+              aria-labelledby=":re:"
               class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
               disabled=""
               name="checkboxField"
@@ -462,7 +462,7 @@ exports[`Story Snapshots > DisabledOption 1`] = `
             </span>
             <span
               class="relative text-foreground select-none transition-colors-opacity before:transition-width motion-reduce:transition-none text-sm"
-              id=":rb:"
+              id=":re:"
             >
               disabled
             </span>
@@ -475,7 +475,7 @@ exports[`Story Snapshots > DisabledOption 1`] = `
             <input
               aria-describedby="react-aria-react-useId-mock"
               aria-label="3"
-              aria-labelledby=":rc:"
+              aria-labelledby=":rf:"
               class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
               name="checkboxField"
               tabindex="0"
@@ -507,7 +507,184 @@ exports[`Story Snapshots > DisabledOption 1`] = `
             </span>
             <span
               class="relative text-foreground select-none transition-colors-opacity before:transition-width motion-reduce:transition-none text-sm"
-              id=":rc:"
+              id=":rf:"
+            >
+              3
+            </span>
+          </label>
+        </div>
+      </div>
+      <div
+        class="mt-4 flex justify-end"
+      >
+        <button
+          class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
+          data-testid="form_submit_button"
+          tabindex="0"
+          type="submit"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`Story Snapshots > Inline 1`] = `
+<div>
+  <div
+    class="flex w-full flex-row justify-between gap-6"
+  >
+    <form
+      class="flex-grow min-w-60"
+      data-testid=""
+    >
+      <div
+        aria-describedby="react-aria-react-useId-mock react-aria-react-useId-mock"
+        aria-label=" "
+        class="relative flex flex-col gap-2 group"
+        data-invalid="false"
+        data-testid="checkboxfield"
+        id="react-aria-react-useId-mock"
+        role="group"
+      >
+        <div
+          class="flex flex-col flex-wrap gap-2 data-[orientation=horizontal]:flex-row"
+          data-orientation="horizontal"
+          role="presentation"
+        >
+          <label
+            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
+            data-invalid="false"
+            data-testid="checkboxfield_option_1"
+          >
+            <input
+              aria-describedby="react-aria-react-useId-mock"
+              aria-label="1"
+              aria-labelledby=":r3:"
+              class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
+              name="checkboxField"
+              tabindex="0"
+              title=""
+              type="checkbox"
+              value="1"
+            />
+            <span
+              aria-hidden="true"
+              class="relative inline-flex items-center justify-center flex-shrink-0 overflow-hidden before:content-[''] before:absolute before:inset-0 before:border-solid before:border-2 before:box-border before:border-default after:content-[''] after:absolute after:inset-0 after:scale-50 after:opacity-0 after:origin-center group-data-[selected=true]:after:scale-100 group-data-[selected=true]:after:opacity-100 group-data-[hover=true]:before:bg-default-100 outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background after:bg-primary after:text-primary-foreground text-primary-foreground w-5 h-5 me-2 rounded-[calc(theme(borderRadius.medium)*0.6)] before:rounded-[calc(theme(borderRadius.medium)*0.6)] after:rounded-[calc(theme(borderRadius.medium)*0.6)] before:transition-colors group-data-[pressed=true]:scale-95 transition-transform after:transition-transform-opacity after:!ease-linear after:!duration-200 motion-reduce:transition-none"
+            >
+              <svg
+                aria-hidden="true"
+                class="z-10 opacity-0 group-data-[selected=true]:opacity-100 pointer-events-none w-4 h-3 transition-opacity motion-reduce:transition-none"
+                fill="none"
+                role="presentation"
+                stroke="currentColor"
+                stroke-dasharray="22"
+                stroke-dashoffset="66"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 17 18"
+              >
+                <polyline
+                  points="1 9 7 14 15 4"
+                />
+              </svg>
+            </span>
+            <span
+              class="relative text-foreground select-none transition-colors-opacity before:transition-width motion-reduce:transition-none text-sm"
+              id=":r3:"
+            >
+              1
+            </span>
+          </label>
+          <label
+            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
+            data-invalid="false"
+            data-testid="checkboxfield_option_2"
+          >
+            <input
+              aria-describedby="react-aria-react-useId-mock"
+              aria-label="2"
+              aria-labelledby=":r4:"
+              class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
+              name="checkboxField"
+              tabindex="0"
+              title=""
+              type="checkbox"
+              value="2"
+            />
+            <span
+              aria-hidden="true"
+              class="relative inline-flex items-center justify-center flex-shrink-0 overflow-hidden before:content-[''] before:absolute before:inset-0 before:border-solid before:border-2 before:box-border before:border-default after:content-[''] after:absolute after:inset-0 after:scale-50 after:opacity-0 after:origin-center group-data-[selected=true]:after:scale-100 group-data-[selected=true]:after:opacity-100 group-data-[hover=true]:before:bg-default-100 outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background after:bg-primary after:text-primary-foreground text-primary-foreground w-5 h-5 me-2 rounded-[calc(theme(borderRadius.medium)*0.6)] before:rounded-[calc(theme(borderRadius.medium)*0.6)] after:rounded-[calc(theme(borderRadius.medium)*0.6)] before:transition-colors group-data-[pressed=true]:scale-95 transition-transform after:transition-transform-opacity after:!ease-linear after:!duration-200 motion-reduce:transition-none"
+            >
+              <svg
+                aria-hidden="true"
+                class="z-10 opacity-0 group-data-[selected=true]:opacity-100 pointer-events-none w-4 h-3 transition-opacity motion-reduce:transition-none"
+                fill="none"
+                role="presentation"
+                stroke="currentColor"
+                stroke-dasharray="22"
+                stroke-dashoffset="66"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 17 18"
+              >
+                <polyline
+                  points="1 9 7 14 15 4"
+                />
+              </svg>
+            </span>
+            <span
+              class="relative text-foreground select-none transition-colors-opacity before:transition-width motion-reduce:transition-none text-sm"
+              id=":r4:"
+            >
+              2
+            </span>
+          </label>
+          <label
+            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
+            data-invalid="false"
+            data-testid="checkboxfield_option_3"
+          >
+            <input
+              aria-describedby="react-aria-react-useId-mock"
+              aria-label="3"
+              aria-labelledby=":r5:"
+              class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
+              name="checkboxField"
+              tabindex="0"
+              title=""
+              type="checkbox"
+              value="3"
+            />
+            <span
+              aria-hidden="true"
+              class="relative inline-flex items-center justify-center flex-shrink-0 overflow-hidden before:content-[''] before:absolute before:inset-0 before:border-solid before:border-2 before:box-border before:border-default after:content-[''] after:absolute after:inset-0 after:scale-50 after:opacity-0 after:origin-center group-data-[selected=true]:after:scale-100 group-data-[selected=true]:after:opacity-100 group-data-[hover=true]:before:bg-default-100 outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background after:bg-primary after:text-primary-foreground text-primary-foreground w-5 h-5 me-2 rounded-[calc(theme(borderRadius.medium)*0.6)] before:rounded-[calc(theme(borderRadius.medium)*0.6)] after:rounded-[calc(theme(borderRadius.medium)*0.6)] before:transition-colors group-data-[pressed=true]:scale-95 transition-transform after:transition-transform-opacity after:!ease-linear after:!duration-200 motion-reduce:transition-none"
+            >
+              <svg
+                aria-hidden="true"
+                class="z-10 opacity-0 group-data-[selected=true]:opacity-100 pointer-events-none w-4 h-3 transition-opacity motion-reduce:transition-none"
+                fill="none"
+                role="presentation"
+                stroke="currentColor"
+                stroke-dasharray="22"
+                stroke-dashoffset="66"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 17 18"
+              >
+                <polyline
+                  points="1 9 7 14 15 4"
+                />
+              </svg>
+            </span>
+            <span
+              class="relative text-foreground select-none transition-colors-opacity before:transition-width motion-reduce:transition-none text-sm"
+              id=":r5:"
             >
               3
             </span>
@@ -570,7 +747,7 @@ exports[`Story Snapshots > Invalid 1`] = `
               aria-describedby="react-aria-react-useId-mock react-aria-react-useId-mock"
               aria-invalid="true"
               aria-label="1"
-              aria-labelledby=":rg:"
+              aria-labelledby=":rj:"
               class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
               name="checkboxField"
               tabindex="0"
@@ -602,7 +779,7 @@ exports[`Story Snapshots > Invalid 1`] = `
             </span>
             <span
               class="relative select-none text-danger transition-colors-opacity before:transition-width motion-reduce:transition-none text-sm"
-              id=":rg:"
+              id=":rj:"
             >
               1
             </span>
@@ -619,7 +796,7 @@ exports[`Story Snapshots > Invalid 1`] = `
               aria-describedby="react-aria-react-useId-mock react-aria-react-useId-mock"
               aria-invalid="true"
               aria-label="2"
-              aria-labelledby=":rh:"
+              aria-labelledby=":rk:"
               class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
               name="checkboxField"
               tabindex="0"
@@ -652,7 +829,7 @@ exports[`Story Snapshots > Invalid 1`] = `
             </span>
             <span
               class="relative select-none text-danger transition-colors-opacity before:transition-width motion-reduce:transition-none text-sm"
-              id=":rh:"
+              id=":rk:"
             >
               2
             </span>
@@ -666,7 +843,7 @@ exports[`Story Snapshots > Invalid 1`] = `
               aria-describedby="react-aria-react-useId-mock react-aria-react-useId-mock"
               aria-invalid="true"
               aria-label="3"
-              aria-labelledby=":ri:"
+              aria-labelledby=":rl:"
               class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
               name="checkboxField"
               tabindex="0"
@@ -698,7 +875,7 @@ exports[`Story Snapshots > Invalid 1`] = `
             </span>
             <span
               class="relative select-none text-danger transition-colors-opacity before:transition-width motion-reduce:transition-none text-sm"
-              id=":ri:"
+              id=":rl:"
             >
               3
             </span>
@@ -786,7 +963,7 @@ exports[`Story Snapshots > InvalidOneCheckbox 1`] = `
               aria-describedby="react-aria-react-useId-mock react-aria-react-useId-mock"
               aria-invalid="true"
               aria-label="1"
-              aria-labelledby=":rj:"
+              aria-labelledby=":rm:"
               class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
               name="checkboxField"
               tabindex="0"
@@ -819,7 +996,7 @@ exports[`Story Snapshots > InvalidOneCheckbox 1`] = `
             </span>
             <span
               class="relative select-none text-danger transition-colors-opacity before:transition-width motion-reduce:transition-none text-sm"
-              id=":rj:"
+              id=":rm:"
             >
               1
             </span>
@@ -890,7 +1067,7 @@ exports[`Story Snapshots > OnlyOneCheckbox 1`] = `
             <input
               aria-describedby="react-aria-react-useId-mock"
               aria-label="1"
-              aria-labelledby=":r3:"
+              aria-labelledby=":r6:"
               class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
               name="checkboxField"
               tabindex="0"
@@ -922,7 +1099,7 @@ exports[`Story Snapshots > OnlyOneCheckbox 1`] = `
             </span>
             <span
               class="relative text-foreground select-none transition-colors-opacity before:transition-width motion-reduce:transition-none text-sm"
-              id=":r3:"
+              id=":r6:"
             >
               1
             </span>
@@ -984,7 +1161,7 @@ exports[`Story Snapshots > Required 1`] = `
             <input
               aria-describedby="react-aria-react-useId-mock"
               aria-label="1"
-              aria-labelledby=":rd:"
+              aria-labelledby=":rg:"
               class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
               name="checkboxField"
               required=""
@@ -1017,7 +1194,7 @@ exports[`Story Snapshots > Required 1`] = `
             </span>
             <span
               class="relative text-foreground select-none transition-colors-opacity before:transition-width motion-reduce:transition-none text-sm"
-              id=":rd:"
+              id=":rg:"
             >
               1
             </span>
@@ -1030,7 +1207,7 @@ exports[`Story Snapshots > Required 1`] = `
             <input
               aria-describedby="react-aria-react-useId-mock"
               aria-label="2"
-              aria-labelledby=":re:"
+              aria-labelledby=":rh:"
               class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
               name="checkboxField"
               required=""
@@ -1063,7 +1240,7 @@ exports[`Story Snapshots > Required 1`] = `
             </span>
             <span
               class="relative text-foreground select-none transition-colors-opacity before:transition-width motion-reduce:transition-none text-sm"
-              id=":re:"
+              id=":rh:"
             >
               2
             </span>
@@ -1076,7 +1253,7 @@ exports[`Story Snapshots > Required 1`] = `
             <input
               aria-describedby="react-aria-react-useId-mock"
               aria-label="3"
-              aria-labelledby=":rf:"
+              aria-labelledby=":ri:"
               class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
               name="checkboxField"
               required=""
@@ -1109,7 +1286,7 @@ exports[`Story Snapshots > Required 1`] = `
             </span>
             <span
               class="relative text-foreground select-none transition-colors-opacity before:transition-width motion-reduce:transition-none text-sm"
-              id=":rf:"
+              id=":ri:"
             >
               3
             </span>
@@ -1164,7 +1341,7 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
             <input
               aria-describedby="react-aria-react-useId-mock"
               aria-label="1"
-              aria-labelledby=":r4:"
+              aria-labelledby=":r7:"
               class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
               name="checkboxField"
               tabindex="0"
@@ -1196,7 +1373,7 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
             </span>
             <span
               class="relative text-foreground select-none transition-colors-opacity before:transition-width motion-reduce:transition-none text-sm"
-              id=":r4:"
+              id=":r7:"
             >
               1
             </span>
@@ -1210,7 +1387,7 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
             <input
               aria-describedby="react-aria-react-useId-mock"
               aria-label="2"
-              aria-labelledby=":r5:"
+              aria-labelledby=":r8:"
               checked=""
               class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
               name="checkboxField"
@@ -1244,7 +1421,7 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
             </span>
             <span
               class="relative text-foreground select-none transition-colors-opacity before:transition-width motion-reduce:transition-none text-sm"
-              id=":r5:"
+              id=":r8:"
             >
               2
             </span>
@@ -1257,7 +1434,7 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
             <input
               aria-describedby="react-aria-react-useId-mock"
               aria-label="3"
-              aria-labelledby=":r6:"
+              aria-labelledby=":r9:"
               class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
               name="checkboxField"
               tabindex="0"
@@ -1289,7 +1466,7 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
             </span>
             <span
               class="relative text-foreground select-none transition-colors-opacity before:transition-width motion-reduce:transition-none text-sm"
-              id=":r6:"
+              id=":r9:"
             >
               3
             </span>

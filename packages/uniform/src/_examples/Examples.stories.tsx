@@ -8,6 +8,7 @@ import { CheckboxGroup } from '../CheckboxGroup';
 import { Form } from '../Form';
 import { Grid } from '../Grid';
 import { Input } from '../Input';
+import { RadioBoxes } from '../RadioBoxes';
 import { RadioGroup } from '../RadioGroup';
 import { Select } from '../Select';
 import { SubmitButton } from '../SubmitButton';
@@ -117,19 +118,11 @@ export const AllFieldRenderers: Story = {
             name="radioField"
             options={radioOptions}
           />
-          <RadioGroup
-            inline
-            label="Radio Button Field"
-            name="radioButtonField"
-            options={radioOptions}
-            variant="radioButton"
-          />
-          <RadioGroup
+          <RadioBoxes
             className="md:col-span-2"
             label="Radio Box Field"
             name="radioBoxField"
             options={radioOptions}
-            variant="radioBox"
           />
         </Grid>
       </Card>
