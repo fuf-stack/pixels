@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.0.16](https://github.com/fuf-stack/pixels/compare/pixel-motion-v1.0.15...pixel-motion-v1.0.16) (2025-05-14)
+
+
+### Bug Fixes
+
+* **deps:** update dependency framer-motion to v12.10.0 ([#964](https://github.com/fuf-stack/pixels/issues/964)) ([87d90b7](https://github.com/fuf-stack/pixels/commit/87d90b7847b4f7611fb8fee1fdbe14a04ff59642))
+* **deps:** update dependency framer-motion to v12.10.1 ([#966](https://github.com/fuf-stack/pixels/issues/966)) ([56977cb](https://github.com/fuf-stack/pixels/commit/56977cb9d27dd319f1c4f74aaeaea74c04f2bb71))
+* **deps:** update dependency framer-motion to v12.10.4 ([#969](https://github.com/fuf-stack/pixels/issues/969)) ([cbf87fe](https://github.com/fuf-stack/pixels/commit/cbf87fe74b4038a2322e13033aea72dcebd96e4b))
+* **deps:** update dependency framer-motion to v12.10.5 ([#970](https://github.com/fuf-stack/pixels/issues/970)) ([87227c9](https://github.com/fuf-stack/pixels/commit/87227c94935385c974db19faab83f7ba558bedaa))
+* **deps:** update dependency framer-motion to v12.11.0 ([#971](https://github.com/fuf-stack/pixels/issues/971)) ([ef64e25](https://github.com/fuf-stack/pixels/commit/ef64e25eaa281382001aa81456334bfdcfac66ed))
+* **deps:** update dependency framer-motion to v12.9.1 ([#935](https://github.com/fuf-stack/pixels/issues/935)) ([22884e7](https://github.com/fuf-stack/pixels/commit/22884e774d141e5da7187fc9ef5eba119a8cbd34))
+* **deps:** update dependency framer-motion to v12.9.2 ([#941](https://github.com/fuf-stack/pixels/issues/941)) ([fe59b0b](https://github.com/fuf-stack/pixels/commit/fe59b0bec1cb0e697919ea61e7a3a8d97ca3d7e8))
+* **deps:** update dependency framer-motion to v12.9.4 ([#956](https://github.com/fuf-stack/pixels/issues/956)) ([27e7f9d](https://github.com/fuf-stack/pixels/commit/27e7f9d6eddd359fd0a7a70083904671787bb1de))
+* **deps:** update dependency framer-motion to v12.9.7 ([#961](https://github.com/fuf-stack/pixels/issues/961)) ([edea062](https://github.com/fuf-stack/pixels/commit/edea0625c3389b258864a7f53d8b5c4571be7c50))
+
 ## [1.0.15](https://github.com/fuf-stack/pixels/compare/pixel-motion-v1.0.14...pixel-motion-v1.0.15) (2025-04-23)
 
 
