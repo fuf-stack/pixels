@@ -1,5 +1,5 @@
 import type { VetoInstance } from '@fuf-stack/veto';
-import type { ReactNode } from 'react';
+import type { BaseSyntheticEvent, ReactNode } from 'react';
 import type { FieldValues, SubmitHandler } from 'react-hook-form';
 
 import React, { useMemo, useState } from 'react';
@@ -42,12 +42,15 @@ export const UniformContext = React.createContext<{
   preventSubmit: (prevent: boolean) => void;
   /** Setter to enable or disable form debug mode */
   setDebugMode: (debugMode: DebugMode) => void;
+  /** Function to trigger form submit programmatically */
+  triggerSubmit: (e?: BaseSyntheticEvent) => Promise<void> | void;
   /** Optional Veto validation schema instance for form validation */
   validation?: VetoInstance;
 }>({
   debugMode: 'off',
   preventSubmit: () => undefined,
   setDebugMode: () => undefined,
+  triggerSubmit: () => undefined,
   validation: undefined,
 });
 
@@ -55,7 +58,7 @@ export const UniformContext = React.createContext<{
 interface FormProviderProps {
   /** children form render function */
   children: (childProps: {
-    handleSubmit: (e?: React.BaseSyntheticEvent) => Promise<void>;
+    handleSubmit: (e?: BaseSyntheticEvent) => Promise<void>;
   }) => ReactNode;
   /** settings for from debug mode */
   debugModeSettings?: DebugModeSettings;
@@ -93,22 +96,6 @@ const FormProvider: React.FC<FormProviderProps> = ({
     'off',
   );
 
-  // Memoize the context value to prevent re-renders
-  const contextValue = useMemo(
-    () => ({
-      // set debugMode to disabled when debugModeSettings.disable is true
-      // otherwise use current debug mode from localStorage
-      debugMode: debugModeSettings?.disable ? 'disabled' : debugMode,
-      preventSubmit: (prevent: boolean) => {
-        setPreventSubmit(prevent);
-      },
-      setDebugMode,
-      validation,
-    }),
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [debugMode, debugModeSettings?.disable],
-  );
-
   // Initialize react hook form
   const methods = useForm({
     defaultValues: initialValues,
@@ -143,6 +130,23 @@ const FormProvider: React.FC<FormProviderProps> = ({
     }
     await methods.handleSubmit(onSubmit)(e);
   };
+
+  // Memoize the context value to prevent re-renders
+  const contextValue = useMemo(
+    () => ({
+      // set debugMode to disabled when debugModeSettings.disable is true
+      // otherwise use current debug mode from localStorage
+      debugMode: debugModeSettings?.disable ? 'disabled' : debugMode,
+      preventSubmit: (prevent: boolean) => {
+        setPreventSubmit(prevent);
+      },
+      setDebugMode,
+      triggerSubmit: handleSubmit,
+      validation,
+    }),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [debugMode, debugModeSettings?.disable],
+  );
 
   return (
     <UniformContext.Provider value={contextValue}>

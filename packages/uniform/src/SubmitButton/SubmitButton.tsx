@@ -15,8 +15,6 @@ export interface SubmitButtonProps {
   color?: ButtonProps['color'];
   /** If set loading animation is shown */
   loading?: boolean;
-  /** function called when the button is pressed. */
-  onClick?: ButtonProps['onClick'];
   /** size of the button */
   size?: ButtonProps['size'];
   /** HTML data-testid attribute used in e2e tests */
@@ -31,12 +29,12 @@ const SubmitButton = ({
   className = undefined,
   color = 'success',
   loading = false,
-  onClick = undefined,
   size = 'md',
   testId = 'form_submit_button',
 }: SubmitButtonProps) => {
   const {
     formState: { isSubmitting, isValidating },
+    triggerSubmit,
   } = useFormContext();
   return (
     <Button
@@ -45,7 +43,10 @@ const SubmitButton = ({
       testId={slugify(testId)}
       disabled={isSubmitting || isValidating}
       loading={loading}
-      onClick={onClick}
+      // @ts-expect-error we use form context triggerSubmit
+      // here so that submit button also works in special
+      // scenarios (e.g. when used in modal)
+      onClick={triggerSubmit}
       size={size}
       type="submit"
     >
