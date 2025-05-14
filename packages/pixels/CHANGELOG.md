@@ -1,5 +1,21 @@
 # Changelog
 
+## [0.43.7](https://github.com/fuf-stack/pixels/compare/pixels-v0.43.6...pixels-v0.43.7) (2025-05-14)
+
+
+### Bug Fixes
+
+* **deps:** update dependency framer-motion to v12.10.0 ([#964](https://github.com/fuf-stack/pixels/issues/964)) ([87d90b7](https://github.com/fuf-stack/pixels/commit/87d90b7847b4f7611fb8fee1fdbe14a04ff59642))
+* **deps:** update dependency framer-motion to v12.10.1 ([#966](https://github.com/fuf-stack/pixels/issues/966)) ([56977cb](https://github.com/fuf-stack/pixels/commit/56977cb9d27dd319f1c4f74aaeaea74c04f2bb71))
+* **deps:** update dependency framer-motion to v12.10.4 ([#969](https://github.com/fuf-stack/pixels/issues/969)) ([cbf87fe](https://github.com/fuf-stack/pixels/commit/cbf87fe74b4038a2322e13033aea72dcebd96e4b))
+* **deps:** update dependency framer-motion to v12.10.5 ([#970](https://github.com/fuf-stack/pixels/issues/970)) ([87227c9](https://github.com/fuf-stack/pixels/commit/87227c94935385c974db19faab83f7ba558bedaa))
+* **deps:** update dependency framer-motion to v12.11.0 ([#971](https://github.com/fuf-stack/pixels/issues/971)) ([ef64e25](https://github.com/fuf-stack/pixels/commit/ef64e25eaa281382001aa81456334bfdcfac66ed))
+* **deps:** update dependency framer-motion to v12.11.3 ([#974](https://github.com/fuf-stack/pixels/issues/974)) ([e85d863](https://github.com/fuf-stack/pixels/commit/e85d8637f5bc0425088ef2e0d5c9d2ae952cd60c))
+* **deps:** update dependency framer-motion to v12.9.4 ([#956](https://github.com/fuf-stack/pixels/issues/956)) ([27e7f9d](https://github.com/fuf-stack/pixels/commit/27e7f9d6eddd359fd0a7a70083904671787bb1de))
+* **deps:** update dependency framer-motion to v12.9.7 ([#961](https://github.com/fuf-stack/pixels/issues/961)) ([edea062](https://github.com/fuf-stack/pixels/commit/edea0625c3389b258864a7f53d8b5c4571be7c50))
+* **pixels:** update Json snapshot after update ([4cf5fcd](https://github.com/fuf-stack/pixels/commit/4cf5fcdf77047eeb38c704dc72957d87d72e00f1))
+* **uniform:** try to fix render loop in forms caused by RadioTabs again ([a3703c5](https://github.com/fuf-stack/pixels/commit/a3703c5cd83cd26c0c324bc0f23ea2e4c5562928))
+
 ## [0.43.6](https://github.com/fuf-stack/pixels/compare/pixels-v0.43.5...pixels-v0.43.6) (2025-04-30)
 
 
