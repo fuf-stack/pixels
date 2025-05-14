@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.18.4](https://github.com/fuf-stack/pixels/compare/uniform-v0.18.3...uniform-v0.18.4) (2025-05-14)
+
+
+### Bug Fixes
+
+* **deps:** update dependency framer-motion to v12.10.1 ([#966](https://github.com/fuf-stack/pixels/issues/966)) ([56977cb](https://github.com/fuf-stack/pixels/commit/56977cb9d27dd319f1c4f74aaeaea74c04f2bb71))
+* **deps:** update dependency framer-motion to v12.10.4 ([#969](https://github.com/fuf-stack/pixels/issues/969)) ([cbf87fe](https://github.com/fuf-stack/pixels/commit/cbf87fe74b4038a2322e13033aea72dcebd96e4b))
+* **deps:** update dependency framer-motion to v12.10.5 ([#970](https://github.com/fuf-stack/pixels/issues/970)) ([87227c9](https://github.com/fuf-stack/pixels/commit/87227c94935385c974db19faab83f7ba558bedaa))
+* **deps:** update dependency framer-motion to v12.11.0 ([#971](https://github.com/fuf-stack/pixels/issues/971)) ([ef64e25](https://github.com/fuf-stack/pixels/commit/ef64e25eaa281382001aa81456334bfdcfac66ed))
+* **deps:** update dependency framer-motion to v12.11.3 ([#974](https://github.com/fuf-stack/pixels/issues/974)) ([e85d863](https://github.com/fuf-stack/pixels/commit/e85d8637f5bc0425088ef2e0d5c9d2ae952cd60c))
+* **uniform:** add triggerSubmit to context to allow remote form submit ([67aa36c](https://github.com/fuf-stack/pixels/commit/67aa36c08c350a7321a28e089e525be424c63b11))
+
 ## [0.18.3](https://github.com/fuf-stack/pixels/compare/uniform-v0.18.2...uniform-v0.18.3) (2025-05-07)
 
 
