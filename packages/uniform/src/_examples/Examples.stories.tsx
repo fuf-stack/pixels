@@ -1,6 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Card } from '@fuf-stack/pixels';
+import { useState } from 'react';
+
+import { Button, Card, Modal } from '@fuf-stack/pixels';
 import { veto } from '@fuf-stack/veto';
 import * as vt from '@fuf-stack/veto';
 
@@ -146,5 +148,32 @@ export const DebugModeDisabled: Story = {
       </Card>
     ),
     validation,
+  },
+};
+
+export const FormFieldsInModal: Story = {
+  args: {},
+  render: (args) => {
+    const [isOpen, setIsOpen] = useState(false);
+    return (
+      <div className="fixed inset-0 flex items-center justify-center bg-black/50">
+        <Button onClick={() => setIsOpen(true)} testId="modal_trigger">
+          Open Modal
+        </Button>
+        <Form {...args}>
+          <Modal
+            footer={<SubmitButton />}
+            isOpen={isOpen}
+            onClose={() => setIsOpen(false)}
+          >
+            <Input
+              name="stringField"
+              label="String Field"
+              placeholder="String Field..."
+            />
+          </Modal>
+        </Form>
+      </div>
+    );
   },
 };
