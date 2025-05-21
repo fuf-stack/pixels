@@ -321,8 +321,8 @@ importers:
         specifier: 2.4.13
         version: 2.4.13(tailwindcss@3.4.17(ts-node@10.9.2(@swc/core@1.11.7(@swc/helpers@0.5.15))(@types/node@22.15.19)(typescript@5.8.3)))
       '@react-aria/visually-hidden':
-        specifier: 3.8.22
-        version: 3.8.22(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+        specifier: 3.8.23
+        version: 3.8.23(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       framer-motion:
         specifier: 12.12.1
         version: 12.12.1(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -1981,6 +1981,12 @@ packages:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
       react-dom: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
 
+  '@react-aria/interactions@3.25.1':
+    resolution: {integrity: sha512-ntLrlgqkmZupbbjekz3fE/n3eQH2vhncx8gUp0+N+GttKWevx7jos11JUBjnJwb1RSOPgRUFcrluOqBp0VgcfQ==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
+      react-dom: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
+
   '@react-aria/label@3.7.16':
     resolution: {integrity: sha512-tPog3rc5pQ9s2/5bIBtmHtbj+Ebqs2yyJgJdFjZ1/HxrjF8HMrgtBPHCn/70YD5XvmuC3OSkua84kLjNX5rBbA==}
     peerDependencies:
@@ -2110,14 +2116,20 @@ packages:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
       react-dom: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
 
+  '@react-aria/utils@3.29.0':
+    resolution: {integrity: sha512-jSOrZimCuT1iKNVlhjIxDkAhgF7HSp3pqyT6qjg/ZoA0wfqCi/okmrMPiWSAKBnkgX93N8GYTLT3CIEO6WZe9Q==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
+      react-dom: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
+
   '@react-aria/visually-hidden@3.8.21':
     resolution: {integrity: sha512-iii5qO+cVHrHiOeiBYCnTRUQG2eOgEPFmiMG4dAuby8+pJJ8U4BvffX2sDTYWL6ztLLBYyrsUHPSw1Ld03JhmA==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
       react-dom: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
 
-  '@react-aria/visually-hidden@3.8.22':
-    resolution: {integrity: sha512-EO3R8YTKZ7HkLl9k1Y2uBKYBgpJagth4/4W7mfpJZE24A3fQnCP8zx1sweXiAm0mirR4J6tNaK7Ia8ssP5TpOw==}
+  '@react-aria/visually-hidden@3.8.23':
+    resolution: {integrity: sha512-D37GHtAcxCck8BtCiGTNDniGqtldJuN0cRlW1PJ684zM4CdmkSPqKbt5IUKUfqheS9Vt7HxYsj1VREDW+0kaGA==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
       react-dom: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
@@ -2303,6 +2315,11 @@ packages:
 
   '@react-types/shared@3.29.0':
     resolution: {integrity: sha512-IDQYu/AHgZimObzCFdNl1LpZvQW/xcfLt3v20sorl5qRucDVj4S9os98sVTZ4IRIBjmS+MkjqpR5E70xan7ooA==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
+
+  '@react-types/shared@3.29.1':
+    resolution: {integrity: sha512-KtM+cDf2CXoUX439rfEhbnEdAgFZX20UP2A35ypNIawR7/PFFPjQDWyA2EnClCcW/dLWJDEPX2U8+EJff8xqmQ==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
 
@@ -9796,6 +9813,16 @@ snapshots:
       react: 19.0.0
       react-dom: 19.0.0(react@19.0.0)
 
+  '@react-aria/interactions@3.25.1(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
+    dependencies:
+      '@react-aria/ssr': 3.9.8(react@19.0.0)
+      '@react-aria/utils': 3.29.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      '@react-stately/flags': 3.1.1
+      '@react-types/shared': 3.29.1(react@19.0.0)
+      '@swc/helpers': 0.5.15
+      react: 19.0.0
+      react-dom: 19.0.0(react@19.0.0)
+
   '@react-aria/label@3.7.16(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
     dependencies:
       '@react-aria/utils': 3.28.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -9867,7 +9894,7 @@ snapshots:
       '@react-aria/interactions': 3.25.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@react-aria/ssr': 3.9.8(react@19.0.0)
       '@react-aria/utils': 3.28.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
-      '@react-aria/visually-hidden': 3.8.22(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      '@react-aria/visually-hidden': 3.8.23(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@react-stately/overlays': 3.6.14(react@19.0.0)
       '@react-types/button': 3.11.0(react@19.0.0)
       '@react-types/overlays': 3.8.13(react@19.0.0)
@@ -9942,7 +9969,7 @@ snapshots:
       '@react-aria/interactions': 3.25.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@react-aria/live-announcer': 3.4.1
       '@react-aria/utils': 3.28.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
-      '@react-aria/visually-hidden': 3.8.22(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      '@react-aria/visually-hidden': 3.8.23(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@react-stately/collections': 3.12.2(react@19.0.0)
       '@react-stately/flags': 3.1.1
       '@react-stately/table': 3.14.0(react@19.0.0)
@@ -10048,6 +10075,17 @@ snapshots:
       react: 19.0.0
       react-dom: 19.0.0(react@19.0.0)
 
+  '@react-aria/utils@3.29.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
+    dependencies:
+      '@react-aria/ssr': 3.9.8(react@19.0.0)
+      '@react-stately/flags': 3.1.1
+      '@react-stately/utils': 3.10.6(react@19.0.0)
+      '@react-types/shared': 3.29.1(react@19.0.0)
+      '@swc/helpers': 0.5.15
+      clsx: 2.1.1
+      react: 19.0.0
+      react-dom: 19.0.0(react@19.0.0)
+
   '@react-aria/visually-hidden@3.8.21(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
     dependencies:
       '@react-aria/interactions': 3.25.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -10057,11 +10095,11 @@ snapshots:
       react: 19.0.0
       react-dom: 19.0.0(react@19.0.0)
 
-  '@react-aria/visually-hidden@3.8.22(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
+  '@react-aria/visually-hidden@3.8.23(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
     dependencies:
-      '@react-aria/interactions': 3.25.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
-      '@react-aria/utils': 3.28.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
-      '@react-types/shared': 3.29.0(react@19.0.0)
+      '@react-aria/interactions': 3.25.1(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      '@react-aria/utils': 3.29.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      '@react-types/shared': 3.29.1(react@19.0.0)
       '@swc/helpers': 0.5.15
       react: 19.0.0
       react-dom: 19.0.0(react@19.0.0)
@@ -10302,6 +10340,10 @@ snapshots:
       react: 19.0.0
 
   '@react-types/shared@3.29.0(react@19.0.0)':
+    dependencies:
+      react: 19.0.0
+
+  '@react-types/shared@3.29.1(react@19.0.0)':
     dependencies:
       react: 19.0.0
 
