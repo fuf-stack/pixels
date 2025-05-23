@@ -367,11 +367,11 @@ importers:
   packages/veto:
     dependencies:
       zod:
-        specifier: 3.25.23
-        version: 3.25.23
+        specifier: 3.25.28
+        version: 3.25.28
       zodex:
         specifier: 0.18.2
-        version: 0.18.2(zod@3.25.23)
+        version: 0.18.2(zod@3.25.28)
 
 packages:
 
@@ -7493,8 +7493,8 @@ packages:
     resolution: {integrity: sha512-GQHQqAopRhwU8Kt1DDM8NjibDXHC8eoh1erhGAJPEyveY9qqVeXvVikNKrDz69sHowPMorbPUrH/mx8c50eiBQ==}
     engines: {node: '>=18'}
 
-  zod@3.25.23:
-    resolution: {integrity: sha512-Od2bdMosahjSrSgJtakrwjMDb1zM1A3VIHCPGveZt/3/wlrTWBya2lmEh2OYe4OIu8mPTmmr0gnLHIWQXdtWBg==}
+  zod@3.25.28:
+    resolution: {integrity: sha512-/nt/67WYKnr5by3YS7LroZJbtcCBurDKKPBPWWzaxvVCGuG/NOsiKkrjoOhI8mJ+SQUXEbUzeB3S+6XDUEEj7Q==}
 
   zodex@0.18.2:
     resolution: {integrity: sha512-GE0/S68lJhhBhJWeOSvq4BCigrguOeKFr7h3sbsMPd6kF4ZCHeVU/hOzNLHlj6d+ezNXcpQ4nHj6purY5RxQBg==}
@@ -16155,9 +16155,9 @@ snapshots:
 
   yoctocolors@2.1.1: {}
 
-  zod@3.25.23: {}
+  zod@3.25.28: {}
 
-  zodex@0.18.2(zod@3.25.23):
+  zodex@0.18.2(zod@3.25.28):
     dependencies:
       type-fest: 4.37.0
-      zod: 3.25.23
+      zod: 3.25.28
