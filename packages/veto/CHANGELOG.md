@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.11.1](https://github.com/fuf-stack/pixels/compare/veto-v0.11.0...veto-v0.11.1) (2025-05-23)
+
+
+### Bug Fixes
+
+* **deps:** update dependency zod to v3.24.4 ([#958](https://github.com/fuf-stack/pixels/issues/958)) ([5f27f7e](https://github.com/fuf-stack/pixels/commit/5f27f7e28bc7d349c12cf15a2921a3ed396be76c))
+* **deps:** update dependency zod to v3.25.20 ([#989](https://github.com/fuf-stack/pixels/issues/989)) ([721a081](https://github.com/fuf-stack/pixels/commit/721a081cddde915a0d76360c9721eb6e619a7ad8))
+* **deps:** update dependency zod to v3.25.23 ([#991](https://github.com/fuf-stack/pixels/issues/991)) ([6736050](https://github.com/fuf-stack/pixels/commit/6736050109deb9a0b40dc2d5c87b69439893b1cc))
+* **deps:** update dependency zod to v3.25.28 ([#995](https://github.com/fuf-stack/pixels/issues/995)) ([16ed870](https://github.com/fuf-stack/pixels/commit/16ed87027db5535c91778e00bfcb6c6ddf92addf))
+* **deps:** update dependency zod to v3.25.3 ([802030f](https://github.com/fuf-stack/pixels/commit/802030fd02582ea7c4c27f65cf2b888791de9691))
+* **deps:** update dependency zod to v3.25.3 ([e59387b](https://github.com/fuf-stack/pixels/commit/e59387ba408288a489fb643a50a9b3880d1871f8))
+
 ## [0.11.0](https://github.com/fuf-stack/pixels/compare/veto-v0.10.2...veto-v0.11.0) (2025-04-23)
 
 
