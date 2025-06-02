@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.18.5](https://github.com/fuf-stack/pixels/compare/uniform-v0.18.4...uniform-v0.18.5) (2025-06-02)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @react-aria/visually-hidden to v3.8.23 ([#988](https://github.com/fuf-stack/pixels/issues/988)) ([ca5c63a](https://github.com/fuf-stack/pixels/commit/ca5c63ae24f2c5a9f1a044cb1a08ca60585d6ecb))
+* **deps:** update dependency framer-motion to v12.11.4 ([#977](https://github.com/fuf-stack/pixels/issues/977)) ([8967553](https://github.com/fuf-stack/pixels/commit/89675532d9be02e6c74a56b3357a6e69ae5df6fb))
+* **deps:** update dependency framer-motion to v12.12.1 ([#982](https://github.com/fuf-stack/pixels/issues/982)) ([34b1d3a](https://github.com/fuf-stack/pixels/commit/34b1d3afcd0b2286bdf42f8186b8f083a4817c20))
+* **deps:** update dependency framer-motion to v12.12.2 ([#994](https://github.com/fuf-stack/pixels/issues/994)) ([2ff1b9a](https://github.com/fuf-stack/pixels/commit/2ff1b9a7985774281cf8140d9588b9f94b62dc71))
+* **deps:** update dependency framer-motion to v12.14.0 ([#996](https://github.com/fuf-stack/pixels/issues/996)) ([5522935](https://github.com/fuf-stack/pixels/commit/552293573c3a66edd237f3cc8f7972a96d932118))
+* **deps:** update dependency framer-motion to v12.15.0 ([#998](https://github.com/fuf-stack/pixels/issues/998)) ([bc286c5](https://github.com/fuf-stack/pixels/commit/bc286c59ffa225695625b1a77803d70f137c8926))
+* **uniform:** simplify FieldValidationError render logic + aria fixes ([d9de390](https://github.com/fuf-stack/pixels/commit/d9de390b19c33a9e2820d8eec69a0328828a687a))
+
 ## [0.18.4](https://github.com/fuf-stack/pixels/compare/uniform-v0.18.3...uniform-v0.18.4) (2025-05-14)
 
 
