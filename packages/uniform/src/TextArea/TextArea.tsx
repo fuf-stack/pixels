@@ -85,7 +85,9 @@ const TextArea = ({
               inputWrapper: 'group-data-[focus=true]:border-focus',
             }}
             data-testid={testId}
-            errorMessage={error && <FieldValidationError error={error} />}
+            errorMessage={
+              error && <FieldValidationError error={error} testId={testId} />
+            }
             isDisabled={isDisabled}
             isRequired={required}
             isInvalid={invalid}

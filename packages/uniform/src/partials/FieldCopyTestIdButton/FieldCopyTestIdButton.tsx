@@ -4,7 +4,9 @@ import { cn } from '@fuf-stack/pixel-utils';
 import { Button } from '@fuf-stack/pixels';
 
 export interface FieldCopyTestIdButtonProps {
+  /** CSS class name */
   className?: string;
+  /** HTML data-testid attribute used in e2e tests */
   testId: string;
 }
 

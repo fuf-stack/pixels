@@ -147,6 +147,7 @@ const FieldArrayElement = ({
             <FieldValidationError
               /* @ts-expect-error rhf incompatibility */
               error={error[Number(index)]?._errors}
+              testId={testId as string}
             />
           </div>
         </div>

@@ -3,9 +3,12 @@ import type { FieldError } from 'react-hook-form';
 import { slugify } from '@fuf-stack/pixel-utils';
 
 export interface FieldValidationErrorProps {
+  /** CSS class name */
   className?: string;
-  error: FieldError[] | Record<string, FieldError[]>;
-  testId?: string;
+  /** Field errors */
+  error: FieldError | FieldError[];
+  /** HTML data-testid attribute used in e2e tests */
+  testId: string;
 }
 
 /**
@@ -14,36 +17,26 @@ export interface FieldValidationErrorProps {
 const FieldValidationError = ({
   className = undefined,
   error,
-  testId = undefined,
+  testId,
 }: FieldValidationErrorProps) => {
-  if (!error) {
+  // render nothing when no errors
+  if (!error || (Array.isArray(error) && !error.length)) {
     return null;
   }
 
-  let tmpErrors: FieldError[] = [];
-
-  if (typeof error === 'object' && !(error instanceof Array)) {
-    const errorObject = error as Record<string, FieldError[]>;
-    Object.keys(error).forEach((key) => {
-      tmpErrors = [...tmpErrors, ...errorObject[key]];
-    });
-  }
-
-  const errorArray: FieldError[] =
-    JSON.stringify(tmpErrors) !== '[]' ? tmpErrors : (error as FieldError[]);
-  const errorStrings: string[] = errorArray.map((e) => e.message) as string[];
-  const ariaString = `Error: ${errorStrings.join('\n')}`;
+  // get errors as array
+  const errors: FieldError[] = Array.isArray(error) ? error : [error];
 
   return (
     <ul
-      data-testid={slugify(testId || errorStrings.join())}
-      aria-label={ariaString} // TODO: ist das richtig @Hannes?
+      aria-label={`Validation errors of field ${testId}`}
       className={className}
+      data-testid={slugify(`${testId}_error`)}
     >
-      {errorStrings.map((errorString: string, i: number) => (
+      {errors.map(({ message }, i) => (
         // eslint-disable-next-line react/no-array-index-key
         <li key={`error_${i}`}>
-          <div>{errorString}</div>
+          <div>{message}</div>
         </li>
       ))}
     </ul>

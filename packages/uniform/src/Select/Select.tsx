@@ -317,7 +317,7 @@ const Select = ({
             <div {...getHelperWrapperProps()}>
               {/* eslint-disable-next-line react/jsx-props-no-spreading */}
               <div {...getErrorMessageProps()}>
-                <FieldValidationError error={error} />
+                <FieldValidationError error={error} testId={testId} />
               </div>
             </div>
           )}

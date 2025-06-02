@@ -3,9 +3,8 @@
 exports[`Story Snapshots > MultipleErrors 1`] = `
 <div>
   <ul
-    aria-label="Error: first error
-second error"
-    data-testid="first_errorsecond_error"
+    aria-label="Validation errors of field undefined"
+    data-testid="undefined_error"
   >
     <li>
       <div>
@@ -24,8 +23,8 @@ second error"
 exports[`Story Snapshots > SingleError 1`] = `
 <div>
   <ul
-    aria-label="Error: single error message"
-    data-testid="single_error_message"
+    aria-label="Validation errors of field undefined"
+    data-testid="undefined_error"
   >
     <li>
       <div>

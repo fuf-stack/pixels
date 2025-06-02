@@ -1,4 +1,5 @@
 import type { TVClassName, TVProps } from '@fuf-stack/pixel-utils';
+import type { FieldError } from 'react-hook-form';
 
 import { Checkbox, CheckboxGroup as HeroCheckboxGroup } from '@heroui/checkbox';
 
@@ -69,7 +70,12 @@ const CheckboxGroup = ({
   testId: _testId = undefined,
 }: CheckboxGroupProps) => {
   const { control, debugMode, getFieldState } = useFormContext();
-  const { error, invalid, required, testId } = getFieldState(name, _testId);
+  const {
+    error: _error,
+    invalid,
+    required,
+    testId,
+  } = getFieldState(name, _testId);
 
   const showTestIdCopyButton = debugMode === 'debug-testids';
   const showLabel = label || showTestIdCopyButton;
@@ -88,6 +94,17 @@ const CheckboxGroup = ({
     wrapper: classNames.wrapper,
     label: classNames.label,
   };
+
+  // Convert React Hook Form's nested error object structure to a flat array
+  // RHF errors can be nested like: checkboxField.0 (individual checkbox errors)
+  // and checkboxField._error (global field errors) - this flattens all
+  // error values into a single array for rendering with FieldValidationError
+  const errorFlat: FieldError[] =
+    (_error &&
+      Object.values(
+        _error as unknown as Record<string, FieldError[]>,
+      ).flat()) ||
+    [];
 
   return (
     <Controller
@@ -143,10 +160,11 @@ const CheckboxGroup = ({
             // e.g.: https://github.com/heroui-inc/heroui/blob/main/packages/components/select/src/use-select.ts
             data-invalid={invalid}
             errorMessage={
-              error && (
+              errorFlat.length && (
                 <FieldValidationError
-                  error={error}
                   className={classNames.errorMessage}
+                  error={errorFlat}
+                  testId={testId}
                 />
               )
             }
@@ -171,6 +189,9 @@ const CheckboxGroup = ({
             {...checkboxGroupProps}
           >
             {options?.map((option) => {
+              const optionTestId = slugify(
+                `${testId}_option_${option?.testId || option?.value}`,
+              );
               return (
                 <Checkbox
                   data-invalid={invalid}
@@ -178,9 +199,7 @@ const CheckboxGroup = ({
                   key={`index_${option.value}`}
                   isDisabled={disabled || option.disabled}
                   value={option?.value}
-                  data-testid={slugify(
-                    `${testId}_option_${option?.testId || option?.value}`,
-                  )}
+                  data-testid={optionTestId}
                 >
                   {option?.label}
                 </Checkbox>

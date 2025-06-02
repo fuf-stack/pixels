@@ -107,7 +107,7 @@ const Switch = ({
                   /* eslint-disable-next-line react/jsx-props-no-spreading */
                   {...getErrorMessageProps()}
                 >
-                  <FieldValidationError error={error} />
+                  <FieldValidationError error={error} testId={testId} />
                 </div>
               </div>
             )}

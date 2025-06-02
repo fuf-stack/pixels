@@ -115,7 +115,9 @@ const RadioTabs = ({
             data-invalid={invalid}
             data-required={required}
             data-testid={testId}
-            errorMessage={error && <FieldValidationError error={error} />}
+            errorMessage={
+              error && <FieldValidationError error={error} testId={testId} />
+            }
             isDisabled={isDisabled}
             isInvalid={invalid}
             isRequired={required}

@@ -122,7 +122,9 @@ const Input = ({
             }}
             data-testid={testId}
             endContent={endContent}
-            errorMessage={error && <FieldValidationError error={error} />}
+            errorMessage={
+              error && <FieldValidationError error={error} testId={testId} />
+            }
             isDisabled={isDisabled}
             isInvalid={invalid}
             isRequired={required}

@@ -172,7 +172,7 @@ const FieldArray = ({
           <div {...getHelperWrapperProps()}>
             <div {...getErrorMessageProps()}>
               {/* @ts-expect-error rhf incompatibility */}
-              <FieldValidationError error={error?._errors} />
+              <FieldValidationError error={error?._errors} testId={testId} />
             </div>
           </div>
         )}
