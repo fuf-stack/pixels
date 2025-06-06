@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.19.0](https://github.com/fuf-stack/pixels/compare/uniform-v0.18.5...uniform-v0.19.0) (2025-06-06)
+
+
+### Features
+
+* **uniform:** add client validation + many render cycle performance optimizations ([c16a110](https://github.com/fuf-stack/pixels/commit/c16a1102f962cd72ce7c4a4705501cb85e318e17))
+* **uniform:** add useController hook + use it in Input ([d89d83a](https://github.com/fuf-stack/pixels/commit/d89d83a16916d98581cdfeb99eac54eb9437bacc))
+
+
+### Bug Fixes
+
+* **deps:** update dependency framer-motion to v12.16.0 ([#1015](https://github.com/fuf-stack/pixels/issues/1015)) ([9cf67a1](https://github.com/fuf-stack/pixels/commit/9cf67a11570fbdabaa7612830df149cadbf23942))
+* **uniform:** use useController in all renderers + remove Controller ([37d39d5](https://github.com/fuf-stack/pixels/commit/37d39d58e5fcbaeacbccad73d699fe76b21d21e7))
+
 ## [0.18.5](https://github.com/fuf-stack/pixels/compare/uniform-v0.18.4...uniform-v0.18.5) (2025-06-02)
 
 
