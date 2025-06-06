@@ -8,8 +8,7 @@ import { useSelect } from '@heroui/select';
 
 import { cn, slugify, tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 
-import { Controller } from '../Controller';
-import { useFormContext } from '../hooks';
+import { useController, useFormContext } from '../hooks';
 import { FieldCopyTestIdButton } from '../partials/FieldCopyTestIdButton';
 import { FieldValidationError } from '../partials/FieldValidationError';
 
@@ -166,6 +165,9 @@ const Select = ({
   const { control, debugMode, getFieldState } = useFormContext();
   const { error, invalid, required, testId } = getFieldState(name, _testId);
 
+  const { field } = useController({ control, disabled, name });
+  const { onChange, value, ref, onBlur } = field;
+
   const [isFocused, setIsFocused] = useState(false);
 
   const variants = selectVariants();
@@ -196,134 +198,120 @@ const Select = ({
   const showLabel = label || showTestIdCopyButton;
 
   return (
-    <Controller
-      control={control}
-      disabled={disabled}
-      name={name}
-      render={({
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        field: { onChange, value, ref, onBlur },
-      }) => (
-        <div
-          // eslint-disable-next-line react/jsx-props-no-spreading
-          {...getBaseProps()}
-          className={cn(classNames.base)}
-          data-testid={`${testId}_wrapper`}
-          // see HeroUI styles for group-data condition (data-invalid),
-          // e.g.: https://github.com/heroui-inc/heroui/blob/main/packages/components/select/src/use-select.ts
-          data-required={required}
+    <div
+      // eslint-disable-next-line react/jsx-props-no-spreading
+      {...getBaseProps()}
+      className={cn(classNames.base)}
+      data-testid={`${testId}_wrapper`}
+      // see HeroUI styles for group-data condition (data-invalid),
+      // e.g.: https://github.com/heroui-inc/heroui/blob/main/packages/components/select/src/use-select.ts
+      data-required={required}
+    >
+      {showLabel && (
+        <label
+          className={classNames.label}
+          data-slot="label"
+          htmlFor={`react-select-${name}-input`}
+          id={getLabelProps().id}
         >
-          {showLabel && (
-            <label
-              className={classNames.label}
-              data-slot="label"
-              htmlFor={`react-select-${name}-input`}
-              id={getLabelProps().id}
-            >
-              {label}
-              {showTestIdCopyButton && (
-                <FieldCopyTestIdButton testId={testId} />
-              )}
-            </label>
-          )}
-          <ReactSelect
-            aria-errormessage=""
-            aria-labelledby={
-              getTriggerProps()['aria-labelledby']?.split(' ')[1]
-            }
-            aria-invalid={invalid}
-            classNames={{
-              control: () =>
-                cn(classNames.control, {
-                  [classNames.control_focused]: isFocused && !invalid,
-                }),
-              clearIndicator: () => classNames.clearIndicator,
-              dropdownIndicator: () => classNames.dropdownIndicator,
-              groupHeading: () => classNames.groupHeading,
-              indicatorsContainer: () => classNames.indicatorsContainer,
-              indicatorSeparator: () => classNames.indicatorSeparator,
-              loadingIndicator: () => classNames.loadingIndicator,
-              loadingMessage: () => classNames.loadingMessage,
-              input: () => classNames.input,
-              menu: () => classNames.menu,
-              menuList: () => classNames.menuList,
-              menuPortal: () => classNames.menuPortal,
-              multiValue: () => classNames.multiValue,
-              multiValueLabel: () =>
-                cn(classNames.multiValueLabel, `${getValueProps().className}`),
-              multiValueRemove: () => classNames.multiValueRemove,
-              noOptionsMessage: () => classNames.noOptionsMessage,
-              option: ({
-                isFocused: optionIsFocused,
-                isSelected: optionIsSelected,
-              }) =>
-                cn(classNames.option, {
-                  [classNames.option_focused]: optionIsFocused,
-                  [classNames.option_selected]: optionIsSelected,
-                }),
-              placeholder: () => classNames.placeholder,
-              singleValue: () =>
-                cn(classNames.singleValue, `${getValueProps().className}`),
-              valueContainer: () => classNames.valueContainer,
-            }}
-            components={{
-              Input: InputComponent,
-              Option: OptionComponent,
-              DropdownIndicator: DropdownIndicatorComponent,
-              Control: ControlComponent,
-            }}
-            // Does not affect the testId of the select, but is needed to pass it to sub-components
-            data-testid={testId}
-            filterOption={filterOption}
-            formatOptionLabel={renderOptionLabel}
-            inputValue={inputValue}
-            instanceId={name}
-            isClearable={clearable}
-            isDisabled={disabled}
-            isLoading={loading}
-            isMulti={multiSelect}
-            name={name}
-            // set menuPosition to fixed so that menu can be rendered
-            // inside Card / Modal components, menuShouldBlockScroll
-            // prevents container scroll when menu is open
-            menuPosition="fixed"
-            menuShouldBlockScroll
-            options={options}
-            placeholder={placeholder}
-            onBlur={(_e) => {
-              setIsFocused(false);
-              return onBlur();
-            }}
-            onChange={(option) => {
-              if (multiSelect) {
-                onChange(
-                  (option as SelectOption[])?.map((_option) => _option.value),
-                );
-              } else {
-                onChange((option as SelectOption)?.value);
-              }
-            }}
-            onFocus={(_e) => {
-              setIsFocused(true);
-            }}
-            onInputChange={onInputChange}
-            ref={ref}
-            // set complete option as value by current field value
-            value={options.find((option) => option.value === value)}
-            unstyled
-          />
-          {error && (
-            // eslint-disable-next-line react/jsx-props-no-spreading
-            <div {...getHelperWrapperProps()}>
-              {/* eslint-disable-next-line react/jsx-props-no-spreading */}
-              <div {...getErrorMessageProps()}>
-                <FieldValidationError error={error} testId={testId} />
-              </div>
-            </div>
-          )}
+          {label}
+          {showTestIdCopyButton && <FieldCopyTestIdButton testId={testId} />}
+        </label>
+      )}
+      <ReactSelect
+        aria-errormessage=""
+        aria-labelledby={getTriggerProps()['aria-labelledby']?.split(' ')[1]}
+        aria-invalid={invalid}
+        classNames={{
+          control: () =>
+            cn(classNames.control, {
+              [classNames.control_focused]: isFocused && !invalid,
+            }),
+          clearIndicator: () => classNames.clearIndicator,
+          dropdownIndicator: () => classNames.dropdownIndicator,
+          groupHeading: () => classNames.groupHeading,
+          indicatorsContainer: () => classNames.indicatorsContainer,
+          indicatorSeparator: () => classNames.indicatorSeparator,
+          loadingIndicator: () => classNames.loadingIndicator,
+          loadingMessage: () => classNames.loadingMessage,
+          input: () => classNames.input,
+          menu: () => classNames.menu,
+          menuList: () => classNames.menuList,
+          menuPortal: () => classNames.menuPortal,
+          multiValue: () => classNames.multiValue,
+          multiValueLabel: () =>
+            cn(classNames.multiValueLabel, `${getValueProps().className}`),
+          multiValueRemove: () => classNames.multiValueRemove,
+          noOptionsMessage: () => classNames.noOptionsMessage,
+          option: ({
+            isFocused: optionIsFocused,
+            isSelected: optionIsSelected,
+          }) =>
+            cn(classNames.option, {
+              [classNames.option_focused]: optionIsFocused,
+              [classNames.option_selected]: optionIsSelected,
+            }),
+          placeholder: () => classNames.placeholder,
+          singleValue: () =>
+            cn(classNames.singleValue, `${getValueProps().className}`),
+          valueContainer: () => classNames.valueContainer,
+        }}
+        components={{
+          Input: InputComponent,
+          Option: OptionComponent,
+          DropdownIndicator: DropdownIndicatorComponent,
+          Control: ControlComponent,
+        }}
+        // Does not affect the testId of the select, but is needed to pass it to sub-components
+        data-testid={testId}
+        filterOption={filterOption}
+        formatOptionLabel={renderOptionLabel}
+        inputValue={inputValue}
+        instanceId={name}
+        isClearable={clearable}
+        isDisabled={disabled}
+        isLoading={loading}
+        isMulti={multiSelect}
+        name={name}
+        // set menuPosition to fixed so that menu can be rendered
+        // inside Card / Modal components, menuShouldBlockScroll
+        // prevents container scroll when menu is open
+        menuPosition="fixed"
+        menuShouldBlockScroll
+        options={options}
+        placeholder={placeholder}
+        onBlur={(_e) => {
+          setIsFocused(false);
+          return onBlur();
+        }}
+        onChange={(option) => {
+          if (multiSelect) {
+            onChange(
+              (option as SelectOption[])?.map((_option) => _option.value),
+            );
+          } else {
+            onChange((option as SelectOption)?.value);
+          }
+        }}
+        onFocus={(_e) => {
+          setIsFocused(true);
+        }}
+        onInputChange={onInputChange}
+        ref={ref}
+        // set complete option as value by current field value
+        value={options.find((option) => option.value === value)}
+        unstyled
+      />
+      {error && (
+        // eslint-disable-next-line react/jsx-props-no-spreading
+        <div {...getHelperWrapperProps()}>
+          {/* eslint-disable-next-line react/jsx-props-no-spreading */}
+          <div {...getErrorMessageProps()}>
+            <FieldValidationError error={error} testId={testId} />
+          </div>
         </div>
       )}
-    />
+    </div>
   );
 };
 

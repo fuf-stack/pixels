@@ -5,8 +5,7 @@ import { Checkbox, CheckboxGroup as HeroCheckboxGroup } from '@heroui/checkbox';
 
 import { slugify, tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 
-import { Controller } from '../Controller';
-import { useFormContext } from '../hooks';
+import { useController, useFormContext } from '../hooks';
 import { FieldCopyTestIdButton } from '../partials/FieldCopyTestIdButton';
 import { FieldValidationError } from '../partials/FieldValidationError';
 
@@ -77,6 +76,9 @@ const CheckboxGroup = ({
     testId,
   } = getFieldState(name, _testId);
 
+  const { field } = useController({ control, name, disabled });
+  const { onChange, value = [], ref, onBlur } = field;
+
   const showTestIdCopyButton = debugMode === 'debug-testids';
   const showLabel = label || showTestIdCopyButton;
 
@@ -106,109 +108,98 @@ const CheckboxGroup = ({
       ).flat()) ||
     [];
 
+  /**
+   * Handles the checkbox group value changes based on the number of options:
+   * 1. For single checkbox (options.length === 1):
+   *    - Converts undefined/empty array to [] for consistent controlled behavior
+   *    - Extracts single value from array for onChange
+   *
+   *    Example: undefined → []
+   *            [value] → value
+   *
+   * 2. For multiple checkboxes:
+   *    - Uses raw value array with fallback to empty array
+   *    - Passes through onChange directly
+   *
+   *    Example: undefined → []
+   *            ['value1', 'value2'] → ['value1', 'value2']
+   */
+  const getCheckboxValue = (inputValue: unknown): string[] => {
+    if (Array.isArray(inputValue)) {
+      return inputValue;
+    }
+    if (inputValue) {
+      return [inputValue as string];
+    }
+    return [];
+  };
+
+  const singleCheckboxProps = {
+    value: getCheckboxValue(value),
+    onChange: (newValue: string[]) => onChange(newValue && newValue[0]),
+  };
+
+  const multipleCheckboxProps = {
+    onChange,
+    value: getCheckboxValue(value),
+  };
+
+  const checkboxGroupProps =
+    options.length === 1 ? singleCheckboxProps : multipleCheckboxProps;
+
   return (
-    <Controller
-      control={control}
+    <HeroCheckboxGroup
       name={name}
-      disabled={disabled}
-      render={({ field: { onChange, value = [], ref, onBlur } }) => {
-        /**
-         * Handles the checkbox group value changes based on the number of options:
-         * 1. For single checkbox (options.length === 1):
-         *    - Converts undefined/empty array to [] for consistent controlled behavior
-         *    - Extracts single value from array for onChange
-         *
-         *    Example: undefined → []
-         *            [value] → value
-         *
-         * 2. For multiple checkboxes:
-         *    - Uses raw value array with fallback to empty array
-         *    - Passes through onChange directly
-         *
-         *    Example: undefined → []
-         *            ['value1', 'value2'] → ['value1', 'value2']
-         */
-        const getCheckboxValue = (inputValue: unknown): string[] => {
-          if (Array.isArray(inputValue)) {
-            return inputValue;
-          }
-          if (inputValue) {
-            return [inputValue as string];
-          }
-          return [];
-        };
-
-        const singleCheckboxProps = {
-          value: getCheckboxValue(value),
-          onChange: (newValue: string[]) => onChange(newValue && newValue[0]),
-        };
-
-        const multipleCheckboxProps = {
-          onChange,
-          value: getCheckboxValue(value),
-        };
-
-        const checkboxGroupProps =
-          options.length === 1 ? singleCheckboxProps : multipleCheckboxProps;
-
-        return (
-          <HeroCheckboxGroup
-            name={name}
-            classNames={itemGroupClassName}
-            data-testid={testId}
-            // see HeroUI styles for group-data condition (data-invalid),
-            // e.g.: https://github.com/heroui-inc/heroui/blob/main/packages/components/select/src/use-select.ts
-            data-invalid={invalid}
-            errorMessage={
-              errorFlat.length && (
-                <FieldValidationError
-                  className={classNames.errorMessage}
-                  error={errorFlat}
-                  testId={testId}
-                />
-              )
-            }
-            isDisabled={disabled}
-            isInvalid={invalid}
-            isRequired={required}
-            label={
-              showLabel && (
-                // eslint-disable-next-line jsx-a11y/label-has-associated-control
-                <label>
-                  {label}
-                  {showTestIdCopyButton && (
-                    <FieldCopyTestIdButton testId={testId} />
-                  )}
-                </label>
-              )
-            }
-            onBlur={onBlur}
-            orientation={inline ? 'horizontal' : 'vertical'}
-            ref={ref}
-            // eslint-disable-next-line react/jsx-props-no-spreading
-            {...checkboxGroupProps}
-          >
-            {options?.map((option) => {
-              const optionTestId = slugify(
-                `${testId}_option_${option?.testId || option?.value}`,
-              );
-              return (
-                <Checkbox
-                  data-invalid={invalid}
-                  classNames={itemClassName}
-                  key={`index_${option.value}`}
-                  isDisabled={disabled || option.disabled}
-                  value={option?.value}
-                  data-testid={optionTestId}
-                >
-                  {option?.label}
-                </Checkbox>
-              );
-            })}
-          </HeroCheckboxGroup>
+      classNames={itemGroupClassName}
+      data-testid={testId}
+      // see HeroUI styles for group-data condition (data-invalid),
+      // e.g.: https://github.com/heroui-inc/heroui/blob/main/packages/components/select/src/use-select.ts
+      data-invalid={invalid}
+      errorMessage={
+        errorFlat.length && (
+          <FieldValidationError
+            className={classNames.errorMessage}
+            error={errorFlat}
+            testId={testId}
+          />
+        )
+      }
+      isDisabled={disabled}
+      isInvalid={invalid}
+      isRequired={required}
+      label={
+        showLabel && (
+          // eslint-disable-next-line jsx-a11y/label-has-associated-control
+          <label>
+            {label}
+            {showTestIdCopyButton && <FieldCopyTestIdButton testId={testId} />}
+          </label>
+        )
+      }
+      onBlur={onBlur}
+      orientation={inline ? 'horizontal' : 'vertical'}
+      ref={ref}
+      // eslint-disable-next-line react/jsx-props-no-spreading
+      {...checkboxGroupProps}
+    >
+      {options?.map((option) => {
+        const optionTestId = slugify(
+          `${testId}_option_${option?.testId || option?.value}`,
         );
-      }}
-    />
+        return (
+          <Checkbox
+            data-invalid={invalid}
+            classNames={itemClassName}
+            key={`index_${option.value}`}
+            isDisabled={disabled || option.disabled}
+            value={option?.value}
+            data-testid={optionTestId}
+          >
+            {option?.label}
+          </Checkbox>
+        );
+      })}
+    </HeroCheckboxGroup>
   );
 };
 

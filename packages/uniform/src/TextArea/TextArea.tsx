@@ -4,8 +4,7 @@ import { Textarea as HeroTextArea } from '@heroui/input';
 
 import { cn } from '@fuf-stack/pixel-utils';
 
-import { Controller } from '../Controller';
-import { useFormContext } from '../hooks';
+import { useController, useFormContext } from '../hooks';
 import { FieldCopyTestIdButton } from '../partials/FieldCopyTestIdButton';
 import { FieldValidationError } from '../partials/FieldValidationError';
 
@@ -41,80 +40,70 @@ const TextArea = ({
   const { control, debugMode, getFieldState } = useFormContext();
   const { error, invalid, required, testId } = getFieldState(name, _testId);
 
+  const { field } = useController({ control, name, disabled });
+  const { disabled: isDisabled, onChange, onBlur, value = '', ref } = field;
+
   const showTestIdCopyButton = debugMode === 'debug-testids';
   const showLabel = label || showTestIdCopyButton;
 
-  return (
-    <Controller
-      control={control}
-      name={name}
-      disabled={disabled}
-      render={({
-        field: { disabled: isDisabled, onChange, onBlur, value = '', ref },
-      }) => {
-        /**
-         * Ensures the textarea always has a defined string value to prevent uncontrolled to
-         * controlled component warnings:
-         *
-         * 1. Warning Prevention:
-         *    - Sets default value to '' in field destructuring
-         *    - Guarantees the value prop is never undefined/null
-         *    - Prevents React warning: "A component is changing from uncontrolled to controlled"
-         *
-         * 2. Value Handling:
-         *    - Converts undefined/null to empty string
-         *    - Converts non-string values to strings
-         *    - Maintains existing string values
-         *
-         * Examples:
-         * - undefined → "" (prevents uncontrolled warning)
-         * - null → "" (prevents uncontrolled warning)
-         * - "hello" → "hello" (maintains string value)
-         * - 123 → "123" (converts to string)
-         *
-         * Without this handling, the textarea could switch between controlled/uncontrolled
-         * states when the form value changes from undefined to defined, causing React warnings
-         * and potential rendering issues.
-         */
-        const displayValue = value?.toString() ?? '';
+  /**
+   * Ensures the textarea always has a defined string value to prevent uncontrolled to
+   * controlled component warnings:
+   *
+   * 1. Warning Prevention:
+   *    - Sets default value to '' in field destructuring
+   *    - Guarantees the value prop is never undefined/null
+   *    - Prevents React warning: "A component is changing from uncontrolled to controlled"
+   *
+   * 2. Value Handling:
+   *    - Converts undefined/null to empty string
+   *    - Converts non-string values to strings
+   *    - Maintains existing string values
+   *
+   * Examples:
+   * - undefined → "" (prevents uncontrolled warning)
+   * - null → "" (prevents uncontrolled warning)
+   * - "hello" → "hello" (maintains string value)
+   * - 123 → "123" (converts to string)
+   *
+   * Without this handling, the textarea could switch between controlled/uncontrolled
+   * states when the form value changes from undefined to defined, causing React warnings
+   * and potential rendering issues.
+   */
+  const displayValue = value?.toString() ?? '';
 
-        return (
-          <HeroTextArea
-            className={cn(className)}
-            classNames={{
-              inputWrapper: 'group-data-[focus=true]:border-focus',
-            }}
-            data-testid={testId}
-            errorMessage={
-              error && <FieldValidationError error={error} testId={testId} />
-            }
-            isDisabled={isDisabled}
-            isRequired={required}
-            isInvalid={invalid}
-            label={
-              showLabel && (
-                <>
-                  {label}
-                  {showTestIdCopyButton && (
-                    <FieldCopyTestIdButton testId={testId} />
-                  )}
-                </>
-              )
-            }
-            labelPlacement="outside"
-            placeholder={placeholder}
-            name={name}
-            value={displayValue}
-            onChange={onChange}
-            onBlur={onBlur}
-            ref={ref}
-            variant="bordered"
-          >
-            {children}
-          </HeroTextArea>
-        );
+  return (
+    <HeroTextArea
+      className={cn(className)}
+      classNames={{
+        inputWrapper: 'group-data-[focus=true]:border-focus',
       }}
-    />
+      data-testid={testId}
+      errorMessage={
+        error && <FieldValidationError error={error} testId={testId} />
+      }
+      isDisabled={isDisabled}
+      isRequired={required}
+      isInvalid={invalid}
+      label={
+        showLabel && (
+          <>
+            {label}
+            {showTestIdCopyButton && <FieldCopyTestIdButton testId={testId} />}
+          </>
+        )
+      }
+      labelPlacement="outside"
+      placeholder={placeholder}
+      name={name}
+      value={displayValue}
+      onChange={onChange}
+      onBlur={onBlur}
+      ref={ref}
+      variant="bordered"
+    >
+      {children}
+    </HeroTextArea>
   );
 };
 

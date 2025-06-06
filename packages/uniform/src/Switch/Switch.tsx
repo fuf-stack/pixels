@@ -4,8 +4,7 @@ import { Switch as HeroSwitch } from '@heroui/switch';
 
 import { tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 
-import { Controller } from '../Controller';
-import { useFormContext, useInput } from '../hooks';
+import { useController, useFormContext, useInput } from '../hooks';
 import { FieldCopyTestIdButton } from '../partials/FieldCopyTestIdButton';
 import { FieldValidationError } from '../partials/FieldValidationError';
 
@@ -55,6 +54,9 @@ const Switch = ({
   const { control, debugMode, getFieldState } = useFormContext();
   const { error, required, testId, invalid } = getFieldState(name, _testId);
 
+  const { field } = useController({ name, control, disabled });
+  const { disabled: isDisabled, value, ref, onBlur, onChange } = field;
+
   const { label, getInputProps, getErrorMessageProps } = useInput({
     errorMessage: JSON.stringify(error),
     isInvalid: invalid,
@@ -70,51 +72,38 @@ const Switch = ({
   const showTestIdCopyButton = debugMode === 'debug-testids';
 
   return (
-    <Controller
-      name={name}
-      control={control}
-      disabled={disabled}
-      render={({
-        field: { disabled: isDisabled, value, ref, onBlur, onChange },
-      }) => {
-        return (
-          <div className={classNames.outerWrapper}>
-            <HeroSwitch
-              aria-describedby={getInputProps()['aria-describedby']}
-              classNames={classNames}
-              // see HeroUI styles for group-data condition (data-invalid),
-              // e.g.: https://github.com/heroui-inc/heroui/blob/main/packages/components/select/src/use-select.ts
-              data-invalid={invalid}
-              data-required={required}
-              data-testid={testId}
-              isDisabled={isDisabled}
-              isSelected={!!value}
-              name={name}
-              onBlur={onBlur}
-              onValueChange={onChange}
-              ref={ref}
-              required={required}
-              value={value}
-            >
-              {label}
-              {showTestIdCopyButton && (
-                <FieldCopyTestIdButton testId={testId} />
-              )}
-            </HeroSwitch>
-            {error && (
-              <div className={classNames.errorMessage}>
-                <div
-                  /* eslint-disable-next-line react/jsx-props-no-spreading */
-                  {...getErrorMessageProps()}
-                >
-                  <FieldValidationError error={error} testId={testId} />
-                </div>
-              </div>
-            )}
+    <div className={classNames.outerWrapper}>
+      <HeroSwitch
+        aria-describedby={getInputProps()['aria-describedby']}
+        classNames={classNames}
+        // see HeroUI styles for group-data condition (data-invalid),
+        // e.g.: https://github.com/heroui-inc/heroui/blob/main/packages/components/select/src/use-select.ts
+        data-invalid={invalid}
+        data-required={required}
+        data-testid={testId}
+        isDisabled={isDisabled}
+        isSelected={!!value}
+        name={name}
+        onBlur={onBlur}
+        onValueChange={onChange}
+        ref={ref}
+        required={required}
+        value={value}
+      >
+        {label}
+        {showTestIdCopyButton && <FieldCopyTestIdButton testId={testId} />}
+      </HeroSwitch>
+      {error && (
+        <div className={classNames.errorMessage}>
+          <div
+            /* eslint-disable-next-line react/jsx-props-no-spreading */
+            {...getErrorMessageProps()}
+          >
+            <FieldValidationError error={error} testId={testId} />
           </div>
-        );
-      }}
-    />
+        </div>
+      )}
+    </div>
   );
 };
 

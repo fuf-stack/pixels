@@ -8,8 +8,7 @@ import { RadioGroup as HeroRadioGroup } from '@heroui/radio';
 import { slugify, tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 import Tabs from '@fuf-stack/pixels/Tabs';
 
-import { Controller } from '../Controller';
-import { useFormContext } from '../hooks';
+import { useController, useFormContext } from '../hooks';
 import { FieldCopyTestIdButton } from '../partials/FieldCopyTestIdButton';
 import { FieldValidationError } from '../partials/FieldValidationError';
 
@@ -81,6 +80,9 @@ const RadioTabs = ({
   const { control, debugMode, getFieldState } = useFormContext();
   const { error, invalid, required, testId } = getFieldState(name, _testId);
 
+  const { field } = useController({ control, disabled, name });
+  const { disabled: isDisabled, onBlur, onChange, ref, value } = field;
+
   const showTestIdCopyButton = debugMode === 'debug-testids';
   const showLabel = label || showTestIdCopyButton;
 
@@ -100,56 +102,43 @@ const RadioTabs = ({
   );
 
   return (
-    <Controller
-      control={control}
-      disabled={disabled}
+    <HeroRadioGroup
+      classNames={classNames}
+      // see HeroUI styles for group-data condition (data-invalid),
+      // e.g.: https://github.com/heroui-inc/heroui/blob/main/packages/components/select/src/use-select.ts
+      data-invalid={invalid}
+      data-required={required}
+      data-testid={testId}
+      errorMessage={
+        error && <FieldValidationError error={error} testId={testId} />
+      }
+      isDisabled={isDisabled}
+      isInvalid={invalid}
+      isRequired={required}
+      label={
+        showLabel && (
+          // eslint-disable-next-line jsx-a11y/label-has-associated-control
+          <label>
+            {label}
+            {showTestIdCopyButton && <FieldCopyTestIdButton testId={testId} />}
+          </label>
+        )
+      }
       name={name}
-      render={({
-        field: { disabled: isDisabled, onBlur, onChange, ref, value },
-      }) => {
-        return (
-          <HeroRadioGroup
-            classNames={classNames}
-            // see HeroUI styles for group-data condition (data-invalid),
-            // e.g.: https://github.com/heroui-inc/heroui/blob/main/packages/components/select/src/use-select.ts
-            data-invalid={invalid}
-            data-required={required}
-            data-testid={testId}
-            errorMessage={
-              error && <FieldValidationError error={error} testId={testId} />
-            }
-            isDisabled={isDisabled}
-            isInvalid={invalid}
-            isRequired={required}
-            label={
-              showLabel && (
-                // eslint-disable-next-line jsx-a11y/label-has-associated-control
-                <label>
-                  {label}
-                  {showTestIdCopyButton && (
-                    <FieldCopyTestIdButton testId={testId} />
-                  )}
-                </label>
-              )
-            }
-            name={name}
-            orientation={inline ? 'horizontal' : 'vertical'}
-            onBlur={onBlur}
-            ref={ref}
-          >
-            <Tabs
-              disabledKeys={disabled ? disabledAllKeys : undefined}
-              fullWidth={false}
-              onSelectionChange={onChange}
-              selectedKey={value}
-              tabs={tabOptions as TabProps[]}
-              testId={testId}
-              variant={variant}
-            />
-          </HeroRadioGroup>
-        );
-      }}
-    />
+      orientation={inline ? 'horizontal' : 'vertical'}
+      onBlur={onBlur}
+      ref={ref}
+    >
+      <Tabs
+        disabledKeys={disabled ? disabledAllKeys : undefined}
+        fullWidth={false}
+        onSelectionChange={onChange}
+        selectedKey={value}
+        tabs={tabOptions as TabProps[]}
+        testId={testId}
+        variant={variant}
+      />
+    </HeroRadioGroup>
   );
 };
 
