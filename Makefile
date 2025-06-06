@@ -21,6 +21,9 @@ storybook:
 	@$(MAKE) install;
 	pnpm --filter storybook-config storybook;
 
+storybook-react-scan:
+	pnpx react-scan@latest http://localhost:6006
+
 test:
 	@$(MAKE) install;
 	pnpm test;

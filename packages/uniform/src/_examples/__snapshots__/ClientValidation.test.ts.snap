@@ -1,0 +1,848 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Story Snapshots > Default 1`] = `
+<div>
+  <div
+    class="flex w-full flex-row justify-between gap-6"
+  >
+    <form
+      class="flex-grow max-w-md"
+      data-testid=""
+    >
+      <div
+        class="grid gap-6"
+      >
+        <div
+          class="group leading-normal"
+          data-filled="true"
+          data-has-label="true"
+          data-has-label-outside="true"
+          data-required="true"
+          data-slot="base"
+          data-testid="teamid_wrapper"
+        >
+          <label
+            class="pointer-events-auto relative bottom-1.5 ml-1 text-small subpixel-antialiased group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
+            data-slot="label"
+            for="react-select-teamId-input"
+            id="react-aria-react-useId-mock"
+          >
+            Select Team
+          </label>
+          <div
+            class="css-b62m3t-container"
+          >
+            <span
+              class="css-1f43avz-a11yText-A11yText"
+              id="react-select-teamId-live-region"
+            />
+            <span
+              aria-atomic="false"
+              aria-live="polite"
+              aria-relevant="additions text"
+              class="css-1f43avz-a11yText-A11yText"
+              role="log"
+            />
+            <div
+              data-testid="teamid_select"
+            >
+              <div
+                class="rounded-lg border-2 border-default-200 !duration-150 transition-background hover:border-default-400 group-data-[invalid=true]:border-danger group-data-[invalid=true]:hover:border-danger motion-reduce:transition-none css-cp01gg-control"
+              >
+                <div
+                  class="gap-1 p-1 css-14oxtc6"
+                >
+                  <div
+                    class="ml-1 py-0.5 pl-1 text-sm text-foreground-500 css-1vlsb4t-placeholder"
+                    id="react-select-teamId-placeholder"
+                  >
+                    Select...
+                  </div>
+                  <div
+                    class="py-0.5 pl-1 css-n9qnu9"
+                    data-value=""
+                  >
+                    <input
+                      aria-activedescendant=""
+                      aria-autocomplete="list"
+                      aria-describedby="react-select-teamId-placeholder"
+                      aria-errormessage=""
+                      aria-expanded="false"
+                      aria-haspopup="true"
+                      aria-invalid="false"
+                      aria-labelledby="react-aria-react-useId-mock"
+                      autocapitalize="none"
+                      autocomplete="off"
+                      autocorrect="off"
+                      class=""
+                      data-testid="teamid"
+                      id="react-select-teamId-input"
+                      role="combobox"
+                      spellcheck="false"
+                      style="opacity: 1; width: 100%; grid-area: 1 / 2; min-width: 2px; border: 0px; margin: 0px; outline: 0; padding: 0px;"
+                      tabindex="0"
+                      type="text"
+                      value=""
+                    />
+                  </div>
+                </div>
+                <div
+                  class="gap-1 p-1 css-1wy0on6"
+                >
+                  <span
+                    class="bg-default-300 css-j4w2j1-indicatorSeparator"
+                  />
+                  <div
+                    data-testid="teamid_select_dropdown"
+                  >
+                    <div
+                      aria-hidden="true"
+                      class="rounded-md p-1 text-foreground-500 hover:cursor-pointer hover:bg-default-200 hover:text-black css-g56vrd-indicatorContainer"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="css-tj5bde-Svg"
+                        focusable="false"
+                        height="20"
+                        viewBox="0 0 20 20"
+                        width="20"
+                      >
+                        <path
+                          d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <input
+              name="teamId"
+              type="hidden"
+              value=""
+            />
+          </div>
+        </div>
+        <div
+          class="group flex flex-col data-[hidden=true]:hidden w-full relative justify-end data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_10px)]"
+          data-filled="true"
+          data-filled-within="true"
+          data-has-elements="true"
+          data-has-label="true"
+          data-has-value="true"
+          data-required="true"
+          data-slot="base"
+        >
+          <div
+            class="h-full flex flex-col"
+            data-slot="main-wrapper"
+          >
+            <div
+              class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-sm px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 h-10 min-h-10 rounded-small transition-background !duration-150 transition-colors motion-reduce:transition-none group-data-[focus=true]:border-focus"
+              data-slot="input-wrapper"
+              style="cursor: text;"
+            >
+              <label
+                class="absolute pointer-events-none origin-top-left flex-shrink-0 rtl:origin-top-right subpixel-antialiased block text-foreground-500 after:content-['*'] after:text-danger after:ms-0.5 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto text-small group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden"
+                data-slot="label"
+                for="react-aria-react-useId-mock"
+                id="react-aria-react-useId-mock"
+              >
+                Username
+              </label>
+              <div
+                class="inline-flex w-full items-center h-full box-border"
+                data-slot="inner-wrapper"
+              >
+                <input
+                  aria-describedby="react-aria-react-useId-mock react-aria-react-useId-mock"
+                  aria-label="Enter username"
+                  aria-labelledby="react-aria-react-useId-mock"
+                  class="w-full font-normal bg-transparent !outline-none placeholder:text-foreground-500 focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small"
+                  data-slot="input"
+                  data-testid="username"
+                  id="react-aria-react-useId-mock"
+                  name="username"
+                  placeholder="Enter username"
+                  required=""
+                  tabindex="0"
+                  title=""
+                  type="text"
+                  value=""
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="group flex flex-col data-[hidden=true]:hidden w-full relative justify-end data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_10px)]"
+          data-filled="true"
+          data-filled-within="true"
+          data-has-elements="true"
+          data-has-label="true"
+          data-has-value="true"
+          data-required="true"
+          data-slot="base"
+        >
+          <div
+            class="h-full flex flex-col"
+            data-slot="main-wrapper"
+          >
+            <div
+              class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-sm px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 h-10 min-h-10 rounded-small transition-background !duration-150 transition-colors motion-reduce:transition-none group-data-[focus=true]:border-focus"
+              data-slot="input-wrapper"
+              style="cursor: text;"
+            >
+              <label
+                class="absolute pointer-events-none origin-top-left flex-shrink-0 rtl:origin-top-right subpixel-antialiased block text-foreground-500 after:content-['*'] after:text-danger after:ms-0.5 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto text-small group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden"
+                data-slot="label"
+                for="react-aria-react-useId-mock"
+                id="react-aria-react-useId-mock"
+              >
+                Email
+              </label>
+              <div
+                class="inline-flex w-full items-center h-full box-border"
+                data-slot="inner-wrapper"
+              >
+                <input
+                  aria-describedby="react-aria-react-useId-mock react-aria-react-useId-mock"
+                  aria-label="Enter email"
+                  aria-labelledby="react-aria-react-useId-mock"
+                  class="w-full font-normal bg-transparent !outline-none placeholder:text-foreground-500 focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small"
+                  data-slot="input"
+                  data-testid="email"
+                  id="react-aria-react-useId-mock"
+                  name="email"
+                  placeholder="Enter email"
+                  required=""
+                  tabindex="0"
+                  title=""
+                  type="text"
+                  value=""
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="rounded bg-default-50 p-3 text-sm"
+        >
+          <strong>
+            Client Validation:
+          </strong>
+           
+          ❌ Inactive
+          <br />
+          <small
+            class="mt-1 block text-default-600"
+          >
+            Try typing an existing username to see validation errors!
+          </small>
+        </div>
+      </div>
+      <div
+        class="mt-6"
+      >
+        <button
+          class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
+          data-testid="form_submit_button"
+          tabindex="0"
+          type="submit"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`Story Snapshots > InteractiveDemo 1`] = `
+<div>
+  <div
+    class="flex w-full flex-row justify-between gap-6"
+  >
+    <form
+      class="flex-grow max-w-md"
+      data-testid=""
+    >
+      <div
+        class="grid gap-6"
+      >
+        <div
+          class="group leading-normal"
+          data-filled="true"
+          data-has-label="true"
+          data-has-label-outside="true"
+          data-required="true"
+          data-slot="base"
+          data-testid="teamid_wrapper"
+        >
+          <label
+            class="pointer-events-auto relative bottom-1.5 ml-1 text-small subpixel-antialiased group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
+            data-slot="label"
+            for="react-select-teamId-input"
+            id="react-aria-react-useId-mock"
+          >
+            Select Team
+          </label>
+          <div
+            class="css-b62m3t-container"
+          >
+            <span
+              class="css-1f43avz-a11yText-A11yText"
+              id="react-select-teamId-live-region"
+            />
+            <span
+              aria-atomic="false"
+              aria-live="polite"
+              aria-relevant="additions text"
+              class="css-1f43avz-a11yText-A11yText"
+              role="log"
+            />
+            <div
+              data-testid="teamid_select"
+            >
+              <div
+                class="rounded-lg border-2 border-default-200 !duration-150 transition-background hover:border-default-400 group-data-[invalid=true]:border-danger group-data-[invalid=true]:hover:border-danger motion-reduce:transition-none css-cp01gg-control"
+              >
+                <div
+                  class="gap-1 p-1 css-14oxtc6"
+                >
+                  <div
+                    class="!ml-1 !leading-7 font-normal w-full text-start text-small truncate group-data-[has-value=true]:text-default-foreground css-w54w9q-singleValue"
+                  >
+                    Frontend Team
+                  </div>
+                  <div
+                    class="py-0.5 pl-1 css-n9qnu9"
+                    data-value=""
+                  >
+                    <input
+                      aria-activedescendant=""
+                      aria-autocomplete="list"
+                      aria-errormessage=""
+                      aria-expanded="false"
+                      aria-haspopup="true"
+                      aria-invalid="false"
+                      aria-labelledby="react-aria-react-useId-mock"
+                      autocapitalize="none"
+                      autocomplete="off"
+                      autocorrect="off"
+                      class=""
+                      data-testid="teamid"
+                      id="react-select-teamId-input"
+                      role="combobox"
+                      spellcheck="false"
+                      style="opacity: 0; width: 100%; grid-area: 1 / 2; min-width: 2px; border: 0px; margin: 0px; outline: 0; padding: 0px;"
+                      tabindex="0"
+                      type="text"
+                      value=""
+                    />
+                  </div>
+                </div>
+                <div
+                  class="gap-1 p-1 css-1wy0on6"
+                >
+                  <div
+                    aria-hidden="true"
+                    class="rounded-md p-1 text-foreground-500 hover:cursor-pointer hover:bg-default-200 hover:text-foreground-800 css-g56vrd-indicatorContainer"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="css-tj5bde-Svg"
+                      focusable="false"
+                      height="20"
+                      viewBox="0 0 20 20"
+                      width="20"
+                    >
+                      <path
+                        d="M14.348 14.849c-0.469 0.469-1.229 0.469-1.697 0l-2.651-3.030-2.651 3.029c-0.469 0.469-1.229 0.469-1.697 0-0.469-0.469-0.469-1.229 0-1.697l2.758-3.15-2.759-3.152c-0.469-0.469-0.469-1.228 0-1.697s1.228-0.469 1.697 0l2.652 3.031 2.651-3.031c0.469-0.469 1.228-0.469 1.697 0s0.469 1.229 0 1.697l-2.758 3.152 2.758 3.15c0.469 0.469 0.469 1.229 0 1.698z"
+                      />
+                    </svg>
+                  </div>
+                  <span
+                    class="bg-default-300 css-j4w2j1-indicatorSeparator"
+                  />
+                  <div
+                    data-testid="teamid_select_dropdown"
+                  >
+                    <div
+                      aria-hidden="true"
+                      class="rounded-md p-1 text-foreground-500 hover:cursor-pointer hover:bg-default-200 hover:text-black css-g56vrd-indicatorContainer"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="css-tj5bde-Svg"
+                        focusable="false"
+                        height="20"
+                        viewBox="0 0 20 20"
+                        width="20"
+                      >
+                        <path
+                          d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <input
+              name="teamId"
+              type="hidden"
+              value="team-frontend"
+            />
+          </div>
+        </div>
+        <div
+          class="group flex flex-col data-[hidden=true]:hidden w-full relative justify-end data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_10px)] is-filled"
+          data-filled="true"
+          data-filled-within="true"
+          data-focus="true"
+          data-focus-within="true"
+          data-has-elements="true"
+          data-has-helper="true"
+          data-has-label="true"
+          data-has-value="true"
+          data-hover="true"
+          data-invalid="true"
+          data-required="true"
+          data-slot="base"
+        >
+          <div
+            class="h-full flex flex-col"
+            data-slot="main-wrapper"
+          >
+            <div
+              class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-sm px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 h-10 min-h-10 rounded-small transition-background !duration-150 transition-colors motion-reduce:transition-none !border-danger group-data-[focus=true]:!border-danger group-data-[focus=true]:border-focus is-filled"
+              data-focus="true"
+              data-hover="true"
+              data-slot="input-wrapper"
+              style="cursor: text;"
+            >
+              <label
+                class="absolute pointer-events-none origin-top-left flex-shrink-0 rtl:origin-top-right subpixel-antialiased block text-foreground-500 !text-danger after:content-['*'] after:text-danger after:ms-0.5 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto text-small group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden"
+                data-slot="label"
+                for="react-aria-react-useId-mock"
+                id="react-aria-react-useId-mock"
+              >
+                Username
+              </label>
+              <div
+                class="inline-flex w-full items-center h-full box-border"
+                data-slot="inner-wrapper"
+              >
+                <input
+                  aria-describedby="react-aria-react-useId-mock react-aria-react-useId-mock"
+                  aria-invalid="true"
+                  aria-label="Enter username"
+                  aria-labelledby="react-aria-react-useId-mock"
+                  class="w-full font-normal bg-transparent !outline-none placeholder:text-foreground-500 focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small !placeholder:text-danger !text-danger is-filled"
+                  data-filled="true"
+                  data-filled-within="true"
+                  data-slot="input"
+                  data-testid="username"
+                  id="react-aria-react-useId-mock"
+                  name="username"
+                  placeholder="Enter username"
+                  required=""
+                  tabindex="0"
+                  title=""
+                  type="text"
+                  value="john"
+                />
+              </div>
+            </div>
+            <div
+              class="hidden group-data-[has-helper=true]:flex p-1 relative flex-col gap-1.5"
+              data-slot="helper-wrapper"
+            >
+              <div
+                class="text-tiny text-danger"
+                data-slot="error-message"
+                id="react-aria-react-useId-mock"
+              >
+                <ul
+                  aria-label="Validation errors of field username"
+                  data-testid="username_error"
+                >
+                  <li>
+                    <div>
+                      Username already exists in this team
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="group flex flex-col data-[hidden=true]:hidden w-full relative justify-end data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_10px)]"
+          data-filled="true"
+          data-filled-within="true"
+          data-has-elements="true"
+          data-has-label="true"
+          data-required="true"
+          data-slot="base"
+        >
+          <div
+            class="h-full flex flex-col"
+            data-slot="main-wrapper"
+          >
+            <div
+              class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-sm px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 h-10 min-h-10 rounded-small transition-background !duration-150 transition-colors motion-reduce:transition-none group-data-[focus=true]:border-focus"
+              data-slot="input-wrapper"
+              style="cursor: text;"
+            >
+              <label
+                class="absolute pointer-events-none origin-top-left flex-shrink-0 rtl:origin-top-right subpixel-antialiased block text-foreground-500 after:content-['*'] after:text-danger after:ms-0.5 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto text-small group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden"
+                data-slot="label"
+                for="react-aria-react-useId-mock"
+                id="react-aria-react-useId-mock"
+              >
+                Email
+              </label>
+              <div
+                class="inline-flex w-full items-center h-full box-border"
+                data-slot="inner-wrapper"
+              >
+                <input
+                  aria-describedby="react-aria-react-useId-mock react-aria-react-useId-mock"
+                  aria-label="Enter email"
+                  aria-labelledby="react-aria-react-useId-mock"
+                  class="w-full font-normal bg-transparent !outline-none placeholder:text-foreground-500 focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small"
+                  data-slot="input"
+                  data-testid="email"
+                  id="react-aria-react-useId-mock"
+                  name="email"
+                  placeholder="Enter email"
+                  required=""
+                  tabindex="0"
+                  title=""
+                  type="text"
+                  value=""
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="rounded bg-info-50 p-3 text-sm"
+        >
+          <strong>
+            Existing usernames in team:
+          </strong>
+           
+          john, sarah, mike
+        </div>
+        <div
+          class="rounded bg-default-50 p-3 text-sm"
+        >
+          <strong>
+            Client Validation:
+          </strong>
+           
+          ✅ Active
+          <br />
+          <small
+            class="mt-1 block text-default-600"
+          >
+            Try typing an existing username to see validation errors!
+          </small>
+        </div>
+      </div>
+      <div
+        class="mt-6"
+      >
+        <button
+          class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
+          data-testid="form_submit_button"
+          tabindex="0"
+          type="submit"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`Story Snapshots > WithInitialData 1`] = `
+<div>
+  <div
+    class="flex w-full flex-row justify-between gap-6"
+  >
+    <form
+      class="flex-grow max-w-md"
+      data-testid=""
+    >
+      <div
+        class="grid gap-6"
+      >
+        <div
+          class="group leading-normal"
+          data-filled="true"
+          data-has-label="true"
+          data-has-label-outside="true"
+          data-required="true"
+          data-slot="base"
+          data-testid="teamid_wrapper"
+        >
+          <label
+            class="pointer-events-auto relative bottom-1.5 ml-1 text-small subpixel-antialiased group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
+            data-slot="label"
+            for="react-select-teamId-input"
+            id="react-aria-react-useId-mock"
+          >
+            Select Team
+          </label>
+          <div
+            class="css-b62m3t-container"
+          >
+            <span
+              class="css-1f43avz-a11yText-A11yText"
+              id="react-select-teamId-live-region"
+            />
+            <span
+              aria-atomic="false"
+              aria-live="polite"
+              aria-relevant="additions text"
+              class="css-1f43avz-a11yText-A11yText"
+              role="log"
+            />
+            <div
+              data-testid="teamid_select"
+            >
+              <div
+                class="rounded-lg border-2 border-default-200 !duration-150 transition-background hover:border-default-400 group-data-[invalid=true]:border-danger group-data-[invalid=true]:hover:border-danger motion-reduce:transition-none css-cp01gg-control"
+              >
+                <div
+                  class="gap-1 p-1 css-14oxtc6"
+                >
+                  <div
+                    class="!ml-1 !leading-7 font-normal w-full text-start text-small truncate group-data-[has-value=true]:text-default-foreground css-w54w9q-singleValue"
+                  >
+                    Frontend Team
+                  </div>
+                  <div
+                    class="py-0.5 pl-1 css-n9qnu9"
+                    data-value=""
+                  >
+                    <input
+                      aria-activedescendant=""
+                      aria-autocomplete="list"
+                      aria-errormessage=""
+                      aria-expanded="false"
+                      aria-haspopup="true"
+                      aria-invalid="false"
+                      aria-labelledby="react-aria-react-useId-mock"
+                      autocapitalize="none"
+                      autocomplete="off"
+                      autocorrect="off"
+                      class=""
+                      data-testid="teamid"
+                      id="react-select-teamId-input"
+                      role="combobox"
+                      spellcheck="false"
+                      style="opacity: 1; width: 100%; grid-area: 1 / 2; min-width: 2px; border: 0px; margin: 0px; outline: 0; padding: 0px;"
+                      tabindex="0"
+                      type="text"
+                      value=""
+                    />
+                  </div>
+                </div>
+                <div
+                  class="gap-1 p-1 css-1wy0on6"
+                >
+                  <div
+                    aria-hidden="true"
+                    class="rounded-md p-1 text-foreground-500 hover:cursor-pointer hover:bg-default-200 hover:text-foreground-800 css-g56vrd-indicatorContainer"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="css-tj5bde-Svg"
+                      focusable="false"
+                      height="20"
+                      viewBox="0 0 20 20"
+                      width="20"
+                    >
+                      <path
+                        d="M14.348 14.849c-0.469 0.469-1.229 0.469-1.697 0l-2.651-3.030-2.651 3.029c-0.469 0.469-1.229 0.469-1.697 0-0.469-0.469-0.469-1.229 0-1.697l2.758-3.15-2.759-3.152c-0.469-0.469-0.469-1.228 0-1.697s1.228-0.469 1.697 0l2.652 3.031 2.651-3.031c0.469-0.469 1.228-0.469 1.697 0s0.469 1.229 0 1.697l-2.758 3.152 2.758 3.15c0.469 0.469 0.469 1.229 0 1.698z"
+                      />
+                    </svg>
+                  </div>
+                  <span
+                    class="bg-default-300 css-j4w2j1-indicatorSeparator"
+                  />
+                  <div
+                    data-testid="teamid_select_dropdown"
+                  >
+                    <div
+                      aria-hidden="true"
+                      class="rounded-md p-1 text-foreground-500 hover:cursor-pointer hover:bg-default-200 hover:text-black css-g56vrd-indicatorContainer"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="css-tj5bde-Svg"
+                        focusable="false"
+                        height="20"
+                        viewBox="0 0 20 20"
+                        width="20"
+                      >
+                        <path
+                          d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <input
+              name="teamId"
+              type="hidden"
+              value="team-frontend"
+            />
+          </div>
+        </div>
+        <div
+          class="group flex flex-col data-[hidden=true]:hidden w-full relative justify-end data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_10px)] is-filled"
+          data-filled="true"
+          data-filled-within="true"
+          data-has-elements="true"
+          data-has-label="true"
+          data-has-value="true"
+          data-required="true"
+          data-slot="base"
+        >
+          <div
+            class="h-full flex flex-col"
+            data-slot="main-wrapper"
+          >
+            <div
+              class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-sm px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 h-10 min-h-10 rounded-small transition-background !duration-150 transition-colors motion-reduce:transition-none group-data-[focus=true]:border-focus is-filled"
+              data-slot="input-wrapper"
+              style="cursor: text;"
+            >
+              <label
+                class="absolute pointer-events-none origin-top-left flex-shrink-0 rtl:origin-top-right subpixel-antialiased block text-foreground-500 after:content-['*'] after:text-danger after:ms-0.5 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto text-small group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden"
+                data-slot="label"
+                for="react-aria-react-useId-mock"
+                id="react-aria-react-useId-mock"
+              >
+                Username
+              </label>
+              <div
+                class="inline-flex w-full items-center h-full box-border"
+                data-slot="inner-wrapper"
+              >
+                <input
+                  aria-describedby="react-aria-react-useId-mock react-aria-react-useId-mock"
+                  aria-label="Enter username"
+                  aria-labelledby="react-aria-react-useId-mock"
+                  class="w-full font-normal bg-transparent !outline-none placeholder:text-foreground-500 focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small is-filled"
+                  data-filled="true"
+                  data-filled-within="true"
+                  data-slot="input"
+                  data-testid="username"
+                  id="react-aria-react-useId-mock"
+                  name="username"
+                  placeholder="Enter username"
+                  required=""
+                  tabindex="0"
+                  title=""
+                  type="text"
+                  value="john"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="group flex flex-col data-[hidden=true]:hidden w-full relative justify-end data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_10px)] is-filled"
+          data-filled="true"
+          data-filled-within="true"
+          data-has-elements="true"
+          data-has-label="true"
+          data-has-value="true"
+          data-required="true"
+          data-slot="base"
+        >
+          <div
+            class="h-full flex flex-col"
+            data-slot="main-wrapper"
+          >
+            <div
+              class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-sm px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 h-10 min-h-10 rounded-small transition-background !duration-150 transition-colors motion-reduce:transition-none group-data-[focus=true]:border-focus is-filled"
+              data-slot="input-wrapper"
+              style="cursor: text;"
+            >
+              <label
+                class="absolute pointer-events-none origin-top-left flex-shrink-0 rtl:origin-top-right subpixel-antialiased block text-foreground-500 after:content-['*'] after:text-danger after:ms-0.5 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto text-small group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden"
+                data-slot="label"
+                for="react-aria-react-useId-mock"
+                id="react-aria-react-useId-mock"
+              >
+                Email
+              </label>
+              <div
+                class="inline-flex w-full items-center h-full box-border"
+                data-slot="inner-wrapper"
+              >
+                <input
+                  aria-describedby="react-aria-react-useId-mock react-aria-react-useId-mock"
+                  aria-label="Enter email"
+                  aria-labelledby="react-aria-react-useId-mock"
+                  class="w-full font-normal bg-transparent !outline-none placeholder:text-foreground-500 focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small is-filled"
+                  data-filled="true"
+                  data-filled-within="true"
+                  data-slot="input"
+                  data-testid="email"
+                  id="react-aria-react-useId-mock"
+                  name="email"
+                  placeholder="Enter email"
+                  required=""
+                  tabindex="0"
+                  title=""
+                  type="text"
+                  value="john@example.com"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="rounded bg-default-50 p-3 text-sm"
+        >
+          <strong>
+            Client Validation:
+          </strong>
+           
+          ❌ Inactive
+          <br />
+          <small
+            class="mt-1 block text-default-600"
+          >
+            Try typing an existing username to see validation errors!
+          </small>
+        </div>
+      </div>
+      <div
+        class="mt-6"
+      >
+        <button
+          class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
+          data-testid="form_submit_button"
+          tabindex="0"
+          type="submit"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;

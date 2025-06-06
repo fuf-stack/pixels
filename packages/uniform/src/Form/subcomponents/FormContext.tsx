@@ -1,4 +1,8 @@
-import type { VetoInstance } from '@fuf-stack/veto';
+import type {
+  VetoFormattedError,
+  VetoInstance,
+  VetoTypeAny,
+} from '@fuf-stack/veto';
 import type { BaseSyntheticEvent, ReactNode } from 'react';
 import type { FieldValues, SubmitHandler } from 'react-hook-form';
 
@@ -7,7 +11,7 @@ import { FormProvider as HookFormProvider, useForm } from 'react-hook-form';
 
 import { useLocalStorage } from '@fuf-stack/pixels';
 
-import { toValidationFormat } from '../../helpers';
+import { useExtendedValidation, useFormResolver } from './FormResolver';
 
 type DebugMode = 'debug' | 'debug-testids' | 'off' | 'disabled';
 
@@ -29,6 +33,8 @@ const DEBUG_MODE_LOCAL_STORAGE_KEY_DEFAULT = 'uniform:debug-mode';
  *    form submissions.
  * 2. **Optional Validation Schema**: The `validation` property may hold a Veto validation schema instance
  *    that can be used to validate form fields and handle validation logic.
+ * 3. **Client Validation**: The `setClientValidationSchema` function allows setting dynamic client-side
+ *    validation schemas that complement the base Veto validation.
  *
  * This context is useful for components that need to interact with or control the form submission state,
  * or access the validation schema for managing form validation logic.
@@ -44,14 +50,26 @@ export const UniformContext = React.createContext<{
   setDebugMode: (debugMode: DebugMode) => void;
   /** Function to trigger form submit programmatically */
   triggerSubmit: (e?: BaseSyntheticEvent) => Promise<void> | void;
-  /** Optional Veto validation schema instance for form validation */
-  validation?: VetoInstance;
+  /** Form validation configuration */
+  validation: {
+    /** Veto validation schema instance for form validation */
+    instance?: VetoInstance;
+    /** Current validation errors in form */
+    errors?: VetoFormattedError;
+    /** Function to set client validation schema for a specific key */
+    setClientValidationSchema: (
+      key: string,
+      schema: VetoTypeAny | null,
+    ) => void;
+  };
 }>({
   debugMode: 'off',
   preventSubmit: () => undefined,
   setDebugMode: () => undefined,
   triggerSubmit: () => undefined,
-  validation: undefined,
+  validation: {
+    setClientValidationSchema: () => undefined,
+  },
 });
 
 // Define props for the FormProvider component, extending HookForm's props
@@ -74,7 +92,8 @@ interface FormProviderProps {
 
 /**
  * FormProvider component provides:
- * - The veto validation schema context
+ * - Veto validation schema context
+ * - Client validation schema management
  * - Submit handler creation and submission control with preventSubmit
  * - Form Debug Mode state
  * - React Hook Form context
@@ -84,37 +103,34 @@ const FormProvider: React.FC<FormProviderProps> = ({
   debugModeSettings = undefined,
   initialValues = undefined,
   onSubmit,
-  validation = undefined,
+  validation: baseValidation = undefined,
   validationTrigger,
 }) => {
-  // Control if the form can currently be submitted
-  const [preventSubmit, setPreventSubmit] = useState(false);
-
   // Form Debug mode state is handled in the form context
   const [debugMode, setDebugMode] = useLocalStorage<DebugMode>(
     debugModeSettings?.localStorageKey || DEBUG_MODE_LOCAL_STORAGE_KEY_DEFAULT,
     'off',
   );
 
-  // Initialize react hook form
+  // Create extended validation combining base + client validations
+  const { extendedValidation, setClientValidationSchema } =
+    useExtendedValidation(baseValidation);
+
+  // Create resolver from extended validation + get current validation errors
+  const { resolver, validationErrors, validationErrorsHash } =
+    useFormResolver(extendedValidation);
+
+  // Initialize react hook form with the resolver
   const methods = useForm({
     defaultValues: initialValues,
-    // add validation config when validation schema provided
-    ...(validation
-      ? {
-          // set rhf mode
-          // see: https://react-hook-form.com/docs/useform#mode
-          mode: validationTrigger,
-          resolver: async (values) => {
-            const { data, errors, ...rest } = await validation.validateAsync(
-              toValidationFormat(values),
-            );
-            // https://github.com/react-hook-form/resolvers/blob/master/zod/src/zod.ts
-            return { values: data || {}, errors: errors || {}, ...rest };
-          },
-        }
-      : {}),
+    // set rhf mode
+    // see: https://react-hook-form.com/docs/useform#mode
+    mode: validationTrigger,
+    resolver,
   });
+
+  // Control if the form can currently be submitted
+  const [preventSubmit, setPreventSubmit] = useState(false);
 
   // Create submit handler
   // eslint-disable-next-line consistent-return
@@ -140,12 +156,17 @@ const FormProvider: React.FC<FormProviderProps> = ({
       preventSubmit: (prevent: boolean) => {
         setPreventSubmit(prevent);
       },
+      setClientValidationSchema,
       setDebugMode,
       triggerSubmit: handleSubmit,
-      validation,
+      validation: {
+        instance: extendedValidation,
+        errors: validationErrors,
+        setClientValidationSchema,
+      },
     }),
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [debugMode, debugModeSettings?.disable],
+    [debugMode, debugModeSettings?.disable, validationErrorsHash],
   );
 
   return (

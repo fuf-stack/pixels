@@ -33,16 +33,17 @@ const SubmitButton = ({
   testId = 'form_submit_button',
 }: SubmitButtonProps) => {
   const {
-    formState: { isSubmitting, isValidating },
+    formState: { isSubmitting },
     triggerSubmit,
   } = useFormContext();
+
   return (
     <Button
       className={cn(className)}
       color={color}
       testId={slugify(testId)}
-      disabled={isSubmitting || isValidating}
-      loading={loading}
+      disabled={isSubmitting}
+      loading={loading || isSubmitting}
       // @ts-expect-error we use form context triggerSubmit
       // here so that submit button also works in special
       // scenarios (e.g. when used in modal)

@@ -51,8 +51,8 @@ export const useFormContext = () => {
       typeof name === 'string' ? name.replace(/\[\d+\]/g, '').split('.') : name;
 
     // Check if the field is required using the validation schema
-    const required = uniformContext?.validation
-      ? checkFieldIsRequired(uniformContext.validation, fieldPath)
+    const required = uniformContext?.validation.instance
+      ? checkFieldIsRequired(uniformContext.validation.instance, fieldPath)
       : false;
 
     // Get the original field state (errors, etc.) from react-hook-form

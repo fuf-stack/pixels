@@ -1,5 +1,4 @@
-import type { VetoError } from '@fuf-stack/veto';
-
+/* eslint-disable react/prop-types */
 import { useEffect, useState } from 'react';
 import { FaTimes } from 'react-icons/fa';
 import { FaBug, FaBullseye } from 'react-icons/fa6';
@@ -24,35 +23,39 @@ interface FormDebugViewerProps {
 const FormDebugViewer = ({ className = undefined }: FormDebugViewerProps) => {
   const {
     debugMode,
-    formState: { dirtyFields, isValid, isSubmitting },
+    formState: { isValid, isSubmitting },
+    getValues,
     setDebugMode,
-    validation,
-    watch,
+    subscribe,
+    validation: { errors },
   } = useFormContext();
 
-  const [validationErrors, setValidationErrors] = useState<
-    VetoError['errors'] | null
-  >(null);
+  const showDebugButton = debugMode === 'off';
+  const showDebugCard = debugMode === 'debug' || debugMode === 'debug-testids';
+  const showDebugTestIds = debugMode === 'debug-testids';
 
-  const validationValues = toValidationFormat(watch());
-  const debugTestIdsEnabled = debugMode === 'debug-testids';
+  const [validationValues, setValidationValues] = useState<Record<
+    string,
+    unknown
+  > | null>(getValues() || null);
 
-  useEffect(
-    () => {
-      const updateValidationErrors = async () => {
-        if (validation) {
-          const validateResult =
-            await validation?.validateAsync(validationValues);
-          setValidationErrors(validateResult?.errors);
-        }
-      };
-      updateValidationErrors();
-    },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [JSON.stringify(validationValues)],
-  );
+  // Subscribe to value updates only when needed and cleanup properly
+  useEffect(() => {
+    if (!showDebugCard) {
+      return undefined;
+    }
 
-  if (!debugMode || debugMode === 'off') {
+    const unsubscribe = subscribe({
+      formState: { values: true },
+      callback: ({ values }) => {
+        setValidationValues(toValidationFormat(values));
+      },
+    });
+
+    return unsubscribe;
+  }, [showDebugCard, subscribe]);
+
+  if (showDebugButton) {
     return (
       <Button
         ariaLabel="Enable form debug mode"
@@ -62,6 +65,11 @@ const FormDebugViewer = ({ className = undefined }: FormDebugViewerProps) => {
         icon={<FaBug />}
       />
     );
+  }
+
+  // do not show card
+  if (!showDebugCard) {
+    return null;
   }
 
   return (
@@ -81,20 +89,19 @@ const FormDebugViewer = ({ className = undefined }: FormDebugViewerProps) => {
       }
     >
       <Button
-        variant={debugTestIdsEnabled ? 'solid' : 'light'}
+        variant={showDebugTestIds ? 'solid' : 'light'}
         icon={<FaBullseye />}
         className="mb-4 ml-auto mr-auto"
         onClick={() =>
           setDebugMode(debugMode === 'debug' ? 'debug-testids' : 'debug')
         }
       >
-        {debugTestIdsEnabled ? 'Hide CopyButton' : 'Show CopyButton'}
+        {showDebugTestIds ? 'Hide CopyButton' : 'Show CopyButton'}
       </Button>
       <Json
         value={{
           values: validationValues,
-          errors: validationErrors,
-          dirtyFields,
+          errors,
           isValid,
           isSubmitting,
         }}
@@ -102,4 +109,5 @@ const FormDebugViewer = ({ className = undefined }: FormDebugViewerProps) => {
     </Card>
   );
 };
+
 export default FormDebugViewer;
