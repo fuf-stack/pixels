@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.19.2](https://github.com/fuf-stack/pixels/compare/uniform-v0.19.1...uniform-v0.19.2) (2025-06-06)
+
+
+### Bug Fixes
+
+* **uniform:** fix how base and client schemas are combined ([8fcdae2](https://github.com/fuf-stack/pixels/commit/8fcdae202e0608541ebe7423878d5592326025ea))
+
 ## [0.19.1](https://github.com/fuf-stack/pixels/compare/uniform-v0.19.0...uniform-v0.19.1) (2025-06-06)
 
 
