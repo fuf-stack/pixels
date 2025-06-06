@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.19.3](https://github.com/fuf-stack/pixels/compare/uniform-v0.19.2...uniform-v0.19.3) (2025-06-06)
+
+
+### Bug Fixes
+
+* **uniform:** more fixes for schema combination ([2caf4ae](https://github.com/fuf-stack/pixels/commit/2caf4ae85fba617a90d282de987ccc6fb8efb71f))
+
 ## [0.19.2](https://github.com/fuf-stack/pixels/compare/uniform-v0.19.1...uniform-v0.19.2) (2025-06-06)
 
 
