@@ -67,7 +67,7 @@ export const useExtendedValidation = (baseValidation?: VetoInstance) => {
 
   // Create client schema hash for optimized memoization
   const clientValidationSchemasHash = JSON.stringify(
-    Object.values(clientValidationSchemas).map(({ schema }) =>
+    Object.values(clientValidationSchemas).map((schema) =>
       serializeSchema(schema),
     ),
   );
@@ -85,37 +85,41 @@ export const useExtendedValidation = (baseValidation?: VetoInstance) => {
   // Memoized extended validation instance
   const extendedValidation = useMemo(
     () => {
+      const hasBaseValidation = !!baseValidation;
+      const hasClientSchemas = clientSchemaValues.length > 0;
+
       // If no base validation and no client schemas, return undefined
-      if (!baseValidation && clientSchemaValues.length === 0) {
+      if (!hasBaseValidation && !hasClientSchemas) {
         return undefined;
       }
 
-      // Start with base validation schema
-      let combinedSchema = baseValidation;
-
-      // Combine client validation schemas if any exist
-      if (clientSchemaValues.length > 0) {
-        const clientSchemasCombined = clientSchemaValues.reduce(
-          (combined, clientSchema) => {
-            return combined ? and(combined.schema, clientSchema) : clientSchema;
-          },
-          null,
-        );
-
-        if (clientSchemasCombined) {
-          if (combinedSchema) {
-            // Combine base schema with client schemas
-            combinedSchema = veto(
-              and(combinedSchema.schema, clientSchemasCombined.schema),
-            );
-          } else {
-            // Only client schemas, no base schema
-            combinedSchema = clientSchemasCombined;
-          }
-        }
+      // If no client schemas, return base validation
+      if (!hasClientSchemas) {
+        return baseValidation;
       }
 
-      return combinedSchema;
+      // Combine client validation schemas
+      const clientSchemasCombined = clientSchemaValues.reduce(
+        (combined, clientSchema) => {
+          return combined ? and(combined, clientSchema) : clientSchema;
+        },
+        null,
+      );
+
+      // return combined validation
+      if (hasBaseValidation && clientSchemasCombined) {
+        return veto(
+          and((baseValidation as VetoInstance).schema, clientSchemasCombined),
+        );
+      }
+
+      // If we only have client schemas, return them as a veto instance
+      if (clientSchemasCombined) {
+        return veto(clientSchemasCombined);
+      }
+
+      // This should not happen due to the conditions above, but just in case
+      return baseValidation;
     },
     // Using hash-based dependency to optimize performance
     // eslint-disable-next-line react-hooks/exhaustive-deps

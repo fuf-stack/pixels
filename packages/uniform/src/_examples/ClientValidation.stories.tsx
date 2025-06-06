@@ -61,19 +61,17 @@ const useMockUsernamesQuery = (teamId: string | null) => {
 const createUsernameClientSchema = (queryData: {
   existingUsernames: string[];
 }) => {
-  const schema = veto(
-    vt.objectLoose({
-      username: vt
-        .string()
-        .refine(
-          (value: string) =>
-            !queryData.existingUsernames.includes(value.toLowerCase()),
-          {
-            message: 'Username already exists in this team',
-          },
-        ),
-    }),
-  );
+  const schema = vt.objectLoose({
+    username: vt
+      .string()
+      .refine(
+        (value: string) =>
+          !queryData.existingUsernames.includes(value.toLowerCase()),
+        {
+          message: 'Username already exists in this team',
+        },
+      ),
+  });
 
   return schema;
 };
