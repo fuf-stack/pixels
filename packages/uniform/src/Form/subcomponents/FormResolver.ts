@@ -97,11 +97,9 @@ export const useExtendedValidation = (baseValidation?: VetoInstance) => {
       if (clientSchemaValues.length > 0) {
         const clientSchemasCombined = clientSchemaValues.reduce(
           (combined, clientSchema) => {
-            return combined
-              ? veto(and(combined.schema, clientSchema.schema))
-              : veto(clientSchema.schema);
+            return combined ? and(combined.schema, clientSchema) : clientSchema;
           },
-          null as VetoInstance | null,
+          null,
         );
 
         if (clientSchemasCombined) {
