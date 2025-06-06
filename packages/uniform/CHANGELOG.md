@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.19.1](https://github.com/fuf-stack/pixels/compare/uniform-v0.19.0...uniform-v0.19.1) (2025-06-06)
+
+
+### Bug Fixes
+
+* **uniform:** bump version ([9b96e5c](https://github.com/fuf-stack/pixels/commit/9b96e5cc2cab72cbd71f6a1354ef1c7111bf92cb))
+
 ## [0.19.0](https://github.com/fuf-stack/pixels/compare/uniform-v0.18.5...uniform-v0.19.0) (2025-06-06)
 
 
