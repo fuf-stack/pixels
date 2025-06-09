@@ -36,9 +36,9 @@ export const Default: Story = {
   args: {
     name: 'checkboxField',
     options: [
-      { label: '1', value: '1' },
-      { label: '2', value: '2' },
-      { label: '3', value: '3' },
+      { label: '🍕 Pizza for breakfast', value: 'pizza-breakfast' },
+      { label: '🦄 Unicorns are real', value: 'unicorns-real' },
+      { label: '🧦 Socks with sandals', value: 'socks-sandals' },
     ],
   },
 };
@@ -48,9 +48,12 @@ export const Inline: Story = {
     name: 'checkboxField',
     inline: true,
     options: [
-      { label: '1', value: '1' },
-      { label: '2', value: '2' },
-      { label: '3', value: '3' },
+      {
+        label: '🎯 Procrastinate productively',
+        value: 'productive-procrastination',
+      },
+      { label: '☕ Coffee is a vegetable', value: 'coffee-vegetable' },
+      { label: '🐱 Cats rule the internet', value: 'cats-rule-internet' },
     ],
   },
 };
@@ -58,18 +61,25 @@ export const Inline: Story = {
 export const OnlyOneCheckbox: Story = {
   args: {
     name: 'checkboxField',
-    options: [{ label: '1', value: '1' }],
+    options: [
+      {
+        label: '🤖 I am definitely not a robot',
+        value: 'definitely-not-robot',
+      },
+    ],
   },
 };
 
 export const WithInitialValue: Story = {
-  parameters: { formProps: { initialValues: { checkboxField: ['2'] } } },
+  parameters: {
+    formProps: { initialValues: { checkboxField: ['sing-shower'] } },
+  },
   args: {
     name: 'checkboxField',
     options: [
-      { label: '1', value: '1' },
-      { label: '2', value: '2' },
-      { label: '3', value: '3' },
+      { label: '🌮 Tacos solve everything', value: 'tacos-solve-all' },
+      { label: '🎵 Sing in the shower', value: 'sing-shower' },
+      { label: '🚀 Mars vacation planner', value: 'mars-vacation' },
     ],
   },
 };
@@ -79,9 +89,9 @@ export const DisabledCompletely: Story = {
     name: 'checkboxField',
     disabled: true,
     options: [
-      { label: '1', value: '1' },
-      { label: '2', value: '2' },
-      { label: '3', value: '3' },
+      { label: '💤 Sleep 8 hours nightly', value: 'sleep-8-hours' },
+      { label: '🏃 Exercise daily', value: 'exercise-daily' },
+      { label: '🥗 Eat vegetables', value: 'eat-vegetables' },
     ],
   },
 };
@@ -90,9 +100,9 @@ export const DisabledOption: Story = {
   args: {
     name: 'checkboxField',
     options: [
-      { label: '1', value: '1' },
-      { label: 'disabled', value: '2', disabled: true },
-      { label: '3', value: '3' },
+      { label: '🎮 Play games all day', value: 'play-games' },
+      { label: '📚 Read documentation', value: 'read-docs', disabled: true },
+      { label: '🍰 Cake for dinner', value: 'cake-dinner' },
     ],
   },
 };
@@ -107,14 +117,15 @@ export const Required: Story = {
     label: 'checkboxField',
     name: 'checkboxField',
     options: [
-      { label: '1', value: '1' },
-      { label: '2', value: '2' },
-      { label: '3', value: '3' },
+      { label: '🎪 Join the circus', value: 'join-circus' },
+      { label: '🧙 Learn magic tricks', value: 'learn-magic' },
+      { label: '🐉 Befriend a dragon', value: 'befriend-dragon' },
     ],
   },
 };
+
 const validation = veto({
-  checkboxField: vt.array(vt.literal('1')).min(2),
+  checkboxField: vt.array(vt.literal('join-circus')).min(2),
 });
 
 export const Invalid: Story = {
@@ -123,14 +134,14 @@ export const Invalid: Story = {
     label: 'checkboxField',
     name: 'checkboxField',
     options: [
-      { label: '1', value: '1' },
-      { label: '2', value: '2' },
-      { label: '3', value: '3' },
+      { label: '🎭 Become a mime', value: 'become-mime' },
+      { label: '🌙 Howl at the moon', value: 'howl-moon' },
+      { label: '🦸 Save the world', value: 'save-world' },
     ],
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    const optionTwo = canvas.getByTestId('checkboxfield_option_2');
+    const optionTwo = canvas.getByTestId('checkboxfield_option_howl_moon');
     await userEvent.click(optionTwo, {
       delay: 500,
     });
@@ -139,25 +150,27 @@ export const Invalid: Story = {
   },
 };
 
+const validationOneCheckbox = veto({
+  checkboxField: vt
+    .string()
+    .refine((value: string) => value !== 'ghost-peppers', 'This is too hot!')
+    .optional(),
+});
+
 export const InvalidOneCheckbox: Story = {
   parameters: {
     formProps: {
-      validation: veto({
-        checkboxField: vt
-          .string()
-          .refine((value) => value !== '1')
-          .optional(),
-      }),
+      validation: validationOneCheckbox,
     },
   },
   args: {
     label: 'checkboxField',
     name: 'checkboxField',
-    options: [{ label: '1', value: '1' }],
+    options: [{ label: '🌶️ Eat ghost peppers daily', value: 'ghost-peppers' }],
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    const optionOne = canvas.getByTestId('checkboxfield_option_1');
+    const optionOne = canvas.getByTestId('checkboxfield_option_ghost_peppers');
     await userEvent.click(optionOne, {
       delay: 500,
     });
