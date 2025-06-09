@@ -2,7 +2,11 @@ import type { TVClassName, TVProps } from '@fuf-stack/pixel-utils';
 import type { ReactNode } from 'react';
 import type { FieldError } from 'react-hook-form';
 
-import { Checkbox, CheckboxGroup as HeroCheckboxGroup } from '@heroui/checkbox';
+import {
+  Checkbox as HeroCheckbox,
+  CheckboxGroup as HeroCheckboxGroup,
+} from '@heroui/checkbox';
+import { checkbox as heroCheckboxVariants } from '@heroui/theme';
 
 import { slugify, tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 
@@ -25,6 +29,16 @@ export const checkboxGroupVariants = tv({
     optionWrapper: '',
     wrapper: '',
   },
+  variants: {
+    // see: https://github.com/heroui-inc/heroui/blob/canary/packages/core/theme/src/components/checkbox.ts
+    color: {
+      info: {
+        wrapper:
+          'text-info-foreground after:bg-info after:text-info-foreground',
+      },
+      ...heroCheckboxVariants.variants.color,
+    } as const,
+  },
 });
 
 type VariantProps = TVProps<typeof checkboxGroupVariants>;
@@ -44,19 +58,21 @@ export type CheckboxGroupOption = {
 };
 
 export interface CheckboxGroupProps extends VariantProps {
-  /** CSS class name. ClassName: string | { buttons?: string | { base?: string; active?: string }; base?: string;} */
+  /** CSS class name */
   className?: ClassName;
-  /** determines orientation of the boxes. */
+  /** Color scheme of the checkboxes */
+  color?: VariantProps['color'];
+  /** Sets all checkboxes disabled */
+  disabled?: boolean;
+  /** Orientation of the checkboxes */
   inline?: boolean;
-  /** label displayed above the Checkboxes */
+  /** Label displayed above the checkboxes */
   label?: ReactNode;
-  /** Name the Field is registered on the form. */
+  /** Name the Field is registered on the form */
   name: string;
   /** Checkboxes that should be displayed. */
   options: CheckboxGroupOption[];
-  /** sets all buttons disabled */
-  disabled?: boolean;
-  /** id for internal testing. */
+  /** HTML data-testid attribute used in e2e tests */
   testId?: string;
 }
 
@@ -65,6 +81,7 @@ export interface CheckboxGroupProps extends VariantProps {
  */
 const CheckboxGroup = ({
   className = undefined,
+  color = 'primary',
   inline = false,
   label = undefined,
   options,
@@ -155,6 +172,7 @@ const CheckboxGroup = ({
   return (
     <HeroCheckboxGroup
       classNames={heroCheckboxGroupClassNames}
+      color={color === 'info' ? 'primary' : color}
       // see HeroUI styles for group-data condition (data-invalid),
       // e.g.: https://github.com/heroui-inc/heroui/blob/main/packages/components/select/src/use-select.ts
       data-invalid={invalid}
@@ -204,7 +222,7 @@ const CheckboxGroup = ({
         );
 
         return (
-          <Checkbox
+          <HeroCheckbox
             classNames={heroCheckboxClassNames}
             data-invalid={invalid}
             data-testid={optionTestId}
@@ -213,7 +231,7 @@ const CheckboxGroup = ({
             value={option?.value}
           >
             {labelContent}
-          </Checkbox>
+          </HeroCheckbox>
         );
       })}
     </HeroCheckboxGroup>

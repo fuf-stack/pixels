@@ -82,6 +82,38 @@ export const OnlyOneCheckbox: Story = {
   },
 };
 
+export const DangerColor: Story = {
+  argTypes: {
+    color: {
+      control: { type: 'radio' },
+      options: [
+        'danger',
+        'default',
+        'info',
+        'primary',
+        'secondary',
+        'success',
+        'warning',
+      ],
+    },
+  },
+  parameters: {
+    formProps: {
+      initialValues: { checkboxField: ['volcano-life', 'mars-one-way'] },
+    },
+  },
+  args: {
+    label: 'Danger Color',
+    name: 'checkboxField',
+    color: 'danger',
+    options: [
+      { label: '🌋 Live in a volcano', value: 'volcano-life' },
+      { label: '🦈 Swim with sharks', value: 'shark-swimming' },
+      { label: '🚀 One-way trip to Mars', value: 'mars-one-way' },
+    ],
+  },
+};
+
 export const WithOptionLabelSubline: Story = {
   args: {
     name: 'checkboxField',
