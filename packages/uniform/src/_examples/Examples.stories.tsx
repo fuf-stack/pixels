@@ -110,7 +110,7 @@ export const AllFieldRenderers: Story = {
           />
           <Switch name="switchField" label="Switch Field" />
           <CheckboxGroup
-            label="checkboxField"
+            label="Checkbox Field"
             name="checkboxField"
             options={checkboxOptions}
           />

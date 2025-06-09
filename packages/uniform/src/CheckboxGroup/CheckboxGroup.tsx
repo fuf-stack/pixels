@@ -1,4 +1,5 @@
 import type { TVClassName, TVProps } from '@fuf-stack/pixel-utils';
+import type { ReactNode } from 'react';
 import type { FieldError } from 'react-hook-form';
 
 import { Checkbox, CheckboxGroup as HeroCheckboxGroup } from '@heroui/checkbox';
@@ -13,14 +14,15 @@ export const checkboxGroupVariants = tv({
   slots: {
     base: 'group', // Needs group for group-data condition
     errorMessage: 'text-tiny',
-    itemBase: '',
-    itemIcon: '',
-    itemLabel: 'text-sm',
-    itemWrapper: '',
     // see HeroUI styles for group-data condition,
     // e.g.: https://github.com/heroui-inc/heroui/blob/main/packages/core/theme/src/components/select.ts
     label:
       'text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger',
+    optionBase: '',
+    optionIcon: '',
+    optionLabel: '',
+    optionLabelSubline: '!text-small text-foreground-400',
+    optionWrapper: '',
     wrapper: '',
   },
 });
@@ -30,7 +32,9 @@ type ClassName = TVClassName<typeof checkboxGroupVariants>;
 
 export type CheckboxGroupOption = {
   /** option label */
-  label?: React.ReactNode;
+  label?: ReactNode;
+  /** subline displayed below the label */
+  labelSubline?: ReactNode;
   /** option value */
   value: string;
   /** disables the option */
@@ -45,7 +49,7 @@ export interface CheckboxGroupProps extends VariantProps {
   /** determines orientation of the boxes. */
   inline?: boolean;
   /** label displayed above the Checkboxes */
-  label?: React.ReactNode;
+  label?: ReactNode;
   /** Name the Field is registered on the form. */
   name: string;
   /** Checkboxes that should be displayed. */
@@ -85,16 +89,17 @@ const CheckboxGroup = ({
   const variants = checkboxGroupVariants();
   const classNames = variantsToClassNames(variants, className, 'base');
 
-  const itemClassName = {
-    base: classNames.itemBase,
-    wrapper: classNames.itemWrapper,
-    icon: classNames.itemIcon,
-    label: classNames.itemLabel,
-  };
-  const itemGroupClassName = {
+  // map slots to HeroUI class names
+  const heroCheckboxGroupClassNames = {
     base: classNames.base,
-    wrapper: classNames.wrapper,
     label: classNames.label,
+    wrapper: classNames.wrapper,
+  };
+  const heroCheckboxClassNames = {
+    base: classNames.optionBase,
+    icon: classNames.optionIcon,
+    label: classNames.optionLabel,
+    wrapper: classNames.optionWrapper,
   };
 
   // Convert React Hook Form's nested error object structure to a flat array
@@ -136,7 +141,7 @@ const CheckboxGroup = ({
 
   const singleCheckboxProps = {
     value: getCheckboxValue(value),
-    onChange: (newValue: string[]) => onChange(newValue && newValue[0]),
+    onChange: (newValue: string[]) => onChange(newValue?.[0]),
   };
 
   const multipleCheckboxProps = {
@@ -149,14 +154,13 @@ const CheckboxGroup = ({
 
   return (
     <HeroCheckboxGroup
-      name={name}
-      classNames={itemGroupClassName}
-      data-testid={testId}
+      classNames={heroCheckboxGroupClassNames}
       // see HeroUI styles for group-data condition (data-invalid),
       // e.g.: https://github.com/heroui-inc/heroui/blob/main/packages/components/select/src/use-select.ts
       data-invalid={invalid}
+      data-testid={testId}
       errorMessage={
-        errorFlat.length && (
+        errorFlat.length > 0 && (
           <FieldValidationError
             className={classNames.errorMessage}
             error={errorFlat}
@@ -176,6 +180,7 @@ const CheckboxGroup = ({
           </label>
         )
       }
+      name={name}
       onBlur={onBlur}
       orientation={inline ? 'horizontal' : 'vertical'}
       ref={ref}
@@ -186,16 +191,28 @@ const CheckboxGroup = ({
         const optionTestId = slugify(
           `${testId}_option_${option?.testId || option?.value}`,
         );
+
+        const labelContent = option.labelSubline ? (
+          <div className="flex flex-col">
+            <span>{option.label}</span>
+            <span className={classNames.optionLabelSubline}>
+              {option.labelSubline}
+            </span>
+          </div>
+        ) : (
+          option?.label
+        );
+
         return (
           <Checkbox
+            classNames={heroCheckboxClassNames}
             data-invalid={invalid}
-            classNames={itemClassName}
-            key={`index_${option.value}`}
-            isDisabled={disabled || option.disabled}
-            value={option?.value}
             data-testid={optionTestId}
+            isDisabled={disabled || option.disabled}
+            key={`index_${option.value}`}
+            value={option?.value}
           >
-            {option?.label}
+            {labelContent}
           </Checkbox>
         );
       })}

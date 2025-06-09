@@ -43,6 +43,18 @@ export const Default: Story = {
   },
 };
 
+export const WithLabel: Story = {
+  args: {
+    label: 'Checkbox Field',
+    name: 'checkboxField',
+    options: [
+      { label: '🍕 Pizza for breakfast', value: 'pizza-breakfast' },
+      { label: '🦄 Unicorns are real', value: 'unicorns-real' },
+      { label: '🧦 Socks with sandals', value: 'socks-sandals' },
+    ],
+  },
+};
+
 export const Inline: Story = {
   args: {
     name: 'checkboxField',
@@ -65,6 +77,29 @@ export const OnlyOneCheckbox: Story = {
       {
         label: '🤖 I am definitely not a robot',
         value: 'definitely-not-robot',
+      },
+    ],
+  },
+};
+
+export const WithOptionLabelSubline: Story = {
+  args: {
+    name: 'checkboxField',
+    options: [
+      {
+        label: 'Pizza for breakfast 🍕',
+        labelSubline: 'The most important meal of the day',
+        value: 'pizza-breakfast',
+      },
+      {
+        label: 'Unicorns are real 🦄',
+        labelSubline: 'They just live in a different dimension',
+        value: 'unicorns-real',
+      },
+      {
+        label: 'Socks with sandals 🧦',
+        labelSubline: 'Peak fashion statement',
+        value: 'socks-sandals',
       },
     ],
   },
@@ -114,7 +149,7 @@ const requiredValidation = veto({
 export const Required: Story = {
   parameters: { formProps: { validation: requiredValidation } },
   args: {
-    label: 'checkboxField',
+    label: 'Checkbox Field',
     name: 'checkboxField',
     options: [
       { label: '🎪 Join the circus', value: 'join-circus' },
@@ -131,7 +166,7 @@ const validation = veto({
 export const Invalid: Story = {
   parameters: { formProps: { validation } },
   args: {
-    label: 'checkboxField',
+    label: 'Checkbox Field',
     name: 'checkboxField',
     options: [
       { label: '🎭 Become a mime', value: 'become-mime' },
@@ -164,7 +199,7 @@ export const InvalidOneCheckbox: Story = {
     },
   },
   args: {
-    label: 'checkboxField',
+    label: 'Checkbox Field',
     name: 'checkboxField',
     options: [{ label: '🌶️ Eat ghost peppers daily', value: 'ghost-peppers' }],
   },
