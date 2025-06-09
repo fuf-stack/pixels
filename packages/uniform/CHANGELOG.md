@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.20.0](https://github.com/fuf-stack/pixels/compare/uniform-v0.19.3...uniform-v0.20.0) (2025-06-09)
+
+
+### Features
+
+* **uniform:** add colors to CheckboxGroup ([00d86fe](https://github.com/fuf-stack/pixels/commit/00d86fe27e9b2910f0ce8ef5208e08910bfafa94))
+* **uniform:** add labelSubline to option in CheckboxGroup ([653ebea](https://github.com/fuf-stack/pixels/commit/653ebea05f7e523b881bfca83874d2cd09c58f98))
+* **uniform:** add lineThrough to CheckboxGroup ([8df7003](https://github.com/fuf-stack/pixels/commit/8df7003a17c60a0dd33c81164e96a864a52adaab))
+
 ## [0.19.3](https://github.com/fuf-stack/pixels/compare/uniform-v0.19.2...uniform-v0.19.3) (2025-06-06)
 
 
