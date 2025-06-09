@@ -114,6 +114,29 @@ export const DangerColor: Story = {
   },
 };
 
+export const WithLineThrough: Story = {
+  parameters: {
+    formProps: {
+      initialValues: { checkboxField: ['wash-dishes', 'walk-dog'] },
+    },
+  },
+  args: {
+    label: 'Todo List',
+    name: 'checkboxField',
+    lineThrough: true,
+    options: [
+      {
+        label: '🧽 Wash the dishes',
+        value: 'wash-dishes',
+        labelSubline: 'Kitchen sink and countertop',
+      },
+      { label: '🐕 Walk the dog', value: 'walk-dog' },
+      { label: '📧 Reply to emails', value: 'reply-emails' },
+      { label: '🛒 Buy groceries', value: 'buy-groceries' },
+    ],
+  },
+};
+
 export const WithOptionLabelSubline: Story = {
   args: {
     name: 'checkboxField',

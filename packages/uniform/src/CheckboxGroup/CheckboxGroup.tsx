@@ -38,6 +38,15 @@ export const checkboxGroupVariants = tv({
       },
       ...heroCheckboxVariants.variants.color,
     } as const,
+    lineThrough: {
+      true: {
+        optionLabel: [
+          ...heroCheckboxVariants.variants.lineThrough.true.label,
+          // fix stroke position when used with subline and enable animation
+          'relative before:transition-all before:duration-200',
+        ],
+      },
+    },
   },
 });
 
@@ -68,6 +77,8 @@ export interface CheckboxGroupProps extends VariantProps {
   inline?: boolean;
   /** Label displayed above the checkboxes */
   label?: ReactNode;
+  /** Whether the checkboxes label should be crossed out */
+  lineThrough?: boolean;
   /** Name the Field is registered on the form */
   name: string;
   /** Checkboxes that should be displayed. */
@@ -84,6 +95,7 @@ const CheckboxGroup = ({
   color = 'primary',
   inline = false,
   label = undefined,
+  lineThrough = false,
   options,
   disabled = false,
   name,
@@ -103,7 +115,7 @@ const CheckboxGroup = ({
   const showTestIdCopyButton = debugMode === 'debug-testids';
   const showLabel = label || showTestIdCopyButton;
 
-  const variants = checkboxGroupVariants();
+  const variants = checkboxGroupVariants({ lineThrough });
   const classNames = variantsToClassNames(variants, className, 'base');
 
   // map slots to HeroUI class names
@@ -115,7 +127,6 @@ const CheckboxGroup = ({
   const heroCheckboxClassNames = {
     base: classNames.optionBase,
     icon: classNames.optionIcon,
-    label: classNames.optionLabel,
     wrapper: classNames.optionWrapper,
   };
 
@@ -211,18 +222,21 @@ const CheckboxGroup = ({
         );
 
         const labelContent = option.labelSubline ? (
-          <div className="flex flex-col">
-            <span>{option.label}</span>
-            <span className={classNames.optionLabelSubline}>
+          <div className="flex flex-col items-start">
+            <span className={classNames.optionLabel}>{option.label}</span>
+            <span className={`${classNames.optionLabelSubline}`}>
               {option.labelSubline}
             </span>
           </div>
         ) : (
-          option?.label
+          <span className={classNames.optionLabel}>{option.label}</span>
         );
 
         return (
           <HeroCheckbox
+            aria-label={
+              typeof option.label === 'string' ? option.label : option.value
+            }
             classNames={heroCheckboxClassNames}
             data-invalid={invalid}
             data-testid={optionTestId}

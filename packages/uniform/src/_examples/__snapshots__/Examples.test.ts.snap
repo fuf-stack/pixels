@@ -395,6 +395,7 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                     role="presentation"
                   >
                     <label
+                      aria-label="1"
                       class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
                       data-invalid="false"
                       data-testid="checkboxfield_option_1"
@@ -437,10 +438,13 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                         class="relative text-foreground select-none text-medium transition-colors-opacity before:transition-width motion-reduce:transition-none"
                         id=":r1:"
                       >
-                        1
+                        <span>
+                          1
+                        </span>
                       </span>
                     </label>
                     <label
+                      aria-label="2"
                       class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
                       data-invalid="false"
                       data-testid="checkboxfield_option_2"
@@ -483,10 +487,13 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                         class="relative text-foreground select-none text-medium transition-colors-opacity before:transition-width motion-reduce:transition-none"
                         id=":r2:"
                       >
-                        2
+                        <span>
+                          2
+                        </span>
                       </span>
                     </label>
                     <label
+                      aria-label="3"
                       class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
                       data-invalid="false"
                       data-testid="checkboxfield_option_3"
@@ -529,7 +536,9 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                         class="relative text-foreground select-none text-medium transition-colors-opacity before:transition-width motion-reduce:transition-none"
                         id=":r3:"
                       >
-                        3
+                        <span>
+                          3
+                        </span>
                       </span>
                     </label>
                   </div>
