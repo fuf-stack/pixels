@@ -6,8 +6,12 @@ it('enforces lowercase', () => {
   expect(slugify('UPPERCasE')).toEqual('uppercase');
 });
 
-it('keeps dots', () => {
+it('keeps dots by default', () => {
   expect(slugify('with.dots')).toEqual('with.dots');
+});
+
+it('replaces dots when option replaceDots is true', () => {
+  expect(slugify('with.dots', { replaceDots: true })).toEqual('with_dots');
 });
 
 it('replaces spaces and hyphens with underscores', () => {

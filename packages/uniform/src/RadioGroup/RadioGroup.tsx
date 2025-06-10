@@ -125,12 +125,14 @@ const RadioGroup = ({
     >
       {options.map((option) => {
         if ('value' in option) {
+          const optionTestId = slugify(
+            `${testId}_option_${option.testId || option.value}`,
+            { replaceDots: true },
+          );
           return (
             <Radio
               classNames={itemClassNames}
-              data-testid={slugify(
-                `${testId}_option_${option.testId || option.value}`,
-              )}
+              data-testid={optionTestId}
               isDisabled={isDisabled || option.disabled}
               key={option.value}
               onChange={onChange}

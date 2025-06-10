@@ -20,7 +20,7 @@ export const fieldArrayVariants = tv({
     insertAfterButton: 'text-xs font-medium',
     label: '!pointer-events-auto !static !z-0 -mb-1 ml-1 !inline-block',
     list: 'm-0 w-full list-none',
-    listItem: 'mb-4 flex w-full flex-row items-center',
+    listItem: 'mb-4 flex w-full flex-row',
     removeButton: 'ml-1',
     sortDragHandle: 'mr-2 text-base text-xl',
   },
@@ -116,7 +116,7 @@ const FieldArray = ({
 
         {fields.map((field, index) => {
           const elementName = `${name}.${index}`;
-          const elementTestId = `${testId}${index}`;
+          const elementTestId = `${testId}_${index}`;
 
           // create methods for element
           const elementMethods: FieldArrayElementMethods = {

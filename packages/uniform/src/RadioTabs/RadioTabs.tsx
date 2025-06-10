@@ -92,9 +92,11 @@ const RadioTabs = ({
   const tabOptions = options.map<TabProps>((option) => ({
     content: option?.content,
     disabled: option?.disabled,
-    label: option?.label || option?.value,
-    testId: slugify(`option_${option?.testId || option?.value}`),
     key: option.value,
+    label: option?.label || option?.value,
+    testId: slugify(`option_${option?.testId || option?.value}`, {
+      replaceDots: true,
+    }),
   }));
 
   const disabledAllKeys: string[] | undefined = tabOptions?.map(

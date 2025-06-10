@@ -219,6 +219,7 @@ const CheckboxGroup = ({
       {options?.map((option) => {
         const optionTestId = slugify(
           `${testId}_option_${option?.testId || option?.value}`,
+          { replaceDots: true },
         );
 
         const labelContent = option.labelSubline ? (

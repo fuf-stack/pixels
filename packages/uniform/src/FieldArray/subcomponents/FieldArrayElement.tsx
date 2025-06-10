@@ -8,6 +8,7 @@ import { CSS } from '@dnd-kit/utilities';
 
 import { cn } from '@fuf-stack/pixel-utils';
 
+import { Grid } from '../../Grid';
 import { useFormContext, useInput } from '../../hooks';
 import { FieldValidationError } from '../../partials/FieldValidationError';
 import ElementInsertAfterButton from './ElementInsertAfterButton';
@@ -118,7 +119,8 @@ const FieldArrayElement = ({
           className={cn(className.elementWrapper)}
           data-testid={`${testId}_element_wrapper`}
         >
-          {children}
+          {/* TODO: this has to be improved */}
+          <Grid>{children}</Grid>
         </div>
 
         {/** remove element */}

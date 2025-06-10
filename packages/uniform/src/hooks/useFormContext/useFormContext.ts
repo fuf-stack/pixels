@@ -62,7 +62,7 @@ export const useFormContext = () => {
       ...rest,
       error: error as FieldError[] | undefined, // Ensure correct type for error
       required,
-      testId: slugify(testId || name),
+      testId: slugify(testId || name, { replaceDots: true }),
     };
   };
 

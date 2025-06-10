@@ -128,12 +128,14 @@ const RadioBoxes = ({
     >
       {options.map((option) => {
         if ('value' in option) {
+          const optionTestId = slugify(
+            `${testId}_option_${option.testId || option.value}`,
+            { replaceDots: true },
+          );
           return (
             <RadioBox
               classNames={itemClassNames}
-              data-testid={slugify(
-                `${testId}_option_${option.testId || option.value}`,
-              )}
+              data-testid={optionTestId}
               description={option.description}
               icon={option.icon}
               isDisabled={isDisabled || option.disabled}

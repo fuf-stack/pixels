@@ -38,11 +38,8 @@ type Story = StoryObj<typeof FieldArray>;
 
 export const Default: Story = {
   args: {
-    name: 'DefaultStory',
-    children: ({ name, index }) => (
-      <Input name={`${name}.name`} label={`name ${index}`} />
-    ),
-    testId: 'some-test-id',
+    name: 'arrayField',
+    children: ({ name }) => <Input name={`${name}.name`} />,
   },
 };
 
@@ -58,10 +55,7 @@ export const FlatArray: Story = {
   },
   args: {
     name: 'arrayField',
-    children: ({ name, index }) => (
-      <Input name={`${name}`} label={`name ${index}`} />
-    ),
-    testId: 'arrayfield',
+    children: ({ name }) => <Input name={`${name}`} />,
   },
 };
 
@@ -76,7 +70,6 @@ export const WithInitialValue: Story = {
     children: ({ name, index }) => (
       <Input name={`${name}.name`} label={`name ${index}`} />
     ),
-    testId: 'arrayfield',
   },
 };
 
@@ -135,22 +128,12 @@ export const Invalid: Story = {
   },
   args: {
     name: 'arrayField',
-    label: 'FieldArray',
-    children: ({ name, index, testId }) => (
+    children: ({ name }) => (
       <>
-        <Input
-          testId={`${testId}_name`}
-          name={`${name}.name`}
-          label={`name ${index}`}
-        />
-        <Input
-          testId={`${testId}_test`}
-          name={`${name}.test`}
-          label={`test ${index}`}
-        />
+        <Input name={`${name}.name`} />
+        <Input name={`${name}.test`} />
       </>
     ),
-    testId: 'arrayfield',
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
@@ -158,12 +141,12 @@ export const Invalid: Story = {
     const appendButton = canvas.getByTestId('arrayfield_append_button');
     appendButton.click();
 
-    const input = canvas.getByTestId('arrayfield0_name');
+    const input = canvas.getByTestId('arrayfield_0_name');
     await userEvent.type(input, 'invälid', {
       delay: 100,
     });
 
-    const inputTwo = canvas.getByTestId('arrayfield1_name');
+    const inputTwo = canvas.getByTestId('arrayfield_1_name');
     await userEvent.type(inputTwo, 'invälid', {
       delay: 100,
     });
@@ -186,7 +169,7 @@ export const Invalid: Story = {
     );
     await expect(errorGlobal).toBeInTheDocument();
 
-    const elementZero = canvas.getByTestId('arrayfield0_element_wrapper');
+    const elementZero = canvas.getByTestId('arrayfield_0_element_wrapper');
     await expect(elementZero).toContainHTML(
       'Must only contain alphanumeric characters and spaces.',
     );
@@ -194,7 +177,7 @@ export const Invalid: Story = {
       'String must contain at least 8 character(s)',
     );
 
-    const elementOne = canvas.getByTestId('arrayfield1_element_wrapper');
+    const elementOne = canvas.getByTestId('arrayfield_1_element_wrapper');
     await expect(elementOne).toContainHTML(
       'Must only contain alphanumeric characters and spaces.',
     );
@@ -227,7 +210,7 @@ export const LastElementNotRemovable: Story = {
   },
 };
 
-export const Custom: Story = {
+export const CustomTestId: Story = {
   parameters: {
     formProps: {
       initialValues: { arrayField: [{}] },
@@ -312,8 +295,8 @@ export const Sortable: Story = {
   // play: async ({ canvasElement }) => {
   //   const user = userEvent.setup();
   //   const canvas = within(canvasElement);
-  //   // const fieldArrayItemButton = canvas.getByTestId('arrayfield1_movebutton');
-  //   // const fieldArray = canvas.getByTestId('arrayfield0_movebutton');
+  //   // const fieldArrayItemButton = canvas.getByTestId('arrayfield_1_movebutton');
+  //   // const fieldArray = canvas.getByTestId('arrayfield_0_movebutton');
 
   //   // await fieldArrayItemButton.dispatchEvent(new MouseEvent('mousedown'));
   //   // await new Promise((resolve) => setTimeout(resolve, 2000));
@@ -328,10 +311,10 @@ export const Sortable: Story = {
   //   //   delay: 500,
   //   // });
   //   // const canvas = within(canvasElement);
-  //   // const dropTarget = canvas.getByTestId('arrayfield1_movebutton');
+  //   // const dropTarget = canvas.getByTestId('arrayfield_1_movebutton');
 
   //   await new Promise((resolve) => setTimeout(resolve, 2000));
-  //   const draggable = canvas.getByTestId('arrayfield0_movebutton');
+  //   const draggable = canvas.getByTestId('arrayfield_0_movebutton');
   //   const dropTarget = canvas.getByText('Add');
 
   //   // user.

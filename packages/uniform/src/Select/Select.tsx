@@ -122,7 +122,7 @@ const ControlComponent: typeof components.Control = (props) => {
 const OptionComponent: typeof components.Option = (props) => {
   // @ts-expect-error data-testid is not a default prop
   // eslint-disable-next-line react/prop-types, react/destructuring-assignment
-  const testId = `${props.selectProps['data-testid']}_select_option_${slugify(props?.data?.testId ?? props?.data?.value)}`;
+  const testId = `${props.selectProps['data-testid']}_select_option_${slugify(props?.data?.testId ?? props?.data?.value, { replaceDots: true })}`;
   return (
     <div data-testid={testId}>
       {/* eslint-disable-next-line react/jsx-props-no-spreading */}
