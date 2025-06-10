@@ -101,7 +101,7 @@ const FormDebugViewer = ({ className = undefined }: FormDebugViewerProps) => {
       <Json
         value={{
           values: validationValues,
-          errors,
+          errors: errors || null,
           isValid,
           isSubmitting,
         }}

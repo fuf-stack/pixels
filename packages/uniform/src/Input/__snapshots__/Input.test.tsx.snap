@@ -7,13 +7,13 @@ exports[`Story Snapshots > Default 1`] = `
   >
     <form
       class="flex-grow min-w-60"
+      data-form-is-valid="true"
       data-testid=""
     >
       <div
         class="group flex flex-col data-[hidden=true]:hidden w-full relative justify-end data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_10px)]"
         data-filled="true"
         data-filled-within="true"
-        data-has-value="true"
         data-slot="base"
       >
         <div
@@ -71,6 +71,7 @@ exports[`Story Snapshots > Disabled 1`] = `
   >
     <form
       class="flex-grow min-w-60"
+      data-form-is-valid="true"
       data-testid=""
     >
       <div
@@ -80,7 +81,6 @@ exports[`Story Snapshots > Disabled 1`] = `
         data-filled-within="true"
         data-has-elements="true"
         data-has-label="true"
-        data-has-value="true"
         data-slot="base"
       >
         <div
@@ -146,6 +146,7 @@ exports[`Story Snapshots > Invalid 1`] = `
   >
     <form
       class="flex-grow min-w-60"
+      data-form-is-valid="false"
       data-testid=""
     >
       <div
@@ -252,6 +253,7 @@ exports[`Story Snapshots > Number 1`] = `
   >
     <form
       class="flex-grow min-w-60"
+      data-form-is-valid="true"
       data-testid=""
     >
       <div
@@ -337,6 +339,7 @@ exports[`Story Snapshots > Password 1`] = `
   >
     <form
       class="flex-grow min-w-60"
+      data-form-is-valid="false"
       data-testid=""
     >
       <div
@@ -446,6 +449,7 @@ exports[`Story Snapshots > Required 1`] = `
   >
     <form
       class="flex-grow min-w-60"
+      data-form-is-valid="false"
       data-testid=""
     >
       <div
@@ -523,6 +527,7 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
   >
     <form
       class="flex-grow min-w-60"
+      data-form-is-valid="true"
       data-testid=""
     >
       <div
@@ -589,6 +594,7 @@ exports[`Story Snapshots > WithLabel 1`] = `
   >
     <form
       class="flex-grow min-w-60"
+      data-form-is-valid="true"
       data-testid=""
     >
       <div
@@ -597,7 +603,6 @@ exports[`Story Snapshots > WithLabel 1`] = `
         data-filled-within="true"
         data-has-elements="true"
         data-has-label="true"
-        data-has-value="true"
         data-slot="base"
       >
         <div
@@ -664,13 +669,13 @@ exports[`Story Snapshots > WithSelect 1`] = `
   >
     <form
       class="flex-grow min-w-60"
+      data-form-is-valid="true"
       data-testid=""
     >
       <div
         class="group flex flex-col data-[hidden=true]:hidden w-full relative justify-end data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_10px)]"
         data-filled="true"
         data-filled-within="true"
-        data-has-value="true"
         data-slot="base"
       >
         <div

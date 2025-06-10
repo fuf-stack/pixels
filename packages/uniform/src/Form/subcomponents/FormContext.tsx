@@ -77,6 +77,7 @@ interface FormProviderProps {
   /** children form render function */
   children: (childProps: {
     handleSubmit: (e?: BaseSyntheticEvent) => Promise<void>;
+    isValid: boolean;
   }) => ReactNode;
   /** settings for from debug mode */
   debugModeSettings?: DebugModeSettings;
@@ -129,6 +130,9 @@ const FormProvider: React.FC<FormProviderProps> = ({
     resolver,
   });
 
+  // Get isValid from React Hook Form's formState
+  const isValid = methods.formState?.isValid;
+
   // Control if the form can currently be submitted
   const [preventSubmit, setPreventSubmit] = useState(false);
 
@@ -174,7 +178,7 @@ const FormProvider: React.FC<FormProviderProps> = ({
       {/* Spread all hook form props into HookFormProvider */}
       {/* eslint-disable-next-line react/jsx-props-no-spreading */}
       <HookFormProvider {...methods}>
-        {children({ handleSubmit })}
+        {children({ handleSubmit, isValid })}
       </HookFormProvider>
     </UniformContext.Provider>
   );

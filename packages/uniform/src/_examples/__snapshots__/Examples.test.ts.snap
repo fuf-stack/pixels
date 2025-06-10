@@ -13,6 +13,7 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
       >
         <form
           class="flex-grow"
+          data-form-is-valid="false"
           data-testid=""
         >
           <div
@@ -856,6 +857,7 @@ exports[`Story Snapshots > DebugModeDisabled 1`] = `
       >
         <form
           class="flex-grow"
+          data-form-is-valid="false"
           data-testid=""
         >
           <div
@@ -965,6 +967,7 @@ exports[`Story Snapshots > FormFieldsInModal 1`] = `
         >
           <form
             class="flex-grow"
+            data-form-is-valid="true"
             data-testid=""
           />
         </div>

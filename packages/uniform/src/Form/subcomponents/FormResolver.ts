@@ -151,7 +151,12 @@ export const useFormResolver = (extendedValidation?: VetoInstance) => {
     return async (values: FieldValues) => {
       const result = await extendedValidation.validateAsync(values);
       validationErrors.current = result.errors;
-      return result;
+
+      // Transform veto result to React Hook Form format
+      return {
+        values: result.data || {},
+        errors: result.errors || {},
+      };
     };
   }, [extendedValidation]);
 

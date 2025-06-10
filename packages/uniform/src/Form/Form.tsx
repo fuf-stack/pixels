@@ -53,10 +53,11 @@ const Form = ({
       validation={validation}
       validationTrigger={validationTrigger}
     >
-      {({ handleSubmit }) => (
+      {({ handleSubmit, isValid }) => (
         <div className="flex w-full flex-row justify-between gap-6">
           <form
             className={cn('flex-grow', className)}
+            data-form-is-valid={isValid}
             data-testid={slugify(testId || name || '')}
             name={name}
             onSubmit={handleSubmit}
