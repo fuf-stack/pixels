@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.20.1](https://github.com/fuf-stack/pixels/compare/uniform-v0.20.0...uniform-v0.20.1) (2025-06-10)
+
+
+### Bug Fixes
+
+* **uniform:** fix element style of FieldArray + fix testId generation ([36666ac](https://github.com/fuf-stack/pixels/commit/36666ac0e149a458561d430f4dd2e3b82b32a599))
+
 ## [0.20.0](https://github.com/fuf-stack/pixels/compare/uniform-v0.19.3...uniform-v0.20.0) (2025-06-09)
 
 
