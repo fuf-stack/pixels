@@ -29,16 +29,18 @@ export const useClientValidationManager = () => {
   const setClientValidationSchema = useMemo(
     () => {
       return (key: string, schema: VetoTypeAny | null) => {
-        // if no schema and no client validation schemas, do nothing
-        if (!clientValidationSchemas[key] && !schema) {
-          return;
-        }
         // update client validation schemas
         setClientValidationSchemas((prev) => {
+          // if no schema and no existing client validation schema for this key, do nothing
+          if (!prev[key] && !schema) {
+            return prev;
+          }
+          // if no schema, remove the client validation schema for this key
           if (!schema) {
             const { [key]: _removed, ...rest } = prev;
             return rest;
           }
+          // if schema, add or update the client validation schema for this key
           return { ...prev, [key]: schema };
         });
       };

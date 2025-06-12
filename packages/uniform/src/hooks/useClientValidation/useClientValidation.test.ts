@@ -7,31 +7,41 @@ import * as vt from '@fuf-stack/veto';
 
 import { useClientValidation } from './useClientValidation';
 
-// Mock the UniformContext
-vi.mock('../../Form/subcomponents/FormContext', () => ({
-  UniformContext: {
-    Provider: ({ children }: { children: React.ReactNode }) => children,
-  },
+// Mock the useFormContext hook
+const mockSetClientValidationSchema = vi.fn();
+const mockTrigger = vi.fn().mockResolvedValue(true);
+let mockTouchedFields: Record<string, boolean> = {};
+
+vi.mock('../useFormContext/useFormContext', () => ({
+  useFormContext: vi.fn(() => ({
+    formState: { touchedFields: mockTouchedFields },
+    validation: {
+      setClientValidationSchema: mockSetClientValidationSchema,
+    },
+    trigger: mockTrigger,
+  })),
 }));
 
-// Mock useContext to return our mock context
-const mockSetClientValidationSchema = vi.fn();
+// Mock useId
 vi.mock('react', async () => {
   const actual = await vi.importActual('react');
   return {
     ...actual,
-    useContext: vi.fn(() => ({
-      validation: {
-        setClientValidationSchema: mockSetClientValidationSchema,
-      },
-    })),
     useId: vi.fn(() => 'test-id'),
   };
 });
 
+// Mock setTimeout to make tests synchronous
+vi.mock('global', () => ({
+  setTimeout: (fn: () => void) => fn(),
+}));
+
+type TestData = { existingUsernames: string[] };
+
 describe('useClientValidation', () => {
   beforeEach(() => {
     vi.clearAllMocks();
+    mockTouchedFields = {};
   });
 
   describe('basic functionality', () => {
@@ -92,7 +102,7 @@ describe('useClientValidation', () => {
         .mockReturnValueOnce(mockSchema2);
 
       const { rerender } = renderHook(
-        ({ data }: { data: { existingUsernames: string[] } | null }) =>
+        ({ data }: { data: TestData | null }) =>
           useClientValidation(data, schemaFactory),
         {
           initialProps: { data: initialData },
@@ -122,7 +132,7 @@ describe('useClientValidation', () => {
       const schemaFactory = vi.fn().mockReturnValue(mockSchema);
 
       const { rerender } = renderHook(
-        ({ data }: { data: { existingUsernames: string[] } | null }) =>
+        ({ data }: { data: TestData | null }) =>
           useClientValidation(data, schemaFactory),
         {
           initialProps: { data: initialData },
@@ -151,7 +161,7 @@ describe('useClientValidation', () => {
       const schemaFactory = vi.fn().mockReturnValue(mockSchema);
 
       const { rerender } = renderHook(
-        ({ data }: { data: { existingUsernames: string[] } }) =>
+        ({ data }: { data: TestData }) =>
           useClientValidation(data, schemaFactory),
         {
           initialProps: { data: data1 },
@@ -168,6 +178,90 @@ describe('useClientValidation', () => {
       // Should not have been called again due to dataHash optimization
       expect(schemaFactory).toHaveBeenCalledTimes(1);
       expect(mockSetClientValidationSchema).toHaveBeenCalledTimes(1);
+    });
+  });
+
+  describe('trigger functionality', () => {
+    it('should trigger validation for touched fields when data changes', async () => {
+      // Set up touched fields before rendering
+      mockTouchedFields.username = true;
+      mockTouchedFields.email = true;
+
+      const mockData = { existingUsernames: ['john'] };
+      const mockSchema = veto(vt.object({ username: vt.string() }));
+      const schemaFactory = vi.fn().mockReturnValue(mockSchema);
+
+      renderHook(() => useClientValidation(mockData, schemaFactory));
+
+      // Wait for setTimeout to execute
+      await vi.waitFor(() => {
+        expect(mockTrigger).toHaveBeenCalledWith(['username', 'email']);
+      });
+    });
+
+    it('should not trigger validation when no fields are touched', async () => {
+      mockTouchedFields = {};
+
+      const mockData = { existingUsernames: ['john'] };
+      const mockSchema = veto(vt.object({ username: vt.string() }));
+      const schemaFactory = vi.fn().mockReturnValue(mockSchema);
+
+      renderHook(() => useClientValidation(mockData, schemaFactory));
+
+      // Wait to ensure no trigger call
+      // eslint-disable-next-line no-promise-executor-return
+      await new Promise<void>((resolve) => setTimeout(resolve, 10));
+
+      expect(mockTrigger).not.toHaveBeenCalled();
+    });
+
+    it('should trigger validation for nested field paths', async () => {
+      mockTouchedFields['user.profile.username'] = true;
+      mockTouchedFields['items.0.name'] = true;
+
+      const mockData = { existingUsernames: ['john'] };
+      const mockSchema = veto(vt.object({ username: vt.string() }));
+      const schemaFactory = vi.fn().mockReturnValue(mockSchema);
+
+      renderHook(() => useClientValidation(mockData, schemaFactory));
+
+      // Wait for setTimeout to execute
+      await vi.waitFor(() => {
+        expect(mockTrigger).toHaveBeenCalledWith([
+          'user.profile.username',
+          'items.0.name',
+        ]);
+      });
+    });
+
+    it('should trigger validation when touched fields change between data updates', async () => {
+      mockTouchedFields.username = true;
+
+      const initialData = { existingUsernames: ['john'] };
+      const updatedData = { existingUsernames: ['john', 'jane'] };
+      const mockSchema = veto(vt.object({ username: vt.string() }));
+      const schemaFactory = vi.fn().mockReturnValue(mockSchema);
+
+      const { rerender } = renderHook(
+        ({ data }: { data: TestData }) =>
+          useClientValidation(data, schemaFactory),
+        {
+          initialProps: { data: initialData },
+        },
+      );
+
+      // Clear mock calls from initial render
+      mockTrigger.mockClear();
+
+      // Update touched fields and data
+      mockTouchedFields.email = true;
+
+      rerender({ data: updatedData });
+
+      // Wait for setTimeout to execute
+      await vi.waitFor(() => {
+        expect(mockTrigger).toHaveBeenCalledWith(['username', 'email']);
+      });
     });
   });
 

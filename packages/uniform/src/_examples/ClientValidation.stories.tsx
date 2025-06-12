@@ -31,8 +31,10 @@ const useMockUsernamesQuery = (teamId: string | null) => {
   );
 
   useEffect(() => {
+    // Immediately clear data when teamId changes to prevent stale validation
+    setData(undefined);
+
     if (!teamId) {
-      setData(undefined);
       return;
     }
 
