@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.20.2](https://github.com/fuf-stack/pixels/compare/uniform-v0.20.1...uniform-v0.20.2) (2025-06-10)
+
+
+### Bug Fixes
+
+* **uniform:** fix resolver return format + add data-form-is-valid attribute to form ([58047a2](https://github.com/fuf-stack/pixels/commit/58047a2c30155b66772117a28509b9fd68241f79))
+
 ## [0.20.1](https://github.com/fuf-stack/pixels/compare/uniform-v0.20.0...uniform-v0.20.1) (2025-06-10)
 
 
