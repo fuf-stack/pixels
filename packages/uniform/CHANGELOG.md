@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.20.3](https://github.com/fuf-stack/pixels/compare/uniform-v0.20.2...uniform-v0.20.3) (2025-06-12)
+
+
+### Bug Fixes
+
+* **uniform:** multiple fixes for client validation logic ([6ef26d8](https://github.com/fuf-stack/pixels/commit/6ef26d8c78e4719f2c51733880323cfd9b8af396))
+
 ## [0.20.2](https://github.com/fuf-stack/pixels/compare/uniform-v0.20.1...uniform-v0.20.2) (2025-06-10)
 
 
