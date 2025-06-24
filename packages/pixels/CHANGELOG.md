@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.43.10](https://github.com/fuf-stack/pixels/compare/pixels-v0.43.9...pixels-v0.43.10) (2025-06-24)
+
+
+### Bug Fixes
+
+* **uniform:** set background color on Input components ([913c5a4](https://github.com/fuf-stack/pixels/commit/913c5a48fda6c1edf9d2f58cd2b732aa51754eea))
+
 ## [0.43.9](https://github.com/fuf-stack/pixels/compare/pixels-v0.43.8...pixels-v0.43.9) (2025-06-24)
 
 
