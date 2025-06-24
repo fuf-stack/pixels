@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.5.5](https://github.com/fuf-stack/pixels/compare/pixel-utils-v0.5.4...pixel-utils-v0.5.5) (2025-06-24)
+
+
+### Bug Fixes
+
+* **uniform:** bump version ([9b96e5c](https://github.com/fuf-stack/pixels/commit/9b96e5cc2cab72cbd71f6a1354ef1c7111bf92cb))
+* **uniform:** fix element style of FieldArray + fix testId generation ([36666ac](https://github.com/fuf-stack/pixels/commit/36666ac0e149a458561d430f4dd2e3b82b32a599))
+
 ## [0.5.4](https://github.com/fuf-stack/pixels/compare/pixel-utils-v0.5.3...pixel-utils-v0.5.4) (2025-04-23)
 
 
