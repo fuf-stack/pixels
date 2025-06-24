@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.21.0](https://github.com/fuf-stack/pixels/compare/uniform-v0.20.4...uniform-v0.21.0) (2025-06-24)
+
+
+### Features
+
+* **uniform:** add size prop to Input ([603e749](https://github.com/fuf-stack/pixels/commit/603e7493691bdf27136e73b3545b8a5a4651e421))
+
 ## [0.20.4](https://github.com/fuf-stack/pixels/compare/uniform-v0.20.3...uniform-v0.20.4) (2025-06-24)
 
 
