@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.20.4](https://github.com/fuf-stack/pixels/compare/uniform-v0.20.3...uniform-v0.20.4) (2025-06-24)
+
+
+### Bug Fixes
+
+* **deps:** update dependency framer-motion to v12.19.1 ([#1038](https://github.com/fuf-stack/pixels/issues/1038)) ([f30bf81](https://github.com/fuf-stack/pixels/commit/f30bf810bacfe3d1487ecb850d0ac13fb30e9297))
+* **uniform:** remove unnecessary label nesting without subline in CheckboxGroup ([835ce1a](https://github.com/fuf-stack/pixels/commit/835ce1adaa52a6636904fd282112dd3f54d9fb6d))
+
 ## [0.20.3](https://github.com/fuf-stack/pixels/compare/uniform-v0.20.2...uniform-v0.20.3) (2025-06-12)
 
 
