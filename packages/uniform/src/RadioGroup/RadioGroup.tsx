@@ -11,7 +11,8 @@ import { FieldValidationError } from '../partials/FieldValidationError';
 
 export const radioGroupVariants = tv({
   slots: {
-    base: 'group', // Needs group for group-data condition
+    // Needs group for group-data condition
+    base: 'group',
     itemBase: '',
     itemControl: 'bg-focus group-data-[invalid=true]:bg-danger',
     itemDescription: '',

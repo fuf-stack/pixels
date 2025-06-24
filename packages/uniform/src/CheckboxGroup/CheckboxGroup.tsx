@@ -45,6 +45,7 @@ export const checkboxGroupVariants = tv({
           // fix stroke position when used with subline and enable animation
           'relative before:transition-all before:duration-200',
         ],
+        optionLabelSubline: 'group-data-[selected=true]:opacity-60',
       },
     },
   },
@@ -127,6 +128,7 @@ const CheckboxGroup = ({
   const heroCheckboxClassNames = {
     base: classNames.optionBase,
     icon: classNames.optionIcon,
+    label: classNames.optionLabel,
     wrapper: classNames.optionWrapper,
   };
 
@@ -222,23 +224,31 @@ const CheckboxGroup = ({
           { replaceDots: true },
         );
 
-        const labelContent = option.labelSubline ? (
-          <div className="flex flex-col items-start">
-            <span className={classNames.optionLabel}>{option.label}</span>
-            <span className={`${classNames.optionLabelSubline}`}>
-              {option.labelSubline}
-            </span>
-          </div>
-        ) : (
-          <span className={classNames.optionLabel}>{option.label}</span>
-        );
+        // set content and classes depending option has subline
+        const hasSubline = !!option.labelSubline;
+        let labelContent: ReactNode;
+        let optionClassNames = heroCheckboxClassNames;
+        if (hasSubline) {
+          labelContent = (
+            <div className="flex grow flex-col items-start">
+              <span className={classNames.optionLabel}>{option.label}</span>
+              <span className={`${classNames.optionLabelSubline}`}>
+                {option.labelSubline}
+              </span>
+            </div>
+          );
+          // remove label classes from outer label when subline is used
+          optionClassNames = { ...optionClassNames, label: '' };
+        } else {
+          labelContent = option.label;
+        }
 
         return (
           <HeroCheckbox
             aria-label={
               typeof option.label === 'string' ? option.label : option.value
             }
-            classNames={heroCheckboxClassNames}
+            classNames={optionClassNames}
             data-invalid={invalid}
             data-testid={optionTestId}
             isDisabled={disabled || option.disabled}
