@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.21.1](https://github.com/fuf-stack/pixels/compare/uniform-v0.21.0...uniform-v0.21.1) (2025-06-24)
+
+
+### Bug Fixes
+
+* **uniform:** set background color on Input components ([913c5a4](https://github.com/fuf-stack/pixels/commit/913c5a48fda6c1edf9d2f58cd2b732aa51754eea))
+
 ## [0.21.0](https://github.com/fuf-stack/pixels/compare/uniform-v0.20.4...uniform-v0.21.0) (2025-06-24)
 
 
