@@ -120,7 +120,7 @@ const Input = ({
     <HeroInput
       className={cn(className)}
       classNames={{
-        inputWrapper: 'group-data-[focus=true]:border-focus',
+        inputWrapper: 'bg-content1 group-data-[focus=true]:border-focus',
       }}
       data-testid={testId}
       endContent={endContent}

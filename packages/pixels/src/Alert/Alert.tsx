@@ -58,7 +58,7 @@ export const alertVariants = tv({
       variant: 'flat',
       className: {
         alertIcon: 'fill-current',
-        base: 'dark:bg-info-50/50 bg-info-50 text-info-600',
+        base: 'bg-info-50 text-info-600 dark:bg-info-50/50',
         closeButton: 'text-info-500 data-[hover]:bg-info-200',
         iconWrapper: 'border-info-100 bg-info-50 dark:bg-info-100',
       },
@@ -68,7 +68,7 @@ export const alertVariants = tv({
       variant: 'faded',
       className: {
         alertIcon: 'fill-current',
-        base: 'dark:bg-info-50/50 border-small border-info-200 bg-info-50 text-info-600 dark:border-info-100',
+        base: 'border-small border-info-200 bg-info-50 text-info-600 dark:border-info-100 dark:bg-info-50/50',
         closeButton: 'text-info-500 data-[hover]:bg-info-200',
         iconWrapper: 'border-info-100 bg-info-50 dark:bg-info-100',
       },
