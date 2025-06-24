@@ -177,3 +177,19 @@ export const Password: Story = {
     await expect(input.getAttribute('aria-invalid')).toBe('true');
   },
 };
+
+const renderAllSizes = () =>
+  ['sm', 'md', 'lg'].map((size) => (
+    <Input
+      className="mt-4"
+      name={size}
+      placeholder={size}
+      // @ts-expect-error this is ok
+      size={size}
+    />
+  ));
+
+export const AllSizes: Story = {
+  // @ts-expect-error this is ok
+  render: renderAllSizes,
+};

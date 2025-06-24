@@ -21,6 +21,8 @@ export interface InputProps {
   name: string;
   /** form field placeholder */
   placeholder?: string;
+  /** size of the input */
+  size?: 'sm' | 'md' | 'lg';
   /** content added to the start of the input field */
   startContent?: ReactNode;
   /** HTML data-testid attribute used in e2e tests */
@@ -46,6 +48,7 @@ const Input = ({
   label = undefined,
   name,
   placeholder = ' ',
+  size = undefined,
   startContent = undefined,
   testId: _testId = undefined,
   transformValue = undefined,
@@ -142,6 +145,7 @@ const Input = ({
       placeholder={placeholder}
       radius="sm"
       ref={ref}
+      size={size}
       startContent={startContent}
       type={type}
       // @ts-expect-error number is ok here
