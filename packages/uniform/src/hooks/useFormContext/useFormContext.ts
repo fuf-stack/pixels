@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import type { VetoInstance } from '@fuf-stack/veto';
 import type { FieldError, FieldValues, Path } from 'react-hook-form';
 
@@ -7,6 +9,7 @@ import { useFormContext as useHookFormContext } from 'react-hook-form';
 import { slugify } from '@fuf-stack/pixel-utils';
 
 import { UniformContext } from '../../Form/subcomponents/FormContext';
+import { toValidationFormat } from '../../helpers';
 
 /** Schema check whether a field is required or optional */
 export const checkFieldIsRequired = (
@@ -38,9 +41,12 @@ export const useFormContext = <
 >() => {
   const {
     formState,
-    // https://react-hook-form.com/docs/useform/getfieldstate
-    // for getFieldState a subscription to formState properties is needed!
+    // some methods that will be enhanced below
     getFieldState: getFieldStateOrig,
+    getValues: getValuesOrig,
+    watch: watchOrig,
+    subscribe: subscribeOrig,
+    // the rest of the methods pass through unchanged
     ...otherMethods
   } = useHookFormContext<TFieldValues, TContext, TTransformedValues>();
 
@@ -71,10 +77,56 @@ export const useFormContext = <
     };
   };
 
+  /**
+   * Wrap form value accessor methods to automatically convert from internal storage format
+   * to component-friendly format:
+   *
+   * - Convert nullish string markers: "__NULL__" → null, "__FALSE__" → false, "__ZERO__" → 0
+   * - Filter out empty/null values: fields with converted null/empty values are removed entirely
+   *
+   * This ensures components receive clean, predictable data without needing to handle
+   * the internal nullish string conversion system manually.
+   */
+  const getValues = ((...args: any[]) => {
+    const result = (getValuesOrig as any)(...args);
+    return toValidationFormat(result);
+  }) as typeof getValuesOrig;
+
+  const watch = ((...args: any[]) => {
+    const result = (watchOrig as any)(...args);
+    return toValidationFormat(result);
+  }) as typeof watchOrig;
+
+  const subscribe = ((...args: any[]) => {
+    // For subscribe, we need to wrap the callback to convert the values property
+    const [options] = args;
+    if (options?.callback) {
+      const originalCallback = options.callback;
+      const wrappedOptions = {
+        ...options,
+        callback: (subscribeFormState: any) => {
+          // Convert the values property if it exists
+          const convertedFormState = {
+            ...subscribeFormState,
+            ...(subscribeFormState.values && {
+              values: toValidationFormat(subscribeFormState.values),
+            }),
+          };
+          return originalCallback(convertedFormState);
+        },
+      };
+      return subscribeOrig(wrappedOptions);
+    }
+    return (subscribeOrig as any)(...args);
+  }) as typeof subscribeOrig;
+
   return {
     ...otherMethods,
     ...uniformContext,
-    getFieldState,
     formState,
+    getFieldState,
+    getValues,
+    subscribe,
+    watch,
   };
 };

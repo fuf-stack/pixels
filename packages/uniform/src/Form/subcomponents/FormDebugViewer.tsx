@@ -8,7 +8,6 @@ import { Button } from '@fuf-stack/pixels/Button';
 import { Card } from '@fuf-stack/pixels/Card';
 import { Json } from '@fuf-stack/pixels/Json';
 
-import { toValidationFormat } from '../../helpers';
 import { useFormContext } from '../../hooks';
 
 // import Json css (theme)
@@ -48,7 +47,7 @@ const FormDebugViewer = ({ className = undefined }: FormDebugViewerProps) => {
     const unsubscribe = subscribe({
       formState: { values: true },
       callback: ({ values }) => {
-        setValidationValues(toValidationFormat(values));
+        setValidationValues(values);
       },
     });
 
