@@ -1,5 +1,5 @@
 import type { VetoInstance } from '@fuf-stack/veto';
-import type { FieldError } from 'react-hook-form';
+import type { FieldError, FieldValues, Path } from 'react-hook-form';
 
 import { useContext } from 'react';
 import { useFormContext as useHookFormContext } from 'react-hook-form';
@@ -30,14 +30,19 @@ export const checkFieldIsRequired = (
 /**
  * Custom hook that extends react-hook-form's useFormContext to add validation and state management.
  */
-export const useFormContext = () => {
+export const useFormContext = <
+  TFieldValues extends FieldValues = FieldValues,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  TContext = any,
+  TTransformedValues = TFieldValues,
+>() => {
   const {
     formState,
     // https://react-hook-form.com/docs/useform/getfieldstate
     // for getFieldState a subscription to formState properties is needed!
     getFieldState: getFieldStateOrig,
     ...otherMethods
-  } = useHookFormContext();
+  } = useHookFormContext<TFieldValues, TContext, TTransformedValues>();
 
   const uniformContext = useContext(UniformContext);
 
@@ -46,7 +51,7 @@ export const useFormContext = () => {
    * - Whether the field is required by checking the validation schema
    * - Existing field state information (errors, etc.)
    */
-  const getFieldState = (name: string, testId?: string) => {
+  const getFieldState = (name: Path<TFieldValues>, testId?: string) => {
     const fieldPath =
       typeof name === 'string' ? name.replace(/\[\d+\]/g, '').split('.') : name;
 

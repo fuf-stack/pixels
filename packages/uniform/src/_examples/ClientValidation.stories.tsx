@@ -80,7 +80,7 @@ const createUsernameClientSchema = (queryData: {
 
 // Simple component demonstrating client validation
 const SimpleClientValidationForm = () => {
-  const { watch } = useFormContext();
+  const { watch } = useFormContext<{ teamId: string }>();
   const teamId = watch('teamId');
 
   // Call the query hook directly in the component
