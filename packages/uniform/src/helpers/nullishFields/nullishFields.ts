@@ -110,8 +110,13 @@ export const toFormFormat = (
  * }
  */
 export const toValidationFormat = (
-  formState: Record<string, unknown>,
-): Record<string, unknown> => {
+  formState: Record<string, unknown> | null | undefined,
+): Record<string, unknown> | null | undefined => {
+  // Handle null or undefined input
+  if (formState === undefined || formState === null) {
+    return formState;
+  }
+
   return JSON.parse(
     JSON.stringify(formState, (_, value) => {
       if (Array.isArray(value)) {

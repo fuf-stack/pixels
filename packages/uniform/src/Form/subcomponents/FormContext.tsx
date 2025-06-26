@@ -152,7 +152,7 @@ const FormProvider: React.FC<FormProviderProps> = ({
 
     // Convert nullish strings and filter out empty values before submission
     const wrappedOnSubmit = (data: FieldValues, event?: BaseSyntheticEvent) => {
-      const submitData = toValidationFormat(data);
+      const submitData = toValidationFormat(data) || {};
       return onSubmit(submitData, event);
     };
 

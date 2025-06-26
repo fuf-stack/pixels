@@ -170,6 +170,16 @@ describe('toValidationFormat', () => {
 
     expect(toValidationFormat(input)).toEqual(expected);
   });
+
+  it('should handle undefined input', () => {
+    const result = toValidationFormat(undefined);
+    expect(result).toBeUndefined();
+  });
+
+  it('should handle null input', () => {
+    const result = toValidationFormat(null);
+    expect(result).toBeNull();
+  });
 });
 
 describe('round trip conversion', () => {

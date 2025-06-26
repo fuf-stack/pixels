@@ -409,4 +409,20 @@ describe('useFormContext nullish string conversion', () => {
 
     expect(result).toEqual([null, false, 'test']);
   });
+
+  it('should handle undefined values without throwing errors', () => {
+    // Mock methods to return undefined
+    mockGetValues.mockReturnValue(undefined);
+    mockWatch.mockReturnValue(undefined);
+
+    const { getValues, watch } = useFormContext();
+
+    // These should not throw errors even when returning undefined
+    expect(() => getValues()).not.toThrow();
+    expect(() => watch()).not.toThrow();
+
+    // Should return undefined for undefined values (not converted)
+    expect(getValues()).toBeUndefined();
+    expect(watch()).toBeUndefined();
+  });
 });
