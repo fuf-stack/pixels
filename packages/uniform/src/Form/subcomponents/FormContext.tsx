@@ -11,6 +11,7 @@ import { FormProvider as HookFormProvider, useForm } from 'react-hook-form';
 
 import { useLocalStorage } from '@fuf-stack/pixels';
 
+import { toValidationFormat } from '../../helpers';
 import { useExtendedValidation, useFormResolver } from './FormResolver';
 
 type DebugMode = 'debug' | 'debug-testids' | 'off' | 'disabled';
@@ -95,7 +96,7 @@ interface FormProviderProps {
  * FormProvider component provides:
  * - Veto validation schema context
  * - Client validation schema management
- * - Submit handler creation and submission control with preventSubmit
+ * - Submit handler with automatic data conversion and submission control with preventSubmit
  * - Form Debug Mode state
  * - React Hook Form context
  */
@@ -136,7 +137,7 @@ const FormProvider: React.FC<FormProviderProps> = ({
   // Control if the form can currently be submitted
   const [preventSubmit, setPreventSubmit] = useState(false);
 
-  // Create submit handler
+  // Create submit handler with automatic data conversion
   // eslint-disable-next-line consistent-return
   const handleSubmit = async (e?: React.BaseSyntheticEvent) => {
     // only prevent submit when form state is valid, because otherwise
@@ -148,7 +149,14 @@ const FormProvider: React.FC<FormProviderProps> = ({
       e?.preventDefault();
       return Promise.resolve();
     }
-    await methods.handleSubmit(onSubmit)(e);
+
+    // Convert nullish strings and filter out empty values before submission
+    const wrappedOnSubmit = (data: FieldValues, event?: BaseSyntheticEvent) => {
+      const submitData = toValidationFormat(data);
+      return onSubmit(submitData, event);
+    };
+
+    await methods.handleSubmit(wrappedOnSubmit)(e);
   };
 
   // Memoize the context value to prevent re-renders
