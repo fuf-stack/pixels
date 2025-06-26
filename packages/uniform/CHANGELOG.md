@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.21.4](https://github.com/fuf-stack/pixels/compare/uniform-v0.21.3...uniform-v0.21.4) (2025-06-26)
+
+
+### Bug Fixes
+
+* **uniform:** add nullish string conversion to onSubmit handler ([98b6218](https://github.com/fuf-stack/pixels/commit/98b6218e2df61763c6d091edf4eeacc62f09d6af))
+
 ## [0.21.3](https://github.com/fuf-stack/pixels/compare/uniform-v0.21.2...uniform-v0.21.3) (2025-06-26)
 
 
