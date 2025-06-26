@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.21.2](https://github.com/fuf-stack/pixels/compare/uniform-v0.21.1...uniform-v0.21.2) (2025-06-26)
+
+
+### Bug Fixes
+
+* **uniform:** add correct type inference to useFormContext ([bc7a6d3](https://github.com/fuf-stack/pixels/commit/bc7a6d34da200d3c5d6d086c4368b4233247706f))
+
 ## [0.21.1](https://github.com/fuf-stack/pixels/compare/uniform-v0.21.0...uniform-v0.21.1) (2025-06-24)
 
 
