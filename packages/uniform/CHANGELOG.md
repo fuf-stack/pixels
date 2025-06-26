@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.21.5](https://github.com/fuf-stack/pixels/compare/uniform-v0.21.4...uniform-v0.21.5) (2025-06-26)
+
+
+### Bug Fixes
+
+* **uniform:** fix edge case where nullish string conversion fails due to undefined from data ([809c444](https://github.com/fuf-stack/pixels/commit/809c444d48fe7ce83f2f9b796963d7bb30e66dfe))
+
 ## [0.21.4](https://github.com/fuf-stack/pixels/compare/uniform-v0.21.3...uniform-v0.21.4) (2025-06-26)
 
 
