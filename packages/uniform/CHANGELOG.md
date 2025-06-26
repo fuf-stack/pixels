@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.21.3](https://github.com/fuf-stack/pixels/compare/uniform-v0.21.2...uniform-v0.21.3) (2025-06-26)
+
+
+### Bug Fixes
+
+* **uniform:** add nullish string conversion to other methods returned by useFormContext ([f645186](https://github.com/fuf-stack/pixels/commit/f645186d4879d490e805c7b62ab8162ef1dc0b31))
+
 ## [0.21.2](https://github.com/fuf-stack/pixels/compare/uniform-v0.21.1...uniform-v0.21.2) (2025-06-26)
 
 
