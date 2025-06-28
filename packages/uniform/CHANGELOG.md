@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.22.0](https://github.com/fuf-stack/pixels/compare/uniform-v0.21.5...uniform-v0.22.0) (2025-06-28)
+
+
+### Features
+
+* **uniform:** add debouncing to Input and TextArea ([47c5267](https://github.com/fuf-stack/pixels/commit/47c52671de33799315732dd6f87ba96a3c4f02c8))
+
+
+### Bug Fixes
+
+* **uniform:** fix useController validation not applied when field is emtied again ([bb894b3](https://github.com/fuf-stack/pixels/commit/bb894b38270ba5ba23f9f60821c163ae84df12f2))
+
 ## [0.21.5](https://github.com/fuf-stack/pixels/compare/uniform-v0.21.4...uniform-v0.21.5) (2025-06-26)
 
 
