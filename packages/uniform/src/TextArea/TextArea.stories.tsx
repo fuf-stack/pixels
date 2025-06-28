@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { action } from '@storybook/addon-actions';
-import { userEvent, within } from '@storybook/test';
+import { expect, userEvent, waitFor, within } from '@storybook/test';
 
 import { SubmitButton } from '@fuf-stack/uniform';
 import { veto } from '@fuf-stack/veto';
@@ -59,19 +59,18 @@ const requiredValidation = veto({
 export const Required: Story = {
   parameters: { formProps: { validation: requiredValidation } },
   args: {
-    label: 'textareaField',
+    label: 'Text Area',
     name: 'textareaField',
   },
 };
 
 const validation = veto({
   textareaField: vt
-    .string()
+    .string({ min: 2 })
     .regex(
       /^[a-z0-9\s]+$/i,
       'Must only contain alphanumeric characters and spaces.',
-    )
-    .min(2),
+    ),
 });
 
 export const Invalid: Story = {
@@ -87,6 +86,13 @@ export const Invalid: Story = {
     const input = canvas.getByTestId('textareafield');
     await userEvent.type(input, 'invälid', {
       delay: 100,
+    });
+    // Blur so validation is triggered immediately
+    input.blur();
+
+    // Wait because of value debounce
+    await waitFor(() => {
+      expect(input.getAttribute('aria-invalid')).toBe('true');
     });
   },
 };

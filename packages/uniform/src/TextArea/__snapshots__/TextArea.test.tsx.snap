@@ -73,8 +73,6 @@ exports[`Story Snapshots > Invalid 1`] = `
         class="group flex flex-col data-[hidden=true]:hidden w-full is-filled"
         data-filled="true"
         data-filled-within="true"
-        data-focus="true"
-        data-focus-within="true"
         data-has-elements="true"
         data-has-helper="true"
         data-has-label="true"
@@ -94,7 +92,6 @@ exports[`Story Snapshots > Invalid 1`] = `
         </label>
         <div
           class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-sm px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 h-10 min-h-10 rounded-medium !h-auto transition-background !duration-150 transition-colors motion-reduce:transition-none !border-danger group-data-[focus=true]:!border-danger py-2 bg-content1 group-data-[focus=true]:border-focus is-filled"
-          data-focus="true"
           data-has-multiple-rows="true"
           data-hover="true"
           data-slot="input-wrapper"
@@ -189,7 +186,7 @@ exports[`Story Snapshots > Required 1`] = `
           for="react-aria-react-useId-mock"
           id="react-aria-react-useId-mock"
         >
-          textareaField
+          Text Area
         </label>
         <div
           class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-sm px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 h-10 min-h-10 rounded-medium !h-auto transition-background !duration-150 transition-colors motion-reduce:transition-none py-2 bg-content1 group-data-[focus=true]:border-focus"

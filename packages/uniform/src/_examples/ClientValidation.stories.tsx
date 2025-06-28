@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { useFormContext } from 'react-hook-form';
 
 import { action } from '@storybook/addon-actions';
-import { expect, userEvent, within } from '@storybook/test';
+import { expect, userEvent, waitFor, within } from '@storybook/test';
 
 import { SubmitButton } from '@fuf-stack/uniform';
 import { veto } from '@fuf-stack/veto';
@@ -199,14 +199,18 @@ export const InteractiveDemo: Story = {
     // Type an existing username
     const usernameInput = canvas.getByTestId('username');
     await userEvent.type(usernameInput, 'john');
+    // Blur so validation is triggered immediately
+    usernameInput.blur();
 
     // Verify validation is active
     const statusText = canvas.getByText('✅ Active');
     await expect(statusText).toBeInTheDocument();
 
     // Check for validation error
-    await expect(
-      canvas.getByText('Username already exists in this team'),
-    ).toBeInTheDocument();
+    await waitFor(() => {
+      expect(
+        canvas.getByText('Username already exists in this team'),
+      ).toBeInTheDocument();
+    });
   },
 };

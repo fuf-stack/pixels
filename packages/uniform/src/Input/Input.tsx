@@ -1,16 +1,19 @@
 import type { ReactNode } from 'react';
+import type { InputValueTransform } from '../hooks';
 
 import { Input as HeroInput } from '@heroui/input';
 
 import { cn } from '@fuf-stack/pixel-utils';
 
-import { useController, useFormContext } from '../hooks';
+import { useController, useFormContext, useInputValueDebounce } from '../hooks';
 import { FieldCopyTestIdButton } from '../partials/FieldCopyTestIdButton';
 import { FieldValidationError } from '../partials/FieldValidationError';
 
 export interface InputProps {
   /** CSS class name */
   className?: string;
+  /** debounce delay in milliseconds for form state updates (default: 300ms) */
+  debounceDelay?: number;
   /** input field is disabled */
   disabled?: boolean;
   /** added content to the end of the input Field. */
@@ -28,12 +31,7 @@ export interface InputProps {
   /** HTML data-testid attribute used in e2e tests */
   testId?: string;
   /** allows disentangled display and form values for a field */
-  transformValue?: {
-    /** transforms the formValue of the field to the display value of the field */
-    displayValue: (value: string | number) => string | number;
-    /** transforms the displayValue of the field to the form value of the field */
-    formValue: (value: string) => string | number;
-  };
+  transformValue?: InputValueTransform;
   /** input type */
   type?: 'number' | 'password';
 }
@@ -43,6 +41,7 @@ export interface InputProps {
  */
 const Input = ({
   className = undefined,
+  debounceDelay = 300,
   disabled = false,
   endContent = undefined,
   label = undefined,
@@ -63,58 +62,26 @@ const Input = ({
     name,
   });
 
-  const { disabled: isDisabled, onChange, onBlur, value, ref } = field;
+  const {
+    disabled: isDisabled,
+    onChange: fieldOnChange,
+    onBlur: fieldOnBlur,
+    value: fieldValue,
+    ref,
+  } = field;
+
+  // Use hook that provides debounced onChange and enhanced blur handling
+  const { onChange, onBlur, value } = useInputValueDebounce({
+    debounceDelay,
+    onBlur: fieldOnBlur,
+    onChange: fieldOnChange,
+    transformValue,
+    type,
+    value: fieldValue,
+  });
 
   const showTestIdCopyButton = debugMode === 'debug-testids';
   const showLabel = label || showTestIdCopyButton;
-
-  /**
-   * Determines the display value for the input field:
-   * 1. If transformValue.displayValue is provided, applies the transform to the current value
-   *    (useful for formatting like adding currency symbols, date formatting, etc.)
-   * 2. Falls back to the raw value if no transform is provided
-   * 3. Ensures a defined value by using empty string as fallback (prevents uncontrolled input warnings)
-   *
-   * Examples:
-   * - With transform: value "1000" → displayValue "$1,000"
-   * - Without transform: value "1000" → displayValue "1000"
-   * - Undefined value: value undefined → displayValue ""
-   */
-  const displayValue = transformValue?.displayValue
-    ? transformValue.displayValue(value ?? '')
-    : (value ?? '');
-
-  /**
-   * Handles input value changes with special processing:
-   * 1. For number inputs:
-   *    - Preserves empty string (prevents NaN in the form state)
-   *    - Converts non-empty values to numbers
-   *    Example: "" → "" (empty stays empty)
-   *            "42" → 42 (converts to number)
-   *
-   * 2. For text inputs with transformValue.formValue:
-   *    - Applies custom transform before updating form state
-   *    - Useful for converting display format to storage format
-   *    Example: "$1,000" → "1000" (strips formatting)
-   *
-   * 3. For regular text inputs:
-   *    - Passes through the raw input value
-   *    Example: "hello" → "hello" (no transformation)
-   *
-   * @param e The input change event
-   */
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const inputValue = e.target.value;
-    if (type === 'number') {
-      onChange(inputValue === '' ? '' : Number(inputValue));
-    } else {
-      onChange(
-        transformValue?.formValue
-          ? transformValue.formValue(inputValue)
-          : inputValue,
-      );
-    }
-  };
 
   return (
     <HeroInput
@@ -141,15 +108,15 @@ const Input = ({
       labelPlacement="outside"
       name={name}
       onBlur={onBlur}
-      onChange={handleChange}
+      onChange={onChange}
       placeholder={placeholder}
       radius="sm"
       ref={ref}
       size={size}
       startContent={startContent}
       type={type}
-      // @ts-expect-error number is ok here
-      value={displayValue}
+      // @ts-expect-error can be number for input type number
+      value={value}
       variant="bordered"
     />
   );

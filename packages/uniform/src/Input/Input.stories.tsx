@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { FaEnvelope } from 'react-icons/fa';
 
 import { action } from '@storybook/addon-actions';
-import { expect, userEvent, within } from '@storybook/test';
+import { expect, userEvent, waitFor, within } from '@storybook/test';
 
 import { SubmitButton } from '@fuf-stack/uniform';
 import { veto } from '@fuf-stack/veto';
@@ -64,7 +64,7 @@ export const Required: Story = {
   parameters: {
     formProps: {
       validation: veto({
-        inputField: vt.string(),
+        inputField: vt.string({ min: 1 }),
       }),
     },
   },
@@ -107,8 +107,12 @@ export const Invalid: Story = {
     await userEvent.type(input, 'invälid', {
       delay: 100,
     });
-    const inputInvalid = input.getAttribute('aria-invalid');
-    await expect(inputInvalid).toBe('true');
+    input.blur();
+
+    // Wait because of value debounce
+    await waitFor(() => {
+      expect(input.getAttribute('aria-invalid')).toBe('true');
+    });
   },
 };
 
@@ -149,8 +153,12 @@ export const Number: Story = {
     await userEvent.type(input, '2', {
       delay: 100,
     });
+    input.blur();
 
-    await expect(input.getAttribute('aria-invalid')).toBeNull();
+    // Wait because of value debounce
+    await waitFor(() => {
+      expect(input.getAttribute('aria-invalid')).toBeNull();
+    });
   },
 };
 
@@ -173,8 +181,38 @@ export const Password: Story = {
     await userEvent.type(input, 'veryS3cure!', {
       delay: 100,
     });
+    input.blur();
 
-    await expect(input.getAttribute('aria-invalid')).toBe('true');
+    // Wait because of value debounce
+    await waitFor(() => {
+      expect(input.getAttribute('aria-invalid')).toBe('true');
+    });
+  },
+};
+
+export const WithValueTransform: Story = {
+  parameters: {
+    formProps: {
+      initialValues: { userName: 'john 🤡' },
+    },
+  },
+  args: {
+    label: 'Username',
+    name: 'userName',
+    placeholder: 'Enter username...',
+    endContent: '🤡',
+    transformValue: {
+      displayValue: (value) => {
+        if (!value) return '';
+        // Remove emoji for display
+        return value.toString().replace(' 🤡', '');
+      },
+      formValue: (value) => {
+        if (!value) return '';
+        // Always add clown emoji to form value
+        return `${value.toString().trim()} 🤡`;
+      },
+    },
   },
 };
 
@@ -225,14 +263,17 @@ export const ValidationAfterClear: Story = {
 
     // Clear the field completely
     await userEvent.clear(input);
+    input.blur();
 
-    // Now validation error should appear for required field
-    await expect(input.getAttribute('aria-invalid')).toBe('true');
+    // Wait because of value debounce
+    await waitFor(() => {
+      // Now validation error should appear for required field
+      expect(input.getAttribute('aria-invalid')).toBe('true');
 
-    // Check that error message is displayed
-    const errorMessage = canvas.getByText(
-      'String must contain at least 1 character(s)',
-    );
-    await expect(errorMessage).toBeInTheDocument();
+      // Check that error message is displayed
+      expect(
+        canvas.getByText('String must contain at least 1 character(s)'),
+      ).toBeInTheDocument();
+    });
   },
 };

@@ -4,7 +4,7 @@ import { Textarea as HeroTextArea } from '@heroui/input';
 
 import { cn } from '@fuf-stack/pixel-utils';
 
-import { useController, useFormContext } from '../hooks';
+import { useController, useFormContext, useInputValueDebounce } from '../hooks';
 import { FieldCopyTestIdButton } from '../partials/FieldCopyTestIdButton';
 import { FieldValidationError } from '../partials/FieldValidationError';
 
@@ -13,6 +13,8 @@ export interface TextAreaProps {
   children?: ReactNode;
   /** CSS class name */
   className?: string;
+  /** debounce delay in milliseconds for form state updates (default: 300ms) */
+  debounceDelay?: number;
   /** Determines if the TextArea is disabled or not. */
   disabled?: boolean;
   /** Label displayed above the TextArea. */
@@ -31,6 +33,7 @@ export interface TextAreaProps {
 const TextArea = ({
   children = null,
   className = undefined,
+  debounceDelay = 300,
   disabled = false,
   label = undefined,
   name,
@@ -40,37 +43,30 @@ const TextArea = ({
   const { control, debugMode, getFieldState } = useFormContext();
   const { error, invalid, required, testId } = getFieldState(name, _testId);
 
-  const { field } = useController({ control, name, disabled });
-  const { disabled: isDisabled, onChange, onBlur, value = '', ref } = field;
+  const { field } = useController({
+    control,
+    disabled,
+    name,
+  });
+
+  const {
+    disabled: isDisabled,
+    onChange: fieldOnChange,
+    onBlur: fieldOnBlur,
+    value: fieldValue,
+    ref,
+  } = field;
+
+  // Use debounced handlers for form updates
+  const { onChange, onBlur, value } = useInputValueDebounce({
+    debounceDelay,
+    onBlur: fieldOnBlur,
+    onChange: fieldOnChange,
+    value: fieldValue,
+  });
 
   const showTestIdCopyButton = debugMode === 'debug-testids';
   const showLabel = label || showTestIdCopyButton;
-
-  /**
-   * Ensures the textarea always has a defined string value to prevent uncontrolled to
-   * controlled component warnings:
-   *
-   * 1. Warning Prevention:
-   *    - Sets default value to '' in field destructuring
-   *    - Guarantees the value prop is never undefined/null
-   *    - Prevents React warning: "A component is changing from uncontrolled to controlled"
-   *
-   * 2. Value Handling:
-   *    - Converts undefined/null to empty string
-   *    - Converts non-string values to strings
-   *    - Maintains existing string values
-   *
-   * Examples:
-   * - undefined → "" (prevents uncontrolled warning)
-   * - null → "" (prevents uncontrolled warning)
-   * - "hello" → "hello" (maintains string value)
-   * - 123 → "123" (converts to string)
-   *
-   * Without this handling, the textarea could switch between controlled/uncontrolled
-   * states when the form value changes from undefined to defined, causing React warnings
-   * and potential rendering issues.
-   */
-  const displayValue = value?.toString() ?? '';
 
   return (
     <HeroTextArea
@@ -94,12 +90,12 @@ const TextArea = ({
         )
       }
       labelPlacement="outside"
-      placeholder={placeholder}
       name={name}
-      value={displayValue}
-      onChange={onChange}
       onBlur={onBlur}
+      onChange={onChange}
+      placeholder={placeholder}
       ref={ref}
+      value={value as string}
       variant="bordered"
     >
       {children}

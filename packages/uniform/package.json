@@ -46,6 +46,16 @@
       "import": "./dist/hooks/index.js",
       "require": "./dist/hooks/index.cjs"
     },
+    "./hooks/useInputValueDebounce": {
+      "types": "./dist/hooks/useInputValueDebounce/index.d.ts",
+      "import": "./dist/hooks/useInputValueDebounce/index.js",
+      "require": "./dist/hooks/useInputValueDebounce/index.cjs"
+    },
+    "./hooks/useInputValueTransform": {
+      "types": "./dist/hooks/useInputValueTransform/index.d.ts",
+      "import": "./dist/hooks/useInputValueTransform/index.js",
+      "require": "./dist/hooks/useInputValueTransform/index.cjs"
+    },
     "./Input": {
       "types": "./dist/Input/index.d.ts",
       "import": "./dist/Input/index.js",
