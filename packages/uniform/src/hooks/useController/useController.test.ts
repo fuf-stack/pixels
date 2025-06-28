@@ -188,6 +188,28 @@ describe('useController', () => {
       );
     });
 
+    it('should preserve empty strings without nullish conversion', () => {
+      const { result } = renderHook(() =>
+        useController<TestFormValues>({ name: 'test-field' }),
+      );
+
+      // Test direct empty string
+      result.current.field.onChange('');
+
+      expect(toNullishString).not.toHaveBeenCalledWith('');
+      expect(mockField.onChange).toHaveBeenCalledWith('');
+
+      // Test empty string from event
+      const mockEventWithEmptyValue = {
+        target: { value: '' },
+      } as React.ChangeEvent<HTMLInputElement>;
+
+      result.current.field.onChange(mockEventWithEmptyValue);
+
+      expect(toNullishString).not.toHaveBeenCalledWith('');
+      expect(mockField.onChange).toHaveBeenCalledWith('');
+    });
+
     it('should handle multiple arguments (spread)', () => {
       const { result } = renderHook(() =>
         useController<TestFormValues>({ name: 'test-field' }),

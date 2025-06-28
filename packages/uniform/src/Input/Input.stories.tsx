@@ -193,3 +193,46 @@ export const AllSizes: Story = {
   // @ts-expect-error this is ok
   render: renderAllSizes,
 };
+
+// Test for edge case where validation error appears after clearing a field
+export const ValidationAfterClear: Story = {
+  name: 'Edge Cases: Cleared Validation',
+  parameters: {
+    formProps: {
+      validation: veto({
+        inputField: vt.string(),
+      }),
+    },
+  },
+  args: {
+    label: 'Required Cleared Field',
+    name: 'inputField',
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const input = canvas.getByTestId('inputfield');
+
+    // Initially, no validation error should be shown
+    await expect(input.getAttribute('aria-invalid')).toBeNull();
+
+    // Type some content
+    await userEvent.type(input, 'test', {
+      delay: 50,
+    });
+
+    // Field should be valid with content
+    await expect(input.getAttribute('aria-invalid')).toBeNull();
+
+    // Clear the field completely
+    await userEvent.clear(input);
+
+    // Now validation error should appear for required field
+    await expect(input.getAttribute('aria-invalid')).toBe('true');
+
+    // Check that error message is displayed
+    const errorMessage = canvas.getByText(
+      'String must contain at least 1 character(s)',
+    );
+    await expect(errorMessage).toBeInTheDocument();
+  },
+};

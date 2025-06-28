@@ -51,7 +51,9 @@ export const useController = <TFieldValues extends object = object>(
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       onChange: (...event: any[]) => {
         const value = event[0]?.target?.value ?? event[0];
-        field.onChange(toNullishString(value));
+        // Preserve empty strings for required field validation
+        // Only convert non-empty values to nullish strings
+        field.onChange(value === '' ? '' : toNullishString(value));
       },
       // Convert null/undefined to empty string for UI display
       value: fromNullishString(field.value) as string,
