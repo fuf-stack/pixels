@@ -202,12 +202,12 @@ export const WithValueTransform: Story = {
     placeholder: 'Enter username...',
     endContent: '🤡',
     transformValue: {
-      displayValue: (value) => {
+      toDisplayValue: (value) => {
         if (!value) return '';
         // Remove emoji for display
         return value.toString().replace(' 🤡', '');
       },
-      formValue: (value) => {
+      toFormValue: (value) => {
         if (!value) return '';
         // Always add clown emoji to form value
         return `${value.toString().trim()} 🤡`;

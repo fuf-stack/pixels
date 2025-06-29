@@ -1,290 +1,143 @@
-import { describe, expect, it, vi } from 'vitest';
+import { describe, expect, it } from 'vitest';
 
-import { act, renderHook } from '@testing-library/react';
+import { renderHook } from '@testing-library/react';
 
 import { useInputValueTransform } from './useInputValueTransform';
 
 describe('useInputValueTransform', () => {
-  describe('Basic functionality without transforms', () => {
-    it('should return the provided value as displayValue', () => {
-      const { result } = renderHook(() =>
-        useInputValueTransform({ value: 'test' }),
-      );
+  describe('Basic functionality', () => {
+    it('should provide conversion utilities', () => {
+      const { result } = renderHook(() => useInputValueTransform({}));
 
-      expect(result.current.displayValue).toBe('test');
+      expect(result.current.toDisplayValue).toBeTypeOf('function');
+      expect(result.current.toFormValue).toBeTypeOf('function');
     });
 
-    it('should handle empty string value', () => {
-      const { result } = renderHook(() =>
-        useInputValueTransform({ value: '' }),
-      );
+    it('should convert form values to display values', () => {
+      const { result } = renderHook(() => useInputValueTransform({}));
 
-      expect(result.current.displayValue).toBe('');
+      expect(result.current.toDisplayValue('hello')).toBe('hello');
+      expect(result.current.toDisplayValue(123)).toBe(123);
+      expect(result.current.toDisplayValue('')).toBe('');
     });
 
-    it('should handle numeric value', () => {
-      const { result } = renderHook(() =>
-        useInputValueTransform({ value: 42 }),
-      );
+    it('should convert display values to form values', () => {
+      const { result } = renderHook(() => useInputValueTransform({}));
 
-      expect(result.current.displayValue).toBe(42);
-    });
-
-    it('should handle undefined value', () => {
-      const { result } = renderHook(() =>
-        useInputValueTransform({
-          value: undefined as unknown as string | number,
-        }),
-      );
-
-      expect(result.current.displayValue).toBe('');
-    });
-
-    it('should return same value from getFormValue when no transforms', () => {
-      const { result } = renderHook(() =>
-        useInputValueTransform({ value: 'test' }),
-      );
-
-      expect(result.current.getFormValue()).toBe('test');
+      expect(result.current.toFormValue('hello')).toBe('hello');
+      expect(result.current.toFormValue(123)).toBe(123);
+      expect(result.current.toFormValue('')).toBe('');
     });
   });
 
-  describe('Number input handling', () => {
-    it('should preserve empty string for number inputs', () => {
+  describe('Number type handling', () => {
+    it('should convert strings to numbers for number type display values', () => {
       const { result } = renderHook(() =>
-        useInputValueTransform({ value: '', type: 'number' }),
+        useInputValueTransform({ type: 'number' }),
       );
 
-      expect(result.current.getFormValue()).toBe('');
+      expect(result.current.toDisplayValue('123')).toBe(123);
+      expect(result.current.toDisplayValue('3.14')).toBe(3.14);
+      expect(result.current.toDisplayValue('')).toBe('');
+      expect(result.current.toDisplayValue('abc')).toBe('abc'); // Invalid numbers preserved
     });
 
-    it('should convert string to number for number inputs', () => {
+    it('should convert display values to numbers for form values', () => {
       const { result } = renderHook(() =>
-        useInputValueTransform({ value: '42', type: 'number' }),
+        useInputValueTransform({ type: 'number' }),
       );
 
-      act(() => {
-        result.current.handleInputChange({
-          target: { value: '123' },
-        } as React.ChangeEvent<HTMLInputElement>);
-      });
-
-      expect(result.current.getFormValue()).toBe(123);
+      expect(result.current.toFormValue('123')).toBe(123);
+      expect(result.current.toFormValue('3.14')).toBe(3.14);
+      expect(result.current.toFormValue('')).toBe('');
+      expect(result.current.toFormValue('abc')).toBe('abc'); // Invalid numbers preserved
     });
 
-    it('should handle decimal numbers', () => {
+    it('should handle numeric display values correctly', () => {
       const { result } = renderHook(() =>
-        useInputValueTransform({ value: '3.14', type: 'number' }),
+        useInputValueTransform({ type: 'number' }),
       );
 
-      act(() => {
-        result.current.handleInputChange({
-          target: { value: '3.14' },
-        } as React.ChangeEvent<HTMLInputElement>);
-      });
-
-      expect(result.current.getFormValue()).toBe(3.14);
-    });
-
-    it('should handle zero value', () => {
-      const { result } = renderHook(() =>
-        useInputValueTransform({ value: '0', type: 'number' }),
-      );
-
-      act(() => {
-        result.current.handleInputChange({
-          target: { value: '0' },
-        } as React.ChangeEvent<HTMLInputElement>);
-      });
-
-      expect(result.current.getFormValue()).toBe(0);
+      expect(result.current.toFormValue(123)).toBe(123);
+      expect(result.current.toFormValue(3.14)).toBe(3.14);
     });
   });
 
-  describe('Value transformations', () => {
+  describe('Transform functions', () => {
     const currencyTransform = {
       displayValue: (val: string | number) =>
         val ? `$${Number(val).toLocaleString()}` : '',
       formValue: (val: string) => parseFloat(val.replace(/[$,]/g, '')) || 0,
     };
 
-    it('should apply displayValue transform on initialization', () => {
+    it('should apply display transform to form values', () => {
       const { result } = renderHook(() =>
         useInputValueTransform({
-          value: 1000,
           transformValue: currencyTransform,
         }),
       );
 
-      expect(result.current.displayValue).toBe('$1,000');
+      expect(result.current.toDisplayValue(1000)).toBe('$1,000');
+      expect(result.current.toDisplayValue(1234.56)).toBe('$1,234.56');
+      expect(result.current.toDisplayValue('')).toBe('');
     });
 
-    it('should apply formValue transform when getting form value', () => {
+    it('should apply form transform to display values', () => {
       const { result } = renderHook(() =>
         useInputValueTransform({
-          value: 1000,
           transformValue: currencyTransform,
         }),
       );
 
-      expect(result.current.getFormValue()).toBe(1000);
+      expect(result.current.toFormValue('$1,000')).toBe(1000);
+      expect(result.current.toFormValue('$1,234.56')).toBe(1234.56);
+      expect(result.current.toFormValue('')).toBe(0);
     });
 
-    it('should handle phone number formatting', () => {
-      const phoneTransform = {
-        displayValue: (val: string | number) => {
-          const cleaned = val.toString().replace(/\D/g, '');
-          const match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/);
-          return match ? `(${match[1]}) ${match[2]}-${match[3]}` : val;
-        },
-        formValue: (val: string) => val.replace(/\D/g, ''),
-      };
+    const phoneTransform = {
+      displayValue: (val: string | number) => {
+        const cleaned = val.toString().replace(/\D/g, '');
+        const match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/);
+        return match ? `(${match[1]}) ${match[2]}-${match[3]}` : val;
+      },
+      formValue: (val: string) => val.replace(/\D/g, ''),
+    };
 
+    it('should handle phone number transforms', () => {
       const { result } = renderHook(() =>
         useInputValueTransform({
-          value: '5551234567',
           transformValue: phoneTransform,
         }),
       );
 
-      expect(result.current.displayValue).toBe('(555) 123-4567');
-      expect(result.current.getFormValue()).toBe('5551234567');
+      expect(result.current.toDisplayValue('5551234567')).toBe(
+        '(555) 123-4567',
+      );
+      expect(result.current.toFormValue('(555) 123-4567')).toBe('5551234567');
     });
 
     it('should handle transforms with empty values', () => {
       const { result } = renderHook(() =>
         useInputValueTransform({
-          value: '',
           transformValue: currencyTransform,
         }),
       );
 
-      expect(result.current.displayValue).toBe('');
-      expect(result.current.getFormValue()).toBe(0);
-    });
-  });
-
-  describe('handleInputChange', () => {
-    it('should update displayValue when input changes', () => {
-      const { result } = renderHook(() =>
-        useInputValueTransform({ value: 'initial' }),
-      );
-
-      act(() => {
-        result.current.handleInputChange({
-          target: { value: 'updated' },
-        } as React.ChangeEvent<HTMLInputElement>);
-      });
-
-      expect(result.current.displayValue).toBe('updated');
-    });
-
-    it('should work with transforms', () => {
-      const { result } = renderHook(() =>
-        useInputValueTransform({
-          value: 1000,
-          transformValue: {
-            displayValue: (val) => val.toString(),
-            formValue: (val) => parseFloat(val),
-          },
-        }),
-      );
-
-      act(() => {
-        result.current.handleInputChange({
-          target: { value: '2000' },
-        } as React.ChangeEvent<HTMLInputElement>);
-      });
-
-      expect(result.current.displayValue).toBe('2000');
-      expect(result.current.getFormValue()).toBe(2000);
-    });
-  });
-
-  describe('External value synchronization', () => {
-    it('should update displayValue when external value changes', () => {
-      let value = 'initial';
-      const { result, rerender } = renderHook(() =>
-        useInputValueTransform({ value }),
-      );
-
-      expect(result.current.displayValue).toBe('initial');
-
-      value = 'external-update';
-      rerender();
-
-      expect(result.current.displayValue).toBe('external-update');
-    });
-
-    it('should apply transforms when external value changes', () => {
-      let value = 1000;
-      const { result, rerender } = renderHook(() =>
-        useInputValueTransform({
-          value,
-          transformValue: {
-            displayValue: (val) => `$${val}`,
-            formValue: (val) => parseFloat(val.replace('$', '')),
-          },
-        }),
-      );
-
-      expect(result.current.displayValue).toBe('$1000');
-
-      value = 2000;
-      rerender();
-
-      expect(result.current.displayValue).toBe('$2000');
-    });
-
-    it('should handle form resets (value becomes empty)', () => {
-      let value: string | number = 'initial';
-      const { result, rerender } = renderHook(() =>
-        useInputValueTransform({ value }),
-      );
-
-      expect(result.current.displayValue).toBe('initial');
-
-      value = '';
-      rerender();
-
-      expect(result.current.displayValue).toBe('');
-    });
-
-    it('should not update displayValue for same external value', () => {
-      const displayValueSpy = vi.fn(
-        (val: string | number) => `transformed-${val}`,
-      );
-      const transform = {
-        displayValue: displayValueSpy,
-        formValue: (val: string) => val.replace('transformed-', ''),
-      };
-
-      let value = 'test';
-      const { rerender } = renderHook(() =>
-        useInputValueTransform({ value, transformValue: transform }),
-      );
-
-      expect(displayValueSpy).toHaveBeenCalledTimes(1);
-
-      // Same value - should not call transform again
-      rerender();
-      expect(displayValueSpy).toHaveBeenCalledTimes(1);
-
-      // Different value - should call transform
-      value = 'different';
-      rerender();
-      expect(displayValueSpy).toHaveBeenCalledTimes(2);
+      expect(result.current.toDisplayValue('')).toBe('');
+      expect(result.current.toFormValue('')).toBe(0);
     });
   });
 
   describe('Edge cases', () => {
     it('should handle null values', () => {
-      const { result } = renderHook(() =>
-        useInputValueTransform({ value: null as unknown as string | number }),
-      );
+      const { result } = renderHook(() => useInputValueTransform({}));
 
-      expect(result.current.displayValue).toBe('');
-      expect(result.current.getFormValue()).toBe('');
+      expect(
+        result.current.toDisplayValue(null as unknown as string | number),
+      ).toBe('');
+      expect(
+        result.current.toFormValue(null as unknown as string | number),
+      ).toBe(null);
     });
 
     it('should handle transforms that return null/undefined', () => {
@@ -295,13 +148,12 @@ describe('useInputValueTransform', () => {
 
       const { result } = renderHook(() =>
         useInputValueTransform({
-          value: 'test',
           transformValue: nullTransform,
         }),
       );
 
-      expect(result.current.displayValue).toBe(null);
-      expect(result.current.getFormValue()).toBe(undefined);
+      expect(result.current.toDisplayValue('test')).toBe(null);
+      expect(result.current.toFormValue('test')).toBe(undefined);
     });
 
     it('should handle complex transformation errors gracefully', () => {
@@ -313,34 +165,47 @@ describe('useInputValueTransform', () => {
         formValue: (val: string) => val,
       };
 
+      const { result } = renderHook(() =>
+        useInputValueTransform({
+          transformValue: errorTransform,
+        }),
+      );
+
       expect(() => {
-        renderHook(() =>
-          useInputValueTransform({
-            value: 'error',
-            transformValue: errorTransform,
-          }),
-        );
+        result.current.toDisplayValue('error');
       }).toThrow('Transform error');
     });
   });
 
-  describe('Type consistency', () => {
-    it('should maintain type consistency between calls', () => {
-      const { result } = renderHook(() =>
-        useInputValueTransform({ value: 42, type: 'number' }),
+  describe('Function stability', () => {
+    it('should maintain function references between renders', () => {
+      const { result, rerender } = renderHook(() =>
+        useInputValueTransform({ type: 'number' }),
       );
 
-      expect(typeof result.current.displayValue).toBe('number');
-      expect(typeof result.current.getFormValue()).toBe('number');
+      const firstRender = {
+        toDisplayValue: result.current.toDisplayValue,
+        toFormValue: result.current.toFormValue,
+      };
 
-      act(() => {
-        result.current.handleInputChange({
-          target: { value: '123' },
-        } as React.ChangeEvent<HTMLInputElement>);
-      });
+      rerender();
 
-      expect(typeof result.current.displayValue).toBe('string');
-      expect(typeof result.current.getFormValue()).toBe('number');
+      expect(result.current.toDisplayValue).toBe(firstRender.toDisplayValue);
+      expect(result.current.toFormValue).toBe(firstRender.toFormValue);
+    });
+
+    it('should update functions when dependencies change', () => {
+      let type: 'text' | 'number' = 'text';
+      const { result, rerender } = renderHook(() =>
+        useInputValueTransform({ type }),
+      );
+
+      const firstRender = result.current.toDisplayValue;
+
+      type = 'number';
+      rerender();
+
+      expect(result.current.toDisplayValue).not.toBe(firstRender);
     });
   });
 });

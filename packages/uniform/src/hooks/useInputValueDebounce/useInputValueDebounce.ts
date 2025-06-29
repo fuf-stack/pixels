@@ -16,7 +16,7 @@ export interface UseInputValueDebounceOptions {
   transformValue?: InputValueTransform;
   /** Input type to handle number conversion (optional) */
   type?: 'text' | 'number' | 'password';
-  /** The value to debounce */
+  /** The initial form value */
   value: string | number;
 }
 
@@ -50,7 +50,7 @@ export interface UseInputValueDebounceReturn {
  * @param options.onChange Function to call with debounced value
  * @param options.transformValue Optional transform functions for display ↔ form value conversion
  * @param options.type Input type for number conversion ('text' | 'number' | 'password')
- * @param options.value The value to debounce
+ * @param options.value The initial form value
  * @returns Object containing enhanced onChange, onBlur, and immediate display value
  *
  * @example
@@ -101,65 +101,38 @@ export const useInputValueDebounce = ({
   type,
   value,
 }: UseInputValueDebounceOptions): UseInputValueDebounceReturn => {
-  // Use transform hook if transformValue is provided
-  const transform = useInputValueTransform({
+  // Get conversion utilities from transform hook
+  const { toDisplayValue, toFormValue } = useInputValueTransform({
     transformValue,
     type,
-    value,
   });
 
-  // Helper function to convert any value to the appropriate form value
-  const getFormValue = useCallback(
-    (rawValue: string | number) => {
-      const stringValue = String(rawValue);
+  // Track display value for synchronous updates
+  const [displayValue, setDisplayValue] = useState(() => toDisplayValue(value));
 
-      if (transformValue) {
-        return transformValue.formValue(stringValue);
-      }
-
-      if (type === 'number' && stringValue !== '') {
-        const numValue = Number(stringValue);
-        return Number.isNaN(numValue) ? rawValue : numValue;
-      }
-
-      return rawValue;
-    },
-    [transformValue, type],
-  );
-
-  // Use transform display value if available, otherwise use original value
-  const displayValue = transformValue ? transform.displayValue : value;
-  const [currentDisplayValue, setCurrentDisplayValue] = useState(displayValue);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
-  // Sync display value when external value changes
+  // Sync with external value changes
   useEffect(() => {
-    setCurrentDisplayValue(displayValue);
-  }, [displayValue]);
+    setDisplayValue(toDisplayValue(value));
+  }, [value, toDisplayValue]);
 
-  // Enhanced onChange handler
+  // Enhanced onChange handler with debouncing
   const handleChange = useCallback(
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (...event: any[]) => {
-      const newValue = event[0]?.target?.value ?? event[0];
+      // Extract the raw input value
+      const rawValue = event[0]?.target?.value ?? event[0];
 
-      // Convert display value to number if type is number and no transform
-      let displayVal = newValue;
-      if (!transformValue && type === 'number' && newValue !== '') {
-        const numValue = Number(newValue);
-        displayVal = Number.isNaN(numValue) ? newValue : numValue;
-      }
+      // For transforms, user input is already in display format
+      // For number types, convert strings to numbers for display
+      const newDisplayValue = transformValue
+        ? rawValue
+        : toDisplayValue(rawValue);
+      setDisplayValue(newDisplayValue);
 
-      // Update display immediately
-      setCurrentDisplayValue(displayVal);
-
-      // Update transform if needed
-      if (transformValue && event[0]?.target) {
-        transform.handleInputChange(event[0]);
-      }
-
-      // Get form value using helper
-      const formValue = getFormValue(newValue);
+      // Convert to form value using transform utilities
+      const formValue = toFormValue(newDisplayValue);
 
       // Clear existing timeout
       if (timeoutRef.current) {
@@ -189,7 +162,7 @@ export const useInputValueDebounce = ({
         timeoutRef.current = setTimeout(executeOnChange, debounceDelay);
       }
     },
-    [onChange, debounceDelay, transformValue, transform, type, getFormValue],
+    [onChange, debounceDelay, toDisplayValue, toFormValue, transformValue],
   );
 
   // Enhanced blur handler
@@ -199,16 +172,16 @@ export const useInputValueDebounce = ({
       clearTimeout(timeoutRef.current);
       timeoutRef.current = null;
 
-      // Get form value using helper
-      const formValue = getFormValue(currentDisplayValue);
+      // Get form value from current display value
+      const formValue = toFormValue(displayValue);
       onChange(formValue);
     }
     onBlur();
-  }, [currentDisplayValue, onChange, onBlur, getFormValue]);
+  }, [onChange, onBlur, toFormValue, displayValue]);
 
   return {
     onChange: handleChange,
     onBlur: handleBlur,
-    value: currentDisplayValue,
+    value: displayValue,
   };
 };

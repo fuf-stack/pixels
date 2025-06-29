@@ -1,15 +1,13 @@
-import { useEffect, useRef, useState } from 'react';
+import { useCallback } from 'react';
 
 export interface InputValueTransform {
   /** Transforms the form value to display value (e.g., 1000 → "$1,000") */
-  displayValue: (value: string | number) => string | number;
+  toDisplayValue: (value: string | number) => string | number;
   /** Transforms the display value to form value (e.g., "$1,000" → 1000) */
-  formValue: (value: string) => string | number;
+  toFormValue: (value: string) => string | number;
 }
 
 export interface UseInputValueTransformOptions {
-  /** The current form field value */
-  value: string | number;
   /** Input type for special number handling */
   type?: 'text' | 'number' | 'password';
   /** Value transformation functions */
@@ -17,32 +15,29 @@ export interface UseInputValueTransformOptions {
 }
 
 export interface UseInputValueTransformReturn {
-  /** The current display value for the input */
-  displayValue: string | number;
-  /** Input change handler (pass directly to onChange) */
-  handleInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  /** Gets the form value from current display value */
-  getFormValue: () => string | number;
+  /** Converts any form value to display value */
+  toDisplayValue: (formValue: string | number) => string | number;
+  /** Converts any display value to form value */
+  toFormValue: (displayValue: string | number) => string | number;
 }
 
 /**
- * Custom hook for handling input value transformations between display and form values.
+ * Custom hook providing utility functions for value transformations between display and form values.
  *
- * This hook manages the separation between what the user sees (display value) and what gets
- * stored in the form (form value). It's particularly useful for:
+ * This hook provides pure conversion functions without any state management. It's useful for:
  * - Currency formatting ($1,000 display vs 1000 stored)
  * - Number inputs with special handling
  * - Date formatting (MM/DD/YYYY display vs ISO date stored)
  * - Phone number formatting ((555) 123-4567 display vs 5551234567 stored)
  *
  * **Key Features:**
- * - Immediate display value updates for responsive UI
- * - Automatic external value synchronization (form resets, setValue calls)
+ * - Pure conversion functions (no state)
  * - Special number input handling (empty string preservation)
  * - Bidirectional value transformations
+ * - Memoized functions for performance
  *
  * @param options Configuration for value transformation
- * @returns Display value management and form value conversion
+ * @returns Pure conversion utility functions
  *
  * @example
  * ```tsx
@@ -52,145 +47,88 @@ export interface UseInputValueTransformReturn {
  *   formValue: (val) => parseFloat(val.replace(/[$,]/g, '')) || 0
  * };
  *
- * const { displayValue, handleInputChange, getFormValue } = useInputValueTransform({
- *   value: 1000,
+ * const { toDisplayValue, toFormValue } = useInputValueTransform({
  *   transformValue: currencyTransform
  * });
- * // displayValue = "$1,000"
- * // getFormValue() = 1000
- * ```
  *
- * @example
- * ```tsx
- * // Phone number formatting
- * const phoneTransform = {
- *   displayValue: (val) => {
- *     const cleaned = val.toString().replace(/\D/g, '');
- *     const match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/);
- *     return match ? `(${match[1]}) ${match[2]}-${match[3]}` : val;
- *   },
- *   formValue: (val) => val.replace(/\D/g, '')
- * };
- *
- * const { displayValue, handleInputChange, getFormValue } = useInputValueTransform({
- *   value: '5551234567',
- *   transformValue: phoneTransform
- * });
- * // displayValue = "(555) 123-4567"
- * // getFormValue() = "5551234567"
+ * const displayVal = toDisplayValue(1000); // "$1,000"
+ * const formVal = toFormValue("$1,500"); // 1500
  * ```
  *
  * @example
  * ```tsx
  * // Number input (no transforms needed)
- * const { displayValue, handleInputChange, getFormValue } = useInputValueTransform({
- *   value: 42,
+ * const { toDisplayValue, toFormValue } = useInputValueTransform({
  *   type: 'number'
  * });
+ *
  * // Handles empty string → empty string (not NaN)
  * // Handles "123" → 123 (string to number conversion)
  * ```
  *
  * @example
  * ```tsx
- * // Usage in a form component
+ * // Integration with debouncing
  * const MyInput = ({ field, transformValue }) => {
- *   const { displayValue, handleInputChange, getFormValue } = useInputValueTransform({
- *     value: field.value,
- *     transformValue
- *   });
+ *   const transform = useInputValueTransform({ transformValue });
  *
- *   // Debounce the form updates (optional)
- *   useInputValueDebounce({
- *     value: getFormValue(),
+ *   const { onChange, onBlur, value } = useInputValueDebounce({
+ *     ...transform,
+ *     initialValue: field.value,
+ *     debounceDelay: 300,
+ *     onBlur: field.onBlur,
  *     onChange: field.onChange,
- *     debounceDelay: 300
  *   });
  *
- *   return (
- *     <input
- *       value={displayValue}
- *       onChange={handleInputChange}
- *     />
- *   );
+ *   return <input value={value} onChange={onChange} onBlur={onBlur} />;
  * };
  * ```
  */
 export const useInputValueTransform = ({
-  value,
   type,
   transformValue,
 }: UseInputValueTransformOptions): UseInputValueTransformReturn => {
-  // Track previous external value to detect real external changes
-  const prevExternalValue = useRef(value);
+  /**
+   * Converts any form value to display value
+   */
+  const toDisplayValue = useCallback(
+    (formValue: string | number): string | number => {
+      if (transformValue?.displayValue) {
+        return transformValue.displayValue(formValue ?? '');
+      }
 
-  // Local state for immediate display updates
-  const [displayValue, setDisplayValue] = useState(() => {
-    return transformValue?.displayValue
-      ? transformValue.displayValue(value ?? '')
-      : (value ?? '');
-  });
+      // For number type, convert valid strings to numbers for display
+      if (type === 'number') {
+        if (formValue === '') return '';
+        const numValue = Number(formValue);
+        return Number.isNaN(numValue) ? formValue : numValue;
+      }
+
+      return formValue ?? '';
+    },
+    [type, transformValue],
+  );
 
   /**
-   * Synchronizes display value when form value changes externally.
-   *
-   * This handles cases like:
-   * - Form resets: reset() or setValue('field', '')
-   * - External updates: setValue('field', 'new value')
-   * - Default value initialization from form state
-   * - Programmatic field updates from other components
-   *
-   * Uses a ref to track the previous value and only updates when the external
-   * value actually changes, preventing infinite re-renders.
+   * Converts any display value to form value
    */
-  useEffect(() => {
-    // Only process if the external value actually changed
-    if (value !== prevExternalValue.current) {
-      prevExternalValue.current = value;
+  const toFormValue = useCallback(
+    (displayValue: string | number): string | number => {
+      if (type === 'number') {
+        if (displayValue === '') return '';
+        const numValue = Number(displayValue);
+        return Number.isNaN(numValue) ? displayValue : numValue;
+      }
 
-      const newDisplayValue = transformValue?.displayValue
-        ? transformValue.displayValue(value ?? '')
-        : (value ?? '');
-
-      setDisplayValue(newDisplayValue);
-    }
-  }, [value, transformValue]);
-
-  /**
-   * Converts the current display value to the appropriate form value.
-   *
-   * **Conversion Logic:**
-   * 1. **Number inputs**:
-   *    - Empty string → empty string (preserves empty state, prevents NaN)
-   *    - Non-empty string → Number(value) (converts to numeric form)
-   *    - Example: "" → "", "42" → 42, "3.14" → 3.14
-   *
-   * 2. **Transform inputs**:
-   *    - Applies custom formValue transform function
-   *    - Used for converting display format back to storage format
-   *    - Example: "$1,000" → 1000, "(555) 123-4567" → "5551234567"
-   *
-   * 3. **Regular inputs**:
-   *    - Passes through the display value unchanged
-   *    - Example: "hello" → "hello", "test@example.com" → "test@example.com"
-   *
-   * @returns The form value ready for storage/submission
-   */
-  const getFormValue = (): string | number => {
-    if (type === 'number') {
-      return displayValue === '' ? '' : Number(displayValue);
-    }
-
-    return transformValue?.formValue
-      ? transformValue.formValue(displayValue as string)
-      : displayValue;
-  };
+      return transformValue?.formValue
+        ? transformValue.formValue(displayValue as string)
+        : displayValue;
+    },
+    [type, transformValue],
+  );
 
   return {
-    displayValue,
-    handleInputChange: (e: React.ChangeEvent<HTMLInputElement>) => {
-      setDisplayValue(e.target.value);
-    },
-    getFormValue,
+    toDisplayValue,
+    toFormValue,
   };
 };
