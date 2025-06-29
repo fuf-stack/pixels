@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.22.1](https://github.com/fuf-stack/pixels/compare/uniform-v0.22.0...uniform-v0.22.1) (2025-06-29)
+
+
+### Bug Fixes
+
+* **uniform:** refactor naming + testsuite of tranform ([3db0058](https://github.com/fuf-stack/pixels/commit/3db00589e5cdf171ee8712953facf308208babd1))
+* **uniform:** use useInputValueTransform in useInputValueDebounce ([acc70fa](https://github.com/fuf-stack/pixels/commit/acc70fa6e881e299d82a41d0dbea75bd043801e2))
+
 ## [0.22.0](https://github.com/fuf-stack/pixels/compare/uniform-v0.21.5...uniform-v0.22.0) (2025-06-28)
 
 
