@@ -65,15 +65,15 @@ describe('useInputValueTransform', () => {
 
   describe('Transform functions', () => {
     const currencyTransform = {
-      displayValue: (val: string | number) =>
+      toDisplayValue: (val: string | number) =>
         val ? `$${Number(val).toLocaleString()}` : '',
-      formValue: (val: string) => parseFloat(val.replace(/[$,]/g, '')) || 0,
+      toFormValue: (val: string) => parseFloat(val.replace(/[$,]/g, '')) || 0,
     };
 
     it('should apply display transform to form values', () => {
       const { result } = renderHook(() =>
         useInputValueTransform({
-          transformValue: currencyTransform,
+          transform: currencyTransform,
         }),
       );
 
@@ -85,7 +85,7 @@ describe('useInputValueTransform', () => {
     it('should apply form transform to display values', () => {
       const { result } = renderHook(() =>
         useInputValueTransform({
-          transformValue: currencyTransform,
+          transform: currencyTransform,
         }),
       );
 
@@ -95,18 +95,18 @@ describe('useInputValueTransform', () => {
     });
 
     const phoneTransform = {
-      displayValue: (val: string | number) => {
+      toDisplayValue: (val: string | number) => {
         const cleaned = val.toString().replace(/\D/g, '');
         const match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/);
         return match ? `(${match[1]}) ${match[2]}-${match[3]}` : val;
       },
-      formValue: (val: string) => val.replace(/\D/g, ''),
+      toFormValue: (val: string) => val.replace(/\D/g, ''),
     };
 
     it('should handle phone number transforms', () => {
       const { result } = renderHook(() =>
         useInputValueTransform({
-          transformValue: phoneTransform,
+          transform: phoneTransform,
         }),
       );
 
@@ -119,7 +119,7 @@ describe('useInputValueTransform', () => {
     it('should handle transforms with empty values', () => {
       const { result } = renderHook(() =>
         useInputValueTransform({
-          transformValue: currencyTransform,
+          transform: currencyTransform,
         }),
       );
 
@@ -142,13 +142,13 @@ describe('useInputValueTransform', () => {
 
     it('should handle transforms that return null/undefined', () => {
       const nullTransform = {
-        displayValue: () => null as unknown as string | number,
-        formValue: () => undefined as unknown as string | number,
+        toDisplayValue: () => null as unknown as string | number,
+        toFormValue: () => undefined as unknown as string | number,
       };
 
       const { result } = renderHook(() =>
         useInputValueTransform({
-          transformValue: nullTransform,
+          transform: nullTransform,
         }),
       );
 
@@ -158,16 +158,16 @@ describe('useInputValueTransform', () => {
 
     it('should handle complex transformation errors gracefully', () => {
       const errorTransform = {
-        displayValue: (val: string | number) => {
+        toDisplayValue: (val: string | number) => {
           if (val === 'error') throw new Error('Transform error');
           return val;
         },
-        formValue: (val: string) => val,
+        toFormValue: (val: string) => val,
       };
 
       const { result } = renderHook(() =>
         useInputValueTransform({
-          transformValue: errorTransform,
+          transform: errorTransform,
         }),
       );
 

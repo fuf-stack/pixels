@@ -31,7 +31,7 @@ export interface InputProps {
   /** HTML data-testid attribute used in e2e tests */
   testId?: string;
   /** allows disentangled display and form values for a field */
-  transformValue?: InputValueTransform;
+  transform?: InputValueTransform;
   /** input type */
   type?: 'number' | 'password';
 }
@@ -50,7 +50,7 @@ const Input = ({
   size = undefined,
   startContent = undefined,
   testId: _testId = undefined,
-  transformValue = undefined,
+  transform = undefined,
   type = undefined,
 }: InputProps) => {
   const { control, debugMode, getFieldState } = useFormContext();
@@ -75,7 +75,7 @@ const Input = ({
     debounceDelay,
     onBlur: fieldOnBlur,
     onChange: fieldOnChange,
-    transformValue,
+    transform,
     type,
     value: fieldValue,
   });

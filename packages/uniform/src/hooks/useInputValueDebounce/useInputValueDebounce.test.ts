@@ -395,10 +395,10 @@ describe('useInputValueDebounce', () => {
     });
   });
 
-  describe('transformValue functionality', () => {
+  describe('transform functionality', () => {
     const mockTransform = {
-      displayValue: vi.fn((val: string | number) => `$${val}`),
-      formValue: vi.fn((val: string) => Number(val.replace('$', '')) || 0),
+      toDisplayValue: vi.fn((val: string | number) => `$${val}`),
+      toFormValue: vi.fn((val: string) => Number(val.replace('$', '')) || 0),
     };
 
     beforeEach(() => {
@@ -412,11 +412,11 @@ describe('useInputValueDebounce', () => {
           onBlur: mockOnBlur,
           onChange: mockOnChange,
           value: 100,
-          transformValue: mockTransform,
+          transform: mockTransform,
         }),
       );
 
-      expect(mockTransform.displayValue).toHaveBeenCalledWith(100);
+      expect(mockTransform.toDisplayValue).toHaveBeenCalledWith(100);
       expect(result.current.value).toBe('$100');
     });
 
@@ -427,7 +427,7 @@ describe('useInputValueDebounce', () => {
           onBlur: mockOnBlur,
           onChange: mockOnChange,
           value: 100,
-          transformValue: mockTransform,
+          transform: mockTransform,
         }),
       );
 
@@ -456,7 +456,7 @@ describe('useInputValueDebounce', () => {
           onBlur: mockOnBlur,
           onChange: mockOnChange,
           value: 100,
-          transformValue: mockTransform,
+          transform: mockTransform,
         }),
       );
 
@@ -485,7 +485,7 @@ describe('useInputValueDebounce', () => {
             onBlur: mockOnBlur,
             onChange: mockOnChange,
             value,
-            transformValue: mockTransform,
+            transform: mockTransform,
           }),
         { initialProps: { value: 100 } },
       );
@@ -494,7 +494,7 @@ describe('useInputValueDebounce', () => {
 
       rerender({ value: 200 });
 
-      expect(mockTransform.displayValue).toHaveBeenCalledWith(200);
+      expect(mockTransform.toDisplayValue).toHaveBeenCalledWith(200);
       expect(result.current.value).toBe('$200');
     });
   });

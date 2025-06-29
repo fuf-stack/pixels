@@ -13,7 +13,7 @@ export interface UseInputValueDebounceOptions {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onChange: (...event: any[]) => void;
   /** Value transformation functions */
-  transformValue?: InputValueTransform;
+  transform?: InputValueTransform;
   /** Input type to handle number conversion (optional) */
   type?: 'text' | 'number' | 'password';
   /** The initial form value */
@@ -48,7 +48,7 @@ export interface UseInputValueDebounceReturn {
  * @param options.debounceDelay Delay in milliseconds (default: 300)
  * @param options.onBlur Function to call after flushing debounced value
  * @param options.onChange Function to call with debounced value
- * @param options.transformValue Optional transform functions for display ↔ form value conversion
+ * @param options.transform Optional transform functions for display ↔ form value conversion
  * @param options.type Input type for number conversion ('text' | 'number' | 'password')
  * @param options.value The initial form value
  * @returns Object containing enhanced onChange, onBlur, and immediate display value
@@ -88,7 +88,7 @@ export interface UseInputValueDebounceReturn {
  *   debounceDelay: 300,
  *   onBlur: field.onBlur,
  *   onChange: field.onChange,
- *   transformValue: currencyTransform,
+ *   transform: currencyTransform,
  *   value: field.value, // Display: "$100.00", Form: 100
  * });
  * ```
@@ -97,13 +97,13 @@ export const useInputValueDebounce = ({
   debounceDelay = 300,
   onBlur,
   onChange,
-  transformValue,
+  transform,
   type,
   value,
 }: UseInputValueDebounceOptions): UseInputValueDebounceReturn => {
   // Get conversion utilities from transform hook
   const { toDisplayValue, toFormValue } = useInputValueTransform({
-    transformValue,
+    transform,
     type,
   });
 
@@ -126,9 +126,7 @@ export const useInputValueDebounce = ({
 
       // For transforms, user input is already in display format
       // For number types, convert strings to numbers for display
-      const newDisplayValue = transformValue
-        ? rawValue
-        : toDisplayValue(rawValue);
+      const newDisplayValue = transform ? rawValue : toDisplayValue(rawValue);
       setDisplayValue(newDisplayValue);
 
       // Convert to form value using transform utilities
@@ -162,7 +160,7 @@ export const useInputValueDebounce = ({
         timeoutRef.current = setTimeout(executeOnChange, debounceDelay);
       }
     },
-    [onChange, debounceDelay, toDisplayValue, toFormValue, transformValue],
+    [onChange, debounceDelay, toDisplayValue, toFormValue, transform],
   );
 
   // Enhanced blur handler

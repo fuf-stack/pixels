@@ -11,7 +11,7 @@ export interface UseInputValueTransformOptions {
   /** Input type for special number handling */
   type?: 'text' | 'number' | 'password';
   /** Value transformation functions */
-  transformValue?: InputValueTransform;
+  transform?: InputValueTransform;
 }
 
 export interface UseInputValueTransformReturn {
@@ -48,7 +48,7 @@ export interface UseInputValueTransformReturn {
  * };
  *
  * const { toDisplayValue, toFormValue } = useInputValueTransform({
- *   transformValue: currencyTransform
+ *   transform: currencyTransform
  * });
  *
  * const displayVal = toDisplayValue(1000); // "$1,000"
@@ -69,8 +69,8 @@ export interface UseInputValueTransformReturn {
  * @example
  * ```tsx
  * // Integration with debouncing
- * const MyInput = ({ field, transformValue }) => {
- *   const transform = useInputValueTransform({ transformValue });
+ * const MyInput = ({ field, transform }) => {
+ *   const transform = useInputValueTransform({ transform });
  *
  *   const { onChange, onBlur, value } = useInputValueDebounce({
  *     ...transform,
@@ -86,15 +86,15 @@ export interface UseInputValueTransformReturn {
  */
 export const useInputValueTransform = ({
   type,
-  transformValue,
+  transform,
 }: UseInputValueTransformOptions): UseInputValueTransformReturn => {
   /**
    * Converts any form value to display value
    */
   const toDisplayValue = useCallback(
     (formValue: string | number): string | number => {
-      if (transformValue?.displayValue) {
-        return transformValue.displayValue(formValue ?? '');
+      if (transform?.toDisplayValue) {
+        return transform.toDisplayValue(formValue ?? '');
       }
 
       // For number type, convert valid strings to numbers for display
@@ -106,7 +106,7 @@ export const useInputValueTransform = ({
 
       return formValue ?? '';
     },
-    [type, transformValue],
+    [type, transform],
   );
 
   /**
@@ -120,11 +120,11 @@ export const useInputValueTransform = ({
         return Number.isNaN(numValue) ? displayValue : numValue;
       }
 
-      return transformValue?.formValue
-        ? transformValue.formValue(displayValue as string)
+      return transform?.toFormValue
+        ? transform.toFormValue(displayValue as string)
         : displayValue;
     },
-    [type, transformValue],
+    [type, transform],
   );
 
   return {
