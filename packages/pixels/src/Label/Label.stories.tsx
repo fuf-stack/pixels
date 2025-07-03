@@ -49,15 +49,29 @@ export const WithCloseButton: Story = {
 };
 
 export const AllColors: Story = {
-  render: () => (
+  argTypes: {
+    variant: {
+      control: 'select',
+      options: ['solid', 'bordered', 'light', 'flat', 'faded', 'dot'],
+    },
+  },
+  render: (args) => (
     <>
-      {['default', 'primary', 'secondary', 'success', 'warning', 'danger'].map(
-        (color) => (
-          <div key={color} style={{ marginTop: '10px' }}>
-            <Label color={color as LabelProps['color']}>{color}</Label>
-          </div>
-        ),
-      )}
+      {[
+        'default',
+        'primary',
+        'secondary',
+        'info',
+        'success',
+        'warning',
+        'danger',
+      ].map((color) => (
+        <div key={color} style={{ marginTop: '10px' }}>
+          <Label {...args} color={color as LabelProps['color']}>
+            {color}
+          </Label>
+        </div>
+      ))}
     </>
   ),
 };

@@ -138,15 +138,19 @@ const Alert = ({
     variant,
     sizeLimit,
   });
-  const isHeroUIColor = Object.keys(heroAlertVariants.variants.color).includes(
-    color,
-  );
   const classNames = variantsToClassNames(variants, className, 'base');
+
+  // pass color prop for heroui colors
+  const heroColor = Object.keys(heroAlertVariants.variants.color).includes(
+    color,
+  )
+    ? (color as HeroAlertProps['color'])
+    : undefined;
 
   return (
     <HeroAlert
       classNames={classNames}
-      color={isHeroUIColor ? (color as HeroAlertProps['color']) : undefined}
+      color={heroColor}
       data-testid={testId}
       description={title ? children : undefined}
       endContent={endContent}
