@@ -60,6 +60,13 @@ export const Loading: Story = {
   },
 };
 
+export const Ripple: Story = {
+  args: {
+    children: 'Ripple',
+    ripple: true,
+  },
+};
+
 export const DisabledAnimation: Story = {
   args: {
     children: 'Button',

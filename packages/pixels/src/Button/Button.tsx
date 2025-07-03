@@ -13,15 +13,12 @@ export const buttonVariants = tv({
   base: '',
   variants: {
     color: {
+      // see: https://github.com/heroui-inc/heroui/blob/canary/packages/core/theme/src/components/button.ts
       info: '',
       ...heroButtonVariants.variants.color,
     },
-    variant: {
-      ...heroButtonVariants.variants.variant,
-    },
-    size: {
-      ...heroButtonVariants.variants.size,
-    },
+    variant: heroButtonVariants.variants.variant,
+    size: heroButtonVariants.variants.size,
   },
   compoundVariants: [
     // white text on solid / shadow success button
@@ -98,6 +95,8 @@ export interface ButtonProps extends VariantProps {
   onClick?: HeroButtonProps['onPress'];
   /** border radius size */
   radius?: HeroButtonProps['radius'];
+  /** enable ripple animation effect on click */
+  ripple?: boolean;
   /** size options */
   size?: HeroButtonProps['size'];
   /** HTML data-testid attribute used in e2e tests */
@@ -116,12 +115,13 @@ const Button = ({
   children = undefined,
   className = undefined,
   color = 'default',
-  disabled = false,
   disableAnimation = false,
+  disabled = false,
   icon = undefined,
   loading = false,
   onClick = undefined,
   radius = undefined,
+  ripple = false,
   size = undefined,
   testId = undefined,
   type = undefined,
@@ -134,7 +134,7 @@ const Button = ({
       color={color}
       data-testid={testId}
       disableAnimation={disableAnimation}
-      disableRipple={disableAnimation}
+      disableRipple={disableAnimation || !ripple}
       isDisabled={disabled}
       isIconOnly={!!(icon && !children)}
       isLoading={loading}
