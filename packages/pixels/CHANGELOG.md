@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.44.0](https://github.com/fuf-stack/pixels/compare/pixels-v0.43.10...pixels-v0.44.0) (2025-07-03)
+
+
+### Features
+
+* **pixels:** add info color to Label ([44d971e](https://github.com/fuf-stack/pixels/commit/44d971e7d3222b7c6c8b6ebe366e4cd90e8f6fa6))
+
+
+### Bug Fixes
+
+* **pixels:** disable ripple effect in Button by default ([e8284c1](https://github.com/fuf-stack/pixels/commit/e8284c1a3c99044f758c3e18e7288b402ab35632))
+
 ## [0.43.10](https://github.com/fuf-stack/pixels/compare/pixels-v0.43.9...pixels-v0.43.10) (2025-06-24)
 
 
