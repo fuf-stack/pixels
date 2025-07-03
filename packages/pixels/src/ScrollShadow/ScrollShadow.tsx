@@ -9,7 +9,13 @@ export interface ScrollShadowProps {
   children?: ReactNode;
   /** CSS class name */
   className?: string | string[];
-  /** content of the scroll box */
+  /** Hides the scrollbar */
+  hideScrollBar?: boolean;
+  /** Orientation of the scroll shadow */
+  orientation?: 'horizontal' | 'vertical';
+  /** Shadow size in pixels */
+  size?: number;
+  /** HTML data-testid attribute used in e2e tests */
   testId?: string;
 }
 
@@ -19,9 +25,18 @@ export interface ScrollShadowProps {
 export default ({
   children = null,
   className = undefined,
+  hideScrollBar = false,
+  orientation = 'vertical',
+  size = 40,
   testId = undefined,
 }: ScrollShadowProps) => (
-  <ScrollShadow className={cn(className)} data-testid={testId}>
+  <ScrollShadow
+    className={cn(className)}
+    data-testid={testId}
+    hideScrollBar={hideScrollBar}
+    orientation={orientation}
+    size={size}
+  >
     {children}
   </ScrollShadow>
 );
