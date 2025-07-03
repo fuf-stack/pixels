@@ -84,7 +84,7 @@ export const AllColors: Story = {
     <dl>
       {['default', 'primary', 'secondary', 'success', 'warning', 'danger'].map(
         (color) => (
-          <div className="gap-4 pb-8 sm:grid sm:grid-cols-2">
+          <div key={color} className="gap-4 pb-8 sm:grid sm:grid-cols-2">
             <dt>{color}</dt>
             <dd>
               <Badge

@@ -3,8 +3,6 @@ import type { BreadcrumbProps } from './Breadcrumb';
 
 import Breadcrumb from './Breadcrumb';
 
-// TODO: register actions
-
 const meta: Meta<typeof Breadcrumb> = {
   title: 'pixels/Breadcrumb',
   component: Breadcrumb,
@@ -56,9 +54,9 @@ export const AllVariants: Story = {
     breadcrumbItems,
   },
   render: (args) => (
-    <div>
+    <>
       {['solid', 'bordered', 'light'].map((variant) => (
-        <>
+        <div key={variant}>
           <span className="mb-2">{variant}:</span>
           <Breadcrumb
             {...args}
@@ -66,9 +64,9 @@ export const AllVariants: Story = {
             className="mb-12"
             variant={variant as BreadcrumbProps['variant']}
           />
-        </>
+        </div>
       ))}
-    </div>
+    </>
   ),
 };
 
@@ -77,9 +75,9 @@ export const AllSizes: Story = {
     breadcrumbItems,
   },
   render: (args) => (
-    <div>
+    <>
       {['sm', 'md', 'lg'].map((size) => (
-        <>
+        <div key={size}>
           <span className="mb-2">{size}:</span>
           <Breadcrumb
             {...args}
@@ -87,9 +85,9 @@ export const AllSizes: Story = {
             className="mb-12"
             size={size as BreadcrumbProps['size']}
           />
-        </>
+        </div>
       ))}
-    </div>
+    </>
   ),
 };
 
@@ -98,9 +96,9 @@ export const AllUnderlines: Story = {
     breadcrumbItems,
   },
   render: (args) => (
-    <div>
+    <>
       {['none', 'active', 'hover', 'focus', 'always'].map((underline) => (
-        <>
+        <div key={underline}>
           <span className="mb-2">{underline}:</span>
           <Breadcrumb
             {...args}
@@ -108,8 +106,8 @@ export const AllUnderlines: Story = {
             className="mb-12"
             underline={underline as BreadcrumbProps['underline']}
           />
-        </>
+        </div>
       ))}
-    </div>
+    </>
   ),
 };
