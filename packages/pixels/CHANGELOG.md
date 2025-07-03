@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.45.0](https://github.com/fuf-stack/pixels/compare/pixels-v0.44.0...pixels-v0.45.0) (2025-07-03)
+
+
+### Features
+
+* **pixels:** extend ScrollShadow props ([b555802](https://github.com/fuf-stack/pixels/commit/b5558024828300a9ff747994886bf26d8b88d27d))
+
 ## [0.44.0](https://github.com/fuf-stack/pixels/compare/pixels-v0.43.10...pixels-v0.44.0) (2025-07-03)
 
 
