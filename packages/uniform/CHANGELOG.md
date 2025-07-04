@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.23.0](https://github.com/fuf-stack/pixels/compare/uniform-v0.22.1...uniform-v0.23.0) (2025-07-04)
+
+
+### Features
+
+* **uniform:** add size and icon props to Switch ([5eba6da](https://github.com/fuf-stack/pixels/commit/5eba6da62e6936514269f6febfe34ac1fc46f3ed))
+
+
+### Bug Fixes
+
+* **pixels,uniform:** fix some warings in testsuite ([17e9849](https://github.com/fuf-stack/pixels/commit/17e9849bc62d90ee6f611978413a23e592a69c7b))
+
 ## [0.22.1](https://github.com/fuf-stack/pixels/compare/uniform-v0.22.0...uniform-v0.22.1) (2025-06-29)
 
 
