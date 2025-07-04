@@ -217,6 +217,7 @@ export const WithValueTransform: Story = {
 const renderAllSizes = () =>
   ['sm', 'md', 'lg'].map((size) => (
     <Input
+      key={size}
       className="mt-4"
       name={size}
       placeholder={size}
