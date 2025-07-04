@@ -1,4 +1,6 @@
 import type { TVClassName, TVProps } from '@fuf-stack/pixel-utils';
+import type { SwitchProps as HeroSwitchProps } from '@heroui/switch';
+import type { ReactNode } from 'react';
 
 import { Switch as HeroSwitch } from '@heroui/switch';
 
@@ -33,12 +35,20 @@ export interface SwitchProps extends VariantProps {
   className?: ClassName;
   /** whether the select should be disabled */
   disabled?: boolean;
-  /** component displayed next to the switch. */
-  label?: React.ReactNode;
+  /** Icon to be displayed at the end of the switch (when enabled) */
+  endContent?: ReactNode;
+  /** component displayed next to the switch */
+  label?: ReactNode;
   /** name the field is registered under */
   name: string;
+  /* Size of the switch */
+  size?: 'sm' | 'md' | 'lg';
+  /** Icon to be displayed at the start of the switch (when disabled) */
+  startContent?: ReactNode;
   /** HTML data-testid attribute used in e2e tests */
   testId?: string;
+  /** Icon to be displayed inside the thumb */
+  thumbIcon?: HeroSwitchProps['thumbIcon'];
 }
 
 /**
@@ -47,9 +57,13 @@ export interface SwitchProps extends VariantProps {
 const Switch = ({
   className = undefined,
   disabled = false,
+  endContent = undefined,
   label: _label = undefined,
   name,
+  size = undefined,
+  startContent = undefined,
   testId: _testId = undefined,
+  thumbIcon = undefined,
 }: SwitchProps) => {
   const { control, debugMode, getFieldState } = useFormContext();
   const { error, required, testId, invalid } = getFieldState(name, _testId);
@@ -81,6 +95,7 @@ const Switch = ({
         data-invalid={invalid}
         data-required={required}
         data-testid={testId}
+        endContent={endContent}
         isDisabled={isDisabled}
         isSelected={!!value}
         name={name}
@@ -88,6 +103,9 @@ const Switch = ({
         onValueChange={onChange}
         ref={ref}
         required={required}
+        size={size}
+        startContent={startContent}
+        thumbIcon={thumbIcon}
         value={value}
       >
         {label}

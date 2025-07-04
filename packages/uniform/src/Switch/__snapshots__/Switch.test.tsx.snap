@@ -1,5 +1,138 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`Story Snapshots > AllSizes 1`] = `
+<div>
+  <div
+    class="flex w-full flex-row justify-between gap-6"
+  >
+    <form
+      class="flex-grow min-w-60"
+      data-form-is-valid="true"
+      data-testid=""
+    >
+      <div
+        class="flex flex-col gap-4"
+      >
+        <div
+          class="place-content-center"
+        >
+          <label
+            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer touch-none tap-highlight-transparent select-none"
+            data-invalid="false"
+            data-required="false"
+            data-testid="smallswitch"
+          >
+            <input
+              aria-labelledby=":r7:"
+              class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
+              name="smallSwitch"
+              role="switch"
+              tabindex="0"
+              type="checkbox"
+              value=""
+            />
+            <span
+              aria-hidden="true"
+              class="px-1 relative inline-flex items-center justify-start flex-shrink-0 overflow-hidden bg-default-200 rounded-full outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:bg-primary group-data-[selected=true]:text-primary-foreground w-10 h-6 transition-background"
+            >
+              <span
+                class="z-10 flex items-center justify-center bg-white shadow-small rounded-full origin-right pointer-events-none w-4 h-4 text-tiny group-data-[selected=true]:ms-4 transition-all group-data-[pressed=true]:w-5 group-data-[selected]:group-data-[pressed]:ml-3"
+              />
+            </span>
+            <span
+              class="relative select-none ms-2 text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
+              id=":r7:"
+            >
+              🐭 Microservices
+            </span>
+          </label>
+        </div>
+        <div
+          class="place-content-center"
+        >
+          <label
+            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer touch-none tap-highlight-transparent select-none"
+            data-invalid="false"
+            data-required="false"
+            data-testid="mediumswitch"
+          >
+            <input
+              aria-labelledby=":r8:"
+              class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
+              name="mediumSwitch"
+              role="switch"
+              tabindex="0"
+              type="checkbox"
+              value=""
+            />
+            <span
+              aria-hidden="true"
+              class="px-1 relative inline-flex items-center justify-start flex-shrink-0 overflow-hidden bg-default-200 rounded-full outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:bg-primary group-data-[selected=true]:text-primary-foreground w-12 h-7 transition-background"
+            >
+              <span
+                class="z-10 flex items-center justify-center bg-white shadow-small rounded-full origin-right pointer-events-none w-5 h-5 text-small group-data-[selected=true]:ms-5 transition-all group-data-[pressed=true]:w-6 group-data-[selected]:group-data-[pressed]:ml-4"
+              />
+            </span>
+            <span
+              class="relative select-none ms-2 text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
+              id=":r8:"
+            >
+              🏗️ Monolith
+            </span>
+          </label>
+        </div>
+        <div
+          class="place-content-center"
+        >
+          <label
+            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer touch-none tap-highlight-transparent select-none"
+            data-invalid="false"
+            data-required="false"
+            data-testid="largeswitch"
+          >
+            <input
+              aria-labelledby=":r9:"
+              class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
+              name="largeSwitch"
+              role="switch"
+              tabindex="0"
+              type="checkbox"
+              value=""
+            />
+            <span
+              aria-hidden="true"
+              class="px-1 relative inline-flex items-center justify-start flex-shrink-0 overflow-hidden bg-default-200 rounded-full outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:bg-primary group-data-[selected=true]:text-primary-foreground w-14 h-8 transition-background"
+            >
+              <span
+                class="z-10 flex items-center justify-center bg-white shadow-small rounded-full origin-right pointer-events-none w-6 h-6 text-medium group-data-[selected=true]:ms-6 transition-all group-data-[pressed=true]:w-7 group-data-[selected]:group-data-[pressed]:ml-5"
+              />
+            </span>
+            <span
+              class="relative select-none ms-2 text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
+              id=":r9:"
+            >
+              🏢 Enterprise Monolith
+            </span>
+          </label>
+        </div>
+      </div>
+      <div
+        class="mt-4 flex justify-end"
+      >
+        <button
+          class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
+          data-testid="form_submit_button"
+          tabindex="0"
+          type="submit"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
 exports[`Story Snapshots > Default 1`] = `
 <div>
   <div
@@ -39,7 +172,9 @@ exports[`Story Snapshots > Default 1`] = `
           <span
             class="relative select-none ms-2 text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
             id=":r0:"
-          />
+          >
+            🐛 Enable bugs in production
+          </span>
         </label>
       </div>
       <div
@@ -99,7 +234,9 @@ exports[`Story Snapshots > Disabled 1`] = `
           <span
             class="relative select-none ms-2 text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
             id=":r2:"
-          />
+          >
+            📚 Read documentation first
+          </span>
         </label>
       </div>
       <div
@@ -164,7 +301,7 @@ exports[`Story Snapshots > Invalid 1`] = `
             class="relative select-none ms-2 text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
             id=":r4:"
           >
-            switch
+            🤡 Use jQuery in 2024
           </span>
         </label>
         <div
@@ -181,7 +318,7 @@ exports[`Story Snapshots > Invalid 1`] = `
             >
               <li>
                 <div>
-                  I want to be switched off
+                  Please keep your sanity intact
                 </div>
               </li>
             </ul>
@@ -246,7 +383,7 @@ exports[`Story Snapshots > Required 1`] = `
             class="relative select-none ms-2 text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
             id=":r3:"
           >
-            switchField
+            🚀 Deploy on Friday
           </span>
         </label>
       </div>
@@ -308,7 +445,151 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
           <span
             class="relative select-none ms-2 text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
             id=":r1:"
+          >
+            ☕ Coffee is a vegetable
+          </span>
+        </label>
+      </div>
+      <div
+        class="mt-4 flex justify-end"
+      >
+        <button
+          class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
+          data-testid="form_submit_button"
+          tabindex="0"
+          type="submit"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`Story Snapshots > WithStartAndEndContent 1`] = `
+<div>
+  <div
+    class="flex w-full flex-row justify-between gap-6"
+  >
+    <form
+      class="flex-grow min-w-60"
+      data-form-is-valid="true"
+      data-testid=""
+    >
+      <div
+        class="place-content-center"
+      >
+        <label
+          class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer touch-none tap-highlight-transparent select-none"
+          data-invalid="false"
+          data-required="false"
+          data-selected="true"
+          data-testid="switchfield"
+        >
+          <input
+            aria-labelledby=":r6:"
+            checked=""
+            class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
+            name="switchField"
+            role="switch"
+            tabindex="0"
+            type="checkbox"
+            value="true"
           />
+          <span
+            aria-hidden="true"
+            class="px-1 relative inline-flex items-center justify-start flex-shrink-0 overflow-hidden bg-default-200 rounded-full outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:bg-primary group-data-[selected=true]:text-primary-foreground w-12 h-7 transition-background"
+          >
+            <span
+              data-testid="icon-FaPhone"
+            >
+              FaPhone
+            </span>
+            <span
+              class="z-10 flex items-center justify-center bg-white shadow-small rounded-full origin-right pointer-events-none w-5 h-5 text-small group-data-[selected=true]:ms-5 transition-all group-data-[pressed=true]:w-6 group-data-[selected]:group-data-[pressed]:ml-4"
+            />
+            <span
+              data-testid="icon-FaEnvelope"
+            >
+              FaEnvelope
+            </span>
+          </span>
+          <span
+            class="relative select-none ms-2 text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
+            id=":r6:"
+          >
+            📧 Send emails at 3 AM
+          </span>
+        </label>
+      </div>
+      <div
+        class="mt-4 flex justify-end"
+      >
+        <button
+          class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
+          data-testid="form_submit_button"
+          tabindex="0"
+          type="submit"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`Story Snapshots > WithThumbIcon 1`] = `
+<div>
+  <div
+    class="flex w-full flex-row justify-between gap-6"
+  >
+    <form
+      class="flex-grow min-w-60"
+      data-form-is-valid="true"
+      data-testid=""
+    >
+      <div
+        class="place-content-center"
+      >
+        <label
+          class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer touch-none tap-highlight-transparent select-none"
+          data-invalid="false"
+          data-required="false"
+          data-selected="true"
+          data-testid="switchfield"
+        >
+          <input
+            aria-labelledby=":r5:"
+            checked=""
+            class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
+            name="switchField"
+            role="switch"
+            tabindex="0"
+            type="checkbox"
+            value="true"
+          />
+          <span
+            aria-hidden="true"
+            class="px-1 relative inline-flex items-center justify-start flex-shrink-0 overflow-hidden bg-default-200 rounded-full outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:bg-primary group-data-[selected=true]:text-primary-foreground w-12 h-7 transition-background"
+          >
+            <span
+              class="z-10 flex items-center justify-center bg-white shadow-small rounded-full origin-right pointer-events-none w-5 h-5 text-small group-data-[selected=true]:ms-5 transition-all group-data-[pressed=true]:w-6 group-data-[selected]:group-data-[pressed]:ml-4"
+            >
+              <span
+                data-testid="icon-FaRocket"
+              >
+                FaRocket
+              </span>
+            </span>
+          </span>
+          <span
+            class="relative select-none ms-2 text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
+            id=":r5:"
+          >
+            🌙 Dark mode developer
+          </span>
         </label>
       </div>
       <div

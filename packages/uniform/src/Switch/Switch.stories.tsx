@@ -1,5 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
+// Import icons for the stories
+import { FaEnvelope, FaFlask, FaPhone, FaRocket } from 'react-icons/fa';
+
 import { action } from '@storybook/addon-actions';
 import { userEvent, within } from '@storybook/test';
 
@@ -35,6 +38,7 @@ type Story = StoryObj<typeof Switch>;
 export const Default: Story = {
   args: {
     name: 'switchField',
+    label: '🐛 Enable bugs in production',
   },
 };
 
@@ -44,12 +48,14 @@ export const WithInitialValue: Story = {
   },
   args: {
     name: 'switchField',
+    label: '☕ Coffee is a vegetable',
   },
 };
 
 export const Disabled: Story = {
   args: {
     name: 'switchField',
+    label: '📚 Read documentation first',
     disabled: true,
   },
 };
@@ -61,7 +67,7 @@ const requiredValidation = veto({
 export const Required: Story = {
   parameters: { formProps: { validation: requiredValidation } },
   args: {
-    label: 'switchField',
+    label: '🚀 Deploy on Friday',
     name: 'switchField',
   },
 };
@@ -69,13 +75,13 @@ export const Required: Story = {
 const validation = veto({
   switchField: vt
     .boolean()
-    .refine((value) => !value, 'I want to be switched off'),
+    .refine((value: boolean) => !value, 'Please keep your sanity intact'),
 });
 
 export const Invalid: Story = {
   parameters: { formProps: { validation } },
   args: {
-    label: 'switch',
+    label: '🤡 Use jQuery in 2024',
     name: 'switchField',
   },
   play: async ({ canvasElement }) => {
@@ -85,4 +91,42 @@ export const Invalid: Story = {
       delay: 300,
     });
   },
+};
+
+export const WithThumbIcon: Story = {
+  parameters: {
+    formProps: { initialValues: { switchField: true } },
+  },
+  args: {
+    name: 'switchField',
+    label: '🌙 Dark mode developer',
+    thumbIcon: ({ isSelected, className }) =>
+      isSelected ? (
+        <FaRocket className={className} />
+      ) : (
+        <FaFlask className={className} />
+      ),
+  },
+};
+
+export const WithStartAndEndContent: Story = {
+  parameters: {
+    formProps: { initialValues: { switchField: true } },
+  },
+  args: {
+    name: 'switchField',
+    label: '📧 Send emails at 3 AM',
+    startContent: <FaPhone />,
+    endContent: <FaEnvelope />,
+  },
+};
+
+export const AllSizes: Story = {
+  render: () => (
+    <div className="flex flex-col gap-4">
+      <Switch name="smallSwitch" label="🐭 Microservices" size="sm" />
+      <Switch name="mediumSwitch" label="🏗️ Monolith" size="md" />
+      <Switch name="largeSwitch" label="🏢 Enterprise Monolith" size="lg" />
+    </div>
+  ),
 };
