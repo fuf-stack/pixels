@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.45.1](https://github.com/fuf-stack/pixels/compare/pixels-v0.45.0...pixels-v0.45.1) (2025-07-04)
+
+
+### Bug Fixes
+
+* **pixels,uniform:** fix some warings in testsuite ([17e9849](https://github.com/fuf-stack/pixels/commit/17e9849bc62d90ee6f611978413a23e592a69c7b))
+
 ## [0.45.0](https://github.com/fuf-stack/pixels/compare/pixels-v0.44.0...pixels-v0.45.0) (2025-07-03)
 
 
