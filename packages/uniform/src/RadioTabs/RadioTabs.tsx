@@ -135,7 +135,8 @@ const RadioTabs = ({
         disabledKeys={disabled ? disabledAllKeys : undefined}
         fullWidth={false}
         onSelectionChange={onChange}
-        selectedKey={value}
+        // make sure component is controlled
+        selectedKey={value ?? ''}
         tabs={tabOptions as TabProps[]}
         testId={testId}
         variant={variant}

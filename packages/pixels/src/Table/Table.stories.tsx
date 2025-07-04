@@ -53,11 +53,11 @@ const rows = [
 ];
 
 export const Default: Story = {
-  args: { columns, rows },
+  args: { columns, rows, ariaLabel: 'Employee information table' },
 };
 
 export const AllSeparators: Story = {
-  args: { columns, rows },
+  args: { columns, rows, ariaLabel: 'Table with different separator styles' },
   render: (args) => (
     <div>
       {[
@@ -72,6 +72,7 @@ export const AllSeparators: Story = {
           <span className="text-lg font-bold">{s}</span>
           <Table
             {...args}
+            ariaLabel={`Employee table with ${s} separator`}
             // @ts-expect-error but it can.
             separation={s}
           />
@@ -82,24 +83,39 @@ export const AllSeparators: Story = {
 };
 
 export const WithWrapper: Story = {
-  args: { columns, rows, hasWrapper: true },
+  args: {
+    columns,
+    rows,
+    hasWrapper: true,
+    ariaLabel: 'Employee table with wrapper',
+  },
 };
 
 export const Loading: Story = {
-  args: { columns, rows, loading: true },
+  args: { columns, rows, loading: true, ariaLabel: 'Loading employee data' },
 };
 
 export const StickyHeader: Story = {
   // TODO: currently broken due to behavior of table without wrapper!?
-  args: { columns, rows, stickyHeader: true, className: 'h-32 bg-red-200' },
+  args: {
+    columns,
+    rows,
+    stickyHeader: true,
+    className: 'h-32 bg-red-200',
+    ariaLabel: 'Employee table with sticky header',
+  },
 };
 
 export const EmptyContent: Story = {
-  args: { columns, emptyContent: 'No data available' },
+  args: {
+    columns,
+    emptyContent: 'No data available',
+    ariaLabel: 'Empty employee table',
+  },
 };
 
 export const ManyElements: Story = {
-  args: { columns, className: '' },
+  args: { columns, className: '', ariaLabel: 'Large employee data table' },
   render: (args) => {
     const rows2 = Array.from({ length: 1000 }).map((_, index) => ({
       key: index + 1,
@@ -123,6 +139,7 @@ export const Virtualized: Story = {
     },
     hasWrapper: true,
     virtualized: true,
+    ariaLabel: 'Virtualized employee data table',
   },
   render: (args) => {
     const rows2 = Array.from({ length: 1000 }).map((_, index) => ({
