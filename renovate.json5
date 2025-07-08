@@ -13,6 +13,8 @@
     'default:prHourlyLimit4',
   ],
   ignorePaths: ['/node_modules/'],
+  // see: https://docs.renovatebot.com/configuration-options/#prconcurrentlimit
+  prConcurrentLimit: 20,
   // only rebase merge requests when they become conflicted
   // see: https://docs.renovatebot.com/configuration-options/#rebasewhen
   rebaseWhen: 'conflicted',
