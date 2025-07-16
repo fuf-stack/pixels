@@ -4,11 +4,11 @@
 // see: https://storybook.js.org/docs/writing-tests/snapshot-testing#execute-tests-on-multiple-stories
 
 /* eslint-disable import/no-extraneous-dependencies */
-import type { Meta, StoryFn } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react-vite';
 
 import { expect, test } from 'vitest';
 
-import { composeStories } from '@storybook/react';
+import { composeStories } from '@storybook/react-vite';
 
 // Make StoryFile generic to accept component props
 type StoryFile<TProps = any> = {

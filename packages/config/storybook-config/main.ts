@@ -6,10 +6,10 @@ const config: StorybookConfig = {
   // this has to be defined where shared config is used
   stories: [],
   addons: [
-    '@storybook/addon-essentials',
     '@storybook/addon-a11y',
-    '@storybook/addon-interactions',
+    '@storybook/addon-docs',
     '@storybook/addon-links',
+    // '@storybook/addon-vitest',
     {
       name: '@storybook/addon-coverage',
       options: {
@@ -21,7 +21,8 @@ const config: StorybookConfig = {
         },
       },
     },
-    'storybook-dark-mode',
+    // see: https://www.npmjs.com/package/@vueless/storybook-dark-mode
+    '@vueless/storybook-dark-mode',
   ],
   framework: {
     name: '@storybook/react-vite',
@@ -32,17 +33,13 @@ const config: StorybookConfig = {
     // see: https://storybook.js.org/docs/react/configure/telemetry#how-to-opt-out
     disableTelemetry: true,
   },
-  // enable autodocs for all stories
-  // see: https://storybook.js.org/docs/react/writing-docs/autodocs
-  docs: {
-    autodocs: true,
-  },
   // TEMP FIX: Attempted to resolveName for an unsupported path. resolveName does not accept ObjectMethod
   // see: https://storybook.js.org/docs/api/main-config-typescript#reactdocgen
   // see: https://github.com/storybookjs/storybook/issues/26652
   // see: https://github.com/reactjs/react-docgen/issues/902
   typescript: {
     reactDocgen: false,
+    // reactDocgen: 'react-docgen-typescript',
   },
 };
 

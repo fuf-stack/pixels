@@ -1,9 +1,9 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import type { DrawerProps } from './Drawer';
 
 import { Fragment, useEffect, useRef, useState } from 'react';
 
-import { useArgs } from '@storybook/preview-api';
+import { useArgs } from 'storybook/preview-api';
 
 import { Drawer } from '.';
 import { Button } from '../Button';

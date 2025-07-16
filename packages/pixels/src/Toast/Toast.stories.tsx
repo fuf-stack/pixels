@@ -1,7 +1,7 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import type { ToastProps } from './addToast';
 
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 
 import { Button } from '../Button';
 import { addToast, Toast, toastVariants } from './index';

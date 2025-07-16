@@ -1,10 +1,10 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 
 import v, * as vt from '@fuf-stack/veto';
 
-import Form from '../Form';
+import { Form } from '../Form';
 import SubmitButton from './SubmitButton';
 
 const meta: Meta<typeof SubmitButton> = {

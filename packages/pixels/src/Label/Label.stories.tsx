@@ -1,9 +1,9 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import type { LabelProps } from './Label';
 
 import { FaRocket } from 'react-icons/fa6';
 
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 
 import Label from './Label';
 

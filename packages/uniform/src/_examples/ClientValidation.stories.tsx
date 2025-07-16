@@ -1,10 +1,10 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { useEffect, useState } from 'react';
 import { useFormContext } from 'react-hook-form';
 
-import { action } from '@storybook/addon-actions';
-import { expect, userEvent, waitFor, within } from '@storybook/test';
+import { action } from 'storybook/actions';
+import { expect, userEvent, waitFor, within } from 'storybook/test';
 
 import { SubmitButton } from '@fuf-stack/uniform';
 import { veto } from '@fuf-stack/veto';

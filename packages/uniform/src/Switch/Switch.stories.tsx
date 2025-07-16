@@ -1,10 +1,10 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 
 // Import icons for the stories
 import { FaEnvelope, FaFlask, FaPhone, FaRocket } from 'react-icons/fa';
 
-import { action } from '@storybook/addon-actions';
-import { userEvent, within } from '@storybook/test';
+import { action } from 'storybook/actions';
+import { userEvent, within } from 'storybook/test';
 
 import { SubmitButton } from '@fuf-stack/uniform';
 import { veto } from '@fuf-stack/veto';

@@ -51,7 +51,7 @@ export interface TabsProps extends VariantProps {
   /** Whether tabs should take up full container width */
   fullWidth?: boolean;
   /** Callback fired when tab selection changes */
-  onSelectionChange?: (key: Key) => void;
+  onSelectionChange?: (key: Key | null) => void;
   /** Position of the tab list relative to the content */
   placement?: 'top' | 'bottom' | 'start' | 'end' | undefined;
   /** Radius of the tabs */

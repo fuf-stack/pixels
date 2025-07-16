@@ -1,9 +1,9 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { useState } from 'react';
 
-import { action } from '@storybook/addon-actions';
-import { expect, userEvent, within } from '@storybook/test';
+import { action } from 'storybook/actions';
+import { expect, userEvent, within } from 'storybook/test';
 
 import { Button, Card, Modal } from '@fuf-stack/pixels';
 import { veto } from '@fuf-stack/veto';

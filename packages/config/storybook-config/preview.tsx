@@ -1,12 +1,12 @@
 /* eslint-disable import/no-extraneous-dependencies */
 
-import type { Decorator, Preview } from '@storybook/react';
+import type { Decorator, Preview } from '@storybook/react-vite';
 
 import { useEffect } from 'react';
 
-import { UPDATE_GLOBALS } from '@storybook/core-events';
-import { addons } from '@storybook/preview-api';
-import { DARK_MODE_EVENT_NAME, useDarkMode } from 'storybook-dark-mode';
+import { DARK_MODE_EVENT_NAME, useDarkMode } from '@vueless/storybook-dark-mode';
+import { UPDATE_GLOBALS } from 'storybook/internal/core-events';
+import { addons } from 'storybook/preview-api';
 
 // see: https://github.com/hipstersmoothie/storybook-dark-mode/issues/168
 const DarkModeHtmlAttributeDecorator: Decorator = (Story) => {
@@ -62,6 +62,10 @@ const preview: Preview = {
     },
     layout: 'centered',
   },
+
+  // 👇 Enables auto-generated documentation for all stories
+  // see: https://storybook.js.org/docs/writing-docs/autodocs#set-up-automated-documentation
+  tags: ['autodocs'],
 };
 
 // change background when dark mode is toggled

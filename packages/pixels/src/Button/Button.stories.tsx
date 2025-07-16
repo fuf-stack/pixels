@@ -1,9 +1,9 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import type { ButtonProps } from './Button';
 
 import { FaEnvelope } from 'react-icons/fa';
 
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 
 import Button, { buttonVariants } from './Button';
 

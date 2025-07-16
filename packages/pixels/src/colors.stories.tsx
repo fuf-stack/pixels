@@ -2,7 +2,7 @@
 
 // see: https://github.com/heroui-inc/heroui/blob/canary/packages/core/theme/stories/colors.stories.tsx
 
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import plugins from '@repo/tailwind-config/plugins';
 import theme from '@repo/tailwind-config/theme';

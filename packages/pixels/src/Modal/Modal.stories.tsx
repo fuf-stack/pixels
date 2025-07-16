@@ -1,10 +1,10 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import type { ModalProps } from './Modal';
 
 import { useState } from 'react';
 
-import { useArgs } from '@storybook/preview-api';
-import { expect, userEvent, waitFor } from '@storybook/test';
+import { useArgs } from 'storybook/preview-api';
+import { expect, userEvent, waitFor, within } from 'storybook/test';
 
 import { Button } from '../Button';
 import Modal, { modalVariants } from './Modal';
@@ -72,9 +72,11 @@ export const WithHeaderAndFooter: Story = {
   render: Template,
 };
 
-const playOpenModal: Story['play'] = async ({ canvas }) => {
+const playOpenModal: Story['play'] = async ({ canvasElement }) => {
+  const canvas = within(canvasElement);
+
   // Find and click the trigger button
-  const trigger = await canvas.findByTestId('modal_trigger');
+  const trigger = await canvas.getByTestId('modal_trigger');
   await userEvent.click(trigger);
 
   // Wait for modal to be visible

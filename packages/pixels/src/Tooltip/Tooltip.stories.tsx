@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import type { TooltipPlacement, TooltipProps } from './Tooltip';
 
 import Tooltip, { tooltipVariants as heroTooltipVariants } from './Tooltip';
