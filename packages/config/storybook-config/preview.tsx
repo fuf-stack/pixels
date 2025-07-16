@@ -30,29 +30,22 @@ const DisableTestRunnerDecorator: Decorator = (Story, { parameters }) => {
   return <Story />;
 };
 
+// see: https://storybook.js.org/docs/essentials/backgrounds#configuration
+const backgroundOptions =  {
+  lightgray: { name: 'lightgray', value: '#f5f7fa' },
+  white: { name: 'white', value: '#ffffff' },
+  dark: { name: 'dark', value: '#333333' },
+};
+
 const preview: Preview = {
   decorators: [DarkModeHtmlAttributeDecorator, DisableTestRunnerDecorator],
   parameters: {
     actions: { argTypesRegex: '^on[A-Z].*' },
+    backgrounds: {
+      options: backgroundOptions,
+    },
     // show also description and default in controls panel
     controls: { expanded: true },
-    backgrounds: {
-      default: 'lightgray',
-      values: [
-        {
-          name: 'lightgray',
-          value: '#f5f7fa',
-        },
-        {
-          name: 'white',
-          value: '#ffffff',
-        },
-        {
-          name: 'dark',
-          value: '#333333',
-        },
-      ],
-    },
     // configure dark mode
     // see: https://storybook.js.org/addons/storybook-dark-mode
     darkMode: {
@@ -60,7 +53,7 @@ const preview: Preview = {
       current: 'light',
       stylePreview: true,
       darkClass: 'dark',
-      lightClass: 'ignore-sb-light',
+      lightClass: 'light',
     },
     layout: 'centered',
   },
@@ -84,9 +77,7 @@ const darkModeToggleListener = (isDarkMode: boolean) => {
     previousIsDarkMode = isDarkMode;
     channel.emit(UPDATE_GLOBALS, {
       globals: {
-        backgrounds: isDarkMode
-          ? { name: 'dark', value: '#333333' }
-          : { name: 'lightgray', value: '#f5f7fa' },
+        backgrounds: { value: isDarkMode ? 'dark' : 'lightgray' },
       },
     });
   }

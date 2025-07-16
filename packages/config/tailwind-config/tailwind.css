@@ -4,8 +4,7 @@
 /********************************************************************
  * light theme variables
  ********************************************************************/
- :root {
-
+:root {
   /* info color palette */
   --theme-info: var(--theme-info-500);
   --theme-info-foreground: 0 0% 100%;     /** #ffffff */
@@ -25,7 +24,6 @@
  * dark theme variables
  ********************************************************************/
 :root[data-theme="dark"] {
-
   /* info color palette dark */
   --theme-info: var(--theme-info-400);
   --theme-info-foreground: 0, 0%, 100%;   /** #ffffff */
