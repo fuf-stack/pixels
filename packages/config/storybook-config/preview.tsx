@@ -32,9 +32,9 @@ const DisableTestRunnerDecorator: Decorator = (Story, { parameters }) => {
 
 // see: https://storybook.js.org/docs/essentials/backgrounds#configuration
 const backgroundOptions =  {
-  lightgray: { name: 'lightgray', value: '#f5f7fa' },
+  lightgray: { name: 'lightgray', value: '#f4f4f5' },
   white: { name: 'white', value: '#ffffff' },
-  dark: { name: 'dark', value: '#333333' },
+  dark: { name: 'dark', value: '#18181b' },
 };
 
 const preview: Preview = {
