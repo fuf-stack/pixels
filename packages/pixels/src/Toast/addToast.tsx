@@ -13,7 +13,7 @@ export const toastVariants = tv({
     title: '',
     description: '',
     icon: '',
-    loadingIcon: '',
+    loadingComponent: '',
     content: '',
     motionDiv: '',
     progressTrack: '',
@@ -92,8 +92,8 @@ export interface ToastProps extends AddToastVariantProps {
   endContent?: ReactNode;
   /** Icon displayed at the start of the Alert */
   icon?: ReactNode;
-  /** Icon or animation displayed until promise is resolved */
-  loadingIcon?: ReactNode;
+  /** Component displayed until promise is resolved */
+  loadingComponent?: ReactNode;
   /** Callback function called when the toast is closed */
   onClose?: () => void;
   /** Promise based on which the notification will be styled */
@@ -122,7 +122,7 @@ export const addToast = ({
   description = undefined,
   endContent = undefined,
   icon = undefined,
-  loadingIcon = undefined,
+  loadingComponent = undefined,
   onClose = undefined,
   promise = undefined,
   shouldShowTimeoutProgress = false,
@@ -151,7 +151,7 @@ export const addToast = ({
     hideCloseButton: !showCloseButton,
     hideIcon: !showIcon,
     icon,
-    loadingIcon,
+    loadingComponent,
     onClose,
     promise,
     shouldShowTimeoutProgress,

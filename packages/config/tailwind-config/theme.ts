@@ -1,7 +1,7 @@
-import type { CustomThemeConfig } from 'tailwindcss/types/config';
+import type { ThemeConfig } from 'tailwindcss/plugin';
 
 // see: https://tailwindcss.com/docs/theme
-const theme: Partial<CustomThemeConfig> = {
+const theme: ThemeConfig = {
   colors: {
     // additional info color range
     info: {

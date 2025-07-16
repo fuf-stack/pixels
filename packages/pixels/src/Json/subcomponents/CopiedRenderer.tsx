@@ -35,7 +35,7 @@ const CopiedRenderer = () => {
 
         const elmClasses = cn(
           className,
-          'absolute -right-4 -top-[2px] h-4 w-4 !fill-transparent pl-1',
+          'absolute -right-4 -top-[2px] h-4 w-4 fill-transparent! pl-1',
           { 'text-success': isCopied },
         );
 
@@ -47,7 +47,7 @@ const CopiedRenderer = () => {
 
         return (
           <span
-            className="relative !ml-0 !h-[1em] !w-0"
+            className="relative ml-0! h-[1em]! w-0!"
             style={style}
             data-testid="copy-button"
             role="button"

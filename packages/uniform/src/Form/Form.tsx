@@ -56,7 +56,7 @@ const Form = ({
       {({ handleSubmit, isValid }) => (
         <div className="flex w-full flex-row justify-between gap-6">
           <form
-            className={cn('flex-grow', className)}
+            className={cn('grow', className)}
             data-form-is-valid={isValid}
             data-testid={slugify(testId || name || '')}
             name={name}
@@ -66,7 +66,7 @@ const Form = ({
           </form>
           {/* render debug viewer when not in test environment and debug not disabled */}
           {!IS_TEST && !debug?.disable && (
-            <FormDebugViewer className="w-96 flex-shrink" />
+            <FormDebugViewer className="w-96 shrink" />
           )}
         </div>
       )}

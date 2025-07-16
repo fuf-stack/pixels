@@ -1,12 +1,11 @@
 {
   "name": "@repo/tailwind-config",
-  "description": "uniforms shared tailwind config",
-  "version": "0.0.1",
+  "description": "shared tailwind config",
   "private": true,
-  "main": "index.js",
+  "main": "./tailwind.config.ts",
   "devDependencies": {
-    "@heroui/theme": "2.4.13",
-    "autoprefixer": "10.4.21",
-    "tailwindcss": "3.4.17"
+    "@heroui/theme": "2.4.19",
+    "@tailwindcss/postcss": "4.1.11",
+    "tailwindcss": "4.1.11"
   }
 }

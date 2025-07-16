@@ -18,7 +18,7 @@ export const selectVariants = tv({
     clearIndicator:
       'rounded-md p-1 text-foreground-500 hover:cursor-pointer hover:bg-default-200 hover:text-foreground-800',
     control:
-      'rounded-lg border-2 border-default-200 bg-content1 !duration-150 transition-background hover:border-default-400 group-data-[invalid=true]:border-danger group-data-[invalid=true]:hover:border-danger motion-reduce:transition-none',
+      'rounded-lg border-2 border-default-200 bg-content1 duration-150! transition-background hover:border-default-400 group-data-[invalid=true]:border-danger group-data-[invalid=true]:hover:border-danger motion-reduce:transition-none',
     control_focused: 'border-focus',
     crossIcon: '',
     downChevron: '',
@@ -39,7 +39,7 @@ export const selectVariants = tv({
     menuList: '',
     // ensure menu has same z-index as modal so it is visible when rendered in modal
     // see: https://github.com/heroui-inc/heroui/blob/main/packages/core/theme/src/components/modal.ts (see z-50)
-    menuPortal: '!z-50',
+    menuPortal: 'z-50!',
     multiValue: 'items-center gap-1.5 rounded bg-default-100 py-0.5 pl-2 pr-1',
     multiValueContainer: '',
     multiValueLabel: 'py-0.5 leading-6',
@@ -51,7 +51,7 @@ export const selectVariants = tv({
     option: 'rounded px-3 py-2 hover:cursor-pointer',
     placeholder: 'ml-1 py-0.5 pl-1 text-sm text-foreground-500',
     selectContainer: '',
-    singleValue: '!ml-1 !leading-7',
+    singleValue: 'ml-1! leading-7!',
     valueContainer: 'gap-1 p-1',
   },
 });

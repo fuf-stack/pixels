@@ -30,7 +30,7 @@ describe('Form', () => {
       );
 
       const form = screen.getByTestId('');
-      expect(form).toHaveClass('custom-class', 'flex-grow');
+      expect(form).toHaveClass('custom-class', 'grow');
     });
 
     it('should apply multiple classNames', () => {
@@ -41,7 +41,7 @@ describe('Form', () => {
       );
 
       const form = screen.getByTestId('');
-      expect(form).toHaveClass('class1', 'class2', 'flex-grow');
+      expect(form).toHaveClass('class1', 'class2', 'grow');
     });
 
     it('should set form name', () => {
