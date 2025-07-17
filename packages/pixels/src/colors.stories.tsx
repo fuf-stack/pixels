@@ -304,6 +304,30 @@ const tailwindColors = {
 
 const themeColors = tailwindColors;
 
+// Compute hex value from CSS class
+const getHexFromClass = (bgClass: string): string => {
+  try {
+    const element = document.createElement('div');
+    element.className = bgClass;
+    document.body.appendChild(element);
+    const computedStyle = getComputedStyle(element);
+    const { backgroundColor } = computedStyle;
+    document.body.removeChild(element);
+
+    if (backgroundColor && backgroundColor !== 'rgba(0, 0, 0, 0)') {
+      const rgba = parseToRgba(backgroundColor);
+      return `#${rgba
+        .slice(0, 3)
+        .map((x) => x.toString(16).padStart(2, '0'))
+        .join('')
+        .toUpperCase()}`;
+    }
+  } catch (error) {
+    console.warn('Failed to compute color for class:', bgClass);
+  }
+  return '';
+};
+
 type ColorsItem = {
   className?: string;
   color: string;
@@ -374,11 +398,20 @@ const SemanticSwatch = ({
   className?: string;
   textClassName?: string;
 }) => {
+  const hexValue = className ? getHexFromClass(className) : '';
+
   return (
     <div
-      className={`${className} m-2 flex h-24 w-24 flex-col items-center justify-center rounded-xl shadow-lg`}
+      className={`${className} border-divider m-2 flex h-24 w-24 flex-col items-center justify-center rounded-xl border`}
     >
-      <span className={`${textClassName} text-sm`}>{color}</span>
+      <span className={`${textClassName} text-center text-xs font-medium`}>
+        {color}
+      </span>
+      {hexValue && (
+        <span className={`${textClassName} text-center text-xs opacity-75`}>
+          {hexValue}
+        </span>
+      )}
     </div>
   );
 };
@@ -387,7 +420,7 @@ const SwatchSet = ({ colors, isSemantic = false }: SwatchSetProps) => (
   <div className="flex h-full w-full flex-row flex-wrap items-center justify-center p-2">
     {colors.map(({ title, items }) => (
       <div key={title} className="flex h-full w-full flex-col items-start">
-        <h2 className="text-xl font-bold text-foreground">{title}</h2>
+        <h2 className="text-foreground text-xl font-bold">{title}</h2>
         <div className="flex h-full w-full flex-row flex-wrap items-center justify-start p-4">
           {items.map((item, index) =>
             isSemantic ? (
