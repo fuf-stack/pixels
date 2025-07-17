@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.0.0](https://github.com/fuf-stack/pixels/compare/pixel-utils-v0.5.5...pixel-utils-v1.0.0) (2025-07-17)
+
+
+### ⚠ BREAKING CHANGES
+
+* **pixel-utils,pixels,uniform:** migrate to tailwind v4 + heroui v2.8.0
+
+### Features
+
+* **pixel-utils,pixels,uniform:** migrate to tailwind v4 + heroui v2.8.0 ([362a417](https://github.com/fuf-stack/pixels/commit/362a417f5cab6382796f91dc4d11a599b61b354e))
+
 ## [0.5.5](https://github.com/fuf-stack/pixels/compare/pixel-utils-v0.5.4...pixel-utils-v0.5.5) (2025-06-24)
 
 
