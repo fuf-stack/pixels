@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/fuf-stack/pixels/compare/pixels-v1.0.0...pixels-v1.0.1) (2025-07-17)
+
+
+### Bug Fixes
+
+* **pixels:** version bump ([fee28ff](https://github.com/fuf-stack/pixels/commit/fee28ffb3d08d4fbe77ecfea1bd31795b5cc9b02))
+
 ## [1.0.0](https://github.com/fuf-stack/pixels/compare/pixels-v0.45.0...pixels-v1.0.0) (2025-07-17)
 
 
