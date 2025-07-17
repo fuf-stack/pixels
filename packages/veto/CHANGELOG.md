@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.0.0](https://github.com/fuf-stack/pixels/compare/veto-v0.12.1...veto-v1.0.0) (2025-07-17)
+
+
+### ⚠ BREAKING CHANGES
+
+* **pixel-utils,pixels,uniform:** migrate to tailwind v4 + heroui v2.8.0
+
+### Features
+
+* **pixel-utils,pixels,uniform:** migrate to tailwind v4 + heroui v2.8.0 ([b68c8a0](https://github.com/fuf-stack/pixels/commit/b68c8a01cd28c762657e11eca825120b3c9fe589))
+
 ## [0.12.1](https://github.com/fuf-stack/pixels/compare/veto-v0.12.0...veto-v0.12.1) (2025-06-24)
 
 
