@@ -16,9 +16,9 @@ import SortContext from './subcomponents/SortContext';
 export const fieldArrayVariants = tv({
   slots: {
     appendButton: 'w-full',
-    elementWrapper: 'flex-grow',
+    elementWrapper: 'grow',
     insertAfterButton: 'text-xs font-medium',
-    label: '!pointer-events-auto !static !z-0 -mb-1 ml-1 !inline-block',
+    label: 'pointer-events-auto! static! z-0! -mb-1 ml-1 inline-block!',
     list: 'm-0 w-full list-none',
     listItem: 'mb-4 flex w-full flex-row',
     removeButton: 'ml-1',

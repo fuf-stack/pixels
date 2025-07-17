@@ -1,5 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 
+import '@repo/tailwind-config/tailwind.css';
+
 import type { Decorator, Preview } from '@storybook/react-vite';
 
 import { useEffect } from 'react';

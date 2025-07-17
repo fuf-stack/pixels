@@ -1,4 +1,4 @@
-import type { ContentConfig } from 'tailwindcss/types/config';
+import type { Config } from 'tailwindcss';
 
 import path from 'path';
 
@@ -43,7 +43,7 @@ const HEROUI_THEME_USED_COMPONENT_PATHS = [
 );
 
 // see: https://tailwindcss.com/docs/theme
-const content: ContentConfig = [
+const content: Config['content'] = [
   // relative path in packages that use the config
   'src/**/*.{js,ts,jsx,tsx}',
 
