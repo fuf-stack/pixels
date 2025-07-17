@@ -12,5 +12,5 @@ module.exports = {
   // config packages
   'packages/config/**/*.{js,ts}': ['eslint'],
   // other filetypes
-  '*.{md,mdx,yaml,yml}': ['prettier --write'],
+  '*.{json,md,mdx,yaml,yml}': ['prettier --write'],
 };
