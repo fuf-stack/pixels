@@ -4,305 +4,7 @@
 
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { parseToRgba, readableColor } from 'color2k';
-
-// Since resolveConfig is no longer available in Tailwind CSS v4,
-// we'll define the colors directly from the default Tailwind palette
-const tailwindColors = {
-  inherit: 'inherit',
-  current: 'currentColor',
-  transparent: 'transparent',
-  black: '#000000',
-  white: '#ffffff',
-  slate: {
-    50: '#f8fafc',
-    100: '#f1f5f9',
-    200: '#e2e8f0',
-    300: '#cbd5e1',
-    400: '#94a3b8',
-    500: '#64748b',
-    600: '#475569',
-    700: '#334155',
-    800: '#1e293b',
-    900: '#0f172a',
-    950: '#020617',
-  },
-  gray: {
-    50: '#f9fafb',
-    100: '#f3f4f6',
-    200: '#e5e7eb',
-    300: '#d1d5db',
-    400: '#9ca3af',
-    500: '#6b7280',
-    600: '#4b5563',
-    700: '#374151',
-    800: '#1f2937',
-    900: '#111827',
-    950: '#030712',
-  },
-  zinc: {
-    50: '#fafafa',
-    100: '#f4f4f5',
-    200: '#e4e4e7',
-    300: '#d4d4d8',
-    400: '#a1a1aa',
-    500: '#71717a',
-    600: '#52525b',
-    700: '#3f3f46',
-    800: '#27272a',
-    900: '#18181b',
-    950: '#09090b',
-  },
-  neutral: {
-    50: '#fafafa',
-    100: '#f5f5f5',
-    200: '#e5e5e5',
-    300: '#d4d4d4',
-    400: '#a3a3a3',
-    500: '#737373',
-    600: '#525252',
-    700: '#404040',
-    800: '#262626',
-    900: '#171717',
-    950: '#0a0a0a',
-  },
-  stone: {
-    50: '#fafaf9',
-    100: '#f5f5f4',
-    200: '#e7e5e4',
-    300: '#d6d3d1',
-    400: '#a8a29e',
-    500: '#78716c',
-    600: '#57534e',
-    700: '#44403c',
-    800: '#292524',
-    900: '#1c1917',
-    950: '#0c0a09',
-  },
-  red: {
-    50: '#fef2f2',
-    100: '#fee2e2',
-    200: '#fecaca',
-    300: '#fca5a5',
-    400: '#f87171',
-    500: '#ef4444',
-    600: '#dc2626',
-    700: '#b91c1c',
-    800: '#991b1b',
-    900: '#7f1d1d',
-    950: '#450a0a',
-  },
-  orange: {
-    50: '#fff7ed',
-    100: '#ffedd5',
-    200: '#fed7aa',
-    300: '#fdba74',
-    400: '#fb923c',
-    500: '#f97316',
-    600: '#ea580c',
-    700: '#c2410c',
-    800: '#9a3412',
-    900: '#7c2d12',
-    950: '#431407',
-  },
-  amber: {
-    50: '#fffbeb',
-    100: '#fef3c7',
-    200: '#fde68a',
-    300: '#fcd34d',
-    400: '#fbbf24',
-    500: '#f59e0b',
-    600: '#d97706',
-    700: '#b45309',
-    800: '#92400e',
-    900: '#78350f',
-    950: '#451a03',
-  },
-  yellow: {
-    50: '#fefce8',
-    100: '#fef9c3',
-    200: '#fef08a',
-    300: '#fde047',
-    400: '#facc15',
-    500: '#eab308',
-    600: '#ca8a04',
-    700: '#a16207',
-    800: '#854d0e',
-    900: '#713f12',
-    950: '#422006',
-  },
-  lime: {
-    50: '#f7fee7',
-    100: '#ecfccb',
-    200: '#d9f99d',
-    300: '#bef264',
-    400: '#a3e635',
-    500: '#84cc16',
-    600: '#65a30d',
-    700: '#4d7c0f',
-    800: '#3f6212',
-    900: '#365314',
-    950: '#1a2e05',
-  },
-  green: {
-    50: '#f0fdf4',
-    100: '#dcfce7',
-    200: '#bbf7d0',
-    300: '#86efac',
-    400: '#4ade80',
-    500: '#22c55e',
-    600: '#16a34a',
-    700: '#15803d',
-    800: '#166534',
-    900: '#14532d',
-    950: '#052e16',
-  },
-  emerald: {
-    50: '#ecfdf5',
-    100: '#d1fae5',
-    200: '#a7f3d0',
-    300: '#6ee7b7',
-    400: '#34d399',
-    500: '#10b981',
-    600: '#059669',
-    700: '#047857',
-    800: '#065f46',
-    900: '#064e3b',
-    950: '#022c22',
-  },
-  teal: {
-    50: '#f0fdfa',
-    100: '#ccfbf1',
-    200: '#99f6e4',
-    300: '#5eead4',
-    400: '#2dd4bf',
-    500: '#14b8a6',
-    600: '#0d9488',
-    700: '#0f766e',
-    800: '#115e59',
-    900: '#134e4a',
-    950: '#042f2e',
-  },
-  cyan: {
-    50: '#ecfeff',
-    100: '#cffafe',
-    200: '#a5f3fc',
-    300: '#67e8f9',
-    400: '#22d3ee',
-    500: '#06b6d4',
-    600: '#0891b2',
-    700: '#0e7490',
-    800: '#155e75',
-    900: '#164e63',
-    950: '#083344',
-  },
-  sky: {
-    50: '#f0f9ff',
-    100: '#e0f2fe',
-    200: '#bae6fd',
-    300: '#7dd3fc',
-    400: '#38bdf8',
-    500: '#0ea5e9',
-    600: '#0284c7',
-    700: '#0369a1',
-    800: '#075985',
-    900: '#0c4a6e',
-    950: '#082f49',
-  },
-  blue: {
-    50: '#eff6ff',
-    100: '#dbeafe',
-    200: '#bfdbfe',
-    300: '#93c5fd',
-    400: '#60a5fa',
-    500: '#3b82f6',
-    600: '#2563eb',
-    700: '#1d4ed8',
-    800: '#1e40af',
-    900: '#1e3a8a',
-    950: '#172554',
-  },
-  indigo: {
-    50: '#eef2ff',
-    100: '#e0e7ff',
-    200: '#c7d2fe',
-    300: '#a5b4fc',
-    400: '#818cf8',
-    500: '#6366f1',
-    600: '#4f46e5',
-    700: '#4338ca',
-    800: '#3730a3',
-    900: '#312e81',
-    950: '#1e1b4b',
-  },
-  violet: {
-    50: '#f5f3ff',
-    100: '#ede9fe',
-    200: '#ddd6fe',
-    300: '#c4b5fd',
-    400: '#a78bfa',
-    500: '#8b5cf6',
-    600: '#7c3aed',
-    700: '#6d28d9',
-    800: '#5b21b6',
-    900: '#4c1d95',
-    950: '#2e1065',
-  },
-  purple: {
-    50: '#faf5ff',
-    100: '#f3e8ff',
-    200: '#e9d5ff',
-    300: '#d8b4fe',
-    400: '#c084fc',
-    500: '#a855f7',
-    600: '#9333ea',
-    700: '#7e22ce',
-    800: '#6b21a8',
-    900: '#581c87',
-    950: '#3b0764',
-  },
-  fuchsia: {
-    50: '#fdf4ff',
-    100: '#fae8ff',
-    200: '#f5d0fe',
-    300: '#f0abfc',
-    400: '#e879f9',
-    500: '#d946ef',
-    600: '#c026d3',
-    700: '#a21caf',
-    800: '#86198f',
-    900: '#701a75',
-    950: '#4a044e',
-  },
-  pink: {
-    50: '#fdf2f8',
-    100: '#fce7f3',
-    200: '#fbcfe8',
-    300: '#f9a8d4',
-    400: '#f472b6',
-    500: '#ec4899',
-    600: '#db2777',
-    700: '#be185d',
-    800: '#9d174d',
-    900: '#831843',
-    950: '#500724',
-  },
-  rose: {
-    50: '#fff1f2',
-    100: '#ffe4e6',
-    200: '#fecdd3',
-    300: '#fda4af',
-    400: '#fb7185',
-    500: '#f43f5e',
-    600: '#e11d48',
-    700: '#be123c',
-    800: '#9f1239',
-    900: '#881337',
-    950: '#4c0519',
-  },
-};
-
-const themeColors = tailwindColors;
+import { parseToRgba } from 'color2k';
 
 // Compute hex value from CSS class
 const getHexFromClass = (bgClass: string): string => {
@@ -314,7 +16,42 @@ const getHexFromClass = (bgClass: string): string => {
     const { backgroundColor } = computedStyle;
     document.body.removeChild(element);
 
-    if (backgroundColor && backgroundColor !== 'rgba(0, 0, 0, 0)') {
+    if (
+      backgroundColor &&
+      backgroundColor !== 'rgba(0, 0, 0, 0)' &&
+      backgroundColor !== 'transparent'
+    ) {
+      // Handle OKLCH format from Tailwind v4
+      if (backgroundColor.startsWith('oklch(')) {
+        // Create a temporary element to let the browser convert OKLCH to RGB
+        const tempDiv = document.createElement('div');
+        tempDiv.style.backgroundColor = backgroundColor;
+        tempDiv.style.color = backgroundColor; // Fallback
+        document.body.appendChild(tempDiv);
+
+        // Force a style calculation
+        const rgbColor = getComputedStyle(tempDiv).backgroundColor;
+        document.body.removeChild(tempDiv);
+
+        // If browser converted it to rgb format, use that
+        if (
+          rgbColor &&
+          rgbColor !== backgroundColor &&
+          !rgbColor.startsWith('oklch(')
+        ) {
+          const rgba = parseToRgba(rgbColor);
+          return `#${rgba
+            .slice(0, 3)
+            .map((x) => x.toString(16).padStart(2, '0'))
+            .join('')
+            .toUpperCase()}`;
+        }
+
+        // Manual OKLCH to RGB conversion as fallback
+        return convertOklchToHex(backgroundColor);
+      }
+
+      // Handle standard RGB/RGBA/HSL formats
       const rgba = parseToRgba(backgroundColor);
       return `#${rgba
         .slice(0, 3)
@@ -323,14 +60,43 @@ const getHexFromClass = (bgClass: string): string => {
         .toUpperCase()}`;
     }
   } catch (error) {
-    console.warn('Failed to compute color for class:', bgClass);
+    console.warn('Failed to compute color for class:', bgClass, error);
   }
   return '';
 };
 
+// Convert OKLCH to HEX (simplified conversion)
+const convertOklchToHex = (oklchString: string): string => {
+  try {
+    // Extract OKLCH values: oklch(L C H)
+    const match = oklchString.match(/oklch\(([\d.]+)\s+([\d.]+)\s+([\d.]+)\)/);
+    if (!match) return '';
+
+    // This is a simplified conversion. For production, you'd want a proper OKLCH->RGB library
+    // For now, let's use a canvas to let the browser do the conversion
+    const canvas = document.createElement('canvas');
+    canvas.width = 1;
+    canvas.height = 1;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return '';
+
+    ctx.fillStyle = oklchString;
+    ctx.fillRect(0, 0, 1, 1);
+    const [r, g, b] = ctx.getImageData(0, 0, 1, 1).data;
+
+    return `#${[r, g, b]
+      .map((x) => x.toString(16).padStart(2, '0'))
+      .join('')
+      .toUpperCase()}`;
+  } catch (error) {
+    console.warn('Failed to convert OKLCH:', oklchString, error);
+    return '';
+  }
+};
+
 type ColorsItem = {
   className?: string;
-  color: string;
+  color?: string;
   name?: string;
   textClassName?: string;
 };
@@ -342,71 +108,31 @@ type SwatchColors = {
 
 type SwatchSetProps = {
   colors: SwatchColors[];
-  isSemantic?: boolean;
 };
 
 const Swatch = ({
-  color,
   name = undefined,
-}: {
-  color: string;
-  name?: string;
-}) => {
-  const colorText = color
-    ? `#${parseToRgba(color)
-        .slice(0, 3)
-        .map((x) => x.toString(16).padStart(2, '0'))
-        .join('')
-        .toUpperCase()}`
-    : 'N/A';
-
-  return (
-    <div
-      className="m-2 flex h-24 w-24 flex-col items-center justify-center rounded-xl shadow-lg"
-      style={{
-        backgroundColor: color,
-      }}
-    >
-      {name && (
-        <span
-          className="text-xs"
-          style={{
-            color: readableColor(color),
-          }}
-        >
-          {name}
-        </span>
-      )}
-      <span
-        className="text-sm"
-        style={{
-          color: readableColor(color),
-        }}
-      >
-        {colorText}
-      </span>
-    </div>
-  );
-};
-
-const SemanticSwatch = ({
-  color,
+  color = undefined,
   className = undefined,
   textClassName = undefined,
 }: {
-  color: string;
+  name?: string;
+  color?: string;
   className?: string;
   textClassName?: string;
 }) => {
   const hexValue = className ? getHexFromClass(className) : '';
+  const label = name || color;
 
   return (
     <div
       className={`${className} border-divider m-2 flex h-24 w-24 flex-col items-center justify-center rounded-xl border`}
     >
-      <span className={`${textClassName} text-center text-xs font-medium`}>
-        {color}
-      </span>
+      {label && (
+        <span className={`${textClassName} text-center text-xs font-medium`}>
+          {label}
+        </span>
+      )}
       {hexValue && (
         <span className={`${textClassName} text-center text-xs opacity-75`}>
           {hexValue}
@@ -416,28 +142,21 @@ const SemanticSwatch = ({
   );
 };
 
-const SwatchSet = ({ colors, isSemantic = false }: SwatchSetProps) => (
+const SwatchSet = ({ colors }: SwatchSetProps) => (
   <div className="flex h-full w-full flex-row flex-wrap items-center justify-center p-2">
     {colors.map(({ title, items }) => (
       <div key={title} className="flex h-full w-full flex-col items-start">
         <h2 className="text-foreground text-xl font-bold">{title}</h2>
         <div className="flex h-full w-full flex-row flex-wrap items-center justify-start p-4">
-          {items.map((item, index) =>
-            isSemantic ? (
-              <SemanticSwatch
-                key={`${item.color}-${index}`}
-                color={item.color}
-                className={item.className}
-                textClassName={item.textClassName}
-              />
-            ) : (
-              <Swatch
-                key={`${item.color}-${index}`}
-                color={item.color}
-                name={item.name}
-              />
-            ),
-          )}
+          {items.map((item, index) => (
+            <Swatch
+              key={`${item.name || item.color}-${index}`}
+              name={item.name}
+              color={item.color}
+              className={item.className}
+              textClassName={item.textClassName}
+            />
+          ))}
         </div>
       </div>
     ))}
@@ -447,63 +166,1340 @@ const SwatchSet = ({ colors, isSemantic = false }: SwatchSetProps) => (
 const meta: Meta<typeof SwatchSet> = {
   title: 'Colors',
   component: SwatchSet,
-  argTypes: {
-    isSemantic: {
-      control: false,
-    },
-  },
 };
 
 export default meta;
 type Story = StoryObj<typeof SwatchSet>;
 
-const getColorItems = (
-  colorObj: Record<string, string>,
-  prefix: string = '',
-) => {
-  return Object.entries(colorObj).map(([key, value]) => ({
-    name: prefix ? `${prefix}-${key}` : key,
-    color: value,
-  }));
-};
-
-export const CommonColors: Story = {
+export const TailwindColors: Story = {
   args: {
     colors: [
       {
         title: 'Base',
         items: [
-          { name: 'white', color: themeColors.white },
-          { name: 'black', color: themeColors.black },
+          { name: 'white', className: 'bg-white', textClassName: 'text-black' },
+          { name: 'black', className: 'bg-black', textClassName: 'text-white' },
+        ],
+      },
+      {
+        title: 'Red',
+        items: [
+          {
+            name: 'red-50',
+            className: 'bg-red-50',
+            textClassName: 'text-red-900',
+          },
+          {
+            name: 'red-100',
+            className: 'bg-red-100',
+            textClassName: 'text-red-900',
+          },
+          {
+            name: 'red-200',
+            className: 'bg-red-200',
+            textClassName: 'text-red-900',
+          },
+          {
+            name: 'red-300',
+            className: 'bg-red-300',
+            textClassName: 'text-red-900',
+          },
+          {
+            name: 'red-400',
+            className: 'bg-red-400',
+            textClassName: 'text-red-900',
+          },
+          {
+            name: 'red-500',
+            className: 'bg-red-500',
+            textClassName: 'text-red-50',
+          },
+          {
+            name: 'red-600',
+            className: 'bg-red-600',
+            textClassName: 'text-red-50',
+          },
+          {
+            name: 'red-700',
+            className: 'bg-red-700',
+            textClassName: 'text-red-50',
+          },
+          {
+            name: 'red-800',
+            className: 'bg-red-800',
+            textClassName: 'text-red-50',
+          },
+          {
+            name: 'red-900',
+            className: 'bg-red-900',
+            textClassName: 'text-red-50',
+          },
+          {
+            name: 'red-950',
+            className: 'bg-red-950',
+            textClassName: 'text-red-50',
+          },
+        ],
+      },
+      {
+        title: 'Orange',
+        items: [
+          {
+            name: 'orange-50',
+            className: 'bg-orange-50',
+            textClassName: 'text-orange-900',
+          },
+          {
+            name: 'orange-100',
+            className: 'bg-orange-100',
+            textClassName: 'text-orange-900',
+          },
+          {
+            name: 'orange-200',
+            className: 'bg-orange-200',
+            textClassName: 'text-orange-900',
+          },
+          {
+            name: 'orange-300',
+            className: 'bg-orange-300',
+            textClassName: 'text-orange-900',
+          },
+          {
+            name: 'orange-400',
+            className: 'bg-orange-400',
+            textClassName: 'text-orange-900',
+          },
+          {
+            name: 'orange-500',
+            className: 'bg-orange-500',
+            textClassName: 'text-orange-50',
+          },
+          {
+            name: 'orange-600',
+            className: 'bg-orange-600',
+            textClassName: 'text-orange-50',
+          },
+          {
+            name: 'orange-700',
+            className: 'bg-orange-700',
+            textClassName: 'text-orange-50',
+          },
+          {
+            name: 'orange-800',
+            className: 'bg-orange-800',
+            textClassName: 'text-orange-50',
+          },
+          {
+            name: 'orange-900',
+            className: 'bg-orange-900',
+            textClassName: 'text-orange-50',
+          },
+          {
+            name: 'orange-950',
+            className: 'bg-orange-950',
+            textClassName: 'text-orange-50',
+          },
+        ],
+      },
+      {
+        title: 'Amber',
+        items: [
+          {
+            name: 'amber-50',
+            className: 'bg-amber-50',
+            textClassName: 'text-amber-900',
+          },
+          {
+            name: 'amber-100',
+            className: 'bg-amber-100',
+            textClassName: 'text-amber-900',
+          },
+          {
+            name: 'amber-200',
+            className: 'bg-amber-200',
+            textClassName: 'text-amber-900',
+          },
+          {
+            name: 'amber-300',
+            className: 'bg-amber-300',
+            textClassName: 'text-amber-900',
+          },
+          {
+            name: 'amber-400',
+            className: 'bg-amber-400',
+            textClassName: 'text-amber-900',
+          },
+          {
+            name: 'amber-500',
+            className: 'bg-amber-500',
+            textClassName: 'text-amber-50',
+          },
+          {
+            name: 'amber-600',
+            className: 'bg-amber-600',
+            textClassName: 'text-amber-50',
+          },
+          {
+            name: 'amber-700',
+            className: 'bg-amber-700',
+            textClassName: 'text-amber-50',
+          },
+          {
+            name: 'amber-800',
+            className: 'bg-amber-800',
+            textClassName: 'text-amber-50',
+          },
+          {
+            name: 'amber-900',
+            className: 'bg-amber-900',
+            textClassName: 'text-amber-50',
+          },
+          {
+            name: 'amber-950',
+            className: 'bg-amber-950',
+            textClassName: 'text-amber-50',
+          },
+        ],
+      },
+      {
+        title: 'Yellow',
+        items: [
+          {
+            name: 'yellow-50',
+            className: 'bg-yellow-50',
+            textClassName: 'text-yellow-900',
+          },
+          {
+            name: 'yellow-100',
+            className: 'bg-yellow-100',
+            textClassName: 'text-yellow-900',
+          },
+          {
+            name: 'yellow-200',
+            className: 'bg-yellow-200',
+            textClassName: 'text-yellow-900',
+          },
+          {
+            name: 'yellow-300',
+            className: 'bg-yellow-300',
+            textClassName: 'text-yellow-900',
+          },
+          {
+            name: 'yellow-400',
+            className: 'bg-yellow-400',
+            textClassName: 'text-yellow-900',
+          },
+          {
+            name: 'yellow-500',
+            className: 'bg-yellow-500',
+            textClassName: 'text-yellow-50',
+          },
+          {
+            name: 'yellow-600',
+            className: 'bg-yellow-600',
+            textClassName: 'text-yellow-50',
+          },
+          {
+            name: 'yellow-700',
+            className: 'bg-yellow-700',
+            textClassName: 'text-yellow-50',
+          },
+          {
+            name: 'yellow-800',
+            className: 'bg-yellow-800',
+            textClassName: 'text-yellow-50',
+          },
+          {
+            name: 'yellow-900',
+            className: 'bg-yellow-900',
+            textClassName: 'text-yellow-50',
+          },
+          {
+            name: 'yellow-950',
+            className: 'bg-yellow-950',
+            textClassName: 'text-yellow-50',
+          },
+        ],
+      },
+      {
+        title: 'Lime',
+        items: [
+          {
+            name: 'lime-50',
+            className: 'bg-lime-50',
+            textClassName: 'text-lime-900',
+          },
+          {
+            name: 'lime-100',
+            className: 'bg-lime-100',
+            textClassName: 'text-lime-900',
+          },
+          {
+            name: 'lime-200',
+            className: 'bg-lime-200',
+            textClassName: 'text-lime-900',
+          },
+          {
+            name: 'lime-300',
+            className: 'bg-lime-300',
+            textClassName: 'text-lime-900',
+          },
+          {
+            name: 'lime-400',
+            className: 'bg-lime-400',
+            textClassName: 'text-lime-900',
+          },
+          {
+            name: 'lime-500',
+            className: 'bg-lime-500',
+            textClassName: 'text-lime-50',
+          },
+          {
+            name: 'lime-600',
+            className: 'bg-lime-600',
+            textClassName: 'text-lime-50',
+          },
+          {
+            name: 'lime-700',
+            className: 'bg-lime-700',
+            textClassName: 'text-lime-50',
+          },
+          {
+            name: 'lime-800',
+            className: 'bg-lime-800',
+            textClassName: 'text-lime-50',
+          },
+          {
+            name: 'lime-900',
+            className: 'bg-lime-900',
+            textClassName: 'text-lime-50',
+          },
+          {
+            name: 'lime-950',
+            className: 'bg-lime-950',
+            textClassName: 'text-lime-50',
+          },
+        ],
+      },
+      {
+        title: 'Green',
+        items: [
+          {
+            name: 'green-50',
+            className: 'bg-green-50',
+            textClassName: 'text-green-900',
+          },
+          {
+            name: 'green-100',
+            className: 'bg-green-100',
+            textClassName: 'text-green-900',
+          },
+          {
+            name: 'green-200',
+            className: 'bg-green-200',
+            textClassName: 'text-green-900',
+          },
+          {
+            name: 'green-300',
+            className: 'bg-green-300',
+            textClassName: 'text-green-900',
+          },
+          {
+            name: 'green-400',
+            className: 'bg-green-400',
+            textClassName: 'text-green-900',
+          },
+          {
+            name: 'green-500',
+            className: 'bg-green-500',
+            textClassName: 'text-green-50',
+          },
+          {
+            name: 'green-600',
+            className: 'bg-green-600',
+            textClassName: 'text-green-50',
+          },
+          {
+            name: 'green-700',
+            className: 'bg-green-700',
+            textClassName: 'text-green-50',
+          },
+          {
+            name: 'green-800',
+            className: 'bg-green-800',
+            textClassName: 'text-green-50',
+          },
+          {
+            name: 'green-900',
+            className: 'bg-green-900',
+            textClassName: 'text-green-50',
+          },
+          {
+            name: 'green-950',
+            className: 'bg-green-950',
+            textClassName: 'text-green-50',
+          },
+        ],
+      },
+      {
+        title: 'Emerald',
+        items: [
+          {
+            name: 'emerald-50',
+            className: 'bg-emerald-50',
+            textClassName: 'text-emerald-900',
+          },
+          {
+            name: 'emerald-100',
+            className: 'bg-emerald-100',
+            textClassName: 'text-emerald-900',
+          },
+          {
+            name: 'emerald-200',
+            className: 'bg-emerald-200',
+            textClassName: 'text-emerald-900',
+          },
+          {
+            name: 'emerald-300',
+            className: 'bg-emerald-300',
+            textClassName: 'text-emerald-900',
+          },
+          {
+            name: 'emerald-400',
+            className: 'bg-emerald-400',
+            textClassName: 'text-emerald-900',
+          },
+          {
+            name: 'emerald-500',
+            className: 'bg-emerald-500',
+            textClassName: 'text-emerald-50',
+          },
+          {
+            name: 'emerald-600',
+            className: 'bg-emerald-600',
+            textClassName: 'text-emerald-50',
+          },
+          {
+            name: 'emerald-700',
+            className: 'bg-emerald-700',
+            textClassName: 'text-emerald-50',
+          },
+          {
+            name: 'emerald-800',
+            className: 'bg-emerald-800',
+            textClassName: 'text-emerald-50',
+          },
+          {
+            name: 'emerald-900',
+            className: 'bg-emerald-900',
+            textClassName: 'text-emerald-50',
+          },
+          {
+            name: 'emerald-950',
+            className: 'bg-emerald-950',
+            textClassName: 'text-emerald-50',
+          },
+        ],
+      },
+      {
+        title: 'Teal',
+        items: [
+          {
+            name: 'teal-50',
+            className: 'bg-teal-50',
+            textClassName: 'text-teal-900',
+          },
+          {
+            name: 'teal-100',
+            className: 'bg-teal-100',
+            textClassName: 'text-teal-900',
+          },
+          {
+            name: 'teal-200',
+            className: 'bg-teal-200',
+            textClassName: 'text-teal-900',
+          },
+          {
+            name: 'teal-300',
+            className: 'bg-teal-300',
+            textClassName: 'text-teal-900',
+          },
+          {
+            name: 'teal-400',
+            className: 'bg-teal-400',
+            textClassName: 'text-teal-900',
+          },
+          {
+            name: 'teal-500',
+            className: 'bg-teal-500',
+            textClassName: 'text-teal-50',
+          },
+          {
+            name: 'teal-600',
+            className: 'bg-teal-600',
+            textClassName: 'text-teal-50',
+          },
+          {
+            name: 'teal-700',
+            className: 'bg-teal-700',
+            textClassName: 'text-teal-50',
+          },
+          {
+            name: 'teal-800',
+            className: 'bg-teal-800',
+            textClassName: 'text-teal-50',
+          },
+          {
+            name: 'teal-900',
+            className: 'bg-teal-900',
+            textClassName: 'text-teal-50',
+          },
+          {
+            name: 'teal-950',
+            className: 'bg-teal-950',
+            textClassName: 'text-teal-50',
+          },
+        ],
+      },
+      {
+        title: 'Cyan',
+        items: [
+          {
+            name: 'cyan-50',
+            className: 'bg-cyan-50',
+            textClassName: 'text-cyan-900',
+          },
+          {
+            name: 'cyan-100',
+            className: 'bg-cyan-100',
+            textClassName: 'text-cyan-900',
+          },
+          {
+            name: 'cyan-200',
+            className: 'bg-cyan-200',
+            textClassName: 'text-cyan-900',
+          },
+          {
+            name: 'cyan-300',
+            className: 'bg-cyan-300',
+            textClassName: 'text-cyan-900',
+          },
+          {
+            name: 'cyan-400',
+            className: 'bg-cyan-400',
+            textClassName: 'text-cyan-900',
+          },
+          {
+            name: 'cyan-500',
+            className: 'bg-cyan-500',
+            textClassName: 'text-cyan-50',
+          },
+          {
+            name: 'cyan-600',
+            className: 'bg-cyan-600',
+            textClassName: 'text-cyan-50',
+          },
+          {
+            name: 'cyan-700',
+            className: 'bg-cyan-700',
+            textClassName: 'text-cyan-50',
+          },
+          {
+            name: 'cyan-800',
+            className: 'bg-cyan-800',
+            textClassName: 'text-cyan-50',
+          },
+          {
+            name: 'cyan-900',
+            className: 'bg-cyan-900',
+            textClassName: 'text-cyan-50',
+          },
+          {
+            name: 'cyan-950',
+            className: 'bg-cyan-950',
+            textClassName: 'text-cyan-50',
+          },
+        ],
+      },
+      {
+        title: 'Sky',
+        items: [
+          {
+            name: 'sky-50',
+            className: 'bg-sky-50',
+            textClassName: 'text-sky-900',
+          },
+          {
+            name: 'sky-100',
+            className: 'bg-sky-100',
+            textClassName: 'text-sky-900',
+          },
+          {
+            name: 'sky-200',
+            className: 'bg-sky-200',
+            textClassName: 'text-sky-900',
+          },
+          {
+            name: 'sky-300',
+            className: 'bg-sky-300',
+            textClassName: 'text-sky-900',
+          },
+          {
+            name: 'sky-400',
+            className: 'bg-sky-400',
+            textClassName: 'text-sky-900',
+          },
+          {
+            name: 'sky-500',
+            className: 'bg-sky-500',
+            textClassName: 'text-sky-50',
+          },
+          {
+            name: 'sky-600',
+            className: 'bg-sky-600',
+            textClassName: 'text-sky-50',
+          },
+          {
+            name: 'sky-700',
+            className: 'bg-sky-700',
+            textClassName: 'text-sky-50',
+          },
+          {
+            name: 'sky-800',
+            className: 'bg-sky-800',
+            textClassName: 'text-sky-50',
+          },
+          {
+            name: 'sky-900',
+            className: 'bg-sky-900',
+            textClassName: 'text-sky-50',
+          },
+          {
+            name: 'sky-950',
+            className: 'bg-sky-950',
+            textClassName: 'text-sky-50',
+          },
         ],
       },
       {
         title: 'Blue',
-        items: getColorItems(themeColors.blue, 'blue'),
+        items: [
+          {
+            name: 'blue-50',
+            className: 'bg-blue-50',
+            textClassName: 'text-blue-900',
+          },
+          {
+            name: 'blue-100',
+            className: 'bg-blue-100',
+            textClassName: 'text-blue-900',
+          },
+          {
+            name: 'blue-200',
+            className: 'bg-blue-200',
+            textClassName: 'text-blue-900',
+          },
+          {
+            name: 'blue-300',
+            className: 'bg-blue-300',
+            textClassName: 'text-blue-900',
+          },
+          {
+            name: 'blue-400',
+            className: 'bg-blue-400',
+            textClassName: 'text-blue-900',
+          },
+          {
+            name: 'blue-500',
+            className: 'bg-blue-500',
+            textClassName: 'text-blue-50',
+          },
+          {
+            name: 'blue-600',
+            className: 'bg-blue-600',
+            textClassName: 'text-blue-50',
+          },
+          {
+            name: 'blue-700',
+            className: 'bg-blue-700',
+            textClassName: 'text-blue-50',
+          },
+          {
+            name: 'blue-800',
+            className: 'bg-blue-800',
+            textClassName: 'text-blue-50',
+          },
+          {
+            name: 'blue-900',
+            className: 'bg-blue-900',
+            textClassName: 'text-blue-50',
+          },
+          {
+            name: 'blue-950',
+            className: 'bg-blue-950',
+            textClassName: 'text-blue-50',
+          },
+        ],
+      },
+      {
+        title: 'Indigo',
+        items: [
+          {
+            name: 'indigo-50',
+            className: 'bg-indigo-50',
+            textClassName: 'text-indigo-900',
+          },
+          {
+            name: 'indigo-100',
+            className: 'bg-indigo-100',
+            textClassName: 'text-indigo-900',
+          },
+          {
+            name: 'indigo-200',
+            className: 'bg-indigo-200',
+            textClassName: 'text-indigo-900',
+          },
+          {
+            name: 'indigo-300',
+            className: 'bg-indigo-300',
+            textClassName: 'text-indigo-900',
+          },
+          {
+            name: 'indigo-400',
+            className: 'bg-indigo-400',
+            textClassName: 'text-indigo-900',
+          },
+          {
+            name: 'indigo-500',
+            className: 'bg-indigo-500',
+            textClassName: 'text-indigo-50',
+          },
+          {
+            name: 'indigo-600',
+            className: 'bg-indigo-600',
+            textClassName: 'text-indigo-50',
+          },
+          {
+            name: 'indigo-700',
+            className: 'bg-indigo-700',
+            textClassName: 'text-indigo-50',
+          },
+          {
+            name: 'indigo-800',
+            className: 'bg-indigo-800',
+            textClassName: 'text-indigo-50',
+          },
+          {
+            name: 'indigo-900',
+            className: 'bg-indigo-900',
+            textClassName: 'text-indigo-50',
+          },
+          {
+            name: 'indigo-950',
+            className: 'bg-indigo-950',
+            textClassName: 'text-indigo-50',
+          },
+        ],
+      },
+      {
+        title: 'Violet',
+        items: [
+          {
+            name: 'violet-50',
+            className: 'bg-violet-50',
+            textClassName: 'text-violet-900',
+          },
+          {
+            name: 'violet-100',
+            className: 'bg-violet-100',
+            textClassName: 'text-violet-900',
+          },
+          {
+            name: 'violet-200',
+            className: 'bg-violet-200',
+            textClassName: 'text-violet-900',
+          },
+          {
+            name: 'violet-300',
+            className: 'bg-violet-300',
+            textClassName: 'text-violet-900',
+          },
+          {
+            name: 'violet-400',
+            className: 'bg-violet-400',
+            textClassName: 'text-violet-900',
+          },
+          {
+            name: 'violet-500',
+            className: 'bg-violet-500',
+            textClassName: 'text-violet-50',
+          },
+          {
+            name: 'violet-600',
+            className: 'bg-violet-600',
+            textClassName: 'text-violet-50',
+          },
+          {
+            name: 'violet-700',
+            className: 'bg-violet-700',
+            textClassName: 'text-violet-50',
+          },
+          {
+            name: 'violet-800',
+            className: 'bg-violet-800',
+            textClassName: 'text-violet-50',
+          },
+          {
+            name: 'violet-900',
+            className: 'bg-violet-900',
+            textClassName: 'text-violet-50',
+          },
+          {
+            name: 'violet-950',
+            className: 'bg-violet-950',
+            textClassName: 'text-violet-50',
+          },
+        ],
       },
       {
         title: 'Purple',
-        items: getColorItems(themeColors.purple, 'purple'),
+        items: [
+          {
+            name: 'purple-50',
+            className: 'bg-purple-50',
+            textClassName: 'text-purple-900',
+          },
+          {
+            name: 'purple-100',
+            className: 'bg-purple-100',
+            textClassName: 'text-purple-900',
+          },
+          {
+            name: 'purple-200',
+            className: 'bg-purple-200',
+            textClassName: 'text-purple-900',
+          },
+          {
+            name: 'purple-300',
+            className: 'bg-purple-300',
+            textClassName: 'text-purple-900',
+          },
+          {
+            name: 'purple-400',
+            className: 'bg-purple-400',
+            textClassName: 'text-purple-900',
+          },
+          {
+            name: 'purple-500',
+            className: 'bg-purple-500',
+            textClassName: 'text-purple-50',
+          },
+          {
+            name: 'purple-600',
+            className: 'bg-purple-600',
+            textClassName: 'text-purple-50',
+          },
+          {
+            name: 'purple-700',
+            className: 'bg-purple-700',
+            textClassName: 'text-purple-50',
+          },
+          {
+            name: 'purple-800',
+            className: 'bg-purple-800',
+            textClassName: 'text-purple-50',
+          },
+          {
+            name: 'purple-900',
+            className: 'bg-purple-900',
+            textClassName: 'text-purple-50',
+          },
+          {
+            name: 'purple-950',
+            className: 'bg-purple-950',
+            textClassName: 'text-purple-50',
+          },
+        ],
       },
       {
-        title: 'Green',
-        items: getColorItems(themeColors.green, 'green'),
-      },
-      {
-        title: 'Red',
-        items: getColorItems(themeColors.red, 'red'),
+        title: 'Fuchsia',
+        items: [
+          {
+            name: 'fuchsia-50',
+            className: 'bg-fuchsia-50',
+            textClassName: 'text-fuchsia-900',
+          },
+          {
+            name: 'fuchsia-100',
+            className: 'bg-fuchsia-100',
+            textClassName: 'text-fuchsia-900',
+          },
+          {
+            name: 'fuchsia-200',
+            className: 'bg-fuchsia-200',
+            textClassName: 'text-fuchsia-900',
+          },
+          {
+            name: 'fuchsia-300',
+            className: 'bg-fuchsia-300',
+            textClassName: 'text-fuchsia-900',
+          },
+          {
+            name: 'fuchsia-400',
+            className: 'bg-fuchsia-400',
+            textClassName: 'text-fuchsia-900',
+          },
+          {
+            name: 'fuchsia-500',
+            className: 'bg-fuchsia-500',
+            textClassName: 'text-fuchsia-50',
+          },
+          {
+            name: 'fuchsia-600',
+            className: 'bg-fuchsia-600',
+            textClassName: 'text-fuchsia-50',
+          },
+          {
+            name: 'fuchsia-700',
+            className: 'bg-fuchsia-700',
+            textClassName: 'text-fuchsia-50',
+          },
+          {
+            name: 'fuchsia-800',
+            className: 'bg-fuchsia-800',
+            textClassName: 'text-fuchsia-50',
+          },
+          {
+            name: 'fuchsia-900',
+            className: 'bg-fuchsia-900',
+            textClassName: 'text-fuchsia-50',
+          },
+          {
+            name: 'fuchsia-950',
+            className: 'bg-fuchsia-950',
+            textClassName: 'text-fuchsia-50',
+          },
+        ],
       },
       {
         title: 'Pink',
-        items: getColorItems(themeColors.pink, 'pink'),
+        items: [
+          {
+            name: 'pink-50',
+            className: 'bg-pink-50',
+            textClassName: 'text-pink-900',
+          },
+          {
+            name: 'pink-100',
+            className: 'bg-pink-100',
+            textClassName: 'text-pink-900',
+          },
+          {
+            name: 'pink-200',
+            className: 'bg-pink-200',
+            textClassName: 'text-pink-900',
+          },
+          {
+            name: 'pink-300',
+            className: 'bg-pink-300',
+            textClassName: 'text-pink-900',
+          },
+          {
+            name: 'pink-400',
+            className: 'bg-pink-400',
+            textClassName: 'text-pink-900',
+          },
+          {
+            name: 'pink-500',
+            className: 'bg-pink-500',
+            textClassName: 'text-pink-50',
+          },
+          {
+            name: 'pink-600',
+            className: 'bg-pink-600',
+            textClassName: 'text-pink-50',
+          },
+          {
+            name: 'pink-700',
+            className: 'bg-pink-700',
+            textClassName: 'text-pink-50',
+          },
+          {
+            name: 'pink-800',
+            className: 'bg-pink-800',
+            textClassName: 'text-pink-50',
+          },
+          {
+            name: 'pink-900',
+            className: 'bg-pink-900',
+            textClassName: 'text-pink-50',
+          },
+          {
+            name: 'pink-950',
+            className: 'bg-pink-950',
+            textClassName: 'text-pink-50',
+          },
+        ],
       },
       {
-        title: 'Yellow',
-        items: getColorItems(themeColors.yellow, 'yellow'),
+        title: 'Rose',
+        items: [
+          {
+            name: 'rose-50',
+            className: 'bg-rose-50',
+            textClassName: 'text-rose-900',
+          },
+          {
+            name: 'rose-100',
+            className: 'bg-rose-100',
+            textClassName: 'text-rose-900',
+          },
+          {
+            name: 'rose-200',
+            className: 'bg-rose-200',
+            textClassName: 'text-rose-900',
+          },
+          {
+            name: 'rose-300',
+            className: 'bg-rose-300',
+            textClassName: 'text-rose-900',
+          },
+          {
+            name: 'rose-400',
+            className: 'bg-rose-400',
+            textClassName: 'text-rose-900',
+          },
+          {
+            name: 'rose-500',
+            className: 'bg-rose-500',
+            textClassName: 'text-rose-50',
+          },
+          {
+            name: 'rose-600',
+            className: 'bg-rose-600',
+            textClassName: 'text-rose-50',
+          },
+          {
+            name: 'rose-700',
+            className: 'bg-rose-700',
+            textClassName: 'text-rose-50',
+          },
+          {
+            name: 'rose-800',
+            className: 'bg-rose-800',
+            textClassName: 'text-rose-50',
+          },
+          {
+            name: 'rose-900',
+            className: 'bg-rose-900',
+            textClassName: 'text-rose-50',
+          },
+          {
+            name: 'rose-950',
+            className: 'bg-rose-950',
+            textClassName: 'text-rose-50',
+          },
+        ],
       },
       {
-        title: 'Cyan',
-        items: getColorItems(themeColors.cyan, 'cyan'),
+        title: 'Slate',
+        items: [
+          {
+            name: 'slate-50',
+            className: 'bg-slate-50',
+            textClassName: 'text-slate-900',
+          },
+          {
+            name: 'slate-100',
+            className: 'bg-slate-100',
+            textClassName: 'text-slate-900',
+          },
+          {
+            name: 'slate-200',
+            className: 'bg-slate-200',
+            textClassName: 'text-slate-900',
+          },
+          {
+            name: 'slate-300',
+            className: 'bg-slate-300',
+            textClassName: 'text-slate-900',
+          },
+          {
+            name: 'slate-400',
+            className: 'bg-slate-400',
+            textClassName: 'text-slate-900',
+          },
+          {
+            name: 'slate-500',
+            className: 'bg-slate-500',
+            textClassName: 'text-slate-50',
+          },
+          {
+            name: 'slate-600',
+            className: 'bg-slate-600',
+            textClassName: 'text-slate-50',
+          },
+          {
+            name: 'slate-700',
+            className: 'bg-slate-700',
+            textClassName: 'text-slate-50',
+          },
+          {
+            name: 'slate-800',
+            className: 'bg-slate-800',
+            textClassName: 'text-slate-50',
+          },
+          {
+            name: 'slate-900',
+            className: 'bg-slate-900',
+            textClassName: 'text-slate-50',
+          },
+          {
+            name: 'slate-950',
+            className: 'bg-slate-950',
+            textClassName: 'text-slate-50',
+          },
+        ],
+      },
+      {
+        title: 'Gray',
+        items: [
+          {
+            name: 'gray-50',
+            className: 'bg-gray-50',
+            textClassName: 'text-gray-900',
+          },
+          {
+            name: 'gray-100',
+            className: 'bg-gray-100',
+            textClassName: 'text-gray-900',
+          },
+          {
+            name: 'gray-200',
+            className: 'bg-gray-200',
+            textClassName: 'text-gray-900',
+          },
+          {
+            name: 'gray-300',
+            className: 'bg-gray-300',
+            textClassName: 'text-gray-900',
+          },
+          {
+            name: 'gray-400',
+            className: 'bg-gray-400',
+            textClassName: 'text-gray-900',
+          },
+          {
+            name: 'gray-500',
+            className: 'bg-gray-500',
+            textClassName: 'text-gray-50',
+          },
+          {
+            name: 'gray-600',
+            className: 'bg-gray-600',
+            textClassName: 'text-gray-50',
+          },
+          {
+            name: 'gray-700',
+            className: 'bg-gray-700',
+            textClassName: 'text-gray-50',
+          },
+          {
+            name: 'gray-800',
+            className: 'bg-gray-800',
+            textClassName: 'text-gray-50',
+          },
+          {
+            name: 'gray-900',
+            className: 'bg-gray-900',
+            textClassName: 'text-gray-50',
+          },
+          {
+            name: 'gray-950',
+            className: 'bg-gray-950',
+            textClassName: 'text-gray-50',
+          },
+        ],
+      },
+      {
+        title: 'Zinc',
+        items: [
+          {
+            name: 'zinc-50',
+            className: 'bg-zinc-50',
+            textClassName: 'text-zinc-900',
+          },
+          {
+            name: 'zinc-100',
+            className: 'bg-zinc-100',
+            textClassName: 'text-zinc-900',
+          },
+          {
+            name: 'zinc-200',
+            className: 'bg-zinc-200',
+            textClassName: 'text-zinc-900',
+          },
+          {
+            name: 'zinc-300',
+            className: 'bg-zinc-300',
+            textClassName: 'text-zinc-900',
+          },
+          {
+            name: 'zinc-400',
+            className: 'bg-zinc-400',
+            textClassName: 'text-zinc-900',
+          },
+          {
+            name: 'zinc-500',
+            className: 'bg-zinc-500',
+            textClassName: 'text-zinc-50',
+          },
+          {
+            name: 'zinc-600',
+            className: 'bg-zinc-600',
+            textClassName: 'text-zinc-50',
+          },
+          {
+            name: 'zinc-700',
+            className: 'bg-zinc-700',
+            textClassName: 'text-zinc-50',
+          },
+          {
+            name: 'zinc-800',
+            className: 'bg-zinc-800',
+            textClassName: 'text-zinc-50',
+          },
+          {
+            name: 'zinc-900',
+            className: 'bg-zinc-900',
+            textClassName: 'text-zinc-50',
+          },
+          {
+            name: 'zinc-950',
+            className: 'bg-zinc-950',
+            textClassName: 'text-zinc-50',
+          },
+        ],
+      },
+      {
+        title: 'Neutral',
+        items: [
+          {
+            name: 'neutral-50',
+            className: 'bg-neutral-50',
+            textClassName: 'text-neutral-900',
+          },
+          {
+            name: 'neutral-100',
+            className: 'bg-neutral-100',
+            textClassName: 'text-neutral-900',
+          },
+          {
+            name: 'neutral-200',
+            className: 'bg-neutral-200',
+            textClassName: 'text-neutral-900',
+          },
+          {
+            name: 'neutral-300',
+            className: 'bg-neutral-300',
+            textClassName: 'text-neutral-900',
+          },
+          {
+            name: 'neutral-400',
+            className: 'bg-neutral-400',
+            textClassName: 'text-neutral-900',
+          },
+          {
+            name: 'neutral-500',
+            className: 'bg-neutral-500',
+            textClassName: 'text-neutral-50',
+          },
+          {
+            name: 'neutral-600',
+            className: 'bg-neutral-600',
+            textClassName: 'text-neutral-50',
+          },
+          {
+            name: 'neutral-700',
+            className: 'bg-neutral-700',
+            textClassName: 'text-neutral-50',
+          },
+          {
+            name: 'neutral-800',
+            className: 'bg-neutral-800',
+            textClassName: 'text-neutral-50',
+          },
+          {
+            name: 'neutral-900',
+            className: 'bg-neutral-900',
+            textClassName: 'text-neutral-50',
+          },
+          {
+            name: 'neutral-950',
+            className: 'bg-neutral-950',
+            textClassName: 'text-neutral-50',
+          },
+        ],
+      },
+      {
+        title: 'Stone',
+        items: [
+          {
+            name: 'stone-50',
+            className: 'bg-stone-50',
+            textClassName: 'text-stone-900',
+          },
+          {
+            name: 'stone-100',
+            className: 'bg-stone-100',
+            textClassName: 'text-stone-900',
+          },
+          {
+            name: 'stone-200',
+            className: 'bg-stone-200',
+            textClassName: 'text-stone-900',
+          },
+          {
+            name: 'stone-300',
+            className: 'bg-stone-300',
+            textClassName: 'text-stone-900',
+          },
+          {
+            name: 'stone-400',
+            className: 'bg-stone-400',
+            textClassName: 'text-stone-900',
+          },
+          {
+            name: 'stone-500',
+            className: 'bg-stone-500',
+            textClassName: 'text-stone-50',
+          },
+          {
+            name: 'stone-600',
+            className: 'bg-stone-600',
+            textClassName: 'text-stone-50',
+          },
+          {
+            name: 'stone-700',
+            className: 'bg-stone-700',
+            textClassName: 'text-stone-50',
+          },
+          {
+            name: 'stone-800',
+            className: 'bg-stone-800',
+            textClassName: 'text-stone-50',
+          },
+          {
+            name: 'stone-900',
+            className: 'bg-stone-900',
+            textClassName: 'text-stone-50',
+          },
+          {
+            name: 'stone-950',
+            className: 'bg-stone-950',
+            textClassName: 'text-stone-50',
+          },
+        ],
       },
     ],
   },
@@ -511,7 +1507,6 @@ export const CommonColors: Story = {
 
 export const SemanticColors: Story = {
   args: {
-    isSemantic: true,
     colors: [
       {
         title: 'Layout',
