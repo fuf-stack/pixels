@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.20](https://github.com/fuf-stack/pixels/compare/pixel-motion-v1.0.19...pixel-motion-v1.0.20) (2025-07-17)
+
+
+### Bug Fixes
+
+* **pixels:** add border-divider to tooltip dividers ([9b4a435](https://github.com/fuf-stack/pixels/commit/9b4a4359381a68abf9347bf22be461c90a3a4d3e))
+
 ## [1.0.19](https://github.com/fuf-stack/pixels/compare/pixel-motion-v1.0.18...pixel-motion-v1.0.19) (2025-07-17)
 
 
