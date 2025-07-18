@@ -20,6 +20,18 @@ importers:
       '@fuf-stack/vitest-config':
         specifier: 1.1.2
         version: 1.1.2(@types/node@22.16.4)(jsdom@26.1.0)(lightningcss@1.30.1)
+      '@repo/storybook-config':
+        specifier: workspace:*
+        version: link:packages/config/storybook-config
+      '@repo/tailwind-config':
+        specifier: workspace:*
+        version: link:packages/config/tailwind-config
+      '@repo/tsup-config':
+        specifier: workspace:*
+        version: link:packages/config/tsup-config
+      '@repo/vite-config':
+        specifier: workspace:*
+        version: link:packages/config/vite-config
       '@types/node':
         specifier: 22.16.4
         version: 22.16.4
@@ -104,10 +116,6 @@ importers:
       framer-motion:
         specifier: 12.23.6
         version: 12.23.6(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
-    devDependencies:
-      '@repo/tsup-config':
-        specifier: workspace:*
-        version: link:../config/tsup-config
 
   packages/pixel-utils:
     dependencies:
@@ -127,9 +135,6 @@ importers:
         specifier: 1.0.0
         version: 1.0.0(tailwindcss@4.1.11)
     devDependencies:
-      '@repo/tsup-config':
-        specifier: workspace:*
-        version: link:../config/tsup-config
       '@types/slug':
         specifier: 5.0.9
         version: 5.0.9
@@ -212,18 +217,6 @@ importers:
         specifier: 5.5.0
         version: 5.5.0(react@19.0.0)
     devDependencies:
-      '@repo/storybook-config':
-        specifier: workspace:*
-        version: link:../config/storybook-config
-      '@repo/tailwind-config':
-        specifier: workspace:*
-        version: link:../config/tailwind-config
-      '@repo/tsup-config':
-        specifier: workspace:*
-        version: link:../config/tsup-config
-      '@repo/vite-config':
-        specifier: workspace:*
-        version: link:../config/vite-config
       '@types/debug':
         specifier: 4.1.12
         version: 4.1.12
@@ -306,18 +299,6 @@ importers:
         specifier: 5.10.2
         version: 5.10.2(@types/react@19.0.12)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
     devDependencies:
-      '@repo/storybook-config':
-        specifier: workspace:*
-        version: link:../config/storybook-config
-      '@repo/tailwind-config':
-        specifier: workspace:*
-        version: link:../config/tailwind-config
-      '@repo/tsup-config':
-        specifier: workspace:*
-        version: link:../config/tsup-config
-      '@repo/vite-config':
-        specifier: workspace:*
-        version: link:../config/vite-config
       '@types/debug':
         specifier: 4.1.12
         version: 4.1.12
