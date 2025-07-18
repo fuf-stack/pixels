@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/fuf-stack/pixels/compare/pixel-utils-v1.0.0...pixel-utils-v1.0.1) (2025-07-18)
+
+
+### Bug Fixes
+
+* **pixel-motion,pixel-utils,pixels,uniform:** add repo config package to workspace only ([ad43c19](https://github.com/fuf-stack/pixels/commit/ad43c1946b0ef8484e4dfe72737a06735dd2bb17))
+
 ## [1.0.0](https://github.com/fuf-stack/pixels/compare/pixel-utils-v0.5.5...pixel-utils-v1.0.0) (2025-07-17)
 
 
