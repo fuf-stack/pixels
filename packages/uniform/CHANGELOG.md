@@ -1,5 +1,29 @@
 # Changelog
 
+## [1.0.0](https://github.com/fuf-stack/pixels/compare/uniform-v0.23.0...uniform-v1.0.0) (2025-07-18)
+
+
+### ⚠ BREAKING CHANGES
+
+* **pixel-utils,pixels,uniform:** migrate to tailwind v4 + heroui v2.8.0
+
+### Features
+
+* **pixel-utils,pixels,uniform:** migrate to tailwind v4 + heroui v2.8.0 ([362a417](https://github.com/fuf-stack/pixels/commit/362a417f5cab6382796f91dc4d11a599b61b354e))
+* update to storybook v9 ([d3e1586](https://github.com/fuf-stack/pixels/commit/d3e15868a188b05e55307b8ed137dd15427f2417))
+
+
+### Bug Fixes
+
+* **deps:** update dependency framer-motion to v12.23.0 ([32c9373](https://github.com/fuf-stack/pixels/commit/32c937384002cc088bfc1e0a816424e8c9e4301b))
+* **deps:** update dependency framer-motion to v12.23.0 ([c704827](https://github.com/fuf-stack/pixels/commit/c70482716624cb4d79f7c828702204f778b9e339))
+* **deps:** update dependency framer-motion to v12.23.1 ([#1066](https://github.com/fuf-stack/pixels/issues/1066)) ([7be678f](https://github.com/fuf-stack/pixels/commit/7be678f79ac5808ee782cd65204eef86e0602d43))
+* **deps:** update dependency framer-motion to v12.23.3 ([#1070](https://github.com/fuf-stack/pixels/issues/1070)) ([bc0fb41](https://github.com/fuf-stack/pixels/commit/bc0fb4134f28e5b5e82bcc5a4b55f01fe010de2e))
+* **deps:** update dependency framer-motion to v12.23.5 ([#1073](https://github.com/fuf-stack/pixels/issues/1073)) ([6212af9](https://github.com/fuf-stack/pixels/commit/6212af9d51b69e9128141c72163dad91d8a8b67c))
+* **deps:** update dependency framer-motion to v12.23.6 ([#1077](https://github.com/fuf-stack/pixels/issues/1077)) ([fc4f70d](https://github.com/fuf-stack/pixels/commit/fc4f70de902353292baa77052bd2c8a9f1c83902))
+* **deps:** update dependency react-select to v5.10.2 ([#1072](https://github.com/fuf-stack/pixels/issues/1072)) ([a166a5b](https://github.com/fuf-stack/pixels/commit/a166a5b58a7ee2ea145997f81ab700a56a822d97))
+* **pixel-motion,pixel-utils,pixels,uniform:** add repo config package to workspace only ([ad43c19](https://github.com/fuf-stack/pixels/commit/ad43c1946b0ef8484e4dfe72737a06735dd2bb17))
+
 ## [0.23.0](https://github.com/fuf-stack/pixels/compare/uniform-v0.22.1...uniform-v0.23.0) (2025-07-04)
 
 
