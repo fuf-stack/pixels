@@ -135,8 +135,8 @@ importers:
         specifier: 3.3.1
         version: 3.3.1
       tailwind-variants:
-        specifier: 3.0.0
-        version: 3.0.0(tailwind-merge@3.3.1)(tailwindcss@4.1.12)
+        specifier: 3.1.0
+        version: 3.1.0(tailwind-merge@3.3.1)(tailwindcss@4.1.12)
     devDependencies:
       '@types/slug':
         specifier: 5.0.9
@@ -5700,8 +5700,8 @@ packages:
       tailwind-merge:
         optional: true
 
-  tailwind-variants@3.0.0:
-    resolution: {integrity: sha512-RDby9MMHuCfBdNiN53yB7JrhTnt5mGGnqx0XzKHKyM+X0NyhrtS8F/b+0GvatJcp7fnejAEDfAQzx+bSrcIgmw==}
+  tailwind-variants@3.1.0:
+    resolution: {integrity: sha512-ieiYaEfUr+sNhw/k++dosmZfVA4VIG5bV+G1eGdJSC4FcflqQv0iSIlOLj/RbzRuTu/VrIiNSlwh1esBM3BXUg==}
     engines: {node: '>=16.x', pnpm: '>=7.x'}
     peerDependencies:
       tailwind-merge: '>=3.0.0'
@@ -12817,7 +12817,7 @@ snapshots:
     optionalDependencies:
       tailwind-merge: 3.3.1
 
-  tailwind-variants@3.0.0(tailwind-merge@3.3.1)(tailwindcss@4.1.12):
+  tailwind-variants@3.1.0(tailwind-merge@3.3.1)(tailwindcss@4.1.12):
     dependencies:
       tailwindcss: 4.1.12
     optionalDependencies:
