@@ -132,8 +132,8 @@ importers:
         specifier: 3.3.1
         version: 3.3.1
       tailwind-variants:
-        specifier: 1.0.0
-        version: 1.0.0(tailwindcss@4.1.12)
+        specifier: 3.0.0
+        version: 3.0.0(tailwind-merge@3.3.1)(tailwindcss@4.1.12)
     devDependencies:
       '@types/slug':
         specifier: 5.0.9
@@ -5703,20 +5703,21 @@ packages:
     resolution: {integrity: sha512-+XZ+r1XGIJGeQk3VvXhT6xx/VpbHsRzsTkGgF6E5RX9TTXD0118l87puaEBZ566FhqblC6U0d4XnubznJDm30A==}
     engines: {node: ^14.18.0 || >=16.0.0}
 
-  tailwind-merge@3.0.2:
-    resolution: {integrity: sha512-l7z+OYZ7mu3DTqrL88RiKrKIqO3NcpEO8V/Od04bNpvk0kiIFndGEoqfuzvj4yuhRkHKjRkII2z+KS2HfPcSxw==}
-
   tailwind-merge@3.3.1:
     resolution: {integrity: sha512-gBXpgUm/3rp1lMZZrM/w7D8GKqshif0zAymAhbCyIt8KMe+0v9DQ7cdYLR4FHH/cKpdTXb+A/tKKU3eolfsI+g==}
 
-  tailwind-variants@1.0.0:
-    resolution: {integrity: sha512-2WSbv4ulEEyuBKomOunut65D8UZwxrHoRfYnxGcQNnHqlSCp2+B7Yz2W+yrNDrxRodOXtGD/1oCcKGNBnUqMqA==}
-    engines: {node: '>=16.x', pnpm: '>=7.x'}
-    peerDependencies:
-      tailwindcss: '*'
-
   tailwind-variants@2.0.1:
     resolution: {integrity: sha512-1wt8c4PWO3jbZcKGBrjIV8cehWarREw1C2os0k8Mcq0nof/CbafNhUUjb0LRWiiRfAvDK6v1deswtHLsygKglw==}
+    engines: {node: '>=16.x', pnpm: '>=7.x'}
+    peerDependencies:
+      tailwind-merge: '>=3.0.0'
+      tailwindcss: '*'
+    peerDependenciesMeta:
+      tailwind-merge:
+        optional: true
+
+  tailwind-variants@3.0.0:
+    resolution: {integrity: sha512-RDby9MMHuCfBdNiN53yB7JrhTnt5mGGnqx0XzKHKyM+X0NyhrtS8F/b+0GvatJcp7fnejAEDfAQzx+bSrcIgmw==}
     engines: {node: '>=16.x', pnpm: '>=7.x'}
     peerDependencies:
       tailwind-merge: '>=3.0.0'
@@ -12812,16 +12813,15 @@ snapshots:
     dependencies:
       '@pkgr/core': 0.2.7
 
-  tailwind-merge@3.0.2: {}
-
   tailwind-merge@3.3.1: {}
 
-  tailwind-variants@1.0.0(tailwindcss@4.1.12):
-    dependencies:
-      tailwind-merge: 3.0.2
-      tailwindcss: 4.1.12
-
   tailwind-variants@2.0.1(tailwind-merge@3.3.1)(tailwindcss@4.1.12):
+    dependencies:
+      tailwindcss: 4.1.12
+    optionalDependencies:
+      tailwind-merge: 3.3.1
+
+  tailwind-variants@3.0.0(tailwind-merge@3.3.1)(tailwindcss@4.1.12):
     dependencies:
       tailwindcss: 4.1.12
     optionalDependencies:
