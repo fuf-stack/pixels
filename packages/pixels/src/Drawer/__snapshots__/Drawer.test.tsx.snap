@@ -197,11 +197,11 @@ exports[`Story Snapshots > AllSizes 1`] = `
 exports[`Story Snapshots > CardWithDrawer 1`] = `
 <div>
   <div
-    class="flex flex-col relative overflow-hidden h-auto text-foreground box-border bg-content1 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 shadow-none rounded-small w-full transition-transform-background motion-reduce:transition-none border border-divider"
+    class="flex flex-col relative overflow-hidden h-auto text-foreground box-border bg-content1 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 shadow-none rounded-small w-full transition-transform-background motion-reduce:transition-none border-divider border"
     tabindex="-1"
   >
     <div
-      class="flex p-3 z-10 w-full justify-start items-center shrink-0 overflow-inherit color-inherit subpixel-antialiased rounded-t-small text-base font-semibold"
+      class="flex p-3 w-full justify-start items-center shrink-0 overflow-inherit color-inherit subpixel-antialiased rounded-t-small z-auto text-base font-semibold"
     >
       Behold! A Portal to More Stuff!
       <button
@@ -215,7 +215,7 @@ exports[`Story Snapshots > CardWithDrawer 1`] = `
       </button>
     </div>
     <hr
-      class="shrink-0 bg-divider border-none w-full h-divider my-0 border-divider"
+      class="shrink-0 bg-divider border-none w-full h-divider border-divider my-0"
       role="separator"
     />
     <div

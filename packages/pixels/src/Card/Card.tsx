@@ -16,11 +16,11 @@ import { tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 // card styling variants
 export const cardVariants = tv({
   slots: {
-    base: 'border border-divider',
+    base: 'border-divider border',
     body: '',
-    divider: 'my-0 border-divider',
+    divider: 'border-divider my-0',
     footer: '',
-    header: 'text-base font-semibold',
+    header: 'z-auto text-base font-semibold',
   },
 });
 
