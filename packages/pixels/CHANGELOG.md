@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.1.1](https://github.com/fuf-stack/pixels/compare/pixels-v1.1.0...pixels-v1.1.1) (2025-09-08)
+
+
+### Bug Fixes
+
+* **pixels,uniform:** update tw class order after tw 4 update + update snaps ([dfcae45](https://github.com/fuf-stack/pixels/commit/dfcae45bf4dc6020e78f93f6f125b8af983ba442))
+* **pixels:** set Card header z-index to auto ([f273f48](https://github.com/fuf-stack/pixels/commit/f273f48c6a196831045f82f4ad7ed484868ece80))
+
 ## [1.1.0](https://github.com/fuf-stack/pixels/compare/pixels-v1.0.2...pixels-v1.1.0) (2025-08-25)
 
 
