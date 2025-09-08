@@ -30,10 +30,10 @@ export const RadioBox = ({ icon = undefined, ...props }: RadioProps) => {
       // eslint-disable-next-line react/jsx-props-no-spreading
       {...getBaseProps()}
       className={cn(
-        'group inline-flex flex-auto cursor-pointer items-center justify-between gap-4 rounded-lg border-2 border-default p-4 hover:bg-content2 data-[selected=true]:border-focus',
+        'group border-default hover:bg-content2 data-[selected=true]:border-focus inline-flex flex-auto cursor-pointer items-center justify-between gap-4 rounded-lg border-2 p-4',
         {
           // disabled styles
-          'pointer-events-none opacity-disabled': isDisabled,
+          'opacity-disabled pointer-events-none': isDisabled,
         },
       )}
     >

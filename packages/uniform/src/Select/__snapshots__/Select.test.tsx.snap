@@ -20,7 +20,7 @@ exports[`Story Snapshots > Default 1`] = `
         data-testid="selectfield_wrapper"
       >
         <label
-          class="pointer-events-auto relative bottom-1.5 ml-1 text-small subpixel-antialiased group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
+          class="text-small group-data-[invalid=true]:!text-danger group-data-[required=true]:after:text-danger pointer-events-auto relative bottom-1.5 ml-1 subpixel-antialiased group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:content-["*"]"
           data-slot="label"
           for="react-select-selectField-input"
           id="react-aria-react-useId-mock"
@@ -45,13 +45,13 @@ exports[`Story Snapshots > Default 1`] = `
             data-testid="selectfield_select"
           >
             <div
-              class="rounded-lg border-2 border-default-200 bg-content1 duration-150! transition-background hover:border-default-400 group-data-[invalid=true]:border-danger group-data-[invalid=true]:hover:border-danger motion-reduce:transition-none css-cp01gg-control"
+              class="border-default-200 bg-content1 transition-background hover:border-default-400 group-data-[invalid=true]:border-danger group-data-[invalid=true]:hover:border-danger rounded-lg border-2 duration-150! motion-reduce:transition-none css-cp01gg-control"
             >
               <div
                 class="gap-1 p-1 css-14oxtc6"
               >
                 <div
-                  class="ml-1 py-0.5 pl-1 text-sm text-foreground-500 css-1vlsb4t-placeholder"
+                  class="text-foreground-500 ml-1 py-0.5 pl-1 text-sm css-1vlsb4t-placeholder"
                   id="react-select-selectField-placeholder"
                 >
                   Select...
@@ -94,7 +94,7 @@ exports[`Story Snapshots > Default 1`] = `
                 >
                   <div
                     aria-hidden="true"
-                    class="rounded-md p-1 text-foreground-500 hover:cursor-pointer hover:bg-default-200 hover:text-black css-g56vrd-indicatorContainer"
+                    class="text-foreground-500 hover:bg-default-200 rounded-md p-1 hover:cursor-pointer hover:text-black css-g56vrd-indicatorContainer"
                   >
                     <svg
                       aria-hidden="true"
@@ -158,7 +158,7 @@ exports[`Story Snapshots > Disabled 1`] = `
         data-testid="selectfield_wrapper"
       >
         <label
-          class="pointer-events-auto relative bottom-1.5 ml-1 text-small subpixel-antialiased group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
+          class="text-small group-data-[invalid=true]:!text-danger group-data-[required=true]:after:text-danger pointer-events-auto relative bottom-1.5 ml-1 subpixel-antialiased group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:content-["*"]"
           data-slot="label"
           for="react-select-selectField-input"
           id="react-aria-react-useId-mock"
@@ -184,13 +184,13 @@ exports[`Story Snapshots > Disabled 1`] = `
           >
             <div
               aria-disabled="true"
-              class="rounded-lg border-2 border-default-200 bg-content1 duration-150! transition-background hover:border-default-400 group-data-[invalid=true]:border-danger group-data-[invalid=true]:hover:border-danger motion-reduce:transition-none css-cp01gg-control"
+              class="border-default-200 bg-content1 transition-background hover:border-default-400 group-data-[invalid=true]:border-danger group-data-[invalid=true]:hover:border-danger rounded-lg border-2 duration-150! motion-reduce:transition-none css-cp01gg-control"
             >
               <div
                 class="gap-1 p-1 css-14oxtc6"
               >
                 <div
-                  class="ml-1 py-0.5 pl-1 text-sm text-foreground-500 css-1vlsb4t-placeholder"
+                  class="text-foreground-500 ml-1 py-0.5 pl-1 text-sm css-1vlsb4t-placeholder"
                   id="react-select-selectField-placeholder"
                 >
                   Select...
@@ -234,7 +234,7 @@ exports[`Story Snapshots > Disabled 1`] = `
                 >
                   <div
                     aria-hidden="true"
-                    class="rounded-md p-1 text-foreground-500 hover:cursor-pointer hover:bg-default-200 hover:text-black css-g56vrd-indicatorContainer"
+                    class="text-foreground-500 hover:bg-default-200 rounded-md p-1 hover:cursor-pointer hover:text-black css-g56vrd-indicatorContainer"
                   >
                     <svg
                       aria-hidden="true"
@@ -293,7 +293,7 @@ exports[`Story Snapshots > InitialValue 1`] = `
         data-testid="selectfield_wrapper"
       >
         <label
-          class="pointer-events-auto relative bottom-1.5 ml-1 text-small subpixel-antialiased group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
+          class="text-small group-data-[invalid=true]:!text-danger group-data-[required=true]:after:text-danger pointer-events-auto relative bottom-1.5 ml-1 subpixel-antialiased group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:content-["*"]"
           data-slot="label"
           for="react-select-selectField-input"
           id="react-aria-react-useId-mock"
@@ -318,7 +318,7 @@ exports[`Story Snapshots > InitialValue 1`] = `
             data-testid="selectfield_select"
           >
             <div
-              class="rounded-lg border-2 border-default-200 bg-content1 duration-150! transition-background hover:border-default-400 group-data-[invalid=true]:border-danger group-data-[invalid=true]:hover:border-danger motion-reduce:transition-none css-cp01gg-control"
+              class="border-default-200 bg-content1 transition-background hover:border-default-400 group-data-[invalid=true]:border-danger group-data-[invalid=true]:hover:border-danger rounded-lg border-2 duration-150! motion-reduce:transition-none css-cp01gg-control"
             >
               <div
                 class="gap-1 p-1 css-14oxtc6"
@@ -359,7 +359,7 @@ exports[`Story Snapshots > InitialValue 1`] = `
               >
                 <div
                   aria-hidden="true"
-                  class="rounded-md p-1 text-foreground-500 hover:cursor-pointer hover:bg-default-200 hover:text-foreground-800 css-g56vrd-indicatorContainer"
+                  class="text-foreground-500 hover:bg-default-200 hover:text-foreground-800 rounded-md p-1 hover:cursor-pointer css-g56vrd-indicatorContainer"
                 >
                   <svg
                     aria-hidden="true"
@@ -382,7 +382,7 @@ exports[`Story Snapshots > InitialValue 1`] = `
                 >
                   <div
                     aria-hidden="true"
-                    class="rounded-md p-1 text-foreground-500 hover:cursor-pointer hover:bg-default-200 hover:text-black css-g56vrd-indicatorContainer"
+                    class="text-foreground-500 hover:bg-default-200 rounded-md p-1 hover:cursor-pointer hover:text-black css-g56vrd-indicatorContainer"
                   >
                     <svg
                       aria-hidden="true"
@@ -448,7 +448,7 @@ exports[`Story Snapshots > Invalid 1`] = `
         data-testid="selectfield_wrapper"
       >
         <label
-          class="pointer-events-auto relative bottom-1.5 ml-1 text-small subpixel-antialiased group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
+          class="text-small group-data-[invalid=true]:!text-danger group-data-[required=true]:after:text-danger pointer-events-auto relative bottom-1.5 ml-1 subpixel-antialiased group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:content-["*"]"
           data-slot="label"
           for="react-select-selectField-input"
           id="react-aria-react-useId-mock"
@@ -473,7 +473,7 @@ exports[`Story Snapshots > Invalid 1`] = `
             data-testid="selectfield_select"
           >
             <div
-              class="rounded-lg border-2 border-default-200 bg-content1 duration-150! transition-background hover:border-default-400 group-data-[invalid=true]:border-danger group-data-[invalid=true]:hover:border-danger motion-reduce:transition-none css-cp01gg-control"
+              class="border-default-200 bg-content1 transition-background hover:border-default-400 group-data-[invalid=true]:border-danger group-data-[invalid=true]:hover:border-danger rounded-lg border-2 duration-150! motion-reduce:transition-none css-cp01gg-control"
             >
               <div
                 class="gap-1 p-1 css-14oxtc6"
@@ -514,7 +514,7 @@ exports[`Story Snapshots > Invalid 1`] = `
               >
                 <div
                   aria-hidden="true"
-                  class="rounded-md p-1 text-foreground-500 hover:cursor-pointer hover:bg-default-200 hover:text-foreground-800 css-g56vrd-indicatorContainer"
+                  class="text-foreground-500 hover:bg-default-200 hover:text-foreground-800 rounded-md p-1 hover:cursor-pointer css-g56vrd-indicatorContainer"
                 >
                   <svg
                     aria-hidden="true"
@@ -537,7 +537,7 @@ exports[`Story Snapshots > Invalid 1`] = `
                 >
                   <div
                     aria-hidden="true"
-                    class="rounded-md p-1 text-foreground-500 hover:cursor-pointer hover:bg-default-200 hover:text-black css-g56vrd-indicatorContainer"
+                    class="text-foreground-500 hover:bg-default-200 rounded-md p-1 hover:cursor-pointer hover:text-black css-g56vrd-indicatorContainer"
                   >
                     <svg
                       aria-hidden="true"
@@ -622,7 +622,7 @@ exports[`Story Snapshots > Loading 1`] = `
         data-testid="selectfield_wrapper"
       >
         <label
-          class="pointer-events-auto relative bottom-1.5 ml-1 text-small subpixel-antialiased group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
+          class="text-small group-data-[invalid=true]:!text-danger group-data-[required=true]:after:text-danger pointer-events-auto relative bottom-1.5 ml-1 subpixel-antialiased group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:content-["*"]"
           data-slot="label"
           for="react-select-selectField-input"
           id="react-aria-react-useId-mock"
@@ -662,7 +662,7 @@ exports[`Story Snapshots > Loading 1`] = `
             data-testid="selectfield_select"
           >
             <div
-              class="rounded-lg border-2 bg-content1 duration-150! transition-background hover:border-default-400 group-data-[invalid=true]:border-danger group-data-[invalid=true]:hover:border-danger motion-reduce:transition-none border-focus css-cp01gg-control"
+              class="bg-content1 transition-background hover:border-default-400 group-data-[invalid=true]:border-danger group-data-[invalid=true]:hover:border-danger rounded-lg border-2 duration-150! motion-reduce:transition-none border-focus css-cp01gg-control"
             >
               <div
                 class="gap-1 p-1 css-14oxtc6"
@@ -720,7 +720,7 @@ exports[`Story Snapshots > Loading 1`] = `
                 >
                   <div
                     aria-hidden="true"
-                    class="rounded-md p-1 text-foreground-500 hover:cursor-pointer hover:bg-default-200 hover:text-black css-g56vrd-indicatorContainer"
+                    class="text-foreground-500 hover:bg-default-200 rounded-md p-1 hover:cursor-pointer hover:text-black css-g56vrd-indicatorContainer"
                   >
                     <svg
                       aria-hidden="true"
@@ -743,7 +743,7 @@ exports[`Story Snapshots > Loading 1`] = `
             class="z-50! css-1vbk7iu"
           >
             <div
-              class="mt-2 rounded-xl border border-default-200 bg-content1 p-1 shadow-lg css-100ebu3-menu"
+              class="border-default-200 bg-content1 mt-2 rounded-xl border p-1 shadow-lg css-100ebu3-menu"
             >
               <div
                 class="css-bp8cua-ScrollManager"
@@ -755,7 +755,7 @@ exports[`Story Snapshots > Loading 1`] = `
                 role="listbox"
               >
                 <div
-                  class="rounded-sm p-2 text-foreground-500 css-1qvxrka"
+                  class="text-foreground-500 rounded-sm p-2 css-1qvxrka"
                 >
                   Loading...
                 </div>
@@ -798,16 +798,16 @@ exports[`Story Snapshots > MenuIsVisibleInCard 1`] = `
       data-testid=""
     >
       <div
-        class="flex flex-col relative overflow-hidden h-auto text-foreground box-border bg-content1 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 shadow-none rounded-small w-full transition-transform-background motion-reduce:transition-none border border-divider"
+        class="flex flex-col relative overflow-hidden h-auto text-foreground box-border bg-content1 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 shadow-none rounded-small w-full transition-transform-background motion-reduce:transition-none border-divider border"
         tabindex="-1"
       >
         <div
-          class="flex p-3 z-10 w-full justify-start items-center shrink-0 overflow-inherit color-inherit subpixel-antialiased rounded-t-small text-base font-semibold"
+          class="flex p-3 w-full justify-start items-center shrink-0 overflow-inherit color-inherit subpixel-antialiased rounded-t-small z-auto text-base font-semibold"
         >
           Select in a Card
         </div>
         <hr
-          class="shrink-0 bg-divider border-none w-full h-divider my-0 border-divider"
+          class="shrink-0 bg-divider border-none w-full h-divider border-divider my-0"
           role="separator"
         />
         <div
@@ -823,7 +823,7 @@ exports[`Story Snapshots > MenuIsVisibleInCard 1`] = `
             data-testid="selectfield_wrapper"
           >
             <label
-              class="pointer-events-auto relative bottom-1.5 ml-1 text-small subpixel-antialiased group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
+              class="text-small group-data-[invalid=true]:!text-danger group-data-[required=true]:after:text-danger pointer-events-auto relative bottom-1.5 ml-1 subpixel-antialiased group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:content-["*"]"
               data-slot="label"
               for="react-select-selectField-input"
               id="react-aria-react-useId-mock"
@@ -865,13 +865,13 @@ exports[`Story Snapshots > MenuIsVisibleInCard 1`] = `
                 data-testid="selectfield_select"
               >
                 <div
-                  class="rounded-lg border-2 bg-content1 duration-150! transition-background hover:border-default-400 group-data-[invalid=true]:border-danger group-data-[invalid=true]:hover:border-danger motion-reduce:transition-none border-focus css-cp01gg-control"
+                  class="bg-content1 transition-background hover:border-default-400 group-data-[invalid=true]:border-danger group-data-[invalid=true]:hover:border-danger rounded-lg border-2 duration-150! motion-reduce:transition-none border-focus css-cp01gg-control"
                 >
                   <div
                     class="gap-1 p-1 css-14oxtc6"
                   >
                     <div
-                      class="ml-1 py-0.5 pl-1 text-sm text-foreground-500 css-1vlsb4t-placeholder"
+                      class="text-foreground-500 ml-1 py-0.5 pl-1 text-sm css-1vlsb4t-placeholder"
                       id="react-select-selectField-placeholder"
                     >
                       Select...
@@ -915,7 +915,7 @@ exports[`Story Snapshots > MenuIsVisibleInCard 1`] = `
                     >
                       <div
                         aria-hidden="true"
-                        class="rounded-md p-1 text-foreground-500 hover:cursor-pointer hover:bg-default-200 hover:text-black css-g56vrd-indicatorContainer"
+                        class="text-foreground-500 hover:bg-default-200 rounded-md p-1 hover:cursor-pointer hover:text-black css-g56vrd-indicatorContainer"
                       >
                         <svg
                           aria-hidden="true"
@@ -938,7 +938,7 @@ exports[`Story Snapshots > MenuIsVisibleInCard 1`] = `
                 class="z-50! css-1vbk7iu"
               >
                 <div
-                  class="mt-2 rounded-xl border border-default-200 bg-content1 p-1 shadow-lg css-100ebu3-menu"
+                  class="border-default-200 bg-content1 mt-2 rounded-xl border p-1 shadow-lg css-100ebu3-menu"
                 >
                   <div
                     class="css-bp8cua-ScrollManager"
@@ -1248,7 +1248,7 @@ exports[`Story Snapshots > MultiSelect 1`] = `
         data-testid="selectfield_wrapper"
       >
         <label
-          class="pointer-events-auto relative bottom-1.5 ml-1 text-small subpixel-antialiased group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
+          class="text-small group-data-[invalid=true]:!text-danger group-data-[required=true]:after:text-danger pointer-events-auto relative bottom-1.5 ml-1 subpixel-antialiased group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:content-["*"]"
           data-slot="label"
           for="react-select-selectField-input"
           id="react-aria-react-useId-mock"
@@ -1273,13 +1273,13 @@ exports[`Story Snapshots > MultiSelect 1`] = `
             data-testid="selectfield_select"
           >
             <div
-              class="rounded-lg border-2 border-default-200 bg-content1 duration-150! transition-background hover:border-default-400 group-data-[invalid=true]:border-danger group-data-[invalid=true]:hover:border-danger motion-reduce:transition-none css-cp01gg-control"
+              class="border-default-200 bg-content1 transition-background hover:border-default-400 group-data-[invalid=true]:border-danger group-data-[invalid=true]:hover:border-danger rounded-lg border-2 duration-150! motion-reduce:transition-none css-cp01gg-control"
             >
               <div
                 class="gap-1 p-1 css-pl07w5"
               >
                 <div
-                  class="items-center gap-1.5 rounded bg-default-100 py-0.5 pl-2 pr-1 css-x2yrli-multiValue"
+                  class="bg-default-100 items-center gap-1.5 rounded py-0.5 pr-1 pl-2 css-x2yrli-multiValue"
                 >
                   <div
                     class="py-0.5 leading-6 font-normal w-full text-start text-small truncate group-data-[has-value=true]:text-default-foreground css-zztcs7"
@@ -1288,7 +1288,7 @@ exports[`Story Snapshots > MultiSelect 1`] = `
                   </div>
                   <div
                     aria-label="Remove Vanilla"
-                    class="rounded text-default-500 hover:cursor-pointer hover:border-default-300 hover:text-default-800 css-13d4ns5"
+                    class="text-default-500 hover:border-default-300 hover:text-default-800 rounded hover:cursor-pointer css-13d4ns5"
                     role="button"
                   >
                     <svg
@@ -1306,7 +1306,7 @@ exports[`Story Snapshots > MultiSelect 1`] = `
                   </div>
                 </div>
                 <div
-                  class="items-center gap-1.5 rounded bg-default-100 py-0.5 pl-2 pr-1 css-x2yrli-multiValue"
+                  class="bg-default-100 items-center gap-1.5 rounded py-0.5 pr-1 pl-2 css-x2yrli-multiValue"
                 >
                   <div
                     class="py-0.5 leading-6 font-normal w-full text-start text-small truncate group-data-[has-value=true]:text-default-foreground css-zztcs7"
@@ -1315,7 +1315,7 @@ exports[`Story Snapshots > MultiSelect 1`] = `
                   </div>
                   <div
                     aria-label="Remove Chocolate"
-                    class="rounded text-default-500 hover:cursor-pointer hover:border-default-300 hover:text-default-800 css-13d4ns5"
+                    class="text-default-500 hover:border-default-300 hover:text-default-800 rounded hover:cursor-pointer css-13d4ns5"
                     role="button"
                   >
                     <svg
@@ -1363,7 +1363,7 @@ exports[`Story Snapshots > MultiSelect 1`] = `
               >
                 <div
                   aria-hidden="true"
-                  class="rounded-md p-1 text-foreground-500 hover:cursor-pointer hover:bg-default-200 hover:text-foreground-800 css-g56vrd-indicatorContainer"
+                  class="text-foreground-500 hover:bg-default-200 hover:text-foreground-800 rounded-md p-1 hover:cursor-pointer css-g56vrd-indicatorContainer"
                 >
                   <svg
                     aria-hidden="true"
@@ -1386,7 +1386,7 @@ exports[`Story Snapshots > MultiSelect 1`] = `
                 >
                   <div
                     aria-hidden="true"
-                    class="rounded-md p-1 text-foreground-500 hover:cursor-pointer hover:bg-default-200 hover:text-black css-g56vrd-indicatorContainer"
+                    class="text-foreground-500 hover:bg-default-200 rounded-md p-1 hover:cursor-pointer hover:text-black css-g56vrd-indicatorContainer"
                   >
                     <svg
                       aria-hidden="true"
@@ -1457,7 +1457,7 @@ exports[`Story Snapshots > NoResults 1`] = `
         data-testid="selectfield_wrapper"
       >
         <label
-          class="pointer-events-auto relative bottom-1.5 ml-1 text-small subpixel-antialiased group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
+          class="text-small group-data-[invalid=true]:!text-danger group-data-[required=true]:after:text-danger pointer-events-auto relative bottom-1.5 ml-1 subpixel-antialiased group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:content-["*"]"
           data-slot="label"
           for="react-select-selectField-input"
           id="react-aria-react-useId-mock"
@@ -1499,7 +1499,7 @@ exports[`Story Snapshots > NoResults 1`] = `
             data-testid="selectfield_select"
           >
             <div
-              class="rounded-lg border-2 bg-content1 duration-150! transition-background hover:border-default-400 group-data-[invalid=true]:border-danger group-data-[invalid=true]:hover:border-danger motion-reduce:transition-none border-focus css-cp01gg-control"
+              class="bg-content1 transition-background hover:border-default-400 group-data-[invalid=true]:border-danger group-data-[invalid=true]:hover:border-danger rounded-lg border-2 duration-150! motion-reduce:transition-none border-focus css-cp01gg-control"
             >
               <div
                 class="gap-1 p-1 css-14oxtc6"
@@ -1543,7 +1543,7 @@ exports[`Story Snapshots > NoResults 1`] = `
                 >
                   <div
                     aria-hidden="true"
-                    class="rounded-md p-1 text-foreground-500 hover:cursor-pointer hover:bg-default-200 hover:text-black css-g56vrd-indicatorContainer"
+                    class="text-foreground-500 hover:bg-default-200 rounded-md p-1 hover:cursor-pointer hover:text-black css-g56vrd-indicatorContainer"
                   >
                     <svg
                       aria-hidden="true"
@@ -1566,7 +1566,7 @@ exports[`Story Snapshots > NoResults 1`] = `
             class="z-50! css-1vbk7iu"
           >
             <div
-              class="mt-2 rounded-xl border border-default-200 bg-content1 p-1 shadow-lg css-100ebu3-menu"
+              class="border-default-200 bg-content1 mt-2 rounded-xl border p-1 shadow-lg css-100ebu3-menu"
             >
               <div
                 class="css-bp8cua-ScrollManager"
@@ -1578,7 +1578,7 @@ exports[`Story Snapshots > NoResults 1`] = `
                 role="listbox"
               >
                 <div
-                  class="rounded-sm p-2 text-foreground-500 css-1qvxrka"
+                  class="text-foreground-500 rounded-sm p-2 css-1qvxrka"
                 >
                   No options
                 </div>
@@ -1630,7 +1630,7 @@ exports[`Story Snapshots > Required 1`] = `
         data-testid="selectfield_wrapper"
       >
         <label
-          class="pointer-events-auto relative bottom-1.5 ml-1 text-small subpixel-antialiased group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
+          class="text-small group-data-[invalid=true]:!text-danger group-data-[required=true]:after:text-danger pointer-events-auto relative bottom-1.5 ml-1 subpixel-antialiased group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:content-["*"]"
           data-slot="label"
           for="react-select-selectField-input"
           id="react-aria-react-useId-mock"
@@ -1655,13 +1655,13 @@ exports[`Story Snapshots > Required 1`] = `
             data-testid="selectfield_select"
           >
             <div
-              class="rounded-lg border-2 border-default-200 bg-content1 duration-150! transition-background hover:border-default-400 group-data-[invalid=true]:border-danger group-data-[invalid=true]:hover:border-danger motion-reduce:transition-none css-cp01gg-control"
+              class="border-default-200 bg-content1 transition-background hover:border-default-400 group-data-[invalid=true]:border-danger group-data-[invalid=true]:hover:border-danger rounded-lg border-2 duration-150! motion-reduce:transition-none css-cp01gg-control"
             >
               <div
                 class="gap-1 p-1 css-14oxtc6"
               >
                 <div
-                  class="ml-1 py-0.5 pl-1 text-sm text-foreground-500 css-1vlsb4t-placeholder"
+                  class="text-foreground-500 ml-1 py-0.5 pl-1 text-sm css-1vlsb4t-placeholder"
                   id="react-select-selectField-placeholder"
                 >
                   Select...
@@ -1704,7 +1704,7 @@ exports[`Story Snapshots > Required 1`] = `
                 >
                   <div
                     aria-hidden="true"
-                    class="rounded-md p-1 text-foreground-500 hover:cursor-pointer hover:bg-default-200 hover:text-black css-g56vrd-indicatorContainer"
+                    class="text-foreground-500 hover:bg-default-200 rounded-md p-1 hover:cursor-pointer hover:text-black css-g56vrd-indicatorContainer"
                   >
                     <svg
                       aria-hidden="true"

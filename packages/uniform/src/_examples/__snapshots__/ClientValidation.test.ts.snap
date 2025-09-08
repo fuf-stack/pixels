@@ -23,7 +23,7 @@ exports[`Story Snapshots > Default 1`] = `
           data-testid="teamid_wrapper"
         >
           <label
-            class="pointer-events-auto relative bottom-1.5 ml-1 text-small subpixel-antialiased group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
+            class="text-small group-data-[invalid=true]:!text-danger group-data-[required=true]:after:text-danger pointer-events-auto relative bottom-1.5 ml-1 subpixel-antialiased group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:content-["*"]"
             data-slot="label"
             for="react-select-teamId-input"
             id="react-aria-react-useId-mock"
@@ -48,13 +48,13 @@ exports[`Story Snapshots > Default 1`] = `
               data-testid="teamid_select"
             >
               <div
-                class="rounded-lg border-2 border-default-200 bg-content1 duration-150! transition-background hover:border-default-400 group-data-[invalid=true]:border-danger group-data-[invalid=true]:hover:border-danger motion-reduce:transition-none css-cp01gg-control"
+                class="border-default-200 bg-content1 transition-background hover:border-default-400 group-data-[invalid=true]:border-danger group-data-[invalid=true]:hover:border-danger rounded-lg border-2 duration-150! motion-reduce:transition-none css-cp01gg-control"
               >
                 <div
                   class="gap-1 p-1 css-14oxtc6"
                 >
                   <div
-                    class="ml-1 py-0.5 pl-1 text-sm text-foreground-500 css-1vlsb4t-placeholder"
+                    class="text-foreground-500 ml-1 py-0.5 pl-1 text-sm css-1vlsb4t-placeholder"
                     id="react-select-teamId-placeholder"
                   >
                     Select...
@@ -97,7 +97,7 @@ exports[`Story Snapshots > Default 1`] = `
                   >
                     <div
                       aria-hidden="true"
-                      class="rounded-md p-1 text-foreground-500 hover:cursor-pointer hover:bg-default-200 hover:text-black css-g56vrd-indicatorContainer"
+                      class="text-foreground-500 hover:bg-default-200 rounded-md p-1 hover:cursor-pointer hover:text-black css-g56vrd-indicatorContainer"
                     >
                       <svg
                         aria-hidden="true"
@@ -224,7 +224,7 @@ exports[`Story Snapshots > Default 1`] = `
           </div>
         </div>
         <div
-          class="rounded bg-default-50 p-3 text-sm"
+          class="bg-default-50 rounded p-3 text-sm"
         >
           <strong>
             Client Validation:
@@ -233,7 +233,7 @@ exports[`Story Snapshots > Default 1`] = `
           ❌ Inactive
           <br />
           <small
-            class="mt-1 block text-default-600"
+            class="text-default-600 mt-1 block"
           >
             Try typing an existing username to see validation errors!
           </small>
@@ -280,7 +280,7 @@ exports[`Story Snapshots > InteractiveDemo 1`] = `
           data-testid="teamid_wrapper"
         >
           <label
-            class="pointer-events-auto relative bottom-1.5 ml-1 text-small subpixel-antialiased group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
+            class="text-small group-data-[invalid=true]:!text-danger group-data-[required=true]:after:text-danger pointer-events-auto relative bottom-1.5 ml-1 subpixel-antialiased group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:content-["*"]"
             data-slot="label"
             for="react-select-teamId-input"
             id="react-aria-react-useId-mock"
@@ -305,7 +305,7 @@ exports[`Story Snapshots > InteractiveDemo 1`] = `
               data-testid="teamid_select"
             >
               <div
-                class="rounded-lg border-2 border-default-200 bg-content1 duration-150! transition-background hover:border-default-400 group-data-[invalid=true]:border-danger group-data-[invalid=true]:hover:border-danger motion-reduce:transition-none css-cp01gg-control"
+                class="border-default-200 bg-content1 transition-background hover:border-default-400 group-data-[invalid=true]:border-danger group-data-[invalid=true]:hover:border-danger rounded-lg border-2 duration-150! motion-reduce:transition-none css-cp01gg-control"
               >
                 <div
                   class="gap-1 p-1 css-14oxtc6"
@@ -346,7 +346,7 @@ exports[`Story Snapshots > InteractiveDemo 1`] = `
                 >
                   <div
                     aria-hidden="true"
-                    class="rounded-md p-1 text-foreground-500 hover:cursor-pointer hover:bg-default-200 hover:text-foreground-800 css-g56vrd-indicatorContainer"
+                    class="text-foreground-500 hover:bg-default-200 hover:text-foreground-800 rounded-md p-1 hover:cursor-pointer css-g56vrd-indicatorContainer"
                   >
                     <svg
                       aria-hidden="true"
@@ -369,7 +369,7 @@ exports[`Story Snapshots > InteractiveDemo 1`] = `
                   >
                     <div
                       aria-hidden="true"
-                      class="rounded-md p-1 text-foreground-500 hover:cursor-pointer hover:bg-default-200 hover:text-black css-g56vrd-indicatorContainer"
+                      class="text-foreground-500 hover:bg-default-200 rounded-md p-1 hover:cursor-pointer hover:text-black css-g56vrd-indicatorContainer"
                     >
                       <svg
                         aria-hidden="true"
@@ -523,7 +523,7 @@ exports[`Story Snapshots > InteractiveDemo 1`] = `
           </div>
         </div>
         <div
-          class="rounded bg-info-50 p-3 text-sm"
+          class="bg-info-50 rounded p-3 text-sm"
         >
           <strong>
             Existing usernames in team:
@@ -532,7 +532,7 @@ exports[`Story Snapshots > InteractiveDemo 1`] = `
           john, sarah, mike
         </div>
         <div
-          class="rounded bg-default-50 p-3 text-sm"
+          class="bg-default-50 rounded p-3 text-sm"
         >
           <strong>
             Client Validation:
@@ -541,7 +541,7 @@ exports[`Story Snapshots > InteractiveDemo 1`] = `
           ✅ Active
           <br />
           <small
-            class="mt-1 block text-default-600"
+            class="text-default-600 mt-1 block"
           >
             Try typing an existing username to see validation errors!
           </small>
@@ -588,7 +588,7 @@ exports[`Story Snapshots > WithInitialData 1`] = `
           data-testid="teamid_wrapper"
         >
           <label
-            class="pointer-events-auto relative bottom-1.5 ml-1 text-small subpixel-antialiased group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
+            class="text-small group-data-[invalid=true]:!text-danger group-data-[required=true]:after:text-danger pointer-events-auto relative bottom-1.5 ml-1 subpixel-antialiased group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:content-["*"]"
             data-slot="label"
             for="react-select-teamId-input"
             id="react-aria-react-useId-mock"
@@ -613,7 +613,7 @@ exports[`Story Snapshots > WithInitialData 1`] = `
               data-testid="teamid_select"
             >
               <div
-                class="rounded-lg border-2 border-default-200 bg-content1 duration-150! transition-background hover:border-default-400 group-data-[invalid=true]:border-danger group-data-[invalid=true]:hover:border-danger motion-reduce:transition-none css-cp01gg-control"
+                class="border-default-200 bg-content1 transition-background hover:border-default-400 group-data-[invalid=true]:border-danger group-data-[invalid=true]:hover:border-danger rounded-lg border-2 duration-150! motion-reduce:transition-none css-cp01gg-control"
               >
                 <div
                   class="gap-1 p-1 css-14oxtc6"
@@ -654,7 +654,7 @@ exports[`Story Snapshots > WithInitialData 1`] = `
                 >
                   <div
                     aria-hidden="true"
-                    class="rounded-md p-1 text-foreground-500 hover:cursor-pointer hover:bg-default-200 hover:text-foreground-800 css-g56vrd-indicatorContainer"
+                    class="text-foreground-500 hover:bg-default-200 hover:text-foreground-800 rounded-md p-1 hover:cursor-pointer css-g56vrd-indicatorContainer"
                   >
                     <svg
                       aria-hidden="true"
@@ -677,7 +677,7 @@ exports[`Story Snapshots > WithInitialData 1`] = `
                   >
                     <div
                       aria-hidden="true"
-                      class="rounded-md p-1 text-foreground-500 hover:cursor-pointer hover:bg-default-200 hover:text-black css-g56vrd-indicatorContainer"
+                      class="text-foreground-500 hover:bg-default-200 rounded-md p-1 hover:cursor-pointer hover:text-black css-g56vrd-indicatorContainer"
                     >
                       <svg
                         aria-hidden="true"
@@ -808,7 +808,7 @@ exports[`Story Snapshots > WithInitialData 1`] = `
           </div>
         </div>
         <div
-          class="rounded bg-default-50 p-3 text-sm"
+          class="bg-default-50 rounded p-3 text-sm"
         >
           <strong>
             Client Validation:
@@ -817,7 +817,7 @@ exports[`Story Snapshots > WithInitialData 1`] = `
           ❌ Inactive
           <br />
           <small
-            class="mt-1 block text-default-600"
+            class="text-default-600 mt-1 block"
           >
             Try typing an existing username to see validation errors!
           </small>

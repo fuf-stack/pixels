@@ -30,7 +30,7 @@ const ErrorRenderer = ({
 }: ErrorRendererProps) => {
   return (
     <div
-      className="mb-4 flex flex-col items-center rounded-lg border border-danger bg-danger-50 p-4 text-sm text-danger"
+      className="border-danger bg-danger-50 text-danger mb-4 flex flex-col items-center rounded-lg border p-4 text-sm"
       role="alert"
       aria-live="polite"
     >

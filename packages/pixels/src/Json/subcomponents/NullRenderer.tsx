@@ -14,7 +14,7 @@ const NullRenderer = () => {
   return (
     <JsonView.Null
       render={() => (
-        <span className="rounded bg-warning-100 px-1 text-xs text-warning-700">
+        <span className="bg-warning-100 text-warning-700 rounded px-1 text-xs">
           null
         </span>
       )}

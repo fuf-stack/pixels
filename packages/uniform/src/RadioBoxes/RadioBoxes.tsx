@@ -23,7 +23,7 @@ export const radioBoxesVariants = tv({
     // see HeroUI styles for group-data condition,
     // e.g.: https://github.com/heroui-inc/heroui/blob/main/packages/core/theme/src/components/select.ts
     label:
-      'text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger',
+      'text-foreground group-data-[invalid=true]:text-danger text-sm subpixel-antialiased',
     wrapper: '',
   },
 });

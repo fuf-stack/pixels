@@ -16,7 +16,7 @@ export const radioTabsVariants = tv({
   slots: {
     base: 'group', // Needs group for group-data condition
     label:
-      'text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger',
+      'text-foreground group-data-[invalid=true]:text-danger text-sm subpixel-antialiased',
     wrapper: '',
     tabList: '',
     tab: '',

@@ -88,7 +88,7 @@ export const AllVariants: Story = {
     <>
       {Object.keys(toastVariants.variants.variant).map((variant) => (
         <div key={`${variant}`} className="mb-6">
-          <div className="mb-2 text-sm text-foreground">{variant}</div>
+          <div className="text-foreground mb-2 text-sm">{variant}</div>
           <Button
             onClick={() =>
               addToast({

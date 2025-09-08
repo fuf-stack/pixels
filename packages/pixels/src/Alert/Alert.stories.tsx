@@ -41,7 +41,7 @@ export const AllColorsAndVariants: Story = {
           <h2 className="mb-4 text-lg font-bold">{color}</h2>
           {Object.keys(alertVariants.variants.variant).map((variant) => (
             <div key={`${color}-${variant}`} className="mb-6">
-              <div className="mb-2 text-sm text-foreground">{variant}</div>
+              <div className="text-foreground mb-2 text-sm">{variant}</div>
               <Alert
                 color={color as AlertProps['color']}
                 variant={variant as AlertProps['variant']}
@@ -122,7 +122,7 @@ export const AllColorsWithShowMoreButton: Story = {
               {...args}
               endContent={
                 <button
-                  className="ml-2 mt-2 rounded border px-2 py-1 text-xs"
+                  className="mt-2 ml-2 rounded border px-2 py-1 text-xs"
                   type="button"
                   onClick={toggleShowMore}
                 >

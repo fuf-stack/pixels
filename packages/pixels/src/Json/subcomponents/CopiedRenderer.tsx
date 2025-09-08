@@ -35,7 +35,7 @@ const CopiedRenderer = () => {
 
         const elmClasses = cn(
           className,
-          'absolute -right-4 -top-[2px] h-4 w-4 fill-transparent! pl-1',
+          'absolute -top-[2px] -right-4 h-4 w-4 fill-transparent! pl-1',
           { 'text-success': isCopied },
         );
 

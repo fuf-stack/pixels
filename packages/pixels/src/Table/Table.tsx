@@ -43,11 +43,11 @@ export const tableVariants = tv({
       'striped-divider-x': {
         tr: 'divide-x',
         th: 'border-divider',
-        td: 'border-divider first:rounded-s-lg last:rounded-e-lg group-data-[odd=true]:bg-content2',
+        td: 'border-divider group-data-[odd=true]:bg-content2 first:rounded-s-lg last:rounded-e-lg',
       },
       striped: {
         tr: '',
-        td: 'first:rounded-s-lg last:rounded-e-lg group-data-[odd=true]:bg-content2',
+        td: 'group-data-[odd=true]:bg-content2 first:rounded-s-lg last:rounded-e-lg',
       },
       none: {},
     },

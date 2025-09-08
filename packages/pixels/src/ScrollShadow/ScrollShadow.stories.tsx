@@ -57,7 +57,7 @@ const VerticalContent = () => (
         <div
           // eslint-disable-next-line react/no-array-index-key
           key={i}
-          className="border-b border-default-200 p-2 hover:bg-default-50"
+          className="border-default-200 hover:bg-default-50 border-b p-2"
         >
           {item}
         </div>
@@ -98,7 +98,7 @@ const HorizontalContent = () => (
         <div
           // eslint-disable-next-line react/no-array-index-key
           key={i}
-          className="h-20 w-32 flex-none cursor-pointer rounded bg-info-100 p-2 text-sm transition-colors hover:bg-info-200"
+          className="bg-info-100 hover:bg-info-200 h-20 w-32 flex-none cursor-pointer rounded p-2 text-sm transition-colors"
         >
           <div className="text-center font-medium">{card}</div>
         </div>

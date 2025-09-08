@@ -35,12 +35,12 @@ export const accordionVariants = tv({
     },
     showDivider: {
       true: {
-        wrapper: 'divide-y divide-solid divide-divider',
+        wrapper: 'divide-divider divide-y divide-solid',
       },
     },
     showBottomTopDivider: {
       true: {
-        wrapper: 'border-b border-t border-solid border-divider',
+        wrapper: 'border-divider border-t border-b border-solid',
       },
     },
   },

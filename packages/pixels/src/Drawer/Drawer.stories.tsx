@@ -121,7 +121,7 @@ const SizeTemplate: Story['render'] = (args) => {
         return (
           <Fragment key={size}>
             <Button
-              className="mb-2 mr-2"
+              className="mr-2 mb-2"
               onClick={toggleOpen}
               data-testid={`drawer-trigger-${size}`}
             >
@@ -185,7 +185,7 @@ const RadiiTemplate: Story['render'] = (args) => {
         return (
           <Fragment key={radius}>
             <Button
-              className="mb-2 mr-2"
+              className="mr-2 mb-2"
               onClick={toggleOpen}
               data-testid={`drawer-trigger-${radius}`}
             >
@@ -249,7 +249,7 @@ const PlacementTemplate: Story['render'] = (args) => {
         return (
           <Fragment key={placement}>
             <Button
-              className="mb-2 mr-2"
+              className="mr-2 mb-2"
               onClick={toggleOpen}
               data-testid={`drawer-trigger-${placement}`}
             >
@@ -313,7 +313,7 @@ const BackdropTemplate: Story['render'] = (args) => {
         return (
           <Fragment key={backdrop}>
             <Button
-              className="mb-2 mr-2"
+              className="mr-2 mb-2"
               onClick={toggleOpen}
               data-testid={`drawer-trigger-${backdrop}`}
             >

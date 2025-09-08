@@ -32,13 +32,13 @@ export const alertVariants = tv({
     },
     sizeLimit: {
       height: {
-        base: 'max-h-[150px] overflow-y-auto overflow-x-hidden',
+        base: 'max-h-[150px] overflow-x-hidden overflow-y-auto',
       },
       width: {
         base: 'max-w-[480px] overflow-x-auto overflow-y-hidden',
       },
       both: {
-        base: 'max-h-[150px] max-w-[480px] overflow-y-auto overflow-x-hidden',
+        base: 'max-h-[150px] max-w-[480px] overflow-x-hidden overflow-y-auto',
       },
     },
   },
