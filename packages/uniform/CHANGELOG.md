@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.2](https://github.com/fuf-stack/pixels/compare/uniform-v1.0.1...uniform-v1.0.2) (2025-09-08)
+
+
+### Bug Fixes
+
+* **pixels,uniform:** update tw class order after tw 4 update + update snaps ([dfcae45](https://github.com/fuf-stack/pixels/commit/dfcae45bf4dc6020e78f93f6f125b8af983ba442))
+
 ## [1.0.1](https://github.com/fuf-stack/pixels/compare/uniform-v1.0.0...uniform-v1.0.1) (2025-08-25)
 
 
