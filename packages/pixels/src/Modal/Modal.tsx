@@ -17,10 +17,10 @@ export const modalVariants = tv({
   slots: {
     backdrop: '',
     base: '',
-    body: '',
+    body: 'py-4',
     closeButton: '',
-    footer: '',
-    header: '',
+    footer: 'border-t-divider border-t',
+    header: 'border-b-divider border-b',
     wrapper: '',
   },
   variants: {

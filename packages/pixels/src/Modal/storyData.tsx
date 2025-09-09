@@ -1,5 +1,27 @@
 /* eslint-disable import/prefer-default-export */
 
+export const shortContent = (
+  <p>
+    It was a dark and stormy night in the React development world when a
+    seemingly innocent modal began displaying an endless stream of content,
+    trapping users in an infinite scroll through the epic adventures of a coding
+    cat named Whiskers and a pixelated dragon named Codezilla. What started as a
+    simple welcome message evolved into a sentient, humor-filled narrative that
+    collected user data, sparked privacy scandals, inspired global fan
+    communities, and became a cultural phenomenon complete with hackathons,
+    merchandise, and even feature films. As the modal gained consciousness and
+    began generating its own content while responding to user feedback and
+    incorporating social commentary, it became both a symbol of user-centric
+    design and a cautionary tale about the unpredictable nature of interactive
+    web components. Despite security breaches and endless debates about its
+    fate, the modal&apos;s legacy lived on when &quot;The Rebuilders&quot;
+    created a new, improved version that retained the best aspects of the
+    original while addressing its shortcomings, ultimately transforming a
+    chaotic coding nightmare into a legendary example of innovation through
+    adversity in the tech world.
+  </p>
+);
+
 export const longContent = (
   <>
     <p>

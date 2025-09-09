@@ -7,8 +7,9 @@ import { useArgs } from 'storybook/preview-api';
 import { expect, userEvent, waitFor, within } from 'storybook/test';
 
 import { Button } from '../Button';
+import { ScrollShadow } from '../ScrollShadow';
 import Modal, { modalVariants } from './Modal';
-import { longContent } from './storyData';
+import { longContent, shortContent } from './storyData';
 
 const meta: Meta<typeof Modal> = {
   title: 'pixels/Modal',
@@ -57,8 +58,15 @@ const Template: Story['render'] = (args, { canvasElement }) => {
 
 export const Default: Story = {
   args: {
-    header: 'Modal Header',
     children: 'Modal Content',
+  },
+  render: Template,
+};
+
+export const WithHeader: Story = {
+  args: {
+    header: 'Modal Header',
+    children: shortContent,
   },
   render: Template,
 };
@@ -66,7 +74,7 @@ export const Default: Story = {
 export const WithHeaderAndFooter: Story = {
   args: {
     header: 'Modal Header',
-    children: 'Modal Content',
+    children: shortContent,
     footer: <Button>Some Action</Button>,
   },
   render: Template,
@@ -90,6 +98,18 @@ export const ScrollLongContent: Story = {
   args: {
     header: 'Modal Header',
     children: longContent,
+  },
+  render: Template,
+  play: playOpenModal,
+};
+
+export const WithScrollShadow: Story = {
+  args: {
+    header: 'Modal Header',
+    className: { body: 'px-0 py-0' },
+    children: (
+      <ScrollShadow className="mb-4 px-6 pt-4">{longContent}</ScrollShadow>
+    ),
   },
   render: Template,
   play: playOpenModal,
@@ -167,20 +187,4 @@ export const AllSizes: Story = {
       },
     },
   },
-};
-
-export const WithCustomHeader: Story = {
-  args: {
-    header: <div className="text-2xl">Custom Header</div>,
-    children: 'Modal Content',
-  },
-  render: Template,
-};
-
-export const WithNoHeader: Story = {
-  args: {
-    // header: <div className="text-2xl">Custom Header</div>,
-    children: 'Modal Content',
-  },
-  render: Template,
 };
