@@ -21,7 +21,7 @@ export const accordionVariants = tv({
     subtitle: '',
     title: '',
     titleWrapper: '',
-    trigger: '',
+    trigger: 'cursor-pointer',
     // outer accordion wrapper
     wrapper: 'px-0',
   },
