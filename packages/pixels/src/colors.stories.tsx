@@ -4,6 +4,8 @@
 
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
+import { useEffect, useMemo, useState } from 'react';
+
 import { parseToRgba } from 'color2k';
 
 // Compute hex value from CSS class
@@ -94,6 +96,8 @@ const convertOklchToHex = (oklchString: string): string => {
   }
 };
 
+// Types
+
 type ColorsItem = {
   className?: string;
   color?: string;
@@ -111,18 +115,25 @@ type SwatchSetProps = {
 };
 
 const Swatch = ({
-  name = undefined,
-  color = undefined,
   className = undefined,
+  color = undefined,
+  name = undefined,
+  observedTheme = undefined,
   textClassName = undefined,
 }: {
-  name?: string;
-  color?: string;
   className?: string;
+  color?: string;
+  name?: string;
+  observedTheme?: 'light' | 'dark';
   textClassName?: string;
 }) => {
-  const hexValue = className ? getHexFromClass(className) : '';
   const label = name || color;
+
+  // recalculate hex value when observed theme changes
+  const hexValue = useMemo(() => {
+    return getHexFromClass(className || '');
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [className, observedTheme]);
 
   return (
     <div
@@ -142,26 +153,54 @@ const Swatch = ({
   );
 };
 
-const SwatchSet = ({ colors }: SwatchSetProps) => (
-  <div className="flex h-full w-full flex-row flex-wrap items-center justify-center p-2">
-    {colors.map(({ title, items }) => (
-      <div key={title} className="flex h-full w-full flex-col items-start">
-        <h2 className="text-foreground text-xl font-bold">{title}</h2>
-        <div className="flex h-full w-full flex-row flex-wrap items-center justify-start p-4">
-          {items.map((item, index) => (
-            <Swatch
-              key={`${item.name || item.color}-${index}`}
-              name={item.name}
-              color={item.color}
-              className={item.className}
-              textClassName={item.textClassName}
-            />
-          ))}
+const SwatchSet = ({ colors }: SwatchSetProps) => {
+  const [observedTheme, setObservedTheme] = useState<
+    'light' | 'dark' | undefined
+  >();
+
+  // Observe theme changes via attribute mutations on the <html> element
+  useEffect(() => {
+    const target = document.documentElement;
+    const observer = new MutationObserver((mutationList) => {
+      // @ts-expect-error - target is a HTML element
+      const nextTheme = mutationList[0].target.classList.contains('dark')
+        ? 'dark'
+        : 'light';
+      console.log('MutationObserver theme changed to', nextTheme);
+      setObservedTheme(nextTheme);
+    });
+    observer.observe(target, {
+      attributes: true,
+      attributeFilter: ['class', 'data-theme'],
+    });
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
+  return (
+    <div className="flex h-full w-full flex-row flex-wrap items-center justify-center p-2">
+      {colors.map(({ title, items }) => (
+        <div key={title} className="flex h-full w-full flex-col items-start">
+          <h2 className="text-foreground text-xl font-bold">{title}</h2>
+          <div className="flex h-full w-full flex-row flex-wrap items-center justify-start p-4">
+            {items.map((item, index) => (
+              <Swatch
+                key={`${item.name || item.color}-${index}`}
+                className={item.className}
+                color={item.color}
+                name={item.name}
+                observedTheme={observedTheme}
+                textClassName={item.textClassName}
+              />
+            ))}
+          </div>
         </div>
-      </div>
-    ))}
-  </div>
-);
+      ))}
+    </div>
+  );
+};
 
 const meta: Meta<typeof SwatchSet> = {
   title: 'Colors',
