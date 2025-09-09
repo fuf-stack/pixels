@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.4](https://github.com/fuf-stack/pixels/compare/pixel-utils-v1.0.3...pixel-utils-v1.0.4) (2025-09-09)
+
+
+### Bug Fixes
+
+* **deps:** update dependency tailwind-variants to v3.1.0 ([#1139](https://github.com/fuf-stack/pixels/issues/1139)) ([f913987](https://github.com/fuf-stack/pixels/commit/f9139872b161d2adee88e428985952f614a0cb94))
+* **deps:** update dependency tailwind-variants to v3.1.1 ([#1160](https://github.com/fuf-stack/pixels/issues/1160)) ([ebb996c](https://github.com/fuf-stack/pixels/commit/ebb996c589c435fc209c0d14e840f910e39d2c39))
+
 ## [1.0.3](https://github.com/fuf-stack/pixels/compare/pixel-utils-v1.0.2...pixel-utils-v1.0.3) (2025-08-25)
 
 
