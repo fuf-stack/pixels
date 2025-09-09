@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.1.2](https://github.com/fuf-stack/pixels/compare/pixels-v1.1.1...pixels-v1.1.2) (2025-09-09)
+
+
+### Bug Fixes
+
+* **pixels:** add pionter cursor to accordion trigger ([12fa71a](https://github.com/fuf-stack/pixels/commit/12fa71a2350527933dbdcb5d8ed9bc24e528d8be))
+* **pixels:** optimize modal styles ([f3f4d45](https://github.com/fuf-stack/pixels/commit/f3f4d456e207d102dc24f9101c2103c6cd4008e2))
+
 ## [1.1.1](https://github.com/fuf-stack/pixels/compare/pixels-v1.1.0...pixels-v1.1.1) (2025-09-08)
 
 
