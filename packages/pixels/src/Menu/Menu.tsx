@@ -1,6 +1,9 @@
+import type { TVClassName, TVProps } from '@fuf-stack/pixel-utils';
+import type { ButtonProps } from '@heroui/button';
 import type {
-  DropdownSectionProps,
   DropdownItemProps as HeroDropdownItemProps,
+  DropdownProps as HeroDropdownProps,
+  DropdownSectionProps as HeroDropdownSectionProps,
 } from '@heroui/dropdown';
 import type { Key, ReactNode } from 'react';
 
@@ -15,7 +18,7 @@ import {
   DropdownTrigger as HeroDropdownTrigger,
 } from '@heroui/dropdown';
 
-import { cn } from '@fuf-stack/pixel-utils';
+import { cn, tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 
 /**
  * Menu item type
@@ -51,19 +54,45 @@ export interface MenuSection {
   items: MenuItem[];
 }
 
-export interface MenuProps {
+// menu styling variants
+export const menuVariants = tv({
+  slots: {
+    item: '',
+    trigger: '',
+  },
+});
+
+type VariantProps = TVProps<typeof menuVariants>;
+type ClassName = TVClassName<typeof menuVariants>;
+
+export interface MenuProps extends VariantProps {
+  /** sets HTML aria-label attribute */
+  ariaLabel?: string;
   /** child components */
   children?: ReactNode;
   /** CSS class name */
-  className?: string | string[];
-  /** HTML data-testid attribute used in e2e tests */
-  testId?: string;
+  className?: ClassName;
   /** menu item structure */
   items: (MenuSection | MenuItem)[];
   /** disable menu trigger */
   isDisabled?: boolean;
+  /** placement of the menu */
+  placement?: HeroDropdownProps['placement'];
   /** called if item is selected */
   onAction?: (key: Key) => void;
+  /** HTML data-testid attribute used in e2e tests */
+  testId?: string;
+  /** When defined a Button will be rendered as trigger (with provided props) instead of unstyled html button */
+  triggerButtonProps?: Pick<
+    ButtonProps,
+    | 'aria-label'
+    | 'className'
+    | 'color'
+    | 'disableAnimation'
+    | 'disabled'
+    | 'size'
+    | 'variant'
+  >;
 }
 
 /** returns String[] of disabled items/keys */
@@ -80,9 +109,9 @@ const getDisabledKeys = (items: (MenuSection | MenuItem)[]) => {
   );
 };
 
-const renderMenuItem = (item: MenuItem) => (
+const renderMenuItem = (item: MenuItem, itemClassName?: string) => (
   <HeroDropdownItem
-    className={item.className}
+    className={cn(itemClassName, item.className)}
     data-testid={item.testId || item.key}
     description={item.description}
     key={item.key}
@@ -97,28 +126,56 @@ const renderMenuItem = (item: MenuItem) => (
  * Dropdown menu component based on [HeroUI Dropdown](https://www.heroui.com//docs/components/dropdown)
  */
 const Menu = ({
+  ariaLabel = undefined,
   children = null,
-  className = undefined,
-  onAction = undefined,
-  testId = undefined,
+  className: _className = undefined,
   isDisabled = false,
   items,
+  onAction = undefined,
+  placement = undefined,
+  testId = undefined,
+  triggerButtonProps = undefined,
 }: MenuProps) => {
+  // className from slots
+  const variants = menuVariants();
+  const className = variantsToClassNames(variants, _className, 'trigger');
+
+  // determine trigger button variant
+  let triggerButton = <button type="button">{children}</button>;
+  if (!children) {
+    //  default to ellipsis icon when no children are provided
+    triggerButton = (
+      <Button
+        className={cn('min-w-0', className.trigger)}
+        size="sm"
+        variant="flat"
+        // eslint-disable-next-line react/jsx-props-no-spreading
+        {...triggerButtonProps}
+      >
+        <FaEllipsisVertical />
+      </Button>
+    );
+  } else if (triggerButtonProps) {
+    // use provided triggerButtonProps with hero button
+    triggerButton = (
+      // eslint-disable-next-line react/jsx-props-no-spreading
+      <Button className={className.trigger} {...triggerButtonProps}>
+        {children}
+      </Button>
+    );
+  }
+
   return (
-    <HeroDropdown isDisabled={isDisabled}>
-      <HeroDropdownTrigger className={cn(className)} data-testid={testId}>
-        {children ? (
-          // eslint-disable-next-line react/button-has-type
-          <button>{children}</button>
-        ) : (
-          // INFO: we use hero button here so that ref passing works
-          <Button size="sm" variant="flat" className="min-w-0">
-            <FaEllipsisVertical />
-          </Button>
-        )}
+    <HeroDropdown
+      aria-label={ariaLabel}
+      isDisabled={isDisabled}
+      placement={placement}
+    >
+      <HeroDropdownTrigger data-testid={testId}>
+        {/* NOTE: type and aria properties are injected by HeroDropdownTrigger */}
+        {triggerButton}
       </HeroDropdownTrigger>
       <HeroDropdownMenu
-        // aria-label="Dynamic Actions"
         items={items}
         disabledKeys={getDisabledKeys(items)}
         onAction={onAction}
@@ -127,17 +184,17 @@ const Menu = ({
           if ('items' in item) {
             return (
               <HeroDropdownSection
-                items={item.items as MenuSection['items']}
-                title={item.label as DropdownSectionProps['title']}
+                items={item.items}
+                title={item.label as HeroDropdownSectionProps['title']}
                 key={item.key}
               >
                 {(sectionItem) => {
-                  return renderMenuItem(sectionItem);
+                  return renderMenuItem(sectionItem, className.item);
                 }}
               </HeroDropdownSection>
             );
           }
-          return renderMenuItem(item);
+          return renderMenuItem(item, className.item);
         }}
       </HeroDropdownMenu>
     </HeroDropdown>
