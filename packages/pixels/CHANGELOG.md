@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/fuf-stack/pixels/compare/pixels-v1.1.2...pixels-v1.2.0) (2025-09-10)
+
+
+### Features
+
+* **pixels:** add slots, ariaLabel, placement and triggerButtonProps to Menu ([34b87f3](https://github.com/fuf-stack/pixels/commit/34b87f36279b8945f2d17c5fc12a9f1719057761))
+
 ## [1.1.2](https://github.com/fuf-stack/pixels/compare/pixels-v1.1.1...pixels-v1.1.2) (2025-09-09)
 
 
