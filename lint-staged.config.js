@@ -1,4 +1,6 @@
 module.exports = {
+  // megapixels
+  'packages/megapixels/**/*.{js,ts,tsx}': ['vitest related --run', 'eslint'],
   // pixel-motion
   'packages/pixel-motion/**/*.{js,ts,tsx}': ['eslint'],
   // pixel-utils

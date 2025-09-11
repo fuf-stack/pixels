@@ -1,0 +1,57 @@
+{
+  "name": "@fuf-stack/megapixels",
+  "version": "0.0.0",
+  "description": "fuf react advanced components library",
+  "author": "Fröhlich ∧ Frei",
+  "homepage": "https://github.com/fuf-stack/megapixels#readme",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fuf-stack/megapixels.git",
+    "directory": "packages/megapixels"
+  },
+  "bugs": {
+    "url": "https://github.com/fuf-stack/pixels/issues"
+  },
+  "scripts": {
+    "build": "tsup --config node_modules/@repo/tsup-config/config.ts",
+    "prepack": "pnpm build",
+    "test": "vitest ./src"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18"
+  },
+  "dependencies": {
+    "@fuf-stack/pixel-utils": "workspace:*",
+    "@fuf-stack/pixels": "workspace:*",
+    "@fuf-stack/uniform": "workspace:*",
+    "@fuf-stack/veto": "workspace:*",
+    "react-icons": "5.5.0"
+  },
+  "devDependencies": {
+    "@types/debug": "4.1.12",
+    "@types/react": "19.1.12",
+    "@types/react-dom": "19.1.9",
+    "react": "19.1.1",
+    "react-dom": "19.1.1"
+  }
+}
