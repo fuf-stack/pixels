@@ -1,4 +1,11 @@
 {
+  // include additional files for linting here
+  "include": [
+    "./**/*.ts",
+    "./**/*.tsx",
+    "vitest.config.mts",
+    "vitest.workspace.ts"
+  ],
   "references": [
     { "path": "packages/megapixels" },
     { "path": "packages/config/storybook-config" },

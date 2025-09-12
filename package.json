@@ -5,14 +5,14 @@
     "build": "pnpm turbo build",
     "commit": "lint-staged && git-cz",
     "dev": "lerna run --parallel dev",
-    "fix": "eslint --debug --fix --ext .js --ignore-path .gitignore packages || true && prettier --write \"packages/**/*\"",
-    "lint": "eslint --debug --ignore-path .gitignore ./packages",
+    "fix": "eslint --debug --fix packages || true && prettier --write \"packages/**/*\"",
+    "lint": "eslint --debug ./packages",
     "test": "NODE_OPTIONS=\"--max-old-space-size=4096\" FORCE_COLOR=1 vitest --coverage $VITEST_EXTRA_OPTS",
     "test:storybook": "pnpm exec playwright install chromium && test-storybook --coverage --config-dir packages/config/storybook-config/.storybook --maxWorkers=4 && nyc report --reporter=lcov -t coverage/storybook --report-dir coverage/storybook",
     "turbo": "TURBO_TELEMETRY_DISABLED=1 FORCE_COLOR=1 turbo --cache-dir ./.turbo-cache --color  --no-daemon"
   },
   "devDependencies": {
-    "@fuf-stack/eslint-config-fuf": "0.12.4",
+    "@fuf-stack/eslint-config-fuf": "1.0.0",
     "@fuf-stack/project-cli-tools": "1.0.9",
     "@fuf-stack/typescript-config": "0.3.0",
     "@fuf-stack/vitest-config": "1.1.2",
