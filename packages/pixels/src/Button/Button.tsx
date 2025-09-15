@@ -85,7 +85,7 @@ export interface ButtonProps extends VariantProps {
   /** CSS class name */
   className?: ClassName;
   /** color of the button */
-  color?: HeroButtonProps['color'];
+  color?: VariantProps['color'];
   /** disables the button */
   disabled?: boolean;
   /** disables all animations */
@@ -107,7 +107,7 @@ export interface ButtonProps extends VariantProps {
   /** HTML button type attribute */
   type?: 'button' | 'submit' | 'reset' | undefined;
   /** visual style variant */
-  variant?: HeroButtonProps['variant'];
+  variant?: VariantProps['variant'];
 }
 
 /**
@@ -138,7 +138,7 @@ const Button = ({
     <HeroButton
       aria-label={ariaLabel}
       className={classNames.base}
-      color={color}
+      color={color as HeroButtonProps['color']}
       data-testid={testId}
       disableAnimation={disableAnimation}
       disableRipple={disableAnimation || !ripple}
