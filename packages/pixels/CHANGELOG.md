@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.1](https://github.com/fuf-stack/pixels/compare/pixels-v1.2.0...pixels-v1.2.1) (2025-09-15)
+
+
+### Bug Fixes
+
+* **pixels:** fix Button className prop dev + update some snaps ([68c8854](https://github.com/fuf-stack/pixels/commit/68c8854fa20b45d17d8966cd285ee9a31950a83c))
+
 ## [1.2.0](https://github.com/fuf-stack/pixels/compare/pixels-v1.1.2...pixels-v1.2.0) (2025-09-10)
 
 
