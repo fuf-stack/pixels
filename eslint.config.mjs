@@ -9,4 +9,12 @@ import vitest from '@fuf-stack/eslint-config-fuf/vitest';
 
 const gitignorePath = path.resolve('.', '.gitignore');
 
-export default [includeIgnoreFile(gitignorePath), ...react, ...vitest];
+export default [
+  // Ignore .gitignore files/folder in eslint
+  includeIgnoreFile(gitignorePath),
+  // Ignore specific files that are tracked by git
+  { ignores: ['**/*/CHANGELOG.md'] },
+  // Project configs
+  ...react,
+  ...vitest,
+];
