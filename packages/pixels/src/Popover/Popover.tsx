@@ -1,7 +1,7 @@
 import type { TVClassName, TVProps } from '@fuf-stack/pixel-utils';
+import type { ButtonProps } from '@heroui/button';
 import type { PopoverProps as HeroPopoverProps } from '@heroui/popover';
 import type { ReactNode } from 'react';
-import type { ButtonProps } from '../Button';
 
 import { Button } from '@heroui/button';
 import { Popover, PopoverContent, PopoverTrigger } from '@heroui/popover';
@@ -53,13 +53,12 @@ export interface PopoverProps extends VariantProps {
   /** When defined a Button will be rendered as trigger (with provided props) instead of unstyled html button */
   triggerButtonProps?: Pick<
     ButtonProps,
-    | 'ariaLabel'
+    | 'aria-label'
     | 'className'
     | 'color'
     | 'disableAnimation'
     | 'disabled'
     | 'size'
-    | 'testId'
     | 'variant'
   >;
 }

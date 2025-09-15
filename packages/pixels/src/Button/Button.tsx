@@ -1,16 +1,18 @@
-import type { TVProps } from '@fuf-stack/pixel-utils';
+import type { TVClassName, TVProps } from '@fuf-stack/pixel-utils';
 import type { ButtonProps as HeroButtonProps } from '@heroui/button';
 import type { ReactNode } from 'react';
 
 import { Button as HeroButton } from '@heroui/button';
 import { button as heroButtonVariants } from '@heroui/theme';
 
-import { tv } from '@fuf-stack/pixel-utils';
+import { tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 
 import LoadingSpinner from './subcomponents/LoadingSpinner';
 
 export const buttonVariants = tv({
-  base: '',
+  slots: {
+    base: '',
+  },
   variants: {
     color: {
       // see: https://github.com/heroui-inc/heroui/blob/canary/packages/core/theme/src/components/button.ts
@@ -73,6 +75,7 @@ export const buttonVariants = tv({
 });
 
 type VariantProps = TVProps<typeof buttonVariants>;
+type ClassName = TVClassName<typeof buttonVariants>;
 
 export interface ButtonProps extends VariantProps {
   /** sets HTML aria-label attribute */
@@ -80,7 +83,7 @@ export interface ButtonProps extends VariantProps {
   /** content of the button */
   children?: ReactNode;
   /** CSS class name */
-  className?: string;
+  className?: ClassName;
   /** color of the button */
   color?: HeroButtonProps['color'];
   /** disables the button */
@@ -127,10 +130,14 @@ const Button = ({
   type = undefined,
   variant = 'solid',
 }: ButtonProps) => {
+  // classNames from slots
+  const variants = buttonVariants({ color, variant, size });
+  const classNames = variantsToClassNames(variants, className, 'base');
+
   return (
     <HeroButton
       aria-label={ariaLabel}
-      className={buttonVariants({ color, variant, className })}
+      className={classNames.base}
       color={color}
       data-testid={testId}
       disableAnimation={disableAnimation}
