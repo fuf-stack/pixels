@@ -1,14 +1,21 @@
-/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable n/no-sync */
+/* eslint-disable import-x/no-extraneous-dependencies */
 
-import fs from 'fs';
-import path from 'path';
+import {
+  existsSync,
+  readdirSync,
+  readFileSync,
+  statSync,
+  writeFileSync,
+} from 'node:fs';
+import path from 'node:path';
 
 import { defineConfig } from 'tsup';
 
 function getAllFilePaths(dirPath: string): string[] {
-  return fs.readdirSync(dirPath).reduce<string[]>((allFiles, file) => {
+  return readdirSync(dirPath).reduce<string[]>((allFiles, file) => {
     const fullPath = path.join(dirPath, file);
-    if (fs.statSync(fullPath).isDirectory()) {
+    if (statSync(fullPath).isDirectory()) {
       return allFiles.concat(getAllFilePaths(fullPath));
     }
     return allFiles.concat(`./${fullPath}`);
@@ -18,7 +25,9 @@ function getAllFilePaths(dirPath: string): string[] {
 export default defineConfig({
   entry: getAllFilePaths('./src')
     .flat()
-    .filter((file) => file.endsWith('index.ts')),
+    .filter((file) => {
+      return file.endsWith('index.ts');
+    }),
   format: ['esm', 'cjs'],
   splitting: true,
   sourcemap: true,
@@ -28,9 +37,11 @@ export default defineConfig({
   // update exports of package.json
   onSuccess: async () => {
     const packageJsonPath = './package.json';
-    const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf-8'));
+    const packageJson = JSON.parse(readFileSync(packageJsonPath, 'utf-8'));
     const distIndexFiles = getAllFilePaths('./dist')
-      .filter((file) => file.endsWith('index.js'))
+      .filter((file) => {
+        return file.endsWith('index.js');
+      })
       .sort((a, b) => {
         // move index export to top
         if (a === './dist/index.js') {
@@ -57,7 +68,7 @@ export default defineConfig({
       // https://github.com/vitejs/vite/discussions/2657
       const cssPath = file.replace('.js', '.css');
       // Check if a corresponding CSS file exists
-      if (cssPath !== './dist/index.css' && fs.existsSync(cssPath)) {
+      if (cssPath !== './dist/index.css' && existsSync(cssPath)) {
         // @ts-expect-error this is ok
         // eslint-disable-next-line no-param-reassign
         exports[`${key}.css`] = {
@@ -69,6 +80,6 @@ export default defineConfig({
       return exports;
     }, {});
 
-    fs.writeFileSync(packageJsonPath, JSON.stringify(packageJson, null, 2));
+    writeFileSync(packageJsonPath, JSON.stringify(packageJson, null, 2));
   },
 });

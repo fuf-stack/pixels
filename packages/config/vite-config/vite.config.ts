@@ -1,4 +1,4 @@
-/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable import-x/no-extraneous-dependencies */
 
 import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';

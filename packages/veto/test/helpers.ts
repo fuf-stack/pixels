@@ -1,19 +1,19 @@
 /* eslint-disable import/prefer-default-export */
 
-import type { VetoError, VetoSchema, VetoSuccess } from '../src/index';
+import type { VetoError, VetoSchema, VetoSuccess } from '../src';
 
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { expect, it } from 'vitest';
 
-import v from '../src/index';
+import v from '../src';
 
 const NON_STRING_INPUTS = [true, 1, 1.1, [], {}];
 
-type StringCommonTestOptions = {
+interface StringCommonTestOptions {
   shouldReject?: string[];
   shouldRejectMessageStart?: string;
   shouldAllow?: string[];
-};
+}
 
 export const stringCommon = (
   vSchema: VetoSchema,

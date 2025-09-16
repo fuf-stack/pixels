@@ -1,4 +1,4 @@
-/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable import-x/no-extraneous-dependencies */
 import '@testing-library/jest-dom/vitest';
 
 import { beforeEach, vi } from 'vitest';
@@ -26,7 +26,9 @@ vi.mock('react', async (importOriginal) => {
   // eslint-disable-next-line @typescript-eslint/consistent-type-imports
   const reactOrig = await importOriginal<typeof import('react')>();
 
-  const useId = () => 'react-useId-mock';
+  const useId = () => {
+    return 'react-useId-mock';
+  };
 
   // @ts-expect-error we also have to mock useId in default (React.useId)
   reactOrig.default.useId = useId;

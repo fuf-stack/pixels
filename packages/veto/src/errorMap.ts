@@ -24,7 +24,9 @@ const exErrorMap: VetoErrorMap = (issue, ctx) => {
     // improve error message of discriminated unions, when field is undefined
     case issueCodes.invalid_union_discriminator:
       // eslint-disable-next-line no-case-declarations
-      const received = issue.path.reduce((acc, c) => acc && acc[c], ctx.data);
+      const received = issue.path.reduce((acc, c) => {
+        return acc?.[c];
+      }, ctx.data);
       if (received === undefined) {
         return { message: 'Field is required' };
       }

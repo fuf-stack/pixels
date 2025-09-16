@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 
 import * as OriginalFramerMotion from 'framer-motion';
 
-import * as FramerMotionReexport from './index';
+import * as FramerMotionReexport from '.';
 
 describe('Framer Motion Re-exports', () => {
   it('should re-export all items from framer-motion', () => {

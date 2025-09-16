@@ -17,7 +17,9 @@ type Literal = z.infer<typeof literalSchema>;
  * Type representing a JSON object with string keys and any valid JSON value
  * Keys must be strings as per JSON specification
  */
-export type JsonObject = { [key: string]: JsonAll };
+export interface JsonObject {
+  [key: string]: JsonAll;
+}
 
 /**
  * Recursive type representing any valid JSON value:
@@ -95,8 +97,9 @@ const createDeepJsonSchema = (levels: number) => {
  * const result = validator(levels).parse(data);
  * ```
  */
-export const json = (levels = 10) =>
-  createDeepJsonSchema(levels) as DeepJsonSchema;
+export const json = (levels = 10) => {
+  return createDeepJsonSchema(levels) as DeepJsonSchema;
+};
 
 /**
  * Type representing the JSON validator function
@@ -119,8 +122,9 @@ export type VJson = typeof json;
  * // Will fail for non-objects: arrays, primitives, etc.
  * ```
  */
-export const jsonObject = (levels = 10) =>
-  z.record(json(levels), { invalid_type_error: 'Invalid json object' });
+export const jsonObject = (levels = 10) => {
+  return z.record(json(levels), { invalid_type_error: 'Invalid json object' });
+};
 
 /**
  * Type representing the JSON object validator function
@@ -144,8 +148,8 @@ export type VJsonObject = typeof jsonObject;
  * const userSchema = stringToJSON().pipe(z.object({ name: z.string() }));
  * const user = userSchema.parse('{"name":"Alice"}');
  */
-export const stringToJSON = () =>
-  z.string().transform((str, ctx): z.infer<ReturnType<typeof json>> => {
+export const stringToJSON = () => {
+  return z.string().transform((str, ctx): z.infer<ReturnType<typeof json>> => {
     try {
       return JSON.parse(str);
     } catch (e) {
@@ -153,3 +157,4 @@ export const stringToJSON = () =>
       return z.NEVER;
     }
   });
+};

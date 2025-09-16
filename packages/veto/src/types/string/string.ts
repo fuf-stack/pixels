@@ -4,17 +4,20 @@ import type { ZodString } from 'zod';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { z } from 'zod';
 
-export type VStringOptions = {
+export interface VStringOptions {
   /** min string length, defaults to 1 */
   min: number;
-};
+}
 
-export const string = (options?: VStringOptions): VStringSchema =>
-  z
-    // see: https://zod.dev/?id=strings
-    .string()
-    // expect strings to be at least 1 char long by default
-    .min(options?.min || options?.min === 0 ? options.min : 1);
+export const string = (options?: VStringOptions): VStringSchema => {
+  return (
+    z
+      // see: https://zod.dev/?id=strings
+      .string()
+      // expect strings to be at least 1 char long by default
+      .min(options?.min || options?.min === 0 ? options.min : 1)
+  );
+};
 
 export type VString = typeof string;
 export type VStringSchema = ZodString;
@@ -24,12 +27,12 @@ export type VStringRefined<Options = undefined> = (
   options?: Options,
 ) => VetoEffects<VStringSchema>;
 
-type BlacklistOptions = {
+interface BlacklistOptions {
   /** Custom error message function */
   message?: (val: string) => string;
   /** Array of patterns to blacklist. Supports * wildcard */
   patterns: string[];
-};
+}
 
 /** Refinement to blacklist certain string values */
 const blacklist = (options: BlacklistOptions) => {
@@ -43,7 +46,11 @@ const blacklist = (options: BlacklistOptions) => {
     });
 
     // Check for blacklist entries with regex patterns
-    if (blacklistRegexes.some((regex) => regex.test(val))) {
+    if (
+      blacklistRegexes.some((regex) => {
+        return regex.test(val);
+      })
+    ) {
       ctx.addIssue({
         code: 'custom',
         message: options.message
@@ -54,12 +61,12 @@ const blacklist = (options: BlacklistOptions) => {
   };
 };
 
-type NoConsecutiveCharactersOptions = {
+interface NoConsecutiveCharactersOptions {
   /** Custom error message function */
   message?: (val: string) => string;
   /** Characters that cannot appear consecutively */
   characters: string[];
-};
+}
 
 /** Refinement to prevent certain consecutive characters */
 const noConsecutiveCharacters = (options: NoConsecutiveCharactersOptions) => {
@@ -85,14 +92,14 @@ const noConsecutiveCharacters = (options: NoConsecutiveCharactersOptions) => {
 };
 
 /** Configuration options for string validation refinements */
-type StringRefinements = {
+interface StringRefinements {
   /** Filter out strings matching blacklist patterns with optional custom error messages */
   blacklist?: BlacklistOptions;
   /** Custom refinement function for additional validation rules (will be applied first when present) */
   custom?: (val: string, ctx: VetoRefinementCtx) => void;
   /** Prevent specified characters from appearing consecutively */
   noConsecutiveCharacters?: NoConsecutiveCharactersOptions;
-};
+}
 
 /**
  * Applies validation refinements to a string schema

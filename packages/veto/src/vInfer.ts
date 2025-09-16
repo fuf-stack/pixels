@@ -26,7 +26,6 @@ import type {
  *
  * @see https://zod.dev/?id=type-inference
  */
-// eslint-disable-next-line @typescript-eslint/naming-convention
 export type vInfer<T extends VetoSchema> =
   // wrap raw shapes with VetoObject
   T extends VetoRawShape

@@ -165,9 +165,7 @@ describe('unique refinement', () => {
     const schema = {
       arrayField: refineArray(array(object({ name: string(), id: number() })))({
         unique: {
-          mapFn: (val) => {
-            return val.id;
-          },
+          mapFn: (val) => val.id,
         },
       }),
     };
@@ -219,9 +217,7 @@ describe('unique refinement', () => {
         ),
       )({
         unique: {
-          mapFn: (val) => {
-            return val?.data?.fieldB;
-          },
+          mapFn: (val) => val?.data?.fieldB,
         },
       }),
     };
@@ -272,9 +268,7 @@ describe('unique refinement', () => {
         ),
       )({
         unique: {
-          mapFn: (val) => {
-            return val?.data?.fieldB;
-          },
+          mapFn: (val) => val?.data?.fieldB,
           elementErrorPath: ['data', 'fieldB'],
         },
       }),
@@ -324,9 +318,7 @@ describe('unique refinement', () => {
         ),
       )({
         unique: {
-          mapFn: (val) => {
-            return val?.fieldA;
-          },
+          mapFn: (val) => val?.fieldA,
         },
       }),
     };

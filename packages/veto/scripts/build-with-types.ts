@@ -1,5 +1,3 @@
-#!/usr/bin/env tsx
-
 /**
  * Temporary Dependencies Shifter for Type Generation
  *
@@ -19,16 +17,22 @@
  * Example:
  *   npx tsx build-with-types.ts --minify --sourcemap
  */
-import { execSync } from 'child_process';
-import * as fs from 'fs';
-import * as path from 'path';
+import { execSync } from 'node:child_process';
+import {
+  copyFileSync,
+  existsSync,
+  readFileSync,
+  unlinkSync,
+  writeFileSync,
+} from 'node:fs';
+import { join } from 'node:path';
 
 // Dependencies that need to be temporarily moved for proper type generation
 const DEPENDENCIES_TO_MOVE = ['zod', 'zodex'];
 
 // Path to package.json
-const PACKAGE_JSON_PATH = path.join(process.cwd(), 'package.json');
-const BACKUP_FILE_PATH = path.join(process.cwd(), 'package.json.bak');
+const PACKAGE_JSON_PATH = join(process.cwd(), 'package.json');
+const BACKUP_FILE_PATH = join(process.cwd(), 'package.json.bak');
 
 // Default tsup command
 const DEFAULT_TSUP_ARGS = '--dts-resolve';
@@ -46,7 +50,7 @@ function createBackup(): void {
   console.log('\n📦 STEP 1: Creating backup of package.json...');
 
   try {
-    fs.copyFileSync(PACKAGE_JSON_PATH, BACKUP_FILE_PATH);
+    copyFileSync(PACKAGE_JSON_PATH, BACKUP_FILE_PATH);
     console.log('✅ Backup created successfully at package.json.bak');
   } catch (error) {
     console.error('❌ Failed to create backup file!');
@@ -65,7 +69,7 @@ function temporarilyMoveZodDependencies(): boolean {
   );
 
   // Read package.json
-  const packageJsonContent = fs.readFileSync(PACKAGE_JSON_PATH, 'utf8');
+  const packageJsonContent = readFileSync(PACKAGE_JSON_PATH, 'utf8');
   const packageJson: PackageJson = JSON.parse(packageJsonContent);
 
   // Check if there are dependencies to process
@@ -118,7 +122,7 @@ function temporarilyMoveZodDependencies(): boolean {
   }
 
   // Write updated package.json
-  fs.writeFileSync(
+  writeFileSync(
     PACKAGE_JSON_PATH,
     `${JSON.stringify(packageJson, null, 2)}\n`,
     'utf8',
@@ -159,11 +163,11 @@ function restoreFromBackup(): void {
   console.log('\n🔄 STEP 4: Restoring package.json from backup...');
 
   try {
-    fs.copyFileSync(BACKUP_FILE_PATH, PACKAGE_JSON_PATH);
+    copyFileSync(BACKUP_FILE_PATH, PACKAGE_JSON_PATH);
     console.log('✅ Original package.json restored successfully!');
 
     // Clean up the backup file
-    fs.unlinkSync(BACKUP_FILE_PATH);
+    unlinkSync(BACKUP_FILE_PATH);
     console.log('🧹 Backup file removed.');
   } catch (error) {
     console.error('❌ Failed to restore from backup!');
@@ -203,8 +207,8 @@ function main(): void {
         '\n🔄 STEP 4: No changes were made to package.json, but cleaning up backup file...',
       );
       // Clean up the backup file even if no changes were made
-      if (fs.existsSync(BACKUP_FILE_PATH)) {
-        fs.unlinkSync(BACKUP_FILE_PATH);
+      if (existsSync(BACKUP_FILE_PATH)) {
+        unlinkSync(BACKUP_FILE_PATH);
         console.log('🧹 Backup file removed.');
       }
     }
@@ -217,7 +221,7 @@ function main(): void {
     );
 
     // Make sure the user knows they can restore from backup in case of failure
-    if (fs.existsSync(BACKUP_FILE_PATH)) {
+    if (existsSync(BACKUP_FILE_PATH)) {
       console.error(
         `\n💡 A backup exists at ${BACKUP_FILE_PATH}. You can restore it by running:`,
       );

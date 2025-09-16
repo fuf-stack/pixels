@@ -1,7 +1,6 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { z } from 'zod';
 
-// eslint-disable-next-line prefer-destructuring
-export const boolean = z.boolean;
+export const { boolean } = z;
 
 export type VBoolean = typeof boolean;

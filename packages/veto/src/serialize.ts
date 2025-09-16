@@ -9,14 +9,18 @@ const isArrayType = (
 ): type is SzType & {
   type: 'array';
   element: SzType;
-} => type.type === 'array' && 'element' in type;
+} => {
+  return type.type === 'array' && 'element' in type;
+};
 
 const isDiscriminatedUnionType = (
   type: SzType,
 ): type is SzType & {
   type: 'discriminatedUnion';
   options: SzType[];
-} => type.type === 'discriminatedUnion' && 'options' in type;
+} => {
+  return type.type === 'discriminatedUnion' && 'options' in type;
+};
 
 const isIntersectionType = (
   type: SzType,
@@ -24,24 +28,31 @@ const isIntersectionType = (
   type: 'intersection';
   left: SzType;
   right: SzType;
-} => type.type === 'intersection' && 'left' in type && 'right' in type;
+} => {
+  return type.type === 'intersection' && 'left' in type && 'right' in type;
+};
 
 const isObjectType = (
   type: SzType,
 ): type is SzType & {
   type: 'object';
   properties: Record<string, SzType>;
-} => type.type === 'object' && 'properties' in type;
+} => {
+  return type.type === 'object' && 'properties' in type;
+};
 
 const isRecordType = (
   type: SzType,
 ): type is SzType & {
   type: 'record';
   value: SzType;
-} => type.type === 'record' && 'value' in type;
+} => {
+  return type.type === 'record' && 'value' in type;
+};
 
-export const serializeSchema = (schema: VetoTypeAny): SzType =>
-  zerialize(schema) as SzType;
+export const serializeSchema = (schema: VetoTypeAny): SzType => {
+  return zerialize(schema) as SzType;
+};
 
 /**
  * Traverses a schema path to find matching types
@@ -66,9 +77,9 @@ const traverseSchemaPath = (
   }
 
   if (isDiscriminatedUnionType(pathType)) {
-    return pathType.options.flatMap((option: SzType) =>
-      traverseSchemaPath(option, path),
-    );
+    return pathType.options.flatMap((option: SzType) => {
+      return traverseSchemaPath(option, path);
+    });
   }
 
   if (isIntersectionType(pathType)) {
@@ -124,7 +135,9 @@ export const checkSerializedSchemaPath = (
 
   // Filter out null/undefined values and get valid types
   const validTypes = traverseSchemaPath(serialized, path).filter(
-    (type): type is NonNullable<typeof type> => type != null,
+    (type): type is NonNullable<typeof type> => {
+      return type != null;
+    },
   );
 
   // Check if all valid types satisfy the check function if we have

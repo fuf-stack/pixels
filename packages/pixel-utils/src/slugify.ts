@@ -1,4 +1,4 @@
-/* eslint-disable import/prefer-default-export */
+/* eslint-disable import-x/prefer-default-export */
 
 import type { Options as SlugOptions } from 'slug';
 
@@ -10,19 +10,19 @@ interface SlugifyOptions extends SlugOptions {
 }
 
 export const slugify = (string: string, options?: SlugifyOptions) => {
-  const replacement = options?.replacement || '_';
-  const replaceDots = options?.replaceDots || false;
+  const replacement = options?.replacement ?? '_';
+  const replaceDots = options?.replaceDots ?? false;
 
   return slug(string, {
     ...slug.defaults.modes.rfc3986,
     charmap: {
       ...slug.defaults.modes.rfc3986.charmap,
       //  do not replace dots when replaceDots is false
-      ...(replaceDots === false ? { '.': '.' } : { '.': replacement }),
+      ...(!replaceDots ? { '.': '.' } : { '.': replacement }),
       // convert hyphens to underscores (when replacement is not hyphen)
       ...(replacement !== '-' ? { '-': '_' } : {}),
     },
     replacement,
-    ...(options || {}),
+    ...(options ?? {}),
   });
 };

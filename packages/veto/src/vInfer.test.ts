@@ -104,11 +104,11 @@ it('correctly infers optional types', () => {
   type Result = vInfer<typeof rawShape>;
 
   // Using a more precise type definition
-  type Expected = {
+  interface Expected {
     required: string;
     optional?: string | undefined;
     nullish: number | null | undefined;
-  };
+  }
 
   // Bidirectional type checking to ensure exact match
   expectTypeOf<Result>().toEqualTypeOf<Expected>();

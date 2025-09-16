@@ -22,9 +22,7 @@ type TVSlotProps = {
  * Represents a tailwind-variants slot function
  * Takes optional TVSlotProps and returns a string of class names
  */
-type TVFunction = {
-  (slotProps?: TVSlotProps | undefined): string;
-};
+type TVFunction = (slotProps?: TVSlotProps) => string;
 
 /**
  * A record of slot names to their corresponding tailwind-variants functions

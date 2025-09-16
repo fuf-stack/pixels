@@ -1,17 +1,16 @@
-/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable import-x/no-extraneous-dependencies */
 
 import { vi } from 'vitest';
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import React from 'react';
 
 // export everything (else) unchanged
 export * from 'react-icons/fa';
 
 export const createMockedIcon = (displayName: string) => {
-  const MockedIcon = () => (
-    <span data-testid={`icon-${displayName}`}>{displayName}</span>
-  );
+  const MockedIcon = () => {
+    return <span data-testid={`icon-${displayName}`}>{displayName}</span>;
+  };
   return vi.fn().mockImplementation(MockedIcon);
 };
 

@@ -1,4 +1,4 @@
-/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable import-x/no-extraneous-dependencies */
 
 import type { TestRunnerConfig } from '@storybook/test-runner';
 

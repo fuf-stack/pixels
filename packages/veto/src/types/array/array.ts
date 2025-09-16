@@ -11,7 +11,6 @@ import { z } from 'zod';
 
 import { issueCodes } from '../../issueCodes';
 
-// eslint-disable-next-line prefer-destructuring
 export const array: <T extends VetoTypeAny>(schema: T) => ZodArray<T> = z.array;
 
 export type VArray = typeof array;
@@ -37,7 +36,11 @@ type MakeElementsUniqueOptions =
 /** Refinement to make array elements unique */
 const makeElementsUnique = (options: MakeElementsUniqueOptions) => {
   return <T extends VetoTypeAny>(data: T[], ctx: VetoRefinementCtx) => {
-    const mapFn = (options !== true && options?.mapFn) || ((x) => x);
+    const mapFn =
+      (options !== true && options?.mapFn) ||
+      ((x) => {
+        return x;
+      });
     // add error to (second) duplicate array element
     const dataMapped = data.map(mapFn);
 
@@ -63,7 +66,9 @@ const makeElementsUnique = (options: MakeElementsUniqueOptions) => {
         );
         return hasPreviousDuplicate ? i : false;
       })
-      .filter((index) => index !== false) as number[];
+      .filter((index) => {
+        return index !== false;
+      });
     // add element errors
     duplicateIndexes.forEach((i) => {
       ctx.addIssue({
@@ -90,12 +95,12 @@ const makeElementsUnique = (options: MakeElementsUniqueOptions) => {
 };
 
 /** Configuration options for array validation refinements */
-type ArrayRefinements = {
+interface ArrayRefinements {
   /** Custom refinement function that takes the object data and context */
   custom?: (data: unknown[], ctx: VetoRefinementCtx) => void;
   /** Ensures array elements are unique based on specified criteria or comparison function */
   unique?: MakeElementsUniqueOptions;
-};
+}
 
 type RefineArrayInputArray =
   | ReturnType<VArray>

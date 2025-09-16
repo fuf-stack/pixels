@@ -1,4 +1,4 @@
-/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable import-x/no-extraneous-dependencies */
 
 // INFO: react-json-view is bundled with --dts-resolve for now (dev dep)
 import JsonView from '@uiw/react-json-view';
@@ -13,11 +13,13 @@ import JsonView from '@uiw/react-json-view';
 const NullRenderer = () => {
   return (
     <JsonView.Null
-      render={() => (
-        <span className="bg-warning-100 text-warning-700 rounded px-1 text-xs">
-          null
-        </span>
-      )}
+      render={() => {
+        return (
+          <span className="bg-warning-100 text-warning-700 rounded px-1 text-xs">
+            null
+          </span>
+        );
+      }}
     />
   );
 };

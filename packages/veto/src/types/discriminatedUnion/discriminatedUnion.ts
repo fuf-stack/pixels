@@ -3,7 +3,6 @@ import type { ZodDiscriminatedUnionOption } from 'zod';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { z } from 'zod';
 
-// eslint-disable-next-line prefer-destructuring
 export const discriminatedUnion: <
   Discriminator extends string,
   Types extends [

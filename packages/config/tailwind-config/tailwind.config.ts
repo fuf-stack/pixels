@@ -1,5 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
-
 import type { Config } from 'tailwindcss';
 
 import content from './content';

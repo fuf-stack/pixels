@@ -1,6 +1,6 @@
 import type { Config } from 'tailwindcss';
 
-import path from 'path';
+import path from 'node:path';
 
 /**
  * heroui used components
@@ -36,12 +36,12 @@ const HEROUI_THEME_USED_COMPONENT_PATHS = [
   'toggle', // switch is toggle for some reason...
   'tooltip',
   // theme is not required
-].map((c) =>
-  path.resolve(
+].map((c) => {
+  return path.resolve(
     __dirname,
     `./node_modules/@heroui/theme/dist/components/${c}.js`,
-  ),
-);
+  );
+});
 
 // see: https://tailwindcss.com/docs/theme
 const content: Config['content'] = [

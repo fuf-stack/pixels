@@ -35,8 +35,9 @@ const OBJECT_LIKE_TYPES = [
 type ObjectLikeType = (typeof OBJECT_LIKE_TYPES)[number];
 
 /** Type guard to check if a schema type is object-like */
-const isObjectLikeType = (type?: string): type is ObjectLikeType =>
-  OBJECT_LIKE_TYPES.includes(type as ObjectLikeType);
+const isObjectLikeType = (type?: string): type is ObjectLikeType => {
+  return OBJECT_LIKE_TYPES.includes(type as ObjectLikeType);
+};
 
 /**
  * Checks if a given schema path corresponds to an object-like error structure
@@ -106,7 +107,9 @@ const formatError = (
   // see: https://zod.dev/ERROR_HANDLING?id=formatting-errors
   const errorFormattedZod = error.format(
     // rename error path to _errorPath in issue
-    ({ path: _errorPath, ...issue }) => ({ _errorPath, ...issue }),
+    ({ path: _errorPath, ...issue }) => {
+      return { _errorPath, ...issue };
+    },
   );
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -123,7 +126,9 @@ const formatError = (
       return value;
     }
 
-    const nonErrorKeys = Object.keys(value).filter((k) => k !== '_errors');
+    const nonErrorKeys = Object.keys(value).filter((k) => {
+      return k !== '_errors';
+    });
     const hasOtherValues = nonErrorKeys.length > 0;
 
     // remove empty _errors
@@ -223,7 +228,9 @@ export const veto = <T extends VetoSchema>(
     checkSchemaPath: (
       checkFn: CheckSerializedSchemaPathCheckFunction,
       path?: string[],
-    ) => checkSerializedSchemaPath(vSchema as VetoTypeAny, checkFn, path),
+    ) => {
+      return checkSerializedSchemaPath(vSchema, checkFn, path);
+    },
     validate,
     validateAsync,
   };
