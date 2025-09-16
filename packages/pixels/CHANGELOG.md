@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.2.2](https://github.com/fuf-stack/pixels/compare/pixels-v1.2.1...pixels-v1.2.2) (2025-09-16)
+
+
+### Bug Fixes
+
+* **pixels:** fix Botton color prop types is missing info ([fb7ed00](https://github.com/fuf-stack/pixels/commit/fb7ed00930872d061fb7e5c71386fed3bcbc5c65))
+* **pixels:** fix Button extend by using same tailwind-merge and tailwind-variants version of theme ([8fb3a2b](https://github.com/fuf-stack/pixels/commit/8fb3a2ba0b69b00e28d4267113f48c80d299189d))
+* **pixels:** try to make Button portable and extendable ([8f3bf4c](https://github.com/fuf-stack/pixels/commit/8f3bf4c05c3bdc209004801555f7a2ec7016f8f7))
+* reformat most components with latest eslint-config-fuf ([e686859](https://github.com/fuf-stack/pixels/commit/e686859e3755068ddbd586d67ac150b957b04ac3))
+
 ## [1.2.1](https://github.com/fuf-stack/pixels/compare/pixels-v1.2.0...pixels-v1.2.1) (2025-09-15)
 
 
