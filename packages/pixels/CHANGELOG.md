@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.3](https://github.com/fuf-stack/pixels/compare/pixels-v1.2.2...pixels-v1.2.3) (2025-09-16)
+
+
+### Bug Fixes
+
+* **pixels:** fix Menu simple trigger button className slot ([778c974](https://github.com/fuf-stack/pixels/commit/778c974a63a399e24c03e64253f5d8b79736a040))
+
 ## [1.2.2](https://github.com/fuf-stack/pixels/compare/pixels-v1.2.1...pixels-v1.2.2) (2025-09-16)
 
 
