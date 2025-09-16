@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.0.4](https://github.com/fuf-stack/pixels/compare/pixel-utils-v1.0.3...pixel-utils-v1.0.4) (2025-09-16)
+
+
+### Bug Fixes
+
+* **deps:** update dependency tailwind-variants to v3.1.0 ([#1139](https://github.com/fuf-stack/pixels/issues/1139)) ([f913987](https://github.com/fuf-stack/pixels/commit/f9139872b161d2adee88e428985952f614a0cb94))
+* **deps:** update dependency tailwind-variants to v3.1.1 ([#1160](https://github.com/fuf-stack/pixels/issues/1160)) ([ebb996c](https://github.com/fuf-stack/pixels/commit/ebb996c589c435fc209c0d14e840f910e39d2c39))
+* **pixels:** fix Button extend by using same tailwind-merge and tailwind-variants version of theme ([8fb3a2b](https://github.com/fuf-stack/pixels/commit/8fb3a2ba0b69b00e28d4267113f48c80d299189d))
+
 ## [1.0.4](https://github.com/fuf-stack/pixels/compare/pixel-utils-v1.0.3...pixel-utils-v1.0.4) (2025-09-09)
 
 
