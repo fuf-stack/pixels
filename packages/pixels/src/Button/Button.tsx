@@ -1,3 +1,4 @@
+import type { TVProps } from '@fuf-stack/pixel-utils';
 import type { ButtonProps as HeroButtonProps } from '@heroui/button';
 import type { ReactNode } from 'react';
 
@@ -8,11 +9,7 @@ import { tv } from '@fuf-stack/pixel-utils';
 
 import LoadingSpinner from './subcomponents/LoadingSpinner';
 
-const tvConfig = <T extends Parameters<typeof tv>[0]>(c: T) => {
-  return c;
-};
-
-const buttonVariantsConfig = tvConfig({
+export const buttonVariants = tv({
   extend: heroButtonVariants,
   variants: {
     color: {
@@ -85,9 +82,9 @@ const buttonVariantsConfig = tvConfig({
   ],
 });
 
-export const buttonVariants: ReturnType<typeof tv> = tv(buttonVariantsConfig);
+type VariantProps = TVProps<typeof buttonVariants>;
 
-export interface ButtonProps {
+export interface ButtonProps extends VariantProps {
   /** sets HTML aria-label attribute */
   ariaLabel?: string;
   /** content of the button */
@@ -95,7 +92,7 @@ export interface ButtonProps {
   /** CSS class name */
   className?: string;
   /** color of the button */
-  color?: HeroButtonProps['color'] | 'info';
+  color?: VariantProps['color'];
   /** disables the button */
   disabled?: boolean;
   /** disables all animations */
@@ -107,17 +104,17 @@ export interface ButtonProps {
   /** click event handler */
   onClick?: HeroButtonProps['onPress'];
   /** border radius size */
-  radius?: HeroButtonProps['radius'];
+  radius?: VariantProps['radius'];
   /** enable ripple animation effect on click */
   ripple?: boolean;
   /** size options */
-  size?: HeroButtonProps['size'];
+  size?: VariantProps['size'];
   /** HTML data-testid attribute used in e2e tests */
   testId?: string;
   /** HTML button type attribute */
   type?: 'button' | 'submit' | 'reset' | undefined;
   /** visual style variant */
-  variant?: HeroButtonProps['variant'];
+  variant?: VariantProps['variant'];
 }
 
 /**

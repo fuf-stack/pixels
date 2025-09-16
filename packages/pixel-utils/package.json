@@ -40,12 +40,14 @@
     "build": "tsup --config node_modules/@repo/tsup-config/config.ts",
     "prepack": "pnpm build"
   },
+  "peerDependencies": {
+    "tailwind-merge": "*",
+    "tailwind-variants": "*"
+  },
   "dependencies": {
     "@heroui/theme": "2.4.20",
     "classnames": "2.5.1",
-    "slug": "9.1.0",
-    "tailwind-merge": "3.3.1",
-    "tailwind-variants": "3.1.1"
+    "slug": "9.1.0"
   },
   "devDependencies": {
     "@types/slug": "5.0.9"
