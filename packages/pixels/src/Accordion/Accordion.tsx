@@ -130,15 +130,16 @@ const Accordion = ({
       showDivider={false}
       variant={variant}
     >
-      {accordionItems.map((item, index) => (
-        <HeroAccordionItem
-          // eslint-disable-next-line react/no-array-index-key
-          key={index}
-          isDisabled={disabled || item?.disabled}
-          // eslint-disable-next-line react/jsx-props-no-spreading
-          {...item}
-        />
-      ))}
+      {accordionItems.map((item, index) => {
+        return (
+          <HeroAccordionItem
+            // eslint-disable-next-line react/no-array-index-key
+            key={index}
+            isDisabled={disabled || item?.disabled}
+            {...item}
+          />
+        );
+      })}
     </HeroAccordion>
   );
 };

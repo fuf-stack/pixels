@@ -6,8 +6,7 @@ import { action } from 'storybook/actions';
 import { expect, userEvent, waitFor, within } from 'storybook/test';
 
 import { SubmitButton } from '@fuf-stack/uniform';
-import { veto } from '@fuf-stack/veto';
-import * as vt from '@fuf-stack/veto';
+import { number, string, veto } from '@fuf-stack/veto';
 
 import { Form } from '../Form';
 import Input from './Input';
@@ -16,18 +15,20 @@ const meta: Meta<typeof Input> = {
   title: 'uniform/Input',
   component: Input,
   decorators: [
-    (Story, { parameters }) => (
-      <Form
-        className="min-w-60"
-        onSubmit={action('onSubmit')}
-        {...(parameters?.formProps || {})}
-      >
-        <Story />
-        <div className="mt-4 flex justify-end">
-          <SubmitButton />
-        </div>
-      </Form>
-    ),
+    (Story, { parameters }) => {
+      return (
+        <Form
+          className="min-w-60"
+          onSubmit={action('onSubmit')}
+          {...(parameters?.formProps || {})}
+        >
+          <Story />
+          <div className="mt-4 flex justify-end">
+            <SubmitButton />
+          </div>
+        </Form>
+      );
+    },
   ],
 };
 
@@ -64,7 +65,7 @@ export const Required: Story = {
   parameters: {
     formProps: {
       validation: veto({
-        inputField: vt.string({ min: 1 }),
+        inputField: string({ min: 1 }),
       }),
     },
   },
@@ -86,8 +87,7 @@ export const Invalid: Story = {
   parameters: {
     formProps: {
       validation: veto({
-        inputField: vt
-          .string()
+        inputField: string()
           .regex(
             /^[a-z0-9\s]+$/i,
             'Must only contain alphanumeric characters and spaces.',
@@ -138,7 +138,7 @@ export const Number: Story = {
   parameters: {
     formProps: {
       validation: veto({
-        numberField: vt.number(),
+        numberField: number(),
       }),
     },
   },
@@ -166,7 +166,7 @@ export const Password: Story = {
   parameters: {
     formProps: {
       validation: veto({
-        passwordField: vt.string({ min: 20 }),
+        passwordField: string({ min: 20 }),
       }),
     },
   },
@@ -214,17 +214,20 @@ export const WithValueTransform: Story = {
   },
 };
 
-const renderAllSizes = () =>
-  ['sm', 'md', 'lg'].map((size) => (
-    <Input
-      key={size}
-      className="mt-4"
-      name={size}
-      placeholder={size}
-      // @ts-expect-error this is ok
-      size={size}
-    />
-  ));
+const renderAllSizes = () => {
+  return ['sm', 'md', 'lg'].map((size) => {
+    return (
+      <Input
+        key={size}
+        className="mt-4"
+        name={size}
+        placeholder={size}
+        // @ts-expect-error this is ok
+        size={size}
+      />
+    );
+  });
+};
 
 export const AllSizes: Story = {
   // @ts-expect-error this is ok
@@ -237,7 +240,7 @@ export const ValidationAfterClear: Story = {
   parameters: {
     formProps: {
       validation: veto({
-        inputField: vt.string(),
+        inputField: string(),
       }),
     },
   },

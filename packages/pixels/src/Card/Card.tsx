@@ -66,32 +66,36 @@ const Card = forwardRef<HTMLDivElement, CardProps>(
 
     return (
       <HeroCard
-        classNames={classNames}
-        data-testid={testId && `card_${testId}`}
-        fullWidth
-        radius="sm"
         ref={ref}
+        fullWidth
+        classNames={classNames}
+        data-testid={testId ? `card_${testId}` : null}
+        radius="sm"
         shadow="none"
       >
-        {header && (
+        {header ? (
           <>
-            <HeroCardHeader data-testid={testId && `card_header_${testId}`}>
+            <HeroCardHeader
+              data-testid={testId ? `card_header_${testId}` : null}
+            >
               {header}
             </HeroCardHeader>
             {divider}
           </>
-        )}
-        <HeroCardBody data-testid={testId && `card_body_${testId}`}>
+        ) : null}
+        <HeroCardBody data-testid={testId ? `card_body_${testId}` : null}>
           {children}
         </HeroCardBody>
-        {footer && (
+        {footer ? (
           <>
             {divider}
-            <HeroCardFooter data-testid={testId && `card_footer_${testId}`}>
+            <HeroCardFooter
+              data-testid={testId ? `card_footer_${testId}` : null}
+            >
               {footer}
             </HeroCardFooter>
           </>
-        )}
+        ) : null}
       </HeroCard>
     );
   },

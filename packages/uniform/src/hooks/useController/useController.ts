@@ -14,7 +14,7 @@ import { fromNullishString, toNullishString } from '../../helpers';
 export type UseControllerProps<TFieldValues extends object = object> =
   RHFUseControllerProps<TFieldValues>;
 
-export type UseControllerReturn<TFieldValues extends object = object> = {
+export interface UseControllerReturn<TFieldValues extends object = object> {
   field: Omit<ControllerRenderProps<TFieldValues>, 'onChange' | 'value'> & {
     // Using any[] to support both direct value changes and React synthetic events
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -23,7 +23,7 @@ export type UseControllerReturn<TFieldValues extends object = object> = {
   };
   formState: UseFormStateReturn<TFieldValues>;
   fieldState: ControllerFieldState;
-};
+}
 
 /**
  * A wrapper around react-hook-form's useController that transparently handles nullish string conversions.

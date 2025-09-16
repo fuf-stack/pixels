@@ -88,10 +88,11 @@ const Switch = ({
   return (
     <div className={classNames.outerWrapper}>
       <HeroSwitch
-        aria-describedby={getInputProps()['aria-describedby']}
+        ref={ref}
         classNames={classNames}
         // see HeroUI styles for group-data condition (data-invalid),
         // e.g.: https://github.com/heroui-inc/heroui/blob/main/packages/components/select/src/use-select.ts
+        aria-describedby={getInputProps()['aria-describedby']}
         data-invalid={invalid}
         data-required={required}
         data-testid={testId}
@@ -101,7 +102,6 @@ const Switch = ({
         name={name}
         onBlur={onBlur}
         onValueChange={onChange}
-        ref={ref}
         required={required}
         size={size}
         startContent={startContent}
@@ -109,18 +109,17 @@ const Switch = ({
         value={value}
       >
         {label}
-        {showTestIdCopyButton && <FieldCopyTestIdButton testId={testId} />}
+        {showTestIdCopyButton ? (
+          <FieldCopyTestIdButton testId={testId} />
+        ) : null}
       </HeroSwitch>
-      {error && (
+      {error ? (
         <div className={classNames.errorMessage}>
-          <div
-            /* eslint-disable-next-line react/jsx-props-no-spreading */
-            {...getErrorMessageProps()}
-          >
+          <div {...getErrorMessageProps()}>
             <FieldValidationError error={error} testId={testId} />
           </div>
         </div>
-      )}
+      ) : null}
     </div>
   );
 };

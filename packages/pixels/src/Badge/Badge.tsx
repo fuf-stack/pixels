@@ -1,5 +1,6 @@
 import type { TVClassName, TVProps } from '@fuf-stack/pixel-utils';
 import type { BadgeProps as HeroBadgeProps } from '@heroui/badge';
+import type { ReactNode } from 'react';
 
 import { Badge as HeroBadge } from '@heroui/badge';
 
@@ -47,7 +48,7 @@ const Avatar = ({
   noOutline = false,
   placement = 'top-right',
   size = 'md',
-}: BadgeProps) => {
+}: BadgeProps): ReactNode => {
   if (content === undefined) {
     return children;
   }

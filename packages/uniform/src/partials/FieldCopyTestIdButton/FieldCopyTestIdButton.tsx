@@ -23,10 +23,10 @@ const FieldCopyTestIdButton = ({
   return (
     <Button
       className={cn(className, 'pointer-events-auto')}
-      variant="light"
-      onClick={copyToClipboard}
       icon={<FaBullseye />}
+      onClick={copyToClipboard}
       size="sm"
+      variant="light"
     />
   );
 };

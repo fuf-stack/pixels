@@ -75,55 +75,71 @@ export const DisabledAnimation: Story = {
 };
 
 export const AllColors: Story = {
-  render: () => (
-    <>
-      {colors.map((color) => (
-        <div key={color} style={{ marginTop: '10px' }}>
-          <Button color={color as ButtonProps['color']}>{color}</Button>
-        </div>
-      ))}
-    </>
-  ),
+  render: () => {
+    return (
+      <>
+        {colors.map((color) => {
+          return (
+            <div key={color} style={{ marginTop: '10px' }}>
+              <Button color={color as ButtonProps['color']}>{color}</Button>
+            </div>
+          );
+        })}
+      </>
+    );
+  },
 };
 
 export const AllRadius: Story = {
-  render: (args) => (
-    <>
-      {['sm', 'md', 'lg', 'none', 'full'].map((radius) => (
-        <div key={radius} style={{ marginTop: '10px' }}>
-          <Button radius={radius as ButtonProps['radius']} {...args}>
-            {radius}
-          </Button>
-        </div>
-      ))}
-    </>
-  ),
+  render: (args) => {
+    return (
+      <>
+        {['sm', 'md', 'lg', 'none', 'full'].map((radius) => {
+          return (
+            <div key={radius} style={{ marginTop: '10px' }}>
+              <Button radius={radius as ButtonProps['radius']} {...args}>
+                {radius}
+              </Button>
+            </div>
+          );
+        })}
+      </>
+    );
+  },
 };
 
 export const AllSizes: Story = {
-  render: (args) => (
-    <>
-      {sizes.map((size) => (
-        <div key={size} style={{ marginTop: '10px' }}>
-          <Button size={size as ButtonProps['size']} {...args}>
-            {size}
-          </Button>
-        </div>
-      ))}
-    </>
-  ),
+  render: (args) => {
+    return (
+      <>
+        {sizes.map((size) => {
+          return (
+            <div key={size} style={{ marginTop: '10px' }}>
+              <Button size={size as ButtonProps['size']} {...args}>
+                {size}
+              </Button>
+            </div>
+          );
+        })}
+      </>
+    );
+  },
 };
 
 export const AllVariants: Story = {
-  render: (args) => (
-    <>
-      {variants.map((variant) => (
-        <div key={variant} style={{ marginTop: '10px' }}>
-          <Button variant={variant as ButtonProps['variant']} {...args}>
-            {variant}
-          </Button>
-        </div>
-      ))}
-    </>
-  ),
+  render: (args) => {
+    return (
+      <>
+        {variants.map((variant) => {
+          return (
+            <div key={variant} style={{ marginTop: '10px' }}>
+              <Button variant={variant as ButtonProps['variant']} {...args}>
+                {variant}
+              </Button>
+            </div>
+          );
+        })}
+      </>
+    );
+  },
 };

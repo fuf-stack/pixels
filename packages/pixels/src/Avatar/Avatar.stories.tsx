@@ -58,58 +58,70 @@ export const Inline: Story = {
     src: avatar,
     className: 'inline-block',
   },
-  render: (args: AvatarProps) => (
-    <p>
-      I am &quot;
-      <Avatar {...args} />
-      &quot; inline
-    </p>
-  ),
+  render: (args: AvatarProps) => {
+    return (
+      <p>
+        I am &quot;
+        <Avatar {...args} />
+        &quot; inline
+      </p>
+    );
+  },
 };
 
 export const AllSizes: Story = {
   args: {
     src: avatar,
   },
-  render: (args: AvatarProps) => (
-    <div className="flex space-x-4">
-      {['sm', 'md', 'lg'].map((size) => (
-        <Avatar key={size} {...args} size={size as AvatarProps['size']} />
-      ))}
-    </div>
-  ),
+  render: (args: AvatarProps) => {
+    return (
+      <div className="flex space-x-4">
+        {['sm', 'md', 'lg'].map((size) => {
+          return (
+            <Avatar key={size} {...args} size={size as AvatarProps['size']} />
+          );
+        })}
+      </div>
+    );
+  },
 };
 
 export const CustomSizes: Story = {
   args: {
     src: avatar,
   },
-  render: (args: AvatarProps) => (
-    <div className="flex space-x-4">
-      <Avatar {...args} className="h-8 w-8" />
-      <Avatar {...args} className="h-12 w-12" />
-      <Avatar {...args} className="h-16 w-16" />
-      <Avatar {...args} className="h-20 w-20" />
-      <Avatar {...args} className="h-24 w-24" />
-    </div>
-  ),
+  render: (args: AvatarProps) => {
+    return (
+      <div className="flex space-x-4">
+        <Avatar {...args} className="h-8 w-8" />
+        <Avatar {...args} className="h-12 w-12" />
+        <Avatar {...args} className="h-16 w-16" />
+        <Avatar {...args} className="h-20 w-20" />
+        <Avatar {...args} className="h-24 w-24" />
+      </div>
+    );
+  },
 };
 
 export const AllBorderRadii: Story = {
   args: {
     src: undefined,
   },
-  render: (args: AvatarProps) => (
-    <div className="flex space-x-4">
-      {['none', 'sm', 'md', 'lg', 'full'].map((rounded) => (
-        <Avatar
-          key={rounded}
-          {...args}
-          rounded={rounded as AvatarProps['rounded']}
-        />
-      ))}
-    </div>
-  ),
+  render: (args: AvatarProps) => {
+    return (
+      <div className="flex space-x-4">
+        {['none', 'sm', 'md', 'lg', 'full'].map((rounded) => {
+          return (
+            <Avatar
+              key={rounded}
+              {...args}
+              rounded={rounded as AvatarProps['rounded']}
+            />
+          );
+        })}
+      </div>
+    );
+  },
 };
 
 export const WithMenu: Story = {
@@ -117,21 +129,23 @@ export const WithMenu: Story = {
     bordered: true,
     src: avatar,
   },
-  render: (args: AvatarProps) => (
-    <Menu
-      className="h-10 rounded-full"
-      items={[
-        {
-          key: 'edit-profile',
-          label: 'Edit Profile',
-        },
-        {
-          key: 'logout',
-          label: 'Logout',
-        },
-      ]}
-    >
-      <Avatar {...args} />
-    </Menu>
-  ),
+  render: (args: AvatarProps) => {
+    return (
+      <Menu
+        className="h-10 rounded-full"
+        items={[
+          {
+            key: 'edit-profile',
+            label: 'Edit Profile',
+          },
+          {
+            key: 'logout',
+            label: 'Logout',
+          },
+        ]}
+      >
+        <Avatar {...args} />
+      </Menu>
+    );
+  },
 };

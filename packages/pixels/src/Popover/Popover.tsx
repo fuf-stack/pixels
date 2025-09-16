@@ -4,7 +4,11 @@ import type { PopoverProps as HeroPopoverProps } from '@heroui/popover';
 import type { ReactNode } from 'react';
 
 import { Button } from '@heroui/button';
-import { Popover, PopoverContent, PopoverTrigger } from '@heroui/popover';
+import {
+  Popover as HeroPopover,
+  PopoverContent as HeroPopoverContent,
+  PopoverTrigger as HeroPopoverTrigger,
+} from '@heroui/popover';
 
 import { tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 
@@ -66,7 +70,7 @@ export interface PopoverProps extends VariantProps {
 /**
  * Popover component based on [HeroUI Card](https://www.heroui.com//docs/components/popover)
  */
-export default ({
+const Popover = ({
   children = null,
   className: _className = undefined,
   content,
@@ -85,24 +89,23 @@ export default ({
   const className = variantsToClassNames(variants, _className, 'trigger');
 
   return (
-    <Popover
+    <HeroPopover
+      showArrow
       classNames={className}
       placement={placement}
       portalContainer={portalContainer}
       radius="sm"
       shouldBlockScroll={shouldBlockScroll}
-      showArrow
-      // eslint-disable-next-line react/jsx-props-no-spreading
       {...(openControlled
         ? { isOpen: openControlled.open, onOpenChange: openControlled.setOpen }
         : {})}
     >
-      <PopoverTrigger data-testid={testId}>
-        {/* NOTE: type and aria properties are injected by PopoverTrigger */}
+      <HeroPopoverTrigger data-testid={testId}>
+        {/* NOTE: type and aria properties are injected by HeroPopoverTrigger */}
         {triggerButtonProps ? (
           // TODO: currently we have to use @heroui/button because
           // passing ref does not work (even with forwardRef in Button)
-          // eslint-disable-next-line react/jsx-props-no-spreading
+
           <Button className={className.trigger} {...triggerButtonProps}>
             {children}
           </Button>
@@ -110,22 +113,24 @@ export default ({
           //  eslint-disable-next-line react/button-has-type
           <button className={className.trigger}>{children}</button>
         )}
-      </PopoverTrigger>
-      <PopoverContent data-testid={contentTestId}>
-        {header && (
+      </HeroPopoverTrigger>
+      <HeroPopoverContent data-testid={contentTestId}>
+        {header ? (
           <div className={className.headerWrapper}>
             <div className={className.header}>{header}</div>
             <hr className={className.divider} />
           </div>
-        )}
+        ) : null}
         <ScrollShadow className={className.body}>{content}</ScrollShadow>
-        {footer && (
+        {footer ? (
           <div className={className.footerWrapper}>
             <hr className={className.divider} />
             <div className={className.footer}>{footer}</div>
           </div>
-        )}
-      </PopoverContent>
-    </Popover>
+        ) : null}
+      </HeroPopoverContent>
+    </HeroPopover>
   );
 };
+
+export default Popover;

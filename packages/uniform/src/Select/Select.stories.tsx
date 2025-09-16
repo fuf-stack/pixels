@@ -6,8 +6,7 @@ import { action } from 'storybook/actions';
 import { expect, userEvent, within } from 'storybook/test';
 
 import { Button, Card, Modal } from '@fuf-stack/pixels';
-import { veto } from '@fuf-stack/veto';
-import * as vt from '@fuf-stack/veto';
+import { string, veto } from '@fuf-stack/veto';
 
 import { Form } from '../Form';
 import { SubmitButton } from '../SubmitButton';
@@ -17,18 +16,20 @@ const meta: Meta<typeof Select> = {
   title: 'uniform/Select',
   component: Select,
   decorators: [
-    (Story, { parameters }) => (
-      <Form
-        onSubmit={action('onSubmit')}
-        className="min-w-60"
-        {...(parameters?.formProps || {})}
-      >
-        <Story />
-        <div className="mt-4 flex justify-end">
-          <SubmitButton />
-        </div>
-      </Form>
-    ),
+    (Story, { parameters }) => {
+      return (
+        <Form
+          className="min-w-60"
+          onSubmit={action('onSubmit')}
+          {...(parameters?.formProps || {})}
+        >
+          <Story />
+          <div className="mt-4 flex justify-end">
+            <SubmitButton />
+          </div>
+        </Form>
+      );
+    },
   ],
 };
 
@@ -96,7 +97,7 @@ export const InitialValue: Story = {
 };
 
 const requiredValidation = veto({
-  selectField: vt.string(),
+  selectField: string(),
 });
 
 export const Required: Story = {
@@ -107,9 +108,10 @@ export const Required: Story = {
 };
 
 const validation = veto({
-  selectField: vt
-    .string()
-    .refine((value) => value !== 'vanilla', 'Please select another option')
+  selectField: string()
+    .refine((value) => {
+      return value !== 'vanilla';
+    }, 'Please select another option')
     .nullable()
     .optional(),
 });
@@ -189,13 +191,20 @@ export const MenuIsVisibleInModal: Story = {
     const [open, setOpen] = useState(false);
     return (
       <>
-        <Button onClick={() => setOpen(true)} testId="open_modal">
+        <Button
+          testId="open_modal"
+          onClick={() => {
+            setOpen(true);
+          }}
+        >
           Open Modal
         </Button>
         <Modal
           header="Select in a Modal"
           isOpen={open}
-          onClose={() => setOpen(false)}
+          onClose={() => {
+            setOpen(false);
+          }}
         >
           <Select {...renderArgs} />
         </Modal>

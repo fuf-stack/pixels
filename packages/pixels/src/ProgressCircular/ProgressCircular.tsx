@@ -98,7 +98,9 @@ export interface ProgressCircularProps extends VariantProps {
 }
 
 /** formats percent with percent sign */
-const defaultFormat = (percent = 0) => `${percent}%`;
+const defaultFormat = (percent = 0) => {
+  return `${percent}%`;
+};
 
 /**
  * ProgressCircular component based on [HeroUI CircularProgress](https://www.heroui.com/docs/components/circular-progress)
@@ -167,11 +169,11 @@ const ProgressCircular = ({
 
   return (
     <HeroCircularProgress
+      showValueLabel
       aria-label={ariaLabel}
       classNames={classNames}
       color={heroUiColor}
       disableAnimation={isInitialRenderCycle || disableAnimation}
-      showValueLabel
       strokeWidth={strokeWidth}
       // INFO: we do NOT use spinner animation when no percent provided
       value={percent || 0}

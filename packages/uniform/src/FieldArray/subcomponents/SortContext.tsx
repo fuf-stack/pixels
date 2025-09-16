@@ -1,5 +1,3 @@
-/* eslint-disable react/jsx-props-no-spreading */
-
 import type { DragEndEvent } from '@dnd-kit/core';
 import type { ReactNode } from 'react';
 import type { UseFieldArrayMove } from 'react-hook-form';
@@ -45,7 +43,7 @@ const SortContext = ({
   sortable,
   fields,
   move,
-}: SortContextProps) => {
+}: SortContextProps): ReactNode => {
   // Initialize sensors for both pointer (mouse/touch) and keyboard interactions
   const sensors = useSensors(
     useSensor(PointerSensor),
@@ -67,8 +65,12 @@ const SortContext = ({
     // Only move if dropping over a different item
     if (active.id !== over?.id) {
       // Find the indices of the dragged item and drop target
-      const oldIndex = fields.findIndex((field) => field.id === active.id);
-      const newIndex = fields.findIndex((field) => field.id === over?.id);
+      const oldIndex = fields.findIndex((field) => {
+        return field.id === active.id;
+      });
+      const newIndex = fields.findIndex((field) => {
+        return field.id === over?.id;
+      });
       // Update the field array order using react-hook-form's move function
       move(oldIndex, newIndex);
     }
@@ -82,8 +84,10 @@ const SortContext = ({
       sensors={sensors}
     >
       <SortableContext
-        items={fields.map((field) => field.id)}
         strategy={verticalListSortingStrategy}
+        items={fields.map((field) => {
+          return field.id;
+        })}
       >
         {children}
       </SortableContext>

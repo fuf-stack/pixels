@@ -22,13 +22,15 @@ const meta: Meta<typeof Form> = {
   component: Form,
   argTypes: { onSubmit: { action: 'onSubmit' } },
   decorators: [
-    (Story) => (
-      <div className="h-full w-full p-5">
-        <div className="mx-auto xl:w-1/2">
-          <Story />
+    (Story) => {
+      return (
+        <div className="h-full w-full p-5">
+          <div className="mx-auto xl:w-1/2">
+            <Story />
+          </div>
         </div>
-      </div>
-    ),
+      );
+    },
   ],
   parameters: {
     layout: 'fullscreen',
@@ -92,23 +94,23 @@ export const AllFieldRenderers: Story = {
       >
         <Grid className="md:grid-cols-2">
           <Input
-            name="stringField"
             label="String Field"
+            name="stringField"
             placeholder="String Field..."
           />
-          <Input name="numberField" label="Number Field" type="number" />
+          <Input label="Number Field" name="numberField" type="number" />
           <Select
             label="Select Field"
             name="selectField"
             options={selectOptions}
           />
-          <Input name="passwordField" label="Password Field" type="password" />
+          <Input label="Password Field" name="passwordField" type="password" />
           <TextArea
             className="md:col-span-2"
             label="Text Area"
             name="textAreaField"
           />
-          <Switch name="switchField" label="Switch Field" />
+          <Switch label="Switch Field" name="switchField" />
           <CheckboxGroup
             label="Checkbox Field"
             name="checkboxField"
@@ -141,8 +143,8 @@ export const DebugModeDisabled: Story = {
         footer={<SubmitButton />}
       >
         <Input
-          name="stringField"
           label="String Field"
+          name="stringField"
           placeholder="String Field..."
         />
       </Card>
@@ -157,18 +159,25 @@ export const FormFieldsInModal: Story = {
     const [isOpen, setIsOpen] = useState(false);
     return (
       <div className="fixed inset-0 flex items-center justify-center bg-black/50">
-        <Button onClick={() => setIsOpen(true)} testId="modal_trigger">
+        <Button
+          testId="modal_trigger"
+          onClick={() => {
+            setIsOpen(true);
+          }}
+        >
           Open Modal
         </Button>
         <Form {...args}>
           <Modal
             footer={<SubmitButton />}
             isOpen={isOpen}
-            onClose={() => setIsOpen(false)}
+            onClose={() => {
+              setIsOpen(false);
+            }}
           >
             <Input
-              name="stringField"
               label="String Field"
+              name="stringField"
               placeholder="String Field..."
             />
           </Modal>

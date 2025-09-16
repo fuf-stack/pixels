@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable import-x/no-extraneous-dependencies */
 
 // see: https://storybook.js.org/docs/writing-tests/snapshot-testing#execute-tests-on-multiple-stories
 
@@ -28,7 +27,7 @@ const compose = (
   }
 };
 
-export default <TProps extends Record<string, any>>(
+const storySnapshots = <TProps extends Record<string, any>>(
   storyFile: StoryFile<TProps>,
 ) => {
   const stories = Object.entries(compose(storyFile)).map(([name, story]) => {
@@ -48,11 +47,12 @@ export default <TProps extends Record<string, any>>(
     test(name, async () => {
       await story.run();
       // Ensures a consistent snapshot by waiting for the component to render by adding a delay of 1 ms before taking the snapshot.
-
       await new Promise((resolve) => {
-        return setTimeout(resolve, 1);
+        setTimeout(resolve, 1);
       });
       expect(document.body?.firstChild).toMatchSnapshot();
     });
   });
 };
+
+export default storySnapshots;

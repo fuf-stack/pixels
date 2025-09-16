@@ -53,61 +53,73 @@ export const AllVariants: Story = {
   args: {
     breadcrumbItems,
   },
-  render: (args) => (
-    <>
-      {['solid', 'bordered', 'light'].map((variant) => (
-        <div key={variant}>
-          <span className="mb-2">{variant}:</span>
-          <Breadcrumb
-            {...args}
-            key={variant}
-            className="mb-12"
-            variant={variant as BreadcrumbProps['variant']}
-          />
-        </div>
-      ))}
-    </>
-  ),
+  render: (args) => {
+    return (
+      <>
+        {['solid', 'bordered', 'light'].map((variant) => {
+          return (
+            <div key={variant}>
+              <span className="mb-2">{variant}:</span>
+              <Breadcrumb
+                {...args}
+                key={variant}
+                className="mb-12"
+                variant={variant as BreadcrumbProps['variant']}
+              />
+            </div>
+          );
+        })}
+      </>
+    );
+  },
 };
 
 export const AllSizes: Story = {
   args: {
     breadcrumbItems,
   },
-  render: (args) => (
-    <>
-      {['sm', 'md', 'lg'].map((size) => (
-        <div key={size}>
-          <span className="mb-2">{size}:</span>
-          <Breadcrumb
-            {...args}
-            key={size}
-            className="mb-12"
-            size={size as BreadcrumbProps['size']}
-          />
-        </div>
-      ))}
-    </>
-  ),
+  render: (args) => {
+    return (
+      <>
+        {['sm', 'md', 'lg'].map((size) => {
+          return (
+            <div key={size}>
+              <span className="mb-2">{size}</span>
+              <Breadcrumb
+                {...args}
+                key={size}
+                className="mb-12"
+                size={size as BreadcrumbProps['size']}
+              />
+            </div>
+          );
+        })}
+      </>
+    );
+  },
 };
 
 export const AllUnderlines: Story = {
   args: {
     breadcrumbItems,
   },
-  render: (args) => (
-    <>
-      {['none', 'active', 'hover', 'focus', 'always'].map((underline) => (
-        <div key={underline}>
-          <span className="mb-2">{underline}:</span>
-          <Breadcrumb
-            {...args}
-            key={underline}
-            className="mb-12"
-            underline={underline as BreadcrumbProps['underline']}
-          />
-        </div>
-      ))}
-    </>
-  ),
+  render: (args) => {
+    return (
+      <>
+        {['none', 'active', 'hover', 'focus', 'always'].map((underline) => {
+          return (
+            <div key={underline}>
+              <span className="mb-2">{underline}</span>
+              <Breadcrumb
+                {...args}
+                key={underline}
+                className="mb-12"
+                underline={underline as BreadcrumbProps['underline']}
+              />
+            </div>
+          );
+        })}
+      </>
+    );
+  },
 };

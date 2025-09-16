@@ -16,12 +16,12 @@ import { useExtendedValidation, useFormResolver } from './FormResolver';
 
 type DebugMode = 'debug' | 'debug-testids' | 'off' | 'disabled';
 
-export type DebugModeSettings = {
+export interface DebugModeSettings {
   /** disable form debug completely */
   disable?: boolean;
   /** custom localStorage key to save debug mode state */
   localStorageKey?: string;
-};
+}
 
 const DEBUG_MODE_LOCAL_STORAGE_KEY_DEFAULT = 'uniform:debug-mode';
 
@@ -65,11 +65,19 @@ export const UniformContext = React.createContext<{
   };
 }>({
   debugMode: 'off',
-  preventSubmit: () => undefined,
-  setDebugMode: () => undefined,
-  triggerSubmit: () => undefined,
+  preventSubmit: () => {
+    return undefined;
+  },
+  setDebugMode: () => {
+    return undefined;
+  },
+  triggerSubmit: () => {
+    return undefined;
+  },
   validation: {
-    setClientValidationSchema: () => undefined,
+    setClientValidationSchema: () => {
+      return undefined;
+    },
   },
 });
 
@@ -161,22 +169,24 @@ const FormProvider: React.FC<FormProviderProps> = ({
 
   // Memoize the context value to prevent re-renders
   const contextValue = useMemo(
-    () => ({
-      // set debugMode to disabled when debugModeSettings.disable is true
-      // otherwise use current debug mode from localStorage
-      debugMode: debugModeSettings?.disable ? 'disabled' : debugMode,
-      preventSubmit: (prevent: boolean) => {
-        setPreventSubmit(prevent);
-      },
-      setClientValidationSchema,
-      setDebugMode,
-      triggerSubmit: handleSubmit,
-      validation: {
-        instance: extendedValidation,
-        errors: validationErrors,
+    () => {
+      return {
+        // set debugMode to disabled when debugModeSettings.disable is true
+        // otherwise use current debug mode from localStorage
+        debugMode: debugModeSettings?.disable ? 'disabled' : debugMode,
+        preventSubmit: (prevent: boolean) => {
+          setPreventSubmit(prevent);
+        },
         setClientValidationSchema,
-      },
-    }),
+        setDebugMode,
+        triggerSubmit: handleSubmit,
+        validation: {
+          instance: extendedValidation,
+          errors: validationErrors,
+          setClientValidationSchema,
+        },
+      };
+    },
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [debugMode, debugModeSettings?.disable, validationErrorsHash],
   );
@@ -184,7 +194,7 @@ const FormProvider: React.FC<FormProviderProps> = ({
   return (
     <UniformContext.Provider value={contextValue}>
       {/* Spread all hook form props into HookFormProvider */}
-      {/* eslint-disable-next-line react/jsx-props-no-spreading */}
+      {}
       <HookFormProvider {...methods}>
         {children({ handleSubmit, isValid })}
       </HookFormProvider>

@@ -54,7 +54,7 @@ export const checkboxGroupVariants = tv({
 type VariantProps = TVProps<typeof checkboxGroupVariants>;
 type ClassName = TVClassName<typeof checkboxGroupVariants>;
 
-export type CheckboxGroupOption = {
+export interface CheckboxGroupOption {
   /** option label */
   label?: ReactNode;
   /** subline displayed below the label */
@@ -65,7 +65,7 @@ export type CheckboxGroupOption = {
   disabled?: boolean;
   /** HTML data-testid attribute of the option */
   testId?: string;
-};
+}
 
 export interface CheckboxGroupProps extends VariantProps {
   /** CSS class name */
@@ -171,7 +171,9 @@ const CheckboxGroup = ({
 
   const singleCheckboxProps = {
     value: getCheckboxValue(value),
-    onChange: (newValue: string[]) => onChange(newValue?.[0]),
+    onChange: (newValue: string[]) => {
+      onChange(newValue?.[0]);
+    },
   };
 
   const multipleCheckboxProps = {
@@ -190,6 +192,12 @@ const CheckboxGroup = ({
       // e.g.: https://github.com/heroui-inc/heroui/blob/main/packages/components/select/src/use-select.ts
       data-invalid={invalid}
       data-testid={testId}
+      isDisabled={disabled}
+      isInvalid={invalid}
+      isRequired={required}
+      name={name}
+      onBlur={onBlur}
+      orientation={inline ? 'horizontal' : 'vertical'}
       errorMessage={
         errorFlat.length > 0 && (
           <FieldValidationError
@@ -199,9 +207,6 @@ const CheckboxGroup = ({
           />
         )
       }
-      isDisabled={disabled}
-      isInvalid={invalid}
-      isRequired={required}
       label={
         showLabel && (
           // eslint-disable-next-line jsx-a11y/label-has-associated-control
@@ -211,9 +216,6 @@ const CheckboxGroup = ({
           </label>
         )
       }
-      name={name}
-      onBlur={onBlur}
-      orientation={inline ? 'horizontal' : 'vertical'}
       ref={ref}
       // eslint-disable-next-line react/jsx-props-no-spreading
       {...checkboxGroupProps}
@@ -232,7 +234,7 @@ const CheckboxGroup = ({
           labelContent = (
             <div className="flex grow flex-col items-start">
               <span className={classNames.optionLabel}>{option.label}</span>
-              <span className={`${classNames.optionLabelSubline}`}>
+              <span className={classNames.optionLabelSubline}>
                 {option.labelSubline}
               </span>
             </div>
@@ -245,15 +247,15 @@ const CheckboxGroup = ({
 
         return (
           <HeroCheckbox
-            aria-label={
-              typeof option.label === 'string' ? option.label : option.value
-            }
+            key={`index_${option.value}`}
             classNames={optionClassNames}
             data-invalid={invalid}
             data-testid={optionTestId}
             isDisabled={disabled || option.disabled}
-            key={`index_${option.value}`}
             value={option?.value}
+            aria-label={
+              typeof option.label === 'string' ? option.label : option.value
+            }
           >
             {labelContent}
           </HeroCheckbox>

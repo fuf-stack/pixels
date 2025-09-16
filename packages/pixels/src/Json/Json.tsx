@@ -50,7 +50,9 @@ const handleCopy = (rawValue?: unknown, onCopy?: JsonProps['onCopy']) => {
   // JsonView (CopiedRenderer) does copy on its own but doesn't handle
   // object serialization correctly. We use setTimeout to overwrite its
   // clipboard value with our properly formatted version in the next tick.
-  setTimeout(() => navigator.clipboard.writeText(copyValue), 1);
+  setTimeout(async () => {
+    return navigator.clipboard.writeText(copyValue);
+  }, 1);
 
   // if cb provided call it with copyValue
   if (onCopy) {
@@ -94,15 +96,17 @@ const Json = ({
     const parsedValue = getValue(value);
     content = (
       <div
-        style={{ maxHeight, overflowY: maxHeight ? 'auto' : undefined }}
         className="relative"
+        style={{ maxHeight, overflowY: maxHeight ? 'auto' : undefined }}
       >
         <JsonView
           className="pr-5"
           collapsed={collapsed}
           displayDataTypes={false}
           value={parsedValue}
-          onCopied={(_, rawValue) => handleCopy(rawValue, onCopy)}
+          onCopied={(_, rawValue) => {
+            handleCopy(rawValue, onCopy);
+          }}
         >
           <CopiedRenderer />
           <NullRenderer />
@@ -112,10 +116,12 @@ const Json = ({
   } catch (err) {
     const defaultError = (
       <ErrorRenderer
-        error={err}
         data={value}
+        error={err}
         showDetails={showDetails}
-        onToggleDetails={() => setShowDetails(!showDetails)}
+        onToggleDetails={() => {
+          setShowDetails(!showDetails);
+        }}
       />
     );
 
@@ -124,7 +130,7 @@ const Json = ({
 
   return (
     <div aria-label="JSON viewer" className={cn(className)} role="region">
-      {error || content}
+      {error ?? content}
     </div>
   );
 };

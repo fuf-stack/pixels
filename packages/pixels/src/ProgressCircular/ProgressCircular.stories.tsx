@@ -31,18 +31,22 @@ export const HasError: Story = {
 };
 
 export const AllColors: Story = {
-  render: (args) => (
-    <>
-      {Object.keys(progressCircularVariants.variants.color).map((color) => (
-        <div key={color} style={{ marginTop: '10px' }}>
-          <ProgressCircular
-            {...args}
-            color={color as ProgressCircularProps['color']}
-          />
-        </div>
-      ))}
-    </>
-  ),
+  render: (args) => {
+    return (
+      <>
+        {Object.keys(progressCircularVariants.variants.color).map((color) => {
+          return (
+            <div key={color} style={{ marginTop: '10px' }}>
+              <ProgressCircular
+                {...args}
+                color={color as ProgressCircularProps['color']}
+              />
+            </div>
+          );
+        })}
+      </>
+    );
+  },
   args: {
     percent: 42,
   },
@@ -57,18 +61,22 @@ export const AllColors: Story = {
 };
 
 export const AllSizes: Story = {
-  render: (args) => (
-    <>
-      {Object.keys(progressCircularVariants.variants.size).map((size) => (
-        <div key={size} style={{ marginTop: '10px' }}>
-          <ProgressCircular
-            {...args}
-            size={size as ProgressCircularProps['size']}
-          />
-        </div>
-      ))}
-    </>
-  ),
+  render: (args) => {
+    return (
+      <>
+        {Object.keys(progressCircularVariants.variants.size).map((size) => {
+          return (
+            <div key={size} style={{ marginTop: '10px' }}>
+              <ProgressCircular
+                {...args}
+                size={size as ProgressCircularProps['size']}
+              />
+            </div>
+          );
+        })}
+      </>
+    );
+  },
   args: {
     percent: 42,
   },
@@ -83,15 +91,19 @@ export const AllSizes: Story = {
 };
 
 export const SomePercentages: Story = {
-  render: (args) => (
-    <>
-      {[0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 150].map((p) => (
-        <div key={p} style={{ marginTop: '10px' }}>
-          <ProgressCircular {...args} percent={p} />
-        </div>
-      ))}
-    </>
-  ),
+  render: (args) => {
+    return (
+      <>
+        {[0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 150].map((p) => {
+          return (
+            <div key={p} style={{ marginTop: '10px' }}>
+              <ProgressCircular {...args} percent={p} />
+            </div>
+          );
+        })}
+      </>
+    );
+  },
   argTypes: {
     // do not show percent in controls table
     percent: {

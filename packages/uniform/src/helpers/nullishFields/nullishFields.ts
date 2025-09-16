@@ -73,7 +73,9 @@ export const toFormFormat = (
 
       if (value && typeof value === 'object') {
         return Object.fromEntries(
-          Object.entries(value).filter(([_key, v]) => v !== '' && v !== null),
+          Object.entries(value).filter(([_key, v]) => {
+            return v !== '' && v !== null;
+          }),
         );
       }
 
@@ -126,11 +128,14 @@ export const toValidationFormat = (
       if (value && typeof value === 'object') {
         return Object.fromEntries(
           Object.entries(value)
-            .filter(
-              ([_key, v]) =>
-                fromNullishString(v) !== '' && fromNullishString(v) !== null,
-            )
-            .map(([k, v]) => [k, fromNullishString(v)]),
+            .filter(([_key, v]) => {
+              return (
+                fromNullishString(v) !== '' && fromNullishString(v) !== null
+              );
+            })
+            .map(([k, v]) => {
+              return [k, fromNullishString(v)];
+            }),
         );
       }
 

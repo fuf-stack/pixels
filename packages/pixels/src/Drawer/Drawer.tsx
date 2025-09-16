@@ -129,13 +129,15 @@ const Drawer = ({
       size={size}
     >
       <HeroDrawerContent data-testid={testId ? `drawer_${testId}` : 'drawer'}>
-        {() => (
-          <>
-            {header && <HeroDrawerHeader>{header}</HeroDrawerHeader>}
-            <HeroDrawerBody id="drawer_body">{children}</HeroDrawerBody>
-            {footer && <HeroDrawerFooter>{footer}</HeroDrawerFooter>}
-          </>
-        )}
+        {() => {
+          return (
+            <>
+              {header ? <HeroDrawerHeader>{header}</HeroDrawerHeader> : null}
+              <HeroDrawerBody id="drawer_body">{children}</HeroDrawerBody>
+              {footer ? <HeroDrawerFooter>{footer}</HeroDrawerFooter> : null}
+            </>
+          );
+        }}
       </HeroDrawerContent>
     </HeroDrawer>
   );

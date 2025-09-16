@@ -28,8 +28,12 @@ type Story = StoryObj<ModalProps>;
 const Template: Story['render'] = (args, { canvasElement }) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const onClick = () => setIsOpen(true);
-  const onClose = () => setIsOpen(false);
+  const onClick = () => {
+    setIsOpen(true);
+  };
+  const onClose = () => {
+    setIsOpen(false);
+  };
 
   const isTestEnv = process.env.NODE_ENV === 'test';
 
@@ -44,13 +48,13 @@ const Template: Story['render'] = (args, { canvasElement }) => {
       </Button>
       <Modal
         {...args}
+        isOpen={isOpen}
+        onClose={onClose}
+        portalContainer={canvasElement}
         disableAnimation={
           // eslint-disable-next-line react/destructuring-assignment
           isTestEnv || args.disableAnimation
         }
-        isOpen={isOpen}
-        onClose={onClose}
-        portalContainer={canvasElement}
       />
     </>
   );
@@ -140,30 +144,36 @@ const AllSizesTemplate: Story['render'] = (args) => {
         return (
           <div key={size} className="mt-2">
             <Button
-              onClick={() =>
+              className="mr-2"
+              onClick={() => {
                 setArgs({
                   isOpen: true,
                   size,
                   content: `short ${size} content`,
-                })
-              }
-              className="mr-2"
+                });
+              }}
             >
               {size}
             </Button>
             <Button
-              onClick={() =>
-                setArgs({ isOpen: true, size, content: longContent })
-              }
+              onClick={() => {
+                setArgs({
+                  isOpen: true,
+                  size,
+                  content: longContent,
+                });
+              }}
             >
-              {size} scroll
+              {`${size} scroll`}
             </Button>
             <Modal
               {...args}
               header={`Size ${size} Modal`}
               isOpen={isOpen}
-              onClose={() => setArgs({ isOpen: false })}
               size={currentSize}
+              onClose={() => {
+                setArgs({ isOpen: false });
+              }}
             >
               {content}
             </Modal>

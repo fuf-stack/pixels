@@ -7,8 +7,7 @@ import { action } from 'storybook/actions';
 import { userEvent, within } from 'storybook/test';
 
 import { SubmitButton } from '@fuf-stack/uniform';
-import { veto } from '@fuf-stack/veto';
-import * as vt from '@fuf-stack/veto';
+import { boolean, veto } from '@fuf-stack/veto';
 
 import { Form } from '../Form';
 import Switch from './Switch';
@@ -17,18 +16,20 @@ const meta: Meta<typeof Switch> = {
   title: 'uniform/Switch',
   component: Switch,
   decorators: [
-    (Story, { parameters }) => (
-      <Form
-        className="min-w-60"
-        onSubmit={action('onSubmit')}
-        {...(parameters?.formProps || {})}
-      >
-        <Story />
-        <div className="mt-4 flex justify-end">
-          <SubmitButton />
-        </div>
-      </Form>
-    ),
+    (Story, { parameters }) => {
+      return (
+        <Form
+          className="min-w-60"
+          onSubmit={action('onSubmit')}
+          {...(parameters?.formProps || {})}
+        >
+          <Story />
+          <div className="mt-4 flex justify-end">
+            <SubmitButton />
+          </div>
+        </Form>
+      );
+    },
   ],
 };
 
@@ -61,7 +62,7 @@ export const Disabled: Story = {
 };
 
 const requiredValidation = veto({
-  switchField: vt.boolean(),
+  switchField: boolean(),
 });
 
 export const Required: Story = {
@@ -73,9 +74,9 @@ export const Required: Story = {
 };
 
 const validation = veto({
-  switchField: vt
-    .boolean()
-    .refine((value: boolean) => !value, 'Please keep your sanity intact'),
+  switchField: boolean().refine((value: boolean) => {
+    return !value;
+  }, 'Please keep your sanity intact'),
 });
 
 export const Invalid: Story = {
@@ -100,12 +101,13 @@ export const WithThumbIcon: Story = {
   args: {
     name: 'switchField',
     label: '🌙 Dark mode developer',
-    thumbIcon: ({ isSelected, className }) =>
-      isSelected ? (
+    thumbIcon: ({ isSelected, className }) => {
+      return isSelected ? (
         <FaRocket className={className} />
       ) : (
         <FaFlask className={className} />
-      ),
+      );
+    },
   },
 };
 
@@ -122,11 +124,13 @@ export const WithStartAndEndContent: Story = {
 };
 
 export const AllSizes: Story = {
-  render: () => (
-    <div className="flex flex-col gap-4">
-      <Switch name="smallSwitch" label="🐭 Microservices" size="sm" />
-      <Switch name="mediumSwitch" label="🏗️ Monolith" size="md" />
-      <Switch name="largeSwitch" label="🏢 Enterprise Monolith" size="lg" />
-    </div>
-  ),
+  render: () => {
+    return (
+      <div className="flex flex-col gap-4">
+        <Switch label="🐭 Microservices" name="smallSwitch" size="sm" />
+        <Switch label="🏗️ Monolith" name="mediumSwitch" size="md" />
+        <Switch label="🏢 Enterprise Monolith" name="largeSwitch" size="lg" />
+      </div>
+    );
+  },
 };

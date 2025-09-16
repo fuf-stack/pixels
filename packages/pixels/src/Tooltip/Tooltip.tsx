@@ -125,33 +125,35 @@ const Tooltip = ({
 
   return (
     <HeroTooltip
+      shouldFlip
+      showArrow
       classNames={classNames}
       closeDelay={closeDelay}
       containerPadding={containerPadding}
+      defaultOpen={defaultOpen}
+      delay={delay}
+      onOpenChange={onOpenChange}
+      placement={placement}
       content={
         <div>
-          {header && (
+          {header ? (
             <div className={classNames.headerWrapper}>
               <div className={classNames.header}>{header}</div>
               <hr className={classNames.divider} />
             </div>
-          )}
+          ) : null}
           <ScrollShadow className={classNames.body}>{content}</ScrollShadow>
-          {footer && (
+          {footer ? (
             <div className={classNames.footerWrapper}>
               <hr className={classNames.divider} />
               <div className={classNames.footer}>{footer}</div>
             </div>
-          )}
+          ) : null}
         </div>
       }
-      defaultOpen={defaultOpen}
-      delay={delay}
-      onClick={(e) => e.preventDefault()}
-      onOpenChange={onOpenChange}
-      placement={placement}
-      shouldFlip
-      showArrow
+      onClick={(e) => {
+        e.preventDefault();
+      }}
     >
       <span className={classNames.trigger}>{children}</span>
     </HeroTooltip>

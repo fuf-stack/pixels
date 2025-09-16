@@ -97,30 +97,34 @@ export interface MenuProps extends VariantProps {
 
 /** returns String[] of disabled items/keys */
 const getDisabledKeys = (items: (MenuSection | MenuItem)[]) => {
-  return (
-    items
+  return items
+    .map((item) => {
       // @ts-expect-error typing issue with MenuSection | MenuItem
-      .map((item) => (typeof item?.items === 'undefined' ? item : item.items))
-      .flat<MenuItem[]>()
-      .filter((item) => {
-        return Object.hasOwn(item, 'disabled') && item.disabled === true;
-      })
-      .map((item) => item.key)
-  );
+      return typeof item?.items === 'undefined' ? item : item.items;
+    })
+    .flat<MenuItem[]>()
+    .filter((item) => {
+      return Object.hasOwn(item, 'disabled') && item.disabled === true;
+    })
+    .map((item) => {
+      return item.key;
+    });
 };
 
-const renderMenuItem = (item: MenuItem, itemClassName?: string) => (
-  <HeroDropdownItem
-    className={cn(itemClassName, item.className)}
-    data-testid={item.testId || item.key}
-    description={item.description}
-    key={item.key}
-    onPress={item.onClick}
-    startContent={item.icon}
-  >
-    {item.label}
-  </HeroDropdownItem>
-);
+const renderMenuItem = (item: MenuItem, itemClassName?: string) => {
+  return (
+    <HeroDropdownItem
+      key={item.key}
+      className={cn(itemClassName, item.className)}
+      data-testid={item.testId ?? item.key}
+      description={item.description}
+      onPress={item.onClick}
+      startContent={item.icon}
+    >
+      {item.label}
+    </HeroDropdownItem>
+  );
+};
 
 /**
  * Dropdown menu component based on [HeroUI Dropdown](https://www.heroui.com//docs/components/dropdown)
@@ -149,7 +153,6 @@ const Menu = ({
         className={cn('min-w-0', className.trigger)}
         size="sm"
         variant="flat"
-        // eslint-disable-next-line react/jsx-props-no-spreading
         {...triggerButtonProps}
       >
         <FaEllipsisVertical />
@@ -158,7 +161,6 @@ const Menu = ({
   } else if (triggerButtonProps) {
     // use provided triggerButtonProps with hero button
     triggerButton = (
-      // eslint-disable-next-line react/jsx-props-no-spreading
       <Button className={className.trigger} {...triggerButtonProps}>
         {children}
       </Button>
@@ -176,17 +178,17 @@ const Menu = ({
         {triggerButton}
       </HeroDropdownTrigger>
       <HeroDropdownMenu
-        items={items}
         disabledKeys={getDisabledKeys(items)}
+        items={items}
         onAction={onAction}
       >
         {(item) => {
           if ('items' in item) {
             return (
               <HeroDropdownSection
+                key={item.key}
                 items={item.items}
                 title={item.label as HeroDropdownSectionProps['title']}
-                key={item.key}
               >
                 {(sectionItem) => {
                   return renderMenuItem(sectionItem, className.item);

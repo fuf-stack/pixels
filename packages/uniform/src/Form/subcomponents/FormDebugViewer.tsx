@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import { useEffect, useState } from 'react';
 import { FaTimes } from 'react-icons/fa';
 import { FaBug, FaBullseye } from 'react-icons/fa6';
@@ -58,10 +57,12 @@ const FormDebugViewer = ({ className = undefined }: FormDebugViewerProps) => {
     return (
       <Button
         ariaLabel="Enable form debug mode"
-        onClick={() => setDebugMode('debug')}
         className="text-default-400 fixed right-2.5 bottom-2.5 w-5"
-        variant="light"
         icon={<FaBug />}
+        variant="light"
+        onClick={() => {
+          setDebugMode('debug');
+        }}
       />
     );
   }
@@ -80,20 +81,22 @@ const FormDebugViewer = ({ className = undefined }: FormDebugViewerProps) => {
           <Button
             color="danger"
             icon={<FaTimes />}
-            onClick={() => setDebugMode('off')}
             size="sm"
             variant="light"
+            onClick={() => {
+              setDebugMode('off');
+            }}
           />
         </div>
       }
     >
       <Button
-        variant={showDebugTestIds ? 'solid' : 'light'}
-        icon={<FaBullseye />}
         className="mr-auto mb-4 ml-auto"
-        onClick={() =>
-          setDebugMode(debugMode === 'debug' ? 'debug-testids' : 'debug')
-        }
+        icon={<FaBullseye />}
+        variant={showDebugTestIds ? 'solid' : 'light'}
+        onClick={() => {
+          setDebugMode(debugMode === 'debug' ? 'debug-testids' : 'debug');
+        }}
       >
         {showDebugTestIds ? 'Hide CopyButton' : 'Show CopyButton'}
       </Button>

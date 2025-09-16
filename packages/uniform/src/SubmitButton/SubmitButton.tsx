@@ -41,7 +41,6 @@ const SubmitButton = ({
     <Button
       className={cn(className)}
       color={color}
-      testId={slugify(testId, { replaceDots: true })}
       disabled={isSubmitting}
       loading={loading || isSubmitting}
       // @ts-expect-error we use form context triggerSubmit
@@ -49,6 +48,7 @@ const SubmitButton = ({
       // scenarios (e.g. when used in modal)
       onClick={triggerSubmit}
       size={size}
+      testId={slugify(testId, { replaceDots: true })}
       type="submit"
     >
       {children}

@@ -92,13 +92,15 @@ const Modal = ({
       scrollBehavior="inside"
     >
       <HeroModalContent data-testid={testId ? `modal_${testId}` : 'modal'}>
-        {() => (
-          <>
-            {header && <HeroModalHeader>{header}</HeroModalHeader>}
-            <HeroModalBody id="modal_body">{children}</HeroModalBody>
-            {footer && <HeroModalFooter>{footer}</HeroModalFooter>}
-          </>
-        )}
+        {() => {
+          return (
+            <>
+              {header ? <HeroModalHeader>{header}</HeroModalHeader> : null}
+              <HeroModalBody id="modal_body">{children}</HeroModalBody>
+              {footer ? <HeroModalFooter>{footer}</HeroModalFooter> : null}
+            </>
+          );
+        }}
       </HeroModalContent>
     </HeroModal>
   );

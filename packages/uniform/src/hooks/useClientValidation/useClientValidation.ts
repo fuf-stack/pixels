@@ -65,7 +65,9 @@ export const useClientValidation = <TData = unknown>(
     if (touchedFieldNames.length > 0) {
       // Use setTimeout to ensure the client validation schema update has propagated
       // before triggering re-validation (fixes race condition)
-      setTimeout(() => trigger(touchedFieldNames), 1);
+      setTimeout(async () => {
+        return trigger(touchedFieldNames);
+      }, 1);
     }
 
     // Cleanup on unmount or when dependencies change

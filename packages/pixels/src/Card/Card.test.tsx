@@ -21,7 +21,7 @@ describe('Coverage', () => {
   });
   test('should render with only header', () => {
     const { container } = render(
-      <Card header={<div>test</div>} footer="id" testId="testId" />,
+      <Card footer="id" header={<div>test</div>} testId="testId" />,
     );
     expect(container.firstChild).toMatchSnapshot();
   });

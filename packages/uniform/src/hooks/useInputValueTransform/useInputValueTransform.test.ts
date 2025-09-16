@@ -97,7 +97,7 @@ describe('useInputValueTransform', () => {
     const phoneTransform = {
       toDisplayValue: (val: string | number) => {
         const cleaned = val.toString().replace(/\D/g, '');
-        const match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/);
+        const match = /^(\d{3})(\d{3})(\d{4})$/.exec(cleaned);
         return match ? `(${match[1]}) ${match[2]}-${match[3]}` : val;
       },
       toFormValue: (val: string) => val.replace(/\D/g, ''),

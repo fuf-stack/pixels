@@ -52,17 +52,21 @@ const tooltipPlacementOptions: TooltipPlacement[] = [
 ];
 
 export const AllPlacements: Story = {
-  render: (args) => (
-    <>
-      {tooltipPlacementOptions.map((placement) => (
-        <div key={placement} className="mb-6">
-          <Tooltip placement={placement} {...args}>
-            {placement}
-          </Tooltip>
-        </div>
-      ))}
-    </>
-  ),
+  render: (args) => {
+    return (
+      <>
+        {tooltipPlacementOptions.map((placement) => {
+          return (
+            <div key={placement} className="mb-6">
+              <Tooltip placement={placement} {...args}>
+                {placement}
+              </Tooltip>
+            </div>
+          );
+        })}
+      </>
+    );
+  },
   args: {
     content: 'tooltip content',
   },
@@ -88,11 +92,13 @@ export const Sizes: Story = {
   render: (args) => {
     return (
       <div className="flex flex-col gap-4">
-        {sizes.map((size) => (
-          <Tooltip key={size} size={size as TooltipProps['size']} {...args}>
-            {size}
-          </Tooltip>
-        ))}
+        {sizes.map((size) => {
+          return (
+            <Tooltip key={size} size={size as TooltipProps['size']} {...args}>
+              {size}
+            </Tooltip>
+          );
+        })}
       </div>
     );
   },

@@ -108,7 +108,9 @@ export const useInputValueDebounce = ({
   });
 
   // Track display value for synchronous updates
-  const [displayValue, setDisplayValue] = useState(() => toDisplayValue(value));
+  const [displayValue, setDisplayValue] = useState(() => {
+    return toDisplayValue(value);
+  });
 
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 

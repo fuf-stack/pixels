@@ -6,8 +6,7 @@ import { action } from 'storybook/actions';
 import { userEvent, within } from 'storybook/test';
 
 import { SubmitButton } from '@fuf-stack/uniform';
-import { veto } from '@fuf-stack/veto';
-import * as vt from '@fuf-stack/veto';
+import { string, veto } from '@fuf-stack/veto';
 
 import { Form } from '../Form';
 import RadioBoxes from './RadioBoxes';
@@ -16,18 +15,20 @@ const meta: Meta<typeof RadioBoxes> = {
   title: 'uniform/RadioBoxes',
   component: RadioBoxes,
   decorators: [
-    (Story, { parameters }) => (
-      <Form
-        className="min-w-60"
-        onSubmit={action('onSubmit')}
-        {...(parameters?.formProps || {})}
-      >
-        <Story />
-        <div className="mt-4 flex justify-end">
-          <SubmitButton />
-        </div>
-      </Form>
-    ),
+    (Story, { parameters }) => {
+      return (
+        <Form
+          className="min-w-60"
+          onSubmit={action('onSubmit')}
+          {...(parameters?.formProps || {})}
+        >
+          <Story />
+          <div className="mt-4 flex justify-end">
+            <SubmitButton />
+          </div>
+        </Form>
+      );
+    },
   ],
 };
 
@@ -176,7 +177,7 @@ export const DisabledOption: Story = {
 };
 
 const requiredValidation = veto({
-  radioBoxesField: vt.string(),
+  radioBoxesField: string(),
 });
 
 export const Required: Story = {
@@ -212,9 +213,9 @@ export const Invalid: Story = {
   parameters: {
     formProps: {
       validation: veto({
-        radioBoxesField: vt
-          .string()
-          .refine((value) => value !== 'two', 'Please use another option'),
+        radioBoxesField: string().refine((value) => {
+          return value !== 'two';
+        }, 'Please use another option'),
       }),
     },
   },

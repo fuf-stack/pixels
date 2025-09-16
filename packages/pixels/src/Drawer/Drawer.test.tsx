@@ -32,11 +32,11 @@ describe('Drawer Component', () => {
     render(
       <Drawer
         isOpen // Must be open to render content
+        footer={<div data-testid="drawer-footer">Footer Content</div>}
         onClose={() => {}}
         header={<div data-testid="drawer-header">Header Content</div>}
         // eslint-disable-next-line react/no-children-prop
         children={<div data-testid="drawer-body">Body Content</div>}
-        footer={<div data-testid="drawer-footer">Footer Content</div>}
       />,
     );
     expect(screen.getByTestId('drawer-header')).toHaveTextContent(
@@ -63,8 +63,8 @@ describe('Drawer Component', () => {
     render(
       <Drawer
         isOpen
-        onClose={() => {}}
         header={<div data-testid="drawer-header">Header Content</div>}
+        onClose={() => {}}
       />,
     );
     expect(screen.getByTestId('drawer-header')).toBeInTheDocument();

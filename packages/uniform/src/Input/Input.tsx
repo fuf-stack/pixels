@@ -85,18 +85,28 @@ const Input = ({
 
   return (
     <HeroInput
+      ref={ref}
       className={cn(className)}
-      classNames={{
-        inputWrapper: 'bg-content1 group-data-[focus=true]:border-focus',
-      }}
       data-testid={testId}
       endContent={endContent}
-      errorMessage={
-        error && <FieldValidationError error={error} testId={testId} />
-      }
       isDisabled={isDisabled}
       isInvalid={invalid}
       isRequired={required}
+      labelPlacement="outside"
+      name={name}
+      onBlur={onBlur}
+      onChange={onChange}
+      placeholder={placeholder}
+      radius="sm"
+      size={size}
+      startContent={startContent}
+      variant="bordered"
+      classNames={{
+        inputWrapper: 'bg-content1 group-data-[focus=true]:border-focus',
+      }}
+      errorMessage={
+        error && <FieldValidationError error={error} testId={testId} />
+      }
       label={
         showLabel && (
           <>
@@ -105,19 +115,9 @@ const Input = ({
           </>
         )
       }
-      labelPlacement="outside"
-      name={name}
-      onBlur={onBlur}
-      onChange={onChange}
-      placeholder={placeholder}
-      radius="sm"
-      ref={ref}
-      size={size}
-      startContent={startContent}
       type={type}
       // @ts-expect-error can be number for input type number
       value={value}
-      variant="bordered"
     />
   );
 };

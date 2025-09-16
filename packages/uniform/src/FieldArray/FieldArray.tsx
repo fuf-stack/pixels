@@ -1,5 +1,3 @@
-/* eslint-disable react/jsx-props-no-spreading */
-
 import type { FieldArrayElementMethods } from './subcomponents/FieldArrayElement';
 import type { FieldArrayProps } from './types';
 
@@ -87,7 +85,7 @@ const FieldArray = ({
   const showLabel = label || showTestIdCopyButton;
 
   return (
-    <SortContext sortable={sortable} move={move} fields={fields}>
+    <SortContext fields={fields} move={move} sortable={sortable}>
       <ul
         className={className.list}
         data-testid={testId}
@@ -96,12 +94,14 @@ const FieldArray = ({
          * are shown immediately, but this will cause additional
          * render cycles, not sure if we should do this...
          */
-        onBlur={() => trigger(`${name}`)}
+        onBlur={async () => {
+          return trigger(name);
+        }}
       >
         {/* field array label */}
-        {showLabel && (
+        {showLabel ? (
           <>
-            {label && (
+            {label ? (
               // eslint-disable-next-line jsx-a11y/label-has-associated-control
               <label
                 {...getLabelProps()}
@@ -109,10 +109,12 @@ const FieldArray = ({
               >
                 {label}
               </label>
-            )}
-            {showTestIdCopyButton && <FieldCopyTestIdButton testId={testId} />}
+            ) : null}
+            {showTestIdCopyButton ? (
+              <FieldCopyTestIdButton testId={testId} />
+            ) : null}
           </>
-        )}
+        ) : null}
 
         {fields.map((field, index) => {
           const elementName = `${name}.${index}`;
@@ -120,25 +122,31 @@ const FieldArray = ({
 
           // create methods for element
           const elementMethods: FieldArrayElementMethods = {
-            append: () => append(elementInitialValue),
+            append: () => {
+              append(elementInitialValue);
+            },
             duplicate: () => {
               const values = getValues(name);
               insert(index + 1, values[index]);
             },
-            insert: () => insert(index + 1, elementInitialValue),
-            remove: () => remove(index),
+            insert: () => {
+              insert(index + 1, elementInitialValue);
+            },
+            remove: () => {
+              remove(index);
+            },
           };
 
           return (
             <FieldArrayElement
+              key={field.id}
               arrayFieldName={name}
               className={className}
+              duplicate={duplicate}
               fields={fields}
               id={field.id}
               index={index}
-              duplicate={duplicate}
               insertAfter={insertAfter}
-              key={field.id}
               lastNotDeletable={lastElementNotRemovable}
               methods={elementMethods}
               sortable={sortable}
@@ -157,25 +165,27 @@ const FieldArray = ({
 
         {/* append elements */}
         <Button
-          className={className.appendButton}
           disableAnimation
-          onClick={() => append(elementInitialValue)}
+          className={className.appendButton}
           size="sm"
           testId={`${testId}_append_button`}
+          onClick={() => {
+            append(elementInitialValue);
+          }}
         >
           {appendButtonText}
         </Button>
 
         {/* top level field array errors */}
         {/* @ts-expect-error rhf incompatibility */}
-        {error?._errors && (
+        {error?._errors ? (
           <div {...getHelperWrapperProps()}>
             <div {...getErrorMessageProps()}>
               {/* @ts-expect-error rhf incompatibility */}
               <FieldValidationError error={error?._errors} testId={testId} />
             </div>
           </div>
-        )}
+        ) : null}
       </ul>
     </SortContext>
   );

@@ -2,8 +2,7 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { renderHook } from '@testing-library/react';
 
-import { veto } from '@fuf-stack/veto';
-import * as vt from '@fuf-stack/veto';
+import { object, string, veto } from '@fuf-stack/veto';
 
 import { useClientValidation } from './useClientValidation';
 
@@ -36,7 +35,9 @@ vi.mock('global', () => ({
   setTimeout: (fn: () => void) => fn(),
 }));
 
-type TestData = { existingUsernames: string[] };
+interface TestData {
+  existingUsernames: string[];
+}
 
 describe('useClientValidation', () => {
   beforeEach(() => {
@@ -72,8 +73,8 @@ describe('useClientValidation', () => {
     it('should create validation schema when data is provided', () => {
       const mockData = { existingUsernames: ['john', 'jane'] };
       const mockSchema = veto(
-        vt.object({
-          username: vt.string().refine(() => true),
+        object({
+          username: string().refine(() => true),
         }),
       );
       const schemaFactory = vi.fn().mockReturnValue(mockSchema);
@@ -93,8 +94,8 @@ describe('useClientValidation', () => {
       const initialData = { existingUsernames: ['john'] };
       const updatedData = { existingUsernames: ['john', 'jane'] };
 
-      const mockSchema1 = veto(vt.object({ username: vt.string() }));
-      const mockSchema2 = veto(vt.object({ username: vt.string().min(3) }));
+      const mockSchema1 = veto(object({ username: string() }));
+      const mockSchema2 = veto(object({ username: string().min(3) }));
 
       const schemaFactory = vi
         .fn()
@@ -128,7 +129,7 @@ describe('useClientValidation', () => {
 
     it('should clear validation when data becomes null', () => {
       const initialData = { existingUsernames: ['john'] };
-      const mockSchema = veto(vt.object({ username: vt.string() }));
+      const mockSchema = veto(object({ username: string() }));
       const schemaFactory = vi.fn().mockReturnValue(mockSchema);
 
       const { rerender } = renderHook(
@@ -157,7 +158,7 @@ describe('useClientValidation', () => {
     it('should not re-run when data content is the same but reference changes', () => {
       const data1 = { existingUsernames: ['john'] };
       const data2 = { existingUsernames: ['john'] }; // Same content, different reference
-      const mockSchema = veto(vt.object({ username: vt.string() }));
+      const mockSchema = veto(object({ username: string() }));
       const schemaFactory = vi.fn().mockReturnValue(mockSchema);
 
       const { rerender } = renderHook(
@@ -188,7 +189,7 @@ describe('useClientValidation', () => {
       mockTouchedFields.email = true;
 
       const mockData = { existingUsernames: ['john'] };
-      const mockSchema = veto(vt.object({ username: vt.string() }));
+      const mockSchema = veto(object({ username: string() }));
       const schemaFactory = vi.fn().mockReturnValue(mockSchema);
 
       renderHook(() => useClientValidation(mockData, schemaFactory));
@@ -203,7 +204,7 @@ describe('useClientValidation', () => {
       mockTouchedFields = {};
 
       const mockData = { existingUsernames: ['john'] };
-      const mockSchema = veto(vt.object({ username: vt.string() }));
+      const mockSchema = veto(object({ username: string() }));
       const schemaFactory = vi.fn().mockReturnValue(mockSchema);
 
       renderHook(() => useClientValidation(mockData, schemaFactory));
@@ -220,7 +221,7 @@ describe('useClientValidation', () => {
       mockTouchedFields['items.0.name'] = true;
 
       const mockData = { existingUsernames: ['john'] };
-      const mockSchema = veto(vt.object({ username: vt.string() }));
+      const mockSchema = veto(object({ username: string() }));
       const schemaFactory = vi.fn().mockReturnValue(mockSchema);
 
       renderHook(() => useClientValidation(mockData, schemaFactory));
@@ -239,7 +240,7 @@ describe('useClientValidation', () => {
 
       const initialData = { existingUsernames: ['john'] };
       const updatedData = { existingUsernames: ['john', 'jane'] };
-      const mockSchema = veto(vt.object({ username: vt.string() }));
+      const mockSchema = veto(object({ username: string() }));
       const schemaFactory = vi.fn().mockReturnValue(mockSchema);
 
       const { rerender } = renderHook(
@@ -268,7 +269,7 @@ describe('useClientValidation', () => {
   describe('cleanup', () => {
     it('should cleanup validation schema on unmount', () => {
       const data = { existingUsernames: ['john'] };
-      const schemaFactory = vi.fn().mockReturnValue(veto(vt.object({})));
+      const schemaFactory = vi.fn().mockReturnValue(veto(object({})));
 
       const { unmount } = renderHook(() =>
         useClientValidation(data, schemaFactory),

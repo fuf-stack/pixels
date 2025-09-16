@@ -7,8 +7,7 @@ import { expect, userEvent, within } from 'storybook/test';
 
 import { Button } from '@fuf-stack/pixels';
 import { SubmitButton } from '@fuf-stack/uniform';
-import { veto } from '@fuf-stack/veto';
-import * as vt from '@fuf-stack/veto';
+import { array, object, refineArray, string, veto } from '@fuf-stack/veto';
 
 import { Form } from '../Form';
 import { Input } from '../Input';
@@ -18,18 +17,20 @@ const meta: Meta<typeof FieldArray> = {
   title: 'uniform/FieldArray',
   component: FieldArray,
   decorators: [
-    (Story, { parameters }) => (
-      <Form
-        className="min-w-60"
-        onSubmit={action('onSubmit')}
-        {...(parameters?.formProps || {})}
-      >
-        <Story />
-        <div className="mt-4 flex justify-end">
-          <SubmitButton />
-        </div>
-      </Form>
-    ),
+    (Story, { parameters }) => {
+      return (
+        <Form
+          className="min-w-60"
+          onSubmit={action('onSubmit')}
+          {...(parameters?.formProps || {})}
+        >
+          <Story />
+          <div className="mt-4 flex justify-end">
+            <SubmitButton />
+          </div>
+        </Form>
+      );
+    },
   ],
 };
 
@@ -39,12 +40,14 @@ type Story = StoryObj<typeof FieldArray>;
 export const Default: Story = {
   args: {
     name: 'arrayField',
-    children: ({ name }) => <Input name={`${name}.name`} />,
+    children: ({ name }) => {
+      return <Input name={`${name}.name`} />;
+    },
   },
 };
 
 const validationRequiredFlat = veto({
-  arrayField: vt.array(vt.string()).min(0),
+  arrayField: array(string()).min(0),
 });
 
 export const FlatArray: Story = {
@@ -55,7 +58,9 @@ export const FlatArray: Story = {
   },
   args: {
     name: 'arrayField',
-    children: ({ name }) => <Input name={`${name}`} />,
+    children: ({ name }) => {
+      return <Input name={name} />;
+    },
   },
 };
 
@@ -67,14 +72,14 @@ export const WithInitialValue: Story = {
   },
   args: {
     name: 'arrayField',
-    children: ({ name, index }) => (
-      <Input name={`${name}.name`} label={`name ${index}`} />
-    ),
+    children: ({ name, index }) => {
+      return <Input label={`name ${index}`} name={`${name}.name`} />;
+    },
   },
 };
 
 const validationRequired = veto({
-  arrayField: vt.refineArray(vt.array(vt.object({ name: vt.string() })))({
+  arrayField: refineArray(array(object({ name: string() })))({
     unique: {
       elementMessage: 'Contains duplicate name',
       mapFn: (val) => {
@@ -94,29 +99,32 @@ export const Required: Story = {
   },
   args: {
     name: 'arrayField',
-    children: ({ name, index }) => (
-      <Input name={`${name}.name`} label={`name ${index}`} />
-    ),
+    children: ({ name, index }) => {
+      return <Input label={`name ${index}`} name={`${name}.name`} />;
+    },
   },
 };
 
 const formValidator = veto({
-  arrayField: vt.refineArray(
-    vt
-      .array(
-        vt.object({
-          name: vt
-            .string()
-            .regex(
-              /^[a-z0-9\s]+$/i,
-              'Must only contain alphanumeric characters and spaces.',
-            )
-            .min(8),
-          test: vt.string().min(2),
-        }),
-      )
-      .min(3),
-  )({ unique: { mapFn: (value) => value.name } }),
+  arrayField: refineArray(
+    array(
+      object({
+        name: string()
+          .regex(
+            /^[a-z0-9\s]+$/i,
+            'Must only contain alphanumeric characters and spaces.',
+          )
+          .min(8),
+        test: string().min(2),
+      }),
+    ).min(3),
+  )({
+    unique: {
+      mapFn: (value) => {
+        return value.name;
+      },
+    },
+  }),
 });
 
 export const Invalid: Story = {
@@ -128,12 +136,14 @@ export const Invalid: Story = {
   },
   args: {
     name: 'arrayField',
-    children: ({ name }) => (
-      <>
-        <Input name={`${name}.name`} />
-        <Input name={`${name}.test`} />
-      </>
-    ),
+    children: ({ name }) => {
+      return (
+        <>
+          <Input name={`${name}.name`} />
+          <Input name={`${name}.test`} />
+        </>
+      );
+    },
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
@@ -203,9 +213,9 @@ export const LastElementNotRemovable: Story = {
   },
   args: {
     name: 'arrayField',
-    children: ({ name, index }) => (
-      <Input name={`${name}.name`} label={`name ${index}`} />
-    ),
+    children: ({ name, index }) => {
+      return <Input label={`name ${index}`} name={`${name}.name`} />;
+    },
     lastElementNotRemovable: true,
   },
 };
@@ -218,18 +228,30 @@ export const CustomTestId: Story = {
   },
   args: {
     name: 'arrayField',
-    children: ({ name, index, methods }) => (
-      <>
-        <Input name={`${name}.name`} label={`name ${index}`} />
-        <Input name={`${name}.age`} label={`age ${index}`} />
-        <Button className="mt-2" onClick={() => methods.insert()}>
-          <FaPlus />
-        </Button>
-        <Button className="mt-2" onClick={() => methods.remove()}>
-          <FaTimes />
-        </Button>
-      </>
-    ),
+    children: ({ name, index, methods }) => {
+      return (
+        <>
+          <Input label={`name ${index}`} name={`${name}.name`} />
+          <Input label={`age ${index}`} name={`${name}.age`} />
+          <Button
+            className="mt-2"
+            onClick={() => {
+              methods.insert();
+            }}
+          >
+            <FaPlus />
+          </Button>
+          <Button
+            className="mt-2"
+            onClick={() => {
+              methods.remove();
+            }}
+          >
+            <FaTimes />
+          </Button>
+        </>
+      );
+    },
     testId: 'some-test-id',
   },
 };
@@ -242,18 +264,30 @@ export const Duplicate: Story = {
   },
   args: {
     name: 'arrayField',
-    children: ({ name, index, methods }) => (
-      <>
-        <Input name={`${name}.name`} label={`name ${index}`} />
-        <Input name={`${name}.age`} label={`age ${index}`} />
-        <Button className="mt-2" onClick={() => methods.duplicate()}>
-          <FaCopy />
-        </Button>
-        <Button className="mt-2" onClick={() => methods.remove()}>
-          <FaTimes />
-        </Button>
-      </>
-    ),
+    children: ({ name, index, methods }) => {
+      return (
+        <>
+          <Input label={`name ${index}`} name={`${name}.name`} />
+          <Input label={`age ${index}`} name={`${name}.age`} />
+          <Button
+            className="mt-2"
+            onClick={() => {
+              methods.duplicate();
+            }}
+          >
+            <FaCopy />
+          </Button>
+          <Button
+            className="mt-2"
+            onClick={() => {
+              methods.remove();
+            }}
+          >
+            <FaTimes />
+          </Button>
+        </>
+      );
+    },
     testId: 'some-test-id',
   },
 };
@@ -266,9 +300,9 @@ export const InsertAfter: Story = {
   },
   args: {
     name: 'arrayField',
-    children: ({ name, index }) => (
-      <Input name={`${name}.name`} label={`name ${index}`} />
-    ),
+    children: ({ name, index }) => {
+      return <Input label={`name ${index}`} name={`${name}.name`} />;
+    },
     insertAfter: true,
     testId: 'arrayfield',
   },
@@ -284,9 +318,9 @@ export const Sortable: Story = {
   },
   args: {
     name: 'arrayField',
-    children: ({ name, index }) => (
-      <Input name={`${name}.name`} label={`name at index ${index}`} />
-    ),
+    children: ({ name, index }) => {
+      return <Input label={`name at index ${index}`} name={`${name}.name`} />;
+    },
     testId: 'arrayfield',
     sortable: true,
   },

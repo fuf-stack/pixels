@@ -102,16 +102,20 @@ const RadioBoxes = ({
       classNames={classNames}
       // see HeroUI styles for group-data condition (data-invalid),
       // e.g.: https://github.com/heroui-inc/heroui/blob/main/packages/components/select/src/use-select.ts
+      ref={ref}
       data-invalid={invalid}
       data-required={required}
       data-testid={testId}
       defaultValue={getValues()[name]}
-      errorMessage={
-        error && <FieldValidationError error={error} testId={testId} />
-      }
       isDisabled={isDisabled}
       isInvalid={invalid}
       isRequired={required}
+      name={name}
+      onBlur={onBlur}
+      orientation={inline ? 'horizontal' : 'vertical'}
+      errorMessage={
+        error && <FieldValidationError error={error} testId={testId} />
+      }
       label={
         showLabel && (
           // eslint-disable-next-line jsx-a11y/label-has-associated-control
@@ -121,10 +125,6 @@ const RadioBoxes = ({
           </label>
         )
       }
-      name={name}
-      orientation={inline ? 'horizontal' : 'vertical'}
-      onBlur={onBlur}
-      ref={ref}
     >
       {options.map((option) => {
         if ('value' in option) {
@@ -134,12 +134,12 @@ const RadioBoxes = ({
           );
           return (
             <RadioBox
+              key={option.value}
               classNames={itemClassNames}
               data-testid={optionTestId}
               description={option.description}
               icon={option.icon}
               isDisabled={isDisabled || option.disabled}
-              key={option.value}
               onChange={onChange}
               value={option.value}
             >

@@ -24,13 +24,15 @@ export const TooMuchContent: Story = {
     content: (
       <>
         {/* eslint-disable-next-line prefer-spread */}
-        {Array.apply(null, Array(100)).map((_, i) => (
-          // eslint-disable-next-line react/no-array-index-key
-          <div key={i}>
-            too much content
-            <br />
-          </div>
-        ))}
+        {Array.apply(null, Array(100)).map((_, i) => {
+          return (
+            // eslint-disable-next-line react/no-array-index-key
+            <div key={i}>
+              too much content
+              <br />
+            </div>
+          );
+        })}
       </>
     ),
     testId: 'testId42',
@@ -44,21 +46,25 @@ export const DoubleScrollbar: Story = {
     content: (
       <>
         {/* eslint-disable-next-line prefer-spread */}
-        {Array.apply(null, Array(100)).map((_, i) => (
-          // eslint-disable-next-line react/no-array-index-key
-          <div key={i}>too much content</div>
-        ))}
+        {Array.apply(null, Array(100)).map((_, i) => {
+          return (
+            // eslint-disable-next-line react/no-array-index-key
+            <div key={i}>too much content</div>
+          );
+        })}
       </>
     ),
     footer: 'i am the footer',
     testId: 'testId42',
     header: 'i am the title',
   },
-  render: (args) => (
-    <div className="h-[2000px]">
-      <Popover {...args} />
-    </div>
-  ),
+  render: (args) => {
+    return (
+      <div className="h-[2000px]">
+        <Popover {...args} />
+      </div>
+    );
+  },
 };
 
 export const BlockOuterScrollbar: Story = {
@@ -67,10 +73,12 @@ export const BlockOuterScrollbar: Story = {
     content: (
       <>
         {/* eslint-disable-next-line prefer-spread */}
-        {Array.apply(null, Array(100)).map((_, i) => (
-          // eslint-disable-next-line react/no-array-index-key
-          <div key={i}>too much content</div>
-        ))}
+        {Array.apply(null, Array(100)).map((_, i) => {
+          return (
+            // eslint-disable-next-line react/no-array-index-key
+            <div key={i}>too much content</div>
+          );
+        })}
       </>
     ),
     footer: 'i am the footer',
@@ -79,11 +87,13 @@ export const BlockOuterScrollbar: Story = {
     testId: 'testId42',
     header: 'i am the title',
   },
-  render: (args) => (
-    <div className="h-[2000px]">
-      <Popover {...args} />
-    </div>
-  ),
+  render: (args) => {
+    return (
+      <div className="h-[2000px]">
+        <Popover {...args} />
+      </div>
+    );
+  },
 };
 
 export const Title: Story = {

@@ -1,5 +1,3 @@
-/* eslint-disable react/jsx-props-no-spreading */
-
 import type { ClassValue } from '@fuf-stack/pixel-utils';
 import type { FieldArrayFeatures } from '../types';
 
@@ -15,7 +13,7 @@ import ElementInsertAfterButton from './ElementInsertAfterButton';
 import ElementRemoveButton from './ElementRemoveButton';
 import SortDragHandle from './SortDragHandle';
 
-export type FieldArrayElementMethods = {
+export interface FieldArrayElementMethods {
   /** Add new element at end */
   append: () => void;
   /** Clone current element */
@@ -24,7 +22,7 @@ export type FieldArrayElementMethods = {
   insert: () => void;
   /** Remove current element */
   remove: () => void;
-};
+}
 
 interface FieldArrayElementProps extends FieldArrayFeatures {
   /** Base field name for form context */
@@ -101,18 +99,18 @@ const FieldArrayElement = ({
   return (
     <>
       <li
-        className={cn(className.listItem)}
         ref={setNodeRef}
+        className={cn(className.listItem)}
         style={sortingStyle}
       >
         {/** sorting drag handle */}
-        {sortable && (
+        {sortable ? (
           <SortDragHandle
             className={className.sortDragHandle}
             id={id}
             testId={`${testId}_sort_drag_handle`}
           />
-        )}
+        ) : null}
 
         {/** render element fields */}
         <div
@@ -127,23 +125,27 @@ const FieldArrayElement = ({
         {lastNotDeletable && fields.length === 1 ? null : (
           <ElementRemoveButton
             className={className.removeButton}
-            onClick={() => methods.remove()}
             testId={`${testId}_remove_button`}
+            onClick={() => {
+              methods.remove();
+            }}
           />
         )}
 
         {/** insertAfter feature when not last element */}
-        {insertAfter && index !== fields.length - 1 && (
+        {insertAfter && index !== fields.length - 1 ? (
           <ElementInsertAfterButton
             className={className.insertAfterButton}
-            onClick={() => methods.insert()}
             testId={`${testId}_insert_after_button`}
+            onClick={() => {
+              methods.insert();
+            }}
           />
-        )}
+        ) : null}
       </li>
 
       {/** element error */}
-      {error && typeof error[index] !== 'undefined' && (
+      {typeof error?.[index] !== 'undefined' && (
         <div {...getHelperWrapperProps()}>
           <div {...getErrorMessageProps()}>
             <FieldValidationError

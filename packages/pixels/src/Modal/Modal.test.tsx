@@ -23,7 +23,7 @@ describe('Coverage', () => {
 
   test('should render with only header', () => {
     const { container } = render(
-      <Modal header={<div>test</div>} footer="id" testId="testId" />,
+      <Modal footer="id" header={<div>test</div>} testId="testId" />,
     );
     expect(container.firstChild).toMatchSnapshot();
   });
@@ -32,11 +32,11 @@ describe('Coverage', () => {
     render(
       <Modal
         isOpen // Must be open to render content
+        footer={<div data-testid="modal-footer">Footer Content</div>}
         onClose={() => {}}
         header={<div data-testid="modal-header">Header Content</div>}
         // eslint-disable-next-line react/no-children-prop
         children={<div data-testid="modal-body">Body Content</div>}
-        footer={<div data-testid="modal-footer">Footer Content</div>}
       />,
     );
 
@@ -68,8 +68,8 @@ describe('Coverage', () => {
     render(
       <Modal
         isOpen
-        onClose={() => {}}
         header={<div data-testid="modal-header">Header Content</div>}
+        onClose={() => {}}
       />,
     );
 

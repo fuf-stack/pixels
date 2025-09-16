@@ -48,23 +48,25 @@ const funnyVerticalItems = [
   "🐙 Octopus who can't multitask",
 ];
 
-const VerticalContent = () => (
-  <>
-    {/* eslint-disable-next-line prefer-spread */}
-    {Array.apply(null, Array(50)).map((_, i) => {
-      const item = funnyVerticalItems[i % funnyVerticalItems.length];
-      return (
-        <div
-          // eslint-disable-next-line react/no-array-index-key
-          key={i}
-          className="border-default-200 hover:bg-default-50 border-b p-2"
-        >
-          {item}
-        </div>
-      );
-    })}
-  </>
-);
+const VerticalContent = () => {
+  return (
+    <>
+      {/* eslint-disable-next-line prefer-spread */}
+      {Array.apply(null, Array(50)).map((_, i) => {
+        const item = funnyVerticalItems[i % funnyVerticalItems.length];
+        return (
+          <div
+            // eslint-disable-next-line react/no-array-index-key
+            key={i}
+            className="border-default-200 hover:bg-default-50 border-b p-2"
+          >
+            {item}
+          </div>
+        );
+      })}
+    </>
+  );
+};
 
 const funnyHorizontalCards = [
   '🎭 Drama Queen',
@@ -89,23 +91,25 @@ const funnyHorizontalCards = [
   '🎭 Method Actor',
 ];
 
-const HorizontalContent = () => (
-  <div className="flex space-x-4">
-    {/* eslint-disable-next-line prefer-spread */}
-    {Array.apply(null, Array(20)).map((_, i) => {
-      const card = funnyHorizontalCards[i % funnyHorizontalCards.length];
-      return (
-        <div
-          // eslint-disable-next-line react/no-array-index-key
-          key={i}
-          className="bg-info-100 hover:bg-info-200 h-20 w-32 flex-none cursor-pointer rounded p-2 text-sm transition-colors"
-        >
-          <div className="text-center font-medium">{card}</div>
-        </div>
-      );
-    })}
-  </div>
-);
+const HorizontalContent = () => {
+  return (
+    <div className="flex space-x-4">
+      {/* eslint-disable-next-line prefer-spread */}
+      {Array.apply(null, Array(20)).map((_, i) => {
+        const card = funnyHorizontalCards[i % funnyHorizontalCards.length];
+        return (
+          <div
+            // eslint-disable-next-line react/no-array-index-key
+            key={i}
+            className="bg-info-100 hover:bg-info-200 h-20 w-32 flex-none cursor-pointer rounded p-2 text-sm transition-colors"
+          >
+            <div className="text-center font-medium">{card}</div>
+          </div>
+        );
+      })}
+    </div>
+  );
+};
 
 export const Vertical: Story = {
   args: {

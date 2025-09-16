@@ -26,29 +26,24 @@ export const useClientValidationManager = () => {
   >({});
 
   // Memoized function to set/clear client validation schema
-  const setClientValidationSchema = useMemo(
-    () => {
-      return (key: string, schema: VetoTypeAny | null) => {
-        // update client validation schemas
-        setClientValidationSchemas((prev) => {
-          // if no schema and no existing client validation schema for this key, do nothing
-          if (!prev[key] && !schema) {
-            return prev;
-          }
-          // if no schema, remove the client validation schema for this key
-          if (!schema) {
-            const { [key]: _removed, ...rest } = prev;
-            return rest;
-          }
-          // if schema, add or update the client validation schema for this key
-          return { ...prev, [key]: schema };
-        });
-      };
-    },
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [],
-  );
+  const setClientValidationSchema = useMemo(() => {
+    return (key: string, schema: VetoTypeAny | null) => {
+      // update client validation schemas
+      setClientValidationSchemas((prev) => {
+        // if no schema and no existing client validation schema for this key, do nothing
+        if (!prev[key] && !schema) {
+          return prev;
+        }
+        // if no schema, remove the client validation schema for this key
+        if (!schema) {
+          const { [key]: _removed, ...rest } = prev;
+          return rest;
+        }
+        // if schema, add or update the client validation schema for this key
+        return { ...prev, [key]: schema };
+      });
+    };
+  }, []);
 
   return {
     clientValidationSchemas,
@@ -69,16 +64,20 @@ export const useExtendedValidation = (baseValidation?: VetoInstance) => {
 
   // Create client schema hash for optimized memoization
   const clientValidationSchemasHash = JSON.stringify(
-    Object.values(clientValidationSchemas).map((schema) =>
-      serializeSchema(schema),
-    ),
+    Object.values(clientValidationSchemas).map((schema) => {
+      return serializeSchema(schema);
+    }),
   );
 
   // Create a stable dependency array from the client validation schemas
   const clientSchemaValues = useMemo(
     () => {
       const keys = Object.keys(clientValidationSchemas).sort();
-      return keys.map((key) => clientValidationSchemas[key]).filter(Boolean);
+      return keys
+        .map((key) => {
+          return clientValidationSchemas[key];
+        })
+        .filter(Boolean);
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [clientValidationSchemasHash],
@@ -110,9 +109,7 @@ export const useExtendedValidation = (baseValidation?: VetoInstance) => {
 
       // return combined validation
       if (hasBaseValidation && clientSchemasCombined) {
-        return veto(
-          and((baseValidation as VetoInstance).schema, clientSchemasCombined),
-        );
+        return veto(and(baseValidation.schema, clientSchemasCombined));
       }
 
       // If we only have client schemas, return them as a veto instance

@@ -112,16 +112,18 @@ const Tabs = ({
       size={size}
       variant={variant}
     >
-      {(item) => (
-        <HeroTab
-          key={item.key}
-          isDisabled={!!item.disabled}
-          title={item.label}
-          data-testid={slugify(`${testId}_${item.testId || item.key}`)}
-        >
-          {item.content}
-        </HeroTab>
-      )}
+      {(item) => {
+        return (
+          <HeroTab
+            key={item.key}
+            data-testid={slugify(`${testId}_${item.testId ?? item.key}`)}
+            isDisabled={!!item.disabled}
+            title={item.label}
+          >
+            {item.content}
+          </HeroTab>
+        );
+      }}
     </HeroTabs>
   );
 };

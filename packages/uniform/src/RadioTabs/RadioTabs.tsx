@@ -89,34 +89,40 @@ const RadioTabs = ({
   const variants = radioTabsVariants();
   const classNames = variantsToClassNames(variants, className, 'base');
 
-  const tabOptions = options.map<TabProps>((option) => ({
-    content: option?.content,
-    disabled: option?.disabled,
-    key: option.value,
-    label: option?.label || option?.value,
-    testId: slugify(`option_${option?.testId || option?.value}`, {
-      replaceDots: true,
-    }),
-  }));
+  const tabOptions = options.map<TabProps>((option) => {
+    return {
+      content: option?.content,
+      disabled: option?.disabled,
+      key: option.value,
+      label: option?.label || option?.value,
+      testId: slugify(`option_${option?.testId || option?.value}`, {
+        replaceDots: true,
+      }),
+    };
+  });
 
-  const disabledAllKeys: string[] | undefined = tabOptions?.map(
-    (option) => option.key as string,
-  );
+  const disabledAllKeys: string[] | undefined = tabOptions?.map((option) => {
+    return option.key as string;
+  });
 
   return (
     <HeroRadioGroup
       classNames={classNames}
       // see HeroUI styles for group-data condition (data-invalid),
       // e.g.: https://github.com/heroui-inc/heroui/blob/main/packages/components/select/src/use-select.ts
+      ref={ref}
       data-invalid={invalid}
       data-required={required}
       data-testid={testId}
-      errorMessage={
-        error && <FieldValidationError error={error} testId={testId} />
-      }
       isDisabled={isDisabled}
       isInvalid={invalid}
       isRequired={required}
+      name={name}
+      onBlur={onBlur}
+      orientation={inline ? 'horizontal' : 'vertical'}
+      errorMessage={
+        error && <FieldValidationError error={error} testId={testId} />
+      }
       label={
         showLabel && (
           // eslint-disable-next-line jsx-a11y/label-has-associated-control
@@ -126,10 +132,6 @@ const RadioTabs = ({
           </label>
         )
       }
-      name={name}
-      orientation={inline ? 'horizontal' : 'vertical'}
-      onBlur={onBlur}
-      ref={ref}
     >
       <Tabs
         disabledKeys={disabled ? disabledAllKeys : undefined}
@@ -137,7 +139,7 @@ const RadioTabs = ({
         onSelectionChange={onChange}
         // make sure component is controlled
         selectedKey={value ?? ''}
-        tabs={tabOptions as TabProps[]}
+        tabs={tabOptions}
         testId={testId}
         variant={variant}
       />

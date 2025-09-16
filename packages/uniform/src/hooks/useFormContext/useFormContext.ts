@@ -16,7 +16,6 @@ export const checkFieldIsRequired = (
   validation: VetoInstance,
   path: string[],
 ): boolean => {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const checkRequired = (schema: any) => {
     // arrays with minLength are required
     if (schema.type === 'array' && schema?.minLength) {
@@ -35,7 +34,6 @@ export const checkFieldIsRequired = (
  */
 export const useFormContext = <
   TFieldValues extends FieldValues = FieldValues,
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   TContext = any,
   TTransformedValues = TFieldValues,
 >() => {

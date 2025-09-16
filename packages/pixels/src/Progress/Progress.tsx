@@ -82,7 +82,9 @@ export interface ProgressProps extends VariantProps {
 }
 
 /** formats percent with percent sign */
-const defaultFormat = (percent = 0) => `${percent}%`;
+const defaultFormat = (percent = 0) => {
+  return `${percent}%`;
+};
 
 /**
  * Progress component based on [HeroUI Progress](https://www.heroui.com//docs/components/progress)

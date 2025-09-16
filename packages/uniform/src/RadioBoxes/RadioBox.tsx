@@ -27,7 +27,6 @@ export const RadioBox = ({ icon = undefined, ...props }: RadioProps) => {
 
   return (
     <Component
-      // eslint-disable-next-line react/jsx-props-no-spreading
       {...getBaseProps()}
       className={cn(
         'group border-default hover:bg-content2 data-[selected=true]:border-focus inline-flex flex-auto cursor-pointer items-center justify-between gap-4 rounded-lg border-2 p-4',
@@ -38,27 +37,26 @@ export const RadioBox = ({ icon = undefined, ...props }: RadioProps) => {
       )}
     >
       <VisuallyHidden>
-        {/* eslint-disable-next-line react/jsx-props-no-spreading  */}
+        {}
         <input {...getInputProps()} />
       </VisuallyHidden>
-      {/* eslint-disable-next-line react/jsx-props-no-spreading  */}
+      {}
       <span {...getWrapperProps()}>
-        {/* eslint-disable-next-line react/jsx-props-no-spreading  */}
+        {}
         <span {...getControlProps()} />
       </span>
       {icon}
       <div
-        // eslint-disable-next-line react/jsx-props-no-spreading
         {...getLabelWrapperProps()}
         className={cn(getLabelWrapperProps().className, 'grow')}
       >
-        {/* eslint-disable-next-line react/jsx-props-no-spreading  */}
-        {children && <span {...getLabelProps()}>{children}</span>}
-        {description && (
+        {}
+        {children ? <span {...getLabelProps()}>{children}</span> : null}
+        {description ? (
           <span className="text-small text-foreground opacity-70">
             {description}
           </span>
-        )}
+        ) : null}
       </div>
     </Component>
   );

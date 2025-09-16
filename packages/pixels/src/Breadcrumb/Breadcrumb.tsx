@@ -97,36 +97,37 @@ const Breadcrumb = ({
 
   return (
     <HeroBreadcrumb
-      classNames={{
-        base: classNames.nav,
-        ellipsis: classNames.separator,
-        list: classNames.list,
-      }}
       color={color}
       disableAnimation={disableAnimation}
       hideSeparator={hideSeparator}
       isDisabled={disabled}
-      itemClasses={{
-        base: classNames.itemBase,
-        item: classNames.item,
-        separator: classNames.separator,
-      }}
       maxItems={maxItems}
       radius={radius}
       separator={separator}
       size={size}
       underline={underline}
       variant={variant}
+      classNames={{
+        base: classNames.nav,
+        ellipsis: classNames.separator,
+        list: classNames.list,
+      }}
+      itemClasses={{
+        base: classNames.itemBase,
+        item: classNames.item,
+        separator: classNames.separator,
+      }}
     >
-      {breadcrumbItems.map((item, index) => (
-        <HeroBreadcrumbItem
-          // eslint-disable-next-line react/no-array-index-key
-          key={index}
-          isDisabled={disabled || item?.disabled}
-          // eslint-disable-next-line react/jsx-props-no-spreading
-          {...item}
-        />
-      ))}
+      {breadcrumbItems.map((item, index) => {
+        return (
+          <HeroBreadcrumbItem
+            // eslint-disable-next-line react/no-array-index-key
+            key={index}
+            isDisabled={disabled || item?.disabled}
+            {...item}
+          />
+        );
+      })}
     </HeroBreadcrumb>
   );
 };

@@ -42,35 +42,32 @@ const AvatarGroup = ({
 }: AvatarGroupProps) => {
   return (
     <HeroAvatarGroup
-      max={max}
       className={className}
       isBordered={bordered}
       isDisabled={disabled}
+      max={max}
       radius={rounded}
       size={size}
     >
       {avatars?.map((avatar) => {
         return AvatarWrapper ? (
-          // eslint-disable-next-line react/jsx-props-no-spreading
           <AvatarWrapper {...avatar.wrapperProps}>
             <Avatar
               key={avatar.src}
-              // eslint-disable-next-line react/jsx-props-no-spreading
               {...avatar}
+              bordered={bordered}
               disabled={disabled || avatar?.disabled}
               rounded={rounded}
-              bordered={bordered}
               size={size}
             />
           </AvatarWrapper>
         ) : (
           <Avatar
             key={avatar.src}
-            // eslint-disable-next-line react/jsx-props-no-spreading
             {...avatar}
+            bordered={bordered}
             disabled={disabled || avatar?.disabled}
             rounded={rounded}
-            bordered={bordered}
             size={size}
           />
         );

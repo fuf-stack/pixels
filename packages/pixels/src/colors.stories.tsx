@@ -44,7 +44,9 @@ const getHexFromClass = (bgClass: string): string => {
           const rgba = parseToRgba(rgbColor);
           return `#${rgba
             .slice(0, 3)
-            .map((x) => x.toString(16).padStart(2, '0'))
+            .map((x) => {
+              return x.toString(16).padStart(2, '0');
+            })
             .join('')
             .toUpperCase()}`;
         }
@@ -57,7 +59,9 @@ const getHexFromClass = (bgClass: string): string => {
       const rgba = parseToRgba(backgroundColor);
       return `#${rgba
         .slice(0, 3)
-        .map((x) => x.toString(16).padStart(2, '0'))
+        .map((x) => {
+          return x.toString(16).padStart(2, '0');
+        })
         .join('')
         .toUpperCase()}`;
     }
@@ -71,7 +75,7 @@ const getHexFromClass = (bgClass: string): string => {
 const convertOklchToHex = (oklchString: string): string => {
   try {
     // Extract OKLCH values: oklch(L C H)
-    const match = oklchString.match(/oklch\(([\d.]+)\s+([\d.]+)\s+([\d.]+)\)/);
+    const match = /oklch\(([\d.]+)\s+([\d.]+)\s+([\d.]+)\)/.exec(oklchString);
     if (!match) return '';
 
     // This is a simplified conversion. For production, you'd want a proper OKLCH->RGB library
@@ -87,7 +91,9 @@ const convertOklchToHex = (oklchString: string): string => {
     const [r, g, b] = ctx.getImageData(0, 0, 1, 1).data;
 
     return `#${[r, g, b]
-      .map((x) => x.toString(16).padStart(2, '0'))
+      .map((x) => {
+        return x.toString(16).padStart(2, '0');
+      })
       .join('')
       .toUpperCase()}`;
   } catch (error) {
@@ -98,21 +104,21 @@ const convertOklchToHex = (oklchString: string): string => {
 
 // Types
 
-type ColorsItem = {
+interface ColorsItem {
   className?: string;
   color?: string;
   name?: string;
   textClassName?: string;
-};
+}
 
-type SwatchColors = {
+interface SwatchColors {
   title: string;
   items: ColorsItem[];
-};
+}
 
-type SwatchSetProps = {
+interface SwatchSetProps {
   colors: SwatchColors[];
-};
+}
 
 const Swatch = ({
   className = undefined,
@@ -127,11 +133,11 @@ const Swatch = ({
   observedTheme?: 'light' | 'dark';
   textClassName?: string;
 }) => {
-  const label = name || color;
+  const label = name ?? color;
 
   // recalculate hex value when observed theme changes
   const hexValue = useMemo(() => {
-    return getHexFromClass(className || '');
+    return getHexFromClass(className ?? '');
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [className, observedTheme]);
 
@@ -139,16 +145,16 @@ const Swatch = ({
     <div
       className={`${className} border-divider m-2 flex h-24 w-24 flex-col items-center justify-center rounded-xl border`}
     >
-      {label && (
+      {label ? (
         <span className={`${textClassName} text-center text-xs font-medium`}>
           {label}
         </span>
-      )}
-      {hexValue && (
+      ) : null}
+      {hexValue ? (
         <span className={`${textClassName} text-center text-xs opacity-75`}>
           {hexValue}
         </span>
-      )}
+      ) : null}
     </div>
   );
 };
@@ -181,23 +187,27 @@ const SwatchSet = ({ colors }: SwatchSetProps) => {
 
   return (
     <div className="flex h-full w-full flex-row flex-wrap items-center justify-center p-2">
-      {colors.map(({ title, items }) => (
-        <div key={title} className="flex h-full w-full flex-col items-start">
-          <h2 className="text-foreground text-xl font-bold">{title}</h2>
-          <div className="flex h-full w-full flex-row flex-wrap items-center justify-start p-4">
-            {items.map((item, index) => (
-              <Swatch
-                key={`${item.name || item.color}-${index}`}
-                className={item.className}
-                color={item.color}
-                name={item.name}
-                observedTheme={observedTheme}
-                textClassName={item.textClassName}
-              />
-            ))}
+      {colors.map(({ title, items }) => {
+        return (
+          <div key={title} className="flex h-full w-full flex-col items-start">
+            <h2 className="text-foreground text-xl font-bold">{title}</h2>
+            <div className="flex h-full w-full flex-row flex-wrap items-center justify-start p-4">
+              {items.map((item, index) => {
+                return (
+                  <Swatch
+                    key={`${item.name ?? item.color}-${index}`}
+                    className={item.className}
+                    color={item.color}
+                    name={item.name}
+                    observedTheme={observedTheme}
+                    textClassName={item.textClassName}
+                  />
+                );
+              })}
+            </div>
           </div>
-        </div>
-      ))}
+        );
+      })}
     </div>
   );
 };

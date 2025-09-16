@@ -29,14 +29,16 @@ export default ({
   orientation = 'vertical',
   size = 40,
   testId = undefined,
-}: ScrollShadowProps) => (
-  <ScrollShadow
-    className={cn(className)}
-    data-testid={testId}
-    hideScrollBar={hideScrollBar}
-    orientation={orientation}
-    size={size}
-  >
-    {children}
-  </ScrollShadow>
-);
+}: ScrollShadowProps) => {
+  return (
+    <ScrollShadow
+      className={cn(className)}
+      data-testid={testId}
+      hideScrollBar={hideScrollBar}
+      orientation={orientation}
+      size={size}
+    >
+      {children}
+    </ScrollShadow>
+  );
+};

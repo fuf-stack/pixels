@@ -7,8 +7,7 @@ import { action } from 'storybook/actions';
 import { expect, userEvent, waitFor, within } from 'storybook/test';
 
 import { SubmitButton } from '@fuf-stack/uniform';
-import { veto } from '@fuf-stack/veto';
-import * as vt from '@fuf-stack/veto';
+import { objectLoose, string, veto } from '@fuf-stack/veto';
 
 import { Form } from '../Form';
 import { Grid } from '../Grid';
@@ -63,16 +62,15 @@ const useMockUsernamesQuery = (teamId: string | null) => {
 const createUsernameClientSchema = (queryData: {
   existingUsernames: string[];
 }) => {
-  const schema = vt.objectLoose({
-    username: vt
-      .string()
-      .refine(
-        (value: string) =>
-          !queryData.existingUsernames.includes(value.toLowerCase()),
-        {
-          message: 'Username already exists in this team',
-        },
-      ),
+  const schema = objectLoose({
+    username: string().refine(
+      (value: string) => {
+        return !queryData.existingUsernames.includes(value.toLowerCase());
+      },
+      {
+        message: 'Username already exists in this team',
+      },
+    ),
   });
 
   return schema;
@@ -92,22 +90,22 @@ const SimpleClientValidationForm = () => {
   return (
     <Grid>
       <Select
-        name="teamId"
         label="Select Team"
+        name="teamId"
         options={[
           { label: 'Frontend Team', value: 'team-frontend' },
           { label: 'Backend Team', value: 'team-backend' },
           { label: 'Design Team', value: 'team-design' },
         ]}
       />
-      <Input name="username" label="Username" placeholder="Enter username" />
-      <Input name="email" label="Email" placeholder="Enter email" />
-      {queryData && (
+      <Input label="Username" name="username" placeholder="Enter username" />
+      <Input label="Email" name="email" placeholder="Enter email" />
+      {queryData ? (
         <div className="bg-info-50 rounded p-3 text-sm">
           <strong>Existing usernames in team:</strong>{' '}
           {queryData.existingUsernames.join(', ')}
         </div>
-      )}
+      ) : null}
       <div className="bg-default-50 rounded p-3 text-sm">
         <strong>Client Validation:</strong>{' '}
         {queryData && !loading ? '✅ Active' : '❌ Inactive'}
@@ -122,28 +120,30 @@ const SimpleClientValidationForm = () => {
 
 // Base validation schema
 const validationSchema = veto({
-  teamId: vt.string(),
-  username: vt.string().min(3),
-  email: vt.string().email(),
+  teamId: string(),
+  username: string().min(3),
+  email: string().email(),
 });
 
 const meta: Meta<typeof SimpleClientValidationForm> = {
   title: 'uniform/Examples/ClientValidation',
   component: SimpleClientValidationForm,
   decorators: [
-    (Story, { parameters }) => (
-      <Form
-        className="max-w-md"
-        onSubmit={action('onSubmit')}
-        {...(parameters?.formProps || {})}
-      >
-        <Story />
+    (Story, { parameters }) => {
+      return (
+        <Form
+          className="max-w-md"
+          onSubmit={action('onSubmit')}
+          {...(parameters?.formProps || {})}
+        >
+          <Story />
 
-        <div className="mt-6">
-          <SubmitButton />
-        </div>
-      </Form>
-    ),
+          <div className="mt-6">
+            <SubmitButton />
+          </div>
+        </Form>
+      );
+    },
   ],
 };
 

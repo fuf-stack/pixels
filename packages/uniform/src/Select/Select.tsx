@@ -56,12 +56,12 @@ export const selectVariants = tv({
   },
 });
 
-type SelectOption = {
+interface SelectOption {
   /** option label */
   label?: React.ReactNode;
   /** option value */
   value: string;
-};
+}
 
 type VariantProps = TVProps<typeof selectVariants>;
 type ClassName = TVClassName<typeof selectVariants>;
@@ -101,19 +101,19 @@ export interface SelectProps extends VariantProps {
 
 const InputComponent: typeof components.Input = (props) => {
   // @ts-expect-error data-testid is not a default prop
-  // eslint-disable-next-line react/prop-types, react/destructuring-assignment
+  // eslint-disable-next-line react/destructuring-assignment
   const testId = `${props.selectProps['data-testid']}`;
-  // eslint-disable-next-line react/jsx-props-no-spreading
+
   return <components.Input data-testid={testId} {...props} />;
 };
 
 const ControlComponent: typeof components.Control = (props) => {
   // @ts-expect-error data-testid is not a default prop
-  // eslint-disable-next-line react/prop-types, react/destructuring-assignment
+  // eslint-disable-next-line react/destructuring-assignment
   const testId = `${props.selectProps['data-testid']}_select`;
   return (
     <div data-testid={testId}>
-      {/* eslint-disable-next-line react/jsx-props-no-spreading */}
+      {}
       <components.Control {...props} />
     </div>
   );
@@ -121,11 +121,11 @@ const ControlComponent: typeof components.Control = (props) => {
 
 const OptionComponent: typeof components.Option = (props) => {
   // @ts-expect-error data-testid is not a default prop
-  // eslint-disable-next-line react/prop-types, react/destructuring-assignment
+  // eslint-disable-next-line react/destructuring-assignment
   const testId = `${props.selectProps['data-testid']}_select_option_${slugify(props?.data?.testId ?? props?.data?.value, { replaceDots: true })}`;
   return (
     <div data-testid={testId}>
-      {/* eslint-disable-next-line react/jsx-props-no-spreading */}
+      {}
       <components.Option {...props} />
     </div>
   );
@@ -135,11 +135,11 @@ const DropdownIndicatorComponent: typeof components.DropdownIndicator = (
   props,
 ) => {
   // @ts-expect-error data-testid is not a default prop
-  // eslint-disable-next-line react/prop-types
+
   const testId = props?.selectProps['data-testid'] as string;
   return (
     <div data-testid={`${testId}_select_dropdown`}>
-      {/* eslint-disable-next-line react/jsx-props-no-spreading */}
+      {}
       <components.DropdownIndicator {...props} />
     </div>
   );
@@ -199,7 +199,6 @@ const Select = ({
 
   return (
     <div
-      // eslint-disable-next-line react/jsx-props-no-spreading
       {...getBaseProps()}
       className={cn(classNames.base)}
       data-testid={`${testId}_wrapper`}
@@ -207,7 +206,7 @@ const Select = ({
       // e.g.: https://github.com/heroui-inc/heroui/blob/main/packages/components/select/src/use-select.ts
       data-required={required}
     >
-      {showLabel && (
+      {showLabel ? (
         <label
           className={classNames.label}
           data-slot="label"
@@ -215,13 +214,41 @@ const Select = ({
           id={getLabelProps().id}
         >
           {label}
-          {showTestIdCopyButton && <FieldCopyTestIdButton testId={testId} />}
+          {showTestIdCopyButton ? (
+            <FieldCopyTestIdButton testId={testId} />
+          ) : null}
         </label>
-      )}
+      ) : null}
       <ReactSelect
+        menuShouldBlockScroll
+        unstyled
         aria-errormessage=""
-        aria-labelledby={getTriggerProps()['aria-labelledby']?.split(' ')[1]}
         aria-invalid={invalid}
+        components={{
+          Input: InputComponent,
+          Option: OptionComponent,
+          DropdownIndicator: DropdownIndicatorComponent,
+          Control: ControlComponent,
+        }}
+        // Does not affect the testId of the select, but is needed to pass it to sub-components
+        aria-labelledby={getTriggerProps()['aria-labelledby']?.split(' ')[1]}
+        data-testid={testId}
+        filterOption={filterOption}
+        formatOptionLabel={renderOptionLabel}
+        inputValue={inputValue}
+        instanceId={name}
+        isClearable={clearable}
+        isDisabled={disabled}
+        isLoading={loading}
+        name={name}
+        // set menuPosition to fixed so that menu can be rendered
+        // inside Card / Modal components, menuShouldBlockScroll
+        // prevents container scroll when menu is open
+        isMulti={multiSelect}
+        menuPosition="fixed"
+        onInputChange={onInputChange}
+        options={options}
+        placeholder={placeholder}
         classNames={{
           control: () =>
             cn(classNames.control, {
@@ -256,30 +283,6 @@ const Select = ({
             cn(classNames.singleValue, `${getValueProps().className}`),
           valueContainer: () => classNames.valueContainer,
         }}
-        components={{
-          Input: InputComponent,
-          Option: OptionComponent,
-          DropdownIndicator: DropdownIndicatorComponent,
-          Control: ControlComponent,
-        }}
-        // Does not affect the testId of the select, but is needed to pass it to sub-components
-        data-testid={testId}
-        filterOption={filterOption}
-        formatOptionLabel={renderOptionLabel}
-        inputValue={inputValue}
-        instanceId={name}
-        isClearable={clearable}
-        isDisabled={disabled}
-        isLoading={loading}
-        isMulti={multiSelect}
-        name={name}
-        // set menuPosition to fixed so that menu can be rendered
-        // inside Card / Modal components, menuShouldBlockScroll
-        // prevents container scroll when menu is open
-        menuPosition="fixed"
-        menuShouldBlockScroll
-        options={options}
-        placeholder={placeholder}
         onBlur={(_e) => {
           setIsFocused(false);
           return onBlur();
@@ -296,21 +299,18 @@ const Select = ({
         onFocus={(_e) => {
           setIsFocused(true);
         }}
-        onInputChange={onInputChange}
         ref={ref}
         // set complete option as value by current field value
         value={options.find((option) => option.value === value)}
-        unstyled
       />
-      {error && (
-        // eslint-disable-next-line react/jsx-props-no-spreading
+      {error ? (
         <div {...getHelperWrapperProps()}>
-          {/* eslint-disable-next-line react/jsx-props-no-spreading */}
+          {}
           <div {...getErrorMessageProps()}>
             <FieldValidationError error={error} testId={testId} />
           </div>
         </div>
-      )}
+      ) : null}
     </div>
   );
 };

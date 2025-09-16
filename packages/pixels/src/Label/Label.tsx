@@ -141,7 +141,7 @@ const Label = ({
       size={size}
       variant={variant}
     >
-      {icon && <span className={classNames.icon}>{icon}</span>}
+      {icon ? <span className={classNames.icon}>{icon}</span> : null}
       {children}
     </HeroLabel>
   );

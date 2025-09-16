@@ -70,33 +70,35 @@ const TextArea = ({
 
   return (
     <HeroTextArea
+      ref={ref}
       className={cn(className)}
-      classNames={{
-        inputWrapper: 'bg-content1 group-data-[focus=true]:border-focus',
-      }}
       data-testid={testId}
-      errorMessage={
-        error && <FieldValidationError error={error} testId={testId} />
-      }
       isDisabled={isDisabled}
-      isRequired={required}
       isInvalid={invalid}
-      label={
-        showLabel && (
-          <>
-            {label}
-            {showTestIdCopyButton && <FieldCopyTestIdButton testId={testId} />}
-          </>
-        )
-      }
+      isRequired={required}
       labelPlacement="outside"
       name={name}
       onBlur={onBlur}
       onChange={onChange}
       placeholder={placeholder}
-      ref={ref}
       value={value as string}
       variant="bordered"
+      classNames={{
+        inputWrapper: 'bg-content1 group-data-[focus=true]:border-focus',
+      }}
+      errorMessage={
+        error ? <FieldValidationError error={error} testId={testId} /> : null
+      }
+      label={
+        showLabel ? (
+          <>
+            {label}
+            {showTestIdCopyButton ? (
+              <FieldCopyTestIdButton testId={testId} />
+            ) : null}
+          </>
+        ) : null
+      }
     >
       {children}
     </HeroTextArea>

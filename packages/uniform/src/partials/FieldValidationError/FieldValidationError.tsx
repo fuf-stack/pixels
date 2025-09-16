@@ -33,12 +33,14 @@ const FieldValidationError = ({
       className={className}
       data-testid={slugify(`${testId}_error`)}
     >
-      {errors.map(({ message }, i) => (
-        // eslint-disable-next-line react/no-array-index-key
-        <li key={`error_${i}`}>
-          <div>{message}</div>
-        </li>
-      ))}
+      {errors.map(({ message }, i) => {
+        return (
+          // eslint-disable-next-line react/no-array-index-key
+          <li key={`error_${i}`}>
+            <div>{message}</div>
+          </li>
+        );
+      })}
     </ul>
   );
 };

@@ -137,7 +137,7 @@ const Table = ({
       aria-label={ariaLabel}
       bottomContent={bottomContent}
       classNames={classNames}
-      data-testid={testId && slugify(testId)}
+      data-testid={testId ? slugify(testId) : null}
       hideHeader={hideHeader}
       isHeaderSticky={stickyHeader}
       isStriped={separation === 'striped' || separation === 'striped-divider-x'}
@@ -147,26 +147,28 @@ const Table = ({
       rowHeight={rowHeight}
     >
       <TableHeader columns={columns}>
-        {(column: TableColumnProps) => (
-          <TableColumn key={column.key}>{column.label}</TableColumn>
-        )}
+        {(column: TableColumnProps) => {
+          return <TableColumn key={column.key}>{column.label}</TableColumn>;
+        }}
       </TableHeader>
       <TableBody
-        isLoading={loading}
-        loadingContent={loadingContent || '...'} // TODO: use future spinner/loading component
         emptyContent={emptyContent}
+        isLoading={loading}
         items={rows}
+        loadingContent={loadingContent ?? '...'} // TODO: use future spinner/loading component
       >
-        {(item: TableRowProps) => (
-          <TableRow
-            key={item.key}
-            // data-testid={`${slugify(testId || 'table')}_item_${slugify(JSON.stringify(item.testId || item.key))}`}
-          >
-            {(columnKey) => (
-              <TableCell>{getKeyValue(item, columnKey)}</TableCell>
-            )}
-          </TableRow>
-        )}
+        {(item: TableRowProps) => {
+          return (
+            <TableRow
+              key={item.key}
+              // data-testid={`${slugify(testId || 'table')}_item_${slugify(JSON.stringify(item.testId || item.key))}`}
+            >
+              {(columnKey) => {
+                return <TableCell>{getKeyValue(item, columnKey)}</TableCell>;
+              }}
+            </TableRow>
+          );
+        }}
       </TableBody>
     </HeroTable>
   );

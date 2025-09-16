@@ -1,5 +1,4 @@
-/* eslint-disable import-x/no-extraneous-dependencies */
-/* eslint-disable import/prefer-default-export */
+/* eslint-disable import-x/prefer-default-export */
 
 import { z } from 'zod';
 

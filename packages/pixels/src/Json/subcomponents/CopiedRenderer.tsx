@@ -26,11 +26,10 @@ const CopiedRenderer = () => {
   return (
     <JsonView.Copied
       render={(props) => {
-        // eslint-disable-next-line react/prop-types
         const { style, onClick, className } = props;
 
         // @ts-expect-error this is ok
-        // eslint-disable-next-line react/prop-types
+
         const isCopied = props['data-copied'] as boolean;
 
         const elmClasses = cn(
@@ -47,16 +46,16 @@ const CopiedRenderer = () => {
 
         return (
           <span
-            className="relative ml-0! h-[1em]! w-0!"
-            style={style}
-            data-testid="copy-button"
-            role="button"
-            tabIndex={0}
-            onKeyDown={handleKeyDown}
-            onClick={(e) =>
-              onClick?.(e as unknown as MouseEvent<SVGSVGElement>)
-            }
             aria-label={isCopied ? 'Copied to clipboard' : 'Copy to clipboard'}
+            className="relative ml-0! h-[1em]! w-0!"
+            data-testid="copy-button"
+            onKeyDown={handleKeyDown}
+            role="button"
+            style={style}
+            tabIndex={0}
+            onClick={(e) => {
+              return onClick?.(e as unknown as MouseEvent<SVGSVGElement>);
+            }}
           >
             {isCopied ? (
               <HiOutlineClipboardCheck className={elmClasses} />

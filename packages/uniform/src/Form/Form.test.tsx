@@ -3,8 +3,7 @@ import { describe, expect, it, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import { veto } from '@fuf-stack/veto';
-import * as vt from '@fuf-stack/veto';
+import { string, veto } from '@fuf-stack/veto';
 
 import '@testing-library/jest-dom/vitest';
 
@@ -24,7 +23,7 @@ describe('Form', () => {
 
     it('should apply className', () => {
       render(
-        <Form onSubmit={() => {}} className="custom-class">
+        <Form className="custom-class" onSubmit={() => {}}>
           <div>content</div>
         </Form>,
       );
@@ -35,7 +34,7 @@ describe('Form', () => {
 
     it('should apply multiple classNames', () => {
       render(
-        <Form onSubmit={() => {}} className={['class1', 'class2']}>
+        <Form className={['class1', 'class2']} onSubmit={() => {}}>
           <div>content</div>
         </Form>,
       );
@@ -46,7 +45,7 @@ describe('Form', () => {
 
     it('should set form name', () => {
       render(
-        <Form onSubmit={() => {}} name="test-form">
+        <Form name="test-form" onSubmit={() => {}}>
           <div>content</div>
         </Form>,
       );
@@ -67,7 +66,7 @@ describe('Form', () => {
 
     it('should generate testId from name if testId not provided', () => {
       render(
-        <Form onSubmit={() => {}} name="Test Form Name">
+        <Form name="Test Form Name" onSubmit={() => {}}>
           <div>content</div>
         </Form>,
       );
@@ -108,8 +107,8 @@ describe('Form', () => {
       const initialValues = { test: 'initial' };
 
       render(
-        <Form onSubmit={handleSubmit} initialValues={initialValues}>
-          <input name="test" data-testid="input" />
+        <Form initialValues={initialValues} onSubmit={handleSubmit}>
+          <input data-testid="input" name="test" />
           <button type="submit">Submit</button>
         </Form>,
       );
@@ -133,7 +132,7 @@ describe('Form', () => {
       };
 
       render(
-        <Form onSubmit={handleSubmit} initialValues={initialValues}>
+        <Form initialValues={initialValues} onSubmit={handleSubmit}>
           <button type="submit">Submit</button>
         </Form>,
       );
@@ -170,7 +169,7 @@ describe('Form', () => {
       };
 
       render(
-        <Form onSubmit={handleSubmit} initialValues={initialValues}>
+        <Form initialValues={initialValues} onSubmit={handleSubmit}>
           <button type="submit">Submit</button>
         </Form>,
       );
@@ -208,7 +207,7 @@ describe('Form', () => {
       };
 
       render(
-        <Form onSubmit={handleSubmit} initialValues={initialValues}>
+        <Form initialValues={initialValues} onSubmit={handleSubmit}>
           <button type="submit">Submit</button>
         </Form>,
       );
@@ -250,7 +249,7 @@ describe('Form', () => {
       };
 
       render(
-        <Form onSubmit={handleSubmit} initialValues={initialValues}>
+        <Form initialValues={initialValues} onSubmit={handleSubmit}>
           <button type="submit">Submit</button>
         </Form>,
       );
@@ -282,10 +281,10 @@ describe('Form', () => {
         <Form
           onSubmit={handleSubmit}
           validation={veto({
-            test: vt.string().min(3),
+            test: string().min(3),
           })}
         >
-          <input name="test" data-testid="input" />
+          <input data-testid="input" name="test" />
           <button type="submit">Submit</button>
         </Form>,
       );
@@ -304,12 +303,12 @@ describe('Form', () => {
       render(
         <Form
           onSubmit={handleSubmit}
-          validation={veto({
-            test: vt.string().min(3),
-          })}
           validationTrigger="onSubmit"
+          validation={veto({
+            test: string().min(3),
+          })}
         >
-          <input name="test" data-testid="input" />
+          <input data-testid="input" name="test" />
           <button type="submit">Submit</button>
         </Form>,
       );
@@ -329,7 +328,7 @@ describe('Form', () => {
       process.env.NODE_ENV = 'development';
 
       render(
-        <Form onSubmit={() => {}} debug={{ disable: true }}>
+        <Form debug={{ disable: true }} onSubmit={() => {}}>
           <div>content</div>
         </Form>,
       );

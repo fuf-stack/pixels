@@ -55,61 +55,82 @@ export const AllColors: Story = {
       options: ['solid', 'bordered', 'light', 'flat', 'faded', 'dot'],
     },
   },
-  render: (args) => (
-    <>
-      {[
-        'default',
-        'primary',
-        'secondary',
-        'info',
-        'success',
-        'warning',
-        'danger',
-      ].map((color) => (
-        <div key={color} style={{ marginTop: '10px' }}>
-          <Label {...args} color={color as LabelProps['color']}>
-            {color}
-          </Label>
-        </div>
-      ))}
-    </>
-  ),
+  render: (args) => {
+    return (
+      <>
+        {[
+          'default',
+          'primary',
+          'secondary',
+          'info',
+          'success',
+          'warning',
+          'danger',
+        ].map((color) => {
+          return (
+            <div key={color} style={{ marginTop: '10px' }}>
+              <Label {...args} color={color as LabelProps['color']}>
+                {color}
+              </Label>
+            </div>
+          );
+        })}
+      </>
+    );
+  },
 };
 
 export const AllSizes: Story = {
-  render: () => (
-    <>
-      {['sm', 'md', 'lg'].map((size) => (
-        <div key={size} style={{ marginTop: '10px' }}>
-          <Label size={size as LabelProps['size']}>{size}</Label>
-        </div>
-      ))}
-    </>
-  ),
+  render: () => {
+    return (
+      <>
+        {['sm', 'md', 'lg'].map((size) => {
+          return (
+            <div key={size} style={{ marginTop: '10px' }}>
+              <Label size={size as LabelProps['size']}>{size}</Label>
+            </div>
+          );
+        })}
+      </>
+    );
+  },
 };
 
 export const AllRadius: Story = {
-  render: () => (
-    <>
-      {['none', 'sm', 'md', 'lg', 'full'].map((radius) => (
-        <div key={radius} style={{ marginTop: '10px' }}>
-          <Label radius={radius as LabelProps['radius']}>{radius}</Label>
-        </div>
-      ))}
-    </>
-  ),
+  render: () => {
+    return (
+      <>
+        {['none', 'sm', 'md', 'lg', 'full'].map((radius) => {
+          return (
+            <div key={radius} style={{ marginTop: '10px' }}>
+              <Label radius={radius as LabelProps['radius']}>{radius}</Label>
+            </div>
+          );
+        })}
+      </>
+    );
+  },
 };
 
 export const AllVariants: Story = {
-  render: () => (
-    <>
-      {['solid', 'bordered', 'light', 'flat', 'faded', 'dot'].map((variant) => (
-        <div key={variant} style={{ marginTop: '10px' }}>
-          <Label color="success" variant={variant as LabelProps['variant']}>
-            {variant}
-          </Label>
-        </div>
-      ))}
-    </>
-  ),
+  render: () => {
+    return (
+      <>
+        {['solid', 'bordered', 'light', 'flat', 'faded', 'dot'].map(
+          (variant) => {
+            return (
+              <div key={variant} style={{ marginTop: '10px' }}>
+                <Label
+                  color="success"
+                  variant={variant as LabelProps['variant']}
+                >
+                  {variant}
+                </Label>
+              </div>
+            );
+          },
+        )}
+      </>
+    );
+  },
 };

@@ -4,8 +4,7 @@ import { action } from 'storybook/actions';
 import { expect, userEvent, within } from 'storybook/test';
 
 import { SubmitButton } from '@fuf-stack/uniform';
-import { veto } from '@fuf-stack/veto';
-import * as vt from '@fuf-stack/veto';
+import { array, literal, string, veto } from '@fuf-stack/veto';
 
 import { Form } from '../Form';
 import CheckboxGroup from './CheckboxGroup';
@@ -14,18 +13,20 @@ const meta: Meta<typeof CheckboxGroup> = {
   title: 'uniform/CheckboxGroup',
   component: CheckboxGroup,
   decorators: [
-    (Story, { parameters }) => (
-      <Form
-        onSubmit={action('onSubmit')}
-        className="min-w-60"
-        {...(parameters?.formProps || {})}
-      >
-        <Story />
-        <div className="mt-4 flex justify-end">
-          <SubmitButton />
-        </div>
-      </Form>
-    ),
+    (Story, { parameters }) => {
+      return (
+        <Form
+          className="min-w-60"
+          onSubmit={action('onSubmit')}
+          {...(parameters?.formProps || {})}
+        >
+          <Story />
+          <div className="mt-4 flex justify-end">
+            <SubmitButton />
+          </div>
+        </Form>
+      );
+    },
   ],
 };
 
@@ -198,7 +199,7 @@ export const DisabledOption: Story = {
 };
 
 const requiredValidation = veto({
-  checkboxField: vt.array(vt.string()).min(1),
+  checkboxField: array(string()).min(1),
 });
 
 export const Required: Story = {
@@ -215,7 +216,7 @@ export const Required: Story = {
 };
 
 const validation = veto({
-  checkboxField: vt.array(vt.literal('join-circus')).min(2),
+  checkboxField: array(literal('join-circus')).min(2),
 });
 
 export const Invalid: Story = {
@@ -241,9 +242,10 @@ export const Invalid: Story = {
 };
 
 const validationOneCheckbox = veto({
-  checkboxField: vt
-    .string()
-    .refine((value: string) => value !== 'ghost-peppers', 'This is too hot!')
+  checkboxField: string()
+    .refine((value: string) => {
+      return value !== 'ghost-peppers';
+    }, 'This is too hot!')
     .optional(),
 });
 

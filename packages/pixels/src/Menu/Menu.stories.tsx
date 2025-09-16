@@ -124,19 +124,21 @@ export const AllPlacements: Story = {
 
     return (
       <div className="grid grid-cols-3 gap-4">
-        {placements.map((p) => (
-          <Menu
-            key={p}
-            className=""
-            items={menuItems}
-            placement={p}
-            triggerButtonProps={{
-              variant: 'bordered',
-            }}
-          >
-            {p}
-          </Menu>
-        ))}
+        {placements.map((p) => {
+          return (
+            <Menu
+              key={p}
+              className=""
+              items={menuItems}
+              placement={p}
+              triggerButtonProps={{
+                variant: 'bordered',
+              }}
+            >
+              {p}
+            </Menu>
+          );
+        })}
       </div>
     );
   },

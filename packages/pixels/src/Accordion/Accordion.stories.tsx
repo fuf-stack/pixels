@@ -40,18 +40,22 @@ export const AllVariants: Story = {
     accordionItems,
     indicatorLeft: false,
   },
-  render: (args) => (
-    <div className="w-96">
-      {['light', 'shadow', 'bordered', 'splitted'].map((variant) => (
-        <Accordion
-          {...args}
-          key={variant}
-          className="mb-12"
-          variant={variant as AccordionProps['variant']}
-        />
-      ))}
-    </div>
-  ),
+  render: (args) => {
+    return (
+      <div className="w-96">
+        {['light', 'shadow', 'bordered', 'splitted'].map((variant) => {
+          return (
+            <Accordion
+              {...args}
+              key={variant}
+              className="mb-12"
+              variant={variant as AccordionProps['variant']}
+            />
+          );
+        })}
+      </div>
+    );
+  },
 };
 
 export const OnlySingleSelection: Story = {

@@ -31,9 +31,7 @@ const SortDragHandle = ({
     <div
       className={cn(className)}
       data-testid={testId}
-      // eslint-disable-next-line react/jsx-props-no-spreading
       {...attributes}
-      // eslint-disable-next-line react/jsx-props-no-spreading
       {...listeners}
     >
       <FaGripVertical />

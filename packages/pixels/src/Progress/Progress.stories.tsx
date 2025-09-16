@@ -7,11 +7,13 @@ const meta: Meta<typeof Progress> = {
   title: 'pixels/Progress',
   component: Progress,
   decorators: [
-    (Story) => (
-      <div style={{ width: '300px' }}>
-        <Story />
-      </div>
-    ),
+    (Story) => {
+      return (
+        <div style={{ width: '300px' }}>
+          <Story />
+        </div>
+      );
+    },
   ],
 } as Meta<typeof Progress>;
 
@@ -59,20 +61,24 @@ export const WithLabelAndValueLabel: Story = {
 };
 
 export const AllColors: Story = {
-  render: (args) => (
-    <>
-      {Object.keys(progressVariants.variants.color).map((color) => (
-        <div key={color} style={{ marginTop: '10px' }}>
-          <Progress
-            {...args}
-            label={color}
-            percent={42}
-            color={color as ProgressProps['color']}
-          />
-        </div>
-      ))}
-    </>
-  ),
+  render: (args) => {
+    return (
+      <>
+        {Object.keys(progressVariants.variants.color).map((color) => {
+          return (
+            <div key={color} style={{ marginTop: '10px' }}>
+              <Progress
+                {...args}
+                color={color as ProgressProps['color']}
+                label={color}
+                percent={42}
+              />
+            </div>
+          );
+        })}
+      </>
+    );
+  },
   argTypes: {
     // do not show styleVariant in controls table
     color: {
@@ -84,19 +90,23 @@ export const AllColors: Story = {
 };
 
 export const AllSizes: Story = {
-  render: (args) => (
-    <>
-      {['sm', 'md', 'lg'].map((size) => (
-        <div key={size} style={{ marginTop: '10px' }}>
-          <Progress
-            {...args}
-            label={size}
-            size={size as ProgressProps['size']}
-          />
-        </div>
-      ))}
-    </>
-  ),
+  render: (args) => {
+    return (
+      <>
+        {['sm', 'md', 'lg'].map((size) => {
+          return (
+            <div key={size} style={{ marginTop: '10px' }}>
+              <Progress
+                {...args}
+                label={size}
+                size={size as ProgressProps['size']}
+              />
+            </div>
+          );
+        })}
+      </>
+    );
+  },
   args: {
     percent: 42,
   },
@@ -111,15 +121,19 @@ export const AllSizes: Story = {
 };
 
 export const SomePercentages: Story = {
-  render: (args) => (
-    <>
-      {[0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 150].map((p) => (
-        <div key={p} style={{ marginTop: '20px' }}>
-          <Progress {...args} percent={p} showValueLabel />
-        </div>
-      ))}
-    </>
-  ),
+  render: (args) => {
+    return (
+      <>
+        {[0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 150].map((p) => {
+          return (
+            <div key={p} style={{ marginTop: '20px' }}>
+              <Progress {...args} showValueLabel percent={p} />
+            </div>
+          );
+        })}
+      </>
+    );
+  },
   argTypes: {
     // do not show percent in controls table
     percent: {
