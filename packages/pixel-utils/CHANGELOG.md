@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.5](https://github.com/fuf-stack/pixels/compare/pixel-utils-v1.0.4...pixel-utils-v1.0.5) (2025-09-16)
+
+
+### Bug Fixes
+
+* **pixels:** fix Button extend by using same tailwind-merge and tailwind-variants version of theme ([8fb3a2b](https://github.com/fuf-stack/pixels/commit/8fb3a2ba0b69b00e28d4267113f48c80d299189d))
+
 ## [1.0.4](https://github.com/fuf-stack/pixels/compare/pixel-utils-v1.0.3...pixel-utils-v1.0.4) (2025-09-16)
 
 
