@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.0.3](https://github.com/fuf-stack/pixels/compare/uniform-v1.0.2...uniform-v1.0.3) (2025-09-16)
+
+
+### Bug Fixes
+
+* **pixels:** fix Button className prop dev + update some snaps ([68c8854](https://github.com/fuf-stack/pixels/commit/68c8854fa20b45d17d8966cd285ee9a31950a83c))
+* **pixels:** fix Button extend by using same tailwind-merge and tailwind-variants version of theme ([8fb3a2b](https://github.com/fuf-stack/pixels/commit/8fb3a2ba0b69b00e28d4267113f48c80d299189d))
+* **pixels:** try to make Button portable and extendable ([8f3bf4c](https://github.com/fuf-stack/pixels/commit/8f3bf4c05c3bdc209004801555f7a2ec7016f8f7))
+* **pixels:** update Button snaps ([1110c96](https://github.com/fuf-stack/pixels/commit/1110c968bd1b28c0dc3dd25c40800b5eb8e32295))
+* reformat most components with latest eslint-config-fuf ([e686859](https://github.com/fuf-stack/pixels/commit/e686859e3755068ddbd586d67ac150b957b04ac3))
+
 ## [1.0.2](https://github.com/fuf-stack/pixels/compare/uniform-v1.0.1...uniform-v1.0.2) (2025-09-08)
 
 
