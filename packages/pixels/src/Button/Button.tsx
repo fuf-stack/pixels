@@ -1,23 +1,24 @@
-import type { TVClassName, TVProps } from '@fuf-stack/pixel-utils';
 import type { ButtonProps as HeroButtonProps } from '@heroui/button';
 import type { ReactNode } from 'react';
 
 import { Button as HeroButton } from '@heroui/button';
 import { button as heroButtonVariants } from '@heroui/theme';
 
-import { tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
+import { tv } from '@fuf-stack/pixel-utils';
 
 import LoadingSpinner from './subcomponents/LoadingSpinner';
 
-export const buttonVariants = tv({
-  slots: {
-    base: '',
-  },
+const tvConfig = <T extends Parameters<typeof tv>[0]>(c: T) => {
+  return c;
+};
+
+const buttonVariantsConfig = tvConfig({
+  extend: heroButtonVariants,
   variants: {
     color: {
+      ...heroButtonVariants.variants.color,
       // see: https://github.com/heroui-inc/heroui/blob/canary/packages/core/theme/src/components/button.ts
       info: '',
-      ...heroButtonVariants.variants.color,
     },
     variant: heroButtonVariants.variants.variant,
     size: heroButtonVariants.variants.size,
@@ -26,13 +27,23 @@ export const buttonVariants = tv({
     // white text on solid / shadow success button
     {
       color: 'success',
-      variant: ['solid', 'shadow'],
+      variant: 'solid',
+      class: 'text-white',
+    },
+    {
+      color: 'success',
+      variant: 'shadow',
       class: 'text-white',
     },
     // white text on solid / shadow warning button
     {
       color: 'warning',
-      variant: ['solid', 'shadow'],
+      variant: 'solid',
+      class: 'text-white',
+    },
+    {
+      color: 'warning',
+      variant: 'shadow',
       class: 'text-white',
     },
     {
@@ -43,7 +54,7 @@ export const buttonVariants = tv({
     {
       color: 'info',
       variant: 'shadow',
-      class: 'text-info-foreground" bg-info shadow-info/40 shadow-lg',
+      class: 'text-info-foreground bg-info shadow-info/40 shadow-lg',
     },
     {
       color: 'info',
@@ -74,18 +85,17 @@ export const buttonVariants = tv({
   ],
 });
 
-type VariantProps = TVProps<typeof buttonVariants>;
-type ClassName = TVClassName<typeof buttonVariants>;
+export const buttonVariants: ReturnType<typeof tv> = tv(buttonVariantsConfig);
 
-export interface ButtonProps extends VariantProps {
+export interface ButtonProps {
   /** sets HTML aria-label attribute */
   ariaLabel?: string;
   /** content of the button */
   children?: ReactNode;
   /** CSS class name */
-  className?: ClassName;
+  className?: string;
   /** color of the button */
-  color?: VariantProps['color'];
+  color?: HeroButtonProps['color'] | 'info';
   /** disables the button */
   disabled?: boolean;
   /** disables all animations */
@@ -107,7 +117,7 @@ export interface ButtonProps extends VariantProps {
   /** HTML button type attribute */
   type?: 'button' | 'submit' | 'reset' | undefined;
   /** visual style variant */
-  variant?: VariantProps['variant'];
+  variant?: HeroButtonProps['variant'];
 }
 
 /**
@@ -116,7 +126,7 @@ export interface ButtonProps extends VariantProps {
 const Button = ({
   ariaLabel = undefined,
   children = undefined,
-  className = undefined,
+  className: _className = undefined,
   color = 'default',
   disableAnimation = false,
   disabled = false,
@@ -130,27 +140,27 @@ const Button = ({
   type = undefined,
   variant = 'solid',
 }: ButtonProps) => {
-  // classNames from slots
-  const variants = buttonVariants({ color, variant, size });
-  const classNames = variantsToClassNames(variants, className, 'base');
+  const className = buttonVariants({
+    className: _className,
+    disableAnimation,
+    isDisabled: disabled,
+    color,
+    size,
+    variant,
+    isIconOnly: !!(icon && !children),
+    radius,
+  });
 
   return (
     <HeroButton
       aria-label={ariaLabel}
-      className={classNames.base}
-      color={color as HeroButtonProps['color']}
+      className={className}
       data-testid={testId}
-      disableAnimation={disableAnimation}
       disableRipple={disableAnimation || !ripple}
-      isDisabled={disabled}
-      isIconOnly={!!(icon && !children)}
       isLoading={loading}
       onPress={onClick}
-      radius={radius}
-      size={size}
       spinner={<LoadingSpinner />}
       type={type}
-      variant={variant}
     >
       {icon}
       {children}

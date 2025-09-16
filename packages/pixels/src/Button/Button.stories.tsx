@@ -5,6 +5,8 @@ import { FaEnvelope } from 'react-icons/fa';
 
 import { action } from 'storybook/actions';
 
+import { tv } from '@fuf-stack/pixel-utils';
+
 import Button, { buttonVariants } from './Button';
 
 const meta: Meta<typeof Button> = {
@@ -50,6 +52,9 @@ export const IconOnly: Story = {
   args: {
     icon: <FaEnvelope />,
     children: undefined,
+    color: 'danger',
+    size: 'sm',
+    // variant: 'light',
   },
 };
 
@@ -141,5 +146,41 @@ export const AllVariants: Story = {
         })}
       </>
     );
+  },
+};
+
+const buttonVariantsExtended = tv({
+  extend: buttonVariants,
+  variants: {
+    size: {
+      sm: 'rounded-none',
+      md: 'rounded-none',
+      lg: 'rounded-none',
+    },
+  },
+  compoundVariants: [
+    {
+      variant: 'solid',
+      color: 'default',
+      class: 'bg-warning-500',
+    },
+  ],
+});
+
+export const ExtendVariantStyles: Story = {
+  args: {
+    children: 'Extended Button',
+    className: 'text-success',
+  },
+  render: ({ color = 'default', variant = 'solid', size = 'md', ...rest }) => {
+    // className from slots
+    const extendedClassNames = buttonVariantsExtended({
+      color,
+      variant,
+      size,
+      ...rest,
+    });
+
+    return <Button {...rest} className={extendedClassNames} />;
   },
 };
