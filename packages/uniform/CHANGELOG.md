@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.4](https://github.com/fuf-stack/pixels/compare/uniform-v1.0.3...uniform-v1.0.4) (2025-09-16)
+
+
+### Bug Fixes
+
+* **uniform:** fix validation of nullish fields ([13fa967](https://github.com/fuf-stack/pixels/commit/13fa967e0cb9d768d9f8ebcf3b7c0a6d4056a977))
+
 ## [1.0.3](https://github.com/fuf-stack/pixels/compare/uniform-v1.0.2...uniform-v1.0.3) (2025-09-16)
 
 
