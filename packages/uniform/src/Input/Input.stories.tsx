@@ -273,9 +273,7 @@ export const ValidationAfterClear: Story = {
       expect(input.getAttribute('aria-invalid')).toBe('true');
 
       // Check that error message is displayed
-      expect(
-        canvas.getByText('String must contain at least 1 character(s)'),
-      ).toBeInTheDocument();
+      expect(canvas.getByText('Field is required')).toBeInTheDocument();
     });
   },
 };

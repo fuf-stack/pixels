@@ -9,7 +9,9 @@ const zeroString = '__ZERO__';
  * Converts marker strings back to their original values when processing arrays
  */
 export const fromNullishString = (value: unknown): unknown => {
-  if (typeof value !== 'string') return value;
+  if (typeof value !== 'string') {
+    return value;
+  }
 
   switch (value) {
     case nullString:
@@ -27,9 +29,15 @@ export const fromNullishString = (value: unknown): unknown => {
  * Converts null/falsy values to marker strings for JSON processing
  */
 export const toNullishString = (value: unknown): unknown => {
-  if (value === null || value === '') return nullString;
-  if (value === false) return falseString;
-  if (value === 0) return zeroString;
+  if (value === null || value === '') {
+    return nullString;
+  }
+  if (value === false) {
+    return falseString;
+  }
+  if (value === 0) {
+    return zeroString;
+  }
   return value;
 };
 
@@ -62,26 +70,24 @@ export const toNullishString = (value: unknown): unknown => {
  *   }
  * }
  */
-export const toFormFormat = (
-  fields: Record<string, unknown>,
-): Record<string, unknown> => {
-  return JSON.parse(
-    JSON.stringify(fields, (_, value) => {
-      if (Array.isArray(value)) {
-        return value.map(toNullishString);
-      }
+export const toFormFormat = (fields: Record<string, unknown>) => {
+  const formFormatJson = JSON.stringify(fields, (_, value) => {
+    if (Array.isArray(value)) {
+      return value.map(toNullishString);
+    }
 
-      if (value && typeof value === 'object') {
-        return Object.fromEntries(
-          Object.entries(value).filter(([_key, v]) => {
-            return v !== '' && v !== null;
-          }),
-        );
-      }
+    if (value && typeof value === 'object') {
+      return Object.fromEntries(
+        Object.entries(value).filter(([_key, v]) => {
+          return v !== '' && v !== null;
+        }),
+      );
+    }
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+    return value;
+  });
 
-      return value;
-    }),
-  );
+  return JSON.parse(formFormatJson) as Record<string, unknown>;
 };
 
 /**
@@ -119,27 +125,25 @@ export const toValidationFormat = (
     return formState;
   }
 
-  return JSON.parse(
-    JSON.stringify(formState, (_, value) => {
-      if (Array.isArray(value)) {
-        return value.map(fromNullishString);
-      }
+  const validationFormatJson = JSON.stringify(formState, (_, value) => {
+    if (Array.isArray(value)) {
+      return value.map(fromNullishString);
+    }
 
-      if (value && typeof value === 'object') {
-        return Object.fromEntries(
-          Object.entries(value)
-            .filter(([_key, v]) => {
-              return (
-                fromNullishString(v) !== '' && fromNullishString(v) !== null
-              );
-            })
-            .map(([k, v]) => {
-              return [k, fromNullishString(v)];
-            }),
-        );
-      }
+    if (value && typeof value === 'object') {
+      return Object.fromEntries(
+        Object.entries(value)
+          .filter(([_key, v]) => {
+            return fromNullishString(v) !== '' && fromNullishString(v) !== null;
+          })
+          .map(([k, v]) => {
+            return [k, fromNullishString(v)];
+          }),
+      );
+    }
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+    return value;
+  });
 
-      return value;
-    }),
-  );
+  return JSON.parse(validationFormatJson) as Record<string, unknown>;
 };

@@ -118,7 +118,7 @@ const FormProvider: React.FC<FormProviderProps> = ({
 }) => {
   // Form Debug mode state is handled in the form context
   const [debugMode, setDebugMode] = useLocalStorage<DebugMode>(
-    debugModeSettings?.localStorageKey || DEBUG_MODE_LOCAL_STORAGE_KEY_DEFAULT,
+    debugModeSettings?.localStorageKey ?? DEBUG_MODE_LOCAL_STORAGE_KEY_DEFAULT,
     'off',
   );
 
@@ -160,7 +160,7 @@ const FormProvider: React.FC<FormProviderProps> = ({
 
     // Convert nullish strings and filter out empty values before submission
     const wrappedOnSubmit = (data: FieldValues, event?: BaseSyntheticEvent) => {
-      const submitData = toValidationFormat(data) || {};
+      const submitData = toValidationFormat(data) ?? {};
       return onSubmit(submitData, event);
     };
 

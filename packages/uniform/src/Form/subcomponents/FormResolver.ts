@@ -1,5 +1,3 @@
-/* eslint-disable import/prefer-default-export */
-
 import type {
   VetoFormattedError,
   VetoInstance,
@@ -10,6 +8,8 @@ import type { FieldValues } from 'react-hook-form';
 import { useMemo, useRef, useState } from 'react';
 
 import { and, serializeSchema, veto } from '@fuf-stack/veto';
+
+import { toValidationFormat } from '../../helpers';
 
 /**
  * Hook that manages client validation schemas state.
@@ -148,13 +148,14 @@ export const useFormResolver = (extendedValidation?: VetoInstance) => {
     }
 
     return async (values: FieldValues) => {
-      const result = await extendedValidation.validateAsync(values);
+      const validationValues = toValidationFormat(values) ?? {};
+      const result = await extendedValidation.validateAsync(validationValues);
       validationErrors.current = result.errors;
 
       // Transform veto result to React Hook Form format
       return {
-        values: result.data || {},
-        errors: result.errors || {},
+        values: result.data ?? {},
+        errors: result.errors ?? {},
       };
     };
   }, [extendedValidation]);

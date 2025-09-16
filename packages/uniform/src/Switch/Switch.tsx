@@ -89,10 +89,10 @@ const Switch = ({
     <div className={classNames.outerWrapper}>
       <HeroSwitch
         ref={ref}
-        classNames={classNames}
         // see HeroUI styles for group-data condition (data-invalid),
         // e.g.: https://github.com/heroui-inc/heroui/blob/main/packages/components/select/src/use-select.ts
         aria-describedby={getInputProps()['aria-describedby']}
+        classNames={classNames}
         data-invalid={invalid}
         data-required={required}
         data-testid={testId}
