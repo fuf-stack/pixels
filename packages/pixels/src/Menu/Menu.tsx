@@ -145,7 +145,11 @@ const Menu = ({
   const className = variantsToClassNames(variants, _className, 'trigger');
 
   // determine trigger button variant
-  let triggerButton = <button type="button">{children}</button>;
+  let triggerButton = (
+    <button className={className.trigger} type="button">
+      {children}
+    </button>
+  );
   if (!children) {
     //  default to ellipsis icon when no children are provided
     triggerButton = (
