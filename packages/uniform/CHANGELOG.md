@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.5](https://github.com/fuf-stack/pixels/compare/uniform-v1.0.4...uniform-v1.0.5) (2025-09-20)
+
+
+### Bug Fixes
+
+* **deps:** update dependency framer-motion to v12.23.13 ([#1183](https://github.com/fuf-stack/pixels/issues/1183)) ([463eac8](https://github.com/fuf-stack/pixels/commit/463eac85eb562ac4eb432cb9e348488915bd15bd))
+
 ## [1.0.4](https://github.com/fuf-stack/pixels/compare/uniform-v1.0.3...uniform-v1.0.4) (2025-09-16)
 
 
