@@ -358,8 +358,8 @@ importers:
         specifier: 3.25.67
         version: 3.25.67
       zodex:
-        specifier: 0.18.2
-        version: 0.18.2(zod@3.25.67)
+        specifier: 4.0.1
+        version: 4.0.1(zod@3.25.67)
 
 packages:
 
@@ -6332,10 +6332,10 @@ packages:
   zod@3.25.67:
     resolution: {integrity: sha512-idA2YXwpCdqUSKRCACDE6ItZD9TZzy3OZMtpfLoh6oPR47lipysRrJfjzMqFxQ3uJuUPyUeWe1r9vLH33xO/Qw==}
 
-  zodex@0.18.2:
-    resolution: {integrity: sha512-GE0/S68lJhhBhJWeOSvq4BCigrguOeKFr7h3sbsMPd6kF4ZCHeVU/hOzNLHlj6d+ezNXcpQ4nHj6purY5RxQBg==}
+  zodex@4.0.1:
+    resolution: {integrity: sha512-U+rgGGedLDZIVsou0SHejsnn5A8+08KVcHGZdCRA3dR+VLVlBWsirZN6g48HzkttSiotcYMyDfgp0W/Vf7FoAQ==}
     peerDependencies:
-      zod: ^3.x
+      zod: ^4.0.x
 
 snapshots:
 
@@ -13340,7 +13340,7 @@ snapshots:
 
   zod@3.25.67: {}
 
-  zodex@0.18.2(zod@3.25.67):
+  zodex@4.0.1(zod@3.25.67):
     dependencies:
       type-fest: 4.41.0
       zod: 3.25.67
