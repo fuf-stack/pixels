@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.12.2](https://github.com/fuf-stack/pixels/compare/veto-v0.12.1...veto-v0.12.2) (2025-09-20)
+
+
+### Bug Fixes
+
+* reformat most components with latest eslint-config-fuf ([e686859](https://github.com/fuf-stack/pixels/commit/e686859e3755068ddbd586d67ac150b957b04ac3))
+
 ## [0.12.1](https://github.com/fuf-stack/pixels/compare/veto-v0.12.0...veto-v0.12.1) (2025-06-24)
 
 
