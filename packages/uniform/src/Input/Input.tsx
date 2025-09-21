@@ -90,7 +90,9 @@ const Input = ({
       ? {
           isClearable: true,
           onClear: () => {
-            resetField(name);
+            // if field had initial value we do not reset it
+            // to that value, but clear it instead
+            resetField(name, { defaultValue: null });
           },
         }
       : {};
