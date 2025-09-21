@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.1.0](https://github.com/fuf-stack/pixels/compare/uniform-v1.0.4...uniform-v1.1.0) (2025-09-21)
+
+
+### Features
+
+* **uniform:** add clearable prop to Input ([38f92b7](https://github.com/fuf-stack/pixels/commit/38f92b7fae1e3514fb335b9344ca069a4ddb05bd))
+
+
+### Bug Fixes
+
+* **deps:** update dependency framer-motion to v12.23.13 ([#1183](https://github.com/fuf-stack/pixels/issues/1183)) ([463eac8](https://github.com/fuf-stack/pixels/commit/463eac85eb562ac4eb432cb9e348488915bd15bd))
+* **deps:** update dependency framer-motion to v12.23.15 ([#1191](https://github.com/fuf-stack/pixels/issues/1191)) ([efd213b](https://github.com/fuf-stack/pixels/commit/efd213b535ef8bd16e07886bc934523f67c1fe9e))
+
 ## [1.0.4](https://github.com/fuf-stack/pixels/compare/uniform-v1.0.3...uniform-v1.0.4) (2025-09-16)
 
 
