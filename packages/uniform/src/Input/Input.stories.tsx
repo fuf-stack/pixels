@@ -20,7 +20,7 @@ const meta: Meta<typeof Input> = {
         <Form
           className="min-w-60"
           onSubmit={action('onSubmit')}
-          {...(parameters?.formProps || {})}
+          {...(parameters?.formProps ?? {})}
         >
           <Story />
           <div className="mt-4 flex justify-end">
@@ -72,6 +72,20 @@ export const Required: Story = {
   args: {
     label: 'Input Field',
     name: 'inputField',
+  },
+};
+
+export const Clearable: Story = {
+  args: {
+    name: 'inputField',
+    clearable: true,
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const input = canvas.getByTestId('inputfield');
+    await userEvent.type(input, 'I can be cleared');
+    const clearButton = canvas.getByLabelText('clear input');
+    expect(clearButton).toBeVisible();
   },
 };
 

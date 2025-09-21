@@ -1,3 +1,4 @@
+import type { InputProps as HeroInputProps } from '@heroui/input';
 import type { ReactNode } from 'react';
 import type { InputValueTransform } from '../hooks';
 
@@ -12,6 +13,8 @@ import { FieldValidationError } from '../partials/FieldValidationError';
 export interface InputProps {
   /** CSS class name */
   className?: string;
+  /** shows clear button when input has value */
+  clearable?: boolean;
   /** debounce delay in milliseconds for form state updates (default: 300ms) */
   debounceDelay?: number;
   /** input field is disabled */
@@ -41,6 +44,7 @@ export interface InputProps {
  */
 const Input = ({
   className = undefined,
+  clearable = false,
   debounceDelay = 300,
   disabled = false,
   endContent = undefined,
@@ -53,7 +57,7 @@ const Input = ({
   transform = undefined,
   type = undefined,
 }: InputProps) => {
-  const { control, debugMode, getFieldState } = useFormContext();
+  const { control, debugMode, getFieldState, resetField } = useFormContext();
   const { error, invalid, required, testId } = getFieldState(name, _testId);
 
   const { field } = useController({
@@ -80,8 +84,19 @@ const Input = ({
     value: fieldValue,
   });
 
+  // If input is clearable add props for clearing input value
+  const clearableProps: Pick<HeroInputProps, 'isClearable' | 'onClear'> =
+    clearable
+      ? {
+          isClearable: true,
+          onClear: () => {
+            resetField(name);
+          },
+        }
+      : {};
+
   const showTestIdCopyButton = debugMode === 'debug-testids';
-  const showLabel = label || showTestIdCopyButton;
+  const showLabel = label ?? showTestIdCopyButton;
 
   return (
     <HeroInput
@@ -100,24 +115,25 @@ const Input = ({
       radius="sm"
       size={size}
       startContent={startContent}
+      type={type}
+      // @ts-expect-error can be number for input type number
+      value={value}
       variant="bordered"
       classNames={{
         inputWrapper: 'bg-content1 group-data-[focus=true]:border-focus',
       }}
       errorMessage={
-        error && <FieldValidationError error={error} testId={testId} />
+        error ? <FieldValidationError error={error} testId={testId} /> : null
       }
       label={
-        showLabel && (
+        showLabel ? (
           <>
             {label}
-            {showTestIdCopyButton && <FieldCopyTestIdButton testId={testId} />}
+            {showTestIdCopyButton ?? <FieldCopyTestIdButton testId={testId} />}
           </>
-        )
+        ) : null
       }
-      type={type}
-      // @ts-expect-error can be number for input type number
-      value={value}
+      {...clearableProps}
     />
   );
 };
