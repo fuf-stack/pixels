@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/fuf-stack/pixels/compare/uniform-v1.1.0...uniform-v1.2.0) (2025-09-21)
+
+
+### Features
+
+* **uniform:** add icon to SubmitButton ([4f8ecde](https://github.com/fuf-stack/pixels/commit/4f8ecde26210062d58101f6a53a64e1ecc779668))
+
 ## [1.1.0](https://github.com/fuf-stack/pixels/compare/uniform-v1.0.4...uniform-v1.1.0) (2025-09-21)
 
 
