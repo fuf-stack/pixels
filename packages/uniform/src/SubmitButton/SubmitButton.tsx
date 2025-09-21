@@ -11,11 +11,13 @@ export interface SubmitButtonProps {
   children?: ReactNode;
   /** CSS class name */
   className?: string;
-  /** color of the button */
+  /** color of the submit button */
   color?: ButtonProps['color'];
+  /** icon of the submit button */
+  icon?: ButtonProps['icon'];
   /** If set loading animation is shown */
   loading?: boolean;
-  /** size of the button */
+  /** size of the submit button */
   size?: ButtonProps['size'];
   /** HTML data-testid attribute used in e2e tests */
   testId?: string;
@@ -28,6 +30,7 @@ const SubmitButton = ({
   children = 'Submit',
   className = undefined,
   color = 'success',
+  icon = undefined,
   loading = false,
   size = 'md',
   testId = 'form_submit_button',
@@ -42,6 +45,7 @@ const SubmitButton = ({
       className={cn(className)}
       color={color}
       disabled={isSubmitting}
+      icon={icon}
       loading={loading || isSubmitting}
       // @ts-expect-error we use form context triggerSubmit
       // here so that submit button also works in special

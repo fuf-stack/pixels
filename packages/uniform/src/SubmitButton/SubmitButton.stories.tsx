@@ -1,8 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
+import { FaRocket } from 'react-icons/fa6';
+
 import { action } from 'storybook/actions';
 
-import v, { string } from '@fuf-stack/veto';
+import { string, veto } from '@fuf-stack/veto';
 
 import { Form } from '../Form';
 import SubmitButton from './SubmitButton';
@@ -13,7 +15,7 @@ const meta: Meta<typeof SubmitButton> = {
   decorators: [
     (Story, { parameters }) => {
       return (
-        <Form {...(parameters.formProps || {})} onSubmit={action('onSubmit')}>
+        <Form {...(parameters.formProps ?? {})} onSubmit={action('onSubmit')}>
           <Story />
         </Form>
       );
@@ -30,7 +32,16 @@ export const Default: Story = {
   },
 };
 
-const validation = v({
+export const IconOnly: Story = {
+  args: {
+    testId: 'some-test-id',
+    children: null,
+    icon: <FaRocket />,
+    loading: false,
+  },
+};
+
+const validation = veto({
   inputField: string(),
 });
 
