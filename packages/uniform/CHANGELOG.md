@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.1](https://github.com/fuf-stack/pixels/compare/uniform-v1.2.0...uniform-v1.2.1) (2025-09-21)
+
+
+### Bug Fixes
+
+* **uniform:** fix clearable for Input when field has initial value ([f1a793b](https://github.com/fuf-stack/pixels/commit/f1a793bbaca78ad2394da3e08da434fb8b384bfa))
+
 ## [1.2.0](https://github.com/fuf-stack/pixels/compare/uniform-v1.1.0...uniform-v1.2.0) (2025-09-21)
 
 
