@@ -25,6 +25,8 @@ export interface InputProps {
   label?: string | false;
   /** form field name */
   name: string;
+  /** callback that is fired when the value is cleared */
+  onClear?: () => void;
   /** form field placeholder */
   placeholder?: string;
   /** size of the input */
@@ -50,6 +52,7 @@ const Input = ({
   endContent = undefined,
   label = undefined,
   name,
+  onClear = undefined,
   placeholder = ' ',
   size = undefined,
   startContent = undefined,
@@ -93,6 +96,10 @@ const Input = ({
             // if field had initial value we do not reset it
             // to that value, but clear it instead
             resetField(name, { defaultValue: null });
+            // if onClear cb provided we call it
+            if (onClear) {
+              onClear();
+            }
           },
         }
       : {};

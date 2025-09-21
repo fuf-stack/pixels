@@ -79,6 +79,7 @@ export const Clearable: Story = {
   args: {
     name: 'inputField',
     clearable: true,
+    onClear: action('onClear'),
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
