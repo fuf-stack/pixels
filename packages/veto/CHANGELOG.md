@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.12.3](https://github.com/fuf-stack/pixels/compare/veto-v0.12.2...veto-v0.12.3) (2025-09-22)
+
+
+### Bug Fixes
+
+* **veto:** try to fix type issue with string ([accbd83](https://github.com/fuf-stack/pixels/commit/accbd831ae07bf67e261e427e1ec731296d684ea))
+
 ## [0.12.2](https://github.com/fuf-stack/pixels/compare/veto-v0.12.1...veto-v0.12.2) (2025-09-22)
 
 
