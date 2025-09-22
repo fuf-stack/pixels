@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.12.4](https://github.com/fuf-stack/pixels/compare/veto-v0.12.3...veto-v0.12.4) (2025-09-22)
+
+
+### Bug Fixes
+
+* **veto:** lock zod version to 3.24.3 ([a729fd6](https://github.com/fuf-stack/pixels/commit/a729fd6e819b3907b2b1abf739c537927f2cccc7))
+
 ## [0.12.3](https://github.com/fuf-stack/pixels/compare/veto-v0.12.2...veto-v0.12.3) (2025-09-22)
 
 
