@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.12.5](https://github.com/fuf-stack/pixels/compare/veto-v0.12.4...veto-v0.12.5) (2025-09-22)
+
+
+### Bug Fixes
+
+* **veto:** expose type VStringRefinements ([872e90c](https://github.com/fuf-stack/pixels/commit/872e90ceda44448d21c2c0ee65d7e4a3b682e928))
+
 ## [0.12.4](https://github.com/fuf-stack/pixels/compare/veto-v0.12.3...veto-v0.12.4) (2025-09-22)
 
 
