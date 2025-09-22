@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.0](https://github.com/fuf-stack/pixels/compare/megapixels-v0.0.1...megapixels-v0.1.0) (2025-09-22)
+
+
+### Features
+
+* **megapixels:** add initial Filter component ([fae1545](https://github.com/fuf-stack/pixels/commit/fae15451fa4f3e8d052be2f6fa47e9fdeb0040d1))
+
 ## 0.0.1 (2025-09-16)
 
 
