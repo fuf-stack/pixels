@@ -1,5 +1,4 @@
 import type { VetoEffects, VetoOptional, VetoRefinementCtx } from 'src/types';
-import type { ZodString } from 'zod';
 
 import { z } from 'zod';
 
@@ -8,7 +7,7 @@ export interface VStringOptions {
   min: number;
 }
 
-export const string = (options?: VStringOptions): VStringSchema => {
+export const string = (options?: VStringOptions) => {
   return (
     z
       // see: https://zod.dev/?id=strings
@@ -21,7 +20,7 @@ export const string = (options?: VStringOptions): VStringSchema => {
 };
 
 export type VString = typeof string;
-export type VStringSchema = ZodString;
+export type VStringSchema = ReturnType<VString>;
 
 /** when used with refine or superRefine */
 export type VStringRefined<Options = undefined> = (
