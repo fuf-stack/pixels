@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.2](https://github.com/fuf-stack/pixels/compare/uniform-v1.2.1...uniform-v1.2.2) (2025-09-21)
+
+
+### Bug Fixes
+
+* **uniform:** also add onClear cb to Input ([ee930c7](https://github.com/fuf-stack/pixels/commit/ee930c781e80938e12923f50726160461cf663a4))
+
 ## [1.2.1](https://github.com/fuf-stack/pixels/compare/uniform-v1.2.0...uniform-v1.2.1) (2025-09-21)
 
 
