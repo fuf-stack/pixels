@@ -95,7 +95,7 @@ const makeElementsUnique = (options: MakeElementsUniqueOptions) => {
 };
 
 /** Configuration options for array validation refinements */
-interface ArrayRefinements {
+export interface VArrayRefinements {
   /** Custom refinement function that takes the object data and context */
   custom?: (data: unknown[], ctx: VetoRefinementCtx) => void;
   /** Ensures array elements are unique based on specified criteria or comparison function */
@@ -145,7 +145,7 @@ export const refineArray = <T extends RefineArrayInputArray>(schema: T) => {
   type Element = ExtractElement<T>;
 
   return (
-    refinements: ArrayRefinements,
+    refinements: VArrayRefinements,
   ): VetoEffects<VArraySchema<Element>> => {
     let _schema = schema as unknown as VetoEffects<VArraySchema<Element>>;
 

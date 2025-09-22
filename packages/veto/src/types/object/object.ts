@@ -54,7 +54,7 @@ export type VObjectLooseRefined<T extends VetoRawShape> = VetoEffects<
 >;
 
 /** Configuration options for object validation refinements */
-interface ObjectRefinements {
+export interface VObjectRefinements {
   /** Custom refinement function that takes the object data and context */
   custom: (data: Record<string, unknown>, ctx: VetoRefinementCtx) => void;
 }
@@ -98,7 +98,7 @@ export const refineObject = <T extends RefineObjectInputObject>(schema: T) => {
   type Shape = ExtractShape<T>;
 
   return (
-    refinements: ObjectRefinements,
+    refinements: VObjectRefinements,
   ): VetoEffects<VObjectSchema<Shape>> => {
     // Add custom refinement
     const _schema = z.preprocess((val, ctx) => {
