@@ -93,7 +93,7 @@ const noConsecutiveCharacters = (options: NoConsecutiveCharactersOptions) => {
 };
 
 /** Configuration options for string validation refinements */
-interface StringRefinements {
+export interface VStringRefinements {
   /** Filter out strings matching blacklist patterns with optional custom error messages */
   blacklist?: BlacklistOptions;
   /** Custom refinement function for additional validation rules (will be applied first when present) */
@@ -124,7 +124,7 @@ export const refineString = <
 >(
   schema: T,
 ) => {
-  return (refinements: StringRefinements) => {
+  return (refinements: VStringRefinements) => {
     return schema.superRefine((val, ctx) => {
       // Skip refinements if value is undefined (because it is optional)
       if (val === undefined) {
