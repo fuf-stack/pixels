@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.12.6](https://github.com/fuf-stack/pixels/compare/veto-v0.12.5...veto-v0.12.6) (2025-09-22)
+
+
+### Bug Fixes
+
+* **veto:** export also zodex types ([e624d13](https://github.com/fuf-stack/pixels/commit/e624d13fa66095f0159bdc89db8c406879f09a26))
+* **veto:** expose more types ([b1ba2ca](https://github.com/fuf-stack/pixels/commit/b1ba2ca721277cf99784df0fbe502fd8dfb6d073))
+
 ## [0.12.5](https://github.com/fuf-stack/pixels/compare/veto-v0.12.4...veto-v0.12.5) (2025-09-22)
 
 
