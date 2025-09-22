@@ -1,7 +1,6 @@
 import type { VetoEffects, VetoOptional, VetoRefinementCtx } from 'src/types';
 import type { ZodString } from 'zod';
 
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { z } from 'zod';
 
 export interface VStringOptions {
@@ -14,6 +13,8 @@ export const string = (options?: VStringOptions): VStringSchema => {
     z
       // see: https://zod.dev/?id=strings
       .string()
+      // we always trim whitespace
+      .trim()
       // expect strings to be at least 1 char long by default
       .min(options?.min || options?.min === 0 ? options.min : 1)
   );
