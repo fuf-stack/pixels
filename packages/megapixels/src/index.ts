@@ -1,5 +1,6 @@
 /* v8 ignore start */
 
-// TODO
+// components
+export * from './Filter';
 
 /* v8 ignore stop */

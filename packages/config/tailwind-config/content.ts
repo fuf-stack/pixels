@@ -49,6 +49,7 @@ const content: Config['content'] = [
   'src/**/*.{js,ts,jsx,tsx}',
 
   // workspace component package paths
+  path.resolve(__dirname, '../../megapixels/src/**/*.tsx'),
   path.resolve(__dirname, '../../pixels/src/**/*.tsx'),
   path.resolve(__dirname, '../../uniform/src/**/*.tsx'),
 

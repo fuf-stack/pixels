@@ -15,6 +15,11 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
+    },
+    "./Filter": {
+      "types": "./dist/Filter/index.d.ts",
+      "import": "./dist/Filter/index.js",
+      "require": "./dist/Filter/index.cjs"
     }
   },
   "files": [
@@ -41,6 +46,7 @@
     "react-dom": ">=18"
   },
   "dependencies": {
+    "@fuf-stack/pixel-motion": "workspace:*",
     "@fuf-stack/pixel-utils": "workspace:*",
     "@fuf-stack/pixels": "workspace:*",
     "@fuf-stack/uniform": "workspace:*",
