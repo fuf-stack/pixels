@@ -3,6 +3,9 @@ import type { VetoTypeAny } from './types';
 
 import { zerialize } from 'zodex';
 
+// re-export zodex types
+export type * from 'zodex';
+
 // Type predicates for checking schema types
 const isArrayType = (
   type: SzType,
