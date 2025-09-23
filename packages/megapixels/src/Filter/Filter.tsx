@@ -18,7 +18,7 @@ import SearchInput from './Subcomponents/SearchInput';
 export const filterVariants = tv({
   slots: {
     // outer wrapper
-    base: '',
+    base: 'flex flex-auto flex-col',
     // add filter menu trigger button
     addFilterMenuButton: '',
     // add filter menu item
