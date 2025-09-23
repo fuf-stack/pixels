@@ -1,16 +1,23 @@
-/* eslint-disable @typescript-eslint/no-unsafe-return */
-
 import type { vInfer } from '@fuf-stack/veto';
 
 import { boolean, object, string } from '@fuf-stack/veto';
 
 /** configuration of the filter */
 export const config = object({
-  /** TODO... */
+  /**
+   * Human‑readable label used in the UI (e.g. in the chip and modal header).
+   * Examples: "Magical", "Haunted"
+   */
   text: string(),
-  /** TODO... */
+  /**
+   * Optional word shown before the label when building sentence‑like chips.
+   * Examples: "is" → "is Magical"
+   */
   textPrefix: string().optional(),
-  /** TODO... */
+  /**
+   * Optional negation word used when a boolean value is false.
+   * Examples: "not" → "is not Magical"
+   */
   textNoWord: string().optional(),
 });
 

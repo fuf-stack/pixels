@@ -4,9 +4,15 @@ import { array, object, refineArray, string } from '@fuf-stack/veto';
 
 /** configuration of the filter */
 export const config = object({
-  /** TODO... */
+  /**
+   * Human‑readable label used in the UI (e.g. label and modal header).
+   * Example: "Snacks", "Mood"
+   */
   text: string(),
-  /** options... */
+  /**
+   * Options rendered as multiple checkboxes. Each option needs a `label`
+   * (what the user sees) and a `value` (what is written into the form state).
+   */
   options: array(object({ label: string(), value: string() })),
 });
 
