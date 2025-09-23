@@ -3,6 +3,11 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import Progress, { progressVariants } from './Progress';
 
+// Determine SSR/test environment. In those cases we disable animations in
+// stories to avoid timers outliving the test lifecycle, while keeping the
+// component implementation free of environment checks.
+const isSSR = typeof window === 'undefined';
+
 const meta: Meta<typeof Progress> = {
   title: 'pixels/Progress',
   component: Progress,
@@ -15,7 +20,13 @@ const meta: Meta<typeof Progress> = {
       );
     },
   ],
-} as Meta<typeof Progress>;
+  // Global render to inject disableAnimation for SSR/test
+  render: (args) => {
+    return (
+      <Progress {...args} disableAnimation={isSSR || args.disableAnimation} />
+    );
+  },
+};
 
 export default meta;
 type Story = StoryObj<typeof Progress>;
@@ -70,6 +81,7 @@ export const AllColors: Story = {
               <Progress
                 {...args}
                 color={color as ProgressProps['color']}
+                disableAnimation={isSSR || args.disableAnimation}
                 label={color}
                 percent={42}
               />
@@ -98,6 +110,7 @@ export const AllSizes: Story = {
             <div key={size} style={{ marginTop: '10px' }}>
               <Progress
                 {...args}
+                disableAnimation={isSSR || args.disableAnimation}
                 label={size}
                 size={size as ProgressProps['size']}
               />
@@ -127,7 +140,12 @@ export const SomePercentages: Story = {
         {[0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 150].map((p) => {
           return (
             <div key={p} style={{ marginTop: '20px' }}>
-              <Progress {...args} showValueLabel percent={p} />
+              <Progress
+                {...args}
+                showValueLabel
+                disableAnimation={isSSR || args.disableAnimation}
+                percent={p}
+              />
             </div>
           );
         })}
