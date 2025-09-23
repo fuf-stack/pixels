@@ -14,4 +14,8 @@ export const filters = {
   checkboxgroup,
 };
 
+// export everything from the Filter component (types and filterVariants)
+export * from './Filter';
+
+// export the Filter component as default
 export default Filter;

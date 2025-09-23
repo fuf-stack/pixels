@@ -1,7 +1,12 @@
 @import "tailwindcss";
+
+/* load legacy ts tailwind config */
 @config "./tailwind.config.ts";
 
-/* Support both .dark class and data-theme="dark" attribute */
+/*
+ * Support both .dark class and data-theme="dark" attribute
+ * see: https://tailwindcss.com/docs/dark-mode
+ */
 @custom-variant dark (&:where(.dark, .dark *, [data-theme=dark], [data-theme=dark] *));
 
 /********************************************************************
