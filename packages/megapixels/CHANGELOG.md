@@ -1,5 +1,21 @@
 # Changelog
 
+## [0.2.0](https://github.com/fuf-stack/pixels/compare/megapixels-v0.1.1...megapixels-v0.2.0) (2025-09-23)
+
+
+### Features
+
+* **megapixels:** add initial Filter component ([fae1545](https://github.com/fuf-stack/pixels/commit/fae15451fa4f3e8d052be2f6fa47e9fdeb0040d1))
+* **megapixels:** add initial megapixels package ([7441f62](https://github.com/fuf-stack/pixels/commit/7441f620f732c257d448d3791885a8af1b5a390a))
+
+
+### Bug Fixes
+
+* **megapixels:** add descriptions to filter config options ([217c1a6](https://github.com/fuf-stack/pixels/commit/217c1a67e851c57270ae19cfef930458424227d4))
+* **megapixels:** add slots to Filter component ([ea673c1](https://github.com/fuf-stack/pixels/commit/ea673c1c15775ed0ffabc4ae1f2de7085d08854c))
+* **megapixels:** improve styles of Filter ([a247fda](https://github.com/fuf-stack/pixels/commit/a247fdac6093b8f6c999a7c94a37ecc794825f38))
+* **uniform:** bump version ([9b96e5c](https://github.com/fuf-stack/pixels/commit/9b96e5cc2cab72cbd71f6a1354ef1c7111bf92cb))
+
 ## [0.1.1](https://github.com/fuf-stack/pixels/compare/megapixels-v0.1.0...megapixels-v0.1.1) (2025-09-23)
 
 
