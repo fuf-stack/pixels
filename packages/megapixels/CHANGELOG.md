@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.1](https://github.com/fuf-stack/pixels/compare/megapixels-v0.2.0...megapixels-v0.2.1) (2025-09-23)
+
+
+### Bug Fixes
+
+* **megapixels:** expose more types from Filter ([3371293](https://github.com/fuf-stack/pixels/commit/3371293f85c28fc92d0b292e446dc44af89eae23))
+
 ## [0.2.0](https://github.com/fuf-stack/pixels/compare/megapixels-v0.1.1...megapixels-v0.2.0) (2025-09-23)
 
 
