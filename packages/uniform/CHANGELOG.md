@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.2.3](https://github.com/fuf-stack/pixels/compare/uniform-v1.2.2...uniform-v1.2.3) (2025-09-23)
+
+
+### Bug Fixes
+
+* **deps:** update dependency framer-motion to v12.23.16 ([#1200](https://github.com/fuf-stack/pixels/issues/1200)) ([9bd9a0b](https://github.com/fuf-stack/pixels/commit/9bd9a0b13a73ecc8112d1472915d50fe131e55af))
+* **megapixels:** add slots to Filter component ([ea673c1](https://github.com/fuf-stack/pixels/commit/ea673c1c15775ed0ffabc4ae1f2de7085d08854c))
+* **megapixels:** improve styles of Filter ([a247fda](https://github.com/fuf-stack/pixels/commit/a247fdac6093b8f6c999a7c94a37ecc794825f38))
+
 ## [1.2.2](https://github.com/fuf-stack/pixels/compare/uniform-v1.2.1...uniform-v1.2.2) (2025-09-21)
 
 
