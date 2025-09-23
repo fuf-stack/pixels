@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.1.1](https://github.com/fuf-stack/pixels/compare/megapixels-v0.1.0...megapixels-v0.1.1) (2025-09-23)
+
+
+### Bug Fixes
+
+* **megapixels:** add slots to Filter component ([ea673c1](https://github.com/fuf-stack/pixels/commit/ea673c1c15775ed0ffabc4ae1f2de7085d08854c))
+* **megapixels:** improve styles of Filter ([a247fda](https://github.com/fuf-stack/pixels/commit/a247fdac6093b8f6c999a7c94a37ecc794825f38))
+
 ## [0.1.0](https://github.com/fuf-stack/pixels/compare/megapixels-v0.0.1...megapixels-v0.1.0) (2025-09-22)
 
 
