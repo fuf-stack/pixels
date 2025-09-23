@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.2.5](https://github.com/fuf-stack/pixels/compare/pixels-v1.2.4...pixels-v1.2.5) (2025-09-23)
+
+
+### Bug Fixes
+
+* **deps:** update dependency framer-motion to v12.23.16 ([#1200](https://github.com/fuf-stack/pixels/issues/1200)) ([9bd9a0b](https://github.com/fuf-stack/pixels/commit/9bd9a0b13a73ecc8112d1472915d50fe131e55af))
+* **megapixels:** add slots to Filter component ([ea673c1](https://github.com/fuf-stack/pixels/commit/ea673c1c15775ed0ffabc4ae1f2de7085d08854c))
+
 ## [1.2.4](https://github.com/fuf-stack/pixels/compare/pixels-v1.2.3...pixels-v1.2.4) (2025-09-21)
 
 
