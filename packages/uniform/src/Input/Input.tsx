@@ -1,18 +1,36 @@
+import type { TVClassName, TVProps } from '@fuf-stack/pixel-utils';
 import type { InputProps as HeroInputProps } from '@heroui/input';
 import type { ReactNode } from 'react';
 import type { InputValueTransform } from '../hooks';
 
 import { Input as HeroInput } from '@heroui/input';
 
-import { cn } from '@fuf-stack/pixel-utils';
+import { tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 
 import { useController, useFormContext, useInputValueDebounce } from '../hooks';
 import { FieldCopyTestIdButton } from '../partials/FieldCopyTestIdButton';
 import { FieldValidationError } from '../partials/FieldValidationError';
 
-export interface InputProps {
+// input variants
+export const inputVariants = tv({
+  slots: {
+    /** wrapper around the whole input */
+    base: '',
+    /** clear button */
+    clearButton: '',
+    /** actual input element */
+    input: '',
+    /** inner wrapper (HeroUI inputWrapper slot) */
+    inputWrapper: 'bg-content1 group-data-[focus=true]:border-focus',
+  },
+});
+
+type VariantProps = TVProps<typeof inputVariants>;
+type ClassName = TVClassName<typeof inputVariants>;
+
+export interface InputProps extends VariantProps {
   /** CSS class name */
-  className?: string;
+  className?: ClassName;
   /** shows clear button when input has value */
   clearable?: boolean;
   /** debounce delay in milliseconds for form state updates (default: 300ms) */
@@ -45,7 +63,7 @@ export interface InputProps {
  * Input component based on [HeroUI Input](https://www.heroui.com//docs/components/input)
  */
 const Input = ({
-  className = undefined,
+  className: _className = undefined,
   clearable = false,
   debounceDelay = 300,
   disabled = false,
@@ -107,10 +125,13 @@ const Input = ({
   const showTestIdCopyButton = debugMode === 'debug-testids';
   const showLabel = label ?? showTestIdCopyButton;
 
+  // classNames from slots
+  const variants = inputVariants();
+  const classNames = variantsToClassNames(variants, _className, 'base');
+
   return (
     <HeroInput
       ref={ref}
-      className={cn(className)}
       data-testid={testId}
       endContent={endContent}
       isDisabled={isDisabled}
@@ -129,7 +150,10 @@ const Input = ({
       value={value}
       variant="bordered"
       classNames={{
-        inputWrapper: 'bg-content1 group-data-[focus=true]:border-focus',
+        base: classNames.base,
+        clearButton: classNames.clearButton,
+        input: classNames.input,
+        inputWrapper: classNames.inputWrapper,
       }}
       errorMessage={
         error ? <FieldValidationError error={error} testId={testId} /> : null

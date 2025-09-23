@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-return */
-
 import type { FilterDisplayProps } from '../types';
 import type { Config, Value } from './schema';
 
@@ -16,7 +14,7 @@ const Display = ({
           })?.label ?? val
         );
       })
-      .join(', ');
+      .join(' ');
     return `${text} is ${labels}`;
   }
   return `${text} is ...`;

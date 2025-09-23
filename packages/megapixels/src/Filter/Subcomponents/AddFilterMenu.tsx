@@ -1,13 +1,15 @@
 import { FaSliders } from 'react-icons/fa6';
 
-import { cn } from '@fuf-stack/pixel-utils';
 import Menu from '@fuf-stack/pixels/Menu';
 
 import { useFilters } from './FiltersContext';
 
 interface AddFilterMenuProps {
-  /** CSS class name */
-  className?: string;
+  /** CSS class name map for slots */
+  classNames?: Partial<{
+    addFilterMenuItem: string;
+    addFilterMenuButton: string;
+  }>;
 }
 
 /**
@@ -16,7 +18,7 @@ interface AddFilterMenuProps {
  * Renders a menu trigger that opens a list of addable filters. Selecting an
  * item triggers the parent to seed a default value and open the modal.
  */
-const AddFilterMenu = ({ className = undefined }: AddFilterMenuProps) => {
+const AddFilterMenu = ({ classNames = {} }: AddFilterMenuProps) => {
   const { unusedFilters, addFilter, getFilterInstanceByName } = useFilters();
 
   const menuItems = unusedFilters.map((name) => {
@@ -35,12 +37,16 @@ const AddFilterMenu = ({ className = undefined }: AddFilterMenuProps) => {
 
   return (
     <Menu
-      className={cn('rounded-sm', className)}
       isDisabled={!menuItems.length}
       items={menuItems}
       placement="bottom-start"
+      className={{
+        item: classNames.addFilterMenuItem,
+        trigger: classNames.addFilterMenuButton,
+      }}
       triggerButtonProps={{
         'aria-label': 'Add Filter',
+        disableRipple: true,
         size: 'sm',
         variant: 'bordered',
       }}

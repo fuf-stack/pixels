@@ -89,6 +89,7 @@ export interface MenuProps extends VariantProps {
     | 'className'
     | 'color'
     | 'disableAnimation'
+    | 'disableRipple'
     | 'disabled'
     | 'size'
     | 'variant'

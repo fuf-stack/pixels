@@ -1,9 +1,10 @@
+import type { TVClassName } from '@fuf-stack/pixel-utils';
 import type { VetoInput } from '@fuf-stack/veto';
 import type { ReactNode } from 'react';
 import type { FiltersConfiguration } from './filters/types';
 import type { SearchConfiguration } from './Subcomponents/SearchInput';
 
-import { cn } from '@fuf-stack/pixel-utils';
+import { tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 import Form from '@fuf-stack/uniform/Form';
 
 import { useFilterValidation } from './hooks/useFilterValidation';
@@ -12,6 +13,42 @@ import AddFilterMenu from './Subcomponents/AddFilterMenu';
 import FilterModal from './Subcomponents/FilterModal';
 import { FiltersContextProvider } from './Subcomponents/FiltersContext';
 import SearchInput from './Subcomponents/SearchInput';
+
+// filter styling variants
+export const filterVariants = tv({
+  slots: {
+    // outer wrapper
+    base: '',
+    // add filter menu trigger button
+    addFilterMenuButton: '',
+    // add filter menu item
+    addFilterMenuItem: '',
+    // active filter label
+    activeFilterLabel: 'dark:text-foreground h-8 cursor-pointer rounded-md',
+    // filter modal body
+    filterModalBody: '',
+    // filter modal header
+    filterModalHeader: 'text-default-700 flex items-center gap-3',
+    // filter modal footer
+    filterModalFooter: 'justify-between',
+    // form element
+    form: 'mb-3 flex flex-wrap gap-3',
+    // search input field
+    searchInput: '',
+    // search input wrapper (inner control)
+    searchInputWrapper: '',
+    // search motion container
+    searchMotionDiv: 'flex w-72 gap-2',
+    // search show button
+    searchShowButton: '',
+    // search submit button
+    searchSubmitButton: '',
+    // search wrapper
+    searchWrapper: 'flex items-center',
+  },
+});
+
+type ClassName = TVClassName<typeof filterVariants>;
 
 export interface FilterValues {
   search?: string;
@@ -41,7 +78,7 @@ export interface FilterProps {
   /** Optional render-prop that receives the resolved, controlled values */
   children?: FilterChildRenderFn;
   /** CSS class name */
-  className?: string;
+  className?: ClassName;
   /** Configuration of the filter */
   config: {
     /**
@@ -87,16 +124,20 @@ const Filter = ({
   // validate controlled values are valid
   const { data: valuesValidated } = validation.validate(values as VetoInput);
 
+  // classNames from slots
+  const variants = filterVariants();
+  const classNames = variantsToClassNames(variants, className, 'base');
+
   return (
-    <>
+    <div className={classNames.base}>
       {/*
-        ex-forms Form wrapper
+        Uniform Form wrapper
         - initialValues derive from controlled props (with optional defaults)
         - validation is built from the registry for all configured filters
         - onSubmit maps form values back into values/onChange
       */}
       <Form
-        className={cn('mb-3 flex flex-wrap gap-3', className)}
+        className={classNames.form}
         // disable debug mode for now
         debug={{ disable: true }}
         initialValues={valuesValidated ?? {}}
@@ -105,7 +146,19 @@ const Filter = ({
         validation={validation}
       >
         {/* Render search if search config is provided */}
-        {config.search ? <SearchInput config={config.search} /> : null}
+        {config.search ? (
+          <SearchInput
+            config={config.search}
+            classNames={{
+              searchInput: classNames.searchInput,
+              searchInputWrapper: classNames.searchInputWrapper,
+              searchMotionDiv: classNames.searchMotionDiv,
+              searchShowButton: classNames.searchShowButton,
+              searchSubmitButton: classNames.searchSubmitButton,
+              searchWrapper: classNames.searchWrapper,
+            }}
+          />
+        ) : null}
         {/*
           FiltersContextProvider exposes a minimal API for the UI layer:
           - activeFilters/unusedFilters by name
@@ -113,14 +166,25 @@ const Filter = ({
           - methods to add/remove filters and show/close the modal
         */}
         <FiltersContextProvider config={config.filters}>
-          <ActiveFilters />
-          <AddFilterMenu />
-          <FilterModal />
+          <ActiveFilters className={classNames.activeFilterLabel} />
+          <AddFilterMenu
+            classNames={{
+              addFilterMenuButton: classNames.addFilterMenuButton,
+              addFilterMenuItem: classNames.addFilterMenuItem,
+            }}
+          />
+          <FilterModal
+            classNames={{
+              body: classNames.filterModalBody,
+              footer: classNames.filterModalFooter,
+              header: classNames.filterModalHeader,
+            }}
+          />
         </FiltersContextProvider>
       </Form>
       {/* Children can consume derived search string and parsed filter object */}
       {children?.(valuesValidated ?? {})}
-    </>
+    </div>
   );
 };
 

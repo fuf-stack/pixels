@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { FaSearch } from 'react-icons/fa';
 
 import { motion } from '@fuf-stack/pixel-motion';
-import { cn } from '@fuf-stack/pixel-utils';
 import Button from '@fuf-stack/pixels/Button';
 import { useFormContext } from '@fuf-stack/uniform/hooks';
 import Input from '@fuf-stack/uniform/Input';
@@ -16,8 +15,15 @@ export type SearchConfiguration =
     };
 
 interface SearchInputProps {
-  /** CSS class name */
-  className?: string;
+  /** Slots class names passed from parent variants */
+  classNames?: Partial<{
+    searchWrapper: string;
+    searchShowButton: string;
+    searchMotionDiv: string;
+    searchInput: string;
+    searchInputWrapper: string;
+    searchSubmitButton: string;
+  }>;
   /** Search configuration */
   config: SearchConfiguration;
 }
@@ -28,7 +34,7 @@ interface SearchInputProps {
  * By default renders only a search button. When clicked, the text input animates in
  * and a trailing submit button is shown.
  */
-const SearchInput = ({ className = undefined, config }: SearchInputProps) => {
+const SearchInput = ({ classNames = {}, config }: SearchInputProps) => {
   const { formState, setFocus, triggerSubmit } = useFormContext();
 
   // Auto-open if there is an initial or externally set search value
@@ -39,11 +45,11 @@ const SearchInput = ({ className = undefined, config }: SearchInputProps) => {
     typeof config === 'object' ? config.placeholder : undefined;
 
   return (
-    <div className={cn('flex items-center', className)}>
+    <div className={classNames.searchWrapper}>
       {!isVisible && (
         <Button
           ariaLabel="Show search input"
-          className="rounded-sm"
+          className={classNames.searchShowButton}
           icon={<FaSearch />}
           size="sm"
           variant="bordered"
@@ -56,7 +62,7 @@ const SearchInput = ({ className = undefined, config }: SearchInputProps) => {
         <motion.div
           key="search-input"
           animate={{ opacity: 1 }}
-          className="flex w-72 gap-2"
+          className={classNames.searchMotionDiv}
           initial={{ opacity: 0.5 }}
           onAnimationComplete={() => {
             // if the input was not initially visible, focus it
@@ -72,11 +78,14 @@ const SearchInput = ({ className = undefined, config }: SearchInputProps) => {
         >
           <Input
             clearable
-            // disable debounce
             debounceDelay={0}
             name="search"
             placeholder={placeholder}
             size="sm"
+            className={{
+              input: classNames.searchInput,
+              inputWrapper: classNames.searchInputWrapper,
+            }}
             // submit on clear
             onClear={() => {
               triggerSubmit();
@@ -86,7 +95,7 @@ const SearchInput = ({ className = undefined, config }: SearchInputProps) => {
             ariaLabel="Trigger search"
             // eslint-disable-next-line react/no-children-prop
             children={null}
-            className="rounded-sm"
+            className={classNames.searchSubmitButton}
             color="primary"
             icon={<FaSearch />}
             size="sm"

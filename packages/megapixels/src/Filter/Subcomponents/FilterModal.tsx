@@ -7,7 +7,15 @@ import SubmitButton from '@fuf-stack/uniform/SubmitButton';
 
 import { useFilters } from './FiltersContext';
 
-const FilterModal = () => {
+interface FilterModalProps {
+  classNames?: Partial<{
+    header: string;
+    footer: string;
+    body: string;
+  }>;
+}
+
+const FilterModal = ({ classNames = {} }: FilterModalProps) => {
   const {
     closeFilterModal,
     getFilterFormFieldName,
@@ -32,8 +40,9 @@ const FilterModal = () => {
       isOpen
       onClose={closeFilterModal}
       className={{
-        footer: 'justify-between',
-        header: 'text-default-700 flex items-center gap-3',
+        body: classNames.body,
+        footer: classNames.footer,
+        header: classNames.header,
       }}
       footer={
         <>

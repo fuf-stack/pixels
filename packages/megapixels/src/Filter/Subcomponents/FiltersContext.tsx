@@ -192,7 +192,7 @@ export const FiltersContextProvider = ({
   const activeFilters = useMemo(() => {
     return config
       .filter((f) => {
-        return Object.hasOwn(filterValue || {}, f.name);
+        return Object.hasOwn(filterValue ?? {}, f.name);
       })
       .map((f) => {
         return f.name;

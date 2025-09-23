@@ -205,6 +205,49 @@ export const Password: Story = {
   },
 };
 
+export const CustomStyles: Story = {
+  parameters: {
+    formProps: { initialValues: { partySearch: 'Something fun!' } },
+  },
+  args: {
+    clearable: true,
+    name: 'partySearch',
+    onClear: action('onClear'),
+    placeholder: 'Search with party vibes...',
+  },
+  render: (args) => {
+    return (
+      <Input
+        className={{
+          inputWrapper: [
+            // rounded corners and padding
+            'rounded-2xl px-4',
+            // transition styles
+            'transition-colors duration-500',
+            // background gradient (stronger in light mode)
+            'bg-gradient-to-r from-fuchsia-100 via-rose-100 to-amber-100 dark:from-fuchsia-900 dark:via-rose-900 dark:to-amber-900',
+            // background hover gradient
+            'data-[hover=true]:bg-gradient-to-r data-[hover=true]:from-emerald-50 data-[hover=true]:via-teal-50 data-[hover=true]:to-lime-50 dark:data-[hover=true]:from-emerald-900 dark:data-[hover=true]:via-teal-900 dark:data-[hover=true]:to-lime-900',
+            // border styles
+            'border-2 border-fuchsia-400',
+            // border hover styles (greenish)
+            'data-[hover=true]:border-emerald-400',
+            // border focus styles
+            'group-data-[focus=true]:border-amber-400',
+          ],
+          // input text and placeholder color
+          input:
+            'text-fuchsia-700 group-hover:text-emerald-500 placeholder:text-fuchsia-400/70 dark:text-fuchsia-300 dark:placeholder:text-fuchsia-500/60',
+          // clear button color
+          clearButton:
+            'text-fuchsia-500 transition-colors duration-500 hover:text-emerald-500',
+        }}
+        {...args}
+      />
+    );
+  },
+};
+
 export const WithValueTransform: Story = {
   parameters: {
     formProps: {

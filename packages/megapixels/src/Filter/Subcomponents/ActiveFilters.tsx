@@ -8,7 +8,12 @@ import { useFilters } from './FiltersContext';
  * Shows the list of currently applied filters as clickable chips that open
  * the edit modal. Each chip can be removed via its close action.
  */
-const ActiveFilters = () => {
+interface ActiveFiltersProps {
+  /** CSS class name to apply to each label */
+  className?: string;
+}
+
+const ActiveFilters = ({ className = undefined }: ActiveFiltersProps) => {
   const {
     activeFilters,
     getFilterValueByName,
@@ -36,7 +41,7 @@ const ActiveFilters = () => {
             }}
           >
             <Label
-              className="dark:text-foreground h-8 cursor-pointer rounded-sm"
+              className={className}
               color={hasError(name) ? 'danger' : 'primary'}
               variant="flat"
               onClose={() => {
