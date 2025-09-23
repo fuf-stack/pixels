@@ -1,5 +1,4 @@
 import { FaSliders } from 'react-icons/fa6';
-import { PiSlidersHorizontalBold } from 'react-icons/pi';
 
 import { cn } from '@fuf-stack/pixel-utils';
 import Menu from '@fuf-stack/pixels/Menu';
@@ -36,7 +35,7 @@ const AddFilterMenu = ({ className = undefined }: AddFilterMenuProps) => {
 
   return (
     <Menu
-      className={cn(className)}
+      className={cn('rounded-sm', className)}
       isDisabled={!menuItems.length}
       items={menuItems}
       placement="bottom-start"

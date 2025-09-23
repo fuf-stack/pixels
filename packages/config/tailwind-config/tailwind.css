@@ -1,6 +1,9 @@
 @import "tailwindcss";
 @config "./tailwind.config.ts";
 
+/* Support both .dark class and data-theme="dark" attribute */
+@custom-variant dark (&:where(.dark, .dark *, [data-theme=dark], [data-theme=dark] *));
+
 /********************************************************************
  * light theme variables (oklch)
  ********************************************************************/

@@ -42,7 +42,8 @@ const SearchInput = ({ className = undefined, config }: SearchInputProps) => {
     <div className={cn('flex items-center', className)}>
       {!isVisible && (
         <Button
-          aria-label="Show search input"
+          ariaLabel="Show search input"
+          className="rounded-sm"
           icon={<FaSearch />}
           size="sm"
           variant="bordered"
@@ -82,8 +83,10 @@ const SearchInput = ({ className = undefined, config }: SearchInputProps) => {
             }}
           />
           <SubmitButton
+            ariaLabel="Trigger search"
             // eslint-disable-next-line react/no-children-prop
             children={null}
+            className="rounded-sm"
             color="primary"
             icon={<FaSearch />}
             size="sm"

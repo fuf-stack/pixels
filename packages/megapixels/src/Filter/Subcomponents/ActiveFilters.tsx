@@ -32,11 +32,11 @@ const ActiveFilters = () => {
             aria-label={`Open ${name} filter`}
             type="button"
             onClick={() => {
-              return void showFilterModal(name);
+              showFilterModal(name);
             }}
           >
             <Label
-              className="dark:text-foreground h-8 cursor-pointer"
+              className="dark:text-foreground h-8 cursor-pointer rounded-sm"
               color={hasError(name) ? 'danger' : 'primary'}
               variant="flat"
               onClose={() => {
@@ -44,9 +44,7 @@ const ActiveFilters = () => {
               }}
             >
               {instance.icon}
-              {DisplayComponent ? (
-                <DisplayComponent config={instance.config} value={value} />
-              ) : null}
+              <DisplayComponent config={instance.config} value={value} />
             </Label>
           </button>
         );

@@ -7,6 +7,8 @@ import { Button } from '@fuf-stack/pixels';
 import { useFormContext } from '../hooks';
 
 export interface SubmitButtonProps {
+  /** sets HTML aria-label attribute */
+  ariaLabel?: string;
   /** child components */
   children?: ReactNode;
   /** CSS class name */
@@ -27,6 +29,7 @@ export interface SubmitButtonProps {
  * From SubmitButton
  */
 const SubmitButton = ({
+  ariaLabel = 'Submit form',
   children = 'Submit',
   className = undefined,
   color = 'success',
@@ -42,6 +45,7 @@ const SubmitButton = ({
 
   return (
     <Button
+      ariaLabel={ariaLabel}
       className={cn(className)}
       color={color}
       disabled={isSubmitting}
