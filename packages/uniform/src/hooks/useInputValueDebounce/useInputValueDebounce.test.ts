@@ -8,7 +8,9 @@ import { useInputValueDebounce } from './useInputValueDebounce';
 vi.mock('@fuf-stack/pixels', () => ({
   useDebounce: vi.fn((value, delay) => {
     // For testing, we'll simulate debouncing behavior
-    if (delay === 0) return value;
+    if (delay === 0) {
+      return value;
+    }
     // In real tests, this would be the debounced value
     return value;
   }),

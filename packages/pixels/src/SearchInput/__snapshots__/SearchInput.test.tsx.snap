@@ -37,7 +37,7 @@ exports[`Story Snapshots > AllSizes 1`] = `
           </svg>
           <input
             aria-label="sm"
-            class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small"
+            class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small peer pe-6 input-search-cancel-button-none"
             data-has-start-content="true"
             data-slot="input"
             id="react-aria-«rp»"
@@ -47,6 +47,28 @@ exports[`Story Snapshots > AllSizes 1`] = `
             type="text"
             value=""
           />
+          <button
+            aria-label="clear input"
+            class="p-2 -m-2 z-10 absolute end-3 start-auto pointer-events-none appearance-none select-none opacity-0 cursor-pointer active:!opacity-70 rounded-full outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-medium peer-data-[filled=true]:pointer-events-auto peer-data-[filled=true]:opacity-70 peer-data-[filled=true]:block peer-data-[filled=true]:scale-100 scale-90 ease-out duration-150 transition-[opacity,transform] motion-reduce:transition-none motion-reduce:scale-100"
+            data-react-aria-pressable="true"
+            data-slot="clear-button"
+            tabindex="-1"
+            type="button"
+          >
+            <svg
+              aria-hidden="true"
+              focusable="false"
+              height="1em"
+              role="presentation"
+              viewBox="0 0 24 24"
+              width="1em"
+            >
+              <path
+                d="M12 2a10 10 0 1010 10A10.016 10.016 0 0012 2zm3.36 12.3a.754.754 0 010 1.06.748.748 0 01-1.06 0l-2.3-2.3-2.3 2.3a.748.748 0 01-1.06 0 .754.754 0 010-1.06l2.3-2.3-2.3-2.3A.75.75 0 019.7 8.64l2.3 2.3 2.3-2.3a.75.75 0 011.06 1.06l-2.3 2.3z"
+                fill="currentColor"
+              />
+            </svg>
+          </button>
         </div>
       </div>
     </div>
@@ -86,7 +108,7 @@ exports[`Story Snapshots > AllSizes 1`] = `
           </svg>
           <input
             aria-label="md"
-            class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small"
+            class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small peer pe-6 input-search-cancel-button-none"
             data-has-start-content="true"
             data-slot="input"
             id="react-aria-«ru»"
@@ -96,6 +118,28 @@ exports[`Story Snapshots > AllSizes 1`] = `
             type="text"
             value=""
           />
+          <button
+            aria-label="clear input"
+            class="p-2 -m-2 z-10 absolute end-3 start-auto pointer-events-none appearance-none select-none opacity-0 cursor-pointer active:!opacity-70 rounded-full outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-large hover:!opacity-100 peer-data-[filled=true]:pointer-events-auto peer-data-[filled=true]:opacity-70 peer-data-[filled=true]:block peer-data-[filled=true]:scale-100 scale-90 ease-out duration-150 transition-[opacity,transform] motion-reduce:transition-none motion-reduce:scale-100"
+            data-react-aria-pressable="true"
+            data-slot="clear-button"
+            tabindex="-1"
+            type="button"
+          >
+            <svg
+              aria-hidden="true"
+              focusable="false"
+              height="1em"
+              role="presentation"
+              viewBox="0 0 24 24"
+              width="1em"
+            >
+              <path
+                d="M12 2a10 10 0 1010 10A10.016 10.016 0 0012 2zm3.36 12.3a.754.754 0 010 1.06.748.748 0 01-1.06 0l-2.3-2.3-2.3 2.3a.748.748 0 01-1.06 0 .754.754 0 010-1.06l2.3-2.3-2.3-2.3A.75.75 0 019.7 8.64l2.3 2.3 2.3-2.3a.75.75 0 011.06 1.06l-2.3 2.3z"
+                fill="currentColor"
+              />
+            </svg>
+          </button>
         </div>
       </div>
     </div>
@@ -135,7 +179,7 @@ exports[`Story Snapshots > AllSizes 1`] = `
           </svg>
           <input
             aria-label="lg"
-            class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-medium"
+            class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-medium peer pe-6 input-search-cancel-button-none"
             data-has-start-content="true"
             data-slot="input"
             id="react-aria-«r13»"
@@ -145,6 +189,28 @@ exports[`Story Snapshots > AllSizes 1`] = `
             type="text"
             value=""
           />
+          <button
+            aria-label="clear input"
+            class="p-2 -m-2 z-10 absolute end-3 start-auto pointer-events-none appearance-none select-none opacity-0 cursor-pointer active:!opacity-70 rounded-full outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-large hover:!opacity-100 peer-data-[filled=true]:pointer-events-auto peer-data-[filled=true]:opacity-70 peer-data-[filled=true]:block peer-data-[filled=true]:scale-100 scale-90 ease-out duration-150 transition-[opacity,transform] motion-reduce:transition-none motion-reduce:scale-100"
+            data-react-aria-pressable="true"
+            data-slot="clear-button"
+            tabindex="-1"
+            type="button"
+          >
+            <svg
+              aria-hidden="true"
+              focusable="false"
+              height="1em"
+              role="presentation"
+              viewBox="0 0 24 24"
+              width="1em"
+            >
+              <path
+                d="M12 2a10 10 0 1010 10A10.016 10.016 0 0012 2zm3.36 12.3a.754.754 0 010 1.06.748.748 0 01-1.06 0l-2.3-2.3-2.3 2.3a.748.748 0 01-1.06 0 .754.754 0 010-1.06l2.3-2.3-2.3-2.3A.75.75 0 019.7 8.64l2.3 2.3 2.3-2.3a.75.75 0 011.06 1.06l-2.3 2.3z"
+                fill="currentColor"
+              />
+            </svg>
+          </button>
         </div>
       </div>
     </div>
@@ -351,7 +417,7 @@ exports[`Story Snapshots > Default 1`] = `
           </svg>
           <input
             aria-label=" "
-            class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small"
+            class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small peer pe-6 input-search-cancel-button-none"
             data-has-start-content="true"
             data-slot="input"
             data-testid="inputfield"
@@ -361,6 +427,28 @@ exports[`Story Snapshots > Default 1`] = `
             type="text"
             value=""
           />
+          <button
+            aria-label="clear input"
+            class="p-2 -m-2 z-10 absolute end-3 start-auto pointer-events-none appearance-none select-none opacity-0 cursor-pointer active:!opacity-70 rounded-full outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-large hover:!opacity-100 peer-data-[filled=true]:pointer-events-auto peer-data-[filled=true]:opacity-70 peer-data-[filled=true]:block peer-data-[filled=true]:scale-100 scale-90 ease-out duration-150 transition-[opacity,transform] motion-reduce:transition-none motion-reduce:scale-100"
+            data-react-aria-pressable="true"
+            data-slot="clear-button"
+            tabindex="-1"
+            type="button"
+          >
+            <svg
+              aria-hidden="true"
+              focusable="false"
+              height="1em"
+              role="presentation"
+              viewBox="0 0 24 24"
+              width="1em"
+            >
+              <path
+                d="M12 2a10 10 0 1010 10A10.016 10.016 0 0012 2zm3.36 12.3a.754.754 0 010 1.06.748.748 0 01-1.06 0l-2.3-2.3-2.3 2.3a.748.748 0 01-1.06 0 .754.754 0 010-1.06l2.3-2.3-2.3-2.3A.75.75 0 019.7 8.64l2.3 2.3 2.3-2.3a.75.75 0 011.06 1.06l-2.3 2.3z"
+                fill="currentColor"
+              />
+            </svg>
+          </button>
         </div>
       </div>
     </div>
@@ -407,7 +495,7 @@ exports[`Story Snapshots > Disabled 1`] = `
           </svg>
           <input
             aria-label=" "
-            class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small"
+            class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small peer pe-6 input-search-cancel-button-none"
             data-has-start-content="true"
             data-slot="input"
             data-testid="inputfield"
@@ -416,6 +504,29 @@ exports[`Story Snapshots > Disabled 1`] = `
             type="text"
             value=""
           />
+          <button
+            aria-label="clear input"
+            class="p-2 -m-2 z-10 absolute end-3 start-auto pointer-events-none appearance-none select-none opacity-0 cursor-pointer active:!opacity-70 rounded-full outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-large hover:!opacity-100 peer-data-[filled=true]:pointer-events-auto peer-data-[filled=true]:opacity-70 peer-data-[filled=true]:block peer-data-[filled=true]:scale-100 scale-90 ease-out duration-150 transition-[opacity,transform] motion-reduce:transition-none motion-reduce:scale-100"
+            data-react-aria-pressable="true"
+            data-slot="clear-button"
+            disabled=""
+            tabindex="-1"
+            type="button"
+          >
+            <svg
+              aria-hidden="true"
+              focusable="false"
+              height="1em"
+              role="presentation"
+              viewBox="0 0 24 24"
+              width="1em"
+            >
+              <path
+                d="M12 2a10 10 0 1010 10A10.016 10.016 0 0012 2zm3.36 12.3a.754.754 0 010 1.06.748.748 0 01-1.06 0l-2.3-2.3-2.3 2.3a.748.748 0 01-1.06 0 .754.754 0 010-1.06l2.3-2.3-2.3-2.3A.75.75 0 019.7 8.64l2.3 2.3 2.3-2.3a.75.75 0 011.06 1.06l-2.3 2.3z"
+                fill="currentColor"
+              />
+            </svg>
+          </button>
         </div>
       </div>
     </div>
@@ -461,7 +572,7 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
           </svg>
           <input
             aria-label=" "
-            class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small is-filled"
+            class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small peer pe-6 input-search-cancel-button-none is-filled"
             data-filled="true"
             data-filled-within="true"
             data-has-start-content="true"
@@ -473,6 +584,28 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
             type="text"
             value="initial value"
           />
+          <button
+            aria-label="clear input"
+            class="p-2 -m-2 z-10 absolute end-3 start-auto pointer-events-none appearance-none select-none opacity-0 cursor-pointer active:!opacity-70 rounded-full outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-large hover:!opacity-100 peer-data-[filled=true]:pointer-events-auto peer-data-[filled=true]:opacity-70 peer-data-[filled=true]:block peer-data-[filled=true]:scale-100 scale-90 ease-out duration-150 transition-[opacity,transform] motion-reduce:transition-none motion-reduce:scale-100"
+            data-react-aria-pressable="true"
+            data-slot="clear-button"
+            tabindex="-1"
+            type="button"
+          >
+            <svg
+              aria-hidden="true"
+              focusable="false"
+              height="1em"
+              role="presentation"
+              viewBox="0 0 24 24"
+              width="1em"
+            >
+              <path
+                d="M12 2a10 10 0 1010 10A10.016 10.016 0 0012 2zm3.36 12.3a.754.754 0 010 1.06.748.748 0 01-1.06 0l-2.3-2.3-2.3 2.3a.748.748 0 01-1.06 0 .754.754 0 010-1.06l2.3-2.3-2.3-2.3A.75.75 0 019.7 8.64l2.3 2.3 2.3-2.3a.75.75 0 011.06 1.06l-2.3 2.3z"
+                fill="currentColor"
+              />
+            </svg>
+          </button>
         </div>
       </div>
     </div>
@@ -517,7 +650,7 @@ exports[`Story Snapshots > WithPlaceholder 1`] = `
           </svg>
           <input
             aria-label="Search something..."
-            class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small"
+            class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small peer pe-6 input-search-cancel-button-none"
             data-has-start-content="true"
             data-slot="input"
             data-testid="inputfield"
@@ -528,6 +661,28 @@ exports[`Story Snapshots > WithPlaceholder 1`] = `
             type="text"
             value=""
           />
+          <button
+            aria-label="clear input"
+            class="p-2 -m-2 z-10 absolute end-3 start-auto pointer-events-none appearance-none select-none opacity-0 cursor-pointer active:!opacity-70 rounded-full outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-large hover:!opacity-100 peer-data-[filled=true]:pointer-events-auto peer-data-[filled=true]:opacity-70 peer-data-[filled=true]:block peer-data-[filled=true]:scale-100 scale-90 ease-out duration-150 transition-[opacity,transform] motion-reduce:transition-none motion-reduce:scale-100"
+            data-react-aria-pressable="true"
+            data-slot="clear-button"
+            tabindex="-1"
+            type="button"
+          >
+            <svg
+              aria-hidden="true"
+              focusable="false"
+              height="1em"
+              role="presentation"
+              viewBox="0 0 24 24"
+              width="1em"
+            >
+              <path
+                d="M12 2a10 10 0 1010 10A10.016 10.016 0 0012 2zm3.36 12.3a.754.754 0 010 1.06.748.748 0 01-1.06 0l-2.3-2.3-2.3 2.3a.748.748 0 01-1.06 0 .754.754 0 010-1.06l2.3-2.3-2.3-2.3A.75.75 0 019.7 8.64l2.3 2.3 2.3-2.3a.75.75 0 011.06 1.06l-2.3 2.3z"
+                fill="currentColor"
+              />
+            </svg>
+          </button>
         </div>
       </div>
     </div>

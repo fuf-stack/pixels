@@ -5,11 +5,13 @@ import { expect, userEvent, within } from 'storybook/test';
 
 import SearchInput from './SearchInput';
 
+const onChange = action('onChange');
+
 const meta: Meta<typeof SearchInput> = {
   title: 'pixels/SearchInput',
   component: SearchInput,
   args: {
-    onChange: action('onChange'),
+    onChange,
     testId: 'inputField',
   },
 };
@@ -30,7 +32,7 @@ export const WithPlaceholder: Story = {
 export const WithInitialValue: Story = {
   parameters: { formProps: { initialValues: { inputField: 'initial value' } } },
   args: {
-    value: 'initial value',
+    initialValue: 'initial value',
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
@@ -41,10 +43,7 @@ export const WithInitialValue: Story = {
 };
 
 export const Clearable: Story = {
-  args: {
-    clearable: true,
-    onClear: action('onClear'),
-  },
+  args: {},
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     const input = canvas.getByTestId('inputfield');
@@ -84,8 +83,6 @@ export const CustomStyles: Story = {
     formProps: { initialValues: { partySearch: 'Something fun!' } },
   },
   args: {
-    clearable: true,
-    onClear: action('onClear'),
     placeholder: 'Search with party vibes...',
   },
   render: (args) => {

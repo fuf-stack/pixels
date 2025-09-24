@@ -27,16 +27,14 @@ type ClassName = TVClassName<typeof inputVariants>;
 export interface SearchInputProps extends VariantProps {
   /** CSS class name */
   className?: ClassName;
-  /** shows clear button when input has value */
-  clearable?: boolean;
   /** input field is disabled */
   disabled?: boolean;
   /** added content to the end of the input Field. */
   endContent?: ReactNode;
-  /** callback that is fired when the value is cleared */
-  onClear?: () => void;
-  /** callback that is fired when the value is changed */
-  onChange: (value?: string) => void;
+  /** optional initial value of the input */
+  initialValue?: string;
+  /** callback that is fired when the value is changed or cleared */
+  onChange: (value: string | null) => void;
   /** form field placeholder */
   placeholder?: string;
   /** size of the input */
@@ -45,8 +43,6 @@ export interface SearchInputProps extends VariantProps {
   startContent?: ReactNode;
   /** HTML data-testid attribute used in e2e tests */
   testId?: string;
-  /** value of the input */
-  value?: string;
 }
 
 /**
@@ -54,16 +50,14 @@ export interface SearchInputProps extends VariantProps {
  */
 const SearchInput = ({
   className: _className = undefined,
-  clearable = false,
   disabled = false,
   endContent = undefined,
   onChange,
-  onClear = undefined,
   placeholder = undefined,
   size = undefined,
   startContent = undefined,
   testId = undefined,
-  value = undefined,
+  initialValue = undefined,
 }: SearchInputProps) => {
   // classNames from slots
   const variants = inputVariants();
@@ -71,15 +65,15 @@ const SearchInput = ({
 
   return (
     <HeroInput
+      isClearable
       data-testid={testId ? slugify(testId) : undefined}
+      defaultValue={initialValue}
       endContent={endContent}
-      isClearable={clearable}
       isDisabled={disabled}
       placeholder={placeholder}
       radius="sm"
       size={size}
       startContent={startContent ?? <FaSearch className="opacity-50" />}
-      value={value}
       variant="bordered"
       classNames={{
         base: classNames.base,
@@ -90,13 +84,9 @@ const SearchInput = ({
       onChange={(e) => {
         onChange(e.target.value);
       }}
-      onClear={
-        onClear
-          ? () => {
-              onClear();
-            }
-          : undefined
-      }
+      onClear={() => {
+        onChange(null);
+      }}
     />
   );
 };
