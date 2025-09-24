@@ -39,7 +39,6 @@ const SearchInput = ({ classNames = {}, config }: SearchInputProps) => {
 
   // Auto-open if there is an initial or externally set search value
   const isInitiallyVisible = !!formState?.defaultValues?.search;
-  console.log('isInitiallyVisible', isInitiallyVisible);
   const [isVisible, setIsVisible] = useState(isInitiallyVisible);
 
   const placeholder =
