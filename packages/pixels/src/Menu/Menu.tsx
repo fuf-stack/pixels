@@ -7,8 +7,6 @@ import type {
 } from '@heroui/dropdown';
 import type { Key, ReactNode } from 'react';
 
-import { FaEllipsisVertical } from 'react-icons/fa6';
-
 import { Button } from '@heroui/button';
 import {
   Dropdown as HeroDropdown,
@@ -20,8 +18,10 @@ import {
 
 import { cn, tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 
+import VerticalDotsIcon from './VerticalDotsIcon';
+
 /**
- * Menu item type
+ * Menu component based on [HeroUI Dropdown](https://www.heroui.com//docs/components/dropdown)
  */
 export interface MenuItem {
   /** unique identifier */
@@ -96,16 +96,24 @@ export interface MenuProps extends VariantProps {
   >;
 }
 
-/** returns String[] of disabled items/keys */
-const getDisabledKeys = (items: (MenuSection | MenuItem)[]) => {
-  return items
-    .map((item) => {
-      // @ts-expect-error typing issue with MenuSection | MenuItem
-      return typeof item?.items === 'undefined' ? item : item.items;
-    })
-    .flat<MenuItem[]>()
+// type guard for MenuSection
+const isMenuSection = (item: MenuSection | MenuItem): item is MenuSection => {
+  return 'items' in item;
+};
+
+// returns String[] of disabled items/keys
+const getDisabledKeys = (items: (MenuSection | MenuItem)[]): string[] => {
+  const flatItems = items.reduce<MenuItem[]>((acc, item) => {
+    if (isMenuSection(item)) {
+      acc.push(...item.items);
+    } else {
+      acc.push(item);
+    }
+    return acc;
+  }, []);
+  return flatItems
     .filter((item) => {
-      return Object.hasOwn(item, 'disabled') && item.disabled === true;
+      return item.disabled === true;
     })
     .map((item) => {
       return item.key;
@@ -155,12 +163,14 @@ const Menu = ({
     //  default to ellipsis icon when no children are provided
     triggerButton = (
       <Button
-        className={cn('min-w-0', className.trigger)}
+        isIconOnly
+        className={cn('outline-divider min-w-0 outline', className.trigger)}
+        radius="full"
         size="sm"
-        variant="flat"
+        variant="light"
         {...triggerButtonProps}
       >
-        <FaEllipsisVertical />
+        <VerticalDotsIcon />
       </Button>
     );
   } else if (triggerButtonProps) {
