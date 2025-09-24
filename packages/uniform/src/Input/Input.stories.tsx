@@ -234,10 +234,12 @@ export const CustomStyles: Story = {
             'data-[hover=true]:border-emerald-400',
             // border focus styles
             'group-data-[focus=true]:border-amber-400',
+            // text color
+            'text-fuchsia-700 group-hover:text-emerald-500 dark:text-fuchsia-300',
           ],
-          // input text and placeholder color
+          // input placeholder color
           input:
-            'text-fuchsia-700 group-hover:text-emerald-500 placeholder:text-fuchsia-400/70 dark:text-fuchsia-300 dark:placeholder:text-fuchsia-500/60',
+            'placeholder:text-fuchsia-400/70 dark:placeholder:text-fuchsia-500/60',
           // clear button color
           clearButton:
             'text-fuchsia-500 transition-colors duration-500 hover:text-emerald-500',

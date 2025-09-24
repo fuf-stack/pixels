@@ -113,6 +113,11 @@
       "import": "./dist/ScrollShadow/index.js",
       "require": "./dist/ScrollShadow/index.cjs"
     },
+    "./SearchInput": {
+      "types": "./dist/SearchInput/index.d.ts",
+      "import": "./dist/SearchInput/index.js",
+      "require": "./dist/SearchInput/index.cjs"
+    },
     "./Table": {
       "types": "./dist/Table/index.d.ts",
       "import": "./dist/Table/index.js",
@@ -176,6 +181,7 @@
     "@heroui/divider": "2.2.17",
     "@heroui/drawer": "2.2.21",
     "@heroui/dropdown": "2.3.24",
+    "@heroui/input": "2.4.25",
     "@heroui/modal": "2.2.21",
     "@heroui/popover": "2.3.24",
     "@heroui/progress": "2.2.20",
