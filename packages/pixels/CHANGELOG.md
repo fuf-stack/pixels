@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.3.0](https://github.com/fuf-stack/pixels/compare/pixels-v1.2.5...pixels-v1.3.0) (2025-09-24)
+
+
+### Features
+
+* **pixels:** add SearchInput component ([f390fff](https://github.com/fuf-stack/pixels/commit/f390fffbdf8eadc8f835ea540dfc5c93e5996d74))
+
+
+### Bug Fixes
+
+* **pixels:** update styles and icon of default Menu trigger botton ([699e8df](https://github.com/fuf-stack/pixels/commit/699e8df364de326a2e7e91c363ca9d54919ac79c))
+
 ## [1.2.5](https://github.com/fuf-stack/pixels/compare/pixels-v1.2.4...pixels-v1.2.5) (2025-09-23)
 
 
