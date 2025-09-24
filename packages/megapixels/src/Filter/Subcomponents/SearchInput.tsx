@@ -39,6 +39,7 @@ const SearchInput = ({ classNames = {}, config }: SearchInputProps) => {
 
   // Auto-open if there is an initial or externally set search value
   const isInitiallyVisible = !!formState?.defaultValues?.search;
+  console.log('isInitiallyVisible', isInitiallyVisible);
   const [isVisible, setIsVisible] = useState(isInitiallyVisible);
 
   const placeholder =
@@ -63,7 +64,8 @@ const SearchInput = ({ classNames = {}, config }: SearchInputProps) => {
           key="search-input"
           animate={{ opacity: 1 }}
           className={classNames.searchMotionDiv}
-          initial={{ opacity: 0.5 }}
+          // if the input was not initially visible, animate in
+          initial={!isInitiallyVisible ? { opacity: 0.5 } : false}
           onAnimationComplete={() => {
             // if the input was not initially visible, focus it
             if (!isInitiallyVisible) {
@@ -71,8 +73,7 @@ const SearchInput = ({ classNames = {}, config }: SearchInputProps) => {
             }
           }}
           transition={{
-            // if the input was not initially visible, animate in
-            duration: isInitiallyVisible ? 0 : 0.3,
+            duration: 0.3,
             ease: 'circOut',
           }}
         >

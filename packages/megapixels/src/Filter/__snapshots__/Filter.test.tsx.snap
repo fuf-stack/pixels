@@ -55,7 +55,7 @@ exports[`Story Snapshots > WithCustomStyles 1`] = `
       class="flex w-full flex-row justify-between gap-6"
     >
       <form
-        class="grow mb-3 flex flex-wrap gap-3 items-center rounded-2xl bg-gradient-to-r from-rose-100 via-fuchsia-100 to-amber-100 p-4 ring-1 ring-rose-300/40 dark:bg-gradient-to-br dark:from-[#2a0a4a] dark:via-[#12183e] dark:to-[#0a1024] dark:ring-fuchsia-400/30"
+        class="grow mb-3 flex flex-wrap gap-3 items-center rounded-2xl p-4 bg-gradient-to-r from-rose-100 via-fuchsia-100 to-amber-100 ring-1 ring-rose-300/40 dark:bg-gradient-to-br dark:from-[#2a0a4a] dark:via-[#12183e] dark:to-[#0a1024] dark:ring-fuchsia-400/30"
         data-form-is-valid="true"
         data-testid="filtercomponentform"
         name="filterComponentForm"
@@ -131,7 +131,7 @@ exports[`Story Snapshots > WithCustomStyles 1`] = `
             </div>
             <button
               aria-label="Trigger search"
-              class="group tap-highlight-transparent [&>svg]:max-w-[theme(spacing.8)] data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny gap-2 px-0 !gap-0 motion-reduce:transition-none min-w-8 w-8 h-8 data-[hover=true]:opacity-hover rounded-full bg-gradient-to-br from-fuchsia-500 to-indigo-500 text-white shadow-lg transition-transform hover:scale-105 active:scale-95 dark:from-fuchsia-500 dark:to-purple-600"
+              class="group tap-highlight-transparent [&>svg]:max-w-[theme(spacing.8)] data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 text-tiny gap-2 px-0 !gap-0 motion-reduce:transition-none min-w-8 w-8 h-8 data-[hover=true]:opacity-hover rounded-full text-white shadow-lg transition-transform bg-gradient-to-br from-fuchsia-500 to-indigo-500 hover:scale-105 active:scale-95 dark:from-fuchsia-500 dark:to-purple-600 data-[focus-visible=true]:outline-amber-400"
               data-react-aria-pressable="true"
               data-testid="form_submit_button"
               tabindex="0"
@@ -158,7 +158,7 @@ exports[`Story Snapshots > WithCustomStyles 1`] = `
           type="button"
         >
           <div
-            class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 text-small h-8 cursor-pointer rounded-full border border-amber-400/30 bg-amber-200/85 text-amber-900 shadow transition hover:shadow-md dark:bg-amber-400/20 dark:text-amber-200"
+            class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 text-small h-8 cursor-pointer rounded-full border text-amber-900 shadow transition hover:shadow-md border-amber-400/30 bg-amber-200/85 dark:bg-amber-400/20 dark:text-amber-200"
           >
             <span
               class="flex-1 text-inherit font-normal px-2 pr-1 flex items-center gap-2"
@@ -208,7 +208,7 @@ exports[`Story Snapshots > WithCustomStyles 1`] = `
           type="button"
         >
           <div
-            class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 text-small h-8 cursor-pointer rounded-full border border-amber-400/30 bg-amber-200/85 text-amber-900 shadow transition hover:shadow-md dark:bg-amber-400/20 dark:text-amber-200"
+            class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 text-small h-8 cursor-pointer rounded-full border text-amber-900 shadow transition hover:shadow-md border-amber-400/30 bg-amber-200/85 dark:bg-amber-400/20 dark:text-amber-200"
           >
             <span
               class="flex-1 text-inherit font-normal px-2 pr-1 flex items-center gap-2"
@@ -256,7 +256,7 @@ exports[`Story Snapshots > WithCustomStyles 1`] = `
           type="button"
         >
           <div
-            class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 text-small h-8 cursor-pointer rounded-full border border-amber-400/30 bg-amber-200/85 text-amber-900 shadow transition hover:shadow-md dark:bg-amber-400/20 dark:text-amber-200"
+            class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 text-small h-8 cursor-pointer rounded-full border text-amber-900 shadow transition hover:shadow-md border-amber-400/30 bg-amber-200/85 dark:bg-amber-400/20 dark:text-amber-200"
           >
             <span
               class="flex-1 text-inherit font-normal px-2 pr-1 flex items-center gap-2"
@@ -303,7 +303,7 @@ exports[`Story Snapshots > WithCustomStyles 1`] = `
           aria-expanded="false"
           aria-haspopup="true"
           aria-label="Add Filter"
-          class="group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 min-w-16 h-8 text-tiny gap-2 [&>svg]:max-w-[theme(spacing.8)] motion-reduce:transition-none data-[hover=true]:opacity-hover z-10 aria-expanded:scale-[0.97] aria-expanded:opacity-70 subpixel-antialiased rounded-full border-2 border-rose-300/60 bg-rose-50/60 px-3 leading-none text-rose-700 transition hover:bg-rose-100/70 focus-visible:outline-none dark:border-fuchsia-500/40 dark:bg-fuchsia-500/10 dark:text-fuchsia-200 dark:hover:bg-fuchsia-500/20"
+          class="group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 px-3 min-w-16 h-8 text-tiny gap-2 [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover z-10 aria-expanded:scale-[0.97] aria-expanded:opacity-70 subpixel-antialiased rounded-full leading-none border-2 border-rose-300/60 bg-rose-50/60 text-rose-700 hover:bg-rose-100/70 dark:border-fuchsia-500/40 dark:bg-fuchsia-500/10 dark:text-fuchsia-200 dark:hover:bg-fuchsia-500/20 data-[focus-visible=true]:outline-amber-400"
           data-react-aria-pressable="true"
           data-slot="trigger"
           id="react-aria-react-useId-mock"
