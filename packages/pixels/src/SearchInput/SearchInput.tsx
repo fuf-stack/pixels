@@ -1,6 +1,7 @@
 import type { TVClassName, TVProps } from '@fuf-stack/pixel-utils';
-import type { ReactNode } from 'react';
+import type { ChangeEvent, ReactNode } from 'react';
 
+import { useState } from 'react';
 import { FaSearch } from 'react-icons/fa';
 
 import { Input as HeroInput } from '@heroui/input';
@@ -59,6 +60,14 @@ const SearchInput = ({
   testId = undefined,
   initialValue = undefined,
 }: SearchInputProps) => {
+  // handle controlled value with initial value
+  const [value, setValue] = useState(initialValue ?? '');
+
+  const handleChange = (e?: ChangeEvent<HTMLInputElement>) => {
+    setValue(e?.target?.value ?? '');
+    onChange(e?.target?.value ?? null);
+  };
+
   // classNames from slots
   const variants = inputVariants();
   const classNames = variantsToClassNames(variants, _className, 'base');
@@ -67,25 +76,21 @@ const SearchInput = ({
     <HeroInput
       isClearable
       data-testid={testId ? slugify(testId) : undefined}
-      defaultValue={initialValue}
       endContent={endContent}
       isDisabled={disabled}
+      onChange={handleChange}
+      onClear={handleChange}
       placeholder={placeholder}
       radius="sm"
       size={size}
       startContent={startContent ?? <FaSearch className="opacity-50" />}
+      value={value}
       variant="bordered"
       classNames={{
         base: classNames.base,
         clearButton: classNames.clearButton,
         input: classNames.input,
         inputWrapper: classNames.inputWrapper,
-      }}
-      onChange={(e) => {
-        onChange(e.target.value);
-      }}
-      onClear={() => {
-        onChange(null);
       }}
     />
   );
