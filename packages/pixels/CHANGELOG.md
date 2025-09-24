@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.2](https://github.com/fuf-stack/pixels/compare/pixels-v1.3.1...pixels-v1.3.2) (2025-09-24)
+
+
+### Bug Fixes
+
+* **pixels:** fix initialValue in SearchInput ([6a7a8ac](https://github.com/fuf-stack/pixels/commit/6a7a8acefdae3143ff5e5bd57d8cc8dd574337db))
+
 ## [1.3.1](https://github.com/fuf-stack/pixels/compare/pixels-v1.3.0...pixels-v1.3.1) (2025-09-24)
 
 
