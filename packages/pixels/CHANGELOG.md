@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.3](https://github.com/fuf-stack/pixels/compare/pixels-v1.3.2...pixels-v1.3.3) (2025-09-25)
+
+
+### Bug Fixes
+
+* **pixels:** disable autocomplete for SearchInput ([7783608](https://github.com/fuf-stack/pixels/commit/77836083e34ea9df85a6146ba58e403057f6fed7))
+
 ## [1.3.2](https://github.com/fuf-stack/pixels/compare/pixels-v1.3.1...pixels-v1.3.2) (2025-09-24)
 
 
