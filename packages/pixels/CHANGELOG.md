@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.5](https://github.com/fuf-stack/pixels/compare/pixels-v1.3.4...pixels-v1.3.5) (2025-09-25)
+
+
+### Bug Fixes
+
+* **pixels:** fix disabled Button ([086b993](https://github.com/fuf-stack/pixels/commit/086b993f0269fb20386d906b2e512be402a6ebf3))
+
 ## [1.3.4](https://github.com/fuf-stack/pixels/compare/pixels-v1.3.3...pixels-v1.3.4) (2025-09-25)
 
 
