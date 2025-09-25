@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.3.4](https://github.com/fuf-stack/pixels/compare/pixels-v1.3.3...pixels-v1.3.4) (2025-09-25)
+
+
+### Bug Fixes
+
+* **deps:** update dependency framer-motion to v12.23.18 ([#1220](https://github.com/fuf-stack/pixels/issues/1220)) ([74f9b1c](https://github.com/fuf-stack/pixels/commit/74f9b1c35232e61d0b20605aacee13b61f0989b9))
+* **pixels,megapixels:** add some test ids to Menu and Filter ([164af92](https://github.com/fuf-stack/pixels/commit/164af92cc53b6eb34e24a416e7d182a3a7c0d094))
+
 ## [1.3.3](https://github.com/fuf-stack/pixels/compare/pixels-v1.3.2...pixels-v1.3.3) (2025-09-25)
 
 
