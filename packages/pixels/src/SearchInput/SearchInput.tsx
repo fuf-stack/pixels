@@ -75,6 +75,8 @@ const SearchInput = ({
   return (
     <HeroInput
       isClearable
+      // disable password manager integrations
+      autoComplete="off"
       data-testid={testId ? slugify(testId) : undefined}
       endContent={endContent}
       isDisabled={disabled}
