@@ -47,7 +47,9 @@ const FilterModal = ({ classNames = {} }: FilterModalProps) => {
       footer={
         <>
           <Button
+            ariaLabel="Remove filter"
             color="danger"
+            testId="remove_filter_button"
             variant="flat"
             onClick={() => {
               removeFilter(modalFilterName);
@@ -55,7 +57,9 @@ const FilterModal = ({ classNames = {} }: FilterModalProps) => {
           >
             Remove
           </Button>
-          <SubmitButton>Apply Filter</SubmitButton>
+          <SubmitButton ariaLabel="Apply filter" testId="apply_filter_button">
+            Apply Filter
+          </SubmitButton>
         </>
       }
       header={

@@ -46,7 +46,6 @@ const AddFilterMenu = ({ classNames = {} }: AddFilterMenuProps) => {
       }}
       triggerButtonProps={{
         'aria-label': 'Add Filter',
-        // @ts-expect-error this is ok
         'data-testid': 'add_filter_button',
         disableRipple: true,
         size: 'sm',
