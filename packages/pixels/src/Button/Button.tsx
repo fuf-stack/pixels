@@ -154,6 +154,7 @@ const Button = ({
       className={className}
       data-testid={testId}
       disableRipple={disableAnimation || !ripple}
+      isDisabled={disabled}
       isLoading={loading}
       onPress={onClick}
       spinner={<LoadingSpinner />}
