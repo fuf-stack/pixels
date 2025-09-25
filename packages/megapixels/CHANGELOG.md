@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.1](https://github.com/fuf-stack/pixels/compare/megapixels-v0.3.0...megapixels-v0.3.1) (2025-09-25)
+
+
+### Bug Fixes
+
+* **megapixels:** add more test ids to Filter ([2656e8a](https://github.com/fuf-stack/pixels/commit/2656e8aeddcf81ea4530fa97584fa0dc5e906867))
+
 ## [0.3.0](https://github.com/fuf-stack/pixels/compare/megapixels-v0.2.3...megapixels-v0.3.0) (2025-09-25)
 
 
