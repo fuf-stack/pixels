@@ -16,7 +16,7 @@ import {
   DropdownTrigger as HeroDropdownTrigger,
 } from '@heroui/dropdown';
 
-import { cn, tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
+import { cn, slugify, tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 
 import VerticalDotsIcon from './VerticalDotsIcon';
 
@@ -125,7 +125,7 @@ const renderMenuItem = (item: MenuItem, itemClassName?: string) => {
     <HeroDropdownItem
       key={item.key}
       className={cn(itemClassName, item.className)}
-      data-testid={item.testId ?? item.key}
+      data-testid={slugify(item.testId ?? item.key)}
       description={item.description}
       onPress={item.onClick}
       startContent={item.icon}

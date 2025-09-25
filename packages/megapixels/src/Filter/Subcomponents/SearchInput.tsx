@@ -52,6 +52,7 @@ const SearchInput = ({ classNames = {}, config }: SearchInputProps) => {
           className={classNames.searchShowButton}
           icon={<FaSearch />}
           size="sm"
+          testId="show_search_input_button"
           variant="bordered"
           onClick={() => {
             setIsVisible(true);
@@ -92,13 +93,14 @@ const SearchInput = ({ classNames = {}, config }: SearchInputProps) => {
             }}
           />
           <SubmitButton
-            ariaLabel="Trigger search"
+            ariaLabel="Submit search"
             // eslint-disable-next-line react/no-children-prop
             children={null}
             className={classNames.searchSubmitButton}
             color="primary"
             icon={<FaSearch />}
             size="sm"
+            testId="submit_search_button"
           />
         </motion.div>
       ) : null}

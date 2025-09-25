@@ -21,6 +21,7 @@ exports[`Story Snapshots > FiltersOnly 1`] = `
           class="group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 border-medium px-3 min-w-16 h-8 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-transparent border-default text-foreground data-[hover=true]:opacity-hover z-10 aria-expanded:scale-[0.97] aria-expanded:opacity-70 subpixel-antialiased"
           data-react-aria-pressable="true"
           data-slot="trigger"
+          data-testid="add_filter_button"
           id="react-aria-react-useId-mock"
           tabindex="0"
           type="button"
@@ -130,10 +131,10 @@ exports[`Story Snapshots > WithCustomStyles 1`] = `
               </div>
             </div>
             <button
-              aria-label="Trigger search"
+              aria-label="Submit search"
               class="group tap-highlight-transparent [&>svg]:max-w-[theme(spacing.8)] data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 text-tiny gap-2 px-0 !gap-0 motion-reduce:transition-none min-w-8 w-8 h-8 data-[hover=true]:opacity-hover rounded-full text-white shadow-lg transition-transform bg-gradient-to-br from-fuchsia-500 to-indigo-500 hover:scale-105 active:scale-95 dark:from-fuchsia-500 dark:to-purple-600 data-[focus-visible=true]:outline-amber-400"
               data-react-aria-pressable="true"
-              data-testid="form_submit_button"
+              data-testid="submit_search_button"
               tabindex="0"
               type="submit"
             >
@@ -306,6 +307,7 @@ exports[`Story Snapshots > WithCustomStyles 1`] = `
           class="group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 px-3 min-w-16 h-8 text-tiny gap-2 [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover z-10 aria-expanded:scale-[0.97] aria-expanded:opacity-70 subpixel-antialiased rounded-full leading-none border-2 border-rose-300/60 bg-rose-50/60 text-rose-700 hover:bg-rose-100/70 dark:border-fuchsia-500/40 dark:bg-fuchsia-500/10 dark:text-fuchsia-200 dark:hover:bg-fuchsia-500/20 data-[focus-visible=true]:outline-amber-400"
           data-react-aria-pressable="true"
           data-slot="trigger"
+          data-testid="add_filter_button"
           id="react-aria-react-useId-mock"
           tabindex="0"
           type="button"
@@ -415,10 +417,10 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
               </div>
             </div>
             <button
-              aria-label="Trigger search"
+              aria-label="Submit search"
               class="group tap-highlight-transparent [&>svg]:max-w-[theme(spacing.8)] data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny gap-2 rounded-small px-0 !gap-0 transition-transform-colors-opacity motion-reduce:transition-none bg-primary text-primary-foreground min-w-8 w-8 h-8 data-[hover=true]:opacity-hover"
               data-react-aria-pressable="true"
-              data-testid="form_submit_button"
+              data-testid="submit_search_button"
               tabindex="0"
               type="submit"
             >
@@ -591,6 +593,7 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
           class="group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 border-medium px-3 min-w-16 h-8 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-transparent border-default text-foreground data-[hover=true]:opacity-hover z-10 aria-expanded:scale-[0.97] aria-expanded:opacity-70 subpixel-antialiased"
           data-react-aria-pressable="true"
           data-slot="trigger"
+          data-testid="add_filter_button"
           id="react-aria-react-useId-mock"
           tabindex="0"
           type="button"
@@ -637,6 +640,7 @@ exports[`Story Snapshots > WithSearch 1`] = `
             aria-label="Show search input"
             class="group tap-highlight-transparent [&>svg]:max-w-[theme(spacing.8)] data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 border-medium text-tiny gap-2 rounded-small px-0 !gap-0 transition-transform-colors-opacity motion-reduce:transition-none bg-transparent border-default text-foreground min-w-8 w-8 h-8 data-[hover=true]:opacity-hover"
             data-react-aria-pressable="true"
+            data-testid="show_search_input_button"
             tabindex="0"
             type="button"
           >
@@ -662,6 +666,7 @@ exports[`Story Snapshots > WithSearch 1`] = `
           class="group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 border-medium px-3 min-w-16 h-8 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-transparent border-default text-foreground data-[hover=true]:opacity-hover z-10 aria-expanded:scale-[0.97] aria-expanded:opacity-70 subpixel-antialiased"
           data-react-aria-pressable="true"
           data-slot="trigger"
+          data-testid="add_filter_button"
           id="react-aria-react-useId-mock"
           tabindex="0"
           type="button"
