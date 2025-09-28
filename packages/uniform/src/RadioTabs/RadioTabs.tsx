@@ -84,7 +84,7 @@ const RadioTabs = ({
   const { disabled: isDisabled, onBlur, onChange, ref, value } = field;
 
   const showTestIdCopyButton = debugMode === 'debug-testids';
-  const showLabel = label || showTestIdCopyButton;
+  const showLabel = label ?? showTestIdCopyButton;
 
   const variants = radioTabsVariants();
   const classNames = variantsToClassNames(variants, className, 'base');
@@ -94,8 +94,8 @@ const RadioTabs = ({
       content: option?.content,
       disabled: option?.disabled,
       key: option.value,
-      label: option?.label || option?.value,
-      testId: slugify(`option_${option?.testId || option?.value}`, {
+      label: option?.label ?? option?.value,
+      testId: slugify(`option_${option?.testId ?? option?.value}`, {
         replaceDots: true,
       }),
     };
@@ -107,10 +107,10 @@ const RadioTabs = ({
 
   return (
     <HeroRadioGroup
+      ref={ref}
       classNames={classNames}
       // see HeroUI styles for group-data condition (data-invalid),
       // e.g.: https://github.com/heroui-inc/heroui/blob/main/packages/components/select/src/use-select.ts
-      ref={ref}
       data-invalid={invalid}
       data-required={required}
       data-testid={testId}
@@ -121,16 +121,20 @@ const RadioTabs = ({
       onBlur={onBlur}
       orientation={inline ? 'horizontal' : 'vertical'}
       errorMessage={
-        error && <FieldValidationError error={error} testId={testId} />
+        error ? (
+          <FieldValidationError error={error} testId={testId} />
+        ) : undefined
       }
       label={
-        showLabel && (
+        showLabel ? (
           // eslint-disable-next-line jsx-a11y/label-has-associated-control
           <label>
             {label}
-            {showTestIdCopyButton && <FieldCopyTestIdButton testId={testId} />}
+            {showTestIdCopyButton ? (
+              <FieldCopyTestIdButton testId={testId} />
+            ) : null}
           </label>
-        )
+        ) : undefined
       }
     >
       <Tabs
