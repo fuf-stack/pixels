@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.3.0](https://github.com/fuf-stack/pixels/compare/uniform-v1.2.3...uniform-v1.3.0) (2025-09-29)
+
+
+### Features
+
+* **pixels:** add SearchInput component ([f390fff](https://github.com/fuf-stack/pixels/commit/f390fffbdf8eadc8f835ea540dfc5c93e5996d74))
+
+
+### Bug Fixes
+
+* **deps:** update dependency framer-motion to v12.23.18 ([#1220](https://github.com/fuf-stack/pixels/issues/1220)) ([74f9b1c](https://github.com/fuf-stack/pixels/commit/74f9b1c35232e61d0b20605aacee13b61f0989b9))
+* **deps:** update dependency framer-motion to v12.23.19 ([#1229](https://github.com/fuf-stack/pixels/issues/1229)) ([8116f70](https://github.com/fuf-stack/pixels/commit/8116f700210c21eed09dec7bd174a5ad2026c2f5))
+* **deps:** update dependency framer-motion to v12.23.22 ([#1233](https://github.com/fuf-stack/pixels/issues/1233)) ([9fcd67f](https://github.com/fuf-stack/pixels/commit/9fcd67fb3d5370045d6e006abd8c009cd2cb7368))
+* **pixels:** ensure SearchInput value can be cleared ([f107ea4](https://github.com/fuf-stack/pixels/commit/f107ea4d99594837e7dfbc29c0a2618c5259b98b))
+
 ## [1.2.3](https://github.com/fuf-stack/pixels/compare/uniform-v1.2.2...uniform-v1.2.3) (2025-09-23)
 
 
