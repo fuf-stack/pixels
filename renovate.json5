@@ -36,10 +36,12 @@
       groupName: '@heroui monorepo',
     },
 
-    // framer-motion not patch releases (rate-limiting)
+    // framer-motion not patch updates (rate-limiting)
     {
       matchPackageNames: ['framer-motion'],
-      excludeUpdateTypes: ['patch'],
+      enabled: false,
+      matchUpdateTypes: ['patch'],
+      separateMinorPatch: true,
     },
 
     // lock zod at version v3.24.3 to avoid type infer issues
