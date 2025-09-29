@@ -37,12 +37,9 @@ export const RadioBox = ({ icon = undefined, ...props }: RadioProps) => {
       )}
     >
       <VisuallyHidden>
-        {}
         <input {...getInputProps()} />
       </VisuallyHidden>
-      {}
       <span {...getWrapperProps()}>
-        {}
         <span {...getControlProps()} />
       </span>
       {icon}
@@ -50,7 +47,6 @@ export const RadioBox = ({ icon = undefined, ...props }: RadioProps) => {
         {...getLabelWrapperProps()}
         className={cn(getLabelWrapperProps().className, 'grow')}
       >
-        {}
         {children ? <span {...getLabelProps()}>{children}</span> : null}
         {description ? (
           <span className="text-small text-foreground opacity-70">

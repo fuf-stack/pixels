@@ -58,7 +58,7 @@ export interface MenuSection {
 export const menuVariants = tv({
   slots: {
     item: '',
-    trigger: '',
+    trigger: 'z-auto',
   },
 });
 
@@ -93,7 +93,7 @@ export interface MenuProps extends VariantProps {
     | 'disabled'
     | 'size'
     | 'variant'
-  >;
+  > & { 'data-testid'?: string };
 }
 
 // type guard for MenuSection
