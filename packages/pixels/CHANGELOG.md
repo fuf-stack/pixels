@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.3.6](https://github.com/fuf-stack/pixels/compare/pixels-v1.3.5...pixels-v1.3.6) (2025-09-29)
+
+
+### Bug Fixes
+
+* **deps:** update dependency framer-motion to v12.23.19 ([#1229](https://github.com/fuf-stack/pixels/issues/1229)) ([8116f70](https://github.com/fuf-stack/pixels/commit/8116f700210c21eed09dec7bd174a5ad2026c2f5))
+* **deps:** update dependency framer-motion to v12.23.22 ([#1233](https://github.com/fuf-stack/pixels/issues/1233)) ([9fcd67f](https://github.com/fuf-stack/pixels/commit/9fcd67fb3d5370045d6e006abd8c009cd2cb7368))
+* **pixels:** set z-index to menu trigger button to auto ([0e94421](https://github.com/fuf-stack/pixels/commit/0e94421e9992b90b798d8aa84f72e1c669cd7b0c))
+
 ## [1.3.5](https://github.com/fuf-stack/pixels/compare/pixels-v1.3.4...pixels-v1.3.5) (2025-09-25)
 
 
