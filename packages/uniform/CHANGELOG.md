@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.1](https://github.com/fuf-stack/pixels/compare/uniform-v1.3.0...uniform-v1.3.1) (2025-09-30)
+
+
+### Bug Fixes
+
+* **uniform:** do not use hashed validation cache for client validation ([3af9991](https://github.com/fuf-stack/pixels/commit/3af999177110a7e7cb252bf41db9146e7a5447f3))
+
 ## [1.3.0](https://github.com/fuf-stack/pixels/compare/uniform-v1.2.3...uniform-v1.3.0) (2025-09-29)
 
 
