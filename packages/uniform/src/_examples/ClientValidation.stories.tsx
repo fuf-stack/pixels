@@ -63,14 +63,16 @@ const createUsernameClientSchema = (queryData: {
   existingUsernames: string[];
 }) => {
   const schema = objectLoose({
-    username: string().refine(
-      (value: string) => {
-        return !queryData.existingUsernames.includes(value.toLowerCase());
-      },
-      {
-        message: 'Username already exists in this team',
-      },
-    ),
+    username: string()
+      .optional()
+      .refine(
+        (value) => {
+          return (
+            !value || !queryData.existingUsernames.includes(value.toLowerCase())
+          );
+        },
+        { message: 'Username already exists in this team' },
+      ),
   });
 
   return schema;
@@ -102,12 +104,12 @@ const SimpleClientValidationForm = () => {
       <Input label="Email" name="email" placeholder="Enter email" />
       {queryData ? (
         <div className="bg-info-50 rounded p-3 text-sm">
-          <strong>Existing usernames in team:</strong>{' '}
+          <strong className="mr-2">Existing usernames in team:</strong>
           {queryData.existingUsernames.join(', ')}
         </div>
       ) : null}
       <div className="bg-default-50 rounded p-3 text-sm">
-        <strong>Client Validation:</strong>{' '}
+        <strong className="mr-2">Client Validation:</strong>
         {queryData && !loading ? '✅ Active' : '❌ Inactive'}
         <br />
         <small className="text-default-600 mt-1 block">
@@ -134,7 +136,7 @@ const meta: Meta<typeof SimpleClientValidationForm> = {
         <Form
           className="max-w-md"
           onSubmit={action('onSubmit')}
-          {...(parameters?.formProps || {})}
+          {...(parameters?.formProps ?? {})}
         >
           <Story />
 

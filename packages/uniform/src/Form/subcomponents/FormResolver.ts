@@ -7,7 +7,7 @@ import type { FieldValues } from 'react-hook-form';
 
 import { useMemo, useRef, useState } from 'react';
 
-import { and, serializeSchema, veto } from '@fuf-stack/veto';
+import { and, veto } from '@fuf-stack/veto';
 
 import { toValidationFormat } from '../../helpers';
 
@@ -62,13 +62,6 @@ export const useExtendedValidation = (baseValidation?: VetoInstance) => {
   const { clientValidationSchemas, setClientValidationSchema } =
     useClientValidationManager();
 
-  // Create client schema hash for optimized memoization
-  const clientValidationSchemasHash = JSON.stringify(
-    Object.values(clientValidationSchemas).map((schema) => {
-      return serializeSchema(schema);
-    }),
-  );
-
   // Create a stable dependency array from the client validation schemas
   const clientSchemaValues = useMemo(
     () => {
@@ -79,8 +72,8 @@ export const useExtendedValidation = (baseValidation?: VetoInstance) => {
         })
         .filter(Boolean);
     },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [clientValidationSchemasHash],
+    // Include the object identity to react to schema instance updates with same shape
+    [clientValidationSchemas],
   );
 
   // Memoized extended validation instance
@@ -101,6 +94,7 @@ export const useExtendedValidation = (baseValidation?: VetoInstance) => {
 
       // Combine client validation schemas
       const clientSchemasCombined = clientSchemaValues.reduce(
+        // @ts-expect-error is ok, because initially it is null
         (combined, clientSchema) => {
           return combined ? and(combined, clientSchema) : clientSchema;
         },
@@ -120,9 +114,8 @@ export const useExtendedValidation = (baseValidation?: VetoInstance) => {
       // This should not happen due to the conditions above, but just in case
       return baseValidation;
     },
-    // Using hash-based dependency to optimize performance
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [clientValidationSchemasHash],
+    // Recompute when validation schema instances change
+    [baseValidation, clientSchemaValues],
   );
 
   return {
@@ -150,7 +143,7 @@ export const useFormResolver = (extendedValidation?: VetoInstance) => {
     return async (values: FieldValues) => {
       const validationValues = toValidationFormat(values) ?? {};
       const result = await extendedValidation.validateAsync(validationValues);
-      validationErrors.current = result.errors;
+      validationErrors.current = result.errors ?? undefined;
 
       // Transform veto result to React Hook Form format
       return {
