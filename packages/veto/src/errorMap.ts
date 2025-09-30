@@ -1,8 +1,5 @@
-/* eslint-disable import/prefer-default-export */
-
 import type { VetoErrorMap } from './types';
 
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { z } from 'zod';
 
 import { issueCodes } from './issueCodes';

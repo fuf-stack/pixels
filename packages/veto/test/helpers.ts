@@ -1,8 +1,8 @@
-/* eslint-disable import/prefer-default-export */
+/* eslint-disable import-x/prefer-default-export */
 
 import type { VetoError, VetoSchema, VetoSuccess } from '../src';
 
-// eslint-disable-next-line import/no-extraneous-dependencies
+// eslint-disable-next-line import-x/no-extraneous-dependencies
 import { expect, it } from 'vitest';
 
 import v from '../src';

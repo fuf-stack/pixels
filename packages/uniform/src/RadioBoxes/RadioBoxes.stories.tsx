@@ -20,7 +20,7 @@ const meta: Meta<typeof RadioBoxes> = {
         <Form
           className="min-w-60"
           onSubmit={action('onSubmit')}
-          {...(parameters?.formProps || {})}
+          {...(parameters?.formProps ?? {})}
         >
           <Story />
           <div className="mt-4 flex justify-end">

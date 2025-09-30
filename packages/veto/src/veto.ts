@@ -12,7 +12,7 @@ import type {
 } from './types';
 import type { vInfer } from './vInfer';
 
-// eslint-disable-next-line import/no-extraneous-dependencies
+// eslint-disable-next-line import-x/no-extraneous-dependencies
 import { z } from 'zod';
 
 import { checkSerializedSchemaPath } from './serialize';

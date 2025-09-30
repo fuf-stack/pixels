@@ -6,7 +6,7 @@ import type {
 } from 'src/types';
 import type { ZodArray } from 'zod';
 
-// eslint-disable-next-line import/no-extraneous-dependencies
+// eslint-disable-next-line import-x/no-extraneous-dependencies
 import { z } from 'zod';
 
 import { issueCodes } from '../../issueCodes';
