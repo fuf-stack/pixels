@@ -23,17 +23,18 @@ function getAllFilePaths(dirPath: string): string[] {
 }
 
 export default defineConfig({
+  clean: true,
+  dts: true,
+  format: ['esm', 'cjs'],
+  outDir: 'dist',
+  sourcemap: true,
+  splitting: true,
+  tsconfig: 'tsconfig.build.json',
   entry: getAllFilePaths('./src')
     .flat()
     .filter((file) => {
       return file.endsWith('index.ts');
     }),
-  format: ['esm', 'cjs'],
-  splitting: true,
-  sourcemap: true,
-  clean: true,
-  dts: true,
-  outDir: 'dist',
   // update exports of package.json
   onSuccess: async () => {
     const packageJsonPath = './package.json';
