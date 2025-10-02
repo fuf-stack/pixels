@@ -361,11 +361,11 @@ importers:
   packages/veto:
     dependencies:
       zod:
-        specifier: 3.24.3
-        version: 3.24.3
+        specifier: 4.1.11
+        version: 4.1.11
       zodex:
         specifier: 0.18.2
-        version: 0.18.2(zod@3.24.3)
+        version: 0.18.2(zod@4.1.11)
 
 packages:
 
@@ -6354,8 +6354,8 @@ packages:
   zeptomatch@2.0.2:
     resolution: {integrity: sha512-H33jtSKf8Ijtb5BW6wua3G5DhnFjbFML36eFu+VdOoVY4HD9e7ggjqdM6639B+L87rjnR6Y+XeRzBXZdy52B/g==}
 
-  zod@3.24.3:
-    resolution: {integrity: sha512-HhY1oqzWCQWuUqvBFnsyrtZRhyPeR7SUGv+C4+MsisMuVfSPx8HpwWqH8tRahSlt6M3PiFAcoeFhZAqIXTxoSg==}
+  zod@4.1.11:
+    resolution: {integrity: sha512-WPsqwxITS2tzx1bzhIKsEs19ABD5vmCVa4xBo2tq/SrV4RNZtfws1EnCWQXM6yh8bD08a1idvkB5MZSBiZsjwg==}
 
   zodex@0.18.2:
     resolution: {integrity: sha512-GE0/S68lJhhBhJWeOSvq4BCigrguOeKFr7h3sbsMPd6kF4ZCHeVU/hOzNLHlj6d+ezNXcpQ4nHj6purY5RxQBg==}
@@ -13390,9 +13390,9 @@ snapshots:
     dependencies:
       grammex: 3.1.10
 
-  zod@3.24.3: {}
+  zod@4.1.11: {}
 
-  zodex@0.18.2(zod@3.24.3):
+  zodex@0.18.2(zod@4.1.11):
     dependencies:
       type-fest: 4.41.0
-      zod: 3.24.3
+      zod: 4.1.11
