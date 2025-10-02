@@ -1,6 +1,7 @@
 {
   "extends": "@fuf-stack/typescript-config/react-library.json",
   "compilerOptions": {
+    "composite": true,
     "tsBuildInfoFile": "node_modules/.cache/tsbuildinfo.json"
   },
   "include": ["src", "globals.d.ts"]

@@ -1,6 +1,7 @@
 {
   "extends": "@fuf-stack/typescript-config/react-library.json",
   "compilerOptions": {
+    "composite": true,
     "paths": {
       "@fuf-stack/pixels/*": ["../pixels/src/*"],
       "@fuf-stack/veto/*": ["../veto/src/*"],
