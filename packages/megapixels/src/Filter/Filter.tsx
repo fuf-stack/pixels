@@ -4,6 +4,8 @@ import type { ReactNode } from 'react';
 import type { FiltersConfiguration } from './filters/types';
 import type { SearchConfiguration } from './Subcomponents/SearchInput';
 
+import createDebug from 'debug';
+
 import { tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 import Form from '@fuf-stack/uniform/Form';
 
@@ -13,6 +15,8 @@ import AddFilterMenu from './Subcomponents/AddFilterMenu';
 import FilterModal from './Subcomponents/FilterModal';
 import { FiltersContextProvider } from './Subcomponents/FiltersContext';
 import SearchInput from './Subcomponents/SearchInput';
+
+const debug = createDebug('megapixels:Filter');
 
 // filter styling variants
 export const filterVariants = tv({
@@ -112,6 +116,7 @@ const Filter = ({
 }: FilterProps) => {
   // Submit handler: map form state back into the controlled `values` shape
   const handleSubmit = (nextValues: Record<string, unknown>) => {
+    debug('handleSubmit', { nextValues });
     onChange(nextValues as FilterValues);
   };
 
@@ -122,11 +127,17 @@ const Filter = ({
   );
 
   // validate controlled values are valid
-  const { data: valuesValidated } = validation.validate(values as VetoInput);
+  const {
+    data: valuesValidated,
+    errors,
+    success,
+  } = validation.validate(values as VetoInput);
 
   // classNames from slots
   const variants = filterVariants();
   const classNames = variantsToClassNames(variants, className, 'base');
+
+  debug('render', { validation: { errors, success, valuesValidated } });
 
   return (
     <div className={classNames.base}>
