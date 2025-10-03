@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.3.2](https://github.com/fuf-stack/pixels/compare/megapixels-v0.3.1...megapixels-v0.3.2) (2025-10-03)
+
+
+### Bug Fixes
+
+* **deps:** update dependency debug to v4.4.3 ([#1239](https://github.com/fuf-stack/pixels/issues/1239)) ([e2a4692](https://github.com/fuf-stack/pixels/commit/e2a4692954d12e348320e7f1e76ff6bfb158cbc8))
+* **megapixels:** add debug to Filter ([49825be](https://github.com/fuf-stack/pixels/commit/49825bec1df0fa33ce5aef99ed3380b72e78c31c))
+
 ## [0.3.1](https://github.com/fuf-stack/pixels/compare/megapixels-v0.3.0...megapixels-v0.3.1) (2025-09-25)
 
 
