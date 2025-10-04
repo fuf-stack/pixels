@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.4](https://github.com/fuf-stack/pixels/compare/megapixels-v0.3.3...megapixels-v0.3.4) (2025-10-04)
+
+
+### Bug Fixes
+
+* **megapixels:** make Filter accept null as input value ([7cc15f9](https://github.com/fuf-stack/pixels/commit/7cc15f9361b17df507ace98b61c19dcdddeaa562))
+
 ## [0.3.3](https://github.com/fuf-stack/pixels/compare/megapixels-v0.3.2...megapixels-v0.3.3) (2025-10-04)
 
 
