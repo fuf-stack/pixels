@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.3](https://github.com/fuf-stack/pixels/compare/megapixels-v0.3.2...megapixels-v0.3.3) (2025-10-04)
+
+
+### Bug Fixes
+
+* **megapixels:** add props to Filter debug ([8b9e8d0](https://github.com/fuf-stack/pixels/commit/8b9e8d0d58f4cd76b116e3f34e3be32b81d052f4))
+
 ## [0.3.2](https://github.com/fuf-stack/pixels/compare/megapixels-v0.3.1...megapixels-v0.3.2) (2025-10-03)
 
 
