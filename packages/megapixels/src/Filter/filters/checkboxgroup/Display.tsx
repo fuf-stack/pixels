@@ -1,6 +1,10 @@
 import type { FilterDisplayProps } from '../types';
 import type { Config, Value } from './schema';
 
+/**
+ * Read-only presentation for the checkbox group filter.
+ * Resolves and joins selected option labels based on `value` and `config`.
+ */
 const Display = ({
   value,
   config: { text, options },

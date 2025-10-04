@@ -137,7 +137,10 @@ const Filter = ({
   const variants = filterVariants();
   const classNames = variantsToClassNames(variants, className, 'base');
 
-  debug('render', { validation: { errors, success, valuesValidated } });
+  debug('render', {
+    props: { config, values },
+    validation: { errors, success, valuesValidated },
+  });
 
   return (
     <div className={classNames.base}>
