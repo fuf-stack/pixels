@@ -56,7 +56,7 @@ type ClassName = TVClassName<typeof filterVariants>;
 
 export interface FilterValues {
   search?: string;
-  filter?: string | Record<string, unknown>;
+  filter?: string | Record<string, unknown> | null;
 }
 
 export type FilterChildRenderFn = (values: FilterValues) => ReactNode;

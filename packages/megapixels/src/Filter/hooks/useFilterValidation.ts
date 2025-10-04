@@ -1,12 +1,9 @@
-import type { VetoTypeAny } from '@fuf-stack/veto';
+import type { VetoInstance, VetoRawShape, VetoTypeAny } from '@fuf-stack/veto';
 import type { FilterInstance } from '../filters/types';
 
 import { useMemo } from 'react';
 
 import { object, string, stringToJSON, veto } from '@fuf-stack/veto';
-
-/** Validation function return type alias. */
-type ValidationSchema = ReturnType<typeof veto>;
 
 /**
  * useFilterValidation
@@ -19,28 +16,34 @@ export const useFilterValidation = (
   filters: FilterInstance<unknown, unknown>[],
   withSearch?: boolean,
 ) => {
-  return useMemo<ValidationSchema>(() => {
-    let validationObject: Record<string, VetoTypeAny> = {};
-    let filterValidation: Record<string, VetoTypeAny> = {};
-
+  return useMemo<VetoInstance>(() => {
+    // build filter validation
+    let filterSchema: Record<string, VetoTypeAny> = {};
     filters.forEach((f) => {
-      filterValidation = {
-        ...filterValidation,
-        [f.name]: f.validation(f.config),
+      filterSchema = {
+        ...filterSchema,
+        [f.name]: f.validation(f.config) as VetoTypeAny,
       };
     });
 
-    validationObject = {
+    const validationSchema: VetoRawShape = {
+      // filter validation
       filter: stringToJSON()
-        .pipe(object(filterValidation))
-        .or(object(filterValidation))
-        .optional(),
+        .pipe(object(filterSchema))
+        .or(object(filterSchema))
+        .optional()
+        .nullable()
+        // transform null to undefined
+        .transform((val) => {
+          return val ?? undefined;
+        }),
+      // optional search validation
       ...(withSearch
         ? { search: string({ min: 0 }).nullable().optional() }
         : {}),
     };
 
-    return veto(validationObject);
+    return veto(validationSchema);
   }, [filters, withSearch]);
 };
 
