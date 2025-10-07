@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.5](https://github.com/fuf-stack/pixels/compare/megapixels-v0.3.4...megapixels-v0.3.5) (2025-10-07)
+
+
+### Bug Fixes
+
+* **megapixels:** fix FilterChildRenderFn type ([c1a2f36](https://github.com/fuf-stack/pixels/commit/c1a2f36da8acb68e7d312e17e461ada697290bea))
+
 ## [0.3.4](https://github.com/fuf-stack/pixels/compare/megapixels-v0.3.3...megapixels-v0.3.4) (2025-10-04)
 
 
