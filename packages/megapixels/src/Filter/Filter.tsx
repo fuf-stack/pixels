@@ -59,7 +59,10 @@ export interface FilterValues {
   filter?: string | Record<string, unknown> | null;
 }
 
-export type FilterChildRenderFn = (values: FilterValues) => ReactNode;
+export type FilterChildRenderFn = (values: {
+  search?: string;
+  filter?: Record<string, unknown>;
+}) => ReactNode;
 
 /**
  * Filter
