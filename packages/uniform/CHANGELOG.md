@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.1](https://github.com/fuf-stack/pixels/compare/uniform-v1.4.0...uniform-v1.4.1) (2025-10-07)
+
+
+### Bug Fixes
+
+* **uniform:** fix RadioTabs full width styles ([cb52788](https://github.com/fuf-stack/pixels/commit/cb52788a4386ee2ce885584605984cbf598e4c29))
+
 ## [1.4.0](https://github.com/fuf-stack/pixels/compare/uniform-v1.3.1...uniform-v1.4.0) (2025-10-07)
 
 
