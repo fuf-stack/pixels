@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.4.0](https://github.com/fuf-stack/pixels/compare/uniform-v1.3.1...uniform-v1.4.0) (2025-10-07)
+
+
+### Features
+
+* **uniform:** add fullWidth and content styling to RadioTabs ([c6f19c5](https://github.com/fuf-stack/pixels/commit/c6f19c5f99caaafd8d4458c2a37f5672d45d2a5a))
+
+
+### Bug Fixes
+
+* **deps:** update dependency @react-aria/visually-hidden to v3.8.28 ([#1254](https://github.com/fuf-stack/pixels/issues/1254)) ([d10342c](https://github.com/fuf-stack/pixels/commit/d10342c8e52703b71fb6272c78cbc9af7051f636))
+
 ## [1.3.1](https://github.com/fuf-stack/pixels/compare/uniform-v1.3.0...uniform-v1.3.1) (2025-09-30)
 
 
