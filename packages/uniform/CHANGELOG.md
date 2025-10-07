@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.2](https://github.com/fuf-stack/pixels/compare/uniform-v1.4.1...uniform-v1.4.2) (2025-10-07)
+
+
+### Bug Fixes
+
+* **uniform:** removed p-1 from RadioTabs base slot ([d67a599](https://github.com/fuf-stack/pixels/commit/d67a59917031a66b9c30427e30f3f24e0ea4beb9))
+
 ## [1.4.1](https://github.com/fuf-stack/pixels/compare/uniform-v1.4.0...uniform-v1.4.1) (2025-10-07)
 
 
