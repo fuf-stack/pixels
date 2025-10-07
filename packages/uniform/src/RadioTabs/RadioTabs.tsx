@@ -29,7 +29,7 @@ export const radioTabsVariants = tv({
   variants: {
     hasContent: {
       true: {
-        base: 'p-1',
+        base: '',
         tabBase: 'p-1 pb-0',
         tabWrapper: [
           // border style
