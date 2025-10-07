@@ -29,16 +29,19 @@ export const radioTabsVariants = tv({
   variants: {
     hasContent: {
       true: {
-        base: 'w-full rounded-b-none p-1',
+        base: 'p-1',
         tabBase: 'p-1 pb-0',
-        tabList: 'w-full',
-        tabWrapper: 'border-divider rounded-medium border',
+        tabWrapper: [
+          // border style
+          'border-divider rounded-medium border',
+          // full width
+          'w-full',
+        ],
       },
     },
     fullWidth: {
       true: {
-        base: 'w-full',
-        tabList: 'w-full',
+        tabWrapper: 'w-full',
       },
     },
   },

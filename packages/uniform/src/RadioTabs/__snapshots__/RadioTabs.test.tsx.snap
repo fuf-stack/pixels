@@ -395,7 +395,7 @@ exports[`Story Snapshots > FullWidth 1`] = `
         aria-describedby="react-aria-react-useId-mock-tab-option_3-tab-option_3 react-aria-react-useId-mock-tab-option_3-tab-option_3"
         aria-label=" "
         aria-orientation="vertical"
-        class="relative flex flex-col gap-2 group w-full"
+        class="relative flex flex-col gap-2 group"
         data-invalid="false"
         data-required="false"
         data-testid="radiotabsfield"
@@ -415,6 +415,7 @@ exports[`Story Snapshots > FullWidth 1`] = `
           role="presentation"
         >
           <div
+            class="w-full"
             data-placement="top"
             data-slot="tabWrapper"
             data-vertical="horizontal"
@@ -829,7 +830,7 @@ exports[`Story Snapshots > WithContent 1`] = `
         aria-describedby="react-aria-react-useId-mock-tab-option_3-tab-option_3 react-aria-react-useId-mock-tab-option_3-tab-option_3"
         aria-label=" "
         aria-orientation="vertical"
-        class="relative flex flex-col gap-2 group w-full rounded-b-none p-1"
+        class="relative flex flex-col gap-2 group p-1"
         data-invalid="false"
         data-required="false"
         data-testid="radiotabsfield"
@@ -842,7 +843,7 @@ exports[`Story Snapshots > WithContent 1`] = `
           role="presentation"
         >
           <div
-            class="border-divider rounded-medium border"
+            class="border-divider rounded-medium border w-full"
             data-placement="top"
             data-slot="tabWrapper"
             data-vertical="horizontal"
