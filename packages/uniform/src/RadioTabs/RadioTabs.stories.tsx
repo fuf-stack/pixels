@@ -44,17 +44,6 @@ export const Default: Story = {
   },
 };
 
-export const WithContent: Story = {
-  args: {
-    name: 'radioTabsField',
-    options: [
-      { value: 'option_1', label: 'Option 1', content: 'Option 1 Content' },
-      { value: 'option_2', label: 'Option 2', content: 'Option 2 Content' },
-      { value: 'option_3', label: 'Option 3', content: 'Option 3 Content' },
-    ],
-  },
-};
-
 export const WithInitialValue: Story = {
   parameters: {
     formProps: { initialValues: { radioTabsField: 'option_2' } },
@@ -103,7 +92,7 @@ const requiredValidation = veto({
 export const Required: Story = {
   parameters: { formProps: { validation: requiredValidation } },
   args: {
-    label: 'radioTabsField',
+    label: 'Radio Tabs Field',
     name: 'radioTabsField',
     options: [
       { value: 'option_1', label: 'Option 1' },
@@ -125,7 +114,7 @@ export const Invalid: Story = {
   },
   args: {
     name: 'radioTabsField',
-    label: 'radioTabsField',
+    label: 'Radio Tabs Field',
     testId: 'radioTabsField',
     options: [
       { value: 'option_1', label: 'Option 1' },
@@ -139,5 +128,41 @@ export const Invalid: Story = {
     await userEvent.click(optionTwo, {
       delay: 100,
     });
+  },
+};
+
+export const FullWidth: Story = {
+  parameters: {
+    formProps: {
+      className: 'min-w-md',
+      initialValues: { radioTabsField: 'option_1' },
+    },
+  },
+  args: {
+    label: 'Radio Tabs Field',
+    fullWidth: true,
+    name: 'radioTabsField',
+    options: [
+      { value: 'option_1', label: 'Option 1' },
+      { value: 'option_2', label: 'Option 2' },
+      { value: 'option_3', label: 'Option 3' },
+    ],
+  },
+};
+
+export const WithContent: Story = {
+  parameters: {
+    formProps: {
+      className: 'min-w-md',
+      initialValues: { radioTabsField: 'option_1' },
+    },
+  },
+  args: {
+    name: 'radioTabsField',
+    options: [
+      { value: 'option_1', label: 'Option 1', content: 'Option 1 Content' },
+      { value: 'option_2', label: 'Option 2', content: 'Option 2 Content' },
+      { value: 'option_3', label: 'Option 3', content: 'Option 3 Content' },
+    ],
   },
 };

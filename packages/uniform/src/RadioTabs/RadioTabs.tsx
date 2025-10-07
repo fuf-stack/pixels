@@ -15,14 +15,32 @@ import { FieldValidationError } from '../partials/FieldValidationError';
 export const radioTabsVariants = tv({
   slots: {
     base: 'group', // Needs group for group-data condition
+    cursor: '',
     label:
       'text-foreground group-data-[invalid=true]:text-danger text-sm subpixel-antialiased',
-    wrapper: '',
-    tabList: '',
     tab: '',
+    tabBase: '',
     tabContent: '',
-    cursor: '',
-    panel: '',
+    tabList: '',
+    tabPanel: 'p-3',
+    tabWrapper: '',
+    wrapper: '',
+  },
+  variants: {
+    hasContent: {
+      true: {
+        base: 'w-full rounded-b-none p-1',
+        tabBase: 'p-1 pb-0',
+        tabList: 'w-full',
+        tabWrapper: 'border-divider rounded-medium border',
+      },
+    },
+    fullWidth: {
+      true: {
+        base: 'w-full',
+        tabList: 'w-full',
+      },
+    },
   },
 });
 
@@ -44,11 +62,13 @@ export interface RadioTabsOption {
   value: string;
 }
 
-export interface RadioTabsProps extends VariantProps {
+export interface RadioTabsProps extends Omit<VariantProps, 'hasContent'> {
   /** CSS class name */
   className?: ClassName;
   /** Determines if the Buttons are disabled or not. */
   disabled?: boolean;
+  /** Whether tabs should take up full container width */
+  fullWidth?: boolean;
   /** determines orientation of the Buttons. */
   inline?: boolean;
   /** Label displayed next to the RadioButton. */
@@ -70,6 +90,7 @@ export interface RadioTabsProps extends VariantProps {
 const RadioTabs = ({
   className = undefined,
   disabled = false,
+  fullWidth = false,
   inline = false,
   label = undefined,
   name,
@@ -86,7 +107,14 @@ const RadioTabs = ({
   const showTestIdCopyButton = debugMode === 'debug-testids';
   const showLabel = label ?? showTestIdCopyButton;
 
-  const variants = radioTabsVariants();
+  // check if any option has content
+  // eslint-disable-next-line @typescript-eslint/no-misused-promises, @typescript-eslint/promise-function-async
+  const hasContent = options.some((option) => {
+    return option.content;
+  });
+
+  // classNames from slots
+  const variants = radioTabsVariants({ hasContent, fullWidth });
   const classNames = variantsToClassNames(variants, className, 'base');
 
   const tabOptions = options.map<TabProps>((option) => {
@@ -108,7 +136,6 @@ const RadioTabs = ({
   return (
     <HeroRadioGroup
       ref={ref}
-      classNames={classNames}
       // see HeroUI styles for group-data condition (data-invalid),
       // e.g.: https://github.com/heroui-inc/heroui/blob/main/packages/components/select/src/use-select.ts
       data-invalid={invalid}
@@ -120,6 +147,11 @@ const RadioTabs = ({
       name={name}
       onBlur={onBlur}
       orientation={inline ? 'horizontal' : 'vertical'}
+      classNames={{
+        base: classNames.base,
+        label: classNames.label,
+        wrapper: classNames.wrapper,
+      }}
       errorMessage={
         error ? (
           <FieldValidationError error={error} testId={testId} />
@@ -139,13 +171,21 @@ const RadioTabs = ({
     >
       <Tabs
         disabledKeys={disabled ? disabledAllKeys : undefined}
-        fullWidth={false}
         onSelectionChange={onChange}
         // make sure component is controlled
         selectedKey={value ?? ''}
         tabs={tabOptions}
         testId={testId}
         variant={variant}
+        className={{
+          base: classNames.tabBase,
+          cursor: classNames.cursor,
+          panel: classNames.tabPanel,
+          tab: classNames.tab,
+          tabContent: classNames.tabContent,
+          tabList: classNames.tabList,
+          tabWrapper: classNames.tabWrapper,
+        }}
       />
     </HeroRadioGroup>
   );
