@@ -1,6 +1,9 @@
 import type { FieldArrayElementMethods } from './subcomponents/FieldArrayElement';
 import type { FieldArrayProps } from './types';
 
+import { useEffect, useRef } from 'react';
+
+import { useReducedMotion } from '@fuf-stack/pixel-motion';
 import { cn, tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 import { Button } from '@fuf-stack/pixels';
 
@@ -18,7 +21,7 @@ export const fieldArrayVariants = tv({
     insertAfterButton: 'text-xs font-medium',
     label: 'pointer-events-auto! static! z-0! -mb-1 ml-1 inline-block!',
     list: 'm-0 w-full list-none',
-    listItem: 'mb-4 flex w-full flex-row',
+    listItem: 'flex w-full flex-row',
     removeButton: 'ml-1',
     sortDragHandle: 'mr-2 text-base text-xl',
   },
@@ -33,6 +36,7 @@ const FieldArray = ({
   className: _className = undefined,
   duplicate = false,
   elementInitialValue: _elementInitialValue = null,
+  elementMarginBottom = undefined,
   insertAfter = false,
   label: _label = undefined,
   lastElementNotRemovable = false,
@@ -49,7 +53,7 @@ const FieldArray = ({
     debugMode,
     getValues,
     getFieldState,
-    trigger,
+    // trigger,
     // watch
   } = useFormContext();
 
@@ -75,6 +79,16 @@ const FieldArray = ({
   // TODO: add info
   const elementInitialValue = toNullishString(_elementInitialValue);
 
+  // Track initial render to prevent animating elements on
+  // first render cycle or when user prefers reduced motion
+  const prefersReducedMotion = useReducedMotion();
+  const disableAnimationRef = useRef(true);
+  useEffect(() => {
+    if (!prefersReducedMotion) {
+      disableAnimationRef.current = false;
+    }
+  }, [prefersReducedMotion]);
+
   // When lastElementNotRemovable is set and the field array is empty,
   // add an initial element to ensure there's always at least one visible element
   if (lastElementNotRemovable && fields.length === 0) {
@@ -82,21 +96,21 @@ const FieldArray = ({
   }
 
   const showTestIdCopyButton = debugMode === 'debug-testids';
-  const showLabel = label || showTestIdCopyButton;
+  const showLabel = label ?? showTestIdCopyButton;
 
   return (
     <SortContext fields={fields} move={move} sortable={sortable}>
       <ul
         className={className.list}
         data-testid={testId}
-        /**
-         * TODO: this trigger causes the field array (not element)
-         * are shown immediately, but this will cause additional
-         * render cycles, not sure if we should do this...
-         */
-        onBlur={async () => {
-          return trigger(name);
-        }}
+        // /**
+        //  * TODO: this trigger causes the field array (not element)
+        //  * are shown immediately, but this will cause additional
+        //  * render cycles, not sure if we should do this...
+        //  */
+        // onBlur={async () => {
+        //   return trigger(name);
+        // }}
       >
         {/* field array label */}
         {showLabel ? (
@@ -142,7 +156,9 @@ const FieldArray = ({
               key={field.id}
               arrayFieldName={name}
               className={className}
+              disableAnimation={disableAnimationRef.current}
               duplicate={duplicate}
+              elementMarginBottom={elementMarginBottom}
               fields={fields}
               id={field.id}
               index={index}

@@ -15,6 +15,31 @@ interface StoryFile<TProps = any> {
   [name: string]: StoryFn<TProps> | Meta<TProps>;
 }
 
+// Ensure reduced motion for deterministic snapshots (disable animations)
+const ensurePrefersReducedMotion = () => {
+  if (typeof window === 'undefined') {
+    return;
+  }
+  const mockMatchMedia = (query: string) => {
+    const isReduced =
+      query.includes('prefers-reduced-motion') && query.includes('reduce');
+    return {
+      matches: isReduced,
+      media: query,
+      onchange: null,
+      addEventListener: () => {},
+      removeEventListener: () => {},
+      addListener: () => {},
+      removeListener: () => {},
+      dispatchEvent: () => {
+        return false;
+      },
+    } as unknown as MediaQueryList;
+  };
+
+  (window as any).matchMedia = mockMatchMedia;
+};
+
 const compose = (
   entry: StoryFile,
 ): ReturnType<typeof composeStories<StoryFile>> => {
@@ -30,6 +55,7 @@ const compose = (
 const storySnapshots = <TProps extends Record<string, any>>(
   storyFile: StoryFile<TProps>,
 ) => {
+  ensurePrefersReducedMotion();
   const stories = Object.entries(compose(storyFile)).map(([name, story]) => {
     return {
       name,

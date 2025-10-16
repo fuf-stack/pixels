@@ -1,9 +1,14 @@
+import type { Variants as MotionVariants } from '@fuf-stack/pixel-motion';
 import type { ClassValue } from '@fuf-stack/pixel-utils';
+import type { CSSProperties } from 'react';
 import type { FieldArrayFeatures } from '../types';
+
+import { useState } from 'react';
 
 import { useSortable } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
 
+import { AnimatePresence, motion } from '@fuf-stack/pixel-motion';
 import { cn } from '@fuf-stack/pixel-utils';
 
 import { Grid } from '../../Grid';
@@ -42,6 +47,10 @@ interface FieldArrayElementProps extends FieldArrayFeatures {
     /** Class for the drag handle when sorting enabled */
     sortDragHandle?: ClassValue;
   };
+  /** Globally disable animations for this item (used for first render or prefers-reduced-motion) */
+  disableAnimation?: boolean;
+  /** Bottom margin of the list element */
+  elementMarginBottom?: CSSProperties['marginBottom'];
   /** All fields in the form array */
   fields: Record<'id', string>[];
   /** Unique identifier for drag/drop */
@@ -58,12 +67,15 @@ interface FieldArrayElementProps extends FieldArrayFeatures {
 
 /**
  * Form array element component using react-hook-form with drag-drop sorting
- * and validation capabilities
+ * and validation capabilities. Animations when elements are added or removed
+ * improve the user experience and provide a better visual feedback.
  */
 const FieldArrayElement = ({
   arrayFieldName,
   children,
   className,
+  disableAnimation = false,
+  elementMarginBottom = '1rem',
   fields,
   id,
   index,
@@ -96,67 +108,114 @@ const FieldArrayElement = ({
       }
     : undefined;
 
+  // Local visibility to allow exit animation before removing from RHF state
+  const [isVisible, setIsVisible] = useState(true);
+
+  // Motion variants for the list item
+  const listItemMotionVariants: MotionVariants = {
+    hidden: { opacity: 0, height: 0, marginBottom: 0 },
+    visible: {
+      opacity: 1,
+      height: 'auto',
+      marginBottom: elementMarginBottom,
+      transition: { duration: 0.2, ease: 'circOut' },
+    },
+    exit: {
+      opacity: 0,
+      height: 0,
+      marginBottom: 0,
+      transition: {
+        // on exit first fade out, then shrink
+        opacity: { duration: 0.1, ease: 'circOut' },
+        height: { delay: 0.1, duration: 0.2, ease: 'circOut' },
+        marginBottom: { delay: 0.1, duration: 0.2, ease: 'circOut' },
+      },
+    },
+  };
+
+  // Height animation handled on <motion.li> using overflow hidden
   return (
-    <>
-      <li
-        ref={setNodeRef}
-        className={cn(className.listItem)}
-        style={sortingStyle}
-      >
-        {/** sorting drag handle */}
-        {sortable ? (
-          <SortDragHandle
-            className={className.sortDragHandle}
-            id={id}
-            testId={`${testId}_sort_drag_handle`}
-          />
-        ) : null}
-
-        {/** render element fields */}
-        <div
-          className={cn(className.elementWrapper)}
-          data-testid={`${testId}_element_wrapper`}
+    <AnimatePresence
+      mode="wait"
+      // remove from RHF state after exit animation
+      onExitComplete={() => {
+        methods.remove();
+      }}
+    >
+      {isVisible ? (
+        <motion.li
+          key={id}
+          ref={setNodeRef}
+          animate={disableAnimation ? undefined : 'visible'}
+          className={cn(className.listItem)}
+          exit={disableAnimation ? undefined : 'exit'}
+          initial={disableAnimation ? false : 'hidden'}
+          variants={disableAnimation ? undefined : listItemMotionVariants}
+          style={{
+            ...sortingStyle,
+            // we have to set margin bottom here because we cannot use tailwind
+            // since the margin bottom needs to be animated when elements are added or removed
+            marginBottom: elementMarginBottom,
+          }}
         >
-          {/* TODO: this has to be improved */}
-          <Grid>{children}</Grid>
-        </div>
-
-        {/** remove element */}
-        {lastNotDeletable && fields.length === 1 ? null : (
-          <ElementRemoveButton
-            className={className.removeButton}
-            testId={`${testId}_remove_button`}
-            onClick={() => {
-              methods.remove();
-            }}
-          />
-        )}
-
-        {/** insertAfter feature when not last element */}
-        {insertAfter && index !== fields.length - 1 ? (
-          <ElementInsertAfterButton
-            className={className.insertAfterButton}
-            testId={`${testId}_insert_after_button`}
-            onClick={() => {
-              methods.insert();
-            }}
-          />
-        ) : null}
-      </li>
-
-      {/** element error */}
-      {typeof error?.[index] !== 'undefined' && (
-        <div {...getHelperWrapperProps()}>
-          <div {...getErrorMessageProps()}>
-            <FieldValidationError
-              /* @ts-expect-error rhf incompatibility */
-              error={error[Number(index)]?._errors}
-              testId={testId as string}
+          {/** sorting drag handle */}
+          {sortable ? (
+            <SortDragHandle
+              className={className.sortDragHandle}
+              id={id}
+              testId={`${testId}_sort_drag_handle`}
             />
+          ) : null}
+
+          {/** render element fields */}
+          <div
+            className={cn(className.elementWrapper)}
+            data-testid={`${testId}_element_wrapper`}
+          >
+            {/* TODO: this has to be improved */}
+            <Grid>{children}</Grid>
           </div>
-        </div>
-      )}
-    </>
+
+          {/** remove element */}
+          {lastNotDeletable && fields.length === 1 ? null : (
+            <ElementRemoveButton
+              className={className.removeButton}
+              testId={`${testId}_remove_button`}
+              onClick={() => {
+                if (disableAnimation) {
+                  methods.remove();
+                } else {
+                  setIsVisible(false);
+                }
+              }}
+            />
+          )}
+
+          {/** insertAfter feature when not last element */}
+          {insertAfter && index !== fields.length - 1 ? (
+            <ElementInsertAfterButton
+              className={className.insertAfterButton}
+              testId={`${testId}_insert_after_button`}
+              onClick={() => {
+                methods.insert();
+              }}
+            />
+          ) : null}
+          {/** element error */}
+          {typeof error?.[index] !== 'undefined' && (
+            <div {...getHelperWrapperProps()}>
+              <div {...getErrorMessageProps()}>
+                <FieldValidationError
+                  /* @ts-expect-error rhf incompatibility */
+                  error={error[Number(index)]?._errors}
+                  testId={testId as string}
+                />
+              </div>
+            </div>
+          )}
+        </motion.li>
+      ) : null}
+    </AnimatePresence>
   );
 };
 

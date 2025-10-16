@@ -1,5 +1,5 @@
 import type { TVClassName, TVProps } from '@fuf-stack/pixel-utils';
-import type { JSX } from 'react';
+import type { CSSProperties, JSX } from 'react';
 import type { fieldArrayVariants } from './FieldArray';
 import type { FieldArrayElementMethods } from './subcomponents/FieldArrayElement';
 
@@ -38,6 +38,11 @@ export interface FieldArrayProps extends FieldArrayFeatures, VariantProps {
   className?: ClassName;
   /* initial value of a filed that is created in the array */
   elementInitialValue?: unknown;
+  /*
+   * bottom margin of a list element (default 1rem), this needs to be set as a prop (and not via className slot)
+   * because the margin bottom needs to be animated when elements are added or removed
+   */
+  elementMarginBottom?: CSSProperties['marginBottom'];
   /** label of the field array */
   label?: React.ReactNode;
   /** when true (default false) last element can not be removed and will be shown even if field array is empty */
