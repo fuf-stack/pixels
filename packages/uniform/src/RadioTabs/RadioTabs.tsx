@@ -8,16 +8,14 @@ import { RadioGroup as HeroRadioGroup } from '@heroui/radio';
 import { slugify, tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 import Tabs from '@fuf-stack/pixels/Tabs';
 
-import { useController, useFormContext } from '../hooks';
-import { FieldCopyTestIdButton } from '../partials/FieldCopyTestIdButton';
-import { FieldValidationError } from '../partials/FieldValidationError';
+import { useUniformField } from '../hooks';
 
 export const radioTabsVariants = tv({
   slots: {
-    base: 'group', // Needs group for group-data condition
+    base: 'group gap-0', // Needs group for group-data condition
     cursor: '',
     label:
-      'text-foreground group-data-[invalid=true]:text-danger text-sm subpixel-antialiased',
+      'text-foreground group-data-[invalid=true]:text-danger mb-2 inline-flex text-sm subpixel-antialiased',
     tab: '',
     tabBase: '',
     tabContent: '',
@@ -92,33 +90,22 @@ export interface RadioTabsProps extends Omit<VariantProps, 'hasContent'> {
  */
 const RadioTabs = ({
   className = undefined,
-  disabled = false,
   fullWidth = false,
   inline = false,
-  label = undefined,
   name,
   options,
-  testId: _testId = undefined,
   variant = undefined,
+  ...uniformFieldProps
 }: RadioTabsProps): ReactElement => {
-  const { control, debugMode, getFieldState } = useFormContext();
-  const { error, invalid, required, testId } = getFieldState(name, _testId);
-
-  const { field } = useController({ control, disabled, name });
-  const { disabled: isDisabled, onBlur, onChange, ref, value } = field;
-
-  const showTestIdCopyButton = debugMode === 'debug-testids';
-  const showLabel = label ?? showTestIdCopyButton;
-
-  // check if any option has content
-  // eslint-disable-next-line @typescript-eslint/no-misused-promises, @typescript-eslint/promise-function-async
-  const hasContent = options.some((option) => {
-    return option.content;
-  });
-
-  // classNames from slots
-  const variants = radioTabsVariants({ hasContent, fullWidth });
-  const classNames = variantsToClassNames(variants, className, 'base');
+  const {
+    disabled,
+    errorMessage,
+    field: { onBlur, onChange, ref, value },
+    invalid,
+    label,
+    required,
+    testId,
+  } = useUniformField({ name, ...uniformFieldProps });
 
   const tabOptions = options.map<TabProps>((option) => {
     return {
@@ -136,6 +123,16 @@ const RadioTabs = ({
     return option.key as string;
   });
 
+  // check if any option has content
+  // eslint-disable-next-line @typescript-eslint/no-misused-promises, @typescript-eslint/promise-function-async
+  const hasContent = options.some((option) => {
+    return option.content;
+  });
+
+  // classNames from slots
+  const variants = radioTabsVariants({ hasContent, fullWidth });
+  const classNames = variantsToClassNames(variants, className, 'base');
+
   return (
     <HeroRadioGroup
       ref={ref}
@@ -144,9 +141,11 @@ const RadioTabs = ({
       data-invalid={invalid}
       data-required={required}
       data-testid={testId}
-      isDisabled={isDisabled}
+      errorMessage={errorMessage}
+      isDisabled={disabled}
       isInvalid={invalid}
       isRequired={required}
+      label={label ? <legend>{label}</legend> : null}
       name={name}
       onBlur={onBlur}
       orientation={inline ? 'horizontal' : 'vertical'}
@@ -155,22 +154,6 @@ const RadioTabs = ({
         label: classNames.label,
         wrapper: classNames.wrapper,
       }}
-      errorMessage={
-        error ? (
-          <FieldValidationError error={error} testId={testId} />
-        ) : undefined
-      }
-      label={
-        showLabel ? (
-          // eslint-disable-next-line jsx-a11y/label-has-associated-control
-          <label>
-            {label}
-            {showTestIdCopyButton ? (
-              <FieldCopyTestIdButton testId={testId} />
-            ) : null}
-          </label>
-        ) : undefined
-      }
     >
       <Tabs
         disabledKeys={disabled ? disabledAllKeys : undefined}

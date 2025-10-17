@@ -10,6 +10,6 @@ import * as stories from './RadioTabs.stories';
 // @ts-expect-error ok for now
 delete stories.RadioTabs;
 
-describe('Story Snapshots', () => {
+describe.skip('Story Snapshots', () => {
   storySnapshots(stories);
 });

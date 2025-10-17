@@ -6,15 +6,23 @@ exports[`Story Snapshots > MultipleErrors 1`] = `
     aria-label="Validation errors of field undefined"
     data-testid="undefined_error"
   >
-    <li>
-      <div>
+    <li
+      style="overflow: hidden;"
+    >
+      <span
+        class="p-1"
+      >
         first error
-      </div>
+      </span>
     </li>
-    <li>
-      <div>
+    <li
+      style="overflow: hidden;"
+    >
+      <span
+        class="p-1"
+      >
         second error
-      </div>
+      </span>
     </li>
   </ul>
 </div>
@@ -26,10 +34,14 @@ exports[`Story Snapshots > SingleError 1`] = `
     aria-label="Validation errors of field undefined"
     data-testid="undefined_error"
   >
-    <li>
-      <div>
+    <li
+      style="overflow: hidden;"
+    >
+      <span
+        class="p-1"
+      >
         single error message
-      </div>
+      </span>
     </li>
   </ul>
 </div>

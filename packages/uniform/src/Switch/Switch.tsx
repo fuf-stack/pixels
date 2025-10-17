@@ -80,10 +80,11 @@ const Switch = ({
     placeholder: ' ',
   });
 
+  const showTestIdCopyButton = debugMode === 'debug-testids';
+
+  // classNames from slots
   const variants = switchVariants();
   const classNames = variantsToClassNames(variants, className, 'outerWrapper');
-
-  const showTestIdCopyButton = debugMode === 'debug-testids';
 
   return (
     <div className={classNames.outerWrapper}>

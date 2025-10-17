@@ -1,5 +1,6 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
+import { slugify } from '@fuf-stack/pixel-utils';
 // TODO: not sure why we have to import veto src here
 import v, {
   and,
@@ -133,6 +134,7 @@ describe('checkFieldIsRequired', () => {
       refineArray: refineArray(array(object({ name: string() })))({
         unique: {
           elementMessage: 'Contains duplicate places',
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-return
           mapFn: (val) => val?.place,
           elementErrorPath: ['place'],
         },
@@ -242,11 +244,63 @@ describe('checkFieldIsRequired', () => {
   });
 });
 
+describe('field state integration (errors, invalid, testId)', () => {
+  beforeEach(() => {
+    // reset mocks configured below (react-hook-form + react useContext)
+    mockGetFieldState.mockReset();
+    // default: no baseline error from RHF
+    mockGetFieldState.mockReturnValue({});
+    // @ts-expect-error not sure here
+    mockUniformContextValue = {
+      validation: {
+        instance: null,
+        errors: {},
+      },
+    } as unknown as ReturnType<typeof useFormContext>;
+  });
+
+  it('extracts nested errors by dotted path and sets invalid=true', () => {
+    // Arrange nested errors: user.address.0.street
+    mockUniformContextValue.validation.errors = {
+      user: {
+        address: {
+          0: {
+            street: [{ message: 'Street is required' }],
+          },
+        },
+      },
+    } as unknown as Record<string, unknown>;
+
+    const { getFieldState } = useFormContext();
+    const state = getFieldState('user.address.0.street');
+
+    expect(state.invalid).toBe(true);
+    expect(Array.isArray(state.error)).toBe(true);
+    expect(state.error?.[0]?.message).toBe('Street is required');
+  });
+
+  it('generates slugified testId from field name when none provided', () => {
+    const { getFieldState } = useFormContext();
+    const name = 'my.field.path';
+    const state = getFieldState(name);
+    expect(state.testId).toBe(slugify(name, { replaceDots: true }));
+  });
+});
+
 // Mock the dependencies outside of the describe block
 const mockGetValues = vi.fn();
 const mockWatch = vi.fn();
 const mockSubscribe = vi.fn();
 const mockGetFieldState = vi.fn();
+interface MockUniformContextValue {
+  validation: {
+    instance: unknown;
+    errors?: Record<string, unknown>;
+  };
+}
+let mockUniformContextValue: MockUniformContextValue = {
+  validation: { instance: null, errors: {} },
+};
 
 vi.mock('react-hook-form', () => ({
   useFormContext: () => ({
@@ -260,12 +314,12 @@ vi.mock('react-hook-form', () => ({
 
 vi.mock('react', async (importOriginal) => {
   const actual = await importOriginal();
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-return
   return {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    ...(actual as any),
-    useContext: () => ({
-      validation: { instance: null },
-    }),
+    // @ts-expect-error ok for testing
+    ...actual,
+    // @ts-expect-error ok for testing
+    useContext: (() => mockUniformContextValue) as typeof actual.useContext,
   };
 });
 

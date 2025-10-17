@@ -20,11 +20,11 @@ exports[`Story Snapshots > DangerColor 1`] = `
         role="group"
       >
         <span
-          class="relative text-foreground group-data-[invalid=true]:!text-danger text-sm subpixel-antialiased"
+          class="relative text-foreground group-data-[invalid=true]:!text-danger inline-flex text-sm subpixel-antialiased"
         >
-          <label>
+          <legend>
             Danger Color
-          </label>
+          </legend>
         </span>
         <div
           class="flex flex-col flex-wrap gap-2 data-[orientation=horizontal]:flex-row"
@@ -963,11 +963,11 @@ exports[`Story Snapshots > Invalid 1`] = `
         role="group"
       >
         <span
-          class="relative after:content-['*'] after:text-danger after:ml-0.5 text-foreground group-data-[invalid=true]:!text-danger text-sm subpixel-antialiased"
+          class="relative after:content-['*'] after:text-danger after:ml-0.5 text-foreground group-data-[invalid=true]:!text-danger inline-flex text-sm subpixel-antialiased"
         >
-          <label>
+          <legend>
             Checkbox Field
-          </label>
+          </legend>
         </span>
         <div
           class="flex flex-col flex-wrap gap-2 data-[orientation=horizontal]:flex-row"
@@ -1129,18 +1129,25 @@ exports[`Story Snapshots > Invalid 1`] = `
         >
           <ul
             aria-label="Validation errors of field checkboxfield"
-            class="text-tiny"
             data-testid="checkboxfield_error"
           >
-            <li>
-              <div>
+            <li
+              style="overflow: hidden;"
+            >
+              <span
+                class="p-1"
+              >
                 Invalid literal value, expected "join-circus"
-              </div>
+              </span>
             </li>
-            <li>
-              <div>
+            <li
+              style="overflow: hidden;"
+            >
+              <span
+                class="p-1"
+              >
                 Array must contain at least 2 element(s)
-              </div>
+              </span>
             </li>
           </ul>
         </div>
@@ -1184,11 +1191,11 @@ exports[`Story Snapshots > InvalidOneCheckbox 1`] = `
         role="group"
       >
         <span
-          class="relative text-foreground group-data-[invalid=true]:!text-danger text-sm subpixel-antialiased"
+          class="relative text-foreground group-data-[invalid=true]:!text-danger inline-flex text-sm subpixel-antialiased"
         >
-          <label>
+          <legend>
             Checkbox Field
-          </label>
+          </legend>
         </span>
         <div
           class="flex flex-col flex-wrap gap-2 data-[orientation=horizontal]:flex-row"
@@ -1208,7 +1215,7 @@ exports[`Story Snapshots > InvalidOneCheckbox 1`] = `
               aria-describedby="react-aria-react-useId-mock react-aria-react-useId-mock"
               aria-invalid="true"
               aria-label="🌶️ Eat ghost peppers daily"
-              aria-labelledby="«r13»"
+              aria-labelledby="«r15»"
               class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
               data-react-aria-pressable="true"
               name="checkboxField"
@@ -1242,7 +1249,7 @@ exports[`Story Snapshots > InvalidOneCheckbox 1`] = `
             </span>
             <span
               class="relative select-none text-medium text-danger transition-colors-opacity before:transition-width motion-reduce:transition-none"
-              id="«r13»"
+              id="«r15»"
             >
               🌶️ Eat ghost peppers daily
             </span>
@@ -1254,13 +1261,16 @@ exports[`Story Snapshots > InvalidOneCheckbox 1`] = `
         >
           <ul
             aria-label="Validation errors of field checkboxfield"
-            class="text-tiny"
             data-testid="checkboxfield_error"
           >
-            <li>
-              <div>
+            <li
+              style="overflow: hidden;"
+            >
+              <span
+                class="p-1"
+              >
                 This is too hot!
-              </div>
+              </span>
             </li>
           </ul>
         </div>
@@ -1396,11 +1406,11 @@ exports[`Story Snapshots > Required 1`] = `
         role="group"
       >
         <span
-          class="relative after:content-['*'] after:text-danger after:ml-0.5 text-foreground group-data-[invalid=true]:!text-danger text-sm subpixel-antialiased"
+          class="relative after:content-['*'] after:text-danger after:ml-0.5 text-foreground group-data-[invalid=true]:!text-danger inline-flex text-sm subpixel-antialiased"
         >
-          <label>
+          <legend>
             Checkbox Field
-          </label>
+          </legend>
         </span>
         <div
           class="flex flex-col flex-wrap gap-2 data-[orientation=horizontal]:flex-row"
@@ -1781,11 +1791,11 @@ exports[`Story Snapshots > WithLabel 1`] = `
         role="group"
       >
         <span
-          class="relative text-foreground group-data-[invalid=true]:!text-danger text-sm subpixel-antialiased"
+          class="relative text-foreground group-data-[invalid=true]:!text-danger inline-flex text-sm subpixel-antialiased"
         >
-          <label>
+          <legend>
             Checkbox Field
-          </label>
+          </legend>
         </span>
         <div
           class="flex flex-col flex-wrap gap-2 data-[orientation=horizontal]:flex-row"
@@ -1974,11 +1984,11 @@ exports[`Story Snapshots > WithLineThrough 1`] = `
         role="group"
       >
         <span
-          class="relative text-foreground group-data-[invalid=true]:!text-danger text-sm subpixel-antialiased"
+          class="relative text-foreground group-data-[invalid=true]:!text-danger inline-flex text-sm subpixel-antialiased"
         >
-          <label>
+          <legend>
             Todo List
-          </label>
+          </legend>
         </span>
         <div
           class="flex flex-col flex-wrap gap-2 data-[orientation=horizontal]:flex-row"

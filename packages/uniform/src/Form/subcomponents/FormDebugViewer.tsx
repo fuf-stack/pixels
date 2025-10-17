@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import { FaTimes } from 'react-icons/fa';
 import { FaBug, FaBullseye } from 'react-icons/fa6';
 
@@ -22,36 +21,18 @@ const FormDebugViewer = ({ className = undefined }: FormDebugViewerProps) => {
   const {
     debugMode,
     formState: { isValid, isSubmitting },
-    getValues,
     setDebugMode,
-    subscribe,
     validation: { errors },
+    watch,
   } = useFormContext();
 
   const showDebugButton = debugMode === 'off';
   const showDebugCard = debugMode === 'debug' || debugMode === 'debug-testids';
   const showDebugTestIds = debugMode === 'debug-testids';
 
-  const [validationValues, setValidationValues] = useState<Record<
-    string,
-    unknown
-  > | null>(getValues() || null);
-
-  // Subscribe to value updates only when needed and cleanup properly
-  useEffect(() => {
-    if (!showDebugCard) {
-      return undefined;
-    }
-
-    const unsubscribe = subscribe({
-      formState: { values: true },
-      callback: ({ values }) => {
-        setValidationValues(values);
-      },
-    });
-
-    return unsubscribe;
-  }, [showDebugCard, subscribe]);
+  // TODO: maybe use new Watch component?
+  // see: https://github.com/react-hook-form/react-hook-form/pull/12986
+  const values = watch();
 
   if (showDebugButton) {
     return (
@@ -102,8 +83,8 @@ const FormDebugViewer = ({ className = undefined }: FormDebugViewerProps) => {
       </Button>
       <Json
         value={{
-          values: validationValues,
-          errors: errors || null,
+          values,
+          errors: errors ?? null,
           isValid,
           isSubmitting,
         }}

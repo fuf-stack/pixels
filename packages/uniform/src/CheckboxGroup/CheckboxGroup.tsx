@@ -1,4 +1,8 @@
 import type { TVClassName, TVProps } from '@fuf-stack/pixel-utils';
+import type {
+  CheckboxGroupProps as HeroCheckboxGroupProps,
+  CheckboxProps as HeroCheckboxProps,
+} from '@heroui/checkbox';
 import type { ReactNode } from 'react';
 import type { FieldError } from 'react-hook-form';
 
@@ -10,8 +14,7 @@ import { checkbox as heroCheckboxVariants } from '@heroui/theme';
 
 import { slugify, tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 
-import { useController, useFormContext } from '../hooks';
-import { FieldCopyTestIdButton } from '../partials/FieldCopyTestIdButton';
+import { useUniformField } from '../hooks';
 import { FieldValidationError } from '../partials/FieldValidationError';
 
 export const checkboxGroupVariants = tv({
@@ -21,7 +24,7 @@ export const checkboxGroupVariants = tv({
     // see HeroUI styles for group-data condition,
     // e.g.: https://github.com/heroui-inc/heroui/blob/main/packages/core/theme/src/components/select.ts
     label:
-      'text-foreground group-data-[invalid=true]:!text-danger text-sm subpixel-antialiased',
+      'text-foreground group-data-[invalid=true]:!text-danger inline-flex text-sm subpixel-antialiased',
     optionBase: '',
     optionIcon: '',
     optionLabel: '',
@@ -95,42 +98,20 @@ const CheckboxGroup = ({
   className = undefined,
   color = 'primary',
   inline = false,
-  label = undefined,
   lineThrough = false,
   options,
-  disabled = false,
   name,
-  testId: _testId = undefined,
+  ...uniformFieldProps
 }: CheckboxGroupProps) => {
-  const { control, debugMode, getFieldState } = useFormContext();
   const {
+    disabled,
     error: _error,
+    field: { onChange, value = [], ref, onBlur },
     invalid,
+    label,
     required,
     testId,
-  } = getFieldState(name, _testId);
-
-  const { field } = useController({ control, name, disabled });
-  const { onChange, value = [], ref, onBlur } = field;
-
-  const showTestIdCopyButton = debugMode === 'debug-testids';
-  const showLabel = label || showTestIdCopyButton;
-
-  const variants = checkboxGroupVariants({ lineThrough });
-  const classNames = variantsToClassNames(variants, className, 'base');
-
-  // map slots to HeroUI class names
-  const heroCheckboxGroupClassNames = {
-    base: classNames.base,
-    label: classNames.label,
-    wrapper: classNames.wrapper,
-  };
-  const heroCheckboxClassNames = {
-    base: classNames.optionBase,
-    icon: classNames.optionIcon,
-    label: classNames.optionLabel,
-    wrapper: classNames.optionWrapper,
-  };
+  } = useUniformField({ name, ...uniformFieldProps });
 
   // Convert React Hook Form's nested error object structure to a flat array
   // RHF errors can be nested like: checkboxField.0 (individual checkbox errors)
@@ -140,8 +121,11 @@ const CheckboxGroup = ({
     (_error &&
       Object.values(
         _error as unknown as Record<string, FieldError[]>,
-      ).flat()) ||
+      ).flat()) ??
     [];
+  const errorMessage = (
+    <FieldValidationError error={errorFlat} testId={testId} />
+  );
 
   /**
    * Handles the checkbox group value changes based on the number of options:
@@ -161,7 +145,7 @@ const CheckboxGroup = ({
    */
   const getCheckboxValue = (inputValue: unknown): string[] => {
     if (Array.isArray(inputValue)) {
-      return inputValue;
+      return inputValue as string[];
     }
     if (inputValue) {
       return [inputValue as string];
@@ -184,45 +168,45 @@ const CheckboxGroup = ({
   const checkboxGroupProps =
     options.length === 1 ? singleCheckboxProps : multipleCheckboxProps;
 
+  // classNames from slots
+  const variants = checkboxGroupVariants({ lineThrough });
+  const classNames = variantsToClassNames(variants, className, 'base');
+
+  // map slots to HeroUI class names
+  const heroCheckboxGroupClassNames: HeroCheckboxGroupProps['classNames'] = {
+    base: classNames.base,
+    label: classNames.label,
+    wrapper: classNames.wrapper,
+  };
+  const heroCheckboxClassNames: HeroCheckboxProps['classNames'] = {
+    base: classNames.optionBase,
+    icon: classNames.optionIcon,
+    label: classNames.optionLabel,
+    wrapper: classNames.optionWrapper,
+  };
+
   return (
     <HeroCheckboxGroup
+      ref={ref}
       classNames={heroCheckboxGroupClassNames}
       color={color === 'info' ? 'primary' : color}
       // see HeroUI styles for group-data condition (data-invalid),
       // e.g.: https://github.com/heroui-inc/heroui/blob/main/packages/components/select/src/use-select.ts
       data-invalid={invalid}
       data-testid={testId}
+      errorMessage={errorMessage}
       isDisabled={disabled}
       isInvalid={invalid}
       isRequired={required}
+      label={label ? <legend>{label}</legend> : null}
       name={name}
       onBlur={onBlur}
       orientation={inline ? 'horizontal' : 'vertical'}
-      errorMessage={
-        errorFlat.length > 0 && (
-          <FieldValidationError
-            className={classNames.errorMessage}
-            error={errorFlat}
-            testId={testId}
-          />
-        )
-      }
-      label={
-        showLabel && (
-          // eslint-disable-next-line jsx-a11y/label-has-associated-control
-          <label>
-            {label}
-            {showTestIdCopyButton && <FieldCopyTestIdButton testId={testId} />}
-          </label>
-        )
-      }
-      ref={ref}
-      // eslint-disable-next-line react/jsx-props-no-spreading
       {...checkboxGroupProps}
     >
       {options?.map((option) => {
         const optionTestId = slugify(
-          `${testId}_option_${option?.testId || option?.value}`,
+          `${testId}_option_${option?.testId ?? option?.value}`,
           { replaceDots: true },
         );
 
@@ -251,7 +235,7 @@ const CheckboxGroup = ({
             classNames={optionClassNames}
             data-invalid={invalid}
             data-testid={optionTestId}
-            isDisabled={disabled || option.disabled}
+            isDisabled={!!disabled || option.disabled}
             value={option?.value}
             aria-label={
               typeof option.label === 'string' ? option.label : option.value

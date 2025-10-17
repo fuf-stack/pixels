@@ -23,7 +23,7 @@ exports[`Story Snapshots > AllSizes 1`] = `
             data-testid="smallswitch"
           >
             <input
-              aria-labelledby="«r7»"
+              aria-labelledby="«r8»"
               class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
               data-react-aria-pressable="true"
               name="smallSwitch"
@@ -42,7 +42,7 @@ exports[`Story Snapshots > AllSizes 1`] = `
             </span>
             <span
               class="relative select-none ms-2 text-foreground group-data-[invalid=true]:!text-danger group-data-[required=true]:after:text-danger text-sm subpixel-antialiased group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:content-["*"]"
-              id="«r7»"
+              id="«r8»"
             >
               🐭 Microservices
             </span>
@@ -58,7 +58,7 @@ exports[`Story Snapshots > AllSizes 1`] = `
             data-testid="mediumswitch"
           >
             <input
-              aria-labelledby="«r8»"
+              aria-labelledby="«r9»"
               class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
               data-react-aria-pressable="true"
               name="mediumSwitch"
@@ -77,7 +77,7 @@ exports[`Story Snapshots > AllSizes 1`] = `
             </span>
             <span
               class="relative select-none ms-2 text-foreground group-data-[invalid=true]:!text-danger group-data-[required=true]:after:text-danger text-sm subpixel-antialiased group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:content-["*"]"
-              id="«r8»"
+              id="«r9»"
             >
               🏗️ Monolith
             </span>
@@ -93,7 +93,7 @@ exports[`Story Snapshots > AllSizes 1`] = `
             data-testid="largeswitch"
           >
             <input
-              aria-labelledby="«r9»"
+              aria-labelledby="«ra»"
               class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
               data-react-aria-pressable="true"
               name="largeSwitch"
@@ -112,7 +112,7 @@ exports[`Story Snapshots > AllSizes 1`] = `
             </span>
             <span
               class="relative select-none ms-2 text-foreground group-data-[invalid=true]:!text-danger group-data-[required=true]:after:text-danger text-sm subpixel-antialiased group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:content-["*"]"
-              id="«r9»"
+              id="«ra»"
             >
               🏢 Enterprise Monolith
             </span>
@@ -328,10 +328,14 @@ exports[`Story Snapshots > Invalid 1`] = `
               aria-label="Validation errors of field switchfield"
               data-testid="switchfield_error"
             >
-              <li>
-                <div>
+              <li
+                style="overflow: hidden;"
+              >
+                <span
+                  class="p-1"
+                >
                   Please keep your sanity intact
-                </div>
+                </span>
               </li>
             </ul>
           </div>
@@ -508,7 +512,7 @@ exports[`Story Snapshots > WithStartAndEndContent 1`] = `
           data-testid="switchfield"
         >
           <input
-            aria-labelledby="«r6»"
+            aria-labelledby="«r7»"
             checked=""
             class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
             data-react-aria-pressable="true"
@@ -538,7 +542,7 @@ exports[`Story Snapshots > WithStartAndEndContent 1`] = `
           </span>
           <span
             class="relative select-none ms-2 text-foreground group-data-[invalid=true]:!text-danger group-data-[required=true]:after:text-danger text-sm subpixel-antialiased group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:content-["*"]"
-            id="«r6»"
+            id="«r7»"
           >
             📧 Send emails at 3 AM
           </span>
@@ -584,7 +588,7 @@ exports[`Story Snapshots > WithThumbIcon 1`] = `
           data-testid="switchfield"
         >
           <input
-            aria-labelledby="«r5»"
+            aria-labelledby="«r6»"
             checked=""
             class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
             data-react-aria-pressable="true"
@@ -610,7 +614,7 @@ exports[`Story Snapshots > WithThumbIcon 1`] = `
           </span>
           <span
             class="relative select-none ms-2 text-foreground group-data-[invalid=true]:!text-danger group-data-[required=true]:after:text-danger text-sm subpixel-antialiased group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:content-["*"]"
-            id="«r5»"
+            id="«r6»"
           >
             🌙 Dark mode developer
           </span>

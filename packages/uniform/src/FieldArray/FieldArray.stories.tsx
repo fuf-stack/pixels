@@ -37,7 +37,16 @@ const meta: Meta<typeof FieldArray> = {
 export default meta;
 type Story = StoryObj<typeof FieldArray>;
 
+const validationRequiredSimple = veto({
+  arrayField: array(object({ name: string() })).max(3),
+});
+
 export const Default: Story = {
+  parameters: {
+    formProps: {
+      validation: validationRequiredSimple,
+    },
+  },
   args: {
     name: 'arrayField',
     children: ({ name }) => {
@@ -47,7 +56,7 @@ export const Default: Story = {
 };
 
 const validationRequiredFlat = veto({
-  arrayField: array(string()).min(0),
+  arrayField: array(string()).max(3),
 });
 
 export const FlatArray: Story = {
@@ -58,6 +67,7 @@ export const FlatArray: Story = {
   },
   args: {
     name: 'arrayField',
+    elementInitialValue: '',
     children: ({ name }) => {
       return <Input name={name} />;
     },
@@ -74,16 +84,6 @@ export const WithInitialValue: Story = {
     name: 'arrayField',
     children: ({ name, index }) => {
       return <Input label={`name ${index}`} name={`${name}.name`} />;
-    },
-  },
-};
-
-export const DisabledAnimation: Story = {
-  args: {
-    name: 'arrayField',
-    disableAnimation: true,
-    children: ({ name }) => {
-      return <Input name={`${name}.name`} />;
     },
   },
 };

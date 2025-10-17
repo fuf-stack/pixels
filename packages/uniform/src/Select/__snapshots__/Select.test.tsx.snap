@@ -12,9 +12,8 @@ exports[`Story Snapshots > Default 1`] = `
     >
       <div
         class="group leading-normal"
-        data-filled="true"
+        data-has-helper="true"
         data-has-label="true"
-        data-has-label-outside="true"
         data-required="false"
         data-slot="base"
         data-testid="selectfield_wrapper"
@@ -151,9 +150,8 @@ exports[`Story Snapshots > Disabled 1`] = `
     >
       <div
         class="group leading-normal"
-        data-filled="true"
+        data-has-helper="true"
         data-has-label="true"
-        data-has-label-outside="true"
         data-required="false"
         data-slot="base"
         data-testid="selectfield_wrapper"
@@ -287,9 +285,8 @@ exports[`Story Snapshots > InitialValue 1`] = `
     >
       <div
         class="group leading-normal"
-        data-filled="true"
+        data-has-helper="true"
         data-has-label="true"
-        data-has-label-outside="true"
         data-required="false"
         data-slot="base"
         data-testid="selectfield_wrapper"
@@ -441,10 +438,8 @@ exports[`Story Snapshots > Invalid 1`] = `
     >
       <div
         class="group leading-normal"
-        data-filled="true"
         data-has-helper="true"
         data-has-label="true"
-        data-has-label-outside="true"
         data-invalid="true"
         data-required="false"
         data-slot="base"
@@ -566,8 +561,8 @@ exports[`Story Snapshots > Invalid 1`] = `
           />
         </div>
         <div
-          class="p-1 flex relative flex-col gap-1.5 group-data-[has-helper=true]:flex"
-          data-slot="helperWrapper"
+          class="hidden group-data-[has-helper=true]:flex relative flex-col gap-1.5 p-0"
+          data-slot="helper-wrapper"
         >
           <div
             class="text-tiny text-danger"
@@ -578,10 +573,14 @@ exports[`Story Snapshots > Invalid 1`] = `
               aria-label="Validation errors of field selectfield"
               data-testid="selectfield_error"
             >
-              <li>
-                <div>
+              <li
+                style="overflow: hidden;"
+              >
+                <span
+                  class="p-1"
+                >
                   Please select another option
-                </div>
+                </span>
               </li>
             </ul>
           </div>
@@ -618,9 +617,8 @@ exports[`Story Snapshots > Loading 1`] = `
     >
       <div
         class="group leading-normal"
-        data-filled="true"
+        data-has-helper="true"
         data-has-label="true"
-        data-has-label-outside="true"
         data-required="false"
         data-slot="base"
         data-testid="selectfield_wrapper"
@@ -820,9 +818,8 @@ exports[`Story Snapshots > MenuIsVisibleInCard 1`] = `
         >
           <div
             class="group leading-normal"
-            data-filled="true"
+            data-has-helper="true"
             data-has-label="true"
-            data-has-label-outside="true"
             data-required="false"
             data-slot="base"
             data-testid="selectfield_wrapper"
@@ -1247,9 +1244,8 @@ exports[`Story Snapshots > MultiSelect 1`] = `
     >
       <div
         class="group leading-normal"
-        data-filled="true"
+        data-has-helper="true"
         data-has-label="true"
-        data-has-label-outside="true"
         data-required="false"
         data-slot="base"
         data-testid="selectfield_wrapper"
@@ -1457,9 +1453,8 @@ exports[`Story Snapshots > NoResults 1`] = `
     >
       <div
         class="group leading-normal"
-        data-filled="true"
+        data-has-helper="true"
         data-has-label="true"
-        data-has-label-outside="true"
         data-required="false"
         data-slot="base"
         data-testid="selectfield_wrapper"
@@ -1631,9 +1626,8 @@ exports[`Story Snapshots > Required 1`] = `
     >
       <div
         class="group leading-normal"
-        data-filled="true"
+        data-has-helper="true"
         data-has-label="true"
-        data-has-label-outside="true"
         data-required="true"
         data-slot="base"
         data-testid="selectfield_wrapper"

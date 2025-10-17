@@ -14,7 +14,7 @@ exports[`Story Snapshots > Default 1`] = `
         aria-describedby="react-aria-react-useId-mock react-aria-react-useId-mock"
         aria-label=" "
         aria-orientation="vertical"
-        class="relative flex flex-col gap-2 group"
+        class="relative flex flex-col group gap-0"
         data-invalid="false"
         data-required="false"
         data-testid="radioboxesfield"
@@ -205,7 +205,7 @@ exports[`Story Snapshots > DisabledCompletely 1`] = `
         aria-describedby="react-aria-react-useId-mock react-aria-react-useId-mock"
         aria-label=" "
         aria-orientation="vertical"
-        class="relative flex flex-col gap-2 group"
+        class="relative flex flex-col group gap-0"
         data-invalid="false"
         data-required="false"
         data-testid="radioboxesfield"
@@ -396,7 +396,7 @@ exports[`Story Snapshots > DisabledOption 1`] = `
         aria-describedby="react-aria-react-useId-mock react-aria-react-useId-mock"
         aria-label=" "
         aria-orientation="vertical"
-        class="relative flex flex-col gap-2 group"
+        class="relative flex flex-col group gap-0"
         data-invalid="false"
         data-required="false"
         data-testid="radioboxesfield"
@@ -587,7 +587,7 @@ exports[`Story Snapshots > Inline 1`] = `
         aria-describedby="react-aria-react-useId-mock react-aria-react-useId-mock"
         aria-label=" "
         aria-orientation="horizontal"
-        class="relative flex flex-col gap-2 group"
+        class="relative flex flex-col group gap-0"
         data-invalid="false"
         data-required="false"
         data-testid="radioboxesfield"
@@ -780,7 +780,7 @@ exports[`Story Snapshots > Invalid 1`] = `
         aria-label=" "
         aria-orientation="vertical"
         aria-required="true"
-        class="relative flex flex-col gap-2 group"
+        class="relative flex flex-col group gap-0"
         data-invalid="true"
         data-required="true"
         data-testid="radioboxesfield"
@@ -788,11 +788,11 @@ exports[`Story Snapshots > Invalid 1`] = `
         role="radiogroup"
       >
         <span
-          class="relative after:content-['*'] after:text-danger after:ml-0.5 text-foreground group-data-[invalid=true]:text-danger text-sm subpixel-antialiased"
+          class="relative after:content-['*'] after:text-danger after:ml-0.5 text-foreground group-data-[invalid=true]:text-danger mb-2 inline-flex text-sm subpixel-antialiased"
         >
-          <label>
+          <legend>
             radioBoxesField
-          </label>
+          </legend>
         </span>
         <div
           class="flex flex-col flex-wrap gap-2 data-[orientation=horizontal]:flex-row"
@@ -964,10 +964,14 @@ exports[`Story Snapshots > Invalid 1`] = `
             aria-label="Validation errors of field radioboxesfield"
             data-testid="radioboxesfield_error"
           >
-            <li>
-              <div>
+            <li
+              style="overflow: hidden;"
+            >
+              <span
+                class="p-1"
+              >
                 Please use another option
-              </div>
+              </span>
             </li>
           </ul>
         </div>
@@ -1006,7 +1010,7 @@ exports[`Story Snapshots > Required 1`] = `
         aria-label=" "
         aria-orientation="vertical"
         aria-required="true"
-        class="relative flex flex-col gap-2 group"
+        class="relative flex flex-col group gap-0"
         data-invalid="false"
         data-required="true"
         data-testid="radioboxesfield"
@@ -1014,11 +1018,11 @@ exports[`Story Snapshots > Required 1`] = `
         role="radiogroup"
       >
         <span
-          class="relative after:content-['*'] after:text-danger after:ml-0.5 text-foreground group-data-[invalid=true]:text-danger text-sm subpixel-antialiased"
+          class="relative after:content-['*'] after:text-danger after:ml-0.5 text-foreground group-data-[invalid=true]:text-danger mb-2 inline-flex text-sm subpixel-antialiased"
         >
-          <label>
+          <legend>
             radioBoxesField
-          </label>
+          </legend>
         </span>
         <div
           class="flex flex-col flex-wrap gap-2 data-[orientation=horizontal]:flex-row"
@@ -1210,7 +1214,7 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
         aria-describedby="react-aria-react-useId-mock react-aria-react-useId-mock"
         aria-label=" "
         aria-orientation="vertical"
-        class="relative flex flex-col gap-2 group"
+        class="relative flex flex-col group gap-0"
         data-invalid="false"
         data-required="false"
         data-testid="radioboxesfield"

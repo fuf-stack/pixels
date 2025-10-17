@@ -7,9 +7,7 @@ import { Input as HeroInput } from '@heroui/input';
 
 import { tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 
-import { useController, useFormContext, useInputValueDebounce } from '../hooks';
-import { FieldCopyTestIdButton } from '../partials/FieldCopyTestIdButton';
-import { FieldValidationError } from '../partials/FieldValidationError';
+import { useInputValueDebounce, useUniformField } from '../hooks';
 
 // input variants
 export const inputVariants = tv({
@@ -66,34 +64,31 @@ const Input = ({
   className: _className = undefined,
   clearable = false,
   debounceDelay = 300,
-  disabled = false,
   endContent = undefined,
-  label = undefined,
   name,
   onClear = undefined,
   placeholder = ' ',
   size = undefined,
   startContent = undefined,
-  testId: _testId = undefined,
   transform = undefined,
   type = undefined,
+  ...uniformFieldProps
 }: InputProps) => {
-  const { control, debugMode, getFieldState, resetField } = useFormContext();
-  const { error, invalid, required, testId } = getFieldState(name, _testId);
-
-  const { field } = useController({
-    control,
-    disabled,
-    name,
-  });
-
   const {
-    disabled: isDisabled,
-    onChange: fieldOnChange,
-    onBlur: fieldOnBlur,
-    value: fieldValue,
-    ref,
-  } = field;
+    disabled,
+    field: {
+      onChange: fieldOnChange,
+      onBlur: fieldOnBlur,
+      value: fieldValue,
+      ref,
+    },
+    errorMessage,
+    invalid,
+    label,
+    required,
+    testId,
+    resetField,
+  } = useUniformField({ name, ...uniformFieldProps });
 
   // Use hook that provides debounced onChange and enhanced blur handling
   const { onChange, onBlur, value } = useInputValueDebounce({
@@ -122,9 +117,6 @@ const Input = ({
         }
       : {};
 
-  const showTestIdCopyButton = debugMode === 'debug-testids';
-  const showLabel = label ?? showTestIdCopyButton;
-
   // classNames from slots
   const variants = inputVariants();
   const classNames = variantsToClassNames(variants, _className, 'base');
@@ -134,9 +126,12 @@ const Input = ({
       ref={ref}
       data-testid={testId}
       endContent={endContent}
-      isDisabled={isDisabled}
+      errorMessage={errorMessage}
+      id={testId}
+      isDisabled={disabled}
       isInvalid={invalid}
       isRequired={required}
+      label={label}
       labelPlacement="outside"
       name={name}
       onBlur={onBlur}
@@ -152,20 +147,11 @@ const Input = ({
       classNames={{
         base: classNames.base,
         clearButton: classNames.clearButton,
+        // set padding to 0 for error message exit animation
+        helperWrapper: 'p-0',
         input: classNames.input,
         inputWrapper: classNames.inputWrapper,
       }}
-      errorMessage={
-        error ? <FieldValidationError error={error} testId={testId} /> : null
-      }
-      label={
-        showLabel ? (
-          <>
-            {label}
-            {showTestIdCopyButton ?? <FieldCopyTestIdButton testId={testId} />}
-          </>
-        ) : null
-      }
       {...clearableProps}
     />
   );

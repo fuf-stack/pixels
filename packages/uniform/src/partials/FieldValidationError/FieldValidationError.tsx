@@ -1,12 +1,17 @@
 import type { FieldError } from 'react-hook-form';
 
+import {
+  AnimatePresence,
+  motion,
+  useReducedMotion,
+} from '@fuf-stack/pixel-motion';
 import { slugify } from '@fuf-stack/pixel-utils';
 
 export interface FieldValidationErrorProps {
   /** CSS class name */
   className?: string;
   /** Field errors */
-  error: FieldError | FieldError[];
+  error?: FieldError[];
   /** HTML data-testid attribute used in e2e tests */
   testId: string;
 }
@@ -16,16 +21,11 @@ export interface FieldValidationErrorProps {
  */
 const FieldValidationError = ({
   className = undefined,
-  error,
+  error = undefined,
   testId,
 }: FieldValidationErrorProps) => {
-  // render nothing when no errors
-  if (!error || (Array.isArray(error) && !error.length)) {
-    return null;
-  }
-
-  // get errors as array
-  const errors: FieldError[] = Array.isArray(error) ? error : [error];
+  // disable all animation if user prefers reduced motion
+  const disableAnimation = useReducedMotion();
 
   return (
     <ul
@@ -33,14 +33,24 @@ const FieldValidationError = ({
       className={className}
       data-testid={slugify(`${testId}_error`)}
     >
-      {errors.map(({ message }, i) => {
-        return (
-          // eslint-disable-next-line react/no-array-index-key
-          <li key={`error_${i}`}>
-            <div>{message}</div>
-          </li>
-        );
-      })}
+      <AnimatePresence initial={false}>
+        {error?.map(({ message }, i) => {
+          return (
+            <motion.li
+              key={slugify(`${testId}_error_${i}`)}
+              exit={disableAnimation ? undefined : { opacity: 0, height: 0 }}
+              initial={disableAnimation ? false : { height: 0, opacity: 0 }}
+              style={{ overflow: 'hidden' }}
+              transition={{ duration: 0.2, ease: 'circOut' }}
+              animate={
+                disableAnimation ? undefined : { opacity: 1, height: 'auto' }
+              }
+            >
+              <span className="p-1">{message}</span>
+            </motion.li>
+          );
+        })}
+      </AnimatePresence>
     </ul>
   );
 };

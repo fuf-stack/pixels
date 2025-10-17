@@ -8,9 +8,8 @@ import { cn, tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 import { Button } from '@fuf-stack/pixels';
 
 import { toNullishString } from '../helpers';
-import { useFieldArray, useFormContext, useInput } from '../hooks';
-import { FieldCopyTestIdButton } from '../partials/FieldCopyTestIdButton';
-import { FieldValidationError } from '../partials/FieldValidationError';
+import { useFieldArray, useUniformField } from '../hooks';
+import FieldValidationError from '../partials/FieldValidationError/FieldValidationError';
 import FieldArrayElement from './subcomponents/FieldArrayElement';
 import SortContext from './subcomponents/SortContext';
 
@@ -38,43 +37,27 @@ const FieldArray = ({
   elementInitialValue: _elementInitialValue = null,
   elementMarginBottom = undefined,
   insertAfter = false,
-  label: _label = undefined,
   lastElementNotRemovable = false,
   name,
   sortable = false,
-  testId: _testId = undefined,
+  ...uniformFieldProps
 }: FieldArrayProps) => {
-  // className from slots
-  const variants = fieldArrayVariants();
-  const className = variantsToClassNames(variants, _className, 'list');
-
   const {
     control,
-    debugMode,
+    error,
+    getErrorMessageProps,
+    getHelperWrapperProps,
+    getLabelProps,
     getValues,
-    getFieldState,
-    // trigger,
-    // watch
-  } = useFormContext();
+    invalid,
+    label,
+    testId,
+  } = useUniformField({ name, ...uniformFieldProps });
 
   const { fields, append, remove, insert, move } = useFieldArray({
     control,
     name,
   });
-
-  const { error, testId, invalid, required } = getFieldState(name, _testId);
-
-  // TODO: what about input props?
-  const { label, getLabelProps, getHelperWrapperProps, getErrorMessageProps } =
-    useInput({
-      isInvalid: invalid,
-      isRequired: required,
-      errorMessage: JSON.stringify(error),
-      label: _label,
-      labelPlacement: 'inside',
-      placeholder: ' ',
-      classNames: { helperWrapper: 'block' },
-    });
 
   // TODO: add info
   const elementInitialValue = toNullishString(_elementInitialValue);
@@ -95,41 +78,25 @@ const FieldArray = ({
     append(elementInitialValue);
   }
 
-  const showTestIdCopyButton = debugMode === 'debug-testids';
-  const showLabel = label ?? showTestIdCopyButton;
+  // className from slots
+  const variants = fieldArrayVariants();
+  const className = variantsToClassNames(variants, _className, 'list');
 
   return (
     <SortContext fields={fields} move={move} sortable={sortable}>
-      <ul
-        className={className.list}
-        data-testid={testId}
-        // /**
-        //  * TODO: this trigger causes the field array (not element)
-        //  * are shown immediately, but this will cause additional
-        //  * render cycles, not sure if we should do this...
-        //  */
-        // onBlur={async () => {
-        //   return trigger(name);
-        // }}
-      >
+      <ul className={className.list} data-testid={testId}>
         {/* field array label */}
-        {showLabel ? (
-          <>
-            {label ? (
-              // eslint-disable-next-line jsx-a11y/label-has-associated-control
-              <label
-                {...getLabelProps()}
-                className={cn(getLabelProps()?.className, className.label)}
-              >
-                {label}
-              </label>
-            ) : null}
-            {showTestIdCopyButton ? (
-              <FieldCopyTestIdButton testId={testId} />
-            ) : null}
-          </>
+        {label ? (
+          // eslint-disable-next-line jsx-a11y/label-has-associated-control
+          <label
+            {...getLabelProps()}
+            className={cn(getLabelProps()?.className, className.label)}
+          >
+            {label}
+          </label>
         ) : null}
 
+        {/* fields */}
         {fields.map((field, index) => {
           const elementName = `${name}.${index}`;
           const elementTestId = `${testId}_${index}`;
@@ -154,7 +121,6 @@ const FieldArray = ({
           return (
             <FieldArrayElement
               key={field.id}
-              arrayFieldName={name}
               className={className}
               disableAnimation={disableAnimationRef.current}
               duplicate={duplicate}
@@ -178,31 +144,34 @@ const FieldArray = ({
             </FieldArrayElement>
           );
         })}
-
-        {/* append elements */}
-        <Button
-          disableAnimation
-          className={className.appendButton}
-          size="sm"
-          testId={`${testId}_append_button`}
-          onClick={() => {
-            append(elementInitialValue);
-          }}
-        >
-          {appendButtonText}
-        </Button>
-
-        {/* top level field array errors */}
-        {/* @ts-expect-error rhf incompatibility */}
-        {error?._errors ? (
-          <div {...getHelperWrapperProps()}>
-            <div {...getErrorMessageProps()}>
-              {/* @ts-expect-error rhf incompatibility */}
-              <FieldValidationError error={error?._errors} testId={testId} />
-            </div>
-          </div>
-        ) : null}
       </ul>
+
+      {/* append elements */}
+      <Button
+        disableAnimation
+        className={className.appendButton}
+        size="sm"
+        testId={`${testId}_append_button`}
+        onClick={() => {
+          append(elementInitialValue);
+        }}
+      >
+        {appendButtonText}
+      </Button>
+
+      {/* top level field array errors */}
+      {invalid ? (
+        <div {...getHelperWrapperProps()}>
+          <div {...getErrorMessageProps()}>
+            <FieldValidationError
+              // @ts-expect-error todo
+              // eslint-disable-next-line no-underscore-dangle
+              error={error?._errors}
+              testId={testId}
+            />
+          </div>
+        </div>
+      ) : null}
     </SortContext>
   );
 };

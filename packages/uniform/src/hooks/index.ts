@@ -7,5 +7,6 @@ export * from './useFormContext/useFormContext';
 export * from './useInput/useInput';
 export * from './useInputValueDebounce/useInputValueDebounce';
 export * from './useInputValueTransform/useInputValueTransform';
+export * from './useUniformField/useUniformField';
 
 /* v8 ignore stop */

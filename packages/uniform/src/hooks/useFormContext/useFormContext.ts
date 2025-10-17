@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import type { VetoInstance } from '@fuf-stack/veto';
+import type { VetoFormattedError, VetoInstance } from '@fuf-stack/veto';
 import type { FieldError, FieldValues, Path } from 'react-hook-form';
 
 import { useContext } from 'react';
@@ -27,6 +27,35 @@ export const checkFieldIsRequired = (
   };
 
   return validation.checkSchemaPath(checkRequired, path);
+};
+
+/**
+ * Resolve validation errors for a given field path.
+ *
+ * Traverses a nested `VetoFormattedError` structure using a dotted path
+ * (for example: "user.address.0.street") and returns the matching
+ * `FieldError[]` if present. If no error exists at the path, returns
+ * `undefined`.
+ *
+ * @param errors - The formatted validation errors from Uniform's context
+ * @param name - The dotted field path to resolve
+ * @returns An array of `FieldError` entries for the field, or `undefined`
+ */
+const getValidationErrorsByName = (
+  errors: VetoFormattedError,
+  name: string,
+) => {
+  // Traverse nested error structure
+  const keys = name.split('.');
+  let current: unknown = errors as unknown;
+  keys.forEach((key) => {
+    if (current && typeof current === 'object') {
+      current = (current as Record<string, unknown>)[key];
+    } else {
+      current = undefined;
+    }
+  });
+  return current as FieldError[] | undefined;
 };
 
 /**
@@ -59,19 +88,27 @@ export const useFormContext = <
     const fieldPath =
       typeof name === 'string' ? name.replace(/\[\d+\]/g, '').split('.') : name;
 
+    const validationInstance = uniformContext?.validation.instance;
+
     // Check if the field is required using the validation schema
-    const required = uniformContext?.validation.instance
-      ? checkFieldIsRequired(uniformContext.validation.instance, fieldPath)
+    const required = validationInstance
+      ? checkFieldIsRequired(validationInstance, fieldPath)
       : false;
 
-    // Get the original field state (errors, etc.) from react-hook-form
-    const { error, ...rest } = getFieldStateOrig(name, formState);
+    const error = getValidationErrorsByName(
+      uniformContext?.validation.errors ?? {},
+      name,
+    ) as unknown as FieldError[] | undefined;
+
+    // Get everything but the error from the original field state
+    const fieldState = getFieldStateOrig(name, formState);
 
     return {
-      ...rest,
-      error: error as FieldError[] | undefined, // Ensure correct type for error
+      ...fieldState,
+      error,
+      invalid: !!error,
       required,
-      testId: slugify(testId || name, { replaceDots: true }),
+      testId: slugify(testId ?? name, { replaceDots: true }),
     };
   };
 
@@ -110,11 +147,13 @@ export const useFormContext = <
               values: toValidationFormat(subscribeFormState.values),
             }),
           };
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-return
           return originalCallback(convertedFormState);
         },
       };
       return subscribeOrig(wrappedOptions);
     }
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
     return (subscribeOrig as any)(...args);
   }) as typeof subscribeOrig;
 

@@ -12,8 +12,6 @@ import { AnimatePresence, motion } from '@fuf-stack/pixel-motion';
 import { cn } from '@fuf-stack/pixel-utils';
 
 import { Grid } from '../../Grid';
-import { useFormContext, useInput } from '../../hooks';
-import { FieldValidationError } from '../../partials/FieldValidationError';
 import ElementInsertAfterButton from './ElementInsertAfterButton';
 import ElementRemoveButton from './ElementRemoveButton';
 import SortDragHandle from './SortDragHandle';
@@ -30,8 +28,6 @@ export interface FieldArrayElementMethods {
 }
 
 interface FieldArrayElementProps extends FieldArrayFeatures {
-  /** Base field name for form context */
-  arrayFieldName: string;
   /** Form elements to render inside array element */
   children: React.ReactNode;
   /** CSS class names for component parts */
@@ -71,7 +67,6 @@ interface FieldArrayElementProps extends FieldArrayFeatures {
  * improve the user experience and provide a better visual feedback.
  */
 const FieldArrayElement = ({
-  arrayFieldName,
   children,
   className,
   disableAnimation = false,
@@ -85,18 +80,6 @@ const FieldArrayElement = ({
   sortable = false,
   testId = undefined,
 }: FieldArrayElementProps) => {
-  const { getFieldState } = useFormContext();
-  const { error, invalid } = getFieldState(arrayFieldName, undefined);
-
-  // TODO: what about input props? and label props? Do we need a label?
-  const { getHelperWrapperProps, getErrorMessageProps } = useInput({
-    classNames: { helperWrapper: 'block' },
-    errorMessage: JSON.stringify(error),
-    isInvalid: invalid,
-    labelPlacement: 'inside',
-    placeholder: ' ',
-  });
-
   // Apply transform styles when sortable is enabled for smooth drag animations
   // transform: handles the item's position during drag
   // transition: controls the animation timing when dropping
@@ -201,18 +184,6 @@ const FieldArrayElement = ({
               }}
             />
           ) : null}
-          {/** element error */}
-          {typeof error?.[index] !== 'undefined' && (
-            <div {...getHelperWrapperProps()}>
-              <div {...getErrorMessageProps()}>
-                <FieldValidationError
-                  /* @ts-expect-error rhf incompatibility */
-                  error={error[Number(index)]?._errors}
-                  testId={testId as string}
-                />
-              </div>
-            </div>
-          )}
         </motion.li>
       ) : null}
     </AnimatePresence>

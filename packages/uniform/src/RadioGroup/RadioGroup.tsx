@@ -5,25 +5,22 @@ import { RadioGroup as HeroRadioGroup, Radio } from '@heroui/radio';
 
 import { slugify, tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 
-import { useController, useFormContext } from '../hooks';
-import { FieldCopyTestIdButton } from '../partials/FieldCopyTestIdButton';
-import { FieldValidationError } from '../partials/FieldValidationError';
+import { useUniformField } from '../hooks';
 
 export const radioGroupVariants = tv({
   slots: {
     // Needs group for group-data condition
-    base: 'group',
+    base: 'group gap-0',
     itemBase: '',
     itemControl: 'bg-focus group-data-[invalid=true]:bg-danger',
     itemDescription: '',
     itemLabel: 'text-sm',
     itemLabelWrapper: '',
     itemWrapper:
-      'group-data-[invalid=true]:!border-danger [&:not(group-data-[invalid="true"]):not(group-data-[selected="false"])]:border-focus', // TODO: get rid of !.
-    // see HeroUI styles for group-data condition,
+      'group-data-[invalid=true]:border-danger! [&:not(group-data-[invalid="true"]):not(group-data-[selected="false"])]:border-focus',
     // e.g.: https://github.com/heroui-inc/heroui/blob/main/packages/core/theme/src/components/select.ts
     label:
-      'text-foreground group-data-[invalid=true]:text-danger text-sm subpixel-antialiased',
+      'text-foreground group-data-[invalid=true]:text-danger mb-2 inline-flex text-sm subpixel-antialiased',
     wrapper: '',
   },
 });
@@ -66,23 +63,23 @@ export interface RadioGroupProps extends VariantProps {
  */
 const RadioGroup = ({
   className = undefined,
-  disabled = false,
   inline = false,
-  label = undefined,
   name,
   options,
-  testId: _testId = undefined,
+  ...uniformFieldProps
 }: RadioGroupProps): ReactElement => {
-  const { control, debugMode, getFieldState, getValues } = useFormContext();
+  const {
+    disabled,
+    errorMessage,
+    field: { onBlur, onChange, ref },
+    invalid,
+    label,
+    required,
+    defaultValue,
+    testId,
+  } = useUniformField({ name, ...uniformFieldProps });
 
-  const { error, invalid, required, testId } = getFieldState(name, _testId);
-
-  const { field } = useController({ control, disabled, name });
-  const { onChange, disabled: isDisabled, onBlur, ref } = field;
-
-  const showTestIdCopyButton = debugMode === 'debug-testids';
-  const showLabel = label || showTestIdCopyButton;
-
+  // classNames from slots
   const variants = radioGroupVariants();
   const classNames = variantsToClassNames(variants, className, 'base');
 
@@ -97,37 +94,27 @@ const RadioGroup = ({
 
   return (
     <HeroRadioGroup
+      ref={ref}
       classNames={classNames}
       // see HeroUI styles for group-data condition (data-invalid),
       // e.g.: https://github.com/heroui-inc/heroui/blob/main/packages/components/select/src/use-select.ts
-      ref={ref}
       data-invalid={invalid}
       data-required={required}
       data-testid={testId}
-      defaultValue={getValues()[name]}
-      isDisabled={isDisabled}
+      defaultValue={defaultValue as string | undefined}
+      errorMessage={errorMessage}
+      isDisabled={disabled}
       isInvalid={invalid}
       isRequired={required}
+      label={label ? <legend>{label}</legend> : null}
       name={name}
       onBlur={onBlur}
       orientation={inline ? 'horizontal' : 'vertical'}
-      errorMessage={
-        error && <FieldValidationError error={error} testId={testId} />
-      }
-      label={
-        showLabel && (
-          // eslint-disable-next-line jsx-a11y/label-has-associated-control
-          <label>
-            {label}
-            {showTestIdCopyButton && <FieldCopyTestIdButton testId={testId} />}
-          </label>
-        )
-      }
     >
       {options.map((option) => {
         if ('value' in option) {
           const optionTestId = slugify(
-            `${testId}_option_${option.testId || option.value}`,
+            `${testId}_option_${option.testId ?? option.value}`,
             { replaceDots: true },
           );
           return (
@@ -135,11 +122,11 @@ const RadioGroup = ({
               key={option.value}
               classNames={itemClassNames}
               data-testid={optionTestId}
-              isDisabled={isDisabled || option.disabled}
+              isDisabled={!!disabled || option.disabled}
               onChange={onChange}
               value={option.value}
             >
-              {option.label ? option.label : option.value}
+              {option.label ?? option.value}
             </Radio>
           );
         }

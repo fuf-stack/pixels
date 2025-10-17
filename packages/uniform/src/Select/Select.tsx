@@ -8,9 +8,7 @@ import { useSelect } from '@heroui/select';
 
 import { cn, slugify, tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 
-import { useController, useFormContext } from '../hooks';
-import { FieldCopyTestIdButton } from '../partials/FieldCopyTestIdButton';
-import { FieldValidationError } from '../partials/FieldValidationError';
+import { useUniformField } from '../hooks';
 
 export const selectVariants = tv({
   slots: {
@@ -149,64 +147,58 @@ const DropdownIndicatorComponent: typeof components.DropdownIndicator = (
 const Select = ({
   className = undefined,
   clearable = true,
-  disabled = false,
   filterOption = undefined,
   renderOptionLabel = undefined,
   inputValue = undefined,
-  label: _label = undefined,
   loading = false,
   multiSelect = false,
   name,
   onInputChange = undefined,
   options,
   placeholder = undefined,
-  testId: _testId = undefined,
+  ...uniformFieldProps
 }: SelectProps) => {
-  const { control, debugMode, getFieldState } = useFormContext();
-  const { error, invalid, required, testId } = getFieldState(name, _testId);
-
-  const { field } = useController({ control, disabled, name });
-  const { onChange, value, ref, onBlur } = field;
-
-  const [isFocused, setIsFocused] = useState(false);
-
-  const variants = selectVariants();
-  const classNames = variantsToClassNames(variants, className, 'base');
-
   const {
-    getBaseProps,
+    disabled,
+    errorMessage,
+    field: { onBlur, onChange, ref, value },
     getErrorMessageProps,
     getHelperWrapperProps,
     getLabelProps,
-    getTriggerProps,
-    getValueProps,
+    invalid,
     label,
-  } = useSelect({
+    required,
+    testId,
+  } = useUniformField({ name, ...uniformFieldProps });
+
+  const [isFocused, setIsFocused] = useState(false);
+
+  // classNames from slots
+  const variants = selectVariants();
+  const classNames = variantsToClassNames(variants, className, 'base');
+
+  const { getBaseProps, getTriggerProps, getValueProps } = useSelect({
     children: [],
     classNames,
-    errorMessage: JSON.stringify(error),
+    errorMessage,
     isDisabled: disabled,
     isInvalid: invalid,
     isLoading: loading,
     isRequired: required,
-    label: _label,
+    label,
     labelPlacement: 'outside',
-    placeholder: ' ',
   });
-
-  const showTestIdCopyButton = debugMode === 'debug-testids';
-  const showLabel = label || showTestIdCopyButton;
 
   return (
     <div
       {...getBaseProps()}
       className={cn(classNames.base)}
-      data-testid={`${testId}_wrapper`}
       // see HeroUI styles for group-data condition (data-invalid),
       // e.g.: https://github.com/heroui-inc/heroui/blob/main/packages/components/select/src/use-select.ts
       data-required={required}
+      data-testid={`${testId}_wrapper`}
     >
-      {showLabel ? (
+      {label ? (
         <label
           className={classNames.label}
           data-slot="label"
@@ -214,24 +206,16 @@ const Select = ({
           id={getLabelProps().id}
         >
           {label}
-          {showTestIdCopyButton ? (
-            <FieldCopyTestIdButton testId={testId} />
-          ) : null}
         </label>
       ) : null}
       <ReactSelect
+        ref={ref}
         menuShouldBlockScroll
         unstyled
         aria-errormessage=""
         aria-invalid={invalid}
-        components={{
-          Input: InputComponent,
-          Option: OptionComponent,
-          DropdownIndicator: DropdownIndicatorComponent,
-          Control: ControlComponent,
-        }}
-        // Does not affect the testId of the select, but is needed to pass it to sub-components
         aria-labelledby={getTriggerProps()['aria-labelledby']?.split(' ')[1]}
+        // Does not affect the testId of the select, but is needed to pass it to sub-components
         data-testid={testId}
         filterOption={filterOption}
         formatOptionLabel={renderOptionLabel}
@@ -240,57 +224,104 @@ const Select = ({
         isClearable={clearable}
         isDisabled={disabled}
         isLoading={loading}
-        name={name}
+        isMulti={multiSelect}
         // set menuPosition to fixed so that menu can be rendered
         // inside Card / Modal components, menuShouldBlockScroll
         // prevents container scroll when menu is open
-        isMulti={multiSelect}
         menuPosition="fixed"
+        name={name}
         onInputChange={onInputChange}
         options={options}
         placeholder={placeholder}
         classNames={{
-          control: () =>
-            cn(classNames.control, {
+          control: () => {
+            return cn(classNames.control, {
               [classNames.control_focused]: isFocused && !invalid,
-            }),
-          clearIndicator: () => classNames.clearIndicator,
-          dropdownIndicator: () => classNames.dropdownIndicator,
-          groupHeading: () => classNames.groupHeading,
-          indicatorsContainer: () => classNames.indicatorsContainer,
-          indicatorSeparator: () => classNames.indicatorSeparator,
-          loadingIndicator: () => classNames.loadingIndicator,
-          loadingMessage: () => classNames.loadingMessage,
-          input: () => classNames.input,
-          menu: () => classNames.menu,
-          menuList: () => classNames.menuList,
-          menuPortal: () => classNames.menuPortal,
-          multiValue: () => classNames.multiValue,
-          multiValueLabel: () =>
-            cn(classNames.multiValueLabel, `${getValueProps().className}`),
-          multiValueRemove: () => classNames.multiValueRemove,
-          noOptionsMessage: () => classNames.noOptionsMessage,
+            });
+          },
+          clearIndicator: () => {
+            return classNames.clearIndicator;
+          },
+          dropdownIndicator: () => {
+            return classNames.dropdownIndicator;
+          },
+          groupHeading: () => {
+            return classNames.groupHeading;
+          },
+          indicatorsContainer: () => {
+            return classNames.indicatorsContainer;
+          },
+          indicatorSeparator: () => {
+            return classNames.indicatorSeparator;
+          },
+          loadingIndicator: () => {
+            return classNames.loadingIndicator;
+          },
+          loadingMessage: () => {
+            return classNames.loadingMessage;
+          },
+          input: () => {
+            return classNames.input;
+          },
+          menu: () => {
+            return classNames.menu;
+          },
+          menuList: () => {
+            return classNames.menuList;
+          },
+          menuPortal: () => {
+            return classNames.menuPortal;
+          },
+          multiValue: () => {
+            return classNames.multiValue;
+          },
+          multiValueLabel: () => {
+            return cn(
+              classNames.multiValueLabel,
+              `${getValueProps().className}`,
+            );
+          },
+          multiValueRemove: () => {
+            return classNames.multiValueRemove;
+          },
+          noOptionsMessage: () => {
+            return classNames.noOptionsMessage;
+          },
           option: ({
             isFocused: optionIsFocused,
             isSelected: optionIsSelected,
-          }) =>
-            cn(classNames.option, {
+          }) => {
+            return cn(classNames.option, {
               [classNames.option_focused]: optionIsFocused,
               [classNames.option_selected]: optionIsSelected,
-            }),
-          placeholder: () => classNames.placeholder,
-          singleValue: () =>
-            cn(classNames.singleValue, `${getValueProps().className}`),
-          valueContainer: () => classNames.valueContainer,
+            });
+          },
+          placeholder: () => {
+            return classNames.placeholder;
+          },
+          singleValue: () => {
+            return cn(classNames.singleValue, `${getValueProps().className}`);
+          },
+          valueContainer: () => {
+            return classNames.valueContainer;
+          },
+        }}
+        components={{
+          Input: InputComponent,
+          Option: OptionComponent,
+          DropdownIndicator: DropdownIndicatorComponent,
+          Control: ControlComponent,
         }}
         onBlur={(_e) => {
           setIsFocused(false);
-          return onBlur();
+          onBlur();
         }}
         onChange={(option) => {
           if (multiSelect) {
             onChange(
-              (option as SelectOption[])?.map((_option) => _option.value),
+              (option as SelectOption[])?.map((_option) => {
+                return _option.value;
+              }),
             );
           } else {
             onChange((option as SelectOption)?.value);
@@ -299,16 +330,15 @@ const Select = ({
         onFocus={(_e) => {
           setIsFocused(true);
         }}
-        ref={ref}
         // set complete option as value by current field value
-        value={options.find((option) => option.value === value)}
+        value={options.find((option) => {
+          return option.value === value;
+        })}
       />
-      {error ? (
+      {invalid ? (
         <div {...getHelperWrapperProps()}>
           {}
-          <div {...getErrorMessageProps()}>
-            <FieldValidationError error={error} testId={testId} />
-          </div>
+          <div {...getErrorMessageProps()}>{errorMessage}</div>
         </div>
       ) : null}
     </div>
