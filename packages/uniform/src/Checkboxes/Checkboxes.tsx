@@ -17,7 +17,7 @@ import { slugify, tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 import { useUniformField } from '../hooks';
 import { FieldValidationError } from '../partials/FieldValidationError';
 
-export const checkboxGroupVariants = tv({
+export const checkboxesVariants = tv({
   slots: {
     base: 'group', // Needs group for group-data condition
     errorMessage: 'text-tiny',
@@ -54,10 +54,10 @@ export const checkboxGroupVariants = tv({
   },
 });
 
-type VariantProps = TVProps<typeof checkboxGroupVariants>;
-type ClassName = TVClassName<typeof checkboxGroupVariants>;
+type VariantProps = TVProps<typeof checkboxesVariants>;
+type ClassName = TVClassName<typeof checkboxesVariants>;
 
-export interface CheckboxGroupOption {
+export interface CheckboxOption {
   /** option label */
   label?: ReactNode;
   /** subline displayed below the label */
@@ -70,7 +70,7 @@ export interface CheckboxGroupOption {
   testId?: string;
 }
 
-export interface CheckboxGroupProps extends VariantProps {
+export interface CheckboxesProps extends VariantProps {
   /** CSS class name */
   className?: ClassName;
   /** Color scheme of the checkboxes */
@@ -86,15 +86,15 @@ export interface CheckboxGroupProps extends VariantProps {
   /** Name the Field is registered on the form */
   name: string;
   /** Checkboxes that should be displayed. */
-  options: CheckboxGroupOption[];
+  options: CheckboxOption[];
   /** HTML data-testid attribute used in e2e tests */
   testId?: string;
 }
 
 /**
- * CheckboxGroup component based on [HeroUI CheckboxGroup](https://www.heroui.com//docs/components/checkbox-group)
+ * Checkboxes component based on [HeroUI CheckboxGroup](https://www.heroui.com//docs/components/checkbox-group)
  */
-const CheckboxGroup = ({
+const Checkboxes = ({
   className = undefined,
   color = 'primary',
   inline = false,
@@ -102,7 +102,7 @@ const CheckboxGroup = ({
   options,
   name,
   ...uniformFieldProps
-}: CheckboxGroupProps) => {
+}: CheckboxesProps) => {
   const {
     disabled,
     error: _error,
@@ -128,7 +128,7 @@ const CheckboxGroup = ({
   );
 
   /**
-   * Handles the checkbox group value changes based on the number of options:
+   * Handles the checkboxes value changes based on the number of options:
    * 1. For single checkbox (options.length === 1):
    *    - Converts undefined/empty array to [] for consistent controlled behavior
    *    - Extracts single value from array for onChange
@@ -165,11 +165,11 @@ const CheckboxGroup = ({
     value: getCheckboxValue(value),
   };
 
-  const checkboxGroupProps =
+  const checkboxesProps =
     options.length === 1 ? singleCheckboxProps : multipleCheckboxProps;
 
   // classNames from slots
-  const variants = checkboxGroupVariants({ lineThrough });
+  const variants = checkboxesVariants({ lineThrough });
   const classNames = variantsToClassNames(variants, className, 'base');
 
   // map slots to HeroUI class names
@@ -202,7 +202,7 @@ const CheckboxGroup = ({
       name={name}
       onBlur={onBlur}
       orientation={inline ? 'horizontal' : 'vertical'}
-      {...checkboxGroupProps}
+      {...checkboxesProps}
     >
       {options?.map((option) => {
         const optionTestId = slugify(
@@ -249,4 +249,4 @@ const CheckboxGroup = ({
   );
 };
 
-export default CheckboxGroup;
+export default Checkboxes;

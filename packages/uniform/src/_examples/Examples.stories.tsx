@@ -6,7 +6,7 @@ import { Button, Card, Modal } from '@fuf-stack/pixels';
 import { veto } from '@fuf-stack/veto';
 import * as vt from '@fuf-stack/veto';
 
-import { CheckboxGroup } from '../CheckboxGroup';
+import { Checkboxes } from '../Checkboxes';
 import { Form } from '../Form';
 import { Grid } from '../Grid';
 import { Input } from '../Input';
@@ -111,7 +111,7 @@ export const AllFieldRenderers: Story = {
             name="textAreaField"
           />
           <Switch label="Switch Field" name="switchField" />
-          <CheckboxGroup
+          <Checkboxes
             label="Checkbox Field"
             name="checkboxField"
             options={checkboxOptions}

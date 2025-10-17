@@ -7,11 +7,11 @@ import { SubmitButton } from '@fuf-stack/uniform';
 import { array, literal, string, veto } from '@fuf-stack/veto';
 
 import { Form } from '../Form';
-import CheckboxGroup from './CheckboxGroup';
+import Checkboxes from './Checkboxes';
 
-const meta: Meta<typeof CheckboxGroup> = {
-  title: 'uniform/CheckboxGroup',
-  component: CheckboxGroup,
+const meta: Meta<typeof Checkboxes> = {
+  title: 'uniform/Checkboxes',
+  component: Checkboxes,
   decorators: [
     (Story, { parameters }) => {
       return (
@@ -31,7 +31,7 @@ const meta: Meta<typeof CheckboxGroup> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof CheckboxGroup>;
+type Story = StoryObj<typeof Checkboxes>;
 
 export const Default: Story = {
   args: {
