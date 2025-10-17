@@ -8,7 +8,7 @@ import Form from './Form';
 import { validate } from './schema';
 
 /**
- * Checkbox group filter definition for the Filter system.
+ * Checkboxes filter definition for the Filter system.
  * Provides Display and Form components, default value/config, and validation.
  *
  * Defaults:
@@ -19,7 +19,7 @@ import { validate } from './schema';
  * @see Form
  * @see validate
  */
-export const checkboxgroup = createFilter<Config, Value>({
+export const checkboxes = createFilter<Config, Value>({
   components: { Display, Form },
   defaults: { value: [], config: { text: 'Options', options: [] } },
   validation: validate,

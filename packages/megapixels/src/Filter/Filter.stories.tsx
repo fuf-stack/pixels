@@ -40,7 +40,7 @@ const filters: FiltersConfiguration = [
     icon: <FaMagic />,
     config: { text: 'Magical', textPrefix: 'is', textNoWord: 'not' },
   }),
-  f.checkboxgroup({
+  f.checkboxes({
     name: 'mood',
     icon: <FaSmile />,
     config: {
@@ -50,7 +50,7 @@ const filters: FiltersConfiguration = [
       }),
     },
   }),
-  f.checkboxgroup({
+  f.checkboxes({
     name: 'snacks',
     icon: <FaPizzaSlice />,
     config: {

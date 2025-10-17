@@ -13,7 +13,7 @@ import { FiltersContextProvider, useFilters } from './FiltersContext';
 
 const config: FiltersConfiguration = [
   f.boolean({ name: 'status' }),
-  f.checkboxgroup({
+  f.checkboxes({
     name: 'owners',
     config: {
       text: 'Owners',

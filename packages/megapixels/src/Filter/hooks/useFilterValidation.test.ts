@@ -9,7 +9,7 @@ import { useFilterValidation } from './useFilterValidation';
 
 const filters: FiltersConfiguration = [
   f.boolean({ name: 'status' }),
-  f.checkboxgroup({
+  f.checkboxes({
     name: 'owners',
     config: {
       text: 'Owners',

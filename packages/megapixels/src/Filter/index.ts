@@ -1,6 +1,6 @@
 import Filter from './Filter';
 import { boolean } from './filters/boolean/boolean';
-import { checkboxgroup } from './filters/checkboxgroup/checkboxgroup';
+import { checkboxes } from './filters/checkboxes/checkboxes';
 
 // export types
 export type * from './filters/types';
@@ -11,7 +11,7 @@ export { default as createFilter } from './filters/createFilter';
 // export all filters
 export const filters = {
   boolean,
-  checkboxgroup,
+  checkboxes,
 };
 
 // export everything from the Filter component (types and filterVariants)
