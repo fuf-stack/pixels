@@ -1,7 +1,7 @@
 /* v8 ignore start */
 
-export * from './Array';
 export * from './Checkboxes';
+export * from './FieldArray';
 export * from './Form';
 export * from './Grid';
 export * from './helpers';

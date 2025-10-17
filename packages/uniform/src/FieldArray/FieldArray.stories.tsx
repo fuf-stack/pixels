@@ -11,11 +11,11 @@ import { array, object, refineArray, string, veto } from '@fuf-stack/veto';
 
 import { Form } from '../Form';
 import { Input } from '../Input';
-import Array from './Array';
+import FieldArray from './FieldArray';
 
-const meta: Meta<typeof Array> = {
-  title: 'uniform/Array',
-  component: Array,
+const meta: Meta<typeof FieldArray> = {
+  title: 'uniform/FieldArray',
+  component: FieldArray,
   decorators: [
     (Story, { parameters }) => {
       return (
@@ -35,7 +35,7 @@ const meta: Meta<typeof Array> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof Array>;
+type Story = StoryObj<typeof FieldArray>;
 
 const validationRequiredSimple = veto({
   arrayField: array(object({ name: string() })).max(3),

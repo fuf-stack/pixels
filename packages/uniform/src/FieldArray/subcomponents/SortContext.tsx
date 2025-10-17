@@ -26,15 +26,15 @@ interface SortContextProps {
   sortable: boolean;
   /** Array of objects containing unique IDs for sortable items */
   fields: Record<'id', string>[];
-  /** react-hook-form's move function to update array indices */
+  /** react-hook-form's move function to update field array indices */
   move: UseFieldArrayMove;
 }
 
 /**
- * A wrapper component that provides drag-and-drop sorting functionality for arrays
+ * A wrapper component that provides drag-and-drop sorting functionality for field arrays
  * using dnd-kit and react-hook-form.
  *
- * This component integrates with react-hook-form's arrays to enable vertical
+ * This component integrates with react-hook-form's field arrays to enable vertical
  * drag-and-drop reordering of form fields. It supports both pointer (mouse/touch)
  * and keyboard interactions for accessibility.
  */
@@ -71,7 +71,7 @@ const SortContext = ({
       const newIndex = fields.findIndex((field) => {
         return field.id === over?.id;
       });
-      // Update the array order using react-hook-form's move function
+      // Update the field array order using react-hook-form's move function
       move(oldIndex, newIndex);
     }
   };
