@@ -10,7 +10,7 @@ export * from './Input';
 export * from './partials/FieldCopyTestIdButton';
 export * from './partials/FieldValidationError';
 export * from './RadioBoxes';
-export * from './RadioGroup';
+export * from './Radios';
 export * from './RadioTabs';
 export * from './Select';
 export * from './SubmitButton';

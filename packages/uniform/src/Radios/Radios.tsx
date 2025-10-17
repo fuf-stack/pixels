@@ -1,13 +1,16 @@
 import type { TVClassName, TVProps } from '@fuf-stack/pixel-utils';
 import type { ReactElement, ReactNode } from 'react';
 
-import { RadioGroup as HeroRadioGroup, Radio } from '@heroui/radio';
+import {
+  Radio as HeroRadio,
+  RadioGroup as HeroRadioGroup,
+} from '@heroui/radio';
 
 import { slugify, tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 
 import { useUniformField } from '../hooks';
 
-export const radioGroupVariants = tv({
+export const radiosVariants = tv({
   slots: {
     // Needs group for group-data condition
     base: 'group gap-0',
@@ -25,10 +28,10 @@ export const radioGroupVariants = tv({
   },
 });
 
-type VariantProps = TVProps<typeof radioGroupVariants>;
-type ClassName = TVClassName<typeof radioGroupVariants>;
+type VariantProps = TVProps<typeof radiosVariants>;
+type ClassName = TVClassName<typeof radiosVariants>;
 
-export interface RadioGroupOption {
+export interface RadioOption {
   /** disables the option */
   disabled?: boolean;
   /** option label */
@@ -41,7 +44,7 @@ export interface RadioGroupOption {
   value: string;
 }
 
-export interface RadioGroupProps extends VariantProps {
+export interface RadiosProps extends VariantProps {
   /** CSS class name */
   className?: ClassName;
   /** Determines if the Buttons are disabled or not. */
@@ -53,21 +56,21 @@ export interface RadioGroupProps extends VariantProps {
   /** Name the RadioButtons are registered at in HTML forms (react-hook-form). */
   name: string;
   /** Radio button configuration. */
-  options: RadioGroupOption[];
+  options: RadioOption[];
   /** Id to grab element in internal tests. */
   testId?: string;
 }
 
 /**
- * RadioGroup component based on [HeroUI RadioGroup](https://www.heroui.com//docs/components/radio-group)
+ * Radios component based on [HeroUI RadioGroup](https://www.heroui.com//docs/components/radio-group)
  */
-const RadioGroup = ({
+const Radios = ({
   className = undefined,
   inline = false,
   name,
   options,
   ...uniformFieldProps
-}: RadioGroupProps): ReactElement => {
+}: RadiosProps): ReactElement => {
   const {
     disabled,
     errorMessage,
@@ -80,7 +83,7 @@ const RadioGroup = ({
   } = useUniformField({ name, ...uniformFieldProps });
 
   // classNames from slots
-  const variants = radioGroupVariants();
+  const variants = radiosVariants();
   const classNames = variantsToClassNames(variants, className, 'base');
 
   const itemClassNames = {
@@ -118,7 +121,7 @@ const RadioGroup = ({
             { replaceDots: true },
           );
           return (
-            <Radio
+            <HeroRadio
               key={option.value}
               classNames={itemClassNames}
               data-testid={optionTestId}
@@ -127,7 +130,7 @@ const RadioGroup = ({
               value={option.value}
             >
               {option.label ?? option.value}
-            </Radio>
+            </HeroRadio>
           );
         }
         return null;
@@ -136,4 +139,4 @@ const RadioGroup = ({
   );
 };
 
-export default RadioGroup;
+export default Radios;

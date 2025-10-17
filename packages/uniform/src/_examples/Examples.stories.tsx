@@ -11,7 +11,7 @@ import { Form } from '../Form';
 import { Grid } from '../Grid';
 import { Input } from '../Input';
 import { RadioBoxes } from '../RadioBoxes';
-import { RadioGroup } from '../RadioGroup';
+import { Radios } from '../Radios';
 import { Select } from '../Select';
 import { SubmitButton } from '../SubmitButton';
 import { Switch } from '../Switch';
@@ -41,16 +41,16 @@ export default meta;
 type Story = StoryObj<typeof Form>;
 
 const checkboxSchema = vt.vEnum(['1', '2', '3']);
-const radioGroupSchema = vt.vEnum(['Value0', 'Value1', 'Value2']);
+const radiosSchema = vt.vEnum(['Value0', 'Value1', 'Value2']);
 const selectSchema = vt.vEnum(['Value0', 'Value1', 'Value2']);
 
 const validation = veto({
   checkboxField: vt.array(checkboxSchema),
   numberField: vt.number(),
   passwordField: vt.string(),
-  radioBoxField: radioGroupSchema,
-  radioButtonField: radioGroupSchema,
-  radioField: radioGroupSchema,
+  radioBoxField: radiosSchema,
+  radioButtonField: radiosSchema,
+  radioField: radiosSchema,
   selectField: selectSchema,
   stringField: vt.string(),
   switchField: vt.boolean(),
@@ -68,7 +68,7 @@ const checkboxOptions: {
 
 const radioOptions: {
   label: string;
-  value: vt.vInfer<typeof radioGroupSchema>;
+  value: vt.vInfer<typeof radiosSchema>;
 }[] = [
   { label: 'LabelA', value: 'Value0' },
   { label: 'LabelB', value: 'Value1' },
@@ -116,7 +116,7 @@ export const AllFieldRenderers: Story = {
             name="checkboxField"
             options={checkboxOptions}
           />
-          <RadioGroup
+          <Radios
             inline
             label="Radio Field"
             name="radioField"

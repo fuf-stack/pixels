@@ -7,11 +7,11 @@ import { SubmitButton } from '@fuf-stack/uniform';
 import { string, veto } from '@fuf-stack/veto';
 
 import { Form } from '../Form';
-import RadioGroup from './RadioGroup';
+import Radios from './Radios';
 
-const meta: Meta<typeof RadioGroup> = {
-  title: 'uniform/RadioGroup',
-  component: RadioGroup,
+const meta: Meta<typeof Radios> = {
+  title: 'uniform/Radios',
+  component: Radios,
   decorators: [
     (Story, { parameters }) => {
       return (
@@ -31,11 +31,11 @@ const meta: Meta<typeof RadioGroup> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof RadioGroup>;
+type Story = StoryObj<typeof Radios>;
 
 export const Default: Story = {
   args: {
-    name: 'radioGroupField',
+    name: 'radiosField',
     options: [
       { value: '1', label: 'option 1' },
       { value: '2', label: 'option 2' },
@@ -47,7 +47,7 @@ export const Default: Story = {
 export const Inline: Story = {
   args: {
     inline: true,
-    name: 'radioGroupField',
+    name: 'radiosField',
     options: [
       { value: 'option 1' },
       { value: 'option 2' },
@@ -58,10 +58,10 @@ export const Inline: Story = {
 
 export const WithInitialValue: Story = {
   parameters: {
-    formProps: { initialValues: { radioGroupField: 'option 2' } },
+    formProps: { initialValues: { radiosField: 'option 2' } },
   },
   args: {
-    name: 'radioGroupField',
+    name: 'radiosField',
     options: [
       { value: 'option 1' },
       { value: 'option 2' },
@@ -72,7 +72,7 @@ export const WithInitialValue: Story = {
 
 export const DisabledCompletely: Story = {
   args: {
-    name: 'radioGroupField',
+    name: 'radiosField',
     disabled: true,
     options: [
       { value: 'option 1' },
@@ -84,7 +84,7 @@ export const DisabledCompletely: Story = {
 
 export const DisabledOption: Story = {
   args: {
-    name: 'radioGroupField',
+    name: 'radiosField',
     options: [
       { value: 'option 1' },
       { value: 'disabled option', disabled: true },
@@ -94,14 +94,14 @@ export const DisabledOption: Story = {
 };
 
 const requiredValidation = veto({
-  radioGroupField: string(),
+  radiosField: string(),
 });
 
 export const Required: Story = {
   parameters: { formProps: { validation: requiredValidation } },
   args: {
-    label: 'radioGroupField',
-    name: 'radioGroupField',
+    label: 'radiosField',
+    name: 'radiosField',
     options: [
       { label: '1', value: '1' },
       { label: '2', value: '2' },
@@ -114,24 +114,24 @@ export const Invalid: Story = {
   parameters: {
     formProps: {
       validation: veto({
-        radioGroupField: string().refine((value) => {
+        radiosField: string().refine((value) => {
           return value !== 'two';
         }, 'Please use another option'),
       }),
     },
   },
   args: {
-    name: 'radioGroupField',
-    label: 'radioGroupField',
+    name: 'radiosField',
+    label: 'radiosField',
     options: [{ value: 'one' }, { value: 'two' }, { value: 'three' }],
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    const optionOne = canvas.getByTestId('radiogroupfield_option_one');
+    const optionOne = canvas.getByTestId('radiosfield_option_one');
     await userEvent.click(optionOne, {
       delay: 100,
     });
-    const optionTwo = canvas.getByTestId('radiogroupfield_option_two');
+    const optionTwo = canvas.getByTestId('radiosfield_option_two');
     await userEvent.click(optionTwo, {
       delay: 100,
     });
