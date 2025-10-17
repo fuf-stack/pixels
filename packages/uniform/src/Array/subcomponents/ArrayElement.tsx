@@ -1,7 +1,7 @@
 import type { Variants as MotionVariants } from '@fuf-stack/pixel-motion';
 import type { ClassValue } from '@fuf-stack/pixel-utils';
 import type { CSSProperties } from 'react';
-import type { FieldArrayFeatures } from '../types';
+import type { ArrayFeatures } from '../types';
 
 import { useState } from 'react';
 
@@ -16,7 +16,7 @@ import ElementInsertAfterButton from './ElementInsertAfterButton';
 import ElementRemoveButton from './ElementRemoveButton';
 import SortDragHandle from './SortDragHandle';
 
-export interface FieldArrayElementMethods {
+export interface ArrayElementMethods {
   /** Add new element at end */
   append: () => void;
   /** Clone current element */
@@ -27,7 +27,7 @@ export interface FieldArrayElementMethods {
   remove: () => void;
 }
 
-interface FieldArrayElementProps extends FieldArrayFeatures {
+interface ArrayElementProps extends ArrayFeatures {
   /** Form elements to render inside array element */
   children: React.ReactNode;
   /** CSS class names for component parts */
@@ -56,7 +56,7 @@ interface FieldArrayElementProps extends FieldArrayFeatures {
   /** Prevent deletion of last remaining element */
   lastNotDeletable?: boolean;
   /** Field array operation methods */
-  methods: FieldArrayElementMethods;
+  methods: ArrayElementMethods;
   /** HTML data-testid of the element */
   testId?: string;
 }
@@ -66,7 +66,7 @@ interface FieldArrayElementProps extends FieldArrayFeatures {
  * and validation capabilities. Animations when elements are added or removed
  * improve the user experience and provide a better visual feedback.
  */
-const FieldArrayElement = ({
+const ArrayElement = ({
   children,
   className,
   disableAnimation = false,
@@ -79,7 +79,7 @@ const FieldArrayElement = ({
   methods,
   sortable = false,
   testId = undefined,
-}: FieldArrayElementProps) => {
+}: ArrayElementProps) => {
   // Apply transform styles when sortable is enabled for smooth drag animations
   // transform: handles the item's position during drag
   // transition: controls the animation timing when dropping
@@ -190,4 +190,4 @@ const FieldArrayElement = ({
   );
 };
 
-export default FieldArrayElement;
+export default ArrayElement;

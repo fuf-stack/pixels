@@ -214,9 +214,9 @@ describe('checkFieldIsRequired', () => {
     expect(result).toBe(true);
   });
 
-  it('FieldArray', () => {
+  it('Array', () => {
     const validation = v({
-      fieldArray: array(
+      array: array(
         object({
           name: string()
             .regex(
@@ -234,11 +234,11 @@ describe('checkFieldIsRequired', () => {
       ).min(3),
     });
 
-    const fieldName1 = ['fieldArray'];
+    const fieldName1 = ['array'];
     const result1 = checkFieldIsRequired(validation, fieldName1);
     expect(result1).toBe(true);
 
-    const fieldName2 = ['fieldArray', 'name'];
+    const fieldName2 = ['array', 'name'];
     const result2 = checkFieldIsRequired(validation, fieldName2);
     expect(result2).toBe(true);
   });

@@ -1,5 +1,5 @@
-import type { FieldArrayElementMethods } from './subcomponents/FieldArrayElement';
-import type { FieldArrayProps } from './types';
+import type { ArrayElementMethods } from './subcomponents/ArrayElement';
+import type { ArrayProps } from './types';
 
 import { useEffect, useRef } from 'react';
 
@@ -10,10 +10,10 @@ import { Button } from '@fuf-stack/pixels';
 import { toNullishString } from '../helpers';
 import { useFieldArray, useUniformField } from '../hooks';
 import FieldValidationError from '../partials/FieldValidationError/FieldValidationError';
-import FieldArrayElement from './subcomponents/FieldArrayElement';
+import ArrayElement from './subcomponents/ArrayElement';
 import SortContext from './subcomponents/SortContext';
 
-export const fieldArrayVariants = tv({
+export const arrayVariants = tv({
   slots: {
     appendButton: 'w-full',
     elementWrapper: 'grow',
@@ -27,9 +27,9 @@ export const fieldArrayVariants = tv({
 });
 
 /**
- * FieldArray component based in [RHF useFieldArray](https://react-hook-form.com/docs/usefieldarray)
+ * Array component based in [RHF useFieldArray](https://react-hook-form.com/docs/usefieldarray)
  */
-const FieldArray = ({
+const Array = ({
   appendButtonText = 'Add Element',
   children,
   className: _className = undefined,
@@ -41,7 +41,7 @@ const FieldArray = ({
   name,
   sortable = false,
   ...uniformFieldProps
-}: FieldArrayProps) => {
+}: ArrayProps) => {
   const {
     control,
     error,
@@ -72,20 +72,20 @@ const FieldArray = ({
     }
   }, [prefersReducedMotion]);
 
-  // When lastElementNotRemovable is set and the field array is empty,
+  // When lastElementNotRemovable is set and the array is empty,
   // add an initial element to ensure there's always at least one visible element
   if (lastElementNotRemovable && fields.length === 0) {
     append(elementInitialValue);
   }
 
   // className from slots
-  const variants = fieldArrayVariants();
+  const variants = arrayVariants();
   const className = variantsToClassNames(variants, _className, 'list');
 
   return (
     <SortContext fields={fields} move={move} sortable={sortable}>
       <ul className={className.list} data-testid={testId}>
-        {/* field array label */}
+        {/* array label */}
         {label ? (
           // eslint-disable-next-line jsx-a11y/label-has-associated-control
           <label
@@ -102,7 +102,7 @@ const FieldArray = ({
           const elementTestId = `${testId}_${index}`;
 
           // create methods for element
-          const elementMethods: FieldArrayElementMethods = {
+          const elementMethods: ArrayElementMethods = {
             append: () => {
               append(elementInitialValue);
             },
@@ -119,7 +119,7 @@ const FieldArray = ({
           };
 
           return (
-            <FieldArrayElement
+            <ArrayElement
               key={field.id}
               className={className}
               disableAnimation={disableAnimationRef.current}
@@ -141,7 +141,7 @@ const FieldArray = ({
                 name: elementName,
                 testId: elementTestId,
               })}
-            </FieldArrayElement>
+            </ArrayElement>
           );
         })}
       </ul>
@@ -159,7 +159,7 @@ const FieldArray = ({
         {appendButtonText}
       </Button>
 
-      {/* top level field array errors */}
+      {/* top level array errors */}
       {invalid ? (
         <div {...getHelperWrapperProps()}>
           <div {...getErrorMessageProps()}>
@@ -176,4 +176,4 @@ const FieldArray = ({
   );
 };
 
-export default FieldArray;
+export default Array;

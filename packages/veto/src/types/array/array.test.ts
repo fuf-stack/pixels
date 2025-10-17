@@ -92,7 +92,7 @@ it('rejects global array errors and element errors at the same time', () => {
   });
 });
 
-// INFO: this is used in forms to add new items to flat field arrays
+// INFO: this is used in forms to add new items to flat arrays
 it('rejects null array element with field is required error message', () => {
   const result = v({ arrayField: array(string()) }).validate({
     arrayField: ['one', null, 'three'],
