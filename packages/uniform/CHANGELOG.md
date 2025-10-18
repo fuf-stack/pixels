@@ -1,5 +1,27 @@
 # Changelog
 
+## [1.5.0](https://github.com/fuf-stack/pixels/compare/uniform-v1.4.2...uniform-v1.5.0) (2025-10-18)
+
+
+### Features
+
+* **uniform:** add animations for add and remove elements in FieldArray ([94702b9](https://github.com/fuf-stack/pixels/commit/94702b9807a2cf4a2f2d4ba2972059138e3bd79d))
+* **uniform:** big refactoring for better animations ([75d823d](https://github.com/fuf-stack/pixels/commit/75d823d948f6a2ceb8915d1f65e9863af9b4b712))
+
+
+### Bug Fixes
+
+* **deps:** update dependency framer-motion to v12.23.23 ([#1264](https://github.com/fuf-stack/pixels/issues/1264)) ([d8fae1a](https://github.com/fuf-stack/pixels/commit/d8fae1ae1530beed1358dae25e0623abc2ceb9ec))
+* **deps:** update dependency framer-motion to v12.23.24 ([#1268](https://github.com/fuf-stack/pixels/issues/1268)) ([ef3db23](https://github.com/fuf-stack/pixels/commit/ef3db23850d37192b20ec097f71a8ad7c33b4713))
+* **uniform:** rename CheckboxGroup to Checkboxes ([f1b80d0](https://github.com/fuf-stack/pixels/commit/f1b80d0c54618630b68b51017cdba5b3d1c49ba4))
+* **uniform:** rename FieldArray to Array ([a808259](https://github.com/fuf-stack/pixels/commit/a8082592b3544a75a0eeb2c5879a32f0dc94a5ba))
+* **uniform:** rename RadioGroup to Radios ([8f59aec](https://github.com/fuf-stack/pixels/commit/8f59aeceb83f698ea300779943aad4c75c4c95bf))
+
+
+### Reverts
+
+* **uniform:** rename Array to FieldArray again ([d7285b1](https://github.com/fuf-stack/pixels/commit/d7285b1efcbdf41426813b9f9d47065fe3895faa))
+
 ## [1.4.2](https://github.com/fuf-stack/pixels/compare/uniform-v1.4.1...uniform-v1.4.2) (2025-10-07)
 
 
