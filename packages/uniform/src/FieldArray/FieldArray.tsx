@@ -172,7 +172,11 @@ const FieldArray = ({
 
       {/* top level field array errors */}
       {invalid ? (
-        <div {...getHelperWrapperProps()}>
+        <div
+          {...getHelperWrapperProps()}
+          // force helper to be visible (for some reason it's hidden by default)
+          className={cn(getHelperWrapperProps()?.className, 'block')}
+        >
           <div {...getErrorMessageProps()}>
             <FieldValidationError
               // @ts-expect-error todo

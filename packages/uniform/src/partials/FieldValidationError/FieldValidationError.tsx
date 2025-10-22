@@ -33,7 +33,7 @@ const FieldValidationError = ({
       className={className}
       data-testid={slugify(`${testId}_error`)}
     >
-      <AnimatePresence initial={false}>
+      <AnimatePresence initial={!disableAnimation}>
         {error?.map(({ message }, i) => {
           return (
             <motion.li
