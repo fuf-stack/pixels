@@ -11,7 +11,7 @@ import { FormProvider as HookFormProvider, useForm } from 'react-hook-form';
 
 import { useLocalStorage } from '@fuf-stack/pixels';
 
-import { toValidationFormat } from '../../helpers';
+import { toFormFormat, toValidationFormat } from '../../helpers';
 import { useExtendedValidation, useFormResolver } from './FormResolver';
 
 type DebugMode = 'debug' | 'debug-testids' | 'off' | 'disabled';
@@ -132,7 +132,7 @@ const FormProvider: React.FC<FormProviderProps> = ({
 
   // Initialize react hook form with the resolver
   const methods = useForm({
-    defaultValues: initialValues,
+    defaultValues: initialValues ? toFormFormat(initialValues) : initialValues,
     // set rhf mode
     // see: https://react-hook-form.com/docs/useform#mode
     mode: validationTrigger,
@@ -194,7 +194,6 @@ const FormProvider: React.FC<FormProviderProps> = ({
   return (
     <UniformContext.Provider value={contextValue}>
       {/* Spread all hook form props into HookFormProvider */}
-      {}
       <HookFormProvider {...methods}>
         {children({ handleSubmit, isValid })}
       </HookFormProvider>

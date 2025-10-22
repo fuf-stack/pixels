@@ -37,14 +37,14 @@ const meta: Meta<typeof FieldArray> = {
 export default meta;
 type Story = StoryObj<typeof FieldArray>;
 
-const validationRequiredSimple = veto({
+const validationRequired = veto({
   arrayField: array(object({ name: string() })).max(3),
 });
 
 export const Default: Story = {
   parameters: {
     formProps: {
-      validation: validationRequiredSimple,
+      validation: validationRequired,
     },
   },
   args: {
@@ -67,7 +67,7 @@ export const FlatArray: Story = {
   },
   args: {
     name: 'arrayField',
-    elementInitialValue: '',
+    flat: true,
     children: ({ name }) => {
       return <Input name={name} />;
     },
@@ -88,11 +88,12 @@ export const WithInitialValue: Story = {
   },
 };
 
-const validationRequired = veto({
+const validationDuplicates = veto({
   arrayField: refineArray(array(object({ name: string() })))({
     unique: {
       elementMessage: 'Contains duplicate name',
       mapFn: (val) => {
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-return
         return val?.name;
       },
       elementErrorPath: ['name'],
@@ -103,7 +104,7 @@ const validationRequired = veto({
 export const Required: Story = {
   parameters: {
     formProps: {
-      validation: validationRequired,
+      validation: validationDuplicates,
       initialValues: { arrayField: [{}] },
     },
   },
@@ -131,6 +132,7 @@ const formValidator = veto({
   )({
     unique: {
       mapFn: (value) => {
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-return
         return value.name;
       },
       elementErrorPath: ['name'],

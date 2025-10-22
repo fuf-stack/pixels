@@ -1,3 +1,6 @@
+/** Key used to wrap flat array elements when converting to form format */
+export const flatArrayKey = '__FLAT__';
+
 /**
  * String markers used to preserve null, false, and 0 values during JSON processing
  */
@@ -9,6 +12,24 @@ const zeroString = '__ZERO__';
  * Converts marker strings back to their original values when processing arrays
  */
 export const fromNullishString = (value: unknown): unknown => {
+  // Support arrays: unwrap flat wrappers and convert marker strings per entry
+  if (Array.isArray(value)) {
+    return (value as unknown[]).map((entry) => {
+      if (entry && typeof entry === 'object') {
+        const record = entry as Record<string, unknown>;
+        if (flatArrayKey in record) {
+          const inner = record[flatArrayKey];
+          // For arrays, treat empty string as null (placeholder input)
+          if (inner === '') {
+            return null;
+          }
+          return fromNullishString(inner);
+        }
+      }
+      return fromNullishString(entry);
+    });
+  }
+
   if (typeof value !== 'string') {
     return value;
   }
@@ -29,6 +50,20 @@ export const fromNullishString = (value: unknown): unknown => {
  * Converts null/falsy values to marker strings for JSON processing
  */
 export const toNullishString = (value: unknown): unknown => {
+  if (Array.isArray(value)) {
+    // Only wrap arrays of primitives; leave arrays of objects as-is
+    const isPrimitive = (v: unknown) => {
+      return v === null || ['string', 'number', 'boolean'].includes(typeof v);
+    };
+    const isPrimitiveArray = (value as unknown[]).every(isPrimitive);
+    if (isPrimitiveArray) {
+      return (value as unknown[]).map((v) => {
+        // Store raw primitive; do not convert to marker strings inside the wrapper
+        return { [flatArrayKey]: v } as Record<string, unknown>;
+      });
+    }
+    return value;
+  }
   if (value === null || value === '') {
     return nullString;
   }
@@ -43,17 +78,25 @@ export const toNullishString = (value: unknown): unknown => {
 
 /**
  * Converts field values to a format suitable for forms by:
- * - Converting array values to their string markers to preserve null/falsy values
+ * - Wrapping arrays of primitives as objects using the flatArrayKey `__FLAT__`
+ *   to satisfy RHF's requirement that array fields contain objects
  * - Removing empty strings and null values from objects
  *
  * This conversion is required because React Hook Form does not support arrays with
  * flat values (string, number, boolean, null). Array fields must contain objects.
- * We work around this by converting array values to string markers.
+ * We work around this by wrapping primitive entries: `{ __FLAT__: <value> }`.
  *
  * @example
  * const fields = {
  *   name: 'John',
  *   scores: [0, null, 75, false],
+ *   scoresDetailed: [
+ *     { score: 1 },
+ *     { score: null },
+ *     { score: 0 },
+ *     { score: false },
+ *     { score: '' },
+ *   ],
  *   contact: {
  *     email: '',
  *     phone: null,
@@ -64,7 +107,20 @@ export const toNullishString = (value: unknown): unknown => {
  * // Result:
  * {
  *   name: 'John',
- *   scores: ['__ZERO__', '__NULL__', 75, '__FALSE__'],
+ *   scores: [
+ *     { __FLAT__: 0 },
+ *     { __FLAT__: null },
+ *     { __FLAT__: 75 },
+ *     { __FLAT__: false }
+ *   ],
+ *   // Arrays of objects are left as objects; empty/null properties are removed
+ *   scoresDetailed: [
+ *     { score: 1 },
+ *     {}, // null score removed
+ *     { score: 0 },
+ *     { score: false },
+ *     {}, // empty string removed
+ *   ],
  *   contact: {
  *     address: '123 Main St'
  *   }
@@ -73,10 +129,17 @@ export const toNullishString = (value: unknown): unknown => {
 export const toFormFormat = (fields: Record<string, unknown>) => {
   const formFormatJson = JSON.stringify(fields, (_, value) => {
     if (Array.isArray(value)) {
-      return value.map(toNullishString);
+      // Delegate to toNullishString to ensure consistent handling
+      return toNullishString(value);
     }
 
     if (value && typeof value === 'object') {
+      // Preserve flat-array wrappers as-is (do not filter their inner values here)
+      const record = value as Record<string, unknown>;
+      if (flatArrayKey in record) {
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+        return value;
+      }
       return Object.fromEntries(
         Object.entries(value).filter(([_key, v]) => {
           return v !== '' && v !== null;
@@ -92,16 +155,26 @@ export const toFormFormat = (fields: Record<string, unknown>) => {
 
 /**
  * Converts form state to a format suitable for validation by:
- * - Converting array string markers (__NULL__, __FALSE__, __ZERO__) back to their original values
- * - Converting _NULL__ to null
- * - Removing fields that contain empty strings, null, or any string markers representing null/empty values
+ * - Unwrapping flat array wrappers `{ __FLAT__: <value> }` back to primitives
+ * - Converting legacy string markers (__NULL__, __FALSE__, __ZERO__) back to their original values
+ * - Removing fields whose converted value is empty string or null
  *
  * @example
  * const formState = {
  *   name: 'John',
- *   scores: [75, '__ZERO__', '_NULL__', '__FALSE__'],
- *   email: null,
- *   phone: '__NULL__',
+ *   scores: [
+ *     { __FLAT__: 75 },
+ *     { __FLAT__: 0 },
+ *     { __FLAT__: null },
+ *     { __FLAT__: false }
+ *   ],
+ *   scoresDetailed: [
+ *     { score: 1 },
+ *     {},
+ *     { score: 0 },
+ *     { score: false },
+ *     {},
+ *   ],
  *   contact: {
  *     address: '123 Main St',
  *     fax: null
@@ -112,6 +185,14 @@ export const toFormFormat = (fields: Record<string, unknown>) => {
  * {
  *   name: 'John',
  *   scores: [75, 0, null, false],
+ *   // Objects inside arrays remain objects; empty entries remain empty objects
+ *   scoresDetailed: [
+ *     { score: 1 },
+ *     {},
+ *     { score: 0 },
+ *     { score: false },
+ *     {},
+ *   ],
  *   contact: {
  *     address: '123 Main St'
  *   }
@@ -127,16 +208,60 @@ export const toValidationFormat = (
 
   const validationFormatJson = JSON.stringify(formState, (_, value) => {
     if (Array.isArray(value)) {
-      return value.map(fromNullishString);
+      return value.map((v) => {
+        // Unwrap new wrapper format { __FLAT__: <value> }
+        if (v && typeof v === 'object') {
+          const record = v as Record<string, unknown>;
+          if (flatArrayKey in record) {
+            const inner = record[flatArrayKey];
+            // Treat empty string from forms as null in validation format
+            if (inner === '') {
+              return null;
+            }
+            return fromNullishString(inner);
+          }
+        }
+        // Backward compatibility for string markers
+        return fromNullishString(v);
+      });
     }
 
     if (value && typeof value === 'object') {
+      // Object branch: remove keys that resolve to empty/null after marker conversion
+      // and unwrap flat-array wrappers if present.
+      //
+      // Why this shape?
+      // - Forms may contain objects with placeholder/empty values that should not
+      //   be part of the validation payload (e.g. "" or __NULL__ markers).
+      // - Arrays of primitives are stored as wrapper objects { __FLAT__: <value> }
+      //   to satisfy RHF structure constraints. When converting back for
+      //   validation, we need to treat wrappers whose inner value resolves to
+      //   empty/null as removable, and unwrap non-empty wrappers to the primitive.
       return Object.fromEntries(
         Object.entries(value)
           .filter(([_key, v]) => {
-            return fromNullishString(v) !== '' && fromNullishString(v) !== null;
+            // If this is a flat-array wrapper, convert the inner value first and
+            // drop the key when the inner resolves to empty string or null.
+            if (v && typeof v === 'object') {
+              const record = v as Record<string, unknown>;
+              if (flatArrayKey in record) {
+                const convertedInner = fromNullishString(record[flatArrayKey]);
+                return convertedInner !== '' && convertedInner !== null;
+              }
+            }
+            // For regular values, convert markers and drop when empty/null.
+            const converted = fromNullishString(v);
+            return converted !== '' && converted !== null;
           })
           .map(([k, v]) => {
+            // Unwrap flat-array wrappers to raw primitives after conversion.
+            if (v && typeof v === 'object') {
+              const record = v as Record<string, unknown>;
+              if (flatArrayKey in record) {
+                return [k, fromNullishString(record[flatArrayKey])];
+              }
+            }
+            // For other values, just convert markers.
             return [k, fromNullishString(v)];
           }),
       );

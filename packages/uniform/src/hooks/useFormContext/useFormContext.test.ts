@@ -11,6 +11,7 @@ import v, {
   string,
 } from '@fuf-stack/veto/src/index';
 
+import { flatArrayKey } from '../../helpers';
 import { checkFieldIsRequired, useFormContext } from './useFormContext';
 
 describe('checkFieldIsRequired', () => {
@@ -285,6 +286,22 @@ describe('field state integration (errors, invalid, testId)', () => {
     const state = getFieldState(name);
     expect(state.testId).toBe(slugify(name, { replaceDots: true }));
   });
+
+  it('resolves errors for flat array fields by ignoring wrapper key', () => {
+    // Arrange errors for an array of primitives: tags[0]
+    mockUniformContextValue.validation.errors = {
+      tags: {
+        0: [{ message: 'Tag is required' }],
+      },
+    } as unknown as Record<string, unknown>;
+
+    const { getFieldState } = useFormContext();
+    const state = getFieldState(`tags.0.${flatArrayKey}`);
+
+    expect(state.invalid).toBe(true);
+    expect(Array.isArray(state.error)).toBe(true);
+    expect(state.error?.[0]?.message).toBe('Tag is required');
+  });
 });
 
 // Mock the dependencies outside of the describe block
@@ -387,7 +404,7 @@ describe('useFormContext nullish string conversion', () => {
     const unsubscribe = subscribe(options);
 
     // Verify subscribe was called with wrapped options
-    expect(mockSubscribe).toHaveBeenCalledWith(
+    expect(mockSubscribe).toHaveBeenCalledExactlyOnceWith(
       expect.objectContaining({
         formState: { values: true },
         callback: expect.any(Function),
@@ -412,7 +429,7 @@ describe('useFormContext nullish string conversion', () => {
     wrappedCallback(formState);
 
     // Verify the original callback received converted values
-    expect(originalCallback).toHaveBeenCalledWith({
+    expect(originalCallback).toHaveBeenCalledExactlyOnceWith({
       values: {
         normalField: 'test',
         countField: 0,
@@ -438,7 +455,7 @@ describe('useFormContext nullish string conversion', () => {
     });
 
     // Should pass through with wrapped callback
-    expect(mockSubscribe).toHaveBeenCalledWith(
+    expect(mockSubscribe).toHaveBeenCalledExactlyOnceWith(
       expect.objectContaining({
         formState: { values: true },
         callback: expect.any(Function),

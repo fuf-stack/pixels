@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 
 import {
+  flatArrayKey,
   fromNullishString,
   toFormFormat,
   toNullishString,
@@ -90,16 +91,21 @@ describe('toFormFormat', () => {
     expect(toFormFormat(input)).toEqual(expected);
   });
 
-  it('should convert arrays to use string markers', () => {
+  it('should wrap primitive arrays using flatArrayKey', () => {
     const input = {
       array: ['value', '', null, 0, false],
     };
 
-    const expected = {
-      array: ['value', '__NULL__', '__NULL__', '__ZERO__', '__FALSE__'],
-    };
-
-    expect(toFormFormat(input)).toEqual(expected);
+    const result = toFormFormat(input);
+    expect(Array.isArray(result.array)).toBe(true);
+    // Each entry should be an object wrapper with raw primitive stored under flatArrayKey
+    expect(result.array).toEqual([
+      { [flatArrayKey]: 'value' },
+      { [flatArrayKey]: '' },
+      { [flatArrayKey]: null },
+      { [flatArrayKey]: 0 },
+      { [flatArrayKey]: false },
+    ]);
   });
 
   it('should handle objects with all nullish values', () => {
@@ -121,7 +127,7 @@ describe('toFormFormat', () => {
 });
 
 describe('toValidationFormat', () => {
-  it('should convert from form format back to original values', () => {
+  it('should convert from form format back to original values (legacy markers)', () => {
     const input = {
       array: ['value', '__NULL__', '__NULL__', '__ZERO__', '__FALSE__'],
       string: '__NULL__',
@@ -147,6 +153,24 @@ describe('toValidationFormat', () => {
         score: 0,
         active: false,
       },
+    };
+
+    expect(toValidationFormat(input)).toEqual(expected);
+  });
+
+  it('should unwrap flatArrayKey wrappers back to primitives', () => {
+    const input = {
+      array: [
+        { [flatArrayKey]: 'value' },
+        { [flatArrayKey]: '' },
+        { [flatArrayKey]: null },
+        { [flatArrayKey]: 0 },
+        { [flatArrayKey]: false },
+      ],
+    } as unknown as Record<string, unknown>;
+
+    const expected = {
+      array: ['value', null, null, 0, false],
     };
 
     expect(toValidationFormat(input)).toEqual(expected);

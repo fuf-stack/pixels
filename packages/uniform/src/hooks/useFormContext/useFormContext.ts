@@ -9,7 +9,7 @@ import { useFormContext as useHookFormContext } from 'react-hook-form';
 import { slugify } from '@fuf-stack/pixel-utils';
 
 import { UniformContext } from '../../Form/subcomponents/FormContext';
-import { toValidationFormat } from '../../helpers';
+import { flatArrayKey, toValidationFormat } from '../../helpers';
 
 /** Schema check whether a field is required or optional */
 export const checkFieldIsRequired = (
@@ -45,8 +45,10 @@ const getValidationErrorsByName = (
   errors: VetoFormattedError,
   name: string,
 ) => {
-  // Traverse nested error structure
-  const keys = name.split('.');
+  // Traverse nested error structure; ignore flat array wrapper key
+  const keys = name.split('.').filter((k) => {
+    return k !== flatArrayKey;
+  });
   let current: unknown = errors as unknown;
   keys.forEach((key) => {
     if (current && typeof current === 'object') {

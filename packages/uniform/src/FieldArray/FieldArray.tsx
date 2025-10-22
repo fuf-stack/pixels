@@ -7,7 +7,7 @@ import { useReducedMotion } from '@fuf-stack/pixel-motion';
 import { cn, tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 import { Button } from '@fuf-stack/pixels';
 
-import { toNullishString } from '../helpers';
+import { flatArrayKey } from '../helpers';
 import { useFieldArray, useUniformField } from '../hooks';
 import FieldValidationError from '../partials/FieldValidationError/FieldValidationError';
 import FieldArrayElement from './subcomponents/FieldArrayElement';
@@ -36,6 +36,7 @@ const FieldArray = ({
   duplicate = false,
   elementInitialValue: _elementInitialValue = null,
   elementMarginBottom = undefined,
+  flat = false,
   insertAfter = false,
   lastElementNotRemovable = false,
   name,
@@ -59,8 +60,12 @@ const FieldArray = ({
     name,
   });
 
-  // TODO: add info
-  const elementInitialValue = toNullishString(_elementInitialValue);
+  // Prepare initial element value based on mode
+  // - flat=true: arrays of primitives → object with flatArrayKey and null value by default
+  // - flat=false: arrays of objects → empty object by default
+  const elementInitialValue = flat
+    ? { [flatArrayKey]: _elementInitialValue ?? null }
+    : (_elementInitialValue ?? {});
 
   // Track initial render to prevent animating elements on
   // first render cycle or when user prefers reduced motion
@@ -98,7 +103,9 @@ const FieldArray = ({
 
         {/* fields */}
         {fields.map((field, index) => {
-          const elementName = `${name}.${index}`;
+          const elementName = flat
+            ? `${name}.${index}.${flatArrayKey}`
+            : `${name}.${index}`;
           const elementTestId = `${testId}_${index}`;
 
           // create methods for element
@@ -108,7 +115,11 @@ const FieldArray = ({
             },
             duplicate: () => {
               const values = getValues(name);
-              insert(index + 1, values[index]);
+              const currentValue = (values as unknown[])[index];
+              const nextValue = flat
+                ? { [flatArrayKey]: currentValue }
+                : currentValue;
+              insert(index + 1, nextValue);
             },
             insert: () => {
               insert(index + 1, elementInitialValue);

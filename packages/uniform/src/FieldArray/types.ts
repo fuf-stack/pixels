@@ -43,6 +43,8 @@ export interface FieldArrayProps extends FieldArrayFeatures, VariantProps {
    * because the margin bottom needs to be animated when elements are added or removed
    */
   elementMarginBottom?: CSSProperties['marginBottom'];
+  /** when true, array stores primitives as wrapper objects: { __FLAT__: value } */
+  flat?: boolean;
   /** label of the field array */
   label?: React.ReactNode;
   /** when true (default false) last element can not be removed and will be shown even if field array is empty */

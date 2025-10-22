@@ -59,7 +59,7 @@ const Form = ({
             <form
               className={cn('grow', className)}
               data-form-is-valid={isValid}
-              data-testid={slugify(testId || name || '')}
+              data-testid={slugify(testId ?? name ?? '')}
               name={name}
               onSubmit={handleSubmit}
             >
