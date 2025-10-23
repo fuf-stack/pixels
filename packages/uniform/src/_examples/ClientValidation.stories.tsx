@@ -208,11 +208,17 @@ export const InteractiveDemo: Story = {
     const statusText = canvas.getByText('✅ Active');
     await expect(statusText).toBeInTheDocument();
 
-    // Check for validation error
+    // Check for validation error and form invalid state
     await waitFor(() => {
-      expect(
-        canvas.getByText('Username already exists in this team'),
-      ).toBeInTheDocument();
+      const errorElement = canvas.getByTestId('username_error');
+      expect(errorElement).toHaveTextContent(
+        'Username already exists in this team',
+      );
+    });
+
+    // Wait for debounce/validation to complete
+    await new Promise((resolve) => {
+      setTimeout(resolve, 200);
     });
   },
 };

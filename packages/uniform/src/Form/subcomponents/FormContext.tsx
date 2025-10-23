@@ -39,8 +39,44 @@ const DEBUG_MODE_LOCAL_STORAGE_KEY_DEFAULT = 'uniform:debug-mode';
  *
  * This context is useful for components that need to interact with or control the form submission state,
  * or access the validation schema for managing form validation logic.
+ *
+ * IMPORTANT: Context Singleton Pattern for HMR (Hot Module Replacement)
+ * =====================================================================
+ *
+ * We use a global window variable to ensure only ONE context instance exists across
+ * hot module reloads during development. This is critical because:
+ *
+ * **The Problem:**
+ * When using Vite/Storybook with Fast Refresh (HMR), editing this file causes it to
+ * be re-evaluated. Each re-evaluation runs `React.createContext()` again, creating a
+ * NEW context instance. This leads to "context instance mismatch":
+ *
+ *   1. FormProvider (provider) loads and uses context instance A
+ *   2. File is edited, HMR triggers
+ *   3. SubmitButton (consumer) hot-reloads and imports context instance B
+ *   4. Provider writes to instance A, Consumer reads from instance B
+ *   5. Result: Consumer sees default values (triggerSubmit = () => undefined)
+ *   6. Clicking submit does nothing because it calls the empty default function
+ *
+ * **The Solution:**
+ * By storing the context in `window.__UNIFORM_CONTEXT__`, we ensure:
+ *   - First load: Create context and store in window
+ *   - Subsequent HMRs: Reuse the same context from window
+ *   - All components always reference the SAME context instance
+ *   - Provider and consumers can properly communicate
+ *
+ * **Why This Is Safe:**
+ * - Only affects development (production has no HMR)
+ * - Context type never changes (same interface)
+ * - React handles cleanup on unmount normally
+ * - No memory leaks (context is lightweight)
+ *
+ * Without this pattern, you'd need to restart the dev server after every edit
+ * to FormContext.tsx to ensure all components use the same context instance.
  */
-export const UniformContext = React.createContext<{
+
+// Define the context type
+interface UniformContextType {
   /** Form debug mode enabled or not */
   debugMode: DebugMode;
   /** settings for from debug mode */
@@ -63,23 +99,37 @@ export const UniformContext = React.createContext<{
       schema: VetoTypeAny | null,
     ) => void;
   };
-}>({
-  debugMode: 'off',
-  preventSubmit: () => {
-    return undefined;
-  },
-  setDebugMode: () => {
-    return undefined;
-  },
-  triggerSubmit: () => {
-    return undefined;
-  },
-  validation: {
-    setClientValidationSchema: () => {
-      return undefined;
+}
+
+// eslint-disable-next-line no-underscore-dangle, @typescript-eslint/no-explicit-any
+if (!(window as any).__UNIFORM_CONTEXT__) {
+  // eslint-disable-next-line no-underscore-dangle, @typescript-eslint/no-explicit-any
+  (window as any).__UNIFORM_CONTEXT__ = React.createContext<UniformContextType>(
+    {
+      debugMode: 'off',
+      preventSubmit: () => {
+        return undefined;
+      },
+      setDebugMode: () => {
+        return undefined;
+      },
+      triggerSubmit: () => {
+        return undefined;
+      },
+      validation: {
+        setClientValidationSchema: () => {
+          return undefined;
+        },
+      },
     },
-  },
-});
+  );
+}
+
+// Export the singleton context instance from window
+// This ensures all imports get the same context, even after HMR
+// eslint-disable-next-line no-underscore-dangle, @typescript-eslint/no-explicit-any
+export const UniformContext = (window as any)
+  .__UNIFORM_CONTEXT__ as React.Context<UniformContextType>;
 
 // Define props for the FormProvider component, extending HookForm's props
 interface FormProviderProps {

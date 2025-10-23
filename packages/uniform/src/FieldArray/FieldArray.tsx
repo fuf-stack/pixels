@@ -9,6 +9,7 @@ import { Button } from '@fuf-stack/pixels';
 
 import { flatArrayKey } from '../helpers';
 import { useFieldArray, useUniformField } from '../hooks';
+import { useFormContext } from '../hooks/useFormContext/useFormContext';
 import FieldValidationError from '../partials/FieldValidationError/FieldValidationError';
 import FieldArrayElement from './subcomponents/FieldArrayElement';
 import SortContext from './subcomponents/SortContext';
@@ -53,12 +54,26 @@ const FieldArray = ({
     invalid,
     label,
     testId,
-  } = useUniformField({ name, ...uniformFieldProps });
+  } = useUniformField({
+    name,
+    showInvalidWhen: 'immediate',
+    ...uniformFieldProps,
+  });
 
   const { fields, append, remove, insert, move } = useFieldArray({
     control,
     name,
   });
+
+  // Validate array-level constraints immediately when length changes
+  const { trigger } = useFormContext();
+  useEffect(() => {
+    setTimeout(() => {
+      // Trigger validation for the array field so max/min errors appear instantly
+      trigger(name);
+    }, 200);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [fields.length]);
 
   // Prepare initial element value based on mode
   // - flat=true: arrays of primitives → object with flatArrayKey and null value by default

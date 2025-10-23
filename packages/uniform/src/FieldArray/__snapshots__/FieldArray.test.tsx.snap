@@ -799,7 +799,6 @@ exports[`Story Snapshots > Invalid 1`] = `
                 data-filled-within="true"
                 data-has-elements="true"
                 data-has-helper="true"
-                data-invalid="true"
                 data-required="true"
                 data-slot="base"
               >
@@ -808,7 +807,7 @@ exports[`Story Snapshots > Invalid 1`] = `
                   data-slot="main-wrapper"
                 >
                   <div
-                    class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 h-10 min-h-10 rounded-small !duration-150 transition-colors motion-reduce:transition-none !border-danger group-data-[focus=true]:!border-danger bg-content1 group-data-[focus=true]:border-focus"
+                    class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 h-10 min-h-10 rounded-small !duration-150 transition-colors motion-reduce:transition-none bg-content1 group-data-[focus=true]:border-focus"
                     data-slot="input-wrapper"
                     style="cursor: text;"
                   >
@@ -817,10 +816,8 @@ exports[`Story Snapshots > Invalid 1`] = `
                       data-slot="inner-wrapper"
                     >
                       <input
-                        aria-describedby="react-aria-react-useId-mock react-aria-react-useId-mock"
-                        aria-invalid="true"
                         aria-label=" "
-                        class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small !placeholder:text-danger !text-danger"
+                        class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small"
                         data-slot="input"
                         data-testid="arrayfield_0_test"
                         id="arrayfield_0_test"
@@ -832,31 +829,6 @@ exports[`Story Snapshots > Invalid 1`] = `
                         type="text"
                         value=""
                       />
-                    </div>
-                  </div>
-                  <div
-                    class="hidden group-data-[has-helper=true]:flex relative flex-col gap-1.5 p-0"
-                    data-slot="helper-wrapper"
-                  >
-                    <div
-                      class="text-tiny text-danger"
-                      data-slot="error-message"
-                      id="react-aria-react-useId-mock"
-                    >
-                      <ul
-                        aria-label="Validation errors of field arrayfield_0_test"
-                        data-testid="arrayfield_0_test_error"
-                      >
-                        <li
-                          style="overflow: hidden;"
-                        >
-                          <span
-                            class="p-1"
-                          >
-                            Field is required
-                          </span>
-                        </li>
-                      </ul>
                     </div>
                   </div>
                 </div>
@@ -984,7 +956,6 @@ exports[`Story Snapshots > Invalid 1`] = `
                 data-filled-within="true"
                 data-has-elements="true"
                 data-has-helper="true"
-                data-invalid="true"
                 data-required="true"
                 data-slot="base"
               >
@@ -993,7 +964,7 @@ exports[`Story Snapshots > Invalid 1`] = `
                   data-slot="main-wrapper"
                 >
                   <div
-                    class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 h-10 min-h-10 rounded-small !duration-150 transition-colors motion-reduce:transition-none !border-danger group-data-[focus=true]:!border-danger bg-content1 group-data-[focus=true]:border-focus"
+                    class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 h-10 min-h-10 rounded-small !duration-150 transition-colors motion-reduce:transition-none bg-content1 group-data-[focus=true]:border-focus"
                     data-slot="input-wrapper"
                     style="cursor: text;"
                   >
@@ -1002,10 +973,8 @@ exports[`Story Snapshots > Invalid 1`] = `
                       data-slot="inner-wrapper"
                     >
                       <input
-                        aria-describedby="react-aria-react-useId-mock react-aria-react-useId-mock"
-                        aria-invalid="true"
                         aria-label=" "
-                        class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small !placeholder:text-danger !text-danger"
+                        class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small"
                         data-slot="input"
                         data-testid="arrayfield_1_test"
                         id="arrayfield_1_test"
@@ -1017,31 +986,6 @@ exports[`Story Snapshots > Invalid 1`] = `
                         type="text"
                         value=""
                       />
-                    </div>
-                  </div>
-                  <div
-                    class="hidden group-data-[has-helper=true]:flex relative flex-col gap-1.5 p-0"
-                    data-slot="helper-wrapper"
-                  >
-                    <div
-                      class="text-tiny text-danger"
-                      data-slot="error-message"
-                      id="react-aria-react-useId-mock"
-                    >
-                      <ul
-                        aria-label="Validation errors of field arrayfield_1_test"
-                        data-testid="arrayfield_1_test_error"
-                      >
-                        <li
-                          style="overflow: hidden;"
-                        >
-                          <span
-                            class="p-1"
-                          >
-                            Field is required
-                          </span>
-                        </li>
-                      </ul>
                     </div>
                   </div>
                 </div>

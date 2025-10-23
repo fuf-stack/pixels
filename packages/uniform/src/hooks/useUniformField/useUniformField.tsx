@@ -67,6 +67,12 @@ export interface UseUniformFieldParams<
   testId?: string;
   /** Optional label content; pass false to suppress label entirely */
   label?: ReactNode | false;
+  /**
+   * When to show the invalid state to users.
+   * - 'touched': Only show errors after field is touched or form is submitted (default, good for text inputs)
+   * - 'immediate': Show errors as soon as they occur (good for checkboxes, radios, arrays)
+   */
+  showInvalidWhen?: 'touched' | 'immediate';
 }
 
 export interface UseUniformFieldReturn<
@@ -118,8 +124,14 @@ export interface UseUniformFieldReturn<
  * Provides:
  * - Enhanced form context (validation-aware state, `testId`, value transforms)
  * - Controller field with nullish conversion handling
- * - Debounced `invalid` (true applies immediately, false is delayed) to allow
- *   smooth exit animations without flicker
+ * - Debounced `invalid` state with smart timing:
+ *   • `true` (field becomes invalid): applies immediately so errors show right away
+ *   • `false` (field becomes valid): delayed 200ms to allow smooth exit animations
+ *   • Respects `prefers-reduced-motion` by skipping delays when user prefers reduced motion
+ * - Smart `invalid` visibility (via `showInvalid`), configurable via `showInvalidWhen`:
+ *   • 'touched' (default): Shows errors only after field touched OR form submitted
+ *   • 'immediate': Shows errors as soon as validation fails (for checkboxes/radios/arrays)
+ *   • Prevents showing errors on pristine fields for better UX
  * - Prebuilt `errorMessage` React node using `FieldValidationError`
  * - Computed `label` node which appends a `FieldCopyTestIdButton` in
  *   `debug-testids` mode
@@ -131,14 +143,27 @@ export interface UseUniformFieldReturn<
 export function useUniformField<TFieldValues extends FieldValues = FieldValues>(
   params: UseUniformFieldParams<TFieldValues>,
 ): UseUniformFieldReturn<TFieldValues> {
-  const { name, disabled = false, testId: explicitTestId, label } = params;
+  const {
+    name,
+    disabled = false,
+    testId: explicitTestId,
+    label,
+    showInvalidWhen = 'touched',
+  } = params;
 
-  const { control, debugMode, getFieldState, getValues, resetField } =
-    useFormContext<TFieldValues>();
+  const {
+    control,
+    debugMode,
+    formState: { submitCount },
+    getFieldState,
+    getValues,
+    resetField,
+  } = useFormContext<TFieldValues>();
 
   const {
     error,
     invalid: rawInvalid,
+    isTouched,
     required,
     testId,
   } = getFieldState(name, explicitTestId);
@@ -153,6 +178,26 @@ export function useUniformField<TFieldValues extends FieldValues = FieldValues>(
   // Debounce invalid changes so validation does not flicker and
   // components can play exit animations
   const invalid = useDebouncedInvalid(rawInvalid, 200);
+
+  /**
+   * Determine when to show the invalid state to the user.
+   *
+   * Behavior depends on `showInvalidWhen` parameter:
+   *
+   * 'touched' mode (default for text inputs):
+   *   - Only show invalid when: field has errors AND (touched OR form submitted)
+   *   - Prevents showing errors on pristine fields for better UX
+   *   - Example: User loads form with empty required field → no error shown yet
+   *
+   * 'immediate' mode (for checkboxes, radios, arrays):
+   *   - Show invalid as soon as validation fails OR after form submission
+   *   - Good for components where user sees immediate feedback per interaction
+   *   - Example: Checkbox group with "select at least 2" → error shows immediately
+   */
+  const showInvalid =
+    showInvalidWhen === 'immediate'
+      ? invalid || submitCount > 0
+      : invalid && (isTouched || submitCount > 0);
 
   // Build a label node that:
   // - shows the provided label (unless explicitly set to false)
@@ -202,7 +247,7 @@ export function useUniformField<TFieldValues extends FieldValues = FieldValues>(
     getHelperWrapperProps,
     getLabelProps,
     getValues,
-    invalid,
+    invalid: showInvalid,
     label: labelNode,
     onBlur,
     onChange,

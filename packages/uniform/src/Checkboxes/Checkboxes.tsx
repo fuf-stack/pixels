@@ -111,7 +111,11 @@ const Checkboxes = ({
     label,
     required,
     testId,
-  } = useUniformField({ name, ...uniformFieldProps });
+  } = useUniformField({
+    name,
+    showInvalidWhen: 'immediate',
+    ...uniformFieldProps,
+  });
 
   // Convert React Hook Form's nested error object structure to a flat array
   // RHF errors can be nested like: checkboxField.0 (individual checkbox errors)

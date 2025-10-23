@@ -1,6 +1,7 @@
 import type { TVClassName, TVProps } from '@fuf-stack/pixel-utils';
 import type { SwitchProps as HeroSwitchProps } from '@heroui/switch';
 import type { ReactNode } from 'react';
+import type { FieldValues } from 'react-hook-form';
 
 import { Switch as HeroSwitch } from '@heroui/switch';
 
@@ -68,7 +69,7 @@ const Switch = ({
   const { control, debugMode, getFieldState } = useFormContext();
   const { error, required, testId, invalid } = getFieldState(name, _testId);
 
-  const { field } = useController({ name, control, disabled });
+  const { field } = useController<FieldValues>({ name, control, disabled });
   const { disabled: isDisabled, value, ref, onBlur, onChange } = field;
 
   const { label, getInputProps, getErrorMessageProps } = useInput({

@@ -80,7 +80,11 @@ const Radios = ({
     required,
     defaultValue,
     testId,
-  } = useUniformField({ name, ...uniformFieldProps });
+  } = useUniformField({
+    name,
+    showInvalidWhen: 'immediate',
+    ...uniformFieldProps,
+  });
 
   // classNames from slots
   const variants = radiosVariants();

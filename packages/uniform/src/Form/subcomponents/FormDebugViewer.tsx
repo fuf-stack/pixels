@@ -20,7 +20,7 @@ interface FormDebugViewerProps {
 const FormDebugViewer = ({ className = undefined }: FormDebugViewerProps) => {
   const {
     debugMode,
-    formState: { isValid, isSubmitting },
+    formState: { isValid, isSubmitting, submitCount, isSubmitSuccessful },
     setDebugMode,
     validation: { errors },
     watch,
@@ -85,8 +85,12 @@ const FormDebugViewer = ({ className = undefined }: FormDebugViewerProps) => {
         value={{
           values,
           errors: errors ?? null,
-          isValid,
-          isSubmitting,
+          submit: {
+            isValid,
+            isSubmitting,
+            isSubmitSuccessful,
+            submitCount,
+          },
         }}
       />
     </Card>

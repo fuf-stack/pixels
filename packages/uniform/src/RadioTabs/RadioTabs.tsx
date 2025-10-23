@@ -105,7 +105,11 @@ const RadioTabs = ({
     label,
     required,
     testId,
-  } = useUniformField({ name, ...uniformFieldProps });
+  } = useUniformField({
+    name,
+    showInvalidWhen: 'immediate',
+    ...uniformFieldProps,
+  });
 
   const tabOptions = options.map<TabProps>((option) => {
     return {

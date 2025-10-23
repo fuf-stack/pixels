@@ -83,7 +83,11 @@ const RadioBoxes = ({
     ref,
     required,
     testId,
-  } = useUniformField({ name, ...uniformFieldProps });
+  } = useUniformField({
+    name,
+    showInvalidWhen: 'immediate',
+    ...uniformFieldProps,
+  });
 
   // classNames from slots
   const variants = radioBoxesVariants();
