@@ -9,9 +9,9 @@ import { cn, tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 import { flatArrayKey } from '../helpers';
 import { useFieldArray, useUniformField } from '../hooks';
 import { useFormContext } from '../hooks/useFormContext/useFormContext';
-import FieldValidationError from '../partials/FieldValidationError/FieldValidationError';
 import ElementAppendButton from './subcomponents/ElementAppendButton';
 import FieldArrayElement from './subcomponents/FieldArrayElement';
+import FieldArrayValidationError from './subcomponents/FieldArrayValidationError';
 import SortContext from './subcomponents/SortContext';
 
 export const fieldArrayVariants = tv({
@@ -25,10 +25,10 @@ export const fieldArrayVariants = tv({
     ],
     /** class for the append button */
     appendButton: [
-      'w-full',
+      // base styles
+      'rounded-b-small w-full rounded-t-none',
       // focus styles - inset ring with rounded bottom corners to match container
       'focus-visible:ring-focus outline-none focus-visible:ring-2 focus-visible:ring-inset',
-      '!rounded-b-small !rounded-t-none',
     ],
     /** class for the element fields grid */
     elementFieldsGrid: ['w-full grow p-3'],
@@ -40,10 +40,10 @@ export const fieldArrayVariants = tv({
       // label positioning
       '-mb-1 ml-1 inline-block!',
     ],
-    /** class for the list wrapper */
-    listWrapper: ['-mt-px overflow-hidden'],
     /** class for the list */
     list: ['overflow-hidden'],
+    /** class for the list wrapper */
+    listWrapper: ['-mt-px overflow-hidden'],
     /** class for the list item (performs motion animations) */
     listItem: [
       // base styles
@@ -96,21 +96,12 @@ const FieldArray = ({
   sortable = false,
   ...uniformFieldProps
 }: FieldArrayProps) => {
-  const {
-    control,
-    error,
-    getErrorMessageProps,
-    getHelperWrapperProps,
-    getLabelProps,
-    getValues,
-    invalid,
-    label,
-    testId,
-  } = useUniformField({
-    name,
-    showInvalidWhen: 'immediate',
-    ...uniformFieldProps,
-  });
+  const { control, error, getLabelProps, getValues, invalid, label, testId } =
+    useUniformField({
+      name,
+      showInvalidWhen: 'immediate',
+      ...uniformFieldProps,
+    });
 
   const { fields, append, remove, insert, move } = useFieldArray({
     control,
@@ -167,10 +158,10 @@ const FieldArray = ({
         </label>
       ) : null}
 
-      {/* sortable context */}
-      <SortContext fields={fields} move={move} sortable={sortable}>
-        {/* list wrapper */}
-        <div className={className.listWrapper}>
+      {/* list wrapper */}
+      <div className={className.listWrapper}>
+        {/* sortable context */}
+        <SortContext fields={fields} move={move} sortable={sortable}>
           {/* list container */}
           <ul className={className.list} data-testid={testId}>
             {/* fields / list elements  */}
@@ -228,36 +219,27 @@ const FieldArray = ({
               );
             })}
           </ul>
-        </div>
-      </SortContext>
+        </SortContext>
+      </div>
 
       {/* append elements button */}
       <ElementAppendButton
         appendButtonText={appendButtonText}
-        className={className.appendButton}
         testId={`${testId}_append_button`}
+        className={cn(
+          className.appendButton,
+          // only round bottom corners if there are no errors below
+          // @ts-expect-error - error._errors exists but not typed
+          // eslint-disable-next-line no-underscore-dangle
+          { 'rounded-none': invalid && error?._errors },
+        )}
         onClick={() => {
           append(elementInitialValue);
         }}
       />
 
       {/* top level field array errors */}
-      {invalid ? (
-        <div
-          {...getHelperWrapperProps()}
-          // force helper to be visible (for some reason it's hidden by default)
-          className={cn(getHelperWrapperProps()?.className, 'block')}
-        >
-          <div {...getErrorMessageProps()}>
-            <FieldValidationError
-              // @ts-expect-error todo
-              // eslint-disable-next-line no-underscore-dangle
-              error={error?._errors}
-              testId={testId}
-            />
-          </div>
-        </div>
-      ) : null}
+      <FieldArrayValidationError name={name} />
     </div>
   );
 };
