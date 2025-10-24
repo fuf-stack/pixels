@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { FaCopy, FaPlus, FaTimes } from 'react-icons/fa';
 
 import { action } from 'storybook/actions';
-import { expect, userEvent, waitFor, within } from 'storybook/test';
+import { expect, userEvent, within } from 'storybook/test';
 
 import { Button } from '@fuf-stack/pixels';
 import { SubmitButton } from '@fuf-stack/uniform';
@@ -20,7 +20,7 @@ const meta: Meta<typeof FieldArray> = {
     (Story, { parameters }) => {
       return (
         <Form
-          className="min-w-60"
+          className="min-w-md"
           onSubmit={action('onSubmit')}
           {...(parameters?.formProps ?? {})}
         >
@@ -193,19 +193,19 @@ export const Invalid: Story = {
     // );
     // await expect(errorGlobal).toBeInTheDocument();
 
-    const elementZero = canvas.getByTestId('arrayfield_0_element_wrapper');
-    await expect(elementZero).toContainHTML(
+    const firstElement = canvas.getByTestId('arrayfield_0_element');
+    await expect(firstElement).toContainHTML(
       'Must only contain alphanumeric characters and spaces.',
     );
-    await expect(elementZero).toContainHTML(
+    await expect(firstElement).toContainHTML(
       'String must contain at least 8 character(s)',
     );
 
-    const elementOne = canvas.getByTestId('arrayfield_1_element_wrapper');
-    await expect(elementOne).toContainHTML(
+    const secondElement = canvas.getByTestId('arrayfield_1_element');
+    await expect(secondElement).toContainHTML(
       'Must only contain alphanumeric characters and spaces.',
     );
-    await expect(elementOne).toContainHTML(
+    await expect(secondElement).toContainHTML(
       'String must contain at least 8 character(s)',
     );
 

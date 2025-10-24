@@ -1,11 +1,13 @@
 import type { ClassValue } from '@fuf-stack/pixel-utils';
 
-import { FaTimes } from 'react-icons/fa';
+import { FaPlus } from 'react-icons/fa';
 
 import { cn } from '@fuf-stack/pixel-utils';
 import { Button } from '@fuf-stack/pixels';
 
-interface ElementRemoveButtonProps {
+interface ElementAppendButtonProps {
+  /** text of the append element button */
+  appendButtonText?: string;
   /** CSS class name */
   className?: ClassValue;
   /** click handler */
@@ -14,23 +16,25 @@ interface ElementRemoveButtonProps {
   testId?: string;
 }
 
-const ElementRemoveButton = ({
+const ElementAppendButton = ({
+  appendButtonText = 'Add Element',
   className = undefined,
   onClick,
   testId = undefined,
-}: ElementRemoveButtonProps) => {
+}: ElementAppendButtonProps) => {
   return (
     <Button
-      ariaLabel="remove element"
+      disableAnimation
       className={cn(className)}
-      color="danger"
-      icon={<FaTimes />}
       onClick={onClick}
       size="sm"
       testId={testId}
       variant="light"
-    />
+    >
+      <FaPlus />
+      <span>{appendButtonText}</span>
+    </Button>
   );
 };
 
-export default ElementRemoveButton;
+export default ElementAppendButton;

@@ -46,7 +46,8 @@ const FieldValidationError = ({
                 disableAnimation ? undefined : { opacity: 1, height: 'auto' }
               }
             >
-              <span className="p-1">{message}</span>
+              {/* wrap in div to apply padding and animation does not jump */}
+              <div className="px-1 pt-1">{message}</div>
             </motion.li>
           );
         })}

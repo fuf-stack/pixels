@@ -1,6 +1,5 @@
 import type { Variants as MotionVariants } from '@fuf-stack/pixel-motion';
 import type { ClassValue } from '@fuf-stack/pixel-utils';
-import type { CSSProperties } from 'react';
 import type { FieldArrayFeatures } from '../types';
 
 import { useState } from 'react';
@@ -32,10 +31,12 @@ interface FieldArrayElementProps extends FieldArrayFeatures {
   children: React.ReactNode;
   /** CSS class names for component parts */
   className: {
-    /** Class of wrapper div inside the li that wraps the rendered element fields directly */
-    elementWrapper?: ClassValue;
-    /** Class for the li */
+    /** Class of wrapper grid inside the li that wraps the rendered element fields directly */
+    elementFieldsGrid?: ClassValue;
+    /** Class for the li (performs motion animations) */
     listItem?: ClassValue;
+    /** Class for the li inner div (wraps the rendered element fields) */
+    listItemInner?: ClassValue;
     /** Class for the insert button between elements */
     insertAfterButton?: ClassValue;
     /** Class for the remove element button */
@@ -45,8 +46,8 @@ interface FieldArrayElementProps extends FieldArrayFeatures {
   };
   /** Globally disable animations for this item (used for first render or prefers-reduced-motion) */
   disableAnimation?: boolean;
-  /** Bottom margin of the list element */
-  elementMarginBottom?: CSSProperties['marginBottom'];
+  /** Bottom margin for elements (for backwards compatibility) */
+  elementMarginBottom?: React.CSSProperties['marginBottom'];
   /** All fields in the form array */
   fields: Record<'id', string>[];
   /** Unique identifier for drag/drop */
@@ -70,7 +71,7 @@ const FieldArrayElement = ({
   children,
   className,
   disableAnimation = false,
-  elementMarginBottom = '1rem',
+  elementMarginBottom: _elementMarginBottom = undefined,
   fields,
   id,
   index,
@@ -83,11 +84,12 @@ const FieldArrayElement = ({
   // Apply transform styles when sortable is enabled for smooth drag animations
   // transform: handles the item's position during drag
   // transition: controls the animation timing when dropping
-  const { setNodeRef, transform, transition } = useSortable({ id });
+  const { setNodeRef, transform, transition, isDragging } = useSortable({ id });
   const sortingStyle = sortable
     ? {
         transform: CSS.Translate.toString(transform),
         transition,
+        zIndex: isDragging ? 50 : undefined,
       }
     : undefined;
 
@@ -100,7 +102,6 @@ const FieldArrayElement = ({
     visible: {
       opacity: 1,
       height: 'auto',
-      marginBottom: elementMarginBottom,
       transition: { duration: 0.2, ease: 'circOut' },
     },
     exit: {
@@ -130,60 +131,59 @@ const FieldArrayElement = ({
           key={id}
           ref={setNodeRef}
           animate={disableAnimation ? undefined : 'visible'}
-          className={cn(className.listItem)}
+          className={cn(className.listItem, 'group')}
+          data-dragging={isDragging}
+          data-testid={`${testId}_element`}
           exit={disableAnimation ? undefined : 'exit'}
           initial={disableAnimation ? false : 'hidden'}
+          style={sortingStyle}
           variants={disableAnimation ? undefined : listItemMotionVariants}
-          style={{
-            ...sortingStyle,
-            // we have to set margin bottom here because we cannot use tailwind
-            // since the margin bottom needs to be animated when elements are added or removed
-            marginBottom: elementMarginBottom,
-          }}
         >
-          {/** sorting drag handle */}
-          {sortable ? (
-            <SortDragHandle
-              className={className.sortDragHandle}
-              id={id}
-              testId={`${testId}_sort_drag_handle`}
-            />
-          ) : null}
+          <div className={cn(className.listItemInner)}>
+            {/** sorting drag handle */}
+            {sortable ? (
+              <SortDragHandle
+                className={className.sortDragHandle}
+                id={id}
+                testId={`${testId}_sort_drag_handle`}
+              />
+            ) : null}
 
-          {/** render element fields */}
-          <div
-            className={cn(className.elementWrapper)}
-            data-testid={`${testId}_element_wrapper`}
-          >
-            {/* TODO: this has to be improved */}
-            <Grid>{children}</Grid>
+            {/** render element fields in Grid component */}
+            <Grid
+              className={cn(className.elementFieldsGrid)}
+              testId={`${testId}_element_fields_grid`}
+            >
+              {/* render actual fields */}
+              {children}
+            </Grid>
+
+            {/** remove element */}
+            {lastNotDeletable && fields.length === 1 ? null : (
+              <ElementRemoveButton
+                className={className.removeButton}
+                testId={`${testId}_remove_button`}
+                onClick={() => {
+                  if (disableAnimation) {
+                    methods.remove();
+                  } else {
+                    setIsVisible(false);
+                  }
+                }}
+              />
+            )}
+
+            {/** insertAfter feature when not last element */}
+            {insertAfter && index !== fields.length - 1 ? (
+              <ElementInsertAfterButton
+                className={className.insertAfterButton}
+                testId={`${testId}_insert_after_button`}
+                onClick={() => {
+                  methods.insert();
+                }}
+              />
+            ) : null}
           </div>
-
-          {/** remove element */}
-          {lastNotDeletable && fields.length === 1 ? null : (
-            <ElementRemoveButton
-              className={className.removeButton}
-              testId={`${testId}_remove_button`}
-              onClick={() => {
-                if (disableAnimation) {
-                  methods.remove();
-                } else {
-                  setIsVisible(false);
-                }
-              }}
-            />
-          )}
-
-          {/** insertAfter feature when not last element */}
-          {insertAfter && index !== fields.length - 1 ? (
-            <ElementInsertAfterButton
-              className={className.insertAfterButton}
-              testId={`${testId}_insert_after_button`}
-              onClick={() => {
-                methods.insert();
-              }}
-            />
-          ) : null}
         </motion.li>
       ) : null}
     </AnimatePresence>

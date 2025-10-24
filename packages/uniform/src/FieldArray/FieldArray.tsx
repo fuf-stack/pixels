@@ -5,25 +5,81 @@ import { useEffect, useRef } from 'react';
 
 import { useReducedMotion } from '@fuf-stack/pixel-motion';
 import { cn, tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
-import { Button } from '@fuf-stack/pixels';
 
 import { flatArrayKey } from '../helpers';
 import { useFieldArray, useUniformField } from '../hooks';
 import { useFormContext } from '../hooks/useFormContext/useFormContext';
 import FieldValidationError from '../partials/FieldValidationError/FieldValidationError';
+import ElementAppendButton from './subcomponents/ElementAppendButton';
 import FieldArrayElement from './subcomponents/FieldArrayElement';
 import SortContext from './subcomponents/SortContext';
 
 export const fieldArrayVariants = tv({
   slots: {
-    appendButton: 'w-full',
-    elementWrapper: 'grow',
-    insertAfterButton: 'text-xs font-medium',
-    label: 'pointer-events-auto! static! z-0! -mb-1 ml-1 inline-block!',
-    list: 'm-0 w-full list-none',
-    listItem: 'flex w-full flex-row',
-    removeButton: 'ml-1',
-    sortDragHandle: 'mr-2 text-base text-xl',
+    /** base class for the field array wrapper */
+    base: [
+      // base styles
+      'rounded-small border-divider bg-background overflow-hidden border',
+      // divider between items
+      'divide-divider divide-y',
+    ],
+    /** class for the append button */
+    appendButton: [
+      'w-full',
+      // focus styles - inset ring with rounded bottom corners to match container
+      'focus-visible:ring-focus outline-none focus-visible:ring-2 focus-visible:ring-inset',
+      '!rounded-b-small !rounded-t-none',
+    ],
+    /** class for the element fields grid */
+    elementFieldsGrid: ['w-full grow p-3'],
+    /** class for the insert after button */
+    insertAfterButton: ['text-xs font-medium'],
+    /** class for the label */
+    label: [
+      'pointer-events-auto! static! z-0!',
+      // label positioning
+      '-mb-1 ml-1 inline-block!',
+    ],
+    /** class for the list wrapper */
+    listWrapper: ['-mt-px overflow-hidden'],
+    /** class for the list */
+    list: ['overflow-hidden'],
+    /** class for the list item (performs motion animations) */
+    listItem: [
+      // base styles
+      'relative flex flex-row',
+      // overlap borders by shifting all items up 1px except first
+      '[&:not(:first-child)]:-mt-px',
+      // hide last item's bottom border by pulling it down into the append button
+      'last:-mb-px',
+    ],
+    /** class for the list item inner */
+    listItemInner: [
+      // base styles
+      'bg-content1 divide-divider flex w-full flex-row items-stretch',
+      // x division and borders
+      'border-divider divide-x divide-solid border-t border-b',
+    ],
+    /** class for the remove button */
+    removeButton: [
+      // base styles
+      'flex items-center justify-center',
+      // fixed height/no round corners
+      '!h-full !min-h-0 !rounded-none px-3',
+      // focus styles - inset ring with top-right corner rounded for first item only
+      'focus-visible:ring-focus outline-none focus-visible:ring-2 focus-visible:ring-inset',
+      'group-[:first-child]:!rounded-tr-small group-[:first-child]:group-data-[dragging=true]:!rounded-tr-none',
+    ],
+    /** class for the sort drag handle */
+    sortDragHandle: [
+      // base styles
+      'text-default-500 flex cursor-grab items-center justify-center px-2 transition-colors',
+      // hover and  dragging state
+      'hover:bg-default-100 group-data-[dragging=true]:bg-default-100 active:cursor-grabbing',
+      // focus styles - inset ring with top-left corner rounded for first item only
+      'focus-visible:ring-focus outline-none focus-visible:ring-2 focus-visible:ring-inset',
+      'group-[:first-child]:rounded-tl-small group-[:first-child]:group-data-[dragging=true]:rounded-tl-none',
+    ],
   },
 });
 
@@ -100,90 +156,94 @@ const FieldArray = ({
 
   // className from slots
   const variants = fieldArrayVariants();
-  const className = variantsToClassNames(variants, _className, 'list');
+  const className = variantsToClassNames(variants, _className, 'base');
 
   return (
-    <SortContext fields={fields} move={move} sortable={sortable}>
-      <ul className={className.list} data-testid={testId}>
-        {/* field array label */}
-        {label ? (
-          // eslint-disable-next-line jsx-a11y/label-has-associated-control
-          <label
-            {...getLabelProps()}
-            className={cn(getLabelProps()?.className, className.label)}
-          >
-            {label}
-          </label>
-        ) : null}
+    <div className={className.base}>
+      {/* field array label */}
+      {label ? (
+        // eslint-disable-next-line jsx-a11y/label-has-associated-control
+        <label
+          {...getLabelProps()}
+          className={cn(getLabelProps()?.className, className.label)}
+        >
+          {label}
+        </label>
+      ) : null}
 
-        {/* fields */}
-        {fields.map((field, index) => {
-          const elementName = flat
-            ? `${name}.${index}.${flatArrayKey}`
-            : `${name}.${index}`;
-          const elementTestId = `${testId}_${index}`;
+      {/* sortable context */}
+      <SortContext fields={fields} move={move} sortable={sortable}>
+        {/* list wrapper */}
+        <div className={className.listWrapper}>
+          {/* list container */}
+          <ul className={className.list} data-testid={testId}>
+            {/* fields / list elements  */}
+            {fields.map((field, index) => {
+              const elementName = flat
+                ? `${name}.${index}.${flatArrayKey}`
+                : `${name}.${index}`;
+              const elementTestId = `${testId}_${index}`;
 
-          // create methods for element
-          const elementMethods: FieldArrayElementMethods = {
-            append: () => {
-              append(elementInitialValue);
-            },
-            duplicate: () => {
-              const values = getValues(name);
-              const currentValue = (values as unknown[])[index];
-              const nextValue = flat
-                ? { [flatArrayKey]: currentValue }
-                : currentValue;
-              insert(index + 1, nextValue);
-            },
-            insert: () => {
-              insert(index + 1, elementInitialValue);
-            },
-            remove: () => {
-              remove(index);
-            },
-          };
+              // create methods for element
+              const elementMethods: FieldArrayElementMethods = {
+                append: () => {
+                  append(elementInitialValue);
+                },
+                duplicate: () => {
+                  const values = getValues(name);
+                  const currentValue = (values as unknown[])[index];
+                  const nextValue = flat
+                    ? { [flatArrayKey]: currentValue }
+                    : currentValue;
+                  insert(index + 1, nextValue);
+                },
+                insert: () => {
+                  insert(index + 1, elementInitialValue);
+                },
+                remove: () => {
+                  remove(index);
+                },
+              };
 
-          return (
-            <FieldArrayElement
-              key={field.id}
-              className={className}
-              disableAnimation={disableAnimationRef.current}
-              duplicate={duplicate}
-              elementMarginBottom={elementMarginBottom}
-              fields={fields}
-              id={field.id}
-              index={index}
-              insertAfter={insertAfter}
-              lastNotDeletable={lastElementNotRemovable}
-              methods={elementMethods}
-              sortable={sortable}
-              testId={elementTestId}
-            >
-              {children({
-                index,
-                length: fields.length,
-                methods: elementMethods,
-                name: elementName,
-                testId: elementTestId,
-              })}
-            </FieldArrayElement>
-          );
-        })}
-      </ul>
+              return (
+                <FieldArrayElement
+                  key={field.id}
+                  className={className}
+                  disableAnimation={disableAnimationRef.current}
+                  duplicate={duplicate}
+                  elementMarginBottom={elementMarginBottom}
+                  fields={fields}
+                  id={field.id}
+                  index={index}
+                  insertAfter={insertAfter}
+                  lastNotDeletable={lastElementNotRemovable}
+                  methods={elementMethods}
+                  sortable={sortable}
+                  testId={elementTestId}
+                >
+                  {children({
+                    index,
+                    length: fields.length,
+                    methods: elementMethods,
+                    name: elementName,
+                    testId: elementTestId,
+                  })}
+                </FieldArrayElement>
+              );
+            })}
+          </ul>
+        </div>
+      </SortContext>
 
-      {/* append elements */}
-      <Button
-        disableAnimation
+      {/* append elements button */}
+      <ElementAppendButton
+        appendButtonText={appendButtonText}
         className={className.appendButton}
-        size="sm"
         testId={`${testId}_append_button`}
         onClick={() => {
           append(elementInitialValue);
         }}
-      >
-        {appendButtonText}
-      </Button>
+      />
 
       {/* top level field array errors */}
       {invalid ? (
@@ -202,7 +262,7 @@ const FieldArray = ({
           </div>
         </div>
       ) : null}
-    </SortContext>
+    </div>
   );
 };
 
