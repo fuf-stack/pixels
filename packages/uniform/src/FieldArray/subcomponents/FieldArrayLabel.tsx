@@ -24,7 +24,7 @@ const FieldArrayLabel = ({
   label: _label,
   name,
 }: FieldArrayLabelProps) => {
-  const { getLabelProps, label } = useUniformField({
+  const { error, getLabelProps, invalid, label } = useUniformField({
     name,
     showInvalidWhen: 'immediate',
     label: _label,
@@ -35,12 +35,19 @@ const FieldArrayLabel = ({
     return null;
   }
 
+  // @ts-expect-error - error._errors exists but not typed
+  // eslint-disable-next-line no-underscore-dangle
+  const hasErrors = invalid && error?._errors;
+
   return (
     <div
       {...getLabelProps()}
       aria-level={3}
-      className={cn(getLabelProps()?.className, className)}
       role="heading"
+      className={cn(getLabelProps()?.className, className, {
+        // when there are no array level errors, the label should have foreground color
+        'text-foreground!': !hasErrors,
+      })}
     >
       {label}
     </div>

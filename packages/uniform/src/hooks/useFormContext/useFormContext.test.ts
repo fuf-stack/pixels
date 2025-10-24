@@ -95,7 +95,7 @@ describe('checkFieldIsRequired', () => {
     let result = checkFieldIsRequired(validation, fieldPath);
     expect(result).toBe(false);
 
-    // array is required
+    // array is required (not optional/nullable)
     fieldPath = ['arrayField'];
     result = checkFieldIsRequired(validation, fieldPath);
     expect(result).toBe(true);
@@ -115,7 +115,27 @@ describe('checkFieldIsRequired', () => {
     let result = checkFieldIsRequired(validation, fieldPath);
     expect(result).toBe(true);
 
-    // array is optional
+    // array is optional (not required)
+    fieldPath = ['arrayField'];
+    result = checkFieldIsRequired(validation, fieldPath);
+    expect(result).toBe(false);
+  });
+
+  it('nullable array is not required', () => {
+    const validation = v({
+      arrayField: object({
+        name: string(),
+      })
+        .array()
+        .nullable(),
+    });
+
+    // field in the array is required
+    let fieldPath = ['arrayField', 'name'];
+    let result = checkFieldIsRequired(validation, fieldPath);
+    expect(result).toBe(true);
+
+    // nullable array is not required
     fieldPath = ['arrayField'];
     result = checkFieldIsRequired(validation, fieldPath);
     expect(result).toBe(false);
@@ -147,7 +167,7 @@ describe('checkFieldIsRequired', () => {
     let result = checkFieldIsRequired(validation, fieldPath);
     expect(result).toBe(true);
 
-    // object required
+    // array is required (not optional/nullable)
     fieldPath = ['refineArray'];
     result = checkFieldIsRequired(validation, fieldPath);
     expect(result).toBe(true);

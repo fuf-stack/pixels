@@ -17,10 +17,16 @@ export const checkFieldIsRequired = (
   path: string[],
 ): boolean => {
   const checkRequired = (schema: any) => {
-    // arrays with minLength are required
-    if (schema.type === 'array' && schema?.minLength) {
+    // arrays ...
+    if (schema.type === 'array') {
+      // ... if array is optional or nullable it is not required
+      if (schema.isOptional || schema.isNullable) {
+        return false;
+      }
+      // ... otherwise arrays are required (display logic wise -> no asterisk in the label)
       return true;
     }
+
     // all other fields are required if they are
     // not optional and not nullable
     return !schema.isOptional && !schema.isNullable;
