@@ -1,3 +1,4 @@
+import type { ClassValue } from '@fuf-stack/pixel-utils';
 import type { MenuItem } from '@fuf-stack/pixels';
 import type { Key } from 'react';
 import type { FieldArrayElementMethods } from './FieldArrayElement';
@@ -5,11 +6,12 @@ import type { FieldArrayElementMethods } from './FieldArrayElement';
 import { FaCopy, FaTimes } from 'react-icons/fa';
 import { VscInsert } from 'react-icons/vsc';
 
+import { cn } from '@fuf-stack/pixel-utils';
 import { Menu } from '@fuf-stack/pixels';
 
 export interface ElementActionsMenuProps {
   /** CSS class name */
-  className?: string;
+  className?: ClassValue;
   /** Whether duplicate action is available */
   duplicate?: boolean;
   /** Whether insert after action is available */
@@ -80,13 +82,12 @@ const ElementActionsMenu = ({
   return (
     <Menu
       ariaLabel="Element actions"
-      className={{ trigger: className }}
       items={menuItems}
       onAction={handleAction}
       placement="right"
       testId={testId}
       triggerButtonProps={{
-        className,
+        className: cn(className),
         disableRipple: true,
         size: 'md',
         variant: 'light',
