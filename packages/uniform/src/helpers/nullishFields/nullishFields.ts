@@ -158,6 +158,7 @@ export const toFormFormat = (fields: Record<string, unknown>) => {
  * - Unwrapping flat array wrappers `{ __FLAT__: <value> }` back to primitives
  * - Converting legacy string markers (__NULL__, __FALSE__, __ZERO__) back to their original values
  * - Removing fields whose converted value is empty string or null
+ * - Removing empty arrays
  *
  * @example
  * const formState = {
@@ -168,6 +169,7 @@ export const toFormFormat = (fields: Record<string, unknown>) => {
  *     { __FLAT__: null },
  *     { __FLAT__: false }
  *   ],
+ *   emptyArray: [],
  *   scoresDetailed: [
  *     { score: 1 },
  *     {},
@@ -185,6 +187,7 @@ export const toFormFormat = (fields: Record<string, unknown>) => {
  * {
  *   name: 'John',
  *   scores: [75, 0, null, false],
+ *   // emptyArray is removed
  *   // Objects inside arrays remain objects; empty entries remain empty objects
  *   scoresDetailed: [
  *     { score: 1 },
@@ -248,6 +251,10 @@ export const toValidationFormat = (
                 const convertedInner = fromNullishString(record[flatArrayKey]);
                 return convertedInner !== '' && convertedInner !== null;
               }
+            }
+            // Drop empty arrays
+            if (Array.isArray(v) && v.length === 0) {
+              return false;
             }
             // For regular values, convert markers and drop when empty/null.
             const converted = fromNullishString(v);

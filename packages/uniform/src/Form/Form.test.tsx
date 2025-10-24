@@ -114,7 +114,7 @@ describe('Form', () => {
       );
 
       await user.click(screen.getByRole('button'));
-      expect(handleSubmit).toHaveBeenCalledWith(
+      expect(handleSubmit).toHaveBeenCalledExactlyOnceWith(
         expect.objectContaining(initialValues),
         expect.anything(),
       );
@@ -140,7 +140,7 @@ describe('Form', () => {
       await user.click(screen.getByRole('button'));
 
       // Verify that nullish markers are converted properly
-      expect(handleSubmit).toHaveBeenCalledWith(
+      expect(handleSubmit).toHaveBeenCalledExactlyOnceWith(
         {
           // __NULL__ should be converted to null and then filtered out
           // __FALSE__ should be converted to false (preserved as valid data)
@@ -177,14 +177,13 @@ describe('Form', () => {
       await user.click(screen.getByRole('button'));
 
       // Only non-null/non-empty values should be passed to onSubmit
-      expect(handleSubmit).toHaveBeenCalledWith(
+      expect(handleSubmit).toHaveBeenCalledExactlyOnceWith(
         {
           validString: 'keep this',
-          // null, undefined, and empty string should be filtered out
-          // but false, 0, empty arrays, and empty objects are preserved as valid data
+          // null, undefined, empty string, and empty arrays should be filtered out
+          // but false, 0, and empty objects are preserved as valid data
           zeroNumber: 0,
           falseBoolean: false,
-          emptyArray: [],
           emptyObject: {},
         },
         expect.anything(),
@@ -215,7 +214,7 @@ describe('Form', () => {
       await user.click(screen.getByRole('button'));
 
       // Verify nested conversion and filtering
-      expect(handleSubmit).toHaveBeenCalledWith(
+      expect(handleSubmit).toHaveBeenCalledExactlyOnceWith(
         {
           user: {
             name: 'John',
@@ -256,16 +255,15 @@ describe('Form', () => {
 
       await user.click(screen.getByRole('button'));
 
-      // Verify that only null, undefined, empty strings, and null markers are filtered out
-      expect(handleSubmit).toHaveBeenCalledWith(
+      // Verify that only null, undefined, empty strings, empty arrays, and null markers are filtered out
+      expect(handleSubmit).toHaveBeenCalledExactlyOnceWith(
         {
           shouldKeep: 'value',
           shouldKeepFalse: false,
           shouldKeepZero: 0,
-          shouldKeepEmptyArray: [],
           shouldKeepEmptyObject: {},
-          // shouldFilterNull, shouldFilterEmptyString, shouldFilterUndefined, and
-          // shouldFilterNullMarker should all be filtered out
+          // shouldFilterNull, shouldFilterEmptyString, shouldFilterUndefined,
+          // shouldFilterNullMarker, and shouldKeepEmptyArray (now filtered) should all be filtered out
         },
         expect.anything(),
       );

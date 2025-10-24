@@ -204,6 +204,48 @@ describe('toValidationFormat', () => {
     const result = toValidationFormat(null);
     expect(result).toBeNull();
   });
+
+  it('should remove empty arrays', () => {
+    const input = {
+      emptyArray: [],
+      nonEmptyArray: [{ [flatArrayKey]: 'value' }],
+      nestedObject: {
+        emptyArray: [],
+        value: 'test',
+      },
+    } as unknown as Record<string, unknown>;
+
+    const expected = {
+      nonEmptyArray: ['value'],
+      nestedObject: {
+        value: 'test',
+      },
+    };
+
+    expect(toValidationFormat(input)).toEqual(expected);
+  });
+
+  it('should remove empty arrays with mixed content', () => {
+    const input = {
+      name: 'John',
+      tags: [],
+      scores: [{ [flatArrayKey]: 75 }],
+      emptyNested: {
+        items: [],
+        otherField: 'value',
+      },
+    } as unknown as Record<string, unknown>;
+
+    const expected = {
+      name: 'John',
+      scores: [75],
+      emptyNested: {
+        otherField: 'value',
+      },
+    };
+
+    expect(toValidationFormat(input)).toEqual(expected);
+  });
 });
 
 describe('round trip conversion', () => {

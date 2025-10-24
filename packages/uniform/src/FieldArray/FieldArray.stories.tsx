@@ -37,14 +37,16 @@ const meta: Meta<typeof FieldArray> = {
 export default meta;
 type Story = StoryObj<typeof FieldArray>;
 
-const validationRequired = veto({
-  arrayField: array(object({ name: string() })).max(3),
+const validationOptional = veto({
+  arrayField: array(object({ name: string() }))
+    .max(3)
+    .optional(),
 });
 
 export const Default: Story = {
   parameters: {
     formProps: {
-      validation: validationRequired,
+      validation: validationOptional,
     },
   },
   args: {
@@ -56,14 +58,14 @@ export const Default: Story = {
   },
 };
 
-const validationRequiredFlat = veto({
-  arrayField: array(string()).max(3),
+const validationFlat = veto({
+  arrayField: array(string()).max(3).optional(),
 });
 
 export const FlatArray: Story = {
   parameters: {
     formProps: {
-      validation: validationRequiredFlat,
+      validation: validationFlat,
     },
   },
   args: {
@@ -242,7 +244,7 @@ export const LastElementNotRemovable: Story = {
 export const WithoutLabels: Story = {
   parameters: {
     formProps: {
-      validation: validationRequired,
+      validation: validationOptional,
     },
   },
   args: {
