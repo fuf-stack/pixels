@@ -11,6 +11,7 @@ import { useFieldArray, useUniformField } from '../hooks';
 import { useFormContext } from '../hooks/useFormContext/useFormContext';
 import ElementAppendButton from './subcomponents/ElementAppendButton';
 import FieldArrayElement from './subcomponents/FieldArrayElement';
+import FieldArrayLabel from './subcomponents/FieldArrayLabel';
 import FieldArrayValidationError from './subcomponents/FieldArrayValidationError';
 import SortContext from './subcomponents/SortContext';
 
@@ -19,7 +20,7 @@ export const fieldArrayVariants = tv({
     /** base class for the field array wrapper */
     base: [
       // base styles
-      'rounded-small border-divider bg-background overflow-hidden border',
+      'rounded-small border-divider bg-content1 overflow-hidden border',
       // divider between items
       'divide-divider divide-y',
     ],
@@ -27,6 +28,8 @@ export const fieldArrayVariants = tv({
     appendButton: [
       // base styles
       'rounded-b-small w-full rounded-t-none',
+      // match label height (p-3 = 12px vertical padding + text-base line height)
+      '!h-[48px] !min-h-0',
       // focus styles - inset ring with rounded bottom corners to match container
       'focus-visible:ring-focus outline-none focus-visible:ring-2 focus-visible:ring-inset',
     ],
@@ -36,18 +39,23 @@ export const fieldArrayVariants = tv({
     insertAfterButton: ['text-xs font-medium'],
     /** class for the label */
     label: [
-      'pointer-events-auto! static! z-0!',
-      // label positioning
-      '-mb-1 ml-1 inline-block!',
+      // override HeroUI label positioning and display
+      'pointer-events-auto! static! z-auto! block! w-full!',
+      // reset any transforms or translations
+      'translate-x-0! translate-y-0! transform-none!',
+      // card header styling - use text-medium (16px) instead of text-base for correct 48px height
+      'rounded-t-small text-medium p-3 font-semibold',
     ],
     /** class for the list */
     list: ['overflow-hidden'],
     /** class for the list wrapper */
-    listWrapper: ['-mt-px overflow-hidden'],
+    listWrapper: ['overflow-hidden'],
     /** class for the list item (performs motion animations) */
     listItem: [
       // base styles
       'group relative flex flex-row',
+      // overlap borders by shifting first item up 1px (similar to how last item overlaps with append button)
+      'first:-mt-px',
     ],
     /** class for the list item inner */
     listItemInner: [
@@ -62,9 +70,8 @@ export const fieldArrayVariants = tv({
       'flex items-center justify-center',
       // fixed height/no round corners
       '!h-full !min-h-0 !rounded-none px-3',
-      // focus styles - inset ring with top-right corner rounded for first item only
+      // focus styles - inset ring
       'focus-visible:ring-focus outline-none focus-visible:ring-2 focus-visible:ring-inset',
-      'group-[:first-child]:!rounded-tr-small group-[:first-child]:group-data-[dragging=true]:!rounded-tr-none',
     ],
     /** class for the sort drag handle */
     sortDragHandle: [
@@ -72,10 +79,21 @@ export const fieldArrayVariants = tv({
       'text-default-500 flex cursor-grab items-center justify-center px-2 transition-colors',
       // hover and  dragging state
       'hover:bg-default-100 group-data-[dragging=true]:bg-default-100 active:cursor-grabbing',
-      // focus styles - inset ring with top-left corner rounded for first item only
+      // focus styles - inset ring
       'focus-visible:ring-focus outline-none focus-visible:ring-2 focus-visible:ring-inset',
-      'group-[:first-child]:rounded-tl-small group-[:first-child]:group-data-[dragging=true]:rounded-tl-none',
     ],
+  },
+  variants: {
+    hasLabel: {
+      false: {
+        // focus styles - when there is no label, the first item remove button focus ring should have rounded top right corners
+        removeButton:
+          'group-[:first-child]:!rounded-tr-small group-[:first-child]:group-data-[dragging=true]:!rounded-tr-none',
+        // focus styles - when there is no label, the first item sort drag handle focus ring should have rounded top left corners
+        sortDragHandle:
+          'group-[:first-child]:rounded-tl-small group-[:first-child]:group-data-[dragging=true]:rounded-tl-none',
+      },
+    },
   },
 });
 
@@ -96,12 +114,11 @@ const FieldArray = ({
   sortable = false,
   ...uniformFieldProps
 }: FieldArrayProps) => {
-  const { control, error, getLabelProps, getValues, invalid, label, testId } =
-    useUniformField({
-      name,
-      showInvalidWhen: 'immediate',
-      ...uniformFieldProps,
-    });
+  const { control, error, getValues, invalid, testId } = useUniformField({
+    name,
+    showInvalidWhen: 'immediate',
+    ...uniformFieldProps,
+  });
 
   const { fields, append, remove, insert, move } = useFieldArray({
     control,
@@ -142,85 +159,83 @@ const FieldArray = ({
   }
 
   // className from slots
-  const variants = fieldArrayVariants();
+  const variants = fieldArrayVariants({ hasLabel: !!uniformFieldProps.label });
   const className = variantsToClassNames(variants, _className, 'base');
 
   return (
     <div className={className.base}>
       {/* field array label */}
-      {label ? (
-        // eslint-disable-next-line jsx-a11y/label-has-associated-control
-        <label
-          {...getLabelProps()}
-          className={cn(getLabelProps()?.className, className.label)}
-        >
-          {label}
-        </label>
+      <FieldArrayLabel
+        className={className.label}
+        label={uniformFieldProps.label}
+        name={name}
+      />
+
+      {fields.length ? (
+        /* list wrapper */
+        <div className={cn(className.listWrapper)}>
+          {/* sortable context */}
+          <SortContext fields={fields} move={move} sortable={sortable}>
+            {/* list container */}
+            <ul className={className.list} data-testid={testId}>
+              {/* fields / list elements  */}
+              {fields.map((field, index) => {
+                const elementName = flat
+                  ? `${name}.${index}.${flatArrayKey}`
+                  : `${name}.${index}`;
+                const elementTestId = `${testId}_${index}`;
+
+                // create methods for element
+                const elementMethods: FieldArrayElementMethods = {
+                  append: () => {
+                    append(elementInitialValue);
+                  },
+                  duplicate: () => {
+                    const values = getValues(name);
+                    const currentValue = (values as unknown[])[index];
+                    const nextValue = flat
+                      ? { [flatArrayKey]: currentValue }
+                      : currentValue;
+                    insert(index + 1, nextValue);
+                  },
+                  insert: () => {
+                    insert(index + 1, elementInitialValue);
+                  },
+                  remove: () => {
+                    remove(index);
+                  },
+                };
+
+                return (
+                  <FieldArrayElement
+                    key={field.id}
+                    className={className}
+                    disableAnimation={disableAnimationRef.current}
+                    duplicate={duplicate}
+                    elementMarginBottom={elementMarginBottom}
+                    fields={fields}
+                    id={field.id}
+                    index={index}
+                    insertAfter={insertAfter}
+                    lastNotDeletable={lastElementNotRemovable}
+                    methods={elementMethods}
+                    sortable={sortable}
+                    testId={elementTestId}
+                  >
+                    {children({
+                      index,
+                      length: fields.length,
+                      methods: elementMethods,
+                      name: elementName,
+                      testId: elementTestId,
+                    })}
+                  </FieldArrayElement>
+                );
+              })}
+            </ul>
+          </SortContext>
+        </div>
       ) : null}
-
-      {/* list wrapper */}
-      <div className={className.listWrapper}>
-        {/* sortable context */}
-        <SortContext fields={fields} move={move} sortable={sortable}>
-          {/* list container */}
-          <ul className={className.list} data-testid={testId}>
-            {/* fields / list elements  */}
-            {fields.map((field, index) => {
-              const elementName = flat
-                ? `${name}.${index}.${flatArrayKey}`
-                : `${name}.${index}`;
-              const elementTestId = `${testId}_${index}`;
-
-              // create methods for element
-              const elementMethods: FieldArrayElementMethods = {
-                append: () => {
-                  append(elementInitialValue);
-                },
-                duplicate: () => {
-                  const values = getValues(name);
-                  const currentValue = (values as unknown[])[index];
-                  const nextValue = flat
-                    ? { [flatArrayKey]: currentValue }
-                    : currentValue;
-                  insert(index + 1, nextValue);
-                },
-                insert: () => {
-                  insert(index + 1, elementInitialValue);
-                },
-                remove: () => {
-                  remove(index);
-                },
-              };
-
-              return (
-                <FieldArrayElement
-                  key={field.id}
-                  className={className}
-                  disableAnimation={disableAnimationRef.current}
-                  duplicate={duplicate}
-                  elementMarginBottom={elementMarginBottom}
-                  fields={fields}
-                  id={field.id}
-                  index={index}
-                  insertAfter={insertAfter}
-                  lastNotDeletable={lastElementNotRemovable}
-                  methods={elementMethods}
-                  sortable={sortable}
-                  testId={elementTestId}
-                >
-                  {children({
-                    index,
-                    length: fields.length,
-                    methods: elementMethods,
-                    name: elementName,
-                    testId: elementTestId,
-                  })}
-                </FieldArrayElement>
-              );
-            })}
-          </ul>
-        </SortContext>
-      </div>
 
       {/* append elements button */}
       <ElementAppendButton

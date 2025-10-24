@@ -25,7 +25,6 @@ const ElementInsertAfterButton = ({
       color="success"
       icon={<FaPlus />}
       onClick={onClick}
-      size="sm"
       testId={testId}
       variant="light"
     />

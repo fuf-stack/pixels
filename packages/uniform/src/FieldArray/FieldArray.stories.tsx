@@ -49,8 +49,9 @@ export const Default: Story = {
   },
   args: {
     name: 'arrayField',
+    label: 'Array Field',
     children: ({ name }) => {
-      return <Input name={`${name}.name`} />;
+      return <Input label="Name" name={`${name}.name`} />;
     },
   },
 };
@@ -67,9 +68,10 @@ export const FlatArray: Story = {
   },
   args: {
     name: 'arrayField',
+    label: 'Flat Array Field',
     flat: true,
     children: ({ name }) => {
-      return <Input name={name} />;
+      return <Input label="Value" name={name} />;
     },
   },
 };
@@ -82,8 +84,9 @@ export const WithInitialValue: Story = {
   },
   args: {
     name: 'arrayField',
-    children: ({ name, index }) => {
-      return <Input label={`name ${index}`} name={`${name}.name`} />;
+    label: 'People',
+    children: ({ name }) => {
+      return <Input label="Name" name={`${name}.name`} />;
     },
   },
 };
@@ -110,8 +113,9 @@ export const Required: Story = {
   },
   args: {
     name: 'arrayField',
-    children: ({ name, index }) => {
-      return <Input label={`name ${index}`} name={`${name}.name`} />;
+    label: 'Required Array',
+    children: ({ name }) => {
+      return <Input label="Name" name={`${name}.name`} />;
     },
   },
 };
@@ -149,11 +153,12 @@ export const Invalid: Story = {
   },
   args: {
     name: 'arrayField',
+    label: 'Invalid Array',
     children: ({ name }) => {
       return (
         <>
-          <Input name={`${name}.name`} />
-          <Input name={`${name}.test`} />
+          <Input label="Name" name={`${name}.name`} />
+          <Input label="Test Field" name={`${name}.test`} />
         </>
       );
     },
@@ -226,10 +231,25 @@ export const LastElementNotRemovable: Story = {
   },
   args: {
     name: 'arrayField',
-    children: ({ name, index }) => {
-      return <Input label={`name ${index}`} name={`${name}.name`} />;
+    label: 'Last Element Not Removable',
+    children: ({ name }) => {
+      return <Input label="Name" name={`${name}.name`} />;
     },
     lastElementNotRemovable: true,
+  },
+};
+
+export const WithoutLabels: Story = {
+  parameters: {
+    formProps: {
+      validation: validationRequired,
+    },
+  },
+  args: {
+    name: 'arrayField',
+    children: ({ name }) => {
+      return <Input name={`${name}.name`} />;
+    },
   },
 };
 
@@ -241,11 +261,12 @@ export const CustomTestId: Story = {
   },
   args: {
     name: 'arrayField',
-    children: ({ name, index, methods }) => {
+    label: 'Custom Test ID Array',
+    children: ({ name, methods }) => {
       return (
         <>
-          <Input label={`name ${index}`} name={`${name}.name`} />
-          <Input label={`age ${index}`} name={`${name}.age`} />
+          <Input label="Name" name={`${name}.name`} />
+          <Input label="Age" name={`${name}.age`} />
           <Button
             className="mt-2"
             onClick={() => {
@@ -277,11 +298,12 @@ export const Duplicate: Story = {
   },
   args: {
     name: 'arrayField',
-    children: ({ name, index, methods }) => {
+    label: 'Duplicate Elements',
+    children: ({ name, methods }) => {
       return (
         <>
-          <Input label={`name ${index}`} name={`${name}.name`} />
-          <Input label={`age ${index}`} name={`${name}.age`} />
+          <Input label="Name" name={`${name}.name`} />
+          <Input label="Age" name={`${name}.age`} />
           <Button
             className="mt-2"
             onClick={() => {
@@ -313,8 +335,9 @@ export const InsertAfter: Story = {
   },
   args: {
     name: 'arrayField',
-    children: ({ name, index }) => {
-      return <Input label={`name ${index}`} name={`${name}.name`} />;
+    label: 'Insert After Example',
+    children: ({ name }) => {
+      return <Input label="Name" name={`${name}.name`} />;
     },
     insertAfter: true,
     testId: 'arrayfield',
@@ -331,8 +354,11 @@ export const Sortable: Story = {
   },
   args: {
     name: 'arrayField',
+    label: 'Sortable Elements',
     children: ({ name, index }) => {
-      return <Input label={`name at index ${index}`} name={`${name}.name`} />;
+      return (
+        <Input label={`Element ${index + 1} Name`} name={`${name}.name`} />
+      );
     },
     testId: 'arrayfield',
     sortable: true,
