@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.3.7](https://github.com/fuf-stack/pixels/compare/pixels-v1.3.6...pixels-v1.3.7) (2025-10-24)
+
+
+### Bug Fixes
+
+* **deps:** update dependency framer-motion to v12.23.23 ([#1264](https://github.com/fuf-stack/pixels/issues/1264)) ([d8fae1a](https://github.com/fuf-stack/pixels/commit/d8fae1ae1530beed1358dae25e0623abc2ceb9ec))
+* **deps:** update dependency framer-motion to v12.23.24 ([#1268](https://github.com/fuf-stack/pixels/issues/1268)) ([ef3db23](https://github.com/fuf-stack/pixels/commit/ef3db23850d37192b20ec097f71a8ad7c33b4713))
+
 ## [1.3.6](https://github.com/fuf-stack/pixels/compare/pixels-v1.3.5...pixels-v1.3.6) (2025-09-29)
 
 
