@@ -1,11 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { FaCopy, FaPlus, FaTimes } from 'react-icons/fa';
-
 import { action } from 'storybook/actions';
 import { expect, userEvent, within } from 'storybook/test';
 
-import { Button } from '@fuf-stack/pixels';
 import { SubmitButton } from '@fuf-stack/uniform';
 import { array, object, refineArray, string, veto } from '@fuf-stack/veto';
 
@@ -122,7 +119,7 @@ export const Required: Story = {
   },
 };
 
-const formValidator = veto({
+const complexValidator = veto({
   arrayField: refineArray(
     array(
       object({
@@ -149,7 +146,7 @@ const formValidator = veto({
 export const Invalid: Story = {
   parameters: {
     formProps: {
-      validation: formValidator,
+      validation: complexValidator,
       initialValues: { arrayField: [{}] },
     },
   },
@@ -264,85 +261,15 @@ export const CustomTestId: Story = {
   args: {
     name: 'arrayField',
     label: 'Custom Test ID Array',
-    children: ({ name, methods }) => {
-      return (
-        <>
-          <Input label="Name" name={`${name}.name`} />
-          <Input label="Age" name={`${name}.age`} />
-          <Button
-            className="mt-2"
-            onClick={() => {
-              methods.insert();
-            }}
-          >
-            <FaPlus />
-          </Button>
-          <Button
-            className="mt-2"
-            onClick={() => {
-              methods.remove();
-            }}
-          >
-            <FaTimes />
-          </Button>
-        </>
-      );
-    },
-    testId: 'some-test-id',
-  },
-};
-
-export const Duplicate: Story = {
-  parameters: {
-    formProps: {
-      initialValues: { arrayField: [{}] },
-    },
-  },
-  args: {
-    name: 'arrayField',
-    label: 'Duplicate Elements',
-    children: ({ name, methods }) => {
-      return (
-        <>
-          <Input label="Name" name={`${name}.name`} />
-          <Input label="Age" name={`${name}.age`} />
-          <Button
-            className="mt-2"
-            onClick={() => {
-              methods.duplicate();
-            }}
-          >
-            <FaCopy />
-          </Button>
-          <Button
-            className="mt-2"
-            onClick={() => {
-              methods.remove();
-            }}
-          >
-            <FaTimes />
-          </Button>
-        </>
-      );
-    },
-    testId: 'some-test-id',
-  },
-};
-
-export const InsertAfter: Story = {
-  parameters: {
-    formProps: {
-      initialValues: { arrayField: [{ name: 'Max' }, { name: 'Maria' }] },
-    },
-  },
-  args: {
-    name: 'arrayField',
-    label: 'Insert After Example',
     children: ({ name }) => {
-      return <Input label="Name" name={`${name}.name`} />;
+      return (
+        <>
+          <Input label="Name" name={`${name}.name`} />
+          <Input label="Age" name={`${name}.age`} />
+        </>
+      );
     },
-    insertAfter: true,
-    testId: 'arrayfield',
+    testId: 'some-test-id',
   },
 };
 
@@ -416,4 +343,91 @@ export const Sortable: Story = {
   //   //   delay: 500,
   //   // });
   // },
+};
+
+export const Duplicate: Story = {
+  parameters: {
+    formProps: {
+      initialValues: { arrayField: [{}, {}] },
+    },
+  },
+  args: {
+    name: 'arrayField',
+    label: 'Duplicate Elements',
+    duplicate: true,
+    children: ({ name }) => {
+      return (
+        <>
+          <Input label="Name" name={`${name}.name`} />
+          <Input label="Age" name={`${name}.age`} />
+        </>
+      );
+    },
+    testId: 'arrayfield',
+  },
+};
+
+export const InsertAfter: Story = {
+  parameters: {
+    formProps: {
+      initialValues: { arrayField: [{ name: 'Max' }, { name: 'Maria' }] },
+    },
+  },
+  args: {
+    name: 'arrayField',
+    label: 'Insert After Example',
+    children: ({ name }) => {
+      return <Input label="Name" name={`${name}.name`} />;
+    },
+    insertAfter: true,
+    testId: 'arrayfield',
+  },
+};
+
+export const DuplicateAndInsertAfter: Story = {
+  parameters: {
+    formProps: {
+      initialValues: { arrayField: [{ name: 'Max' }, { name: 'Maria' }] },
+    },
+  },
+  args: {
+    name: 'arrayField',
+    label: 'All Actions Available',
+    duplicate: true,
+    insertAfter: true,
+    children: ({ name }) => {
+      return (
+        <>
+          <Input label="Name" name={`${name}.name`} />
+          <Input label="Age" name={`${name}.age`} />
+        </>
+      );
+    },
+    testId: 'arrayfield',
+  },
+};
+
+export const AllFeatures: Story = {
+  parameters: {
+    formProps: {
+      validation: complexValidator,
+      initialValues: { arrayField: [{ name: 'Max' }, { name: 'Maria' }] },
+    },
+  },
+  args: {
+    name: 'arrayField',
+    label: 'All Features',
+    duplicate: true,
+    insertAfter: true,
+    lastElementNotRemovable: true,
+    sortable: true,
+    children: ({ name }) => {
+      return (
+        <>
+          <Input label="Name" name={`${name}.name`} />
+          <Input label="Age" name={`${name}.age`} />
+        </>
+      );
+    },
+  },
 };

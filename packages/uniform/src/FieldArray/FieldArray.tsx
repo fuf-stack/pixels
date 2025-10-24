@@ -24,6 +24,13 @@ export const fieldArrayVariants = tv({
       // divider between items
       'divide-divider divide-y',
     ],
+    /** class for the actions menu button */
+    actionsMenuButton: [
+      // base styles
+      'text-default-600 flex items-center justify-center',
+      // fixed height/no round corners/center align
+      'h-full rounded-none',
+    ],
     /** class for the append button */
     appendButton: [
       // base styles
@@ -35,8 +42,6 @@ export const fieldArrayVariants = tv({
     ],
     /** class for the element fields grid */
     elementFieldsGrid: ['w-full grow p-3'],
-    /** class for the insert after button */
-    insertAfterButton: ['text-xs font-medium'],
     /** class for the label */
     label: [
       // override HeroUI label positioning and display
@@ -76,7 +81,7 @@ export const fieldArrayVariants = tv({
     /** class for the sort drag handle */
     sortDragHandle: [
       // base styles
-      'text-default-500 flex cursor-grab items-center justify-center px-2 transition-colors',
+      'text-default-600 flex cursor-grab items-center justify-center px-2 transition-colors',
       // hover and  dragging state
       'hover:bg-default-100 group-data-[dragging=true]:bg-default-100 active:cursor-grabbing',
       // focus styles - inset ring
@@ -86,6 +91,9 @@ export const fieldArrayVariants = tv({
   variants: {
     hasLabel: {
       false: {
+        // focus styles - when there is no label, the first item actions menu button should have rounded top right corners
+        actionsMenuButton:
+          'group-[:first-child]:!rounded-tr-small group-[:first-child]:group-data-[dragging=true]:!rounded-tr-none',
         // focus styles - when there is no label, the first item remove button focus ring should have rounded top right corners
         removeButton:
           'group-[:first-child]:!rounded-tr-small group-[:first-child]:group-data-[dragging=true]:!rounded-tr-none',

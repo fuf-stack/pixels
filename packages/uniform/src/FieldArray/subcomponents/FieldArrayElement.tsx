@@ -11,7 +11,7 @@ import { AnimatePresence, motion } from '@fuf-stack/pixel-motion';
 import { cn } from '@fuf-stack/pixel-utils';
 
 import { Grid } from '../../Grid';
-import ElementInsertAfterButton from './ElementInsertAfterButton';
+import ElementActionsMenu from './ElementActionsMenu';
 import ElementRemoveButton from './ElementRemoveButton';
 import SortDragHandle from './SortDragHandle';
 
@@ -37,9 +37,9 @@ interface FieldArrayElementProps extends FieldArrayFeatures {
     listItem?: ClassValue;
     /** Class for the li inner div (wraps the rendered element fields) */
     listItemInner?: ClassValue;
-    /** Class for the insert button between elements */
-    insertAfterButton?: ClassValue;
-    /** Class for the remove element button */
+    /** Class for the actions menu button */
+    actionsMenuButton?: ClassValue;
+    /** Class for the remove element button (when menu is not used) */
     removeButton?: ClassValue;
     /** Class for the drag handle when sorting enabled */
     sortDragHandle?: ClassValue;
@@ -71,10 +71,11 @@ const FieldArrayElement = ({
   children,
   className,
   disableAnimation = false,
+  duplicate = false,
   elementMarginBottom: _elementMarginBottom = undefined,
   fields,
   id,
-  index,
+  index: _index,
   insertAfter = false,
   lastNotDeletable = true,
   methods,
@@ -159,31 +160,43 @@ const FieldArrayElement = ({
               {children}
             </Grid>
 
-            {/** remove element */}
-            {lastNotDeletable && fields.length === 1 ? null : (
-              <ElementRemoveButton
-                className={className.removeButton}
-                testId={`${testId}_remove_button`}
-                onClick={() => {
-                  if (disableAnimation) {
-                    methods.remove();
-                  } else {
-                    setIsVisible(false);
-                  }
+            {/** actions menu when duplicate or insertAfter is enabled */}
+            {duplicate || insertAfter ? (
+              <ElementActionsMenu
+                className={className.actionsMenuButton}
+                duplicate={duplicate}
+                insertAfter={insertAfter}
+                showRemove={!(lastNotDeletable && fields.length === 1)}
+                testId={`${testId}_actions_menu`}
+                methods={{
+                  ...methods,
+                  remove: () => {
+                    if (disableAnimation) {
+                      methods.remove();
+                    } else {
+                      setIsVisible(false);
+                    }
+                  },
                 }}
               />
+            ) : (
+              <>
+                {/** remove element button (when menu is not used) */}
+                {lastNotDeletable && fields.length === 1 ? null : (
+                  <ElementRemoveButton
+                    className={className.removeButton}
+                    testId={`${testId}_remove_button`}
+                    onClick={() => {
+                      if (disableAnimation) {
+                        methods.remove();
+                      } else {
+                        setIsVisible(false);
+                      }
+                    }}
+                  />
+                )}
+              </>
             )}
-
-            {/** insertAfter feature when not last element */}
-            {insertAfter && index !== fields.length - 1 ? (
-              <ElementInsertAfterButton
-                className={className.insertAfterButton}
-                testId={`${testId}_insert_after_button`}
-                onClick={() => {
-                  methods.insert();
-                }}
-              />
-            ) : null}
           </div>
         </motion.li>
       ) : null}
