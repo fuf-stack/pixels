@@ -47,11 +47,7 @@ export const fieldArrayVariants = tv({
     /** class for the list item (performs motion animations) */
     listItem: [
       // base styles
-      'relative flex flex-row',
-      // overlap borders by shifting all items up 1px except first
-      '[&:not(:first-child)]:-mt-px',
-      // hide last item's bottom border by pulling it down into the append button
-      'last:-mb-px',
+      'group relative flex flex-row',
     ],
     /** class for the list item inner */
     listItemInner: [

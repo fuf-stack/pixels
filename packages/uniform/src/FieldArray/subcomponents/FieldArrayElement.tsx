@@ -103,6 +103,8 @@ const FieldArrayElement = ({
       opacity: 1,
       height: 'auto',
       transition: { duration: 0.2, ease: 'circOut' },
+      // push last visible item down to overlap with append button (hide double border)
+      marginBottom: '-1px',
     },
     exit: {
       opacity: 0,
@@ -112,7 +114,6 @@ const FieldArrayElement = ({
         // on exit first fade out, then shrink
         opacity: { duration: 0.1, ease: 'circOut' },
         height: { delay: 0.1, duration: 0.2, ease: 'circOut' },
-        marginBottom: { delay: 0.1, duration: 0.2, ease: 'circOut' },
       },
     },
   };
@@ -131,7 +132,7 @@ const FieldArrayElement = ({
           key={id}
           ref={setNodeRef}
           animate={disableAnimation ? undefined : 'visible'}
-          className={cn(className.listItem, 'group')}
+          className={cn(className.listItem)}
           data-dragging={isDragging}
           data-testid={`${testId}_element`}
           exit={disableAnimation ? undefined : 'exit'}
