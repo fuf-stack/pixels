@@ -1,5 +1,38 @@
 # Changelog
 
+## [1.5.0](https://github.com/fuf-stack/pixels/compare/uniform-v1.4.2...uniform-v1.5.0) (2025-10-24)
+
+
+### Features
+
+* **uniform:** add animations for add and remove elements in FieldArray ([94702b9](https://github.com/fuf-stack/pixels/commit/94702b9807a2cf4a2f2d4ba2972059138e3bd79d))
+* **uniform:** add label syling to FieldArray ([f57c7fe](https://github.com/fuf-stack/pixels/commit/f57c7fec41aa1e1c0d569b759d2e00c173b5c636))
+* **uniform:** big refactoring for better animations ([75d823d](https://github.com/fuf-stack/pixels/commit/75d823d948f6a2ceb8915d1f65e9863af9b4b712))
+* **uniform:** refactor actions menu in FieldArray ([aaa0b26](https://github.com/fuf-stack/pixels/commit/aaa0b26b5d254fdf0ca6d1e96253e9f7abed5550))
+
+
+### Bug Fixes
+
+* **deps:** update dependency framer-motion to v12.23.23 ([#1264](https://github.com/fuf-stack/pixels/issues/1264)) ([d8fae1a](https://github.com/fuf-stack/pixels/commit/d8fae1ae1530beed1358dae25e0623abc2ceb9ec))
+* **deps:** update dependency framer-motion to v12.23.24 ([#1268](https://github.com/fuf-stack/pixels/issues/1268)) ([ef3db23](https://github.com/fuf-stack/pixels/commit/ef3db23850d37192b20ec097f71a8ad7c33b4713))
+* **uniform:** add new flat array handling logic ([90aa4d4](https://github.com/fuf-stack/pixels/commit/90aa4d450e3aa3aa4858ca19ed19ba1c9b33bf3c))
+* **uniform:** big visual refactoring of FieldArray ([dafea72](https://github.com/fuf-stack/pixels/commit/dafea72eb668f76af876b951ffe90705cfbeab8d))
+* **uniform:** ensure field arrays submit correctly and improve invalid state handling ([336161d](https://github.com/fuf-stack/pixels/commit/336161d392458a451b67947fca71b8a602cfe7a7))
+* **uniform:** fix some error display issues in FieldArray ([530a2ef](https://github.com/fuf-stack/pixels/commit/530a2efaba9e67bfa1df09848cb74f4c9685fcfb))
+* **uniform:** fix styles of FieldArray level error ([c749ed5](https://github.com/fuf-stack/pixels/commit/c749ed5acae13771a62392b7203addfbf0a64098))
+* **uniform:** fix typesript issue in ElementActionsMenu ([0d0ac50](https://github.com/fuf-stack/pixels/commit/0d0ac50b8f1172f24ef21fb3c31e44266a28ed3a))
+* **uniform:** more styles fixes for FieldArray ([f4551a6](https://github.com/fuf-stack/pixels/commit/f4551a6c85f7ae71c4fd6daa8913072147e9d0c2))
+* **uniform:** refactor when array fields are considered required ([512c030](https://github.com/fuf-stack/pixels/commit/512c0301b6b04620145f9d2f5d9ace5f9b4ef151))
+* **uniform:** remove entry arrays from nullishFields ([27924d6](https://github.com/fuf-stack/pixels/commit/27924d6e75d41055f214167435e6a3c5c6b4c24c))
+* **uniform:** rename CheckboxGroup to Checkboxes ([f1b80d0](https://github.com/fuf-stack/pixels/commit/f1b80d0c54618630b68b51017cdba5b3d1c49ba4))
+* **uniform:** rename FieldArray to Array ([a808259](https://github.com/fuf-stack/pixels/commit/a8082592b3544a75a0eeb2c5879a32f0dc94a5ba))
+* **uniform:** rename RadioGroup to Radios ([8f59aec](https://github.com/fuf-stack/pixels/commit/8f59aeceb83f698ea300779943aad4c75c4c95bf))
+
+
+### Reverts
+
+* **uniform:** rename Array to FieldArray again ([d7285b1](https://github.com/fuf-stack/pixels/commit/d7285b1efcbdf41426813b9f9d47065fe3895faa))
+
 ## [1.4.2](https://github.com/fuf-stack/pixels/compare/uniform-v1.4.1...uniform-v1.4.2) (2025-10-07)
 
 
