@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.4.0](https://github.com/fuf-stack/pixels/compare/megapixels-v0.3.5...megapixels-v0.4.0) (2025-10-24)
+
+
+### Features
+
+* **uniform:** big refactoring for better animations ([75d823d](https://github.com/fuf-stack/pixels/commit/75d823d948f6a2ceb8915d1f65e9863af9b4b712))
+
+
+### Bug Fixes
+
+* **megapixels:** rename filter checkboxgroup to checkboxes in Filter ([7f0fd80](https://github.com/fuf-stack/pixels/commit/7f0fd8063377352844fc109ab089ca35be3c2d09))
+
 ## [0.3.5](https://github.com/fuf-stack/pixels/compare/megapixels-v0.3.4...megapixels-v0.3.5) (2025-10-07)
 
 
