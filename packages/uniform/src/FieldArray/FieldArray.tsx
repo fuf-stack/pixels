@@ -30,6 +30,8 @@ export const fieldArrayVariants = tv({
       'flex items-center justify-center text-default-600',
       // fixed height/no round corners/center align
       'h-full rounded-none',
+      // focus styles - inset ring
+      'outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-focus',
     ],
     /** class for the append button */
     appendButton: [
