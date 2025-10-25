@@ -153,10 +153,17 @@ const FieldArray = ({
 
   // When lastElementNotRemovable is set and the field array is empty,
   // add an initial element to ensure there's always at least one visible element
-  if (lastElementNotRemovable && fields.length === 0) {
-    // use setValue instead of append to avoid focusing added element
-    setValue(name, [elementInitialValue]);
-  }
+  useEffect(
+    () => {
+      if (lastElementNotRemovable && fields.length === 0) {
+        // use setValue instead of append to avoid focusing added element
+        setValue(name, [elementInitialValue]);
+      }
+    },
+    // only run once when the component mounts
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [],
+  );
 
   // Track initial render to prevent animating elements on
   // first render cycle or when user prefers reduced motion
