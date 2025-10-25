@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.1](https://github.com/fuf-stack/pixels/compare/uniform-v1.5.0...uniform-v1.5.1) (2025-10-25)
+
+
+### Bug Fixes
+
+* **uniform:** use setValue instead of append for lastElementNotRemovable avoids focus in FieldArray ([88837d8](https://github.com/fuf-stack/pixels/commit/88837d804642ef59682ce2eb70da36d420c8803f))
+
 ## [1.5.0](https://github.com/fuf-stack/pixels/compare/uniform-v1.4.2...uniform-v1.5.0) (2025-10-24)
 
 
