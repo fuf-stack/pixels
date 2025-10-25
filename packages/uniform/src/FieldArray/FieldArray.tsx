@@ -192,7 +192,12 @@ const FieldArray = ({
         /* list wrapper */
         <div className={cn(className.listWrapper)}>
           {/* sortable context */}
-          <SortContext fields={fields} move={move} sortable={sortable}>
+          <SortContext
+            fields={fields}
+            move={move}
+            name={name}
+            sortable={sortable}
+          >
             {/* list container */}
             <ul className={className.list} data-testid={testId}>
               {/* fields / list elements  */}
