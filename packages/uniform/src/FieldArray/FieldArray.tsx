@@ -20,25 +20,25 @@ export const fieldArrayVariants = tv({
     /** base class for the field array wrapper */
     base: [
       // base styles
-      'rounded-small border-divider bg-content1 overflow-hidden border',
+      'overflow-hidden rounded-small border border-divider bg-content1',
       // divider between items
-      'divide-divider divide-y',
+      'divide-y divide-divider',
     ],
     /** class for the actions menu button */
     actionsMenuButton: [
       // base styles
-      'text-default-600 flex items-center justify-center',
+      'flex items-center justify-center text-default-600',
       // fixed height/no round corners/center align
       'h-full rounded-none',
     ],
     /** class for the append button */
     appendButton: [
       // base styles
-      'rounded-b-small w-full rounded-t-none',
+      'w-full rounded-b-small rounded-t-none',
       // match label height (p-3 = 12px vertical padding + text-base line height)
       '!h-[48px] !min-h-0',
       // focus styles - inset ring with rounded bottom corners to match container
-      'focus-visible:ring-focus outline-none focus-visible:ring-2 focus-visible:ring-inset',
+      'outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-focus',
     ],
     /** class for the element fields grid */
     elementFieldsGrid: ['w-full grow p-3'],
@@ -49,7 +49,7 @@ export const fieldArrayVariants = tv({
       // reset any transforms or translations
       'translate-x-0! translate-y-0! transform-none!',
       // card header styling - use text-medium (16px) instead of text-base for correct 48px height
-      'rounded-t-small text-medium p-3 font-semibold',
+      'rounded-t-small p-3 font-semibold text-medium',
     ],
     /** class for the list */
     list: ['overflow-hidden'],
@@ -65,9 +65,9 @@ export const fieldArrayVariants = tv({
     /** class for the list item inner */
     listItemInner: [
       // base styles
-      'bg-content1 divide-divider flex w-full flex-row items-stretch',
+      'flex w-full flex-row items-stretch divide-divider bg-content1',
       // x division and borders
-      'border-divider divide-x divide-solid border-t border-b',
+      'divide-x divide-solid border-b border-t border-divider',
     ],
     /** class for the remove button */
     removeButton: [
@@ -76,16 +76,16 @@ export const fieldArrayVariants = tv({
       // fixed height/no round corners
       '!h-full !min-h-0 !rounded-none px-3',
       // focus styles - inset ring
-      'focus-visible:ring-focus outline-none focus-visible:ring-2 focus-visible:ring-inset',
+      'outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-focus',
     ],
     /** class for the sort drag handle */
     sortDragHandle: [
       // base styles
-      'text-default-600 flex cursor-grab items-center justify-center px-2 transition-colors',
+      'flex cursor-grab items-center justify-center px-2 text-default-600 transition-colors',
       // hover and  dragging state
-      'hover:bg-default-100 group-data-[dragging=true]:bg-default-100 active:cursor-grabbing',
+      'hover:bg-default-100 active:cursor-grabbing group-data-[dragging=true]:bg-default-100',
       // focus styles - inset ring
-      'focus-visible:ring-focus outline-none focus-visible:ring-2 focus-visible:ring-inset',
+      'outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-focus',
     ],
   },
   variants: {
@@ -133,8 +133,9 @@ const FieldArray = ({
     name,
   });
 
+  const { trigger, setValue } = useFormContext();
+
   // Validate array-level constraints immediately when length changes
-  const { trigger } = useFormContext();
   useEffect(() => {
     setTimeout(() => {
       // Trigger validation for the array field so max/min errors appear instantly
@@ -150,6 +151,13 @@ const FieldArray = ({
     ? { [flatArrayKey]: _elementInitialValue ?? null }
     : (_elementInitialValue ?? {});
 
+  // When lastElementNotRemovable is set and the field array is empty,
+  // add an initial element to ensure there's always at least one visible element
+  if (lastElementNotRemovable && fields.length === 0) {
+    // use setValue instead of append to avoid focusing added element
+    setValue(name, [elementInitialValue]);
+  }
+
   // Track initial render to prevent animating elements on
   // first render cycle or when user prefers reduced motion
   const prefersReducedMotion = useReducedMotion();
@@ -159,12 +167,6 @@ const FieldArray = ({
       disableAnimationRef.current = false;
     }
   }, [prefersReducedMotion]);
-
-  // When lastElementNotRemovable is set and the field array is empty,
-  // add an initial element to ensure there's always at least one visible element
-  if (lastElementNotRemovable && fields.length === 0) {
-    append(elementInitialValue);
-  }
 
   // className from slots
   const variants = fieldArrayVariants({ hasLabel: !!uniformFieldProps.label });
@@ -253,7 +255,6 @@ const FieldArray = ({
           className.appendButton,
           // only round bottom corners if there are no errors below
           // @ts-expect-error - error._errors exists but not typed
-          // eslint-disable-next-line no-underscore-dangle
           { 'rounded-none': invalid && error?._errors },
         )}
         onClick={() => {

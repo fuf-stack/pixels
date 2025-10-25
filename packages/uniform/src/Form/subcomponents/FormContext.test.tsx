@@ -24,13 +24,13 @@ describe('FormContext', () => {
 
   describe('UniformContext singleton', () => {
     it('creates a context instance on window', () => {
-      // eslint-disable-next-line no-underscore-dangle, @typescript-eslint/no-explicit-any
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       expect((window as any).__UNIFORM_CONTEXT__).toBeDefined();
       expect(UniformContext).toBeDefined();
     });
 
     it('reuses the same context instance across imports', () => {
-      // eslint-disable-next-line no-underscore-dangle, @typescript-eslint/no-explicit-any
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const windowContext = (window as any).__UNIFORM_CONTEXT__;
       expect(UniformContext).toBe(windowContext);
     });

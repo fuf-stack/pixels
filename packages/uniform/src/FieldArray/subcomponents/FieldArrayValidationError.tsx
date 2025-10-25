@@ -41,7 +41,6 @@ const FieldArrayValidationError = ({
   const disableAnimation = useReducedMotion();
 
   // @ts-expect-error - error._errors exists but not typed
-  // eslint-disable-next-line no-underscore-dangle
   const hasErrors = invalid && error?._errors;
 
   return (
@@ -62,13 +61,12 @@ const FieldArrayValidationError = ({
             className={cn(
               getHelperWrapperProps()?.className,
               // force helper to be visible (for some reason it's hidden by default) and add padding/rounded corners
-              'rounded-b-small block px-3 py-2',
+              'block rounded-b-small px-3 py-2',
             )}
           >
             <div {...getErrorMessageProps()}>
               <FieldValidationError
                 // @ts-expect-error - error._errors exists but not typed
-                // eslint-disable-next-line no-underscore-dangle
                 error={error._errors}
                 testId={testId}
               />

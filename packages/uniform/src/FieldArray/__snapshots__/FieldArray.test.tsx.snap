@@ -11,11 +11,11 @@ exports[`Story Snapshots > AllFeatures 1`] = `
       data-testid=""
     >
       <div
-        class="rounded-small border-divider bg-content1 overflow-hidden border divide-divider divide-y"
+        class="overflow-hidden rounded-small border border-divider bg-content1 divide-y divide-divider"
       >
         <div
           aria-level="3"
-          class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block after:content-['*'] after:text-danger after:ms-0.5 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] max-w-full text-ellipsis overflow-hidden pointer-events-auto! static! z-auto! block! w-full! translate-x-0! translate-y-0! transform-none! rounded-t-small text-medium p-3 font-semibold text-foreground!"
+          class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block after:content-['*'] after:text-danger after:ms-0.5 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] max-w-full text-ellipsis overflow-hidden pointer-events-auto! static! z-auto! block! w-full! translate-x-0! translate-y-0! transform-none! rounded-t-small p-3 font-semibold text-medium text-foreground!"
           data-slot="label"
           for="react-aria-react-useId-mock"
           id="react-aria-react-useId-mock"
@@ -37,13 +37,13 @@ exports[`Story Snapshots > AllFeatures 1`] = `
               style="transition: transform 0ms linear;"
             >
               <div
-                class="bg-content1 divide-divider flex w-full flex-row items-stretch border-divider divide-x divide-solid border-t border-b"
+                class="flex w-full flex-row items-stretch divide-divider bg-content1 divide-x divide-solid border-b border-t border-divider"
               >
                 <div
                   aria-describedby="DndDescribedBy-1"
                   aria-disabled="false"
                   aria-roledescription="sortable"
-                  class="text-default-600 flex cursor-grab items-center justify-center px-2 transition-colors hover:bg-default-100 group-data-[dragging=true]:bg-default-100 active:cursor-grabbing focus-visible:ring-focus outline-none focus-visible:ring-2 focus-visible:ring-inset"
+                  class="flex cursor-grab items-center justify-center px-2 text-default-600 transition-colors hover:bg-default-100 active:cursor-grabbing group-data-[dragging=true]:bg-default-100 outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-focus"
                   data-testid="arrayfield_0_sort_drag_handle"
                   role="button"
                   tabindex="0"
@@ -163,7 +163,7 @@ exports[`Story Snapshots > AllFeatures 1`] = `
                 <button
                   aria-expanded="false"
                   aria-haspopup="true"
-                  class="group relative box-border appearance-none select-none whitespace-nowrap font-normal overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small gap-2 px-0 !gap-0 transition-transform-colors-opacity motion-reduce:transition-none bg-transparent data-[hover=true]:bg-default/40 min-w-10 w-10 z-10 aria-expanded:scale-[0.97] aria-expanded:opacity-70 subpixel-antialiased text-default-600 flex items-center justify-center h-full rounded-none"
+                  class="group relative box-border appearance-none select-none whitespace-nowrap font-normal overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small gap-2 px-0 !gap-0 transition-transform-colors-opacity motion-reduce:transition-none bg-transparent data-[hover=true]:bg-default/40 min-w-10 w-10 z-10 aria-expanded:scale-[0.97] aria-expanded:opacity-70 subpixel-antialiased flex items-center justify-center text-default-600 h-full rounded-none"
                   data-react-aria-pressable="true"
                   data-slot="trigger"
                   data-testid="arrayfield_0_actions_menu"
@@ -195,13 +195,13 @@ exports[`Story Snapshots > AllFeatures 1`] = `
               style="transition: transform 0ms linear;"
             >
               <div
-                class="bg-content1 divide-divider flex w-full flex-row items-stretch border-divider divide-x divide-solid border-t border-b"
+                class="flex w-full flex-row items-stretch divide-divider bg-content1 divide-x divide-solid border-b border-t border-divider"
               >
                 <div
                   aria-describedby="DndDescribedBy-1"
                   aria-disabled="false"
                   aria-roledescription="sortable"
-                  class="text-default-600 flex cursor-grab items-center justify-center px-2 transition-colors hover:bg-default-100 group-data-[dragging=true]:bg-default-100 active:cursor-grabbing focus-visible:ring-focus outline-none focus-visible:ring-2 focus-visible:ring-inset"
+                  class="flex cursor-grab items-center justify-center px-2 text-default-600 transition-colors hover:bg-default-100 active:cursor-grabbing group-data-[dragging=true]:bg-default-100 outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-focus"
                   data-testid="arrayfield_1_sort_drag_handle"
                   role="button"
                   tabindex="0"
@@ -321,7 +321,7 @@ exports[`Story Snapshots > AllFeatures 1`] = `
                 <button
                   aria-expanded="false"
                   aria-haspopup="true"
-                  class="group relative box-border appearance-none select-none whitespace-nowrap font-normal overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small gap-2 px-0 !gap-0 transition-transform-colors-opacity motion-reduce:transition-none bg-transparent data-[hover=true]:bg-default/40 min-w-10 w-10 z-10 aria-expanded:scale-[0.97] aria-expanded:opacity-70 subpixel-antialiased text-default-600 flex items-center justify-center h-full rounded-none"
+                  class="group relative box-border appearance-none select-none whitespace-nowrap font-normal overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small gap-2 px-0 !gap-0 transition-transform-colors-opacity motion-reduce:transition-none bg-transparent data-[hover=true]:bg-default/40 min-w-10 w-10 z-10 aria-expanded:scale-[0.97] aria-expanded:opacity-70 subpixel-antialiased flex items-center justify-center text-default-600 h-full rounded-none"
                   data-react-aria-pressable="true"
                   data-slot="trigger"
                   data-testid="arrayfield_1_actions_menu"
@@ -366,7 +366,7 @@ exports[`Story Snapshots > AllFeatures 1`] = `
           />
         </div>
         <button
-          class="group tap-highlight-transparent transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu cursor-pointer outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-3 min-w-16 h-8 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] !transition-none data-[pressed=true]:scale-100 bg-transparent text-default-foreground data-[hover=true]:bg-default/40 rounded-b-small w-full rounded-t-none !h-[48px] !min-h-0 focus-visible:ring-focus outline-none focus-visible:ring-2 focus-visible:ring-inset"
+          class="group tap-highlight-transparent transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu cursor-pointer outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-3 min-w-16 h-8 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] !transition-none data-[pressed=true]:scale-100 bg-transparent text-default-foreground data-[hover=true]:bg-default/40 w-full rounded-b-small rounded-t-none !h-[48px] !min-h-0 outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-focus"
           data-react-aria-pressable="true"
           data-testid="arrayfield_append_button"
           tabindex="0"
@@ -412,11 +412,11 @@ exports[`Story Snapshots > CustomTestId 1`] = `
       data-testid=""
     >
       <div
-        class="rounded-small border-divider bg-content1 overflow-hidden border divide-divider divide-y"
+        class="overflow-hidden rounded-small border border-divider bg-content1 divide-y divide-divider"
       >
         <div
           aria-level="3"
-          class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] max-w-full text-ellipsis overflow-hidden pointer-events-auto! static! z-auto! block! w-full! translate-x-0! translate-y-0! transform-none! rounded-t-small text-medium p-3 font-semibold text-foreground!"
+          class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] max-w-full text-ellipsis overflow-hidden pointer-events-auto! static! z-auto! block! w-full! translate-x-0! translate-y-0! transform-none! rounded-t-small p-3 font-semibold text-medium text-foreground!"
           data-slot="label"
           for="react-aria-react-useId-mock"
           id="react-aria-react-useId-mock"
@@ -437,7 +437,7 @@ exports[`Story Snapshots > CustomTestId 1`] = `
               data-testid="some_test_id_0_element"
             >
               <div
-                class="bg-content1 divide-divider flex w-full flex-row items-stretch border-divider divide-x divide-solid border-t border-b"
+                class="flex w-full flex-row items-stretch divide-divider bg-content1 divide-x divide-solid border-b border-t border-divider"
               >
                 <div
                   class="grid gap-4 w-full grow p-3"
@@ -542,7 +542,7 @@ exports[`Story Snapshots > CustomTestId 1`] = `
                 </div>
                 <button
                   aria-label="remove element"
-                  class="group tap-highlight-transparent [&>svg]:max-w-[theme(spacing.8)] data-[hover=true]:opacity-hover z-0 group relative box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny gap-2 rounded-small !gap-0 transition-transform-colors-opacity motion-reduce:transition-none bg-transparent text-danger data-[hover=true]:bg-danger/20 min-w-8 w-8 h-8 flex items-center justify-center !h-full !min-h-0 !rounded-none px-3 focus-visible:ring-focus outline-none focus-visible:ring-2 focus-visible:ring-inset"
+                  class="group tap-highlight-transparent [&>svg]:max-w-[theme(spacing.8)] data-[hover=true]:opacity-hover z-0 group relative box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny gap-2 rounded-small !gap-0 transition-transform-colors-opacity motion-reduce:transition-none bg-transparent text-danger data-[hover=true]:bg-danger/20 min-w-8 w-8 h-8 flex items-center justify-center !h-full !min-h-0 !rounded-none px-3 outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-focus"
                   data-react-aria-pressable="true"
                   data-testid="some_test_id_0_remove_button"
                   tabindex="0"
@@ -559,7 +559,7 @@ exports[`Story Snapshots > CustomTestId 1`] = `
           </ul>
         </div>
         <button
-          class="group tap-highlight-transparent transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu cursor-pointer outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-3 min-w-16 h-8 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] !transition-none data-[pressed=true]:scale-100 bg-transparent text-default-foreground data-[hover=true]:bg-default/40 rounded-b-small w-full rounded-t-none !h-[48px] !min-h-0 focus-visible:ring-focus outline-none focus-visible:ring-2 focus-visible:ring-inset"
+          class="group tap-highlight-transparent transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu cursor-pointer outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-3 min-w-16 h-8 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] !transition-none data-[pressed=true]:scale-100 bg-transparent text-default-foreground data-[hover=true]:bg-default/40 w-full rounded-b-small rounded-t-none !h-[48px] !min-h-0 outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-focus"
           data-react-aria-pressable="true"
           data-testid="some_test_id_append_button"
           tabindex="0"
@@ -605,11 +605,11 @@ exports[`Story Snapshots > Default 1`] = `
       data-testid=""
     >
       <div
-        class="rounded-small border-divider bg-content1 overflow-hidden border divide-divider divide-y"
+        class="overflow-hidden rounded-small border border-divider bg-content1 divide-y divide-divider"
       >
         <div
           aria-level="3"
-          class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] max-w-full text-ellipsis overflow-hidden pointer-events-auto! static! z-auto! block! w-full! translate-x-0! translate-y-0! transform-none! rounded-t-small text-medium p-3 font-semibold text-foreground!"
+          class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] max-w-full text-ellipsis overflow-hidden pointer-events-auto! static! z-auto! block! w-full! translate-x-0! translate-y-0! transform-none! rounded-t-small p-3 font-semibold text-medium text-foreground!"
           data-slot="label"
           for="react-aria-react-useId-mock"
           id="react-aria-react-useId-mock"
@@ -618,7 +618,7 @@ exports[`Story Snapshots > Default 1`] = `
           Array Field
         </div>
         <button
-          class="group tap-highlight-transparent transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu cursor-pointer outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-3 min-w-16 h-8 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] !transition-none data-[pressed=true]:scale-100 bg-transparent text-default-foreground data-[hover=true]:bg-default/40 rounded-b-small w-full rounded-t-none !h-[48px] !min-h-0 focus-visible:ring-focus outline-none focus-visible:ring-2 focus-visible:ring-inset"
+          class="group tap-highlight-transparent transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu cursor-pointer outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-3 min-w-16 h-8 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] !transition-none data-[pressed=true]:scale-100 bg-transparent text-default-foreground data-[hover=true]:bg-default/40 w-full rounded-b-small rounded-t-none !h-[48px] !min-h-0 outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-focus"
           data-react-aria-pressable="true"
           data-testid="arrayfield_append_button"
           tabindex="0"
@@ -664,11 +664,11 @@ exports[`Story Snapshots > Duplicate 1`] = `
       data-testid=""
     >
       <div
-        class="rounded-small border-divider bg-content1 overflow-hidden border divide-divider divide-y"
+        class="overflow-hidden rounded-small border border-divider bg-content1 divide-y divide-divider"
       >
         <div
           aria-level="3"
-          class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] max-w-full text-ellipsis overflow-hidden pointer-events-auto! static! z-auto! block! w-full! translate-x-0! translate-y-0! transform-none! rounded-t-small text-medium p-3 font-semibold text-foreground!"
+          class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] max-w-full text-ellipsis overflow-hidden pointer-events-auto! static! z-auto! block! w-full! translate-x-0! translate-y-0! transform-none! rounded-t-small p-3 font-semibold text-medium text-foreground!"
           data-slot="label"
           for="react-aria-react-useId-mock"
           id="react-aria-react-useId-mock"
@@ -689,7 +689,7 @@ exports[`Story Snapshots > Duplicate 1`] = `
               data-testid="arrayfield_0_element"
             >
               <div
-                class="bg-content1 divide-divider flex w-full flex-row items-stretch border-divider divide-x divide-solid border-t border-b"
+                class="flex w-full flex-row items-stretch divide-divider bg-content1 divide-x divide-solid border-b border-t border-divider"
               >
                 <div
                   class="grid gap-4 w-full grow p-3"
@@ -795,7 +795,7 @@ exports[`Story Snapshots > Duplicate 1`] = `
                 <button
                   aria-expanded="false"
                   aria-haspopup="true"
-                  class="group relative box-border appearance-none select-none whitespace-nowrap font-normal overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small gap-2 px-0 !gap-0 transition-transform-colors-opacity motion-reduce:transition-none bg-transparent data-[hover=true]:bg-default/40 min-w-10 w-10 z-10 aria-expanded:scale-[0.97] aria-expanded:opacity-70 subpixel-antialiased text-default-600 flex items-center justify-center h-full rounded-none"
+                  class="group relative box-border appearance-none select-none whitespace-nowrap font-normal overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small gap-2 px-0 !gap-0 transition-transform-colors-opacity motion-reduce:transition-none bg-transparent data-[hover=true]:bg-default/40 min-w-10 w-10 z-10 aria-expanded:scale-[0.97] aria-expanded:opacity-70 subpixel-antialiased flex items-center justify-center text-default-600 h-full rounded-none"
                   data-react-aria-pressable="true"
                   data-slot="trigger"
                   data-testid="arrayfield_0_actions_menu"
@@ -826,7 +826,7 @@ exports[`Story Snapshots > Duplicate 1`] = `
               data-testid="arrayfield_1_element"
             >
               <div
-                class="bg-content1 divide-divider flex w-full flex-row items-stretch border-divider divide-x divide-solid border-t border-b"
+                class="flex w-full flex-row items-stretch divide-divider bg-content1 divide-x divide-solid border-b border-t border-divider"
               >
                 <div
                   class="grid gap-4 w-full grow p-3"
@@ -932,7 +932,7 @@ exports[`Story Snapshots > Duplicate 1`] = `
                 <button
                   aria-expanded="false"
                   aria-haspopup="true"
-                  class="group relative box-border appearance-none select-none whitespace-nowrap font-normal overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small gap-2 px-0 !gap-0 transition-transform-colors-opacity motion-reduce:transition-none bg-transparent data-[hover=true]:bg-default/40 min-w-10 w-10 z-10 aria-expanded:scale-[0.97] aria-expanded:opacity-70 subpixel-antialiased text-default-600 flex items-center justify-center h-full rounded-none"
+                  class="group relative box-border appearance-none select-none whitespace-nowrap font-normal overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small gap-2 px-0 !gap-0 transition-transform-colors-opacity motion-reduce:transition-none bg-transparent data-[hover=true]:bg-default/40 min-w-10 w-10 z-10 aria-expanded:scale-[0.97] aria-expanded:opacity-70 subpixel-antialiased flex items-center justify-center text-default-600 h-full rounded-none"
                   data-react-aria-pressable="true"
                   data-slot="trigger"
                   data-testid="arrayfield_1_actions_menu"
@@ -960,7 +960,7 @@ exports[`Story Snapshots > Duplicate 1`] = `
           </ul>
         </div>
         <button
-          class="group tap-highlight-transparent transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu cursor-pointer outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-3 min-w-16 h-8 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] !transition-none data-[pressed=true]:scale-100 bg-transparent text-default-foreground data-[hover=true]:bg-default/40 rounded-b-small w-full rounded-t-none !h-[48px] !min-h-0 focus-visible:ring-focus outline-none focus-visible:ring-2 focus-visible:ring-inset"
+          class="group tap-highlight-transparent transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu cursor-pointer outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-3 min-w-16 h-8 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] !transition-none data-[pressed=true]:scale-100 bg-transparent text-default-foreground data-[hover=true]:bg-default/40 w-full rounded-b-small rounded-t-none !h-[48px] !min-h-0 outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-focus"
           data-react-aria-pressable="true"
           data-testid="arrayfield_append_button"
           tabindex="0"
@@ -1006,11 +1006,11 @@ exports[`Story Snapshots > DuplicateAndInsertAfter 1`] = `
       data-testid=""
     >
       <div
-        class="rounded-small border-divider bg-content1 overflow-hidden border divide-divider divide-y"
+        class="overflow-hidden rounded-small border border-divider bg-content1 divide-y divide-divider"
       >
         <div
           aria-level="3"
-          class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] max-w-full text-ellipsis overflow-hidden pointer-events-auto! static! z-auto! block! w-full! translate-x-0! translate-y-0! transform-none! rounded-t-small text-medium p-3 font-semibold text-foreground!"
+          class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] max-w-full text-ellipsis overflow-hidden pointer-events-auto! static! z-auto! block! w-full! translate-x-0! translate-y-0! transform-none! rounded-t-small p-3 font-semibold text-medium text-foreground!"
           data-slot="label"
           for="react-aria-react-useId-mock"
           id="react-aria-react-useId-mock"
@@ -1031,7 +1031,7 @@ exports[`Story Snapshots > DuplicateAndInsertAfter 1`] = `
               data-testid="arrayfield_0_element"
             >
               <div
-                class="bg-content1 divide-divider flex w-full flex-row items-stretch border-divider divide-x divide-solid border-t border-b"
+                class="flex w-full flex-row items-stretch divide-divider bg-content1 divide-x divide-solid border-b border-t border-divider"
               >
                 <div
                   class="grid gap-4 w-full grow p-3"
@@ -1140,7 +1140,7 @@ exports[`Story Snapshots > DuplicateAndInsertAfter 1`] = `
                 <button
                   aria-expanded="false"
                   aria-haspopup="true"
-                  class="group relative box-border appearance-none select-none whitespace-nowrap font-normal overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small gap-2 px-0 !gap-0 transition-transform-colors-opacity motion-reduce:transition-none bg-transparent data-[hover=true]:bg-default/40 min-w-10 w-10 z-10 aria-expanded:scale-[0.97] aria-expanded:opacity-70 subpixel-antialiased text-default-600 flex items-center justify-center h-full rounded-none"
+                  class="group relative box-border appearance-none select-none whitespace-nowrap font-normal overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small gap-2 px-0 !gap-0 transition-transform-colors-opacity motion-reduce:transition-none bg-transparent data-[hover=true]:bg-default/40 min-w-10 w-10 z-10 aria-expanded:scale-[0.97] aria-expanded:opacity-70 subpixel-antialiased flex items-center justify-center text-default-600 h-full rounded-none"
                   data-react-aria-pressable="true"
                   data-slot="trigger"
                   data-testid="arrayfield_0_actions_menu"
@@ -1171,7 +1171,7 @@ exports[`Story Snapshots > DuplicateAndInsertAfter 1`] = `
               data-testid="arrayfield_1_element"
             >
               <div
-                class="bg-content1 divide-divider flex w-full flex-row items-stretch border-divider divide-x divide-solid border-t border-b"
+                class="flex w-full flex-row items-stretch divide-divider bg-content1 divide-x divide-solid border-b border-t border-divider"
               >
                 <div
                   class="grid gap-4 w-full grow p-3"
@@ -1280,7 +1280,7 @@ exports[`Story Snapshots > DuplicateAndInsertAfter 1`] = `
                 <button
                   aria-expanded="false"
                   aria-haspopup="true"
-                  class="group relative box-border appearance-none select-none whitespace-nowrap font-normal overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small gap-2 px-0 !gap-0 transition-transform-colors-opacity motion-reduce:transition-none bg-transparent data-[hover=true]:bg-default/40 min-w-10 w-10 z-10 aria-expanded:scale-[0.97] aria-expanded:opacity-70 subpixel-antialiased text-default-600 flex items-center justify-center h-full rounded-none"
+                  class="group relative box-border appearance-none select-none whitespace-nowrap font-normal overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small gap-2 px-0 !gap-0 transition-transform-colors-opacity motion-reduce:transition-none bg-transparent data-[hover=true]:bg-default/40 min-w-10 w-10 z-10 aria-expanded:scale-[0.97] aria-expanded:opacity-70 subpixel-antialiased flex items-center justify-center text-default-600 h-full rounded-none"
                   data-react-aria-pressable="true"
                   data-slot="trigger"
                   data-testid="arrayfield_1_actions_menu"
@@ -1308,7 +1308,7 @@ exports[`Story Snapshots > DuplicateAndInsertAfter 1`] = `
           </ul>
         </div>
         <button
-          class="group tap-highlight-transparent transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu cursor-pointer outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-3 min-w-16 h-8 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] !transition-none data-[pressed=true]:scale-100 bg-transparent text-default-foreground data-[hover=true]:bg-default/40 rounded-b-small w-full rounded-t-none !h-[48px] !min-h-0 focus-visible:ring-focus outline-none focus-visible:ring-2 focus-visible:ring-inset"
+          class="group tap-highlight-transparent transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu cursor-pointer outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-3 min-w-16 h-8 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] !transition-none data-[pressed=true]:scale-100 bg-transparent text-default-foreground data-[hover=true]:bg-default/40 w-full rounded-b-small rounded-t-none !h-[48px] !min-h-0 outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-focus"
           data-react-aria-pressable="true"
           data-testid="arrayfield_append_button"
           tabindex="0"
@@ -1354,11 +1354,11 @@ exports[`Story Snapshots > FlatArray 1`] = `
       data-testid=""
     >
       <div
-        class="rounded-small border-divider bg-content1 overflow-hidden border divide-divider divide-y"
+        class="overflow-hidden rounded-small border border-divider bg-content1 divide-y divide-divider"
       >
         <div
           aria-level="3"
-          class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] max-w-full text-ellipsis overflow-hidden pointer-events-auto! static! z-auto! block! w-full! translate-x-0! translate-y-0! transform-none! rounded-t-small text-medium p-3 font-semibold text-foreground!"
+          class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] max-w-full text-ellipsis overflow-hidden pointer-events-auto! static! z-auto! block! w-full! translate-x-0! translate-y-0! transform-none! rounded-t-small p-3 font-semibold text-medium text-foreground!"
           data-slot="label"
           for="react-aria-react-useId-mock"
           id="react-aria-react-useId-mock"
@@ -1367,7 +1367,7 @@ exports[`Story Snapshots > FlatArray 1`] = `
           Flat Array Field
         </div>
         <button
-          class="group tap-highlight-transparent transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu cursor-pointer outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-3 min-w-16 h-8 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] !transition-none data-[pressed=true]:scale-100 bg-transparent text-default-foreground data-[hover=true]:bg-default/40 rounded-b-small w-full rounded-t-none !h-[48px] !min-h-0 focus-visible:ring-focus outline-none focus-visible:ring-2 focus-visible:ring-inset"
+          class="group tap-highlight-transparent transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu cursor-pointer outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-3 min-w-16 h-8 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] !transition-none data-[pressed=true]:scale-100 bg-transparent text-default-foreground data-[hover=true]:bg-default/40 w-full rounded-b-small rounded-t-none !h-[48px] !min-h-0 outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-focus"
           data-react-aria-pressable="true"
           data-testid="arrayfield_append_button"
           tabindex="0"
@@ -1413,11 +1413,11 @@ exports[`Story Snapshots > InsertAfter 1`] = `
       data-testid=""
     >
       <div
-        class="rounded-small border-divider bg-content1 overflow-hidden border divide-divider divide-y"
+        class="overflow-hidden rounded-small border border-divider bg-content1 divide-y divide-divider"
       >
         <div
           aria-level="3"
-          class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] max-w-full text-ellipsis overflow-hidden pointer-events-auto! static! z-auto! block! w-full! translate-x-0! translate-y-0! transform-none! rounded-t-small text-medium p-3 font-semibold text-foreground!"
+          class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] max-w-full text-ellipsis overflow-hidden pointer-events-auto! static! z-auto! block! w-full! translate-x-0! translate-y-0! transform-none! rounded-t-small p-3 font-semibold text-medium text-foreground!"
           data-slot="label"
           for="react-aria-react-useId-mock"
           id="react-aria-react-useId-mock"
@@ -1438,7 +1438,7 @@ exports[`Story Snapshots > InsertAfter 1`] = `
               data-testid="arrayfield_0_element"
             >
               <div
-                class="bg-content1 divide-divider flex w-full flex-row items-stretch border-divider divide-x divide-solid border-t border-b"
+                class="flex w-full flex-row items-stretch divide-divider bg-content1 divide-x divide-solid border-b border-t border-divider"
               >
                 <div
                   class="grid gap-4 w-full grow p-3"
@@ -1499,7 +1499,7 @@ exports[`Story Snapshots > InsertAfter 1`] = `
                 <button
                   aria-expanded="false"
                   aria-haspopup="true"
-                  class="group relative box-border appearance-none select-none whitespace-nowrap font-normal overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small gap-2 px-0 !gap-0 transition-transform-colors-opacity motion-reduce:transition-none bg-transparent data-[hover=true]:bg-default/40 min-w-10 w-10 z-10 aria-expanded:scale-[0.97] aria-expanded:opacity-70 subpixel-antialiased text-default-600 flex items-center justify-center h-full rounded-none"
+                  class="group relative box-border appearance-none select-none whitespace-nowrap font-normal overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small gap-2 px-0 !gap-0 transition-transform-colors-opacity motion-reduce:transition-none bg-transparent data-[hover=true]:bg-default/40 min-w-10 w-10 z-10 aria-expanded:scale-[0.97] aria-expanded:opacity-70 subpixel-antialiased flex items-center justify-center text-default-600 h-full rounded-none"
                   data-react-aria-pressable="true"
                   data-slot="trigger"
                   data-testid="arrayfield_0_actions_menu"
@@ -1530,7 +1530,7 @@ exports[`Story Snapshots > InsertAfter 1`] = `
               data-testid="arrayfield_1_element"
             >
               <div
-                class="bg-content1 divide-divider flex w-full flex-row items-stretch border-divider divide-x divide-solid border-t border-b"
+                class="flex w-full flex-row items-stretch divide-divider bg-content1 divide-x divide-solid border-b border-t border-divider"
               >
                 <div
                   class="grid gap-4 w-full grow p-3"
@@ -1591,7 +1591,7 @@ exports[`Story Snapshots > InsertAfter 1`] = `
                 <button
                   aria-expanded="false"
                   aria-haspopup="true"
-                  class="group relative box-border appearance-none select-none whitespace-nowrap font-normal overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small gap-2 px-0 !gap-0 transition-transform-colors-opacity motion-reduce:transition-none bg-transparent data-[hover=true]:bg-default/40 min-w-10 w-10 z-10 aria-expanded:scale-[0.97] aria-expanded:opacity-70 subpixel-antialiased text-default-600 flex items-center justify-center h-full rounded-none"
+                  class="group relative box-border appearance-none select-none whitespace-nowrap font-normal overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small gap-2 px-0 !gap-0 transition-transform-colors-opacity motion-reduce:transition-none bg-transparent data-[hover=true]:bg-default/40 min-w-10 w-10 z-10 aria-expanded:scale-[0.97] aria-expanded:opacity-70 subpixel-antialiased flex items-center justify-center text-default-600 h-full rounded-none"
                   data-react-aria-pressable="true"
                   data-slot="trigger"
                   data-testid="arrayfield_1_actions_menu"
@@ -1619,7 +1619,7 @@ exports[`Story Snapshots > InsertAfter 1`] = `
           </ul>
         </div>
         <button
-          class="group tap-highlight-transparent transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu cursor-pointer outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-3 min-w-16 h-8 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] !transition-none data-[pressed=true]:scale-100 bg-transparent text-default-foreground data-[hover=true]:bg-default/40 rounded-b-small w-full rounded-t-none !h-[48px] !min-h-0 focus-visible:ring-focus outline-none focus-visible:ring-2 focus-visible:ring-inset"
+          class="group tap-highlight-transparent transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu cursor-pointer outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-3 min-w-16 h-8 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] !transition-none data-[pressed=true]:scale-100 bg-transparent text-default-foreground data-[hover=true]:bg-default/40 w-full rounded-b-small rounded-t-none !h-[48px] !min-h-0 outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-focus"
           data-react-aria-pressable="true"
           data-testid="arrayfield_append_button"
           tabindex="0"
@@ -1665,11 +1665,11 @@ exports[`Story Snapshots > Invalid 1`] = `
       data-testid=""
     >
       <div
-        class="rounded-small border-divider bg-content1 overflow-hidden border divide-divider divide-y"
+        class="overflow-hidden rounded-small border border-divider bg-content1 divide-y divide-divider"
       >
         <div
           aria-level="3"
-          class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block !text-danger after:content-['*'] after:text-danger after:ms-0.5 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] max-w-full text-ellipsis overflow-hidden pointer-events-auto! static! z-auto! block! w-full! translate-x-0! translate-y-0! transform-none! rounded-t-small text-medium p-3 font-semibold"
+          class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block !text-danger after:content-['*'] after:text-danger after:ms-0.5 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] max-w-full text-ellipsis overflow-hidden pointer-events-auto! static! z-auto! block! w-full! translate-x-0! translate-y-0! transform-none! rounded-t-small p-3 font-semibold text-medium"
           data-slot="label"
           for="react-aria-react-useId-mock"
           id="react-aria-react-useId-mock"
@@ -1690,7 +1690,7 @@ exports[`Story Snapshots > Invalid 1`] = `
               data-testid="arrayfield_0_element"
             >
               <div
-                class="bg-content1 divide-divider flex w-full flex-row items-stretch border-divider divide-x divide-solid border-t border-b"
+                class="flex w-full flex-row items-stretch divide-divider bg-content1 divide-x divide-solid border-b border-t border-divider"
               >
                 <div
                   class="grid gap-4 w-full grow p-3"
@@ -1838,7 +1838,7 @@ exports[`Story Snapshots > Invalid 1`] = `
                 </div>
                 <button
                   aria-label="remove element"
-                  class="group tap-highlight-transparent [&>svg]:max-w-[theme(spacing.8)] data-[hover=true]:opacity-hover z-0 group relative box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny gap-2 rounded-small !gap-0 transition-transform-colors-opacity motion-reduce:transition-none bg-transparent text-danger data-[hover=true]:bg-danger/20 min-w-8 w-8 h-8 flex items-center justify-center !h-full !min-h-0 !rounded-none px-3 focus-visible:ring-focus outline-none focus-visible:ring-2 focus-visible:ring-inset"
+                  class="group tap-highlight-transparent [&>svg]:max-w-[theme(spacing.8)] data-[hover=true]:opacity-hover z-0 group relative box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny gap-2 rounded-small !gap-0 transition-transform-colors-opacity motion-reduce:transition-none bg-transparent text-danger data-[hover=true]:bg-danger/20 min-w-8 w-8 h-8 flex items-center justify-center !h-full !min-h-0 !rounded-none px-3 outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-focus"
                   data-react-aria-pressable="true"
                   data-testid="arrayfield_0_remove_button"
                   tabindex="0"
@@ -1858,7 +1858,7 @@ exports[`Story Snapshots > Invalid 1`] = `
               data-testid="arrayfield_1_element"
             >
               <div
-                class="bg-content1 divide-divider flex w-full flex-row items-stretch border-divider divide-x divide-solid border-t border-b"
+                class="flex w-full flex-row items-stretch divide-divider bg-content1 divide-x divide-solid border-b border-t border-divider"
               >
                 <div
                   class="grid gap-4 w-full grow p-3"
@@ -2015,7 +2015,7 @@ exports[`Story Snapshots > Invalid 1`] = `
                 </div>
                 <button
                   aria-label="remove element"
-                  class="group tap-highlight-transparent [&>svg]:max-w-[theme(spacing.8)] data-[hover=true]:opacity-hover z-0 group relative box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny gap-2 rounded-small !gap-0 transition-transform-colors-opacity motion-reduce:transition-none bg-transparent text-danger data-[hover=true]:bg-danger/20 min-w-8 w-8 h-8 flex items-center justify-center !h-full !min-h-0 !rounded-none px-3 focus-visible:ring-focus outline-none focus-visible:ring-2 focus-visible:ring-inset"
+                  class="group tap-highlight-transparent [&>svg]:max-w-[theme(spacing.8)] data-[hover=true]:opacity-hover z-0 group relative box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny gap-2 rounded-small !gap-0 transition-transform-colors-opacity motion-reduce:transition-none bg-transparent text-danger data-[hover=true]:bg-danger/20 min-w-8 w-8 h-8 flex items-center justify-center !h-full !min-h-0 !rounded-none px-3 outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-focus"
                   data-react-aria-pressable="true"
                   data-testid="arrayfield_1_remove_button"
                   tabindex="0"
@@ -2032,7 +2032,7 @@ exports[`Story Snapshots > Invalid 1`] = `
           </ul>
         </div>
         <button
-          class="group tap-highlight-transparent transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu cursor-pointer outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-3 min-w-16 h-8 text-tiny gap-2 [&>svg]:max-w-[theme(spacing.8)] !transition-none data-[pressed=true]:scale-100 bg-transparent text-default-foreground data-[hover=true]:bg-default/40 w-full !h-[48px] !min-h-0 focus-visible:ring-focus outline-none focus-visible:ring-2 focus-visible:ring-inset rounded-none"
+          class="group tap-highlight-transparent transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu cursor-pointer outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-3 min-w-16 h-8 text-tiny gap-2 [&>svg]:max-w-[theme(spacing.8)] !transition-none data-[pressed=true]:scale-100 bg-transparent text-default-foreground data-[hover=true]:bg-default/40 w-full !h-[48px] !min-h-0 outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-focus rounded-none"
           data-react-aria-pressable="true"
           data-testid="arrayfield_append_button"
           tabindex="0"
@@ -2051,7 +2051,7 @@ exports[`Story Snapshots > Invalid 1`] = `
           style="overflow: hidden;"
         >
           <div
-            class="group-data-[has-helper=true]:flex relative flex-col gap-1.5 p-0 rounded-b-small block px-3 py-2"
+            class="group-data-[has-helper=true]:flex relative flex-col gap-1.5 p-0 block rounded-b-small px-3 py-2"
             data-slot="helper-wrapper"
           >
             <div
@@ -2116,11 +2116,11 @@ exports[`Story Snapshots > LastElementNotRemovable 1`] = `
       data-testid=""
     >
       <div
-        class="rounded-small border-divider bg-content1 overflow-hidden border divide-divider divide-y"
+        class="overflow-hidden rounded-small border border-divider bg-content1 divide-y divide-divider"
       >
         <div
           aria-level="3"
-          class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] max-w-full text-ellipsis overflow-hidden pointer-events-auto! static! z-auto! block! w-full! translate-x-0! translate-y-0! transform-none! rounded-t-small text-medium p-3 font-semibold text-foreground!"
+          class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] max-w-full text-ellipsis overflow-hidden pointer-events-auto! static! z-auto! block! w-full! translate-x-0! translate-y-0! transform-none! rounded-t-small p-3 font-semibold text-medium text-foreground!"
           data-slot="label"
           for="react-aria-react-useId-mock"
           id="react-aria-react-useId-mock"
@@ -2141,7 +2141,7 @@ exports[`Story Snapshots > LastElementNotRemovable 1`] = `
               data-testid="arrayfield_0_element"
             >
               <div
-                class="bg-content1 divide-divider flex w-full flex-row items-stretch border-divider divide-x divide-solid border-t border-b"
+                class="flex w-full flex-row items-stretch divide-divider bg-content1 divide-x divide-solid border-b border-t border-divider"
               >
                 <div
                   class="grid gap-4 w-full grow p-3"
@@ -2151,8 +2151,6 @@ exports[`Story Snapshots > LastElementNotRemovable 1`] = `
                     class="group flex flex-col data-[hidden=true]:hidden w-full relative justify-end data-[has-label=true]:mt-[calc(var(--heroui-font-size-small)_+_10px)]"
                     data-filled="true"
                     data-filled-within="true"
-                    data-focus="true"
-                    data-focus-within="true"
                     data-has-elements="true"
                     data-has-helper="true"
                     data-has-label="true"
@@ -2164,7 +2162,6 @@ exports[`Story Snapshots > LastElementNotRemovable 1`] = `
                     >
                       <div
                         class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 h-10 min-h-10 rounded-small !duration-150 transition-colors motion-reduce:transition-none bg-content1 group-data-[focus=true]:border-focus"
-                        data-focus="true"
                         data-slot="input-wrapper"
                         style="cursor: text;"
                       >
@@ -2184,7 +2181,6 @@ exports[`Story Snapshots > LastElementNotRemovable 1`] = `
                             aria-describedby="react-aria-react-useId-mock react-aria-react-useId-mock"
                             aria-labelledby="react-aria-react-useId-mock"
                             class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small"
-                            data-filled-within="true"
                             data-slot="input"
                             data-testid="arrayfield_0_name"
                             id="arrayfield_0_name"
@@ -2205,7 +2201,7 @@ exports[`Story Snapshots > LastElementNotRemovable 1`] = `
           </ul>
         </div>
         <button
-          class="group tap-highlight-transparent transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu cursor-pointer outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-3 min-w-16 h-8 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] !transition-none data-[pressed=true]:scale-100 bg-transparent text-default-foreground data-[hover=true]:bg-default/40 rounded-b-small w-full rounded-t-none !h-[48px] !min-h-0 focus-visible:ring-focus outline-none focus-visible:ring-2 focus-visible:ring-inset"
+          class="group tap-highlight-transparent transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu cursor-pointer outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-3 min-w-16 h-8 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] !transition-none data-[pressed=true]:scale-100 bg-transparent text-default-foreground data-[hover=true]:bg-default/40 w-full rounded-b-small rounded-t-none !h-[48px] !min-h-0 outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-focus"
           data-react-aria-pressable="true"
           data-testid="arrayfield_append_button"
           tabindex="0"
@@ -2251,11 +2247,11 @@ exports[`Story Snapshots > Required 1`] = `
       data-testid=""
     >
       <div
-        class="rounded-small border-divider bg-content1 overflow-hidden border divide-divider divide-y"
+        class="overflow-hidden rounded-small border border-divider bg-content1 divide-y divide-divider"
       >
         <div
           aria-level="3"
-          class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block after:content-['*'] after:text-danger after:ms-0.5 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] max-w-full text-ellipsis overflow-hidden pointer-events-auto! static! z-auto! block! w-full! translate-x-0! translate-y-0! transform-none! rounded-t-small text-medium p-3 font-semibold text-foreground!"
+          class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block after:content-['*'] after:text-danger after:ms-0.5 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] max-w-full text-ellipsis overflow-hidden pointer-events-auto! static! z-auto! block! w-full! translate-x-0! translate-y-0! transform-none! rounded-t-small p-3 font-semibold text-medium text-foreground!"
           data-slot="label"
           for="react-aria-react-useId-mock"
           id="react-aria-react-useId-mock"
@@ -2276,7 +2272,7 @@ exports[`Story Snapshots > Required 1`] = `
               data-testid="arrayfield_0_element"
             >
               <div
-                class="bg-content1 divide-divider flex w-full flex-row items-stretch border-divider divide-x divide-solid border-t border-b"
+                class="flex w-full flex-row items-stretch divide-divider bg-content1 divide-x divide-solid border-b border-t border-divider"
               >
                 <div
                   class="grid gap-4 w-full grow p-3"
@@ -2335,7 +2331,7 @@ exports[`Story Snapshots > Required 1`] = `
                 </div>
                 <button
                   aria-label="remove element"
-                  class="group tap-highlight-transparent [&>svg]:max-w-[theme(spacing.8)] data-[hover=true]:opacity-hover z-0 group relative box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny gap-2 rounded-small !gap-0 transition-transform-colors-opacity motion-reduce:transition-none bg-transparent text-danger data-[hover=true]:bg-danger/20 min-w-8 w-8 h-8 flex items-center justify-center !h-full !min-h-0 !rounded-none px-3 focus-visible:ring-focus outline-none focus-visible:ring-2 focus-visible:ring-inset"
+                  class="group tap-highlight-transparent [&>svg]:max-w-[theme(spacing.8)] data-[hover=true]:opacity-hover z-0 group relative box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny gap-2 rounded-small !gap-0 transition-transform-colors-opacity motion-reduce:transition-none bg-transparent text-danger data-[hover=true]:bg-danger/20 min-w-8 w-8 h-8 flex items-center justify-center !h-full !min-h-0 !rounded-none px-3 outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-focus"
                   data-react-aria-pressable="true"
                   data-testid="arrayfield_0_remove_button"
                   tabindex="0"
@@ -2352,7 +2348,7 @@ exports[`Story Snapshots > Required 1`] = `
           </ul>
         </div>
         <button
-          class="group tap-highlight-transparent transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu cursor-pointer outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-3 min-w-16 h-8 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] !transition-none data-[pressed=true]:scale-100 bg-transparent text-default-foreground data-[hover=true]:bg-default/40 rounded-b-small w-full rounded-t-none !h-[48px] !min-h-0 focus-visible:ring-focus outline-none focus-visible:ring-2 focus-visible:ring-inset"
+          class="group tap-highlight-transparent transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu cursor-pointer outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-3 min-w-16 h-8 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] !transition-none data-[pressed=true]:scale-100 bg-transparent text-default-foreground data-[hover=true]:bg-default/40 w-full rounded-b-small rounded-t-none !h-[48px] !min-h-0 outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-focus"
           data-react-aria-pressable="true"
           data-testid="arrayfield_append_button"
           tabindex="0"
@@ -2398,11 +2394,11 @@ exports[`Story Snapshots > Sortable 1`] = `
       data-testid=""
     >
       <div
-        class="rounded-small border-divider bg-content1 overflow-hidden border divide-divider divide-y"
+        class="overflow-hidden rounded-small border border-divider bg-content1 divide-y divide-divider"
       >
         <div
           aria-level="3"
-          class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] max-w-full text-ellipsis overflow-hidden pointer-events-auto! static! z-auto! block! w-full! translate-x-0! translate-y-0! transform-none! rounded-t-small text-medium p-3 font-semibold text-foreground!"
+          class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] max-w-full text-ellipsis overflow-hidden pointer-events-auto! static! z-auto! block! w-full! translate-x-0! translate-y-0! transform-none! rounded-t-small p-3 font-semibold text-medium text-foreground!"
           data-slot="label"
           for="react-aria-react-useId-mock"
           id="react-aria-react-useId-mock"
@@ -2424,13 +2420,13 @@ exports[`Story Snapshots > Sortable 1`] = `
               style="transition: transform 0ms linear;"
             >
               <div
-                class="bg-content1 divide-divider flex w-full flex-row items-stretch border-divider divide-x divide-solid border-t border-b"
+                class="flex w-full flex-row items-stretch divide-divider bg-content1 divide-x divide-solid border-b border-t border-divider"
               >
                 <div
                   aria-describedby="DndDescribedBy-0"
                   aria-disabled="false"
                   aria-roledescription="sortable"
-                  class="text-default-600 flex cursor-grab items-center justify-center px-2 transition-colors hover:bg-default-100 group-data-[dragging=true]:bg-default-100 active:cursor-grabbing focus-visible:ring-focus outline-none focus-visible:ring-2 focus-visible:ring-inset"
+                  class="flex cursor-grab items-center justify-center px-2 text-default-600 transition-colors hover:bg-default-100 active:cursor-grabbing group-data-[dragging=true]:bg-default-100 outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-focus"
                   data-testid="arrayfield_0_sort_drag_handle"
                   role="button"
                   tabindex="0"
@@ -2499,7 +2495,7 @@ exports[`Story Snapshots > Sortable 1`] = `
                 </div>
                 <button
                   aria-label="remove element"
-                  class="group tap-highlight-transparent [&>svg]:max-w-[theme(spacing.8)] data-[hover=true]:opacity-hover z-0 group relative box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny gap-2 rounded-small !gap-0 transition-transform-colors-opacity motion-reduce:transition-none bg-transparent text-danger data-[hover=true]:bg-danger/20 min-w-8 w-8 h-8 flex items-center justify-center !h-full !min-h-0 !rounded-none px-3 focus-visible:ring-focus outline-none focus-visible:ring-2 focus-visible:ring-inset"
+                  class="group tap-highlight-transparent [&>svg]:max-w-[theme(spacing.8)] data-[hover=true]:opacity-hover z-0 group relative box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny gap-2 rounded-small !gap-0 transition-transform-colors-opacity motion-reduce:transition-none bg-transparent text-danger data-[hover=true]:bg-danger/20 min-w-8 w-8 h-8 flex items-center justify-center !h-full !min-h-0 !rounded-none px-3 outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-focus"
                   data-react-aria-pressable="true"
                   data-testid="arrayfield_0_remove_button"
                   tabindex="0"
@@ -2520,13 +2516,13 @@ exports[`Story Snapshots > Sortable 1`] = `
               style="transition: transform 0ms linear;"
             >
               <div
-                class="bg-content1 divide-divider flex w-full flex-row items-stretch border-divider divide-x divide-solid border-t border-b"
+                class="flex w-full flex-row items-stretch divide-divider bg-content1 divide-x divide-solid border-b border-t border-divider"
               >
                 <div
                   aria-describedby="DndDescribedBy-0"
                   aria-disabled="false"
                   aria-roledescription="sortable"
-                  class="text-default-600 flex cursor-grab items-center justify-center px-2 transition-colors hover:bg-default-100 group-data-[dragging=true]:bg-default-100 active:cursor-grabbing focus-visible:ring-focus outline-none focus-visible:ring-2 focus-visible:ring-inset"
+                  class="flex cursor-grab items-center justify-center px-2 text-default-600 transition-colors hover:bg-default-100 active:cursor-grabbing group-data-[dragging=true]:bg-default-100 outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-focus"
                   data-testid="arrayfield_1_sort_drag_handle"
                   role="button"
                   tabindex="0"
@@ -2595,7 +2591,7 @@ exports[`Story Snapshots > Sortable 1`] = `
                 </div>
                 <button
                   aria-label="remove element"
-                  class="group tap-highlight-transparent [&>svg]:max-w-[theme(spacing.8)] data-[hover=true]:opacity-hover z-0 group relative box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny gap-2 rounded-small !gap-0 transition-transform-colors-opacity motion-reduce:transition-none bg-transparent text-danger data-[hover=true]:bg-danger/20 min-w-8 w-8 h-8 flex items-center justify-center !h-full !min-h-0 !rounded-none px-3 focus-visible:ring-focus outline-none focus-visible:ring-2 focus-visible:ring-inset"
+                  class="group tap-highlight-transparent [&>svg]:max-w-[theme(spacing.8)] data-[hover=true]:opacity-hover z-0 group relative box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny gap-2 rounded-small !gap-0 transition-transform-colors-opacity motion-reduce:transition-none bg-transparent text-danger data-[hover=true]:bg-danger/20 min-w-8 w-8 h-8 flex items-center justify-center !h-full !min-h-0 !rounded-none px-3 outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-focus"
                   data-react-aria-pressable="true"
                   data-testid="arrayfield_1_remove_button"
                   tabindex="0"
@@ -2629,7 +2625,7 @@ exports[`Story Snapshots > Sortable 1`] = `
           />
         </div>
         <button
-          class="group tap-highlight-transparent transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu cursor-pointer outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-3 min-w-16 h-8 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] !transition-none data-[pressed=true]:scale-100 bg-transparent text-default-foreground data-[hover=true]:bg-default/40 rounded-b-small w-full rounded-t-none !h-[48px] !min-h-0 focus-visible:ring-focus outline-none focus-visible:ring-2 focus-visible:ring-inset"
+          class="group tap-highlight-transparent transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu cursor-pointer outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-3 min-w-16 h-8 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] !transition-none data-[pressed=true]:scale-100 bg-transparent text-default-foreground data-[hover=true]:bg-default/40 w-full rounded-b-small rounded-t-none !h-[48px] !min-h-0 outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-focus"
           data-react-aria-pressable="true"
           data-testid="arrayfield_append_button"
           tabindex="0"
@@ -2675,11 +2671,11 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
       data-testid=""
     >
       <div
-        class="rounded-small border-divider bg-content1 overflow-hidden border divide-divider divide-y"
+        class="overflow-hidden rounded-small border border-divider bg-content1 divide-y divide-divider"
       >
         <div
           aria-level="3"
-          class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] max-w-full text-ellipsis overflow-hidden pointer-events-auto! static! z-auto! block! w-full! translate-x-0! translate-y-0! transform-none! rounded-t-small text-medium p-3 font-semibold text-foreground!"
+          class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] max-w-full text-ellipsis overflow-hidden pointer-events-auto! static! z-auto! block! w-full! translate-x-0! translate-y-0! transform-none! rounded-t-small p-3 font-semibold text-medium text-foreground!"
           data-slot="label"
           for="react-aria-react-useId-mock"
           id="react-aria-react-useId-mock"
@@ -2700,7 +2696,7 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
               data-testid="arrayfield_0_element"
             >
               <div
-                class="bg-content1 divide-divider flex w-full flex-row items-stretch border-divider divide-x divide-solid border-t border-b"
+                class="flex w-full flex-row items-stretch divide-divider bg-content1 divide-x divide-solid border-b border-t border-divider"
               >
                 <div
                   class="grid gap-4 w-full grow p-3"
@@ -2760,7 +2756,7 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
                 </div>
                 <button
                   aria-label="remove element"
-                  class="group tap-highlight-transparent [&>svg]:max-w-[theme(spacing.8)] data-[hover=true]:opacity-hover z-0 group relative box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny gap-2 rounded-small !gap-0 transition-transform-colors-opacity motion-reduce:transition-none bg-transparent text-danger data-[hover=true]:bg-danger/20 min-w-8 w-8 h-8 flex items-center justify-center !h-full !min-h-0 !rounded-none px-3 focus-visible:ring-focus outline-none focus-visible:ring-2 focus-visible:ring-inset"
+                  class="group tap-highlight-transparent [&>svg]:max-w-[theme(spacing.8)] data-[hover=true]:opacity-hover z-0 group relative box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny gap-2 rounded-small !gap-0 transition-transform-colors-opacity motion-reduce:transition-none bg-transparent text-danger data-[hover=true]:bg-danger/20 min-w-8 w-8 h-8 flex items-center justify-center !h-full !min-h-0 !rounded-none px-3 outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-focus"
                   data-react-aria-pressable="true"
                   data-testid="arrayfield_0_remove_button"
                   tabindex="0"
@@ -2780,7 +2776,7 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
               data-testid="arrayfield_1_element"
             >
               <div
-                class="bg-content1 divide-divider flex w-full flex-row items-stretch border-divider divide-x divide-solid border-t border-b"
+                class="flex w-full flex-row items-stretch divide-divider bg-content1 divide-x divide-solid border-b border-t border-divider"
               >
                 <div
                   class="grid gap-4 w-full grow p-3"
@@ -2840,7 +2836,7 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
                 </div>
                 <button
                   aria-label="remove element"
-                  class="group tap-highlight-transparent [&>svg]:max-w-[theme(spacing.8)] data-[hover=true]:opacity-hover z-0 group relative box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny gap-2 rounded-small !gap-0 transition-transform-colors-opacity motion-reduce:transition-none bg-transparent text-danger data-[hover=true]:bg-danger/20 min-w-8 w-8 h-8 flex items-center justify-center !h-full !min-h-0 !rounded-none px-3 focus-visible:ring-focus outline-none focus-visible:ring-2 focus-visible:ring-inset"
+                  class="group tap-highlight-transparent [&>svg]:max-w-[theme(spacing.8)] data-[hover=true]:opacity-hover z-0 group relative box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny gap-2 rounded-small !gap-0 transition-transform-colors-opacity motion-reduce:transition-none bg-transparent text-danger data-[hover=true]:bg-danger/20 min-w-8 w-8 h-8 flex items-center justify-center !h-full !min-h-0 !rounded-none px-3 outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-focus"
                   data-react-aria-pressable="true"
                   data-testid="arrayfield_1_remove_button"
                   tabindex="0"
@@ -2857,7 +2853,7 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
           </ul>
         </div>
         <button
-          class="group tap-highlight-transparent transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu cursor-pointer outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-3 min-w-16 h-8 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] !transition-none data-[pressed=true]:scale-100 bg-transparent text-default-foreground data-[hover=true]:bg-default/40 rounded-b-small w-full rounded-t-none !h-[48px] !min-h-0 focus-visible:ring-focus outline-none focus-visible:ring-2 focus-visible:ring-inset"
+          class="group tap-highlight-transparent transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu cursor-pointer outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-3 min-w-16 h-8 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] !transition-none data-[pressed=true]:scale-100 bg-transparent text-default-foreground data-[hover=true]:bg-default/40 w-full rounded-b-small rounded-t-none !h-[48px] !min-h-0 outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-focus"
           data-react-aria-pressable="true"
           data-testid="arrayfield_append_button"
           tabindex="0"
@@ -2903,10 +2899,10 @@ exports[`Story Snapshots > WithoutLabels 1`] = `
       data-testid=""
     >
       <div
-        class="rounded-small border-divider bg-content1 overflow-hidden border divide-divider divide-y"
+        class="overflow-hidden rounded-small border border-divider bg-content1 divide-y divide-divider"
       >
         <button
-          class="group tap-highlight-transparent transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu cursor-pointer outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-3 min-w-16 h-8 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] !transition-none data-[pressed=true]:scale-100 bg-transparent text-default-foreground data-[hover=true]:bg-default/40 rounded-b-small w-full rounded-t-none !h-[48px] !min-h-0 focus-visible:ring-focus outline-none focus-visible:ring-2 focus-visible:ring-inset"
+          class="group tap-highlight-transparent transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu cursor-pointer outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-3 min-w-16 h-8 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] !transition-none data-[pressed=true]:scale-100 bg-transparent text-default-foreground data-[hover=true]:bg-default/40 w-full rounded-b-small rounded-t-none !h-[48px] !min-h-0 outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-focus"
           data-react-aria-pressable="true"
           data-testid="arrayfield_append_button"
           tabindex="0"

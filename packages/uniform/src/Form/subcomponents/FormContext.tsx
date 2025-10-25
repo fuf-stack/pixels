@@ -101,9 +101,9 @@ interface UniformContextType {
   };
 }
 
-// eslint-disable-next-line no-underscore-dangle, @typescript-eslint/no-explicit-any
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 if (!(window as any).__UNIFORM_CONTEXT__) {
-  // eslint-disable-next-line no-underscore-dangle, @typescript-eslint/no-explicit-any
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   (window as any).__UNIFORM_CONTEXT__ = React.createContext<UniformContextType>(
     {
       debugMode: 'off',
@@ -127,7 +127,7 @@ if (!(window as any).__UNIFORM_CONTEXT__) {
 
 // Export the singleton context instance from window
 // This ensures all imports get the same context, even after HMR
-// eslint-disable-next-line no-underscore-dangle, @typescript-eslint/no-explicit-any
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const UniformContext = (window as any)
   .__UNIFORM_CONTEXT__ as React.Context<UniformContextType>;
 

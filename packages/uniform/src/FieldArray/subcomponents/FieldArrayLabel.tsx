@@ -36,7 +36,6 @@ const FieldArrayLabel = ({
   }
 
   // @ts-expect-error - error._errors exists but not typed
-  // eslint-disable-next-line no-underscore-dangle
   const hasErrors = invalid && error?._errors;
 
   return (
