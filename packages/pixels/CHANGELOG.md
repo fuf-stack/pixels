@@ -7,6 +7,13 @@
 
 * reformat all code ([dfad412](https://github.com/fuf-stack/pixels/commit/dfad4120ad16e9ca2890bb4a7d9d7ac3b41a7413))
 
+## [1.3.8](https://github.com/fuf-stack/pixels/compare/pixels-v1.3.7...pixels-v1.3.8) (2025-10-25)
+
+
+### Bug Fixes
+
+* reformat all code ([dfad412](https://github.com/fuf-stack/pixels/commit/dfad4120ad16e9ca2890bb4a7d9d7ac3b41a7413))
+
 ## [1.3.7](https://github.com/fuf-stack/pixels/compare/pixels-v1.3.6...pixels-v1.3.7) (2025-10-24)
 
 
