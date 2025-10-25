@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.5.2](https://github.com/fuf-stack/pixels/compare/uniform-v1.5.1...uniform-v1.5.2) (2025-10-25)
+
+
+### Bug Fixes
+
+* reformat all code ([dfad412](https://github.com/fuf-stack/pixels/commit/dfad4120ad16e9ca2890bb4a7d9d7ac3b41a7413))
+* **uniform:** wrap lastElementNotRemovable logic with useEffect in FieldArray ([9db88ed](https://github.com/fuf-stack/pixels/commit/9db88ed7c8130524733d731dd07c8b9123d05395))
+
 ## [1.5.1](https://github.com/fuf-stack/pixels/compare/uniform-v1.5.0...uniform-v1.5.1) (2025-10-25)
 
 
