@@ -1,5 +1,3 @@
-/* eslint-disable import-x/prefer-default-export */
-
 import type {
   ControllerFieldState,
   ControllerRenderProps,

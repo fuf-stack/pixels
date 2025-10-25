@@ -7,7 +7,6 @@ import type {
 } from 'src/types';
 import type { object as looseObject, strictObject } from 'zod';
 
-// eslint-disable-next-line import-x/no-extraneous-dependencies
 import { z } from 'zod';
 
 /**

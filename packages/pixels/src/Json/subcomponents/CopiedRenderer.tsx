@@ -34,7 +34,7 @@ const CopiedRenderer = () => {
 
         const elmClasses = cn(
           className,
-          'absolute -top-[2px] -right-4 h-4 w-4 fill-transparent! pl-1',
+          'fill-transparent! absolute -right-4 -top-[2px] h-4 w-4 pl-1',
           { 'text-success': isCopied },
         );
 
@@ -47,7 +47,7 @@ const CopiedRenderer = () => {
         return (
           <span
             aria-label={isCopied ? 'Copied to clipboard' : 'Copy to clipboard'}
-            className="relative ml-0! h-[1em]! w-0!"
+            className="ml-0! h-[1em]! w-0! relative"
             data-testid="copy-button"
             onKeyDown={handleKeyDown}
             role="button"

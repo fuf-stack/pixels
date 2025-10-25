@@ -27,8 +27,12 @@ type Story = StoryObj<DrawerProps>;
 const Template: Story['render'] = (args, { canvasElement }) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const onClick = () => setIsOpen(true);
-  const onClose = () => setIsOpen(false);
+  const onClick = () => {
+    setIsOpen(true);
+  };
+  const onClose = () => {
+    setIsOpen(false);
+  };
 
   const isTestEnv = process.env.NODE_ENV === 'test';
 
@@ -121,9 +125,9 @@ const SizeTemplate: Story['render'] = (args) => {
         return (
           <Fragment key={size}>
             <Button
-              className="mr-2 mb-2"
-              onClick={toggleOpen}
+              className="mb-2 mr-2"
               data-testid={`drawer-trigger-${size}`}
+              onClick={toggleOpen}
             >
               {size}
             </Button>
@@ -185,9 +189,9 @@ const RadiiTemplate: Story['render'] = (args) => {
         return (
           <Fragment key={radius}>
             <Button
-              className="mr-2 mb-2"
-              onClick={toggleOpen}
+              className="mb-2 mr-2"
               data-testid={`drawer-trigger-${radius}`}
+              onClick={toggleOpen}
             >
               {radius}
             </Button>
@@ -249,9 +253,9 @@ const PlacementTemplate: Story['render'] = (args) => {
         return (
           <Fragment key={placement}>
             <Button
-              className="mr-2 mb-2"
-              onClick={toggleOpen}
+              className="mb-2 mr-2"
               data-testid={`drawer-trigger-${placement}`}
+              onClick={toggleOpen}
             >
               {placement}
             </Button>
@@ -313,17 +317,17 @@ const BackdropTemplate: Story['render'] = (args) => {
         return (
           <Fragment key={backdrop}>
             <Button
-              className="mr-2 mb-2"
-              onClick={toggleOpen}
+              className="mb-2 mr-2"
               data-testid={`drawer-trigger-${backdrop}`}
+              onClick={toggleOpen}
             >
               {backdrop}
             </Button>
             <Drawer
               {...args}
+              backdrop={backdrop}
               header={`backdrop ${backdrop}`}
               isOpen={openDrawers?.[backdrop] || false}
-              backdrop={backdrop}
               testId={`drawer-${backdrop}`}
               onClose={() => {
                 updateArgs({
@@ -368,8 +372,12 @@ const CardTemplate: Story['render'] = (args) => {
     }
   }, [drawerContainerRef, isRefReady]);
 
-  const onClick = () => setIsOpen(true);
-  const onClose = () => setIsOpen(false);
+  const onClick = () => {
+    setIsOpen(true);
+  };
+  const onClose = () => {
+    setIsOpen(false);
+  };
 
   const isTestEnv = process.env.NODE_ENV === 'test';
 
@@ -408,15 +416,15 @@ const CardTemplate: Story['render'] = (args) => {
       {card}
       <Drawer
         {...args}
+        header="So you made it. High five!"
+        isOpen={isOpen}
+        onClose={onClose}
+        portalContainer={drawerContainerRef.current ?? undefined}
+        size="xs"
         className={{
           wrapper: 'absolute right-0 h-full w-full',
           backdrop: 'absolute right-0 h-full w-full',
         }}
-        isOpen={isOpen}
-        onClose={onClose}
-        portalContainer={drawerContainerRef.current || undefined}
-        size="xs"
-        header="So you made it. High five!"
       >
         {drawerContent}
       </Drawer>

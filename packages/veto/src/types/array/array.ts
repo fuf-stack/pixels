@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/prefer-nullish-coalescing */
+
 import type {
   VetoEffects,
   VetoOptional,
@@ -6,7 +8,6 @@ import type {
 } from 'src/types';
 import type { ZodArray } from 'zod';
 
-// eslint-disable-next-line import-x/no-extraneous-dependencies
 import { z } from 'zod';
 
 import { issueCodes } from '../../issueCodes';

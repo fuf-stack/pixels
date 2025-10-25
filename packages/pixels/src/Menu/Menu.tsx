@@ -164,7 +164,7 @@ const Menu = ({
     triggerButton = (
       <Button
         isIconOnly
-        className={cn('outline-divider min-w-0 outline', className.trigger)}
+        className={cn('min-w-0 outline outline-divider', className.trigger)}
         radius="full"
         size="sm"
         variant="light"

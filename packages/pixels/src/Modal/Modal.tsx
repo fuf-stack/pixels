@@ -19,8 +19,8 @@ export const modalVariants = tv({
     base: '',
     body: 'py-4',
     closeButton: '',
-    footer: 'border-t-divider border-t',
-    header: 'border-b-divider border-b',
+    footer: 'border-t border-t-divider',
+    header: 'border-b border-b-divider',
     wrapper: '',
   },
   variants: {

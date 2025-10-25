@@ -28,11 +28,11 @@ export const filterVariants = tv({
     // add filter menu item
     addFilterMenuItem: '',
     // active filter label
-    activeFilterLabel: 'dark:text-foreground h-8 cursor-pointer rounded-md',
+    activeFilterLabel: 'h-8 cursor-pointer rounded-md dark:text-foreground',
     // filter modal body
     filterModalBody: '',
     // filter modal header
-    filterModalHeader: 'text-default-700 flex items-center gap-3',
+    filterModalHeader: 'flex items-center gap-3 text-default-700',
     // filter modal footer
     filterModalFooter: 'justify-between',
     // form element

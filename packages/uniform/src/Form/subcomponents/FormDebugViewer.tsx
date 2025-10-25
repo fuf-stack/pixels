@@ -38,7 +38,7 @@ const FormDebugViewer = ({ className = undefined }: FormDebugViewerProps) => {
     return (
       <Button
         ariaLabel="Enable form debug mode"
-        className="text-default-400 fixed right-2.5 bottom-2.5 w-5"
+        className="fixed bottom-2.5 right-2.5 w-5 text-default-400"
         icon={<FaBug />}
         variant="light"
         onClick={() => {
@@ -72,7 +72,7 @@ const FormDebugViewer = ({ className = undefined }: FormDebugViewerProps) => {
       }
     >
       <Button
-        className="mr-auto mb-4 ml-auto"
+        className="mb-4 ml-auto mr-auto"
         icon={<FaBullseye />}
         variant={showDebugTestIds ? 'solid' : 'light'}
         onClick={() => {

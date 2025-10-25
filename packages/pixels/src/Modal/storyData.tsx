@@ -1,5 +1,3 @@
-/* eslint-disable import-x/prefer-default-export */
-
 export const shortContent = (
   <p>
     It was a dark and stormy night in the React development world when a

@@ -32,13 +32,13 @@ export const alertVariants = tv({
     },
     sizeLimit: {
       height: {
-        base: 'max-h-[150px] overflow-x-hidden overflow-y-auto',
+        base: 'max-h-[150px] overflow-y-auto overflow-x-hidden',
       },
       width: {
         base: 'max-w-[480px] overflow-x-auto overflow-y-hidden',
       },
       both: {
-        base: 'max-h-[150px] max-w-[480px] overflow-x-hidden overflow-y-auto',
+        base: 'max-h-[150px] max-w-[480px] overflow-y-auto overflow-x-hidden',
       },
     },
   },
@@ -58,7 +58,7 @@ export const alertVariants = tv({
       variant: 'flat',
       className: {
         alertIcon: 'fill-current',
-        base: 'bg-info-50 text-info-600 dark:bg-info-50/50',
+        base: 'dark:bg-info-50/50 bg-info-50 text-info-600',
         closeButton: 'text-info-500 data-[hover]:bg-info-200',
         iconWrapper: 'border-info-100 bg-info-50 dark:bg-info-100',
       },
@@ -68,7 +68,7 @@ export const alertVariants = tv({
       variant: 'faded',
       className: {
         alertIcon: 'fill-current',
-        base: 'border-small border-info-200 bg-info-50 text-info-600 dark:border-info-100 dark:bg-info-50/50',
+        base: 'dark:bg-info-50/50 border-small border-info-200 bg-info-50 text-info-600 dark:border-info-100',
         closeButton: 'text-info-500 data-[hover]:bg-info-200',
         iconWrapper: 'border-info-100 bg-info-50 dark:bg-info-100',
       },
@@ -103,7 +103,7 @@ export interface AlertProps extends VariantProps {
   /** Whether the Alert can be closed */
   isClosable?: boolean;
   /** Callback fired when the close button is clicked */
-  onClose?: () => void | undefined;
+  onClose?: () => void;
   /** Whether to show the icon at the start */
   showIcon?: boolean;
   /** limit height to 150px or width to 480px or both */
@@ -158,7 +158,7 @@ const Alert = ({
       icon={icon}
       isClosable={isClosable}
       onClose={onClose}
-      title={(title || children) as string}
+      title={(title ?? children) as string}
       variant={variant}
     />
   );

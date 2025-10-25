@@ -2,7 +2,7 @@
 
 exports[`Coverage > Should have correct testIds 1`] = `
 <div
-  class="flex flex-col relative overflow-hidden h-auto text-foreground box-border bg-content1 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 shadow-none rounded-small w-full transition-transform-background motion-reduce:transition-none border-divider border"
+  class="flex flex-col relative overflow-hidden h-auto text-foreground box-border bg-content1 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 shadow-none rounded-small w-full transition-transform-background motion-reduce:transition-none border border-divider"
   data-testid="card_card1"
   tabindex="-1"
 >
@@ -15,7 +15,7 @@ exports[`Coverage > Should have correct testIds 1`] = `
 
 exports[`Coverage > should render with no children 1`] = `
 <div
-  class="flex flex-col relative overflow-hidden h-auto text-foreground box-border bg-content1 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 shadow-none rounded-small w-full transition-transform-background motion-reduce:transition-none border-divider border"
+  class="flex flex-col relative overflow-hidden h-auto text-foreground box-border bg-content1 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 shadow-none rounded-small w-full transition-transform-background motion-reduce:transition-none border border-divider"
   tabindex="-1"
 >
   <div
@@ -26,7 +26,7 @@ exports[`Coverage > should render with no children 1`] = `
 
 exports[`Coverage > should render with only header 1`] = `
 <div
-  class="flex flex-col relative overflow-hidden h-auto text-foreground box-border bg-content1 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 shadow-none rounded-small w-full transition-transform-background motion-reduce:transition-none border-divider border"
+  class="flex flex-col relative overflow-hidden h-auto text-foreground box-border bg-content1 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 shadow-none rounded-small w-full transition-transform-background motion-reduce:transition-none border border-divider"
   data-testid="card_testId"
   tabindex="-1"
 >
@@ -39,7 +39,7 @@ exports[`Coverage > should render with only header 1`] = `
     </div>
   </div>
   <hr
-    class="shrink-0 bg-divider border-none w-full h-divider border-divider my-0"
+    class="shrink-0 bg-divider border-none w-full h-divider my-0 border-divider"
     role="separator"
   />
   <div
@@ -47,7 +47,7 @@ exports[`Coverage > should render with only header 1`] = `
     data-testid="card_body_testId"
   />
   <hr
-    class="shrink-0 bg-divider border-none w-full h-divider border-divider my-0"
+    class="shrink-0 bg-divider border-none w-full h-divider my-0 border-divider"
     role="separator"
   />
   <div
@@ -62,7 +62,7 @@ exports[`Coverage > should render with only header 1`] = `
 exports[`Story Snapshots > CustomSlotStyles 1`] = `
 <div>
   <div
-    class="flex flex-col relative overflow-hidden h-auto box-border bg-content1 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 shadow-none rounded-small w-full transition-transform-background motion-reduce:transition-none border-divider border text-blue-400"
+    class="flex flex-col relative overflow-hidden h-auto box-border bg-content1 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 shadow-none rounded-small w-full transition-transform-background motion-reduce:transition-none border border-divider text-blue-400"
     tabindex="-1"
   >
     <div
@@ -71,7 +71,7 @@ exports[`Story Snapshots > CustomSlotStyles 1`] = `
       Header
     </div>
     <hr
-      class="shrink-0 border-none w-full h-divider border-divider my-0 bg-yellow-400"
+      class="shrink-0 border-none w-full h-divider my-0 border-divider bg-yellow-400"
       role="separator"
     />
     <div
@@ -84,7 +84,7 @@ exports[`Story Snapshots > CustomSlotStyles 1`] = `
       </p>
     </div>
     <hr
-      class="shrink-0 border-none w-full h-divider border-divider my-0 bg-yellow-400"
+      class="shrink-0 border-none w-full h-divider my-0 border-divider bg-yellow-400"
       role="separator"
     />
     <div
@@ -99,7 +99,7 @@ exports[`Story Snapshots > CustomSlotStyles 1`] = `
 exports[`Story Snapshots > Default 1`] = `
 <div>
   <div
-    class="flex flex-col relative overflow-hidden h-auto text-foreground box-border bg-content1 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 shadow-none rounded-small w-full transition-transform-background motion-reduce:transition-none border-divider border"
+    class="flex flex-col relative overflow-hidden h-auto text-foreground box-border bg-content1 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 shadow-none rounded-small w-full transition-transform-background motion-reduce:transition-none border border-divider"
     tabindex="-1"
   >
     <div
@@ -118,7 +118,7 @@ exports[`Story Snapshots > Default 1`] = `
 exports[`Story Snapshots > FooterAndHeader 1`] = `
 <div>
   <div
-    class="flex flex-col relative overflow-hidden h-auto text-foreground box-border bg-content1 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 shadow-none rounded-small w-full transition-transform-background motion-reduce:transition-none border-divider border"
+    class="flex flex-col relative overflow-hidden h-auto text-foreground box-border bg-content1 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 shadow-none rounded-small w-full transition-transform-background motion-reduce:transition-none border border-divider"
     tabindex="-1"
   >
     <div
@@ -127,7 +127,7 @@ exports[`Story Snapshots > FooterAndHeader 1`] = `
       Header
     </div>
     <hr
-      class="shrink-0 bg-divider border-none w-full h-divider border-divider my-0"
+      class="shrink-0 bg-divider border-none w-full h-divider my-0 border-divider"
       role="separator"
     />
     <div
@@ -140,7 +140,7 @@ exports[`Story Snapshots > FooterAndHeader 1`] = `
       </p>
     </div>
     <hr
-      class="shrink-0 bg-divider border-none w-full h-divider border-divider my-0"
+      class="shrink-0 bg-divider border-none w-full h-divider my-0 border-divider"
       role="separator"
     />
     <div

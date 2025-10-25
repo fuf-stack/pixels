@@ -17,7 +17,7 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
           data-testid=""
         >
           <div
-            class="flex flex-col relative overflow-hidden h-auto text-foreground box-border bg-content1 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 shadow-none rounded-small w-full transition-transform-background motion-reduce:transition-none border-divider border"
+            class="flex flex-col relative overflow-hidden h-auto text-foreground box-border bg-content1 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 shadow-none rounded-small w-full transition-transform-background motion-reduce:transition-none border border-divider"
             tabindex="-1"
           >
             <div
@@ -138,7 +138,7 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                   data-testid="selectfield_wrapper"
                 >
                   <label
-                    class="text-small group-data-[invalid=true]:!text-danger group-data-[required=true]:after:text-danger pointer-events-auto relative bottom-1.5 ml-1 subpixel-antialiased group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:content-["*"]"
+                    class="pointer-events-auto relative bottom-1.5 ml-1 subpixel-antialiased text-small group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
                     data-slot="label"
                     for="react-select-selectField-input"
                     id="react-aria-react-useId-mock"
@@ -163,13 +163,13 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                       data-testid="selectfield_select"
                     >
                       <div
-                        class="border-default-200 bg-content1 transition-background hover:border-default-400 group-data-[invalid=true]:border-danger group-data-[invalid=true]:hover:border-danger rounded-lg border-2 duration-150! motion-reduce:transition-none css-cp01gg-control"
+                        class="duration-150! rounded-lg border-2 border-default-200 bg-content1 transition-background hover:border-default-400 group-data-[invalid=true]:border-danger group-data-[invalid=true]:hover:border-danger motion-reduce:transition-none css-cp01gg-control"
                       >
                         <div
                           class="gap-1 p-1 css-14oxtc6"
                         >
                           <div
-                            class="text-foreground-500 ml-1 py-0.5 pl-1 text-sm css-1vlsb4t-placeholder"
+                            class="ml-1 py-0.5 pl-1 text-sm text-foreground-500 css-1vlsb4t-placeholder"
                             id="react-select-selectField-placeholder"
                           >
                             Select...
@@ -212,7 +212,7 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                           >
                             <div
                               aria-hidden="true"
-                              class="text-foreground-500 hover:bg-default-200 rounded-md p-1 hover:cursor-pointer hover:text-black css-g56vrd-indicatorContainer"
+                              class="rounded-md p-1 text-foreground-500 hover:cursor-pointer hover:bg-default-200 hover:text-black css-g56vrd-indicatorContainer"
                             >
                               <svg
                                 aria-hidden="true"
@@ -366,7 +366,7 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                       />
                     </span>
                     <span
-                      class="relative select-none ms-2 text-foreground group-data-[invalid=true]:!text-danger group-data-[required=true]:after:text-danger text-sm subpixel-antialiased group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:content-["*"]"
+                      class="relative select-none ms-2 text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
                       id="«r0»"
                     >
                       Switch Field
@@ -383,7 +383,7 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                   role="group"
                 >
                   <span
-                    class="relative after:content-['*'] after:text-danger after:ml-0.5 text-foreground group-data-[invalid=true]:!text-danger inline-flex text-sm subpixel-antialiased"
+                    class="relative after:content-['*'] after:text-danger after:ml-0.5 inline-flex text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger"
                   >
                     <legend>
                       Checkbox Field
@@ -553,7 +553,7 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                   role="radiogroup"
                 >
                   <span
-                    class="relative after:content-['*'] after:text-danger after:ml-0.5 text-foreground group-data-[invalid=true]:text-danger mb-2 inline-flex text-sm subpixel-antialiased"
+                    class="relative after:content-['*'] after:text-danger after:ml-0.5 mb-2 inline-flex text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger"
                   >
                     <legend>
                       Radio Field
@@ -687,7 +687,7 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                   role="radiogroup"
                 >
                   <span
-                    class="relative after:content-['*'] after:text-danger after:ml-0.5 text-foreground group-data-[invalid=true]:text-danger mb-2 inline-flex text-sm subpixel-antialiased"
+                    class="relative after:content-['*'] after:text-danger after:ml-0.5 mb-2 inline-flex text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger"
                   >
                     <legend>
                       Radio Box Field
@@ -700,7 +700,7 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                   >
                     <label
                       aria-required="true"
-                      class="group border-default hover:bg-content2 data-[selected=true]:border-focus inline-flex flex-auto cursor-pointer items-center justify-between gap-4 rounded-lg border-2 p-4"
+                      class="group inline-flex flex-auto cursor-pointer items-center justify-between gap-4 rounded-lg border-2 border-default p-4 hover:bg-content2 data-[selected=true]:border-focus"
                       data-testid="radioboxfield_option_value0"
                     >
                       <div
@@ -740,7 +740,7 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                     </label>
                     <label
                       aria-required="true"
-                      class="group border-default hover:bg-content2 data-[selected=true]:border-focus inline-flex flex-auto cursor-pointer items-center justify-between gap-4 rounded-lg border-2 p-4"
+                      class="group inline-flex flex-auto cursor-pointer items-center justify-between gap-4 rounded-lg border-2 border-default p-4 hover:bg-content2 data-[selected=true]:border-focus"
                       data-testid="radioboxfield_option_value1"
                     >
                       <div
@@ -780,7 +780,7 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                     </label>
                     <label
                       aria-required="true"
-                      class="group border-default hover:bg-content2 data-[selected=true]:border-focus inline-flex flex-auto cursor-pointer items-center justify-between gap-4 rounded-lg border-2 p-4"
+                      class="group inline-flex flex-auto cursor-pointer items-center justify-between gap-4 rounded-lg border-2 border-default p-4 hover:bg-content2 data-[selected=true]:border-focus"
                       data-testid="radioboxfield_option_value2"
                     >
                       <div
@@ -823,7 +823,7 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
               </div>
             </div>
             <hr
-              class="shrink-0 bg-divider border-none w-full h-divider border-divider my-0"
+              class="shrink-0 bg-divider border-none w-full h-divider my-0 border-divider"
               role="separator"
             />
             <div
@@ -865,7 +865,7 @@ exports[`Story Snapshots > DebugModeDisabled 1`] = `
           data-testid=""
         >
           <div
-            class="flex flex-col relative overflow-hidden h-auto text-foreground box-border bg-content1 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 shadow-none rounded-small w-full transition-transform-background motion-reduce:transition-none border-divider border"
+            class="flex flex-col relative overflow-hidden h-auto text-foreground box-border bg-content1 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 shadow-none rounded-small w-full transition-transform-background motion-reduce:transition-none border border-divider"
             tabindex="-1"
           >
             <div
@@ -924,7 +924,7 @@ exports[`Story Snapshots > DebugModeDisabled 1`] = `
               </div>
             </div>
             <hr
-              class="shrink-0 bg-divider border-none w-full h-divider border-divider my-0"
+              class="shrink-0 bg-divider border-none w-full h-divider my-0 border-divider"
               role="separator"
             />
             <div

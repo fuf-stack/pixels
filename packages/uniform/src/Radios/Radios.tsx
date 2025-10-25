@@ -23,7 +23,7 @@ export const radiosVariants = tv({
       'group-data-[invalid=true]:border-danger! [&:not(group-data-[invalid="true"]):not(group-data-[selected="false"])]:border-focus',
     // e.g.: https://github.com/heroui-inc/heroui/blob/main/packages/core/theme/src/components/select.ts
     label:
-      'text-foreground group-data-[invalid=true]:text-danger mb-2 inline-flex text-sm subpixel-antialiased',
+      'mb-2 inline-flex text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger',
     wrapper: '',
   },
 });

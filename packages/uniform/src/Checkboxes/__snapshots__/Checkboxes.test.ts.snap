@@ -20,7 +20,7 @@ exports[`Story Snapshots > DangerColor 1`] = `
         role="group"
       >
         <span
-          class="relative text-foreground group-data-[invalid=true]:!text-danger inline-flex text-sm subpixel-antialiased"
+          class="relative inline-flex text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger"
         >
           <legend>
             Danger Color
@@ -963,7 +963,7 @@ exports[`Story Snapshots > Invalid 1`] = `
         role="group"
       >
         <span
-          class="relative after:content-['*'] after:text-danger after:ml-0.5 text-foreground group-data-[invalid=true]:!text-danger inline-flex text-sm subpixel-antialiased"
+          class="relative after:content-['*'] after:text-danger after:ml-0.5 inline-flex text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger"
         >
           <legend>
             Checkbox Field
@@ -1191,7 +1191,7 @@ exports[`Story Snapshots > InvalidOneCheckbox 1`] = `
         role="group"
       >
         <span
-          class="relative text-foreground group-data-[invalid=true]:!text-danger inline-flex text-sm subpixel-antialiased"
+          class="relative inline-flex text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger"
         >
           <legend>
             Checkbox Field
@@ -1406,7 +1406,7 @@ exports[`Story Snapshots > Required 1`] = `
         role="group"
       >
         <span
-          class="relative after:content-['*'] after:text-danger after:ml-0.5 text-foreground group-data-[invalid=true]:!text-danger inline-flex text-sm subpixel-antialiased"
+          class="relative after:content-['*'] after:text-danger after:ml-0.5 inline-flex text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger"
         >
           <legend>
             Checkbox Field
@@ -1791,7 +1791,7 @@ exports[`Story Snapshots > WithLabel 1`] = `
         role="group"
       >
         <span
-          class="relative text-foreground group-data-[invalid=true]:!text-danger inline-flex text-sm subpixel-antialiased"
+          class="relative inline-flex text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger"
         >
           <legend>
             Checkbox Field
@@ -1984,7 +1984,7 @@ exports[`Story Snapshots > WithLineThrough 1`] = `
         role="group"
       >
         <span
-          class="relative text-foreground group-data-[invalid=true]:!text-danger inline-flex text-sm subpixel-antialiased"
+          class="relative inline-flex text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger"
         >
           <legend>
             Todo List
@@ -2051,7 +2051,7 @@ exports[`Story Snapshots > WithLineThrough 1`] = `
                   🧽 Wash the dishes
                 </span>
                 <span
-                  class="!text-small text-foreground-400 group-data-[selected=true]:opacity-60"
+                  class="text-foreground-400 !text-small group-data-[selected=true]:opacity-60"
                 >
                   Kitchen sink and countertop
                 </span>
@@ -2298,7 +2298,7 @@ exports[`Story Snapshots > WithOptionLabelSubline 1`] = `
                   Pizza for breakfast 🍕
                 </span>
                 <span
-                  class="!text-small text-foreground-400"
+                  class="text-foreground-400 !text-small"
                 >
                   The most important meal of the day
                 </span>
@@ -2356,7 +2356,7 @@ exports[`Story Snapshots > WithOptionLabelSubline 1`] = `
                   Unicorns are real 🦄
                 </span>
                 <span
-                  class="!text-small text-foreground-400"
+                  class="text-foreground-400 !text-small"
                 >
                   They just live in a different dimension
                 </span>
@@ -2414,7 +2414,7 @@ exports[`Story Snapshots > WithOptionLabelSubline 1`] = `
                   Socks with sandals 🧦
                 </span>
                 <span
-                  class="!text-small text-foreground-400"
+                  class="text-foreground-400 !text-small"
                 >
                   Peak fashion statement
                 </span>

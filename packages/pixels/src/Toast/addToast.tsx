@@ -50,7 +50,7 @@ export const toastVariants = tv({
       color: 'info',
       variant: 'flat',
       className: {
-        base: 'bg-info-50 text-info-600 dark:bg-info-50/50',
+        base: 'dark:bg-info-50/50 bg-info-50 text-info-600',
         title: 'text-info-600',
         description: 'text-info-500',
         icon: 'text-info-600',

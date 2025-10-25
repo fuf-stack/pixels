@@ -76,7 +76,9 @@ const convertOklchToHex = (oklchString: string): string => {
   try {
     // Extract OKLCH values: oklch(L C H)
     const match = /oklch\(([\d.]+)\s+([\d.]+)\s+([\d.]+)\)/.exec(oklchString);
-    if (!match) return '';
+    if (!match) {
+      return '';
+    }
 
     // This is a simplified conversion. For production, you'd want a proper OKLCH->RGB library
     // For now, let's use a canvas to let the browser do the conversion
@@ -84,7 +86,9 @@ const convertOklchToHex = (oklchString: string): string => {
     canvas.width = 1;
     canvas.height = 1;
     const ctx = canvas.getContext('2d');
-    if (!ctx) return '';
+    if (!ctx) {
+      return '';
+    }
 
     ctx.fillStyle = oklchString;
     ctx.fillRect(0, 0, 1, 1);
@@ -143,7 +147,7 @@ const Swatch = ({
 
   return (
     <div
-      className={`${className} border-divider m-2 flex h-24 w-24 flex-col items-center justify-center rounded-xl border`}
+      className={`${className} m-2 flex h-24 w-24 flex-col items-center justify-center rounded-xl border border-divider`}
     >
       {label ? (
         <span className={`${textClassName} text-center text-xs font-medium`}>
@@ -190,7 +194,7 @@ const SwatchSet = ({ colors }: SwatchSetProps) => {
       {colors.map(({ title, items }) => {
         return (
           <div key={title} className="flex h-full w-full flex-col items-start">
-            <h2 className="text-foreground text-xl font-bold">{title}</h2>
+            <h2 className="text-xl font-bold text-foreground">{title}</h2>
             <div className="flex h-full w-full flex-row flex-wrap items-center justify-start p-4">
               {items.map((item, index) => {
                 return (

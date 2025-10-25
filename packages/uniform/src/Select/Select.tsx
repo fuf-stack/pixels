@@ -14,40 +14,40 @@ export const selectVariants = tv({
   slots: {
     base: 'group leading-normal',
     clearIndicator:
-      'text-foreground-500 hover:bg-default-200 hover:text-foreground-800 rounded-md p-1 hover:cursor-pointer',
+      'rounded-md p-1 text-foreground-500 hover:cursor-pointer hover:bg-default-200 hover:text-foreground-800',
     control:
-      'border-default-200 bg-content1 transition-background hover:border-default-400 group-data-[invalid=true]:border-danger group-data-[invalid=true]:hover:border-danger rounded-lg border-2 duration-150! motion-reduce:transition-none',
+      'duration-150! rounded-lg border-2 border-default-200 bg-content1 transition-background hover:border-default-400 group-data-[invalid=true]:border-danger group-data-[invalid=true]:hover:border-danger motion-reduce:transition-none',
     control_focused: 'border-focus',
     crossIcon: '',
     downChevron: '',
     dropdownIndicator:
-      'text-foreground-500 hover:bg-default-200 rounded-md p-1 hover:cursor-pointer hover:text-black',
+      'rounded-md p-1 text-foreground-500 hover:cursor-pointer hover:bg-default-200 hover:text-black',
     group: '',
-    groupHeading: 'text-foreground-500 mt-2 mb-1 ml-3 text-sm',
+    groupHeading: 'mb-1 ml-3 mt-2 text-sm text-foreground-500',
     indicatorsContainer: 'gap-1 p-1',
     indicatorSeparator: 'bg-default-300',
     input: 'py-0.5 pl-1',
     // see HeroUI styles for group-data condition,
     // e.g.: https://github.com/heroui-inc/heroui/blob/main/packages/core/theme/src/components/select.ts
     label:
-      'text-small group-data-[invalid=true]:!text-danger group-data-[required=true]:after:text-danger pointer-events-auto relative bottom-1.5 ml-1 subpixel-antialiased group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:content-["*"]',
+      'pointer-events-auto relative bottom-1.5 ml-1 subpixel-antialiased text-small group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]',
     loadingIndicator: '',
-    loadingMessage: 'text-foreground-500 rounded-sm p-2',
-    menu: 'border-default-200 bg-content1 mt-2 rounded-xl border p-1 shadow-lg',
+    loadingMessage: 'rounded-sm p-2 text-foreground-500',
+    menu: 'mt-2 rounded-xl border border-default-200 bg-content1 p-1 shadow-lg',
     menuList: '',
     // ensure menu has same z-index as modal so it is visible when rendered in modal
     // see: https://github.com/heroui-inc/heroui/blob/main/packages/core/theme/src/components/modal.ts (see z-50)
     menuPortal: 'z-50!',
-    multiValue: 'bg-default-100 items-center gap-1.5 rounded py-0.5 pr-1 pl-2',
+    multiValue: 'items-center gap-1.5 rounded bg-default-100 py-0.5 pl-2 pr-1',
     multiValueContainer: '',
     multiValueLabel: 'py-0.5 leading-6',
     multiValueRemove:
-      'text-default-500 hover:border-default-300 hover:text-default-800 rounded hover:cursor-pointer',
-    noOptionsMessage: 'text-foreground-500 rounded-sm p-2',
+      'rounded text-default-500 hover:cursor-pointer hover:border-default-300 hover:text-default-800',
+    noOptionsMessage: 'rounded-sm p-2 text-foreground-500',
     option_focused: 'bg-default-100 active:bg-default-200',
     option_selected: 'bg-default-300',
     option: 'rounded px-3 py-2 hover:cursor-pointer',
-    placeholder: 'text-foreground-500 ml-1 py-0.5 pl-1 text-sm',
+    placeholder: 'ml-1 py-0.5 pl-1 text-sm text-foreground-500',
     selectContainer: '',
     singleValue: 'ml-1! leading-7!',
     valueContainer: 'gap-1 p-1',

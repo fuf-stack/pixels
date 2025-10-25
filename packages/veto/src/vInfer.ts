@@ -1,4 +1,3 @@
-// eslint-disable-next-line import-x/no-extraneous-dependencies
 import type { z } from 'zod';
 import type {
   VetoObject,

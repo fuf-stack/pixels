@@ -1,10 +1,12 @@
+/* eslint-disable import-x/no-extraneous-dependencies */
+
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import type { ToastProps } from './addToast';
 
 import { action } from 'storybook/actions';
 
+import { addToast, Toast, toastVariants } from '.';
 import { Button } from '../Button';
-import { addToast, Toast, toastVariants } from './index';
 import ToastProvider from './ToastProvider';
 
 const meta: Meta<typeof addToast> = {
@@ -14,12 +16,14 @@ const meta: Meta<typeof addToast> = {
     onClose: action('closed'),
   },
   decorators: [
-    (Story) => (
-      <>
-        <ToastProvider placement="top-center" />
-        <Story />
-      </>
-    ),
+    (Story) => {
+      return (
+        <>
+          <ToastProvider placement="top-center" />
+          <Story />
+        </>
+      );
+    },
   ],
 };
 
@@ -30,9 +34,17 @@ export const Default: Story = {
   args: {
     title: "Something's Up",
   },
-  render: (args) => (
-    <Button onClick={() => addToast({ ...args })}>Show success toast</Button>
-  ),
+  render: (args) => {
+    return (
+      <Button
+        onClick={() => {
+          addToast(args);
+        }}
+      >
+        Show success toast
+      </Button>
+    );
+  },
 };
 
 export const AllProps: Story = {
@@ -52,56 +64,63 @@ export const AllProps: Story = {
     showIcon: true,
     placement: 'top-right',
   },
-  render: (args) => (
-    <Button onClick={() => addToast({ ...args })}>Show toast</Button>
-  ),
+  render: (args) => {
+    return (
+      <Button
+        onClick={() => {
+          addToast(args);
+        }}
+      >
+        Show toast
+      </Button>
+    );
+  },
 };
 
 export const AllColors: Story = {
-  render: (args) => (
-    <>
-      {[...Object.keys(toastVariants.variants.color)].map((color) => (
-        <div key={color} className="mb-12">
-          <h2 className="mb-4 text-lg font-bold">{color}</h2>
-          <Button
-            onClick={() =>
-              addToast({
-                ...args,
-
-                color: color as ToastProps['color'],
-              })
-            }
-          >{`${color}`}</Button>
-        </div>
-      ))}
-    </>
-  ),
-  args: {
-    title: "Something's Up",
-    description: 'A message of varying importance has been detected.',
-    variant: 'bordered' as ToastProps['variant'],
+  render: () => {
+    return (
+      <>
+        {[...Object.keys(toastVariants.variants.color)].map((color) => {
+          return (
+            <div key={color} className="mb-12">
+              <h2 className="mb-4 text-lg font-bold">{color}</h2>
+              <Button
+                onClick={() => {
+                  addToast({
+                    title: "Something's Up",
+                    description:
+                      'A message of varying importance has been detected.',
+                    variant: 'bordered',
+                    color: color as ToastProps['color'],
+                  });
+                }}
+              >
+                {color}
+              </Button>
+            </div>
+          );
+        })}
+      </>
+    );
   },
 };
 
 export const AllVariants: Story = {
-  render: (args) => (
-    <>
-      {Object.keys(toastVariants.variants.variant).map((variant) => (
-        <div key={`${variant}`} className="mb-6">
-          <div className="text-foreground mb-2 text-sm">{variant}</div>
-          <Button
-            onClick={() =>
-              addToast({
-                ...args,
-
-                variant: variant as ToastProps['variant'],
-              })
-            }
-          >{`${variant}`}</Button>
-        </div>
-      ))}
-    </>
-  ),
+  render: (_args) => {
+    return (
+      <>
+        {Object.keys(toastVariants.variants.variant).map((variant) => {
+          return (
+            <div key={variant} className="mb-6">
+              <div className="mb-2 text-sm text-foreground">{variant}</div>
+              <Button>{variant}</Button>
+            </div>
+          );
+        })}
+      </>
+    );
+  },
   args: {
     title: "Something's Up",
     description: 'A message of varying importance has been detected.',
@@ -120,7 +139,6 @@ export const LongContent: Story = {
     variant: 'bordered' as ToastProps['variant'],
     timeout: 60000,
     closeIcon: undefined,
-    // description,
     endContent: 'the end',
     icon: undefined,
     loadingIcon: undefined,
@@ -129,7 +147,15 @@ export const LongContent: Story = {
     showIcon: true,
     placement: 'top-right',
   },
-  render: (args) => (
-    <Button onClick={() => addToast({ ...args })}>Show toast</Button>
-  ),
+  render: (args) => {
+    return (
+      <Button
+        onClick={() => {
+          addToast(args);
+        }}
+      >
+        Show toast
+      </Button>
+    );
+  },
 };

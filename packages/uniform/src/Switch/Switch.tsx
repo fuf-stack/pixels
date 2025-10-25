@@ -15,11 +15,11 @@ export const switchVariants = tv({
   slots: {
     base: '',
     endContent: '',
-    errorMessage: 'mt-1 ml-1',
+    errorMessage: 'ml-1 mt-1',
     // see HeroUI styles for group-data condition,
     // e.g.: https://github.com/heroui-inc/heroui/blob/main/packages/core/theme/src/components/select.ts
     label:
-      'text-foreground group-data-[invalid=true]:!text-danger group-data-[required=true]:after:text-danger text-sm subpixel-antialiased group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:content-["*"]',
+      'text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]',
     outerWrapper: 'place-content-center',
     startContent: '',
     thumb: '',

@@ -16,9 +16,9 @@ import { tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 // card styling variants
 export const cardVariants = tv({
   slots: {
-    base: 'border-divider border',
+    base: 'border border-divider',
     body: '',
-    divider: 'border-divider my-0',
+    divider: 'my-0 border-divider',
     footer: '',
     header: 'z-auto text-base font-semibold',
   },

@@ -15,7 +15,7 @@ export const radioTabsVariants = tv({
     base: 'group gap-0', // Needs group for group-data condition
     cursor: '',
     label:
-      'text-foreground group-data-[invalid=true]:text-danger mb-2 inline-flex text-sm subpixel-antialiased',
+      'mb-2 inline-flex text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger',
     tab: '',
     tabBase: '',
     tabContent: '',
@@ -31,7 +31,7 @@ export const radioTabsVariants = tv({
         tabBase: 'p-1 pb-0',
         tabWrapper: [
           // border style
-          'border-divider rounded-medium border',
+          'rounded-medium border border-divider',
           // full width
           'w-full',
         ],

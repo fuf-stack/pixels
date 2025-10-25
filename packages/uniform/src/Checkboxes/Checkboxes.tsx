@@ -24,11 +24,11 @@ export const checkboxesVariants = tv({
     // see HeroUI styles for group-data condition,
     // e.g.: https://github.com/heroui-inc/heroui/blob/main/packages/core/theme/src/components/select.ts
     label:
-      'text-foreground group-data-[invalid=true]:!text-danger inline-flex text-sm subpixel-antialiased',
+      'inline-flex text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger',
     optionBase: '',
     optionIcon: '',
     optionLabel: '',
-    optionLabelSubline: '!text-small text-foreground-400',
+    optionLabelSubline: 'text-foreground-400 !text-small',
     optionWrapper: '',
     wrapper: '',
   },

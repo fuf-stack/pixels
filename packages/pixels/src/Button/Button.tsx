@@ -51,12 +51,12 @@ export const buttonVariants = tv({
     {
       color: 'info',
       variant: 'shadow',
-      class: 'text-info-foreground bg-info shadow-info/40 shadow-lg',
+      class: 'shadow-info/40 bg-info text-info-foreground shadow-lg',
     },
     {
       color: 'info',
       variant: 'bordered',
-      class: 'border-medium border-info text-info bg-transparent',
+      class: 'border-medium border-info bg-transparent text-info',
     },
     {
       color: 'info',
@@ -71,7 +71,7 @@ export const buttonVariants = tv({
     {
       color: 'info',
       variant: 'light',
-      class: 'text-info data-[hover=true]:bg-info-100 bg-transparent',
+      class: 'bg-transparent text-info data-[hover=true]:bg-info-100',
     },
     {
       color: 'info',

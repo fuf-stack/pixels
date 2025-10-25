@@ -99,7 +99,9 @@ export const useInputValueTransform = ({
 
       // For number type, convert valid strings to numbers for display
       if (type === 'number') {
-        if (formValue === '') return '';
+        if (formValue === '') {
+          return '';
+        }
         const numValue = Number(formValue);
         return Number.isNaN(numValue) ? formValue : numValue;
       }
@@ -115,7 +117,9 @@ export const useInputValueTransform = ({
   const toFormValue = useCallback(
     (displayValue: string | number): string | number => {
       if (type === 'number') {
-        if (displayValue === '') return '';
+        if (displayValue === '') {
+          return '';
+        }
         const numValue = Number(displayValue);
         return Number.isNaN(numValue) ? displayValue : numValue;
       }

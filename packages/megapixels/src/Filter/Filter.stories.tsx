@@ -158,7 +158,7 @@ export const WithCustomStyles: Story = {
             // stronger light gradient / dark gradient
             'bg-gradient-to-r from-fuchsia-100 via-rose-100 to-amber-100 dark:from-fuchsia-900 dark:via-rose-900 dark:to-amber-900',
             // border colors: base → hover (amber) → focus (amber)
-            'border-2 border-fuchsia-400 group-data-[focus=true]:border-amber-400 data-[hover=true]:border-amber-400',
+            'border-2 border-fuchsia-400 data-[hover=true]:border-amber-400 group-data-[focus=true]:border-amber-400',
             // input text color
             'text-fuchsia-700 dark:text-fuchsia-300',
           ],

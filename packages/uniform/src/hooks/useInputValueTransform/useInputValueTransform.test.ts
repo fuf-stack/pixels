@@ -159,7 +159,9 @@ describe('useInputValueTransform', () => {
     it('should handle complex transformation errors gracefully', () => {
       const errorTransform = {
         toDisplayValue: (val: string | number) => {
-          if (val === 'error') throw new Error('Transform error');
+          if (val === 'error') {
+            throw new Error('Transform error');
+          }
           return val;
         },
         toFormValue: (val: string) => val,

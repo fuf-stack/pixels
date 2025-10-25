@@ -30,22 +30,22 @@ const ErrorRenderer = ({
 }: ErrorRendererProps) => {
   return (
     <div
-      className="border-danger bg-danger-50 text-danger mb-4 flex flex-col items-center rounded-lg border p-4 text-sm"
-      role="alert"
       aria-live="polite"
+      className="mb-4 flex flex-col items-center rounded-lg border border-danger bg-danger-50 p-4 text-sm text-danger"
+      role="alert"
     >
       <div className="flex w-full justify-between gap-6">
         <div className="flex items-center">
-          <FaTimesCircle className="mr-2" aria-hidden="true" />
+          <FaTimesCircle aria-hidden="true" className="mr-2" />
           <span className="font-medium">Failed to parse JSON data</span>
         </div>
         <Button
+          aria-controls="error-details"
+          aria-expanded={showDetails}
           color="danger"
+          onClick={onToggleDetails}
           size="sm"
           variant="light"
-          onClick={onToggleDetails}
-          aria-expanded={showDetails}
-          aria-controls="error-details"
         >
           {showDetails ? (
             <>
@@ -58,8 +58,8 @@ const ErrorRenderer = ({
           )}
         </Button>
       </div>
-      {showDetails && (
-        <div id="error-details" className="mt-4 w-full text-left">
+      {showDetails ? (
+        <div className="mt-4 w-full text-left" id="error-details">
           <div>
             <strong>Error:</strong>
             <pre>
@@ -75,7 +75,7 @@ const ErrorRenderer = ({
             </pre>
           </div>
         </div>
-      )}
+      ) : null}
     </div>
   );
 };

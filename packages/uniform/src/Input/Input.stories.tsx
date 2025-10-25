@@ -137,7 +137,7 @@ export const WithSelect: Story = {
     startContent: <FaEnvelope />,
     endContent: (
       <select
-        className="text-small text-default-400 border-0 bg-transparent outline-none"
+        className="border-0 bg-transparent text-default-400 outline-none text-small"
         id="currency"
         name="currency"
       >

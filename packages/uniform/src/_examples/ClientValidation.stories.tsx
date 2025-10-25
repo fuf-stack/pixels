@@ -103,16 +103,16 @@ const SimpleClientValidationForm = () => {
       <Input label="Username" name="username" placeholder="Enter username" />
       <Input label="Email" name="email" placeholder="Enter email" />
       {queryData ? (
-        <div className="bg-info-50 rounded p-3 text-sm">
+        <div className="rounded bg-info-50 p-3 text-sm">
           <strong className="mr-2">Existing usernames in team:</strong>
           {queryData.existingUsernames.join(', ')}
         </div>
       ) : null}
-      <div className="bg-default-50 rounded p-3 text-sm">
+      <div className="rounded bg-default-50 p-3 text-sm">
         <strong className="mr-2">Client Validation:</strong>
         {queryData && !loading ? '✅ Active' : '❌ Inactive'}
         <br />
-        <small className="text-default-600 mt-1 block">
+        <small className="mt-1 block text-default-600">
           Try typing an existing username to see validation errors!
         </small>
       </div>

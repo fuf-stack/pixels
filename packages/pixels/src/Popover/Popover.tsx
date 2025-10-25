@@ -19,10 +19,10 @@ export const popoverVariants = tv({
   slots: {
     body: 'w-full px-4 py-2',
     content: 'flex max-h-[80vh] flex-col p-0',
-    divider: 'border-divider m-0 w-full p-0',
+    divider: 'm-0 w-full border-divider p-0',
     footer: 'w-full px-4 py-2',
     footerWrapper: 'w-full',
-    header: 'w-full px-4 pt-2 pb-1 font-semibold',
+    header: 'w-full px-4 pb-1 pt-2 font-semibold',
     headerWrapper: 'w-full',
     trigger: '',
   },
