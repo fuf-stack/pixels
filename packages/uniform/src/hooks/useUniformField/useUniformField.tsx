@@ -94,7 +94,7 @@ export interface UseUniformFieldReturn<
   getLabelProps: ReturnType<typeof useInput>['getLabelProps'];
   /** Access current form values (converted to validation-friendly format) */
   getValues: ReturnType<typeof useFormContext<TFieldValues>>['getValues'];
-  /** Whether the field is invalid (debounced for smoother exit animations) */
+  /** Whether the field should show invalid state (debounced for smooth animations). True when field is invalid AND (dirty OR touched OR submitted) */
   invalid: boolean;
   /** Computed label node including optional test id copy button */
   label: ReactNode | null;
@@ -168,10 +168,6 @@ export function useUniformField<TFieldValues extends FieldValues = FieldValues>(
     name as string
   ];
 
-  // Debounce invalid changes so validation does not flicker and
-  // components can play exit animations
-  const invalid = useDebouncedInvalid(rawInvalid, 200);
-
   /**
    * Determine when to show the invalid state to the user.
    *
@@ -186,8 +182,12 @@ export function useUniformField<TFieldValues extends FieldValues = FieldValues>(
    *   - Text input: User focuses and blurs → error shows (via isTouched)
    *   - Checkbox group: User clicks first checkbox → error shows immediately (via isDirty)
    *   - Any field: User submits form → all errors show (via submitCount)
+   *
+   * The entire condition is debounced to prevent flickering and allow smooth animations
+   * when any of the states (invalid, isDirty, isTouched, submitCount) change.
    */
-  const showInvalid = invalid && (isDirty || isTouched || submitCount > 0);
+  const showInvalid = rawInvalid && (isDirty || isTouched || submitCount > 0);
+  const invalid = useDebouncedInvalid(showInvalid, 200);
 
   // Build a label node that:
   // - shows the provided label (unless explicitly set to false)
@@ -237,7 +237,7 @@ export function useUniformField<TFieldValues extends FieldValues = FieldValues>(
     getHelperWrapperProps,
     getLabelProps,
     getValues,
-    invalid: showInvalid,
+    invalid,
     label: labelNode,
     onBlur,
     onChange,
