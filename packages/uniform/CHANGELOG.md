@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.5.4](https://github.com/fuf-stack/pixels/compare/uniform-v1.5.3...uniform-v1.5.4) (2025-10-26)
+
+
+### Bug Fixes
+
+* **uniform:** add width animation to remove button in FieldArray ([0058953](https://github.com/fuf-stack/pixels/commit/00589534a2df09b4d4c6ca85f69a1845bd7b783c))
+* **uniform:** change display position of array errors in FieldArray ([d72c231](https://github.com/fuf-stack/pixels/commit/d72c231f09239aee66ced3f0067d743893e134fd))
+* **uniform:** change styles of add element button ([c74504b](https://github.com/fuf-stack/pixels/commit/c74504bc2b900bb2578522ff8b237eae0fd53567))
+* **uniform:** fix required logic for flat arrays and initialize Logic in FieldArray ([fc818b8](https://github.com/fuf-stack/pixels/commit/fc818b8423790dc50a45b64f1bb9888d4fdacd20))
+
 ## [1.5.3](https://github.com/fuf-stack/pixels/compare/uniform-v1.5.2...uniform-v1.5.3) (2025-10-25)
 
 
