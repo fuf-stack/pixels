@@ -94,10 +94,11 @@ describe('useUniformFieldArray', () => {
   });
 
   describe('Animation control', () => {
-    it('should start with animations disabled', () => {
+    it('should start with animations disabled when initialization is needed', () => {
       const { result } = renderHook(() =>
         useUniformFieldArray({
           name: 'testArray',
+          lastElementNotRemovable: true,
         }),
       );
 
@@ -108,6 +109,7 @@ describe('useUniformFieldArray', () => {
       const { result } = renderHook(() =>
         useUniformFieldArray({
           name: 'testArray',
+          lastElementNotRemovable: true,
         }),
       );
 
@@ -129,6 +131,7 @@ describe('useUniformFieldArray', () => {
       const { result } = renderHook(() =>
         useUniformFieldArray({
           name: 'testArray',
+          lastElementNotRemovable: true,
         }),
       );
 
@@ -147,6 +150,7 @@ describe('useUniformFieldArray', () => {
       const { result, rerender } = renderHook(() =>
         useUniformFieldArray({
           name: 'testArray',
+          lastElementNotRemovable: true,
         }),
       );
 
@@ -328,19 +332,22 @@ describe('useUniformFieldArray', () => {
     });
 
     it('should use 200ms delay for validation trigger', async () => {
-      mockFields = [{ id: '1' }];
+      mockFields = [];
 
       const { rerender } = renderHook(() =>
         useUniformFieldArray({
           name: 'testArray',
+          lastElementNotRemovable: true,
         }),
       );
 
-      // Wait for initialization
+      // Wait for initialization to complete
       await act(async () => {
-        vi.advanceTimersByTime(1);
+        vi.advanceTimersByTime(2);
+        await Promise.resolve();
       });
 
+      // Now that initialization is complete, add another element
       mockFields = [{ id: '1' }, { id: '2' }];
       rerender();
 
@@ -355,6 +362,183 @@ describe('useUniformFieldArray', () => {
         vi.advanceTimersByTime(1);
       });
       expect(mockTrigger).toHaveBeenCalledWith('testArray');
+    });
+  });
+
+  describe('Reset behavior', () => {
+    it('should re-initialize when form is reset and lastElementNotRemovable is true', async () => {
+      mockFields = [];
+
+      const { rerender } = renderHook(() =>
+        useUniformFieldArray({
+          name: 'testArray',
+          lastElementNotRemovable: true,
+        }),
+      );
+
+      // Initial setValue call for initialization
+      expect(mockSetValue).toHaveBeenCalledTimes(1);
+
+      // Wait for initial initialization
+      await act(async () => {
+        vi.advanceTimersByTime(2);
+        await Promise.resolve();
+      });
+
+      // Simulate that fields now has 1 element (setValue would have added it)
+      mockFields = [{ id: '1' }];
+      rerender();
+
+      // Clear setValue calls
+      mockSetValue.mockClear();
+
+      // Simulate form reset by clearing fields
+      mockFields = [];
+      rerender();
+
+      // Should trigger re-initialization - setValue should be called
+      expect(mockSetValue).toHaveBeenCalledTimes(1);
+
+      // Wait for re-initialization to complete
+      await act(async () => {
+        vi.advanceTimersByTime(2);
+        await Promise.resolve();
+      });
+    });
+
+    it('should disable animations during re-initialization', async () => {
+      mockFields = [];
+
+      const { result, rerender } = renderHook(() =>
+        useUniformFieldArray({
+          name: 'testArray',
+          lastElementNotRemovable: true,
+        }),
+      );
+
+      // Wait for initial initialization
+      await act(async () => {
+        vi.advanceTimersByTime(2);
+        await Promise.resolve();
+      });
+
+      // Animations should be enabled after init
+      expect(result.current.disableAnimation).toBe(false);
+
+      // Simulate that fields now has 1 element
+      mockFields = [{ id: '1' }];
+      rerender();
+
+      // Simulate form reset
+      mockFields = [];
+
+      await act(async () => {
+        rerender();
+      });
+
+      // Animations should be disabled during re-init
+      expect(result.current.disableAnimation).toBe(true);
+
+      // Wait for re-initialization to complete
+      await act(async () => {
+        vi.advanceTimersByTime(2);
+        await Promise.resolve();
+      });
+
+      // Animations should be enabled again
+      expect(result.current.disableAnimation).toBe(false);
+    });
+
+    it('should skip validation during re-initialization', async () => {
+      mockFields = [];
+
+      const { rerender } = renderHook(() =>
+        useUniformFieldArray({
+          name: 'testArray',
+          lastElementNotRemovable: true,
+        }),
+      );
+
+      // Wait for initial initialization
+      await act(async () => {
+        vi.advanceTimersByTime(2);
+        await Promise.resolve();
+      });
+
+      // Simulate that fields now has 1 element
+      mockFields = [{ id: '1' }];
+      rerender();
+
+      // Wait for validation to trigger
+      await act(async () => {
+        vi.advanceTimersByTime(200);
+      });
+
+      // Clear all previous calls
+      mockTrigger.mockClear();
+
+      // Simulate form reset
+      mockFields = [];
+      rerender();
+
+      // Trigger validation delay but should not call trigger during re-init
+      await act(async () => {
+        vi.advanceTimersByTime(200);
+      });
+
+      expect(mockTrigger).not.toHaveBeenCalled();
+
+      // Complete re-initialization
+      await act(async () => {
+        vi.advanceTimersByTime(2);
+        await Promise.resolve();
+      });
+
+      // Simulate field was re-added by initialization
+      mockFields = [{ id: '1' }];
+      rerender();
+
+      // Now add another field to trigger validation
+      mockFields = [{ id: '1' }, { id: '2' }];
+      rerender();
+
+      await act(async () => {
+        vi.advanceTimersByTime(200);
+      });
+
+      // Should trigger validation after re-init is complete
+      expect(mockTrigger).toHaveBeenCalledWith('testArray');
+    });
+
+    it('should not re-initialize when lastElementNotRemovable is false', async () => {
+      mockFields = [{ id: '1' }];
+
+      const { rerender } = renderHook(() =>
+        useUniformFieldArray({
+          name: 'testArray',
+          lastElementNotRemovable: false,
+        }),
+      );
+
+      await act(async () => {
+        vi.advanceTimersByTime(2);
+        await Promise.resolve();
+      });
+
+      // Clear setValue calls from any initialization
+      mockSetValue.mockClear();
+
+      // Simulate clearing fields
+      mockFields = [];
+      rerender();
+
+      await act(async () => {
+        vi.advanceTimersByTime(2);
+        await Promise.resolve();
+      });
+
+      // Should NOT call setValue (no re-initialization)
+      expect(mockSetValue).not.toHaveBeenCalled();
     });
   });
 

@@ -75,18 +75,33 @@ export const useUniformFieldArray = <
 
   const { trigger, setValue } = useFormContext<TFieldValues>();
 
-  // Animation control: Start with animations disabled to prevent animating in initial elements.
-  // Will be enabled after initialization completes (unless user prefers reduced motion).
-  const [disableAnimation, setDisableAnimation] = useState(true);
+  // Determine if initialization is needed (initially or after reset).
+  // This flag automatically handles both scenarios:
+  // - Initial mount: fields.length starts at 0
+  // - Form reset: fields.length becomes 0 again
+  // Additional initialization conditions can be added here later (e.g., minElements > 0)
+  const needsInitialize = lastElementNotRemovable && fields.length === 0;
 
-  // Track whether initialization has completed. Used to:
-  // 1. Skip validation during initial setup
-  // 2. Only enable animations after initialization
-  // 3. Only respond to motion preference changes after initialization
-  const hasInitialized = useRef(false);
+  // Track whether initialization has completed. Initialized contextually:
+  // - If initialization IS needed (needsInitialize = true): starts as false, set to true after init
+  // - If initialization is NOT needed (needsInitialize = false): starts as true (already initialized)
+  // This ref is used to:
+  // 1. Skip validation during initialization/re-initialization
+  // 2. Gate animation enabling until after initialization
+  // 3. Gate motion preference effect until after initialization
+  const hasInitialized = useRef(!needsInitialize);
+
+  // Reset initialization flag when needsInitialize changes to true.
+  // This handles form reset: when fields become empty (needsInitialize becomes true),
+  // hasInitialized is reset to false, triggering re-initialization in the effect below.
+  useEffect(() => {
+    if (needsInitialize) {
+      hasInitialized.current = false;
+    }
+  }, [needsInitialize]);
 
   // Validate array-level constraints (min/max items) when length changes.
-  // Skip validation during initialization to avoid showing errors before initialization is complete.
+  // Skip validation during initialization/re-initialization to avoid showing errors prematurely.
   useEffect(() => {
     if (hasInitialized.current) {
       setTimeout(() => {
@@ -96,6 +111,10 @@ export const useUniformFieldArray = <
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [fields.length]);
+
+  // Animation control: Start with animations disabled to prevent animating in initial elements.
+  // Will be enabled after initialization completes (unless user prefers reduced motion).
+  const [disableAnimation, setDisableAnimation] = useState(true);
 
   // Respond to user's motion preference changes (after initialization).
   // During initialization, animations stay disabled regardless of preference.
@@ -115,7 +134,8 @@ export const useUniformFieldArray = <
       : (_elementInitialValue ?? {});
   }, [flat, _elementInitialValue]);
 
-  // Initialization: Add initial element if lastElementNotRemovable is set.
+  // Initialization/Re-initialization: Add initial element when needed.
+  // This handles both initial mount and form reset scenarios by reacting to needsInitialize.
   // CRITICAL: This effect MUST be the LAST hook in this component.
   // It sets hasInitialized.current = true, which acts as a gate for other effects.
   // If this runs before other effects, hasInitialized will be true during their first run,
@@ -124,27 +144,34 @@ export const useUniformFieldArray = <
   // hasInitialized = false, allowing them to skip initialization-phase logic.
   useEffect(
     () => {
-      if (lastElementNotRemovable && fields.length === 0) {
+      if (needsInitialize) {
+        // Disable animations if they're currently enabled (important for reset scenario).
+        // During initial mount, animations are already disabled, but after a form reset
+        // animations might be enabled, so we need to disable them before adding the element.
+        if (!disableAnimation) {
+          setDisableAnimation(true);
+        }
+
         // use setValue instead of append to avoid focusing the added element
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         setValue(name as Path<TFieldValues>, [elementInitialValue] as any);
-      }
 
-      // Mark initialization as complete
-      hasInitialized.current = true;
+        // Mark initialization as complete
+        hasInitialized.current = true;
 
-      // Enable animations after a 1ms delay (unless user prefers reduced motion).
-      // The delay ensures the initial setValue completes before animations turn on,
-      // preventing the initial element from animating in.
-      if (!prefersReducedMotion) {
-        setTimeout(() => {
-          setDisableAnimation(false);
-        }, 1);
+        // Enable animations after a 1ms delay (unless user prefers reduced motion).
+        // The delay ensures the setValue completes before animations turn on,
+        // preventing the initial element from animating in.
+        if (!prefersReducedMotion) {
+          setTimeout(() => {
+            setDisableAnimation(false);
+          }, 1);
+        }
       }
     },
-    // only run once when the component mounts
+    // Run when needsInitialize changes (initial mount or reset)
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [],
+    [needsInitialize],
   );
 
   return {
