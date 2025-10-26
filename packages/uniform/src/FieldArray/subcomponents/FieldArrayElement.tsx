@@ -182,19 +182,23 @@ const FieldArrayElement = ({
             ) : (
               <>
                 {/** remove element button (when menu is not used) */}
-                {lastNotDeletable && fields.length === 1 ? null : (
-                  <ElementRemoveButton
-                    className={className.removeButton}
-                    testId={`${testId}_remove_button`}
-                    onClick={() => {
-                      if (disableAnimation) {
-                        methods.remove();
-                      } else {
-                        setIsVisible(false);
-                      }
-                    }}
-                  />
-                )}
+                <AnimatePresence initial={false}>
+                  {lastNotDeletable && fields.length === 1 ? null : (
+                    <ElementRemoveButton
+                      key="remove-button"
+                      className={className.removeButton}
+                      disableAnimation={disableAnimation}
+                      testId={`${testId}_remove_button`}
+                      onClick={() => {
+                        if (disableAnimation) {
+                          methods.remove();
+                        } else {
+                          setIsVisible(false);
+                        }
+                      }}
+                    />
+                  )}
+                </AnimatePresence>
               </>
             )}
           </div>
