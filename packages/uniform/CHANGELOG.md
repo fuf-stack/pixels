@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.6](https://github.com/fuf-stack/pixels/compare/uniform-v1.5.5...uniform-v1.5.6) (2025-10-26)
+
+
+### Bug Fixes
+
+* **uniform:** refactor validation behaviour of fields ([f825cc0](https://github.com/fuf-stack/pixels/commit/f825cc060f7accd59e3eb8d08d17227ff4507598))
+
 ## [1.5.5](https://github.com/fuf-stack/pixels/compare/uniform-v1.5.4...uniform-v1.5.5) (2025-10-26)
 
 
