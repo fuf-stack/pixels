@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.5.3](https://github.com/fuf-stack/pixels/compare/uniform-v1.5.2...uniform-v1.5.3) (2025-10-25)
+
+
+### Bug Fixes
+
+* **uniform:** fox focus styles of actions menu in FieldArray ([405b9a9](https://github.com/fuf-stack/pixels/commit/405b9a95904afc7cf2d17d4c307c4fcd5bb589b3))
+* **uniform:** trigger validation after sort order changed in FieldArray ([a55a631](https://github.com/fuf-stack/pixels/commit/a55a63133b715a3a6f661976ccdf5cc0b9094570))
+
 ## [1.5.2](https://github.com/fuf-stack/pixels/compare/uniform-v1.5.1...uniform-v1.5.2) (2025-10-25)
 
 

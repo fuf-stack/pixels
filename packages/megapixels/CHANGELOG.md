@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.1](https://github.com/fuf-stack/pixels/compare/megapixels-v0.4.0...megapixels-v0.4.1) (2025-10-25)
+
+
+### Bug Fixes
+
+* reformat all code ([dfad412](https://github.com/fuf-stack/pixels/commit/dfad4120ad16e9ca2890bb4a7d9d7ac3b41a7413))
+
 ## [0.4.0](https://github.com/fuf-stack/pixels/compare/megapixels-v0.3.5...megapixels-v0.4.0) (2025-10-24)
 
 
