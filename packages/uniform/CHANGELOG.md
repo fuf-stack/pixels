@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.7](https://github.com/fuf-stack/pixels/compare/uniform-v1.5.6...uniform-v1.5.7) (2025-10-26)
+
+
+### Bug Fixes
+
+* **uniform:** improve invalid state debouncing ([d3f990f](https://github.com/fuf-stack/pixels/commit/d3f990fd91dbce1c727b6dea9dddaf54f5f47f80))
+
 ## [1.5.6](https://github.com/fuf-stack/pixels/compare/uniform-v1.5.5...uniform-v1.5.6) (2025-10-26)
 
 
