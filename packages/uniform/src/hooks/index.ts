@@ -2,7 +2,7 @@
 
 export * from './useClientValidation/useClientValidation';
 export * from './useController/useController';
-export * from './useFieldArray/useFieldArray';
+export * from './useUniformFieldArray/useUniformFieldArray';
 export * from './useFormContext/useFormContext';
 export * from './useInput/useInput';
 export * from './useInputValueDebounce/useInputValueDebounce';
