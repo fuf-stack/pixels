@@ -169,7 +169,11 @@ const Select = ({
     label,
     required,
     testId,
-  } = useUniformField({ name, ...uniformFieldProps });
+  } = useUniformField({
+    name,
+    showInvalidWhen: 'immediate',
+    ...uniformFieldProps,
+  });
 
   const [isFocused, setIsFocused] = useState(false);
 
