@@ -67,12 +67,6 @@ export interface UseUniformFieldParams<
   testId?: string;
   /** Optional label content; pass false to suppress label entirely */
   label?: ReactNode | false;
-  /**
-   * When to show the invalid state to users.
-   * - 'touched': Only show errors after field is touched or form is submitted (default, good for text inputs)
-   * - 'immediate': Show errors as soon as they occur (good for checkboxes, radios, arrays)
-   */
-  showInvalidWhen?: 'touched' | 'immediate';
 }
 
 export interface UseUniformFieldReturn<
@@ -128,10 +122,10 @@ export interface UseUniformFieldReturn<
  *   • `true` (field becomes invalid): applies immediately so errors show right away
  *   • `false` (field becomes valid): delayed 200ms to allow smooth exit animations
  *   • Respects `prefers-reduced-motion` by skipping delays when user prefers reduced motion
- * - Smart `invalid` visibility (via `showInvalid`), configurable via `showInvalidWhen`:
- *   • 'touched' (default): Shows errors only after field touched OR form submitted
- *   • 'immediate': Shows errors as soon as validation fails (for checkboxes/radios/arrays)
- *   • Prevents showing errors on pristine fields for better UX
+ * - Smart `invalid` visibility (via `showInvalid`):
+ *   • Shows errors when field is dirty OR touched OR form has been submitted
+ *   • Prevents showing errors on pristine/untouched fields for better UX
+ *   • Works well for all field types (text inputs, checkboxes, radios, arrays)
  * - Prebuilt `errorMessage` React node using `FieldValidationError`
  * - Computed `label` node which appends a `FieldCopyTestIdButton` in
  *   `debug-testids` mode
@@ -143,13 +137,7 @@ export interface UseUniformFieldReturn<
 export function useUniformField<TFieldValues extends FieldValues = FieldValues>(
   params: UseUniformFieldParams<TFieldValues>,
 ): UseUniformFieldReturn<TFieldValues> {
-  const {
-    name,
-    disabled = false,
-    testId: explicitTestId,
-    label,
-    showInvalidWhen = 'touched',
-  } = params;
+  const { name, disabled = false, testId: explicitTestId, label } = params;
 
   const {
     control,
@@ -163,12 +151,17 @@ export function useUniformField<TFieldValues extends FieldValues = FieldValues>(
   const {
     error,
     invalid: rawInvalid,
+    isDirty,
     isTouched,
     required,
     testId,
   } = getFieldState(name, explicitTestId);
 
-  const { field } = useController<TFieldValues>({ control, disabled, name });
+  const { field } = useController<TFieldValues>({
+    control,
+    disabled,
+    name,
+  });
   const { onChange, disabled: isDisabled, onBlur, ref } = field;
 
   const defaultValue = (getValues() as Record<string, unknown>)?.[
@@ -182,22 +175,19 @@ export function useUniformField<TFieldValues extends FieldValues = FieldValues>(
   /**
    * Determine when to show the invalid state to the user.
    *
-   * Behavior depends on `showInvalidWhen` parameter:
+   * Show errors when the field is invalid AND any of these conditions are met:
+   *   - Field is dirty (value changed from initial) - good for checkboxes/radios/arrays
+   *   - Field is touched (focused and blurred) - good for text inputs
+   *   - Form has been submitted - shows all errors after submit attempt
    *
-   * 'touched' mode (default for text inputs):
-   *   - Only show invalid when: field has errors AND (touched OR form submitted)
-   *   - Prevents showing errors on pristine fields for better UX
-   *   - Example: User loads form with empty required field → no error shown yet
-   *
-   * 'immediate' mode (for checkboxes, radios, arrays):
-   *   - Show invalid as soon as validation fails OR after form submission
-   *   - Good for components where user sees immediate feedback per interaction
-   *   - Example: Checkbox group with "select at least 2" → error shows immediately
+   * This prevents showing errors on pristine/untouched fields for better UX.
+   * Examples:
+   *   - Text input: User loads form with empty required field → no error shown yet
+   *   - Text input: User focuses and blurs → error shows (via isTouched)
+   *   - Checkbox group: User clicks first checkbox → error shows immediately (via isDirty)
+   *   - Any field: User submits form → all errors show (via submitCount)
    */
-  const showInvalid =
-    showInvalidWhen === 'immediate'
-      ? invalid || submitCount > 0
-      : invalid && (isTouched || submitCount > 0);
+  const showInvalid = invalid && (isDirty || isTouched || submitCount > 0);
 
   // Build a label node that:
   // - shows the provided label (unless explicitly set to false)

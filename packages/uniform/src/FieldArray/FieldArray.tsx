@@ -135,7 +135,6 @@ const FieldArray = ({
     flat,
     elementInitialValue: _elementInitialValue,
     lastElementNotRemovable,
-    showInvalidWhen: 'immediate',
     ...uniformFieldProps,
   });
 

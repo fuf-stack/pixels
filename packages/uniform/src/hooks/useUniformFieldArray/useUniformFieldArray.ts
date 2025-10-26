@@ -27,12 +27,6 @@ export interface UseUniformFieldArrayProps<
   testId?: string;
   /** Optional label content; pass false to suppress label entirely */
   label?: ReactNode | false;
-  /**
-   * When to show the invalid state to users.
-   * - 'touched': Only show errors after field is touched or form is submitted (default, good for text inputs)
-   * - 'immediate': Show errors as soon as they occur (good for checkboxes, radios, arrays)
-   */
-  showInvalidWhen?: 'touched' | 'immediate';
 }
 
 /**
@@ -40,8 +34,10 @@ export interface UseUniformFieldArrayProps<
  * Based on React Hook Form's useFieldArray with additional features:
  * - Automatic initialization when lastElementNotRemovable is set
  * - Animation control (disabled during initialization)
- * - Automatic validation triggering
  * - Support for flat arrays (arrays of primitives)
+ *
+ * Note: Automatic validation triggering on length change is disabled to prevent
+ * triggering form-wide validation. Array validation still runs on form submission.
  *
  * @see https://react-hook-form.com/docs/usefieldarray
  */
@@ -55,7 +51,6 @@ export const useUniformFieldArray = <
   disabled,
   testId: explicitTestId,
   label,
-  showInvalidWhen = 'immediate',
 }: UseUniformFieldArrayProps<TFieldValues>) => {
   // Get uniform field state and utilities
   const uniformField = useUniformField<TFieldValues>({
@@ -63,7 +58,6 @@ export const useUniformFieldArray = <
     disabled,
     testId: explicitTestId,
     label,
-    showInvalidWhen,
   });
 
   const { control } = uniformField;
@@ -154,7 +148,10 @@ export const useUniformFieldArray = <
 
         // use setValue instead of append to avoid focusing the added element
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        setValue(name as Path<TFieldValues>, [elementInitialValue] as any);
+        setValue(name as Path<TFieldValues>, [elementInitialValue] as any, {
+          shouldDirty: false,
+          shouldTouch: false,
+        });
 
         // Mark initialization as complete
         hasInitialized.current = true;

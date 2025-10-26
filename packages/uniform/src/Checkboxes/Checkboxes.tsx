@@ -113,7 +113,6 @@ const Checkboxes = ({
     testId,
   } = useUniformField({
     name,
-    showInvalidWhen: 'immediate',
     ...uniformFieldProps,
   });
 

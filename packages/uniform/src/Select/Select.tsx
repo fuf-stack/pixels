@@ -171,7 +171,6 @@ const Select = ({
     testId,
   } = useUniformField({
     name,
-    showInvalidWhen: 'immediate',
     ...uniformFieldProps,
   });
 

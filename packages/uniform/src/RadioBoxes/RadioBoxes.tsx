@@ -85,7 +85,6 @@ const RadioBoxes = ({
     testId,
   } = useUniformField({
     name,
-    showInvalidWhen: 'immediate',
     ...uniformFieldProps,
   });
 

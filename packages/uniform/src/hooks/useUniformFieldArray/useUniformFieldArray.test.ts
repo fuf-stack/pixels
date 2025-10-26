@@ -184,7 +184,10 @@ describe('useUniformFieldArray', () => {
         }),
       );
 
-      expect(mockSetValue).toHaveBeenCalledWith('testArray', [{}]);
+      expect(mockSetValue).toHaveBeenCalledWith('testArray', [{}], {
+        shouldDirty: false,
+        shouldTouch: false,
+      });
     });
 
     it('should not add element when array already has items', () => {
@@ -224,9 +227,14 @@ describe('useUniformFieldArray', () => {
         }),
       );
 
-      expect(mockSetValue).toHaveBeenCalledWith('testArray', [
-        { customField: 'value' },
-      ]);
+      expect(mockSetValue).toHaveBeenCalledWith(
+        'testArray',
+        [{ customField: 'value' }],
+        {
+          shouldDirty: false,
+          shouldTouch: false,
+        },
+      );
     });
   });
 
@@ -282,8 +290,8 @@ describe('useUniformFieldArray', () => {
     });
   });
 
-  describe('Validation triggering', () => {
-    it('should not trigger validation during initialization', async () => {
+  describe('Validation triggering (disabled - tests kept for future reference)', () => {
+    it.skip('should not trigger validation during initialization', async () => {
       mockFields = [];
 
       renderHook(() =>
@@ -305,7 +313,7 @@ describe('useUniformFieldArray', () => {
       expect(mockTrigger).not.toHaveBeenCalled();
     });
 
-    it('should trigger validation when fields length changes after initialization', async () => {
+    it.skip('should trigger validation when fields length changes after initialization', async () => {
       mockFields = [{ id: '1' }];
 
       const { rerender } = renderHook(() =>
@@ -331,7 +339,7 @@ describe('useUniformFieldArray', () => {
       expect(mockTrigger).toHaveBeenCalledWith('testArray');
     });
 
-    it('should use 200ms delay for validation trigger', async () => {
+    it.skip('should use 200ms delay for validation trigger', async () => {
       mockFields = [];
 
       const { rerender } = renderHook(() =>
@@ -574,25 +582,6 @@ describe('useUniformFieldArray', () => {
       );
 
       expect(result.current.testId).toBe('custom-test-id');
-    });
-
-    it('should default showInvalidWhen to immediate', async () => {
-      const { useUniformField } = await import(
-        '../useUniformField/useUniformField'
-      );
-      const useUniformFieldMock = vi.mocked(useUniformField);
-
-      renderHook(() =>
-        useUniformFieldArray({
-          name: 'testArray',
-        }),
-      );
-
-      expect(useUniformFieldMock).toHaveBeenCalledWith(
-        expect.objectContaining({
-          showInvalidWhen: 'immediate',
-        }),
-      );
     });
   });
 

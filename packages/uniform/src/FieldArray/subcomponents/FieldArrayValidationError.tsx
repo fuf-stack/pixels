@@ -34,7 +34,6 @@ const FieldArrayValidationError = ({
     testId,
   } = useUniformField({
     name,
-    showInvalidWhen: 'immediate',
   });
 
   // disable all animation if user prefers reduced motion

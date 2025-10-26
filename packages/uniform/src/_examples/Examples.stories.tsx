@@ -7,11 +7,13 @@ import { veto } from '@fuf-stack/veto';
 import * as vt from '@fuf-stack/veto';
 
 import { Checkboxes } from '../Checkboxes';
+import { FieldArray } from '../FieldArray';
 import { Form } from '../Form';
 import { Grid } from '../Grid';
 import { Input } from '../Input';
 import { RadioBoxes } from '../RadioBoxes';
 import { Radios } from '../Radios';
+import { RadioTabs } from '../RadioTabs';
 import { Select } from '../Select';
 import { SubmitButton } from '../SubmitButton';
 import { Switch } from '../Switch';
@@ -46,11 +48,14 @@ const selectSchema = vt.vEnum(['Value0', 'Value1', 'Value2']);
 
 const validation = veto({
   checkboxField: vt.array(checkboxSchema),
+  fieldArrayField: vt.array(vt.object({ name: vt.string() })),
+  fieldArrayFlatField: vt.array(vt.string()),
   numberField: vt.number(),
   passwordField: vt.string(),
   radioBoxField: radiosSchema,
   radioButtonField: radiosSchema,
   radioField: radiosSchema,
+  radioTabsField: radiosSchema,
   selectField: selectSchema,
   stringField: vt.string(),
   switchField: vt.boolean(),
@@ -128,6 +133,46 @@ export const AllFieldRenderers: Story = {
             name="radioBoxField"
             options={radioOptions}
           />
+          <RadioTabs
+            className="md:col-span-2"
+            label="Radio Tabs Field"
+            name="radioTabsField"
+            options={radioOptions}
+          />
+          <FieldArray
+            appendButtonText="Add Element"
+            className="md:col-span-2"
+            label="Field Array"
+            name="fieldArrayField"
+          >
+            {({ name }) => {
+              return (
+                <Input
+                  label="Element"
+                  name={`${name}.name`}
+                  placeholder="Array item..."
+                />
+              );
+            }}
+          </FieldArray>
+          <FieldArray
+            flat
+            lastElementNotRemovable
+            appendButtonText="Add Element"
+            className="md:col-span-2"
+            label="Field Array (Flat)"
+            name="fieldArrayFlatField"
+          >
+            {({ name }) => {
+              return (
+                <Input
+                  label="Element"
+                  name={name}
+                  placeholder="Flat array item..."
+                />
+              );
+            }}
+          </FieldArray>
         </Grid>
       </Card>
     ),

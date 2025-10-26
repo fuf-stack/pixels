@@ -82,7 +82,6 @@ const Radios = ({
     testId,
   } = useUniformField({
     name,
-    showInvalidWhen: 'immediate',
     ...uniformFieldProps,
   });
 

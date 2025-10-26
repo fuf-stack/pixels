@@ -107,7 +107,6 @@ const RadioTabs = ({
     testId,
   } = useUniformField({
     name,
-    showInvalidWhen: 'immediate',
     ...uniformFieldProps,
   });
 

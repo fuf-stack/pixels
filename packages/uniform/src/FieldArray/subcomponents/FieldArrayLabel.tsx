@@ -26,7 +26,6 @@ const FieldArrayLabel = ({
 }: FieldArrayLabelProps) => {
   const { error, getLabelProps, invalid, label } = useUniformField({
     name,
-    showInvalidWhen: 'immediate',
     label: _label,
   });
 
