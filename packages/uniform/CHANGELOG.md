@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.5.5](https://github.com/fuf-stack/pixels/compare/uniform-v1.5.4...uniform-v1.5.5) (2025-10-26)
+
+
+### Bug Fixes
+
+* **uniform:** add support for reset to initialization logic of FieldArray ([2ce2603](https://github.com/fuf-stack/pixels/commit/2ce260301a0a7778b3b0c05f8c56e3ed1660af09))
+* **uniform:** set showInvalidWhen immediate in Select ([0a3204f](https://github.com/fuf-stack/pixels/commit/0a3204ff3a5bc60c6c99a88635d9663fa1fa53bb))
+
 ## [1.5.4](https://github.com/fuf-stack/pixels/compare/uniform-v1.5.3...uniform-v1.5.4) (2025-10-26)
 
 
