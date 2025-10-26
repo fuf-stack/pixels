@@ -141,6 +141,50 @@ describe('checkFieldIsRequired', () => {
     expect(result).toBe(false);
   });
 
+  it('required flat array element (array of primitives)', () => {
+    const validation = v({
+      tags: array(string()),
+    });
+
+    // flat array element with __FLAT__ key should be required (string is not optional)
+    const fieldPath = ['tags', '0', flatArrayKey];
+    const result = checkFieldIsRequired(validation, fieldPath);
+    expect(result).toBe(true);
+  });
+
+  it('optional flat array element (array of optional primitives)', () => {
+    const validation = v({
+      tags: array(string().optional()),
+    });
+
+    // flat array element with __FLAT__ key should be optional
+    const fieldPath = ['tags', '0', flatArrayKey];
+    const result = checkFieldIsRequired(validation, fieldPath);
+    expect(result).toBe(false);
+  });
+
+  it('required flat array element with number type', () => {
+    const validation = v({
+      scores: array(number()),
+    });
+
+    // flat array element with __FLAT__ key should be required (number is not optional)
+    const fieldPath = ['scores', '0', flatArrayKey];
+    const result = checkFieldIsRequired(validation, fieldPath);
+    expect(result).toBe(true);
+  });
+
+  it('nullable flat array element', () => {
+    const validation = v({
+      ids: array(number().nullable()),
+    });
+
+    // flat array element with __FLAT__ key should not be required (nullable)
+    const fieldPath = ['ids', '0', flatArrayKey];
+    const result = checkFieldIsRequired(validation, fieldPath);
+    expect(result).toBe(false);
+  });
+
   it('not found', () => {
     const validation = v({
       name: string(),

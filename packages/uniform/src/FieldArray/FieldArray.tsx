@@ -1,7 +1,7 @@
 import type { FieldArrayElementMethods } from './subcomponents/FieldArrayElement';
 import type { FieldArrayProps } from './types';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 
 import { useReducedMotion } from '@fuf-stack/pixel-motion';
 import { cn, tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
@@ -137,45 +137,76 @@ const FieldArray = ({
 
   const { trigger, setValue } = useFormContext();
 
-  // Validate array-level constraints immediately when length changes
+  // Animation control: Start with animations disabled to prevent animating in initial elements.
+  // Will be enabled after initialization completes (unless user prefers reduced motion).
+  const [disableAnimation, setDisableAnimation] = useState(true);
+
+  // Track whether initialization has completed. Used to:
+  // 1. Skip validation during initial setup
+  // 2. Only enable animations after initialization
+  // 3. Only respond to motion preference changes after initialization
+  const hasInitialized = useRef(false);
+
+  // Validate array-level constraints (min/max items) when length changes.
+  // Skip validation during initialization to avoid showing errors before initialization is complete.
   useEffect(() => {
-    setTimeout(() => {
-      // Trigger validation for the array field so max/min errors appear instantly
-      trigger(name);
-    }, 200);
+    if (hasInitialized.current) {
+      setTimeout(() => {
+        // Trigger validation so min/max errors appear instantly when user adds/removes items
+        trigger(name);
+      }, 200);
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [fields.length]);
+
+  // Respond to user's motion preference changes (after initialization).
+  // During initialization, animations stay disabled regardless of preference.
+  const prefersReducedMotion = useReducedMotion();
+  useEffect(() => {
+    if (hasInitialized.current) {
+      setDisableAnimation(!!prefersReducedMotion);
+    }
+  }, [prefersReducedMotion]);
 
   // Prepare initial element value based on mode
   // - flat=true: arrays of primitives → object with flatArrayKey and null value by default
   // - flat=false: arrays of objects → empty object by default
-  const elementInitialValue = flat
-    ? { [flatArrayKey]: _elementInitialValue ?? null }
-    : (_elementInitialValue ?? {});
+  const elementInitialValue = useMemo(() => {
+    return flat
+      ? { [flatArrayKey]: _elementInitialValue ?? null }
+      : (_elementInitialValue ?? {});
+  }, [flat, _elementInitialValue]);
 
-  // When lastElementNotRemovable is set and the field array is empty,
-  // add an initial element to ensure there's always at least one visible element
+  // Initialization: Add initial element if lastElementNotRemovable is set.
+  // CRITICAL: This effect MUST be the LAST hook in this component.
+  // It sets hasInitialized.current = true, which acts as a gate for other effects.
+  // If this runs before other effects, hasInitialized will be true during their first run,
+  // causing them to execute logic meant only for post-initialization (e.g., validation,
+  // animation enabling). By placing this last, all other effects run first with
+  // hasInitialized = false, allowing them to skip initialization-phase logic.
   useEffect(
     () => {
       if (lastElementNotRemovable && fields.length === 0) {
-        // use setValue instead of append to avoid focusing added element
+        // use setValue instead of append to avoid focusing the added element
         setValue(name, [elementInitialValue]);
+      }
+
+      // Mark initialization as complete
+      hasInitialized.current = true;
+
+      // Enable animations after a 1ms delay (unless user prefers reduced motion).
+      // The delay ensures the initial setValue completes before animations turn on,
+      // preventing the initial element from animating in.
+      if (!prefersReducedMotion) {
+        setTimeout(() => {
+          setDisableAnimation(false);
+        }, 1);
       }
     },
     // only run once when the component mounts
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [],
   );
-
-  // Track initial render to prevent animating elements on
-  // first render cycle or when user prefers reduced motion
-  const prefersReducedMotion = useReducedMotion();
-  const disableAnimationRef = useRef(true);
-  useEffect(() => {
-    if (!prefersReducedMotion) {
-      disableAnimationRef.current = false;
-    }
-  }, [prefersReducedMotion]);
 
   // className from slots
   const variants = fieldArrayVariants({ hasLabel: !!uniformFieldProps.label });
@@ -234,7 +265,7 @@ const FieldArray = ({
                   <FieldArrayElement
                     key={field.id}
                     className={className}
-                    disableAnimation={disableAnimationRef.current}
+                    disableAnimation={disableAnimation}
                     duplicate={duplicate}
                     elementMarginBottom={elementMarginBottom}
                     fields={fields}

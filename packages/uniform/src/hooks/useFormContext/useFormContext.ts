@@ -16,6 +16,11 @@ export const checkFieldIsRequired = (
   validation: VetoInstance,
   path: string[],
 ): boolean => {
+  // Handle flat array paths: strip the flatArrayKey to check the array element schema
+  // e.g., ['arrayField', '0', '__FLAT__'] -> check schema at ['arrayField', '0']
+  const checkPath =
+    path[path.length - 1] === flatArrayKey ? path.slice(0, -1) : path;
+
   const checkRequired = (schema: any) => {
     // arrays ...
     if (schema.type === 'array') {
@@ -32,7 +37,7 @@ export const checkFieldIsRequired = (
     return !schema.isOptional && !schema.isNullable;
   };
 
-  return validation.checkSchemaPath(checkRequired, path);
+  return validation.checkSchemaPath(checkRequired, checkPath);
 };
 
 /**

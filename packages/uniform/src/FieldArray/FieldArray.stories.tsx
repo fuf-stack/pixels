@@ -34,17 +34,13 @@ const meta: Meta<typeof FieldArray> = {
 export default meta;
 type Story = StoryObj<typeof FieldArray>;
 
-const validationOptional = veto({
-  arrayField: array(object({ name: string() }))
-    .max(3)
-    .optional(),
+const validationDefault = veto({
+  arrayField: array(object({ name: string() })).max(3),
 });
 
 export const Default: Story = {
   parameters: {
-    formProps: {
-      validation: validationOptional,
-    },
+    formProps: { validation: validationDefault },
   },
   args: {
     name: 'arrayField',
@@ -56,7 +52,7 @@ export const Default: Story = {
 };
 
 const validationFlat = veto({
-  arrayField: array(string()).max(3).optional(),
+  arrayField: array(string()).max(3),
 });
 
 export const FlatArray: Story = {
@@ -225,7 +221,7 @@ export const Invalid: Story = {
 export const LastElementNotRemovable: Story = {
   parameters: {
     formProps: {
-      initialValues: {},
+      validation: validationDefault,
     },
   },
   args: {
@@ -238,10 +234,25 @@ export const LastElementNotRemovable: Story = {
   },
 };
 
+export const FlatLastElementNotRemovable: Story = {
+  parameters: {
+    formProps: { validation: validationFlat },
+  },
+  args: {
+    name: 'arrayField',
+    label: 'Flat Last Element Not Removable',
+    flat: true,
+    lastElementNotRemovable: true,
+    children: ({ name }) => {
+      return <Input label="Value" name={name} />;
+    },
+  },
+};
+
 export const WithoutLabels: Story = {
   parameters: {
     formProps: {
-      validation: validationOptional,
+      validation: validationDefault,
     },
   },
   args: {
