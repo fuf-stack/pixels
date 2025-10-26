@@ -32,7 +32,7 @@ export const fieldArrayVariants = tv({
     /** class for the append button */
     appendButton: [
       // base styles
-      'w-full rounded-b-small rounded-t-none',
+      'w-full justify-start rounded-b-small rounded-t-none font-semibold',
       // match label height (p-3 = 12px vertical padding + text-base line height)
       '!h-[48px] !min-h-0',
       // focus styles - inset ring with rounded bottom corners to match container
