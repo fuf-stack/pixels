@@ -128,9 +128,7 @@ const FieldArray = ({
     move,
     disableAnimation,
     elementInitialValue,
-    error,
     getValues,
-    invalid,
     testId,
   } = useUniformFieldArray({
     name,
@@ -225,23 +223,18 @@ const FieldArray = ({
         </div>
       ) : null}
 
+      {/* top level field array errors */}
+      <FieldArrayValidationError name={name} />
+
       {/* append elements button */}
       <ElementAppendButton
         appendButtonText={appendButtonText}
+        className={className.appendButton}
         testId={`${testId}_append_button`}
-        className={cn(
-          className.appendButton,
-          // only round bottom corners if there are no errors below
-          // @ts-expect-error - error._errors exists but not typed
-          { 'rounded-none': invalid && error?._errors },
-        )}
         onClick={() => {
           append(elementInitialValue);
         }}
       />
-
-      {/* top level field array errors */}
-      <FieldArrayValidationError name={name} />
     </div>
   );
 };

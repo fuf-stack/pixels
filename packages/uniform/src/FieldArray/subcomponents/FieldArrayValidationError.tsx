@@ -60,8 +60,8 @@ const FieldArrayValidationError = ({
             {...getHelperWrapperProps()}
             className={cn(
               getHelperWrapperProps()?.className,
-              // force helper to be visible (for some reason it's hidden by default) and add padding/rounded corners
-              'block rounded-b-small px-3 py-2',
+              // force helper to be visible (for some reason it's hidden by default) and add padding
+              'block px-3 py-2',
             )}
           >
             <div {...getErrorMessageProps()}>
