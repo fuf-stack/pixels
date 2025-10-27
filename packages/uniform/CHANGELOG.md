@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.6.3](https://github.com/fuf-stack/pixels/compare/uniform-v1.6.2...uniform-v1.6.3) (2025-10-27)
+
+
+### Bug Fixes
+
+* **uniform:** fix required check when client validation is used ([0c924fa](https://github.com/fuf-stack/pixels/commit/0c924fab7d2883f20110328f82cd7f6b26b19e28))
+
 ## [1.6.2](https://github.com/fuf-stack/pixels/compare/uniform-v1.6.1...uniform-v1.6.2) (2025-10-27)
 
 
