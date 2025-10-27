@@ -4,6 +4,7 @@ import { renderHook } from '@testing-library/react';
 
 import { object, string, veto } from '@fuf-stack/veto';
 
+import { flatArrayKey } from '../../helpers';
 import {
   clientValidationSchemaByName,
   useClientValidation,
@@ -286,6 +287,111 @@ describe('useClientValidation', () => {
       );
     });
   });
+
+  describe('custom key option', () => {
+    it('should use custom key when provided', () => {
+      const data = { existingUsernames: ['john'] };
+      const mockSchema = veto(object({ username: string() }));
+      const schemaFactory = vi.fn().mockReturnValue(mockSchema);
+
+      renderHook(() =>
+        useClientValidation(data, schemaFactory, { key: 'custom-key' }),
+      );
+
+      expect(mockSetClientValidationSchema).toHaveBeenCalledWith(
+        'custom-key',
+        mockSchema,
+      );
+    });
+
+    it('should use auto-generated key when no custom key provided', () => {
+      const data = { existingUsernames: ['john'] };
+      const mockSchema = veto(object({ username: string() }));
+      const schemaFactory = vi.fn().mockReturnValue(mockSchema);
+
+      renderHook(() => useClientValidation(data, schemaFactory));
+
+      expect(mockSetClientValidationSchema).toHaveBeenCalledWith(
+        'test-id',
+        mockSchema,
+      );
+    });
+
+    it('should allow multiple instances to share validation with same key', () => {
+      const data = { existingUsernames: ['john'] };
+      const mockSchema = veto(object({ username: string() }));
+      const schemaFactory = vi.fn().mockReturnValue(mockSchema);
+
+      // First instance
+      renderHook(() =>
+        useClientValidation(data, schemaFactory, { key: 'shared-key' }),
+      );
+
+      // Clear mocks
+      mockSetClientValidationSchema.mockClear();
+
+      // Second instance with same key (simulating field array)
+      renderHook(() =>
+        useClientValidation(data, schemaFactory, { key: 'shared-key' }),
+      );
+
+      // Both should register with the same key
+      expect(mockSetClientValidationSchema).toHaveBeenCalledWith(
+        'shared-key',
+        mockSchema,
+      );
+    });
+
+    it('should cleanup with custom key on unmount', () => {
+      const data = { existingUsernames: ['john'] };
+      const schemaFactory = vi.fn().mockReturnValue(veto(object({})));
+
+      const { unmount } = renderHook(() =>
+        useClientValidation(data, schemaFactory, { key: 'cleanup-test-key' }),
+      );
+
+      unmount();
+
+      expect(mockSetClientValidationSchema).toHaveBeenLastCalledWith(
+        'cleanup-test-key',
+        null,
+      );
+    });
+
+    it('should re-register when data changes with custom key', () => {
+      const initialData = { existingUsernames: ['john'] };
+      const updatedData = { existingUsernames: ['john', 'jane'] };
+
+      const mockSchema1 = veto(object({ username: string() }));
+      const mockSchema2 = veto(object({ username: string().min(3) }));
+
+      const schemaFactory = vi
+        .fn()
+        .mockReturnValueOnce(mockSchema1)
+        .mockReturnValueOnce(mockSchema2);
+
+      const { rerender } = renderHook(
+        ({ data }: { data: TestData }) =>
+          useClientValidation(data, schemaFactory, { key: 'reregister-key' }),
+        {
+          initialProps: { data: initialData },
+        },
+      );
+
+      expect(mockSetClientValidationSchema).toHaveBeenCalledWith(
+        'reregister-key',
+        mockSchema1,
+      );
+
+      // Update data
+      rerender({ data: updatedData });
+
+      expect(mockSetClientValidationSchema).toHaveBeenCalledWith(
+        'reregister-key',
+        mockSchema2,
+      );
+    });
+  });
 });
 
 describe('clientValidationSchemaByName helper', () => {
@@ -525,6 +631,121 @@ describe('clientValidationSchemaByName helper', () => {
       });
 
       expect(result.success).toBe(true);
+    });
+  });
+
+  describe('flat array field paths', () => {
+    it('should handle flat array paths with __FLAT__ key', () => {
+      const fieldSchema = string().min(2);
+      const schema = clientValidationSchemaByName(
+        `tags.0.${flatArrayKey}`,
+        fieldSchema,
+      );
+
+      // Valid flat array structure
+      const validResult = schema.safeParse({
+        tags: ['tag1', 'tag2', 'tag3'],
+      });
+      expect(validResult.success).toBe(true);
+
+      // Invalid - string too short
+      const invalidResult = schema.safeParse({
+        tags: ['a', 'tag2'],
+      });
+      expect(invalidResult.success).toBe(false);
+    });
+
+    it('should create correct schema structure for flat arrays', () => {
+      const fieldSchema = string();
+      const schema = clientValidationSchemaByName(
+        `tags.0.${flatArrayKey}`,
+        fieldSchema,
+      );
+
+      // The schema should be: objectLoose({ tags: array(string()).optional() })
+      // Not: objectLoose({ tags: array(objectLoose({ __FLAT__: string() })).optional() })
+      expect(schema._def.typeName).toBe('ZodObject');
+
+      // Get the tags field schema
+      const shape = schema._def.shape();
+      expect(shape.tags).toBeDefined();
+
+      // It should be an optional array
+      expect(shape.tags._def.typeName).toBe('ZodOptional');
+
+      // The inner type should be an array
+      const innerArray = shape.tags._def.innerType;
+      expect(innerArray._def.typeName).toBe('ZodArray');
+
+      // The array element should be the string schema directly, not wrapped in an object
+      const arrayElement = innerArray._def.type;
+      expect(arrayElement).toBe(fieldSchema);
+    });
+
+    it('should allow missing flat arrays (optional)', () => {
+      const fieldSchema = string();
+      const schema = clientValidationSchemaByName(
+        `tags.0.${flatArrayKey}`,
+        fieldSchema,
+      );
+
+      // Missing array should pass
+      const missingResult = schema.safeParse({});
+      expect(missingResult.success).toBe(true);
+
+      // Undefined array should pass
+      const undefinedResult = schema.safeParse({ tags: undefined });
+      expect(undefinedResult.success).toBe(true);
+    });
+
+    it('should validate all elements in flat array', () => {
+      const fieldSchema = string()
+        .min(3)
+        .refine((val) => val !== 'forbidden', { message: 'Forbidden value' });
+      const schema = clientValidationSchemaByName(
+        `tags.0.${flatArrayKey}`,
+        fieldSchema,
+      );
+
+      // All valid
+      const validResult = schema.safeParse({
+        tags: ['tag1', 'tag2', 'tag3'],
+      });
+      expect(validResult.success).toBe(true);
+
+      // One too short
+      const invalidResult = schema.safeParse({
+        tags: ['tag1', 'ab', 'tag3'],
+      });
+      expect(invalidResult.success).toBe(false);
+
+      // One forbidden
+      const forbiddenResult = schema.safeParse({
+        tags: ['tag1', 'forbidden', 'tag3'],
+      });
+      expect(forbiddenResult.success).toBe(false);
+    });
+
+    it('should handle nested paths with flat arrays', () => {
+      const fieldSchema = string();
+      const schema = clientValidationSchemaByName(
+        `user.profile.tags.0.${flatArrayKey}`,
+        fieldSchema,
+      );
+
+      // Valid nested flat array structure
+      const validResult = schema.safeParse({
+        user: {
+          profile: {
+            tags: ['tag1', 'tag2'],
+          },
+        },
+      });
+      expect(validResult.success).toBe(true);
+
+      // Missing nested objects should pass (they're optional)
+      const missingResult = schema.safeParse({});
+      expect(missingResult.success).toBe(true);
     });
   });
 

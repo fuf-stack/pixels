@@ -9,10 +9,12 @@ import { action } from 'storybook/actions';
 import { expect, userEvent, waitFor, within } from 'storybook/test';
 
 import { SubmitButton } from '@fuf-stack/uniform';
-import { array, objectLoose, string, veto } from '@fuf-stack/veto';
+import { array, object, objectLoose, string, veto } from '@fuf-stack/veto';
 
+import { FieldArray } from '../FieldArray';
 import { Form } from '../Form';
 import { Grid } from '../Grid';
+import { flatArrayKey } from '../helpers';
 import { clientValidationSchemaByName, useClientValidation } from '../hooks';
 import { Input } from '../Input';
 import { Select } from '../Select';
@@ -66,7 +68,6 @@ const createUsernameClientSchema = (queryData: {
 }) => {
   const schema = objectLoose({
     username: string()
-      .optional()
       .refine(
         (value) => {
           return (
@@ -74,7 +75,8 @@ const createUsernameClientSchema = (queryData: {
           );
         },
         { message: 'Username already exists in this team' },
-      ),
+      )
+      .nullish(),
   });
 
   return schema;
@@ -235,12 +237,14 @@ const NestedPathValidationForm = () => {
   useClientValidation({ reservedUsernames: RESERVED_USERNAMES }, (data) => {
     return clientValidationSchemaByName(
       'user.profile.username',
-      string().refine(
-        (value) => {
-          return !data.reservedUsernames.includes(value.toLowerCase());
-        },
-        { message: 'This username is reserved' },
-      ),
+      string()
+        .refine(
+          (value) => {
+            return !data.reservedUsernames.includes(value.toLowerCase());
+          },
+          { message: 'This username is reserved' },
+        )
+        .nullish(),
     );
   });
 
@@ -258,9 +262,9 @@ const NestedPathValidationForm = () => {
 
 // Base validation for nested form
 const nestedValidationSchema = veto({
-  user: objectLoose({
-    profile: objectLoose({
-      username: string().min(3).optional(),
+  user: object({
+    profile: object({
+      username: string({ min: 3 }),
     }).optional(),
     email: string().email(),
   }),
@@ -278,37 +282,56 @@ export const NestedPathValidation: Story = {
 };
 
 // Simple mock data for array path validation
-const FORBIDDEN_TAGS = ['spam', 'nsfw', 'illegal'];
+const SILLY_WORDS = ['banana', 'unicorn', 'disco'];
 
 // Component demonstrating array path validation with clientValidationSchemaByName
 const ArrayPathValidationForm = () => {
   // Use clientValidationSchemaByName to validate array items
   // This automatically creates: objectLoose({ items: array(objectLoose({ tag: ... })).optional() })
-  useClientValidation({ forbiddenTags: FORBIDDEN_TAGS }, (data) => {
-    return clientValidationSchemaByName(
-      'items.0.tag',
-      string().refine(
-        (value) => {
-          return !data.forbiddenTags.includes(value.toLowerCase());
-        },
-        { message: 'This tag is not allowed' },
-      ),
-    );
-  });
+  // Use custom key to prevent multiple registrations in field array
+  useClientValidation(
+    { sillyWords: SILLY_WORDS },
+    (data) => {
+      return clientValidationSchemaByName(
+        'items.0.tag',
+        string()
+          .refine(
+            (value) => {
+              return !data.sillyWords.includes(value.toLowerCase());
+            },
+            { message: 'Sorry, this word is too silly for tags!' },
+          )
+          .nullish(),
+      );
+    },
+    { key: 'items-tag-validation' },
+  );
 
   return (
     <Grid>
-      <Input
-        label="Item 1 Tag (array: items.0.tag)"
-        name="items.0.tag"
-        placeholder="Try 'spam', 'nsfw', or 'illegal'"
-      />
-      <Input
-        label="Item 2 Tag (array: items.1.tag)"
-        name="items.1.tag"
-        placeholder="Any tag"
-      />
-      <Input label="Item 1 Name" name="items.0.name" placeholder="Item name" />
+      <FieldArray
+        lastElementNotRemovable
+        appendButtonText="Add Item"
+        label="Items (array of objects)"
+        name="items"
+      >
+        {({ name }) => {
+          return (
+            <>
+              <Input
+                label="Tag"
+                name={`${name}.tag`}
+                placeholder="Try 'banana', 'unicorn', or 'disco' 🎉"
+              />
+              <Input
+                label="Name"
+                name={`${name}.name`}
+                placeholder="Item name"
+              />
+            </>
+          );
+        }}
+      </FieldArray>
     </Grid>
   );
 };
@@ -316,11 +339,11 @@ const ArrayPathValidationForm = () => {
 // Base validation for array form
 const arrayValidationSchema = veto({
   items: array(
-    objectLoose({
-      tag: string().min(2).optional(),
+    object({
+      tag: string({ min: 2 }),
       name: string().optional(),
     }),
-  ).optional(),
+  ),
 });
 
 export const ArrayPathValidation: Story = {
@@ -331,5 +354,65 @@ export const ArrayPathValidation: Story = {
   },
   render: () => {
     return <ArrayPathValidationForm />;
+  },
+};
+
+// Component demonstrating flat array validation with clientValidationSchemaByName
+const FlatArrayValidationForm = () => {
+  // Use clientValidationSchemaByName to validate flat array items (array of primitives)
+  // This automatically creates: objectLoose({ tags: array(string().refine(...)).optional() })
+  // Use custom key to prevent multiple registrations in field array
+  useClientValidation(
+    { sillyWords: SILLY_WORDS },
+    (data) => {
+      return clientValidationSchemaByName(
+        `tags.0.${flatArrayKey}`,
+        string()
+          .refine(
+            (value) => {
+              return !data.sillyWords.includes(value?.toLowerCase() ?? '');
+            },
+            { message: 'Sorry, this word is too silly for tags!' },
+          )
+          .nullish(),
+      );
+    },
+    { key: 'tags-validation' },
+  );
+
+  return (
+    <Grid>
+      <FieldArray
+        flat
+        lastElementNotRemovable
+        appendButtonText="Add Tag"
+        label="Tags (flat array of strings)"
+        name="tags"
+      >
+        {({ name }) => {
+          return (
+            <Input
+              label="Tag"
+              name={name}
+              placeholder="Try 'banana', 'unicorn', or 'disco' 🎉"
+            />
+          );
+        }}
+      </FieldArray>
+    </Grid>
+  );
+};
+
+// Base validation for flat array form
+const flatArrayValidationSchema = veto({
+  tags: array(string({ min: 2 })),
+});
+
+export const FlatArrayValidation: Story = {
+  parameters: {
+    formProps: { validation: flatArrayValidationSchema },
+  },
+  render: () => {
+    return <FlatArrayValidationForm />;
   },
 };
