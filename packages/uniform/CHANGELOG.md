@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.6.1](https://github.com/fuf-stack/pixels/compare/uniform-v1.6.0...uniform-v1.6.1) (2025-10-27)
+
+
+### Bug Fixes
+
+* **uniform:** add package exports for all hooks ([0c8c446](https://github.com/fuf-stack/pixels/commit/0c8c446ce909ec60df1e402dcee96d973637303c))
+
 ## [1.6.0](https://github.com/fuf-stack/pixels/compare/uniform-v1.5.7...uniform-v1.6.0) (2025-10-27)
 
 
