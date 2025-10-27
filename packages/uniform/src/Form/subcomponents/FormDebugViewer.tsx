@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { FaTimes } from 'react-icons/fa';
 import { FaBug, FaBullseye } from 'react-icons/fa6';
 
@@ -23,16 +24,34 @@ const FormDebugViewer = ({ className = undefined }: FormDebugViewerProps) => {
     formState: { isValid, isSubmitting, submitCount, isSubmitSuccessful },
     setDebugMode,
     validation: { errors },
-    watch,
+    subscribe,
   } = useFormContext();
 
   const showDebugButton = debugMode === 'off';
   const showDebugCard = debugMode === 'debug' || debugMode === 'debug-testids';
   const showDebugTestIds = debugMode === 'debug-testids';
 
-  // TODO: maybe use new Watch component?
-  // see: https://github.com/react-hook-form/react-hook-form/pull/12986
-  const values = watch();
+  // Use subscribe instead of watch() to avoid triggering re-renders on parent components.
+  // This component manages its own state and only updates itself when form values change.
+  const [values, setValues] = useState<Record<string, unknown>>({});
+
+  useEffect(() => {
+    // Only subscribe when debug card is visible
+    if (!showDebugCard) {
+      return undefined;
+    }
+
+    const subscription = subscribe({
+      formState: { values: true },
+      callback: (state) => {
+        setValues(state.values ?? {});
+      },
+    });
+
+    return () => {
+      subscription();
+    };
+  }, [showDebugCard, subscribe]);
 
   if (showDebugButton) {
     return (
