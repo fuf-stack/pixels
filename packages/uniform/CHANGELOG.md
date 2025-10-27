@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.6.5](https://github.com/fuf-stack/pixels/compare/uniform-v1.6.4...uniform-v1.6.5) (2025-10-27)
+
+
+### Bug Fixes
+
+* **uniform:** fix FormDebugViewer initial values ([9a82c62](https://github.com/fuf-stack/pixels/commit/9a82c62145afef0fc5a28cc9455046c4559cf097))
+* **uniform:** fix re-initialize on reset in FieldArray ([90d6723](https://github.com/fuf-stack/pixels/commit/90d67239869171acbc0529fa3b84307a83669f73))
+
 ## [1.6.4](https://github.com/fuf-stack/pixels/compare/uniform-v1.6.3...uniform-v1.6.4) (2025-10-27)
 
 
