@@ -22,6 +22,7 @@ const FormDebugViewer = ({ className = undefined }: FormDebugViewerProps) => {
   const {
     debugMode,
     formState: { isValid, isSubmitting, submitCount, isSubmitSuccessful },
+    getValues,
     setDebugMode,
     validation: { errors },
     subscribe,
@@ -41,6 +42,9 @@ const FormDebugViewer = ({ className = undefined }: FormDebugViewerProps) => {
       return undefined;
     }
 
+    // Initialize with current values when debug card is opened
+    setValues(getValues() ?? {});
+
     const subscription = subscribe({
       formState: { values: true },
       callback: (state) => {
@@ -51,7 +55,8 @@ const FormDebugViewer = ({ className = undefined }: FormDebugViewerProps) => {
     return () => {
       subscription();
     };
-  }, [showDebugCard, subscribe]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [showDebugCard]);
 
   if (showDebugButton) {
     return (
