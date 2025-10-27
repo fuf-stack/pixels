@@ -46,6 +46,26 @@
       "import": "./dist/hooks/index.js",
       "require": "./dist/hooks/index.cjs"
     },
+    "./hooks/useClientValidation": {
+      "types": "./dist/hooks/useClientValidation/index.d.ts",
+      "import": "./dist/hooks/useClientValidation/index.js",
+      "require": "./dist/hooks/useClientValidation/index.cjs"
+    },
+    "./hooks/useController": {
+      "types": "./dist/hooks/useController/index.d.ts",
+      "import": "./dist/hooks/useController/index.js",
+      "require": "./dist/hooks/useController/index.cjs"
+    },
+    "./hooks/useFormContext": {
+      "types": "./dist/hooks/useFormContext/index.d.ts",
+      "import": "./dist/hooks/useFormContext/index.js",
+      "require": "./dist/hooks/useFormContext/index.cjs"
+    },
+    "./hooks/useInput": {
+      "types": "./dist/hooks/useInput/index.d.ts",
+      "import": "./dist/hooks/useInput/index.js",
+      "require": "./dist/hooks/useInput/index.cjs"
+    },
     "./hooks/useInputValueDebounce": {
       "types": "./dist/hooks/useInputValueDebounce/index.d.ts",
       "import": "./dist/hooks/useInputValueDebounce/index.js",
@@ -55,6 +75,16 @@
       "types": "./dist/hooks/useInputValueTransform/index.d.ts",
       "import": "./dist/hooks/useInputValueTransform/index.js",
       "require": "./dist/hooks/useInputValueTransform/index.cjs"
+    },
+    "./hooks/useUniformField": {
+      "types": "./dist/hooks/useUniformField/index.d.ts",
+      "import": "./dist/hooks/useUniformField/index.js",
+      "require": "./dist/hooks/useUniformField/index.cjs"
+    },
+    "./hooks/useUniformFieldArray": {
+      "types": "./dist/hooks/useUniformFieldArray/index.d.ts",
+      "import": "./dist/hooks/useUniformFieldArray/index.js",
+      "require": "./dist/hooks/useUniformFieldArray/index.cjs"
     },
     "./Input": {
       "types": "./dist/Input/index.d.ts",
