@@ -1,3 +1,5 @@
+/* eslint-disable import-x/no-extraneous-dependencies */
+
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { useEffect, useState } from 'react';
@@ -7,11 +9,11 @@ import { action } from 'storybook/actions';
 import { expect, userEvent, waitFor, within } from 'storybook/test';
 
 import { SubmitButton } from '@fuf-stack/uniform';
-import { objectLoose, string, veto } from '@fuf-stack/veto';
+import { array, objectLoose, string, veto } from '@fuf-stack/veto';
 
 import { Form } from '../Form';
 import { Grid } from '../Grid';
-import { useClientValidation } from '../hooks';
+import { clientValidationSchemaByName, useClientValidation } from '../hooks';
 import { Input } from '../Input';
 import { Select } from '../Select';
 
@@ -120,13 +122,6 @@ const SimpleClientValidationForm = () => {
   );
 };
 
-// Base validation schema
-const validationSchema = veto({
-  teamId: string(),
-  username: string().min(3),
-  email: string().email(),
-});
-
 const meta: Meta<typeof SimpleClientValidationForm> = {
   title: 'uniform/Examples/ClientValidation',
   component: SimpleClientValidationForm,
@@ -134,7 +129,7 @@ const meta: Meta<typeof SimpleClientValidationForm> = {
     (Story, { parameters }) => {
       return (
         <Form
-          className="max-w-md"
+          className="min-w-lg"
           onSubmit={action('onSubmit')}
           {...(parameters?.formProps ?? {})}
         >
@@ -151,6 +146,13 @@ const meta: Meta<typeof SimpleClientValidationForm> = {
 
 export default meta;
 type Story = StoryObj<typeof SimpleClientValidationForm>;
+
+// Base validation schema
+const validationSchema = veto({
+  teamId: string(),
+  username: string().min(3),
+  email: string().email(),
+});
 
 export const Default: Story = {
   parameters: {
@@ -220,5 +222,114 @@ export const InteractiveDemo: Story = {
     await new Promise((resolve) => {
       setTimeout(resolve, 200);
     });
+  },
+};
+
+// Simple mock data for nested path validation
+const RESERVED_USERNAMES = ['admin', 'root', 'system'];
+
+// Component demonstrating deeply nested path validation with clientValidationSchemaByName
+const NestedPathValidationForm = () => {
+  // Use clientValidationSchemaByName to validate a deeply nested field path
+  // This automatically creates: objectLoose({ user: objectLoose({ profile: objectLoose({ username: ... }).optional() }).optional() })
+  useClientValidation({ reservedUsernames: RESERVED_USERNAMES }, (data) => {
+    return clientValidationSchemaByName(
+      'user.profile.username',
+      string().refine(
+        (value) => {
+          return !data.reservedUsernames.includes(value.toLowerCase());
+        },
+        { message: 'This username is reserved' },
+      ),
+    );
+  });
+
+  return (
+    <Grid>
+      <Input
+        label="Username (nested: user.profile.username)"
+        name="user.profile.username"
+        placeholder="Try 'admin', 'root', or 'system'"
+      />
+      <Input label="Email" name="user.email" placeholder="Enter email" />
+    </Grid>
+  );
+};
+
+// Base validation for nested form
+const nestedValidationSchema = veto({
+  user: objectLoose({
+    profile: objectLoose({
+      username: string().min(3).optional(),
+    }).optional(),
+    email: string().email(),
+  }),
+});
+
+export const NestedPathValidation: Story = {
+  parameters: {
+    formProps: {
+      validation: nestedValidationSchema,
+    },
+  },
+  render: () => {
+    return <NestedPathValidationForm />;
+  },
+};
+
+// Simple mock data for array path validation
+const FORBIDDEN_TAGS = ['spam', 'nsfw', 'illegal'];
+
+// Component demonstrating array path validation with clientValidationSchemaByName
+const ArrayPathValidationForm = () => {
+  // Use clientValidationSchemaByName to validate array items
+  // This automatically creates: objectLoose({ items: array(objectLoose({ tag: ... })).optional() })
+  useClientValidation({ forbiddenTags: FORBIDDEN_TAGS }, (data) => {
+    return clientValidationSchemaByName(
+      'items.0.tag',
+      string().refine(
+        (value) => {
+          return !data.forbiddenTags.includes(value.toLowerCase());
+        },
+        { message: 'This tag is not allowed' },
+      ),
+    );
+  });
+
+  return (
+    <Grid>
+      <Input
+        label="Item 1 Tag (array: items.0.tag)"
+        name="items.0.tag"
+        placeholder="Try 'spam', 'nsfw', or 'illegal'"
+      />
+      <Input
+        label="Item 2 Tag (array: items.1.tag)"
+        name="items.1.tag"
+        placeholder="Any tag"
+      />
+      <Input label="Item 1 Name" name="items.0.name" placeholder="Item name" />
+    </Grid>
+  );
+};
+
+// Base validation for array form
+const arrayValidationSchema = veto({
+  items: array(
+    objectLoose({
+      tag: string().min(2).optional(),
+      name: string().optional(),
+    }),
+  ).optional(),
+});
+
+export const ArrayPathValidation: Story = {
+  parameters: {
+    formProps: {
+      validation: arrayValidationSchema,
+    },
+  },
+  render: () => {
+    return <ArrayPathValidationForm />;
   },
 };
