@@ -23,7 +23,7 @@ jobs:
       - name: Run tests
         run: pnpm test
       - name: Upload coverage reports
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: coverage-report
           path: coverage/
@@ -42,7 +42,7 @@ jobs:
           fetch-depth: 0 # Required for Sonarqube
 
       - name: Download coverage report
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v6
         with:
           name: coverage-report
           path: coverage/
