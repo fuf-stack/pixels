@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.6.0](https://github.com/fuf-stack/pixels/compare/uniform-v1.5.7...uniform-v1.6.0) (2025-10-27)
+
+
+### Features
+
+* **uniform:** add clientValidationSchemaByName helper ([21973de](https://github.com/fuf-stack/pixels/commit/21973de85c29198f3ae8ebc2aec3c8623238c8aa))
+
 ## [1.5.7](https://github.com/fuf-stack/pixels/compare/uniform-v1.5.6...uniform-v1.5.7) (2025-10-26)
 
 
