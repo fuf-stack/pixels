@@ -414,6 +414,94 @@ describe('useUniformFieldArray', () => {
       });
     });
 
+    it('should detect needsInitialize correctly on reset via fields.length change', async () => {
+      // Start with empty fields
+      mockFields = [];
+
+      const { rerender } = renderHook(() =>
+        useUniformFieldArray({
+          name: 'testArray',
+          lastElementNotRemovable: true,
+        }),
+      );
+
+      // Initial initialization should happen (needsInitialize = true)
+      expect(mockSetValue).toHaveBeenCalledWith('testArray', [{}], {
+        shouldDirty: false,
+        shouldTouch: false,
+      });
+
+      // Wait for initialization
+      await act(async () => {
+        vi.advanceTimersByTime(2);
+        await Promise.resolve();
+      });
+
+      // Simulate field added (needsInitialize = false now)
+      mockFields = [{ id: '1' }];
+      mockSetValue.mockClear();
+      rerender();
+
+      // Add more fields - no initialization should happen
+      mockFields = [{ id: '1' }, { id: '2' }];
+      rerender();
+      expect(mockSetValue).not.toHaveBeenCalled();
+
+      // Simulate reset - fields become empty again
+      mockFields = [];
+      rerender();
+
+      // needsInitialize should become true again, triggering re-initialization
+      expect(mockSetValue).toHaveBeenCalledWith('testArray', [{}], {
+        shouldDirty: false,
+        shouldTouch: false,
+      });
+    });
+
+    it('should correctly toggle needsInitialize based on fields.length and lastElementNotRemovable', async () => {
+      // Test 1: Start with fields.length = 0, lastElementNotRemovable = true -> needsInitialize = true
+      mockFields = [];
+      const { rerender } = renderHook(
+        ({ lastElementNotRemovable }) =>
+          useUniformFieldArray({
+            name: 'testArray',
+            lastElementNotRemovable,
+          }),
+        {
+          initialProps: { lastElementNotRemovable: true },
+        },
+      );
+
+      expect(mockSetValue).toHaveBeenCalledTimes(1); // Should initialize
+      mockSetValue.mockClear();
+
+      await act(async () => {
+        vi.advanceTimersByTime(2);
+        await Promise.resolve();
+      });
+
+      // Test 2: fields.length = 1 -> needsInitialize = false
+      mockFields = [{ id: '1' }];
+      rerender({ lastElementNotRemovable: true });
+      expect(mockSetValue).not.toHaveBeenCalled(); // Should not initialize
+
+      // Test 3: fields.length = 0 again -> needsInitialize = true
+      mockFields = [];
+      rerender({ lastElementNotRemovable: true });
+      expect(mockSetValue).toHaveBeenCalledTimes(1); // Should re-initialize
+      mockSetValue.mockClear();
+
+      await act(async () => {
+        vi.advanceTimersByTime(2);
+        await Promise.resolve();
+      });
+
+      // Test 4: Change lastElementNotRemovable to false while fields.length = 0 -> needsInitialize = false
+      mockFields = [];
+      rerender({ lastElementNotRemovable: false });
+      expect(mockSetValue).not.toHaveBeenCalled(); // Should not initialize
+    });
+
     it('should disable animations during re-initialization', async () => {
       mockFields = [];
 

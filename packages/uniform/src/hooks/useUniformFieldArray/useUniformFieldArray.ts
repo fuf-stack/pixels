@@ -74,7 +74,10 @@ export const useUniformFieldArray = <
   // - Initial mount: fields.length starts at 0
   // - Form reset: fields.length becomes 0 again
   // Additional initialization conditions can be added here later (e.g., minElements > 0)
-  const needsInitialize = lastElementNotRemovable && fields.length === 0;
+  // Using useMemo ensures this value is properly tracked by React and effects can depend on it
+  const needsInitialize = useMemo(() => {
+    return lastElementNotRemovable && fields.length === 0;
+  }, [lastElementNotRemovable, fields.length]);
 
   // Track whether initialization has completed. Initialized contextually:
   // - If initialization IS needed (needsInitialize = true): starts as false, set to true after init
@@ -167,6 +170,10 @@ export const useUniformFieldArray = <
       }
     },
     // Run when needsInitialize changes (initial mount or reset)
+    // needsInitialize is memoized based on fields.length and lastElementNotRemovable
+    // Other dependencies are intentionally omitted:
+    // - append, setValue, trigger, setDisableAnimation are stable refs/functions
+    // - elementInitialValue, name, flat, prefersReducedMotion, disableAnimation are props/stable values
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [needsInitialize],
   );

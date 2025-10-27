@@ -31,7 +31,7 @@ export interface FieldArrayFeatures {
 
 export interface FieldArrayProps extends FieldArrayFeatures, VariantProps {
   /** text of the append element button */
-  appendButtonText: string;
+  appendButtonText?: string;
   /** function that renders the children with provided Properties. */
   children: FieldArrayChildrenRenderFn;
   /** CSS class name */
