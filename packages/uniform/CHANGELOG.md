@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.6.4](https://github.com/fuf-stack/pixels/compare/uniform-v1.6.3...uniform-v1.6.4) (2025-10-27)
+
+
+### Bug Fixes
+
+* **uniform:** fix render cycle issue with FormDebugViewer ([9d98746](https://github.com/fuf-stack/pixels/commit/9d987460931ce25f462f7e4fde15ffdac66e9159))
+
 ## [1.6.3](https://github.com/fuf-stack/pixels/compare/uniform-v1.6.2...uniform-v1.6.3) (2025-10-27)
 
 
