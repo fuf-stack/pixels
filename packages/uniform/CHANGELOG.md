@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.6.2](https://github.com/fuf-stack/pixels/compare/uniform-v1.6.1...uniform-v1.6.2) (2025-10-27)
+
+
+### Bug Fixes
+
+* **uniform:** add key option to useClientValidation + fix flat array in clientValidationSchemaByName ([917ef2f](https://github.com/fuf-stack/pixels/commit/917ef2f2b274ca854aea4e9fb3a8257cd74e86c3))
+
 ## [1.6.1](https://github.com/fuf-stack/pixels/compare/uniform-v1.6.0...uniform-v1.6.1) (2025-10-27)
 
 
