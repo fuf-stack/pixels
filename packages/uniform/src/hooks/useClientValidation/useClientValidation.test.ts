@@ -4,7 +4,10 @@ import { renderHook } from '@testing-library/react';
 
 import { object, string, veto } from '@fuf-stack/veto';
 
-import { useClientValidation } from './useClientValidation';
+import {
+  clientValidationSchemaByName,
+  useClientValidation,
+} from './useClientValidation';
 
 // Mock the useFormContext hook
 const mockSetClientValidationSchema = vi.fn();
@@ -128,7 +131,7 @@ describe('useClientValidation', () => {
     });
 
     it('should clear validation when data becomes null', () => {
-      const initialData = { existingUsernames: ['john'] };
+      const initialData: TestData = { existingUsernames: ['john'] };
       const mockSchema = veto(object({ username: string() }));
       const schemaFactory = vi.fn().mockReturnValue(mockSchema);
 
@@ -136,7 +139,7 @@ describe('useClientValidation', () => {
         ({ data }: { data: TestData | null }) =>
           useClientValidation(data, schemaFactory),
         {
-          initialProps: { data: initialData },
+          initialProps: { data: initialData as TestData | null },
         },
       );
 
@@ -281,6 +284,298 @@ describe('useClientValidation', () => {
         'test-id',
         null,
       );
+    });
+  });
+});
+
+describe('clientValidationSchemaByName helper', () => {
+  describe('simple field paths', () => {
+    it('should create a loose object schema with a single field', () => {
+      const fieldSchema = string().min(3);
+      const result = clientValidationSchemaByName('username', fieldSchema);
+
+      // Verify it's a looseObject by checking the schema structure
+      expect(result).toBeDefined();
+      expect(result._def).toBeDefined();
+      expect(result._def.typeName).toBe('ZodObject');
+
+      // Verify it contains the field with the correct schema
+      const shape = result._def.shape();
+      expect(shape.username).toBe(fieldSchema);
+    });
+
+    it('should create a schema that validates correctly', () => {
+      const fieldSchema = string().refine((val) => val !== 'forbidden', {
+        message: 'This value is forbidden',
+      });
+      const schema = clientValidationSchemaByName('username', fieldSchema);
+
+      // Valid value should pass
+      const validResult = schema.safeParse({ username: 'validUser' });
+      expect(validResult.success).toBe(true);
+
+      // Invalid value should fail
+      const invalidResult = schema.safeParse({ username: 'forbidden' });
+      expect(invalidResult.success).toBe(false);
+    });
+
+    it('should allow extra fields (loose object behavior)', () => {
+      const fieldSchema = string();
+      const schema = clientValidationSchemaByName('username', fieldSchema);
+
+      // Should allow extra fields not in the schema
+      const result = schema.safeParse({
+        username: 'john',
+        email: 'john@example.com', // Extra field
+        age: 25, // Extra field
+      });
+
+      expect(result.success).toBe(true);
+    });
+
+    it('should work with complex field schemas', () => {
+      const fieldSchema = string()
+        .min(3, 'Too short')
+        .max(20, 'Too long')
+        .refine((val) => /^[a-z0-9]+$/.test(val), {
+          message: 'Only lowercase alphanumeric allowed',
+        });
+      const schema = clientValidationSchemaByName('username', fieldSchema);
+
+      // Valid
+      expect(schema.safeParse({ username: 'user123' }).success).toBe(true);
+
+      // Too short
+      expect(schema.safeParse({ username: 'ab' }).success).toBe(false);
+
+      // Invalid characters
+      expect(schema.safeParse({ username: 'User_123' }).success).toBe(false);
+    });
+  });
+
+  describe('nested field paths', () => {
+    it('should create nested object structure for dotted paths', () => {
+      const fieldSchema = string().email();
+      const schema = clientValidationSchemaByName('user.email', fieldSchema);
+
+      // Valid nested structure
+      const validResult = schema.safeParse({
+        user: { email: 'test@example.com' },
+      });
+      expect(validResult.success).toBe(true);
+
+      // Invalid email should fail
+      const invalidResult = schema.safeParse({
+        user: { email: 'not-an-email' },
+      });
+      expect(invalidResult.success).toBe(false);
+
+      // Missing nested object should pass (optional)
+      const missingNestedResult = schema.safeParse({});
+      expect(missingNestedResult.success).toBe(true);
+
+      // Partial nested object should pass (intermediate objects are optional)
+      const partialResult = schema.safeParse({ user: undefined });
+      expect(partialResult.success).toBe(true);
+    });
+
+    it('should create deeply nested structures', () => {
+      const fieldSchema = string();
+      const schema = clientValidationSchemaByName(
+        'user.profile.settings.theme',
+        fieldSchema,
+      );
+
+      // Valid deeply nested structure
+      const validResult = schema.safeParse({
+        user: {
+          profile: {
+            settings: {
+              theme: 'dark',
+            },
+          },
+        },
+      });
+      expect(validResult.success).toBe(true);
+
+      // Missing deeply nested objects should pass (all intermediate objects are optional)
+      const missingResult = schema.safeParse({});
+      expect(missingResult.success).toBe(true);
+
+      // Partially defined path should pass
+      const partialResult = schema.safeParse({ user: { profile: undefined } });
+      expect(partialResult.success).toBe(true);
+    });
+
+    it('should allow extra fields at all nesting levels', () => {
+      const fieldSchema = string();
+      const schema = clientValidationSchemaByName('user.email', fieldSchema);
+
+      // Should allow extra fields at root and nested levels
+      const result = schema.safeParse({
+        user: {
+          email: 'test@example.com',
+          name: 'John', // Extra field
+          age: 30, // Extra field
+        },
+        someOtherField: 'value', // Extra field at root
+      });
+
+      expect(result.success).toBe(true);
+    });
+  });
+
+  describe('array field paths', () => {
+    it('should handle array indices in paths', () => {
+      const fieldSchema = string();
+      const schema = clientValidationSchemaByName('items.0.name', fieldSchema);
+
+      // Valid array structure
+      const validResult = schema.safeParse({
+        items: [{ name: 'Item 1' }],
+      });
+      expect(validResult.success).toBe(true);
+
+      // Multiple items in array (validates all items)
+      const multipleResult = schema.safeParse({
+        items: [{ name: 'Item 1' }, { name: 'Item 2' }],
+      });
+      expect(multipleResult.success).toBe(true);
+
+      // Missing array should pass (array is optional)
+      const missingArrayResult = schema.safeParse({});
+      expect(missingArrayResult.success).toBe(true);
+
+      // Undefined array should pass
+      const undefinedArrayResult = schema.safeParse({ items: undefined });
+      expect(undefinedArrayResult.success).toBe(true);
+    });
+
+    it('should validate all array elements', () => {
+      const fieldSchema = string().min(3);
+      const schema = clientValidationSchemaByName('items.0.name', fieldSchema);
+
+      // All valid
+      const validResult = schema.safeParse({
+        items: [{ name: 'Item 1' }, { name: 'Item 2' }],
+      });
+      expect(validResult.success).toBe(true);
+
+      // One invalid (too short)
+      const invalidResult = schema.safeParse({
+        items: [{ name: 'Item 1' }, { name: 'ab' }],
+      });
+      expect(invalidResult.success).toBe(false);
+    });
+
+    it('should handle nested arrays', () => {
+      const fieldSchema = string();
+      const schema = clientValidationSchemaByName(
+        'users.0.addresses.0.street',
+        fieldSchema,
+      );
+
+      // Valid nested array structure
+      const validResult = schema.safeParse({
+        users: [
+          {
+            addresses: [{ street: 'Main St' }],
+          },
+        ],
+      });
+      expect(validResult.success).toBe(true);
+
+      // Multiple nested items
+      const multipleResult = schema.safeParse({
+        users: [
+          {
+            addresses: [{ street: 'Main St' }, { street: 'Oak Ave' }],
+          },
+          {
+            addresses: [{ street: 'Elm St' }],
+          },
+        ],
+      });
+      expect(multipleResult.success).toBe(true);
+
+      // Missing nested arrays should pass (all arrays are optional)
+      const missingResult = schema.safeParse({});
+      expect(missingResult.success).toBe(true);
+
+      // Partially defined nested arrays should pass
+      const partialResult = schema.safeParse({
+        users: [{ addresses: undefined }],
+      });
+      expect(partialResult.success).toBe(true);
+    });
+
+    it('should allow extra fields in array elements', () => {
+      const fieldSchema = string();
+      const schema = clientValidationSchemaByName('items.0.name', fieldSchema);
+
+      // Should allow extra fields in array elements
+      const result = schema.safeParse({
+        items: [
+          {
+            name: 'Item 1',
+            price: 100, // Extra field
+            category: 'Electronics', // Extra field
+          },
+        ],
+      });
+
+      expect(result.success).toBe(true);
+    });
+  });
+
+  describe('integration', () => {
+    it('should integrate with useClientValidation', () => {
+      const data = { forbiddenNames: ['admin', 'root'] };
+      const schemaFactory = (d: typeof data) =>
+        clientValidationSchemaByName(
+          'username',
+          string().refine((val) => !d.forbiddenNames.includes(val), {
+            message: 'This username is not allowed',
+          }),
+        );
+
+      renderHook(() => useClientValidation(data, schemaFactory));
+
+      expect(mockSetClientValidationSchema).toHaveBeenCalledWith(
+        'test-id',
+        expect.objectContaining({
+          _def: expect.objectContaining({
+            typeName: 'ZodObject',
+          }),
+        }),
+      );
+    });
+
+    it('should work with nested paths in useClientValidation', () => {
+      const data = { existingEmails: ['admin@example.com'] };
+      const schemaFactory = (d: typeof data) =>
+        clientValidationSchemaByName(
+          'user.profile.email',
+          string()
+            .email()
+            .refine((val) => !d.existingEmails.includes(val), {
+              message: 'Email already exists',
+            }),
+        );
+
+      renderHook(() => useClientValidation(data, schemaFactory));
+
+      expect(mockSetClientValidationSchema).toHaveBeenCalled();
+    });
+
+    it('should properly infer types from the field schema', () => {
+      // The return type should be inferred from the input schema
+      const stringSchema = clientValidationSchemaByName('username', string());
+      const numberSchema = clientValidationSchemaByName('age', string());
+
+      // Verify schemas maintain their structure
+      expect(stringSchema._def.typeName).toBe('ZodObject');
+      expect(numberSchema._def.typeName).toBe('ZodObject');
     });
   });
 });

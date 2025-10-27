@@ -8,7 +8,7 @@ module.exports = {
   // pixels
   'packages/pixels/**/*.{js,ts,tsx}': ['vitest related --run', 'eslint'],
   // uniform
-  // 'packages/uniform/**/*.{js,ts,tsx}': ['vitest related --run', 'eslint'],
+  'packages/uniform/**/*.{js,ts,tsx}': ['vitest related --run', 'eslint'],
   // veto
   'packages/veto/**/*.{js,ts,tsx}': ['vitest related --run', 'eslint'],
   // config packages
