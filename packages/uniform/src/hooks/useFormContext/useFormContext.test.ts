@@ -307,6 +307,58 @@ describe('checkFieldIsRequired', () => {
     const result2 = checkFieldIsRequired(validation, fieldName2);
     expect(result2).toBe(true);
   });
+
+  it('required field with client validation using nullish()', () => {
+    // Base validation: field is required
+    const baseSchema = object({
+      username: string({ min: 3 }),
+    });
+
+    // Client validation: adds dynamic check with .nullish()
+    const clientSchema = object({
+      username: string()
+        .refine((val) => val !== 'admin', { message: 'Reserved username' })
+        .nullish(),
+    });
+
+    // Combined validation using and()
+    const combinedValidation = v(and(baseSchema, clientSchema));
+    const baseValidation = v(baseSchema);
+
+    // When checking the combined schema, the field would incorrectly appear optional
+    // because client validation uses .nullish()
+    const fieldPath = ['username'];
+    const resultCombined = checkFieldIsRequired(combinedValidation, fieldPath);
+
+    // Combined schema incorrectly reports as not required due to .nullish()
+    expect(resultCombined).toBe(false);
+
+    // But checking against base validation correctly reports as required
+    const resultBase = checkFieldIsRequired(baseValidation, fieldPath);
+    expect(resultBase).toBe(true);
+  });
+
+  it('optional field remains optional with client validation', () => {
+    // Base validation: field is optional
+    const baseSchema = object({
+      nickname: string().optional(),
+    });
+
+    // Client validation: adds dynamic check with .nullish()
+    const clientSchema = object({
+      nickname: string()
+        .refine((val) => val !== 'admin', { message: 'Reserved nickname' })
+        .nullish(),
+    });
+
+    const baseValidation = v(baseSchema);
+    const clientValidation = v(clientSchema);
+
+    // Both should report as optional
+    const fieldPath = ['nickname'];
+    expect(checkFieldIsRequired(baseValidation, fieldPath)).toBe(false);
+    expect(checkFieldIsRequired(clientValidation, fieldPath)).toBe(false);
+  });
 });
 
 describe('field state integration (errors, invalid, testId)', () => {
@@ -319,6 +371,7 @@ describe('field state integration (errors, invalid, testId)', () => {
     mockUniformContextValue = {
       validation: {
         instance: null,
+        baseInstance: null,
         errors: {},
       },
     } as unknown as ReturnType<typeof useFormContext>;
@@ -366,6 +419,76 @@ describe('field state integration (errors, invalid, testId)', () => {
     expect(Array.isArray(state.error)).toBe(true);
     expect(state.error?.[0]?.message).toBe('Tag is required');
   });
+
+  it('uses baseInstance for checking required status when client validation is present', () => {
+    // Base validation: username is required
+    const baseSchema = object({
+      username: string({ min: 3 }),
+    });
+
+    // Client validation with .nullish() (simulating combined extended validation)
+    const clientSchema = object({
+      username: string()
+        .refine((val) => val !== 'admin', { message: 'Reserved' })
+        .nullish(),
+    });
+
+    // Combined validation (what would be in instance)
+    const baseValidation = v(baseSchema);
+    const combinedValidation = v(and(baseSchema, clientSchema));
+
+    // Setup context with both base and combined validation
+    mockUniformContextValue.validation.baseInstance = baseValidation;
+    mockUniformContextValue.validation.instance = combinedValidation;
+
+    const { getFieldState } = useFormContext();
+    const state = getFieldState('username');
+
+    // Should report as required because it checks baseInstance, not instance
+    expect(state.required).toBe(true);
+  });
+
+  it('falls back to instance when baseInstance is not available', () => {
+    // Only instance is provided (no client validation scenario)
+    const validation = v({
+      username: string({ min: 3 }),
+    });
+
+    mockUniformContextValue.validation.instance = validation;
+    mockUniformContextValue.validation.baseInstance = undefined;
+
+    const { getFieldState } = useFormContext();
+    const state = getFieldState('username');
+
+    // Should still work by falling back to instance
+    expect(state.required).toBe(true);
+  });
+
+  it('correctly reports optional field when base validation is optional', () => {
+    // Base validation: field is optional
+    const baseSchema = object({
+      nickname: string().optional(),
+    });
+
+    // Client validation
+    const clientSchema = object({
+      nickname: string()
+        .refine((val) => val !== 'admin', { message: 'Reserved' })
+        .nullish(),
+    });
+
+    const baseValidation = v(baseSchema);
+    const combinedValidation = v(and(baseSchema, clientSchema));
+
+    mockUniformContextValue.validation.baseInstance = baseValidation;
+    mockUniformContextValue.validation.instance = combinedValidation;
+
+    const { getFieldState } = useFormContext();
+    const state = getFieldState('nickname');
+
+    // Should report as not required because base validation is optional
+    expect(state.required).toBe(false);
+  });
 });
 
 // Mock the dependencies outside of the describe block
@@ -376,11 +499,12 @@ const mockGetFieldState = vi.fn();
 interface MockUniformContextValue {
   validation: {
     instance: unknown;
+    baseInstance?: unknown;
     errors?: Record<string, unknown>;
   };
 }
 let mockUniformContextValue: MockUniformContextValue = {
-  validation: { instance: null, errors: {} },
+  validation: { instance: null, baseInstance: null, errors: {} },
 };
 
 vi.mock('react-hook-form', () => ({

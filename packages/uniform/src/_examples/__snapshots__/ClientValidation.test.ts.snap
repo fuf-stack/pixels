@@ -729,6 +729,7 @@ exports[`Story Snapshots > InteractiveDemo 1`] = `
           data-has-value="true"
           data-hover="true"
           data-invalid="true"
+          data-required="true"
           data-slot="base"
         >
           <div
@@ -742,7 +743,7 @@ exports[`Story Snapshots > InteractiveDemo 1`] = `
               style="cursor: text;"
             >
               <label
-                class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block text-foreground-500 !text-danger will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto text-small group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden"
+                class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block text-foreground-500 !text-danger after:content-['*'] after:text-danger after:ms-0.5 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto text-small group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden"
                 data-slot="label"
                 for="username"
                 id="react-aria-react-useId-mock"
@@ -765,6 +766,7 @@ exports[`Story Snapshots > InteractiveDemo 1`] = `
                   id="username"
                   name="username"
                   placeholder="Enter username"
+                  required=""
                   tabindex="0"
                   title=""
                   type="text"

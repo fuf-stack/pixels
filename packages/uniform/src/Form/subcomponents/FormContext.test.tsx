@@ -252,6 +252,74 @@ describe('FormContext', () => {
       expect(result.current.validation).toBeDefined();
       expect(result.current.validation.instance).toBe(validationSchema);
     });
+
+    it('exposes both baseInstance and instance in validation context', () => {
+      const onSubmit = vi.fn();
+      const baseValidation = veto({
+        username: string().min(3),
+      });
+
+      const wrapper = ({ children }: { children: ReactNode }) => (
+        <FormProvider
+          onSubmit={onSubmit}
+          validation={baseValidation}
+          validationTrigger="onChange"
+        >
+          {() => <>{children}</>}
+        </FormProvider>
+      );
+
+      const { result } = renderHook(() => useContext(UniformContext), {
+        wrapper,
+      });
+
+      // Both instance and baseInstance should be available
+      expect(result.current.validation.instance).toBeDefined();
+      expect(result.current.validation.baseInstance).toBeDefined();
+
+      // Without client validation, both should reference the base validation
+      expect(result.current.validation.baseInstance).toBe(baseValidation);
+    });
+
+    it('baseInstance remains stable when client validation is added', () => {
+      const onSubmit = vi.fn();
+      const baseValidation = veto({
+        username: string().min(3),
+      });
+
+      const wrapper = ({ children }: { children: ReactNode }) => (
+        <FormProvider
+          onSubmit={onSubmit}
+          validation={baseValidation}
+          validationTrigger="onChange"
+        >
+          {() => <>{children}</>}
+        </FormProvider>
+      );
+
+      const { result } = renderHook(() => useContext(UniformContext), {
+        wrapper,
+      });
+
+      const initialBaseInstance = result.current.validation.baseInstance;
+
+      // Add client validation
+      const clientSchema = string().nullish();
+      act(() => {
+        result.current.validation.setClientValidationSchema(
+          'dynamicField',
+          clientSchema,
+        );
+      });
+
+      // baseInstance should remain the same (base validation only)
+      expect(result.current.validation.baseInstance).toBe(initialBaseInstance);
+      expect(result.current.validation.baseInstance).toBe(baseValidation);
+
+      // instance might have changed (extended with client validation)
+      // but baseInstance should be stable
+      expect(result.current.validation.instance).toBeDefined();
+    });
   });
 
   describe('context value memoization', () => {

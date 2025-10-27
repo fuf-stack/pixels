@@ -89,6 +89,8 @@ interface UniformContextType {
   triggerSubmit: (e?: BaseSyntheticEvent) => Promise<void> | void;
   /** Form validation configuration */
   validation: {
+    /** Base validation schema instance (without client validation) */
+    baseInstance?: VetoInstance;
     /** Veto validation schema instance for form validation */
     instance?: VetoInstance;
     /** Current validation errors in form */
@@ -231,6 +233,7 @@ const FormProvider: React.FC<FormProviderProps> = ({
         setDebugMode,
         triggerSubmit: handleSubmit,
         validation: {
+          baseInstance: baseValidation,
           instance: extendedValidation,
           errors: validationErrors,
           setClientValidationSchema,

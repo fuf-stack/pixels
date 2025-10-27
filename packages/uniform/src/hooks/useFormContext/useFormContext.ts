@@ -101,7 +101,11 @@ export const useFormContext = <
     const fieldPath =
       typeof name === 'string' ? name.replace(/\[\d+\]/g, '').split('.') : name;
 
-    const validationInstance = uniformContext?.validation.instance;
+    // Use base validation instance for checking "required" status
+    // Client validation often uses .nullish() which would incorrectly mark fields as optional
+    const validationInstance =
+      uniformContext?.validation.baseInstance ??
+      uniformContext?.validation.instance;
 
     // Check if the field is required using the validation schema
     const required = validationInstance
