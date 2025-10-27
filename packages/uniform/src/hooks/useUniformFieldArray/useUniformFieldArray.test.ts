@@ -502,7 +502,7 @@ describe('useUniformFieldArray', () => {
       expect(mockSetValue).not.toHaveBeenCalled(); // Should not initialize
     });
 
-    it('should disable animations during re-initialization', async () => {
+    it('should keep animations enabled during re-initialization', async () => {
       mockFields = [];
 
       const { result, rerender } = renderHook(() =>
@@ -532,8 +532,9 @@ describe('useUniformFieldArray', () => {
         rerender();
       });
 
-      // Animations should be disabled during re-init
-      expect(result.current.disableAnimation).toBe(true);
+      // Animations should remain enabled during re-init (reset scenario)
+      // The parent component is responsible for managing animations during reset
+      expect(result.current.disableAnimation).toBe(false);
 
       // Wait for re-initialization to complete
       await act(async () => {
@@ -541,7 +542,7 @@ describe('useUniformFieldArray', () => {
         await Promise.resolve();
       });
 
-      // Animations should be enabled again
+      // Animations should still be enabled after re-initialization
       expect(result.current.disableAnimation).toBe(false);
     });
 

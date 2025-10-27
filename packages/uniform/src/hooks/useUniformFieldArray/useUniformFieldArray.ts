@@ -142,13 +142,6 @@ export const useUniformFieldArray = <
   useEffect(
     () => {
       if (needsInitialize) {
-        // Disable animations if they're currently enabled (important for reset scenario).
-        // During initial mount, animations are already disabled, but after a form reset
-        // animations might be enabled, so we need to disable them before adding the element.
-        if (!disableAnimation) {
-          setDisableAnimation(true);
-        }
-
         // use setValue instead of append to avoid focusing the added element
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         setValue(name as Path<TFieldValues>, [elementInitialValue] as any, {
@@ -159,10 +152,10 @@ export const useUniformFieldArray = <
         // Mark initialization as complete
         hasInitialized.current = true;
 
-        // Enable animations after a 1ms delay (unless user prefers reduced motion).
-        // The delay ensures the setValue completes before animations turn on,
-        // preventing the initial element from animating in.
-        if (!prefersReducedMotion) {
+        // Enable animations after a brief delay (unless user prefers reduced motion or animations are already enabled).
+        // This only runs on initial mount when animations start disabled.
+        // On reset, disableAnimation is typically false, so this setTimeout won't run and animations stay enabled.
+        if (!prefersReducedMotion && disableAnimation) {
           setTimeout(() => {
             setDisableAnimation(false);
           }, 1);
