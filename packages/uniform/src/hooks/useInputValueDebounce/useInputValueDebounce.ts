@@ -1,10 +1,6 @@
-import type { InputValueTransform } from '../useInputValueTransform/useInputValueTransform';
-
 import { useCallback, useEffect, useRef, useState } from 'react';
 
-import { useInputValueTransform } from '../useInputValueTransform/useInputValueTransform';
-
-export interface UseInputValueDebounceOptions {
+export interface UseInputValueDebounceOptions<TValue = unknown> {
   /** Debounce delay in milliseconds (default: 300) */
   debounceDelay?: number;
   /** The onBlur function to call after flushing debounced value */
@@ -12,46 +8,42 @@ export interface UseInputValueDebounceOptions {
   /** The onChange function to call with debounced value */
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onChange: (...event: any[]) => void;
-  /** Value transformation functions */
-  transform?: InputValueTransform;
-  /** Input type to handle number conversion (optional) */
-  type?: 'text' | 'number' | 'password';
-  /** The initial form value */
-  value: string | number;
+  /** The field value */
+  value: TValue;
 }
 
-export interface UseInputValueDebounceReturn {
+export interface UseInputValueDebounceReturn<TValue = unknown> {
   /** Enhanced onChange function with debouncing */
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onChange: (...event: any[]) => void;
   /** Enhanced onBlur function that flushes current value immediately */
   onBlur: () => void;
   /** The field value that is displayed - updates immediately */
-  value: string | number;
+  value: TValue;
 }
 
 /**
- * Custom hook for debouncing input value changes with immediate blur support.
+ * Custom hook for debouncing value changes with immediate blur support.
  *
- * Provides immediate visual feedback by updating the display value instantly,
- * while debouncing the actual form state changes. When the input loses focus,
+ * Provides immediate visual feedback by updating the value instantly,
+ * while debouncing the actual onChange calls. When focus is lost,
  * any pending debounced changes are immediately flushed.
  *
  * **Key Features:**
- * - **Debouncing**: Delays form updates until user stops typing
- * - **Transform support**: Optional value transformation between display and form values
- * - **Number conversion**: Automatic conversion for number inputs
- * - **Immediate display updates**: UI stays responsive during debouncing
+ * - **Debouncing**: Delays onChange calls until user stops typing
+ * - **Generic type support**: Works with any data type (strings, numbers, arrays, objects)
+ * - **Immediate value updates**: UI stays responsive during debouncing
  * - **Blur flushing**: Immediately applies pending changes on blur
+ *
+ * **Note:** Value transformations should be handled at the `useUniformField` level,
+ * not in this hook. This hook only handles debouncing timing.
  *
  * @param options Configuration for debounced value handling
  * @param options.debounceDelay Delay in milliseconds (default: 300)
  * @param options.onBlur Function to call after flushing debounced value
  * @param options.onChange Function to call with debounced value
- * @param options.transform Optional transform functions for display ↔ form value conversion
- * @param options.type Input type for number conversion ('text' | 'number' | 'password')
- * @param options.value The initial form value
- * @returns Object containing enhanced onChange, onBlur, and immediate display value
+ * @param options.value The field value
+ * @returns Object containing enhanced onChange, onBlur, and immediate value
  *
  * @example
  * Basic usage with debouncing:
@@ -63,76 +55,30 @@ export interface UseInputValueDebounceReturn {
  *   value: field.value,
  * });
  * ```
- *
- * @example
- * Number input with automatic conversion:
- * ```tsx
- * const { onChange, onBlur, value } = useInputValueDebounce({
- *   debounceDelay: 300,
- *   onBlur: field.onBlur,
- *   onChange: field.onChange,
- *   type: 'number',
- *   value: field.value, // Display: 123 (number), Form: 123 (number)
- * });
- * ```
- *
- * @example
- * Currency formatting with transforms:
- * ```tsx
- * const currencyTransform = {
- *   displayValue: (val) => val ? `$${Number(val).toFixed(2)}` : '',
- *   formValue: (val) => Number(val.replace(/[$,]/g, '')) || 0
- * };
- *
- * const { onChange, onBlur, value } = useInputValueDebounce({
- *   debounceDelay: 300,
- *   onBlur: field.onBlur,
- *   onChange: field.onChange,
- *   transform: currencyTransform,
- *   value: field.value, // Display: "$100.00", Form: 100
- * });
- * ```
  */
-export const useInputValueDebounce = ({
+export const useInputValueDebounce = <TValue = unknown>({
   debounceDelay = 300,
   onBlur,
   onChange,
-  transform,
-  type,
   value,
-}: UseInputValueDebounceOptions): UseInputValueDebounceReturn => {
-  // Get conversion utilities from transform hook
-  const { toDisplayValue, toFormValue } = useInputValueTransform({
-    transform,
-    type,
-  });
-
-  // Track display value for synchronous updates
-  const [displayValue, setDisplayValue] = useState(() => {
-    return toDisplayValue(value);
-  });
+}: UseInputValueDebounceOptions<TValue>): UseInputValueDebounceReturn<TValue> => {
+  // Track value for synchronous updates
+  const [currentValue, setCurrentValue] = useState<TValue>(value);
 
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   // Sync with external value changes
   useEffect(() => {
-    setDisplayValue(toDisplayValue(value));
-  }, [value, toDisplayValue]);
+    setCurrentValue(value);
+  }, [value]);
 
   // Enhanced onChange handler with debouncing
   const handleChange = useCallback(
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (...event: any[]) => {
-      // Extract the raw input value
-      const rawValue = event[0]?.target?.value ?? event[0];
-
-      // For transforms, user input is already in display format
-      // For number types, convert strings to numbers for display
-      const newDisplayValue = transform ? rawValue : toDisplayValue(rawValue);
-      setDisplayValue(newDisplayValue);
-
-      // Convert to form value using transform utilities
-      const formValue = toFormValue(newDisplayValue);
+      // Extract the raw value
+      const newValue = (event[0]?.target?.value ?? event[0]) as TValue;
+      setCurrentValue(newValue);
 
       // Clear existing timeout
       if (timeoutRef.current) {
@@ -146,12 +92,12 @@ export const useInputValueDebounce = ({
             ...event[0],
             target: {
               ...event[0].target,
-              value: formValue,
+              value: newValue,
             },
           };
           onChange(convertedEvent, ...event.slice(1));
         } else {
-          onChange(formValue);
+          onChange(newValue);
         }
       };
 
@@ -162,7 +108,7 @@ export const useInputValueDebounce = ({
         timeoutRef.current = setTimeout(executeOnChange, debounceDelay);
       }
     },
-    [onChange, debounceDelay, toDisplayValue, toFormValue, transform],
+    [onChange, debounceDelay],
   );
 
   // Enhanced blur handler
@@ -171,17 +117,14 @@ export const useInputValueDebounce = ({
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current);
       timeoutRef.current = null;
-
-      // Get form value from current display value
-      const formValue = toFormValue(displayValue);
-      onChange(formValue);
+      onChange(currentValue);
     }
     onBlur();
-  }, [onChange, onBlur, toFormValue, displayValue]);
+  }, [onChange, onBlur, currentValue]);
 
   return {
     onChange: handleChange,
     onBlur: handleBlur,
-    value: displayValue,
+    value: currentValue,
   };
 };

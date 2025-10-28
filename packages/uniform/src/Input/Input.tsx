@@ -52,7 +52,7 @@ export interface InputProps extends VariantProps {
   /** HTML data-testid attribute used in e2e tests */
   testId?: string;
   /** allows disentangled display and form values for a field */
-  transform?: InputValueTransform;
+  transform?: InputValueTransform<string>;
   /** input type */
   type?: 'number' | 'password';
 }
@@ -70,7 +70,6 @@ const Input = ({
   placeholder = ' ',
   size = undefined,
   startContent = undefined,
-  transform = undefined,
   type = undefined,
   ...uniformFieldProps
 }: InputProps) => {
@@ -88,15 +87,13 @@ const Input = ({
     required,
     testId,
     resetField,
-  } = useUniformField({ name, ...uniformFieldProps });
+  } = useUniformField({ name, type, ...uniformFieldProps });
 
   // Use hook that provides debounced onChange and enhanced blur handling
   const { onChange, onBlur, value } = useInputValueDebounce({
     debounceDelay,
     onBlur: fieldOnBlur,
     onChange: fieldOnChange,
-    transform,
-    type,
     value: fieldValue,
   });
 
@@ -141,7 +138,6 @@ const Input = ({
       size={size}
       startContent={startContent}
       type={type}
-      // @ts-expect-error can be number for input type number
       value={value}
       variant="bordered"
       classNames={{

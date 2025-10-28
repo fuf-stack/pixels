@@ -1,24 +1,24 @@
 import { useCallback } from 'react';
 
-export interface InputValueTransform {
-  /** Transforms the form value to display value (e.g., 1000 → "$1,000") */
-  toDisplayValue: (value: string | number) => string | number;
-  /** Transforms the display value to form value (e.g., "$1,000" → 1000) */
-  toFormValue: (value: string) => string | number;
+export interface InputValueTransform<TDisplay = unknown> {
+  /** Transforms the form value to display value (e.g., 1000 → "$1,000" or 'a' → ['a']) */
+  toDisplayValue: (value: unknown) => TDisplay;
+  /** Transforms the display value to form value (e.g., "$1,000" → 1000 or ['a'] → 'a') */
+  toFormValue: (value: TDisplay) => unknown;
 }
 
-export interface UseInputValueTransformOptions {
+export interface UseInputValueTransformOptions<TDisplay = unknown> {
   /** Input type for special number handling */
   type?: 'text' | 'number' | 'password';
   /** Value transformation functions */
-  transform?: InputValueTransform;
+  transform?: InputValueTransform<TDisplay>;
 }
 
-export interface UseInputValueTransformReturn {
+export interface UseInputValueTransformReturn<TDisplay = unknown> {
   /** Converts any form value to display value */
-  toDisplayValue: (formValue: string | number) => string | number;
+  toDisplayValue: (formValue: unknown) => TDisplay;
   /** Converts any display value to form value */
-  toFormValue: (displayValue: string | number) => string | number;
+  toFormValue: (displayValue: TDisplay) => unknown;
 }
 
 /**
@@ -29,9 +29,11 @@ export interface UseInputValueTransformReturn {
  * - Number inputs with special handling
  * - Date formatting (MM/DD/YYYY display vs ISO date stored)
  * - Phone number formatting ((555) 123-4567 display vs 5551234567 stored)
+ * - Array/Object transformations (single value ↔ array, nested structures)
  *
  * **Key Features:**
  * - Pure conversion functions (no state)
+ * - Generic support for any data type (strings, numbers, arrays, objects)
  * - Special number input handling (empty string preservation)
  * - Bidirectional value transformations
  * - Memoized functions for performance
@@ -43,8 +45,8 @@ export interface UseInputValueTransformReturn {
  * ```tsx
  * // Currency formatting
  * const currencyTransform = {
- *   displayValue: (val) => val ? `$${Number(val).toLocaleString()}` : '',
- *   formValue: (val) => parseFloat(val.replace(/[$,]/g, '')) || 0
+ *   toDisplayValue: (val) => val ? `$${Number(val).toLocaleString()}` : '',
+ *   toFormValue: (val) => parseFloat(val.replace(/[$,]/g, '')) || 0
  * };
  *
  * const { toDisplayValue, toFormValue } = useInputValueTransform({
@@ -68,6 +70,22 @@ export interface UseInputValueTransformReturn {
  *
  * @example
  * ```tsx
+ * // Array to single value (for single checkbox)
+ * const singleValueTransform = {
+ *   toDisplayValue: (val: string[]) => val?.[0] || '',
+ *   toFormValue: (val: string) => val ? [val] : []
+ * };
+ *
+ * const { toDisplayValue, toFormValue } = useInputValueTransform({
+ *   transform: singleValueTransform
+ * });
+ *
+ * const displayVal = toDisplayValue(['option1']); // "option1"
+ * const formVal = toFormValue("option2"); // ["option2"]
+ * ```
+ *
+ * @example
+ * ```tsx
  * // Integration with debouncing
  * const MyInput = ({ field, transform }) => {
  *   const transform = useInputValueTransform({ transform });
@@ -84,29 +102,30 @@ export interface UseInputValueTransformReturn {
  * };
  * ```
  */
-export const useInputValueTransform = ({
+export const useInputValueTransform = <TDisplay = unknown>({
   type,
   transform,
-}: UseInputValueTransformOptions): UseInputValueTransformReturn => {
+}: UseInputValueTransformOptions<TDisplay>): UseInputValueTransformReturn<TDisplay> => {
   /**
    * Converts any form value to display value
    */
   const toDisplayValue = useCallback(
-    (formValue: string | number): string | number => {
+    (formValue: unknown): TDisplay => {
       if (transform?.toDisplayValue) {
-        return transform.toDisplayValue(formValue ?? '');
+        return transform.toDisplayValue(formValue);
       }
 
       // For number type, convert valid strings to numbers for display
       if (type === 'number') {
         if (formValue === '') {
-          return '';
+          return '' as TDisplay;
         }
         const numValue = Number(formValue);
-        return Number.isNaN(numValue) ? formValue : numValue;
+        return (Number.isNaN(numValue) ? formValue : numValue) as TDisplay;
       }
 
-      return formValue ?? '';
+      // Default: pass through (handles primitives, arrays, objects, etc.)
+      return (formValue ?? '') as TDisplay;
     },
     [type, transform],
   );
@@ -115,7 +134,12 @@ export const useInputValueTransform = ({
    * Converts any display value to form value
    */
   const toFormValue = useCallback(
-    (displayValue: string | number): string | number => {
+    (displayValue: TDisplay): unknown => {
+      if (transform?.toFormValue) {
+        return transform.toFormValue(displayValue);
+      }
+
+      // For number type, convert strings to numbers
       if (type === 'number') {
         if (displayValue === '') {
           return '';
@@ -124,9 +148,8 @@ export const useInputValueTransform = ({
         return Number.isNaN(numValue) ? displayValue : numValue;
       }
 
-      return transform?.toFormValue
-        ? transform.toFormValue(displayValue as string)
-        : displayValue;
+      // Default: pass through (handles primitives, arrays, objects, etc.)
+      return displayValue;
     },
     [type, transform],
   );

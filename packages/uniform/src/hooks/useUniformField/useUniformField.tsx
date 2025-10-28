@@ -1,5 +1,8 @@
 import type { ReactNode } from 'react';
 import type { FieldError, FieldValues, Path } from 'react-hook-form';
+import type { InputValueTransform } from '../useInputValueTransform/useInputValueTransform';
+
+import React from 'react';
 
 import { useReducedMotion } from '@fuf-stack/pixel-motion';
 import { useDebounce } from '@fuf-stack/pixels';
@@ -9,6 +12,7 @@ import { FieldValidationError } from '../../partials/FieldValidationError';
 import { useController } from '../useController/useController';
 import { useFormContext } from '../useFormContext/useFormContext';
 import { useInput } from '../useInput/useInput';
+import { useInputValueTransform } from '../useInputValueTransform/useInputValueTransform';
 
 /**
  * Debounce invalid state changes for smooth UI transitions while respecting accessibility.
@@ -30,6 +34,7 @@ const useDebouncedInvalid = (invalid: boolean, delayMs: number) => {
 
 export interface UseUniformFieldParams<
   TFieldValues extends FieldValues = FieldValues,
+  TDisplay = unknown,
 > {
   /** Form field name */
   name: Path<TFieldValues> & string;
@@ -39,6 +44,10 @@ export interface UseUniformFieldParams<
   testId?: string;
   /** Optional label content; pass false to suppress label entirely */
   label?: ReactNode | false;
+  /** Input type for special number handling */
+  type?: 'text' | 'number' | 'password';
+  /** Optional value transformation between form and display values */
+  transform?: InputValueTransform<TDisplay>;
 }
 
 export interface UseUniformFieldReturn<
@@ -56,7 +65,7 @@ export interface UseUniformFieldReturn<
   error: FieldError[] | undefined;
   /** Pre-built errorMessage node to plug into components */
   errorMessage: ReactNode | null;
-  /** RHF controller field with nullish conversions applied */
+  /** RHF controller field with transformed value/onChange (use this for simple components) */
   field: ReturnType<typeof useController<TFieldValues>>['field'];
   /** Helper to spread standardized error message props to underlying components */
   getErrorMessageProps: ReturnType<typeof useInput>['getErrorMessageProps'];
@@ -72,7 +81,7 @@ export interface UseUniformFieldReturn<
   label: ReactNode | null;
   /** onBlur handler from controller */
   onBlur: ReturnType<typeof useController<TFieldValues>>['field']['onBlur'];
-  /** onChange handler from controller (with nullish handling) */
+  /** onChange handler from controller (with transform applied) */
   onChange: ReturnType<typeof useController<TFieldValues>>['field']['onChange'];
   /** Ref to forward to underlying control */
   ref: ReturnType<typeof useController<TFieldValues>>['field']['ref'];
@@ -90,6 +99,12 @@ export interface UseUniformFieldReturn<
  * Provides:
  * - Enhanced form context (validation-aware state, `testId`, value transforms)
  * - Controller field with nullish conversion handling
+ * - Value transformation via `transform` prop:
+ *   • Allows disentangled display and form values (e.g., string ↔ object, boolean ↔ array)
+ *   • Automatically applies `toDisplayValue` to field value for components
+ *   • Automatically applies `toFormValue` to display value when onChange is called
+ *   • Works with `type` prop for automatic number/string conversion
+ *   • Examples: storing objects while displaying strings, storing booleans as arrays, enriching values with metadata
  * - Debounced `invalid` state with smart timing:
  *   • `true` (field becomes invalid): applies immediately so errors show right away
  *   • `false` (field becomes valid): delayed 200ms to allow smooth exit animations
@@ -106,10 +121,20 @@ export interface UseUniformFieldReturn<
  * - Presentation helpers: `getLabelProps`, `getErrorMessageProps`,
  *   `getHelperWrapperProps` for consistent wiring to underlying UI components
  */
-export function useUniformField<TFieldValues extends FieldValues = FieldValues>(
-  params: UseUniformFieldParams<TFieldValues>,
+export function useUniformField<
+  TFieldValues extends FieldValues = FieldValues,
+  TDisplay = unknown,
+>(
+  params: UseUniformFieldParams<TFieldValues, TDisplay>,
 ): UseUniformFieldReturn<TFieldValues> {
-  const { name, disabled = false, testId: explicitTestId, label } = params;
+  const {
+    name,
+    disabled = false,
+    testId: explicitTestId,
+    label,
+    type,
+    transform,
+  } = params;
 
   const {
     control,
@@ -134,7 +159,31 @@ export function useUniformField<TFieldValues extends FieldValues = FieldValues>(
     disabled,
     name,
   });
-  const { onChange, disabled: isDisabled, onBlur, ref } = field;
+  const {
+    onChange: fieldOnChange,
+    value: fieldValue,
+    disabled: isDisabled,
+    onBlur,
+    ref,
+  } = field;
+
+  // Get transform utilities (but don't apply them automatically)
+  // Components can choose how to use them (directly or via useInputValueDebounce)
+  const { toDisplayValue, toFormValue } = useInputValueTransform<TDisplay>({
+    type,
+    transform,
+  });
+
+  // For components without special needs: apply transform to value and onChange
+  const transformedValue = toDisplayValue(fieldValue);
+  const transformedOnChange = (eventOrValue: TDisplay | React.ChangeEvent) => {
+    // Extract value from event or use value directly
+    const displayValue =
+      (eventOrValue as React.ChangeEvent<HTMLInputElement>)?.target?.value ??
+      eventOrValue;
+    const formValue = toFormValue(displayValue as TDisplay);
+    fieldOnChange(formValue as typeof fieldValue);
+  };
 
   const defaultValue = (getValues() as Record<string, unknown>)?.[
     name as string
@@ -204,7 +253,11 @@ export function useUniformField<TFieldValues extends FieldValues = FieldValues>(
     disabled: isDisabled,
     error,
     errorMessage,
-    field,
+    field: {
+      ...field,
+      value: transformedValue as typeof field.value,
+      onChange: transformedOnChange as typeof field.onChange,
+    },
     getErrorMessageProps,
     getHelperWrapperProps,
     getLabelProps,
@@ -212,7 +265,7 @@ export function useUniformField<TFieldValues extends FieldValues = FieldValues>(
     invalid,
     label: labelNode,
     onBlur,
-    onChange,
+    onChange: transformedOnChange as typeof field.onChange,
     ref,
     required,
     resetField,

@@ -264,11 +264,65 @@ export const WithValueTransform: Story = {
     transform: {
       toDisplayValue: (value) => {
         // Remove emoji for display
-        return value.toString().replace('🤡', '').trim();
+        return String(value).replace('🤡', '').trim();
       },
-      toFormValue: (value) => {
+      toFormValue: (value: string) => {
         // Always add clown emoji to form value
-        return `${value.toString().trim()} 🤡`.trim();
+        return `${value.trim()} 🤡`.trim();
+      },
+    },
+  },
+};
+
+interface Superhero {
+  name: string;
+  emoji: string;
+  power: string;
+}
+
+const superheroData: Record<string, Superhero> = {
+  spiderman: { name: 'Spider-Man', emoji: '🕷️', power: 'Web-slinging' },
+  batman: { name: 'Batman', emoji: '🦇', power: 'Detective skills' },
+  superman: { name: 'Superman', emoji: '💪', power: 'Super strength' },
+  wonderwoman: { name: 'Wonder Woman', emoji: '⚡', power: 'Combat mastery' },
+  ironman: { name: 'Iron Man', emoji: '🤖', power: 'Powered armor' },
+  thor: { name: 'Thor', emoji: '⚡', power: 'Thunder god' },
+  hulk: { name: 'Hulk', emoji: '💥', power: 'Smash everything' },
+  blackpanther: { name: 'Black Panther', emoji: '🐱', power: 'Vibranium suit' },
+};
+
+export const WithTransformComplexObject: Story = {
+  parameters: {
+    formProps: {
+      initialValues: {
+        hero: {
+          name: 'Spider-Man',
+          emoji: '🕷️',
+          power: 'Web-slinging',
+        },
+      },
+    },
+  },
+  args: {
+    label: 'Superhero Name (stored as object with emoji & power)',
+    name: 'hero',
+    placeholder: 'Try: spiderman, batman, superman...',
+    transform: {
+      // Form stores object with emoji and power, display just the name
+      toDisplayValue: (value) => {
+        const hero = value as Superhero;
+        return hero?.name || '';
+      },
+      // Display is name string, convert to object with emoji and power
+      toFormValue: (value: string) => {
+        const heroKey = value.toLowerCase().replace(/[^a-z]/g, '');
+        return (
+          superheroData[heroKey] || {
+            name: value || null,
+            emoji: '🤷',
+            power: 'Being mysterious',
+          }
+        );
       },
     },
   },

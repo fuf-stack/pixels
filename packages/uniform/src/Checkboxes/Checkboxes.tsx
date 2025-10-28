@@ -5,6 +5,7 @@ import type {
 } from '@heroui/checkbox';
 import type { ReactNode } from 'react';
 import type { FieldError } from 'react-hook-form';
+import type { InputValueTransform } from '../hooks';
 
 import {
   Checkbox as HeroCheckbox,
@@ -89,6 +90,8 @@ export interface CheckboxesProps extends VariantProps {
   options: CheckboxOption[];
   /** HTML data-testid attribute used in e2e tests */
   testId?: string;
+  /** allows disentangled display and form values for a field */
+  transform?: InputValueTransform<string[]>;
 }
 
 /**
@@ -106,7 +109,7 @@ const Checkboxes = ({
   const {
     disabled,
     error: _error,
-    field: { onChange, value = [], ref, onBlur },
+    field: { onChange, value: fieldValue, ref, onBlur },
     invalid,
     label,
     required,
@@ -115,6 +118,9 @@ const Checkboxes = ({
     name,
     ...uniformFieldProps,
   });
+
+  // Ensure value is always an array (checkboxes need arrays)
+  const value = Array.isArray(fieldValue) ? fieldValue : [];
 
   // Convert React Hook Form's nested error object structure to a flat array
   // RHF errors can be nested like: checkboxField.0 (individual checkbox errors)
@@ -129,47 +135,6 @@ const Checkboxes = ({
   const errorMessage = (
     <FieldValidationError error={errorFlat} testId={testId} />
   );
-
-  /**
-   * Handles the checkboxes value changes based on the number of options:
-   * 1. For single checkbox (options.length === 1):
-   *    - Converts undefined/empty array to [] for consistent controlled behavior
-   *    - Extracts single value from array for onChange
-   *
-   *    Example: undefined → []
-   *            [value] → value
-   *
-   * 2. For multiple checkboxes:
-   *    - Uses raw value array with fallback to empty array
-   *    - Passes through onChange directly
-   *
-   *    Example: undefined → []
-   *            ['value1', 'value2'] → ['value1', 'value2']
-   */
-  const getCheckboxValue = (inputValue: unknown): string[] => {
-    if (Array.isArray(inputValue)) {
-      return inputValue as string[];
-    }
-    if (inputValue) {
-      return [inputValue as string];
-    }
-    return [];
-  };
-
-  const singleCheckboxProps = {
-    value: getCheckboxValue(value),
-    onChange: (newValue: string[]) => {
-      onChange(newValue?.[0]);
-    },
-  };
-
-  const multipleCheckboxProps = {
-    onChange,
-    value: getCheckboxValue(value),
-  };
-
-  const checkboxesProps =
-    options.length === 1 ? singleCheckboxProps : multipleCheckboxProps;
 
   // classNames from slots
   const variants = checkboxesVariants({ lineThrough });
@@ -204,8 +169,9 @@ const Checkboxes = ({
       label={label ? <legend>{label}</legend> : null}
       name={name}
       onBlur={onBlur}
+      onChange={onChange}
       orientation={inline ? 'horizontal' : 'vertical'}
-      {...checkboxesProps}
+      value={value}
     >
       {options?.map((option) => {
         const optionTestId = slugify(

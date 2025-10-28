@@ -241,30 +241,81 @@ export const Invalid: Story = {
   },
 };
 
-const validationOneCheckbox = veto({
-  checkboxField: string()
-    .refine((value: string) => {
-      return value !== 'ghost-peppers';
-    }, 'This is too hot!')
-    .optional(),
-});
-
-export const InvalidOneCheckbox: Story = {
+export const WithTransformSingleValue: Story = {
   parameters: {
     formProps: {
-      validation: validationOneCheckbox,
+      initialValues: { acceptTerms: false },
     },
   },
   args: {
-    label: 'Checkbox Field',
-    name: 'checkboxField',
-    options: [{ label: '🌶️ Eat ghost peppers daily', value: 'ghost-peppers' }],
+    label: 'Terms & Conditions',
+    name: 'acceptTerms',
+    options: [
+      { label: 'I accept the terms and conditions', value: 'accepted' },
+    ],
+    transform: {
+      // Form stores boolean, display as array (string[])
+      toDisplayValue: (val) => {
+        return val ? ['accepted'] : [];
+      },
+      // Display is array (string[]), convert back to boolean
+      toFormValue: (val: string[]) => {
+        return val.length > 0;
+      },
+    },
   },
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
-    const optionOne = canvas.getByTestId('checkboxfield_option_ghost_peppers');
-    await userEvent.click(optionOne, {
-      delay: 500,
-    });
+};
+
+interface FoodData {
+  id: string;
+  name: string;
+  score: number;
+  calories: number;
+}
+
+const foodData: Record<string, FoodData> = {
+  pizza: { id: 'pizza', name: 'Pizza', score: 5, calories: 285 },
+  burger: { id: 'burger', name: 'Burger', score: 4, calories: 354 },
+  sushi: { id: 'sushi', name: 'Sushi', score: 4, calories: 145 },
+  taco: { id: 'taco', name: 'Taco', score: 3, calories: 226 },
+};
+
+export const WithTransformComplexObjects: Story = {
+  parameters: {
+    formProps: {
+      initialValues: {
+        selectedFoods: [
+          { id: 'pizza', name: 'Pizza', score: 5, calories: 285 },
+          { id: 'sushi', name: 'Sushi', score: 4, calories: 145 },
+        ],
+      },
+    },
+  },
+  args: {
+    label: 'Select your favorite foods (stored as objects with metadata)',
+    name: 'selectedFoods',
+    options: [
+      { label: '🍕 Pizza', value: 'pizza' },
+      { label: '🍔 Burger', value: 'burger' },
+      { label: '🍣 Sushi', value: 'sushi' },
+      { label: '🌮 Taco', value: 'taco' },
+    ],
+    transform: {
+      // Form stores array of objects with metadata, display as simple string array
+      toDisplayValue: (val) => {
+        const foods = val as { id: string; name: string; score: number }[];
+        return foods
+          ? foods.map((f) => {
+              return f.id;
+            })
+          : [];
+      },
+      // Display is string array, convert to array of objects with metadata
+      toFormValue: (val: string[]) => {
+        return val.map((id) => {
+          return foodData[id] || null;
+        });
+      },
+    },
   },
 };
