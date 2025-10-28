@@ -8,5 +8,6 @@ export * from './useInput/useInput';
 export * from './useInputValueDebounce/useInputValueDebounce';
 export * from './useInputValueTransform/useInputValueTransform';
 export * from './useUniformField/useUniformField';
+export * from './useWatchUserChange/useWatchUserChange';
 
 /* v8 ignore stop */

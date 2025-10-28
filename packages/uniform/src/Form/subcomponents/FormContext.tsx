@@ -4,9 +4,9 @@ import type {
   VetoTypeAny,
 } from '@fuf-stack/veto';
 import type { BaseSyntheticEvent, ReactNode } from 'react';
-import type { FieldValues, SubmitHandler } from 'react-hook-form';
+import type { FieldValues, Path, SubmitHandler } from 'react-hook-form';
 
-import React, { useMemo, useState } from 'react';
+import React, { useCallback, useMemo, useRef, useState } from 'react';
 import { FormProvider as HookFormProvider, useForm } from 'react-hook-form';
 
 import { useLocalStorage } from '@fuf-stack/pixels';
@@ -23,6 +23,14 @@ export interface DebugModeSettings {
   localStorageKey?: string;
 }
 
+/**
+ * Listener function that gets called when a field changes due to user input
+ */
+export type UserChangeListener<TFieldValues extends object = object> = (
+  fieldName: Path<TFieldValues>,
+  value: unknown,
+) => void;
+
 const DEBUG_MODE_LOCAL_STORAGE_KEY_DEFAULT = 'uniform:debug-mode';
 
 /**
@@ -36,6 +44,10 @@ const DEBUG_MODE_LOCAL_STORAGE_KEY_DEFAULT = 'uniform:debug-mode';
  *    that can be used to validate form fields and handle validation logic.
  * 3. **Client Validation**: The `setClientValidationSchema` function allows setting dynamic client-side
  *    validation schemas that complement the base Veto validation.
+ * 4. **User Change Tracking**: The `userChange` property provides a pub/sub system for tracking
+ *    user-initiated field changes (typing, clicking, selecting) - NOT programmatic changes like
+ *    form.reset() or form.setValue(). Used by the `useWatchUserChange` hook to enable reactive
+ *    field dependencies.
  *
  * This context is useful for components that need to interact with or control the form submission state,
  * or access the validation schema for managing form validation logic.
@@ -87,6 +99,19 @@ interface UniformContextType {
   setDebugMode: (debugMode: DebugMode) => void;
   /** Function to trigger form submit programmatically */
   triggerSubmit: (e?: BaseSyntheticEvent) => Promise<void> | void;
+  /** User change tracking (user input only, not programmatic changes) */
+  userChange: {
+    /**
+     * Subscribe to user field changes.
+     * Returns an unsubscribe function.
+     */
+    subscribe: (listener: UserChangeListener) => () => void;
+    /**
+     * Notify all subscribers about a user field change.
+     * Called from useController when user interacts with a field.
+     */
+    notify: (fieldName: string, value: unknown) => void;
+  };
   /** Form validation configuration */
   validation: {
     /** Base validation schema instance (without client validation) */
@@ -117,6 +142,16 @@ if (!(window as any).__UNIFORM_CONTEXT__) {
       },
       triggerSubmit: () => {
         return undefined;
+      },
+      userChange: {
+        subscribe: () => {
+          return () => {
+            return undefined;
+          };
+        },
+        notify: () => {
+          return undefined;
+        },
       },
       validation: {
         setClientValidationSchema: () => {
@@ -197,6 +232,32 @@ const FormProvider: React.FC<FormProviderProps> = ({
   // Control if the form can currently be submitted
   const [preventSubmit, setPreventSubmit] = useState(false);
 
+  // User change listener registry (stored in ref to avoid re-renders)
+  const userChangeListenersRef = useRef<Set<UserChangeListener>>(new Set());
+
+  // Subscribe to user changes
+  const subscribeUserChange = useCallback(
+    (listener: UserChangeListener): (() => void) => {
+      userChangeListenersRef.current.add(listener);
+      // Return cleanup function to unsubscribe
+      return () => {
+        userChangeListenersRef.current.delete(listener);
+      };
+    },
+    [],
+  );
+
+  // Notify all subscribers about user change
+  const notifyUserChange = useCallback(
+    (fieldName: string, value: unknown): void => {
+      // Notify all registered listeners
+      userChangeListenersRef.current.forEach((listener) => {
+        listener(fieldName as Path<object>, value);
+      });
+    },
+    [],
+  );
+
   // Create submit handler with automatic data conversion
   // eslint-disable-next-line consistent-return
   const handleSubmit = async (e?: React.BaseSyntheticEvent) => {
@@ -232,6 +293,10 @@ const FormProvider: React.FC<FormProviderProps> = ({
         setClientValidationSchema,
         setDebugMode,
         triggerSubmit: handleSubmit,
+        userChange: {
+          subscribe: subscribeUserChange,
+          notify: notifyUserChange,
+        },
         validation: {
           baseInstance: baseValidation,
           instance: extendedValidation,
