@@ -1,9 +1,8 @@
 import type { ReactNode } from 'react';
 import type { FieldError, FieldValues, Path } from 'react-hook-form';
 
-import { useEffect, useRef, useState } from 'react';
-
 import { useReducedMotion } from '@fuf-stack/pixel-motion';
+import { useDebounce } from '@fuf-stack/pixels';
 
 import { FieldCopyTestIdButton } from '../../partials/FieldCopyTestIdButton';
 import { FieldValidationError } from '../../partials/FieldValidationError';
@@ -21,39 +20,12 @@ import { useInput } from '../useInput/useInput';
  * - If the user prefers reduced motion (via `useReducedMotion` from
  *   `@fuf-stack/pixel-motion`), updates apply immediately with no delay.
  */
-const useDebouncedInvalid = (value: boolean, delayMs: number) => {
-  const [state, setState] = useState(value);
-  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+const useDebouncedInvalid = (invalid: boolean, delayMs: number) => {
   const prefersReducedMotion = useReducedMotion();
+  const debouncedInvalid = useDebounce(invalid, delayMs);
 
-  useEffect(() => {
-    if (prefersReducedMotion) {
-      // Respect reduced motion: apply immediately
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current);
-        timeoutRef.current = null;
-      }
-      setState(value);
-      return undefined;
-    }
-
-    // Debounce any change (true or false) by delayMs
-    if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current);
-    }
-    timeoutRef.current = setTimeout(() => {
-      setState(value);
-      timeoutRef.current = null;
-    }, delayMs);
-    return () => {
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current);
-        timeoutRef.current = null;
-      }
-    };
-  }, [value, delayMs, prefersReducedMotion]);
-
-  return state;
+  // If user prefers reduced motion, return invalid immediately without debouncing
+  return prefersReducedMotion ? invalid : debouncedInvalid;
 };
 
 export interface UseUniformFieldParams<
