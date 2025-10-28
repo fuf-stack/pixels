@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.7.0](https://github.com/fuf-stack/pixels/compare/uniform-v1.6.5...uniform-v1.7.0) (2025-10-28)
+
+
+### Features
+
+* **uniform:** add useWatchUserChange hook ([2d66d8c](https://github.com/fuf-stack/pixels/commit/2d66d8c77c4b2f2d6d67512a334ca566401ae229))
+
+
+### Bug Fixes
+
+* **uniform:** do not disable animations during reset in FieldArray ([660b8ee](https://github.com/fuf-stack/pixels/commit/660b8eea6311a44aa4bf9f41439fd3fdf72a03e8))
+* **uniform:** refactor transform functionality ([a909076](https://github.com/fuf-stack/pixels/commit/a909076772634351f2d4f5959d3d239bca0a6a0d))
+* **uniform:** use useDebounce in useDebouncedInvalid ([c37d994](https://github.com/fuf-stack/pixels/commit/c37d994bb9455142d6e26597c7b3fa91e88e0888))
+
 ## [1.6.5](https://github.com/fuf-stack/pixels/compare/uniform-v1.6.4...uniform-v1.6.5) (2025-10-27)
 
 
