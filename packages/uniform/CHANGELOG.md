@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.8.0](https://github.com/fuf-stack/pixels/compare/uniform-v1.7.0...uniform-v1.8.0) (2025-10-29)
+
+
+### Features
+
+* **uniform:** add better number support to Input ([a94e244](https://github.com/fuf-stack/pixels/commit/a94e2444c4ce941f6124c4751f6ea09426d283cb))
+
+
+### Bug Fixes
+
+* fix unstable react aria ids in snapshots with custom serializer ([823ba93](https://github.com/fuf-stack/pixels/commit/823ba93bcf3ba4cb6788654f925265881e3dcb70))
+
 ## [1.7.0](https://github.com/fuf-stack/pixels/compare/uniform-v1.6.5...uniform-v1.7.0) (2025-10-28)
 
 
