@@ -1252,15 +1252,15 @@ exports[`Story Snapshots > MenuIsVisibleInModal 1`] = `
       style="--visual-viewport-height: 768px; opacity: 1; will-change: auto; transform: translateY(var(--slide-enter)) scale(var(--scale-enter));"
     >
       <section
-        aria-describedby="«r2»"
-        aria-labelledby="«r1»"
+        aria-describedby="aria-id"
+        aria-labelledby="aria-id"
         aria-modal="true"
         class="flex flex-col relative z-50 w-full box-border bg-content1 outline-solid outline-transparent mx-1 my-1 sm:mx-6 sm:my-16 rounded-large shadow-small max-h-[calc(100%_-_8rem)] max-w-md"
         data-dismissable="true"
         data-open="true"
         data-placement="center"
         data-testid="modal"
-        id="«r0»"
+        id="aria-id"
         role="dialog"
         tabindex="-1"
       >
@@ -1303,7 +1303,7 @@ exports[`Story Snapshots > MenuIsVisibleInModal 1`] = `
         </button>
         <header
           class="flex py-4 px-6 flex-initial text-large font-semibold border-b border-b-divider"
-          id="«r1»"
+          id="aria-id"
         >
           Select in a Modal
         </header>

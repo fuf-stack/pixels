@@ -9,6 +9,18 @@ import { expect, test } from 'vitest';
 
 import { composeStories } from '@storybook/react-vite';
 
+// Custom snapshot serializer to normalize React Aria IDs (e.g., «r1», «r2» → aria-id)
+expect.addSnapshotSerializer({
+  serialize(val: string, config, indentation, depth, refs, printer) {
+    // Replace React Aria ID format: «r\d+» with 'aria-id'
+    const normalized = val.replace(/«r\d+»/g, 'aria-id');
+    return printer(normalized, config, indentation, depth, refs);
+  },
+  test(val: any) {
+    return typeof val === 'string' && /«r\d+»/.test(val);
+  },
+});
+
 // Make StoryFile generic to accept component props
 interface StoryFile<TProps = any> {
   default: Meta<TProps>;
