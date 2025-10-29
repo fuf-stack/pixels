@@ -148,15 +148,79 @@ exports[`Story Snapshots > Default 1`] = `
 `;
 
 exports[`Story Snapshots > DefaultOpen 1`] = `
-<div>
-  <span
-    aria-describedby="«r1g»"
-    class="cursor-pointer"
-    tabindex="0"
+<body>
+  <div>
+    <span
+      aria-describedby="«r1g»"
+      class="cursor-pointer"
+      tabindex="0"
+    >
+      hover me
+    </span>
+  </div>
+  <div
+    data-overlay-container="true"
   >
-    hover me
-  </span>
-</div>
+    <div
+      id="«r1g»"
+      style="position: absolute; z-index: 100000; max-height: 0px; left: 0px; bottom: 10px;"
+    >
+      <div
+        class="z-0 relative bg-transparent before:content-[''] before:hidden before:z-[-1] before:absolute before:rotate-45 before:w-2.5 before:h-2.5 before:rounded-sm data-[arrow=true]:before:block data-[placement=top]:before:-bottom-[calc(theme(spacing.5)/4_-_1.5px)] data-[placement=top]:before:left-1/2 data-[placement=top]:before:-translate-x-1/2 data-[placement=top-start]:before:-bottom-[calc(theme(spacing.5)/4_-_1.5px)] data-[placement=top-start]:before:left-3 data-[placement=top-end]:before:-bottom-[calc(theme(spacing.5)/4_-_1.5px)] data-[placement=top-end]:before:right-3 data-[placement=bottom]:before:-top-[calc(theme(spacing.5)/4_-_1.5px)] data-[placement=bottom]:before:left-1/2 data-[placement=bottom]:before:-translate-x-1/2 data-[placement=bottom-start]:before:-top-[calc(theme(spacing.5)/4_-_1.5px)] data-[placement=bottom-start]:before:left-3 data-[placement=bottom-end]:before:-top-[calc(theme(spacing.5)/4_-_1.5px)] data-[placement=bottom-end]:before:right-3 data-[placement=left]:before:-right-[calc(theme(spacing.5)/4_-_2px)] data-[placement=left]:before:top-1/2 data-[placement=left]:before:-translate-y-1/2 data-[placement=left-start]:before:-right-[calc(theme(spacing.5)/4_-_3px)] data-[placement=left-start]:before:top-1/4 data-[placement=left-end]:before:-right-[calc(theme(spacing.5)/4_-_3px)] data-[placement=left-end]:before:bottom-1/4 data-[placement=right]:before:-left-[calc(theme(spacing.5)/4_-_2px)] data-[placement=right]:before:top-1/2 data-[placement=right]:before:-translate-y-1/2 data-[placement=right-start]:before:-left-[calc(theme(spacing.5)/4_-_3px)] data-[placement=right-start]:before:top-1/4 data-[placement=right-end]:before:-left-[calc(theme(spacing.5)/4_-_3px)] data-[placement=right-end]:before:bottom-1/4 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:bg-content1 before:shadow-small"
+        data-arrow="true"
+        data-open="true"
+        data-placement="top"
+        data-slot="base"
+        role="tooltip"
+        style="transform: scale(0.85); opacity: 0; transform-origin: 50% 100% 0;"
+      >
+        <div
+          class="z-10 w-full items-center justify-center subpixel-antialiased outline-solid outline-transparent box-border text-small bg-content1 rounded-medium shadow-small flex max-h-[80vh] flex-col p-0"
+          data-arrow="true"
+          data-open="true"
+          data-placement="top"
+          data-slot="content"
+        >
+          <div>
+            <div
+              class="w-full"
+            >
+              <div
+                class="w-full px-4 pb-1 pt-2 font-semibold"
+              >
+                header
+              </div>
+              <hr
+                class="m-0 w-full border-divider p-0"
+              />
+            </div>
+            <div
+              class="overflow-y-auto data-[top-scroll=true]:[mask-image:linear-gradient(0deg,#000_calc(100%_-_var(--scroll-shadow-size)),transparent)] data-[bottom-scroll=true]:[mask-image:linear-gradient(180deg,#000_calc(100%_-_var(--scroll-shadow-size)),transparent)] data-[top-bottom-scroll=true]:[mask-image:linear-gradient(#000,#000,transparent_0,#000_var(--scroll-shadow-size),#000_calc(100%_-_var(--scroll-shadow-size)),transparent)] w-full px-4 py-2"
+              data-bottom-scroll="false"
+              data-orientation="vertical"
+              data-top-scroll="false"
+              style="--scroll-shadow-size: 40px;"
+            >
+              tooltip content
+            </div>
+            <div
+              class="w-full"
+            >
+              <hr
+                class="m-0 w-full border-divider p-0"
+              />
+              <div
+                class="w-full px-4 py-2"
+              >
+                footer
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
 `;
 
 exports[`Story Snapshots > Delay 1`] = `

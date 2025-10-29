@@ -4,6 +4,8 @@ import type { ReactNode } from 'react';
 import type { InputValueTransform } from '../hooks';
 
 import { Input as HeroInput } from '@heroui/input';
+// eslint-disable-next-line import-x/no-unresolved
+import { NumberInput as HeroNumberInput } from '@heroui/number-input';
 
 import { tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 
@@ -118,38 +120,71 @@ const Input = ({
   const variants = inputVariants();
   const classNames = variantsToClassNames(variants, _className, 'base');
 
+  // Common props for both Input and NumberInput
+  const commonProps = {
+    ref,
+    classNames: {
+      base: classNames.base,
+      clearButton: classNames.clearButton,
+      // set padding to 0 for error message exit animation
+      helperWrapper: 'p-0',
+      input: classNames.input,
+      inputWrapper: classNames.inputWrapper,
+    },
+    'data-testid': testId,
+    endContent,
+    errorMessage,
+    id: testId,
+    isDisabled: disabled,
+    isInvalid: invalid,
+    isRequired: required,
+    label,
+    labelPlacement: 'outside' as const,
+    name,
+    onBlur,
+    placeholder,
+    radius: 'sm' as const,
+    size,
+    startContent,
+    variant: 'bordered' as const,
+    ...clearableProps,
+  };
+
+  // Render NumberInput for number type
+  if (type === 'number') {
+    // Parse the string value to number - use undefined for empty/cleared state
+    const numberValue =
+      value !== '' && value != null && !Number.isNaN(Number(value))
+        ? Number(value)
+        : undefined;
+
+    return (
+      <HeroNumberInput
+        {...commonProps}
+        value={numberValue}
+        // Disable thousands separator to avoid parsing issues
+        formatOptions={{
+          useGrouping: false,
+        }}
+        // NumberInput onChange receives either an event or a number
+        onChange={(e: React.ChangeEvent<HTMLInputElement> | number) => {
+          if (typeof e === 'number') {
+            // Convert number to synthetic event and pass through debounced onChange
+            onChange({
+              target: { value: String(e) },
+            } as React.ChangeEvent<HTMLInputElement>);
+          } else {
+            // Pass event through debounced onChange
+            onChange(e);
+          }
+        }}
+      />
+    );
+  }
+
+  // Render regular Input for text/password
   return (
-    <HeroInput
-      ref={ref}
-      data-testid={testId}
-      endContent={endContent}
-      errorMessage={errorMessage}
-      id={testId}
-      isDisabled={disabled}
-      isInvalid={invalid}
-      isRequired={required}
-      label={label}
-      labelPlacement="outside"
-      name={name}
-      onBlur={onBlur}
-      onChange={onChange}
-      placeholder={placeholder}
-      radius="sm"
-      size={size}
-      startContent={startContent}
-      type={type}
-      value={value}
-      variant="bordered"
-      classNames={{
-        base: classNames.base,
-        clearButton: classNames.clearButton,
-        // set padding to 0 for error message exit animation
-        helperWrapper: 'p-0',
-        input: classNames.input,
-        inputWrapper: classNames.inputWrapper,
-      }}
-      {...clearableProps}
-    />
+    <HeroInput {...commonProps} onChange={onChange} type={type} value={value} />
   );
 };
 

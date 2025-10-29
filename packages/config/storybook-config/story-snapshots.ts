@@ -76,7 +76,13 @@ const storySnapshots = <TProps extends Record<string, any>>(
       await new Promise((resolve) => {
         setTimeout(resolve, 1);
       });
-      expect(document.body?.firstChild).toMatchSnapshot();
+      // If there's only one child, snapshot it directly (cleaner snapshots)
+      // If there are multiple children (e.g. live announcer + content), snapshot body
+      const snapshotTarget =
+        document.body.children.length === 1
+          ? document.body.firstChild
+          : document.body;
+      expect(snapshotTarget).toMatchSnapshot();
     });
   });
 };
