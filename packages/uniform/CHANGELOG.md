@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.8.2](https://github.com/fuf-stack/pixels/compare/uniform-v1.8.1...uniform-v1.8.2) (2025-11-05)
+
+
+### Bug Fixes
+
+* **uniform:** fix issue where flat field array element test ids contain __flat suffix ([db887a7](https://github.com/fuf-stack/pixels/commit/db887a7e1a3cc2bc87ba474ad5542a97dcf20c26))
+
 ## [1.8.1](https://github.com/fuf-stack/pixels/compare/uniform-v1.8.0...uniform-v1.8.1) (2025-11-05)
 
 
