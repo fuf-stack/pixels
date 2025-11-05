@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
 
 import { action } from 'storybook/actions';
-import { expect, userEvent, within } from 'storybook/test';
+import { expect, userEvent, waitFor, within } from 'storybook/test';
 
 import { Button, Card, Modal } from '@fuf-stack/pixels';
 import { string, veto } from '@fuf-stack/veto';
@@ -122,15 +122,21 @@ export const Invalid: Story = {
   },
   args,
   play: async ({ canvasElement }) => {
-    const body = within(canvasElement?.parentElement as HTMLElement);
+    const canvas = within(canvasElement);
 
-    const dropdown = body.getByTestId('selectfield_select_dropdown')
+    const dropdown = canvas.getByTestId('selectfield_select_dropdown')
       .parentElement as HTMLElement;
     await userEvent.click(dropdown, { delay: 100 });
 
-    const vanillaOption = body.getByTestId('selectfield_select_option_vanilla')
-      .firstChild as HTMLElement;
+    const vanillaOption = canvas.getByTestId(
+      'selectfield_select_option_vanilla',
+    ).firstChild as HTMLElement;
     await userEvent.click(vanillaOption, { delay: 100 });
+
+    // Wait for validation to complete and error message to appear
+    await waitFor(() => {
+      expect(canvas.getByTestId('selectfield_error')).toBeVisible();
+    });
   },
 };
 
@@ -188,6 +194,7 @@ export const MenuIsVisibleInCard: Story = {
 export const MenuIsVisibleInModal: Story = {
   args,
   render: (renderArgs) => {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     const [open, setOpen] = useState(false);
     return (
       <>

@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { action } from 'storybook/actions';
-import { userEvent, within } from 'storybook/test';
+import { expect, userEvent, waitFor, within } from 'storybook/test';
 
 import { SubmitButton } from '@fuf-stack/uniform';
 import { string, veto } from '@fuf-stack/veto';
@@ -134,6 +134,11 @@ export const Invalid: Story = {
     const optionTwo = canvas.getByTestId('radiosfield_option_two');
     await userEvent.click(optionTwo, {
       delay: 100,
+    });
+
+    // Wait for validation to complete and error message to appear
+    await waitFor(() => {
+      expect(canvas.getByTestId('radiosfield_error')).toBeVisible();
     });
   },
 };

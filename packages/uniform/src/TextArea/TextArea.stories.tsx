@@ -92,6 +92,7 @@ export const Invalid: Story = {
     // Wait because of value debounce
     await waitFor(() => {
       expect(input.getAttribute('aria-invalid')).toBe('true');
+      expect(canvas.getByTestId('textareafield_error')).toBeVisible();
     });
   },
 };

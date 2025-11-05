@@ -4,7 +4,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { FaEnvelope, FaFlask, FaPhone, FaRocket } from 'react-icons/fa';
 
 import { action } from 'storybook/actions';
-import { userEvent, within } from 'storybook/test';
+import { expect, userEvent, waitFor, within } from 'storybook/test';
 
 import { SubmitButton } from '@fuf-stack/uniform';
 import { boolean, veto } from '@fuf-stack/veto';
@@ -90,6 +90,11 @@ export const Invalid: Story = {
     const input = canvas.getByTestId('switchfield');
     await userEvent.click(input, {
       delay: 300,
+    });
+
+    // Wait for validation to complete and error message to appear
+    await waitFor(() => {
+      expect(canvas.getByTestId('switchfield_error')).toBeVisible();
     });
   },
 };

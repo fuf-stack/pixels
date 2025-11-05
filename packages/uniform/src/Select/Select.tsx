@@ -8,7 +8,7 @@ import { useSelect } from '@heroui/select';
 
 import { cn, slugify, tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 
-import { useUniformField } from '../hooks';
+import { useFormContext, useUniformField } from '../hooks';
 
 export const selectVariants = tv({
   slots: {
@@ -174,6 +174,10 @@ const Select = ({
     ...uniformFieldProps,
   });
 
+  // Get getFieldState to check isTouched in onChange callback
+  const { getFieldState } = useFormContext();
+
+  // Track if the select is focused
   const [isFocused, setIsFocused] = useState(false);
 
   // classNames from slots
@@ -329,6 +333,14 @@ const Select = ({
           } else {
             onChange((option as SelectOption)?.value);
           }
+          // Mark field as touched immediately when a selection is made if not already touched
+          // This ensures validation errors show right away (isTouched becomes true)
+          // For Select components, selecting an option is a complete user action
+          // (unlike text inputs where typing is ongoing), so we mark as touched immediately
+          const { isTouched: currentIsTouched } = getFieldState(name, testId);
+          if (!currentIsTouched) {
+            onBlur();
+          }
         }}
         onFocus={(_e) => {
           setIsFocused(true);
@@ -340,7 +352,6 @@ const Select = ({
       />
       {invalid ? (
         <div {...getHelperWrapperProps()}>
-          {}
           <div {...getErrorMessageProps()}>{errorMessage}</div>
         </div>
       ) : null}

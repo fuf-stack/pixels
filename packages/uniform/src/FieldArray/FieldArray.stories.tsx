@@ -1,4 +1,3 @@
-/* eslint-disable import-x/no-extraneous-dependencies */
 /* eslint-disable react-hooks/rules-of-hooks */
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
@@ -181,22 +180,11 @@ export const Invalid: Story = {
 
     await userEvent.click(canvas.getByTestId('arrayfield'), { delay: 100 });
 
-    // await userEvent.click(canvas.getByTestId('arrayfield'), { delay: 1000 });
-
-    // const submitButton = canvas.getByTestId('form_submit_button');
-    // await userEvent.click(submitButton, { delay: 100 });
-
     const inputInvalid = input.getAttribute('aria-invalid');
     await expect(inputInvalid).toBe('true');
 
     const inputTwoInvalid = inputTwo.getAttribute('aria-invalid');
     await expect(inputTwoInvalid).toBe('true');
-
-    // TODO: currently disabled, because we need to validate smarter
-    // const errorGlobal = canvas.getByText(
-    //   'Array must contain at least 3 element(s)',
-    // );
-    // await expect(errorGlobal).toBeInTheDocument();
 
     const firstElement = canvas.getByTestId('arrayfield_0_element');
     await expect(firstElement).toContainHTML(
@@ -214,12 +202,18 @@ export const Invalid: Story = {
       'String must contain at least 8 character(s)',
     );
 
-    // TODO: not working for some reason
-    // const arrayField = canvas.getByTestId('arrayfield');
-    // await waitFor(() => {
-    //   expect(arrayField).toContainHTML('Element already exists');
-    //   expect(arrayField).toContainHTML('Array elements are not unique');
-    // });
+    // Wait for validation to complete and check for array-level error messages
+    await waitFor(() => {
+      // Check for array-level error element
+      const arrayFieldError = canvas.getByTestId('arrayfield_error');
+      expect(arrayFieldError).toBeVisible();
+
+      // Check for specific array-level error messages within the error element
+      expect(arrayFieldError).toContainHTML(
+        'Array must contain at least 3 element(s)',
+      );
+      expect(arrayFieldError).toContainHTML('Array elements are not unique');
+    });
   },
 };
 
