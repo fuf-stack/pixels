@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.8.4](https://github.com/fuf-stack/pixels/compare/uniform-v1.8.3...uniform-v1.8.4) (2025-11-05)
+
+
+### Bug Fixes
+
+* **uniform:** guard against userChange undefined in context ([96ad315](https://github.com/fuf-stack/pixels/commit/96ad315eb61011b64953a07fae45c045193b8171))
+
 ## [1.8.3](https://github.com/fuf-stack/pixels/compare/uniform-v1.8.2...uniform-v1.8.3) (2025-11-05)
 
 
