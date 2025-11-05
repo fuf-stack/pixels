@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.8.1](https://github.com/fuf-stack/pixels/compare/uniform-v1.8.0...uniform-v1.8.1) (2025-11-05)
+
+
+### Bug Fixes
+
+* **uniform:** fix Select showing error message when changed + update invalid stories ([982626b](https://github.com/fuf-stack/pixels/commit/982626b22cb5a1d27992dff53a1eac10d340aad2))
+
 ## [1.8.0](https://github.com/fuf-stack/pixels/compare/uniform-v1.7.0...uniform-v1.8.0) (2025-10-29)
 
 
