@@ -1,5 +1,6 @@
 import type { StorybookConfig } from '../main';
 
+// eslint-disable-next-line import-x/no-rename-default
 import sharedConfig from '../main';
 
 const config: StorybookConfig = {

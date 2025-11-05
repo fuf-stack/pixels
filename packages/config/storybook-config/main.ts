@@ -1,6 +1,11 @@
 import type { StorybookConfig } from '@storybook/react-vite';
 
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+// Get __dirname equivalent in ES modules
+// eslint-disable-next-line @typescript-eslint/naming-convention
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const config: StorybookConfig = {
   // this has to be defined where shared config is used
