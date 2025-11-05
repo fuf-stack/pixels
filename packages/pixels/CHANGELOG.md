@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.4.0](https://github.com/fuf-stack/pixels/compare/pixels-v1.3.7...pixels-v1.4.0) (2025-11-05)
+
+
+### Features
+
+* **uniform:** add better number support to Input ([a94e244](https://github.com/fuf-stack/pixels/commit/a94e2444c4ce941f6124c4751f6ea09426d283cb))
+
+
+### Bug Fixes
+
+* fix unstable react aria ids in snapshots with custom serializer ([823ba93](https://github.com/fuf-stack/pixels/commit/823ba93bcf3ba4cb6788654f925265881e3dcb70))
+* reformat all code ([dfad412](https://github.com/fuf-stack/pixels/commit/dfad4120ad16e9ca2890bb4a7d9d7ac3b41a7413))
+
 ## [1.3.8](https://github.com/fuf-stack/pixels/compare/pixels-v1.3.7...pixels-v1.3.8) (2025-10-25)
 
 
