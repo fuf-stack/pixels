@@ -46,6 +46,21 @@ const config: StorybookConfig = {
     reactDocgen: false,
     // reactDocgen: 'react-docgen-typescript',
   },
+  async viteFinal(viteConfig) {
+    // Fix for fast-deep-equal CommonJS module not being resolved properly
+    // The @vueless/storybook-dark-mode addon requires this dependency
+    // see: https://github.com/vuelessjs/storybook-dark-mode/issues/20
+    return {
+      ...viteConfig,
+      optimizeDeps: {
+        ...viteConfig.optimizeDeps,
+        include: [
+          ...(viteConfig.optimizeDeps?.include ?? []),
+          'fast-deep-equal',
+        ],
+      },
+    };
+  },
 };
 
 export default config;
