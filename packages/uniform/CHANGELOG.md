@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.8.5](https://github.com/fuf-stack/pixels/compare/uniform-v1.8.4...uniform-v1.8.5) (2025-11-05)
+
+
+### Bug Fixes
+
+* **uniform:** add debug to FormContext ([04d0121](https://github.com/fuf-stack/pixels/commit/04d0121d61266756bef0dcca87b36dd15e89954c))
+
 ## [1.8.4](https://github.com/fuf-stack/pixels/compare/uniform-v1.8.3...uniform-v1.8.4) (2025-11-05)
 
 
