@@ -60,7 +60,8 @@ export const useController = <TFieldValues extends object = object>(
 
         // Then notify userChange listeners (for useWatchUserChange hook)
         // This ensures getValues() in listeners returns the updated value
-        userChange.notify(field.name, formattedValue);
+        // Guard against undefined userChange (when used outside FormProvider)
+        userChange?.notify(field.name, formattedValue);
       },
       // Convert null/undefined to empty string for UI display
       value: fromNullishString(field.value) as string,
