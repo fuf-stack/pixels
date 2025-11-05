@@ -6,10 +6,8 @@ import type { FieldError, FieldValues, Path } from 'react-hook-form';
 import { useContext } from 'react';
 import { useFormContext as useHookFormContext } from 'react-hook-form';
 
-import { slugify } from '@fuf-stack/pixel-utils';
-
 import { UniformContext } from '../../Form/subcomponents/FormContext';
-import { flatArrayKey, toValidationFormat } from '../../helpers';
+import { flatArrayKey, nameToTestId, toValidationFormat } from '../../helpers';
 
 /** Schema check whether a field is required or optional */
 export const checkFieldIsRequired = (
@@ -73,6 +71,13 @@ const getValidationErrorsByName = (
 
 /**
  * Custom hook that extends react-hook-form's useFormContext to add validation and state management.
+ *
+ * Key features:
+ * - Enhanced `getFieldState` that includes validation schema-based "required" status and testId generation
+ * - Automatic conversion of form values via `getValues`, `watch`, and `subscribe`:
+ *   - Unwraps flat array wrappers (`{ __FLAT__: value }` → `value`)
+ *   - Converts nullish string markers (`__NULL__` → `null`, `__FALSE__` → `false`, `__ZERO__` → `0`)
+ *   - Filters out empty/null values
  */
 export const useFormContext = <
   TFieldValues extends FieldValues = FieldValues,
@@ -96,6 +101,10 @@ export const useFormContext = <
    * Updated getFieldState method which returns:
    * - Whether the field is required by checking the validation schema
    * - Existing field state information (errors, etc.)
+   * - A testId generated from the field name (with flat array keys removed and slugified)
+   *
+   * @param name - The field path (string or array)
+   * @param testId - Optional explicit testId. If provided, will be slugified. If not provided, generated from name.
    */
   const getFieldState = (name: Path<TFieldValues>, testId?: string) => {
     const fieldPath =
@@ -125,7 +134,7 @@ export const useFormContext = <
       error,
       invalid: !!error,
       required,
-      testId: slugify(testId ?? name, { replaceDots: true }),
+      testId: nameToTestId(testId ?? name),
     };
   };
 
@@ -133,11 +142,12 @@ export const useFormContext = <
    * Wrap form value accessor methods to automatically convert from internal storage format
    * to component-friendly format:
    *
-   * - Convert nullish string markers: "__NULL__" → null, "__FALSE__" → false, "__ZERO__" → 0
+   * - Unwrap flat array wrappers: `{ __FLAT__: value }` → `value`
+   * - Convert nullish string markers: `__NULL__` → `null`, `__FALSE__` → `false`, `__ZERO__` → `0`
    * - Filter out empty/null values: fields with converted null/empty values are removed entirely
    *
    * This ensures components receive clean, predictable data without needing to handle
-   * the internal nullish string conversion system manually.
+   * the internal nullish string conversion system or flat array wrapping manually.
    */
   const getValues = ((...args: any[]) => {
     const result = (getValuesOrig as any)(...args);

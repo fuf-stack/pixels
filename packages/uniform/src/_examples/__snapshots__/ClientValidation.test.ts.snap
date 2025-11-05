@@ -512,7 +512,7 @@ exports[`Story Snapshots > FlatArrayValidation 1`] = `
                           <label
                             class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block text-foreground-500 after:content-['*'] after:text-danger after:ms-0.5 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto text-small group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden"
                             data-slot="label"
-                            for="tags_0_flat"
+                            for="tags_0"
                             id="react-aria-react-useId-mock"
                           >
                             Tag
@@ -526,8 +526,8 @@ exports[`Story Snapshots > FlatArrayValidation 1`] = `
                               aria-labelledby="react-aria-react-useId-mock"
                               class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small"
                               data-slot="input"
-                              data-testid="tags_0_flat"
-                              id="tags_0_flat"
+                              data-testid="tags_0"
+                              id="tags_0"
                               name="tags.0.__FLAT__"
                               placeholder="Try 'banana', 'unicorn', or 'disco' 🎉"
                               required=""

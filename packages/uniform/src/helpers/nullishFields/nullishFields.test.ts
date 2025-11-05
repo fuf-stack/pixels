@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest';
 import {
   flatArrayKey,
   fromNullishString,
+  nameToTestId,
   toFormFormat,
   toNullishString,
   toValidationFormat,
@@ -274,5 +275,121 @@ describe('round trip conversion', () => {
     };
 
     expect(backToValidation).toEqual(expected);
+  });
+});
+
+describe('nameToTestId', () => {
+  describe('string input', () => {
+    it('should remove single flat array key from field name and slugify', () => {
+      expect(nameToTestId('tags.0.__FLAT__')).toBe('tags_0');
+      expect(nameToTestId('array.1.__FLAT__')).toBe('array_1');
+    });
+
+    it('should remove multiple flat array keys from field name and slugify', () => {
+      expect(nameToTestId('nested.array.0.__FLAT__.field.__FLAT__')).toBe(
+        'nested_array_0_field',
+      );
+      expect(nameToTestId('a.__FLAT__.b.__FLAT__.c')).toBe('a_b_c');
+    });
+
+    it('should handle field names without flat array keys and slugify', () => {
+      expect(nameToTestId('simple.field')).toBe('simple_field');
+      expect(nameToTestId('user.name')).toBe('user_name');
+      expect(nameToTestId('array.0.name')).toBe('array_0_name');
+    });
+
+    it('should handle flat array key at the start and slugify', () => {
+      expect(nameToTestId('__FLAT__.field')).toBe('field');
+      expect(nameToTestId('__FLAT__')).toBe('');
+    });
+
+    it('should handle flat array key at the end and slugify', () => {
+      expect(nameToTestId('field.__FLAT__')).toBe('field');
+      expect(nameToTestId('array.0.__FLAT__')).toBe('array_0');
+    });
+
+    it('should handle consecutive flat array keys and slugify', () => {
+      expect(nameToTestId('field.__FLAT__.__FLAT__.other')).toBe('field_other');
+      expect(nameToTestId('__FLAT__.__FLAT__.__FLAT__')).toBe('');
+    });
+
+    it('should handle complex nested paths and slugify', () => {
+      expect(nameToTestId('user.tags.0.__FLAT__')).toBe('user_tags_0');
+      expect(nameToTestId('form.data.items.1.__FLAT__')).toBe(
+        'form_data_items_1',
+      );
+      expect(
+        nameToTestId('nested.array.0.__FLAT__.metadata.tags.0.__FLAT__'),
+      ).toBe('nested_array_0_metadata_tags_0');
+    });
+
+    it('should handle edge cases and slugify', () => {
+      expect(nameToTestId('')).toBe('');
+      expect(nameToTestId('single')).toBe('single');
+      expect(nameToTestId('a.b.c')).toBe('a_b_c');
+    });
+  });
+
+  describe('array input', () => {
+    it('should remove single flat array key from array path and slugify', () => {
+      expect(nameToTestId(['tags', '0', '__FLAT__'])).toBe('tags_0');
+      expect(nameToTestId(['array', '1', '__FLAT__'])).toBe('array_1');
+    });
+
+    it('should remove multiple flat array keys from array path and slugify', () => {
+      expect(
+        nameToTestId(['nested', 'array', '0', '__FLAT__', 'field', '__FLAT__']),
+      ).toBe('nested_array_0_field');
+      expect(nameToTestId(['a', '__FLAT__', 'b', '__FLAT__', 'c'])).toBe(
+        'a_b_c',
+      );
+    });
+
+    it('should handle array paths without flat array keys and slugify', () => {
+      expect(nameToTestId(['simple', 'field'])).toBe('simple_field');
+      expect(nameToTestId(['user', 'name'])).toBe('user_name');
+      expect(nameToTestId(['array', '0', 'name'])).toBe('array_0_name');
+    });
+
+    it('should handle flat array key at the start of array and slugify', () => {
+      expect(nameToTestId(['__FLAT__', 'field'])).toBe('field');
+      expect(nameToTestId(['__FLAT__'])).toBe('');
+    });
+
+    it('should handle flat array key at the end of array and slugify', () => {
+      expect(nameToTestId(['field', '__FLAT__'])).toBe('field');
+      expect(nameToTestId(['array', '0', '__FLAT__'])).toBe('array_0');
+    });
+
+    it('should handle consecutive flat array keys in array and slugify', () => {
+      expect(nameToTestId(['field', '__FLAT__', '__FLAT__', 'other'])).toBe(
+        'field_other',
+      );
+      expect(nameToTestId(['__FLAT__', '__FLAT__', '__FLAT__'])).toBe('');
+    });
+
+    it('should handle complex nested array paths and slugify', () => {
+      expect(nameToTestId(['user', 'tags', '0', '__FLAT__'])).toBe(
+        'user_tags_0',
+      );
+      expect(
+        nameToTestId([
+          'nested',
+          'array',
+          '0',
+          '__FLAT__',
+          'metadata',
+          'tags',
+          '0',
+          '__FLAT__',
+        ]),
+      ).toBe('nested_array_0_metadata_tags_0');
+    });
+
+    it('should handle edge cases with arrays and slugify', () => {
+      expect(nameToTestId([])).toBe('');
+      expect(nameToTestId(['single'])).toBe('single');
+      expect(nameToTestId(['a', 'b', 'c'])).toBe('a_b_c');
+    });
   });
 });

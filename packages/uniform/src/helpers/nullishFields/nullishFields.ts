@@ -1,3 +1,5 @@
+import { slugify } from '@fuf-stack/pixel-utils';
+
 /** Key used to wrap flat array elements when converting to form format */
 export const flatArrayKey = '__FLAT__';
 
@@ -278,4 +280,47 @@ export const toValidationFormat = (
   });
 
   return JSON.parse(validationFormatJson) as Record<string, unknown>;
+};
+
+/**
+ * Converts a field name to a testId by removing flat array key segments and slugifying.
+ * Removes all occurrences of `flatArrayKey` from the field name and applies slugify transformation.
+ *
+ * This is used to generate stable testIds for form fields that don't include
+ * the internal `__FLAT__` marker used for flat arrays.
+ *
+ * @param name - The field name as a string (e.g., 'tags.0.__FLAT__') or array path (e.g., ['tags', '0', '__FLAT__'])
+ * @returns The slugified field name with all flat array key segments removed (e.g., 'tags_0')
+ *
+ * @example
+ * ```ts
+ * nameToTestId('tags.0.__FLAT__') // => 'tags_0'
+ * nameToTestId('array.0.__FLAT__') // => 'array_0'
+ * nameToTestId('nested.array.0.__FLAT__.field') // => 'nested_array_0_field'
+ * nameToTestId('simple.field') // => 'simple_field'
+ * nameToTestId(['tags', '0', '__FLAT__']) // => 'tags_0'
+ * ```
+ */
+export const nameToTestId = (name: string | readonly string[]): string => {
+  let cleanName: string;
+
+  // Handle array paths - filter out flatArrayKey and join with dots
+  if (Array.isArray(name)) {
+    cleanName = name
+      .filter((segment: string) => {
+        return segment !== flatArrayKey;
+      })
+      .join('.');
+  } else {
+    // Handle string paths - split by dots and filter out flatArrayKey segments
+    const segments = (name as string).split('.');
+    cleanName = segments
+      .filter((segment: string) => {
+        return segment !== flatArrayKey;
+      })
+      .join('.');
+  }
+
+  // Apply slugify transformation
+  return slugify(cleanName, { replaceDots: true });
 };
