@@ -9,10 +9,14 @@ import type { FieldValues, Path, SubmitHandler } from 'react-hook-form';
 import React, { useCallback, useMemo, useRef, useState } from 'react';
 import { FormProvider as HookFormProvider, useForm } from 'react-hook-form';
 
+import createDebug from 'debug';
+
 import { useLocalStorage } from '@fuf-stack/pixels';
 
 import { toFormFormat, toValidationFormat } from '../../helpers';
 import { useExtendedValidation, useFormResolver } from './FormResolver';
+
+const debug = createDebug('uniform:FormContext');
 
 type DebugMode = 'debug' | 'debug-testids' | 'off' | 'disabled';
 
@@ -160,6 +164,11 @@ if (!(window as any).__UNIFORM_CONTEXT__) {
       },
     },
   );
+  debug('Creating new UniformContext instance');
+} else {
+  debug(
+    'Reusing existing UniformContext instance from window.__UNIFORM_CONTEXT__',
+  );
 }
 
 // Export the singleton context instance from window
@@ -167,6 +176,14 @@ if (!(window as any).__UNIFORM_CONTEXT__) {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const UniformContext = (window as any)
   .__UNIFORM_CONTEXT__ as React.Context<UniformContextType>;
+
+debug('UniformContext exported', {
+  contextExists: !!UniformContext,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  windowContextExists: !!(window as any).__UNIFORM_CONTEXT__,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  contextsMatch: UniformContext === (window as any).__UNIFORM_CONTEXT__,
+});
 
 // Define props for the FormProvider component, extending HookForm's props
 interface FormProviderProps {
@@ -261,9 +278,21 @@ const FormProvider: React.FC<FormProviderProps> = ({
   // Create submit handler with automatic data conversion
   // eslint-disable-next-line consistent-return
   const handleSubmit = async (e?: React.BaseSyntheticEvent) => {
+    debug('handleSubmit called', {
+      preventSubmit,
+      formStateIsValid: methods.formState.isValid,
+      validationErrors: methods.formState.errors,
+      validationTrigger,
+      formValues: methods.getValues(),
+    });
+
     // only prevent submit when form state is valid, because otherwise
     // submit will only trigger validation and add errors / focus invalid fields
     if (methods.formState.isValid && preventSubmit) {
+      debug('⛔ Form submit PREVENTED', {
+        formStateIsValid: methods.formState.isValid,
+        preventSubmit,
+      });
       console.warn(
         '[FormProvider] form submit was prevented because preventSubmit is true...',
       );
@@ -271,13 +300,24 @@ const FormProvider: React.FC<FormProviderProps> = ({
       return Promise.resolve();
     }
 
+    debug('✓ Form submit ALLOWED', {
+      formStateIsValid: methods.formState.isValid,
+      preventSubmit,
+      reason: !methods.formState.isValid
+        ? 'Form is invalid (will trigger validation and show errors)'
+        : 'Form is valid and preventSubmit is false',
+    });
+
     // Convert nullish strings and filter out empty values before submission
     const wrappedOnSubmit = (data: FieldValues, event?: BaseSyntheticEvent) => {
       const submitData = toValidationFormat(data) ?? {};
+      debug('onSubmit callback called', { submitData });
       return onSubmit(submitData, event);
     };
 
     await methods.handleSubmit(wrappedOnSubmit)(e);
+
+    debug('handleSubmit completed');
   };
 
   // Memoize the context value to prevent re-renders
@@ -288,6 +328,12 @@ const FormProvider: React.FC<FormProviderProps> = ({
         // otherwise use current debug mode from localStorage
         debugMode: debugModeSettings?.disable ? 'disabled' : debugMode,
         preventSubmit: (prevent: boolean) => {
+          debug('preventSubmit called', {
+            previousValue: preventSubmit,
+            newValue: prevent,
+            formStateIsValid: methods.formState.isValid,
+            validationErrors: methods.formState.errors,
+          });
           setPreventSubmit(prevent);
         },
         setClientValidationSchema,
