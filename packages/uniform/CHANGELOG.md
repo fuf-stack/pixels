@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.8.6](https://github.com/fuf-stack/pixels/compare/uniform-v1.8.5...uniform-v1.8.6) (2025-11-06)
+
+
+### Bug Fixes
+
+* **pixels,uniform:** do not debounce in useDebounce in testsuite ([f438e35](https://github.com/fuf-stack/pixels/commit/f438e3547d4ede090bbf22ba45be0ca223b06083))
+* **uniform:** update react-hook-form to v7.66.0 ([88331f7](https://github.com/fuf-stack/pixels/commit/88331f7b22e06970185de1161b20189329fea815))
+
 ## [1.8.5](https://github.com/fuf-stack/pixels/compare/uniform-v1.8.4...uniform-v1.8.5) (2025-11-05)
 
 
