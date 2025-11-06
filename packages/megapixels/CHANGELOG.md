@@ -1,5 +1,32 @@
 # Changelog
 
+## [0.5.0](https://github.com/fuf-stack/pixels/compare/megapixels-v0.4.1...megapixels-v0.5.0) (2025-11-06)
+
+
+### Features
+
+* **megapixels:** add initial Filter component ([fae1545](https://github.com/fuf-stack/pixels/commit/fae15451fa4f3e8d052be2f6fa47e9fdeb0040d1))
+* **megapixels:** add initial megapixels package ([7441f62](https://github.com/fuf-stack/pixels/commit/7441f620f732c257d448d3791885a8af1b5a390a))
+* **uniform:** big refactoring for better animations ([75d823d](https://github.com/fuf-stack/pixels/commit/75d823d948f6a2ceb8915d1f65e9863af9b4b712))
+
+
+### Bug Fixes
+
+* **deps:** update dependency debug to v4.4.3 ([#1239](https://github.com/fuf-stack/pixels/issues/1239)) ([e2a4692](https://github.com/fuf-stack/pixels/commit/e2a4692954d12e348320e7f1e76ff6bfb158cbc8))
+* **megapixels:** add debug to Filter ([49825be](https://github.com/fuf-stack/pixels/commit/49825bec1df0fa33ce5aef99ed3380b72e78c31c))
+* **megapixels:** add descriptions to filter config options ([217c1a6](https://github.com/fuf-stack/pixels/commit/217c1a67e851c57270ae19cfef930458424227d4))
+* **megapixels:** add more test ids to Filter ([2656e8a](https://github.com/fuf-stack/pixels/commit/2656e8aeddcf81ea4530fa97584fa0dc5e906867))
+* **megapixels:** add props to Filter debug ([8b9e8d0](https://github.com/fuf-stack/pixels/commit/8b9e8d0d58f4cd76b116e3f34e3be32b81d052f4))
+* **megapixels:** add slots to Filter component ([ea673c1](https://github.com/fuf-stack/pixels/commit/ea673c1c15775ed0ffabc4ae1f2de7085d08854c))
+* **megapixels:** expose more types from Filter ([3371293](https://github.com/fuf-stack/pixels/commit/3371293f85c28fc92d0b292e446dc44af89eae23))
+* **megapixels:** fix FilterChildRenderFn type ([c1a2f36](https://github.com/fuf-stack/pixels/commit/c1a2f36da8acb68e7d312e17e461ada697290bea))
+* **megapixels:** improve base styles of Filter ([6c578d2](https://github.com/fuf-stack/pixels/commit/6c578d216d786b1f625e15239b72d40805beaabc))
+* **megapixels:** improve styles of Filter ([a247fda](https://github.com/fuf-stack/pixels/commit/a247fdac6093b8f6c999a7c94a37ecc794825f38))
+* **megapixels:** make Filter accept null as input value ([7cc15f9](https://github.com/fuf-stack/pixels/commit/7cc15f9361b17df507ace98b61c19dcdddeaa562))
+* **megapixels:** rename filter checkboxgroup to checkboxes in Filter ([7f0fd80](https://github.com/fuf-stack/pixels/commit/7f0fd8063377352844fc109ab089ca35be3c2d09))
+* **pixels,megapixels:** add some test ids to Menu and Filter ([164af92](https://github.com/fuf-stack/pixels/commit/164af92cc53b6eb34e24a416e7d182a3a7c0d094))
+* reformat all code ([dfad412](https://github.com/fuf-stack/pixels/commit/dfad4120ad16e9ca2890bb4a7d9d7ac3b41a7413))
+
 ## [0.4.1](https://github.com/fuf-stack/pixels/compare/megapixels-v0.4.0...megapixels-v0.4.1) (2025-10-25)
 
 
