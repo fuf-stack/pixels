@@ -1,9 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import type { ButtonProps } from './Button';
 
+import { useRef, useState } from 'react';
 import { FaEnvelope } from 'react-icons/fa';
 
 import { action } from 'storybook/actions';
+import { expect, userEvent, within } from 'storybook/test';
 
 import { tv } from '@fuf-stack/pixel-utils';
 
@@ -182,5 +184,83 @@ export const ExtendVariantStyles: Story = {
     });
 
     return <Button {...rest} className={extendedClassNames} />;
+  },
+};
+
+const ButtonWithRefFocus = () => {
+  const targetButtonRef = useRef<HTMLButtonElement>(null);
+  const [focusedButton, setFocusedButton] = useState<string | null>(null);
+
+  const handleFocusClick = () => {
+    targetButtonRef.current?.focus();
+  };
+
+  return (
+    <div className="flex flex-col gap-4">
+      <p className="text-sm text-default-500">
+        Click the &quot;Focus Target&quot; button to programmatically focus the
+        target button using ref
+      </p>
+      <div className="flex gap-2">
+        <Button
+          onClick={handleFocusClick}
+          testId="focus-trigger"
+          onBlur={() => {
+            setFocusedButton(null);
+          }}
+          onFocus={() => {
+            setFocusedButton('trigger');
+          }}
+        >
+          Focus Target
+        </Button>
+        <Button
+          ref={targetButtonRef}
+          color="success"
+          onClick={action('target-clicked')}
+          testId="focus-target"
+          onBlur={() => {
+            setFocusedButton(null);
+          }}
+          onFocus={() => {
+            setFocusedButton('target');
+          }}
+        >
+          Target Button
+        </Button>
+      </div>
+      <div className="text-sm">
+        <strong>Currently focused:</strong>{' '}
+        {focusedButton === 'trigger' && (
+          <span className="text-default-500">Focus Target button</span>
+        )}
+        {focusedButton === 'target' && (
+          <span className="text-success">Target Button (via ref!)</span>
+        )}
+        {!focusedButton && <span className="text-default-400">None</span>}
+      </div>
+    </div>
+  );
+};
+
+export const WithRef: Story = {
+  render: () => {
+    return <ButtonWithRefFocus />;
+  },
+  play: async ({ canvasElement }: { canvasElement: HTMLElement }) => {
+    const canvas = within(canvasElement);
+
+    // Click the "Focus Target" button
+    const focusTrigger = canvas.getByTestId('focus-trigger');
+    await userEvent.click(focusTrigger);
+
+    // Verify the target button is now focused (via ref)
+    const focusIndicator = canvas.getByText('Target Button (via ref!)');
+    await expect(focusIndicator).toBeInTheDocument();
+
+    // The target button should now be focused - click it
+    const targetButton = canvas.getByTestId('focus-target');
+    await expect(targetButton).toHaveFocus();
+    await userEvent.click(targetButton);
   },
 };

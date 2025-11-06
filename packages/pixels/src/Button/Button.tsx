@@ -2,6 +2,8 @@ import type { TVProps } from '@fuf-stack/pixel-utils';
 import type { ButtonProps as HeroButtonProps } from '@heroui/button';
 import type { ReactNode } from 'react';
 
+import { forwardRef } from 'react';
+
 import { Button as HeroButton } from '@heroui/button';
 import { button as heroButtonVariants } from '@heroui/theme';
 
@@ -84,6 +86,7 @@ export const buttonVariants = tv({
 
 type VariantProps = TVProps<typeof buttonVariants>;
 
+/* eslint-disable react/require-default-props -- not working with forwardRef */
 export interface ButtonProps extends VariantProps {
   /** sets HTML aria-label attribute */
   ariaLabel?: string;
@@ -101,8 +104,12 @@ export interface ButtonProps extends VariantProps {
   loading?: boolean;
   /** optional icon */
   icon?: ReactNode;
+  /** blur event handler */
+  onBlur?: HeroButtonProps['onBlur'];
   /** click event handler */
   onClick?: HeroButtonProps['onPress'];
+  /** focus event handler */
+  onFocus?: HeroButtonProps['onFocus'];
   /** border radius size */
   radius?: VariantProps['radius'];
   /** enable ripple animation effect on click */
@@ -116,54 +123,67 @@ export interface ButtonProps extends VariantProps {
   /** visual style variant */
   variant?: VariantProps['variant'];
 }
+/* eslint-enable react/require-default-props */
 
 /**
  * Button component based on [HeroUI Button](https://www.heroui.com//docs/components/button)
  */
-const Button = ({
-  ariaLabel = undefined,
-  children = undefined,
-  className: _className = undefined,
-  color = 'default',
-  disableAnimation = false,
-  disabled = false,
-  icon = undefined,
-  loading = false,
-  onClick = undefined,
-  radius = undefined,
-  ripple = false,
-  size = undefined,
-  testId = undefined,
-  type = undefined,
-  variant = 'solid',
-}: ButtonProps) => {
-  const className = buttonVariants({
-    className: _className,
-    disableAnimation,
-    isDisabled: disabled,
-    color,
-    size,
-    variant,
-    isIconOnly: !!(icon && !children),
-    radius,
-  });
+const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+  (
+    {
+      ariaLabel = undefined,
+      children = undefined,
+      className: _className = undefined,
+      color = 'default',
+      disableAnimation = false,
+      disabled = false,
+      icon = undefined,
+      loading = false,
+      onBlur = undefined,
+      onClick = undefined,
+      onFocus = undefined,
+      radius = undefined,
+      ripple = false,
+      size = undefined,
+      testId = undefined,
+      type = undefined,
+      variant = 'solid',
+    },
+    ref,
+  ) => {
+    const className = buttonVariants({
+      className: _className,
+      disableAnimation,
+      isDisabled: disabled,
+      color,
+      size,
+      variant,
+      isIconOnly: !!(icon && !children),
+      radius,
+    });
 
-  return (
-    <HeroButton
-      aria-label={ariaLabel}
-      className={className}
-      data-testid={testId}
-      disableRipple={disableAnimation || !ripple}
-      isDisabled={disabled}
-      isLoading={loading}
-      onPress={onClick}
-      spinner={<LoadingSpinner />}
-      type={type}
-    >
-      {icon}
-      {children}
-    </HeroButton>
-  );
-};
+    return (
+      <HeroButton
+        ref={ref}
+        aria-label={ariaLabel}
+        className={className}
+        data-testid={testId}
+        disableRipple={disableAnimation || !ripple}
+        isDisabled={disabled}
+        isLoading={loading}
+        onBlur={onBlur}
+        onFocus={onFocus}
+        onPress={onClick}
+        spinner={<LoadingSpinner />}
+        type={type}
+      >
+        {icon}
+        {children}
+      </HeroButton>
+    );
+  },
+);
+
+Button.displayName = 'Button';
 
 export default Button;
