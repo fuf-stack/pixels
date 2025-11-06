@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.8.7](https://github.com/fuf-stack/pixels/compare/uniform-v1.8.6...uniform-v1.8.7) (2025-11-06)
+
+
+### Bug Fixes
+
+* **uniform:** fix how useUniformField disables debouncing ([64b8eaf](https://github.com/fuf-stack/pixels/commit/64b8eafb689f8f7cfeabb03b4b88e7ea5b711046))
+
 ## [1.8.6](https://github.com/fuf-stack/pixels/compare/uniform-v1.8.5...uniform-v1.8.6) (2025-11-06)
 
 
