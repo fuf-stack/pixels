@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.5.0](https://github.com/fuf-stack/pixels/compare/pixels-v1.4.0...pixels-v1.5.0) (2025-11-06)
+
+
+### Features
+
+* **pixels:** add ref forwarding and focus/blur event handlers ([3c0a71b](https://github.com/fuf-stack/pixels/commit/3c0a71be6415a6338fb743ad419db27a8dddbb14))
+
+
+### Bug Fixes
+
+* **pixels,uniform:** do not debounce in useDebounce in testsuite ([f438e35](https://github.com/fuf-stack/pixels/commit/f438e3547d4ede090bbf22ba45be0ca223b06083))
+
 ## [1.4.0](https://github.com/fuf-stack/pixels/compare/pixels-v1.3.7...pixels-v1.4.0) (2025-11-05)
 
 
