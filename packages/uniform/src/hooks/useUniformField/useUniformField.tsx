@@ -23,16 +23,14 @@ import { useInputValueTransform } from '../useInputValueTransform/useInputValueT
  *   flicker and allow enter/exit animations to complete.
  * - If the user prefers reduced motion (via `useReducedMotion` from
  *   `@fuf-stack/pixel-motion`), updates apply immediately with no delay.
- * - In test environments, updates apply immediately to avoid timing issues.
  */
 const useDebouncedInvalid = (invalid: boolean, delayMs: number) => {
   const prefersReducedMotion = useReducedMotion();
-  // Disable debouncing in tests or when user prefers reduced motion
-  const isTest =
-    typeof process !== 'undefined' &&
-    (process.env.NODE_ENV === 'test' || process.env.VITEST === 'true');
-  const disabled = !!prefersReducedMotion || isTest;
-  const debouncedInvalid = useDebounce(invalid, delayMs, disabled);
+  const debouncedInvalid = useDebounce(
+    invalid,
+    delayMs,
+    !!prefersReducedMotion,
+  );
 
   return debouncedInvalid;
 };
