@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.8.10](https://github.com/fuf-stack/pixels/compare/uniform-v1.8.9...uniform-v1.8.10) (2025-11-07)
+
+
+### Bug Fixes
+
+* **uniform,megapixels:** add safe isTestEnvironment helper to determine if we are running as test ([98266cc](https://github.com/fuf-stack/pixels/commit/98266cce1165579f833a601f76dd7d9ea03c08f1))
+
 ## [1.8.9](https://github.com/fuf-stack/pixels/compare/uniform-v1.8.8...uniform-v1.8.9) (2025-11-07)
 
 
