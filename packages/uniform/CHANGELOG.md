@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.8.8](https://github.com/fuf-stack/pixels/compare/uniform-v1.8.7...uniform-v1.8.8) (2025-11-07)
+
+
+### Bug Fixes
+
+* **uniform:** always debounce invalid state in useUniformField ([b21c00f](https://github.com/fuf-stack/pixels/commit/b21c00f80a899611877ffe8ba36a413bb592693f))
+* **uniform:** bump ([621f391](https://github.com/fuf-stack/pixels/commit/621f3915f1202b64c726c51c883986029299fcb8))
+
 ## [1.8.7](https://github.com/fuf-stack/pixels/compare/uniform-v1.8.6...uniform-v1.8.7) (2025-11-06)
 
 
