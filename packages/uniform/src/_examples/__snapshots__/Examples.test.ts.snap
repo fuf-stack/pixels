@@ -33,7 +33,6 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                   data-has-elements="true"
                   data-has-helper="true"
                   data-has-label="true"
-                  data-has-value="true"
                   data-required="true"
                   data-slot="base"
                 >
@@ -50,7 +49,7 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                         class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block text-foreground-500 after:content-['*'] after:text-danger after:ms-0.5 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto text-small group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden"
                         data-slot="label"
                         for="stringfield"
-                        id="react-aria-react-useId-mock"
+                        id="react-aria-«replaced-aria-id»"
                       >
                         String Field
                       </label>
@@ -59,8 +58,7 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                         data-slot="inner-wrapper"
                       >
                         <input
-                          aria-describedby="react-aria-react-useId-mock react-aria-react-useId-mock"
-                          aria-labelledby="react-aria-react-useId-mock"
+                          aria-labelledby="react-aria-«replaced-aria-id»"
                           class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small"
                           data-slot="input"
                           data-testid="stringfield"
@@ -84,7 +82,6 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                   data-has-elements="true"
                   data-has-helper="true"
                   data-has-label="true"
-                  data-has-value="true"
                   data-required="true"
                   data-slot="base"
                 >
@@ -93,38 +90,111 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                     data-slot="main-wrapper"
                   >
                     <div
-                      class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 h-10 min-h-10 rounded-small !duration-150 transition-colors motion-reduce:transition-none bg-content1 group-data-[focus=true]:border-focus"
+                      class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-sm px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 h-10 min-h-10 rounded-small !duration-150 transition-colors motion-reduce:transition-none bg-content1 group-data-[focus=true]:border-focus"
                       data-slot="input-wrapper"
                       style="cursor: text;"
                     >
                       <label
-                        class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block text-foreground-500 after:content-['*'] after:text-danger after:ms-0.5 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto text-small group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden"
+                        class="absolute pointer-events-none origin-top-left flex-shrink-0 rtl:origin-top-right subpixel-antialiased block text-foreground-500 after:content-['*'] after:text-danger after:ms-0.5 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto text-small group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden"
                         data-slot="label"
                         for="numberfield"
-                        id="react-aria-react-useId-mock"
+                        id="react-aria-«replaced-aria-id»"
                       >
                         Number Field
                       </label>
                       <div
+                        aria-disabled="false"
                         class="inline-flex w-full items-center h-full box-border"
                         data-slot="inner-wrapper"
+                        role="group"
                       >
                         <input
-                          aria-describedby="react-aria-react-useId-mock react-aria-react-useId-mock"
-                          aria-labelledby="react-aria-react-useId-mock"
-                          class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small"
+                          aria-labelledby="react-aria-«replaced-aria-id»"
+                          aria-roledescription="Number field"
+                          autocomplete="off"
+                          autocorrect="off"
+                          class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 autofill:bg-transparent bg-clip-text text-small"
                           data-slot="input"
                           data-testid="numberfield"
-                          data-type="number"
                           id="numberfield"
-                          name="numberField"
+                          inputmode="numeric"
                           placeholder=" "
                           required=""
+                          spellcheck="false"
                           tabindex="0"
                           title=""
-                          type="number"
+                          type="text"
                           value=""
                         />
+                        <input
+                          data-slot="hidden-input"
+                          name="numberField"
+                          type="hidden"
+                          value=""
+                        />
+                        <div
+                          class="flex flex-col ps-1 h-full justify-center"
+                          data-slot="stepper-wrapper"
+                        >
+                          <button
+                            aria-controls="numberfield"
+                            aria-label="Increase"
+                            aria-labelledby="react-aria-«replaced-aria-id» react-aria-«replaced-aria-id»"
+                            class="z-0 group relative box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small gap-2 rounded-medium px-0 !gap-0 motion-reduce:transition-none text-default-foreground data-[hover=true]:opacity-hover bg-transparent flex justify-center items-center before:absolute before:w-8 before:h-8 before:rounded-full after:shadow-small after:bg-background data-[focused=true]:z-10 overflow-visible transition-opacity data-[hover=true]:opacity-70 data-[pressed=true]:opacity-disabled min-w-3 w-3 h-3"
+                            data-react-aria-pressable="true"
+                            data-slot="increase-button"
+                            id="react-aria-«replaced-aria-id»"
+                            tabindex="-1"
+                            type="button"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              fill="none"
+                              focusable="false"
+                              height="1em"
+                              role="presentation"
+                              stroke="currentColor"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="1.5"
+                              viewBox="0 0 24 24"
+                              width="1em"
+                            >
+                              <path
+                                d="m18 15-6-6-6 6"
+                              />
+                            </svg>
+                          </button>
+                          <button
+                            aria-controls="numberfield"
+                            aria-label="Decrease"
+                            aria-labelledby="react-aria-«replaced-aria-id» react-aria-«replaced-aria-id»"
+                            class="z-0 group relative box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small gap-2 rounded-medium px-0 !gap-0 motion-reduce:transition-none text-default-foreground data-[hover=true]:opacity-hover bg-transparent flex justify-center items-center before:absolute before:w-8 before:h-8 before:rounded-full after:shadow-small after:bg-background data-[focused=true]:z-10 overflow-visible transition-opacity data-[hover=true]:opacity-70 data-[pressed=true]:opacity-disabled min-w-3 w-3 h-3"
+                            data-react-aria-pressable="true"
+                            data-slot="decrease-button"
+                            id="react-aria-«replaced-aria-id»"
+                            tabindex="-1"
+                            type="button"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              fill="none"
+                              focusable="false"
+                              height="1em"
+                              role="presentation"
+                              stroke="currentColor"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="1.5"
+                              viewBox="0 0 24 24"
+                              width="1em"
+                            >
+                              <path
+                                d="m6 9 6 6 6-6"
+                              />
+                            </svg>
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -141,7 +211,7 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                     class="pointer-events-auto relative bottom-1.5 ml-1 subpixel-antialiased text-small group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
                     data-slot="label"
                     for="react-select-selectField-input"
-                    id="react-aria-react-useId-mock"
+                    id="react-aria-«replaced-aria-id»"
                   >
                     Select Field
                   </label>
@@ -245,7 +315,6 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                   data-has-elements="true"
                   data-has-helper="true"
                   data-has-label="true"
-                  data-has-value="true"
                   data-required="true"
                   data-slot="base"
                 >
@@ -262,7 +331,7 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                         class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block text-foreground-500 after:content-['*'] after:text-danger after:ms-0.5 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto text-small group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden"
                         data-slot="label"
                         for="passwordfield"
-                        id="react-aria-react-useId-mock"
+                        id="react-aria-«replaced-aria-id»"
                       >
                         Password Field
                       </label>
@@ -271,8 +340,7 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                         data-slot="inner-wrapper"
                       >
                         <input
-                          aria-describedby="react-aria-react-useId-mock react-aria-react-useId-mock"
-                          aria-labelledby="react-aria-react-useId-mock"
+                          aria-labelledby="react-aria-«replaced-aria-id»"
                           class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small [&::-ms-reveal]:hidden"
                           data-slot="input"
                           data-testid="passwordfield"
@@ -297,7 +365,6 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                   data-has-elements="true"
                   data-has-helper="true"
                   data-has-label="true"
-                  data-has-value="true"
                   data-required="true"
                   data-slot="base"
                 >
@@ -305,7 +372,7 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                     class="z-10 pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block text-small text-foreground-500 after:content-['*'] after:text-danger after:ms-0.5 relative will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-1.5 pe-2 max-w-full text-ellipsis overflow-hidden"
                     data-slot="label"
                     for="textareafield"
-                    id="react-aria-react-useId-mock"
+                    id="react-aria-«replaced-aria-id»"
                   >
                     Text Area
                   </label>
@@ -320,8 +387,7 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                       data-slot="inner-wrapper"
                     >
                       <textarea
-                        aria-describedby="react-aria-react-useId-mock react-aria-react-useId-mock"
-                        aria-labelledby="react-aria-react-useId-mock"
+                        aria-labelledby="react-aria-«replaced-aria-id»"
                         class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small resize-none data-[hide-scroll=true]:scrollbar-hide transition-height !duration-100 motion-reduce:transition-none pe-0"
                         data-hide-scroll="true"
                         data-slot="input"
@@ -339,19 +405,26 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                 <div
                   class="place-content-center"
                 >
+                  <div
+                    style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+                  >
+                    <input
+                      aria-label="switchField"
+                      name="switchField"
+                      type="checkbox"
+                    />
+                  </div>
                   <label
-                    aria-describedby="react-aria-react-useId-mock react-aria-react-useId-mock"
                     class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer touch-none tap-highlight-transparent select-none"
                     data-invalid="false"
                     data-required="true"
                     data-testid="switchfield"
-                    required=""
                   >
                     <input
-                      aria-labelledby="«r0»"
+                      aria-labelledby="«replaced-aria-id»"
                       class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
                       data-react-aria-pressable="true"
-                      name="switchField"
+                      name="switchField_switch"
                       role="switch"
                       tabindex="0"
                       type="checkbox"
@@ -367,19 +440,68 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                     </span>
                     <span
                       class="relative select-none ms-2 text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
-                      id="«r0»"
+                      id="«replaced-aria-id»"
                     >
                       Switch Field
                     </span>
                   </label>
                 </div>
+                <div>
+                  <label
+                    class="group inline-flex w-full cursor-pointer items-center justify-between rounded-lg border-2 border-default hover:bg-content2 data-[selected=true]:border-focus gap-4 p-4 md:col-span-2"
+                    data-invalid="false"
+                    data-required="true"
+                    data-testid="switchboxfield"
+                  >
+                    <div
+                      style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+                    >
+                      <input
+                        aria-label="switchBoxField"
+                        name="switchBoxField"
+                        type="checkbox"
+                      />
+                      <input
+                        aria-labelledby="«replaced-aria-id»"
+                        class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
+                        data-react-aria-pressable="true"
+                        name="switchBoxField_switch"
+                        role="switch"
+                        tabindex="0"
+                        type="checkbox"
+                        value=""
+                      />
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="px-1 relative inline-flex items-center justify-start shrink-0 overflow-hidden bg-default-200 rounded-full outline-solid outline-transparent group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:bg-primary group-data-[selected=true]:text-primary-foreground w-12 h-7 transition-background"
+                    >
+                      <span
+                        class="z-10 flex items-center justify-center bg-white shadow-small rounded-full origin-right pointer-events-none w-5 h-5 text-small group-data-[selected=true]:ms-5 transition-all group-data-[pressed=true]:w-6 group-data-[selected]:group-data-[pressed]:ml-4"
+                      />
+                    </span>
+                    <div
+                      class="grow"
+                    >
+                      <div
+                        class="font-medium text-foreground group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"] text-sm"
+                      >
+                        Switch Box Field
+                      </div>
+                      <div
+                        class="text-foreground opacity-70 text-small"
+                      >
+                        Enable advanced features for your account
+                      </div>
+                    </div>
+                  </label>
+                </div>
                 <div
-                  aria-describedby="react-aria-react-useId-mock react-aria-react-useId-mock"
                   aria-label=" "
                   class="relative flex flex-col gap-2 group"
                   data-invalid="false"
                   data-testid="checkboxfield"
-                  id="react-aria-react-useId-mock"
+                  id="react-aria-«replaced-aria-id»"
                   role="group"
                 >
                   <span
@@ -401,9 +523,8 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                       data-testid="checkboxfield_option_1"
                     >
                       <input
-                        aria-describedby="react-aria-react-useId-mock"
                         aria-label="1"
-                        aria-labelledby="«r1»"
+                        aria-labelledby="«replaced-aria-id»"
                         class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
                         data-react-aria-pressable="true"
                         name="checkboxField"
@@ -437,7 +558,7 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                       </span>
                       <span
                         class="relative text-foreground select-none text-medium transition-colors-opacity before:transition-width motion-reduce:transition-none"
-                        id="«r1»"
+                        id="«replaced-aria-id»"
                       >
                         1
                       </span>
@@ -449,9 +570,8 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                       data-testid="checkboxfield_option_2"
                     >
                       <input
-                        aria-describedby="react-aria-react-useId-mock"
                         aria-label="2"
-                        aria-labelledby="«r2»"
+                        aria-labelledby="«replaced-aria-id»"
                         class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
                         data-react-aria-pressable="true"
                         name="checkboxField"
@@ -485,7 +605,7 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                       </span>
                       <span
                         class="relative text-foreground select-none text-medium transition-colors-opacity before:transition-width motion-reduce:transition-none"
-                        id="«r2»"
+                        id="«replaced-aria-id»"
                       >
                         2
                       </span>
@@ -497,9 +617,8 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                       data-testid="checkboxfield_option_3"
                     >
                       <input
-                        aria-describedby="react-aria-react-useId-mock"
                         aria-label="3"
-                        aria-labelledby="«r3»"
+                        aria-labelledby="«replaced-aria-id»"
                         class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
                         data-react-aria-pressable="true"
                         name="checkboxField"
@@ -533,7 +652,7 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                       </span>
                       <span
                         class="relative text-foreground select-none text-medium transition-colors-opacity before:transition-width motion-reduce:transition-none"
-                        id="«r3»"
+                        id="«replaced-aria-id»"
                       >
                         3
                       </span>
@@ -541,7 +660,6 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                   </div>
                 </div>
                 <div
-                  aria-describedby="react-aria-react-useId-mock react-aria-react-useId-mock"
                   aria-label=" "
                   aria-orientation="horizontal"
                   aria-required="true"
@@ -549,7 +667,7 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                   data-invalid="false"
                   data-required="true"
                   data-testid="radiofield"
-                  id="react-aria-react-useId-mock"
+                  id="react-aria-«replaced-aria-id»"
                   role="radiogroup"
                 >
                   <span
@@ -570,8 +688,8 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                       data-testid="radiofield_option_value0"
                     >
                       <input
-                        aria-describedby="«r5» react-aria-react-useId-mock"
-                        aria-labelledby="«r4»"
+                        aria-describedby="«replaced-aria-id» react-aria-«replaced-aria-id»"
+                        aria-labelledby="«replaced-aria-id»"
                         class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
                         data-react-aria-pressable="true"
                         name="radioField"
@@ -594,7 +712,7 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                       >
                         <span
                           class="relative text-foreground select-none transition-colors motion-reduce:transition-none text-sm"
-                          id="«r4»"
+                          id="«replaced-aria-id»"
                         >
                           LabelA
                         </span>
@@ -606,8 +724,8 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                       data-testid="radiofield_option_value1"
                     >
                       <input
-                        aria-describedby="«r7» react-aria-react-useId-mock"
-                        aria-labelledby="«r6»"
+                        aria-describedby="«replaced-aria-id» react-aria-«replaced-aria-id»"
+                        aria-labelledby="«replaced-aria-id»"
                         class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
                         data-react-aria-pressable="true"
                         name="radioField"
@@ -630,7 +748,7 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                       >
                         <span
                           class="relative text-foreground select-none transition-colors motion-reduce:transition-none text-sm"
-                          id="«r6»"
+                          id="«replaced-aria-id»"
                         >
                           LabelB
                         </span>
@@ -642,8 +760,8 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                       data-testid="radiofield_option_value2"
                     >
                       <input
-                        aria-describedby="«r9» react-aria-react-useId-mock"
-                        aria-labelledby="«r8»"
+                        aria-describedby="«replaced-aria-id» react-aria-«replaced-aria-id»"
+                        aria-labelledby="«replaced-aria-id»"
                         class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
                         data-react-aria-pressable="true"
                         name="radioField"
@@ -666,7 +784,7 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                       >
                         <span
                           class="relative text-foreground select-none transition-colors motion-reduce:transition-none text-sm"
-                          id="«r8»"
+                          id="«replaced-aria-id»"
                         >
                           LabelC
                         </span>
@@ -675,7 +793,6 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                   </div>
                 </div>
                 <div
-                  aria-describedby="react-aria-react-useId-mock react-aria-react-useId-mock"
                   aria-label=" "
                   aria-orientation="vertical"
                   aria-required="true"
@@ -683,7 +800,7 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                   data-invalid="false"
                   data-required="true"
                   data-testid="radioboxfield"
-                  id="react-aria-react-useId-mock"
+                  id="react-aria-«replaced-aria-id»"
                   role="radiogroup"
                 >
                   <span
@@ -707,8 +824,8 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                         style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
                       >
                         <input
-                          aria-describedby="«rb» react-aria-react-useId-mock"
-                          aria-labelledby="«ra»"
+                          aria-describedby="«replaced-aria-id» react-aria-«replaced-aria-id»"
+                          aria-labelledby="«replaced-aria-id»"
                           class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
                           data-react-aria-pressable="true"
                           name="radioBoxField"
@@ -721,18 +838,18 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                       </div>
                       <span
                         aria-hidden="true"
-                        class="relative inline-flex items-center justify-center shrink-0 overflow-hidden border-solid border-medium box-border border-default rounded-full group-data-[hover-unselected=true]:bg-default-100 outline-solid outline-transparent group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:border-primary w-5 h-5 group-data-[pressed=true]:scale-95 transition-transform-colors motion-reduce:transition-none group-data-[invalid=true]:!border-danger [&:not(group-data-[invalid="true"]):not(group-data-[selected="false"])]:border-focus"
+                        class="relative inline-flex items-center justify-center shrink-0 overflow-hidden border-solid border-medium box-border border-default rounded-full group-data-[hover-unselected=true]:bg-default-100 outline-solid outline-transparent group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:border-primary w-5 h-5 group-data-[pressed=true]:scale-95 transition-transform-colors motion-reduce:transition-none"
                       >
                         <span
-                          class="z-10 opacity-0 scale-0 origin-center rounded-full group-data-[selected=true]:opacity-100 group-data-[selected=true]:scale-100 text-primary-foreground w-2 h-2 transition-transform-opacity motion-reduce:transition-none bg-focus group-data-[invalid=true]:bg-danger"
+                          class="z-10 opacity-0 scale-0 origin-center rounded-full group-data-[selected=true]:opacity-100 group-data-[selected=true]:scale-100 bg-primary text-primary-foreground w-2 h-2 transition-transform-opacity motion-reduce:transition-none"
                         />
                       </span>
                       <div
                         class="flex flex-col ml-1 ms-2 grow"
                       >
                         <span
-                          class="relative text-foreground select-none transition-colors motion-reduce:transition-none text-sm"
-                          id="«ra»"
+                          class="relative select-none text-medium transition-colors motion-reduce:transition-none"
+                          id="«replaced-aria-id»"
                         >
                           LabelA
                         </span>
@@ -747,8 +864,8 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                         style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
                       >
                         <input
-                          aria-describedby="«rd» react-aria-react-useId-mock"
-                          aria-labelledby="«rc»"
+                          aria-describedby="«replaced-aria-id» react-aria-«replaced-aria-id»"
+                          aria-labelledby="«replaced-aria-id»"
                           class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
                           data-react-aria-pressable="true"
                           name="radioBoxField"
@@ -761,18 +878,18 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                       </div>
                       <span
                         aria-hidden="true"
-                        class="relative inline-flex items-center justify-center shrink-0 overflow-hidden border-solid border-medium box-border border-default rounded-full group-data-[hover-unselected=true]:bg-default-100 outline-solid outline-transparent group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:border-primary w-5 h-5 group-data-[pressed=true]:scale-95 transition-transform-colors motion-reduce:transition-none group-data-[invalid=true]:!border-danger [&:not(group-data-[invalid="true"]):not(group-data-[selected="false"])]:border-focus"
+                        class="relative inline-flex items-center justify-center shrink-0 overflow-hidden border-solid border-medium box-border border-default rounded-full group-data-[hover-unselected=true]:bg-default-100 outline-solid outline-transparent group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:border-primary w-5 h-5 group-data-[pressed=true]:scale-95 transition-transform-colors motion-reduce:transition-none"
                       >
                         <span
-                          class="z-10 opacity-0 scale-0 origin-center rounded-full group-data-[selected=true]:opacity-100 group-data-[selected=true]:scale-100 text-primary-foreground w-2 h-2 transition-transform-opacity motion-reduce:transition-none bg-focus group-data-[invalid=true]:bg-danger"
+                          class="z-10 opacity-0 scale-0 origin-center rounded-full group-data-[selected=true]:opacity-100 group-data-[selected=true]:scale-100 bg-primary text-primary-foreground w-2 h-2 transition-transform-opacity motion-reduce:transition-none"
                         />
                       </span>
                       <div
                         class="flex flex-col ml-1 ms-2 grow"
                       >
                         <span
-                          class="relative text-foreground select-none transition-colors motion-reduce:transition-none text-sm"
-                          id="«rc»"
+                          class="relative select-none text-medium transition-colors motion-reduce:transition-none"
+                          id="«replaced-aria-id»"
                         >
                           LabelB
                         </span>
@@ -787,8 +904,8 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                         style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
                       >
                         <input
-                          aria-describedby="«rf» react-aria-react-useId-mock"
-                          aria-labelledby="«re»"
+                          aria-describedby="«replaced-aria-id» react-aria-«replaced-aria-id»"
+                          aria-labelledby="«replaced-aria-id»"
                           class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
                           data-react-aria-pressable="true"
                           name="radioBoxField"
@@ -801,24 +918,262 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                       </div>
                       <span
                         aria-hidden="true"
-                        class="relative inline-flex items-center justify-center shrink-0 overflow-hidden border-solid border-medium box-border border-default rounded-full group-data-[hover-unselected=true]:bg-default-100 outline-solid outline-transparent group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:border-primary w-5 h-5 group-data-[pressed=true]:scale-95 transition-transform-colors motion-reduce:transition-none group-data-[invalid=true]:!border-danger [&:not(group-data-[invalid="true"]):not(group-data-[selected="false"])]:border-focus"
+                        class="relative inline-flex items-center justify-center shrink-0 overflow-hidden border-solid border-medium box-border border-default rounded-full group-data-[hover-unselected=true]:bg-default-100 outline-solid outline-transparent group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:border-primary w-5 h-5 group-data-[pressed=true]:scale-95 transition-transform-colors motion-reduce:transition-none"
                       >
                         <span
-                          class="z-10 opacity-0 scale-0 origin-center rounded-full group-data-[selected=true]:opacity-100 group-data-[selected=true]:scale-100 text-primary-foreground w-2 h-2 transition-transform-opacity motion-reduce:transition-none bg-focus group-data-[invalid=true]:bg-danger"
+                          class="z-10 opacity-0 scale-0 origin-center rounded-full group-data-[selected=true]:opacity-100 group-data-[selected=true]:scale-100 bg-primary text-primary-foreground w-2 h-2 transition-transform-opacity motion-reduce:transition-none"
                         />
                       </span>
                       <div
                         class="flex flex-col ml-1 ms-2 grow"
                       >
                         <span
-                          class="relative text-foreground select-none transition-colors motion-reduce:transition-none text-sm"
-                          id="«re»"
+                          class="relative select-none text-medium transition-colors motion-reduce:transition-none"
+                          id="«replaced-aria-id»"
                         >
                           LabelC
                         </span>
                       </div>
                     </label>
                   </div>
+                </div>
+                <div
+                  aria-label=" "
+                  aria-orientation="vertical"
+                  aria-required="true"
+                  class="relative flex flex-col group gap-0 md:col-span-2"
+                  data-invalid="false"
+                  data-required="true"
+                  data-testid="radiotabsfield"
+                  id="react-aria-«replaced-aria-id»"
+                  role="radiogroup"
+                >
+                  <span
+                    class="relative after:content-['*'] after:text-danger after:ml-0.5 mb-2 inline-flex text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger"
+                  >
+                    <legend>
+                      Radio Tabs Field
+                    </legend>
+                  </span>
+                  <div
+                    class="flex flex-col flex-wrap gap-2 data-[orientation=horizontal]:flex-row"
+                    data-orientation="vertical"
+                    role="presentation"
+                  >
+                    <div
+                      data-placement="top"
+                      data-slot="tabWrapper"
+                      data-vertical="horizontal"
+                    >
+                      <div
+                        class="inline-flex w-full"
+                        data-slot="base"
+                      >
+                        <div
+                          aria-orientation="horizontal"
+                          class="flex p-1 h-fit gap-2 items-center flex-nowrap overflow-x-scroll scrollbar-hide bg-default-100 rounded-medium w-full"
+                          data-collection="react-aria-«replaced-aria-id»"
+                          data-slot="tabList"
+                          id="react-aria-«replaced-aria-id»"
+                          role="tablist"
+                        >
+                          <button
+                            aria-selected="false"
+                            class="z-0 w-full px-3 py-1 flex group relative justify-center items-center cursor-pointer transition-opacity tap-highlight-transparent data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 h-8 text-small rounded-small data-[hover-unselected=true]:opacity-100"
+                            data-collection="react-aria-«replaced-aria-id»"
+                            data-key="Value0"
+                            data-react-aria-pressable="true"
+                            data-slot="tab"
+                            data-testid="radiotabsfield_option_value0"
+                            id="react-aria-«replaced-aria-id»-tab-Value0"
+                            role="tab"
+                            tabindex="-1"
+                            type="button"
+                          >
+                            <div
+                              class="relative z-10 whitespace-nowrap transition-colors group-data-[selected=true]:text-default-foreground text-foreground"
+                              data-slot="tabContent"
+                            >
+                              LabelA
+                            </div>
+                          </button>
+                          <button
+                            aria-selected="false"
+                            class="z-0 w-full px-3 py-1 flex group relative justify-center items-center cursor-pointer transition-opacity tap-highlight-transparent data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 h-8 text-small rounded-small data-[hover-unselected=true]:opacity-100"
+                            data-collection="react-aria-«replaced-aria-id»"
+                            data-key="Value1"
+                            data-react-aria-pressable="true"
+                            data-slot="tab"
+                            data-testid="radiotabsfield_option_value1"
+                            id="react-aria-«replaced-aria-id»-tab-Value1"
+                            role="tab"
+                            tabindex="-1"
+                            type="button"
+                          >
+                            <div
+                              class="relative z-10 whitespace-nowrap transition-colors group-data-[selected=true]:text-default-foreground text-foreground"
+                              data-slot="tabContent"
+                            >
+                              LabelB
+                            </div>
+                          </button>
+                          <button
+                            aria-selected="false"
+                            class="z-0 w-full px-3 py-1 flex group relative justify-center items-center cursor-pointer transition-opacity tap-highlight-transparent data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 h-8 text-small rounded-small data-[hover-unselected=true]:opacity-100"
+                            data-collection="react-aria-«replaced-aria-id»"
+                            data-key="Value2"
+                            data-react-aria-pressable="true"
+                            data-slot="tab"
+                            data-testid="radiotabsfield_option_value2"
+                            id="react-aria-«replaced-aria-id»-tab-Value2"
+                            role="tab"
+                            tabindex="-1"
+                            type="button"
+                          >
+                            <div
+                              class="relative z-10 whitespace-nowrap transition-colors group-data-[selected=true]:text-default-foreground text-foreground"
+                              data-slot="tabContent"
+                            >
+                              LabelC
+                            </div>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="overflow-hidden rounded-small border border-divider bg-content1 divide-y divide-divider md:col-span-2"
+                >
+                  <div
+                    aria-level="3"
+                    class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block after:content-['*'] after:text-danger after:ms-0.5 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] max-w-full text-ellipsis overflow-hidden pointer-events-auto! static! z-auto! block! w-full! translate-x-0! translate-y-0! transform-none! rounded-t-small p-3 font-semibold text-medium text-foreground!"
+                    data-slot="label"
+                    for="react-aria-«replaced-aria-id»"
+                    id="react-aria-«replaced-aria-id»"
+                    role="heading"
+                  >
+                    Field Array
+                  </div>
+                  <button
+                    class="group tap-highlight-transparent transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center box-border appearance-none select-none whitespace-nowrap subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu cursor-pointer outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-3 min-w-16 h-8 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] !transition-none data-[pressed=true]:scale-100 bg-transparent text-default-foreground data-[hover=true]:bg-default/40 w-full justify-start rounded-b-small rounded-t-none font-semibold !h-[48px] !min-h-0 outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-focus"
+                    data-react-aria-pressable="true"
+                    data-testid="fieldarrayfield_append_button"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <span
+                      data-testid="icon-FaPlus"
+                    >
+                      FaPlus
+                    </span>
+                    <span>
+                      Add Element
+                    </span>
+                  </button>
+                </div>
+                <div
+                  class="overflow-hidden rounded-small border border-divider bg-content1 divide-y divide-divider md:col-span-2"
+                >
+                  <div
+                    aria-level="3"
+                    class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block after:content-['*'] after:text-danger after:ms-0.5 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] max-w-full text-ellipsis overflow-hidden pointer-events-auto! static! z-auto! block! w-full! translate-x-0! translate-y-0! transform-none! rounded-t-small p-3 font-semibold text-medium text-foreground!"
+                    data-slot="label"
+                    for="react-aria-«replaced-aria-id»"
+                    id="react-aria-«replaced-aria-id»"
+                    role="heading"
+                  >
+                    Field Array (Flat)
+                  </div>
+                  <div
+                    class="overflow-hidden"
+                  >
+                    <ul
+                      class="overflow-hidden"
+                      data-testid="fieldarrayflatfield"
+                    >
+                      <li
+                        class="group relative flex flex-row first:-mt-px"
+                        data-dragging="false"
+                        data-testid="fieldarrayflatfield_0_element"
+                      >
+                        <div
+                          class="flex w-full flex-row items-stretch divide-divider bg-content1 divide-x divide-solid border-b border-t border-divider"
+                        >
+                          <div
+                            class="grid gap-4 w-full grow p-3"
+                            data-testid="fieldarrayflatfield_0_element_fields_grid"
+                          >
+                            <div
+                              class="group flex flex-col data-[hidden=true]:hidden w-full relative justify-end data-[has-label=true]:mt-[calc(var(--heroui-font-size-small)_+_10px)]"
+                              data-filled="true"
+                              data-filled-within="true"
+                              data-has-elements="true"
+                              data-has-helper="true"
+                              data-has-label="true"
+                              data-required="true"
+                              data-slot="base"
+                            >
+                              <div
+                                class="h-full flex flex-col"
+                                data-slot="main-wrapper"
+                              >
+                                <div
+                                  class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 h-10 min-h-10 rounded-small !duration-150 transition-colors motion-reduce:transition-none bg-content1 group-data-[focus=true]:border-focus"
+                                  data-slot="input-wrapper"
+                                  style="cursor: text;"
+                                >
+                                  <label
+                                    class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block text-foreground-500 after:content-['*'] after:text-danger after:ms-0.5 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto text-small group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden"
+                                    data-slot="label"
+                                    for="fieldarrayflatfield_0"
+                                    id="react-aria-«replaced-aria-id»"
+                                  >
+                                    Element
+                                  </label>
+                                  <div
+                                    class="inline-flex w-full items-center h-full box-border"
+                                    data-slot="inner-wrapper"
+                                  >
+                                    <input
+                                      aria-labelledby="react-aria-«replaced-aria-id»"
+                                      class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small"
+                                      data-slot="input"
+                                      data-testid="fieldarrayflatfield_0"
+                                      id="fieldarrayflatfield_0"
+                                      name="fieldArrayFlatField.0.__FLAT__"
+                                      placeholder="Flat array item..."
+                                      required=""
+                                      tabindex="0"
+                                      title=""
+                                      type="text"
+                                      value=""
+                                    />
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                  <button
+                    class="group tap-highlight-transparent transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center box-border appearance-none select-none whitespace-nowrap subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu cursor-pointer outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-3 min-w-16 h-8 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] !transition-none data-[pressed=true]:scale-100 bg-transparent text-default-foreground data-[hover=true]:bg-default/40 w-full justify-start rounded-b-small rounded-t-none font-semibold !h-[48px] !min-h-0 outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-focus"
+                    data-react-aria-pressable="true"
+                    data-testid="fieldarrayflatfield_append_button"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <span
+                      data-testid="icon-FaPlus"
+                    >
+                      FaPlus
+                    </span>
+                    <span>
+                      Add Element
+                    </span>
+                  </button>
                 </div>
               </div>
             </div>
@@ -878,7 +1233,6 @@ exports[`Story Snapshots > DebugModeDisabled 1`] = `
                 data-has-elements="true"
                 data-has-helper="true"
                 data-has-label="true"
-                data-has-value="true"
                 data-required="true"
                 data-slot="base"
               >
@@ -895,7 +1249,7 @@ exports[`Story Snapshots > DebugModeDisabled 1`] = `
                       class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block text-foreground-500 after:content-['*'] after:text-danger after:ms-0.5 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto text-small group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden"
                       data-slot="label"
                       for="stringfield"
-                      id="react-aria-react-useId-mock"
+                      id="react-aria-«replaced-aria-id»"
                     >
                       String Field
                     </label>
@@ -904,8 +1258,7 @@ exports[`Story Snapshots > DebugModeDisabled 1`] = `
                       data-slot="inner-wrapper"
                     >
                       <input
-                        aria-describedby="react-aria-react-useId-mock react-aria-react-useId-mock"
-                        aria-labelledby="react-aria-react-useId-mock"
+                        aria-labelledby="react-aria-«replaced-aria-id»"
                         class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small"
                         data-slot="input"
                         data-testid="stringfield"
