@@ -25,10 +25,18 @@ import { useInputValueTransform } from '../useInputValueTransform/useInputValueT
  *
  * Behavior:
  * - Debounces both true → false and false → true transitions by `delayMs`
- * - Always debounces regardless of user motion preferences
+ * - Disabled in test environments for immediate snapshots
  */
 const useDebouncedInvalid = (invalid: boolean, delayMs: number) => {
   const debouncedInvalid = useDebounce(invalid, delayMs);
+
+  // Disable debouncing in test environments for immediate snapshots
+  const isTest =
+    process.env.NODE_ENV === 'test' || process.env.VITEST === 'true';
+  if (isTest) {
+    return invalid;
+  }
+
   return debouncedInvalid;
 };
 

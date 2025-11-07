@@ -89,7 +89,7 @@ describe('useUniformField', () => {
   });
 
   describe('invalid state debouncing', () => {
-    it('debounces invalid state changes', async () => {
+    it('updates immediately in test environment (NODE_ENV=test)', () => {
       let fieldState = {
         error: undefined as FieldError[] | undefined,
         invalid: false,
@@ -119,7 +119,45 @@ describe('useUniformField', () => {
       };
       rerender();
 
-      // Should still be false immediately (debouncing active)
+      // In test environment, should update immediately (no debounce)
+      expect(result.current.invalid).toBe(true);
+    });
+
+    it('debounces invalid state changes in production environment', async () => {
+      // Mock production environment
+      vi.stubEnv('NODE_ENV', 'production');
+      vi.stubEnv('VITEST', '');
+
+      let fieldState = {
+        error: undefined as FieldError[] | undefined,
+        invalid: false,
+        isDirty: false,
+        isTouched: false,
+        required: false,
+        testId: 'f-tid',
+      };
+
+      mockContext.getFieldState = vi.fn(() => fieldState);
+
+      const { result, rerender } = renderHook(() =>
+        useUniformField({ name: 'f' }),
+      );
+
+      // Initially valid
+      expect(result.current.invalid).toBe(false);
+
+      // Change to invalid
+      fieldState = {
+        error: [{ message: 'Error' }] as unknown as FieldError[],
+        invalid: true,
+        isDirty: true,
+        isTouched: false,
+        required: false,
+        testId: 'f-tid',
+      };
+      rerender();
+
+      // In production, should still be false immediately (debouncing active)
       expect(result.current.invalid).toBe(false);
 
       // Advance time by 200ms (the debounce delay)
@@ -130,9 +168,15 @@ describe('useUniformField', () => {
 
       // Now invalid should be true after debounce
       expect(result.current.invalid).toBe(true);
+
+      vi.unstubAllEnvs();
     });
 
-    it('cancels previous debounce when field state changes rapidly', async () => {
+    it('cancels previous debounce when field state changes rapidly (production)', async () => {
+      // Mock production environment
+      vi.stubEnv('NODE_ENV', 'production');
+      vi.stubEnv('VITEST', '');
+
       let fieldState = {
         error: undefined as FieldError[] | undefined,
         invalid: false,
@@ -182,6 +226,8 @@ describe('useUniformField', () => {
 
       // Should now reflect the final state (valid)
       expect(result.current.invalid).toBe(false);
+
+      vi.unstubAllEnvs();
     });
   });
 
