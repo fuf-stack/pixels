@@ -1,24 +1,23 @@
 import type { TVClassName, TVProps } from '@fuf-stack/pixel-utils';
 import type { ReactNode } from 'react';
+//
+import type { RadioBoxProps } from './RadioBox';
 
 import { RadioGroup as HeroRadioGroup } from '@heroui/radio';
 
 import { slugify, tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 
 import { useUniformField } from '../hooks';
-//
 import { RadioBox } from './RadioBox';
 
 export const radioBoxesVariants = tv({
   slots: {
     base: 'group gap-0', // Needs group for group-data condition
-    itemBase: '',
-    itemControl: 'bg-focus group-data-[invalid=true]:bg-danger',
-    itemDescription: '',
-    itemLabel: 'text-sm',
-    itemLabelWrapper: '',
-    itemWrapper:
-      'group-data-[invalid=true]:!border-danger [&:not(group-data-[invalid="true"]):not(group-data-[selected="false"])]:border-focus', // TODO: get rid of !.
+    boxBase: '',
+    boxControl: '',
+    boxDescription: '',
+    boxLabel: '',
+    boxLabelWrapper: '',
     // see HeroUI styles for group-data condition,
     // e.g.: https://github.com/heroui-inc/heroui/blob/main/packages/core/theme/src/components/select.ts
     label:
@@ -91,13 +90,12 @@ const RadioBoxes = ({
   // classNames from slots
   const variants = radioBoxesVariants();
   const classNames = variantsToClassNames(variants, className, 'base');
-  const itemClassNames = {
-    base: classNames.itemBase,
-    control: classNames.itemControl,
-    description: classNames.itemDescription,
-    label: classNames.itemLabel,
-    labelWrapper: classNames.itemLabelWrapper,
-    wrapper: classNames.itemWrapper,
+  const boxClassNames: RadioBoxProps['classNames'] = {
+    base: classNames.boxBase,
+    control: classNames.boxControl,
+    description: classNames.boxDescription,
+    label: classNames.boxLabel,
+    labelWrapper: classNames.boxLabelWrapper,
   };
 
   return (
@@ -129,11 +127,12 @@ const RadioBoxes = ({
           return (
             <RadioBox
               key={option.value}
-              classNames={itemClassNames}
+              classNames={boxClassNames}
               data-testid={optionTestId}
               description={option.description}
               icon={option.icon}
               isDisabled={!!disabled || option.disabled}
+              isInvalid={invalid}
               value={option.value}
             >
               {option.label ?? option.value}

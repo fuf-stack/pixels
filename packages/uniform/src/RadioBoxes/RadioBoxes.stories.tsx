@@ -40,23 +40,19 @@ export const Default: Story = {
     name: 'radioBoxesField',
     options: [
       {
-        description: 'Neutral element for multiplication.',
-        icon: <FaRocket className="w-8 text-3xl" />,
-        label: 'option 1',
-        value: '1',
+        description: 'Perfect for lazy Sundays and binge-watching.',
+        label: 'Coffee',
+        value: 'coffee',
       },
       {
-        description: 'The number for Nerds.',
-        icon: <FaFlask className="w-8 text-3xl" />,
-        label: 'option 2',
-        value: '2',
+        description: 'Calm, zen, and definitely not boring.',
+        label: 'Tea',
+        value: 'tea',
       },
       {
-        description:
-          'first prime number to be devisable by something other than 1.',
-        icon: <FaPhone className="w-8 text-3xl" />,
-        label: 'option 3',
-        value: '3',
+        description: 'Because sometimes you need bubbles in your life.',
+        label: 'Sparkling Water',
+        value: 'sparkling',
       },
     ],
   },
@@ -68,23 +64,19 @@ export const Inline: Story = {
     name: 'radioBoxesField',
     options: [
       {
-        description: 'Neutral element for multiplication.',
-        icon: <FaRocket className="w-8 text-3xl" />,
-        label: 'option 1',
-        value: '1',
+        description: 'Small but mighty, like a chihuahua.',
+        label: 'Small',
+        value: 'small',
       },
       {
-        description: 'The number for Nerds.',
-        icon: <FaFlask className="w-8 text-3xl" />,
-        label: 'option 2',
-        value: '2',
+        description: 'The Goldilocks of sizes - just right.',
+        label: 'Medium',
+        value: 'medium',
       },
       {
-        description:
-          'first prime number to be devisable by something other than 1.',
-        icon: <FaPhone className="w-8 text-3xl" />,
-        label: 'option 3',
-        value: '3',
+        description: 'Go big or go home!',
+        label: 'Large',
+        value: 'large',
       },
     ],
   },
@@ -92,29 +84,25 @@ export const Inline: Story = {
 
 export const WithInitialValue: Story = {
   parameters: {
-    formProps: { initialValues: { radioBoxesField: '3' } },
+    formProps: { initialValues: { radioBoxesField: 'wizard' } },
   },
   args: {
     name: 'radioBoxesField',
     options: [
       {
-        description: 'Neutral element for multiplication.',
-        icon: <FaRocket className="w-8 text-3xl" />,
-        label: 'option 1',
-        value: '1',
+        description: 'Hack and slash your way through life.',
+        label: 'Warrior',
+        value: 'warrior',
       },
       {
-        description: 'The number for Nerds.',
-        icon: <FaFlask className="w-8 text-3xl" />,
-        label: 'option 2',
-        value: '2',
+        description: 'Master of the arcane arts and fireballs.',
+        label: 'Wizard',
+        value: 'wizard',
       },
       {
-        description:
-          'first prime number to be devisable by something other than 1.',
-        icon: <FaPhone className="w-8 text-3xl" />,
-        label: 'option 3',
-        value: '3',
+        description: 'Sneaky backstabber with questionable morals.',
+        label: 'Rogue',
+        value: 'rogue',
       },
     ],
   },
@@ -126,23 +114,19 @@ export const DisabledCompletely: Story = {
     disabled: true,
     options: [
       {
-        description: 'Neutral element for multiplication.',
-        icon: <FaRocket className="w-8 text-3xl" />,
-        label: 'option 1',
-        value: '1',
+        description: 'Early birds get worms, but also need alarms.',
+        label: 'Morning Person',
+        value: 'morning',
       },
       {
-        description: 'The number for Nerds.',
-        icon: <FaFlask className="w-8 text-3xl" />,
-        label: 'option 2',
-        value: '2',
+        description: 'Peak productivity at 2 AM.',
+        label: 'Night Owl',
+        value: 'night',
       },
       {
-        description:
-          'first prime number to be devisable by something other than 1.',
-        icon: <FaPhone className="w-8 text-3xl" />,
-        label: 'option 3',
-        value: '3',
+        description: 'Sleep? What sleep?',
+        label: 'Insomniac',
+        value: 'insomniac',
       },
     ],
   },
@@ -153,24 +137,20 @@ export const DisabledOption: Story = {
     name: 'radioBoxesField',
     options: [
       {
-        description: 'Neutral element for multiplication.',
-        icon: <FaRocket className="w-8 text-3xl" />,
-        label: 'option 1',
-        value: '1',
+        description: 'Reliable, safe, and a bit boring.',
+        label: 'Browser Tabs',
+        value: 'tabs',
       },
       {
-        description: 'The number for Nerds.',
-        icon: <FaFlask className="w-8 text-3xl" />,
-        label: 'option 2',
-        value: '2',
+        description: 'Currently out of stock (sold out!)',
+        label: 'Physical Books',
+        value: 'books',
         disabled: true,
       },
       {
-        description:
-          'first prime number to be devisable by something other than 1.',
-        icon: <FaPhone className="w-8 text-3xl" />,
-        label: 'option 3',
-        value: '3',
+        description: 'Your desk is now a post-it jungle.',
+        label: 'Sticky Notes',
+        value: 'sticky',
       },
     ],
   },
@@ -183,27 +163,23 @@ const requiredValidation = veto({
 export const Required: Story = {
   parameters: { formProps: { validation: requiredValidation } },
   args: {
-    label: 'radioBoxesField',
+    label: 'Pick Your Superpower',
     name: 'radioBoxesField',
     options: [
       {
-        description: 'Neutral element for multiplication.',
-        icon: <FaRocket className="w-8 text-3xl" />,
-        label: 'option 1',
-        value: '1',
+        description: 'Never be late again (or just sleep in).',
+        label: 'Time Travel',
+        value: 'time',
       },
       {
-        description: 'The number for Nerds.',
-        icon: <FaFlask className="w-8 text-3xl" />,
-        label: 'option 2',
-        value: '2',
+        description: 'Read minds and regret it immediately.',
+        label: 'Telepathy',
+        value: 'telepathy',
       },
       {
-        description:
-          'first prime number to be devisable by something other than 1.',
-        icon: <FaPhone className="w-8 text-3xl" />,
-        label: 'option 3',
-        value: '3',
+        description: 'Finally reach the top shelf!',
+        label: 'Flight',
+        value: 'flight',
       },
     ],
   },
@@ -214,43 +190,39 @@ export const Invalid: Story = {
     formProps: {
       validation: veto({
         radioBoxesField: string().refine((value) => {
-          return value !== 'two';
-        }, 'Please use another option'),
+          return value !== 'pineapple';
+        }, 'No pineapple on pizza, please!'),
       }),
     },
   },
   args: {
     name: 'radioBoxesField',
-    label: 'radioBoxesField',
+    label: 'Choose Your Pizza',
     options: [
       {
-        description: 'Neutral element for multiplication.',
-        icon: <FaRocket className="w-8 text-3xl" />,
-        label: 'option 1',
-        value: 'one',
+        description: 'Simple, classic, and universally loved.',
+        label: 'Margherita',
+        value: 'margherita',
       },
       {
-        description: 'The number for Nerds.',
-        icon: <FaFlask className="w-8 text-3xl" />,
-        label: 'option 2',
-        value: 'two',
+        description: 'Controversial and banned in this form.',
+        label: 'Hawaiian',
+        value: 'pineapple',
       },
       {
-        description:
-          'first prime number to be devisable by something other than 1.',
-        icon: <FaPhone className="w-8 text-3xl" />,
-        label: 'option 3',
-        value: 'three',
+        description: 'For those who like it spicy.',
+        label: 'Pepperoni',
+        value: 'pepperoni',
       },
     ],
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    const optionOne = canvas.getByTestId('radioboxesfield_option_one');
+    const optionOne = canvas.getByTestId('radioboxesfield_option_margherita');
     await userEvent.click(optionOne, {
       delay: 100,
     });
-    const optionTwo = canvas.getByTestId('radioboxesfield_option_two');
+    const optionTwo = canvas.getByTestId('radioboxesfield_option_pineapple');
     await userEvent.click(optionTwo, {
       delay: 100,
     });
@@ -259,5 +231,31 @@ export const Invalid: Story = {
     await waitFor(() => {
       expect(canvas.getByTestId('radioboxesfield_error')).toBeVisible();
     });
+  },
+};
+
+export const WithIcons: Story = {
+  args: {
+    name: 'radioBoxesField',
+    options: [
+      {
+        description: 'Blast off to Mars and leave your problems behind!',
+        icon: <FaRocket className="w-8 text-3xl" />,
+        label: 'Space Explorer',
+        value: 'space',
+      },
+      {
+        description: 'Mix potions and accidentally create monsters.',
+        icon: <FaFlask className="w-8 text-3xl" />,
+        label: 'Mad Scientist',
+        value: 'scientist',
+      },
+      {
+        description: 'Answer support calls... forever.',
+        icon: <FaPhone className="w-8 text-3xl" />,
+        label: 'Customer Support',
+        value: 'support',
+      },
+    ],
   },
 };

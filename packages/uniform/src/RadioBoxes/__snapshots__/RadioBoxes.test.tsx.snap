@@ -28,7 +28,7 @@ exports[`Story Snapshots > Default 1`] = `
         >
           <label
             class="group inline-flex flex-auto cursor-pointer items-center justify-between gap-4 rounded-lg border-2 border-default p-4 hover:bg-content2 data-[selected=true]:border-focus"
-            data-testid="radioboxesfield_option_1"
+            data-testid="radioboxesfield_option_coffee"
           >
             <div
               style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
@@ -42,41 +42,36 @@ exports[`Story Snapshots > Default 1`] = `
                 tabindex="0"
                 title=""
                 type="radio"
-                value="1"
+                value="coffee"
               />
             </div>
             <span
               aria-hidden="true"
-              class="relative inline-flex items-center justify-center shrink-0 overflow-hidden border-solid border-medium box-border border-default rounded-full group-data-[hover-unselected=true]:bg-default-100 outline-solid outline-transparent group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:border-primary w-5 h-5 group-data-[pressed=true]:scale-95 transition-transform-colors motion-reduce:transition-none group-data-[invalid=true]:!border-danger [&:not(group-data-[invalid="true"]):not(group-data-[selected="false"])]:border-focus"
+              class="relative inline-flex items-center justify-center shrink-0 overflow-hidden border-solid border-medium box-border border-default rounded-full group-data-[hover-unselected=true]:bg-default-100 outline-solid outline-transparent group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:border-primary w-5 h-5 group-data-[pressed=true]:scale-95 transition-transform-colors motion-reduce:transition-none"
             >
               <span
-                class="z-10 opacity-0 scale-0 origin-center rounded-full group-data-[selected=true]:opacity-100 group-data-[selected=true]:scale-100 text-primary-foreground w-2 h-2 transition-transform-opacity motion-reduce:transition-none bg-focus group-data-[invalid=true]:bg-danger"
+                class="z-10 opacity-0 scale-0 origin-center rounded-full group-data-[selected=true]:opacity-100 group-data-[selected=true]:scale-100 bg-primary text-primary-foreground w-2 h-2 transition-transform-opacity motion-reduce:transition-none"
               />
-            </span>
-            <span
-              data-testid="icon-FaRocket"
-            >
-              FaRocket
             </span>
             <div
               class="flex flex-col ml-1 ms-2 grow"
             >
               <span
-                class="relative text-foreground select-none transition-colors motion-reduce:transition-none text-sm"
+                class="relative select-none text-medium transition-colors motion-reduce:transition-none"
                 id="aria-id"
               >
-                option 1
+                Coffee
               </span>
-              <span
+              <div
                 class="text-foreground opacity-70 text-small"
               >
-                Neutral element for multiplication.
-              </span>
+                Perfect for lazy Sundays and binge-watching.
+              </div>
             </div>
           </label>
           <label
             class="group inline-flex flex-auto cursor-pointer items-center justify-between gap-4 rounded-lg border-2 border-default p-4 hover:bg-content2 data-[selected=true]:border-focus"
-            data-testid="radioboxesfield_option_2"
+            data-testid="radioboxesfield_option_tea"
           >
             <div
               style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
@@ -90,41 +85,36 @@ exports[`Story Snapshots > Default 1`] = `
                 tabindex="0"
                 title=""
                 type="radio"
-                value="2"
+                value="tea"
               />
             </div>
             <span
               aria-hidden="true"
-              class="relative inline-flex items-center justify-center shrink-0 overflow-hidden border-solid border-medium box-border border-default rounded-full group-data-[hover-unselected=true]:bg-default-100 outline-solid outline-transparent group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:border-primary w-5 h-5 group-data-[pressed=true]:scale-95 transition-transform-colors motion-reduce:transition-none group-data-[invalid=true]:!border-danger [&:not(group-data-[invalid="true"]):not(group-data-[selected="false"])]:border-focus"
+              class="relative inline-flex items-center justify-center shrink-0 overflow-hidden border-solid border-medium box-border border-default rounded-full group-data-[hover-unselected=true]:bg-default-100 outline-solid outline-transparent group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:border-primary w-5 h-5 group-data-[pressed=true]:scale-95 transition-transform-colors motion-reduce:transition-none"
             >
               <span
-                class="z-10 opacity-0 scale-0 origin-center rounded-full group-data-[selected=true]:opacity-100 group-data-[selected=true]:scale-100 text-primary-foreground w-2 h-2 transition-transform-opacity motion-reduce:transition-none bg-focus group-data-[invalid=true]:bg-danger"
+                class="z-10 opacity-0 scale-0 origin-center rounded-full group-data-[selected=true]:opacity-100 group-data-[selected=true]:scale-100 bg-primary text-primary-foreground w-2 h-2 transition-transform-opacity motion-reduce:transition-none"
               />
-            </span>
-            <span
-              data-testid="icon-FaFlask"
-            >
-              FaFlask
             </span>
             <div
               class="flex flex-col ml-1 ms-2 grow"
             >
               <span
-                class="relative text-foreground select-none transition-colors motion-reduce:transition-none text-sm"
+                class="relative select-none text-medium transition-colors motion-reduce:transition-none"
                 id="aria-id"
               >
-                option 2
+                Tea
               </span>
-              <span
+              <div
                 class="text-foreground opacity-70 text-small"
               >
-                The number for Nerds.
-              </span>
+                Calm, zen, and definitely not boring.
+              </div>
             </div>
           </label>
           <label
             class="group inline-flex flex-auto cursor-pointer items-center justify-between gap-4 rounded-lg border-2 border-default p-4 hover:bg-content2 data-[selected=true]:border-focus"
-            data-testid="radioboxesfield_option_3"
+            data-testid="radioboxesfield_option_sparkling"
           >
             <div
               style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
@@ -138,36 +128,31 @@ exports[`Story Snapshots > Default 1`] = `
                 tabindex="0"
                 title=""
                 type="radio"
-                value="3"
+                value="sparkling"
               />
             </div>
             <span
               aria-hidden="true"
-              class="relative inline-flex items-center justify-center shrink-0 overflow-hidden border-solid border-medium box-border border-default rounded-full group-data-[hover-unselected=true]:bg-default-100 outline-solid outline-transparent group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:border-primary w-5 h-5 group-data-[pressed=true]:scale-95 transition-transform-colors motion-reduce:transition-none group-data-[invalid=true]:!border-danger [&:not(group-data-[invalid="true"]):not(group-data-[selected="false"])]:border-focus"
+              class="relative inline-flex items-center justify-center shrink-0 overflow-hidden border-solid border-medium box-border border-default rounded-full group-data-[hover-unselected=true]:bg-default-100 outline-solid outline-transparent group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:border-primary w-5 h-5 group-data-[pressed=true]:scale-95 transition-transform-colors motion-reduce:transition-none"
             >
               <span
-                class="z-10 opacity-0 scale-0 origin-center rounded-full group-data-[selected=true]:opacity-100 group-data-[selected=true]:scale-100 text-primary-foreground w-2 h-2 transition-transform-opacity motion-reduce:transition-none bg-focus group-data-[invalid=true]:bg-danger"
+                class="z-10 opacity-0 scale-0 origin-center rounded-full group-data-[selected=true]:opacity-100 group-data-[selected=true]:scale-100 bg-primary text-primary-foreground w-2 h-2 transition-transform-opacity motion-reduce:transition-none"
               />
-            </span>
-            <span
-              data-testid="icon-FaPhone"
-            >
-              FaPhone
             </span>
             <div
               class="flex flex-col ml-1 ms-2 grow"
             >
               <span
-                class="relative text-foreground select-none transition-colors motion-reduce:transition-none text-sm"
+                class="relative select-none text-medium transition-colors motion-reduce:transition-none"
                 id="aria-id"
               >
-                option 3
+                Sparkling Water
               </span>
-              <span
+              <div
                 class="text-foreground opacity-70 text-small"
               >
-                first prime number to be devisable by something other than 1.
-              </span>
+                Because sometimes you need bubbles in your life.
+              </div>
             </div>
           </label>
         </div>
@@ -220,7 +205,7 @@ exports[`Story Snapshots > DisabledCompletely 1`] = `
           <label
             class="group inline-flex flex-auto cursor-pointer items-center justify-between gap-4 rounded-lg border-2 border-default p-4 hover:bg-content2 data-[selected=true]:border-focus pointer-events-none opacity-disabled"
             data-disabled="true"
-            data-testid="radioboxesfield_option_1"
+            data-testid="radioboxesfield_option_morning"
           >
             <div
               style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
@@ -233,42 +218,37 @@ exports[`Story Snapshots > DisabledCompletely 1`] = `
                 disabled=""
                 name="radioBoxesField"
                 type="radio"
-                value="1"
+                value="morning"
               />
             </div>
             <span
               aria-hidden="true"
-              class="relative inline-flex items-center justify-center shrink-0 overflow-hidden border-solid border-medium box-border border-default rounded-full group-data-[hover-unselected=true]:bg-default-100 outline-solid outline-transparent group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:border-primary w-5 h-5 group-data-[pressed=true]:scale-95 transition-transform-colors motion-reduce:transition-none group-data-[invalid=true]:!border-danger [&:not(group-data-[invalid="true"]):not(group-data-[selected="false"])]:border-focus"
+              class="relative inline-flex items-center justify-center shrink-0 overflow-hidden border-solid border-medium box-border border-default rounded-full group-data-[hover-unselected=true]:bg-default-100 outline-solid outline-transparent group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:border-primary w-5 h-5 group-data-[pressed=true]:scale-95 transition-transform-colors motion-reduce:transition-none"
             >
               <span
-                class="z-10 opacity-0 scale-0 origin-center rounded-full group-data-[selected=true]:opacity-100 group-data-[selected=true]:scale-100 text-primary-foreground w-2 h-2 transition-transform-opacity motion-reduce:transition-none bg-focus group-data-[invalid=true]:bg-danger"
+                class="z-10 opacity-0 scale-0 origin-center rounded-full group-data-[selected=true]:opacity-100 group-data-[selected=true]:scale-100 bg-primary text-primary-foreground w-2 h-2 transition-transform-opacity motion-reduce:transition-none"
               />
-            </span>
-            <span
-              data-testid="icon-FaRocket"
-            >
-              FaRocket
             </span>
             <div
               class="flex flex-col ml-1 ms-2 grow"
             >
               <span
-                class="relative text-foreground select-none transition-colors motion-reduce:transition-none text-sm"
+                class="relative select-none text-medium transition-colors motion-reduce:transition-none"
                 id="«ri»"
               >
-                option 1
+                Morning Person
               </span>
-              <span
+              <div
                 class="text-foreground opacity-70 text-small"
               >
-                Neutral element for multiplication.
-              </span>
+                Early birds get worms, but also need alarms.
+              </div>
             </div>
           </label>
           <label
             class="group inline-flex flex-auto cursor-pointer items-center justify-between gap-4 rounded-lg border-2 border-default p-4 hover:bg-content2 data-[selected=true]:border-focus pointer-events-none opacity-disabled"
             data-disabled="true"
-            data-testid="radioboxesfield_option_2"
+            data-testid="radioboxesfield_option_night"
           >
             <div
               style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
@@ -281,42 +261,37 @@ exports[`Story Snapshots > DisabledCompletely 1`] = `
                 disabled=""
                 name="radioBoxesField"
                 type="radio"
-                value="2"
+                value="night"
               />
             </div>
             <span
               aria-hidden="true"
-              class="relative inline-flex items-center justify-center shrink-0 overflow-hidden border-solid border-medium box-border border-default rounded-full group-data-[hover-unselected=true]:bg-default-100 outline-solid outline-transparent group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:border-primary w-5 h-5 group-data-[pressed=true]:scale-95 transition-transform-colors motion-reduce:transition-none group-data-[invalid=true]:!border-danger [&:not(group-data-[invalid="true"]):not(group-data-[selected="false"])]:border-focus"
+              class="relative inline-flex items-center justify-center shrink-0 overflow-hidden border-solid border-medium box-border border-default rounded-full group-data-[hover-unselected=true]:bg-default-100 outline-solid outline-transparent group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:border-primary w-5 h-5 group-data-[pressed=true]:scale-95 transition-transform-colors motion-reduce:transition-none"
             >
               <span
-                class="z-10 opacity-0 scale-0 origin-center rounded-full group-data-[selected=true]:opacity-100 group-data-[selected=true]:scale-100 text-primary-foreground w-2 h-2 transition-transform-opacity motion-reduce:transition-none bg-focus group-data-[invalid=true]:bg-danger"
+                class="z-10 opacity-0 scale-0 origin-center rounded-full group-data-[selected=true]:opacity-100 group-data-[selected=true]:scale-100 bg-primary text-primary-foreground w-2 h-2 transition-transform-opacity motion-reduce:transition-none"
               />
-            </span>
-            <span
-              data-testid="icon-FaFlask"
-            >
-              FaFlask
             </span>
             <div
               class="flex flex-col ml-1 ms-2 grow"
             >
               <span
-                class="relative text-foreground select-none transition-colors motion-reduce:transition-none text-sm"
+                class="relative select-none text-medium transition-colors motion-reduce:transition-none"
                 id="«rk»"
               >
-                option 2
+                Night Owl
               </span>
-              <span
+              <div
                 class="text-foreground opacity-70 text-small"
               >
-                The number for Nerds.
-              </span>
+                Peak productivity at 2 AM.
+              </div>
             </div>
           </label>
           <label
             class="group inline-flex flex-auto cursor-pointer items-center justify-between gap-4 rounded-lg border-2 border-default p-4 hover:bg-content2 data-[selected=true]:border-focus pointer-events-none opacity-disabled"
             data-disabled="true"
-            data-testid="radioboxesfield_option_3"
+            data-testid="radioboxesfield_option_insomniac"
           >
             <div
               style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
@@ -329,36 +304,31 @@ exports[`Story Snapshots > DisabledCompletely 1`] = `
                 disabled=""
                 name="radioBoxesField"
                 type="radio"
-                value="3"
+                value="insomniac"
               />
             </div>
             <span
               aria-hidden="true"
-              class="relative inline-flex items-center justify-center shrink-0 overflow-hidden border-solid border-medium box-border border-default rounded-full group-data-[hover-unselected=true]:bg-default-100 outline-solid outline-transparent group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:border-primary w-5 h-5 group-data-[pressed=true]:scale-95 transition-transform-colors motion-reduce:transition-none group-data-[invalid=true]:!border-danger [&:not(group-data-[invalid="true"]):not(group-data-[selected="false"])]:border-focus"
+              class="relative inline-flex items-center justify-center shrink-0 overflow-hidden border-solid border-medium box-border border-default rounded-full group-data-[hover-unselected=true]:bg-default-100 outline-solid outline-transparent group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:border-primary w-5 h-5 group-data-[pressed=true]:scale-95 transition-transform-colors motion-reduce:transition-none"
             >
               <span
-                class="z-10 opacity-0 scale-0 origin-center rounded-full group-data-[selected=true]:opacity-100 group-data-[selected=true]:scale-100 text-primary-foreground w-2 h-2 transition-transform-opacity motion-reduce:transition-none bg-focus group-data-[invalid=true]:bg-danger"
+                class="z-10 opacity-0 scale-0 origin-center rounded-full group-data-[selected=true]:opacity-100 group-data-[selected=true]:scale-100 bg-primary text-primary-foreground w-2 h-2 transition-transform-opacity motion-reduce:transition-none"
               />
-            </span>
-            <span
-              data-testid="icon-FaPhone"
-            >
-              FaPhone
             </span>
             <div
               class="flex flex-col ml-1 ms-2 grow"
             >
               <span
-                class="relative text-foreground select-none transition-colors motion-reduce:transition-none text-sm"
+                class="relative select-none text-medium transition-colors motion-reduce:transition-none"
                 id="«rm»"
               >
-                option 3
+                Insomniac
               </span>
-              <span
+              <div
                 class="text-foreground opacity-70 text-small"
               >
-                first prime number to be devisable by something other than 1.
-              </span>
+                Sleep? What sleep?
+              </div>
             </div>
           </label>
         </div>
@@ -410,7 +380,7 @@ exports[`Story Snapshots > DisabledOption 1`] = `
         >
           <label
             class="group inline-flex flex-auto cursor-pointer items-center justify-between gap-4 rounded-lg border-2 border-default p-4 hover:bg-content2 data-[selected=true]:border-focus"
-            data-testid="radioboxesfield_option_1"
+            data-testid="radioboxesfield_option_tabs"
           >
             <div
               style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
@@ -424,42 +394,37 @@ exports[`Story Snapshots > DisabledOption 1`] = `
                 tabindex="0"
                 title=""
                 type="radio"
-                value="1"
+                value="tabs"
               />
             </div>
             <span
               aria-hidden="true"
-              class="relative inline-flex items-center justify-center shrink-0 overflow-hidden border-solid border-medium box-border border-default rounded-full group-data-[hover-unselected=true]:bg-default-100 outline-solid outline-transparent group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:border-primary w-5 h-5 group-data-[pressed=true]:scale-95 transition-transform-colors motion-reduce:transition-none group-data-[invalid=true]:!border-danger [&:not(group-data-[invalid="true"]):not(group-data-[selected="false"])]:border-focus"
+              class="relative inline-flex items-center justify-center shrink-0 overflow-hidden border-solid border-medium box-border border-default rounded-full group-data-[hover-unselected=true]:bg-default-100 outline-solid outline-transparent group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:border-primary w-5 h-5 group-data-[pressed=true]:scale-95 transition-transform-colors motion-reduce:transition-none"
             >
               <span
-                class="z-10 opacity-0 scale-0 origin-center rounded-full group-data-[selected=true]:opacity-100 group-data-[selected=true]:scale-100 text-primary-foreground w-2 h-2 transition-transform-opacity motion-reduce:transition-none bg-focus group-data-[invalid=true]:bg-danger"
+                class="z-10 opacity-0 scale-0 origin-center rounded-full group-data-[selected=true]:opacity-100 group-data-[selected=true]:scale-100 bg-primary text-primary-foreground w-2 h-2 transition-transform-opacity motion-reduce:transition-none"
               />
-            </span>
-            <span
-              data-testid="icon-FaRocket"
-            >
-              FaRocket
             </span>
             <div
               class="flex flex-col ml-1 ms-2 grow"
             >
               <span
-                class="relative text-foreground select-none transition-colors motion-reduce:transition-none text-sm"
+                class="relative select-none text-medium transition-colors motion-reduce:transition-none"
                 id="«ro»"
               >
-                option 1
+                Browser Tabs
               </span>
-              <span
+              <div
                 class="text-foreground opacity-70 text-small"
               >
-                Neutral element for multiplication.
-              </span>
+                Reliable, safe, and a bit boring.
+              </div>
             </div>
           </label>
           <label
             class="group inline-flex flex-auto cursor-pointer items-center justify-between gap-4 rounded-lg border-2 border-default p-4 hover:bg-content2 data-[selected=true]:border-focus pointer-events-none opacity-disabled"
             data-disabled="true"
-            data-testid="radioboxesfield_option_2"
+            data-testid="radioboxesfield_option_books"
           >
             <div
               style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
@@ -472,41 +437,36 @@ exports[`Story Snapshots > DisabledOption 1`] = `
                 disabled=""
                 name="radioBoxesField"
                 type="radio"
-                value="2"
+                value="books"
               />
             </div>
             <span
               aria-hidden="true"
-              class="relative inline-flex items-center justify-center shrink-0 overflow-hidden border-solid border-medium box-border border-default rounded-full group-data-[hover-unselected=true]:bg-default-100 outline-solid outline-transparent group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:border-primary w-5 h-5 group-data-[pressed=true]:scale-95 transition-transform-colors motion-reduce:transition-none group-data-[invalid=true]:!border-danger [&:not(group-data-[invalid="true"]):not(group-data-[selected="false"])]:border-focus"
+              class="relative inline-flex items-center justify-center shrink-0 overflow-hidden border-solid border-medium box-border border-default rounded-full group-data-[hover-unselected=true]:bg-default-100 outline-solid outline-transparent group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:border-primary w-5 h-5 group-data-[pressed=true]:scale-95 transition-transform-colors motion-reduce:transition-none"
             >
               <span
-                class="z-10 opacity-0 scale-0 origin-center rounded-full group-data-[selected=true]:opacity-100 group-data-[selected=true]:scale-100 text-primary-foreground w-2 h-2 transition-transform-opacity motion-reduce:transition-none bg-focus group-data-[invalid=true]:bg-danger"
+                class="z-10 opacity-0 scale-0 origin-center rounded-full group-data-[selected=true]:opacity-100 group-data-[selected=true]:scale-100 bg-primary text-primary-foreground w-2 h-2 transition-transform-opacity motion-reduce:transition-none"
               />
-            </span>
-            <span
-              data-testid="icon-FaFlask"
-            >
-              FaFlask
             </span>
             <div
               class="flex flex-col ml-1 ms-2 grow"
             >
               <span
-                class="relative text-foreground select-none transition-colors motion-reduce:transition-none text-sm"
+                class="relative select-none text-medium transition-colors motion-reduce:transition-none"
                 id="«rq»"
               >
-                option 2
+                Physical Books
               </span>
-              <span
+              <div
                 class="text-foreground opacity-70 text-small"
               >
-                The number for Nerds.
-              </span>
+                Currently out of stock (sold out!)
+              </div>
             </div>
           </label>
           <label
             class="group inline-flex flex-auto cursor-pointer items-center justify-between gap-4 rounded-lg border-2 border-default p-4 hover:bg-content2 data-[selected=true]:border-focus"
-            data-testid="radioboxesfield_option_3"
+            data-testid="radioboxesfield_option_sticky"
           >
             <div
               style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
@@ -520,36 +480,31 @@ exports[`Story Snapshots > DisabledOption 1`] = `
                 tabindex="0"
                 title=""
                 type="radio"
-                value="3"
+                value="sticky"
               />
             </div>
             <span
               aria-hidden="true"
-              class="relative inline-flex items-center justify-center shrink-0 overflow-hidden border-solid border-medium box-border border-default rounded-full group-data-[hover-unselected=true]:bg-default-100 outline-solid outline-transparent group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:border-primary w-5 h-5 group-data-[pressed=true]:scale-95 transition-transform-colors motion-reduce:transition-none group-data-[invalid=true]:!border-danger [&:not(group-data-[invalid="true"]):not(group-data-[selected="false"])]:border-focus"
+              class="relative inline-flex items-center justify-center shrink-0 overflow-hidden border-solid border-medium box-border border-default rounded-full group-data-[hover-unselected=true]:bg-default-100 outline-solid outline-transparent group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:border-primary w-5 h-5 group-data-[pressed=true]:scale-95 transition-transform-colors motion-reduce:transition-none"
             >
               <span
-                class="z-10 opacity-0 scale-0 origin-center rounded-full group-data-[selected=true]:opacity-100 group-data-[selected=true]:scale-100 text-primary-foreground w-2 h-2 transition-transform-opacity motion-reduce:transition-none bg-focus group-data-[invalid=true]:bg-danger"
+                class="z-10 opacity-0 scale-0 origin-center rounded-full group-data-[selected=true]:opacity-100 group-data-[selected=true]:scale-100 bg-primary text-primary-foreground w-2 h-2 transition-transform-opacity motion-reduce:transition-none"
               />
-            </span>
-            <span
-              data-testid="icon-FaPhone"
-            >
-              FaPhone
             </span>
             <div
               class="flex flex-col ml-1 ms-2 grow"
             >
               <span
-                class="relative text-foreground select-none transition-colors motion-reduce:transition-none text-sm"
+                class="relative select-none text-medium transition-colors motion-reduce:transition-none"
                 id="«rs»"
               >
-                option 3
+                Sticky Notes
               </span>
-              <span
+              <div
                 class="text-foreground opacity-70 text-small"
               >
-                first prime number to be devisable by something other than 1.
-              </span>
+                Your desk is now a post-it jungle.
+              </div>
             </div>
           </label>
         </div>
@@ -601,7 +556,7 @@ exports[`Story Snapshots > Inline 1`] = `
         >
           <label
             class="group inline-flex flex-auto cursor-pointer items-center justify-between gap-4 rounded-lg border-2 border-default p-4 hover:bg-content2 data-[selected=true]:border-focus"
-            data-testid="radioboxesfield_option_1"
+            data-testid="radioboxesfield_option_small"
           >
             <div
               style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
@@ -615,41 +570,36 @@ exports[`Story Snapshots > Inline 1`] = `
                 tabindex="0"
                 title=""
                 type="radio"
-                value="1"
+                value="small"
               />
             </div>
             <span
               aria-hidden="true"
-              class="relative inline-flex items-center justify-center shrink-0 overflow-hidden border-solid border-medium box-border border-default rounded-full group-data-[hover-unselected=true]:bg-default-100 outline-solid outline-transparent group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:border-primary w-5 h-5 group-data-[pressed=true]:scale-95 transition-transform-colors motion-reduce:transition-none group-data-[invalid=true]:!border-danger [&:not(group-data-[invalid="true"]):not(group-data-[selected="false"])]:border-focus"
+              class="relative inline-flex items-center justify-center shrink-0 overflow-hidden border-solid border-medium box-border border-default rounded-full group-data-[hover-unselected=true]:bg-default-100 outline-solid outline-transparent group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:border-primary w-5 h-5 group-data-[pressed=true]:scale-95 transition-transform-colors motion-reduce:transition-none"
             >
               <span
-                class="z-10 opacity-0 scale-0 origin-center rounded-full group-data-[selected=true]:opacity-100 group-data-[selected=true]:scale-100 text-primary-foreground w-2 h-2 transition-transform-opacity motion-reduce:transition-none bg-focus group-data-[invalid=true]:bg-danger"
+                class="z-10 opacity-0 scale-0 origin-center rounded-full group-data-[selected=true]:opacity-100 group-data-[selected=true]:scale-100 bg-primary text-primary-foreground w-2 h-2 transition-transform-opacity motion-reduce:transition-none"
               />
-            </span>
-            <span
-              data-testid="icon-FaRocket"
-            >
-              FaRocket
             </span>
             <div
               class="flex flex-col ml-1 ms-2 grow"
             >
               <span
-                class="relative text-foreground select-none transition-colors motion-reduce:transition-none text-sm"
+                class="relative select-none text-medium transition-colors motion-reduce:transition-none"
                 id="aria-id"
               >
-                option 1
+                Small
               </span>
-              <span
+              <div
                 class="text-foreground opacity-70 text-small"
               >
-                Neutral element for multiplication.
-              </span>
+                Small but mighty, like a chihuahua.
+              </div>
             </div>
           </label>
           <label
             class="group inline-flex flex-auto cursor-pointer items-center justify-between gap-4 rounded-lg border-2 border-default p-4 hover:bg-content2 data-[selected=true]:border-focus"
-            data-testid="radioboxesfield_option_2"
+            data-testid="radioboxesfield_option_medium"
           >
             <div
               style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
@@ -663,41 +613,36 @@ exports[`Story Snapshots > Inline 1`] = `
                 tabindex="0"
                 title=""
                 type="radio"
-                value="2"
+                value="medium"
               />
             </div>
             <span
               aria-hidden="true"
-              class="relative inline-flex items-center justify-center shrink-0 overflow-hidden border-solid border-medium box-border border-default rounded-full group-data-[hover-unselected=true]:bg-default-100 outline-solid outline-transparent group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:border-primary w-5 h-5 group-data-[pressed=true]:scale-95 transition-transform-colors motion-reduce:transition-none group-data-[invalid=true]:!border-danger [&:not(group-data-[invalid="true"]):not(group-data-[selected="false"])]:border-focus"
+              class="relative inline-flex items-center justify-center shrink-0 overflow-hidden border-solid border-medium box-border border-default rounded-full group-data-[hover-unselected=true]:bg-default-100 outline-solid outline-transparent group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:border-primary w-5 h-5 group-data-[pressed=true]:scale-95 transition-transform-colors motion-reduce:transition-none"
             >
               <span
-                class="z-10 opacity-0 scale-0 origin-center rounded-full group-data-[selected=true]:opacity-100 group-data-[selected=true]:scale-100 text-primary-foreground w-2 h-2 transition-transform-opacity motion-reduce:transition-none bg-focus group-data-[invalid=true]:bg-danger"
+                class="z-10 opacity-0 scale-0 origin-center rounded-full group-data-[selected=true]:opacity-100 group-data-[selected=true]:scale-100 bg-primary text-primary-foreground w-2 h-2 transition-transform-opacity motion-reduce:transition-none"
               />
-            </span>
-            <span
-              data-testid="icon-FaFlask"
-            >
-              FaFlask
             </span>
             <div
               class="flex flex-col ml-1 ms-2 grow"
             >
               <span
-                class="relative text-foreground select-none transition-colors motion-reduce:transition-none text-sm"
+                class="relative select-none text-medium transition-colors motion-reduce:transition-none"
                 id="aria-id"
               >
-                option 2
+                Medium
               </span>
-              <span
+              <div
                 class="text-foreground opacity-70 text-small"
               >
-                The number for Nerds.
-              </span>
+                The Goldilocks of sizes - just right.
+              </div>
             </div>
           </label>
           <label
             class="group inline-flex flex-auto cursor-pointer items-center justify-between gap-4 rounded-lg border-2 border-default p-4 hover:bg-content2 data-[selected=true]:border-focus"
-            data-testid="radioboxesfield_option_3"
+            data-testid="radioboxesfield_option_large"
           >
             <div
               style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
@@ -711,36 +656,31 @@ exports[`Story Snapshots > Inline 1`] = `
                 tabindex="0"
                 title=""
                 type="radio"
-                value="3"
+                value="large"
               />
             </div>
             <span
               aria-hidden="true"
-              class="relative inline-flex items-center justify-center shrink-0 overflow-hidden border-solid border-medium box-border border-default rounded-full group-data-[hover-unselected=true]:bg-default-100 outline-solid outline-transparent group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:border-primary w-5 h-5 group-data-[pressed=true]:scale-95 transition-transform-colors motion-reduce:transition-none group-data-[invalid=true]:!border-danger [&:not(group-data-[invalid="true"]):not(group-data-[selected="false"])]:border-focus"
+              class="relative inline-flex items-center justify-center shrink-0 overflow-hidden border-solid border-medium box-border border-default rounded-full group-data-[hover-unselected=true]:bg-default-100 outline-solid outline-transparent group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:border-primary w-5 h-5 group-data-[pressed=true]:scale-95 transition-transform-colors motion-reduce:transition-none"
             >
               <span
-                class="z-10 opacity-0 scale-0 origin-center rounded-full group-data-[selected=true]:opacity-100 group-data-[selected=true]:scale-100 text-primary-foreground w-2 h-2 transition-transform-opacity motion-reduce:transition-none bg-focus group-data-[invalid=true]:bg-danger"
+                class="z-10 opacity-0 scale-0 origin-center rounded-full group-data-[selected=true]:opacity-100 group-data-[selected=true]:scale-100 bg-primary text-primary-foreground w-2 h-2 transition-transform-opacity motion-reduce:transition-none"
               />
-            </span>
-            <span
-              data-testid="icon-FaPhone"
-            >
-              FaPhone
             </span>
             <div
               class="flex flex-col ml-1 ms-2 grow"
             >
               <span
-                class="relative text-foreground select-none transition-colors motion-reduce:transition-none text-sm"
+                class="relative select-none text-medium transition-colors motion-reduce:transition-none"
                 id="«ra»"
               >
-                option 3
+                Large
               </span>
-              <span
+              <div
                 class="text-foreground opacity-70 text-small"
               >
-                first prime number to be devisable by something other than 1.
-              </span>
+                Go big or go home!
+              </div>
             </div>
           </label>
         </div>
@@ -791,7 +731,7 @@ exports[`Story Snapshots > Invalid 1`] = `
           class="relative after:content-['*'] after:text-danger after:ml-0.5 mb-2 inline-flex text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger"
         >
           <legend>
-            radioBoxesField
+            Choose Your Pizza
           </legend>
         </span>
         <div
@@ -801,9 +741,9 @@ exports[`Story Snapshots > Invalid 1`] = `
         >
           <label
             aria-required="true"
-            class="group inline-flex flex-auto cursor-pointer items-center justify-between gap-4 rounded-lg border-2 border-default p-4 hover:bg-content2 data-[selected=true]:border-focus"
+            class="group inline-flex flex-auto cursor-pointer items-center justify-between gap-4 rounded-lg border-2 border-default p-4 hover:bg-content2 data-[selected=true]:border-focus !border-danger"
             data-invalid="true"
-            data-testid="radioboxesfield_option_one"
+            data-testid="radioboxesfield_option_margherita"
           >
             <div
               style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
@@ -818,46 +758,41 @@ exports[`Story Snapshots > Invalid 1`] = `
                 tabindex="-1"
                 title=""
                 type="radio"
-                value="one"
+                value="margherita"
               />
             </div>
             <span
               aria-hidden="true"
-              class="relative inline-flex items-center justify-center shrink-0 overflow-hidden border-solid border-medium box-border rounded-full group-data-[hover-unselected=true]:bg-default-100 outline-solid outline-transparent group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background w-5 h-5 border-danger group-data-[selected=true]:border-danger group-data-[pressed=true]:scale-95 transition-transform-colors motion-reduce:transition-none group-data-[invalid=true]:!border-danger [&:not(group-data-[invalid="true"]):not(group-data-[selected="false"])]:border-focus"
+              class="relative inline-flex items-center justify-center shrink-0 overflow-hidden border-solid border-medium box-border rounded-full group-data-[hover-unselected=true]:bg-default-100 outline-solid outline-transparent group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background w-5 h-5 border-danger group-data-[selected=true]:border-danger group-data-[pressed=true]:scale-95 transition-transform-colors motion-reduce:transition-none"
             >
               <span
-                class="z-10 opacity-0 scale-0 origin-center rounded-full group-data-[selected=true]:opacity-100 group-data-[selected=true]:scale-100 w-2 h-2 text-danger-foreground transition-transform-opacity motion-reduce:transition-none bg-focus group-data-[invalid=true]:bg-danger"
+                class="z-10 opacity-0 scale-0 origin-center rounded-full group-data-[selected=true]:opacity-100 group-data-[selected=true]:scale-100 w-2 h-2 bg-danger text-danger-foreground transition-transform-opacity motion-reduce:transition-none"
               />
-            </span>
-            <span
-              data-testid="icon-FaRocket"
-            >
-              FaRocket
             </span>
             <div
               class="flex flex-col ml-1 ms-2 grow"
             >
               <span
-                class="relative select-none text-danger transition-colors motion-reduce:transition-none text-sm"
+                class="relative select-none text-danger transition-colors motion-reduce:transition-none"
                 id="aria-id"
               >
-                option 1
+                Margherita
               </span>
-              <span
+              <div
                 class="text-foreground opacity-70 text-small"
               >
-                Neutral element for multiplication.
-              </span>
+                Simple, classic, and universally loved.
+              </div>
             </div>
           </label>
           <label
             aria-required="true"
-            class="group inline-flex flex-auto cursor-pointer items-center justify-between gap-4 rounded-lg border-2 border-default p-4 hover:bg-content2 data-[selected=true]:border-focus"
+            class="group inline-flex flex-auto cursor-pointer items-center justify-between gap-4 rounded-lg border-2 border-default p-4 hover:bg-content2 data-[selected=true]:border-focus !border-danger"
             data-focus="true"
             data-hover="true"
             data-invalid="true"
             data-selected="true"
-            data-testid="radioboxesfield_option_two"
+            data-testid="radioboxesfield_option_pineapple"
           >
             <div
               style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
@@ -872,43 +807,38 @@ exports[`Story Snapshots > Invalid 1`] = `
                 tabindex="0"
                 title=""
                 type="radio"
-                value="two"
+                value="pineapple"
               />
             </div>
             <span
               aria-hidden="true"
-              class="relative inline-flex items-center justify-center shrink-0 overflow-hidden border-solid border-medium box-border rounded-full group-data-[hover-unselected=true]:bg-default-100 outline-solid outline-transparent group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background w-5 h-5 border-danger group-data-[selected=true]:border-danger group-data-[pressed=true]:scale-95 transition-transform-colors motion-reduce:transition-none group-data-[invalid=true]:!border-danger [&:not(group-data-[invalid="true"]):not(group-data-[selected="false"])]:border-focus"
+              class="relative inline-flex items-center justify-center shrink-0 overflow-hidden border-solid border-medium box-border rounded-full group-data-[hover-unselected=true]:bg-default-100 outline-solid outline-transparent group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background w-5 h-5 border-danger group-data-[selected=true]:border-danger group-data-[pressed=true]:scale-95 transition-transform-colors motion-reduce:transition-none"
             >
               <span
-                class="z-10 opacity-0 scale-0 origin-center rounded-full group-data-[selected=true]:opacity-100 group-data-[selected=true]:scale-100 w-2 h-2 text-danger-foreground transition-transform-opacity motion-reduce:transition-none bg-focus group-data-[invalid=true]:bg-danger"
+                class="z-10 opacity-0 scale-0 origin-center rounded-full group-data-[selected=true]:opacity-100 group-data-[selected=true]:scale-100 w-2 h-2 bg-danger text-danger-foreground transition-transform-opacity motion-reduce:transition-none"
               />
-            </span>
-            <span
-              data-testid="icon-FaFlask"
-            >
-              FaFlask
             </span>
             <div
               class="flex flex-col ml-1 ms-2 grow"
             >
               <span
-                class="relative select-none text-danger transition-colors motion-reduce:transition-none text-sm"
+                class="relative select-none text-danger transition-colors motion-reduce:transition-none"
                 id="aria-id"
               >
-                option 2
+                Hawaiian
               </span>
-              <span
+              <div
                 class="text-foreground opacity-70 text-small"
               >
-                The number for Nerds.
-              </span>
+                Controversial and banned in this form.
+              </div>
             </div>
           </label>
           <label
             aria-required="true"
-            class="group inline-flex flex-auto cursor-pointer items-center justify-between gap-4 rounded-lg border-2 border-default p-4 hover:bg-content2 data-[selected=true]:border-focus"
+            class="group inline-flex flex-auto cursor-pointer items-center justify-between gap-4 rounded-lg border-2 border-default p-4 hover:bg-content2 data-[selected=true]:border-focus !border-danger"
             data-invalid="true"
-            data-testid="radioboxesfield_option_three"
+            data-testid="radioboxesfield_option_pepperoni"
           >
             <div
               style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
@@ -923,36 +853,31 @@ exports[`Story Snapshots > Invalid 1`] = `
                 tabindex="-1"
                 title=""
                 type="radio"
-                value="three"
+                value="pepperoni"
               />
             </div>
             <span
               aria-hidden="true"
-              class="relative inline-flex items-center justify-center shrink-0 overflow-hidden border-solid border-medium box-border rounded-full group-data-[hover-unselected=true]:bg-default-100 outline-solid outline-transparent group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background w-5 h-5 border-danger group-data-[selected=true]:border-danger group-data-[pressed=true]:scale-95 transition-transform-colors motion-reduce:transition-none group-data-[invalid=true]:!border-danger [&:not(group-data-[invalid="true"]):not(group-data-[selected="false"])]:border-focus"
+              class="relative inline-flex items-center justify-center shrink-0 overflow-hidden border-solid border-medium box-border rounded-full group-data-[hover-unselected=true]:bg-default-100 outline-solid outline-transparent group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background w-5 h-5 border-danger group-data-[selected=true]:border-danger group-data-[pressed=true]:scale-95 transition-transform-colors motion-reduce:transition-none"
             >
               <span
-                class="z-10 opacity-0 scale-0 origin-center rounded-full group-data-[selected=true]:opacity-100 group-data-[selected=true]:scale-100 w-2 h-2 text-danger-foreground transition-transform-opacity motion-reduce:transition-none bg-focus group-data-[invalid=true]:bg-danger"
+                class="z-10 opacity-0 scale-0 origin-center rounded-full group-data-[selected=true]:opacity-100 group-data-[selected=true]:scale-100 w-2 h-2 bg-danger text-danger-foreground transition-transform-opacity motion-reduce:transition-none"
               />
-            </span>
-            <span
-              data-testid="icon-FaPhone"
-            >
-              FaPhone
             </span>
             <div
               class="flex flex-col ml-1 ms-2 grow"
             >
               <span
-                class="relative select-none text-danger transition-colors motion-reduce:transition-none text-sm"
+                class="relative select-none text-danger transition-colors motion-reduce:transition-none"
                 id="aria-id"
               >
-                option 3
+                Pepperoni
               </span>
-              <span
+              <div
                 class="text-foreground opacity-70 text-small"
               >
-                first prime number to be devisable by something other than 1.
-              </span>
+                For those who like it spicy.
+              </div>
             </div>
           </label>
         </div>
@@ -970,7 +895,7 @@ exports[`Story Snapshots > Invalid 1`] = `
               <div
                 class="px-1 pt-1"
               >
-                Please use another option
+                No pineapple on pizza, please!
               </div>
             </li>
           </ul>
@@ -1021,7 +946,7 @@ exports[`Story Snapshots > Required 1`] = `
           class="relative after:content-['*'] after:text-danger after:ml-0.5 mb-2 inline-flex text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger"
         >
           <legend>
-            radioBoxesField
+            Pick Your Superpower
           </legend>
         </span>
         <div
@@ -1032,7 +957,7 @@ exports[`Story Snapshots > Required 1`] = `
           <label
             aria-required="true"
             class="group inline-flex flex-auto cursor-pointer items-center justify-between gap-4 rounded-lg border-2 border-default p-4 hover:bg-content2 data-[selected=true]:border-focus"
-            data-testid="radioboxesfield_option_1"
+            data-testid="radioboxesfield_option_time"
           >
             <div
               style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
@@ -1047,42 +972,37 @@ exports[`Story Snapshots > Required 1`] = `
                 tabindex="0"
                 title=""
                 type="radio"
-                value="1"
+                value="time"
               />
             </div>
             <span
               aria-hidden="true"
-              class="relative inline-flex items-center justify-center shrink-0 overflow-hidden border-solid border-medium box-border border-default rounded-full group-data-[hover-unselected=true]:bg-default-100 outline-solid outline-transparent group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:border-primary w-5 h-5 group-data-[pressed=true]:scale-95 transition-transform-colors motion-reduce:transition-none group-data-[invalid=true]:!border-danger [&:not(group-data-[invalid="true"]):not(group-data-[selected="false"])]:border-focus"
+              class="relative inline-flex items-center justify-center shrink-0 overflow-hidden border-solid border-medium box-border border-default rounded-full group-data-[hover-unselected=true]:bg-default-100 outline-solid outline-transparent group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:border-primary w-5 h-5 group-data-[pressed=true]:scale-95 transition-transform-colors motion-reduce:transition-none"
             >
               <span
-                class="z-10 opacity-0 scale-0 origin-center rounded-full group-data-[selected=true]:opacity-100 group-data-[selected=true]:scale-100 text-primary-foreground w-2 h-2 transition-transform-opacity motion-reduce:transition-none bg-focus group-data-[invalid=true]:bg-danger"
+                class="z-10 opacity-0 scale-0 origin-center rounded-full group-data-[selected=true]:opacity-100 group-data-[selected=true]:scale-100 bg-primary text-primary-foreground w-2 h-2 transition-transform-opacity motion-reduce:transition-none"
               />
-            </span>
-            <span
-              data-testid="icon-FaRocket"
-            >
-              FaRocket
             </span>
             <div
               class="flex flex-col ml-1 ms-2 grow"
             >
               <span
-                class="relative text-foreground select-none transition-colors motion-reduce:transition-none text-sm"
+                class="relative select-none text-medium transition-colors motion-reduce:transition-none"
                 id="«ru»"
               >
-                option 1
+                Time Travel
               </span>
-              <span
+              <div
                 class="text-foreground opacity-70 text-small"
               >
-                Neutral element for multiplication.
-              </span>
+                Never be late again (or just sleep in).
+              </div>
             </div>
           </label>
           <label
             aria-required="true"
             class="group inline-flex flex-auto cursor-pointer items-center justify-between gap-4 rounded-lg border-2 border-default p-4 hover:bg-content2 data-[selected=true]:border-focus"
-            data-testid="radioboxesfield_option_2"
+            data-testid="radioboxesfield_option_telepathy"
           >
             <div
               style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
@@ -1097,42 +1017,37 @@ exports[`Story Snapshots > Required 1`] = `
                 tabindex="0"
                 title=""
                 type="radio"
-                value="2"
+                value="telepathy"
               />
             </div>
             <span
               aria-hidden="true"
-              class="relative inline-flex items-center justify-center shrink-0 overflow-hidden border-solid border-medium box-border border-default rounded-full group-data-[hover-unselected=true]:bg-default-100 outline-solid outline-transparent group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:border-primary w-5 h-5 group-data-[pressed=true]:scale-95 transition-transform-colors motion-reduce:transition-none group-data-[invalid=true]:!border-danger [&:not(group-data-[invalid="true"]):not(group-data-[selected="false"])]:border-focus"
+              class="relative inline-flex items-center justify-center shrink-0 overflow-hidden border-solid border-medium box-border border-default rounded-full group-data-[hover-unselected=true]:bg-default-100 outline-solid outline-transparent group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:border-primary w-5 h-5 group-data-[pressed=true]:scale-95 transition-transform-colors motion-reduce:transition-none"
             >
               <span
-                class="z-10 opacity-0 scale-0 origin-center rounded-full group-data-[selected=true]:opacity-100 group-data-[selected=true]:scale-100 text-primary-foreground w-2 h-2 transition-transform-opacity motion-reduce:transition-none bg-focus group-data-[invalid=true]:bg-danger"
+                class="z-10 opacity-0 scale-0 origin-center rounded-full group-data-[selected=true]:opacity-100 group-data-[selected=true]:scale-100 bg-primary text-primary-foreground w-2 h-2 transition-transform-opacity motion-reduce:transition-none"
               />
-            </span>
-            <span
-              data-testid="icon-FaFlask"
-            >
-              FaFlask
             </span>
             <div
               class="flex flex-col ml-1 ms-2 grow"
             >
               <span
-                class="relative text-foreground select-none transition-colors motion-reduce:transition-none text-sm"
+                class="relative select-none text-medium transition-colors motion-reduce:transition-none"
                 id="aria-id"
               >
-                option 2
+                Telepathy
               </span>
-              <span
+              <div
                 class="text-foreground opacity-70 text-small"
               >
-                The number for Nerds.
-              </span>
+                Read minds and regret it immediately.
+              </div>
             </div>
           </label>
           <label
             aria-required="true"
             class="group inline-flex flex-auto cursor-pointer items-center justify-between gap-4 rounded-lg border-2 border-default p-4 hover:bg-content2 data-[selected=true]:border-focus"
-            data-testid="radioboxesfield_option_3"
+            data-testid="radioboxesfield_option_flight"
           >
             <div
               style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
@@ -1147,37 +1062,229 @@ exports[`Story Snapshots > Required 1`] = `
                 tabindex="0"
                 title=""
                 type="radio"
-                value="3"
+                value="flight"
               />
             </div>
             <span
               aria-hidden="true"
-              class="relative inline-flex items-center justify-center shrink-0 overflow-hidden border-solid border-medium box-border border-default rounded-full group-data-[hover-unselected=true]:bg-default-100 outline-solid outline-transparent group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:border-primary w-5 h-5 group-data-[pressed=true]:scale-95 transition-transform-colors motion-reduce:transition-none group-data-[invalid=true]:!border-danger [&:not(group-data-[invalid="true"]):not(group-data-[selected="false"])]:border-focus"
+              class="relative inline-flex items-center justify-center shrink-0 overflow-hidden border-solid border-medium box-border border-default rounded-full group-data-[hover-unselected=true]:bg-default-100 outline-solid outline-transparent group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:border-primary w-5 h-5 group-data-[pressed=true]:scale-95 transition-transform-colors motion-reduce:transition-none"
             >
               <span
-                class="z-10 opacity-0 scale-0 origin-center rounded-full group-data-[selected=true]:opacity-100 group-data-[selected=true]:scale-100 text-primary-foreground w-2 h-2 transition-transform-opacity motion-reduce:transition-none bg-focus group-data-[invalid=true]:bg-danger"
+                class="z-10 opacity-0 scale-0 origin-center rounded-full group-data-[selected=true]:opacity-100 group-data-[selected=true]:scale-100 bg-primary text-primary-foreground w-2 h-2 transition-transform-opacity motion-reduce:transition-none"
               />
-            </span>
-            <span
-              data-testid="icon-FaPhone"
-            >
-              FaPhone
             </span>
             <div
               class="flex flex-col ml-1 ms-2 grow"
             >
               <span
-                class="relative text-foreground select-none transition-colors motion-reduce:transition-none text-sm"
+                class="relative select-none text-medium transition-colors motion-reduce:transition-none"
                 id="aria-id"
               >
-                option 3
+                Flight
               </span>
-              <span
+              <div
                 class="text-foreground opacity-70 text-small"
               >
-                first prime number to be devisable by something other than 1.
+                Finally reach the top shelf!
+              </div>
+            </div>
+          </label>
+        </div>
+      </div>
+      <div
+        class="mt-4 flex justify-end"
+      >
+        <button
+          aria-label="Submit form"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
+          data-react-aria-pressable="true"
+          data-testid="form_submit_button"
+          tabindex="0"
+          type="submit"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`Story Snapshots > WithIcons 1`] = `
+<div>
+  <div
+    class="flex w-full flex-row justify-between gap-6"
+  >
+    <form
+      class="grow min-w-60"
+      data-form-is-valid="true"
+      data-testid=""
+    >
+      <div
+        aria-describedby="react-aria-react-useId-mock react-aria-react-useId-mock"
+        aria-label=" "
+        aria-orientation="vertical"
+        class="relative flex flex-col group gap-0"
+        data-invalid="false"
+        data-required="false"
+        data-testid="radioboxesfield"
+        id="react-aria-react-useId-mock"
+        role="radiogroup"
+      >
+        <div
+          class="flex flex-col flex-wrap gap-2 data-[orientation=horizontal]:flex-row"
+          data-orientation="vertical"
+          role="presentation"
+        >
+          <label
+            class="group inline-flex flex-auto cursor-pointer items-center justify-between gap-4 rounded-lg border-2 border-default p-4 hover:bg-content2 data-[selected=true]:border-focus"
+            data-testid="radioboxesfield_option_space"
+          >
+            <div
+              style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+            >
+              <input
+                aria-describedby="«r1c» react-aria-react-useId-mock"
+                aria-labelledby="«r1b»"
+                class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
+                data-react-aria-pressable="true"
+                name="radioBoxesField"
+                tabindex="0"
+                title=""
+                type="radio"
+                value="space"
+              />
+            </div>
+            <div>
+              <span
+                data-testid="icon-FaRocket"
+              >
+                FaRocket
               </span>
             </div>
+            <div
+              class="flex flex-col ml-1 ms-2 grow"
+            >
+              <span
+                class="relative select-none text-medium transition-colors motion-reduce:transition-none"
+                id="«r1b»"
+              >
+                Space Explorer
+              </span>
+              <div
+                class="text-foreground opacity-70 text-small"
+              >
+                Blast off to Mars and leave your problems behind!
+              </div>
+            </div>
+            <span
+              aria-hidden="true"
+              class="relative inline-flex items-center justify-center shrink-0 overflow-hidden border-solid border-medium box-border border-default rounded-full group-data-[hover-unselected=true]:bg-default-100 outline-solid outline-transparent group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:border-primary w-5 h-5 group-data-[pressed=true]:scale-95 transition-transform-colors motion-reduce:transition-none"
+            >
+              <span
+                class="z-10 opacity-0 scale-0 origin-center rounded-full group-data-[selected=true]:opacity-100 group-data-[selected=true]:scale-100 bg-primary text-primary-foreground w-2 h-2 transition-transform-opacity motion-reduce:transition-none"
+              />
+            </span>
+          </label>
+          <label
+            class="group inline-flex flex-auto cursor-pointer items-center justify-between gap-4 rounded-lg border-2 border-default p-4 hover:bg-content2 data-[selected=true]:border-focus"
+            data-testid="radioboxesfield_option_scientist"
+          >
+            <div
+              style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+            >
+              <input
+                aria-describedby="«r1e» react-aria-react-useId-mock"
+                aria-labelledby="«r1d»"
+                class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
+                data-react-aria-pressable="true"
+                name="radioBoxesField"
+                tabindex="0"
+                title=""
+                type="radio"
+                value="scientist"
+              />
+            </div>
+            <div>
+              <span
+                data-testid="icon-FaFlask"
+              >
+                FaFlask
+              </span>
+            </div>
+            <div
+              class="flex flex-col ml-1 ms-2 grow"
+            >
+              <span
+                class="relative select-none text-medium transition-colors motion-reduce:transition-none"
+                id="«r1d»"
+              >
+                Mad Scientist
+              </span>
+              <div
+                class="text-foreground opacity-70 text-small"
+              >
+                Mix potions and accidentally create monsters.
+              </div>
+            </div>
+            <span
+              aria-hidden="true"
+              class="relative inline-flex items-center justify-center shrink-0 overflow-hidden border-solid border-medium box-border border-default rounded-full group-data-[hover-unselected=true]:bg-default-100 outline-solid outline-transparent group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:border-primary w-5 h-5 group-data-[pressed=true]:scale-95 transition-transform-colors motion-reduce:transition-none"
+            >
+              <span
+                class="z-10 opacity-0 scale-0 origin-center rounded-full group-data-[selected=true]:opacity-100 group-data-[selected=true]:scale-100 bg-primary text-primary-foreground w-2 h-2 transition-transform-opacity motion-reduce:transition-none"
+              />
+            </span>
+          </label>
+          <label
+            class="group inline-flex flex-auto cursor-pointer items-center justify-between gap-4 rounded-lg border-2 border-default p-4 hover:bg-content2 data-[selected=true]:border-focus"
+            data-testid="radioboxesfield_option_support"
+          >
+            <div
+              style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+            >
+              <input
+                aria-describedby="«r1g» react-aria-react-useId-mock"
+                aria-labelledby="«r1f»"
+                class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
+                data-react-aria-pressable="true"
+                name="radioBoxesField"
+                tabindex="0"
+                title=""
+                type="radio"
+                value="support"
+              />
+            </div>
+            <div>
+              <span
+                data-testid="icon-FaPhone"
+              >
+                FaPhone
+              </span>
+            </div>
+            <div
+              class="flex flex-col ml-1 ms-2 grow"
+            >
+              <span
+                class="relative select-none text-medium transition-colors motion-reduce:transition-none"
+                id="«r1f»"
+              >
+                Customer Support
+              </span>
+              <div
+                class="text-foreground opacity-70 text-small"
+              >
+                Answer support calls... forever.
+              </div>
+            </div>
+            <span
+              aria-hidden="true"
+              class="relative inline-flex items-center justify-center shrink-0 overflow-hidden border-solid border-medium box-border border-default rounded-full group-data-[hover-unselected=true]:bg-default-100 outline-solid outline-transparent group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:border-primary w-5 h-5 group-data-[pressed=true]:scale-95 transition-transform-colors motion-reduce:transition-none"
+            >
+              <span
+                class="z-10 opacity-0 scale-0 origin-center rounded-full group-data-[selected=true]:opacity-100 group-data-[selected=true]:scale-100 bg-primary text-primary-foreground w-2 h-2 transition-transform-opacity motion-reduce:transition-none"
+              />
+            </span>
           </label>
         </div>
       </div>
@@ -1228,7 +1335,7 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
         >
           <label
             class="group inline-flex flex-auto cursor-pointer items-center justify-between gap-4 rounded-lg border-2 border-default p-4 hover:bg-content2 data-[selected=true]:border-focus"
-            data-testid="radioboxesfield_option_1"
+            data-testid="radioboxesfield_option_warrior"
           >
             <div
               style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
@@ -1242,41 +1349,37 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
                 tabindex="-1"
                 title=""
                 type="radio"
-                value="1"
+                value="warrior"
               />
             </div>
             <span
               aria-hidden="true"
-              class="relative inline-flex items-center justify-center shrink-0 overflow-hidden border-solid border-medium box-border border-default rounded-full group-data-[hover-unselected=true]:bg-default-100 outline-solid outline-transparent group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:border-primary w-5 h-5 group-data-[pressed=true]:scale-95 transition-transform-colors motion-reduce:transition-none group-data-[invalid=true]:!border-danger [&:not(group-data-[invalid="true"]):not(group-data-[selected="false"])]:border-focus"
+              class="relative inline-flex items-center justify-center shrink-0 overflow-hidden border-solid border-medium box-border border-default rounded-full group-data-[hover-unselected=true]:bg-default-100 outline-solid outline-transparent group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:border-primary w-5 h-5 group-data-[pressed=true]:scale-95 transition-transform-colors motion-reduce:transition-none"
             >
               <span
-                class="z-10 opacity-0 scale-0 origin-center rounded-full group-data-[selected=true]:opacity-100 group-data-[selected=true]:scale-100 text-primary-foreground w-2 h-2 transition-transform-opacity motion-reduce:transition-none bg-focus group-data-[invalid=true]:bg-danger"
+                class="z-10 opacity-0 scale-0 origin-center rounded-full group-data-[selected=true]:opacity-100 group-data-[selected=true]:scale-100 bg-primary text-primary-foreground w-2 h-2 transition-transform-opacity motion-reduce:transition-none"
               />
-            </span>
-            <span
-              data-testid="icon-FaRocket"
-            >
-              FaRocket
             </span>
             <div
               class="flex flex-col ml-1 ms-2 grow"
             >
               <span
-                class="relative text-foreground select-none transition-colors motion-reduce:transition-none text-sm"
+                class="relative select-none text-medium transition-colors motion-reduce:transition-none"
                 id="«rc»"
               >
-                option 1
+                Warrior
               </span>
-              <span
+              <div
                 class="text-foreground opacity-70 text-small"
               >
-                Neutral element for multiplication.
-              </span>
+                Hack and slash your way through life.
+              </div>
             </div>
           </label>
           <label
             class="group inline-flex flex-auto cursor-pointer items-center justify-between gap-4 rounded-lg border-2 border-default p-4 hover:bg-content2 data-[selected=true]:border-focus"
-            data-testid="radioboxesfield_option_2"
+            data-selected="true"
+            data-testid="radioboxesfield_option_wizard"
           >
             <div
               style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
@@ -1284,55 +1387,6 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
               <input
                 aria-describedby="«rf» react-aria-react-useId-mock"
                 aria-labelledby="«re»"
-                class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
-                data-react-aria-pressable="true"
-                name="radioBoxesField"
-                tabindex="-1"
-                title=""
-                type="radio"
-                value="2"
-              />
-            </div>
-            <span
-              aria-hidden="true"
-              class="relative inline-flex items-center justify-center shrink-0 overflow-hidden border-solid border-medium box-border border-default rounded-full group-data-[hover-unselected=true]:bg-default-100 outline-solid outline-transparent group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:border-primary w-5 h-5 group-data-[pressed=true]:scale-95 transition-transform-colors motion-reduce:transition-none group-data-[invalid=true]:!border-danger [&:not(group-data-[invalid="true"]):not(group-data-[selected="false"])]:border-focus"
-            >
-              <span
-                class="z-10 opacity-0 scale-0 origin-center rounded-full group-data-[selected=true]:opacity-100 group-data-[selected=true]:scale-100 text-primary-foreground w-2 h-2 transition-transform-opacity motion-reduce:transition-none bg-focus group-data-[invalid=true]:bg-danger"
-              />
-            </span>
-            <span
-              data-testid="icon-FaFlask"
-            >
-              FaFlask
-            </span>
-            <div
-              class="flex flex-col ml-1 ms-2 grow"
-            >
-              <span
-                class="relative text-foreground select-none transition-colors motion-reduce:transition-none text-sm"
-                id="«re»"
-              >
-                option 2
-              </span>
-              <span
-                class="text-foreground opacity-70 text-small"
-              >
-                The number for Nerds.
-              </span>
-            </div>
-          </label>
-          <label
-            class="group inline-flex flex-auto cursor-pointer items-center justify-between gap-4 rounded-lg border-2 border-default p-4 hover:bg-content2 data-[selected=true]:border-focus"
-            data-selected="true"
-            data-testid="radioboxesfield_option_3"
-          >
-            <div
-              style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
-            >
-              <input
-                aria-describedby="«rh» react-aria-react-useId-mock"
-                aria-labelledby="«rg»"
                 checked=""
                 class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
                 data-react-aria-pressable="true"
@@ -1340,36 +1394,74 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
                 tabindex="0"
                 title=""
                 type="radio"
-                value="3"
+                value="wizard"
               />
             </div>
             <span
               aria-hidden="true"
-              class="relative inline-flex items-center justify-center shrink-0 overflow-hidden border-solid border-medium box-border border-default rounded-full group-data-[hover-unselected=true]:bg-default-100 outline-solid outline-transparent group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:border-primary w-5 h-5 group-data-[pressed=true]:scale-95 transition-transform-colors motion-reduce:transition-none group-data-[invalid=true]:!border-danger [&:not(group-data-[invalid="true"]):not(group-data-[selected="false"])]:border-focus"
+              class="relative inline-flex items-center justify-center shrink-0 overflow-hidden border-solid border-medium box-border border-default rounded-full group-data-[hover-unselected=true]:bg-default-100 outline-solid outline-transparent group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:border-primary w-5 h-5 group-data-[pressed=true]:scale-95 transition-transform-colors motion-reduce:transition-none"
             >
               <span
-                class="z-10 opacity-0 scale-0 origin-center rounded-full group-data-[selected=true]:opacity-100 group-data-[selected=true]:scale-100 text-primary-foreground w-2 h-2 transition-transform-opacity motion-reduce:transition-none bg-focus group-data-[invalid=true]:bg-danger"
+                class="z-10 opacity-0 scale-0 origin-center rounded-full group-data-[selected=true]:opacity-100 group-data-[selected=true]:scale-100 bg-primary text-primary-foreground w-2 h-2 transition-transform-opacity motion-reduce:transition-none"
               />
-            </span>
-            <span
-              data-testid="icon-FaPhone"
-            >
-              FaPhone
             </span>
             <div
               class="flex flex-col ml-1 ms-2 grow"
             >
               <span
-                class="relative text-foreground select-none transition-colors motion-reduce:transition-none text-sm"
-                id="«rg»"
+                class="relative select-none text-medium transition-colors motion-reduce:transition-none"
+                id="«re»"
               >
-                option 3
+                Wizard
               </span>
-              <span
+              <div
                 class="text-foreground opacity-70 text-small"
               >
-                first prime number to be devisable by something other than 1.
+                Master of the arcane arts and fireballs.
+              </div>
+            </div>
+          </label>
+          <label
+            class="group inline-flex flex-auto cursor-pointer items-center justify-between gap-4 rounded-lg border-2 border-default p-4 hover:bg-content2 data-[selected=true]:border-focus"
+            data-testid="radioboxesfield_option_rogue"
+          >
+            <div
+              style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+            >
+              <input
+                aria-describedby="«rh» react-aria-react-useId-mock"
+                aria-labelledby="«rg»"
+                class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
+                data-react-aria-pressable="true"
+                name="radioBoxesField"
+                tabindex="-1"
+                title=""
+                type="radio"
+                value="rogue"
+              />
+            </div>
+            <span
+              aria-hidden="true"
+              class="relative inline-flex items-center justify-center shrink-0 overflow-hidden border-solid border-medium box-border border-default rounded-full group-data-[hover-unselected=true]:bg-default-100 outline-solid outline-transparent group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:border-primary w-5 h-5 group-data-[pressed=true]:scale-95 transition-transform-colors motion-reduce:transition-none"
+            >
+              <span
+                class="z-10 opacity-0 scale-0 origin-center rounded-full group-data-[selected=true]:opacity-100 group-data-[selected=true]:scale-100 bg-primary text-primary-foreground w-2 h-2 transition-transform-opacity motion-reduce:transition-none"
+              />
+            </span>
+            <div
+              class="flex flex-col ml-1 ms-2 grow"
+            >
+              <span
+                class="relative select-none text-medium transition-colors motion-reduce:transition-none"
+                id="«rg»"
+              >
+                Rogue
               </span>
+              <div
+                class="text-foreground opacity-70 text-small"
+              >
+                Sneaky backstabber with questionable morals.
+              </div>
             </div>
           </label>
         </div>
