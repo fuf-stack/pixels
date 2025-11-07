@@ -2555,6 +2555,9 @@ exports[`Story Snapshots > Invalid 1`] = `
                     class="group flex flex-col data-[hidden=true]:hidden w-full relative justify-end data-[has-label=true]:mt-[calc(var(--heroui-font-size-small)_+_10px)] is-filled"
                     data-filled="true"
                     data-filled-within="true"
+                    data-focus="true"
+                    data-focus-visible="true"
+                    data-focus-within="true"
                     data-has-elements="true"
                     data-has-helper="true"
                     data-has-label="true"
@@ -2569,6 +2572,8 @@ exports[`Story Snapshots > Invalid 1`] = `
                     >
                       <div
                         class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 h-10 min-h-10 rounded-small !duration-150 transition-colors motion-reduce:transition-none !border-danger group-data-[focus=true]:!border-danger bg-content1 group-data-[focus=true]:border-focus is-filled"
+                        data-focus="true"
+                        data-focus-visible="true"
                         data-slot="input-wrapper"
                         style="cursor: text;"
                       >
@@ -2647,6 +2652,7 @@ exports[`Story Snapshots > Invalid 1`] = `
                     data-has-elements="true"
                     data-has-helper="true"
                     data-has-label="true"
+                    data-invalid="true"
                     data-required="true"
                     data-slot="base"
                   >
@@ -2655,17 +2661,17 @@ exports[`Story Snapshots > Invalid 1`] = `
                       data-slot="main-wrapper"
                     >
                       <div
-                        class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 h-10 min-h-10 rounded-small !duration-150 transition-colors motion-reduce:transition-none bg-content1 group-data-[focus=true]:border-focus"
+                        class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 h-10 min-h-10 rounded-small !duration-150 transition-colors motion-reduce:transition-none !border-danger group-data-[focus=true]:!border-danger bg-content1 group-data-[focus=true]:border-focus"
                         data-slot="input-wrapper"
                         style="cursor: text;"
                       >
                         <label
-                          class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block text-foreground-500 after:content-['*'] after:text-danger after:ms-0.5 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto text-small group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden"
+                          class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block text-foreground-500 !text-danger after:content-['*'] after:text-danger after:ms-0.5 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto text-small group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden"
                           data-slot="label"
-                          for="arrayfield_0_test"
+                          for="arrayfield_0_otherfield"
                           id="react-aria-react-useId-mock"
                         >
-                          Test Field
+                          Other Field
                         </label>
                         <div
                           class="inline-flex w-full items-center h-full box-border"
@@ -2673,12 +2679,13 @@ exports[`Story Snapshots > Invalid 1`] = `
                         >
                           <input
                             aria-describedby="react-aria-react-useId-mock react-aria-react-useId-mock"
+                            aria-invalid="true"
                             aria-labelledby="react-aria-react-useId-mock"
-                            class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small"
+                            class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small !placeholder:text-danger !text-danger"
                             data-slot="input"
-                            data-testid="arrayfield_0_test"
-                            id="arrayfield_0_test"
-                            name="arrayField.0.test"
+                            data-testid="arrayfield_0_otherfield"
+                            id="arrayfield_0_otherfield"
+                            name="arrayField.0.otherField"
                             placeholder=" "
                             required=""
                             tabindex="0"
@@ -2686,6 +2693,31 @@ exports[`Story Snapshots > Invalid 1`] = `
                             type="text"
                             value=""
                           />
+                        </div>
+                      </div>
+                      <div
+                        class="hidden group-data-[has-helper=true]:flex relative flex-col gap-1.5 p-0"
+                        data-slot="helper-wrapper"
+                      >
+                        <div
+                          class="text-tiny text-danger"
+                          data-slot="error-message"
+                          id="react-aria-react-useId-mock"
+                        >
+                          <ul
+                            aria-label="Validation errors of field arrayfield_0_otherfield"
+                            data-testid="arrayfield_0_otherfield_error"
+                          >
+                            <li
+                              style="overflow: hidden;"
+                            >
+                              <div
+                                class="px-1 pt-1"
+                              >
+                                Field is required
+                              </div>
+                            </li>
+                          </ul>
                         </div>
                       </div>
                     </div>
@@ -2727,6 +2759,7 @@ exports[`Story Snapshots > Invalid 1`] = `
                     data-has-helper="true"
                     data-has-label="true"
                     data-has-value="true"
+                    data-hover="true"
                     data-invalid="true"
                     data-required="true"
                     data-slot="base"
@@ -2737,6 +2770,7 @@ exports[`Story Snapshots > Invalid 1`] = `
                     >
                       <div
                         class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 h-10 min-h-10 rounded-small !duration-150 transition-colors motion-reduce:transition-none !border-danger group-data-[focus=true]:!border-danger bg-content1 group-data-[focus=true]:border-focus is-filled"
+                        data-hover="true"
                         data-slot="input-wrapper"
                         style="cursor: text;"
                       >
@@ -2824,6 +2858,7 @@ exports[`Story Snapshots > Invalid 1`] = `
                     data-has-elements="true"
                     data-has-helper="true"
                     data-has-label="true"
+                    data-invalid="true"
                     data-required="true"
                     data-slot="base"
                   >
@@ -2832,17 +2867,17 @@ exports[`Story Snapshots > Invalid 1`] = `
                       data-slot="main-wrapper"
                     >
                       <div
-                        class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 h-10 min-h-10 rounded-small !duration-150 transition-colors motion-reduce:transition-none bg-content1 group-data-[focus=true]:border-focus"
+                        class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 h-10 min-h-10 rounded-small !duration-150 transition-colors motion-reduce:transition-none !border-danger group-data-[focus=true]:!border-danger bg-content1 group-data-[focus=true]:border-focus"
                         data-slot="input-wrapper"
                         style="cursor: text;"
                       >
                         <label
-                          class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block text-foreground-500 after:content-['*'] after:text-danger after:ms-0.5 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto text-small group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden"
+                          class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block text-foreground-500 !text-danger after:content-['*'] after:text-danger after:ms-0.5 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto text-small group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden"
                           data-slot="label"
-                          for="arrayfield_1_test"
+                          for="arrayfield_1_otherfield"
                           id="react-aria-react-useId-mock"
                         >
-                          Test Field
+                          Other Field
                         </label>
                         <div
                           class="inline-flex w-full items-center h-full box-border"
@@ -2850,12 +2885,13 @@ exports[`Story Snapshots > Invalid 1`] = `
                         >
                           <input
                             aria-describedby="react-aria-react-useId-mock react-aria-react-useId-mock"
+                            aria-invalid="true"
                             aria-labelledby="react-aria-react-useId-mock"
-                            class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small"
+                            class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small !placeholder:text-danger !text-danger"
                             data-slot="input"
-                            data-testid="arrayfield_1_test"
-                            id="arrayfield_1_test"
-                            name="arrayField.1.test"
+                            data-testid="arrayfield_1_otherfield"
+                            id="arrayfield_1_otherfield"
+                            name="arrayField.1.otherField"
                             placeholder=" "
                             required=""
                             tabindex="0"
@@ -2863,6 +2899,31 @@ exports[`Story Snapshots > Invalid 1`] = `
                             type="text"
                             value=""
                           />
+                        </div>
+                      </div>
+                      <div
+                        class="hidden group-data-[has-helper=true]:flex relative flex-col gap-1.5 p-0"
+                        data-slot="helper-wrapper"
+                      >
+                        <div
+                          class="text-tiny text-danger"
+                          data-slot="error-message"
+                          id="react-aria-react-useId-mock"
+                        >
+                          <ul
+                            aria-label="Validation errors of field arrayfield_1_otherfield"
+                            data-testid="arrayfield_1_otherfield_error"
+                          >
+                            <li
+                              style="overflow: hidden;"
+                            >
+                              <div
+                                class="px-1 pt-1"
+                              >
+                                Field is required
+                              </div>
+                            </li>
+                          </ul>
                         </div>
                       </div>
                     </div>

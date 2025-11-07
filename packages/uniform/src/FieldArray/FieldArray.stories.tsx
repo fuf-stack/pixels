@@ -129,7 +129,7 @@ const complexValidator = veto({
             'Must only contain alphanumeric characters and spaces.',
           )
           .min(8),
-        test: string().min(2),
+        otherField: string().min(2),
       }),
     ).min(3),
   )({
@@ -157,7 +157,7 @@ export const Invalid: Story = {
       return (
         <>
           <Input label="Name" name={`${name}.name`} />
-          <Input label="Test Field" name={`${name}.test`} />
+          <Input label="Other Field" name={`${name}.otherField`} />
         </>
       );
     },
@@ -165,44 +165,60 @@ export const Invalid: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
+    const firstElementName = canvas.getByTestId('arrayfield_0_name');
+    await userEvent.type(firstElementName, 'invälid', { delay: 100 });
+
+    // check first element validation errors
+    await waitFor(async () => {
+      // should have aria-invalid
+      await expect(firstElementName.getAttribute('aria-invalid')).toBe('true');
+
+      // should show expected error messages
+      const firstElementNameError = canvas.getByTestId(
+        'arrayfield_0_name_error',
+      );
+      await expect(firstElementNameError).toContainHTML(
+        'Must only contain alphanumeric characters and spaces.',
+      );
+      await expect(firstElementNameError).toContainHTML(
+        'String must contain at least 8 character(s)',
+      );
+    });
+
+    // add second element
     const appendButton = canvas.getByTestId('arrayfield_append_button');
     appendButton.click();
 
-    const input = canvas.getByTestId('arrayfield_0_name');
-    await userEvent.type(input, 'invälid', {
-      delay: 100,
+    // wait for second element to be present
+    await waitFor(async () => {
+      return canvas.getByTestId('arrayfield_1_name');
     });
 
-    const inputTwo = canvas.getByTestId('arrayfield_1_name');
-    await userEvent.type(inputTwo, 'invälid', {
-      delay: 100,
+    const secondElementName = canvas.getByTestId('arrayfield_1_name');
+    await userEvent.type(secondElementName, 'invälid', { delay: 100 });
+
+    // check second element validation errors
+    await waitFor(async () => {
+      // should have aria-invalid
+      await expect(secondElementName.getAttribute('aria-invalid')).toBe('true');
+
+      // should show expected error messages
+      const secondElementNameError = canvas.getByTestId(
+        'arrayfield_1_name_error',
+      );
+      // IMPORTANT: also already exists message is shown
+      await expect(secondElementNameError).toContainHTML(
+        'Element already exists',
+      );
+      await expect(secondElementNameError).toContainHTML(
+        'Must only contain alphanumeric characters and spaces.',
+      );
+      await expect(secondElementNameError).toContainHTML(
+        'String must contain at least 8 character(s)',
+      );
     });
 
-    await userEvent.click(canvas.getByTestId('arrayfield'), { delay: 100 });
-
-    const inputInvalid = input.getAttribute('aria-invalid');
-    await expect(inputInvalid).toBe('true');
-
-    const inputTwoInvalid = inputTwo.getAttribute('aria-invalid');
-    await expect(inputTwoInvalid).toBe('true');
-
-    const firstElement = canvas.getByTestId('arrayfield_0_element');
-    await expect(firstElement).toContainHTML(
-      'Must only contain alphanumeric characters and spaces.',
-    );
-    await expect(firstElement).toContainHTML(
-      'String must contain at least 8 character(s)',
-    );
-
-    const secondElement = canvas.getByTestId('arrayfield_1_element');
-    await expect(secondElement).toContainHTML(
-      'Must only contain alphanumeric characters and spaces.',
-    );
-    await expect(secondElement).toContainHTML(
-      'String must contain at least 8 character(s)',
-    );
-
-    // Wait for validation to complete and check for array-level error messages
+    // check for array-level validation errors
     await waitFor(() => {
       // Check for array-level error element
       const arrayFieldError = canvas.getByTestId('arrayfield_error');
@@ -213,6 +229,21 @@ export const Invalid: Story = {
         'Array must contain at least 3 element(s)',
       );
       expect(arrayFieldError).toContainHTML('Array elements are not unique');
+    });
+
+    // Now hit the submit button so submit count increases
+    // and remaining error messages are shown
+    const submitButton = canvas.getByTestId('form_submit_button');
+    submitButton.click();
+
+    // check untouched fields error messages are showing
+    await waitFor(() => {
+      expect(canvas.getByTestId('arrayfield_0_otherfield_error')).toContainHTML(
+        'Field is required',
+      );
+      expect(canvas.getByTestId('arrayfield_1_otherfield_error')).toContainHTML(
+        'Field is required',
+      );
     });
   },
 };
