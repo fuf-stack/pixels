@@ -20,8 +20,8 @@ exports[`Story Snapshots > ArrayPathValidation 1`] = `
             aria-level="3"
             class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block after:content-['*'] after:text-danger after:ms-0.5 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] max-w-full text-ellipsis overflow-hidden pointer-events-auto! static! z-auto! block! w-full! translate-x-0! translate-y-0! transform-none! rounded-t-small p-3 font-semibold text-medium text-foreground!"
             data-slot="label"
-            for="react-aria-react-useId-mock"
-            id="react-aria-react-useId-mock"
+            for="react-aria-«replaced-aria-id»"
+            id="react-aria-«replaced-aria-id»"
             role="heading"
           >
             Items (array of objects)
@@ -68,7 +68,7 @@ exports[`Story Snapshots > ArrayPathValidation 1`] = `
                             class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block text-foreground-500 after:content-['*'] after:text-danger after:ms-0.5 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto text-small group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden"
                             data-slot="label"
                             for="items_0_tag"
-                            id="react-aria-react-useId-mock"
+                            id="react-aria-«replaced-aria-id»"
                           >
                             Tag
                           </label>
@@ -77,8 +77,7 @@ exports[`Story Snapshots > ArrayPathValidation 1`] = `
                             data-slot="inner-wrapper"
                           >
                             <input
-                              aria-describedby="react-aria-react-useId-mock react-aria-react-useId-mock"
-                              aria-labelledby="react-aria-react-useId-mock"
+                              aria-labelledby="react-aria-«replaced-aria-id»"
                               class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small"
                               data-slot="input"
                               data-testid="items_0_tag"
@@ -117,7 +116,7 @@ exports[`Story Snapshots > ArrayPathValidation 1`] = `
                             class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block text-foreground-500 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto text-small group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden"
                             data-slot="label"
                             for="items_0_name"
-                            id="react-aria-react-useId-mock"
+                            id="react-aria-«replaced-aria-id»"
                           >
                             Name
                           </label>
@@ -126,8 +125,7 @@ exports[`Story Snapshots > ArrayPathValidation 1`] = `
                             data-slot="inner-wrapper"
                           >
                             <input
-                              aria-describedby="react-aria-react-useId-mock react-aria-react-useId-mock"
-                              aria-labelledby="react-aria-react-useId-mock"
+                              aria-labelledby="react-aria-«replaced-aria-id»"
                               class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small"
                               data-slot="input"
                               data-testid="items_0_name"
@@ -210,7 +208,7 @@ exports[`Story Snapshots > Default 1`] = `
             class="pointer-events-auto relative bottom-1.5 ml-1 subpixel-antialiased text-small group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
             data-slot="label"
             for="react-select-teamId-input"
-            id="react-aria-react-useId-mock"
+            id="react-aria-«replaced-aria-id»"
           >
             Select Team
           </label>
@@ -330,7 +328,7 @@ exports[`Story Snapshots > Default 1`] = `
                 class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block text-foreground-500 after:content-['*'] after:text-danger after:ms-0.5 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto text-small group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden"
                 data-slot="label"
                 for="username"
-                id="react-aria-react-useId-mock"
+                id="react-aria-«replaced-aria-id»"
               >
                 Username
               </label>
@@ -339,8 +337,7 @@ exports[`Story Snapshots > Default 1`] = `
                 data-slot="inner-wrapper"
               >
                 <input
-                  aria-describedby="react-aria-react-useId-mock react-aria-react-useId-mock"
-                  aria-labelledby="react-aria-react-useId-mock"
+                  aria-labelledby="react-aria-«replaced-aria-id»"
                   class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small"
                   data-slot="input"
                   data-testid="username"
@@ -380,7 +377,7 @@ exports[`Story Snapshots > Default 1`] = `
                 class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block text-foreground-500 after:content-['*'] after:text-danger after:ms-0.5 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto text-small group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden"
                 data-slot="label"
                 for="email"
-                id="react-aria-react-useId-mock"
+                id="react-aria-«replaced-aria-id»"
               >
                 Email
               </label>
@@ -389,8 +386,7 @@ exports[`Story Snapshots > Default 1`] = `
                 data-slot="inner-wrapper"
               >
                 <input
-                  aria-describedby="react-aria-react-useId-mock react-aria-react-useId-mock"
-                  aria-labelledby="react-aria-react-useId-mock"
+                  aria-labelledby="react-aria-«replaced-aria-id»"
                   class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small"
                   data-slot="input"
                   data-testid="email"
@@ -463,8 +459,8 @@ exports[`Story Snapshots > FlatArrayValidation 1`] = `
             aria-level="3"
             class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block after:content-['*'] after:text-danger after:ms-0.5 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] max-w-full text-ellipsis overflow-hidden pointer-events-auto! static! z-auto! block! w-full! translate-x-0! translate-y-0! transform-none! rounded-t-small p-3 font-semibold text-medium text-foreground!"
             data-slot="label"
-            for="react-aria-react-useId-mock"
-            id="react-aria-react-useId-mock"
+            for="react-aria-«replaced-aria-id»"
+            id="react-aria-«replaced-aria-id»"
             role="heading"
           >
             Tags (flat array of strings)
@@ -511,7 +507,7 @@ exports[`Story Snapshots > FlatArrayValidation 1`] = `
                             class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block text-foreground-500 after:content-['*'] after:text-danger after:ms-0.5 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto text-small group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden"
                             data-slot="label"
                             for="tags_0"
-                            id="react-aria-react-useId-mock"
+                            id="react-aria-«replaced-aria-id»"
                           >
                             Tag
                           </label>
@@ -520,8 +516,7 @@ exports[`Story Snapshots > FlatArrayValidation 1`] = `
                             data-slot="inner-wrapper"
                           >
                             <input
-                              aria-describedby="react-aria-react-useId-mock react-aria-react-useId-mock"
-                              aria-labelledby="react-aria-react-useId-mock"
+                              aria-labelledby="react-aria-«replaced-aria-id»"
                               class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small"
                               data-slot="input"
                               data-testid="tags_0"
@@ -605,7 +600,7 @@ exports[`Story Snapshots > InteractiveDemo 1`] = `
             class="pointer-events-auto relative bottom-1.5 ml-1 subpixel-antialiased text-small group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
             data-slot="label"
             for="react-select-teamId-input"
-            id="react-aria-react-useId-mock"
+            id="react-aria-«replaced-aria-id»"
           >
             Select Team
           </label>
@@ -744,7 +739,7 @@ exports[`Story Snapshots > InteractiveDemo 1`] = `
                 class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block text-foreground-500 !text-danger after:content-['*'] after:text-danger after:ms-0.5 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto text-small group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden"
                 data-slot="label"
                 for="username"
-                id="react-aria-react-useId-mock"
+                id="react-aria-«replaced-aria-id»"
               >
                 Username
               </label>
@@ -753,9 +748,9 @@ exports[`Story Snapshots > InteractiveDemo 1`] = `
                 data-slot="inner-wrapper"
               >
                 <input
-                  aria-describedby="react-aria-react-useId-mock react-aria-react-useId-mock"
+                  aria-describedby="react-aria-«replaced-aria-id»"
                   aria-invalid="true"
-                  aria-labelledby="react-aria-react-useId-mock"
+                  aria-labelledby="react-aria-«replaced-aria-id»"
                   class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small !placeholder:text-danger !text-danger is-filled"
                   data-filled="true"
                   data-filled-within="true"
@@ -779,7 +774,7 @@ exports[`Story Snapshots > InteractiveDemo 1`] = `
               <div
                 class="text-tiny text-danger"
                 data-slot="error-message"
-                id="react-aria-react-useId-mock"
+                id="react-aria-«replaced-aria-id»"
               >
                 <ul
                   aria-label="Validation errors of field username"
@@ -822,7 +817,7 @@ exports[`Story Snapshots > InteractiveDemo 1`] = `
                 class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block text-foreground-500 after:content-['*'] after:text-danger after:ms-0.5 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto text-small group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden"
                 data-slot="label"
                 for="email"
-                id="react-aria-react-useId-mock"
+                id="react-aria-«replaced-aria-id»"
               >
                 Email
               </label>
@@ -831,8 +826,7 @@ exports[`Story Snapshots > InteractiveDemo 1`] = `
                 data-slot="inner-wrapper"
               >
                 <input
-                  aria-describedby="react-aria-react-useId-mock react-aria-react-useId-mock"
-                  aria-labelledby="react-aria-react-useId-mock"
+                  aria-labelledby="react-aria-«replaced-aria-id»"
                   class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small"
                   data-slot="input"
                   data-testid="email"
@@ -931,7 +925,7 @@ exports[`Story Snapshots > NestedPathValidation 1`] = `
                 class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block text-foreground-500 after:content-['*'] after:text-danger after:ms-0.5 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto text-small group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden"
                 data-slot="label"
                 for="user_profile_username"
-                id="react-aria-react-useId-mock"
+                id="react-aria-«replaced-aria-id»"
               >
                 Username (nested: user.profile.username)
               </label>
@@ -940,8 +934,7 @@ exports[`Story Snapshots > NestedPathValidation 1`] = `
                 data-slot="inner-wrapper"
               >
                 <input
-                  aria-describedby="react-aria-react-useId-mock react-aria-react-useId-mock"
-                  aria-labelledby="react-aria-react-useId-mock"
+                  aria-labelledby="react-aria-«replaced-aria-id»"
                   class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small"
                   data-slot="input"
                   data-testid="user_profile_username"
@@ -981,7 +974,7 @@ exports[`Story Snapshots > NestedPathValidation 1`] = `
                 class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block text-foreground-500 after:content-['*'] after:text-danger after:ms-0.5 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto text-small group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden"
                 data-slot="label"
                 for="user_email"
-                id="react-aria-react-useId-mock"
+                id="react-aria-«replaced-aria-id»"
               >
                 Email
               </label>
@@ -990,8 +983,7 @@ exports[`Story Snapshots > NestedPathValidation 1`] = `
                 data-slot="inner-wrapper"
               >
                 <input
-                  aria-describedby="react-aria-react-useId-mock react-aria-react-useId-mock"
-                  aria-labelledby="react-aria-react-useId-mock"
+                  aria-labelledby="react-aria-«replaced-aria-id»"
                   class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small"
                   data-slot="input"
                   data-testid="user_email"
@@ -1053,7 +1045,7 @@ exports[`Story Snapshots > WithInitialData 1`] = `
             class="pointer-events-auto relative bottom-1.5 ml-1 subpixel-antialiased text-small group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
             data-slot="label"
             for="react-select-teamId-input"
-            id="react-aria-react-useId-mock"
+            id="react-aria-«replaced-aria-id»"
           >
             Select Team
           </label>
@@ -1189,7 +1181,7 @@ exports[`Story Snapshots > WithInitialData 1`] = `
                 class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block text-foreground-500 after:content-['*'] after:text-danger after:ms-0.5 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto text-small group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden"
                 data-slot="label"
                 for="username"
-                id="react-aria-react-useId-mock"
+                id="react-aria-«replaced-aria-id»"
               >
                 Username
               </label>
@@ -1198,8 +1190,7 @@ exports[`Story Snapshots > WithInitialData 1`] = `
                 data-slot="inner-wrapper"
               >
                 <input
-                  aria-describedby="react-aria-react-useId-mock react-aria-react-useId-mock"
-                  aria-labelledby="react-aria-react-useId-mock"
+                  aria-labelledby="react-aria-«replaced-aria-id»"
                   class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small is-filled"
                   data-filled="true"
                   data-filled-within="true"
@@ -1242,7 +1233,7 @@ exports[`Story Snapshots > WithInitialData 1`] = `
                 class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block text-foreground-500 after:content-['*'] after:text-danger after:ms-0.5 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto text-small group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden"
                 data-slot="label"
                 for="email"
-                id="react-aria-react-useId-mock"
+                id="react-aria-«replaced-aria-id»"
               >
                 Email
               </label>
@@ -1251,8 +1242,7 @@ exports[`Story Snapshots > WithInitialData 1`] = `
                 data-slot="inner-wrapper"
               >
                 <input
-                  aria-describedby="react-aria-react-useId-mock react-aria-react-useId-mock"
-                  aria-labelledby="react-aria-react-useId-mock"
+                  aria-labelledby="react-aria-«replaced-aria-id»"
                   class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small is-filled"
                   data-filled="true"
                   data-filled-within="true"

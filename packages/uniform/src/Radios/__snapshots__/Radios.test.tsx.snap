@@ -11,14 +11,13 @@ exports[`Story Snapshots > Default 1`] = `
       data-testid=""
     >
       <div
-        aria-describedby="react-aria-react-useId-mock react-aria-react-useId-mock"
         aria-label=" "
         aria-orientation="vertical"
         class="relative flex flex-col group gap-0"
         data-invalid="false"
         data-required="false"
         data-testid="radiosfield"
-        id="react-aria-react-useId-mock"
+        id="react-aria-«replaced-aria-id»"
         role="radiogroup"
       >
         <div
@@ -31,8 +30,8 @@ exports[`Story Snapshots > Default 1`] = `
             data-testid="radiosfield_option_1"
           >
             <input
-              aria-describedby="aria-id react-aria-react-useId-mock"
-              aria-labelledby="aria-id"
+              aria-describedby="«replaced-aria-id» react-aria-«replaced-aria-id»"
+              aria-labelledby="«replaced-aria-id»"
               class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
               data-react-aria-pressable="true"
               name="radiosField"
@@ -54,7 +53,7 @@ exports[`Story Snapshots > Default 1`] = `
             >
               <span
                 class="relative text-foreground select-none transition-colors motion-reduce:transition-none text-sm"
-                id="aria-id"
+                id="«replaced-aria-id»"
               >
                 option 1
               </span>
@@ -65,8 +64,8 @@ exports[`Story Snapshots > Default 1`] = `
             data-testid="radiosfield_option_2"
           >
             <input
-              aria-describedby="aria-id react-aria-react-useId-mock"
-              aria-labelledby="aria-id"
+              aria-describedby="«replaced-aria-id» react-aria-«replaced-aria-id»"
+              aria-labelledby="«replaced-aria-id»"
               class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
               data-react-aria-pressable="true"
               name="radiosField"
@@ -88,7 +87,7 @@ exports[`Story Snapshots > Default 1`] = `
             >
               <span
                 class="relative text-foreground select-none transition-colors motion-reduce:transition-none text-sm"
-                id="aria-id"
+                id="«replaced-aria-id»"
               >
                 option 2
               </span>
@@ -99,8 +98,8 @@ exports[`Story Snapshots > Default 1`] = `
             data-testid="radiosfield_option_3"
           >
             <input
-              aria-describedby="aria-id react-aria-react-useId-mock"
-              aria-labelledby="aria-id"
+              aria-describedby="«replaced-aria-id» react-aria-«replaced-aria-id»"
+              aria-labelledby="«replaced-aria-id»"
               class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
               data-react-aria-pressable="true"
               name="radiosField"
@@ -122,7 +121,7 @@ exports[`Story Snapshots > Default 1`] = `
             >
               <span
                 class="relative text-foreground select-none transition-colors motion-reduce:transition-none text-sm"
-                id="aria-id"
+                id="«replaced-aria-id»"
               >
                 option 3
               </span>
@@ -160,14 +159,13 @@ exports[`Story Snapshots > DisabledCompletely 1`] = `
       data-testid=""
     >
       <div
-        aria-describedby="react-aria-react-useId-mock react-aria-react-useId-mock"
         aria-label=" "
         aria-orientation="vertical"
         class="relative flex flex-col group gap-0"
         data-invalid="false"
         data-required="false"
         data-testid="radiosfield"
-        id="react-aria-react-useId-mock"
+        id="react-aria-«replaced-aria-id»"
         role="radiogroup"
       >
         <div
@@ -181,8 +179,8 @@ exports[`Story Snapshots > DisabledCompletely 1`] = `
             data-testid="radiosfield_option_option_1"
           >
             <input
-              aria-describedby="«rj» react-aria-react-useId-mock"
-              aria-labelledby="«ri»"
+              aria-describedby="«replaced-aria-id» react-aria-«replaced-aria-id»"
+              aria-labelledby="«replaced-aria-id»"
               class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
               data-react-aria-pressable="true"
               disabled=""
@@ -203,7 +201,7 @@ exports[`Story Snapshots > DisabledCompletely 1`] = `
             >
               <span
                 class="relative text-foreground select-none transition-colors motion-reduce:transition-none text-sm"
-                id="«ri»"
+                id="«replaced-aria-id»"
               >
                 option 1
               </span>
@@ -215,8 +213,8 @@ exports[`Story Snapshots > DisabledCompletely 1`] = `
             data-testid="radiosfield_option_option_2"
           >
             <input
-              aria-describedby="«rl» react-aria-react-useId-mock"
-              aria-labelledby="«rk»"
+              aria-describedby="«replaced-aria-id» react-aria-«replaced-aria-id»"
+              aria-labelledby="«replaced-aria-id»"
               class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
               data-react-aria-pressable="true"
               disabled=""
@@ -237,7 +235,7 @@ exports[`Story Snapshots > DisabledCompletely 1`] = `
             >
               <span
                 class="relative text-foreground select-none transition-colors motion-reduce:transition-none text-sm"
-                id="«rk»"
+                id="«replaced-aria-id»"
               >
                 option 2
               </span>
@@ -249,8 +247,8 @@ exports[`Story Snapshots > DisabledCompletely 1`] = `
             data-testid="radiosfield_option_option_3"
           >
             <input
-              aria-describedby="«rn» react-aria-react-useId-mock"
-              aria-labelledby="«rm»"
+              aria-describedby="«replaced-aria-id» react-aria-«replaced-aria-id»"
+              aria-labelledby="«replaced-aria-id»"
               class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
               data-react-aria-pressable="true"
               disabled=""
@@ -271,7 +269,7 @@ exports[`Story Snapshots > DisabledCompletely 1`] = `
             >
               <span
                 class="relative text-foreground select-none transition-colors motion-reduce:transition-none text-sm"
-                id="«rm»"
+                id="«replaced-aria-id»"
               >
                 option 3
               </span>
@@ -309,14 +307,13 @@ exports[`Story Snapshots > DisabledOption 1`] = `
       data-testid=""
     >
       <div
-        aria-describedby="react-aria-react-useId-mock react-aria-react-useId-mock"
         aria-label=" "
         aria-orientation="vertical"
         class="relative flex flex-col group gap-0"
         data-invalid="false"
         data-required="false"
         data-testid="radiosfield"
-        id="react-aria-react-useId-mock"
+        id="react-aria-«replaced-aria-id»"
         role="radiogroup"
       >
         <div
@@ -329,8 +326,8 @@ exports[`Story Snapshots > DisabledOption 1`] = `
             data-testid="radiosfield_option_option_1"
           >
             <input
-              aria-describedby="«rp» react-aria-react-useId-mock"
-              aria-labelledby="«ro»"
+              aria-describedby="«replaced-aria-id» react-aria-«replaced-aria-id»"
+              aria-labelledby="«replaced-aria-id»"
               class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
               data-react-aria-pressable="true"
               name="radiosField"
@@ -352,7 +349,7 @@ exports[`Story Snapshots > DisabledOption 1`] = `
             >
               <span
                 class="relative text-foreground select-none transition-colors motion-reduce:transition-none text-sm"
-                id="«ro»"
+                id="«replaced-aria-id»"
               >
                 option 1
               </span>
@@ -364,8 +361,8 @@ exports[`Story Snapshots > DisabledOption 1`] = `
             data-testid="radiosfield_option_disabled_option"
           >
             <input
-              aria-describedby="«rr» react-aria-react-useId-mock"
-              aria-labelledby="«rq»"
+              aria-describedby="«replaced-aria-id» react-aria-«replaced-aria-id»"
+              aria-labelledby="«replaced-aria-id»"
               class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
               data-react-aria-pressable="true"
               disabled=""
@@ -386,7 +383,7 @@ exports[`Story Snapshots > DisabledOption 1`] = `
             >
               <span
                 class="relative text-foreground select-none transition-colors motion-reduce:transition-none text-sm"
-                id="«rq»"
+                id="«replaced-aria-id»"
               >
                 disabled option
               </span>
@@ -397,8 +394,8 @@ exports[`Story Snapshots > DisabledOption 1`] = `
             data-testid="radiosfield_option_option_3"
           >
             <input
-              aria-describedby="«rt» react-aria-react-useId-mock"
-              aria-labelledby="«rs»"
+              aria-describedby="«replaced-aria-id» react-aria-«replaced-aria-id»"
+              aria-labelledby="«replaced-aria-id»"
               class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
               data-react-aria-pressable="true"
               name="radiosField"
@@ -420,7 +417,7 @@ exports[`Story Snapshots > DisabledOption 1`] = `
             >
               <span
                 class="relative text-foreground select-none transition-colors motion-reduce:transition-none text-sm"
-                id="«rs»"
+                id="«replaced-aria-id»"
               >
                 option 3
               </span>
@@ -458,14 +455,13 @@ exports[`Story Snapshots > Inline 1`] = `
       data-testid=""
     >
       <div
-        aria-describedby="react-aria-react-useId-mock react-aria-react-useId-mock"
         aria-label=" "
         aria-orientation="horizontal"
         class="relative flex flex-col group gap-0"
         data-invalid="false"
         data-required="false"
         data-testid="radiosfield"
-        id="react-aria-react-useId-mock"
+        id="react-aria-«replaced-aria-id»"
         role="radiogroup"
       >
         <div
@@ -478,8 +474,8 @@ exports[`Story Snapshots > Inline 1`] = `
             data-testid="radiosfield_option_option_1"
           >
             <input
-              aria-describedby="aria-id react-aria-react-useId-mock"
-              aria-labelledby="aria-id"
+              aria-describedby="«replaced-aria-id» react-aria-«replaced-aria-id»"
+              aria-labelledby="«replaced-aria-id»"
               class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
               data-react-aria-pressable="true"
               name="radiosField"
@@ -501,7 +497,7 @@ exports[`Story Snapshots > Inline 1`] = `
             >
               <span
                 class="relative text-foreground select-none transition-colors motion-reduce:transition-none text-sm"
-                id="aria-id"
+                id="«replaced-aria-id»"
               >
                 option 1
               </span>
@@ -512,8 +508,8 @@ exports[`Story Snapshots > Inline 1`] = `
             data-testid="radiosfield_option_option_2"
           >
             <input
-              aria-describedby="aria-id react-aria-react-useId-mock"
-              aria-labelledby="aria-id"
+              aria-describedby="«replaced-aria-id» react-aria-«replaced-aria-id»"
+              aria-labelledby="«replaced-aria-id»"
               class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
               data-react-aria-pressable="true"
               name="radiosField"
@@ -535,7 +531,7 @@ exports[`Story Snapshots > Inline 1`] = `
             >
               <span
                 class="relative text-foreground select-none transition-colors motion-reduce:transition-none text-sm"
-                id="aria-id"
+                id="«replaced-aria-id»"
               >
                 option 2
               </span>
@@ -546,8 +542,8 @@ exports[`Story Snapshots > Inline 1`] = `
             data-testid="radiosfield_option_option_3"
           >
             <input
-              aria-describedby="«rb» react-aria-react-useId-mock"
-              aria-labelledby="«ra»"
+              aria-describedby="«replaced-aria-id» react-aria-«replaced-aria-id»"
+              aria-labelledby="«replaced-aria-id»"
               class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
               data-react-aria-pressable="true"
               name="radiosField"
@@ -569,7 +565,7 @@ exports[`Story Snapshots > Inline 1`] = `
             >
               <span
                 class="relative text-foreground select-none transition-colors motion-reduce:transition-none text-sm"
-                id="«ra»"
+                id="«replaced-aria-id»"
               >
                 option 3
               </span>
@@ -607,7 +603,7 @@ exports[`Story Snapshots > Invalid 1`] = `
       data-testid=""
     >
       <div
-        aria-describedby="react-aria-react-useId-mock react-aria-react-useId-mock"
+        aria-describedby="react-aria-«replaced-aria-id»"
         aria-invalid="true"
         aria-label=" "
         aria-orientation="vertical"
@@ -616,7 +612,7 @@ exports[`Story Snapshots > Invalid 1`] = `
         data-invalid="true"
         data-required="true"
         data-testid="radiosfield"
-        id="react-aria-react-useId-mock"
+        id="react-aria-«replaced-aria-id»"
         role="radiogroup"
       >
         <span
@@ -638,8 +634,8 @@ exports[`Story Snapshots > Invalid 1`] = `
             data-testid="radiosfield_option_one"
           >
             <input
-              aria-describedby="aria-id react-aria-react-useId-mock react-aria-react-useId-mock"
-              aria-labelledby="aria-id"
+              aria-describedby="«replaced-aria-id»"
+              aria-labelledby="«replaced-aria-id»"
               class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
               data-react-aria-pressable="true"
               name="radiosField"
@@ -662,7 +658,7 @@ exports[`Story Snapshots > Invalid 1`] = `
             >
               <span
                 class="relative select-none text-danger transition-colors motion-reduce:transition-none text-sm"
-                id="aria-id"
+                id="«replaced-aria-id»"
               >
                 one
               </span>
@@ -678,8 +674,8 @@ exports[`Story Snapshots > Invalid 1`] = `
             data-testid="radiosfield_option_two"
           >
             <input
-              aria-describedby="aria-id react-aria-react-useId-mock react-aria-react-useId-mock"
-              aria-labelledby="aria-id"
+              aria-describedby="«replaced-aria-id»"
+              aria-labelledby="«replaced-aria-id»"
               class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
               data-react-aria-pressable="true"
               name="radiosField"
@@ -702,7 +698,7 @@ exports[`Story Snapshots > Invalid 1`] = `
             >
               <span
                 class="relative select-none text-danger transition-colors motion-reduce:transition-none text-sm"
-                id="aria-id"
+                id="«replaced-aria-id»"
               >
                 two
               </span>
@@ -715,8 +711,8 @@ exports[`Story Snapshots > Invalid 1`] = `
             data-testid="radiosfield_option_three"
           >
             <input
-              aria-describedby="aria-id react-aria-react-useId-mock react-aria-react-useId-mock"
-              aria-labelledby="aria-id"
+              aria-describedby="«replaced-aria-id»"
+              aria-labelledby="«replaced-aria-id»"
               class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
               data-react-aria-pressable="true"
               name="radiosField"
@@ -739,7 +735,7 @@ exports[`Story Snapshots > Invalid 1`] = `
             >
               <span
                 class="relative select-none text-danger transition-colors motion-reduce:transition-none text-sm"
-                id="aria-id"
+                id="«replaced-aria-id»"
               >
                 three
               </span>
@@ -748,7 +744,7 @@ exports[`Story Snapshots > Invalid 1`] = `
         </div>
         <div
           class="text-tiny text-danger"
-          id="react-aria-react-useId-mock"
+          id="react-aria-«replaced-aria-id»"
         >
           <ul
             aria-label="Validation errors of field radiosfield"
@@ -796,7 +792,6 @@ exports[`Story Snapshots > Required 1`] = `
       data-testid=""
     >
       <div
-        aria-describedby="react-aria-react-useId-mock react-aria-react-useId-mock"
         aria-label=" "
         aria-orientation="vertical"
         aria-required="true"
@@ -804,7 +799,7 @@ exports[`Story Snapshots > Required 1`] = `
         data-invalid="false"
         data-required="true"
         data-testid="radiosfield"
-        id="react-aria-react-useId-mock"
+        id="react-aria-«replaced-aria-id»"
         role="radiogroup"
       >
         <span
@@ -825,8 +820,8 @@ exports[`Story Snapshots > Required 1`] = `
             data-testid="radiosfield_option_1"
           >
             <input
-              aria-describedby="«rv» react-aria-react-useId-mock"
-              aria-labelledby="«ru»"
+              aria-describedby="«replaced-aria-id» react-aria-«replaced-aria-id»"
+              aria-labelledby="«replaced-aria-id»"
               class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
               data-react-aria-pressable="true"
               name="radiosField"
@@ -849,7 +844,7 @@ exports[`Story Snapshots > Required 1`] = `
             >
               <span
                 class="relative text-foreground select-none transition-colors motion-reduce:transition-none text-sm"
-                id="«ru»"
+                id="«replaced-aria-id»"
               >
                 1
               </span>
@@ -861,8 +856,8 @@ exports[`Story Snapshots > Required 1`] = `
             data-testid="radiosfield_option_2"
           >
             <input
-              aria-describedby="aria-id react-aria-react-useId-mock"
-              aria-labelledby="aria-id"
+              aria-describedby="«replaced-aria-id» react-aria-«replaced-aria-id»"
+              aria-labelledby="«replaced-aria-id»"
               class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
               data-react-aria-pressable="true"
               name="radiosField"
@@ -885,7 +880,7 @@ exports[`Story Snapshots > Required 1`] = `
             >
               <span
                 class="relative text-foreground select-none transition-colors motion-reduce:transition-none text-sm"
-                id="aria-id"
+                id="«replaced-aria-id»"
               >
                 2
               </span>
@@ -897,8 +892,8 @@ exports[`Story Snapshots > Required 1`] = `
             data-testid="radiosfield_option_3"
           >
             <input
-              aria-describedby="aria-id react-aria-react-useId-mock"
-              aria-labelledby="aria-id"
+              aria-describedby="«replaced-aria-id» react-aria-«replaced-aria-id»"
+              aria-labelledby="«replaced-aria-id»"
               class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
               data-react-aria-pressable="true"
               name="radiosField"
@@ -921,7 +916,7 @@ exports[`Story Snapshots > Required 1`] = `
             >
               <span
                 class="relative text-foreground select-none transition-colors motion-reduce:transition-none text-sm"
-                id="aria-id"
+                id="«replaced-aria-id»"
               >
                 3
               </span>
@@ -959,14 +954,13 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
       data-testid=""
     >
       <div
-        aria-describedby="react-aria-react-useId-mock react-aria-react-useId-mock"
         aria-label=" "
         aria-orientation="vertical"
         class="relative flex flex-col group gap-0"
         data-invalid="false"
         data-required="false"
         data-testid="radiosfield"
-        id="react-aria-react-useId-mock"
+        id="react-aria-«replaced-aria-id»"
         role="radiogroup"
       >
         <div
@@ -979,8 +973,8 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
             data-testid="radiosfield_option_option_1"
           >
             <input
-              aria-describedby="«rd» react-aria-react-useId-mock"
-              aria-labelledby="«rc»"
+              aria-describedby="«replaced-aria-id» react-aria-«replaced-aria-id»"
+              aria-labelledby="«replaced-aria-id»"
               class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
               data-react-aria-pressable="true"
               name="radiosField"
@@ -1002,7 +996,7 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
             >
               <span
                 class="relative text-foreground select-none transition-colors motion-reduce:transition-none text-sm"
-                id="«rc»"
+                id="«replaced-aria-id»"
               >
                 option 1
               </span>
@@ -1014,8 +1008,8 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
             data-testid="radiosfield_option_option_2"
           >
             <input
-              aria-describedby="«rf» react-aria-react-useId-mock"
-              aria-labelledby="«re»"
+              aria-describedby="«replaced-aria-id» react-aria-«replaced-aria-id»"
+              aria-labelledby="«replaced-aria-id»"
               checked=""
               class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
               data-react-aria-pressable="true"
@@ -1038,7 +1032,7 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
             >
               <span
                 class="relative text-foreground select-none transition-colors motion-reduce:transition-none text-sm"
-                id="«re»"
+                id="«replaced-aria-id»"
               >
                 option 2
               </span>
@@ -1049,8 +1043,8 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
             data-testid="radiosfield_option_option_3"
           >
             <input
-              aria-describedby="«rh» react-aria-react-useId-mock"
-              aria-labelledby="«rg»"
+              aria-describedby="«replaced-aria-id» react-aria-«replaced-aria-id»"
+              aria-labelledby="«replaced-aria-id»"
               class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
               data-react-aria-pressable="true"
               name="radiosField"
@@ -1072,7 +1066,7 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
             >
               <span
                 class="relative text-foreground select-none transition-colors motion-reduce:transition-none text-sm"
-                id="«rg»"
+                id="«replaced-aria-id»"
               >
                 option 3
               </span>

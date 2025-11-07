@@ -142,15 +142,15 @@ exports[`Story Snapshots > CustomStyles 1`] = `
       style="--visual-viewport-height: 768px;"
     >
       <section
-        aria-describedby="«rh»"
-        aria-labelledby="«rg»"
+        aria-describedby="«replaced-aria-id»"
+        aria-labelledby="«replaced-aria-id»"
         aria-modal="true"
         class="flex flex-col relative z-50 w-full box-border outline-solid outline-transparent mx-1 my-1 sm:mx-6 sm:my-16 rounded-large shadow-small max-h-[calc(100%_-_8rem)] max-w-md border-[#292f46] bg-[#19172c] dark:bg-[#19172c] text-[#a8b0d3]"
         data-dismissable="true"
         data-open="true"
         data-placement="center"
         data-testid="modal"
-        id="«rf»"
+        id="«replaced-aria-id»"
         role="dialog"
         tabindex="-1"
       >
@@ -159,7 +159,7 @@ exports[`Story Snapshots > CustomStyles 1`] = `
         >
           <button
             aria-label="Dismiss"
-            id="react-aria-react-useId-mock"
+            id="react-aria-«replaced-aria-id»"
             style="width: 1px; height: 1px;"
             tabindex="-1"
           />
@@ -193,7 +193,7 @@ exports[`Story Snapshots > CustomStyles 1`] = `
         </button>
         <header
           class="flex py-4 px-6 flex-initial text-large font-semibold border-b border-[#292f46]"
-          id="«rg»"
+          id="«replaced-aria-id»"
         >
           Custom Styles
         </header>
@@ -208,7 +208,7 @@ exports[`Story Snapshots > CustomStyles 1`] = `
         >
           <button
             aria-label="Dismiss"
-            id="react-aria-react-useId-mock"
+            id="react-aria-«replaced-aria-id»"
             style="width: 1px; height: 1px;"
             tabindex="-1"
           />
@@ -269,15 +269,15 @@ exports[`Story Snapshots > ScrollLongContent 1`] = `
       style="--visual-viewport-height: 768px;"
     >
       <section
-        aria-describedby="«rb»"
-        aria-labelledby="«ra»"
+        aria-describedby="«replaced-aria-id»"
+        aria-labelledby="«replaced-aria-id»"
         aria-modal="true"
         class="flex flex-col relative z-50 w-full box-border bg-content1 outline-solid outline-transparent mx-1 my-1 sm:mx-6 sm:my-16 rounded-large shadow-small max-h-[calc(100%_-_8rem)] max-w-md"
         data-dismissable="true"
         data-open="true"
         data-placement="center"
         data-testid="modal"
-        id="aria-id"
+        id="«replaced-aria-id»"
         role="dialog"
         tabindex="-1"
       >
@@ -286,7 +286,7 @@ exports[`Story Snapshots > ScrollLongContent 1`] = `
         >
           <button
             aria-label="Dismiss"
-            id="react-aria-react-useId-mock"
+            id="react-aria-«replaced-aria-id»"
             style="width: 1px; height: 1px;"
             tabindex="-1"
           />
@@ -320,7 +320,7 @@ exports[`Story Snapshots > ScrollLongContent 1`] = `
         </button>
         <header
           class="flex py-4 px-6 flex-initial text-large font-semibold border-b border-b-divider"
-          id="«ra»"
+          id="«replaced-aria-id»"
         >
           Modal Header
         </header>
@@ -427,7 +427,7 @@ exports[`Story Snapshots > ScrollLongContent 1`] = `
         >
           <button
             aria-label="Dismiss"
-            id="react-aria-react-useId-mock"
+            id="react-aria-«replaced-aria-id»"
             style="width: 1px; height: 1px;"
             tabindex="-1"
           />
@@ -502,15 +502,15 @@ exports[`Story Snapshots > WithScrollShadow 1`] = `
       style="--visual-viewport-height: 768px;"
     >
       <section
-        aria-describedby="«re»"
-        aria-labelledby="«rd»"
+        aria-describedby="«replaced-aria-id»"
+        aria-labelledby="«replaced-aria-id»"
         aria-modal="true"
         class="flex flex-col relative z-50 w-full box-border bg-content1 outline-solid outline-transparent mx-1 my-1 sm:mx-6 sm:my-16 rounded-large shadow-small max-h-[calc(100%_-_8rem)] max-w-md"
         data-dismissable="true"
         data-open="true"
         data-placement="center"
         data-testid="modal"
-        id="«rc»"
+        id="«replaced-aria-id»"
         role="dialog"
         tabindex="-1"
       >
@@ -519,7 +519,7 @@ exports[`Story Snapshots > WithScrollShadow 1`] = `
         >
           <button
             aria-label="Dismiss"
-            id="react-aria-react-useId-mock"
+            id="react-aria-«replaced-aria-id»"
             style="width: 1px; height: 1px;"
             tabindex="-1"
           />
@@ -553,7 +553,7 @@ exports[`Story Snapshots > WithScrollShadow 1`] = `
         </button>
         <header
           class="flex py-4 px-6 flex-initial text-large font-semibold border-b border-b-divider"
-          id="«rd»"
+          id="«replaced-aria-id»"
         >
           Modal Header
         </header>
@@ -668,7 +668,7 @@ exports[`Story Snapshots > WithScrollShadow 1`] = `
         >
           <button
             aria-label="Dismiss"
-            id="react-aria-react-useId-mock"
+            id="react-aria-«replaced-aria-id»"
             style="width: 1px; height: 1px;"
             tabindex="-1"
           />

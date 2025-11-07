@@ -11,12 +11,11 @@ exports[`Story Snapshots > DangerColor 1`] = `
       data-testid=""
     >
       <div
-        aria-describedby="react-aria-react-useId-mock react-aria-react-useId-mock"
         aria-label=" "
         class="relative flex flex-col gap-2 group"
         data-invalid="false"
         data-testid="checkboxfield"
-        id="react-aria-react-useId-mock"
+        id="react-aria-«replaced-aria-id»"
         role="group"
       >
         <span
@@ -39,9 +38,8 @@ exports[`Story Snapshots > DangerColor 1`] = `
             data-testid="checkboxfield_option_volcano_life"
           >
             <input
-              aria-describedby="react-aria-react-useId-mock"
               aria-label="🌋 Live in a volcano"
-              aria-labelledby="«ra»"
+              aria-labelledby="«replaced-aria-id»"
               checked=""
               class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
               data-react-aria-pressable="true"
@@ -76,7 +74,7 @@ exports[`Story Snapshots > DangerColor 1`] = `
             </span>
             <span
               class="relative text-foreground select-none text-medium transition-colors-opacity before:transition-width motion-reduce:transition-none"
-              id="«ra»"
+              id="«replaced-aria-id»"
             >
               🌋 Live in a volcano
             </span>
@@ -88,9 +86,8 @@ exports[`Story Snapshots > DangerColor 1`] = `
             data-testid="checkboxfield_option_shark_swimming"
           >
             <input
-              aria-describedby="react-aria-react-useId-mock"
               aria-label="🦈 Swim with sharks"
-              aria-labelledby="«rb»"
+              aria-labelledby="«replaced-aria-id»"
               class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
               data-react-aria-pressable="true"
               name="checkboxField"
@@ -123,7 +120,7 @@ exports[`Story Snapshots > DangerColor 1`] = `
             </span>
             <span
               class="relative text-foreground select-none text-medium transition-colors-opacity before:transition-width motion-reduce:transition-none"
-              id="«rb»"
+              id="«replaced-aria-id»"
             >
               🦈 Swim with sharks
             </span>
@@ -136,9 +133,8 @@ exports[`Story Snapshots > DangerColor 1`] = `
             data-testid="checkboxfield_option_mars_one_way"
           >
             <input
-              aria-describedby="react-aria-react-useId-mock"
               aria-label="🚀 One-way trip to Mars"
-              aria-labelledby="«rc»"
+              aria-labelledby="«replaced-aria-id»"
               checked=""
               class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
               data-react-aria-pressable="true"
@@ -173,7 +169,7 @@ exports[`Story Snapshots > DangerColor 1`] = `
             </span>
             <span
               class="relative text-foreground select-none text-medium transition-colors-opacity before:transition-width motion-reduce:transition-none"
-              id="«rc»"
+              id="«replaced-aria-id»"
             >
               🚀 One-way trip to Mars
             </span>
@@ -210,12 +206,11 @@ exports[`Story Snapshots > Default 1`] = `
       data-testid=""
     >
       <div
-        aria-describedby="react-aria-react-useId-mock react-aria-react-useId-mock"
         aria-label=" "
         class="relative flex flex-col gap-2 group"
         data-invalid="false"
         data-testid="checkboxfield"
-        id="react-aria-react-useId-mock"
+        id="react-aria-«replaced-aria-id»"
         role="group"
       >
         <div
@@ -230,9 +225,8 @@ exports[`Story Snapshots > Default 1`] = `
             data-testid="checkboxfield_option_pizza_breakfast"
           >
             <input
-              aria-describedby="react-aria-react-useId-mock"
               aria-label="🍕 Pizza for breakfast"
-              aria-labelledby="aria-id"
+              aria-labelledby="«replaced-aria-id»"
               class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
               data-react-aria-pressable="true"
               name="checkboxField"
@@ -265,7 +259,7 @@ exports[`Story Snapshots > Default 1`] = `
             </span>
             <span
               class="relative text-foreground select-none text-medium transition-colors-opacity before:transition-width motion-reduce:transition-none"
-              id="aria-id"
+              id="«replaced-aria-id»"
             >
               🍕 Pizza for breakfast
             </span>
@@ -277,9 +271,8 @@ exports[`Story Snapshots > Default 1`] = `
             data-testid="checkboxfield_option_unicorns_real"
           >
             <input
-              aria-describedby="react-aria-react-useId-mock"
               aria-label="🦄 Unicorns are real"
-              aria-labelledby="aria-id"
+              aria-labelledby="«replaced-aria-id»"
               class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
               data-react-aria-pressable="true"
               name="checkboxField"
@@ -312,7 +305,7 @@ exports[`Story Snapshots > Default 1`] = `
             </span>
             <span
               class="relative text-foreground select-none text-medium transition-colors-opacity before:transition-width motion-reduce:transition-none"
-              id="aria-id"
+              id="«replaced-aria-id»"
             >
               🦄 Unicorns are real
             </span>
@@ -324,9 +317,8 @@ exports[`Story Snapshots > Default 1`] = `
             data-testid="checkboxfield_option_socks_sandals"
           >
             <input
-              aria-describedby="react-aria-react-useId-mock"
               aria-label="🧦 Socks with sandals"
-              aria-labelledby="aria-id"
+              aria-labelledby="«replaced-aria-id»"
               class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
               data-react-aria-pressable="true"
               name="checkboxField"
@@ -359,7 +351,7 @@ exports[`Story Snapshots > Default 1`] = `
             </span>
             <span
               class="relative text-foreground select-none text-medium transition-colors-opacity before:transition-width motion-reduce:transition-none"
-              id="aria-id"
+              id="«replaced-aria-id»"
             >
               🧦 Socks with sandals
             </span>
@@ -396,12 +388,11 @@ exports[`Story Snapshots > DisabledCompletely 1`] = `
       data-testid=""
     >
       <div
-        aria-describedby="react-aria-react-useId-mock react-aria-react-useId-mock"
         aria-label=" "
         class="relative flex flex-col gap-2 group"
         data-invalid="false"
         data-testid="checkboxfield"
-        id="react-aria-react-useId-mock"
+        id="react-aria-«replaced-aria-id»"
         role="group"
       >
         <div
@@ -417,9 +408,8 @@ exports[`Story Snapshots > DisabledCompletely 1`] = `
             data-testid="checkboxfield_option_sleep_8_hours"
           >
             <input
-              aria-describedby="react-aria-react-useId-mock"
               aria-label="💤 Sleep 8 hours nightly"
-              aria-labelledby="«rn»"
+              aria-labelledby="«replaced-aria-id»"
               class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
               data-react-aria-pressable="true"
               disabled=""
@@ -451,7 +441,7 @@ exports[`Story Snapshots > DisabledCompletely 1`] = `
             </span>
             <span
               class="relative text-foreground select-none text-medium transition-colors-opacity before:transition-width motion-reduce:transition-none"
-              id="«rn»"
+              id="«replaced-aria-id»"
             >
               💤 Sleep 8 hours nightly
             </span>
@@ -464,9 +454,8 @@ exports[`Story Snapshots > DisabledCompletely 1`] = `
             data-testid="checkboxfield_option_exercise_daily"
           >
             <input
-              aria-describedby="react-aria-react-useId-mock"
               aria-label="🏃 Exercise daily"
-              aria-labelledby="«ro»"
+              aria-labelledby="«replaced-aria-id»"
               class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
               data-react-aria-pressable="true"
               disabled=""
@@ -498,7 +487,7 @@ exports[`Story Snapshots > DisabledCompletely 1`] = `
             </span>
             <span
               class="relative text-foreground select-none text-medium transition-colors-opacity before:transition-width motion-reduce:transition-none"
-              id="«ro»"
+              id="«replaced-aria-id»"
             >
               🏃 Exercise daily
             </span>
@@ -511,9 +500,8 @@ exports[`Story Snapshots > DisabledCompletely 1`] = `
             data-testid="checkboxfield_option_eat_vegetables"
           >
             <input
-              aria-describedby="react-aria-react-useId-mock"
               aria-label="🥗 Eat vegetables"
-              aria-labelledby="«rp»"
+              aria-labelledby="«replaced-aria-id»"
               class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
               data-react-aria-pressable="true"
               disabled=""
@@ -545,7 +533,7 @@ exports[`Story Snapshots > DisabledCompletely 1`] = `
             </span>
             <span
               class="relative text-foreground select-none text-medium transition-colors-opacity before:transition-width motion-reduce:transition-none"
-              id="«rp»"
+              id="«replaced-aria-id»"
             >
               🥗 Eat vegetables
             </span>
@@ -582,12 +570,11 @@ exports[`Story Snapshots > DisabledOption 1`] = `
       data-testid=""
     >
       <div
-        aria-describedby="react-aria-react-useId-mock react-aria-react-useId-mock"
         aria-label=" "
         class="relative flex flex-col gap-2 group"
         data-invalid="false"
         data-testid="checkboxfield"
-        id="react-aria-react-useId-mock"
+        id="react-aria-«replaced-aria-id»"
         role="group"
       >
         <div
@@ -602,9 +589,8 @@ exports[`Story Snapshots > DisabledOption 1`] = `
             data-testid="checkboxfield_option_play_games"
           >
             <input
-              aria-describedby="react-aria-react-useId-mock"
               aria-label="🎮 Play games all day"
-              aria-labelledby="«rq»"
+              aria-labelledby="«replaced-aria-id»"
               class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
               data-react-aria-pressable="true"
               name="checkboxField"
@@ -637,7 +623,7 @@ exports[`Story Snapshots > DisabledOption 1`] = `
             </span>
             <span
               class="relative text-foreground select-none text-medium transition-colors-opacity before:transition-width motion-reduce:transition-none"
-              id="«rq»"
+              id="«replaced-aria-id»"
             >
               🎮 Play games all day
             </span>
@@ -650,9 +636,8 @@ exports[`Story Snapshots > DisabledOption 1`] = `
             data-testid="checkboxfield_option_read_docs"
           >
             <input
-              aria-describedby="react-aria-react-useId-mock"
               aria-label="📚 Read documentation"
-              aria-labelledby="«rr»"
+              aria-labelledby="«replaced-aria-id»"
               class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
               data-react-aria-pressable="true"
               disabled=""
@@ -684,7 +669,7 @@ exports[`Story Snapshots > DisabledOption 1`] = `
             </span>
             <span
               class="relative text-foreground select-none text-medium transition-colors-opacity before:transition-width motion-reduce:transition-none"
-              id="«rr»"
+              id="«replaced-aria-id»"
             >
               📚 Read documentation
             </span>
@@ -696,9 +681,8 @@ exports[`Story Snapshots > DisabledOption 1`] = `
             data-testid="checkboxfield_option_cake_dinner"
           >
             <input
-              aria-describedby="react-aria-react-useId-mock"
               aria-label="🍰 Cake for dinner"
-              aria-labelledby="«rs»"
+              aria-labelledby="«replaced-aria-id»"
               class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
               data-react-aria-pressable="true"
               name="checkboxField"
@@ -731,7 +715,7 @@ exports[`Story Snapshots > DisabledOption 1`] = `
             </span>
             <span
               class="relative text-foreground select-none text-medium transition-colors-opacity before:transition-width motion-reduce:transition-none"
-              id="«rs»"
+              id="«replaced-aria-id»"
             >
               🍰 Cake for dinner
             </span>
@@ -768,12 +752,11 @@ exports[`Story Snapshots > Inline 1`] = `
       data-testid=""
     >
       <div
-        aria-describedby="react-aria-react-useId-mock react-aria-react-useId-mock"
         aria-label=" "
         class="relative flex flex-col gap-2 group"
         data-invalid="false"
         data-testid="checkboxfield"
-        id="react-aria-react-useId-mock"
+        id="react-aria-«replaced-aria-id»"
         role="group"
       >
         <div
@@ -788,9 +771,8 @@ exports[`Story Snapshots > Inline 1`] = `
             data-testid="checkboxfield_option_productive_procrastination"
           >
             <input
-              aria-describedby="react-aria-react-useId-mock"
               aria-label="🎯 Procrastinate productively"
-              aria-labelledby="aria-id"
+              aria-labelledby="«replaced-aria-id»"
               class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
               data-react-aria-pressable="true"
               name="checkboxField"
@@ -823,7 +805,7 @@ exports[`Story Snapshots > Inline 1`] = `
             </span>
             <span
               class="relative text-foreground select-none text-medium transition-colors-opacity before:transition-width motion-reduce:transition-none"
-              id="aria-id"
+              id="«replaced-aria-id»"
             >
               🎯 Procrastinate productively
             </span>
@@ -835,9 +817,8 @@ exports[`Story Snapshots > Inline 1`] = `
             data-testid="checkboxfield_option_coffee_vegetable"
           >
             <input
-              aria-describedby="react-aria-react-useId-mock"
               aria-label="☕ Coffee is a vegetable"
-              aria-labelledby="aria-id"
+              aria-labelledby="«replaced-aria-id»"
               class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
               data-react-aria-pressable="true"
               name="checkboxField"
@@ -870,7 +851,7 @@ exports[`Story Snapshots > Inline 1`] = `
             </span>
             <span
               class="relative text-foreground select-none text-medium transition-colors-opacity before:transition-width motion-reduce:transition-none"
-              id="aria-id"
+              id="«replaced-aria-id»"
             >
               ☕ Coffee is a vegetable
             </span>
@@ -882,9 +863,8 @@ exports[`Story Snapshots > Inline 1`] = `
             data-testid="checkboxfield_option_cats_rule_internet"
           >
             <input
-              aria-describedby="react-aria-react-useId-mock"
               aria-label="🐱 Cats rule the internet"
-              aria-labelledby="aria-id"
+              aria-labelledby="«replaced-aria-id»"
               class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
               data-react-aria-pressable="true"
               name="checkboxField"
@@ -917,7 +897,7 @@ exports[`Story Snapshots > Inline 1`] = `
             </span>
             <span
               class="relative text-foreground select-none text-medium transition-colors-opacity before:transition-width motion-reduce:transition-none"
-              id="aria-id"
+              id="«replaced-aria-id»"
             >
               🐱 Cats rule the internet
             </span>
@@ -954,12 +934,12 @@ exports[`Story Snapshots > Invalid 1`] = `
       data-testid=""
     >
       <div
-        aria-describedby="react-aria-react-useId-mock react-aria-react-useId-mock"
+        aria-describedby="react-aria-«replaced-aria-id»"
         aria-label=" "
         class="relative flex flex-col gap-2 group"
         data-invalid="true"
         data-testid="checkboxfield"
-        id="react-aria-react-useId-mock"
+        id="react-aria-«replaced-aria-id»"
         role="group"
       >
         <span
@@ -981,10 +961,10 @@ exports[`Story Snapshots > Invalid 1`] = `
             data-testid="checkboxfield_option_become_mime"
           >
             <input
-              aria-describedby="react-aria-react-useId-mock react-aria-react-useId-mock"
+              aria-describedby="react-aria-«replaced-aria-id»"
               aria-invalid="true"
               aria-label="🎭 Become a mime"
-              aria-labelledby="aria-id"
+              aria-labelledby="«replaced-aria-id»"
               class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
               data-react-aria-pressable="true"
               name="checkboxField"
@@ -1017,7 +997,7 @@ exports[`Story Snapshots > Invalid 1`] = `
             </span>
             <span
               class="relative select-none text-medium text-danger transition-colors-opacity before:transition-width motion-reduce:transition-none"
-              id="aria-id"
+              id="«replaced-aria-id»"
             >
               🎭 Become a mime
             </span>
@@ -1032,10 +1012,10 @@ exports[`Story Snapshots > Invalid 1`] = `
             data-testid="checkboxfield_option_howl_moon"
           >
             <input
-              aria-describedby="react-aria-react-useId-mock react-aria-react-useId-mock"
+              aria-describedby="react-aria-«replaced-aria-id»"
               aria-invalid="true"
               aria-label="🌙 Howl at the moon"
-              aria-labelledby="aria-id"
+              aria-labelledby="«replaced-aria-id»"
               class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
               data-react-aria-pressable="true"
               name="checkboxField"
@@ -1069,7 +1049,7 @@ exports[`Story Snapshots > Invalid 1`] = `
             </span>
             <span
               class="relative select-none text-medium text-danger transition-colors-opacity before:transition-width motion-reduce:transition-none"
-              id="aria-id"
+              id="«replaced-aria-id»"
             >
               🌙 Howl at the moon
             </span>
@@ -1081,10 +1061,10 @@ exports[`Story Snapshots > Invalid 1`] = `
             data-testid="checkboxfield_option_save_world"
           >
             <input
-              aria-describedby="react-aria-react-useId-mock react-aria-react-useId-mock"
+              aria-describedby="react-aria-«replaced-aria-id»"
               aria-invalid="true"
               aria-label="🦸 Save the world"
-              aria-labelledby="aria-id"
+              aria-labelledby="«replaced-aria-id»"
               class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
               data-react-aria-pressable="true"
               name="checkboxField"
@@ -1117,7 +1097,7 @@ exports[`Story Snapshots > Invalid 1`] = `
             </span>
             <span
               class="relative select-none text-medium text-danger transition-colors-opacity before:transition-width motion-reduce:transition-none"
-              id="aria-id"
+              id="«replaced-aria-id»"
             >
               🦸 Save the world
             </span>
@@ -1125,7 +1105,7 @@ exports[`Story Snapshots > Invalid 1`] = `
         </div>
         <div
           class="text-small text-danger"
-          id="react-aria-react-useId-mock"
+          id="react-aria-«replaced-aria-id»"
         >
           <ul
             aria-label="Validation errors of field checkboxfield"
@@ -1182,12 +1162,11 @@ exports[`Story Snapshots > OnlyOneCheckbox 1`] = `
       data-testid=""
     >
       <div
-        aria-describedby="react-aria-react-useId-mock react-aria-react-useId-mock"
         aria-label=" "
         class="relative flex flex-col gap-2 group"
         data-invalid="false"
         data-testid="checkboxfield"
-        id="react-aria-react-useId-mock"
+        id="react-aria-«replaced-aria-id»"
         role="group"
       >
         <div
@@ -1202,9 +1181,8 @@ exports[`Story Snapshots > OnlyOneCheckbox 1`] = `
             data-testid="checkboxfield_option_definitely_not_robot"
           >
             <input
-              aria-describedby="react-aria-react-useId-mock"
               aria-label="🤖 I am definitely not a robot"
-              aria-labelledby="aria-id"
+              aria-labelledby="«replaced-aria-id»"
               class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
               data-react-aria-pressable="true"
               name="checkboxField"
@@ -1237,7 +1215,7 @@ exports[`Story Snapshots > OnlyOneCheckbox 1`] = `
             </span>
             <span
               class="relative text-foreground select-none text-medium transition-colors-opacity before:transition-width motion-reduce:transition-none"
-              id="aria-id"
+              id="«replaced-aria-id»"
             >
               🤖 I am definitely not a robot
             </span>
@@ -1274,12 +1252,11 @@ exports[`Story Snapshots > Required 1`] = `
       data-testid=""
     >
       <div
-        aria-describedby="react-aria-react-useId-mock react-aria-react-useId-mock"
         aria-label=" "
         class="relative flex flex-col gap-2 group"
         data-invalid="false"
         data-testid="checkboxfield"
-        id="react-aria-react-useId-mock"
+        id="react-aria-«replaced-aria-id»"
         role="group"
       >
         <span
@@ -1301,9 +1278,8 @@ exports[`Story Snapshots > Required 1`] = `
             data-testid="checkboxfield_option_join_circus"
           >
             <input
-              aria-describedby="react-aria-react-useId-mock"
               aria-label="🎪 Join the circus"
-              aria-labelledby="«rt»"
+              aria-labelledby="«replaced-aria-id»"
               class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
               data-react-aria-pressable="true"
               name="checkboxField"
@@ -1337,7 +1313,7 @@ exports[`Story Snapshots > Required 1`] = `
             </span>
             <span
               class="relative text-foreground select-none text-medium transition-colors-opacity before:transition-width motion-reduce:transition-none"
-              id="«rt»"
+              id="«replaced-aria-id»"
             >
               🎪 Join the circus
             </span>
@@ -1349,9 +1325,8 @@ exports[`Story Snapshots > Required 1`] = `
             data-testid="checkboxfield_option_learn_magic"
           >
             <input
-              aria-describedby="react-aria-react-useId-mock"
               aria-label="🧙 Learn magic tricks"
-              aria-labelledby="«ru»"
+              aria-labelledby="«replaced-aria-id»"
               class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
               data-react-aria-pressable="true"
               name="checkboxField"
@@ -1385,7 +1360,7 @@ exports[`Story Snapshots > Required 1`] = `
             </span>
             <span
               class="relative text-foreground select-none text-medium transition-colors-opacity before:transition-width motion-reduce:transition-none"
-              id="«ru»"
+              id="«replaced-aria-id»"
             >
               🧙 Learn magic tricks
             </span>
@@ -1397,9 +1372,8 @@ exports[`Story Snapshots > Required 1`] = `
             data-testid="checkboxfield_option_befriend_dragon"
           >
             <input
-              aria-describedby="react-aria-react-useId-mock"
               aria-label="🐉 Befriend a dragon"
-              aria-labelledby="«rv»"
+              aria-labelledby="«replaced-aria-id»"
               class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
               data-react-aria-pressable="true"
               name="checkboxField"
@@ -1433,7 +1407,7 @@ exports[`Story Snapshots > Required 1`] = `
             </span>
             <span
               class="relative text-foreground select-none text-medium transition-colors-opacity before:transition-width motion-reduce:transition-none"
-              id="«rv»"
+              id="«replaced-aria-id»"
             >
               🐉 Befriend a dragon
             </span>
@@ -1470,12 +1444,11 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
       data-testid=""
     >
       <div
-        aria-describedby="react-aria-react-useId-mock react-aria-react-useId-mock"
         aria-label=" "
         class="relative flex flex-col gap-2 group"
         data-invalid="false"
         data-testid="checkboxfield"
-        id="react-aria-react-useId-mock"
+        id="react-aria-«replaced-aria-id»"
         role="group"
       >
         <div
@@ -1490,9 +1463,8 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
             data-testid="checkboxfield_option_tacos_solve_all"
           >
             <input
-              aria-describedby="react-aria-react-useId-mock"
               aria-label="🌮 Tacos solve everything"
-              aria-labelledby="«rk»"
+              aria-labelledby="«replaced-aria-id»"
               class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
               data-react-aria-pressable="true"
               name="checkboxField"
@@ -1525,7 +1497,7 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
             </span>
             <span
               class="relative text-foreground select-none text-medium transition-colors-opacity before:transition-width motion-reduce:transition-none"
-              id="«rk»"
+              id="«replaced-aria-id»"
             >
               🌮 Tacos solve everything
             </span>
@@ -1538,9 +1510,8 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
             data-testid="checkboxfield_option_sing_shower"
           >
             <input
-              aria-describedby="react-aria-react-useId-mock"
               aria-label="🎵 Sing in the shower"
-              aria-labelledby="«rl»"
+              aria-labelledby="«replaced-aria-id»"
               checked=""
               class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
               data-react-aria-pressable="true"
@@ -1575,7 +1546,7 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
             </span>
             <span
               class="relative text-foreground select-none text-medium transition-colors-opacity before:transition-width motion-reduce:transition-none"
-              id="«rl»"
+              id="«replaced-aria-id»"
             >
               🎵 Sing in the shower
             </span>
@@ -1587,9 +1558,8 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
             data-testid="checkboxfield_option_mars_vacation"
           >
             <input
-              aria-describedby="react-aria-react-useId-mock"
               aria-label="🚀 Mars vacation planner"
-              aria-labelledby="«rm»"
+              aria-labelledby="«replaced-aria-id»"
               class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
               data-react-aria-pressable="true"
               name="checkboxField"
@@ -1622,7 +1592,7 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
             </span>
             <span
               class="relative text-foreground select-none text-medium transition-colors-opacity before:transition-width motion-reduce:transition-none"
-              id="«rm»"
+              id="«replaced-aria-id»"
             >
               🚀 Mars vacation planner
             </span>
@@ -1659,12 +1629,11 @@ exports[`Story Snapshots > WithLabel 1`] = `
       data-testid=""
     >
       <div
-        aria-describedby="react-aria-react-useId-mock react-aria-react-useId-mock"
         aria-label=" "
         class="relative flex flex-col gap-2 group"
         data-invalid="false"
         data-testid="checkboxfield"
-        id="react-aria-react-useId-mock"
+        id="react-aria-«replaced-aria-id»"
         role="group"
       >
         <span
@@ -1686,9 +1655,8 @@ exports[`Story Snapshots > WithLabel 1`] = `
             data-testid="checkboxfield_option_pizza_breakfast"
           >
             <input
-              aria-describedby="react-aria-react-useId-mock"
               aria-label="🍕 Pizza for breakfast"
-              aria-labelledby="aria-id"
+              aria-labelledby="«replaced-aria-id»"
               class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
               data-react-aria-pressable="true"
               name="checkboxField"
@@ -1721,7 +1689,7 @@ exports[`Story Snapshots > WithLabel 1`] = `
             </span>
             <span
               class="relative text-foreground select-none text-medium transition-colors-opacity before:transition-width motion-reduce:transition-none"
-              id="aria-id"
+              id="«replaced-aria-id»"
             >
               🍕 Pizza for breakfast
             </span>
@@ -1733,9 +1701,8 @@ exports[`Story Snapshots > WithLabel 1`] = `
             data-testid="checkboxfield_option_unicorns_real"
           >
             <input
-              aria-describedby="react-aria-react-useId-mock"
               aria-label="🦄 Unicorns are real"
-              aria-labelledby="aria-id"
+              aria-labelledby="«replaced-aria-id»"
               class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
               data-react-aria-pressable="true"
               name="checkboxField"
@@ -1768,7 +1735,7 @@ exports[`Story Snapshots > WithLabel 1`] = `
             </span>
             <span
               class="relative text-foreground select-none text-medium transition-colors-opacity before:transition-width motion-reduce:transition-none"
-              id="aria-id"
+              id="«replaced-aria-id»"
             >
               🦄 Unicorns are real
             </span>
@@ -1780,9 +1747,8 @@ exports[`Story Snapshots > WithLabel 1`] = `
             data-testid="checkboxfield_option_socks_sandals"
           >
             <input
-              aria-describedby="react-aria-react-useId-mock"
               aria-label="🧦 Socks with sandals"
-              aria-labelledby="aria-id"
+              aria-labelledby="«replaced-aria-id»"
               class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
               data-react-aria-pressable="true"
               name="checkboxField"
@@ -1815,7 +1781,7 @@ exports[`Story Snapshots > WithLabel 1`] = `
             </span>
             <span
               class="relative text-foreground select-none text-medium transition-colors-opacity before:transition-width motion-reduce:transition-none"
-              id="aria-id"
+              id="«replaced-aria-id»"
             >
               🧦 Socks with sandals
             </span>
@@ -1852,12 +1818,11 @@ exports[`Story Snapshots > WithLineThrough 1`] = `
       data-testid=""
     >
       <div
-        aria-describedby="react-aria-react-useId-mock react-aria-react-useId-mock"
         aria-label=" "
         class="relative flex flex-col gap-2 group"
         data-invalid="false"
         data-testid="checkboxfield"
-        id="react-aria-react-useId-mock"
+        id="react-aria-«replaced-aria-id»"
         role="group"
       >
         <span
@@ -1880,9 +1845,8 @@ exports[`Story Snapshots > WithLineThrough 1`] = `
             data-testid="checkboxfield_option_wash_dishes"
           >
             <input
-              aria-describedby="react-aria-react-useId-mock"
               aria-label="🧽 Wash the dishes"
-              aria-labelledby="«rd»"
+              aria-labelledby="«replaced-aria-id»"
               checked=""
               class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
               data-react-aria-pressable="true"
@@ -1917,7 +1881,7 @@ exports[`Story Snapshots > WithLineThrough 1`] = `
             </span>
             <span
               class="relative text-foreground select-none text-medium transition-colors-opacity before:transition-width motion-reduce:transition-none"
-              id="«rd»"
+              id="«replaced-aria-id»"
             >
               <div
                 class="flex grow flex-col items-start"
@@ -1943,9 +1907,8 @@ exports[`Story Snapshots > WithLineThrough 1`] = `
             data-testid="checkboxfield_option_walk_dog"
           >
             <input
-              aria-describedby="react-aria-react-useId-mock"
               aria-label="🐕 Walk the dog"
-              aria-labelledby="«re»"
+              aria-labelledby="«replaced-aria-id»"
               checked=""
               class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
               data-react-aria-pressable="true"
@@ -1980,7 +1943,7 @@ exports[`Story Snapshots > WithLineThrough 1`] = `
             </span>
             <span
               class="text-foreground select-none text-medium transition-colors-opacity motion-reduce:transition-none inline-flex items-center justify-center before:content-[''] before:absolute before:bg-foreground before:w-0 before:h-0.5 group-data-[selected=true]:opacity-60 group-data-[selected=true]:before:w-full relative before:transition-all before:duration-200"
-              id="«re»"
+              id="«replaced-aria-id»"
             >
               🐕 Walk the dog
             </span>
@@ -1992,9 +1955,8 @@ exports[`Story Snapshots > WithLineThrough 1`] = `
             data-testid="checkboxfield_option_reply_emails"
           >
             <input
-              aria-describedby="react-aria-react-useId-mock"
               aria-label="📧 Reply to emails"
-              aria-labelledby="«rf»"
+              aria-labelledby="«replaced-aria-id»"
               class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
               data-react-aria-pressable="true"
               name="checkboxField"
@@ -2027,7 +1989,7 @@ exports[`Story Snapshots > WithLineThrough 1`] = `
             </span>
             <span
               class="text-foreground select-none text-medium transition-colors-opacity motion-reduce:transition-none inline-flex items-center justify-center before:content-[''] before:absolute before:bg-foreground before:w-0 before:h-0.5 group-data-[selected=true]:opacity-60 group-data-[selected=true]:before:w-full relative before:transition-all before:duration-200"
-              id="«rf»"
+              id="«replaced-aria-id»"
             >
               📧 Reply to emails
             </span>
@@ -2039,9 +2001,8 @@ exports[`Story Snapshots > WithLineThrough 1`] = `
             data-testid="checkboxfield_option_buy_groceries"
           >
             <input
-              aria-describedby="react-aria-react-useId-mock"
               aria-label="🛒 Buy groceries"
-              aria-labelledby="«rg»"
+              aria-labelledby="«replaced-aria-id»"
               class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
               data-react-aria-pressable="true"
               name="checkboxField"
@@ -2074,7 +2035,7 @@ exports[`Story Snapshots > WithLineThrough 1`] = `
             </span>
             <span
               class="text-foreground select-none text-medium transition-colors-opacity motion-reduce:transition-none inline-flex items-center justify-center before:content-[''] before:absolute before:bg-foreground before:w-0 before:h-0.5 group-data-[selected=true]:opacity-60 group-data-[selected=true]:before:w-full relative before:transition-all before:duration-200"
-              id="«rg»"
+              id="«replaced-aria-id»"
             >
               🛒 Buy groceries
             </span>
@@ -2111,12 +2072,11 @@ exports[`Story Snapshots > WithOptionLabelSubline 1`] = `
       data-testid=""
     >
       <div
-        aria-describedby="react-aria-react-useId-mock react-aria-react-useId-mock"
         aria-label=" "
         class="relative flex flex-col gap-2 group"
         data-invalid="false"
         data-testid="checkboxfield"
-        id="react-aria-react-useId-mock"
+        id="react-aria-«replaced-aria-id»"
         role="group"
       >
         <div
@@ -2131,9 +2091,8 @@ exports[`Story Snapshots > WithOptionLabelSubline 1`] = `
             data-testid="checkboxfield_option_pizza_breakfast"
           >
             <input
-              aria-describedby="react-aria-react-useId-mock"
               aria-label="Pizza for breakfast 🍕"
-              aria-labelledby="«rh»"
+              aria-labelledby="«replaced-aria-id»"
               class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
               data-react-aria-pressable="true"
               name="checkboxField"
@@ -2166,7 +2125,7 @@ exports[`Story Snapshots > WithOptionLabelSubline 1`] = `
             </span>
             <span
               class="relative text-foreground select-none text-medium transition-colors-opacity before:transition-width motion-reduce:transition-none"
-              id="«rh»"
+              id="«replaced-aria-id»"
             >
               <div
                 class="flex grow flex-col items-start"
@@ -2189,9 +2148,8 @@ exports[`Story Snapshots > WithOptionLabelSubline 1`] = `
             data-testid="checkboxfield_option_unicorns_real"
           >
             <input
-              aria-describedby="react-aria-react-useId-mock"
               aria-label="Unicorns are real 🦄"
-              aria-labelledby="«ri»"
+              aria-labelledby="«replaced-aria-id»"
               class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
               data-react-aria-pressable="true"
               name="checkboxField"
@@ -2224,7 +2182,7 @@ exports[`Story Snapshots > WithOptionLabelSubline 1`] = `
             </span>
             <span
               class="relative text-foreground select-none text-medium transition-colors-opacity before:transition-width motion-reduce:transition-none"
-              id="«ri»"
+              id="«replaced-aria-id»"
             >
               <div
                 class="flex grow flex-col items-start"
@@ -2247,9 +2205,8 @@ exports[`Story Snapshots > WithOptionLabelSubline 1`] = `
             data-testid="checkboxfield_option_socks_sandals"
           >
             <input
-              aria-describedby="react-aria-react-useId-mock"
               aria-label="Socks with sandals 🧦"
-              aria-labelledby="«rj»"
+              aria-labelledby="«replaced-aria-id»"
               class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
               data-react-aria-pressable="true"
               name="checkboxField"
@@ -2282,7 +2239,7 @@ exports[`Story Snapshots > WithOptionLabelSubline 1`] = `
             </span>
             <span
               class="relative text-foreground select-none text-medium transition-colors-opacity before:transition-width motion-reduce:transition-none"
-              id="«rj»"
+              id="«replaced-aria-id»"
             >
               <div
                 class="flex grow flex-col items-start"
@@ -2330,12 +2287,11 @@ exports[`Story Snapshots > WithTransformComplexObjects 1`] = `
       data-testid=""
     >
       <div
-        aria-describedby="react-aria-react-useId-mock react-aria-react-useId-mock"
         aria-label=" "
         class="relative flex flex-col gap-2 group"
         data-invalid="false"
         data-testid="selectedfoods"
-        id="react-aria-react-useId-mock"
+        id="react-aria-«replaced-aria-id»"
         role="group"
       >
         <span
@@ -2358,9 +2314,8 @@ exports[`Story Snapshots > WithTransformComplexObjects 1`] = `
             data-testid="selectedfoods_option_pizza"
           >
             <input
-              aria-describedby="react-aria-react-useId-mock"
               aria-label="🍕 Pizza"
-              aria-labelledby="aria-id"
+              aria-labelledby="«replaced-aria-id»"
               checked=""
               class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
               data-react-aria-pressable="true"
@@ -2395,7 +2350,7 @@ exports[`Story Snapshots > WithTransformComplexObjects 1`] = `
             </span>
             <span
               class="relative text-foreground select-none text-medium transition-colors-opacity before:transition-width motion-reduce:transition-none"
-              id="aria-id"
+              id="«replaced-aria-id»"
             >
               🍕 Pizza
             </span>
@@ -2407,9 +2362,8 @@ exports[`Story Snapshots > WithTransformComplexObjects 1`] = `
             data-testid="selectedfoods_option_burger"
           >
             <input
-              aria-describedby="react-aria-react-useId-mock"
               aria-label="🍔 Burger"
-              aria-labelledby="aria-id"
+              aria-labelledby="«replaced-aria-id»"
               class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
               data-react-aria-pressable="true"
               name="selectedFoods"
@@ -2442,7 +2396,7 @@ exports[`Story Snapshots > WithTransformComplexObjects 1`] = `
             </span>
             <span
               class="relative text-foreground select-none text-medium transition-colors-opacity before:transition-width motion-reduce:transition-none"
-              id="aria-id"
+              id="«replaced-aria-id»"
             >
               🍔 Burger
             </span>
@@ -2455,9 +2409,8 @@ exports[`Story Snapshots > WithTransformComplexObjects 1`] = `
             data-testid="selectedfoods_option_sushi"
           >
             <input
-              aria-describedby="react-aria-react-useId-mock"
               aria-label="🍣 Sushi"
-              aria-labelledby="aria-id"
+              aria-labelledby="«replaced-aria-id»"
               checked=""
               class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
               data-react-aria-pressable="true"
@@ -2492,7 +2445,7 @@ exports[`Story Snapshots > WithTransformComplexObjects 1`] = `
             </span>
             <span
               class="relative text-foreground select-none text-medium transition-colors-opacity before:transition-width motion-reduce:transition-none"
-              id="aria-id"
+              id="«replaced-aria-id»"
             >
               🍣 Sushi
             </span>
@@ -2504,9 +2457,8 @@ exports[`Story Snapshots > WithTransformComplexObjects 1`] = `
             data-testid="selectedfoods_option_taco"
           >
             <input
-              aria-describedby="react-aria-react-useId-mock"
               aria-label="🌮 Taco"
-              aria-labelledby="aria-id"
+              aria-labelledby="«replaced-aria-id»"
               class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
               data-react-aria-pressable="true"
               name="selectedFoods"
@@ -2539,7 +2491,7 @@ exports[`Story Snapshots > WithTransformComplexObjects 1`] = `
             </span>
             <span
               class="relative text-foreground select-none text-medium transition-colors-opacity before:transition-width motion-reduce:transition-none"
-              id="aria-id"
+              id="«replaced-aria-id»"
             >
               🌮 Taco
             </span>
@@ -2576,12 +2528,11 @@ exports[`Story Snapshots > WithTransformSingleValue 1`] = `
       data-testid=""
     >
       <div
-        aria-describedby="react-aria-react-useId-mock react-aria-react-useId-mock"
         aria-label=" "
         class="relative flex flex-col gap-2 group"
         data-invalid="false"
         data-testid="acceptterms"
-        id="react-aria-react-useId-mock"
+        id="react-aria-«replaced-aria-id»"
         role="group"
       >
         <span
@@ -2603,9 +2554,8 @@ exports[`Story Snapshots > WithTransformSingleValue 1`] = `
             data-testid="acceptterms_option_accepted"
           >
             <input
-              aria-describedby="react-aria-react-useId-mock"
               aria-label="I accept the terms and conditions"
-              aria-labelledby="aria-id"
+              aria-labelledby="«replaced-aria-id»"
               class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
               data-react-aria-pressable="true"
               name="acceptTerms"
@@ -2638,7 +2588,7 @@ exports[`Story Snapshots > WithTransformSingleValue 1`] = `
             </span>
             <span
               class="relative text-foreground select-none text-medium transition-colors-opacity before:transition-width motion-reduce:transition-none"
-              id="aria-id"
+              id="«replaced-aria-id»"
             >
               I accept the terms and conditions
             </span>

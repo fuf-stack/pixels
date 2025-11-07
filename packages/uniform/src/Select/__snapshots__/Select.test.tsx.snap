@@ -22,7 +22,7 @@ exports[`Story Snapshots > Default 1`] = `
           class="pointer-events-auto relative bottom-1.5 ml-1 subpixel-antialiased text-small group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
           data-slot="label"
           for="react-select-selectField-input"
-          id="react-aria-react-useId-mock"
+          id="react-aria-«replaced-aria-id»"
         >
           Some Label
         </label>
@@ -160,7 +160,7 @@ exports[`Story Snapshots > Disabled 1`] = `
           class="pointer-events-auto relative bottom-1.5 ml-1 subpixel-antialiased text-small group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
           data-slot="label"
           for="react-select-selectField-input"
-          id="react-aria-react-useId-mock"
+          id="react-aria-«replaced-aria-id»"
         >
           Some Label
         </label>
@@ -295,7 +295,7 @@ exports[`Story Snapshots > InitialValue 1`] = `
           class="pointer-events-auto relative bottom-1.5 ml-1 subpixel-antialiased text-small group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
           data-slot="label"
           for="react-select-selectField-input"
-          id="react-aria-react-useId-mock"
+          id="react-aria-«replaced-aria-id»"
         >
           Some Label
         </label>
@@ -449,7 +449,7 @@ exports[`Story Snapshots > Invalid 1`] = `
           class="pointer-events-auto relative bottom-1.5 ml-1 subpixel-antialiased text-small group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
           data-slot="label"
           for="react-select-selectField-input"
-          id="react-aria-react-useId-mock"
+          id="react-aria-«replaced-aria-id»"
         >
           Some Label
         </label>
@@ -567,7 +567,7 @@ exports[`Story Snapshots > Invalid 1`] = `
           <div
             class="text-tiny text-danger"
             data-slot="error-message"
-            id="react-aria-react-useId-mock"
+            id="react-aria-«replaced-aria-id»"
           >
             <ul
               aria-label="Validation errors of field selectfield"
@@ -627,7 +627,7 @@ exports[`Story Snapshots > Loading 1`] = `
           class="pointer-events-auto relative bottom-1.5 ml-1 subpixel-antialiased text-small group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
           data-slot="label"
           for="react-select-selectField-input"
-          id="react-aria-react-useId-mock"
+          id="react-aria-«replaced-aria-id»"
         >
           Some Label
         </label>
@@ -828,7 +828,7 @@ exports[`Story Snapshots > MenuIsVisibleInCard 1`] = `
               class="pointer-events-auto relative bottom-1.5 ml-1 subpixel-antialiased text-small group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
               data-slot="label"
               for="react-select-selectField-input"
-              id="react-aria-react-useId-mock"
+              id="react-aria-«replaced-aria-id»"
             >
               Some Label
             </label>
@@ -1252,15 +1252,15 @@ exports[`Story Snapshots > MenuIsVisibleInModal 1`] = `
       style="--visual-viewport-height: 768px; opacity: 1; will-change: auto; transform: translateY(var(--slide-enter)) scale(var(--scale-enter));"
     >
       <section
-        aria-describedby="aria-id"
-        aria-labelledby="aria-id"
+        aria-describedby="«replaced-aria-id»"
+        aria-labelledby="«replaced-aria-id»"
         aria-modal="true"
         class="flex flex-col relative z-50 w-full box-border bg-content1 outline-solid outline-transparent mx-1 my-1 sm:mx-6 sm:my-16 rounded-large shadow-small max-h-[calc(100%_-_8rem)] max-w-md"
         data-dismissable="true"
         data-open="true"
         data-placement="center"
         data-testid="modal"
-        id="aria-id"
+        id="«replaced-aria-id»"
         role="dialog"
         tabindex="-1"
       >
@@ -1269,7 +1269,7 @@ exports[`Story Snapshots > MenuIsVisibleInModal 1`] = `
         >
           <button
             aria-label="Dismiss"
-            id="react-aria-react-useId-mock"
+            id="react-aria-«replaced-aria-id»"
             style="width: 1px; height: 1px;"
             tabindex="-1"
           />
@@ -1303,7 +1303,7 @@ exports[`Story Snapshots > MenuIsVisibleInModal 1`] = `
         </button>
         <header
           class="flex py-4 px-6 flex-initial text-large font-semibold border-b border-b-divider"
-          id="aria-id"
+          id="«replaced-aria-id»"
         >
           Select in a Modal
         </header>
@@ -1323,7 +1323,7 @@ exports[`Story Snapshots > MenuIsVisibleInModal 1`] = `
               class="pointer-events-auto relative bottom-1.5 ml-1 subpixel-antialiased text-small group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
               data-slot="label"
               for="react-select-selectField-input"
-              id="react-aria-react-useId-mock"
+              id="react-aria-«replaced-aria-id»"
             >
               Some Label
             </label>
@@ -1672,7 +1672,7 @@ exports[`Story Snapshots > MenuIsVisibleInModal 1`] = `
         >
           <button
             aria-label="Dismiss"
-            id="react-aria-react-useId-mock"
+            id="react-aria-«replaced-aria-id»"
             style="width: 1px; height: 1px;"
             tabindex="-1"
           />
@@ -1710,7 +1710,7 @@ exports[`Story Snapshots > MultiSelect 1`] = `
           class="pointer-events-auto relative bottom-1.5 ml-1 subpixel-antialiased text-small group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
           data-slot="label"
           for="react-select-selectField-input"
-          id="react-aria-react-useId-mock"
+          id="react-aria-«replaced-aria-id»"
         >
           Some Label
         </label>
@@ -1919,7 +1919,7 @@ exports[`Story Snapshots > NoResults 1`] = `
           class="pointer-events-auto relative bottom-1.5 ml-1 subpixel-antialiased text-small group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
           data-slot="label"
           for="react-select-selectField-input"
-          id="react-aria-react-useId-mock"
+          id="react-aria-«replaced-aria-id»"
         >
           Some Label
         </label>
@@ -2092,7 +2092,7 @@ exports[`Story Snapshots > Required 1`] = `
           class="pointer-events-auto relative bottom-1.5 ml-1 subpixel-antialiased text-small group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
           data-slot="label"
           for="react-select-selectField-input"
-          id="react-aria-react-useId-mock"
+          id="react-aria-«replaced-aria-id»"
         >
           Some Label
         </label>

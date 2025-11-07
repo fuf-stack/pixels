@@ -20,22 +20,6 @@ beforeEach(() => {
   document.body.innerHTML = '';
 });
 
-// fix react useId not consistent in snapshots (used directly by heroui)
-// e.g.: https://github.com/heroui-inc/heroui/blob/main/packages/components/checkbox/src/use-checkbox.ts#L5
-vi.mock('react', async (importOriginal) => {
-  // eslint-disable-next-line @typescript-eslint/consistent-type-imports
-  const reactOrig = await importOriginal<typeof import('react')>();
-
-  const useId = () => {
-    return 'react-useId-mock';
-  };
-
-  // @ts-expect-error we also have to mock useId in default (React.useId)
-  reactOrig.default.useId = useId;
-
-  return { ...reactOrig, useId };
-});
-
 // mock react-icons
 vi.mock('react-icons/fa');
 vi.mock('react-icons/fa6');
