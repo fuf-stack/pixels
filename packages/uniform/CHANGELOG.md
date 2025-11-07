@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.8.9](https://github.com/fuf-stack/pixels/compare/uniform-v1.8.8...uniform-v1.8.9) (2025-11-07)
+
+
+### Bug Fixes
+
+* **uniform:** do not debounce invalid in test environment ([eec2af8](https://github.com/fuf-stack/pixels/commit/eec2af80c3abf1f418d1353129bbb4a55d021eb2))
+* **uniform:** fix reset env stubs ([6566afd](https://github.com/fuf-stack/pixels/commit/6566afdcad99dc737f8134607e15ab5acd36301d))
+
 ## [1.8.8](https://github.com/fuf-stack/pixels/compare/uniform-v1.8.7...uniform-v1.8.8) (2025-11-07)
 
 
