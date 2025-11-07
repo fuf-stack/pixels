@@ -6,6 +6,7 @@ import React from 'react';
 
 import { useDebounce } from '@fuf-stack/pixels';
 
+import { isTestEnvironment } from '../../helpers';
 import { FieldCopyTestIdButton } from '../../partials/FieldCopyTestIdButton';
 import { FieldValidationError } from '../../partials/FieldValidationError';
 import { useController } from '../useController/useController';
@@ -31,9 +32,7 @@ const useDebouncedInvalid = (invalid: boolean, delayMs: number) => {
   const debouncedInvalid = useDebounce(invalid, delayMs);
 
   // Disable debouncing in test environments for immediate snapshots
-  const isTest =
-    process.env.NODE_ENV === 'test' || process.env.VITEST === 'true';
-  if (isTest) {
+  if (isTestEnvironment()) {
     return invalid;
   }
 
