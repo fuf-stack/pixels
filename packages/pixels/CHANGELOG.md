@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.1](https://github.com/fuf-stack/pixels/compare/pixels-v1.5.0...pixels-v1.5.1) (2025-11-07)
+
+
+### Bug Fixes
+
+* **pixels:** remove disabled from useDebouce ([0a5f1e2](https://github.com/fuf-stack/pixels/commit/0a5f1e2508275a945047dc8ff6a3810518c2799c))
+
 ## [1.5.0](https://github.com/fuf-stack/pixels/compare/pixels-v1.4.0...pixels-v1.5.0) (2025-11-06)
 
 
