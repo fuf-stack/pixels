@@ -6,25 +6,14 @@ import { useEffect, useState } from 'react';
  * Hook that debounces a value
  * @param value - The value to debounce
  * @param delay - Delay in milliseconds
- * @param disabled - If true, returns the value immediately without debouncing
  * @returns The debounced value
  */
-export const useDebounce = <Value>(
-  value: Value,
-  delay: number,
-  disabled = false,
-) => {
+export const useDebounce = <Value>(value: Value, delay: number) => {
   // State and setters for debounced value
   const [debouncedValue, setDebouncedValue] = useState(value);
 
   useEffect(
     () => {
-      // If disabled, update immediately
-      if (disabled) {
-        setDebouncedValue(value);
-        return undefined;
-      }
-
       // Update debounced value after delay
       const handler = setTimeout(() => {
         setDebouncedValue(value);
@@ -37,7 +26,7 @@ export const useDebounce = <Value>(
         clearTimeout(handler);
       };
     },
-    [value, delay, disabled], // Only re-call effect if value, delay, or disabled changes
+    [value, delay], // Only re-call effect if value or delay changes
   );
 
   return debouncedValue;

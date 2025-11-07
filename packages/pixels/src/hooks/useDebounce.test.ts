@@ -60,49 +60,6 @@ describe('useDebounce', () => {
     );
   });
 
-  it('should update immediately when disabled is true', () => {
-    const { result, rerender } = renderHook(
-      ({ value }) => useDebounce(value, 500, true),
-      {
-        initialProps: { value: 'initial' },
-      },
-    );
-
-    expect(result.current).toBe('initial');
-
-    // Update value with disabled=true
-    rerender({ value: 'updated' });
-
-    // Should update immediately
-    expect(result.current).toBe('updated');
-  });
-
-  it('should handle changing from disabled to enabled', async () => {
-    const { result, rerender } = renderHook(
-      ({ value, disabled }) => useDebounce(value, 500, disabled),
-      {
-        initialProps: { value: 'initial', disabled: true },
-      },
-    );
-
-    expect(result.current).toBe('initial');
-
-    // Update with disabled=true - should be immediate
-    rerender({ value: 'updated1', disabled: true });
-    expect(result.current).toBe('updated1');
-
-    // Update with disabled=false - should debounce
-    rerender({ value: 'updated2', disabled: false });
-    expect(result.current).toBe('updated1'); // Still old value
-
-    await waitFor(
-      () => {
-        expect(result.current).toBe('updated2');
-      },
-      { timeout: 600 },
-    );
-  });
-
   it('should cleanup timeout on unmount', () => {
     const clearTimeoutSpy = vi.spyOn(global, 'clearTimeout');
 
