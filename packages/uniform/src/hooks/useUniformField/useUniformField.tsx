@@ -4,7 +4,6 @@ import type { InputValueTransform } from '../useInputValueTransform/useInputValu
 
 import React from 'react';
 
-import { useReducedMotion } from '@fuf-stack/pixel-motion';
 import { useDebounce } from '@fuf-stack/pixels';
 
 import { FieldCopyTestIdButton } from '../../partials/FieldCopyTestIdButton';
@@ -15,23 +14,21 @@ import { useInput } from '../useInput/useInput';
 import { useInputValueTransform } from '../useInputValueTransform/useInputValueTransform';
 
 /**
- * Debounce invalid state changes for smooth UI transitions while respecting accessibility.
+ * Debounce invalid state changes to prevent UI flicker on rapid changes.
+ *
+ * Primary purpose: Reduce UI flicker when validation state changes rapidly
+ * (e.g., during fast typing). Without debouncing, error messages would flash
+ * in/out rapidly, creating a poor UX.
+ *
+ * Secondary benefit: When animations are enabled (default), gives time for
+ * enter/exit animations to complete smoothly.
  *
  * Behavior:
- * - Specifically intended for validation invalid flags: debounces both
- *   true → false and false → true transitions by `delayMs` to prevent
- *   flicker and allow enter/exit animations to complete.
- * - If the user prefers reduced motion (via `useReducedMotion` from
- *   `@fuf-stack/pixel-motion`), updates apply immediately with no delay.
+ * - Debounces both true → false and false → true transitions by `delayMs`
+ * - Always debounces regardless of user motion preferences
  */
 const useDebouncedInvalid = (invalid: boolean, delayMs: number) => {
-  const prefersReducedMotion = useReducedMotion();
-  const debouncedInvalid = useDebounce(
-    invalid,
-    delayMs,
-    !!prefersReducedMotion,
-  );
-
+  const debouncedInvalid = useDebounce(invalid, delayMs);
   return debouncedInvalid;
 };
 

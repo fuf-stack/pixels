@@ -46,11 +46,6 @@ vi.mock('../useController/useController', () => ({
   }),
 }));
 
-let mockReducedMotion = false;
-vi.mock('@fuf-stack/pixel-motion', () => ({
-  useReducedMotion: () => mockReducedMotion,
-}));
-
 vi.mock('../../partials/FieldCopyTestIdButton', () => ({
   FieldCopyTestIdButton: ({ testId }: { testId: string }) => (
     <span data-testid={`copy-${testId}`}>copy</span>
@@ -66,7 +61,6 @@ vi.mock('../../partials/FieldValidationError', () => ({
 describe('useUniformField', () => {
   beforeEach(() => {
     vi.useFakeTimers();
-    mockReducedMotion = true; // Disable debouncing delay in tests
     mockFormState = { submitCount: 0 };
     mockField = {
       disabled: false,
@@ -95,25 +89,7 @@ describe('useUniformField', () => {
   });
 
   describe('invalid state debouncing', () => {
-    it('immediately shows invalid state when reduced motion is enabled', () => {
-      mockReducedMotion = true; // Enable immediate updates
-      mockContext.getFieldState = vi.fn(() => ({
-        error: [{ message: 'Error' }] as unknown as FieldError[],
-        invalid: true,
-        isDirty: true,
-        isTouched: false,
-        required: false,
-        testId: 'f-tid',
-      }));
-
-      const { result } = renderHook(() => useUniformField({ name: 'f' }));
-
-      // With reduced motion, invalid should be true immediately (no debounce)
-      expect(result.current.invalid).toBe(true);
-    });
-
-    it('debounces invalid state changes when reduced motion is disabled', async () => {
-      mockReducedMotion = false; // Enable debouncing
+    it('debounces invalid state changes', async () => {
       let fieldState = {
         error: undefined as FieldError[] | undefined,
         invalid: false,
@@ -157,7 +133,6 @@ describe('useUniformField', () => {
     });
 
     it('cancels previous debounce when field state changes rapidly', async () => {
-      mockReducedMotion = false; // Enable debouncing
       let fieldState = {
         error: undefined as FieldError[] | undefined,
         invalid: false,
