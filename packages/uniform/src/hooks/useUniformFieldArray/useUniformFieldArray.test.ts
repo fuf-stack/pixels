@@ -291,7 +291,7 @@ describe('useUniformFieldArray', () => {
   });
 
   describe('Validation triggering (disabled - tests kept for future reference)', () => {
-    it.skip('should not trigger validation during initialization', async () => {
+    it('should not trigger validation during initialization', async () => {
       mockFields = [];
 
       renderHook(() =>
@@ -313,7 +313,7 @@ describe('useUniformFieldArray', () => {
       expect(mockTrigger).not.toHaveBeenCalled();
     });
 
-    it.skip('should trigger validation when fields length changes after initialization', async () => {
+    it('should trigger validation when fields length changes after initialization', async () => {
       mockFields = [{ id: '1' }];
 
       const { rerender } = renderHook(() =>
@@ -339,7 +339,7 @@ describe('useUniformFieldArray', () => {
       expect(mockTrigger).toHaveBeenCalledWith('testArray');
     });
 
-    it.skip('should use 200ms delay for validation trigger', async () => {
+    it('should use 200ms delay for validation trigger', async () => {
       mockFields = [];
 
       const { rerender } = renderHook(() =>
