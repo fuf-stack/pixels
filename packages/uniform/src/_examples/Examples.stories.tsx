@@ -17,6 +17,7 @@ import { RadioTabs } from '../RadioTabs';
 import { Select } from '../Select';
 import { SubmitButton } from '../SubmitButton';
 import { Switch } from '../Switch';
+import { SwitchBox } from '../SwitchBox';
 import { TextArea } from '../TextArea';
 
 const meta: Meta<typeof Form> = {
@@ -58,6 +59,7 @@ const validation = veto({
   radioTabsField: radiosSchema,
   selectField: selectSchema,
   stringField: vt.string(),
+  switchBoxField: vt.boolean(),
   switchField: vt.boolean(),
   textAreaField: vt.string(),
 });
@@ -116,6 +118,12 @@ export const AllFieldRenderers: Story = {
             name="textAreaField"
           />
           <Switch label="Switch Field" name="switchField" />
+          <SwitchBox
+            className="md:col-span-2"
+            description="Enable advanced features for your account"
+            label="Switch Box Field"
+            name="switchBoxField"
+          />
           <Checkboxes
             label="Checkbox Field"
             name="checkboxField"

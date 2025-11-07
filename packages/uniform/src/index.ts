@@ -15,6 +15,7 @@ export * from './RadioTabs';
 export * from './Select';
 export * from './SubmitButton';
 export * from './Switch';
+export * from './SwitchBox';
 export * from './TextArea';
 
 /* v8 ignore stop */
