@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.6.1](https://github.com/fuf-stack/pixels/compare/megapixels-v0.6.0...megapixels-v0.6.1) (2025-11-07)
+
+
+### Bug Fixes
+
+* **megapixels:** bump ([895ee64](https://github.com/fuf-stack/pixels/commit/895ee644c926e161ba2fea6a7e3662bff73399d7))
+
 ## [0.6.0](https://github.com/fuf-stack/pixels/compare/megapixels-v0.5.1...megapixels-v0.6.0) (2025-11-07)
 
 
