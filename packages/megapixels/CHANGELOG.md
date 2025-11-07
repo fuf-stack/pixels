@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.5.1](https://github.com/fuf-stack/pixels/compare/megapixels-v0.5.0...megapixels-v0.5.1) (2025-11-07)
+
+
+### Bug Fixes
+
+* **megapixels:** bump ([14b795f](https://github.com/fuf-stack/pixels/commit/14b795f532064809462c9e5e9bf4fee771939ead))
+* **megapixels:** fix repo url in package.json ([17feacc](https://github.com/fuf-stack/pixels/commit/17feacca99af8ebffb48eab4e3e44c06e13ed57c))
+
 ## [0.5.0](https://github.com/fuf-stack/pixels/compare/megapixels-v0.4.1...megapixels-v0.5.0) (2025-11-06)
 
 
