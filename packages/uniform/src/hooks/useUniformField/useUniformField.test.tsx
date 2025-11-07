@@ -123,111 +123,113 @@ describe('useUniformField', () => {
       expect(result.current.invalid).toBe(true);
     });
 
-    it('debounces invalid state changes in production environment', async () => {
-      // Mock production environment
-      vi.stubEnv('NODE_ENV', 'production');
-      vi.stubEnv('VITEST', '');
+    describe('production environment', () => {
+      afterEach(() => {
+        vi.unstubAllEnvs();
+      });
 
-      let fieldState = {
-        error: undefined as FieldError[] | undefined,
-        invalid: false,
-        isDirty: false,
-        isTouched: false,
-        required: false,
-        testId: 'f-tid',
-      };
+      it('debounces invalid state changes in production environment', async () => {
+        // Mock production environment
+        vi.stubEnv('NODE_ENV', 'production');
+        vi.stubEnv('VITEST', '');
 
-      mockContext.getFieldState = vi.fn(() => fieldState);
+        let fieldState = {
+          error: undefined as FieldError[] | undefined,
+          invalid: false,
+          isDirty: false,
+          isTouched: false,
+          required: false,
+          testId: 'f-tid',
+        };
 
-      const { result, rerender } = renderHook(() =>
-        useUniformField({ name: 'f' }),
-      );
+        mockContext.getFieldState = vi.fn(() => fieldState);
 
-      // Initially valid
-      expect(result.current.invalid).toBe(false);
+        const { result, rerender } = renderHook(() =>
+          useUniformField({ name: 'f' }),
+        );
 
-      // Change to invalid
-      fieldState = {
-        error: [{ message: 'Error' }] as unknown as FieldError[],
-        invalid: true,
-        isDirty: true,
-        isTouched: false,
-        required: false,
-        testId: 'f-tid',
-      };
-      rerender();
+        // Initially valid
+        expect(result.current.invalid).toBe(false);
 
-      // In production, should still be false immediately (debouncing active)
-      expect(result.current.invalid).toBe(false);
+        // Change to invalid
+        fieldState = {
+          error: [{ message: 'Error' }] as unknown as FieldError[],
+          invalid: true,
+          isDirty: true,
+          isTouched: false,
+          required: false,
+          testId: 'f-tid',
+        };
+        rerender();
 
-      // Advance time by 200ms (the debounce delay)
-      await vi.advanceTimersByTimeAsync(200);
+        // In production, should still be false immediately (debouncing active)
+        expect(result.current.invalid).toBe(false);
 
-      // Trigger rerender to get updated value
-      rerender();
+        // Advance time by 200ms (the debounce delay)
+        await vi.advanceTimersByTimeAsync(200);
 
-      // Now invalid should be true after debounce
-      expect(result.current.invalid).toBe(true);
+        // Trigger rerender to get updated value
+        rerender();
 
-      vi.unstubAllEnvs();
-    });
+        // Now invalid should be true after debounce
+        expect(result.current.invalid).toBe(true);
+      });
 
-    it('cancels previous debounce when field state changes rapidly (production)', async () => {
-      // Mock production environment
-      vi.stubEnv('NODE_ENV', 'production');
-      vi.stubEnv('VITEST', '');
+      it('cancels previous debounce when field state changes rapidly', async () => {
+        // Mock production environment
+        vi.stubEnv('NODE_ENV', 'production');
+        vi.stubEnv('VITEST', '');
 
-      let fieldState = {
-        error: undefined as FieldError[] | undefined,
-        invalid: false,
-        isDirty: false,
-        isTouched: false,
-        required: false,
-        testId: 'f-tid',
-      };
+        let fieldState = {
+          error: undefined as FieldError[] | undefined,
+          invalid: false,
+          isDirty: false,
+          isTouched: false,
+          required: false,
+          testId: 'f-tid',
+        };
 
-      mockContext.getFieldState = vi.fn(() => fieldState);
+        mockContext.getFieldState = vi.fn(() => fieldState);
 
-      const { result, rerender } = renderHook(() =>
-        useUniformField({ name: 'f' }),
-      );
+        const { result, rerender } = renderHook(() =>
+          useUniformField({ name: 'f' }),
+        );
 
-      // Change to invalid
-      fieldState = {
-        error: [{ message: 'Error' }] as unknown as FieldError[],
-        invalid: true,
-        isDirty: true,
-        isTouched: false,
-        required: false,
-        testId: 'f-tid',
-      };
-      rerender();
+        // Change to invalid
+        fieldState = {
+          error: [{ message: 'Error' }] as unknown as FieldError[],
+          invalid: true,
+          isDirty: true,
+          isTouched: false,
+          required: false,
+          testId: 'f-tid',
+        };
+        rerender();
 
-      // Advance time by 100ms (halfway through debounce)
-      await vi.advanceTimersByTimeAsync(100);
+        // Advance time by 100ms (halfway through debounce)
+        await vi.advanceTimersByTimeAsync(100);
 
-      // Change back to valid
-      fieldState = {
-        error: undefined,
-        invalid: false,
-        isDirty: true,
-        isTouched: false,
-        required: false,
-        testId: 'f-tid',
-      };
-      rerender();
+        // Change back to valid
+        fieldState = {
+          error: undefined,
+          invalid: false,
+          isDirty: true,
+          isTouched: false,
+          required: false,
+          testId: 'f-tid',
+        };
+        rerender();
 
-      // Should still be false (previous debounce was cancelled)
-      expect(result.current.invalid).toBe(false);
+        // Should still be false (previous debounce was cancelled)
+        expect(result.current.invalid).toBe(false);
 
-      // Advance remaining time and trigger rerender
-      await vi.advanceTimersByTimeAsync(200);
-      rerender();
+        // Advance remaining time and trigger rerender
+        await vi.advanceTimersByTimeAsync(200);
+        rerender();
 
-      // Should now reflect the final state (valid)
-      expect(result.current.invalid).toBe(false);
-
-      vi.unstubAllEnvs();
+        // Should now reflect the final state (valid)
+        expect(result.current.invalid).toBe(false);
+      });
     });
   });
 
