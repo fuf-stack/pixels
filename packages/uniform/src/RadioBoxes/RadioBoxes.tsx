@@ -117,6 +117,7 @@ const RadioBoxes = ({
       label={label ? <legend>{label}</legend> : null}
       name={name}
       onBlur={onBlur}
+      onValueChange={onChange}
       orientation={inline ? 'horizontal' : 'vertical'}
     >
       {options.map((option) => {
@@ -133,7 +134,6 @@ const RadioBoxes = ({
               description={option.description}
               icon={option.icon}
               isDisabled={!!disabled || option.disabled}
-              onChange={onChange}
               value={option.value}
             >
               {option.label ?? option.value}
