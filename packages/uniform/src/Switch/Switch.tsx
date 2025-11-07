@@ -1,15 +1,15 @@
 import type { TVClassName, TVProps } from '@fuf-stack/pixel-utils';
 import type { SwitchProps as HeroSwitchProps } from '@heroui/switch';
 import type { ReactNode } from 'react';
-import type { FieldValues } from 'react-hook-form';
+
+import { useRef } from 'react';
 
 import { Switch as HeroSwitch } from '@heroui/switch';
+import { VisuallyHidden } from '@react-aria/visually-hidden';
 
-import { tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
+import { cn, tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 
-import { useController, useFormContext, useInput } from '../hooks';
-import { FieldCopyTestIdButton } from '../partials/FieldCopyTestIdButton';
-import { FieldValidationError } from '../partials/FieldValidationError';
+import { useUniformField } from '../hooks';
 
 export const switchVariants = tv({
   slots: {
@@ -57,31 +57,34 @@ export interface SwitchProps extends VariantProps {
  */
 const Switch = ({
   className = undefined,
-  disabled = false,
   endContent = undefined,
-  label: _label = undefined,
   name,
   size = undefined,
   startContent = undefined,
-  testId: _testId = undefined,
   thumbIcon = undefined,
+  ...uniformFieldProps
 }: SwitchProps) => {
-  const { control, debugMode, getFieldState } = useFormContext();
-  const { error, required, testId, invalid } = getFieldState(name, _testId);
-
-  const { field } = useController<FieldValues>({ name, control, disabled });
-  const { disabled: isDisabled, value, ref, onBlur, onChange } = field;
-
-  const { label, getInputProps, getErrorMessageProps } = useInput({
-    errorMessage: JSON.stringify(error),
-    isInvalid: invalid,
-    isRequired: required,
-    label: _label,
-    labelPlacement: 'outside',
-    placeholder: ' ',
+  const {
+    defaultValue,
+    disabled,
+    errorMessage,
+    field,
+    getErrorMessageProps,
+    getHelperWrapperProps,
+    invalid,
+    label,
+    onBlur,
+    onChange,
+    ref,
+    required,
+    testId,
+  } = useUniformField({
+    name,
+    ...uniformFieldProps,
   });
 
-  const showTestIdCopyButton = debugMode === 'debug-testids';
+  // Ref for the visual switch to forward focus
+  const visualSwitchRef = useRef<HTMLInputElement>(null);
 
   // classNames from slots
   const variants = switchVariants();
@@ -89,37 +92,54 @@ const Switch = ({
 
   return (
     <div className={classNames.outerWrapper}>
+      {/* Visually hidden input for form accessibility and focus management */}
+      <VisuallyHidden>
+        <input
+          ref={ref}
+          aria-label={typeof label === 'string' ? label : name}
+          checked={!!field.value}
+          name={name}
+          onBlur={onBlur}
+          type="checkbox"
+          onChange={(e) => {
+            onChange(e.target.checked);
+          }}
+          onFocus={() => {
+            // When RHF focuses this hidden input (e.g., on validation error),
+            // forward focus to the visual switch to show focus ring
+            visualSwitchRef.current?.focus();
+          }}
+        />
+      </VisuallyHidden>
+      {/* Visual HeroSwitch component */}
       <HeroSwitch
-        ref={ref}
-        // see HeroUI styles for group-data condition (data-invalid),
-        // e.g.: https://github.com/heroui-inc/heroui/blob/main/packages/components/select/src/use-select.ts
-        aria-describedby={getInputProps()['aria-describedby']}
+        ref={visualSwitchRef}
         classNames={classNames}
         data-invalid={invalid}
         data-required={required}
         data-testid={testId}
+        defaultSelected={!!defaultValue}
         endContent={endContent}
-        isDisabled={isDisabled}
-        isSelected={!!value}
-        name={name}
-        onBlur={onBlur}
+        isDisabled={disabled}
+        isSelected={!!field.value}
+        name={`${name}_switch`}
         onValueChange={onChange}
-        required={required}
         size={size}
         startContent={startContent}
         thumbIcon={thumbIcon}
-        value={value}
       >
         {label}
-        {showTestIdCopyButton ? (
-          <FieldCopyTestIdButton testId={testId} />
-        ) : null}
       </HeroSwitch>
-      {error ? (
-        <div className={classNames.errorMessage}>
-          <div {...getErrorMessageProps()}>
-            <FieldValidationError error={error} testId={testId} />
-          </div>
+      {invalid ? (
+        <div
+          {...getHelperWrapperProps()}
+          className={cn(
+            getHelperWrapperProps()?.className,
+            // force helper to be visible (for some reason it's hidden by default) and remove margin
+            'ml-0 block',
+          )}
+        >
+          <div {...getErrorMessageProps()}>{errorMessage}</div>
         </div>
       ) : null}
     </div>

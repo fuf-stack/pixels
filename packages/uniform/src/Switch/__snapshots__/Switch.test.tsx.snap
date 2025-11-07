@@ -16,6 +16,15 @@ exports[`Story Snapshots > AllSizes 1`] = `
         <div
           class="place-content-center"
         >
+          <div
+            style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+          >
+            <input
+              aria-label="smallSwitch"
+              name="smallSwitch"
+              type="checkbox"
+            />
+          </div>
           <label
             class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer touch-none tap-highlight-transparent select-none"
             data-invalid="false"
@@ -26,7 +35,7 @@ exports[`Story Snapshots > AllSizes 1`] = `
               aria-labelledby="aria-id"
               class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
               data-react-aria-pressable="true"
-              name="smallSwitch"
+              name="smallSwitch_switch"
               role="switch"
               tabindex="0"
               type="checkbox"
@@ -51,6 +60,15 @@ exports[`Story Snapshots > AllSizes 1`] = `
         <div
           class="place-content-center"
         >
+          <div
+            style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+          >
+            <input
+              aria-label="mediumSwitch"
+              name="mediumSwitch"
+              type="checkbox"
+            />
+          </div>
           <label
             class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer touch-none tap-highlight-transparent select-none"
             data-invalid="false"
@@ -61,7 +79,7 @@ exports[`Story Snapshots > AllSizes 1`] = `
               aria-labelledby="aria-id"
               class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
               data-react-aria-pressable="true"
-              name="mediumSwitch"
+              name="mediumSwitch_switch"
               role="switch"
               tabindex="0"
               type="checkbox"
@@ -86,6 +104,15 @@ exports[`Story Snapshots > AllSizes 1`] = `
         <div
           class="place-content-center"
         >
+          <div
+            style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+          >
+            <input
+              aria-label="largeSwitch"
+              name="largeSwitch"
+              type="checkbox"
+            />
+          </div>
           <label
             class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer touch-none tap-highlight-transparent select-none"
             data-invalid="false"
@@ -96,7 +123,7 @@ exports[`Story Snapshots > AllSizes 1`] = `
               aria-labelledby="«ra»"
               class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
               data-react-aria-pressable="true"
-              name="largeSwitch"
+              name="largeSwitch_switch"
               role="switch"
               tabindex="0"
               type="checkbox"
@@ -151,6 +178,15 @@ exports[`Story Snapshots > Default 1`] = `
       <div
         class="place-content-center"
       >
+        <div
+          style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+        >
+          <input
+            aria-label="switchField"
+            name="switchField"
+            type="checkbox"
+          />
+        </div>
         <label
           class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer touch-none tap-highlight-transparent select-none"
           data-invalid="false"
@@ -161,7 +197,7 @@ exports[`Story Snapshots > Default 1`] = `
             aria-labelledby="aria-id"
             class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
             data-react-aria-pressable="true"
-            name="switchField"
+            name="switchField_switch"
             role="switch"
             tabindex="0"
             type="checkbox"
@@ -215,6 +251,15 @@ exports[`Story Snapshots > Disabled 1`] = `
       <div
         class="place-content-center"
       >
+        <div
+          style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+        >
+          <input
+            aria-label="switchField"
+            name="switchField"
+            type="checkbox"
+          />
+        </div>
         <label
           class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer touch-none tap-highlight-transparent select-none opacity-disabled pointer-events-none"
           data-disabled="true"
@@ -227,7 +272,7 @@ exports[`Story Snapshots > Disabled 1`] = `
             class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
             data-react-aria-pressable="true"
             disabled=""
-            name="switchField"
+            name="switchField_switch"
             role="switch"
             type="checkbox"
             value=""
@@ -280,8 +325,16 @@ exports[`Story Snapshots > Invalid 1`] = `
       <div
         class="place-content-center"
       >
+        <div
+          style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+        >
+          <input
+            aria-label="switchField"
+            name="switchField"
+            type="checkbox"
+          />
+        </div>
         <label
-          aria-describedby="react-aria-react-useId-mock react-aria-react-useId-mock"
           class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer touch-none tap-highlight-transparent select-none"
           data-focus="true"
           data-hover="true"
@@ -289,17 +342,16 @@ exports[`Story Snapshots > Invalid 1`] = `
           data-required="true"
           data-selected="true"
           data-testid="switchfield"
-          required=""
         >
           <input
             aria-labelledby="aria-id"
             class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
             data-react-aria-pressable="true"
-            name="switchField"
+            name="switchField_switch"
             role="switch"
             tabindex="0"
             type="checkbox"
-            value="true"
+            value=""
           />
           <span
             aria-hidden="true"
@@ -317,7 +369,8 @@ exports[`Story Snapshots > Invalid 1`] = `
           </span>
         </label>
         <div
-          class="ml-1 mt-1"
+          class="group-data-[has-helper=true]:flex relative flex-col gap-1.5 p-0 ml-0 block"
+          data-slot="helper-wrapper"
         >
           <div
             class="text-tiny text-danger"
@@ -373,18 +426,26 @@ exports[`Story Snapshots > Required 1`] = `
       <div
         class="place-content-center"
       >
+        <div
+          style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+        >
+          <input
+            aria-label="switchField"
+            name="switchField"
+            type="checkbox"
+          />
+        </div>
         <label
           class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer touch-none tap-highlight-transparent select-none"
           data-invalid="false"
           data-required="true"
           data-testid="switchfield"
-          required=""
         >
           <input
             aria-labelledby="aria-id"
             class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
             data-react-aria-pressable="true"
-            name="switchField"
+            name="switchField_switch"
             role="switch"
             tabindex="0"
             type="checkbox"
@@ -438,6 +499,16 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
       <div
         class="place-content-center"
       >
+        <div
+          style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+        >
+          <input
+            aria-label="switchField"
+            checked=""
+            name="switchField"
+            type="checkbox"
+          />
+        </div>
         <label
           class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer touch-none tap-highlight-transparent select-none"
           data-invalid="false"
@@ -450,11 +521,11 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
             checked=""
             class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
             data-react-aria-pressable="true"
-            name="switchField"
+            name="switchField_switch"
             role="switch"
             tabindex="0"
             type="checkbox"
-            value="true"
+            value=""
           />
           <span
             aria-hidden="true"
@@ -504,6 +575,16 @@ exports[`Story Snapshots > WithStartAndEndContent 1`] = `
       <div
         class="place-content-center"
       >
+        <div
+          style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+        >
+          <input
+            aria-label="switchField"
+            checked=""
+            name="switchField"
+            type="checkbox"
+          />
+        </div>
         <label
           class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer touch-none tap-highlight-transparent select-none"
           data-invalid="false"
@@ -516,11 +597,11 @@ exports[`Story Snapshots > WithStartAndEndContent 1`] = `
             checked=""
             class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
             data-react-aria-pressable="true"
-            name="switchField"
+            name="switchField_switch"
             role="switch"
             tabindex="0"
             type="checkbox"
-            value="true"
+            value=""
           />
           <span
             aria-hidden="true"
@@ -580,6 +661,16 @@ exports[`Story Snapshots > WithThumbIcon 1`] = `
       <div
         class="place-content-center"
       >
+        <div
+          style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+        >
+          <input
+            aria-label="switchField"
+            checked=""
+            name="switchField"
+            type="checkbox"
+          />
+        </div>
         <label
           class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer touch-none tap-highlight-transparent select-none"
           data-invalid="false"
@@ -592,11 +683,11 @@ exports[`Story Snapshots > WithThumbIcon 1`] = `
             checked=""
             class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
             data-react-aria-pressable="true"
-            name="switchField"
+            name="switchField_switch"
             role="switch"
             tabindex="0"
             type="checkbox"
-            value="true"
+            value=""
           />
           <span
             aria-hidden="true"
