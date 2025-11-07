@@ -12,9 +12,9 @@ on:
       - main
 
 # Ensure only one release workflow runs at a time
-# Queue new runs and wait for in-progress releases to complete
+# Queue new runs and wait for in-progress release-please workflow to complete
 concurrency:
-  group: release-${{ github.ref }}
+  group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: false
 
 jobs:
