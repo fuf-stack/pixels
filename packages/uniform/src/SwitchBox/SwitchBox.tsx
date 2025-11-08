@@ -157,7 +157,7 @@ const SwitchBox = ({
             aria-label={typeof label === 'string' ? label : name}
             checked={!!field.value}
             name={name}
-            onBlur={onBlur}
+            tabIndex={-1}
             type="checkbox"
             onChange={(e) => {
               onChange(e.target.checked);
@@ -169,7 +169,16 @@ const SwitchBox = ({
             }}
           />
           {/* Visual switch input for focus ring */}
-          <input ref={visualSwitchRef} {...getInputProps()} />
+          <input
+            ref={visualSwitchRef}
+            {...getInputProps()}
+            onBlur={(e) => {
+              // Call HeroUI's internal onBlur to clear focus state and remove focus ring
+              getInputProps().onBlur?.(e);
+              // Then call RHF's onBlur to mark field as touched
+              onBlur();
+            }}
+          />
         </VisuallyHidden>
         {!icon ? (
           <span
