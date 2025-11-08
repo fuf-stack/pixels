@@ -44,6 +44,23 @@ export const Default: Story = {
   },
 };
 
+export const WithContent: Story = {
+  parameters: {
+    formProps: {
+      className: 'min-w-md',
+      initialValues: { radioTabsField: 'option_1' },
+    },
+  },
+  args: {
+    name: 'radioTabsField',
+    options: [
+      { value: 'option_1', label: 'Option 1', content: 'Option 1 Content' },
+      { value: 'option_2', label: 'Option 2', content: 'Option 2 Content' },
+      { value: 'option_3', label: 'Option 3', content: 'Option 3 Content' },
+    ],
+  },
+};
+
 export const WithInitialValue: Story = {
   parameters: {
     formProps: { initialValues: { radioTabsField: 'option_2' } },
@@ -136,6 +153,53 @@ export const Invalid: Story = {
   },
 };
 
+export const InvalidWithContent: Story = {
+  parameters: {
+    formProps: {
+      className: 'min-w-md',
+      validation: veto({
+        radioTabsField: string().refine((value) => {
+          return value !== 'option_2';
+        }, 'This option is not allowed'),
+      }),
+    },
+  },
+  args: {
+    label: 'Select Your Plan',
+    name: 'radioTabsField',
+    testId: 'radioTabsField',
+    options: [
+      {
+        content: 'Perfect for individuals just getting started.',
+        label: 'Starter',
+        value: 'option_1',
+      },
+      {
+        content: 'Great for growing teams and businesses.',
+        label: 'Pro',
+        value: 'option_2',
+      },
+      {
+        content: 'For large organizations with advanced needs.',
+        label: 'Enterprise',
+        value: 'option_3',
+      },
+    ],
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const optionTwo = canvas.getByTestId('radiotabsfield_option_option_2');
+    await userEvent.click(optionTwo, {
+      delay: 100,
+    });
+
+    // Wait for validation to complete and error message to appear
+    await waitFor(() => {
+      expect(canvas.getByTestId('radiotabsfield_error')).toBeVisible();
+    });
+  },
+};
+
 export const FullWidth: Story = {
   parameters: {
     formProps: {
@@ -151,23 +215,6 @@ export const FullWidth: Story = {
       { value: 'option_1', label: 'Option 1' },
       { value: 'option_2', label: 'Option 2' },
       { value: 'option_3', label: 'Option 3' },
-    ],
-  },
-};
-
-export const WithContent: Story = {
-  parameters: {
-    formProps: {
-      className: 'min-w-md',
-      initialValues: { radioTabsField: 'option_1' },
-    },
-  },
-  args: {
-    name: 'radioTabsField',
-    options: [
-      { value: 'option_1', label: 'Option 1', content: 'Option 1 Content' },
-      { value: 'option_2', label: 'Option 2', content: 'Option 2 Content' },
-      { value: 'option_3', label: 'Option 3', content: 'Option 3 Content' },
     ],
   },
 };

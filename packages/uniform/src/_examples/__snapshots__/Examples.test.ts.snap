@@ -938,6 +938,14 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                   </div>
                 </div>
                 <div
+                  style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+                >
+                  <input
+                    name="radioTabsField"
+                    value=""
+                  />
+                </div>
+                <div
                   aria-label=" "
                   aria-orientation="vertical"
                   aria-required="true"
@@ -1025,6 +1033,120 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                             data-react-aria-pressable="true"
                             data-slot="tab"
                             data-testid="radiotabsfield_option_value2"
+                            id="react-aria-«replaced-aria-id»-tab-Value2"
+                            role="tab"
+                            tabindex="-1"
+                            type="button"
+                          >
+                            <div
+                              class="relative z-10 whitespace-nowrap transition-colors group-data-[selected=true]:text-default-foreground text-foreground"
+                              data-slot="tabContent"
+                            >
+                              LabelC
+                            </div>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+                >
+                  <input
+                    name="radioTabsWithContentField"
+                    value=""
+                  />
+                </div>
+                <div
+                  aria-label=" "
+                  aria-orientation="vertical"
+                  aria-required="true"
+                  class="relative flex flex-col group gap-0 md:col-span-2"
+                  data-invalid="false"
+                  data-required="true"
+                  data-testid="radiotabswithcontentfield"
+                  id="react-aria-«replaced-aria-id»"
+                  role="radiogroup"
+                >
+                  <span
+                    class="relative after:content-['*'] after:text-danger after:ml-0.5 mb-2 inline-flex text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger"
+                  >
+                    <legend>
+                      Radio Tabs with Content Field
+                    </legend>
+                  </span>
+                  <div
+                    class="flex flex-col flex-wrap gap-2 data-[orientation=horizontal]:flex-row"
+                    data-orientation="vertical"
+                    role="presentation"
+                  >
+                    <div
+                      class="rounded-medium border border-divider w-full"
+                      data-placement="top"
+                      data-slot="tabWrapper"
+                      data-vertical="horizontal"
+                    >
+                      <div
+                        class="inline-flex w-full p-1"
+                        data-slot="base"
+                      >
+                        <div
+                          aria-orientation="horizontal"
+                          class="flex p-1 h-fit gap-2 items-center flex-nowrap overflow-x-scroll scrollbar-hide bg-default-100 rounded-medium w-full"
+                          data-collection="react-aria-«replaced-aria-id»"
+                          data-slot="tabList"
+                          id="react-aria-«replaced-aria-id»"
+                          role="tablist"
+                        >
+                          <button
+                            aria-selected="false"
+                            class="z-0 w-full px-3 py-1 flex group relative justify-center items-center cursor-pointer transition-opacity tap-highlight-transparent data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 h-8 text-small rounded-small data-[hover-unselected=true]:opacity-100"
+                            data-collection="react-aria-«replaced-aria-id»"
+                            data-key="Value0"
+                            data-react-aria-pressable="true"
+                            data-slot="tab"
+                            data-testid="radiotabswithcontentfield_option_value0"
+                            id="react-aria-«replaced-aria-id»-tab-Value0"
+                            role="tab"
+                            tabindex="-1"
+                            type="button"
+                          >
+                            <div
+                              class="relative z-10 whitespace-nowrap transition-colors group-data-[selected=true]:text-default-foreground text-foreground"
+                              data-slot="tabContent"
+                            >
+                              LabelA
+                            </div>
+                          </button>
+                          <button
+                            aria-selected="false"
+                            class="z-0 w-full px-3 py-1 flex group relative justify-center items-center cursor-pointer transition-opacity tap-highlight-transparent data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 h-8 text-small rounded-small data-[hover-unselected=true]:opacity-100"
+                            data-collection="react-aria-«replaced-aria-id»"
+                            data-key="Value1"
+                            data-react-aria-pressable="true"
+                            data-slot="tab"
+                            data-testid="radiotabswithcontentfield_option_value1"
+                            id="react-aria-«replaced-aria-id»-tab-Value1"
+                            role="tab"
+                            tabindex="-1"
+                            type="button"
+                          >
+                            <div
+                              class="relative z-10 whitespace-nowrap transition-colors group-data-[selected=true]:text-default-foreground text-foreground"
+                              data-slot="tabContent"
+                            >
+                              LabelB
+                            </div>
+                          </button>
+                          <button
+                            aria-selected="false"
+                            class="z-0 w-full px-3 py-1 flex group relative justify-center items-center cursor-pointer transition-opacity tap-highlight-transparent data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 h-8 text-small rounded-small data-[hover-unselected=true]:opacity-100"
+                            data-collection="react-aria-«replaced-aria-id»"
+                            data-key="Value2"
+                            data-react-aria-pressable="true"
+                            data-slot="tab"
+                            data-testid="radiotabswithcontentfield_option_value2"
                             id="react-aria-«replaced-aria-id»-tab-Value2"
                             role="tab"
                             tabindex="-1"

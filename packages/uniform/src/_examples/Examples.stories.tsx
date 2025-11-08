@@ -57,6 +57,7 @@ const validation = veto({
   radioButtonField: radiosSchema,
   radioField: radiosSchema,
   radioTabsField: radiosSchema,
+  radioTabsWithContentField: radiosSchema,
   selectField: selectSchema,
   stringField: vt.string(),
   switchBoxField: vt.boolean(),
@@ -147,6 +148,28 @@ export const AllFieldRenderers: Story = {
             name="radioTabsField"
             options={radioOptions}
           />
+          <RadioTabs
+            className="md:col-span-2"
+            label="Radio Tabs with Content Field"
+            name="radioTabsWithContentField"
+            options={[
+              {
+                content: 'This option provides basic features for your needs.',
+                label: 'LabelA',
+                value: 'Value0',
+              },
+              {
+                content: 'This option includes advanced features and tools.',
+                label: 'LabelB',
+                value: 'Value1',
+              },
+              {
+                content: 'This option has premium features and support.',
+                label: 'LabelC',
+                value: 'Value2',
+              },
+            ]}
+          />
           <FieldArray
             appendButtonText="Add Element"
             className="md:col-span-2"
@@ -209,6 +232,7 @@ export const DebugModeDisabled: Story = {
 export const FormFieldsInModal: Story = {
   args: {},
   render: (args) => {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     const [isOpen, setIsOpen] = useState(false);
     return (
       <div className="fixed inset-0 flex items-center justify-center bg-black/50">
