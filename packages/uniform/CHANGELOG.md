@@ -1,5 +1,23 @@
 # Changelog
 
+## [1.9.0](https://github.com/fuf-stack/pixels/compare/uniform-v1.8.9...uniform-v1.9.0) (2025-11-09)
+
+
+### Features
+
+* **uniform:** add Slider component ([e08f2ed](https://github.com/fuf-stack/pixels/commit/e08f2edbbc1ce45c512f9dc4af4a88b508ca2adb))
+* **uniform:** add SwitchBox component ([2b1f952](https://github.com/fuf-stack/pixels/commit/2b1f952b60cf2620bc628ff366fe6fa8e319ef69))
+
+
+### Bug Fixes
+
+* **uniform,megapixels:** add safe isTestEnvironment helper to determine if we are running as test ([98266cc](https://github.com/fuf-stack/pixels/commit/98266cce1165579f833a601f76dd7d9ea03c08f1))
+* **uniform:** add visually hidden input to RadioTabs to make it accessible ([540f640](https://github.com/fuf-stack/pixels/commit/540f64003014652c1d37210c8803812a41018915))
+* **uniform:** fix focus issue with SwitchBox ([57e7fac](https://github.com/fuf-stack/pixels/commit/57e7fac63587322c8305d37ca15983d5d28eee7e))
+* **uniform:** fix invalid state not updating after change in RadioBoxes ([ef5e442](https://github.com/fuf-stack/pixels/commit/ef5e4427f4ab0a84c31f879cb00775e65b8a3c3e))
+* **uniform:** fix Switch using hidden input and  useUniformField ([d41edba](https://github.com/fuf-stack/pixels/commit/d41edba6ca19aa192db89083ca45d295b3319251))
+* **uniform:** fixes for RadioBoxes invalid state and styling ([cf0f215](https://github.com/fuf-stack/pixels/commit/cf0f215f2b9d30cea1fa6a8980b9d10242f8e758))
+
 ## [1.8.10](https://github.com/fuf-stack/pixels/compare/uniform-v1.8.9...uniform-v1.8.10) (2025-11-07)
 
 
