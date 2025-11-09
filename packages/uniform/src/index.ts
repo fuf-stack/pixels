@@ -13,6 +13,7 @@ export * from './RadioBoxes';
 export * from './Radios';
 export * from './RadioTabs';
 export * from './Select';
+export * from './Slider';
 export * from './SubmitButton';
 export * from './Switch';
 export * from './SwitchBox';

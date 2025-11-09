@@ -15,6 +15,7 @@ import { RadioBoxes } from '../RadioBoxes';
 import { Radios } from '../Radios';
 import { RadioTabs } from '../RadioTabs';
 import { Select } from '../Select';
+import { Slider } from '../Slider';
 import { SubmitButton } from '../SubmitButton';
 import { Switch } from '../Switch';
 import { SwitchBox } from '../SwitchBox';
@@ -59,6 +60,7 @@ const validation = veto({
   radioTabsField: radiosSchema,
   radioTabsWithContentField: radiosSchema,
   selectField: selectSchema,
+  sliderField: vt.number(),
   stringField: vt.string(),
   switchBoxField: vt.boolean(),
   switchField: vt.boolean(),
@@ -117,6 +119,11 @@ export const AllFieldRenderers: Story = {
             className="md:col-span-2"
             label="Text Area"
             name="textAreaField"
+          />
+          <Slider
+            className="md:col-span-2"
+            label="Slider Field"
+            name="sliderField"
           />
           <Switch label="Switch Field" name="switchField" />
           <SwitchBox

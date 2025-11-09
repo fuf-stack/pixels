@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unsafe-return */
+
 import type { Config } from 'tailwindcss';
 
 import path from 'node:path';
@@ -31,6 +33,7 @@ const HEROUI_THEME_USED_COMPONENT_PATHS = [
   'radio',
   'scroll-shadow',
   'select',
+  'slider',
   'table',
   'tabs',
   'toast',

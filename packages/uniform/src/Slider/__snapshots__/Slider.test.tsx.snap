@@ -1,0 +1,1914 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Story Snapshots > AllSizes 1`] = `
+<div>
+  <div
+    class="flex w-full flex-row justify-between gap-6"
+  >
+    <form
+      class="grow min-w-60"
+      data-form-is-valid="true"
+      data-testid=""
+    >
+      <div
+        class="flex flex-col gap-8"
+      >
+        <div
+          class="group"
+          data-invalid="false"
+          data-required="false"
+          data-testid="smallslider"
+        >
+          <div
+            style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+          >
+            <input
+              aria-label="smallSlider"
+              max="100"
+              min="0"
+              name="smallSlider"
+              step="1"
+              tabindex="-1"
+              type="range"
+              value="0"
+            />
+          </div>
+          <div
+            aria-labelledby="react-aria-«replaced-aria-id»"
+            class="flex flex-col w-full gap-1"
+            data-hover="false"
+            data-orientation="horizontal"
+            data-slot="base"
+            id="react-aria-«replaced-aria-id»"
+            role="group"
+          >
+            <div
+              class="w-full flex justify-between items-center"
+              data-slot="labelWrapper"
+            >
+              <label
+                class="text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
+                data-slot="label"
+                id="react-aria-«replaced-aria-id»"
+              >
+                Small Size
+              </label>
+              <output
+                aria-live="off"
+                class="text-small"
+                data-slot="value"
+                for="react-aria-«replaced-aria-id»-0"
+              >
+                0
+              </output>
+            </div>
+            <div
+              class="relative flex gap-2 items-center"
+              data-slot="track-wrapper"
+            >
+              <div
+                class="flex w-full relative rounded-full bg-default-300/50 border-x-transparent h-1 my-[calc((theme(spacing.5)-theme(spacing.1))/2)] border-x-[calc(theme(spacing.5)/2)] data-[fill-start=true]:border-s-primary data-[fill-end=true]:border-e-primary"
+                data-fill-end="false"
+                data-fill-start="false"
+                data-slot="track"
+                data-thumb-hidden="false"
+                data-vertical="false"
+                style="position: relative;"
+              >
+                <div
+                  class="h-full absolute bg-primary"
+                  data-slot="filler"
+                  style="left: 0%; width: 0%;"
+                />
+                <div
+                  aria-label="Slider thumb 1"
+                  class="flex justify-center items-center before:absolute before:w-11 before:h-11 before:rounded-full after:shadow-small after:bg-background data-[focused=true]:z-10 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 w-5 h-5 after:w-4 after:h-4 rounded-full after:rounded-full bg-primary top-1/2 cursor-grab data-[dragging=true]:cursor-grabbing ring-transparent border-0 after:transition-all motion-reduce:after:transition-none data-[dragging=true]:after:scale-80 shadow-small"
+                  data-react-aria-pressable="true"
+                  data-slot="thumb"
+                  index="0"
+                  orientation="horizontal"
+                  style="position: absolute; left: 0%; transform: translate(-50%, -50%);"
+                >
+                  <div
+                    style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+                  >
+                    <input
+                      aria-describedby=""
+                      aria-details=""
+                      aria-labelledby="react-aria-«replaced-aria-id»"
+                      aria-orientation="horizontal"
+                      aria-valuetext="0"
+                      id="react-aria-«replaced-aria-id»-0"
+                      max="100"
+                      min="0"
+                      name="smallSlider_slider"
+                      step="1"
+                      tabindex="0"
+                      type="range"
+                      value="0"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="hidden group-data-[has-helper=true]:flex relative flex-col gap-1.5 p-0"
+            data-slot="helper-wrapper"
+          >
+            <div
+              class="text-tiny text-danger"
+              data-slot="error-message"
+              id="react-aria-«replaced-aria-id»"
+            >
+              <ul
+                aria-label="Validation errors of field smallslider"
+                data-testid="smallslider_error"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="group"
+          data-invalid="false"
+          data-required="false"
+          data-testid="mediumslider"
+        >
+          <div
+            style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+          >
+            <input
+              aria-label="mediumSlider"
+              max="100"
+              min="0"
+              name="mediumSlider"
+              step="1"
+              tabindex="-1"
+              type="range"
+              value="0"
+            />
+          </div>
+          <div
+            aria-labelledby="react-aria-«replaced-aria-id»"
+            class="flex flex-col w-full gap-1"
+            data-hover="false"
+            data-orientation="horizontal"
+            data-slot="base"
+            id="react-aria-«replaced-aria-id»"
+            role="group"
+          >
+            <div
+              class="w-full flex justify-between items-center"
+              data-slot="labelWrapper"
+            >
+              <label
+                class="text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
+                data-slot="label"
+                id="react-aria-«replaced-aria-id»"
+              >
+                Medium Size
+              </label>
+              <output
+                aria-live="off"
+                class="text-small"
+                data-slot="value"
+                for="react-aria-«replaced-aria-id»-0"
+              >
+                0
+              </output>
+            </div>
+            <div
+              class="relative flex gap-2 items-center"
+              data-slot="track-wrapper"
+            >
+              <div
+                class="flex w-full relative rounded-full bg-default-300/50 border-x-transparent h-3 my-[calc((theme(spacing.6)-theme(spacing.3))/2)] border-x-[calc(theme(spacing.6)/2)] data-[fill-start=true]:border-s-primary data-[fill-end=true]:border-e-primary"
+                data-fill-end="false"
+                data-fill-start="false"
+                data-slot="track"
+                data-thumb-hidden="false"
+                data-vertical="false"
+                style="position: relative;"
+              >
+                <div
+                  class="h-full absolute bg-primary"
+                  data-slot="filler"
+                  style="left: 0%; width: 0%;"
+                />
+                <div
+                  aria-label="Slider thumb 1"
+                  class="flex justify-center items-center before:absolute before:w-11 before:h-11 before:rounded-full after:shadow-small after:bg-background data-[focused=true]:z-10 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 w-6 h-6 after:w-5 after:h-5 rounded-full after:rounded-full bg-primary top-1/2 cursor-grab data-[dragging=true]:cursor-grabbing ring-transparent border-0 after:transition-all motion-reduce:after:transition-none data-[dragging=true]:after:scale-80 shadow-small"
+                  data-react-aria-pressable="true"
+                  data-slot="thumb"
+                  index="0"
+                  orientation="horizontal"
+                  style="position: absolute; left: 0%; transform: translate(-50%, -50%);"
+                >
+                  <div
+                    style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+                  >
+                    <input
+                      aria-describedby=""
+                      aria-details=""
+                      aria-labelledby="react-aria-«replaced-aria-id»"
+                      aria-orientation="horizontal"
+                      aria-valuetext="0"
+                      id="react-aria-«replaced-aria-id»-0"
+                      max="100"
+                      min="0"
+                      name="mediumSlider_slider"
+                      step="1"
+                      tabindex="0"
+                      type="range"
+                      value="0"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="hidden group-data-[has-helper=true]:flex relative flex-col gap-1.5 p-0"
+            data-slot="helper-wrapper"
+          >
+            <div
+              class="text-tiny text-danger"
+              data-slot="error-message"
+              id="react-aria-«replaced-aria-id»"
+            >
+              <ul
+                aria-label="Validation errors of field mediumslider"
+                data-testid="mediumslider_error"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="group"
+          data-invalid="false"
+          data-required="false"
+          data-testid="largeslider"
+        >
+          <div
+            style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+          >
+            <input
+              aria-label="largeSlider"
+              max="100"
+              min="0"
+              name="largeSlider"
+              step="1"
+              tabindex="-1"
+              type="range"
+              value="0"
+            />
+          </div>
+          <div
+            aria-labelledby="react-aria-«replaced-aria-id»"
+            class="flex flex-col w-full gap-1"
+            data-hover="false"
+            data-orientation="horizontal"
+            data-slot="base"
+            id="react-aria-«replaced-aria-id»"
+            role="group"
+          >
+            <div
+              class="w-full flex justify-between items-center"
+              data-slot="labelWrapper"
+            >
+              <label
+                class="text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
+                data-slot="label"
+                id="react-aria-«replaced-aria-id»"
+              >
+                Large Size
+              </label>
+              <output
+                aria-live="off"
+                class="text-medium"
+                data-slot="value"
+                for="react-aria-«replaced-aria-id»-0"
+              >
+                0
+              </output>
+            </div>
+            <div
+              class="relative flex gap-2 items-center"
+              data-slot="track-wrapper"
+            >
+              <div
+                class="flex w-full relative rounded-full bg-default-300/50 border-x-transparent h-7 my-[calc((theme(spacing.7)-theme(spacing.5))/2)] border-x-[calc(theme(spacing.7)/2)] data-[fill-start=true]:border-s-primary data-[fill-end=true]:border-e-primary"
+                data-fill-end="false"
+                data-fill-start="false"
+                data-slot="track"
+                data-thumb-hidden="false"
+                data-vertical="false"
+                style="position: relative;"
+              >
+                <div
+                  class="h-full absolute bg-primary"
+                  data-slot="filler"
+                  style="left: 0%; width: 0%;"
+                />
+                <div
+                  aria-label="Slider thumb 1"
+                  class="flex justify-center items-center before:absolute before:w-11 before:h-11 before:rounded-full after:shadow-small after:bg-background data-[focused=true]:z-10 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 h-7 w-7 after:w-5 after:h-5 rounded-full after:rounded-full bg-primary top-1/2 cursor-grab data-[dragging=true]:cursor-grabbing ring-transparent border-0 after:transition-all motion-reduce:after:transition-none data-[dragging=true]:after:scale-80"
+                  data-react-aria-pressable="true"
+                  data-slot="thumb"
+                  index="0"
+                  orientation="horizontal"
+                  style="position: absolute; left: 0%; transform: translate(-50%, -50%);"
+                >
+                  <div
+                    style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+                  >
+                    <input
+                      aria-describedby=""
+                      aria-details=""
+                      aria-labelledby="react-aria-«replaced-aria-id»"
+                      aria-orientation="horizontal"
+                      aria-valuetext="0"
+                      id="react-aria-«replaced-aria-id»-0"
+                      max="100"
+                      min="0"
+                      name="largeSlider_slider"
+                      step="1"
+                      tabindex="0"
+                      type="range"
+                      value="0"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="hidden group-data-[has-helper=true]:flex relative flex-col gap-1.5 p-0"
+            data-slot="helper-wrapper"
+          >
+            <div
+              class="text-tiny text-danger"
+              data-slot="error-message"
+              id="react-aria-«replaced-aria-id»"
+            >
+              <ul
+                aria-label="Validation errors of field largeslider"
+                data-testid="largeslider_error"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="mt-4 flex justify-end"
+      >
+        <button
+          aria-label="Submit form"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
+          data-react-aria-pressable="true"
+          data-testid="form_submit_button"
+          tabindex="0"
+          type="submit"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`Story Snapshots > CustomRange 1`] = `
+<div>
+  <div
+    class="flex w-full flex-row justify-between gap-6"
+  >
+    <form
+      class="grow min-w-60"
+      data-form-is-valid="true"
+      data-testid=""
+    >
+      <div
+        class="group"
+        data-invalid="false"
+        data-required="false"
+        data-testid="sliderfield"
+      >
+        <div
+          style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+        >
+          <input
+            aria-label="sliderField"
+            max="40"
+            min="-10"
+            name="sliderField"
+            step="1"
+            tabindex="-1"
+            type="range"
+            value="20"
+          />
+        </div>
+        <div
+          aria-labelledby="react-aria-«replaced-aria-id»"
+          class="flex flex-col w-full gap-1"
+          data-hover="false"
+          data-orientation="horizontal"
+          data-slot="base"
+          id="react-aria-«replaced-aria-id»"
+          role="group"
+        >
+          <div
+            class="w-full flex justify-between items-center"
+            data-slot="labelWrapper"
+          >
+            <label
+              class="text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
+              data-slot="label"
+              id="react-aria-«replaced-aria-id»"
+            >
+              Temperature (°C)
+            </label>
+            <output
+              aria-live="off"
+              class="text-small"
+              data-slot="value"
+              for="react-aria-«replaced-aria-id»-0"
+            >
+              20
+            </output>
+          </div>
+          <div
+            class="relative flex gap-2 items-center"
+            data-slot="track-wrapper"
+          >
+            <div
+              class="flex w-full relative rounded-full bg-default-300/50 border-x-transparent h-3 my-[calc((theme(spacing.6)-theme(spacing.3))/2)] border-x-[calc(theme(spacing.6)/2)] data-[fill-start=true]:border-s-primary data-[fill-end=true]:border-e-primary"
+              data-fill-end="false"
+              data-fill-start="true"
+              data-slot="track"
+              data-thumb-hidden="false"
+              data-vertical="false"
+              style="position: relative;"
+            >
+              <div
+                class="h-full absolute bg-primary"
+                data-slot="filler"
+                style="left: 0%; width: 60%;"
+              />
+              <div
+                aria-label="Slider thumb 1"
+                class="flex justify-center items-center before:absolute before:w-11 before:h-11 before:rounded-full after:shadow-small after:bg-background data-[focused=true]:z-10 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 w-6 h-6 after:w-5 after:h-5 rounded-full after:rounded-full bg-primary top-1/2 cursor-grab data-[dragging=true]:cursor-grabbing ring-transparent border-0 after:transition-all motion-reduce:after:transition-none data-[dragging=true]:after:scale-80 shadow-small"
+                data-react-aria-pressable="true"
+                data-slot="thumb"
+                index="0"
+                orientation="horizontal"
+                style="position: absolute; left: 60%; transform: translate(-50%, -50%);"
+              >
+                <div
+                  style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+                >
+                  <input
+                    aria-describedby=""
+                    aria-details=""
+                    aria-labelledby="react-aria-«replaced-aria-id»"
+                    aria-orientation="horizontal"
+                    aria-valuetext="20"
+                    id="react-aria-«replaced-aria-id»-0"
+                    max="40"
+                    min="-10"
+                    name="sliderField_slider"
+                    step="1"
+                    tabindex="0"
+                    type="range"
+                    value="20"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="hidden group-data-[has-helper=true]:flex relative flex-col gap-1.5 p-0"
+          data-slot="helper-wrapper"
+        >
+          <div
+            class="text-tiny text-danger"
+            data-slot="error-message"
+            id="react-aria-«replaced-aria-id»"
+          >
+            <ul
+              aria-label="Validation errors of field sliderfield"
+              data-testid="sliderfield_error"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="mt-4 flex justify-end"
+      >
+        <button
+          aria-label="Submit form"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
+          data-react-aria-pressable="true"
+          data-testid="form_submit_button"
+          tabindex="0"
+          type="submit"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`Story Snapshots > Default 1`] = `
+<div>
+  <div
+    class="flex w-full flex-row justify-between gap-6"
+  >
+    <form
+      class="grow min-w-60"
+      data-form-is-valid="true"
+      data-testid=""
+    >
+      <div
+        class="group"
+        data-invalid="false"
+        data-required="false"
+        data-testid="sliderfield"
+      >
+        <div
+          style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+        >
+          <input
+            aria-label="sliderField"
+            max="100"
+            min="0"
+            name="sliderField"
+            step="1"
+            tabindex="-1"
+            type="range"
+            value="0"
+          />
+        </div>
+        <div
+          class="flex flex-col w-full gap-1"
+          data-hover="false"
+          data-orientation="horizontal"
+          data-slot="base"
+          id="react-aria-«replaced-aria-id»"
+          role="group"
+        >
+          <div
+            class="relative flex gap-2 items-center"
+            data-slot="track-wrapper"
+          >
+            <div
+              class="flex w-full relative rounded-full bg-default-300/50 border-x-transparent h-3 my-[calc((theme(spacing.6)-theme(spacing.3))/2)] border-x-[calc(theme(spacing.6)/2)] data-[fill-start=true]:border-s-primary data-[fill-end=true]:border-e-primary"
+              data-fill-end="false"
+              data-fill-start="false"
+              data-slot="track"
+              data-thumb-hidden="false"
+              data-vertical="false"
+              style="position: relative;"
+            >
+              <div
+                class="h-full absolute bg-primary"
+                data-slot="filler"
+                style="left: 0%; width: 0%;"
+              />
+              <div
+                aria-label="Slider thumb 1"
+                class="flex justify-center items-center before:absolute before:w-11 before:h-11 before:rounded-full after:shadow-small after:bg-background data-[focused=true]:z-10 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 w-6 h-6 after:w-5 after:h-5 rounded-full after:rounded-full bg-primary top-1/2 cursor-grab data-[dragging=true]:cursor-grabbing ring-transparent border-0 after:transition-all motion-reduce:after:transition-none data-[dragging=true]:after:scale-80 shadow-small"
+                data-react-aria-pressable="true"
+                data-slot="thumb"
+                index="0"
+                orientation="horizontal"
+                style="position: absolute; left: 0%; transform: translate(-50%, -50%);"
+              >
+                <div
+                  style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+                >
+                  <input
+                    aria-describedby=""
+                    aria-details=""
+                    aria-labelledby="react-aria-«replaced-aria-id»"
+                    aria-orientation="horizontal"
+                    aria-valuetext="0"
+                    id="react-aria-«replaced-aria-id»-0"
+                    max="100"
+                    min="0"
+                    name="sliderField_slider"
+                    step="1"
+                    tabindex="0"
+                    type="range"
+                    value="0"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="hidden group-data-[has-helper=true]:flex relative flex-col gap-1.5 p-0"
+          data-slot="helper-wrapper"
+        >
+          <div
+            class="text-tiny text-danger"
+            data-slot="error-message"
+            id="react-aria-«replaced-aria-id»"
+          >
+            <ul
+              aria-label="Validation errors of field sliderfield"
+              data-testid="sliderfield_error"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="mt-4 flex justify-end"
+      >
+        <button
+          aria-label="Submit form"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
+          data-react-aria-pressable="true"
+          data-testid="form_submit_button"
+          tabindex="0"
+          type="submit"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`Story Snapshots > Disabled 1`] = `
+<div>
+  <div
+    class="flex w-full flex-row justify-between gap-6"
+  >
+    <form
+      class="grow min-w-60"
+      data-form-is-valid="true"
+      data-testid=""
+    >
+      <div
+        class="group"
+        data-invalid="false"
+        data-required="false"
+        data-testid="sliderfield"
+      >
+        <div
+          style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+        >
+          <input
+            aria-label="sliderField"
+            disabled=""
+            max="100"
+            min="0"
+            name="sliderField"
+            step="1"
+            tabindex="-1"
+            type="range"
+            value="60"
+          />
+        </div>
+        <div
+          aria-labelledby="react-aria-«replaced-aria-id»"
+          class="flex flex-col w-full gap-1 opacity-disabled"
+          data-hover="false"
+          data-orientation="horizontal"
+          data-slot="base"
+          id="react-aria-«replaced-aria-id»"
+          role="group"
+        >
+          <div
+            class="w-full flex justify-between items-center"
+            data-slot="labelWrapper"
+          >
+            <label
+              class="text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
+              data-slot="label"
+              id="react-aria-«replaced-aria-id»"
+            >
+              Locked Setting
+            </label>
+            <output
+              aria-live="off"
+              class="text-small"
+              data-slot="value"
+              for="react-aria-«replaced-aria-id»-0"
+            >
+              60
+            </output>
+          </div>
+          <div
+            class="relative flex gap-2 items-center"
+            data-slot="track-wrapper"
+          >
+            <div
+              class="flex w-full relative rounded-full bg-default-300/50 border-x-transparent h-3 my-[calc((theme(spacing.6)-theme(spacing.3))/2)] border-x-[calc(theme(spacing.6)/2)] data-[fill-start=true]:border-s-primary data-[fill-end=true]:border-e-primary"
+              data-fill-end="false"
+              data-fill-start="true"
+              data-slot="track"
+              data-thumb-hidden="false"
+              data-vertical="false"
+              style="position: relative;"
+            >
+              <div
+                class="h-full absolute bg-primary"
+                data-slot="filler"
+                style="left: 0%; width: 60%;"
+              />
+              <div
+                aria-label="Slider thumb 1"
+                class="flex justify-center items-center before:absolute before:w-11 before:h-11 before:rounded-full after:shadow-small after:bg-background data-[focused=true]:z-10 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 w-6 h-6 after:w-5 after:h-5 rounded-full after:rounded-full bg-primary top-1/2 cursor-default ring-transparent border-0 after:transition-all motion-reduce:after:transition-none data-[dragging=true]:after:scale-80 shadow-small"
+                data-react-aria-pressable="true"
+                data-slot="thumb"
+                index="0"
+                orientation="horizontal"
+                style="position: absolute; left: 60%; transform: translate(-50%, -50%);"
+              >
+                <div
+                  style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+                >
+                  <input
+                    aria-describedby=""
+                    aria-details=""
+                    aria-labelledby="react-aria-«replaced-aria-id»"
+                    aria-orientation="horizontal"
+                    aria-valuetext="60"
+                    disabled=""
+                    id="react-aria-«replaced-aria-id»-0"
+                    max="100"
+                    min="0"
+                    name="sliderField_slider"
+                    step="1"
+                    tabindex="0"
+                    type="range"
+                    value="60"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="hidden group-data-[has-helper=true]:flex relative flex-col gap-1.5 p-0"
+          data-slot="helper-wrapper"
+        >
+          <div
+            class="text-tiny text-danger"
+            data-slot="error-message"
+            id="react-aria-«replaced-aria-id»"
+          >
+            <ul
+              aria-label="Validation errors of field sliderfield"
+              data-testid="sliderfield_error"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="mt-4 flex justify-end"
+      >
+        <button
+          aria-label="Submit form"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
+          data-react-aria-pressable="true"
+          data-testid="form_submit_button"
+          tabindex="0"
+          type="submit"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`Story Snapshots > Invalid 1`] = `
+<div>
+  <div
+    class="flex w-full flex-row justify-between gap-6"
+  >
+    <form
+      class="grow min-w-60"
+      data-form-is-valid="false"
+      data-testid=""
+    >
+      <div
+        class="group"
+        data-invalid="false"
+        data-required="true"
+        data-testid="sliderfield"
+      >
+        <div
+          style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+        >
+          <input
+            aria-label="sliderField"
+            max="100"
+            min="0"
+            name="sliderField"
+            step="1"
+            tabindex="-1"
+            type="range"
+            value="30"
+          />
+        </div>
+        <div
+          aria-labelledby="react-aria-«replaced-aria-id»"
+          class="flex flex-col w-full gap-1"
+          data-hover="false"
+          data-orientation="horizontal"
+          data-slot="base"
+          id="react-aria-«replaced-aria-id»"
+          role="group"
+        >
+          <div
+            class="w-full flex justify-between items-center"
+            data-slot="labelWrapper"
+          >
+            <label
+              class="text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
+              data-slot="label"
+              id="react-aria-«replaced-aria-id»"
+            >
+              Minimum Threshold
+            </label>
+            <output
+              aria-live="off"
+              class="text-small"
+              data-slot="value"
+              for="react-aria-«replaced-aria-id»-0"
+            >
+              30
+            </output>
+          </div>
+          <div
+            class="relative flex gap-2 items-center"
+            data-slot="track-wrapper"
+          >
+            <div
+              class="flex w-full relative rounded-full bg-default-300/50 border-x-transparent h-3 my-[calc((theme(spacing.6)-theme(spacing.3))/2)] border-x-[calc(theme(spacing.6)/2)] data-[fill-start=true]:border-s-primary data-[fill-end=true]:border-e-primary"
+              data-fill-end="false"
+              data-fill-start="true"
+              data-slot="track"
+              data-thumb-hidden="false"
+              data-vertical="false"
+              style="position: relative;"
+            >
+              <div
+                class="h-full absolute bg-primary"
+                data-slot="filler"
+                style="left: 0%; width: 30%;"
+              />
+              <div
+                aria-label="Slider thumb 1"
+                class="flex justify-center items-center before:absolute before:w-11 before:h-11 before:rounded-full after:shadow-small after:bg-background data-[focused=true]:z-10 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 w-6 h-6 after:w-5 after:h-5 rounded-full after:rounded-full bg-primary top-1/2 cursor-grab data-[dragging=true]:cursor-grabbing ring-transparent border-0 after:transition-all motion-reduce:after:transition-none data-[dragging=true]:after:scale-80 shadow-small"
+                data-react-aria-pressable="true"
+                data-slot="thumb"
+                index="0"
+                orientation="horizontal"
+                style="position: absolute; left: 30%; transform: translate(-50%, -50%);"
+              >
+                <div
+                  style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+                >
+                  <input
+                    aria-describedby=""
+                    aria-details=""
+                    aria-labelledby="react-aria-«replaced-aria-id»"
+                    aria-orientation="horizontal"
+                    aria-valuetext="30"
+                    id="react-aria-«replaced-aria-id»-0"
+                    max="100"
+                    min="0"
+                    name="sliderField_slider"
+                    step="1"
+                    tabindex="0"
+                    type="range"
+                    value="30"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="hidden group-data-[has-helper=true]:flex relative flex-col gap-1.5 p-0"
+          data-slot="helper-wrapper"
+        >
+          <div
+            class="text-tiny text-danger"
+            data-slot="error-message"
+            id="react-aria-«replaced-aria-id»"
+          >
+            <ul
+              aria-label="Validation errors of field sliderfield"
+              data-testid="sliderfield_error"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="mt-4 flex justify-end"
+      >
+        <button
+          aria-label="Submit form"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
+          data-react-aria-pressable="true"
+          data-testid="form_submit_button"
+          tabindex="0"
+          type="submit"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`Story Snapshots > Required 1`] = `
+<div>
+  <div
+    class="flex w-full flex-row justify-between gap-6"
+  >
+    <form
+      class="grow min-w-60"
+      data-form-is-valid="false"
+      data-testid=""
+    >
+      <div
+        class="group"
+        data-invalid="false"
+        data-required="true"
+        data-testid="sliderfield"
+      >
+        <div
+          style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+        >
+          <input
+            aria-label="sliderField"
+            max="100"
+            min="0"
+            name="sliderField"
+            step="1"
+            tabindex="-1"
+            type="range"
+            value="0"
+          />
+        </div>
+        <div
+          aria-labelledby="react-aria-«replaced-aria-id»"
+          class="flex flex-col w-full gap-1"
+          data-hover="false"
+          data-orientation="horizontal"
+          data-slot="base"
+          id="react-aria-«replaced-aria-id»"
+          role="group"
+        >
+          <div
+            class="w-full flex justify-between items-center"
+            data-slot="labelWrapper"
+          >
+            <label
+              class="text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
+              data-slot="label"
+              id="react-aria-«replaced-aria-id»"
+            >
+              Required Slider
+            </label>
+            <output
+              aria-live="off"
+              class="text-small"
+              data-slot="value"
+              for="react-aria-«replaced-aria-id»-0"
+            >
+              0
+            </output>
+          </div>
+          <div
+            class="relative flex gap-2 items-center"
+            data-slot="track-wrapper"
+          >
+            <div
+              class="flex w-full relative rounded-full bg-default-300/50 border-x-transparent h-3 my-[calc((theme(spacing.6)-theme(spacing.3))/2)] border-x-[calc(theme(spacing.6)/2)] data-[fill-start=true]:border-s-primary data-[fill-end=true]:border-e-primary"
+              data-fill-end="false"
+              data-fill-start="false"
+              data-slot="track"
+              data-thumb-hidden="false"
+              data-vertical="false"
+              style="position: relative;"
+            >
+              <div
+                class="h-full absolute bg-primary"
+                data-slot="filler"
+                style="left: 0%; width: 0%;"
+              />
+              <div
+                aria-label="Slider thumb 1"
+                class="flex justify-center items-center before:absolute before:w-11 before:h-11 before:rounded-full after:shadow-small after:bg-background data-[focused=true]:z-10 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 w-6 h-6 after:w-5 after:h-5 rounded-full after:rounded-full bg-primary top-1/2 cursor-grab data-[dragging=true]:cursor-grabbing ring-transparent border-0 after:transition-all motion-reduce:after:transition-none data-[dragging=true]:after:scale-80 shadow-small"
+                data-react-aria-pressable="true"
+                data-slot="thumb"
+                index="0"
+                orientation="horizontal"
+                style="position: absolute; left: 0%; transform: translate(-50%, -50%);"
+              >
+                <div
+                  style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+                >
+                  <input
+                    aria-describedby=""
+                    aria-details=""
+                    aria-labelledby="react-aria-«replaced-aria-id»"
+                    aria-orientation="horizontal"
+                    aria-valuetext="0"
+                    id="react-aria-«replaced-aria-id»-0"
+                    max="100"
+                    min="0"
+                    name="sliderField_slider"
+                    step="1"
+                    tabindex="0"
+                    type="range"
+                    value="0"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="hidden group-data-[has-helper=true]:flex relative flex-col gap-1.5 p-0"
+          data-slot="helper-wrapper"
+        >
+          <div
+            class="text-tiny text-danger"
+            data-slot="error-message"
+            id="react-aria-«replaced-aria-id»"
+          >
+            <ul
+              aria-label="Validation errors of field sliderfield"
+              data-testid="sliderfield_error"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="mt-4 flex justify-end"
+      >
+        <button
+          aria-label="Submit form"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
+          data-react-aria-pressable="true"
+          data-testid="form_submit_button"
+          tabindex="0"
+          type="submit"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`Story Snapshots > WithInitialValue 1`] = `
+<div>
+  <div
+    class="flex w-full flex-row justify-between gap-6"
+  >
+    <form
+      class="grow min-w-60"
+      data-form-is-valid="true"
+      data-testid=""
+    >
+      <div
+        class="group"
+        data-invalid="false"
+        data-required="false"
+        data-testid="sliderfield"
+      >
+        <div
+          style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+        >
+          <input
+            aria-label="sliderField"
+            max="100"
+            min="0"
+            name="sliderField"
+            step="1"
+            tabindex="-1"
+            type="range"
+            value="75"
+          />
+        </div>
+        <div
+          aria-labelledby="react-aria-«replaced-aria-id»"
+          class="flex flex-col w-full gap-1"
+          data-hover="false"
+          data-orientation="horizontal"
+          data-slot="base"
+          id="react-aria-«replaced-aria-id»"
+          role="group"
+        >
+          <div
+            class="w-full flex justify-between items-center"
+            data-slot="labelWrapper"
+          >
+            <label
+              class="text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
+              data-slot="label"
+              id="react-aria-«replaced-aria-id»"
+            >
+              Brightness
+            </label>
+            <output
+              aria-live="off"
+              class="text-small"
+              data-slot="value"
+              for="react-aria-«replaced-aria-id»-0"
+            >
+              75
+            </output>
+          </div>
+          <div
+            class="relative flex gap-2 items-center"
+            data-slot="track-wrapper"
+          >
+            <div
+              class="flex w-full relative rounded-full bg-default-300/50 border-x-transparent h-3 my-[calc((theme(spacing.6)-theme(spacing.3))/2)] border-x-[calc(theme(spacing.6)/2)] data-[fill-start=true]:border-s-primary data-[fill-end=true]:border-e-primary"
+              data-fill-end="false"
+              data-fill-start="true"
+              data-slot="track"
+              data-thumb-hidden="false"
+              data-vertical="false"
+              style="position: relative;"
+            >
+              <div
+                class="h-full absolute bg-primary"
+                data-slot="filler"
+                style="left: 0%; width: 75%;"
+              />
+              <div
+                aria-label="Slider thumb 1"
+                class="flex justify-center items-center before:absolute before:w-11 before:h-11 before:rounded-full after:shadow-small after:bg-background data-[focused=true]:z-10 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 w-6 h-6 after:w-5 after:h-5 rounded-full after:rounded-full bg-primary top-1/2 cursor-grab data-[dragging=true]:cursor-grabbing ring-transparent border-0 after:transition-all motion-reduce:after:transition-none data-[dragging=true]:after:scale-80 shadow-small"
+                data-react-aria-pressable="true"
+                data-slot="thumb"
+                index="0"
+                orientation="horizontal"
+                style="position: absolute; left: 75%; transform: translate(-50%, -50%);"
+              >
+                <div
+                  style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+                >
+                  <input
+                    aria-describedby=""
+                    aria-details=""
+                    aria-labelledby="react-aria-«replaced-aria-id»"
+                    aria-orientation="horizontal"
+                    aria-valuetext="75"
+                    id="react-aria-«replaced-aria-id»-0"
+                    max="100"
+                    min="0"
+                    name="sliderField_slider"
+                    step="1"
+                    tabindex="0"
+                    type="range"
+                    value="75"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="hidden group-data-[has-helper=true]:flex relative flex-col gap-1.5 p-0"
+          data-slot="helper-wrapper"
+        >
+          <div
+            class="text-tiny text-danger"
+            data-slot="error-message"
+            id="react-aria-«replaced-aria-id»"
+          >
+            <ul
+              aria-label="Validation errors of field sliderfield"
+              data-testid="sliderfield_error"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="mt-4 flex justify-end"
+      >
+        <button
+          aria-label="Submit form"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
+          data-react-aria-pressable="true"
+          data-testid="form_submit_button"
+          tabindex="0"
+          type="submit"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`Story Snapshots > WithLabel 1`] = `
+<div>
+  <div
+    class="flex w-full flex-row justify-between gap-6"
+  >
+    <form
+      class="grow min-w-60"
+      data-form-is-valid="true"
+      data-testid=""
+    >
+      <div
+        class="group"
+        data-invalid="false"
+        data-required="false"
+        data-testid="sliderfield"
+      >
+        <div
+          style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+        >
+          <input
+            aria-label="sliderField"
+            max="100"
+            min="0"
+            name="sliderField"
+            step="1"
+            tabindex="-1"
+            type="range"
+            value="0"
+          />
+        </div>
+        <div
+          aria-labelledby="react-aria-«replaced-aria-id»"
+          class="flex flex-col w-full gap-1"
+          data-hover="false"
+          data-orientation="horizontal"
+          data-slot="base"
+          id="react-aria-«replaced-aria-id»"
+          role="group"
+        >
+          <div
+            class="w-full flex justify-between items-center"
+            data-slot="labelWrapper"
+          >
+            <label
+              class="text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
+              data-slot="label"
+              id="react-aria-«replaced-aria-id»"
+            >
+              Volume Control
+            </label>
+            <output
+              aria-live="off"
+              class="text-small"
+              data-slot="value"
+              for="react-aria-«replaced-aria-id»-0"
+            >
+              0
+            </output>
+          </div>
+          <div
+            class="relative flex gap-2 items-center"
+            data-slot="track-wrapper"
+          >
+            <div
+              class="flex w-full relative rounded-full bg-default-300/50 border-x-transparent h-3 my-[calc((theme(spacing.6)-theme(spacing.3))/2)] border-x-[calc(theme(spacing.6)/2)] data-[fill-start=true]:border-s-primary data-[fill-end=true]:border-e-primary"
+              data-fill-end="false"
+              data-fill-start="false"
+              data-slot="track"
+              data-thumb-hidden="false"
+              data-vertical="false"
+              style="position: relative;"
+            >
+              <div
+                class="h-full absolute bg-primary"
+                data-slot="filler"
+                style="left: 0%; width: 0%;"
+              />
+              <div
+                aria-label="Slider thumb 1"
+                class="flex justify-center items-center before:absolute before:w-11 before:h-11 before:rounded-full after:shadow-small after:bg-background data-[focused=true]:z-10 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 w-6 h-6 after:w-5 after:h-5 rounded-full after:rounded-full bg-primary top-1/2 cursor-grab data-[dragging=true]:cursor-grabbing ring-transparent border-0 after:transition-all motion-reduce:after:transition-none data-[dragging=true]:after:scale-80 shadow-small"
+                data-react-aria-pressable="true"
+                data-slot="thumb"
+                index="0"
+                orientation="horizontal"
+                style="position: absolute; left: 0%; transform: translate(-50%, -50%);"
+              >
+                <div
+                  style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+                >
+                  <input
+                    aria-describedby=""
+                    aria-details=""
+                    aria-labelledby="react-aria-«replaced-aria-id»"
+                    aria-orientation="horizontal"
+                    aria-valuetext="0"
+                    id="react-aria-«replaced-aria-id»-0"
+                    max="100"
+                    min="0"
+                    name="sliderField_slider"
+                    step="1"
+                    tabindex="0"
+                    type="range"
+                    value="0"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="hidden group-data-[has-helper=true]:flex relative flex-col gap-1.5 p-0"
+          data-slot="helper-wrapper"
+        >
+          <div
+            class="text-tiny text-danger"
+            data-slot="error-message"
+            id="react-aria-«replaced-aria-id»"
+          >
+            <ul
+              aria-label="Validation errors of field sliderfield"
+              data-testid="sliderfield_error"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="mt-4 flex justify-end"
+      >
+        <button
+          aria-label="Submit form"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
+          data-react-aria-pressable="true"
+          data-testid="form_submit_button"
+          tabindex="0"
+          type="submit"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`Story Snapshots > WithStartAndEndContent 1`] = `
+<div>
+  <div
+    class="flex w-full flex-row justify-between gap-6"
+  >
+    <form
+      class="grow min-w-60"
+      data-form-is-valid="true"
+      data-testid=""
+    >
+      <div
+        class="group"
+        data-invalid="false"
+        data-required="false"
+        data-testid="sliderfield"
+      >
+        <div
+          style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+        >
+          <input
+            aria-label="sliderField"
+            max="100"
+            min="0"
+            name="sliderField"
+            step="1"
+            tabindex="-1"
+            type="range"
+            value="50"
+          />
+        </div>
+        <div
+          aria-labelledby="react-aria-«replaced-aria-id»"
+          class="flex flex-col w-full gap-1"
+          data-hover="false"
+          data-orientation="horizontal"
+          data-slot="base"
+          id="react-aria-«replaced-aria-id»"
+          role="group"
+        >
+          <div
+            class="w-full flex justify-between items-center"
+            data-slot="labelWrapper"
+          >
+            <label
+              class="text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
+              data-slot="label"
+              id="react-aria-«replaced-aria-id»"
+            >
+              Volume
+            </label>
+            <output
+              aria-live="off"
+              class="text-small"
+              data-slot="value"
+              for="react-aria-«replaced-aria-id»-0"
+            >
+              50
+            </output>
+          </div>
+          <div
+            class="relative flex gap-2 items-center"
+            data-slot="track-wrapper"
+          >
+            <div
+              data-slot="startContent"
+            >
+              <svg
+                class="text-default-500"
+                fill="currentColor"
+                height="1em"
+                stroke="currentColor"
+                stroke-width="0"
+                viewBox="0 0 384 512"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M215.03 72.04L126.06 161H24c-13.26 0-24 10.74-24 24v144c0 13.25 10.74 24 24 24h102.06l88.97 88.95c15.03 15.03 40.97 4.47 40.97-16.97V89.02c0-21.47-25.96-31.98-40.97-16.98zm123.2 108.08c-11.58-6.33-26.19-2.16-32.61 9.45-6.39 11.61-2.16 26.2 9.45 32.61C327.98 229.28 336 242.62 336 257c0 14.38-8.02 27.72-20.92 34.81-11.61 6.41-15.84 21-9.45 32.61 6.43 11.66 21.05 15.8 32.61 9.45 28.23-15.55 45.77-45 45.77-76.88s-17.54-61.32-45.78-76.87z"
+                />
+              </svg>
+            </div>
+            <div
+              class="flex w-full relative rounded-full bg-default-300/50 border-x-transparent h-3 my-[calc((theme(spacing.6)-theme(spacing.3))/2)] border-x-[calc(theme(spacing.6)/2)] data-[fill-start=true]:border-s-primary data-[fill-end=true]:border-e-primary"
+              data-fill-end="false"
+              data-fill-start="true"
+              data-slot="track"
+              data-thumb-hidden="false"
+              data-vertical="false"
+              style="position: relative;"
+            >
+              <div
+                class="h-full absolute bg-primary"
+                data-slot="filler"
+                style="left: 0%; width: 50%;"
+              />
+              <div
+                aria-label="Slider thumb 1"
+                class="flex justify-center items-center before:absolute before:w-11 before:h-11 before:rounded-full after:shadow-small after:bg-background data-[focused=true]:z-10 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 w-6 h-6 after:w-5 after:h-5 rounded-full after:rounded-full bg-primary top-1/2 cursor-grab data-[dragging=true]:cursor-grabbing ring-transparent border-0 after:transition-all motion-reduce:after:transition-none data-[dragging=true]:after:scale-80 shadow-small"
+                data-react-aria-pressable="true"
+                data-slot="thumb"
+                index="0"
+                orientation="horizontal"
+                style="position: absolute; left: 50%; transform: translate(-50%, -50%);"
+              >
+                <div
+                  style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+                >
+                  <input
+                    aria-describedby=""
+                    aria-details=""
+                    aria-labelledby="react-aria-«replaced-aria-id»"
+                    aria-orientation="horizontal"
+                    aria-valuetext="50"
+                    id="react-aria-«replaced-aria-id»-0"
+                    max="100"
+                    min="0"
+                    name="sliderField_slider"
+                    step="1"
+                    tabindex="0"
+                    type="range"
+                    value="50"
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              data-slot="endContent"
+            >
+              <svg
+                class="text-default-500"
+                fill="currentColor"
+                height="1em"
+                stroke="currentColor"
+                stroke-width="0"
+                viewBox="0 0 576 512"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M215.03 71.05L126.06 160H24c-13.26 0-24 10.74-24 24v144c0 13.25 10.74 24 24 24h102.06l88.97 88.95c15.03 15.03 40.97 4.47 40.97-16.97V88.02c0-21.46-25.96-31.98-40.97-16.97zm233.32-51.08c-11.17-7.33-26.18-4.24-33.51 6.95-7.34 11.17-4.22 26.18 6.95 33.51 66.27 43.49 105.82 116.6 105.82 195.58 0 78.98-39.55 152.09-105.82 195.58-11.17 7.32-14.29 22.34-6.95 33.5 7.04 10.71 21.93 14.56 33.51 6.95C528.27 439.58 576 351.33 576 256S528.27 72.43 448.35 19.97zM480 256c0-63.53-32.06-121.94-85.77-156.24-11.19-7.14-26.03-3.82-33.12 7.46s-3.78 26.21 7.41 33.36C408.27 165.97 432 209.11 432 256s-23.73 90.03-63.48 115.42c-11.19 7.14-14.5 22.07-7.41 33.36 6.51 10.36 21.12 15.14 33.12 7.46C447.94 377.94 480 319.54 480 256zm-141.77-76.87c-11.58-6.33-26.19-2.16-32.61 9.45-6.39 11.61-2.16 26.2 9.45 32.61C327.98 228.28 336 241.63 336 256c0 14.38-8.02 27.72-20.92 34.81-11.61 6.41-15.84 21-9.45 32.61 6.43 11.66 21.05 15.8 32.61 9.45 28.23-15.55 45.77-45 45.77-76.88s-17.54-61.32-45.78-76.86z"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+        <div
+          class="hidden group-data-[has-helper=true]:flex relative flex-col gap-1.5 p-0"
+          data-slot="helper-wrapper"
+        >
+          <div
+            class="text-tiny text-danger"
+            data-slot="error-message"
+            id="react-aria-«replaced-aria-id»"
+          >
+            <ul
+              aria-label="Validation errors of field sliderfield"
+              data-testid="sliderfield_error"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="mt-4 flex justify-end"
+      >
+        <button
+          aria-label="Submit form"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
+          data-react-aria-pressable="true"
+          data-testid="form_submit_button"
+          tabindex="0"
+          type="submit"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`Story Snapshots > WithStep 1`] = `
+<div>
+  <div
+    class="flex w-full flex-row justify-between gap-6"
+  >
+    <form
+      class="grow min-w-60"
+      data-form-is-valid="true"
+      data-testid=""
+    >
+      <div
+        class="group"
+        data-invalid="false"
+        data-required="false"
+        data-testid="sliderfield"
+      >
+        <div
+          style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+        >
+          <input
+            aria-label="sliderField"
+            max="100"
+            min="0"
+            name="sliderField"
+            step="10"
+            tabindex="-1"
+            type="range"
+            value="50"
+          />
+        </div>
+        <div
+          aria-labelledby="react-aria-«replaced-aria-id»"
+          class="flex flex-col w-full gap-1"
+          data-hover="false"
+          data-orientation="horizontal"
+          data-slot="base"
+          id="react-aria-«replaced-aria-id»"
+          role="group"
+        >
+          <div
+            class="w-full flex justify-between items-center"
+            data-slot="labelWrapper"
+          >
+            <label
+              class="text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
+              data-slot="label"
+              id="react-aria-«replaced-aria-id»"
+            >
+              Progress (in steps of 10)
+            </label>
+            <output
+              aria-live="off"
+              class="text-small"
+              data-slot="value"
+              for="react-aria-«replaced-aria-id»-0"
+            >
+              50
+            </output>
+          </div>
+          <div
+            class="relative flex gap-2 items-center"
+            data-slot="track-wrapper"
+          >
+            <div
+              class="flex w-full relative rounded-full bg-default-300/50 border-x-transparent h-3 my-[calc((theme(spacing.6)-theme(spacing.3))/2)] border-x-[calc(theme(spacing.6)/2)] data-[fill-start=true]:border-s-primary data-[fill-end=true]:border-e-primary"
+              data-fill-end="false"
+              data-fill-start="true"
+              data-slot="track"
+              data-thumb-hidden="false"
+              data-vertical="false"
+              style="position: relative;"
+            >
+              <div
+                class="h-full absolute bg-primary"
+                data-slot="filler"
+                style="left: 0%; width: 50%;"
+              />
+              <div
+                aria-label="Slider thumb 1"
+                class="flex justify-center items-center before:absolute before:w-11 before:h-11 before:rounded-full after:shadow-small after:bg-background data-[focused=true]:z-10 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 w-6 h-6 after:w-5 after:h-5 rounded-full after:rounded-full bg-primary top-1/2 cursor-grab data-[dragging=true]:cursor-grabbing ring-transparent border-0 after:transition-all motion-reduce:after:transition-none data-[dragging=true]:after:scale-80 shadow-small"
+                data-react-aria-pressable="true"
+                data-slot="thumb"
+                index="0"
+                orientation="horizontal"
+                style="position: absolute; left: 50%; transform: translate(-50%, -50%);"
+              >
+                <div
+                  style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+                >
+                  <input
+                    aria-describedby=""
+                    aria-details=""
+                    aria-labelledby="react-aria-«replaced-aria-id»"
+                    aria-orientation="horizontal"
+                    aria-valuetext="50"
+                    id="react-aria-«replaced-aria-id»-0"
+                    max="100"
+                    min="0"
+                    name="sliderField_slider"
+                    step="10"
+                    tabindex="0"
+                    type="range"
+                    value="50"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="hidden group-data-[has-helper=true]:flex relative flex-col gap-1.5 p-0"
+          data-slot="helper-wrapper"
+        >
+          <div
+            class="text-tiny text-danger"
+            data-slot="error-message"
+            id="react-aria-«replaced-aria-id»"
+          >
+            <ul
+              aria-label="Validation errors of field sliderfield"
+              data-testid="sliderfield_error"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="mt-4 flex justify-end"
+      >
+        <button
+          aria-label="Submit form"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
+          data-react-aria-pressable="true"
+          data-testid="form_submit_button"
+          tabindex="0"
+          type="submit"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`Story Snapshots > WithSteps 1`] = `
+<div>
+  <div
+    class="flex w-full flex-row justify-between gap-6"
+  >
+    <form
+      class="grow min-w-60"
+      data-form-is-valid="true"
+      data-testid=""
+    >
+      <div
+        class="group"
+        data-invalid="false"
+        data-required="false"
+        data-testid="sliderfield"
+      >
+        <div
+          style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+        >
+          <input
+            aria-label="sliderField"
+            max="12"
+            min="-12"
+            name="sliderField"
+            step="2"
+            tabindex="-1"
+            type="range"
+            value="0"
+          />
+        </div>
+        <div
+          aria-labelledby="react-aria-«replaced-aria-id»"
+          class="flex flex-col w-full gap-1"
+          data-hover="false"
+          data-orientation="horizontal"
+          data-slot="base"
+          id="react-aria-«replaced-aria-id»"
+          role="group"
+        >
+          <div
+            class="w-full flex justify-between items-center"
+            data-slot="labelWrapper"
+          >
+            <label
+              class="text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
+              data-slot="label"
+              id="react-aria-«replaced-aria-id»"
+            >
+              Offset
+            </label>
+            <output
+              aria-live="off"
+              class="text-small"
+              data-slot="value"
+              for="react-aria-«replaced-aria-id»-0"
+            >
+              0
+            </output>
+          </div>
+          <div
+            class="relative flex gap-2 items-center"
+            data-slot="track-wrapper"
+          >
+            <div
+              class="flex w-full relative rounded-full bg-default-300/50 border-x-transparent h-3 my-[calc((theme(spacing.6)-theme(spacing.3))/2)] border-x-[calc(theme(spacing.6)/2)] data-[fill-start=true]:border-s-primary data-[fill-end=true]:border-e-primary"
+              data-fill-end="false"
+              data-fill-start="false"
+              data-slot="track"
+              data-thumb-hidden="false"
+              data-vertical="false"
+              style="position: relative;"
+            >
+              <div
+                class="h-full absolute bg-primary"
+                data-slot="filler"
+                style="left: 50%; width: 0%;"
+              />
+              <div
+                class="h-1.5 w-1.5 absolute rounded-full bg-default-300/50 data-[in-range=true]:bg-background/50 top-1/2 -translate-x-1/2 -translate-y-1/2"
+                data-in-range="false"
+                data-slot="step"
+                style="left: 0%;"
+              />
+              <div
+                class="h-1.5 w-1.5 absolute rounded-full bg-default-300/50 data-[in-range=true]:bg-background/50 top-1/2 -translate-x-1/2 -translate-y-1/2"
+                data-in-range="false"
+                data-slot="step"
+                style="left: 8.333333333333332%;"
+              />
+              <div
+                class="h-1.5 w-1.5 absolute rounded-full bg-default-300/50 data-[in-range=true]:bg-background/50 top-1/2 -translate-x-1/2 -translate-y-1/2"
+                data-in-range="false"
+                data-slot="step"
+                style="left: 16.666666666666664%;"
+              />
+              <div
+                class="h-1.5 w-1.5 absolute rounded-full bg-default-300/50 data-[in-range=true]:bg-background/50 top-1/2 -translate-x-1/2 -translate-y-1/2"
+                data-in-range="false"
+                data-slot="step"
+                style="left: 25%;"
+              />
+              <div
+                class="h-1.5 w-1.5 absolute rounded-full bg-default-300/50 data-[in-range=true]:bg-background/50 top-1/2 -translate-x-1/2 -translate-y-1/2"
+                data-in-range="false"
+                data-slot="step"
+                style="left: 33.33333333333333%;"
+              />
+              <div
+                class="h-1.5 w-1.5 absolute rounded-full bg-default-300/50 data-[in-range=true]:bg-background/50 top-1/2 -translate-x-1/2 -translate-y-1/2"
+                data-in-range="false"
+                data-slot="step"
+                style="left: 41.66666666666667%;"
+              />
+              <div
+                class="h-1.5 w-1.5 absolute rounded-full bg-default-300/50 data-[in-range=true]:bg-background/50 top-1/2 -translate-x-1/2 -translate-y-1/2"
+                data-in-range="true"
+                data-slot="step"
+                style="left: 50%;"
+              />
+              <div
+                class="h-1.5 w-1.5 absolute rounded-full bg-default-300/50 data-[in-range=true]:bg-background/50 top-1/2 -translate-x-1/2 -translate-y-1/2"
+                data-in-range="false"
+                data-slot="step"
+                style="left: 58.333333333333336%;"
+              />
+              <div
+                class="h-1.5 w-1.5 absolute rounded-full bg-default-300/50 data-[in-range=true]:bg-background/50 top-1/2 -translate-x-1/2 -translate-y-1/2"
+                data-in-range="false"
+                data-slot="step"
+                style="left: 66.66666666666666%;"
+              />
+              <div
+                class="h-1.5 w-1.5 absolute rounded-full bg-default-300/50 data-[in-range=true]:bg-background/50 top-1/2 -translate-x-1/2 -translate-y-1/2"
+                data-in-range="false"
+                data-slot="step"
+                style="left: 75%;"
+              />
+              <div
+                class="h-1.5 w-1.5 absolute rounded-full bg-default-300/50 data-[in-range=true]:bg-background/50 top-1/2 -translate-x-1/2 -translate-y-1/2"
+                data-in-range="false"
+                data-slot="step"
+                style="left: 83.33333333333334%;"
+              />
+              <div
+                class="h-1.5 w-1.5 absolute rounded-full bg-default-300/50 data-[in-range=true]:bg-background/50 top-1/2 -translate-x-1/2 -translate-y-1/2"
+                data-in-range="false"
+                data-slot="step"
+                style="left: 91.66666666666666%;"
+              />
+              <div
+                class="h-1.5 w-1.5 absolute rounded-full bg-default-300/50 data-[in-range=true]:bg-background/50 top-1/2 -translate-x-1/2 -translate-y-1/2"
+                data-in-range="false"
+                data-slot="step"
+                style="left: 100%;"
+              />
+              <div
+                aria-label="Slider thumb 1"
+                class="flex justify-center items-center before:absolute before:w-11 before:h-11 before:rounded-full after:shadow-small after:bg-background data-[focused=true]:z-10 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 w-6 h-6 after:w-5 after:h-5 rounded-full after:rounded-full bg-primary top-1/2 cursor-grab data-[dragging=true]:cursor-grabbing ring-transparent border-0 after:transition-all motion-reduce:after:transition-none data-[dragging=true]:after:scale-80 shadow-small"
+                data-react-aria-pressable="true"
+                data-slot="thumb"
+                index="0"
+                orientation="horizontal"
+                style="position: absolute; left: 50%; transform: translate(-50%, -50%);"
+              >
+                <div
+                  style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+                >
+                  <input
+                    aria-describedby=""
+                    aria-details=""
+                    aria-labelledby="react-aria-«replaced-aria-id»"
+                    aria-orientation="horizontal"
+                    aria-valuetext="0"
+                    id="react-aria-«replaced-aria-id»-0"
+                    max="12"
+                    min="-12"
+                    name="sliderField_slider"
+                    step="2"
+                    tabindex="0"
+                    type="range"
+                    value="0"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="hidden group-data-[has-helper=true]:flex relative flex-col gap-1.5 p-0"
+          data-slot="helper-wrapper"
+        >
+          <div
+            class="text-tiny text-danger"
+            data-slot="error-message"
+            id="react-aria-«replaced-aria-id»"
+          >
+            <ul
+              aria-label="Validation errors of field sliderfield"
+              data-testid="sliderfield_error"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="mt-4 flex justify-end"
+      >
+        <button
+          aria-label="Submit form"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
+          data-react-aria-pressable="true"
+          data-testid="form_submit_button"
+          tabindex="0"
+          type="submit"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;
