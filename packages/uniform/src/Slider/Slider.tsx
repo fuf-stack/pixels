@@ -7,6 +7,7 @@ import { Slider as HeroUISlider } from '@heroui/slider';
 import { VisuallyHidden } from '@react-aria/visually-hidden';
 
 import { tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
+import { useIsInitialRenderCycle } from '@fuf-stack/pixels';
 
 import { useUniformField } from '../hooks/useUniformField';
 
@@ -118,9 +119,8 @@ const Slider = ({
   // Ref for the visual slider to forward focus
   const visualSliderRef = useRef<HTMLDivElement>(null);
 
-  // Track if the user has interacted with the slider (keyboard, mouse, or drag)
-  // This prevents marking the field as touched from internal focus management during initialization
-  const hasBeenFocusedRef = useRef(false);
+  // Prevent blur events during initial render to avoid premature touched state in tests
+  const isInitialRender = useIsInitialRenderCycle();
 
   // classNames from slots
   const variants = sliderVariants();
@@ -128,6 +128,13 @@ const Slider = ({
 
   // Get the current value, defaulting to minValue if null/undefined
   const currentValue = field.value != null ? Number(field.value) : minValue;
+
+  // Prevent marking as touched during initial render (fixes CI timing issues)
+  const handleBlur = () => {
+    if (!isInitialRender) {
+      onBlur();
+    }
+  };
 
   return (
     <div
@@ -145,23 +152,20 @@ const Slider = ({
           max={maxValue}
           min={minValue}
           name={name}
+          onBlur={handleBlur}
           step={step}
           tabIndex={-1}
           type="range"
           value={currentValue}
-          onBlur={() => {
-            // Only mark as touched if the user has actually focused the slider
-            if (hasBeenFocusedRef.current) {
-              onBlur();
-            }
-          }}
           onChange={(e) => {
             onChange(Number(e.target.value));
           }}
           onFocus={() => {
-            // When user tabs to this hidden input or RHF focuses it (e.g., on validation error),
+            // When RHF focuses this hidden input (e.g., on validation error),
             // forward focus to the visual slider to show focus ring
-            visualSliderRef.current?.focus();
+            if (!isInitialRender) {
+              visualSliderRef.current?.focus();
+            }
           }}
         />
       </VisuallyHidden>
@@ -177,6 +181,8 @@ const Slider = ({
         maxValue={maxValue}
         minValue={minValue}
         name={`${name}_slider`}
+        onBlur={handleBlur}
+        onChange={onChange}
         showSteps={showSteps}
         size={size}
         startContent={startContent}
@@ -194,26 +200,6 @@ const Slider = ({
           track: classNames.track,
           trackWrapper: classNames.trackWrapper,
           value: classNames.value,
-        }}
-        onBlur={() => {
-          // Only mark as touched if the user has actually interacted with the slider
-          // This prevents premature blur events from internal focus management
-          if (hasBeenFocusedRef.current) {
-            onBlur();
-          }
-        }}
-        onChange={(value) => {
-          // User is interacting with the slider
-          hasBeenFocusedRef.current = true;
-          onChange(value);
-        }}
-        onKeyDown={() => {
-          // Track that user has interacted with the slider via keyboard
-          hasBeenFocusedRef.current = true;
-        }}
-        onMouseDown={() => {
-          // Track that user has interacted with the slider via mouse
-          hasBeenFocusedRef.current = true;
         }}
       />
       <div {...getHelperWrapperProps()}>
