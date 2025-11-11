@@ -45,21 +45,25 @@ export interface UseUniformFieldParams<
 > {
   /** Form field name */
   name: Path<TFieldValues> & string;
+  /** Custom aria-label for accessibility. If not provided, falls back to field name when no visible label exists */
+  ariaLabel?: string;
   /** Disable the field */
   disabled?: boolean;
+  /** Optional label content */
+  label?: ReactNode;
   /** Optional explicit test id used to build stable test ids */
   testId?: string;
-  /** Optional label content; pass false to suppress label entirely */
-  label?: ReactNode | false;
-  /** Input type for special number handling */
-  type?: 'text' | 'number' | 'password';
   /** Optional value transformation between form and display values */
   transform?: InputValueTransform<TDisplay>;
+  /** Input type for special number handling */
+  type?: 'text' | 'number' | 'password';
 }
 
 export interface UseUniformFieldReturn<
   TFieldValues extends FieldValues = FieldValues,
 > {
+  /** Computed aria-label fallback (field name) when no visible label exists. Components can override based on their accessibility needs (e.g., if placeholder provides sufficient context) */
+  ariaLabel: string | undefined;
   /** react-hook-form control instance for advanced integrations */
   control: ReturnType<typeof useFormContext<TFieldValues>>['control'];
   /** Debug mode from Uniform provider */
@@ -136,6 +140,7 @@ export const useUniformField = <
 ): UseUniformFieldReturn<TFieldValues> => {
   const {
     name,
+    ariaLabel: customAriaLabel,
     disabled = false,
     testId: explicitTestId,
     label,
@@ -253,7 +258,14 @@ export const useUniformField = <
       labelPlacement: 'outside',
     });
 
+  // Compute aria-label: prefer custom prop, then use string label if available, otherwise field name
+  // Components can further override this based on their specific accessibility needs
+  // (e.g., Input/TextArea may skip this if they have a meaningful placeholder)
+  const ariaLabel =
+    customAriaLabel ?? (typeof label === 'string' ? label : name);
+
   return {
+    ariaLabel,
     control,
     debugMode,
     defaultValue,

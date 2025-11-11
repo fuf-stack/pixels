@@ -29,6 +29,8 @@ type VariantProps = TVProps<typeof inputVariants>;
 type ClassName = TVClassName<typeof inputVariants>;
 
 export interface InputProps extends VariantProps {
+  /** Custom aria-label for accessibility. If not provided, falls back to field name when no visible label exists */
+  ariaLabel?: string;
   /** CSS class name */
   className?: ClassName;
   /** shows clear button when input has value */
@@ -39,8 +41,8 @@ export interface InputProps extends VariantProps {
   disabled?: boolean;
   /** added content to the end of the input Field. */
   endContent?: ReactNode;
-  /** form field label (set to false to disable label) */
-  label?: string | false;
+  /** form field label */
+  label?: ReactNode;
   /** form field name */
   name: string;
   /** callback that is fired when the value is cleared */
@@ -76,6 +78,7 @@ const Input = ({
   ...uniformFieldProps
 }: InputProps) => {
   const {
+    ariaLabel,
     disabled,
     field: {
       onChange: fieldOnChange,
@@ -123,6 +126,9 @@ const Input = ({
   // Common props for both Input and NumberInput
   const commonProps = {
     ref,
+    // Only add aria-label if there's no meaningful placeholder (HeroUI uses placeholder as aria-label)
+    'aria-label':
+      !placeholder || placeholder.trim() === '' ? ariaLabel : undefined,
     classNames: {
       base: classNames.base,
       clearButton: classNames.clearButton,
@@ -152,15 +158,17 @@ const Input = ({
 
   // Render NumberInput for number type
   if (type === 'number') {
-    // Parse the string value to number - use undefined for empty/cleared state
+    // Parse the string value to number - use null for empty/cleared state to keep component controlled
     const numberValue =
       value !== '' && value != null && !Number.isNaN(Number(value))
         ? Number(value)
-        : undefined;
+        : null;
 
     return (
       <HeroNumberInput
         {...commonProps}
+        // @ts-expect-error - HeroUI NumberInput type is not compatible with null,
+        // but it needs to be for empty/cleared state to be controlled
         value={numberValue}
         // Disable thousands separator to avoid parsing issues
         formatOptions={{

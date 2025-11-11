@@ -61,7 +61,8 @@ exports[`Story Snapshots > ComplexExample 1`] = `
                     data-slot="inner-wrapper"
                   >
                     <input
-                      aria-labelledby="react-aria-«replaced-aria-id»"
+                      aria-label="First Name"
+                      aria-labelledby="profile_firstname react-aria-«replaced-aria-id»"
                       class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small"
                       data-slot="input"
                       data-testid="profile_firstname"
@@ -110,7 +111,8 @@ exports[`Story Snapshots > ComplexExample 1`] = `
                     data-slot="inner-wrapper"
                   >
                     <input
-                      aria-labelledby="react-aria-«replaced-aria-id»"
+                      aria-label="Last Name"
+                      aria-labelledby="profile_lastname react-aria-«replaced-aria-id»"
                       class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small"
                       data-slot="input"
                       data-testid="profile_lastname"
@@ -159,7 +161,8 @@ exports[`Story Snapshots > ComplexExample 1`] = `
                     data-slot="inner-wrapper"
                   >
                     <input
-                      aria-labelledby="react-aria-«replaced-aria-id»"
+                      aria-label="Email"
+                      aria-labelledby="profile_email react-aria-«replaced-aria-id»"
                       class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small"
                       data-slot="input"
                       data-testid="profile_email"
@@ -259,7 +262,8 @@ exports[`Story Snapshots > Default 1`] = `
                     data-slot="inner-wrapper"
                   >
                     <input
-                      aria-labelledby="react-aria-«replaced-aria-id»"
+                      aria-label="Street"
+                      aria-labelledby="address_street react-aria-«replaced-aria-id»"
                       class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small"
                       data-slot="input"
                       data-testid="address_street"
@@ -308,7 +312,8 @@ exports[`Story Snapshots > Default 1`] = `
                     data-slot="inner-wrapper"
                   >
                     <input
-                      aria-labelledby="react-aria-«replaced-aria-id»"
+                      aria-label="City"
+                      aria-labelledby="address_city react-aria-«replaced-aria-id»"
                       class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small"
                       data-slot="input"
                       data-testid="address_city"
@@ -357,7 +362,8 @@ exports[`Story Snapshots > Default 1`] = `
                     data-slot="inner-wrapper"
                   >
                     <input
-                      aria-labelledby="react-aria-«replaced-aria-id»"
+                      aria-label="Zip Code"
+                      aria-labelledby="address_zipcode react-aria-«replaced-aria-id»"
                       class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small"
                       data-slot="input"
                       data-testid="address_zipcode"
@@ -458,7 +464,8 @@ exports[`Story Snapshots > WithInitialValues 1`] = `
                     data-slot="inner-wrapper"
                   >
                     <input
-                      aria-labelledby="react-aria-«replaced-aria-id»"
+                      aria-label="Street"
+                      aria-labelledby="address_street react-aria-«replaced-aria-id»"
                       class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small is-filled"
                       data-filled="true"
                       data-filled-within="true"
@@ -510,7 +517,8 @@ exports[`Story Snapshots > WithInitialValues 1`] = `
                     data-slot="inner-wrapper"
                   >
                     <input
-                      aria-labelledby="react-aria-«replaced-aria-id»"
+                      aria-label="City"
+                      aria-labelledby="address_city react-aria-«replaced-aria-id»"
                       class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small is-filled"
                       data-filled="true"
                       data-filled-within="true"
@@ -562,7 +570,8 @@ exports[`Story Snapshots > WithInitialValues 1`] = `
                     data-slot="inner-wrapper"
                   >
                     <input
-                      aria-labelledby="react-aria-«replaced-aria-id»"
+                      aria-label="Zip Code"
+                      aria-labelledby="address_zipcode react-aria-«replaced-aria-id»"
                       class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small is-filled"
                       data-filled="true"
                       data-filled-within="true"
@@ -668,7 +677,8 @@ exports[`Story Snapshots > WithObjectLevelError 1`] = `
                     <input
                       aria-describedby="react-aria-«replaced-aria-id»"
                       aria-invalid="true"
-                      aria-labelledby="react-aria-«replaced-aria-id»"
+                      aria-label="Street"
+                      aria-labelledby="address_street react-aria-«replaced-aria-id»"
                       class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small !placeholder:text-danger !text-danger is-filled"
                       data-filled="true"
                       data-filled-within="true"
@@ -748,7 +758,8 @@ exports[`Story Snapshots > WithObjectLevelError 1`] = `
                     <input
                       aria-describedby="react-aria-«replaced-aria-id»"
                       aria-invalid="true"
-                      aria-labelledby="react-aria-«replaced-aria-id»"
+                      aria-label="City"
+                      aria-labelledby="address_city react-aria-«replaced-aria-id»"
                       class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small !placeholder:text-danger !text-danger is-filled"
                       data-filled="true"
                       data-filled-within="true"
@@ -829,7 +840,8 @@ exports[`Story Snapshots > WithObjectLevelError 1`] = `
                     <input
                       aria-describedby="react-aria-«replaced-aria-id»"
                       aria-invalid="true"
-                      aria-labelledby="react-aria-«replaced-aria-id»"
+                      aria-label="Zip Code"
+                      aria-labelledby="address_zipcode react-aria-«replaced-aria-id»"
                       class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small !placeholder:text-danger !text-danger"
                       data-slot="input"
                       data-testid="address_zipcode"

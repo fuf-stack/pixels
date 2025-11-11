@@ -306,6 +306,66 @@ describe('useUniformField', () => {
     expect(result.current.label).toBeNull();
   });
 
+  describe('ariaLabel behavior', () => {
+    it('uses custom ariaLabel when provided', () => {
+      const { result } = renderHook(() =>
+        useUniformField({ name: 'myField', ariaLabel: 'Custom Label' }),
+      );
+      expect(result.current.ariaLabel).toBe('Custom Label');
+    });
+
+    it('falls back to field name when no label exists', () => {
+      const { result } = renderHook(() => useUniformField({ name: 'myField' }));
+      expect(result.current.ariaLabel).toBe('myField');
+    });
+
+    it('uses label text when label is a string', () => {
+      const { result } = renderHook(() =>
+        useUniformField({ name: 'myField', label: 'Visible Label' }),
+      );
+      expect(result.current.ariaLabel).toBe('Visible Label');
+    });
+
+    it('falls back to name when label is a React component', () => {
+      const { result } = renderHook(() =>
+        useUniformField({ name: 'myField', label: <span>Component</span> }),
+      );
+      expect(result.current.ariaLabel).toBe('myField');
+    });
+
+    it('prefers custom ariaLabel over label text', () => {
+      const { result } = renderHook(() =>
+        useUniformField({
+          name: 'myField',
+          label: 'Visible Label',
+          ariaLabel: 'Override Label',
+        }),
+      );
+      expect(result.current.ariaLabel).toBe('Override Label');
+    });
+
+    it('falls back to name when label is false', () => {
+      const { result } = renderHook(() =>
+        useUniformField({ name: 'myField', label: false }),
+      );
+      expect(result.current.ariaLabel).toBe('myField');
+    });
+
+    it('falls back to name when label is null', () => {
+      const { result } = renderHook(() =>
+        useUniformField({ name: 'myField', label: null }),
+      );
+      expect(result.current.ariaLabel).toBe('myField');
+    });
+
+    it('falls back to name when label is a number', () => {
+      const { result } = renderHook(() =>
+        useUniformField({ name: 'myField', label: 123 }),
+      );
+      expect(result.current.ariaLabel).toBe('myField');
+    });
+  });
+
   describe('showInvalid behavior', () => {
     it('hides errors when field is not dirty, not touched, and form not submitted', () => {
       mockContext.getFieldState = vi.fn(() => ({

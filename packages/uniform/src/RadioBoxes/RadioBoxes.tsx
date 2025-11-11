@@ -45,6 +45,8 @@ export interface RadioBoxesOption {
 }
 
 export interface RadioBoxesProps extends VariantProps {
+  /** Custom aria-label for accessibility. If not provided, falls back to field name when no visible label exists */
+  ariaLabel?: string;
   /** CSS class name */
   className?: ClassName;
   /** Determines if the Buttons are disabled or not. */
@@ -72,6 +74,7 @@ const RadioBoxes = ({
   ...uniformFieldProps
 }: RadioBoxesProps) => {
   const {
+    ariaLabel,
     defaultValue,
     errorMessage,
     invalid,
@@ -101,13 +104,14 @@ const RadioBoxes = ({
   return (
     <HeroRadioGroup
       ref={ref}
+      aria-label={ariaLabel}
       classNames={classNames}
       // see HeroUI styles for group-data condition (data-invalid),
       // e.g.: https://github.com/heroui-inc/heroui/blob/main/packages/components/select/src/use-select.ts
       data-invalid={invalid}
       data-required={required}
       data-testid={testId}
-      defaultValue={defaultValue as string}
+      defaultValue={defaultValue as string | undefined}
       errorMessage={errorMessage}
       isDisabled={disabled}
       isInvalid={invalid}

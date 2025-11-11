@@ -32,6 +32,8 @@ type VariantProps = TVProps<typeof switchVariants>;
 type ClassName = TVClassName<typeof switchVariants>;
 
 export interface SwitchProps extends VariantProps {
+  /** Custom aria-label for accessibility. If not provided, falls back to field name when no visible label exists */
+  ariaLabel?: string;
   /** CSS class name */
   className?: ClassName;
   /** whether the select should be disabled */
@@ -65,6 +67,7 @@ const Switch = ({
   ...uniformFieldProps
 }: SwitchProps) => {
   const {
+    ariaLabel,
     defaultValue,
     disabled,
     errorMessage,
@@ -114,6 +117,7 @@ const Switch = ({
       {/* Visual HeroSwitch component */}
       <HeroSwitch
         ref={visualSwitchRef}
+        aria-label={ariaLabel}
         classNames={classNames}
         data-invalid={invalid}
         data-required={required}

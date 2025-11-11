@@ -1,5 +1,5 @@
 import type { TVClassName, TVProps } from '@fuf-stack/pixel-utils';
-import type { CSSProperties, JSX } from 'react';
+import type { CSSProperties, JSX, ReactNode } from 'react';
 import type { fieldArrayVariants } from './FieldArray';
 import type { FieldArrayElementMethods } from './subcomponents/FieldArrayElement';
 
@@ -46,7 +46,7 @@ export interface FieldArrayProps extends FieldArrayFeatures, VariantProps {
   /** when true, array stores primitives as wrapper objects: { __FLAT__: value } */
   flat?: boolean;
   /** label of the field array */
-  label?: React.ReactNode;
+  label?: ReactNode;
   /** when true (default false) last element can not be removed and will be shown even if field array is empty */
   lastElementNotRemovable?: boolean;
   /** form field name */

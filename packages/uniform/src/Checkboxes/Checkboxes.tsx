@@ -72,6 +72,8 @@ export interface CheckboxOption {
 }
 
 export interface CheckboxesProps extends VariantProps {
+  /** Custom aria-label for accessibility. If not provided, falls back to field name when no visible label exists */
+  ariaLabel?: string;
   /** CSS class name */
   className?: ClassName;
   /** Color scheme of the checkboxes */
@@ -107,6 +109,7 @@ const Checkboxes = ({
   ...uniformFieldProps
 }: CheckboxesProps) => {
   const {
+    ariaLabel,
     disabled,
     error: _error,
     field: { onChange, value: fieldValue, ref, onBlur },
@@ -156,6 +159,7 @@ const Checkboxes = ({
   return (
     <HeroCheckboxGroup
       ref={ref}
+      aria-label={ariaLabel}
       classNames={heroCheckboxGroupClassNames}
       color={color === 'info' ? 'primary' : color}
       // see HeroUI styles for group-data condition (data-invalid),

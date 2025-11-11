@@ -25,8 +25,8 @@ export interface UseUniformFieldArrayProps<
   disabled?: boolean;
   /** Optional explicit test id used to build stable test ids */
   testId?: string;
-  /** Optional label content; pass false to suppress label entirely */
-  label?: ReactNode | false;
+  /** Optional label content */
+  label?: ReactNode;
 }
 
 /**

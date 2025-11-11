@@ -26,6 +26,8 @@ type VariantProps = TVProps<typeof textAreaVariants>;
 type ClassName = TVClassName<typeof textAreaVariants>;
 
 export interface TextAreaProps extends VariantProps {
+  /** Custom aria-label for accessibility. If not provided, falls back to field name when no visible label exists */
+  ariaLabel?: string;
   /** Child components. The content of the textarea. */
   children?: ReactNode;
   /** CSS class name */
@@ -56,6 +58,7 @@ const TextArea = ({
   ...uniformFieldProps
 }: TextAreaProps) => {
   const {
+    ariaLabel,
     disabled,
     errorMessage,
     field: {
@@ -99,6 +102,10 @@ const TextArea = ({
       placeholder={placeholder}
       value={value}
       variant="bordered"
+      // Only add aria-label if there's no meaningful placeholder (HeroUI uses placeholder as aria-label)
+      aria-label={
+        !placeholder || placeholder.trim() === '' ? ariaLabel : undefined
+      }
       classNames={{
         base: classNames.base,
         clearButton: classNames.clearButton,

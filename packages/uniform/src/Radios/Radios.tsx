@@ -35,7 +35,7 @@ export interface RadioOption {
   /** disables the option */
   disabled?: boolean;
   /** option label */
-  label?: React.ReactNode;
+  label?: ReactNode;
   /** option icon */
   icon?: ReactNode;
   /** HTML data-testid attribute of the option */
@@ -45,6 +45,8 @@ export interface RadioOption {
 }
 
 export interface RadiosProps extends VariantProps {
+  /** Custom aria-label for accessibility. If not provided, falls back to field name when no visible label exists */
+  ariaLabel?: string;
   /** CSS class name */
   className?: ClassName;
   /** Determines if the Buttons are disabled or not. */
@@ -72,6 +74,7 @@ const Radios = ({
   ...uniformFieldProps
 }: RadiosProps): ReactElement => {
   const {
+    ariaLabel,
     disabled,
     errorMessage,
     field: { onBlur, onChange, ref },
@@ -101,6 +104,7 @@ const Radios = ({
   return (
     <HeroRadioGroup
       ref={ref}
+      aria-label={ariaLabel}
       classNames={classNames}
       // see HeroUI styles for group-data condition (data-invalid),
       // e.g.: https://github.com/heroui-inc/heroui/blob/main/packages/components/select/src/use-select.ts

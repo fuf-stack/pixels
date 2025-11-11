@@ -35,6 +35,8 @@ type VariantProps = TVProps<typeof sliderVariants>;
 type ClassName = TVClassName<typeof sliderVariants>;
 
 export interface SliderProps extends VariantProps {
+  /** Custom aria-label for accessibility. If not provided, falls back to field name when no visible label exists */
+  ariaLabel?: string;
   /** CSS class name */
   className?: ClassName;
   /** input field is disabled */
@@ -43,8 +45,8 @@ export interface SliderProps extends VariantProps {
   endContent?: ReactNode;
   /** The offset from where the fill should start */
   fillOffset?: number;
-  /** form field label (set to false to disable label) */
-  label?: string | false;
+  /** form field label */
+  label?: string;
   /** form field name */
   name: string;
   /**
@@ -95,6 +97,7 @@ const Slider = ({
   ...uniformFieldProps
 }: SliderProps) => {
   const {
+    ariaLabel,
     disabled,
     field,
     getErrorMessageProps,
@@ -156,6 +159,7 @@ const Slider = ({
       {/* Visual HeroUISlider component */}
       <HeroUISlider
         ref={visualSliderRef}
+        aria-label={ariaLabel}
         color={invalid ? 'danger' : 'primary'}
         endContent={endContent}
         fillOffset={fillOffset}

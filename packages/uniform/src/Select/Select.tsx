@@ -1,4 +1,5 @@
 import type { TVClassName, TVProps } from '@fuf-stack/pixel-utils';
+import type { ReactNode } from 'react';
 import type { Props } from 'react-select';
 
 import { useState } from 'react';
@@ -57,7 +58,7 @@ export const selectVariants = tv({
 
 interface SelectOption {
   /** option label */
-  label?: React.ReactNode;
+  label?: ReactNode;
   /** option value */
   value: string;
 }
@@ -66,6 +67,8 @@ type VariantProps = TVProps<typeof selectVariants>;
 type ClassName = TVClassName<typeof selectVariants>;
 
 export interface SelectProps extends VariantProps {
+  /** Custom aria-label for accessibility. If not provided, falls back to field name when no visible label exists */
+  ariaLabel?: string;
   /** CSS class name */
   className?: ClassName; // string;
   /** Determine if the  */
@@ -81,7 +84,7 @@ export interface SelectProps extends VariantProps {
   /** The value of the search input */
   inputValue?: string;
   /** Label that should be associated with the select. */
-  label?: React.ReactNode;
+  label?: ReactNode;
   /** Set the select to a loading state. */
   loading?: boolean;
   /** switch between single and multi select mode. */
@@ -160,6 +163,7 @@ const Select = ({
   ...uniformFieldProps
 }: SelectProps) => {
   const {
+    ariaLabel,
     disabled,
     errorMessage,
     field: { onBlur, onChange, ref, value },
@@ -222,7 +226,7 @@ const Select = ({
         unstyled
         aria-errormessage=""
         aria-invalid={invalid}
-        aria-labelledby={getTriggerProps()['aria-labelledby']?.split(' ')[1]}
+        aria-label={ariaLabel}
         // Does not affect the testId of the select, but is needed to pass it to sub-components
         data-testid={testId}
         filterOption={filterOption}
@@ -241,6 +245,12 @@ const Select = ({
         onInputChange={onInputChange}
         options={options}
         placeholder={placeholder}
+        // set aria-labelledby to the label id so that the select is accessible
+        aria-labelledby={
+          label
+            ? getTriggerProps()['aria-labelledby']?.split(' ')[1]
+            : undefined
+        }
         classNames={{
           control: () => {
             return cn(classNames.control, {
