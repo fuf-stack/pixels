@@ -3,6 +3,7 @@
 // components
 export * from './Checkboxes';
 export * from './FieldArray';
+export * from './FieldCard';
 export * from './Form';
 export * from './Grid';
 export * from './helpers';

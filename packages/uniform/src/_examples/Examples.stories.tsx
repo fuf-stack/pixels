@@ -8,6 +8,7 @@ import * as vt from '@fuf-stack/veto';
 
 import { Checkboxes } from '../Checkboxes';
 import { FieldArray } from '../FieldArray';
+import { FieldCard } from '../FieldCard';
 import { Form } from '../Form';
 import { Grid } from '../Grid';
 import { Input } from '../Input';
@@ -53,6 +54,25 @@ const validation = veto({
   fieldArrayField: vt.array(vt.object({ name: vt.string() })),
   fieldArrayFlatField: vt.array(vt.string()),
   numberField: vt.number(),
+  objectCardField: vt.refineObject(
+    vt.object({
+      fieldA: vt.string(),
+      fieldB: vt.string(),
+    }),
+  )({
+    custom: (data, ctx) => {
+      const fieldA = (data.fieldA as string | undefined) ?? '';
+      const fieldB = (data.fieldB as string | undefined) ?? '';
+
+      // Object-level validation: all fields are required
+      if (!fieldA && !fieldB) {
+        ctx.addIssue({
+          code: 'custom',
+          message: 'All fields are required',
+        });
+      }
+    },
+  }),
   passwordField: vt.string(),
   radioBoxField: radiosSchema,
   radioButtonField: radiosSchema,
@@ -211,6 +231,16 @@ export const AllFieldRenderers: Story = {
               );
             }}
           </FieldArray>
+          <FieldCard
+            className="md:col-span-2"
+            label="Field Card"
+            name="objectCardField"
+          >
+            <Grid>
+              <Input label="Field A" name="objectCardField.fieldA" />
+              <Input label="Field B" name="objectCardField.fieldB" />
+            </Grid>
+          </FieldCard>
         </Grid>
       </Card>
     ),
