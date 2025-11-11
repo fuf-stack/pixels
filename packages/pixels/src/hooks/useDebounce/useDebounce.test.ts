@@ -1,10 +1,49 @@
-import { describe, expect, it, vi } from 'vitest';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { renderHook, waitFor } from '@testing-library/react';
 
+import { isTestEnvironment } from '@fuf-stack/pixel-utils';
+
 import { useDebounce } from './useDebounce';
 
+// Mock the isTestEnvironment function BEFORE any other imports
+vi.mock('@fuf-stack/pixel-utils', async () => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const actual = (await vi.importActual('@fuf-stack/pixel-utils')) as any;
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+  return {
+    ...actual,
+    isTestEnvironment: vi.fn(() => false), // Default to false for debounce tests
+  };
+});
+
 describe('useDebounce', () => {
+  beforeEach(() => {
+    // Ensure mock returns false for all debounce tests by default
+    vi.mocked(isTestEnvironment).mockClear();
+    vi.mocked(isTestEnvironment).mockReturnValue(false);
+  });
+
+  it('should skip debouncing in test environments', () => {
+    // Override to return true for this specific test
+    vi.mocked(isTestEnvironment).mockReturnValue(true);
+
+    const { result, rerender } = renderHook(
+      ({ value }) => useDebounce(value, 500),
+      {
+        initialProps: { value: 'initial' },
+      },
+    );
+
+    expect(result.current).toBe('initial');
+
+    // Update value
+    rerender({ value: 'updated' });
+
+    // In test env, value should update immediately (no debounce)
+    expect(result.current).toBe('updated');
+  });
+
   it('should return initial value immediately', () => {
     const { result } = renderHook(() => useDebounce('initial', 500));
     expect(result.current).toBe('initial');

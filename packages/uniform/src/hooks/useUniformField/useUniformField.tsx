@@ -4,9 +4,9 @@ import type { InputValueTransform } from '../useInputValueTransform/useInputValu
 
 import React from 'react';
 
+import { isTestEnvironment } from '@fuf-stack/pixel-utils';
 import { useDebounce } from '@fuf-stack/pixels';
 
-import { isTestEnvironment } from '../../helpers';
 import { FieldCopyTestIdButton } from '../../partials/FieldCopyTestIdButton';
 import { FieldValidationError } from '../../partials/FieldValidationError';
 import { useController } from '../useController/useController';
