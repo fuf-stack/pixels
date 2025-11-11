@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.10.0](https://github.com/fuf-stack/pixels/compare/uniform-v1.9.0...uniform-v1.10.0) (2025-11-11)
+
+
+### Features
+
+* **pixels:** add createWithSuspense hoc with reveal animation and error boundary ([20529ef](https://github.com/fuf-stack/pixels/commit/20529ef11d4f79578d70f939c4aafc80e1e4938b))
+* **uniform:** add FieldCard component ([7bd7a09](https://github.com/fuf-stack/pixels/commit/7bd7a096b3b9341b185b9e7f918405d5061d9c14))
+
+
+### Bug Fixes
+
+* **pixels,uniform:** refactor hook exports ([416e1f1](https://github.com/fuf-stack/pixels/commit/416e1f11650c894e679f9bdf650948c3477e307f))
+* **uniform:** ensure Slider is touched on keyboard navigation ([400a4f9](https://github.com/fuf-stack/pixels/commit/400a4f9865d1e6d7877adb5c7cba626ed6f42fcf))
+* **uniform:** improve aria-labels in all components ([e17eec1](https://github.com/fuf-stack/pixels/commit/e17eec1245d975050db7ab4e6e93c65963bf72b0))
+
 ## [1.9.0](https://github.com/fuf-stack/pixels/compare/uniform-v1.8.9...uniform-v1.9.0) (2025-11-09)
 
 
