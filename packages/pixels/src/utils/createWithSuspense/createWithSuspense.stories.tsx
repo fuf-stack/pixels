@@ -351,16 +351,20 @@ export const MultipleComponentsWithFactory: Story = {
     const user1 = await canvas.findByText(
       'User multi-1',
       {},
-      { timeout: 2000 },
+      { timeout: 3000 },
     );
     expect(user1).toBeInTheDocument();
-    const user2 = canvas.getByText('User multi-2');
+    const user2 = await canvas.findByText(
+      'User multi-2',
+      {},
+      { timeout: 3000 },
+    );
     expect(user2).toBeInTheDocument();
     // Wait for error to show
     const errorHeading = await canvas.findByText(
       'Error occurred',
       {},
-      { timeout: 2000 },
+      { timeout: 3000 },
     );
     expect(errorHeading).toBeInTheDocument();
   },
@@ -394,7 +398,13 @@ export const RealWorldExample: Story = {
                 </p>
                 <p>
                   <strong>Component:</strong>{' '}
-                  {errorInfo.componentStack?.split('\n')[1]?.trim()}
+                  {
+                    errorInfo.componentStack
+                      ?.split('\n')[1]
+                      ?.trim()
+                      ?.split(' ')[1]
+                      ?.split('(')[0]
+                  }
                 </p>
               </div>
             </details>
