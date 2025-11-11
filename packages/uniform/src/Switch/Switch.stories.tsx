@@ -87,8 +87,8 @@ export const Invalid: Story = {
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    const input = canvas.getByTestId('switchfield');
-    await userEvent.click(input, {
+    const switchField = canvas.getByTestId('switchfield');
+    await userEvent.click(switchField, {
       delay: 300,
     });
 

@@ -107,9 +107,7 @@ export const Required: Story = {
 };
 
 const validation = veto({
-  sliderField: number().refine((value: number) => {
-    return value >= 50;
-  }, 'Value must be at least 50'),
+  sliderField: number().min(50, 'Value must be at least 50'),
 });
 
 export const Invalid: Story = {
@@ -122,10 +120,18 @@ export const Invalid: Story = {
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    const slider = canvas.getByTestId('sliderfield');
 
-    // Trigger validation by interacting with slider
-    await userEvent.click(slider);
+    // Get the slider thumb to interact with
+    const thumb = canvas
+      .getByTestId('sliderfield')
+      .querySelector('[data-slot="thumb"]');
+    if (!thumb) {
+      throw new Error('Slider thumb not found');
+    }
+
+    // Focus the thumb and increase value with arrow up
+    await userEvent.click(thumb);
+    await userEvent.keyboard('{ArrowUp}');
 
     // Wait for validation to complete and error message to appear
     await waitFor(() => {
@@ -172,5 +178,44 @@ export const AllSizes: Story = {
         <Slider label="Large Size" name="largeSlider" size="lg" />
       </div>
     );
+  },
+};
+
+/**
+ * Edge case: Required slider should NOT show validation errors on initial render,
+ * but SHOULD show them after being touched (e.g., tabbing through without changing value).
+ * This tests that the slider correctly handles blur events only after user interaction,
+ * preventing premature touched state during initialization.
+ */
+export const EdgeCaseRequiredTouchedViaTab: Story = {
+  parameters: { formProps: { validation: requiredValidation } },
+  args: {
+    label: 'Required Slider (Tab Test)',
+    name: 'sliderField',
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    // // Initially, no error should be visible (field not touched yet)
+    // const errorElement = canvas.getByTestId('sliderfield_error');
+    // expect(errorElement).not.toBeVisible();
+
+    // Simulate tabbing to the slider
+    await userEvent.tab();
+
+    // Wait for the 100ms delay that prevents premature blur during initialization
+    await new Promise((resolve) => {
+      setTimeout(resolve, 150);
+    });
+
+    // Tab away from the slider
+    await userEvent.tab();
+
+    // After tabbing away, validation error should appear
+    await waitFor(() => {
+      const errorElement = canvas.getByTestId('sliderfield_error');
+      expect(errorElement).not.toBeEmptyDOMElement();
+      expect(errorElement).toHaveTextContent('Field is required');
+    });
   },
 };

@@ -6,7 +6,7 @@ import { useRef } from 'react';
 import { Slider as HeroUISlider } from '@heroui/slider';
 import { VisuallyHidden } from '@react-aria/visually-hidden';
 
-import { tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
+import { cn, tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 import { useIsInitialRenderCycle } from '@fuf-stack/pixels';
 
 import { useUniformField } from '../hooks/useUniformField';
@@ -202,9 +202,18 @@ const Slider = ({
           value: classNames.value,
         }}
       />
-      <div {...getHelperWrapperProps()}>
-        <div {...getErrorMessageProps()}>{errorMessage}</div>
-      </div>
+      {invalid ? (
+        <div
+          {...getHelperWrapperProps()}
+          className={cn(
+            getHelperWrapperProps()?.className,
+            // force helper to be visible (for some reason it's hidden by default) and remove margin
+            'ml-0 block',
+          )}
+        >
+          <div {...getErrorMessageProps()}>{errorMessage}</div>
+        </div>
+      ) : null}
     </div>
   );
 };
