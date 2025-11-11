@@ -1,6 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import type { TooltipPlacement, TooltipProps } from './Tooltip';
 
+import { expect, waitFor, within } from 'storybook/test';
+
 import Tooltip, { tooltipVariants as heroTooltipVariants } from './Tooltip';
 
 const meta: Meta<typeof Tooltip> = {
@@ -111,5 +113,20 @@ export const DefaultOpen: Story = {
     header: 'header',
     children: 'hover me',
     defaultOpen: true,
+  },
+  play: async ({ canvasElement }) => {
+    const body = within(canvasElement?.parentElement as HTMLElement);
+
+    // Wait for tooltip to appear
+    await waitFor(async () => {
+      const tooltipContent = body.getByText('tooltip content');
+      expect(tooltipContent).toBeInTheDocument();
+      expect(tooltipContent).toBeVisible();
+    });
+
+    // Wait for animation to complete
+    await new Promise((resolve) => {
+      setTimeout(resolve, 500);
+    });
   },
 };

@@ -84,9 +84,10 @@ const storySnapshots = <TProps extends Record<string, any>>(
   stories.forEach(({ name, story }) => {
     test(name, async () => {
       await story.run();
-      // Ensures a consistent snapshot by waiting for the component to render by adding a delay of 1 ms before taking the snapshot.
+      // Ensures a consistent snapshot by waiting for the component to render
+      // Small delay allows third-party component hooks (like HeroUI's use-is-mounted) to complete
       await new Promise((resolve) => {
-        setTimeout(resolve, 1);
+        setTimeout(resolve, 50);
       });
       // If there's only one child, snapshot it directly (cleaner snapshots)
       // If there are multiple children (e.g. live announcer + content), snapshot body
