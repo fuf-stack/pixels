@@ -11,7 +11,7 @@ import {
   useState,
 } from 'react';
 
-import { useFormContext } from '@fuf-stack/uniform/hooks';
+import { useFormContext } from '@fuf-stack/uniform/hooks/useFormContext';
 
 interface FiltersContextValue {
   /** Active filters (names only) */
