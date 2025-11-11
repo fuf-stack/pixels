@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.6](https://github.com/fuf-stack/pixels/compare/pixel-utils-v1.0.5...pixel-utils-v1.0.6) (2025-11-11)
+
+
+### Bug Fixes
+
+* **pixel-utils,pixels,uniform:** move isTestEnvironment to pixel-utils ([de06d9f](https://github.com/fuf-stack/pixels/commit/de06d9f460eab9c354aa10487d3181e97b5e71c4))
+
 ## [1.0.5](https://github.com/fuf-stack/pixels/compare/pixel-utils-v1.0.4...pixel-utils-v1.0.5) (2025-09-16)
 
 
