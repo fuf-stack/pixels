@@ -91,13 +91,18 @@ export const CustomSizes: Story = {
     src: avatar,
   },
   render: (args: AvatarProps) => {
+    const sizes = [
+      { key: 'xs', className: 'h-8 w-8' },
+      { key: 'sm', className: 'h-12 w-12' },
+      { key: 'md', className: 'h-16 w-16' },
+      { key: 'lg', className: 'h-20 w-20' },
+      { key: 'xl', className: 'h-24 w-24' },
+    ];
     return (
       <div className="flex space-x-4">
-        <Avatar {...args} className="h-8 w-8" />
-        <Avatar {...args} className="h-12 w-12" />
-        <Avatar {...args} className="h-16 w-16" />
-        <Avatar {...args} className="h-20 w-20" />
-        <Avatar {...args} className="h-24 w-24" />
+        {sizes.map(({ key, className }) => (
+          <Avatar key={key} {...args} className={className} />
+        ))}
       </div>
     );
   },

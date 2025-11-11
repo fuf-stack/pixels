@@ -49,12 +49,15 @@ const AvatarGroup = ({
       radius={rounded}
       size={size}
     >
-      {avatars?.map((avatar) => {
+      {avatars?.map((avatar, index) => {
+        const avatarKey = avatar.src
+          ? `${avatar.src}-${index}`
+          : `avatar-${index}`;
+        const { wrapperProps, ...avatarProps } = avatar;
         return AvatarWrapper ? (
-          <AvatarWrapper {...avatar.wrapperProps}>
+          <AvatarWrapper key={avatarKey} {...wrapperProps}>
             <Avatar
-              key={avatar.src}
-              {...avatar}
+              {...avatarProps}
               bordered={bordered}
               disabled={disabled || avatar?.disabled}
               rounded={rounded}
@@ -63,8 +66,8 @@ const AvatarGroup = ({
           </AvatarWrapper>
         ) : (
           <Avatar
-            key={avatar.src}
-            {...avatar}
+            key={avatarKey}
+            {...avatarProps}
             bordered={bordered}
             disabled={disabled || avatar?.disabled}
             rounded={rounded}
