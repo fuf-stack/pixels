@@ -118,6 +118,9 @@ const Slider = ({
   // Ref for the visual slider to forward focus
   const visualSliderRef = useRef<HTMLDivElement>(null);
 
+  // Track if the slider has been focused by user interaction
+  const hasBeenFocusedRef = useRef(false);
+
   // classNames from slots
   const variants = sliderVariants();
   const classNames = variantsToClassNames(variants, className, 'base');
@@ -168,8 +171,6 @@ const Slider = ({
         maxValue={maxValue}
         minValue={minValue}
         name={`${name}_slider`}
-        // Mark field as touched when tabbing away (keyboard navigation)
-        onBlur={onBlur}
         showSteps={showSteps}
         size={size}
         startContent={startContent}
@@ -188,8 +189,19 @@ const Slider = ({
           trackWrapper: classNames.trackWrapper,
           value: classNames.value,
         }}
+        onBlur={() => {
+          // Only mark as touched if the user has actually focused the slider
+          // This prevents premature blur events from internal focus management
+          if (hasBeenFocusedRef.current) {
+            onBlur();
+          }
+        }}
         onChange={(value) => {
           onChange(value);
+        }}
+        onFocus={() => {
+          // Track that user has focused the slider
+          hasBeenFocusedRef.current = true;
         }}
       />
       <div {...getHelperWrapperProps()}>
