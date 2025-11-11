@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.6.2](https://github.com/fuf-stack/pixels/compare/megapixels-v0.6.1...megapixels-v0.6.2) (2025-11-11)
+
+
+### Bug Fixes
+
+* **megapixels:** fix Filter aria label in snap ([c4c9b95](https://github.com/fuf-stack/pixels/commit/c4c9b95ec032262846f1fcd6ed60ae91ff3c667c))
+* **megapixels:** fix uniform hook imports ([7844a09](https://github.com/fuf-stack/pixels/commit/7844a09b8936a56489ada080552e74578b0d4559))
+* **uniform:** improve aria-labels in all components ([e17eec1](https://github.com/fuf-stack/pixels/commit/e17eec1245d975050db7ab4e6e93c65963bf72b0))
+
 ## [0.6.1](https://github.com/fuf-stack/pixels/compare/megapixels-v0.6.0...megapixels-v0.6.1) (2025-11-07)
 
 
