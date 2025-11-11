@@ -150,7 +150,7 @@ const Slider = ({
             onChange(Number(e.target.value));
           }}
           onFocus={() => {
-            // When RHF focuses this hidden input (e.g., on validation error),
+            // When user tabs to this hidden input or RHF focuses it (e.g., on validation error),
             // forward focus to the visual slider to show focus ring
             visualSliderRef.current?.focus();
           }}
@@ -190,10 +190,6 @@ const Slider = ({
         }}
         onChange={(value) => {
           onChange(value);
-        }}
-        // Mark field as touched when drag interaction ends (mouse/touch)
-        onChangeEnd={(_value) => {
-          onBlur();
         }}
       />
       <div {...getHelperWrapperProps()}>
