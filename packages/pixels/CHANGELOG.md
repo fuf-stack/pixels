@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.6.0](https://github.com/fuf-stack/pixels/compare/pixels-v1.5.1...pixels-v1.6.0) (2025-11-11)
+
+
+### Features
+
+* **pixels:** add createWithSuspense hoc with reveal animation and error boundary ([20529ef](https://github.com/fuf-stack/pixels/commit/20529ef11d4f79578d70f939c4aafc80e1e4938b))
+
+
+### Bug Fixes
+
+* **pixels,uniform:** refactor hook exports ([416e1f1](https://github.com/fuf-stack/pixels/commit/416e1f11650c894e679f9bdf650948c3477e307f))
+* **pixels:** fix AvatarGroup key issue ([a55bc73](https://github.com/fuf-stack/pixels/commit/a55bc73b52ccb54bede9657d3d1918f052e04e2b))
+* **pixels:** fix createWithSuspense snap ([125d3a7](https://github.com/fuf-stack/pixels/commit/125d3a7b6fc8c076c7c9772caaa98c24d6aac940))
+
 ## [1.5.1](https://github.com/fuf-stack/pixels/compare/pixels-v1.5.0...pixels-v1.5.1) (2025-11-07)
 
 
