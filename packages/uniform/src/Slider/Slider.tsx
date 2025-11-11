@@ -144,15 +144,19 @@ const Slider = ({
           max={maxValue}
           min={minValue}
           name={name}
-          onBlur={onBlur}
           step={step}
           tabIndex={-1}
           type="range"
           value={currentValue}
+          onBlur={() => {
+            console.log('[Slider DEBUG] Hidden input onBlur called');
+            onBlur();
+          }}
           onChange={(e) => {
             onChange(Number(e.target.value));
           }}
           onFocus={() => {
+            console.log('[Slider DEBUG] Hidden input onFocus called');
             // When user tabs to this hidden input or RHF focuses it (e.g., on validation error),
             // forward focus to the visual slider to show focus ring
             visualSliderRef.current?.focus();
@@ -190,9 +194,14 @@ const Slider = ({
           value: classNames.value,
         }}
         onBlur={() => {
+          console.log(
+            '[Slider DEBUG] HeroUISlider onBlur called, hasBeenFocused:',
+            hasBeenFocusedRef.current,
+          );
           // Only mark as touched if the user has actually focused the slider
           // This prevents premature blur events from internal focus management
           if (hasBeenFocusedRef.current) {
+            console.log('[Slider DEBUG] Calling onBlur() to mark as touched');
             onBlur();
           }
         }}
@@ -200,6 +209,7 @@ const Slider = ({
           onChange(value);
         }}
         onFocus={() => {
+          console.log('[Slider DEBUG] HeroUISlider onFocus called');
           // Track that user has focused the slider
           hasBeenFocusedRef.current = true;
         }}
