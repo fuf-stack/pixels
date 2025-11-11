@@ -184,6 +184,9 @@ importers:
 
   packages/pixels:
     dependencies:
+      '@fuf-stack/pixel-motion':
+        specifier: workspace:*
+        version: link:../pixel-motion
       '@fuf-stack/pixel-utils':
         specifier: workspace:*
         version: link:../pixel-utils

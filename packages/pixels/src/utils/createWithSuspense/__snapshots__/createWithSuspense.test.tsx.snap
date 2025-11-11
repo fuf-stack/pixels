@@ -1,0 +1,374 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Story Snapshots > MultipleComponentsWithFactory 1`] = `
+<div>
+  <div
+    class="flex flex-col gap-4"
+  >
+    <h2
+      class="text-xl font-bold"
+    >
+      Multiple Components with Factory
+    </h2>
+    <p
+      class="text-sm text-default-600"
+    >
+      All components share the same default configuration
+    </p>
+    <div
+      class="rounded-md border border-default-200 bg-default-50 p-4"
+    >
+      <h3
+        class="text-lg font-semibold"
+      >
+        User multi-1
+      </h3>
+      <p
+        class="text-sm text-default-500"
+      >
+        ID: 
+        multi-1
+      </p>
+    </div>
+    <div
+      class="rounded-md border border-default-200 bg-default-50 p-4"
+    >
+      <h3
+        class="text-lg font-semibold"
+      >
+        User multi-2
+      </h3>
+      <p
+        class="text-sm text-default-500"
+      >
+        ID: 
+        multi-2
+      </p>
+    </div>
+    <div
+      class="rounded-md border border-danger-200 bg-danger-50 p-4"
+    >
+      <h3
+        class="mb-2 font-semibold text-danger-700"
+      >
+        Error occurred
+      </h3>
+      <p
+        class="text-sm text-danger-600"
+      >
+        Failed to fetch user multi-error
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Story Snapshots > RealWorldExample 1`] = `
+<div>
+  <div
+    class="flex flex-col gap-6"
+  >
+    <div>
+      <h2
+        class="mb-2 text-xl font-bold"
+      >
+        Real-World Usage Example
+      </h2>
+      <p
+        class="text-sm text-default-600"
+      >
+        Complete setup with custom loading, error handling, and error tracking
+      </p>
+    </div>
+    <div
+      class="space-y-4"
+    >
+      <div>
+        <h3
+          class="mb-2 font-semibold"
+        >
+          Success Case:
+        </h3>
+        <div
+          class="rounded-md border border-default-200 bg-default-50 p-4"
+        >
+          <h3
+            class="text-lg font-semibold"
+          >
+            User real-world-user
+          </h3>
+          <p
+            class="text-sm text-default-500"
+          >
+            ID: 
+            real-world-user
+          </p>
+        </div>
+      </div>
+      <div>
+        <h3
+          class="mb-2 font-semibold"
+        >
+          Error Case:
+        </h3>
+        <div
+          class="rounded-lg border-2 border-danger-300 bg-danger-50 p-6"
+        >
+          <h3
+            class="mb-3 text-lg font-bold text-danger-700"
+          >
+            Something went wrong
+          </h3>
+          <details
+            class="mb-4"
+            open=""
+          >
+            <summary
+              class="cursor-pointer text-sm font-semibold text-danger-600"
+            >
+              Error Details
+            </summary>
+            <div
+              class="mt-2 rounded bg-danger-100 p-2 font-mono text-xs text-danger-700"
+            >
+              <p>
+                <strong>
+                  Error:
+                </strong>
+                 
+                Failed to fetch user real-world-error
+              </p>
+              <p>
+                <strong>
+                  Component:
+                </strong>
+                 
+                at UserProfileWithError (/Users/hannes/Coding/fuf/pixels/packages/pixels/src/utils/createWithSuspense/createWithSuspense.stories.tsx:121:33)
+              </p>
+            </div>
+          </details>
+          <button
+            class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-danger text-danger-foreground data-[hover=true]:opacity-hover"
+            data-react-aria-pressable="true"
+            data-testid="error-retry-button"
+            tabindex="0"
+            type="button"
+          >
+            Reload Page
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Story Snapshots > WithCustomErrorFallback 1`] = `
+<div>
+  <div
+    class="flex flex-col gap-4"
+  >
+    <h2
+      class="text-xl font-bold"
+    >
+      Custom Error Fallback
+    </h2>
+    <p
+      class="text-sm text-default-600"
+    >
+      This component uses a custom error fallback with a retry button
+    </p>
+    <div
+      class="rounded-md border border-warning-200 bg-warning-50 p-4"
+    >
+      <h3
+        class="mb-2 font-semibold text-warning-700"
+      >
+        Custom Error UI
+      </h3>
+      <p
+        class="text-sm text-warning-600"
+      >
+        Failed to fetch user custom-error-user
+      </p>
+      <button
+        class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-3 min-w-16 h-8 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-warning data-[hover=true]:opacity-hover text-white mt-2"
+        data-react-aria-pressable="true"
+        tabindex="0"
+        type="button"
+      >
+        Retry
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Story Snapshots > WithCustomOverride 1`] = `
+<div>
+  <div
+    class="flex flex-col gap-4"
+  >
+    <h2
+      class="text-xl font-bold"
+    >
+      Override Default Fallback
+    </h2>
+    <p
+      class="text-sm text-default-600"
+    >
+      This component overrides the project default with a custom fallback
+    </p>
+    <div
+      class="rounded-md border border-default-200 bg-default-50 p-4"
+    >
+      <h3
+        class="text-lg font-semibold"
+      >
+        User custom-user
+      </h3>
+      <p
+        class="text-sm text-default-500"
+      >
+        ID: 
+        custom-user
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Story Snapshots > WithDisabledAnimation 1`] = `
+<div>
+  <div
+    class="flex flex-col gap-4"
+  >
+    <h2
+      class="text-xl font-bold"
+    >
+      With Disabled Animation
+    </h2>
+    <p
+      class="text-sm text-default-600"
+    >
+      This component has animations disabled and will render instantly without height transitions
+    </p>
+    <div
+      class="rounded-md border border-default-200 bg-default-50 p-4"
+    >
+      <h3
+        class="text-lg font-semibold"
+      >
+        User no-animation-user
+      </h3>
+      <p
+        class="text-sm text-default-500"
+      >
+        ID: 
+        no-animation-user
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Story Snapshots > WithErrorBoundary 1`] = `
+<div>
+  <div
+    class="flex flex-col gap-4"
+  >
+    <h2
+      class="text-xl font-bold"
+    >
+      With Error Boundary
+    </h2>
+    <p
+      class="text-sm text-default-600"
+    >
+      This component will throw an error and be caught by the error boundary
+    </p>
+    <div
+      class="rounded-md border border-danger-200 bg-danger-50 p-4"
+    >
+      <h3
+        class="mb-2 font-semibold text-danger-700"
+      >
+        Error occurred
+      </h3>
+      <p
+        class="text-sm text-danger-600"
+      >
+        Failed to fetch user error-user
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Story Snapshots > WithProjectDefaults 1`] = `
+<div>
+  <div
+    class="flex flex-col gap-4"
+  >
+    <h2
+      class="text-xl font-bold"
+    >
+      Using Project Defaults
+    </h2>
+    <p
+      class="text-sm text-default-600"
+    >
+      This component uses the default fallback configured in createWithSuspense
+    </p>
+    <div
+      class="rounded-md border border-default-200 bg-default-50 p-4"
+    >
+      <h3
+        class="text-lg font-semibold"
+      >
+        User default-user
+      </h3>
+      <p
+        class="text-sm text-default-500"
+      >
+        ID: 
+        default-user
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Story Snapshots > WithoutErrorBoundary 1`] = `
+<div>
+  <div
+    class="flex flex-col gap-4"
+  >
+    <h2
+      class="text-xl font-bold"
+    >
+      Without Error Boundary
+    </h2>
+    <p
+      class="text-sm text-default-600"
+    >
+      This component has error boundary disabled (will use Suspense only)
+    </p>
+    <div
+      class="rounded-md border border-default-200 bg-default-50 p-4"
+    >
+      <h3
+        class="text-lg font-semibold"
+      >
+        User no-error-boundary-user
+      </h3>
+      <p
+        class="text-sm text-default-500"
+      >
+        ID: 
+        no-error-boundary-user
+      </p>
+    </div>
+  </div>
+</div>
+`;

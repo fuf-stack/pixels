@@ -147,6 +147,11 @@
       "types": "./dist/Tooltip/index.d.ts",
       "import": "./dist/Tooltip/index.js",
       "require": "./dist/Tooltip/index.cjs"
+    },
+    "./utils/createWithSuspense": {
+      "types": "./dist/utils/createWithSuspense/index.d.ts",
+      "import": "./dist/utils/createWithSuspense/index.js",
+      "require": "./dist/utils/createWithSuspense/index.cjs"
     }
   },
   "files": [
@@ -179,6 +184,7 @@
     "react-dom": ">=18"
   },
   "dependencies": {
+    "@fuf-stack/pixel-motion": "workspace:*",
     "@fuf-stack/pixel-utils": "workspace:*",
     "@heroui/alert": "2.2.24",
     "@heroui/avatar": "2.2.20",

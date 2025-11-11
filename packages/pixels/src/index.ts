@@ -28,4 +28,7 @@ export * from './hooks/useDebounce';
 export * from './hooks/useIsInitialRenderCycle';
 export * from './hooks/useLocalStorage';
 
+// utils
+export * from './utils/createWithSuspense';
+
 /* v8 ignore stop */
