@@ -136,7 +136,7 @@ const Slider = ({
       <VisuallyHidden>
         <input
           ref={ref}
-          aria-label={typeof label === 'string' ? label : name}
+          aria-label={ariaLabel}
           disabled={disabled}
           max={maxValue}
           min={minValue}

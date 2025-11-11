@@ -160,6 +160,7 @@ const RadioTabs = ({
       <VisuallyHidden>
         <input
           ref={ref}
+          aria-label={ariaLabel}
           name={name}
           onBlur={onBlur}
           value={value ?? ''}

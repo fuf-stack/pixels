@@ -99,7 +99,7 @@ const Switch = ({
       <VisuallyHidden>
         <input
           ref={ref}
-          aria-label={typeof label === 'string' ? label : name}
+          aria-label={ariaLabel}
           checked={!!field.value}
           name={name}
           onBlur={onBlur}
