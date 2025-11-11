@@ -118,7 +118,8 @@ const Slider = ({
   // Ref for the visual slider to forward focus
   const visualSliderRef = useRef<HTMLDivElement>(null);
 
-  // Track if the slider has been focused by user interaction
+  // Track if the user has interacted with the slider (keyboard, mouse, or drag)
+  // This prevents marking the field as touched from internal focus management during initialization
   const hasBeenFocusedRef = useRef(false);
 
   // classNames from slots
@@ -195,17 +196,23 @@ const Slider = ({
           value: classNames.value,
         }}
         onBlur={() => {
-          // Only mark as touched if the user has actually focused the slider
+          // Only mark as touched if the user has actually interacted with the slider
           // This prevents premature blur events from internal focus management
           if (hasBeenFocusedRef.current) {
             onBlur();
           }
         }}
         onChange={(value) => {
+          // User is interacting with the slider
+          hasBeenFocusedRef.current = true;
           onChange(value);
         }}
-        onFocus={() => {
-          // Track that user has focused the slider
+        onKeyDown={() => {
+          // Track that user has interacted with the slider via keyboard
+          hasBeenFocusedRef.current = true;
+        }}
+        onMouseDown={() => {
+          // Track that user has interacted with the slider via mouse
           hasBeenFocusedRef.current = true;
         }}
       />
