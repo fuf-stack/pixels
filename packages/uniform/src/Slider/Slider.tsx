@@ -168,6 +168,8 @@ const Slider = ({
         maxValue={maxValue}
         minValue={minValue}
         name={`${name}_slider`}
+        // Mark field as touched when tabbing away (keyboard navigation)
+        onBlur={onBlur}
         showSteps={showSteps}
         size={size}
         startContent={startContent}
@@ -189,6 +191,7 @@ const Slider = ({
         onChange={(value) => {
           onChange(value);
         }}
+        // Mark field as touched when drag interaction ends (mouse/touch)
         onChangeEnd={(_value) => {
           onBlur();
         }}
