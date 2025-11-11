@@ -9,7 +9,7 @@ import { array, object, refineArray, string, veto } from '@fuf-stack/veto';
 
 import { Form } from '../Form';
 import { Grid } from '../Grid';
-import { useFormContext } from '../hooks';
+import { useFormContext } from '../hooks/useFormContext';
 import { Input } from '../Input';
 import { SubmitButton } from '../SubmitButton';
 import FieldArray from './FieldArray';

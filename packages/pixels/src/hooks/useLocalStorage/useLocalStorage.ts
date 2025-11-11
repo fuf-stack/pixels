@@ -10,18 +10,29 @@ export const useLocalStorage = <T>(
 ): [T, Dispatch<SetStateAction<T>>] => {
   // Get from local storage then
   // parse stored json or return initialValue
-  const readValue = () => {
+  const readValue = (): T => {
+    // Helper to resolve initial value (handle function or direct value)
+    const resolveInitialValue = (): T => {
+      return typeof initialValue === 'function'
+        ? (initialValue as () => T)()
+        : initialValue;
+    };
+
     // Prevent build error "window is undefined" but keep keep working
     if (typeof window === 'undefined') {
-      return initialValue;
+      return resolveInitialValue();
     }
 
     try {
+      // eslint-disable-next-line n/no-unsupported-features/node-builtins
       const item = window.localStorage.getItem(key);
-      return item ? JSON.parse(item) : initialValue;
+      if (item) {
+        return JSON.parse(item) as T;
+      }
+      return resolveInitialValue();
     } catch (error) {
-      console.warn(`Error reading localStorage key “${key}”:`, error);
-      return initialValue;
+      console.warn(`Error reading localStorage key "${key}":`, error);
+      return resolveInitialValue();
     }
   };
 
@@ -35,8 +46,9 @@ export const useLocalStorage = <T>(
     // Prevent build error "window is undefined" but keeps working
     if (typeof window === 'undefined') {
       console.warn(
-        `Tried setting localStorage key “${key}” even though environment is not a client`,
+        `Tried setting localStorage key "${key}" even though environment is not a client`,
       );
+      return;
     }
 
     try {
@@ -44,6 +56,7 @@ export const useLocalStorage = <T>(
       const newValue = value instanceof Function ? value(storedValue) : value;
 
       // Save to local storage
+      // eslint-disable-next-line n/no-unsupported-features/node-builtins
       window.localStorage.setItem(key, JSON.stringify(newValue));
 
       // Save state
@@ -52,7 +65,7 @@ export const useLocalStorage = <T>(
       // We dispatch a custom event so every useLocalStorage hook are notified
       window.dispatchEvent(new Event('local-storage'));
     } catch (error) {
-      console.warn(`Error setting localStorage key “${key}”:`, error);
+      console.warn(`Error setting localStorage key "${key}":`, error);
     }
   };
 
@@ -62,6 +75,11 @@ export const useLocalStorage = <T>(
   }, []);
 
   useEffect(() => {
+    // Skip event listeners in SSR environment
+    if (typeof window === 'undefined') {
+      return undefined;
+    }
+
     const handleStorageChange = () => {
       setStoredValue(readValue());
     };

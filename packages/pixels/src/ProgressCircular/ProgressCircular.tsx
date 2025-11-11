@@ -9,7 +9,7 @@ import { circularProgress as heroCircularProgressVariants } from '@heroui/theme'
 
 import { tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 
-import { useIsInitialRenderCycle } from '../hooks';
+import { useIsInitialRenderCycle } from '../hooks/useIsInitialRenderCycle';
 
 export const progressCircularVariants = tv({
   slots: {

@@ -9,7 +9,8 @@ import { SubmitButton } from '@fuf-stack/uniform';
 
 import { Form } from '../Form';
 import { Grid } from '../Grid';
-import { useFormContext, useWatchUserChange } from '../hooks';
+import { useFormContext } from '../hooks/useFormContext';
+import { useWatchUserChange } from '../hooks/useWatchUserChange';
 import { Input } from '../Input';
 import { Select } from '../Select';
 

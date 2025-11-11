@@ -9,7 +9,7 @@ import { VisuallyHidden } from '@react-aria/visually-hidden';
 
 import { cn, tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 
-import { useUniformField } from '../hooks';
+import { useUniformField } from '../hooks/useUniformField';
 
 export const switchBoxVariants = tv({
   slots: {

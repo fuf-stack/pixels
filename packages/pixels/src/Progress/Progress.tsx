@@ -5,7 +5,7 @@ import { Progress as HeroProgress } from '@heroui/progress';
 
 import { tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 
-import { useIsInitialRenderCycle } from '../hooks';
+import { useIsInitialRenderCycle } from '../hooks/useIsInitialRenderCycle';
 
 // progress styling variants
 export const progressVariants = tv({

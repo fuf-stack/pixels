@@ -4,7 +4,7 @@ import type { FieldArrayProps } from './types';
 import { cn, tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 
 import { flatArrayKey } from '../helpers';
-import { useUniformFieldArray } from '../hooks/useUniformFieldArray/useUniformFieldArray';
+import { useUniformFieldArray } from '../hooks/useUniformFieldArray';
 import ElementAppendButton from './subcomponents/ElementAppendButton';
 import FieldArrayElement from './subcomponents/FieldArrayElement';
 import FieldArrayLabel from './subcomponents/FieldArrayLabel';

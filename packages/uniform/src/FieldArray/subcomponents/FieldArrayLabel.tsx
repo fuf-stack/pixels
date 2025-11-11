@@ -2,7 +2,7 @@ import type { ReactNode } from 'react';
 
 import { cn } from '@fuf-stack/pixel-utils';
 
-import { useUniformField } from '../../hooks';
+import { useUniformField } from '../../hooks/useUniformField';
 
 export interface FieldArrayLabelProps {
   /** CSS class name */

@@ -8,7 +8,8 @@ import { useSelect } from '@heroui/select';
 
 import { cn, slugify, tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 
-import { useFormContext, useUniformField } from '../hooks';
+import { useFormContext } from '../hooks/useFormContext';
+import { useUniformField } from '../hooks/useUniformField';
 
 export const selectVariants = tv({
   slots: {

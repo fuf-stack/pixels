@@ -5,7 +5,7 @@ import type {
 } from '@heroui/checkbox';
 import type { ReactNode } from 'react';
 import type { FieldError } from 'react-hook-form';
-import type { InputValueTransform } from '../hooks';
+import type { InputValueTransform } from '../hooks/useInputValueTransform';
 
 import {
   Checkbox as HeroCheckbox,
@@ -15,7 +15,7 @@ import { checkbox as heroCheckboxVariants } from '@heroui/theme';
 
 import { slugify, tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 
-import { useUniformField } from '../hooks';
+import { useUniformField } from '../hooks/useUniformField';
 import { FieldValidationError } from '../partials/FieldValidationError';
 
 export const checkboxesVariants = tv({

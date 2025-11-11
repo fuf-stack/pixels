@@ -7,8 +7,8 @@ import { useFieldArray as useRHFFieldArray } from 'react-hook-form';
 import { useReducedMotion } from '@fuf-stack/pixel-motion';
 
 import { flatArrayKey } from '../../helpers';
-import { useFormContext } from '../useFormContext/useFormContext';
-import { useUniformField } from '../useUniformField/useUniformField';
+import { useFormContext } from '../useFormContext';
+import { useUniformField } from '../useUniformField';
 
 export interface UseUniformFieldArrayProps<
   TFieldValues extends FieldValues = FieldValues,

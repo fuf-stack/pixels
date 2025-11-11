@@ -11,7 +11,7 @@ import { VisuallyHidden } from '@react-aria/visually-hidden';
 import { slugify, tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 import Tabs from '@fuf-stack/pixels/Tabs';
 
-import { useUniformField } from '../hooks';
+import { useUniformField } from '../hooks/useUniformField';
 
 export const radioTabsVariants = tv({
   slots: {

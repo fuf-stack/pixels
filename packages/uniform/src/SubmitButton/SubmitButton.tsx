@@ -4,7 +4,7 @@ import type { ReactNode } from 'react';
 import { cn, slugify } from '@fuf-stack/pixel-utils';
 import { Button } from '@fuf-stack/pixels';
 
-import { useFormContext } from '../hooks';
+import { useFormContext } from '../hooks/useFormContext';
 
 export interface SubmitButtonProps {
   /** sets HTML aria-label attribute */

@@ -8,7 +8,7 @@ import { VisuallyHidden } from '@react-aria/visually-hidden';
 
 import { tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 
-import { useUniformField } from '../hooks/useUniformField/useUniformField';
+import { useUniformField } from '../hooks/useUniformField';
 
 export const sliderVariants = tv({
   slots: {

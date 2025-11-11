@@ -9,7 +9,7 @@ import { SubmitButton } from '@fuf-stack/uniform';
 
 import { Form } from '../Form';
 import { Grid } from '../Grid';
-import { useFormContext } from '../hooks';
+import { useFormContext } from '../hooks/useFormContext';
 import { Input } from '../Input';
 
 const meta: Meta<typeof Form> = {

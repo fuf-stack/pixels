@@ -64,10 +64,20 @@
       "import": "./dist/Drawer/index.js",
       "require": "./dist/Drawer/index.cjs"
     },
-    "./hooks": {
-      "types": "./dist/hooks/index.d.ts",
-      "import": "./dist/hooks/index.js",
-      "require": "./dist/hooks/index.cjs"
+    "./hooks/useDebounce": {
+      "types": "./dist/hooks/useDebounce/index.d.ts",
+      "import": "./dist/hooks/useDebounce/index.js",
+      "require": "./dist/hooks/useDebounce/index.cjs"
+    },
+    "./hooks/useIsInitialRenderCycle": {
+      "types": "./dist/hooks/useIsInitialRenderCycle/index.d.ts",
+      "import": "./dist/hooks/useIsInitialRenderCycle/index.js",
+      "require": "./dist/hooks/useIsInitialRenderCycle/index.cjs"
+    },
+    "./hooks/useLocalStorage": {
+      "types": "./dist/hooks/useLocalStorage/index.d.ts",
+      "import": "./dist/hooks/useLocalStorage/index.js",
+      "require": "./dist/hooks/useLocalStorage/index.cjs"
     },
     "./Json": {
       "types": "./dist/Json/index.d.ts",

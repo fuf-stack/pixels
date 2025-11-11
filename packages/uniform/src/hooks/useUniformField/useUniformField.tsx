@@ -128,12 +128,12 @@ export interface UseUniformFieldReturn<
  * - Presentation helpers: `getLabelProps`, `getErrorMessageProps`,
  *   `getHelperWrapperProps` for consistent wiring to underlying UI components
  */
-export function useUniformField<
+export const useUniformField = <
   TFieldValues extends FieldValues = FieldValues,
   TDisplay = unknown,
 >(
   params: UseUniformFieldParams<TFieldValues, TDisplay>,
-): UseUniformFieldReturn<TFieldValues> {
+): UseUniformFieldReturn<TFieldValues> => {
   const {
     name,
     disabled = false,
@@ -278,6 +278,4 @@ export function useUniformField<
     resetField,
     testId,
   };
-}
-
-export default useUniformField;
+};

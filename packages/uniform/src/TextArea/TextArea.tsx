@@ -5,7 +5,8 @@ import { Textarea as HeroTextArea } from '@heroui/input';
 
 import { tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 
-import { useInputValueDebounce, useUniformField } from '../hooks';
+import { useInputValueDebounce } from '../hooks/useInputValueDebounce';
+import { useUniformField } from '../hooks/useUniformField';
 
 // input variants
 export const textAreaVariants = tv({
@@ -96,7 +97,7 @@ const TextArea = ({
       onBlur={onBlur}
       onChange={onChange}
       placeholder={placeholder}
-      value={value as string}
+      value={value}
       variant="bordered"
       classNames={{
         base: classNames.base,

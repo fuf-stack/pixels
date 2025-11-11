@@ -8,7 +8,7 @@ import {
 
 import { slugify, tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 
-import { useUniformField } from '../hooks';
+import { useUniformField } from '../hooks/useUniformField';
 
 export const radiosVariants = tv({
   slots: {

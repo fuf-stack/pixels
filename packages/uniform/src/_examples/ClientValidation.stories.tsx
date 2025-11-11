@@ -1,5 +1,3 @@
-/* eslint-disable import-x/no-extraneous-dependencies */
-
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { useEffect, useState } from 'react';
@@ -15,7 +13,10 @@ import { FieldArray } from '../FieldArray';
 import { Form } from '../Form';
 import { Grid } from '../Grid';
 import { flatArrayKey } from '../helpers';
-import { clientValidationSchemaByName, useClientValidation } from '../hooks';
+import {
+  clientValidationSchemaByName,
+  useClientValidation,
+} from '../hooks/useClientValidation';
 import { Input } from '../Input';
 import { Select } from '../Select';
 

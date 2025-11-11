@@ -1,15 +1,15 @@
 import type { TVClassName, TVProps } from '@fuf-stack/pixel-utils';
 import type { InputProps as HeroInputProps } from '@heroui/input';
 import type { ReactNode } from 'react';
-import type { InputValueTransform } from '../hooks';
+import type { InputValueTransform } from '../hooks/useInputValueTransform';
 
 import { Input as HeroInput } from '@heroui/input';
-// eslint-disable-next-line import-x/no-unresolved
 import { NumberInput as HeroNumberInput } from '@heroui/number-input';
 
 import { tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 
-import { useInputValueDebounce, useUniformField } from '../hooks';
+import { useInputValueDebounce } from '../hooks/useInputValueDebounce';
+import { useUniformField } from '../hooks/useUniformField';
 
 // input variants
 export const inputVariants = tv({

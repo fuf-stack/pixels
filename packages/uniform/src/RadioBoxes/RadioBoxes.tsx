@@ -7,7 +7,7 @@ import { RadioGroup as HeroRadioGroup } from '@heroui/radio';
 
 import { slugify, tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 
-import { useUniformField } from '../hooks';
+import { useUniformField } from '../hooks/useUniformField';
 import { RadioBox } from './RadioBox';
 
 export const radioBoxesVariants = tv({
