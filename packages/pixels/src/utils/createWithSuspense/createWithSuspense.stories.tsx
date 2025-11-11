@@ -81,7 +81,9 @@ const projectWithSuspense = createWithSuspense({
   },
   onError: (error, errorInfo) => {
     // In a real app, you'd send this to your error tracking service
-    console.error('Error caught by boundary:', error, errorInfo);
+    if (process.env.NODE_ENV !== 'test') {
+      console.error('Error caught by boundary:', error, errorInfo);
+    }
   },
 });
 
@@ -423,11 +425,14 @@ export const RealWorldExample: Story = {
       },
       onError: (error, errorInfo) => {
         // Send to your error tracking service
-        console.error('🔴 Error tracked:', {
-          message: error.message,
-          stack: error.stack,
-          componentStack: errorInfo.componentStack,
-        });
+        // Example: trackError({ message: error.message, stack: error.stack, componentStack: errorInfo.componentStack })
+        if (process.env.NODE_ENV !== 'test') {
+          console.error('🔴 Error tracked:', {
+            message: error.message,
+            stack: error.stack,
+            componentStack: errorInfo.componentStack,
+          });
+        }
       },
     });
 
