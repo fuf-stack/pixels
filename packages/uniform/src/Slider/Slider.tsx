@@ -7,7 +7,6 @@ import { Slider as HeroUISlider } from '@heroui/slider';
 import { VisuallyHidden } from '@react-aria/visually-hidden';
 
 import { cn, tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
-import { useIsInitialRenderCycle } from '@fuf-stack/pixels';
 
 import { useUniformField } from '../hooks/useUniformField';
 
@@ -119,22 +118,12 @@ const Slider = ({
   // Ref for the visual slider to forward focus
   const visualSliderRef = useRef<HTMLDivElement>(null);
 
-  // Prevent blur events during initial render to avoid premature touched state in tests
-  const isInitialRender = useIsInitialRenderCycle();
-
   // classNames from slots
   const variants = sliderVariants();
   const classNames = variantsToClassNames(variants, className, 'base');
 
   // Get the current value, defaulting to minValue if null/undefined
   const currentValue = field.value != null ? Number(field.value) : minValue;
-
-  // Prevent marking as touched during initial render (fixes CI timing issues)
-  const handleBlur = () => {
-    if (!isInitialRender) {
-      onBlur();
-    }
-  };
 
   return (
     <div
@@ -152,7 +141,7 @@ const Slider = ({
           max={maxValue}
           min={minValue}
           name={name}
-          onBlur={handleBlur}
+          onBlur={onBlur}
           step={step}
           tabIndex={-1}
           type="range"
@@ -163,9 +152,7 @@ const Slider = ({
           onFocus={() => {
             // When RHF focuses this hidden input (e.g., on validation error),
             // forward focus to the visual slider to show focus ring
-            if (!isInitialRender) {
-              visualSliderRef.current?.focus();
-            }
+            visualSliderRef.current?.focus();
           }}
         />
       </VisuallyHidden>
@@ -181,7 +168,7 @@ const Slider = ({
         maxValue={maxValue}
         minValue={minValue}
         name={`${name}_slider`}
-        onBlur={handleBlur}
+        onBlur={onBlur}
         onChange={onChange}
         showSteps={showSteps}
         size={size}
