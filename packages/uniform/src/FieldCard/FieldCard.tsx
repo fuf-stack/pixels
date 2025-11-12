@@ -1,3 +1,4 @@
+import type { TVClassName } from '@fuf-stack/pixel-utils';
 import type { ReactNode } from 'react';
 
 import { cn, tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
@@ -49,11 +50,13 @@ export const fieldCardVariants = tv({
   },
 });
 
+type ClassName = TVClassName<typeof fieldCardVariants>;
+
 export interface FieldCardProps {
   /** Content to render inside the card */
   children: ReactNode;
   /** CSS class name */
-  className?: string;
+  className?: ClassName;
   /** Label content for the card header */
   label: ReactNode;
   /** Field name for validation */
