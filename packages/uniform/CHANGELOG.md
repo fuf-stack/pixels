@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.10.3](https://github.com/fuf-stack/pixels/compare/uniform-v1.10.2...uniform-v1.10.3) (2025-11-12)
+
+
+### Bug Fixes
+
+* **uniform:** add grid to content of FieldCard ([e367c95](https://github.com/fuf-stack/pixels/commit/e367c956f26500d83d03ea5bb0c530b22478fc1a))
+* **uniform:** fix FieldCard className prop type ([23d5a68](https://github.com/fuf-stack/pixels/commit/23d5a68057a6fb0ce32f6bd84a8df29009dbbc46))
+
 ## [1.10.2](https://github.com/fuf-stack/pixels/compare/uniform-v1.10.1...uniform-v1.10.2) (2025-11-12)
 
 
