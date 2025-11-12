@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.10.2](https://github.com/fuf-stack/pixels/compare/uniform-v1.10.1...uniform-v1.10.2) (2025-11-12)
+
+
+### Bug Fixes
+
+* **uniform:** simpler Silder blur ([4dab0da](https://github.com/fuf-stack/pixels/commit/4dab0da52d503a73ae8219c54b4e452572ad70d5))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @fuf-stack/veto bumped to 0.12.7
+
 ## [1.10.1](https://github.com/fuf-stack/pixels/compare/uniform-v1.10.0...uniform-v1.10.1) (2025-11-11)
 
 
