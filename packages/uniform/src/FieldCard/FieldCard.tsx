@@ -23,7 +23,12 @@ export const fieldCardVariants = tv({
       'rounded-t-small border-b p-3 font-semibold text-medium',
     ],
     /** class for the content */
-    content: ['p-3'],
+    content: [
+      // same as p-3 of Card component
+      'p-3',
+      // default grid for form components (see Grid component)
+      'grid gap-4',
+    ],
     /** class for the error footer wrapper */
     errorFooter: [
       'border-t',
