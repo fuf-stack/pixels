@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.12.7](https://github.com/fuf-stack/pixels/compare/veto-v0.12.6...veto-v0.12.7) (2025-11-12)
+
+
+### Bug Fixes
+
+* reformat all code ([dfad412](https://github.com/fuf-stack/pixels/commit/dfad4120ad16e9ca2890bb4a7d9d7ac3b41a7413))
+* **uniform:** rename FieldArray to Array ([a808259](https://github.com/fuf-stack/pixels/commit/a8082592b3544a75a0eeb2c5879a32f0dc94a5ba))
+
+
+### Reverts
+
+* **uniform:** rename Array to FieldArray again ([d7285b1](https://github.com/fuf-stack/pixels/commit/d7285b1efcbdf41426813b9f9d47065fe3895faa))
+
 ## [0.12.6](https://github.com/fuf-stack/pixels/compare/veto-v0.12.5...veto-v0.12.6) (2025-09-22)
 
 
