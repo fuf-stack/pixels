@@ -9,10 +9,7 @@
       "test/*": ["./test/*"]
     },
     "rootDir": ".",
-    "tsBuildInfoFile": "node_modules/.cache/tsbuildinfo.json",
-
-    // see: https://github.com/colinhacks/zod/issues/121
-    "strictNullChecks": true
+    "tsBuildInfoFile": "node_modules/.cache/tsbuildinfo.json"
   },
   "include": ["src", "test"]
 }

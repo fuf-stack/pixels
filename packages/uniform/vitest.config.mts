@@ -1,11 +1,16 @@
 /* eslint-disable import-x/no-extraneous-dependencies */
 
-import { defineProject } from 'vitest/config';
 
-export default defineProject({
+
+import { mergeConfig } from 'vitest/config';
+
+import projectConfig from '@fuf-stack/vitest-config/project';
+
+export default mergeConfig(projectConfig, {
   test: {
     clearMocks: true,
     environment: 'jsdom',
     setupFiles: ['./vitest.setup.ts'],
   },
 });
+
