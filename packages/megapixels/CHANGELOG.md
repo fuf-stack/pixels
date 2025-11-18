@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.7.3](https://github.com/fuf-stack/pixels/compare/megapixels-v0.7.2...megapixels-v0.7.3) (2025-11-18)
+
+
+### Bug Fixes
+
+* **uniform:** disable autocomplete for inputs ([52e8101](https://github.com/fuf-stack/pixels/commit/52e810115d8fcf238b41ca633523445c78b3cc18))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @fuf-stack/uniform bumped to 1.10.4
+
 ## [0.7.2](https://github.com/fuf-stack/pixels/compare/megapixels-v0.7.1...megapixels-v0.7.2) (2025-11-12)
 
 
