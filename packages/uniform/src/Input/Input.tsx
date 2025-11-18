@@ -129,6 +129,8 @@ const Input = ({
     // Only add aria-label if there's no meaningful placeholder (HeroUI uses placeholder as aria-label)
     'aria-label':
       !placeholder || placeholder.trim() === '' ? ariaLabel : undefined,
+    // disable autocomplete
+    autoComplete: 'off',
     classNames: {
       base: classNames.base,
       clearButton: classNames.clearButton,
