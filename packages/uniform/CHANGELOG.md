@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.10.4](https://github.com/fuf-stack/pixels/compare/uniform-v1.10.3...uniform-v1.10.4) (2025-11-18)
+
+
+### Bug Fixes
+
+* **uniform:** disable autocomplete for inputs ([52e8101](https://github.com/fuf-stack/pixels/commit/52e810115d8fcf238b41ca633523445c78b3cc18))
+
 ## [1.10.3](https://github.com/fuf-stack/pixels/compare/uniform-v1.10.2...uniform-v1.10.3) (2025-11-12)
 
 
