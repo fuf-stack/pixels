@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.8.0](https://github.com/fuf-stack/pixels/compare/megapixels-v0.7.3...megapixels-v0.8.0) (2025-11-19)
+
+
+### Features
+
+* **megapixels:** add support for react nodes in label of Filter checkboxes ([775d7fd](https://github.com/fuf-stack/pixels/commit/775d7fdbf9b69d5e4a05c77509f90581f9f931fd))
+
 ## [0.7.3](https://github.com/fuf-stack/pixels/compare/megapixels-v0.7.2...megapixels-v0.7.3) (2025-11-18)
 
 
