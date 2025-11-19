@@ -1,6 +1,7 @@
 import type { vInfer } from '@fuf-stack/veto';
+import type { ReactNode } from 'react';
 
-import { array, object, refineArray, string } from '@fuf-stack/veto';
+import { any, array, object, refineArray, string } from '@fuf-stack/veto';
 
 /** configuration of the filter */
 export const config = object({
@@ -12,9 +13,19 @@ export const config = object({
   /**
    * Options rendered as multiple checkboxes. Each option needs a `label`
    * (what the user sees) and a `value` (what is written into the form state).
+   * Label can be a string, React node, or a function that receives mode
+   * ('form' or 'display') and returns a React node.
    */
-  options: array(object({ label: string(), value: string() })),
+  options: array(object({ label: any(), value: string() })),
 });
+
+/** Type-safe Config that overrides label to support ReactNode or function */
+export type Config = Omit<vInfer<typeof config>, 'options'> & {
+  options: {
+    label: ReactNode | ((mode: 'form' | 'display') => ReactNode);
+    value: string;
+  }[];
+};
 
 /** validate the filter value */
 export const validate = (cfg?: Config) => {
@@ -40,5 +51,4 @@ export const validate = (cfg?: Config) => {
   });
 };
 
-export type Config = vInfer<typeof config>;
 export type Value = vInfer<ReturnType<typeof validate>>;

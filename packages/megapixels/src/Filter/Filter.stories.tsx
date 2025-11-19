@@ -1,7 +1,15 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import type { FiltersConfiguration } from './filters/types';
 
-import { FaGhost, FaMagic, FaPizzaSlice, FaSmile } from 'react-icons/fa';
+import {
+  FaCheckCircle,
+  FaClock,
+  FaGhost,
+  FaMagic,
+  FaPizzaSlice,
+  FaSmile,
+  FaTimesCircle,
+} from 'react-icons/fa';
 
 import { action } from 'storybook/actions';
 import { useArgs } from 'storybook/preview-api';
@@ -216,5 +224,103 @@ export const WithCustomStyles: Story = {
         }}
       />
     );
+  },
+};
+
+export const CheckboxesWithReactNodeLabels: Story = {
+  args: {
+    config: {
+      filters: [
+        f.checkboxes({
+          name: 'status',
+          icon: <FaCheckCircle />,
+          config: {
+            text: 'Status',
+            options: [
+              {
+                value: 'active',
+                label: (mode) => {
+                  return mode === 'display' ? (
+                    <span className="text-success">✓</span>
+                  ) : (
+                    <span className="flex items-center gap-2">
+                      <FaCheckCircle className="text-success" />
+                      Active
+                    </span>
+                  );
+                },
+              },
+              {
+                value: 'pending',
+                label: (mode) => {
+                  return mode === 'display' ? (
+                    <span className="text-warning">⏳</span>
+                  ) : (
+                    <span className="flex items-center gap-2">
+                      <FaClock className="text-warning" />
+                      Pending
+                    </span>
+                  );
+                },
+              },
+              {
+                value: 'inactive',
+                label: (mode) => {
+                  return mode === 'display' ? (
+                    <span className="text-danger">✗</span>
+                  ) : (
+                    <span className="flex items-center gap-2">
+                      <FaTimesCircle className="text-danger" />
+                      Inactive
+                    </span>
+                  );
+                },
+              },
+            ],
+          },
+        }),
+        f.checkboxes({
+          name: 'tags',
+          icon: <FaSmile />,
+          config: {
+            text: 'Tags',
+            options: [
+              {
+                value: 'urgent',
+                label: (
+                  <span className="rounded bg-danger-100 px-2 py-0.5 text-xs font-semibold text-danger-700">
+                    Urgent
+                  </span>
+                ),
+              },
+              {
+                value: 'featured',
+                label: (
+                  <span className="rounded bg-primary-100 px-2 py-0.5 text-xs font-semibold text-primary-700">
+                    Featured
+                  </span>
+                ),
+              },
+              {
+                value: 'draft',
+                label: (
+                  <span className="rounded bg-default-100 px-2 py-0.5 text-xs font-semibold text-default-700">
+                    Draft
+                  </span>
+                ),
+              },
+            ],
+          },
+        }),
+      ],
+      search: { placeholder: 'Search items…' },
+    },
+    values: {
+      search: '',
+      filter: {
+        status: ['active', 'pending'],
+        tags: ['urgent'],
+      },
+    },
   },
 };
