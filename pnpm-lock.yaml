@@ -15,8 +15,8 @@ importers:
         specifier: 1.0.13
         version: 1.0.13(@types/node@24.10.1)(babel-plugin-macros@3.1.0)(conventional-commits-filter@5.0.0)(typescript@5.9.3)
       '@fuf-stack/typescript-config':
-        specifier: 0.3.0
-        version: 0.3.0
+        specifier: 0.4.0
+        version: 0.4.0
       '@fuf-stack/vitest-config':
         specifier: 4.1.0
         version: 4.1.0(@types/debug@4.1.12)(@types/node@24.10.1)(jiti@2.6.1)(jsdom@27.0.0(postcss@8.5.6))(lightningcss@1.30.2)(tsx@4.20.6)(typescript@5.9.3)(vite@7.2.2(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(tsx@4.20.6)(yaml@2.8.1))(yaml@2.8.1)
@@ -1107,8 +1107,8 @@ packages:
   '@fuf-stack/project-cli-tools@1.0.13':
     resolution: {integrity: sha512-MWU/9GDXUx1AL1DwX0HNNEumdUAzUMeaLXs9ZgrunqNM0Ext8InDLVhE5pPuBzZJ5jpFyeSjyLs+mToLC7S6vQ==}
 
-  '@fuf-stack/typescript-config@0.3.0':
-    resolution: {integrity: sha512-dMHqFWcyg9C8f+I1uEeIIEDOAQ2NlL7zk5xdg7jVNnusqEYIbzt+iz3JiMGqvtnCmeFsA4p7a0HxuElZeQVFBQ==}
+  '@fuf-stack/typescript-config@0.4.0':
+    resolution: {integrity: sha512-j3sILQYIvCJtVvza5gGW/DE9/z/YsCv5f/FVEiY0wHh1norYSnXIVBhHAHF4n2fQwKPtu3yWbtUiB4uRDwKRTw==}
 
   '@fuf-stack/vitest-config@4.1.0':
     resolution: {integrity: sha512-evhys4BE93hbScFEPseaWbBmJocBVOpCiVx0R/tLiVpB90zpzZw++2xbMV1eB0Im3SUQliixjwhZregyGILsjg==}
@@ -7843,7 +7843,7 @@ snapshots:
       - supports-color
       - typescript
 
-  '@fuf-stack/typescript-config@0.3.0': {}
+  '@fuf-stack/typescript-config@0.4.0': {}
 
   '@fuf-stack/vitest-config@4.1.0(@types/debug@4.1.12)(@types/node@24.10.1)(jiti@2.6.1)(jsdom@27.0.0(postcss@8.5.6))(lightningcss@1.30.2)(tsx@4.20.6)(typescript@5.9.3)(vite@7.2.2(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(tsx@4.20.6)(yaml@2.8.1))(yaml@2.8.1)':
     dependencies:
