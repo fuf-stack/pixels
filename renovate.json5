@@ -30,6 +30,12 @@
       groupName: '@dnd-kit monorepo',
     },
 
+    // @fuf-stack packages: skip minimumReleaseAge (fuf packages)
+    {
+      matchPackagePatterns: ['^@fuf-stack/'],
+      minimumReleaseAge: null,
+    },
+
     // @heroui monorepo
     {
       matchPackageNames: ['/^@heroui/'],
