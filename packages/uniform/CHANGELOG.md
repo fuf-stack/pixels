@@ -1,5 +1,23 @@
 # Changelog
 
+## [1.10.5](https://github.com/fuf-stack/pixels/compare/uniform-v1.10.4...uniform-v1.10.5) (2025-12-11)
+
+
+### Bug Fixes
+
+* **deps:** update dependency framer-motion to v12.23.25 ([#1391](https://github.com/fuf-stack/pixels/issues/1391)) ([af043bc](https://github.com/fuf-stack/pixels/commit/af043bc846fa7a5964cd700b93dea9670bc22329))
+* **deps:** update dependency react-hook-form to v7.66.1 ([#1377](https://github.com/fuf-stack/pixels/issues/1377)) ([98d9949](https://github.com/fuf-stack/pixels/commit/98d9949e0a0d5a617e12dafc3d33353799c8e26c))
+* **deps:** update dependency react-hook-form to v7.67.0 ([#1388](https://github.com/fuf-stack/pixels/issues/1388)) ([66cc82b](https://github.com/fuf-stack/pixels/commit/66cc82b2aba1ecbf3ef06c4bc14db5f148245b65))
+* **deps:** update dependency react-hook-form to v7.68.0 ([#1395](https://github.com/fuf-stack/pixels/issues/1395)) ([a2bc52e](https://github.com/fuf-stack/pixels/commit/a2bc52e4fa5b5e931f0da8643ff0daffbea75736))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @fuf-stack/pixel-motion bumped to 1.0.27
+    * @fuf-stack/pixels bumped to 1.6.2
+
 ## [1.10.4](https://github.com/fuf-stack/pixels/compare/uniform-v1.10.3...uniform-v1.10.4) (2025-11-18)
 
 
