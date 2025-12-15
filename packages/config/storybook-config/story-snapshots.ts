@@ -9,21 +9,29 @@ import { expect, test } from 'vitest';
 
 import { composeStories } from '@storybook/react-vite';
 
-// Custom snapshot serializer to normalize React Aria IDs (e.g., «r1», «r1a», «rt» → «replaced-aria-id»)
+// Custom snapshot serializer to normalize React Aria IDs
+// Handles both old format (e.g., «r1», «r1a») and new format after React 19 (e.g., _r_1a_, _r_1k_)
 expect.addSnapshotSerializer({
   serialize(val: string, config, indentation, depth, refs, printer) {
-    // Replace React Aria ID format: «\w+» with '«replaced-aria-id»'
-    const normalized = val.replace(/«\w+»/g, '«replaced-aria-id»');
+    // Replace old React Aria ID format: «\w+» with '«replaced-aria-id»'
+    let normalized = val.replace(/«\w+»/g, '«replaced-aria-id»');
+    // Replace new React Aria ID format (React 19+): _r_[alphanumeric]+_ with '«replaced-aria-id»'
+    normalized = normalized.replace(/_r_[a-zA-Z0-9]+_/g, '«replaced-aria-id»');
     return printer(normalized, config, indentation, depth, refs);
   },
   test(val: any) {
-    return typeof val === 'string' && /«\w+»/.test(val);
+    // Test for both old and new formats
+    return (
+      typeof val === 'string' &&
+      (/«\w+»/.test(val) || /_r_[a-zA-Z0-9]+_/.test(val))
+    );
   },
 });
 
 // Make StoryFile generic to accept component props
 interface StoryFile<TProps = any> {
   default: Meta<TProps>;
+  // eslint-disable-next-line @typescript-eslint/no-redundant-type-constituents
   [name: string]: StoryFn<TProps> | Meta<TProps>;
 }
 
