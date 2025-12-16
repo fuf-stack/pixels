@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.13.1](https://github.com/fuf-stack/pixels/compare/veto-v0.13.0...veto-v0.13.1) (2025-12-16)
+
+
+### Bug Fixes
+
+* **veto:** include zod types into build ([ccaa396](https://github.com/fuf-stack/pixels/commit/ccaa396fce2e58441bfc43b06cc2893a18224cf8))
+
 ## [0.13.0](https://github.com/fuf-stack/pixels/compare/veto-v0.12.7...veto-v0.13.0) (2025-12-16)
 
 
