@@ -16,11 +16,6 @@ jobs:
     name: Test
     runs-on: ubuntu-latest
     timeout-minutes: 15
-    # Increase Node.js memory limit to prevent EPIPE crashes during test runs
-    env:
-      NODE_OPTIONS: '--max-old-space-size=4096'
-      # Limit Vitest worker count to reduce flakiness / EPIPE on CI
-      VITEST_EXTRA_OPTS: '--maxWorkers=2'
 
     steps:
       - uses: actions/checkout@v6

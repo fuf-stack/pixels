@@ -7,7 +7,7 @@
     "dev": "lerna run --parallel dev",
     "fix": "eslint --debug --fix packages || true && prettier --write \"packages/**/*\"",
     "lint": "eslint --debug ./packages",
-    "test": "NODE_OPTIONS=\"--max-old-space-size=4096\" FORCE_COLOR=1 vitest --coverage $VITEST_EXTRA_OPTS",
+    "test": "FORCE_COLOR=1 vitest --coverage $VITEST_EXTRA_OPTS",
     "test:storybook": "pnpm exec playwright install chromium && test-storybook --coverage --config-dir packages/config/storybook-config/.storybook --maxWorkers=4 && nyc report --reporter=lcov -t coverage/storybook --report-dir coverage/storybook",
     "turbo": "TURBO_TELEMETRY_DISABLED=1 FORCE_COLOR=1 turbo --cache-dir ./.turbo-cache --color  --no-daemon"
   },
