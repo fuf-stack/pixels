@@ -1,5 +1,25 @@
 # Changelog
 
+## [1.7.0](https://github.com/fuf-stack/pixels/compare/pixels-v1.6.1...pixels-v1.7.0) (2025-12-16)
+
+
+### Features
+
+* update to latest react v19 + fix normalized snapshots for react v19 ([0ae6496](https://github.com/fuf-stack/pixels/commit/0ae64962e442f1af09246ae32a34eea0e7060b0a))
+
+
+### Bug Fixes
+
+* **deps:** update dependency framer-motion to v12.23.25 ([#1391](https://github.com/fuf-stack/pixels/issues/1391)) ([af043bc](https://github.com/fuf-stack/pixels/commit/af043bc846fa7a5964cd700b93dea9670bc22329))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @fuf-stack/pixel-motion bumped to 1.1.0
+    * @fuf-stack/pixel-utils bumped to 1.1.0
+
 ## [1.6.1](https://github.com/fuf-stack/pixels/compare/pixels-v1.6.0...pixels-v1.6.1) (2025-11-11)
 
 

@@ -1,5 +1,24 @@
 # Changelog
 
+## [0.9.0](https://github.com/fuf-stack/pixels/compare/megapixels-v0.8.0...megapixels-v0.9.0) (2025-12-16)
+
+
+### Features
+
+* update to latest react v19 + fix normalized snapshots for react v19 ([0ae6496](https://github.com/fuf-stack/pixels/commit/0ae64962e442f1af09246ae32a34eea0e7060b0a))
+* use tsdown for bundling ([7a701c4](https://github.com/fuf-stack/pixels/commit/7a701c4eaa3601a438487b2e89bcb682381f4157))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @fuf-stack/pixel-motion bumped to 1.1.0
+    * @fuf-stack/pixel-utils bumped to 1.1.0
+    * @fuf-stack/pixels bumped to 1.7.0
+    * @fuf-stack/uniform bumped to 1.11.0
+    * @fuf-stack/veto bumped to 0.13.0
+
 ## [0.8.0](https://github.com/fuf-stack/pixels/compare/megapixels-v0.7.3...megapixels-v0.8.0) (2025-11-19)
 
 
