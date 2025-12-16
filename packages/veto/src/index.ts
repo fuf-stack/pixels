@@ -1,6 +1,9 @@
 // import veto
 import { veto } from './veto';
 
+// import error map for side effect (sets custom zod error messages)
+import './errorMap';
+
 // export veto ts types
 export type * from './types';
 export type * from './vInfer';

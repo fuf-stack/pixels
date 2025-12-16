@@ -8,149 +8,122 @@
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "types": "./dist/index.d.cts",
   "sideEffects": false,
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.js"
     },
     "./Checkboxes": {
-      "types": "./dist/Checkboxes/index.d.ts",
-      "import": "./dist/Checkboxes/index.js",
-      "require": "./dist/Checkboxes/index.cjs"
+      "require": "./dist/Checkboxes/index.cjs",
+      "import": "./dist/Checkboxes/index.js"
     },
     "./FieldArray": {
-      "types": "./dist/FieldArray/index.d.ts",
-      "import": "./dist/FieldArray/index.js",
-      "require": "./dist/FieldArray/index.cjs"
+      "require": "./dist/FieldArray/index.cjs",
+      "import": "./dist/FieldArray/index.js"
     },
     "./FieldCard": {
-      "types": "./dist/FieldCard/index.d.ts",
-      "import": "./dist/FieldCard/index.js",
-      "require": "./dist/FieldCard/index.cjs"
+      "require": "./dist/FieldCard/index.cjs",
+      "import": "./dist/FieldCard/index.js"
     },
     "./Form": {
-      "types": "./dist/Form/index.d.ts",
-      "import": "./dist/Form/index.js",
-      "require": "./dist/Form/index.cjs"
+      "require": "./dist/Form/index.cjs",
+      "import": "./dist/Form/index.js"
     },
     "./Grid": {
-      "types": "./dist/Grid/index.d.ts",
-      "import": "./dist/Grid/index.js",
-      "require": "./dist/Grid/index.cjs"
+      "require": "./dist/Grid/index.cjs",
+      "import": "./dist/Grid/index.js"
     },
     "./helpers": {
-      "types": "./dist/helpers/index.d.ts",
-      "import": "./dist/helpers/index.js",
-      "require": "./dist/helpers/index.cjs"
+      "require": "./dist/helpers/index.cjs",
+      "import": "./dist/helpers/index.js"
     },
     "./hooks/useClientValidation": {
-      "types": "./dist/hooks/useClientValidation/index.d.ts",
-      "import": "./dist/hooks/useClientValidation/index.js",
-      "require": "./dist/hooks/useClientValidation/index.cjs"
+      "require": "./dist/hooks/useClientValidation/index.cjs",
+      "import": "./dist/hooks/useClientValidation/index.js"
     },
     "./hooks/useController": {
-      "types": "./dist/hooks/useController/index.d.ts",
-      "import": "./dist/hooks/useController/index.js",
-      "require": "./dist/hooks/useController/index.cjs"
+      "require": "./dist/hooks/useController/index.cjs",
+      "import": "./dist/hooks/useController/index.js"
     },
     "./hooks/useFormContext": {
-      "types": "./dist/hooks/useFormContext/index.d.ts",
-      "import": "./dist/hooks/useFormContext/index.js",
-      "require": "./dist/hooks/useFormContext/index.cjs"
+      "require": "./dist/hooks/useFormContext/index.cjs",
+      "import": "./dist/hooks/useFormContext/index.js"
     },
     "./hooks/useInput": {
-      "types": "./dist/hooks/useInput/index.d.ts",
-      "import": "./dist/hooks/useInput/index.js",
-      "require": "./dist/hooks/useInput/index.cjs"
+      "require": "./dist/hooks/useInput/index.cjs",
+      "import": "./dist/hooks/useInput/index.js"
     },
     "./hooks/useInputValueDebounce": {
-      "types": "./dist/hooks/useInputValueDebounce/index.d.ts",
-      "import": "./dist/hooks/useInputValueDebounce/index.js",
-      "require": "./dist/hooks/useInputValueDebounce/index.cjs"
+      "require": "./dist/hooks/useInputValueDebounce/index.cjs",
+      "import": "./dist/hooks/useInputValueDebounce/index.js"
     },
     "./hooks/useInputValueTransform": {
-      "types": "./dist/hooks/useInputValueTransform/index.d.ts",
-      "import": "./dist/hooks/useInputValueTransform/index.js",
-      "require": "./dist/hooks/useInputValueTransform/index.cjs"
+      "require": "./dist/hooks/useInputValueTransform/index.cjs",
+      "import": "./dist/hooks/useInputValueTransform/index.js"
     },
     "./hooks/useUniformField": {
-      "types": "./dist/hooks/useUniformField/index.d.ts",
-      "import": "./dist/hooks/useUniformField/index.js",
-      "require": "./dist/hooks/useUniformField/index.cjs"
+      "require": "./dist/hooks/useUniformField/index.cjs",
+      "import": "./dist/hooks/useUniformField/index.js"
     },
     "./hooks/useUniformFieldArray": {
-      "types": "./dist/hooks/useUniformFieldArray/index.d.ts",
-      "import": "./dist/hooks/useUniformFieldArray/index.js",
-      "require": "./dist/hooks/useUniformFieldArray/index.cjs"
+      "require": "./dist/hooks/useUniformFieldArray/index.cjs",
+      "import": "./dist/hooks/useUniformFieldArray/index.js"
     },
     "./hooks/useWatchUserChange": {
-      "types": "./dist/hooks/useWatchUserChange/index.d.ts",
-      "import": "./dist/hooks/useWatchUserChange/index.js",
-      "require": "./dist/hooks/useWatchUserChange/index.cjs"
+      "require": "./dist/hooks/useWatchUserChange/index.cjs",
+      "import": "./dist/hooks/useWatchUserChange/index.js"
     },
     "./Input": {
-      "types": "./dist/Input/index.d.ts",
-      "import": "./dist/Input/index.js",
-      "require": "./dist/Input/index.cjs"
+      "require": "./dist/Input/index.cjs",
+      "import": "./dist/Input/index.js"
     },
     "./partials/FieldCopyTestIdButton": {
-      "types": "./dist/partials/FieldCopyTestIdButton/index.d.ts",
-      "import": "./dist/partials/FieldCopyTestIdButton/index.js",
-      "require": "./dist/partials/FieldCopyTestIdButton/index.cjs"
+      "require": "./dist/partials/FieldCopyTestIdButton/index.cjs",
+      "import": "./dist/partials/FieldCopyTestIdButton/index.js"
     },
     "./partials/FieldValidationError": {
-      "types": "./dist/partials/FieldValidationError/index.d.ts",
-      "import": "./dist/partials/FieldValidationError/index.js",
-      "require": "./dist/partials/FieldValidationError/index.cjs"
+      "require": "./dist/partials/FieldValidationError/index.cjs",
+      "import": "./dist/partials/FieldValidationError/index.js"
     },
     "./RadioBoxes": {
-      "types": "./dist/RadioBoxes/index.d.ts",
-      "import": "./dist/RadioBoxes/index.js",
-      "require": "./dist/RadioBoxes/index.cjs"
+      "require": "./dist/RadioBoxes/index.cjs",
+      "import": "./dist/RadioBoxes/index.js"
     },
     "./Radios": {
-      "types": "./dist/Radios/index.d.ts",
-      "import": "./dist/Radios/index.js",
-      "require": "./dist/Radios/index.cjs"
+      "require": "./dist/Radios/index.cjs",
+      "import": "./dist/Radios/index.js"
     },
     "./RadioTabs": {
-      "types": "./dist/RadioTabs/index.d.ts",
-      "import": "./dist/RadioTabs/index.js",
-      "require": "./dist/RadioTabs/index.cjs"
+      "require": "./dist/RadioTabs/index.cjs",
+      "import": "./dist/RadioTabs/index.js"
     },
     "./Select": {
-      "types": "./dist/Select/index.d.ts",
-      "import": "./dist/Select/index.js",
-      "require": "./dist/Select/index.cjs"
+      "require": "./dist/Select/index.cjs",
+      "import": "./dist/Select/index.js"
     },
     "./Slider": {
-      "types": "./dist/Slider/index.d.ts",
-      "import": "./dist/Slider/index.js",
-      "require": "./dist/Slider/index.cjs"
+      "require": "./dist/Slider/index.cjs",
+      "import": "./dist/Slider/index.js"
     },
     "./SubmitButton": {
-      "types": "./dist/SubmitButton/index.d.ts",
-      "import": "./dist/SubmitButton/index.js",
-      "require": "./dist/SubmitButton/index.cjs"
+      "require": "./dist/SubmitButton/index.cjs",
+      "import": "./dist/SubmitButton/index.js"
     },
     "./Switch": {
-      "types": "./dist/Switch/index.d.ts",
-      "import": "./dist/Switch/index.js",
-      "require": "./dist/Switch/index.cjs"
+      "require": "./dist/Switch/index.cjs",
+      "import": "./dist/Switch/index.js"
     },
     "./SwitchBox": {
-      "types": "./dist/SwitchBox/index.d.ts",
-      "import": "./dist/SwitchBox/index.js",
-      "require": "./dist/SwitchBox/index.cjs"
+      "require": "./dist/SwitchBox/index.cjs",
+      "import": "./dist/SwitchBox/index.js"
     },
     "./TextArea": {
-      "types": "./dist/TextArea/index.d.ts",
-      "import": "./dist/TextArea/index.js",
-      "require": "./dist/TextArea/index.cjs"
-    }
+      "require": "./dist/TextArea/index.cjs",
+      "import": "./dist/TextArea/index.js"
+    },
+    "./package.json": "./package.json"
   },
   "files": [
     "dist"
@@ -167,7 +140,7 @@
     "url": "https://github.com/fuf-stack/pixels/issues"
   },
   "scripts": {
-    "build": "tsup --config node_modules/@repo/tsup-config/config.ts",
+    "build": "tsdown",
     "prepack": "pnpm build",
     "test": "vitest ./src"
   },

@@ -1,7 +1,6 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { slugify } from '@fuf-stack/pixel-utils';
-// TODO: not sure why we have to import veto src here
 import v, {
   and,
   array,
@@ -9,7 +8,7 @@ import v, {
   object,
   refineArray,
   string,
-} from '@fuf-stack/veto/src/index';
+} from '@fuf-stack/veto';
 
 import { flatArrayKey } from '../../helpers';
 import { checkFieldIsRequired, useFormContext } from './useFormContext';

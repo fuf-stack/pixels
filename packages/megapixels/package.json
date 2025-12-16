@@ -8,19 +8,18 @@
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "types": "./dist/index.d.cts",
   "sideEffects": false,
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.js"
     },
     "./Filter": {
-      "types": "./dist/Filter/index.d.ts",
-      "import": "./dist/Filter/index.js",
-      "require": "./dist/Filter/index.cjs"
-    }
+      "require": "./dist/Filter/index.cjs",
+      "import": "./dist/Filter/index.js"
+    },
+    "./package.json": "./package.json"
   },
   "files": [
     "dist"
@@ -37,7 +36,7 @@
     "url": "https://github.com/fuf-stack/pixels/issues"
   },
   "scripts": {
-    "build": "tsup --config node_modules/@repo/tsup-config/config.ts",
+    "build": "tsdown",
     "prepack": "pnpm build",
     "test": "vitest ./src"
   },

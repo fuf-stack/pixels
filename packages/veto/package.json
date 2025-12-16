@@ -3,9 +3,22 @@
   "description": "fuf schema validation library",
   "author": "Fröhlich ∧ Frei",
   "version": "0.12.7",
-  "main": "dist/index.js",
-  "module": "dist/index.mjs",
-  "types": "dist/index.d.ts",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.cts",
+  "sideEffects": [
+    "./src/errorMap.ts",
+    "./dist/index.js",
+    "./dist/index.cjs"
+  ],
+  "exports": {
+    ".": {
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
   "files": [
     "dist"
   ],
@@ -27,8 +40,8 @@
     "url": "https://github.com/fuf-stack/pixels/issues"
   },
   "scripts": {
-    "build": "tsx scripts/build-with-types.ts",
-    "dev": "tsup --watch",
+    "build": "tsdown",
+    "prepack": "pnpm build",
     "test": "vitest ./src"
   },
   "dependencies": {
