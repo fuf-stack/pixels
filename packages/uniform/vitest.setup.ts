@@ -3,10 +3,11 @@
 
 import '@testing-library/jest-dom/vitest';
 
+import { afterEach, beforeEach, vi } from 'vitest';
+
 import { act } from 'react';
 
 import { cleanup } from '@testing-library/react';
-import { afterEach, beforeEach, vi } from 'vitest';
 
 /**
  * Test log suppression patterns.
