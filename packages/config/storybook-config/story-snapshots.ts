@@ -5,9 +5,10 @@
 /* eslint-disable import-x/no-extraneous-dependencies */
 import type { Meta, StoryFn } from '@storybook/react-vite';
 
-import { expect, test } from 'vitest';
+import { afterEach, expect, test } from 'vitest';
 
 import { composeStories } from '@storybook/react-vite';
+import { cleanup } from '@testing-library/react';
 
 // Custom snapshot serializer to normalize React Aria IDs
 // Handles both old format (e.g., «r1», «r1a») and new format after React 19 (e.g., _r_1a_, _r_1k_)
@@ -31,7 +32,7 @@ expect.addSnapshotSerializer({
 // Make StoryFile generic to accept component props
 interface StoryFile<TProps = any> {
   default: Meta<TProps>;
-  // eslint-disable-next-line @typescript-eslint/no-redundant-type-constituents
+
   [name: string]: StoryFn<TProps> | Meta<TProps>;
 }
 
@@ -76,6 +77,11 @@ const storySnapshots = <TProps extends Record<string, any>>(
   storyFile: StoryFile<TProps>,
 ) => {
   ensurePrefersReducedMotion();
+
+  // Clean up React components after each test to prevent
+  // "window is not defined" errors from pending async work
+  afterEach(cleanup);
+
   const stories = Object.entries(compose(storyFile)).map(([name, story]) => {
     return {
       name,
