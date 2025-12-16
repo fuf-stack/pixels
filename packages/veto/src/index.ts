@@ -4,6 +4,12 @@ import { veto } from './veto';
 // import error map for side effect (sets custom zod error messages)
 import './errorMap';
 
+// Re-export all TYPES from zod (ParseContext, RefinementCtx, ZodString, etc.)
+// so downstream consumers can access them without needing zod as a direct dependency.
+// Using `export type *` ensures we only export types, not runtime values,
+// which would otherwise overwrite veto's customized functions (string, object, etc.).
+export type * from 'zod';
+
 // export veto ts types
 export type * from './types';
 export type * from './vInfer';
