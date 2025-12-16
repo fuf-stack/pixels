@@ -15,6 +15,21 @@ interface StringCommonTestOptions {
   shouldAllow?: string[];
 }
 
+/**
+ * Helper to get the first error from a field, handling both array format
+ * and _errors wrapper format (for object-like types)
+ */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const getFirstError = (fieldErrors: any) => {
+  if (Array.isArray(fieldErrors)) {
+    return fieldErrors[0];
+  }
+  if (fieldErrors?._errors && Array.isArray(fieldErrors._errors)) {
+    return fieldErrors._errors[0];
+  }
+  return undefined;
+};
+
 export const stringCommon = (
   vSchema: VetoSchema,
   options: StringCommonTestOptions,
@@ -25,20 +40,18 @@ export const stringCommon = (
     // @ts-expect-error we are testings for this
     const result = v(vSchema).validate(undefined) as VetoError;
     expect(result).toHaveProperty('success', false);
-    expect(result.errors[stringFieldName][0].code).toBe('invalid_type');
-    expect(result.errors[stringFieldName][0].message).toMatch(
-      'Field is required',
-    );
+    const firstError = getFirstError(result.errors[stringFieldName]);
+    expect(firstError?.code).toBe('invalid_type');
+    expect(firstError?.message).toMatch('Field is required');
   });
 
   it(`${stringFieldName} => rejects null input`, () => {
     // @ts-expect-error we are testings for this
     const result = v(vSchema).validate(null) as VetoError;
     expect(result).toHaveProperty('success', false);
-    expect(result.errors[stringFieldName][0].code).toBe('invalid_type');
-    expect(result.errors[stringFieldName][0].message).toMatch(
-      'Field is required',
-    );
+    const firstError = getFirstError(result.errors[stringFieldName]);
+    expect(firstError?.code).toBe('invalid_type');
+    expect(firstError?.message).toMatch('Field is required');
   });
 
   NON_STRING_INPUTS.forEach((value) => {
@@ -46,10 +59,10 @@ export const stringCommon = (
       const result = v(vSchema).validate({ [stringFieldName]: value });
       expect(result).toHaveProperty('success', false);
       const { errors } = result as VetoError;
-      expect(errors[stringFieldName][0].code).toBe('invalid_type');
-      expect(errors[stringFieldName][0].message).toMatch(
-        'Expected string, received',
-      );
+      const firstError = getFirstError(errors[stringFieldName]);
+      expect(firstError?.code).toBe('invalid_type');
+      // Zod v4 message format: "Invalid input: expected string, received X"
+      expect(firstError?.message).toMatch(/expected string/i);
     });
   });
 
@@ -59,11 +72,10 @@ export const stringCommon = (
       expect(result).toHaveProperty('success', false);
 
       const { errors } = result as VetoError;
-      expect(errors[stringFieldName][0].code).toBe('custom');
+      const firstError = getFirstError(errors[stringFieldName]);
+      expect(firstError?.code).toBe('custom');
       if (options.shouldRejectMessageStart) {
-        expect(errors[stringFieldName][0].message).toMatch(
-          options.shouldRejectMessageStart,
-        );
+        expect(firstError?.message).toMatch(options.shouldRejectMessageStart);
       }
     });
   });

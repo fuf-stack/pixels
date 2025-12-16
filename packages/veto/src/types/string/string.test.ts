@@ -32,9 +32,8 @@ it('expects min length of 1 by default', () => {
         {
           code: 'too_small',
           inclusive: true,
-          message: 'String must contain at least 1 character(s)',
+          message: 'Too small: expected string to have >=1 characters',
           minimum: 1,
-          type: 'string',
         },
       ],
     },
@@ -51,9 +50,8 @@ it('option min changes expected length', () => {
         {
           code: 'too_small',
           inclusive: true,
-          message: 'String must contain at least 100 character(s)',
+          message: 'Too small: expected string to have >=100 characters',
           minimum: 100,
-          type: 'string',
         },
       ],
     },
@@ -70,9 +68,8 @@ it('option mix is checked after whitespace is trimmed', () => {
         {
           code: 'too_small',
           inclusive: true,
-          message: 'String must contain at least 5 character(s)',
+          message: 'Too small: expected string to have >=5 characters',
           minimum: 5,
-          type: 'string',
         },
       ],
     },

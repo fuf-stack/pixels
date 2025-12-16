@@ -34,8 +34,8 @@ it('rejects non-record value', () => {
         _errors: [
           {
             code: 'invalid_type',
-            expected: 'object',
-            message: 'Expected object, received array',
+            expected: 'record',
+            message: 'Invalid input: expected record, received array',
             received: 'array',
           },
         ],
@@ -60,7 +60,7 @@ it('rejects invalid value types in record', () => {
           {
             code: 'invalid_type',
             expected: 'string',
-            message: 'Expected string, received number',
+            message: 'Invalid input: expected string, received number',
             received: 'number',
           },
         ],
@@ -117,7 +117,7 @@ it('rejects record with mixed valid and invalid values', () => {
           {
             code: 'invalid_type',
             expected: 'string',
-            message: 'Expected string, received number',
+            message: 'Invalid input: expected string, received number',
             received: 'number',
           },
         ],
@@ -125,7 +125,7 @@ it('rejects record with mixed valid and invalid values', () => {
           {
             code: 'invalid_type',
             expected: 'string',
-            message: 'Expected string, received boolean',
+            message: 'Invalid input: expected string, received boolean',
             received: 'boolean',
           },
         ],

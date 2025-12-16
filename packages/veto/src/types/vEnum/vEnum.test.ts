@@ -11,11 +11,9 @@ it('rejects invalid enum value', () => {
     errors: {
       enumField: [
         {
-          code: 'invalid_enum_value',
-          message:
-            "Invalid enum value. Expected 'ONE' | 'TWO', received 'THREE'",
-          options: ['ONE', 'TWO'],
-          received: 'THREE',
+          code: 'invalid_value',
+          message: 'Invalid option: expected one of "ONE"|"TWO"',
+          values: ['ONE', 'TWO'],
         },
       ],
     },

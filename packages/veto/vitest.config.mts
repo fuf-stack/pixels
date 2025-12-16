@@ -8,4 +8,3 @@ export default mergeConfig(projectConfig, {
     clearMocks: true,
   },
 });
-

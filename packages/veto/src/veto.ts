@@ -8,7 +8,6 @@ import type {
   VetoSchema,
   VetoSuccess,
   VetoTypeAny,
-  VetoUnformattedError,
 } from './types';
 import type { vInfer } from './vInfer';
 
@@ -24,12 +23,7 @@ import { issueCodes } from './issueCodes';
 /**
  * Constants for error handling and validation
  */
-const OBJECT_LIKE_TYPES = [
-  'array',
-  'discriminatedUnion',
-  'object',
-  'record',
-] as const;
+const OBJECT_LIKE_TYPES = ['array', 'object'] as const;
 
 type ObjectLikeType = (typeof OBJECT_LIKE_TYPES)[number];
 
@@ -47,48 +41,201 @@ const checkIsObjectLikeError = (
   schema: VetoTypeAny,
   errorPath?: (string | number)[],
 ) => {
-  // TODO: improve documentation what this does
-  return checkSerializedSchemaPath(
-    schema,
-    (pathType) => {
-      // check if type is object like
-      if (isObjectLikeType(pathType?.type)) {
-        return true;
-      }
-      // check if left or right type of
-      // intersection is object like
-      if (pathType?.type === 'intersection') {
-        return (
-          isObjectLikeType(pathType.left.type) ||
-          isObjectLikeType(pathType.right.type)
-        );
-      }
-      // otherwise type is not object like and
-      // _error level can be removed
-      return false;
-    },
-    errorPath || undefined,
-  );
+  try {
+    return checkSerializedSchemaPath(
+      schema,
+      (pathType) => {
+        // check if type is object like
+        if (isObjectLikeType(pathType?.type)) {
+          return true;
+        }
+        // check if anyOf (union) contains object-like types
+        if (pathType?.anyOf && Array.isArray(pathType.anyOf)) {
+          return pathType.anyOf.some((option: { type?: string }) => {
+            return isObjectLikeType(option?.type);
+          });
+        }
+        // check if oneOf (discriminatedUnion in Zod v4) contains object-like types
+        if (pathType?.oneOf && Array.isArray(pathType.oneOf)) {
+          return pathType.oneOf.some((option: { type?: string }) => {
+            return isObjectLikeType(option?.type);
+          });
+        }
+        // check if allOf (intersection) contains object-like types
+        if (pathType?.allOf && Array.isArray(pathType.allOf)) {
+          return pathType.allOf.some((s: { type?: string }) => {
+            return isObjectLikeType(s?.type);
+          });
+        }
+        // otherwise type is not object like and
+        // _error level can be removed
+        return false;
+      },
+      errorPath || undefined,
+    );
+  } catch {
+    // If schema serialization fails, default to keeping _errors wrapper
+    // for safety (object-like behavior)
+    return true;
+  }
+};
+
+/**
+ * Get the type name for a value (similar to Zod v3's received property)
+ * @param value - Value to get type for
+ * @returns Type name string
+ */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const getReceivedType = (value: any): string => {
+  if (value === null) {
+    return 'null';
+  }
+  if (value === undefined) {
+    return 'undefined';
+  }
+  if (Array.isArray(value)) {
+    return 'array';
+  }
+  if (value instanceof Date) {
+    return 'date';
+  }
+  if (value instanceof Map) {
+    return 'map';
+  }
+  if (value instanceof Set) {
+    return 'set';
+  }
+  if (typeof value === 'object') {
+    return 'object';
+  }
+  return typeof value; // 'string', 'number', 'boolean', 'bigint', 'symbol', 'function'
 };
 
 /**
  * Formats single zod error to veto error format
- * @param zodError - The Zod error to format
+ * @param zodIssue - The Zod issue to format
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const formatVetoError = (zodError: any) => {
-  let errorFormatted = zodError;
+const formatVetoError = (zodIssue: any) => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const { path, input, ...errorFormatted } = zodIssue;
 
-  // move params of of custom errors to top level (remove params)
-  if (zodError.code === issueCodes.custom && zodError.params) {
-    const { params, ...rest } = zodError;
-    errorFormatted = { ...rest, ...params };
+  // For invalid_type errors, add the received type (Zod v4 compatibility)
+  // This maintains backwards compatibility with Zod v3's received property
+  if (zodIssue.code === issueCodes.invalid_type && 'input' in zodIssue) {
+    errorFormatted.received = getReceivedType(input);
   }
 
-  // remove _errorPath from formatted error
-  delete errorFormatted._errorPath;
+  // move params of custom errors to top level (remove params)
+  if (zodIssue.code === issueCodes.custom && zodIssue.params) {
+    const { params, ...rest } = errorFormatted;
+    return { ...rest, ...params };
+  }
 
   return errorFormatted;
+};
+
+/**
+ * Helper to set a value at a nested path in an object
+ */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const setNestedValue = (obj: any, path: (string | number)[], value: any) => {
+  let current = obj;
+  for (let i = 0; i < path.length - 1; i++) {
+    const key = path[i];
+    if (!(key in current)) {
+      current[key] = { _errors: [] };
+    } else if (!current[key]._errors) {
+      // Ensure _errors array exists
+      current[key]._errors = [];
+    }
+    current = current[key];
+  }
+  const lastKey = path[path.length - 1];
+  if (!current[lastKey]) {
+    current[lastKey] = { _errors: [] };
+  } else if (!current[lastKey]._errors) {
+    current[lastKey]._errors = [];
+  }
+  current[lastKey]._errors.push(value);
+};
+
+/**
+ * Recursively transforms the error structure, removing _errors wrapper
+ * for non-object-like types
+ * @param value - Current error object to transform
+ * @param schema - Schema to check against
+ * @param currentPath - Current path in the error structure
+ */
+const transformErrorValue = (
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  value: any,
+  schema: VetoSchema,
+  currentPath: (string | number)[] = [],
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+): any => {
+  // Return primitives unchanged
+  if (!value || typeof value !== 'object') {
+    return value;
+  }
+
+  // Handle arrays
+  if (Array.isArray(value)) {
+    return value;
+  }
+
+  // Check if this is an error node (has _errors)
+  const hasErrors = '_errors' in value && Array.isArray(value._errors);
+  const nonErrorKeys = Object.keys(value).filter((k) => {
+    return k !== '_errors';
+  });
+  const hasOtherValues = nonErrorKeys.length > 0;
+
+  // First, recursively transform children
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const transformedChildren: Record<string, any> = {};
+  for (const key of nonErrorKeys) {
+    transformedChildren[key] = transformErrorValue(value[key], schema, [
+      ...currentPath,
+      key,
+    ]);
+  }
+
+  // If no _errors, just return transformed children
+  if (!hasErrors) {
+    return Object.keys(transformedChildren).length > 0
+      ? transformedChildren
+      : value;
+  }
+
+  // Handle _errors
+  const errors = value._errors;
+
+  // Remove empty _errors
+  if (!errors.length) {
+    return hasOtherValues ? transformedChildren : undefined;
+  }
+
+  // Check if current path corresponds to object-like type
+  const isObjectLike = checkIsObjectLikeError(
+    schema as VetoTypeAny,
+    currentPath.length > 0 ? currentPath : undefined,
+  );
+
+  // If object-like, keep _errors wrapper; otherwise return just the array
+  if (isObjectLike) {
+    return hasOtherValues
+      ? { ...transformedChildren, _errors: errors }
+      : { _errors: errors };
+  }
+
+  // For non-object-like types, return just the errors array
+  // But if there are other values (nested errors), we need to merge
+  if (hasOtherValues) {
+    return { ...transformedChildren, _errors: errors };
+  }
+
+  return errors;
 };
 
 /**
@@ -99,53 +246,31 @@ const formatVetoError = (zodError: any) => {
  * @returns Formatted veto error object
  */
 const formatError = (
-  error: VetoUnformattedError,
+  error: z.ZodError,
   schema: VetoSchema,
 ): VetoFormattedError => {
-  // create zod formatted error
-  // see: https://zod.dev/ERROR_HANDLING?id=formatting-errors
-  const errorFormattedZod = error.format(
-    // rename error path to _errorPath in issue
-    ({ path: _errorPath, ...issue }) => {
-      return { _errorPath, ...issue };
-    },
-  );
-
+  // Build the error structure from issues
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const errorReplacer = (_key: string, value: any) => {
-    // check if value has _error and return unchanged
-    // value otherwise
-    if (
-      !value ||
-      typeof value !== 'object' ||
-      Array.isArray(value) ||
-      !value._errors ||
-      !Array.isArray(value._errors)
-    ) {
-      return value;
-    }
+  const result: any = { _errors: [] };
 
-    const nonErrorKeys = Object.keys(value).filter((k) => {
-      return k !== '_errors';
+  for (const issue of error.issues) {
+    const formattedError = formatVetoError(issue);
+    // In Zod v4, path is PropertyKey[] - filter out symbols and cast
+    const path = issue.path.filter((p): p is string | number => {
+      return typeof p === 'string' || typeof p === 'number';
     });
-    const hasOtherValues = nonErrorKeys.length > 0;
 
-    // remove empty _errors
-    if (!value._errors.length) {
-      return hasOtherValues ? { ...value, _errors: undefined } : undefined;
+    if (path.length === 0) {
+      // Root level error
+      result._errors.push(formattedError);
+    } else {
+      // Nested error - build path structure
+      setNestedValue(result, path, formattedError);
     }
+  }
 
-    const errorPath = value._errors[0]._errorPath;
-    const formattedErrors = value._errors.map(formatVetoError);
-
-    // return formatted errors
-    return checkIsObjectLikeError(schema as VetoTypeAny, errorPath)
-      ? { ...value, _errors: formattedErrors }
-      : formattedErrors;
-  };
-
-  // convert zod error format to veto error format with replacer
-  return JSON.parse(JSON.stringify(errorFormattedZod, errorReplacer));
+  // Transform the error structure with path awareness
+  return transformErrorValue(result, schema) as VetoFormattedError;
 };
 
 /**
@@ -171,11 +296,16 @@ export const veto = <T extends VetoSchema>(
   const validate = <InputType extends VetoInput>(
     input: InputType,
   ): VetoError | VetoSuccess<SchemaType> => {
-    const result = vSchema.safeParse({
-      // add defaults to input when defined
-      ...(options?.defaults || {}),
-      ...input,
-    });
+    const result = vSchema.safeParse(
+      {
+        // add defaults to input when defined
+        ...(options?.defaults || {}),
+        ...input,
+      },
+      // Enable reportInput so we can compute 'received' type for invalid_type errors
+      // The actual input value is stripped from the formatted output for security
+      { reportInput: true },
+    );
 
     // error result
     if (!result.success) {
@@ -189,7 +319,8 @@ export const veto = <T extends VetoSchema>(
     }
     // success result
     return {
-      ...result,
+      success: true,
+      data: result.data as SchemaType,
       // error is always null on success
       errors: null,
     };
@@ -198,11 +329,16 @@ export const veto = <T extends VetoSchema>(
   const validateAsync = async <InputType extends VetoInput>(
     input: InputType,
   ): Promise<VetoError | VetoSuccess<SchemaType>> => {
-    const result = await vSchema.safeParseAsync({
-      // add defaults to input when defined
-      ...(options?.defaults || {}),
-      ...input,
-    });
+    const result = await vSchema.safeParseAsync(
+      {
+        // add defaults to input when defined
+        ...(options?.defaults || {}),
+        ...input,
+      },
+      // Enable reportInput so we can compute 'received' type for invalid_type errors
+      // The actual input value is stripped from the formatted output for security
+      { reportInput: true },
+    );
 
     // error result
     if (!result.success) {
@@ -216,7 +352,8 @@ export const veto = <T extends VetoSchema>(
     }
     // success result
     return {
-      ...result,
+      success: true,
+      data: result.data as SchemaType,
       // error is always null on success
       errors: null,
     };

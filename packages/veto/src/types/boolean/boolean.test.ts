@@ -13,7 +13,7 @@ it('rejects non-boolean value', () => {
         {
           code: 'invalid_type',
           expected: 'boolean',
-          message: 'Expected boolean, received string',
+          message: 'Invalid input: expected boolean, received string',
           received: 'string',
         },
       ],

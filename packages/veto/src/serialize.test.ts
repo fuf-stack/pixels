@@ -1,4 +1,4 @@
-import type { SzType } from 'zodex';
+import type { JSONSchema } from './serialize';
 
 import { describe, expect, it } from 'vitest';
 
@@ -13,7 +13,7 @@ describe('checkSerializedSchemaPath', () => {
       age: z.number(),
     });
 
-    const isStringType = (type: SzType | null) => type?.type === 'string';
+    const isStringType = (type: JSONSchema | null) => type?.type === 'string';
 
     expect(checkSerializedSchemaPath(schema, isStringType, ['name'])).toBe(
       true,
@@ -32,7 +32,7 @@ describe('checkSerializedSchemaPath', () => {
       }),
     });
 
-    const isStringType = (type: SzType | null) => type?.type === 'string';
+    const isStringType = (type: JSONSchema | null) => type?.type === 'string';
 
     expect(
       checkSerializedSchemaPath(schema, isStringType, [
@@ -52,8 +52,8 @@ describe('checkSerializedSchemaPath', () => {
       matrix: z.array(z.array(z.number())),
     });
 
-    const isStringType = (type: SzType | null) => type?.type === 'string';
-    const isNumberType = (type: SzType | null) => type?.type === 'number';
+    const isStringType = (type: JSONSchema | null) => type?.type === 'string';
+    const isNumberType = (type: JSONSchema | null) => type?.type === 'number';
 
     expect(checkSerializedSchemaPath(schema, isStringType, ['items', 0])).toBe(
       true,
@@ -69,7 +69,7 @@ describe('checkSerializedSchemaPath', () => {
       z.object({ type: z.literal('admin'), role: z.string() }),
     ]);
 
-    const isStringType = (type: SzType | null) => type?.type === 'string';
+    const isStringType = (type: JSONSchema | null) => type?.type === 'string';
 
     expect(checkSerializedSchemaPath(schema, isStringType, ['name'])).toBe(
       true,
@@ -83,7 +83,7 @@ describe('checkSerializedSchemaPath', () => {
     const baseSchema = z.object({ id: z.string() });
     const extendedSchema = baseSchema.extend({ name: z.string() });
 
-    const isStringType = (type: SzType | null) => type?.type === 'string';
+    const isStringType = (type: JSONSchema | null) => type?.type === 'string';
 
     expect(
       checkSerializedSchemaPath(extendedSchema, isStringType, ['id']),
@@ -95,10 +95,10 @@ describe('checkSerializedSchemaPath', () => {
 
   it('handles record schemas', () => {
     const schema = z.object({
-      metadata: z.record(z.string()),
+      metadata: z.record(z.string(), z.string()),
     });
 
-    const isStringType = (type: SzType | null) => type?.type === 'string';
+    const isStringType = (type: JSONSchema | null) => type?.type === 'string';
 
     expect(
       checkSerializedSchemaPath(schema, isStringType, ['metadata', 'anyKey']),
@@ -112,7 +112,7 @@ describe('checkSerializedSchemaPath', () => {
 
     // Helper to show the actual result for debugging
     const debugPath = (path: (string | number)[]) => {
-      const isStringType = (type: SzType | null) => type?.type === 'string';
+      const isStringType = (type: JSONSchema | null) => type?.type === 'string';
       return checkSerializedSchemaPath(schema, isStringType, path);
     };
 
@@ -133,7 +133,7 @@ describe('checkSerializedSchemaPath', () => {
       tags: z.array(z.string()),
     });
 
-    const isStringType = (type: SzType | null) => type?.type === 'string';
+    const isStringType = (type: JSONSchema | null) => type?.type === 'string';
 
     // Valid paths
     expect(
@@ -164,13 +164,13 @@ describe('checkSerializedSchemaPath', () => {
       name: z.string(),
     });
 
-    const isObjectType = (type: SzType | null) => type?.type === 'object';
+    const isObjectType = (type: JSONSchema | null) => type?.type === 'object';
 
     expect(checkSerializedSchemaPath(schema, isObjectType)).toBe(true);
   });
 
   it('handles null schema input', () => {
-    const isAnyType = (_type: SzType | null) => true;
+    const isAnyType = (_type: JSONSchema | null) => true;
     // @ts-expect-error Testing null input
     expect(checkSerializedSchemaPath(null, isAnyType)).toBe(false);
   });
@@ -181,6 +181,7 @@ describe('checkSerializedSchemaPath', () => {
         z.object({
           details: z.object({
             contacts: z.record(
+              z.string(),
               z.object({
                 value: z.string(),
               }),
@@ -190,7 +191,7 @@ describe('checkSerializedSchemaPath', () => {
       ),
     });
 
-    const isStringType = (type: SzType | null) => type?.type === 'string';
+    const isStringType = (type: JSONSchema | null) => type?.type === 'string';
 
     expect(
       checkSerializedSchemaPath(schema, isStringType, [

@@ -20,8 +20,16 @@ export const checkFieldIsRequired = (
     path[path.length - 1] === flatArrayKey ? path.slice(0, -1) : path;
 
   const checkRequired = (schema: any) => {
+    // Helper to check if type includes 'array'
+    // Handles: "array", ["array", "null"], and anyOf unions containing array
+    const isArraySchema =
+      schema.type === 'array' ||
+      (Array.isArray(schema.type) && schema.type.includes('array')) ||
+      (Array.isArray(schema.anyOf) &&
+        schema.anyOf.some((opt: any) => opt.type === 'array'));
+
     // arrays ...
-    if (schema.type === 'array') {
+    if (isArraySchema) {
       // ... if array is optional or nullable it is not required
       if (schema.isOptional || schema.isNullable) {
         return false;

@@ -5,7 +5,6 @@ import type {
   VetoRefinementCtx,
   VetoTypeAny,
 } from 'src/types';
-import type { object as looseObject, strictObject } from 'zod';
 
 import { z } from 'zod';
 
@@ -13,18 +12,13 @@ import { z } from 'zod';
  * strict object
  * @see https://zod.dev/?id=strict
  */
-export const object = <T extends VetoRawShape>(schema: T): VObjectSchema<T> => {
-  return (
-    z
-      .object(schema)
-      // expect objects to be strict (disallow unknown keys)
-      .strict()
-  );
+export const object = <T extends VetoRawShape>(schema: T) => {
+  return z.object(schema).strict();
 };
 
 export type VObject = typeof object;
 export type VObjectSchema<T extends VetoRawShape> = ReturnType<
-  typeof strictObject<T>
+  typeof object<T>
 >;
 
 /** when used with refine or superRefine */
@@ -36,15 +30,13 @@ export type VObjectRefined<T extends VetoRawShape> = VetoEffects<
  * loose object
  * @see https://zod.dev/?id=objects
  */
-export const objectLoose = <T extends VetoRawShape>(
-  schema: T,
-): VObjectLooseSchema<T> => {
+export const objectLoose = <T extends VetoRawShape>(schema: T) => {
   return z.object(schema);
 };
 
 export type VObjectLoose = typeof objectLoose;
 export type VObjectLooseSchema<T extends VetoRawShape> = ReturnType<
-  typeof looseObject<T>
+  typeof objectLoose<T>
 >;
 
 /** when used with refine or superRefine */
@@ -99,13 +91,12 @@ export const refineObject = <T extends RefineObjectInputObject>(schema: T) => {
   return (
     refinements: VObjectRefinements,
   ): VetoEffects<VObjectSchema<Shape>> => {
-    // Add custom refinement
-    const _schema = z.preprocess((val, ctx) => {
+    // Add custom refinement using superRefine instead of preprocess
+    const _schema = schema.superRefine((val, ctx) => {
       if (val && typeof val === 'object' && !Array.isArray(val)) {
-        refinements.custom(val as Record<string, unknown>, ctx);
+        refinements.custom(val, ctx);
       }
-      return val;
-    }, schema) as VetoEffects<VObjectSchema<Shape>>;
+    }) as unknown as VetoEffects<VObjectSchema<Shape>>;
 
     return _schema;
   };
