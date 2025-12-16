@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/fuf-stack/pixels/compare/pixel-utils-v1.0.6...pixel-utils-v1.1.0) (2025-12-16)
+
+
+### Features
+
+* use tsdown for bundling ([7a701c4](https://github.com/fuf-stack/pixels/commit/7a701c4eaa3601a438487b2e89bcb682381f4157))
+
 ## [1.0.6](https://github.com/fuf-stack/pixels/compare/pixel-utils-v1.0.5...pixel-utils-v1.0.6) (2025-11-11)
 
 

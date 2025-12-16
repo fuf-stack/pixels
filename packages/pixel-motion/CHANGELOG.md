@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.1.0](https://github.com/fuf-stack/pixels/compare/pixel-motion-v1.0.26...pixel-motion-v1.1.0) (2025-12-16)
+
+
+### Features
+
+* use tsdown for bundling ([7a701c4](https://github.com/fuf-stack/pixels/commit/7a701c4eaa3601a438487b2e89bcb682381f4157))
+
+
+### Bug Fixes
+
+* **deps:** update dependency framer-motion to v12.23.25 ([#1391](https://github.com/fuf-stack/pixels/issues/1391)) ([af043bc](https://github.com/fuf-stack/pixels/commit/af043bc846fa7a5964cd700b93dea9670bc22329))
+
 ## [1.0.26](https://github.com/fuf-stack/pixels/compare/pixel-motion-v1.0.25...pixel-motion-v1.0.26) (2025-10-24)
 
 

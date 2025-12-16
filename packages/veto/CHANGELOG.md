@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.13.0](https://github.com/fuf-stack/pixels/compare/veto-v0.12.7...veto-v0.13.0) (2025-12-16)
+
+
+### Features
+
+* use tsdown for bundling ([7a701c4](https://github.com/fuf-stack/pixels/commit/7a701c4eaa3601a438487b2e89bcb682381f4157))
+
 ## [0.12.7](https://github.com/fuf-stack/pixels/compare/veto-v0.12.6...veto-v0.12.7) (2025-11-12)
 
 
