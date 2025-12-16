@@ -3,9 +3,10 @@
 
 import '@testing-library/jest-dom/vitest';
 
-import { beforeEach, vi } from 'vitest';
+import { act } from 'react';
 
 import { cleanup } from '@testing-library/react';
+import { afterEach, beforeEach, vi } from 'vitest';
 
 /**
  * Test log suppression patterns.
@@ -35,6 +36,20 @@ beforeEach(() => {
   // 2. Using portal-based components that render outside React's tree
   // 3. Testing components that manipulate DOM elements directly
   document.body.innerHTML = '';
+});
+
+// React 19's scheduler uses setImmediate/MessageChannel for async work.
+// After cleanup(), pending scheduler callbacks can fire after jsdom is torn down,
+// causing "window is not defined" errors. This afterEach flushes all pending React work.
+afterEach(async () => {
+  // Use act() to flush any pending React scheduler work
+  await act(async () => {
+    // Wait for multiple event loop ticks to catch all pending setImmediate callbacks
+    await new Promise((resolve) => {
+      setImmediate(resolve);
+    });
+  });
+  cleanup();
 });
 
 // mock react-icons
