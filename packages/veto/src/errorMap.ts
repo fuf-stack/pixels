@@ -27,6 +27,18 @@ z.config({
         }
         return undefined; // Use default error message
 
+      // handle enum/literal fields when empty - show "Field is required" instead of
+      // "Invalid option: expected one of..." when the input is undefined, null, or empty string
+      case issueCodes.invalid_value:
+        if (
+          issue.input === undefined ||
+          issue.input === null ||
+          issue.input === ''
+        ) {
+          return 'Field is required';
+        }
+        return undefined; // Use default error message
+
       default:
         // Return undefined to use default message
         return undefined;

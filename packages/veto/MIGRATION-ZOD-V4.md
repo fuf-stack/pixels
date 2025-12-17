@@ -38,21 +38,32 @@ The issue code `invalid_union_discriminator` has been merged into `invalid_union
 
 ### 4. Refinements Don't Run When Base Validation Fails
 
+> 📖 **Documentation:** This behavior is documented in the
+> [Zod v4 Refinements docs](https://zod.dev/api#refinements) under the `when` parameter:
+> _"By default, refinements don't run if any non-continuable issues have already been encountered.
+> Zod is careful to ensure the type signature of the value is correct before passing it into any refinement functions."_
+
 In Zod v4, `superRefine` callbacks don't execute when the base schema validation fails. This means:
 
 - If you have both type errors and refinement errors, only type errors will appear
 - Custom refinements (like `unique` in arrays) won't run if element validation fails
+- Array `.min()` constraints must pass before `superRefine` runs
 
 **Example:**
 
 ```typescript
-const schema = refineArray(array(object({ name: string() })))({
+const schema = refineArray(array(object({ name: string().min(5) })).min(3))({
   unique: { mapFn: (val) => val?.name },
 });
 
-// If some objects have invalid 'name' fields,
-// the unique refinement won't run in Zod v4
+// The unique refinement will NOT run if:
+// 1. Any 'name' field fails validation (e.g., too short), OR
+// 2. The array has fewer than 3 elements
+
+// All base validations must pass first, then superRefine executes
 ```
+
+**Workaround:** Ensure all base validations pass before expecting refinement errors. In tests, this may require providing valid data for all fields to trigger refinement checks.
 
 ### 5. Error Property Changes
 
@@ -180,6 +191,139 @@ The codemod handles:
 - `z.record()` single-argument calls
 - Error property renames (`type` → `origin`, `received` → `input`)
 - `anyOf` → `anyOf || oneOf` checks
+
+## Future Optimization Opportunities
+
+After the Zod v4 migration is complete, the following areas of veto could potentially be optimized or simplified:
+
+### 1. Error Formatting (`veto.ts`)
+
+**Current state:** Veto has ~150 lines of custom error formatting logic (`formatError`, `transformErrorValue`, `setNestedValue`, etc.)
+
+**Zod v4 provides:**
+
+- `z.treeifyError()` - Nested error structure
+- `z.flattenError()` - Flat field → errors mapping
+- `z.prettifyError()` - Human-readable string
+
+**Consideration:** These only return message strings, not full issue objects. Veto's format includes `code`, `received`, `expected`, `values`, etc. If consumers only use `message`, could simplify. Otherwise, current approach is necessary.
+
+### 2. Schema Serialization (`serialize.ts`)
+
+**Current state:** Custom `serializeSchema()` using `z.toJSONSchema()` with manual annotation for `isOptional`/`isNullable`.
+
+**Zod v4 provides:** Built-in `z.toJSONSchema()` with improved output.
+
+**Consideration:** The manual `isOptional`/`isNullable` annotation is still needed because JSON Schema doesn't explicitly represent these concepts. Could potentially use Zod's metadata system instead.
+
+### 3. Error Map (`errorMap.ts`)
+
+**Current state:** Uses `z.config({ customError: ... })` for global error customization.
+
+**Zod v4 provides:** Same API, already using it.
+
+**Consideration:** Already optimized. Could potentially use Zod's built-in localization (`zod/locales`) for i18n instead of custom messages.
+
+### 4. `refineArray` Unique Check
+
+**Current state:** Uses `superRefine` which doesn't run when base validation fails.
+
+**Zod v4 provides:** The `when` parameter for refinements to control when they run.
+
+**Consideration:** Could use `when` to make unique check run even when array.min() fails:
+
+```typescript
+.refine(uniqueCheck, {
+  when: (payload) => Array.isArray(payload.value),
+})
+```
+
+### 5. Type Re-exports
+
+**Current state:** `export type * from 'zod'` to re-export all Zod types.
+
+**Zod v4 provides:** Cleaner type structure with `z.core` namespace.
+
+**Consideration:** Could use `z.core` types for more precise exports.
+
+### 6. String Format Validators
+
+**Current state:** Uses `z.string().email()`, `z.string().uuid()`, etc.
+
+**Zod v4 provides:** Top-level `z.email()`, `z.uuid()`, etc. (more tree-shakable).
+
+**Consideration:** Could update veto's exports to use top-level formats:
+
+```typescript
+// Instead of
+export const email = () => z.string().email();
+
+// Could use
+export const email = z.email;
+```
+
+### 7. Codecs for Transformations
+
+**Current state:** Uses `.transform()` for data transformations.
+
+**Zod v4 provides:** `z.codec()` for bidirectional transformations.
+
+**Consideration:** If veto needs encode/decode functionality (e.g., date ↔ string), codecs would be cleaner.
+
+### 8. `.superRefine()` vs `.check()` API
+
+**Current state:** Uses `.superRefine()` in `refineArray` for custom validations.
+
+**Zod v4 provides:** A new `.check()` API that's more performant but lower-level.
+
+```typescript
+// superRefine (current)
+z.string().superRefine((val, ctx) => {
+  if (val.length < 5) {
+    ctx.addIssue({ code: 'custom', message: 'Too short' });
+  }
+});
+
+// check (Zod v4) - more verbose but faster
+z.string().check((val, ctx) => {
+  if (val.length < 5) {
+    ctx.issues.push({ code: 'custom', message: 'Too short', input: val });
+  }
+});
+```
+
+**Consideration:** `.check()` is faster because it doesn't wrap the callback. Could use in performance-critical paths. However, `.superRefine()` is cleaner for most use cases.
+
+### 9. `message` vs `error` Parameter
+
+**Current state:** May use `message` parameter for error customization in some places.
+
+**Zod v4 change:** The `message` parameter is deprecated in favor of `error`:
+
+```typescript
+// Deprecated (Zod v3 style)
+z.string().min(5, { message: 'Too short' });
+
+// Recommended (Zod v4)
+z.string().min(5, { error: 'Too short' });
+
+// error can also be a function for dynamic messages
+z.string().min(5, { error: (issue) => `Got ${issue.input}, need 5+ chars` });
+```
+
+**Consideration:** Should update all veto helpers and examples to use `error` instead of `message`. The `message` parameter still works but is deprecated.
+
+### Priority Recommendations
+
+| Optimization                  | Impact | Effort | Priority                   |
+| ----------------------------- | ------ | ------ | -------------------------- |
+| `message` → `error` param     | Low    | Low    | Should do (deprecated)     |
+| String formats to top-level   | Low    | Low    | Nice to have               |
+| `when` param for refineArray  | Medium | Medium | Consider                   |
+| `.superRefine()` → `.check()` | Low    | Medium | Only for perf-critical     |
+| Simplify error format         | High   | High   | Only if breaking change OK |
+| Use codecs                    | Low    | Medium | Only if needed             |
+| i18n with zod/locales         | Medium | Medium | Consider for future        |
 
 ## Resources
 
