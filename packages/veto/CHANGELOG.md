@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0-next0](https://github.com/fuf-stack/pixels/compare/veto-v1.0.0-next0...veto-v1.1.0-next0) (2025-12-19)
+
+
+### Features
+
+* **veto:** zod v4 first version ([fbe25b3](https://github.com/fuf-stack/pixels/commit/fbe25b3480440bff1defd2eda5798265e6c04068))
+
 ## [0.13.1](https://github.com/fuf-stack/pixels/compare/veto-v0.13.0...veto-v0.13.1) (2025-12-16)
 
 
