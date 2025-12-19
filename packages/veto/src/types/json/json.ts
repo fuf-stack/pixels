@@ -28,32 +28,8 @@ export interface JsonObject {
  */
 export type JsonAll = Literal | JsonObject | JsonAll[];
 
-/**
- * Represents a single level of JSON schema validation
- * Can be either:
- * - A literal (string, number, boolean, null)
- * - An array containing any valid deep JSON schema
- * - An object with string keys and deep JSON schema values
- */
-type LevelJsonSchema =
-  | typeof literalSchema
-  | z.ZodArray<DeepJsonSchema>
-  | z.ZodRecord<z.ZodString, DeepJsonSchema>;
-
-/**
- * Represents a complete JSON schema that can validate nested structures
- * Extends LevelJsonSchema to include unions of schemas, allowing for
- * validation of deeply nested JSON structures
- */
-type DeepJsonSchema =
-  | LevelJsonSchema
-  | z.ZodUnion<
-      [
-        typeof literalSchema,
-        z.ZodArray<DeepJsonSchema>,
-        z.ZodRecord<z.ZodString, DeepJsonSchema>,
-      ]
-    >;
+// Use z.ZodType for recursive schemas in Zod v4
+type JsonSchema = z.ZodType<JsonAll>;
 
 /**
  * Creates a schema validator for nested JSON structures
@@ -70,18 +46,29 @@ type DeepJsonSchema =
  * const result = schema.parse(validData);
  * ```
  */
-const createDeepJsonSchema = (levels: number) => {
-  let currentDeepSchema: DeepJsonSchema = literalSchema;
+const createDeepJsonSchema = (levels: number): JsonSchema => {
+  // Start with literals as base case
+  let currentSchema: JsonSchema = literalSchema;
 
   for (let i = 0; i < levels; i += 1) {
-    currentDeepSchema = z.union([
+    const prevSchema = currentSchema;
+    currentSchema = z.union([
       literalSchema,
-      z.array(currentDeepSchema),
-      z.record(z.string(), currentDeepSchema),
-    ]);
+      z.array(
+        z.lazy(() => {
+          return prevSchema;
+        }),
+      ),
+      z.record(
+        z.string(),
+        z.lazy(() => {
+          return prevSchema;
+        }),
+      ),
+    ]) as JsonSchema;
   }
 
-  return currentDeepSchema;
+  return currentSchema;
 };
 
 /**
@@ -97,7 +84,7 @@ const createDeepJsonSchema = (levels: number) => {
  * ```
  */
 export const json = (levels = 10) => {
-  return createDeepJsonSchema(levels) as DeepJsonSchema;
+  return createDeepJsonSchema(levels);
 };
 
 /**
@@ -122,7 +109,7 @@ export type VJson = typeof json;
  * ```
  */
 export const jsonObject = (levels = 10) => {
-  return z.record(json(levels), { invalid_type_error: 'Invalid json object' });
+  return z.record(z.string(), json(levels));
 };
 
 /**
@@ -148,7 +135,7 @@ export type VJsonObject = typeof jsonObject;
  * const user = userSchema.parse('{"name":"Alice"}');
  */
 export const stringToJSON = () => {
-  return z.string().transform((str, ctx): z.infer<ReturnType<typeof json>> => {
+  return z.string().transform((str, ctx): JsonAll => {
     try {
       return JSON.parse(str);
     } catch (e) {

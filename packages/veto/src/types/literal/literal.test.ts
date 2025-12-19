@@ -10,9 +10,8 @@ it('rejects non-Literal input', () => {
     errors: {
       literalField: [
         {
-          code: 'invalid_literal',
-          expected: 4,
-          message: 'Invalid literal value, expected 4',
+          code: 'invalid_value',
+          message: 'Invalid input: expected 4',
         },
       ],
     },

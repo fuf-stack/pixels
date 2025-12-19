@@ -1,107 +1,205 @@
-import type { SzType } from 'zodex';
 import type { VetoTypeAny } from './types';
 
-import { zerialize } from 'zodex';
+import { z } from 'zod';
 
-// re-export zodex types
-export type * from 'zodex';
+// JSON Schema type from Zod v4's toJSONSchema
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export type JSONSchema = Record<string, any>;
 
-// Type predicates for checking schema types
-const isArrayType = (
-  type: SzType,
-): type is SzType & {
-  type: 'array';
-  element: SzType;
-} => {
-  return type.type === 'array' && 'element' in type;
+/**
+ * Helper to check if a type includes a specific type name.
+ * Handles both string type (e.g., "array") and array type (e.g., ["array", "null"])
+ */
+const typeIncludes = (
+  jsonSchema: JSONSchema,
+  typeName: string,
+): boolean => {
+  if (Array.isArray(jsonSchema.type)) {
+    return jsonSchema.type.includes(typeName);
+  }
+  return jsonSchema.type === typeName;
 };
 
-const isDiscriminatedUnionType = (
-  type: SzType,
-): type is SzType & {
-  type: 'discriminatedUnion';
-  options: SzType[];
+// Type predicates for checking schema types in JSON Schema format
+const isArrayType = (
+  type: JSONSchema,
+): type is JSONSchema & {
+  type: 'array' | ['array', ...string[]];
+  items: JSONSchema;
 } => {
-  return type.type === 'discriminatedUnion' && 'options' in type;
+  return typeIncludes(type, 'array') && 'items' in type;
+};
+
+const isDiscriminatedUnionOrUnionType = (
+  type: JSONSchema,
+): type is JSONSchema & {
+  anyOf?: JSONSchema[];
+  oneOf?: JSONSchema[];
+} => {
+  // Zod v4 uses oneOf for discriminated unions, anyOf for regular unions
+  return (
+    ('anyOf' in type && Array.isArray(type.anyOf)) ||
+    ('oneOf' in type && Array.isArray(type.oneOf))
+  );
 };
 
 const isIntersectionType = (
-  type: SzType,
-): type is SzType & {
-  type: 'intersection';
-  left: SzType;
-  right: SzType;
+  type: JSONSchema,
+): type is JSONSchema & {
+  allOf: JSONSchema[];
 } => {
-  return type.type === 'intersection' && 'left' in type && 'right' in type;
+  return 'allOf' in type && Array.isArray(type.allOf);
 };
 
 const isObjectType = (
-  type: SzType,
-): type is SzType & {
-  type: 'object';
-  properties: Record<string, SzType>;
+  type: JSONSchema,
+): type is JSONSchema & {
+  type: 'object' | ['object', ...string[]];
+  properties: Record<string, JSONSchema>;
 } => {
-  return type.type === 'object' && 'properties' in type;
+  return typeIncludes(type, 'object') && 'properties' in type;
 };
 
 const isRecordType = (
-  type: SzType,
-): type is SzType & {
-  type: 'record';
-  value: SzType;
+  type: JSONSchema,
+): type is JSONSchema & {
+  type: 'object' | ['object', ...string[]];
+  additionalProperties: JSONSchema;
 } => {
-  return type.type === 'record' && 'value' in type;
+  return (
+    typeIncludes(type, 'object') &&
+    'additionalProperties' in type &&
+    typeof type.additionalProperties === 'object'
+  );
 };
 
-export const serializeSchema = (schema: VetoTypeAny): SzType => {
-  return zerialize(schema) as SzType;
+/**
+ * Checks if a JSON Schema type is nullable.
+ * Handles both:
+ * - type array format: { type: ["string", "null"] }
+ * - anyOf format: { anyOf: [{ type: "string" }, { type: "null" }] }
+ */
+const checkIsNullable = (jsonSchema: JSONSchema): boolean => {
+  // Check type array format
+  if (Array.isArray(jsonSchema.type) && jsonSchema.type.includes('null')) {
+    return true;
+  }
+  // Check anyOf format (zod v4 uses this for nullable)
+  if (Array.isArray(jsonSchema.anyOf)) {
+    return jsonSchema.anyOf.some(
+      (option: JSONSchema) => option.type === 'null',
+    );
+  }
+  return false;
 };
+
+/**
+ * Checks if a JSON Schema type is optional (represented as union with undefined-like schema).
+ * In JSON Schema, optional is typically represented as anyOf with an empty schema {}
+ */
+const checkIsOptionalType = (jsonSchema: JSONSchema): boolean => {
+  if (Array.isArray(jsonSchema.anyOf)) {
+    // Check for empty schema {} which represents undefined in JSON Schema
+    return jsonSchema.anyOf.some(
+      (option: JSONSchema) =>
+        Object.keys(option).length === 0 ||
+        option.not !== undefined, // { not: {} } also represents never/undefined
+    );
+  }
+  return false;
+};
+
+export const serializeSchema = (schema: VetoTypeAny): JSONSchema => {
+  return z.toJSONSchema(schema, { unrepresentable: 'any' });
+};
+
+/**
+ * Annotates a schema with isOptional and isNullable properties.
+ * isOptional can come from:
+ * - Parent context (property not in required array)
+ * - Schema structure (anyOf with empty schema for undefined)
+ */
+const annotateSchema = (
+  schema: JSONSchema,
+  isOptionalFromContext: boolean,
+): JSONSchema => ({
+  ...schema,
+  isOptional: isOptionalFromContext || checkIsOptionalType(schema),
+  isNullable: checkIsNullable(schema),
+});
 
 /**
  * Traverses a schema path to find matching types
  * @param pathType - Current schema type being traversed
  * @param path - Path segments to traverse
- * @returns Array of found schema types
+ * @param isOptional - Whether the current path is optional (from parent context)
+ * @returns Array of found schema types with isOptional/isNullable annotated
  */
 const traverseSchemaPath = (
-  pathType: SzType,
+  pathType: JSONSchema,
   path: (string | number)[],
-): (SzType | null)[] => {
-  // Base case: end of path returns current type
+  isOptional = false,
+): (JSONSchema | null)[] => {
+  // Base case: end of path returns current type with annotations
   if (!path.length) {
-    return [pathType];
+    return [annotateSchema(pathType, isOptional)];
   }
 
   const [current, ...remainingPath] = path;
 
   if (isArrayType(pathType)) {
     const isIndex = Number.isInteger(current) || /^\d+$/.test(String(current));
-    return traverseSchemaPath(pathType.element, isIndex ? remainingPath : path);
+    // Array items inherit optionality from the array itself
+    return traverseSchemaPath(
+      pathType.items,
+      isIndex ? remainingPath : path,
+      isOptional,
+    );
   }
 
-  if (isDiscriminatedUnionType(pathType)) {
-    return pathType.options.flatMap((option: SzType) => {
-      return traverseSchemaPath(option, path);
+  if (isDiscriminatedUnionOrUnionType(pathType)) {
+    // Zod v4 uses oneOf for discriminated unions, anyOf for regular unions
+    const unionOptions = pathType.oneOf || pathType.anyOf;
+    return unionOptions!.flatMap((option: JSONSchema) => {
+      return traverseSchemaPath(option, path, isOptional);
     });
   }
 
   if (isIntersectionType(pathType)) {
-    return [
-      ...traverseSchemaPath(pathType.left, path),
-      ...traverseSchemaPath(pathType.right, path),
-    ];
+    return pathType.allOf.flatMap((schema: JSONSchema) => {
+      return traverseSchemaPath(schema, path, isOptional);
+    });
   }
 
   if (isObjectType(pathType)) {
-    if (pathType.properties[current]) {
-      return traverseSchemaPath(pathType.properties[current], remainingPath);
+    const propertyKey = String(current);
+    if (pathType.properties[propertyKey]) {
+      // Check if property is optional by checking if it's NOT in the required array
+      const requiredFields = (pathType.required as string[]) || [];
+      const propertyIsOptional = !requiredFields.includes(propertyKey);
+
+      return traverseSchemaPath(
+        pathType.properties[propertyKey],
+        remainingPath,
+        propertyIsOptional,
+      );
+    }
+    // Check if it's also a record type (object with additionalProperties)
+    if (isRecordType(pathType)) {
+      // Record properties are always optional (any key can be missing)
+      return traverseSchemaPath(
+        pathType.additionalProperties,
+        remainingPath,
+        true,
+      );
     }
     // not found
     return [null];
   }
 
   if (isRecordType(pathType)) {
-    return traverseSchemaPath(pathType.value, remainingPath);
+    // Record properties are always optional
+    return traverseSchemaPath(pathType.additionalProperties, remainingPath, true);
   }
 
   // Default case: invalid path for current type
@@ -109,7 +207,7 @@ const traverseSchemaPath = (
 };
 
 export type CheckSerializedSchemaPathCheckFunction = (
-  pathType: SzType | null,
+  pathType: JSONSchema | null,
 ) => boolean;
 
 /**

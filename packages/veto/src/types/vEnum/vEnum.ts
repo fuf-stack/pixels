@@ -1,8 +1,6 @@
-import type { ZodEnum } from 'zod';
-
 import { z } from 'zod';
 
 export const vEnum = z.enum;
 
 export type VEnum = typeof vEnum;
-export type VEnumSchema<T extends [string, ...string[]]> = ZodEnum<T>;
+// VEnumSchema type removed - use ReturnType<typeof vEnum<T>> directly if needed

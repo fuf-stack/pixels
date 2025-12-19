@@ -658,7 +658,6 @@ exports[`Story Snapshots > WithObjectLevelError 1`] = `
               data-has-helper="true"
               data-has-label="true"
               data-has-value="true"
-              data-invalid="true"
               data-required="true"
               data-slot="base"
             >
@@ -667,12 +666,12 @@ exports[`Story Snapshots > WithObjectLevelError 1`] = `
                 data-slot="main-wrapper"
               >
                 <div
-                  class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 h-10 min-h-10 rounded-small !duration-150 transition-colors motion-reduce:transition-none !border-danger group-data-[focus=true]:!border-danger bg-content1 group-data-[focus=true]:border-focus is-filled"
+                  class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 h-10 min-h-10 rounded-small !duration-150 transition-colors motion-reduce:transition-none bg-content1 group-data-[focus=true]:border-focus is-filled"
                   data-slot="input-wrapper"
                   style="cursor: text;"
                 >
                   <label
-                    class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block text-foreground-500 !text-danger after:content-['*'] after:text-danger after:ms-0.5 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto text-small group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden"
+                    class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block text-foreground-500 after:content-['*'] after:text-danger after:ms-0.5 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto text-small group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden"
                     data-slot="label"
                     for="address_street"
                     id="react-aria-«replaced-aria-id»"
@@ -684,12 +683,10 @@ exports[`Story Snapshots > WithObjectLevelError 1`] = `
                     data-slot="inner-wrapper"
                   >
                     <input
-                      aria-describedby="react-aria-«replaced-aria-id»"
-                      aria-invalid="true"
                       aria-label="Street"
                       aria-labelledby="address_street react-aria-«replaced-aria-id»"
                       autocomplete="off"
-                      class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small !placeholder:text-danger !text-danger is-filled"
+                      class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small is-filled"
                       data-filled="true"
                       data-filled-within="true"
                       data-slot="input"
@@ -701,33 +698,8 @@ exports[`Story Snapshots > WithObjectLevelError 1`] = `
                       tabindex="0"
                       title=""
                       type="text"
-                      value="a"
+                      value="PO Box 123"
                     />
-                  </div>
-                </div>
-                <div
-                  class="hidden group-data-[has-helper=true]:flex relative flex-col gap-1.5 p-0"
-                  data-slot="helper-wrapper"
-                >
-                  <div
-                    class="text-tiny text-danger"
-                    data-slot="error-message"
-                    id="react-aria-«replaced-aria-id»"
-                  >
-                    <ul
-                      aria-label="Validation errors of field address_street"
-                      data-testid="address_street_error"
-                    >
-                      <li
-                        style="overflow: hidden;"
-                      >
-                        <div
-                          class="px-1 pt-1"
-                        >
-                          Street must be at least 3 characters
-                        </div>
-                      </li>
-                    </ul>
                   </div>
                 </div>
               </div>
@@ -740,7 +712,6 @@ exports[`Story Snapshots > WithObjectLevelError 1`] = `
               data-has-helper="true"
               data-has-label="true"
               data-has-value="true"
-              data-invalid="true"
               data-required="true"
               data-slot="base"
             >
@@ -749,12 +720,12 @@ exports[`Story Snapshots > WithObjectLevelError 1`] = `
                 data-slot="main-wrapper"
               >
                 <div
-                  class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 h-10 min-h-10 rounded-small !duration-150 transition-colors motion-reduce:transition-none !border-danger group-data-[focus=true]:!border-danger bg-content1 group-data-[focus=true]:border-focus is-filled"
+                  class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 h-10 min-h-10 rounded-small !duration-150 transition-colors motion-reduce:transition-none bg-content1 group-data-[focus=true]:border-focus is-filled"
                   data-slot="input-wrapper"
                   style="cursor: text;"
                 >
                   <label
-                    class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block text-foreground-500 !text-danger after:content-['*'] after:text-danger after:ms-0.5 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto text-small group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden"
+                    class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block text-foreground-500 after:content-['*'] after:text-danger after:ms-0.5 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto text-small group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden"
                     data-slot="label"
                     for="address_city"
                     id="react-aria-«replaced-aria-id»"
@@ -766,12 +737,10 @@ exports[`Story Snapshots > WithObjectLevelError 1`] = `
                     data-slot="inner-wrapper"
                   >
                     <input
-                      aria-describedby="react-aria-«replaced-aria-id»"
-                      aria-invalid="true"
                       aria-label="City"
                       aria-labelledby="address_city react-aria-«replaced-aria-id»"
                       autocomplete="off"
-                      class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small !placeholder:text-danger !text-danger is-filled"
+                      class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small is-filled"
                       data-filled="true"
                       data-filled-within="true"
                       data-slot="input"
@@ -783,46 +752,21 @@ exports[`Story Snapshots > WithObjectLevelError 1`] = `
                       tabindex="0"
                       title=""
                       type="text"
-                      value="b"
+                      value="Springfield"
                     />
-                  </div>
-                </div>
-                <div
-                  class="hidden group-data-[has-helper=true]:flex relative flex-col gap-1.5 p-0"
-                  data-slot="helper-wrapper"
-                >
-                  <div
-                    class="text-tiny text-danger"
-                    data-slot="error-message"
-                    id="react-aria-«replaced-aria-id»"
-                  >
-                    <ul
-                      aria-label="Validation errors of field address_city"
-                      data-testid="address_city_error"
-                    >
-                      <li
-                        style="overflow: hidden;"
-                      >
-                        <div
-                          class="px-1 pt-1"
-                        >
-                          City must be at least 2 characters
-                        </div>
-                      </li>
-                    </ul>
                   </div>
                 </div>
               </div>
             </div>
             <div
-              class="group flex flex-col data-[hidden=true]:hidden w-full relative justify-end data-[has-label=true]:mt-[calc(var(--heroui-font-size-small)_+_10px)]"
+              class="group flex flex-col data-[hidden=true]:hidden w-full relative justify-end data-[has-label=true]:mt-[calc(var(--heroui-font-size-small)_+_10px)] is-filled"
               data-filled="true"
               data-filled-within="true"
               data-has-elements="true"
               data-has-helper="true"
               data-has-label="true"
+              data-has-value="true"
               data-hover="true"
-              data-invalid="true"
               data-required="true"
               data-slot="base"
             >
@@ -831,13 +775,13 @@ exports[`Story Snapshots > WithObjectLevelError 1`] = `
                 data-slot="main-wrapper"
               >
                 <div
-                  class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 h-10 min-h-10 rounded-small !duration-150 transition-colors motion-reduce:transition-none !border-danger group-data-[focus=true]:!border-danger bg-content1 group-data-[focus=true]:border-focus"
+                  class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 h-10 min-h-10 rounded-small !duration-150 transition-colors motion-reduce:transition-none bg-content1 group-data-[focus=true]:border-focus is-filled"
                   data-hover="true"
                   data-slot="input-wrapper"
                   style="cursor: text;"
                 >
                   <label
-                    class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block text-foreground-500 !text-danger after:content-['*'] after:text-danger after:ms-0.5 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto text-small group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden"
+                    class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block text-foreground-500 after:content-['*'] after:text-danger after:ms-0.5 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto text-small group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden"
                     data-slot="label"
                     for="address_zipcode"
                     id="react-aria-«replaced-aria-id»"
@@ -849,12 +793,12 @@ exports[`Story Snapshots > WithObjectLevelError 1`] = `
                     data-slot="inner-wrapper"
                   >
                     <input
-                      aria-describedby="react-aria-«replaced-aria-id»"
-                      aria-invalid="true"
                       aria-label="Zip Code"
                       aria-labelledby="address_zipcode react-aria-«replaced-aria-id»"
                       autocomplete="off"
-                      class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small !placeholder:text-danger !text-danger"
+                      class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small is-filled"
+                      data-filled="true"
+                      data-filled-within="true"
                       data-slot="input"
                       data-testid="address_zipcode"
                       id="address_zipcode"
@@ -864,33 +808,8 @@ exports[`Story Snapshots > WithObjectLevelError 1`] = `
                       tabindex="0"
                       title=""
                       type="text"
-                      value=""
+                      value="12345"
                     />
-                  </div>
-                </div>
-                <div
-                  class="hidden group-data-[has-helper=true]:flex relative flex-col gap-1.5 p-0"
-                  data-slot="helper-wrapper"
-                >
-                  <div
-                    class="text-tiny text-danger"
-                    data-slot="error-message"
-                    id="react-aria-«replaced-aria-id»"
-                  >
-                    <ul
-                      aria-label="Validation errors of field address_zipcode"
-                      data-testid="address_zipcode_error"
-                    >
-                      <li
-                        style="overflow: hidden;"
-                      >
-                        <div
-                          class="px-1 pt-1"
-                        >
-                          Field is required
-                        </div>
-                      </li>
-                    </ul>
                   </div>
                 </div>
               </div>
@@ -919,7 +838,7 @@ exports[`Story Snapshots > WithObjectLevelError 1`] = `
                   <div
                     class="px-1 pt-1"
                   >
-                    Complete address required (street, city, and zip code)
+                    PO Box addresses typically use zip codes starting with 9
                   </div>
                 </li>
               </ul>

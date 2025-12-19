@@ -46,7 +46,7 @@ it('rejects unknown fields', () => {
           {
             code: 'unrecognized_keys',
             keys: ['otherField'],
-            message: "Unrecognized key(s) in object: 'otherField'",
+            message: 'Unrecognized key: "otherField"',
           },
         ],
       },
@@ -67,7 +67,7 @@ it('rejects non-object value', () => {
           {
             code: 'invalid_type',
             expected: 'object',
-            message: 'Expected object, received array',
+            message: 'Invalid input: expected object, received array',
             received: 'array',
           },
         ],

@@ -20,9 +20,11 @@ it('rejects undefined discriminator', () => {
       discriminatedUnionField: {
         mode: [
           {
-            code: 'invalid_union_discriminator',
-            message: 'Field is required',
-            options: ['STRING', 'NUMBER'],
+            code: 'invalid_union',
+            discriminator: 'mode',
+            errors: [],
+            message: 'Invalid input',
+            note: 'No matching discriminator',
           },
         ],
       },
@@ -43,7 +45,7 @@ it('rejects fields that are not defined in option', () => {
           {
             code: 'unrecognized_keys',
             keys: ['numberField'],
-            message: "Unrecognized key(s) in object: 'numberField'",
+            message: 'Unrecognized key: "numberField"',
           },
         ],
         stringField: [

@@ -12,7 +12,7 @@ it('rejects non-number input', () => {
         {
           code: 'invalid_type',
           expected: 'number',
-          message: 'Expected number, received string',
+          message: 'Invalid input: expected number, received string',
           received: 'string',
         },
       ],

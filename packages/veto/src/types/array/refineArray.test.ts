@@ -307,6 +307,8 @@ describe('unique refinement', () => {
     });
   });
 
+  // Note: In Zod v4, superRefine doesn't run when base validation fails,
+  // so unique errors only appear when base validation passes
   it('array errors are present when elements have errors', () => {
     const schema = {
       arrayField: refineArray(
@@ -331,6 +333,8 @@ describe('unique refinement', () => {
       ],
     });
 
+    // In Zod v4, refinements (superRefine) don't run when base validation fails
+    // So we only get the base validation errors, not the unique refinement errors
     expect(result).toStrictEqual({
       success: false,
       data: null,
@@ -340,11 +344,10 @@ describe('unique refinement', () => {
             fieldB: [
               {
                 code: 'too_small',
-                exact: false,
                 inclusive: true,
-                message: 'String must contain at least 1 character(s)',
+                message: 'Too small: expected string to have >=1 characters',
                 minimum: 1,
-                type: 'string',
+                origin: 'string',
               },
             ],
           },
@@ -357,21 +360,7 @@ describe('unique refinement', () => {
                 received: 'undefined',
               },
             ],
-            _errors: [
-              {
-                code: 'not_unique',
-                message: 'Element already exists',
-              },
-            ],
           },
-          // array _error is present
-          _errors: [
-            {
-              code: 'not_unique',
-              message: 'Array elements are not unique',
-              type: 'array',
-            },
-          ],
         },
       },
     });

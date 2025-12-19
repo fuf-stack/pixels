@@ -15,7 +15,7 @@ it('rejects non-array value', () => {
           {
             code: 'invalid_type',
             expected: 'array',
-            message: 'Expected array, received object',
+            message: 'Invalid input: expected array, received object',
             received: 'object',
           },
         ],
@@ -36,11 +36,10 @@ it('rejects invalid min length', () => {
         _errors: [
           {
             code: 'too_small',
-            exact: false,
             inclusive: true,
-            message: 'Array must contain at least 2 element(s)',
+            message: 'Too small: expected array to have >=2 items',
             minimum: 2,
-            type: 'array',
+            origin: 'array',
           },
         ],
       },
@@ -60,11 +59,10 @@ it('rejects invalid max length', () => {
         _errors: [
           {
             code: 'too_big',
-            exact: false,
             inclusive: true,
-            message: 'Array must contain at most 1 element(s)',
+            message: 'Too big: expected array to have <=1 items',
             maximum: 1,
-            type: 'array',
+            origin: 'array',
           },
         ],
       },

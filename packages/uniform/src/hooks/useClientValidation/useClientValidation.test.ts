@@ -400,13 +400,13 @@ describe('clientValidationSchemaByName helper', () => {
       const fieldSchema = string().min(3);
       const result = clientValidationSchemaByName('username', fieldSchema);
 
-      // Verify it's a looseObject by checking the schema structure
+      // Verify it's an object schema by checking the type (zod v4 uses .type)
       expect(result).toBeDefined();
-      expect(result._def).toBeDefined();
-      expect(result._def.typeName).toBe('ZodObject');
+      expect(result.type).toBe('object');
 
       // Verify it contains the field with the correct schema
-      const shape = result._def.shape();
+      // In zod v4, shape is a property in .def, not a method
+      const shape = result.def?.shape ?? result._def?.shape?.();
       expect(shape.username).toBe(fieldSchema);
     });
 
@@ -663,23 +663,18 @@ describe('clientValidationSchemaByName helper', () => {
       );
 
       // The schema should be: objectLoose({ tags: array(string()).optional() })
-      // Not: objectLoose({ tags: array(objectLoose({ __FLAT__: string() })).optional() })
-      expect(schema._def.typeName).toBe('ZodObject');
+      // Verify it's an object schema (zod v4 uses .type)
+      expect(schema.type).toBe('object');
 
-      // Get the tags field schema
-      const shape = schema._def.shape();
-      expect(shape.tags).toBeDefined();
+      // Verify the schema validates flat arrays correctly
+      // Valid array of strings
+      expect(schema.safeParse({ tags: ['valid'] }).success).toBe(true);
 
-      // It should be an optional array
-      expect(shape.tags._def.typeName).toBe('ZodOptional');
+      // Empty array should pass
+      expect(schema.safeParse({ tags: [] }).success).toBe(true);
 
-      // The inner type should be an array
-      const innerArray = shape.tags._def.innerType;
-      expect(innerArray._def.typeName).toBe('ZodArray');
-
-      // The array element should be the string schema directly, not wrapped in an object
-      const arrayElement = innerArray._def.type;
-      expect(arrayElement).toBe(fieldSchema);
+      // Missing array should pass (optional)
+      expect(schema.safeParse({}).success).toBe(true);
     });
 
     it('should allow missing flat arrays (optional)', () => {
@@ -765,9 +760,7 @@ describe('clientValidationSchemaByName helper', () => {
       expect(mockSetClientValidationSchema).toHaveBeenCalledWith(
         'test-id',
         expect.objectContaining({
-          _def: expect.objectContaining({
-            typeName: 'ZodObject',
-          }),
+          type: 'object',
         }),
       );
     });
@@ -794,9 +787,9 @@ describe('clientValidationSchemaByName helper', () => {
       const stringSchema = clientValidationSchemaByName('username', string());
       const numberSchema = clientValidationSchemaByName('age', string());
 
-      // Verify schemas maintain their structure
-      expect(stringSchema._def.typeName).toBe('ZodObject');
-      expect(numberSchema._def.typeName).toBe('ZodObject');
+      // Verify schemas maintain their structure (zod v4 uses .type)
+      expect(stringSchema.type).toBe('object');
+      expect(numberSchema.type).toBe('object');
     });
   });
 });

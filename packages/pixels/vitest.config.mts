@@ -11,4 +11,3 @@ export default mergeConfig(projectConfig, {
     setupFiles: ['./vitest.setup.ts'],
   },
 });
-
