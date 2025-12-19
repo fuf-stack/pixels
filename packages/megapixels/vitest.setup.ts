@@ -24,6 +24,10 @@ beforeEach(() => {
 // These happen when React 19's scheduler tries to update state after jsdom
 // has been torn down. This is a known issue with async React components
 // in test environments and doesn't indicate actual test failures.
+//
+// We need to handle BOTH:
+// - unhandledRejection: for promise-based async errors
+// - uncaughtException: for setImmediate-based scheduler errors (React 19's scheduler)
 process.on('unhandledRejection', (reason) => {
   if (
     reason instanceof ReferenceError &&
@@ -32,6 +36,16 @@ process.on('unhandledRejection', (reason) => {
     return;
   }
   throw reason;
+});
+
+process.on('uncaughtException', (error) => {
+  if (
+    error instanceof ReferenceError &&
+    error.message === 'window is not defined'
+  ) {
+    return;
+  }
+  throw error;
 });
 
 // mock react-icons
