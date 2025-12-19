@@ -29,15 +29,20 @@ else
   git checkout -b "$BRANCH_NAME"
 fi
 
-# Generate next manifest with major version bumps + prerelease suffix
-echo "📦 Generating $NEXT_MANIFEST_FILE with major version bumps..."
-jq 'to_entries | map(.value |= (
-  split(".") |
-  .[0] = (.[0] | tonumber + 1 | tostring) |
-  .[1] = "0" |
-  .[2] = "0-next.0" |
-  join(".")
-)) | from_entries' "$MANIFEST_FILE" > "$NEXT_MANIFEST_FILE"
+# Generate next manifest based on main versions + prerelease suffix.
+# Example: 0.13.1 -> 0.13.1-next.0
+#
+# Re-run this script whenever main versions change; it will refresh the base
+# version and reset the prerelease counter to .0 for affected packages.
+echo "📦 Generating $NEXT_MANIFEST_FILE from $MANIFEST_FILE (keeping base version)..."
+jq 'to_entries
+  | map(.value |= (
+      # Extract plain x.y.z from possible semver strings and append prerelease.
+      # We intentionally reset the prerelease counter when the base changes.
+      (capture("^(?<major>[0-9]+)\\.(?<minor>[0-9]+)\\.(?<patch>[0-9]+)")
+        | "\(.major).\(.minor).\(.patch)-next.0")
+    ))
+  | from_entries' "$MANIFEST_FILE" > "$NEXT_MANIFEST_FILE"
 
 echo "Generated manifest:"
 cat "$NEXT_MANIFEST_FILE"
@@ -53,9 +58,10 @@ cat "$NEXT_CONFIG_FILE"
 # Commit changes
 git add "$NEXT_MANIFEST_FILE" "$NEXT_CONFIG_FILE"
 if ! git diff --cached --quiet; then
-  git commit -m "chore: bootstrap next branch for prereleases
-
-Sets last-release-sha to $BOOTSTRAP_SHA to ignore already-released commits."
+  git commit \
+    -m "chore: bootstrap next branch for prereleases" \
+    -m "Set last-release-sha to $BOOTSTRAP_SHA." \
+    -m "This ignores already-released commits."
   echo "✅ Committed changes"
 else
   echo "ℹ️  No changes to commit"
