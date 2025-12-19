@@ -35,12 +35,36 @@ jq 'to_entries | map(.value |= (
   split(".") |
   .[0] = (.[0] | tonumber + 1 | tostring) |
   .[1] = "0" |
-  .[2] = "0-next.0" |
+  # Use "next0" (no dot) so the prerelease number is easily incremented: next0 -> next1
+  .[2] = "0-next0" |
   join(".")
 )) | from_entries' "$MANIFEST_FILE" > "$NEXT_MANIFEST_FILE"
 
 echo "Generated manifest:"
 cat "$NEXT_MANIFEST_FILE"
+
+# Seed package.json versions on the next branch so release-please sees an existing prerelease
+# and can increment the prerelease number (next0 -> next1) instead of bumping semver.
+echo "🧷 Seeding package.json versions from $NEXT_MANIFEST_FILE..."
+node - <<'NODE'
+const fs = require('node:fs');
+const path = require('node:path');
+
+const manifestPath = '.release-please-manifest-next.json';
+const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+
+for (const [pkgPath, version] of Object.entries(manifest)) {
+  const pkgJsonPath = path.join(pkgPath, 'package.json');
+  if (!fs.existsSync(pkgJsonPath)) {
+    console.warn(`[bootstrap-next] Skipping missing ${pkgJsonPath}`);
+    continue;
+  }
+  const pkg = JSON.parse(fs.readFileSync(pkgJsonPath, 'utf8'));
+  pkg.version = version;
+  fs.writeFileSync(pkgJsonPath, JSON.stringify(pkg, null, 2) + '\n');
+  console.log(`[bootstrap-next] ${pkgJsonPath} -> ${version}`);
+}
+NODE
 
 # Update config with last-release-sha to ignore commits before branch point
 echo "📝 Updating $NEXT_CONFIG_FILE with last-release-sha..."
@@ -51,7 +75,7 @@ echo "Updated config:"
 cat "$NEXT_CONFIG_FILE"
 
 # Commit changes
-git add "$NEXT_MANIFEST_FILE" "$NEXT_CONFIG_FILE"
+git add "$NEXT_MANIFEST_FILE" "$NEXT_CONFIG_FILE" packages/*/package.json
 if ! git diff --cached --quiet; then
   git commit -m "chore: bootstrap next branch for prereleases
 
