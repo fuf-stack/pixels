@@ -119,10 +119,13 @@ export const WithObjectLevelError: Story = {
   parameters: {
     formProps: {
       validation: validationAddress,
+      // Use values that pass field-level validation but fail object-level validation
+      // (PO Box addresses require zip codes starting with 9)
       initialValues: {
         address: {
-          street: 'a',
-          city: 'b',
+          street: 'PO Box 123',
+          city: 'Springfield',
+          zipCode: '12345',
         },
       },
     },
@@ -141,7 +144,7 @@ export const WithObjectLevelError: Story = {
   play: async ({ canvasElement }: { canvasElement: HTMLElement }) => {
     const canvas = within(canvasElement);
 
-    // Blur all fields to trigger validation
+    // Trigger validation by blurring fields
     const streetInput = canvas.getByTestId('address_street');
     await userEvent.click(streetInput);
     await userEvent.tab();
@@ -154,13 +157,8 @@ export const WithObjectLevelError: Story = {
     await userEvent.click(zipCodeInput);
     await userEvent.tab();
 
-    // Wait for field-level validation errors to appear
-    await waitFor(() => {
-      expect(canvas.getByTestId('address_street_error')).toBeInTheDocument();
-      expect(canvas.getByTestId('address_city_error')).toBeInTheDocument();
-    });
-
-    // Wait for object-level (FieldCard) validation error to appear
+    // In zod v4, refinements only run when base validation passes.
+    // With valid field values, the object-level PO Box validation error should appear
     await waitFor(() => {
       expect(canvas.getByTestId('address_error')).toBeInTheDocument();
     });

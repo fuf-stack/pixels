@@ -41,7 +41,6 @@ const HEROUI_THEME_USED_COMPONENT_PATHS = [
   'tooltip',
   // theme is not required
 ].map((c) => {
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-return
   return path.resolve(
     __dirname,
     `./node_modules/@heroui/theme/dist/components/${c}.js`,

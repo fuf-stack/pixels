@@ -1,16 +1,6 @@
-import type { ZodDiscriminatedUnionOption } from 'zod';
-
 import { z } from 'zod';
 
-export const discriminatedUnion: <
-  Discriminator extends string,
-  Types extends [
-    ZodDiscriminatedUnionOption<Discriminator>,
-    ...ZodDiscriminatedUnionOption<Discriminator>[],
-  ],
->(
-  discriminator: Discriminator,
-  options: Types,
-) => z.ZodDiscriminatedUnion<Discriminator, Types> = z.discriminatedUnion;
+// In Zod v4, discriminatedUnion has a simpler signature
+export const { discriminatedUnion } = z;
 
 export type VDiscriminatedUnion = typeof discriminatedUnion;

@@ -26,9 +26,8 @@ it('combines multiple string schema validations correctly', () => {
         {
           code: 'too_small',
           inclusive: true,
-          message: 'String must contain at least 4 character(s)',
+          message: 'Too small: expected string to have >=4 characters',
           minimum: 4,
-          type: 'string',
         },
       ],
     },

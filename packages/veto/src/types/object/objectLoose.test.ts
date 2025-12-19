@@ -59,7 +59,7 @@ it('rejects non-object value', () => {
           {
             code: 'invalid_type',
             expected: 'object',
-            message: 'Expected object, received array',
+            message: 'Invalid input: expected object, received array',
             received: 'array',
           },
         ],

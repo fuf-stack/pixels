@@ -11,11 +11,41 @@ it('rejects invalid enum value', () => {
     errors: {
       enumField: [
         {
-          code: 'invalid_enum_value',
-          message:
-            "Invalid enum value. Expected 'ONE' | 'TWO', received 'THREE'",
-          options: ['ONE', 'TWO'],
-          received: 'THREE',
+          code: 'invalid_value',
+          message: 'Invalid option: expected one of "ONE"|"TWO"',
+          values: ['ONE', 'TWO'],
+        },
+      ],
+    },
+  });
+});
+
+it('reject undefined enum value with empty error', () => {
+  const schema = { enumField: vEnum(['ONE', 'TWO']) };
+  const result = v(schema).validate({ enumField: undefined });
+  expect(result).toMatchObject({
+    success: false,
+    errors: {
+      enumField: [
+        {
+          code: 'invalid_value',
+          message: 'Field is required',
+        },
+      ],
+    },
+  });
+});
+
+it('reject empty string enum value with empty error', () => {
+  const schema = { enumField: vEnum(['ONE', 'TWO']) };
+  const result = v(schema).validate({ enumField: '' });
+  expect(result).toMatchObject({
+    success: false,
+    errors: {
+      enumField: [
+        {
+          code: 'invalid_value',
+          message: 'Field is required',
         },
       ],
     },

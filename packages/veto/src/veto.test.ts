@@ -54,7 +54,6 @@ describe('validate', () => {
         {
           code: 'unrecognized_keys',
           keys: ['unknownField'],
-          message: "Unrecognized key(s) in object: 'unknownField'",
         },
       ],
     });
@@ -194,8 +193,6 @@ describe('validateAsync', () => {
         {
           code: 'invalid_type',
           expected: 'string',
-          message: 'Expected string, received number',
-          received: 'number',
         },
         {
           code: 'custom',

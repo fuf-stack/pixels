@@ -177,19 +177,37 @@ describe('jsonObject validator', () => {
       );
     });
 
-    const nonObjects = [...literalsData, [], [1, 2, 3], new Date()];
+    // Note: null is handled separately as it results in "Field is required" error
+    const nonObjectsExcludingNull = [
+      ...literalsData.filter((v) => v !== null),
+      [],
+      [1, 2, 3],
+      new Date(),
+    ];
 
-    nonObjects.forEach((value) => {
+    nonObjectsExcludingNull.forEach((value) => {
       it(`rejects non-object value: ${JSON.stringify(value)}`, () => {
         const schema = { jsonObjectField: jsonObject() };
         const result = v(schema).validate({ jsonObjectField: value });
         expect(result).toHaveProperty('success', false);
         expect(result).toHaveProperty('data', null);
+        // Zod v4 uses default error messages for record type validation
         expect(result).toHaveProperty(
-          'errors.jsonObjectField._errors[0].message',
-          'Invalid json object',
+          'errors.jsonObjectField._errors[0].code',
+          'invalid_type',
         );
       });
+    });
+
+    it('rejects null value with Field is required error', () => {
+      const schema = { jsonObjectField: jsonObject() };
+      const result = v(schema).validate({ jsonObjectField: null });
+      expect(result).toHaveProperty('success', false);
+      expect(result).toHaveProperty('data', null);
+      expect(result).toHaveProperty(
+        'errors.jsonObjectField._errors[0].message',
+        'Field is required',
+      );
     });
   });
 

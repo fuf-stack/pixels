@@ -1,5 +1,3 @@
-/* eslint-disable import-x/no-extraneous-dependencies */
-
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import type { ToastProps } from './addToast';
 

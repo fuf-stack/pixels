@@ -44,8 +44,10 @@
     "prepack": "pnpm build",
     "test": "vitest ./src"
   },
-  "dependencies": {
-    "zod": "3.24.3",
-    "zodex": "0.18.2"
+  "peerDependencies": {
+    "zod": ">=4.0.0"
+  },
+  "devDependencies": {
+    "zod": "4.2.0"
   }
 }

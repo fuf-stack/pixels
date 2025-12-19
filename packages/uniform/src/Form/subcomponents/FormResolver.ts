@@ -132,7 +132,7 @@ export const useExtendedValidation = (baseValidation?: VetoInstance) => {
  */
 export const useFormResolver = (extendedValidation?: VetoInstance) => {
   // Use ref to store validation errors without triggering re-renders
-  const validationErrors = useRef<VetoFormattedError>(undefined);
+  const validationErrors = useRef<VetoFormattedError | undefined>(undefined);
 
   // Memoized resolver function for React Hook Form
   const resolver = useMemo(() => {
@@ -146,10 +146,11 @@ export const useFormResolver = (extendedValidation?: VetoInstance) => {
       validationErrors.current = result.errors ?? undefined;
 
       // Transform veto result to React Hook Form format
+
       return {
-        values: result.data ?? {},
-        errors: result.errors ?? {},
-      };
+        values: (result.success ? result.data : {}) as Record<string, unknown>,
+        errors: (result.errors ?? {}) as Record<string, unknown>,
+      } as any;
     };
   }, [extendedValidation]);
 

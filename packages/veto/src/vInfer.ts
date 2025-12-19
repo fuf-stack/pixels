@@ -1,10 +1,5 @@
 import type { z } from 'zod';
-import type {
-  VetoObject,
-  VetoRawShape,
-  VetoSchema,
-  VetoTypeAny,
-} from './types';
+import type { VetoRawShape, VetoSchema, VetoTypeAny } from './types';
 
 /**
  * This TypeScript type alias vInfer defines a conditional type that
@@ -13,7 +8,7 @@ import type {
  * instance from the VetoTypeAny interface.
  *
  * If T is a schema definition from VetoSchema, it is
- * converted into a VetoObject and its inferred type is returned
+ * converted into a ZodObject and its inferred type is returned
  * using the z.infer method. If T is already a VetoTypeAny schema
  * instance, then the inferred type is simply returned
  * using the z.infer method.
@@ -21,14 +16,14 @@ import type {
  * The resulting inferred type returned by vInfer is a
  * TypeScript type that represents the expected shape of data
  * validated by the given schema. This ensures type safety when
- * working with ex-veto data.
+ * working with veto data.
  *
  * @see https://zod.dev/?id=type-inference
  */
 export type vInfer<T extends VetoSchema> =
-  // wrap raw shapes with VetoObject
+  // wrap raw shapes with ZodObject
   T extends VetoRawShape
-    ? z.infer<VetoObject<T>>
+    ? z.infer<z.ZodObject<T>>
     : // just infer type when already veto object
       T extends VetoTypeAny
       ? z.infer<T>

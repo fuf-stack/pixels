@@ -61,4 +61,3 @@ describe('isTestEnvironment', () => {
     expect(isTestEnvironment()).toBe(true);
   });
 });
-

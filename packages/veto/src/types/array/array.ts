@@ -26,7 +26,7 @@ type MakeElementsUniqueOptions =
       /** custom error method in single element is not unique (element) */
       elementMessage?: string;
       /** a custom error (sub-)path that allows creating the element is not unique error on a sub field */
-      elementErrorPath?: string[];
+      elementErrorPath?: (string | number)[];
       /** helper to transform array elements before comparing them */
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       mapFn?: (arg: any) => any;
@@ -36,7 +36,8 @@ type MakeElementsUniqueOptions =
 
 /** Refinement to make array elements unique */
 const makeElementsUnique = (options: MakeElementsUniqueOptions) => {
-  return <T extends VetoTypeAny>(data: T[], ctx: VetoRefinementCtx) => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  return (data: any[], ctx: VetoRefinementCtx) => {
     const mapFn =
       (options !== true && options?.mapFn) ||
       ((x) => {
@@ -67,7 +68,7 @@ const makeElementsUnique = (options: MakeElementsUniqueOptions) => {
         );
         return hasPreviousDuplicate ? i : false;
       })
-      .filter((index) => {
+      .filter((index): index is number => {
         return index !== false;
       });
     // add element errors
@@ -148,22 +149,17 @@ export const refineArray = <T extends RefineArrayInputArray>(schema: T) => {
   return (
     refinements: VArrayRefinements,
   ): VetoEffects<VArraySchema<Element>> => {
-    let _schema = schema as unknown as VetoEffects<VArraySchema<Element>>;
-
-    // if refinements provided
-    if (Object.keys(refinements).length) {
-      _schema = z.preprocess((val, ctx) => {
-        // add custom refinement
-        if (refinements.custom && Array.isArray(val)) {
-          refinements.custom(val as unknown[], ctx);
-        }
-        // add unique refinement
-        if (refinements.unique && Array.isArray(val)) {
-          makeElementsUnique(refinements.unique)(val, ctx);
-        }
-        return val;
-      }, schema) as VetoEffects<VArraySchema<Element>>;
-    }
+    // Use superRefine for adding validation refinements
+    const _schema = schema.superRefine((val, ctx) => {
+      // add custom refinement
+      if (refinements.custom && Array.isArray(val)) {
+        refinements.custom(val, ctx);
+      }
+      // add unique refinement
+      if (refinements.unique && Array.isArray(val)) {
+        makeElementsUnique(refinements.unique)(val, ctx);
+      }
+    }) as unknown as VetoEffects<VArraySchema<Element>>;
 
     return _schema;
   };
