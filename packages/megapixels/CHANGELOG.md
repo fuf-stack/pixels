@@ -1,5 +1,46 @@
 # Changelog
 
+## [1.1.0-next.0](https://github.com/fuf-stack/pixels/compare/megapixels-v1.0.0-next.0...megapixels-v1.1.0-next.0) (2025-12-19)
+
+
+### Features
+
+* **megapixels:** add support for react nodes in label of Filter checkboxes ([775d7fd](https://github.com/fuf-stack/pixels/commit/775d7fdbf9b69d5e4a05c77509f90581f9f931fd))
+* **uniform:** big refactoring for better animations ([75d823d](https://github.com/fuf-stack/pixels/commit/75d823d948f6a2ceb8915d1f65e9863af9b4b712))
+* update to latest react v19 + fix normalized snapshots for react v19 ([0ae6496](https://github.com/fuf-stack/pixels/commit/0ae64962e442f1af09246ae32a34eea0e7060b0a))
+* use tsdown for bundling ([7a701c4](https://github.com/fuf-stack/pixels/commit/7a701c4eaa3601a438487b2e89bcb682381f4157))
+
+
+### Bug Fixes
+
+* **deps:** update dependency debug to v4.4.3 ([#1239](https://github.com/fuf-stack/pixels/issues/1239)) ([e2a4692](https://github.com/fuf-stack/pixels/commit/e2a4692954d12e348320e7f1e76ff6bfb158cbc8))
+* **megapixels:** add debug to Filter ([49825be](https://github.com/fuf-stack/pixels/commit/49825bec1df0fa33ce5aef99ed3380b72e78c31c))
+* **megapixels:** add more test ids to Filter ([2656e8a](https://github.com/fuf-stack/pixels/commit/2656e8aeddcf81ea4530fa97584fa0dc5e906867))
+* **megapixels:** add props to Filter debug ([8b9e8d0](https://github.com/fuf-stack/pixels/commit/8b9e8d0d58f4cd76b116e3f34e3be32b81d052f4))
+* **megapixels:** bump ([895ee64](https://github.com/fuf-stack/pixels/commit/895ee644c926e161ba2fea6a7e3662bff73399d7))
+* **megapixels:** bump ([14b795f](https://github.com/fuf-stack/pixels/commit/14b795f532064809462c9e5e9bf4fee771939ead))
+* **megapixels:** fix Filter aria label in snap ([c4c9b95](https://github.com/fuf-stack/pixels/commit/c4c9b95ec032262846f1fcd6ed60ae91ff3c667c))
+* **megapixels:** fix FilterChildRenderFn type ([c1a2f36](https://github.com/fuf-stack/pixels/commit/c1a2f36da8acb68e7d312e17e461ada697290bea))
+* **megapixels:** fix repo url in package.json ([17feacc](https://github.com/fuf-stack/pixels/commit/17feacca99af8ebffb48eab4e3e44c06e13ed57c))
+* **megapixels:** fix uniform hook imports ([7844a09](https://github.com/fuf-stack/pixels/commit/7844a09b8936a56489ada080552e74578b0d4559))
+* **megapixels:** make Filter accept null as input value ([7cc15f9](https://github.com/fuf-stack/pixels/commit/7cc15f9361b17df507ace98b61c19dcdddeaa562))
+* **megapixels:** rename filter checkboxgroup to checkboxes in Filter ([7f0fd80](https://github.com/fuf-stack/pixels/commit/7f0fd8063377352844fc109ab089ca35be3c2d09))
+* **pixels,megapixels:** add some test ids to Menu and Filter ([164af92](https://github.com/fuf-stack/pixels/commit/164af92cc53b6eb34e24a416e7d182a3a7c0d094))
+* reformat all code ([dfad412](https://github.com/fuf-stack/pixels/commit/dfad4120ad16e9ca2890bb4a7d9d7ac3b41a7413))
+* **uniform:** disable autocomplete for inputs ([52e8101](https://github.com/fuf-stack/pixels/commit/52e810115d8fcf238b41ca633523445c78b3cc18))
+* **uniform:** improve aria-labels in all components ([e17eec1](https://github.com/fuf-stack/pixels/commit/e17eec1245d975050db7ab4e6e93c65963bf72b0))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @fuf-stack/pixel-motion bumped to 2.1.0-next.0
+    * @fuf-stack/pixel-utils bumped to 2.1.0-next.0
+    * @fuf-stack/pixels bumped to 2.1.0-next.0
+    * @fuf-stack/uniform bumped to 2.1.0-next.0
+    * @fuf-stack/veto bumped to 1.1.0-next.0
+
 ## [0.9.1](https://github.com/fuf-stack/pixels/compare/megapixels-v0.9.0...megapixels-v0.9.1) (2025-12-16)
 
 

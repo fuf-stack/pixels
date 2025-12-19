@@ -1,5 +1,120 @@
 # Changelog
 
+## [2.1.0-next.0](https://github.com/fuf-stack/pixels/compare/uniform-v2.0.0-next.0...uniform-v2.1.0-next.0) (2025-12-19)
+
+
+### Features
+
+* **pixels:** add createWithSuspense hoc with reveal animation and error boundary ([20529ef](https://github.com/fuf-stack/pixels/commit/20529ef11d4f79578d70f939c4aafc80e1e4938b))
+* **uniform:** add animations for add and remove elements in FieldArray ([94702b9](https://github.com/fuf-stack/pixels/commit/94702b9807a2cf4a2f2d4ba2972059138e3bd79d))
+* **uniform:** add better number support to Input ([a94e244](https://github.com/fuf-stack/pixels/commit/a94e2444c4ce941f6124c4751f6ea09426d283cb))
+* **uniform:** add clientValidationSchemaByName helper ([21973de](https://github.com/fuf-stack/pixels/commit/21973de85c29198f3ae8ebc2aec3c8623238c8aa))
+* **uniform:** add FieldCard component ([7bd7a09](https://github.com/fuf-stack/pixels/commit/7bd7a096b3b9341b185b9e7f918405d5061d9c14))
+* **uniform:** add fullWidth and content styling to RadioTabs ([c6f19c5](https://github.com/fuf-stack/pixels/commit/c6f19c5f99caaafd8d4458c2a37f5672d45d2a5a))
+* **uniform:** add label syling to FieldArray ([f57c7fe](https://github.com/fuf-stack/pixels/commit/f57c7fec41aa1e1c0d569b759d2e00c173b5c636))
+* **uniform:** add Slider component ([e08f2ed](https://github.com/fuf-stack/pixels/commit/e08f2edbbc1ce45c512f9dc4af4a88b508ca2adb))
+* **uniform:** add SwitchBox component ([2b1f952](https://github.com/fuf-stack/pixels/commit/2b1f952b60cf2620bc628ff366fe6fa8e319ef69))
+* **uniform:** add useWatchUserChange hook ([2d66d8c](https://github.com/fuf-stack/pixels/commit/2d66d8c77c4b2f2d6d67512a334ca566401ae229))
+* **uniform:** big refactoring for better animations ([75d823d](https://github.com/fuf-stack/pixels/commit/75d823d948f6a2ceb8915d1f65e9863af9b4b712))
+* **uniform:** refactor actions menu in FieldArray ([aaa0b26](https://github.com/fuf-stack/pixels/commit/aaa0b26b5d254fdf0ca6d1e96253e9f7abed5550))
+* update to latest react v19 + fix normalized snapshots for react v19 ([0ae6496](https://github.com/fuf-stack/pixels/commit/0ae64962e442f1af09246ae32a34eea0e7060b0a))
+* use tsdown for bundling ([7a701c4](https://github.com/fuf-stack/pixels/commit/7a701c4eaa3601a438487b2e89bcb682381f4157))
+
+
+### Bug Fixes
+
+* **deps:** update dependency @react-aria/visually-hidden to v3.8.28 ([#1254](https://github.com/fuf-stack/pixels/issues/1254)) ([d10342c](https://github.com/fuf-stack/pixels/commit/d10342c8e52703b71fb6272c78cbc9af7051f636))
+* **deps:** update dependency framer-motion to v12.23.18 ([#1220](https://github.com/fuf-stack/pixels/issues/1220)) ([74f9b1c](https://github.com/fuf-stack/pixels/commit/74f9b1c35232e61d0b20605aacee13b61f0989b9))
+* **deps:** update dependency framer-motion to v12.23.19 ([#1229](https://github.com/fuf-stack/pixels/issues/1229)) ([8116f70](https://github.com/fuf-stack/pixels/commit/8116f700210c21eed09dec7bd174a5ad2026c2f5))
+* **deps:** update dependency framer-motion to v12.23.22 ([#1233](https://github.com/fuf-stack/pixels/issues/1233)) ([9fcd67f](https://github.com/fuf-stack/pixels/commit/9fcd67fb3d5370045d6e006abd8c009cd2cb7368))
+* **deps:** update dependency framer-motion to v12.23.23 ([#1264](https://github.com/fuf-stack/pixels/issues/1264)) ([d8fae1a](https://github.com/fuf-stack/pixels/commit/d8fae1ae1530beed1358dae25e0623abc2ceb9ec))
+* **deps:** update dependency framer-motion to v12.23.24 ([#1268](https://github.com/fuf-stack/pixels/issues/1268)) ([ef3db23](https://github.com/fuf-stack/pixels/commit/ef3db23850d37192b20ec097f71a8ad7c33b4713))
+* **deps:** update dependency framer-motion to v12.23.25 ([#1391](https://github.com/fuf-stack/pixels/issues/1391)) ([af043bc](https://github.com/fuf-stack/pixels/commit/af043bc846fa7a5964cd700b93dea9670bc22329))
+* **deps:** update dependency framer-motion to v12.23.26 ([#1410](https://github.com/fuf-stack/pixels/issues/1410)) ([9afec8a](https://github.com/fuf-stack/pixels/commit/9afec8a8e3f0f4035813fd360a8dad8edcfbc33e))
+* **deps:** update dependency react-hook-form to v7.66.1 ([#1377](https://github.com/fuf-stack/pixels/issues/1377)) ([98d9949](https://github.com/fuf-stack/pixels/commit/98d9949e0a0d5a617e12dafc3d33353799c8e26c))
+* **deps:** update dependency react-hook-form to v7.67.0 ([#1388](https://github.com/fuf-stack/pixels/issues/1388)) ([66cc82b](https://github.com/fuf-stack/pixels/commit/66cc82b2aba1ecbf3ef06c4bc14db5f148245b65))
+* **deps:** update dependency react-hook-form to v7.68.0 ([#1395](https://github.com/fuf-stack/pixels/issues/1395)) ([a2bc52e](https://github.com/fuf-stack/pixels/commit/a2bc52e4fa5b5e931f0da8643ff0daffbea75736))
+* fix unstable react aria ids in snapshots with custom serializer ([823ba93](https://github.com/fuf-stack/pixels/commit/823ba93bcf3ba4cb6788654f925265881e3dcb70))
+* **pixel-utils,pixels,uniform:** move isTestEnvironment to pixel-utils ([de06d9f](https://github.com/fuf-stack/pixels/commit/de06d9f460eab9c354aa10487d3181e97b5e71c4))
+* **pixels,uniform:** do not debounce in useDebounce in testsuite ([f438e35](https://github.com/fuf-stack/pixels/commit/f438e3547d4ede090bbf22ba45be0ca223b06083))
+* **pixels,uniform:** refactor hook exports ([416e1f1](https://github.com/fuf-stack/pixels/commit/416e1f11650c894e679f9bdf650948c3477e307f))
+* **pixels:** ensure SearchInput value can be cleared ([f107ea4](https://github.com/fuf-stack/pixels/commit/f107ea4d99594837e7dfbc29c0a2618c5259b98b))
+* reformat all code ([dfad412](https://github.com/fuf-stack/pixels/commit/dfad4120ad16e9ca2890bb4a7d9d7ac3b41a7413))
+* **uniform,megapixels:** add safe isTestEnvironment helper to determine if we are running as test ([98266cc](https://github.com/fuf-stack/pixels/commit/98266cce1165579f833a601f76dd7d9ea03c08f1))
+* **uniform:** add debug to FormContext ([04d0121](https://github.com/fuf-stack/pixels/commit/04d0121d61266756bef0dcca87b36dd15e89954c))
+* **uniform:** add grid to content of FieldCard ([e367c95](https://github.com/fuf-stack/pixels/commit/e367c956f26500d83d03ea5bb0c530b22478fc1a))
+* **uniform:** add key option to useClientValidation + fix flat array in clientValidationSchemaByName ([917ef2f](https://github.com/fuf-stack/pixels/commit/917ef2f2b274ca854aea4e9fb3a8257cd74e86c3))
+* **uniform:** add new flat array handling logic ([90aa4d4](https://github.com/fuf-stack/pixels/commit/90aa4d450e3aa3aa4858ca19ed19ba1c9b33bf3c))
+* **uniform:** add package exports for all hooks ([0c8c446](https://github.com/fuf-stack/pixels/commit/0c8c446ce909ec60df1e402dcee96d973637303c))
+* **uniform:** add support for reset to initialization logic of FieldArray ([2ce2603](https://github.com/fuf-stack/pixels/commit/2ce260301a0a7778b3b0c05f8c56e3ed1660af09))
+* **uniform:** add visually hidden input to RadioTabs to make it accessible ([540f640](https://github.com/fuf-stack/pixels/commit/540f64003014652c1d37210c8803812a41018915))
+* **uniform:** add width animation to remove button in FieldArray ([0058953](https://github.com/fuf-stack/pixels/commit/00589534a2df09b4d4c6ca85f69a1845bd7b783c))
+* **uniform:** always debounce invalid state in useUniformField ([b21c00f](https://github.com/fuf-stack/pixels/commit/b21c00f80a899611877ffe8ba36a413bb592693f))
+* **uniform:** big visual refactoring of FieldArray ([dafea72](https://github.com/fuf-stack/pixels/commit/dafea72eb668f76af876b951ffe90705cfbeab8d))
+* **uniform:** bump ([621f391](https://github.com/fuf-stack/pixels/commit/621f3915f1202b64c726c51c883986029299fcb8))
+* **uniform:** bump only ([45ad1c9](https://github.com/fuf-stack/pixels/commit/45ad1c9bfbb49e681122f5a7154d199416ba032f))
+* **uniform:** change display position of array errors in FieldArray ([d72c231](https://github.com/fuf-stack/pixels/commit/d72c231f09239aee66ced3f0067d743893e134fd))
+* **uniform:** change styles of add element button ([c74504b](https://github.com/fuf-stack/pixels/commit/c74504bc2b900bb2578522ff8b237eae0fd53567))
+* **uniform:** disable autocomplete for inputs ([52e8101](https://github.com/fuf-stack/pixels/commit/52e810115d8fcf238b41ca633523445c78b3cc18))
+* **uniform:** do not debounce invalid in test environment ([eec2af8](https://github.com/fuf-stack/pixels/commit/eec2af80c3abf1f418d1353129bbb4a55d021eb2))
+* **uniform:** do not disable animations during reset in FieldArray ([660b8ee](https://github.com/fuf-stack/pixels/commit/660b8eea6311a44aa4bf9f41439fd3fdf72a03e8))
+* **uniform:** do not use hashed validation cache for client validation ([3af9991](https://github.com/fuf-stack/pixels/commit/3af999177110a7e7cb252bf41db9146e7a5447f3))
+* **uniform:** ensure field arrays submit correctly and improve invalid state handling ([336161d](https://github.com/fuf-stack/pixels/commit/336161d392458a451b67947fca71b8a602cfe7a7))
+* **uniform:** ensure Slider is touched on keyboard navigation ([400a4f9](https://github.com/fuf-stack/pixels/commit/400a4f9865d1e6d7877adb5c7cba626ed6f42fcf))
+* **uniform:** fix FieldCard className prop type ([23d5a68](https://github.com/fuf-stack/pixels/commit/23d5a68057a6fb0ce32f6bd84a8df29009dbbc46))
+* **uniform:** fix focus issue with SwitchBox ([57e7fac](https://github.com/fuf-stack/pixels/commit/57e7fac63587322c8305d37ca15983d5d28eee7e))
+* **uniform:** fix FormDebugViewer initial values ([9a82c62](https://github.com/fuf-stack/pixels/commit/9a82c62145afef0fc5a28cc9455046c4559cf097))
+* **uniform:** fix how useUniformField disables debouncing ([64b8eaf](https://github.com/fuf-stack/pixels/commit/64b8eafb689f8f7cfeabb03b4b88e7ea5b711046))
+* **uniform:** fix invalid state not updating after change in RadioBoxes ([ef5e442](https://github.com/fuf-stack/pixels/commit/ef5e4427f4ab0a84c31f879cb00775e65b8a3c3e))
+* **uniform:** fix issue where flat field array element test ids contain __flat suffix ([db887a7](https://github.com/fuf-stack/pixels/commit/db887a7e1a3cc2bc87ba474ad5542a97dcf20c26))
+* **uniform:** fix RadioTabs full width styles ([cb52788](https://github.com/fuf-stack/pixels/commit/cb52788a4386ee2ce885584605984cbf598e4c29))
+* **uniform:** fix re-initialize on reset in FieldArray ([90d6723](https://github.com/fuf-stack/pixels/commit/90d67239869171acbc0529fa3b84307a83669f73))
+* **uniform:** fix render cycle issue with FormDebugViewer ([9d98746](https://github.com/fuf-stack/pixels/commit/9d987460931ce25f462f7e4fde15ffdac66e9159))
+* **uniform:** fix required check when client validation is used ([0c924fa](https://github.com/fuf-stack/pixels/commit/0c924fab7d2883f20110328f82cd7f6b26b19e28))
+* **uniform:** fix required logic for flat arrays and initialize Logic in FieldArray ([fc818b8](https://github.com/fuf-stack/pixels/commit/fc818b8423790dc50a45b64f1bb9888d4fdacd20))
+* **uniform:** fix reset env stubs ([6566afd](https://github.com/fuf-stack/pixels/commit/6566afdcad99dc737f8134607e15ab5acd36301d))
+* **uniform:** fix Select showing error message when changed + update invalid stories ([982626b](https://github.com/fuf-stack/pixels/commit/982626b22cb5a1d27992dff53a1eac10d340aad2))
+* **uniform:** fix some error display issues in FieldArray ([530a2ef](https://github.com/fuf-stack/pixels/commit/530a2efaba9e67bfa1df09848cb74f4c9685fcfb))
+* **uniform:** fix styles of FieldArray level error ([c749ed5](https://github.com/fuf-stack/pixels/commit/c749ed5acae13771a62392b7203addfbf0a64098))
+* **uniform:** fix Switch using hidden input and  useUniformField ([d41edba](https://github.com/fuf-stack/pixels/commit/d41edba6ca19aa192db89083ca45d295b3319251))
+* **uniform:** fix typesript issue in ElementActionsMenu ([0d0ac50](https://github.com/fuf-stack/pixels/commit/0d0ac50b8f1172f24ef21fb3c31e44266a28ed3a))
+* **uniform:** fixes for RadioBoxes invalid state and styling ([cf0f215](https://github.com/fuf-stack/pixels/commit/cf0f215f2b9d30cea1fa6a8980b9d10242f8e758))
+* **uniform:** fox focus styles of actions menu in FieldArray ([405b9a9](https://github.com/fuf-stack/pixels/commit/405b9a95904afc7cf2d17d4c307c4fcd5bb589b3))
+* **uniform:** guard against userChange undefined in context ([96ad315](https://github.com/fuf-stack/pixels/commit/96ad315eb61011b64953a07fae45c045193b8171))
+* **uniform:** improve aria-labels in all components ([e17eec1](https://github.com/fuf-stack/pixels/commit/e17eec1245d975050db7ab4e6e93c65963bf72b0))
+* **uniform:** improve invalid state debouncing ([d3f990f](https://github.com/fuf-stack/pixels/commit/d3f990fd91dbce1c727b6dea9dddaf54f5f47f80))
+* **uniform:** more styles fixes for FieldArray ([f4551a6](https://github.com/fuf-stack/pixels/commit/f4551a6c85f7ae71c4fd6daa8913072147e9d0c2))
+* **uniform:** refactor transform functionality ([a909076](https://github.com/fuf-stack/pixels/commit/a909076772634351f2d4f5959d3d239bca0a6a0d))
+* **uniform:** refactor validation behaviour of fields ([f825cc0](https://github.com/fuf-stack/pixels/commit/f825cc060f7accd59e3eb8d08d17227ff4507598))
+* **uniform:** refactor when array fields are considered required ([512c030](https://github.com/fuf-stack/pixels/commit/512c0301b6b04620145f9d2f5d9ace5f9b4ef151))
+* **uniform:** remove entry arrays from nullishFields ([27924d6](https://github.com/fuf-stack/pixels/commit/27924d6e75d41055f214167435e6a3c5c6b4c24c))
+* **uniform:** removed p-1 from RadioTabs base slot ([d67a599](https://github.com/fuf-stack/pixels/commit/d67a59917031a66b9c30427e30f3f24e0ea4beb9))
+* **uniform:** rename CheckboxGroup to Checkboxes ([f1b80d0](https://github.com/fuf-stack/pixels/commit/f1b80d0c54618630b68b51017cdba5b3d1c49ba4))
+* **uniform:** rename FieldArray to Array ([a808259](https://github.com/fuf-stack/pixels/commit/a8082592b3544a75a0eeb2c5879a32f0dc94a5ba))
+* **uniform:** rename RadioGroup to Radios ([8f59aec](https://github.com/fuf-stack/pixels/commit/8f59aeceb83f698ea300779943aad4c75c4c95bf))
+* **uniform:** set showInvalidWhen immediate in Select ([0a3204f](https://github.com/fuf-stack/pixels/commit/0a3204ff3a5bc60c6c99a88635d9663fa1fa53bb))
+* **uniform:** simpler Silder blur ([4dab0da](https://github.com/fuf-stack/pixels/commit/4dab0da52d503a73ae8219c54b4e452572ad70d5))
+* **uniform:** trigger validation after sort order changed in FieldArray ([a55a631](https://github.com/fuf-stack/pixels/commit/a55a63133b715a3a6f661976ccdf5cc0b9094570))
+* **uniform:** update react-hook-form to v7.66.0 ([88331f7](https://github.com/fuf-stack/pixels/commit/88331f7b22e06970185de1161b20189329fea815))
+* **uniform:** use setValue instead of append for lastElementNotRemovable avoids focus in FieldArray ([88837d8](https://github.com/fuf-stack/pixels/commit/88837d804642ef59682ce2eb70da36d420c8803f))
+* **uniform:** use useDebounce in useDebouncedInvalid ([c37d994](https://github.com/fuf-stack/pixels/commit/c37d994bb9455142d6e26597c7b3fa91e88e0888))
+* **uniform:** wrap lastElementNotRemovable logic with useEffect in FieldArray ([9db88ed](https://github.com/fuf-stack/pixels/commit/9db88ed7c8130524733d731dd07c8b9123d05395))
+
+
+### Reverts
+
+* **uniform:** rename Array to FieldArray again ([d7285b1](https://github.com/fuf-stack/pixels/commit/d7285b1efcbdf41426813b9f9d47065fe3895faa))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @fuf-stack/pixel-motion bumped to 2.1.0-next.0
+    * @fuf-stack/pixel-utils bumped to 2.1.0-next.0
+    * @fuf-stack/pixels bumped to 2.1.0-next.0
+    * @fuf-stack/veto bumped to 1.1.0-next.0
+
 ## [1.11.1](https://github.com/fuf-stack/pixels/compare/uniform-v1.11.0...uniform-v1.11.1) (2025-12-16)
 
 

@@ -1,5 +1,23 @@
 # Changelog
 
+## [2.1.0-next.0](https://github.com/fuf-stack/pixels/compare/pixel-motion-v2.0.0-next.0...pixel-motion-v2.1.0-next.0) (2025-12-19)
+
+
+### Features
+
+* use tsdown for bundling ([7a701c4](https://github.com/fuf-stack/pixels/commit/7a701c4eaa3601a438487b2e89bcb682381f4157))
+
+
+### Bug Fixes
+
+* **deps:** update dependency framer-motion to v12.23.18 ([#1220](https://github.com/fuf-stack/pixels/issues/1220)) ([74f9b1c](https://github.com/fuf-stack/pixels/commit/74f9b1c35232e61d0b20605aacee13b61f0989b9))
+* **deps:** update dependency framer-motion to v12.23.19 ([#1229](https://github.com/fuf-stack/pixels/issues/1229)) ([8116f70](https://github.com/fuf-stack/pixels/commit/8116f700210c21eed09dec7bd174a5ad2026c2f5))
+* **deps:** update dependency framer-motion to v12.23.22 ([#1233](https://github.com/fuf-stack/pixels/issues/1233)) ([9fcd67f](https://github.com/fuf-stack/pixels/commit/9fcd67fb3d5370045d6e006abd8c009cd2cb7368))
+* **deps:** update dependency framer-motion to v12.23.23 ([#1264](https://github.com/fuf-stack/pixels/issues/1264)) ([d8fae1a](https://github.com/fuf-stack/pixels/commit/d8fae1ae1530beed1358dae25e0623abc2ceb9ec))
+* **deps:** update dependency framer-motion to v12.23.24 ([#1268](https://github.com/fuf-stack/pixels/issues/1268)) ([ef3db23](https://github.com/fuf-stack/pixels/commit/ef3db23850d37192b20ec097f71a8ad7c33b4713))
+* **deps:** update dependency framer-motion to v12.23.25 ([#1391](https://github.com/fuf-stack/pixels/issues/1391)) ([af043bc](https://github.com/fuf-stack/pixels/commit/af043bc846fa7a5964cd700b93dea9670bc22329))
+* **deps:** update dependency framer-motion to v12.23.26 ([#1410](https://github.com/fuf-stack/pixels/issues/1410)) ([9afec8a](https://github.com/fuf-stack/pixels/commit/9afec8a8e3f0f4035813fd360a8dad8edcfbc33e))
+
 ## [1.1.0](https://github.com/fuf-stack/pixels/compare/pixel-motion-v1.0.26...pixel-motion-v1.1.0) (2025-12-16)
 
 

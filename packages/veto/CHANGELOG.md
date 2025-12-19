@@ -1,5 +1,24 @@
 # Changelog
 
+## [1.1.0-next.0](https://github.com/fuf-stack/pixels/compare/veto-v1.0.0-next.0...veto-v1.1.0-next.0) (2025-12-19)
+
+
+### Features
+
+* use tsdown for bundling ([7a701c4](https://github.com/fuf-stack/pixels/commit/7a701c4eaa3601a438487b2e89bcb682381f4157))
+
+
+### Bug Fixes
+
+* reformat all code ([dfad412](https://github.com/fuf-stack/pixels/commit/dfad4120ad16e9ca2890bb4a7d9d7ac3b41a7413))
+* **uniform:** rename FieldArray to Array ([a808259](https://github.com/fuf-stack/pixels/commit/a8082592b3544a75a0eeb2c5879a32f0dc94a5ba))
+* **veto:** include zod types into build ([ccaa396](https://github.com/fuf-stack/pixels/commit/ccaa396fce2e58441bfc43b06cc2893a18224cf8))
+
+
+### Reverts
+
+* **uniform:** rename Array to FieldArray again ([d7285b1](https://github.com/fuf-stack/pixels/commit/d7285b1efcbdf41426813b9f9d47065fe3895faa))
+
 ## [0.13.1](https://github.com/fuf-stack/pixels/compare/veto-v0.13.0...veto-v0.13.1) (2025-12-16)
 
 

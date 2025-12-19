@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.1.0-next.0](https://github.com/fuf-stack/pixels/compare/pixel-utils-v2.0.0-next.0...pixel-utils-v2.1.0-next.0) (2025-12-19)
+
+
+### Features
+
+* use tsdown for bundling ([7a701c4](https://github.com/fuf-stack/pixels/commit/7a701c4eaa3601a438487b2e89bcb682381f4157))
+
+
+### Bug Fixes
+
+* **pixel-utils,pixels,uniform:** move isTestEnvironment to pixel-utils ([de06d9f](https://github.com/fuf-stack/pixels/commit/de06d9f460eab9c354aa10487d3181e97b5e71c4))
+
 ## [1.1.0](https://github.com/fuf-stack/pixels/compare/pixel-utils-v1.0.6...pixel-utils-v1.1.0) (2025-12-16)
 
 

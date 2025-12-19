@@ -1,5 +1,48 @@
 # Changelog
 
+## [2.1.0-next.0](https://github.com/fuf-stack/pixels/compare/pixels-v2.0.0-next.0...pixels-v2.1.0-next.0) (2025-12-19)
+
+
+### Features
+
+* **pixels:** add createWithSuspense hoc with reveal animation and error boundary ([20529ef](https://github.com/fuf-stack/pixels/commit/20529ef11d4f79578d70f939c4aafc80e1e4938b))
+* **pixels:** add ref forwarding and focus/blur event handlers ([3c0a71b](https://github.com/fuf-stack/pixels/commit/3c0a71be6415a6338fb743ad419db27a8dddbb14))
+* **uniform:** add better number support to Input ([a94e244](https://github.com/fuf-stack/pixels/commit/a94e2444c4ce941f6124c4751f6ea09426d283cb))
+* update to latest react v19 + fix normalized snapshots for react v19 ([0ae6496](https://github.com/fuf-stack/pixels/commit/0ae64962e442f1af09246ae32a34eea0e7060b0a))
+
+
+### Bug Fixes
+
+* **deps:** update dependency framer-motion to v12.23.18 ([#1220](https://github.com/fuf-stack/pixels/issues/1220)) ([74f9b1c](https://github.com/fuf-stack/pixels/commit/74f9b1c35232e61d0b20605aacee13b61f0989b9))
+* **deps:** update dependency framer-motion to v12.23.19 ([#1229](https://github.com/fuf-stack/pixels/issues/1229)) ([8116f70](https://github.com/fuf-stack/pixels/commit/8116f700210c21eed09dec7bd174a5ad2026c2f5))
+* **deps:** update dependency framer-motion to v12.23.22 ([#1233](https://github.com/fuf-stack/pixels/issues/1233)) ([9fcd67f](https://github.com/fuf-stack/pixels/commit/9fcd67fb3d5370045d6e006abd8c009cd2cb7368))
+* **deps:** update dependency framer-motion to v12.23.23 ([#1264](https://github.com/fuf-stack/pixels/issues/1264)) ([d8fae1a](https://github.com/fuf-stack/pixels/commit/d8fae1ae1530beed1358dae25e0623abc2ceb9ec))
+* **deps:** update dependency framer-motion to v12.23.24 ([#1268](https://github.com/fuf-stack/pixels/issues/1268)) ([ef3db23](https://github.com/fuf-stack/pixels/commit/ef3db23850d37192b20ec097f71a8ad7c33b4713))
+* **deps:** update dependency framer-motion to v12.23.25 ([#1391](https://github.com/fuf-stack/pixels/issues/1391)) ([af043bc](https://github.com/fuf-stack/pixels/commit/af043bc846fa7a5964cd700b93dea9670bc22329))
+* **deps:** update dependency framer-motion to v12.23.26 ([#1410](https://github.com/fuf-stack/pixels/issues/1410)) ([9afec8a](https://github.com/fuf-stack/pixels/commit/9afec8a8e3f0f4035813fd360a8dad8edcfbc33e))
+* fix unstable react aria ids in snapshots with custom serializer ([823ba93](https://github.com/fuf-stack/pixels/commit/823ba93bcf3ba4cb6788654f925265881e3dcb70))
+* **pixel-utils,pixels,uniform:** move isTestEnvironment to pixel-utils ([de06d9f](https://github.com/fuf-stack/pixels/commit/de06d9f460eab9c354aa10487d3181e97b5e71c4))
+* **pixels,megapixels:** add some test ids to Menu and Filter ([164af92](https://github.com/fuf-stack/pixels/commit/164af92cc53b6eb34e24a416e7d182a3a7c0d094))
+* **pixels,uniform:** do not debounce in useDebounce in testsuite ([f438e35](https://github.com/fuf-stack/pixels/commit/f438e3547d4ede090bbf22ba45be0ca223b06083))
+* **pixels,uniform:** refactor hook exports ([416e1f1](https://github.com/fuf-stack/pixels/commit/416e1f11650c894e679f9bdf650948c3477e307f))
+* **pixels:** disable autocomplete for SearchInput ([7783608](https://github.com/fuf-stack/pixels/commit/77836083e34ea9df85a6146ba58e403057f6fed7))
+* **pixels:** ensure SearchInput value can be cleared ([f107ea4](https://github.com/fuf-stack/pixels/commit/f107ea4d99594837e7dfbc29c0a2618c5259b98b))
+* **pixels:** fix AvatarGroup key issue ([a55bc73](https://github.com/fuf-stack/pixels/commit/a55bc73b52ccb54bede9657d3d1918f052e04e2b))
+* **pixels:** fix createWithSuspense snap ([125d3a7](https://github.com/fuf-stack/pixels/commit/125d3a7b6fc8c076c7c9772caaa98c24d6aac940))
+* **pixels:** fix disabled Button ([086b993](https://github.com/fuf-stack/pixels/commit/086b993f0269fb20386d906b2e512be402a6ebf3))
+* **pixels:** fix initialValue in SearchInput ([6a7a8ac](https://github.com/fuf-stack/pixels/commit/6a7a8acefdae3143ff5e5bd57d8cc8dd574337db))
+* **pixels:** remove disabled from useDebouce ([0a5f1e2](https://github.com/fuf-stack/pixels/commit/0a5f1e2508275a945047dc8ff6a3810518c2799c))
+* **pixels:** set z-index to menu trigger button to auto ([0e94421](https://github.com/fuf-stack/pixels/commit/0e94421e9992b90b798d8aa84f72e1c669cd7b0c))
+* reformat all code ([dfad412](https://github.com/fuf-stack/pixels/commit/dfad4120ad16e9ca2890bb4a7d9d7ac3b41a7413))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @fuf-stack/pixel-motion bumped to 2.1.0-next.0
+    * @fuf-stack/pixel-utils bumped to 2.1.0-next.0
+
 ## [1.7.0](https://github.com/fuf-stack/pixels/compare/pixels-v1.6.1...pixels-v1.7.0) (2025-12-16)
 
 
