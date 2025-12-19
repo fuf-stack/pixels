@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0-next.0](https://github.com/fuf-stack/pixels/compare/megapixels-v1.0.0-next.0...megapixels-v1.1.0-next.0) (2025-12-19)
+
+
+### Features
+
+* **veto:** zod v4 first version ([fbe25b3](https://github.com/fuf-stack/pixels/commit/fbe25b3480440bff1defd2eda5798265e6c04068))
+
 ## [0.9.1](https://github.com/fuf-stack/pixels/compare/megapixels-v0.9.0...megapixels-v0.9.1) (2025-12-16)
 
 
