@@ -1,0 +1,16 @@
+{
+  "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json",
+  "release-type": "node",
+  "include-component-in-tag": true,
+  "prerelease": true,
+  "prerelease-type": "next",
+  "packages": {
+    "packages/megapixels": {},
+    "packages/pixel-motion": {},
+    "packages/pixel-utils": {},
+    "packages/pixels": {},
+    "packages/uniform": {},
+    "packages/veto": {}
+  },
+  "plugins": ["node-workspace"]
+}

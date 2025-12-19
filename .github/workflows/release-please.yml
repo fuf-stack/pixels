@@ -10,6 +10,7 @@ on:
   push:
     branches:
       - main
+      - next # prerelease branch
 
 # Ensure only one release workflow runs at a time
 # Queue new runs and wait for in-progress release-please workflow to complete
@@ -27,15 +28,18 @@ jobs:
         id: release
         with:
           token: ${{ secrets.RELEASE_PLEASE_GITHUB_TOKEN }}
+          # Use different config/manifest based on branch
+          config-file: ${{ github.ref_name == 'next' && 'release-please-config-next.json' || 'release-please-config.json' }}
+          manifest-file: ${{ github.ref_name == 'next' && '.release-please-manifest-next.json' || '.release-please-manifest.json' }}
 
       - uses: actions/checkout@v6
         with:
           fetch-depth: 0
-        if: steps.release.outputs.releases_created  == 'true'
+        if: steps.release.outputs.releases_created == 'true'
 
       - name: Setup project
         uses: ./.github/actions/setup-project
-        if: steps.release.outputs.releases_created  == 'true'
+        if: steps.release.outputs.releases_created == 'true'
 
       - name: Publish to npm
         run: |
@@ -44,8 +48,13 @@ jobs:
           # Use npm publish via Lerna for trusted publishing support
           # pnpm doesn't support npm's trusted publishing (OIDC) yet, so we use npm directly
           # Lerna detects changed packages and publishes them using npm
-          npx lerna publish from-package --yes --no-verify-access
-        if: steps.release.outputs.releases_created  == 'true'
+          # Use 'next' dist-tag for prerelease branch, default (latest) for main
+          if [ "${{ github.ref_name }}" = "next" ]; then
+            npx lerna publish from-package --yes --no-verify-access --dist-tag next
+          else
+            npx lerna publish from-package --yes --no-verify-access
+          fi
+        if: steps.release.outputs.releases_created == 'true'
         # Note: If you have private npm dependencies, you may need NODE_AUTH_TOKEN
         # for installing dependencies only (not for publishing)
         # env:
@@ -53,10 +62,11 @@ jobs:
 
   # update other conflicting prs after package merge
   # see: https://github.com/googleapis/release-please/issues/1870#issuecomment-1748390833
+  # Only runs on main branch (not for prerelease branches)
   check-conflicting-prs:
     runs-on: ubuntu-latest
     needs: release-please
-    if: needs.release-please.outputs.releases_created == 'true'
+    if: needs.release-please.outputs.releases_created == 'true' && github.ref_name == 'main'
     outputs:
       need_rebase: ${{ steps.check-pending-prs.outputs.need_rebase }}
     steps:
