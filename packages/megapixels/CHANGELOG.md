@@ -1,5 +1,16 @@
 # Changelog
 
+## [0.9.2](https://github.com/fuf-stack/pixels/compare/megapixels-v0.9.1...megapixels-v0.9.2) (2025-12-27)
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @fuf-stack/pixel-motion bumped to 1.1.1
+    * @fuf-stack/pixels bumped to 1.7.1
+    * @fuf-stack/uniform bumped to 1.11.2
+
 ## [0.9.1](https://github.com/fuf-stack/pixels/compare/megapixels-v0.9.0...megapixels-v0.9.1) (2025-12-16)
 
 

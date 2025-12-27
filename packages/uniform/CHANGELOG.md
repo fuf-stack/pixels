@@ -1,5 +1,22 @@
 # Changelog
 
+## [1.11.2](https://github.com/fuf-stack/pixels/compare/uniform-v1.11.1...uniform-v1.11.2) (2025-12-27)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @react-aria/visually-hidden to v3.8.29 ([#1436](https://github.com/fuf-stack/pixels/issues/1436)) ([d9ea4c1](https://github.com/fuf-stack/pixels/commit/d9ea4c1d0a32c0bc0f37588bc05875453f102a6a))
+* **deps:** update dependency framer-motion to v12.23.26 ([#1410](https://github.com/fuf-stack/pixels/issues/1410)) ([9afec8a](https://github.com/fuf-stack/pixels/commit/9afec8a8e3f0f4035813fd360a8dad8edcfbc33e))
+* **deps:** update dependency react-hook-form to v7.69.0 ([#1440](https://github.com/fuf-stack/pixels/issues/1440)) ([31e73e9](https://github.com/fuf-stack/pixels/commit/31e73e998e15e8f3e8b628d9aad91f0226bbbbfa))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @fuf-stack/pixel-motion bumped to 1.1.1
+    * @fuf-stack/pixels bumped to 1.7.1
+
 ## [1.11.1](https://github.com/fuf-stack/pixels/compare/uniform-v1.11.0...uniform-v1.11.1) (2025-12-16)
 
 
