@@ -1,5 +1,35 @@
 # Changelog
 
+## [1.11.2](https://github.com/fuf-stack/pixels/compare/uniform-v1.11.1...uniform-v1.11.2) (2026-01-20)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @react-aria/visually-hidden to v3.8.29 ([#1436](https://github.com/fuf-stack/pixels/issues/1436)) ([d9ea4c1](https://github.com/fuf-stack/pixels/commit/d9ea4c1d0a32c0bc0f37588bc05875453f102a6a))
+* **deps:** update dependency framer-motion to v12.23.26 ([#1410](https://github.com/fuf-stack/pixels/issues/1410)) ([9afec8a](https://github.com/fuf-stack/pixels/commit/9afec8a8e3f0f4035813fd360a8dad8edcfbc33e))
+* **deps:** update dependency framer-motion to v12.24.0 ([#1449](https://github.com/fuf-stack/pixels/issues/1449)) ([2d9779c](https://github.com/fuf-stack/pixels/commit/2d9779c2befc9e9d0954a0b72dd92bcd7eba5f30))
+* **deps:** update dependency framer-motion to v12.24.10 ([#1454](https://github.com/fuf-stack/pixels/issues/1454)) ([83af561](https://github.com/fuf-stack/pixels/commit/83af561c2820ed0ee090fee15caa35494540060e))
+* **deps:** update dependency framer-motion to v12.24.12 ([#1455](https://github.com/fuf-stack/pixels/issues/1455)) ([b48120f](https://github.com/fuf-stack/pixels/commit/b48120f6108026719904d8412557436ca55708b6))
+* **deps:** update dependency framer-motion to v12.24.7 ([#1451](https://github.com/fuf-stack/pixels/issues/1451)) ([c4ae4e1](https://github.com/fuf-stack/pixels/commit/c4ae4e1dee3c23ef905f5b73ce934fdd67e0faaf))
+* **deps:** update dependency framer-motion to v12.24.9 ([#1453](https://github.com/fuf-stack/pixels/issues/1453)) ([32b0fd3](https://github.com/fuf-stack/pixels/commit/32b0fd3a349d6941c8323a1093cb4a68c5ee4ebe))
+* **deps:** update dependency framer-motion to v12.25.0 ([#1456](https://github.com/fuf-stack/pixels/issues/1456)) ([ef6dccc](https://github.com/fuf-stack/pixels/commit/ef6dccc942c1c9c568e65d6eec20f1062542d2d5))
+* **deps:** update dependency framer-motion to v12.26.1 ([#1465](https://github.com/fuf-stack/pixels/issues/1465)) ([6e66952](https://github.com/fuf-stack/pixels/commit/6e669529016732cf0911d23331bbe50a83565025))
+* **deps:** update dependency framer-motion to v12.26.2 ([#1467](https://github.com/fuf-stack/pixels/issues/1467)) ([d611ed2](https://github.com/fuf-stack/pixels/commit/d611ed2a81b305fe0563c394122fa16b2ccfc531))
+* **deps:** update dependency react-hook-form to v7.69.0 ([#1440](https://github.com/fuf-stack/pixels/issues/1440)) ([31e73e9](https://github.com/fuf-stack/pixels/commit/31e73e998e15e8f3e8b628d9aad91f0226bbbbfa))
+* **deps:** update dependency react-hook-form to v7.70.0 ([#1448](https://github.com/fuf-stack/pixels/issues/1448)) ([ce97e62](https://github.com/fuf-stack/pixels/commit/ce97e625a79f0ec09013390285d0fba1ad0ec5f0))
+* **deps:** update dependency react-hook-form to v7.71.0 ([#1462](https://github.com/fuf-stack/pixels/issues/1462)) ([a63cf7c](https://github.com/fuf-stack/pixels/commit/a63cf7c3535f3cd746b04716c22b571b9e75c374))
+* **veto:** revert bundling of package to tsup ([e6f43ce](https://github.com/fuf-stack/pixels/commit/e6f43ce93a875851def71efbc52048c85f12bc3e))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @fuf-stack/pixel-motion bumped to 1.1.1
+    * @fuf-stack/pixel-utils bumped to 1.1.1
+    * @fuf-stack/pixels bumped to 1.7.1
+    * @fuf-stack/veto bumped to 0.13.2
+
 ## [1.11.1](https://github.com/fuf-stack/pixels/compare/uniform-v1.11.0...uniform-v1.11.1) (2025-12-16)
 
 
