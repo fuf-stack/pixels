@@ -1,11 +1,5 @@
 name: release-please
 
-permissions:
-  contents: write
-  pull-requests: write
-  repository-projects: read # needed for 'gh pr edit' https://github.com/cli/cli/issues/6274
-  id-token: write # Required for OIDC trusted publishing with npm
-
 on:
   push:
     branches:
@@ -21,6 +15,10 @@ concurrency:
 jobs:
   release-please:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      id-token: write # Required for OIDC trusted publishing with npm
     outputs:
       releases_created: ${{ steps.release.outputs.releases_created }}
     steps:
@@ -67,6 +65,9 @@ jobs:
   # Only runs on main branch (not for prerelease branches)
   check-conflicting-prs:
     runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+      repository-projects: read # needed for 'gh pr edit' https://github.com/cli/cli/issues/6274
     needs: release-please
     if: needs.release-please.outputs.releases_created == 'true' && github.ref_name == 'main'
     outputs:
@@ -110,6 +111,9 @@ jobs:
   release-please-rebase:
     needs: check-conflicting-prs
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
     if: needs.check-conflicting-prs.outputs.need_rebase == 'true'
     steps:
       - uses: googleapis/release-please-action@v4
