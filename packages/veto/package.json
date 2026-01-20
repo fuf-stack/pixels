@@ -2,23 +2,10 @@
   "name": "@fuf-stack/veto",
   "description": "fuf schema validation library",
   "author": "Fröhlich ∧ Frei",
-  "version": "0.13.1",
-  "type": "module",
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.cts",
-  "sideEffects": [
-    "./src/errorMap.ts",
-    "./dist/index.js",
-    "./dist/index.cjs"
-  ],
-  "exports": {
-    ".": {
-      "require": "./dist/index.cjs",
-      "import": "./dist/index.js"
-    },
-    "./package.json": "./package.json"
-  },
+  "version": "0.12.7",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
   "files": [
     "dist"
   ],
@@ -40,12 +27,12 @@
     "url": "https://github.com/fuf-stack/pixels/issues"
   },
   "scripts": {
-    "build": "tsdown",
-    "prepack": "pnpm build",
+    "build": "tsx scripts/build-with-types.ts",
+    "dev": "tsup --watch",
     "test": "vitest ./src"
   },
   "dependencies": {
-    "zod": "3.25.76",
+    "zod": "3.24.3",
     "zodex": "0.18.2"
   }
 }

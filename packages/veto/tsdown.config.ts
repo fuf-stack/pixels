@@ -1,3 +1,5 @@
+// TODO: this is not used for now, but we should use it in the future
+
 /* eslint-disable import-x/no-extraneous-dependencies */
 import { baseConfig } from '@repo/tsdown-config/config';
 import { defineConfig } from 'tsdown';

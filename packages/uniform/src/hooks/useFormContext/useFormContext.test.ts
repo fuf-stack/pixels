@@ -1,13 +1,15 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { slugify } from '@fuf-stack/pixel-utils';
-import v, {
+import {
   and,
   array,
   number,
   object,
   refineArray,
   string,
+  // TODO: not sure why default import is not working here
+  veto as v,
 } from '@fuf-stack/veto';
 
 import { flatArrayKey } from '../../helpers';
