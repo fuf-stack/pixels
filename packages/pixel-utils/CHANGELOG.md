@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/fuf-stack/pixels/compare/pixel-utils-v1.1.0...pixel-utils-v1.1.1) (2026-01-20)
+
+
+### Bug Fixes
+
+* **pixel-utils:** use tsup for bundling again ([1608d14](https://github.com/fuf-stack/pixels/commit/1608d145e73c75ccb336e84251fa89778942785d))
+
 ## [1.1.0](https://github.com/fuf-stack/pixels/compare/pixel-utils-v1.0.6...pixel-utils-v1.1.0) (2025-12-16)
 
 
