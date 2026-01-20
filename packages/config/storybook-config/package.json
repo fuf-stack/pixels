@@ -5,9 +5,8 @@
   "type": "module",
   "main": "./main.ts",
   "scripts": {
-    "storybook": "storybook dev -p 6006",
-    "storybook:build": "storybook build --quiet",
-    "test": "test-storybook"
+    "storybook": "STORYBOOK_DISABLE_TELEMETRY=true storybook dev -p 6006",
+    "storybook:build": "STORYBOOK_DISABLE_TELEMETRY=true storybook build --quiet"
   },
   "devDependencies": {
     "@repo/tailwind-config": "workspace:*",
