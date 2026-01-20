@@ -2,18 +2,18 @@
   "name": "@fuf-stack/pixel-utils",
   "description": "fuf pixels helper utils",
   "author": "Fröhlich ∧ Frei",
-  "version": "1.1.0",
+  "version": "1.0.6",
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
-  "types": "./dist/index.d.cts",
+  "types": "./dist/index.d.ts",
   "sideEffects": false,
   "exports": {
     ".": {
-      "require": "./dist/index.cjs",
-      "import": "./dist/index.js"
-    },
-    "./package.json": "./package.json"
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
   },
   "files": [
     "./dist"
@@ -37,7 +37,7 @@
     "url": "https://github.com/fuf-stack/pixels/issues"
   },
   "scripts": {
-    "build": "tsdown",
+    "build": "tsup --config node_modules/@repo/tsup-config/config.ts",
     "prepack": "pnpm build"
   },
   "peerDependencies": {
