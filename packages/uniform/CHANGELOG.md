@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.11.3](https://github.com/fuf-stack/pixels/compare/uniform-v1.11.2...uniform-v1.11.3) (2026-01-21)
+
+
+### Bug Fixes
+
+* **deps:** update dependency react-hook-form to v7.71.1 ([#1474](https://github.com/fuf-stack/pixels/issues/1474)) ([d6ab859](https://github.com/fuf-stack/pixels/commit/d6ab859330cf862fefc32fda6379e554c9e961b7))
+* **uniform:** improve validation error display timing for empty fields ([a8b819f](https://github.com/fuf-stack/pixels/commit/a8b819f2d62b635adbd44b9bca3be08bb7f8ae1f))
+
 ## [1.11.2](https://github.com/fuf-stack/pixels/compare/uniform-v1.11.1...uniform-v1.11.2) (2026-01-20)
 
 
