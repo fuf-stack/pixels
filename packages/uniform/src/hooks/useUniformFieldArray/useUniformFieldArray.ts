@@ -98,11 +98,13 @@ export const useUniformFieldArray = <
   }, [needsInitialize]);
 
   // Validate array-level constraints (min/max items) when length changes.
+  // This ensures min/max errors appear instantly when user adds/removes items.
+  // Note: Child field validation also runs, but new empty fields won't show as invalid
+  // because useFormContext only sets invalid=true for touched fields or after form submission.
   // Skip validation during initialization/re-initialization to avoid showing errors prematurely.
   useEffect(() => {
     if (hasInitialized.current) {
       setTimeout(() => {
-        // Trigger validation so min/max errors appear instantly when user adds/removes items
         trigger(name as Path<TFieldValues>);
       }, 200);
     }

@@ -76,6 +76,7 @@ const TextArea = ({
   // Use debounced handlers for form updates
   const { onChange, onBlur, value } = useInputValueDebounce({
     debounceDelay,
+    name,
     onBlur: fieldOnBlur,
     onChange: fieldOnChange,
     value: fieldValue,

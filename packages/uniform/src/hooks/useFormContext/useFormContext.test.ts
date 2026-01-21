@@ -4,6 +4,8 @@ import { slugify } from '@fuf-stack/pixel-utils';
 import {
   and,
   array,
+  discriminatedUnion,
+  literal,
   number,
   object,
   refineArray,
@@ -309,6 +311,150 @@ describe('checkFieldIsRequired', () => {
     expect(result2).toBe(true);
   });
 
+  it('discriminatedUnion with required field', () => {
+    const validation = v({
+      item: discriminatedUnion('type', [
+        object({ type: literal('text'), content: string() }),
+        object({ type: literal('image'), url: string(), alt: string() }),
+      ]),
+    });
+
+    // The discriminator field should be required
+    let fieldPath = ['item', 'type'];
+    let result = checkFieldIsRequired(validation, fieldPath);
+    expect(result).toBe(true);
+
+    // Field in text variant should be required
+    fieldPath = ['item', 'content'];
+    result = checkFieldIsRequired(validation, fieldPath);
+    expect(result).toBe(true);
+
+    // Field in image variant should be required
+    fieldPath = ['item', 'url'];
+    result = checkFieldIsRequired(validation, fieldPath);
+    expect(result).toBe(true);
+  });
+
+  it('discriminatedUnion with optional field', () => {
+    const validation = v({
+      item: discriminatedUnion('type', [
+        object({ type: literal('text'), content: string().optional() }),
+        object({
+          type: literal('image'),
+          url: string(),
+          alt: string().optional(),
+        }),
+      ]),
+    });
+
+    // The discriminator field should still be required
+    let fieldPath = ['item', 'type'];
+    let result = checkFieldIsRequired(validation, fieldPath);
+    expect(result).toBe(true);
+
+    // Optional field in text variant should be optional
+    fieldPath = ['item', 'content'];
+    result = checkFieldIsRequired(validation, fieldPath);
+    expect(result).toBe(false);
+
+    // Required field in image variant should be required
+    fieldPath = ['item', 'url'];
+    result = checkFieldIsRequired(validation, fieldPath);
+    expect(result).toBe(true);
+
+    // Optional field in image variant should be optional
+    fieldPath = ['item', 'alt'];
+    result = checkFieldIsRequired(validation, fieldPath);
+    expect(result).toBe(false);
+  });
+
+  it('optional discriminatedUnion', () => {
+    const validation = v({
+      item: discriminatedUnion('type', [
+        object({ type: literal('text'), content: string() }),
+        object({ type: literal('image'), url: string() }),
+      ]).optional(),
+    });
+
+    // The discriminatedUnion itself should be optional
+    let fieldPath = ['item'];
+    let result = checkFieldIsRequired(validation, fieldPath);
+    expect(result).toBe(false);
+
+    // But fields inside should still be required
+    fieldPath = ['item', 'content'];
+    result = checkFieldIsRequired(validation, fieldPath);
+    expect(result).toBe(true);
+  });
+
+  it('discriminatedUnion in array', () => {
+    const validation = v({
+      items: array(
+        discriminatedUnion('type', [
+          object({ type: literal('text'), content: string() }),
+          object({ type: literal('image'), url: string().optional() }),
+        ]),
+      ),
+    });
+
+    // Array should be required
+    let fieldPath = ['items'];
+    let result = checkFieldIsRequired(validation, fieldPath);
+    expect(result).toBe(true);
+
+    // Required field in variant should be required
+    fieldPath = ['items', '0', 'content'];
+    result = checkFieldIsRequired(validation, fieldPath);
+    expect(result).toBe(true);
+
+    // Optional field in variant should be optional
+    fieldPath = ['items', '0', 'url'];
+    result = checkFieldIsRequired(validation, fieldPath);
+    expect(result).toBe(false);
+  });
+
+  it('discriminatedUnion with .strip() on objects', () => {
+    const validation = v({
+      item: discriminatedUnion('type', [
+        object({ type: literal('text'), content: string() }).strip(),
+        object({
+          type: literal('image'),
+          url: string(),
+          alt: string().optional(),
+        }).strip(),
+      ]),
+    });
+
+    // The discriminator field should be required
+    let fieldPath = ['item', 'type'];
+    let result = checkFieldIsRequired(validation, fieldPath);
+    expect(result).toBe(true);
+
+    // Required field should be required
+    fieldPath = ['item', 'content'];
+    result = checkFieldIsRequired(validation, fieldPath);
+    expect(result).toBe(true);
+
+    // Optional field should be optional
+    fieldPath = ['item', 'alt'];
+    result = checkFieldIsRequired(validation, fieldPath);
+    expect(result).toBe(false);
+  });
+
+  it('discriminatedUnion with optional field and .strip()', () => {
+    const validation = v({
+      item: discriminatedUnion('type', [
+        object({ type: literal('a'), name: string().optional() }).strip(),
+        object({ type: literal('b'), name: string().optional() }).strip(),
+      ]),
+    });
+
+    // Optional field should be optional even with .strip()
+    const fieldPath = ['item', 'name'];
+    const result = checkFieldIsRequired(validation, fieldPath);
+    expect(result).toBe(false);
+  });
+
   it('required field with client validation using nullish()', () => {
     // Base validation: field is required
     const baseSchema = object({
@@ -368,6 +514,8 @@ describe('field state integration (errors, invalid, testId)', () => {
     mockGetFieldState.mockReset();
     // default: no baseline error from RHF
     mockGetFieldState.mockReturnValue({});
+    // reset form state to default (not submitted)
+    mockFormState = { isDirty: false, isSubmitted: false };
     // @ts-expect-error not sure here
     mockUniformContextValue = {
       validation: {
@@ -378,7 +526,7 @@ describe('field state integration (errors, invalid, testId)', () => {
     } as unknown as ReturnType<typeof useFormContext>;
   });
 
-  it('extracts nested errors by dotted path and sets invalid=true', () => {
+  it('extracts nested errors by dotted path and sets invalid=true when error exists', () => {
     // Arrange nested errors: user.address.0.street
     mockUniformContextValue.validation.errors = {
       user: {
@@ -390,12 +538,28 @@ describe('field state integration (errors, invalid, testId)', () => {
       },
     } as unknown as Record<string, unknown>;
 
+    mockGetFieldState.mockReturnValue({ isTouched: false });
+
     const { getFieldState } = useFormContext();
     const state = getFieldState('user.address.0.street');
 
+    // invalid is true whenever there's an error (display logic is in useUniformField)
     expect(state.invalid).toBe(true);
     expect(Array.isArray(state.error)).toBe(true);
     expect(state.error?.[0]?.message).toBe('Street is required');
+  });
+
+  it('sets invalid=false when no errors exist', () => {
+    // No errors configured
+    mockUniformContextValue.validation.errors = {};
+
+    mockGetFieldState.mockReturnValue({ isTouched: false });
+
+    const { getFieldState } = useFormContext();
+    const state = getFieldState('user.address.0.street');
+
+    expect(state.invalid).toBe(false);
+    expect(state.error).toBeUndefined();
   });
 
   it('generates slugified testId from field name when none provided', () => {
@@ -413,9 +577,12 @@ describe('field state integration (errors, invalid, testId)', () => {
       },
     } as unknown as Record<string, unknown>;
 
+    mockGetFieldState.mockReturnValue({ isTouched: false });
+
     const { getFieldState } = useFormContext();
     const state = getFieldState(`tags.0.${flatArrayKey}`);
 
+    // invalid is true whenever there's an error (display logic is in useUniformField)
     expect(state.invalid).toBe(true);
     expect(Array.isArray(state.error)).toBe(true);
     expect(state.error?.[0]?.message).toBe('Tag is required');
@@ -508,13 +675,15 @@ let mockUniformContextValue: MockUniformContextValue = {
   validation: { instance: null, baseInstance: null, errors: {} },
 };
 
+let mockFormState = { isDirty: false, isSubmitted: false };
+
 vi.mock('react-hook-form', () => ({
   useFormContext: () => ({
     getValues: mockGetValues,
     watch: mockWatch,
     subscribe: mockSubscribe,
     getFieldState: mockGetFieldState,
-    formState: { isDirty: false },
+    formState: mockFormState,
   }),
 }));
 

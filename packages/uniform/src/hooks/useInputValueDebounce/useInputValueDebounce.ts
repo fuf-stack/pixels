@@ -1,8 +1,12 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 
+import { useFormContext } from '../useFormContext';
+
 export interface UseInputValueDebounceOptions<TValue = unknown> {
   /** Debounce delay in milliseconds (default: 300) */
   debounceDelay?: number;
+  /** Field name for triggering validation after debounced value commits */
+  name: string;
   /** The onBlur function to call after flushing debounced value */
   onBlur: () => void;
   /** The onChange function to call with debounced value */
@@ -50,6 +54,7 @@ export interface UseInputValueDebounceReturn<TValue = unknown> {
  * ```tsx
  * const { onChange, onBlur, value } = useInputValueDebounce({
  *   debounceDelay: 300,
+ *   name: 'fieldName',
  *   onBlur: field.onBlur,
  *   onChange: field.onChange,
  *   value: field.value,
@@ -58,10 +63,13 @@ export interface UseInputValueDebounceReturn<TValue = unknown> {
  */
 export const useInputValueDebounce = <TValue = unknown>({
   debounceDelay = 300,
+  name,
   onBlur,
   onChange,
   value,
 }: UseInputValueDebounceOptions<TValue>): UseInputValueDebounceReturn<TValue> => {
+  const { trigger } = useFormContext();
+
   // Track value for synchronous updates
   const [currentValue, setCurrentValue] = useState<TValue>(value);
 
@@ -99,6 +107,9 @@ export const useInputValueDebounce = <TValue = unknown>({
         } else {
           onChange(newValue);
         }
+        // Trigger validation after debounced value commits
+        // This ensures errors are updated immediately when field becomes valid
+        trigger(name);
       };
 
       // Execute immediately or after delay
@@ -108,7 +119,7 @@ export const useInputValueDebounce = <TValue = unknown>({
         timeoutRef.current = setTimeout(executeOnChange, debounceDelay);
       }
     },
-    [onChange, debounceDelay],
+    [onChange, debounceDelay, trigger, name],
   );
 
   // Enhanced blur handler

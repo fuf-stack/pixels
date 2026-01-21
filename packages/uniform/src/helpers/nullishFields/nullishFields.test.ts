@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest';
 import {
   flatArrayKey,
   fromNullishString,
+  isValueEmpty,
   nameToTestId,
   toFormFormat,
   toNullishString,
@@ -44,6 +45,182 @@ describe('fromNullishString', () => {
     expect(fromNullishString(null)).toBe(null);
     expect(fromNullishString(false)).toBe(false);
     expect(fromNullishString(0)).toBe(0);
+  });
+});
+
+describe('isValueEmpty', () => {
+  describe('primitives', () => {
+    it('should return true for null', () => {
+      expect(isValueEmpty(null)).toBe(true);
+    });
+
+    it('should return true for undefined', () => {
+      expect(isValueEmpty(undefined)).toBe(true);
+    });
+
+    it('should return true for empty string', () => {
+      expect(isValueEmpty('')).toBe(true);
+    });
+
+    it('should return false for non-empty strings', () => {
+      expect(isValueEmpty('hello')).toBe(false);
+      expect(isValueEmpty('a')).toBe(false);
+      expect(isValueEmpty(' ')).toBe(false); // whitespace is not empty
+    });
+
+    it('should return false for numbers (including 0)', () => {
+      expect(isValueEmpty(0)).toBe(false);
+      expect(isValueEmpty(42)).toBe(false);
+      expect(isValueEmpty(-1)).toBe(false);
+    });
+
+    it('should return false for booleans', () => {
+      expect(isValueEmpty(true)).toBe(false);
+      expect(isValueEmpty(false)).toBe(false);
+    });
+  });
+
+  describe('marker strings', () => {
+    it('should return true for __NULL__ marker', () => {
+      expect(isValueEmpty('__NULL__')).toBe(true);
+    });
+
+    it('should return false for __FALSE__ marker (converts to false)', () => {
+      expect(isValueEmpty('__FALSE__')).toBe(false);
+    });
+
+    it('should return false for __ZERO__ marker (converts to 0)', () => {
+      expect(isValueEmpty('__ZERO__')).toBe(false);
+    });
+  });
+
+  describe('arrays', () => {
+    it('should return true for empty arrays', () => {
+      expect(isValueEmpty([])).toBe(true);
+    });
+
+    it('should return false for non-empty arrays', () => {
+      expect(isValueEmpty([1])).toBe(false);
+      expect(isValueEmpty(['a', 'b'])).toBe(false);
+      expect(isValueEmpty([null])).toBe(false); // array with null is not empty
+      expect(isValueEmpty([undefined])).toBe(false);
+    });
+  });
+
+  describe('flat array wrappers', () => {
+    it('should return true for flat wrapper with null', () => {
+      expect(isValueEmpty({ [flatArrayKey]: null })).toBe(true);
+    });
+
+    it('should return true for flat wrapper with undefined', () => {
+      expect(isValueEmpty({ [flatArrayKey]: undefined })).toBe(true);
+    });
+
+    it('should return true for flat wrapper with empty string', () => {
+      expect(isValueEmpty({ [flatArrayKey]: '' })).toBe(true);
+    });
+
+    it('should return true for flat wrapper with __NULL__ marker', () => {
+      expect(isValueEmpty({ [flatArrayKey]: '__NULL__' })).toBe(true);
+    });
+
+    it('should return false for flat wrapper with value', () => {
+      expect(isValueEmpty({ [flatArrayKey]: 'value' })).toBe(false);
+      expect(isValueEmpty({ [flatArrayKey]: 0 })).toBe(false);
+      expect(isValueEmpty({ [flatArrayKey]: false })).toBe(false);
+    });
+
+    it('should return false for flat wrapper with __FALSE__ marker', () => {
+      expect(isValueEmpty({ [flatArrayKey]: '__FALSE__' })).toBe(false);
+    });
+
+    it('should return false for flat wrapper with __ZERO__ marker', () => {
+      expect(isValueEmpty({ [flatArrayKey]: '__ZERO__' })).toBe(false);
+    });
+  });
+
+  describe('objects (FieldCard)', () => {
+    it('should return true for empty objects', () => {
+      expect(isValueEmpty({})).toBe(true);
+    });
+
+    it('should return true for objects with all null values', () => {
+      expect(isValueEmpty({ a: null, b: null })).toBe(true);
+    });
+
+    it('should return true for objects with all undefined values', () => {
+      expect(isValueEmpty({ a: undefined, b: undefined })).toBe(true);
+    });
+
+    it('should return true for objects with all empty string values', () => {
+      expect(isValueEmpty({ a: '', b: '' })).toBe(true);
+    });
+
+    it('should return true for objects with mixed empty values', () => {
+      expect(isValueEmpty({ a: null, b: undefined, c: '' })).toBe(true);
+    });
+
+    it('should return true for objects with __NULL__ marker values', () => {
+      expect(isValueEmpty({ a: '__NULL__', b: '__NULL__' })).toBe(true);
+    });
+
+    it('should return false for objects with at least one non-empty value', () => {
+      expect(isValueEmpty({ a: null, b: 'value' })).toBe(false);
+      expect(isValueEmpty({ a: '', b: 0 })).toBe(false);
+      expect(isValueEmpty({ a: undefined, b: false })).toBe(false);
+    });
+
+    it('should return false for objects with __FALSE__ or __ZERO__ markers', () => {
+      expect(isValueEmpty({ a: null, b: '__FALSE__' })).toBe(false);
+      expect(isValueEmpty({ a: null, b: '__ZERO__' })).toBe(false);
+    });
+  });
+
+  describe('nested objects', () => {
+    it('should return true for deeply nested empty objects', () => {
+      expect(isValueEmpty({ a: { b: { c: null } } })).toBe(true);
+      expect(isValueEmpty({ a: { b: null }, c: { d: '' } })).toBe(true);
+    });
+
+    it('should return false for nested objects with at least one value', () => {
+      expect(isValueEmpty({ a: { b: { c: 'value' } } })).toBe(false);
+      expect(isValueEmpty({ a: { b: null }, c: { d: 'value' } })).toBe(false);
+    });
+
+    it('should handle nested flat array wrappers', () => {
+      expect(isValueEmpty({ a: { [flatArrayKey]: null } })).toBe(true);
+      expect(isValueEmpty({ a: { [flatArrayKey]: 'value' } })).toBe(false);
+    });
+  });
+
+  describe('edge cases', () => {
+    it('should return false for nested empty arrays in objects', () => {
+      // An object containing an empty array - the array is empty but the object has a key
+      // This returns true because the array value is empty
+      expect(isValueEmpty({ arr: [] })).toBe(true);
+    });
+
+    it('should return false for nested non-empty arrays in objects', () => {
+      expect(isValueEmpty({ arr: [1, 2] })).toBe(false);
+    });
+
+    it('should handle complex mixed structures', () => {
+      expect(
+        isValueEmpty({
+          field1: null,
+          field2: { nested: null, flat: { [flatArrayKey]: '' } },
+          field3: undefined,
+        }),
+      ).toBe(true);
+
+      expect(
+        isValueEmpty({
+          field1: null,
+          field2: { nested: null, flat: { [flatArrayKey]: 'value' } },
+          field3: undefined,
+        }),
+      ).toBe(false);
+    });
   });
 });
 

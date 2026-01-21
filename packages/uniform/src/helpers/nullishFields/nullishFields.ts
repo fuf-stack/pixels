@@ -11,6 +11,58 @@ const falseString = '__FALSE__';
 const zeroString = '__ZERO__';
 
 /**
+ * Checks if a value is considered "empty" for validation display purposes.
+ *
+ * Used by useUniformField to determine when to show validation errors.
+ * Empty values don't trigger immediate error display (user must interact first).
+ *
+ * Handles:
+ * - Primitives: null, undefined, ''
+ * - Marker strings: __NULL__, __FALSE__, __ZERO__ (converted via fromNullishString)
+ * - Empty arrays: []
+ * - Objects with all empty values: {a: null, b: ''}
+ * - Flat array wrappers: {__FLAT__: null} or {__FLAT__: ''}
+ *
+ * @param value - The value to check (will be converted via fromNullishString first)
+ * @returns true if the value is empty
+ *
+ * @example
+ * isValueEmpty(null)                    // true
+ * isValueEmpty('')                      // true
+ * isValueEmpty('__NULL__')              // true (marker string)
+ * isValueEmpty([])                      // true (empty array)
+ * isValueEmpty({a: null})               // true (object with all empty values)
+ * isValueEmpty({__FLAT__: null})        // true (flat array wrapper with empty value)
+ * isValueEmpty({__FLAT__: ''})          // true
+ * isValueEmpty('hello')                 // false
+ * isValueEmpty([1, 2])                  // false
+ * isValueEmpty({a: 'value'})            // false
+ * isValueEmpty({__FLAT__: 'value'})     // false
+ */
+export const isValueEmpty = (value: unknown): boolean => {
+  // Convert marker strings first
+  const converted = fromNullishString(value);
+
+  if (converted === undefined || converted === null || converted === '') {
+    return true;
+  }
+  if (Array.isArray(converted)) {
+    return converted.length === 0;
+  }
+  if (typeof converted === 'object' && converted !== null) {
+    const record = converted as Record<string, unknown>;
+    // Handle flat array wrapper: { __FLAT__: innerValue }
+    if (flatArrayKey in record) {
+      return isValueEmpty(record[flatArrayKey]);
+    }
+    // For objects (e.g., FieldCard), check if all values are null/undefined/empty
+    const values = Object.values(record);
+    return values.length === 0 || values.every(isValueEmpty);
+  }
+  return false;
+};
+
+/**
  * Converts marker strings back to their original values when processing arrays
  */
 export const fromNullishString = (value: unknown): unknown => {

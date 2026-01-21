@@ -9,16 +9,29 @@ vi.mock('@fuf-stack/pixels', () => ({
   useDebounce: vi.fn((value, delay) => {
     // For testing, we'll simulate debouncing behavior
     if (delay === 0) {
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-return
       return value;
     }
     // In real tests, this would be the debounced value
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
     return value;
+  }),
+}));
+
+// Mock trigger function
+const mockTrigger = vi.fn();
+
+// Mock useFormContext
+vi.mock('../useFormContext', () => ({
+  useFormContext: () => ({
+    trigger: mockTrigger,
   }),
 }));
 
 describe('useInputValueDebounce', () => {
   const mockOnChange = vi.fn();
   const mockOnBlur = vi.fn();
+  const testFieldName = 'testField';
 
   beforeEach(() => {
     vi.clearAllMocks();
@@ -34,6 +47,7 @@ describe('useInputValueDebounce', () => {
       const { result } = renderHook(() =>
         useInputValueDebounce({
           debounceDelay: 0,
+          name: testFieldName,
           onBlur: mockOnBlur,
           onChange: mockOnChange,
           value: 'test',
@@ -49,6 +63,7 @@ describe('useInputValueDebounce', () => {
       const { result } = renderHook(() =>
         useInputValueDebounce({
           debounceDelay: 0,
+          name: testFieldName,
           onBlur: mockOnBlur,
           onChange: mockOnChange,
           value: 42,
@@ -62,6 +77,7 @@ describe('useInputValueDebounce', () => {
       const { result } = renderHook(() =>
         useInputValueDebounce({
           debounceDelay: 0,
+          name: testFieldName,
           onBlur: mockOnBlur,
           onChange: mockOnChange,
           value: '',
@@ -74,6 +90,7 @@ describe('useInputValueDebounce', () => {
     it('should use default debounce delay of 300ms', () => {
       const { result } = renderHook(() =>
         useInputValueDebounce({
+          name: testFieldName,
           onBlur: mockOnBlur,
           onChange: mockOnChange,
           value: 'test',
@@ -89,6 +106,7 @@ describe('useInputValueDebounce', () => {
       const { result } = renderHook(() =>
         useInputValueDebounce({
           debounceDelay: 0,
+          name: testFieldName,
           onBlur: mockOnBlur,
           onChange: mockOnChange,
           value: 'initial',
@@ -102,10 +120,58 @@ describe('useInputValueDebounce', () => {
       expect(mockOnChange).toHaveBeenCalledWith('new value');
     });
 
+    it('should trigger validation after debounced onChange commits', () => {
+      const { result } = renderHook(() =>
+        useInputValueDebounce({
+          debounceDelay: 300,
+          name: testFieldName,
+          onBlur: mockOnBlur,
+          onChange: mockOnChange,
+          value: 'initial',
+        }),
+      );
+
+      act(() => {
+        result.current.onChange('new value');
+      });
+
+      // Should not have triggered validation yet
+      expect(mockTrigger).not.toHaveBeenCalled();
+
+      // Fast-forward time
+      act(() => {
+        vi.advanceTimersByTime(300);
+      });
+
+      // Should trigger validation with field name after onChange commits
+      expect(mockTrigger).toHaveBeenCalledWith(testFieldName);
+      expect(mockTrigger).toHaveBeenCalledTimes(1);
+    });
+
+    it('should trigger validation immediately when debounceDelay is 0', () => {
+      const { result } = renderHook(() =>
+        useInputValueDebounce({
+          debounceDelay: 0,
+          name: testFieldName,
+          onBlur: mockOnBlur,
+          onChange: mockOnChange,
+          value: 'initial',
+        }),
+      );
+
+      act(() => {
+        result.current.onChange('new value');
+      });
+
+      expect(mockTrigger).toHaveBeenCalledWith(testFieldName);
+      expect(mockTrigger).toHaveBeenCalledTimes(1);
+    });
+
     it('should handle event objects', () => {
       const { result } = renderHook(() =>
         useInputValueDebounce({
           debounceDelay: 0,
+          name: testFieldName,
           onBlur: mockOnBlur,
           onChange: mockOnChange,
           value: 'initial',
@@ -133,6 +199,7 @@ describe('useInputValueDebounce', () => {
       const { result } = renderHook(() =>
         useInputValueDebounce({
           debounceDelay: 300,
+          name: testFieldName,
           onBlur: mockOnBlur,
           onChange: mockOnChange,
           value: 'initial',
@@ -164,6 +231,7 @@ describe('useInputValueDebounce', () => {
       const { result } = renderHook(() =>
         useInputValueDebounce({
           debounceDelay: 0,
+          name: testFieldName,
           onBlur: mockOnBlur,
           onChange: mockOnChange,
           value: 'test',
@@ -181,6 +249,7 @@ describe('useInputValueDebounce', () => {
       const { result } = renderHook(() =>
         useInputValueDebounce({
           debounceDelay: 300,
+          name: testFieldName,
           onBlur: mockOnBlur,
           onChange: mockOnChange,
           value: 'initial',
@@ -207,6 +276,7 @@ describe('useInputValueDebounce', () => {
       const { result } = renderHook(() =>
         useInputValueDebounce({
           debounceDelay: 300,
+          name: testFieldName,
           onBlur: mockOnBlur,
           onChange: mockOnChange,
           value: 'test',
@@ -228,6 +298,7 @@ describe('useInputValueDebounce', () => {
       const { result, rerender } = renderHook(() =>
         useInputValueDebounce({
           debounceDelay: 0,
+          name: testFieldName,
           onBlur: mockOnBlur,
           onChange: mockOnChange,
           value,
@@ -246,6 +317,7 @@ describe('useInputValueDebounce', () => {
       const { result } = renderHook(() =>
         useInputValueDebounce({
           debounceDelay: 300,
+          name: testFieldName,
           onBlur: mockOnBlur,
           onChange: mockOnChange,
           value: 'initial',

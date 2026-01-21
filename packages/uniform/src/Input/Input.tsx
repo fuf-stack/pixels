@@ -97,6 +97,7 @@ const Input = ({
   // Use hook that provides debounced onChange and enhanced blur handling
   const { onChange, onBlur, value } = useInputValueDebounce({
     debounceDelay,
+    name,
     onBlur: fieldOnBlur,
     onChange: fieldOnChange,
     value: fieldValue,

@@ -602,3 +602,92 @@ export const EdgeCaseResetWithInitialValues: Story = {
     );
   },
 };
+
+/**
+ * Edge case: Tests that validation errors clear immediately when typing valid content
+ * in a flat array field, not just on blur.
+ *
+ * This tests the fix for an issue where debounced inputs in flat arrays would
+ * show stale validation errors until the field was blurred, even after typing
+ * valid content.
+ */
+export const EdgeCaseFlatArrayValidationClears: Story = {
+  name: 'Edge Case: Flat Array Validation Clears on Type',
+  parameters: {
+    formProps: {
+      validation: veto({
+        tags: array(string().min(1)).min(1),
+      }),
+    },
+  },
+  args: {
+    name: 'tags',
+    label: 'Tags (type to clear error)',
+    flat: true,
+    testId: 'tags',
+    children: ({ name }) => {
+      return <Input label="Tag" name={name} testId={name} />;
+    },
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    // Add first element
+    const addButton = canvas.getByTestId('tags_append_button');
+    await userEvent.click(addButton);
+
+    // Wait for element to appear
+    await waitFor(() => {
+      expect(canvas.getByTestId('tags_0')).toBeInTheDocument();
+    });
+
+    // Add second element
+    await userEvent.click(addButton);
+
+    // Wait for second element to appear
+    await waitFor(() => {
+      expect(canvas.getByTestId('tags_1')).toBeInTheDocument();
+    });
+
+    const firstInput = canvas.getByTestId('tags_0');
+    const secondInput = canvas.getByTestId('tags_1');
+
+    // Click first input then blur to trigger touched state
+    await userEvent.click(firstInput);
+    await userEvent.click(secondInput);
+
+    // Now both fields should show errors (after blur triggers touched state)
+    await waitFor(
+      () => {
+        expect(firstInput.getAttribute('aria-invalid')).toBe('true');
+      },
+      { timeout: 1000 },
+    );
+
+    // Click outside to blur second input
+    await userEvent.click(addButton);
+
+    await waitFor(
+      () => {
+        expect(secondInput.getAttribute('aria-invalid')).toBe('true');
+      },
+      { timeout: 1000 },
+    );
+
+    // Type in second field
+    await userEvent.type(secondInput, 'valid-tag', { delay: 50 });
+
+    // Wait for debounce (300ms) + validation trigger + re-render
+    // The error on the second field should clear after typing valid content
+    // Note: aria-invalid is either 'true' when invalid, or null/not present when valid
+    await waitFor(
+      () => {
+        expect(secondInput.getAttribute('aria-invalid')).not.toBe('true');
+      },
+      { timeout: 1000 },
+    );
+
+    // First field should still have error (still empty)
+    expect(firstInput.getAttribute('aria-invalid')).toBe('true');
+  },
+};

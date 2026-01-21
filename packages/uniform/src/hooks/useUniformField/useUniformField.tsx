@@ -7,6 +7,7 @@ import React from 'react';
 import { isTestEnvironment } from '@fuf-stack/pixel-utils';
 import { useDebounce } from '@fuf-stack/pixels';
 
+import { isValueEmpty } from '../../helpers';
 import { FieldCopyTestIdButton } from '../../partials/FieldCopyTestIdButton';
 import { FieldValidationError } from '../../partials/FieldValidationError';
 import { useController } from '../useController/useController';
@@ -160,7 +161,6 @@ export const useUniformField = <
   const {
     error,
     invalid: rawInvalid,
-    isDirty,
     isTouched,
     required,
     testId,
@@ -205,21 +205,30 @@ export const useUniformField = <
    * Determine when to show the invalid state to the user.
    *
    * Show errors when the field is invalid AND any of these conditions are met:
-   *   - Field is dirty (value changed from initial) - good for checkboxes/radios/arrays
+   *   - Field has a value (show validation errors like format/length while typing)
    *   - Field is touched (focused and blurred) - good for text inputs
    *   - Form has been submitted - shows all errors after submit attempt
    *
-   * This prevents showing errors on pristine/untouched fields for better UX.
+   * Note: We intentionally don't use isDirty because:
+   *   - Newly added array elements are marked "dirty" by RHF, causing immediate errors
+   *   - Field Cards with empty initial values show errors immediately
+   *   - hasValue + isTouched covers the same use cases more reliably
+   *
+   * This prevents showing errors on pristine/untouched/empty fields for better UX.
    * Examples:
    *   - Text input: User loads form with empty required field → no error shown yet
-   *   - Text input: User focuses and blurs → error shows (via isTouched)
-   *   - Checkbox group: User clicks first checkbox → error shows immediately (via isDirty)
+   *   - Text input: User types invalid content → error shows immediately (has value)
+   *   - Text input: User focuses and blurs without typing → error shows (via isTouched)
+   *   - Checkbox/radio: User selects option → error shows immediately (has value)
+   *   - Field array: User adds element → no error yet; after blur → error shows
    *   - Any field: User submits form → all errors show (via submitCount)
    *
-   * The entire condition is debounced to prevent flickering and allow smooth animations
-   * when any of the states (invalid, isDirty, isTouched, submitCount) change.
+   * The entire condition is debounced to prevent flickering and allow smooth animations.
    */
-  const showInvalid = rawInvalid && (isDirty || isTouched || submitCount > 0);
+
+  // isValueEmpty handles marker strings, flat array wrappers, empty arrays, and empty objects
+  const hasValue = !isValueEmpty(fieldValue);
+  const showInvalid = rawInvalid && (hasValue || isTouched || submitCount > 0);
   const invalid = useDebouncedInvalid(showInvalid, 200);
 
   // Build a label node that:
