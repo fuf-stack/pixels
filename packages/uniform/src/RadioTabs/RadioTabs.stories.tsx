@@ -44,6 +44,17 @@ export const Default: Story = {
   },
 };
 
+export const NumberValues: Story = {
+  args: {
+    name: 'radioTabsField',
+    options: [
+      { value: 1, label: 'One' },
+      { value: 2, label: 'Two' },
+      { value: 13, label: 'Unlucky' },
+    ],
+  },
+};
+
 export const WithContent: Story = {
   parameters: {
     formProps: {

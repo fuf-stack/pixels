@@ -781,6 +781,154 @@ exports[`Story Snapshots > Invalid 1`] = `
 </div>
 `;
 
+exports[`Story Snapshots > NumberValues 1`] = `
+<div>
+  <div
+    class="flex w-full flex-row justify-between gap-6"
+  >
+    <form
+      class="grow min-w-60"
+      data-form-is-valid="true"
+      data-testid=""
+    >
+      <div
+        aria-label="radiosField"
+        aria-orientation="vertical"
+        class="relative flex flex-col group gap-0"
+        data-invalid="false"
+        data-required="false"
+        data-testid="radiosfield"
+        id="react-aria-«replaced-aria-id»"
+        role="radiogroup"
+      >
+        <div
+          class="flex flex-col flex-wrap gap-2 data-[orientation=horizontal]:flex-row"
+          data-orientation="vertical"
+          role="presentation"
+        >
+          <label
+            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
+            data-testid="radiosfield_option_1"
+          >
+            <input
+              aria-describedby="«replaced-aria-id» react-aria-«replaced-aria-id»"
+              aria-labelledby="«replaced-aria-id»"
+              class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
+              data-react-aria-pressable="true"
+              name="radiosField"
+              tabindex="0"
+              title=""
+              type="radio"
+              value="1"
+            />
+            <span
+              aria-hidden="true"
+              class="relative inline-flex items-center justify-center shrink-0 overflow-hidden border-solid border-medium box-border border-default rounded-full group-data-[hover-unselected=true]:bg-default-100 outline-solid outline-transparent group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:border-primary w-5 h-5 group-data-[pressed=true]:scale-95 transition-transform-colors motion-reduce:transition-none group-data-[invalid=true]:border-danger! [&:not(group-data-[invalid="true"]):not(group-data-[selected="false"])]:border-focus"
+            >
+              <span
+                class="z-10 opacity-0 scale-0 origin-center rounded-full group-data-[selected=true]:opacity-100 group-data-[selected=true]:scale-100 text-primary-foreground w-2 h-2 transition-transform-opacity motion-reduce:transition-none bg-focus group-data-[invalid=true]:bg-danger"
+              />
+            </span>
+            <div
+              class="flex flex-col ml-1 ms-2"
+            >
+              <span
+                class="relative text-foreground select-none transition-colors motion-reduce:transition-none text-sm"
+                id="«replaced-aria-id»"
+              >
+                One
+              </span>
+            </div>
+          </label>
+          <label
+            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
+            data-testid="radiosfield_option_2"
+          >
+            <input
+              aria-describedby="«replaced-aria-id» react-aria-«replaced-aria-id»"
+              aria-labelledby="«replaced-aria-id»"
+              class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
+              data-react-aria-pressable="true"
+              name="radiosField"
+              tabindex="0"
+              title=""
+              type="radio"
+              value="2"
+            />
+            <span
+              aria-hidden="true"
+              class="relative inline-flex items-center justify-center shrink-0 overflow-hidden border-solid border-medium box-border border-default rounded-full group-data-[hover-unselected=true]:bg-default-100 outline-solid outline-transparent group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:border-primary w-5 h-5 group-data-[pressed=true]:scale-95 transition-transform-colors motion-reduce:transition-none group-data-[invalid=true]:border-danger! [&:not(group-data-[invalid="true"]):not(group-data-[selected="false"])]:border-focus"
+            >
+              <span
+                class="z-10 opacity-0 scale-0 origin-center rounded-full group-data-[selected=true]:opacity-100 group-data-[selected=true]:scale-100 text-primary-foreground w-2 h-2 transition-transform-opacity motion-reduce:transition-none bg-focus group-data-[invalid=true]:bg-danger"
+              />
+            </span>
+            <div
+              class="flex flex-col ml-1 ms-2"
+            >
+              <span
+                class="relative text-foreground select-none transition-colors motion-reduce:transition-none text-sm"
+                id="«replaced-aria-id»"
+              >
+                Two
+              </span>
+            </div>
+          </label>
+          <label
+            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
+            data-testid="radiosfield_option_3"
+          >
+            <input
+              aria-describedby="«replaced-aria-id» react-aria-«replaced-aria-id»"
+              aria-labelledby="«replaced-aria-id»"
+              class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
+              data-react-aria-pressable="true"
+              name="radiosField"
+              tabindex="0"
+              title=""
+              type="radio"
+              value="3"
+            />
+            <span
+              aria-hidden="true"
+              class="relative inline-flex items-center justify-center shrink-0 overflow-hidden border-solid border-medium box-border border-default rounded-full group-data-[hover-unselected=true]:bg-default-100 outline-solid outline-transparent group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:border-primary w-5 h-5 group-data-[pressed=true]:scale-95 transition-transform-colors motion-reduce:transition-none group-data-[invalid=true]:border-danger! [&:not(group-data-[invalid="true"]):not(group-data-[selected="false"])]:border-focus"
+            >
+              <span
+                class="z-10 opacity-0 scale-0 origin-center rounded-full group-data-[selected=true]:opacity-100 group-data-[selected=true]:scale-100 text-primary-foreground w-2 h-2 transition-transform-opacity motion-reduce:transition-none bg-focus group-data-[invalid=true]:bg-danger"
+              />
+            </span>
+            <div
+              class="flex flex-col ml-1 ms-2"
+            >
+              <span
+                class="relative text-foreground select-none transition-colors motion-reduce:transition-none text-sm"
+                id="«replaced-aria-id»"
+              >
+                Three
+              </span>
+            </div>
+          </label>
+        </div>
+      </div>
+      <div
+        class="mt-4 flex justify-end"
+      >
+        <button
+          aria-label="Submit form"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
+          data-react-aria-pressable="true"
+          data-testid="form_submit_button"
+          tabindex="0"
+          type="submit"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
 exports[`Story Snapshots > Required 1`] = `
 <div>
   <div

@@ -11,6 +11,7 @@ import { VisuallyHidden } from '@react-aria/visually-hidden';
 import { slugify, tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 import Tabs from '@fuf-stack/pixels/Tabs';
 
+import { createOptionValueConverter } from '../helpers';
 import { useUniformField } from '../hooks/useUniformField';
 
 export const radioTabsVariants = tv({
@@ -68,7 +69,7 @@ export interface RadioTabsOption {
   /** HTML data-testid attribute of the option */
   testId?: string;
   /** option value */
-  value: string;
+  value: string | number;
 }
 
 export interface RadioTabsProps extends Omit<VariantProps, 'hasContent'> {
@@ -124,11 +125,15 @@ const RadioTabs = ({
   // Create a ref for the visual radio group to forward focus
   const visualRadioGroupRef = useRef<HTMLDivElement>(null);
 
+  // Create converter to preserve number types for option values
+  const { convertToOriginalType } = createOptionValueConverter(options);
+
   const tabOptions = options.map<TabProps>((option) => {
     return {
       content: option?.content,
       disabled: option?.disabled,
-      key: option.value,
+      // Tabs component uses string keys internally
+      key: String(option.value),
       label: option?.label ?? option?.value,
       testId: slugify(`option_${option?.testId ?? option?.value}`, {
         replaceDots: true,
@@ -165,7 +170,7 @@ const RadioTabs = ({
           onBlur={onBlur}
           value={value ?? ''}
           onChange={(e) => {
-            onChange(e.target.value);
+            onChange(convertToOriginalType(e.target.value));
           }}
           onFocus={() => {
             // Forward focus to the first tab when RHF focuses this input
@@ -200,9 +205,8 @@ const RadioTabs = ({
       >
         <Tabs
           disabledKeys={disabled ? disabledAllKeys : undefined}
-          onSelectionChange={onChange}
-          // make sure component is controlled
-          selectedKey={value ?? ''}
+          // make sure component is controlled (convert to string for Tabs)
+          selectedKey={value != null ? String(value) : ''}
           tabs={tabOptions}
           testId={testId}
           variant={variant}
@@ -214,6 +218,11 @@ const RadioTabs = ({
             tabContent: classNames.tabContent,
             tabList: classNames.tabList,
             tabWrapper: classNames.tabWrapper,
+          }}
+          onSelectionChange={(key) => {
+            if (key != null) {
+              onChange(convertToOriginalType(key));
+            }
           }}
         />
       </HeroRadioGroup>

@@ -8,6 +8,7 @@ import {
 
 import { slugify, tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 
+import { createOptionValueConverter } from '../helpers';
 import { useUniformField } from '../hooks/useUniformField';
 
 export const radiosVariants = tv({
@@ -41,7 +42,7 @@ export interface RadioOption {
   /** HTML data-testid attribute of the option */
   testId?: string;
   /** option value */
-  value: string;
+  value: string | number;
 }
 
 export interface RadiosProps extends VariantProps {
@@ -88,6 +89,9 @@ const Radios = ({
     ...uniformFieldProps,
   });
 
+  // Create converter to preserve number types for option values
+  const { convertToOriginalType } = createOptionValueConverter(options);
+
   // classNames from slots
   const variants = radiosVariants();
   const classNames = variantsToClassNames(variants, className, 'base');
@@ -111,7 +115,7 @@ const Radios = ({
       data-invalid={invalid}
       data-required={required}
       data-testid={testId}
-      defaultValue={defaultValue as string | undefined}
+      defaultValue={defaultValue != null ? String(defaultValue) : undefined}
       errorMessage={errorMessage}
       isDisabled={disabled}
       isInvalid={invalid}
@@ -120,6 +124,9 @@ const Radios = ({
       name={name}
       onBlur={onBlur}
       orientation={inline ? 'horizontal' : 'vertical'}
+      onValueChange={(value) => {
+        onChange(convertToOriginalType(value));
+      }}
     >
       {options.map((option) => {
         if ('value' in option) {
@@ -129,12 +136,11 @@ const Radios = ({
           );
           return (
             <HeroRadio
-              key={option.value}
+              key={String(option.value)}
               classNames={itemClassNames}
               data-testid={optionTestId}
               isDisabled={!!disabled || option.disabled}
-              onChange={onChange}
-              value={option.value}
+              value={String(option.value)}
             >
               {option.label ?? option.value}
             </HeroRadio>

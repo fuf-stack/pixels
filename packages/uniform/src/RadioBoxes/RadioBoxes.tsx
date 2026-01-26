@@ -7,6 +7,7 @@ import { RadioGroup as HeroRadioGroup } from '@heroui/radio';
 
 import { slugify, tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 
+import { createOptionValueConverter } from '../helpers';
 import { useUniformField } from '../hooks/useUniformField';
 import { RadioBox } from './RadioBox';
 
@@ -41,7 +42,7 @@ export interface RadioBoxesOption {
   /** HTML data-testid attribute of the option */
   testId?: string;
   /** option value */
-  value: string;
+  value: string | number;
 }
 
 export interface RadioBoxesProps extends VariantProps {
@@ -90,6 +91,9 @@ const RadioBoxes = ({
     ...uniformFieldProps,
   });
 
+  // Create converter to preserve number types for option values
+  const { convertToOriginalType } = createOptionValueConverter(options);
+
   // classNames from slots
   const variants = radioBoxesVariants();
   const classNames = variantsToClassNames(variants, className, 'base');
@@ -111,7 +115,7 @@ const RadioBoxes = ({
       data-invalid={invalid}
       data-required={required}
       data-testid={testId}
-      defaultValue={defaultValue as string | undefined}
+      defaultValue={defaultValue != null ? String(defaultValue) : undefined}
       errorMessage={errorMessage}
       isDisabled={disabled}
       isInvalid={invalid}
@@ -119,8 +123,10 @@ const RadioBoxes = ({
       label={label ? <legend>{label}</legend> : null}
       name={name}
       onBlur={onBlur}
-      onValueChange={onChange}
       orientation={inline ? 'horizontal' : 'vertical'}
+      onValueChange={(value) => {
+        onChange(convertToOriginalType(value));
+      }}
     >
       {options.map((option) => {
         if ('value' in option) {
@@ -130,14 +136,14 @@ const RadioBoxes = ({
           );
           return (
             <RadioBox
-              key={option.value}
+              key={String(option.value)}
               classNames={boxClassNames}
               data-testid={optionTestId}
               description={option.description}
               icon={option.icon}
               isDisabled={!!disabled || option.disabled}
               isInvalid={invalid}
-              value={option.value}
+              value={String(option.value)}
             >
               {option.label ?? option.value}
             </RadioBox>

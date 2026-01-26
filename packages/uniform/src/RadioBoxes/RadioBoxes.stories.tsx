@@ -58,6 +58,29 @@ export const Default: Story = {
   },
 };
 
+export const NumberValues: Story = {
+  args: {
+    name: 'radioBoxesField',
+    options: [
+      {
+        description: 'Entry-level tier with basic features.',
+        label: 'Bronze',
+        value: 1,
+      },
+      {
+        description: 'Mid-tier with additional perks.',
+        label: 'Silver',
+        value: 2,
+      },
+      {
+        description: 'Premium tier with all features unlocked.',
+        label: 'Gold',
+        value: 3,
+      },
+    ],
+  },
+};
+
 export const Inline: Story = {
   args: {
     inline: true,

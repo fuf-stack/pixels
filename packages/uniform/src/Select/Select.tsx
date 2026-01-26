@@ -9,6 +9,7 @@ import { useSelect } from '@heroui/select';
 
 import { cn, slugify, tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 
+import { createOptionValueConverter } from '../helpers';
 import { useFormContext } from '../hooks/useFormContext';
 import { useUniformField } from '../hooks/useUniformField';
 
@@ -60,7 +61,7 @@ interface SelectOption {
   /** option label */
   label?: ReactNode;
   /** option value */
-  value: string;
+  value: string | number;
 }
 
 type VariantProps = TVProps<typeof selectVariants>;
@@ -124,7 +125,7 @@ const ControlComponent: typeof components.Control = (props) => {
 const OptionComponent: typeof components.Option = (props) => {
   // @ts-expect-error data-testid is not a default prop
   // eslint-disable-next-line react/destructuring-assignment
-  const testId = `${props.selectProps['data-testid']}_select_option_${slugify(props?.data?.testId ?? props?.data?.value, { replaceDots: true })}`;
+  const testId = `${props.selectProps['data-testid']}_select_option_${slugify(String(props?.data?.testId ?? props?.data?.value), { replaceDots: true })}`;
   return (
     <div data-testid={testId}>
       {}
@@ -184,6 +185,9 @@ const Select = ({
 
   // Track if the select is focused
   const [isFocused, setIsFocused] = useState(false);
+
+  // Create converter to preserve number types for option values
+  const { convertToOriginalType } = createOptionValueConverter(options);
 
   // classNames from slots
   const variants = selectVariants();
@@ -338,11 +342,16 @@ const Select = ({
           if (multiSelect) {
             onChange(
               (option as SelectOption[])?.map((_option) => {
-                return _option.value;
+                return convertToOriginalType(_option.value);
               }),
             );
           } else {
-            onChange((option as SelectOption)?.value);
+            const selectedValue = (option as SelectOption)?.value;
+            onChange(
+              selectedValue != null
+                ? convertToOriginalType(selectedValue)
+                : selectedValue,
+            );
           }
           // Mark field as touched immediately when a selection is made if not already touched
           // This ensures validation errors show right away (isTouched becomes true)
@@ -357,8 +366,9 @@ const Select = ({
           setIsFocused(true);
         }}
         // set complete option as value by current field value
+        // Compare as strings to handle both string and number values
         value={options.find((option) => {
-          return option.value === value;
+          return String(option.value) === String(value);
         })}
       />
       {invalid ? (

@@ -62,6 +62,20 @@ export const Default: Story = {
   args,
 };
 
+export const NumberValues: Story = {
+  args: {
+    name: 'selectField',
+    label: 'Select a Rating',
+    options: [
+      { value: 1, label: 'Poor' },
+      { value: 2, label: 'Fair' },
+      { value: 3, label: 'Good' },
+      { value: 4, label: 'Very Good' },
+      { value: 5, label: 'Excellent' },
+    ],
+  },
+};
+
 export const MultiSelect: Story = {
   args: {
     ...args,
