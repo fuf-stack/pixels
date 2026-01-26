@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.12.0](https://github.com/fuf-stack/pixels/compare/uniform-v1.11.3...uniform-v1.12.0) (2026-01-26)
+
+
+### Features
+
+* **uniform:** add number value support for radio and select component ([f587b6a](https://github.com/fuf-stack/pixels/commit/f587b6a10f1d6a99a460bfc9bce11a591df49bb1))
+
 ## [1.11.3](https://github.com/fuf-stack/pixels/compare/uniform-v1.11.2...uniform-v1.11.3) (2026-01-21)
 
 
