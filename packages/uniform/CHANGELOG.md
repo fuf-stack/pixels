@@ -1,5 +1,26 @@
 # Changelog
 
+## [1.13.0](https://github.com/fuf-stack/pixels/compare/uniform-v1.12.0...uniform-v1.13.0) (2026-01-27)
+
+
+### Features
+
+* **uniform:** add boolean value support to RadioTabs ([e87a0d3](https://github.com/fuf-stack/pixels/commit/e87a0d3e5f2e2a6fd3378b1184ff20aa93a92431))
+
+
+### Bug Fixes
+
+* **deps:** update dependency framer-motion to v12.27.1 ([#1480](https://github.com/fuf-stack/pixels/issues/1480)) ([32c8af6](https://github.com/fuf-stack/pixels/commit/32c8af6456c5275573a6d20ec5f3c569a758c4ba))
+* **deps:** update dependency framer-motion to v12.27.3 ([#1483](https://github.com/fuf-stack/pixels/issues/1483)) ([e797afb](https://github.com/fuf-stack/pixels/commit/e797afb4a54784bd4c3a0f5c97992a3c382e6cf1))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @fuf-stack/pixel-motion bumped to 1.1.2
+    * @fuf-stack/pixels bumped to 1.7.2
+
 ## [1.12.0](https://github.com/fuf-stack/pixels/compare/uniform-v1.11.3...uniform-v1.12.0) (2026-01-26)
 
 
