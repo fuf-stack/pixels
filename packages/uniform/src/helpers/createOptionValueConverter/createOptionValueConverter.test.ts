@@ -91,12 +91,75 @@ describe('createOptionValueConverter', () => {
     });
   });
 
+  describe('with boolean values only', () => {
+    const options = [
+      { value: true, label: 'Yes' },
+      { value: false, label: 'No' },
+    ];
+
+    it('should convert string keys back to booleans', () => {
+      const { convertToOriginalType } = createOptionValueConverter(options);
+
+      expect(convertToOriginalType('true')).toBe(true);
+      expect(convertToOriginalType('false')).toBe(false);
+    });
+
+    it('should handle boolean input and preserve the boolean type', () => {
+      const { convertToOriginalType } = createOptionValueConverter(options);
+
+      expect(convertToOriginalType(true)).toBe(true);
+      expect(convertToOriginalType(false)).toBe(false);
+    });
+
+    it('should have correct booleanValueKeys map', () => {
+      const { booleanValueKeys } = createOptionValueConverter(options);
+
+      expect(booleanValueKeys.size).toBe(2);
+      expect(booleanValueKeys.has('true')).toBe(true);
+      expect(booleanValueKeys.has('false')).toBe(true);
+      expect(booleanValueKeys.get('true')).toBe(true);
+      expect(booleanValueKeys.get('false')).toBe(false);
+    });
+
+    it('should have empty numberValueKeys set', () => {
+      const { numberValueKeys } = createOptionValueConverter(options);
+
+      expect(numberValueKeys.size).toBe(0);
+    });
+  });
+
+  describe('with mixed string, number, and boolean values', () => {
+    const options = [
+      { value: 1, label: 'One' },
+      { value: 'two', label: 'Two' },
+      { value: true, label: 'Yes' },
+      { value: false, label: 'No' },
+    ];
+
+    it('should convert each type back correctly', () => {
+      const { convertToOriginalType } = createOptionValueConverter(options);
+
+      expect(convertToOriginalType('1')).toBe(1);
+      expect(typeof convertToOriginalType('1')).toBe('number');
+
+      expect(convertToOriginalType('two')).toBe('two');
+      expect(typeof convertToOriginalType('two')).toBe('string');
+
+      expect(convertToOriginalType('true')).toBe(true);
+      expect(typeof convertToOriginalType('true')).toBe('boolean');
+
+      expect(convertToOriginalType('false')).toBe(false);
+      expect(typeof convertToOriginalType('false')).toBe('boolean');
+    });
+  });
+
   describe('edge cases', () => {
     it('should handle empty options array', () => {
-      const { convertToOriginalType, numberValueKeys } =
+      const { convertToOriginalType, numberValueKeys, booleanValueKeys } =
         createOptionValueConverter([]);
 
       expect(numberValueKeys.size).toBe(0);
+      expect(booleanValueKeys.size).toBe(0);
       expect(convertToOriginalType('any')).toBe('any');
     });
 

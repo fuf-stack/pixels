@@ -1,5 +1,134 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`Story Snapshots > BooleanValuesWithConditionalField 1`] = `
+<div>
+  <div
+    class="flex w-full flex-row justify-between gap-6"
+  >
+    <form
+      class="grow min-w-md"
+      data-form-is-valid="true"
+      data-testid=""
+    >
+      <div
+        style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+      >
+        <input
+          aria-label="Do you want pizza? 🍕"
+          name="wantsPizza"
+          value="false"
+        />
+      </div>
+      <div
+        aria-label="Do you want pizza? 🍕"
+        aria-orientation="vertical"
+        class="relative flex flex-col group gap-0"
+        data-invalid="false"
+        data-required="false"
+        data-testid="wantspizza"
+        id="react-aria-«replaced-aria-id»"
+        role="radiogroup"
+      >
+        <span
+          class="relative mb-2 inline-flex text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger"
+        >
+          <legend>
+            Do you want pizza? 🍕
+          </legend>
+        </span>
+        <div
+          class="flex flex-col flex-wrap gap-2 data-[orientation=horizontal]:flex-row"
+          data-orientation="vertical"
+          role="presentation"
+        >
+          <div
+            class="rounded-medium border border-divider w-full"
+            data-placement="top"
+            data-slot="tabWrapper"
+            data-vertical="horizontal"
+          >
+            <div
+              class="inline-flex w-full p-1"
+              data-slot="base"
+            >
+              <div
+                aria-orientation="horizontal"
+                class="flex p-1 h-fit gap-2 items-center flex-nowrap overflow-x-scroll scrollbar-hide bg-default-100 rounded-medium w-full"
+                data-collection="react-aria-«replaced-aria-id»"
+                data-slot="tabList"
+                id="react-aria-«replaced-aria-id»"
+                role="tablist"
+              >
+                <button
+                  aria-selected="true"
+                  class="z-0 w-full px-3 py-1 flex group relative justify-center items-center cursor-pointer transition-opacity tap-highlight-transparent data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 h-8 text-small rounded-small data-[hover-unselected=true]:opacity-100"
+                  data-collection="react-aria-«replaced-aria-id»"
+                  data-key="false"
+                  data-react-aria-pressable="true"
+                  data-selected="true"
+                  data-slot="tab"
+                  data-testid="wantspizza_option_false"
+                  id="react-aria-«replaced-aria-id»-tab-false"
+                  role="tab"
+                  tabindex="0"
+                  type="button"
+                >
+                  <span
+                    class="absolute z-0 inset-0 rounded-small bg-background dark:bg-default shadow-small"
+                    data-slot="cursor"
+                    style="opacity: 1;"
+                  />
+                  <div
+                    class="relative z-10 whitespace-nowrap transition-colors group-data-[selected=true]:text-default-foreground text-foreground"
+                    data-slot="tabContent"
+                  >
+                    No thanks 😢
+                  </div>
+                </button>
+                <button
+                  aria-selected="false"
+                  class="z-0 w-full px-3 py-1 flex group relative justify-center items-center cursor-pointer transition-opacity tap-highlight-transparent data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 h-8 text-small rounded-small data-[hover-unselected=true]:opacity-100"
+                  data-collection="react-aria-«replaced-aria-id»"
+                  data-key="true"
+                  data-react-aria-pressable="true"
+                  data-slot="tab"
+                  data-testid="wantspizza_option_true"
+                  id="react-aria-«replaced-aria-id»-tab-true"
+                  role="tab"
+                  tabindex="-1"
+                  type="button"
+                >
+                  <div
+                    class="relative z-10 whitespace-nowrap transition-colors group-data-[selected=true]:text-default-foreground text-foreground"
+                    data-slot="tabContent"
+                  >
+                    Yes please! 🎉
+                  </div>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="mt-4 flex justify-end"
+      >
+        <button
+          aria-label="Submit form"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
+          data-react-aria-pressable="true"
+          data-testid="form_submit_button"
+          tabindex="0"
+          type="submit"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
 exports[`Story Snapshots > Default 1`] = `
 <div>
   <div

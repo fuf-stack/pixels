@@ -69,7 +69,7 @@ export interface RadioTabsOption {
   /** HTML data-testid attribute of the option */
   testId?: string;
   /** option value */
-  value: string | number;
+  value: string | number | boolean;
 }
 
 export interface RadioTabsProps extends Omit<VariantProps, 'hasContent'> {

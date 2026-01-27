@@ -3,10 +3,11 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { action } from 'storybook/actions';
 import { expect, userEvent, waitFor, within } from 'storybook/test';
 
-import { SubmitButton } from '@fuf-stack/uniform';
+import { Input, SubmitButton } from '@fuf-stack/uniform';
 import { string, veto } from '@fuf-stack/veto';
 
 import { Form } from '../Form';
+import { useWatchUserChange } from '../hooks/useWatchUserChange';
 import RadioTabs from './RadioTabs';
 
 const meta: Meta<typeof RadioTabs> = {
@@ -69,6 +70,45 @@ export const WithContent: Story = {
       { value: 'option_2', label: 'Option 2', content: 'Option 2 Content' },
       { value: 'option_3', label: 'Option 3', content: 'Option 3 Content' },
     ],
+  },
+};
+
+interface PizzaFormData {
+  wantsPizza?: boolean;
+  toppings?: string;
+}
+
+export const BooleanValuesWithConditionalField: Story = {
+  parameters: {
+    formProps: {
+      className: 'min-w-md',
+      initialValues: { wantsPizza: false },
+    },
+  },
+  render: () => {
+    // Reset toppings when wantsPizza changes
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    useWatchUserChange<PizzaFormData>({
+      watch: 'wantsPizza',
+      onChange: (value, { resetField }) => {
+        resetField('toppings');
+      },
+    });
+
+    return (
+      <RadioTabs
+        label="Do you want pizza? 🍕"
+        name="wantsPizza"
+        options={[
+          { label: 'No thanks 😢', value: false },
+          {
+            content: <Input label="What toppings?" name="toppings" />,
+            label: 'Yes please! 🎉',
+            value: true,
+          },
+        ]}
+      />
+    );
   },
 };
 
