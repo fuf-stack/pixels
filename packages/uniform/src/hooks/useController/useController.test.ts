@@ -1,5 +1,6 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
+import { useContext } from 'react';
 import { useController as useRHFController } from 'react-hook-form';
 
 import { renderHook } from '@testing-library/react';
@@ -12,6 +13,20 @@ vi.mock('../../helpers', () => ({
   fromNullishString: vi.fn((value) => `fromNullish(${value})`),
   toNullishString: vi.fn((value) => `toNullish(${value})`),
 }));
+
+// Mock useContext to provide userChange
+const mockNotify = vi.fn();
+vi.mock('react', async () => {
+  const actual = await vi.importActual('react');
+  return {
+    ...actual,
+    useContext: vi.fn(() => ({
+      userChange: {
+        notify: mockNotify,
+      },
+    })),
+  };
+});
 
 // Mock react-hook-form's useController
 const mockField = {
@@ -60,6 +75,12 @@ interface TestFormValues {
 describe('useController', () => {
   beforeEach(() => {
     vi.clearAllMocks();
+    // Reset useContext mock to default behavior
+    (useContext as ReturnType<typeof vi.fn>).mockReturnValue({
+      userChange: {
+        notify: mockNotify,
+      },
+    });
   });
 
   describe('basic functionality', () => {
@@ -223,6 +244,92 @@ describe('useController', () => {
       expect(mockField.onChange).toHaveBeenCalledWith(
         'toNullish(spread-value)',
       );
+    });
+  });
+
+  describe('userChange notification', () => {
+    it('should notify userChange with original value (not formatted)', () => {
+      const { result } = renderHook(() =>
+        useController<TestFormValues>({ name: 'test-field' }),
+      );
+
+      result.current.field.onChange('test-value');
+
+      // Should notify with original value, not the toNullishString result
+      expect(mockNotify).toHaveBeenCalledWith('test-field', 'test-value');
+    });
+
+    it('should notify userChange with false (not __FALSE__)', () => {
+      const { result } = renderHook(() =>
+        useController<TestFormValues>({ name: 'test-field' }),
+      );
+
+      result.current.field.onChange(false);
+
+      // Should notify with actual false, not '__FALSE__' marker string
+      expect(mockNotify).toHaveBeenCalledWith('test-field', false);
+    });
+
+    it('should notify userChange with 0 (not __ZERO__)', () => {
+      const { result } = renderHook(() =>
+        useController<TestFormValues>({ name: 'test-field' }),
+      );
+
+      result.current.field.onChange(0);
+
+      // Should notify with actual 0, not '__ZERO__' marker string
+      expect(mockNotify).toHaveBeenCalledWith('test-field', 0);
+    });
+
+    it('should notify userChange with null (not __NULL__)', () => {
+      const { result } = renderHook(() =>
+        useController<TestFormValues>({ name: 'test-field' }),
+      );
+
+      result.current.field.onChange(null);
+
+      // Should notify with actual null, not '__NULL__' marker string
+      expect(mockNotify).toHaveBeenCalledWith('test-field', null);
+    });
+
+    it('should notify userChange with empty string', () => {
+      const { result } = renderHook(() =>
+        useController<TestFormValues>({ name: 'test-field' }),
+      );
+
+      result.current.field.onChange('');
+
+      expect(mockNotify).toHaveBeenCalledWith('test-field', '');
+    });
+
+    it('should notify userChange with value from event', () => {
+      const { result } = renderHook(() =>
+        useController<TestFormValues>({ name: 'test-field' }),
+      );
+
+      const mockEvent = {
+        target: { value: 'event-value' },
+      } as React.ChangeEvent<HTMLInputElement>;
+
+      result.current.field.onChange(mockEvent);
+
+      expect(mockNotify).toHaveBeenCalledWith('test-field', 'event-value');
+    });
+
+    it('should handle undefined userChange gracefully', () => {
+      // Mock useContext to return undefined userChange
+      (useContext as ReturnType<typeof vi.fn>).mockReturnValueOnce({
+        userChange: undefined,
+      });
+
+      const { result } = renderHook(() =>
+        useController<TestFormValues>({ name: 'test-field' }),
+      );
+
+      // Should not throw when userChange is undefined
+      expect(() => {
+        result.current.field.onChange('test-value');
+      }).not.toThrow();
     });
   });
 
