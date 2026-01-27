@@ -1,6 +1,6 @@
 import type { TVClassName, TVProps } from '@fuf-stack/pixel-utils';
 import type { ReactNode } from 'react';
-import type { Props } from 'react-select';
+import type { MultiValue, Props, SingleValue } from 'react-select';
 
 import { useState } from 'react';
 import ReactSelect, { components } from 'react-select';
@@ -193,6 +193,81 @@ const Select = ({
   const variants = selectVariants();
   const classNames = variantsToClassNames(variants, className, 'base');
 
+  // React-select classNames configuration
+  const reactSelectClassNames = {
+    clearIndicator: () => {
+      return classNames.clearIndicator;
+    },
+    control: () => {
+      return cn(classNames.control, {
+        [classNames.control_focused]: isFocused && !invalid,
+      });
+    },
+    dropdownIndicator: () => {
+      return classNames.dropdownIndicator;
+    },
+    groupHeading: () => {
+      return classNames.groupHeading;
+    },
+    indicatorSeparator: () => {
+      return classNames.indicatorSeparator;
+    },
+    indicatorsContainer: () => {
+      return classNames.indicatorsContainer;
+    },
+    input: () => {
+      return classNames.input;
+    },
+    loadingIndicator: () => {
+      return classNames.loadingIndicator;
+    },
+    loadingMessage: () => {
+      return classNames.loadingMessage;
+    },
+    menu: () => {
+      return classNames.menu;
+    },
+    menuList: () => {
+      return classNames.menuList;
+    },
+    menuPortal: () => {
+      return classNames.menuPortal;
+    },
+    multiValue: () => {
+      return classNames.multiValue;
+    },
+    multiValueLabel: () => {
+      return cn(classNames.multiValueLabel, `${getValueProps().className}`);
+    },
+    multiValueRemove: () => {
+      return classNames.multiValueRemove;
+    },
+    noOptionsMessage: () => {
+      return classNames.noOptionsMessage;
+    },
+    option: ({
+      isFocused: optionIsFocused,
+      isSelected: optionIsSelected,
+    }: {
+      isFocused: boolean;
+      isSelected: boolean;
+    }) => {
+      return cn(classNames.option, {
+        [classNames.option_focused]: optionIsFocused,
+        [classNames.option_selected]: optionIsSelected,
+      });
+    },
+    placeholder: () => {
+      return classNames.placeholder;
+    },
+    singleValue: () => {
+      return cn(classNames.singleValue, `${getValueProps().className}`);
+    },
+    valueContainer: () => {
+      return classNames.valueContainer;
+    },
+  };
+
   const { getBaseProps, getTriggerProps, getValueProps } = useSelect({
     children: [],
     classNames,
@@ -204,6 +279,57 @@ const Select = ({
     label,
     labelPlacement: 'outside',
   });
+
+  // Compute selected option(s) for react-select
+  // Compare as strings to handle both string and number values
+  // Use null fallback to properly clear react-select when no value is selected
+  const selectedOptions = multiSelect
+    ? options.filter((option) => {
+        if (!Array.isArray(value)) {
+          return false;
+        }
+        return value.some((v) => {
+          return String(option.value) === String(v);
+        });
+      })
+    : (options.find((option) => {
+        return String(option.value) === String(value);
+      }) ?? null);
+
+  // Handle selection change
+  const handleChange = (
+    option: MultiValue<SelectOption> | SingleValue<SelectOption>,
+  ) => {
+    if (multiSelect) {
+      onChange(
+        (option as SelectOption[])?.map((_option) => {
+          return convertToOriginalType(_option.value);
+        }),
+      );
+    } else {
+      const newValue = (option as SelectOption)?.value;
+      onChange(newValue != null ? convertToOriginalType(newValue) : newValue);
+    }
+    // Mark field as touched immediately when a selection is made if not already touched
+    // This ensures validation errors show right away (isTouched becomes true)
+    // For Select components, selecting an option is a complete user action
+    // (unlike text inputs where typing is ongoing), so we mark as touched immediately
+    const { isTouched: currentIsTouched } = getFieldState(name, testId);
+    if (!currentIsTouched) {
+      onBlur();
+    }
+  };
+
+  // Handle blur event
+  const handleBlur = () => {
+    setIsFocused(false);
+    onBlur();
+  };
+
+  // Handle focus event
+  const handleFocus = () => {
+    setIsFocused(true);
+  };
 
   return (
     <div
@@ -230,7 +356,9 @@ const Select = ({
         unstyled
         aria-errormessage=""
         aria-invalid={invalid}
+        // set aria-labelledby to the label id so that the select is accessible
         aria-label={ariaLabel}
+        classNames={reactSelectClassNames}
         // Does not affect the testId of the select, but is needed to pass it to sub-components
         data-testid={testId}
         filterOption={filterOption}
@@ -246,130 +374,25 @@ const Select = ({
         // prevents container scroll when menu is open
         menuPosition="fixed"
         name={name}
+        onBlur={handleBlur}
+        onChange={handleChange}
+        onFocus={handleFocus}
         onInputChange={onInputChange}
         options={options}
         placeholder={placeholder}
+        value={selectedOptions}
         // set aria-labelledby to the label id so that the select is accessible
         aria-labelledby={
           label
             ? getTriggerProps()['aria-labelledby']?.split(' ')[1]
             : undefined
         }
-        classNames={{
-          control: () => {
-            return cn(classNames.control, {
-              [classNames.control_focused]: isFocused && !invalid,
-            });
-          },
-          clearIndicator: () => {
-            return classNames.clearIndicator;
-          },
-          dropdownIndicator: () => {
-            return classNames.dropdownIndicator;
-          },
-          groupHeading: () => {
-            return classNames.groupHeading;
-          },
-          indicatorsContainer: () => {
-            return classNames.indicatorsContainer;
-          },
-          indicatorSeparator: () => {
-            return classNames.indicatorSeparator;
-          },
-          loadingIndicator: () => {
-            return classNames.loadingIndicator;
-          },
-          loadingMessage: () => {
-            return classNames.loadingMessage;
-          },
-          input: () => {
-            return classNames.input;
-          },
-          menu: () => {
-            return classNames.menu;
-          },
-          menuList: () => {
-            return classNames.menuList;
-          },
-          menuPortal: () => {
-            return classNames.menuPortal;
-          },
-          multiValue: () => {
-            return classNames.multiValue;
-          },
-          multiValueLabel: () => {
-            return cn(
-              classNames.multiValueLabel,
-              `${getValueProps().className}`,
-            );
-          },
-          multiValueRemove: () => {
-            return classNames.multiValueRemove;
-          },
-          noOptionsMessage: () => {
-            return classNames.noOptionsMessage;
-          },
-          option: ({
-            isFocused: optionIsFocused,
-            isSelected: optionIsSelected,
-          }) => {
-            return cn(classNames.option, {
-              [classNames.option_focused]: optionIsFocused,
-              [classNames.option_selected]: optionIsSelected,
-            });
-          },
-          placeholder: () => {
-            return classNames.placeholder;
-          },
-          singleValue: () => {
-            return cn(classNames.singleValue, `${getValueProps().className}`);
-          },
-          valueContainer: () => {
-            return classNames.valueContainer;
-          },
-        }}
         components={{
+          Control: ControlComponent,
+          DropdownIndicator: DropdownIndicatorComponent,
           Input: InputComponent,
           Option: OptionComponent,
-          DropdownIndicator: DropdownIndicatorComponent,
-          Control: ControlComponent,
         }}
-        onBlur={(_e) => {
-          setIsFocused(false);
-          onBlur();
-        }}
-        onChange={(option) => {
-          if (multiSelect) {
-            onChange(
-              (option as SelectOption[])?.map((_option) => {
-                return convertToOriginalType(_option.value);
-              }),
-            );
-          } else {
-            const selectedValue = (option as SelectOption)?.value;
-            onChange(
-              selectedValue != null
-                ? convertToOriginalType(selectedValue)
-                : selectedValue,
-            );
-          }
-          // Mark field as touched immediately when a selection is made if not already touched
-          // This ensures validation errors show right away (isTouched becomes true)
-          // For Select components, selecting an option is a complete user action
-          // (unlike text inputs where typing is ongoing), so we mark as touched immediately
-          const { isTouched: currentIsTouched } = getFieldState(name, testId);
-          if (!currentIsTouched) {
-            onBlur();
-          }
-        }}
-        onFocus={(_e) => {
-          setIsFocused(true);
-        }}
-        // set complete option as value by current field value
-        // Compare as strings to handle both string and number values
-        value={options.find((option) => {
-          return String(option.value) === String(value);
-        })}
       />
       {invalid ? (
         <div {...getHelperWrapperProps()}>

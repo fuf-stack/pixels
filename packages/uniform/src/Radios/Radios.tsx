@@ -78,11 +78,10 @@ const Radios = ({
     ariaLabel,
     disabled,
     errorMessage,
-    field: { onBlur, onChange, ref },
+    field: { onBlur, onChange, ref, value },
     invalid,
     label,
     required,
-    defaultValue,
     testId,
   } = useUniformField({
     name,
@@ -115,7 +114,6 @@ const Radios = ({
       data-invalid={invalid}
       data-required={required}
       data-testid={testId}
-      defaultValue={defaultValue != null ? String(defaultValue) : undefined}
       errorMessage={errorMessage}
       isDisabled={disabled}
       isInvalid={invalid}
@@ -124,8 +122,9 @@ const Radios = ({
       name={name}
       onBlur={onBlur}
       orientation={inline ? 'horizontal' : 'vertical'}
-      onValueChange={(value) => {
-        onChange(convertToOriginalType(value));
+      value={value != null ? String(value) : ''}
+      onValueChange={(newValue) => {
+        onChange(convertToOriginalType(newValue));
       }}
     >
       {options.map((option) => {

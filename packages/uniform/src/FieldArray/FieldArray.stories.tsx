@@ -1,15 +1,11 @@
-/* eslint-disable react-hooks/rules-of-hooks */
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { action } from 'storybook/actions';
 import { expect, userEvent, waitFor, within } from 'storybook/test';
 
-import { Button } from '@fuf-stack/pixels';
 import { array, object, refineArray, string, veto } from '@fuf-stack/veto';
 
 import { Form } from '../Form';
-import { Grid } from '../Grid';
-import { useFormContext } from '../hooks/useFormContext';
 import { Input } from '../Input';
 import { SubmitButton } from '../SubmitButton';
 import FieldArray from './FieldArray';
@@ -470,136 +466,6 @@ export const AllFeatures: Story = {
         </>
       );
     },
-  },
-};
-
-const edgeCaseValidation = veto({
-  people: array(object({ name: string().min(2) }))
-    .min(1)
-    .max(5),
-  tags: array(string().min(2)).min(1).max(5),
-});
-
-export const EdgeCaseResetWithoutInitialValues: Story = {
-  name: 'Edge Case: Reset without Initial Values',
-  parameters: {
-    formProps: {
-      validation: edgeCaseValidation,
-      initialValues: {
-        // Empty arrays as initial values - arrays should auto-initialize with 1 element due to lastElementNotRemovable
-        people: [],
-        tags: [],
-      },
-    },
-  },
-  render: () => {
-    const { reset } = useFormContext();
-    return (
-      <Grid>
-        <div className="col-span-12 mb-4">
-          <Button
-            className="w-full"
-            color="secondary"
-            testId="reset_button"
-            onClick={() => {
-              reset();
-            }}
-          >
-            Reset Form
-          </Button>
-        </div>
-
-        <div className="col-span-12 md:col-span-6">
-          <FieldArray
-            lastElementNotRemovable
-            appendButtonText="Add Person"
-            label="People (Normal Array - No Initial Values)"
-            name="people"
-            testId="people"
-          >
-            {({ name }) => {
-              return <Input label="Name" name={`${name}.name`} />;
-            }}
-          </FieldArray>
-        </div>
-
-        <div className="col-span-12 md:col-span-6">
-          <FieldArray
-            flat
-            lastElementNotRemovable
-            appendButtonText="Add Tag"
-            label="Tags (Flat Array - No Initial Values)"
-            name="tags"
-            testId="tags"
-          >
-            {({ name }) => {
-              return <Input label="Tag" name={name} />;
-            }}
-          </FieldArray>
-        </div>
-      </Grid>
-    );
-  },
-};
-
-export const EdgeCaseResetWithInitialValues: Story = {
-  name: 'Edge Case: Reset with Initial Values',
-  parameters: {
-    formProps: {
-      validation: edgeCaseValidation,
-      initialValues: {
-        people: [{ name: 'Alice' }, { name: 'Bob' }],
-        tags: ['react', 'typescript'],
-      },
-    },
-  },
-  render: () => {
-    const { reset } = useFormContext();
-    return (
-      <Grid>
-        <div className="col-span-12 mb-4">
-          <Button
-            className="w-full"
-            color="secondary"
-            testId="reset_button"
-            onClick={() => {
-              reset();
-            }}
-          >
-            Reset Form
-          </Button>
-        </div>
-
-        <div className="col-span-12 md:col-span-6">
-          <FieldArray
-            lastElementNotRemovable
-            appendButtonText="Add Person"
-            label="People (Normal Array)"
-            name="people"
-            testId="people"
-          >
-            {({ name }) => {
-              return <Input label="Name" name={`${name}.name`} />;
-            }}
-          </FieldArray>
-        </div>
-
-        <div className="col-span-12 md:col-span-6">
-          <FieldArray
-            flat
-            lastElementNotRemovable
-            appendButtonText="Add Tag"
-            label="Tags (Flat Array)"
-            name="tags"
-            testId="tags"
-          >
-            {({ name }) => {
-              return <Input label="Tag" name={name} />;
-            }}
-          </FieldArray>
-        </div>
-      </Grid>
-    );
   },
 };
 
