@@ -34,6 +34,8 @@ export interface UseControllerReturn<TFieldValues extends object = object> {
  * 3. Handles both direct value changes and React synthetic events
  * 4. Maintains the same API as react-hook-form's useController
  * 5. Notifies UniformContext's userChange listeners on field changes (enables useWatchUserChange hook)
+ * 6. No-op when value unchanged: onChange is ignored if the new value equals the current value
+ *    (prevents unnecessary re-renders and spurious useWatchUserChange triggers)
  *
  * This enables consistent handling of empty/null values while keeping a clean API
  * for form inputs that expect string values.
@@ -54,6 +56,13 @@ export const useController = <TFieldValues extends object = object>(
       onChange: (...event: any[]) => {
         const value = event[0]?.target?.value ?? event[0];
         const formattedValue = value === '' ? '' : toNullishString(value);
+
+        // Skip if value hasn't changed (e.g., user re-selects same option)
+        // We compare formattedValue (the new value after nullish conversion) with
+        // field.value (the current stored value, also in nullish format)
+        if (formattedValue === field.value) {
+          return;
+        }
 
         // Update form state first
         field.onChange(formattedValue);

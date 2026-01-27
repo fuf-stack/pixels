@@ -32,6 +32,8 @@ export interface UseWatchUserChangeOptions<TFieldValues extends FieldValues> {
  *
  * Only triggers on manual user input (typing, clicking, selecting),
  * NOT on programmatic changes like form.reset() or form.setValue().
+ * Also does NOT trigger when selecting the same value (e.g., clicking
+ * an already-selected option in a Select).
  *
  * This hook subscribes to field changes at the source (useController),
  * ensuring immediate and accurate detection of user interactions.

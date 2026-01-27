@@ -316,6 +316,27 @@ describe('useController', () => {
       expect(mockNotify).toHaveBeenCalledWith('test-field', 'event-value');
     });
 
+    it('should NOT notify userChange when value has not changed', () => {
+      // Mock field.value to match what formattedValue would be
+      (useRHFController as ReturnType<typeof vi.fn>).mockReturnValueOnce({
+        field: { ...mockField, value: 'toNullish(same-value)' },
+        formState: mockFormState,
+        fieldState: mockFieldState,
+      });
+
+      const { result } = renderHook(() =>
+        useController<TestFormValues>({ name: 'test-field' }),
+      );
+
+      // Call onChange with a value that, when formatted, matches current field.value
+      result.current.field.onChange('same-value');
+
+      // Should NOT notify because value didn't change
+      expect(mockNotify).not.toHaveBeenCalled();
+      // Should also NOT update form state
+      expect(mockField.onChange).not.toHaveBeenCalled();
+    });
+
     it('should handle undefined userChange gracefully', () => {
       // Mock useContext to return undefined userChange
       (useContext as ReturnType<typeof vi.fn>).mockReturnValueOnce({

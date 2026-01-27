@@ -288,4 +288,40 @@ describe('useWatchUserChange', () => {
     subscribedListener?.('paymentMethod', 'cash');
     expect(mockSetValue).toHaveBeenCalledWith('installments', 1);
   });
+
+  it('should only receive notifications when value actually changes (handled by useController)', () => {
+    // Note: The filtering of unchanged values is handled upstream by useController.
+    // useController does NOT call userChange.notify() when the new value equals
+    // the current value (e.g., re-selecting the same option in a Select).
+    // This test documents that useWatchUserChange relies on this behavior.
+
+    const onChange = vi.fn();
+    let subscribedListener:
+      | ((fieldName: string, value: unknown) => void)
+      | undefined;
+
+    mockSubscribe.mockImplementation((listener) => {
+      subscribedListener = listener;
+      return vi.fn();
+    });
+
+    renderHook(() =>
+      useWatchUserChange<FormData>({
+        watch: 'country',
+        onChange,
+      }),
+    );
+
+    // Simulate useController notifying a change
+    subscribedListener?.('country', 'Austria');
+    expect(onChange).toHaveBeenCalledTimes(1);
+
+    onChange.mockClear();
+
+    // If useController receives the same value again, it will NOT call notify
+    // (this filtering happens in useController, not here)
+    // We just verify that if notify IS called, onChange is triggered
+    subscribedListener?.('country', 'Germany');
+    expect(onChange).toHaveBeenCalledTimes(1);
+  });
 });
