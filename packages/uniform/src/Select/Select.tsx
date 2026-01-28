@@ -9,7 +9,7 @@ import { useSelect } from '@heroui/select';
 
 import { cn, slugify, tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 
-import { createOptionValueConverter } from '../helpers';
+import { createOptionValueConverter, isValueEmpty } from '../helpers';
 import { useFormContext } from '../hooks/useFormContext';
 import { useUniformField } from '../hooks/useUniformField';
 
@@ -58,6 +58,11 @@ export const selectVariants = tv({
 });
 
 interface SelectOption {
+  /**
+   * True when option was auto-generated because the value wasn't found in options.
+   * Use in renderOptionLabel to render a component that fetches the real label.
+   */
+  isFallback?: boolean;
   /** option label */
   label?: ReactNode;
   /** option value */
@@ -98,6 +103,14 @@ export interface SelectProps extends VariantProps {
   options: SelectOption[];
   /** Handle change events on the input */
   onInputChange?: Props['onInputChange'];
+  /**
+   * Fallback option(s) for async selects when value isn't in current options.
+   * Use when the selected value may not be in the options list (e.g., after
+   * search results change). Used only if value not found in options.
+   * For single select: pass the option object or undefined
+   * For multi-select: pass an array of option objects
+   */
+  selectedOptionFallback?: SelectOption | SelectOption[];
   /** HTML data-testid attribute used in e2e tests */
   testId?: string;
 }
@@ -161,6 +174,7 @@ const Select = ({
   onInputChange = undefined,
   options,
   placeholder = undefined,
+  selectedOptionFallback = undefined,
   ...uniformFieldProps
 }: SelectProps) => {
   const {
@@ -281,20 +295,61 @@ const Select = ({
   });
 
   // Compute selected option(s) for react-select
-  // Compare as strings to handle both string and number values
-  // Use null fallback to properly clear react-select when no value is selected
-  const selectedOptions = multiSelect
-    ? options.filter((option) => {
-        if (!Array.isArray(value)) {
-          return false;
+  //
+  // Priority for finding options:
+  // 1. Look in current options list
+  // 2. Use selectedOptionFallback prop (for async selects with pre-fetched data)
+  // 3. Create fallback with value as label
+  //
+  // Handles edge cases:
+  // - Compares as strings to support both string and number values
+  // - Returns null for empty single-select (required by react-select to clear)
+  // - Creates fallback options when value exists but isn't in options list
+  //   (common with async selects where options change after selection)
+  const reactSelectValue = (() => {
+    // Helper to find option by value
+    const findOption = (v: string | number): SelectOption => {
+      // First, look in options list
+      const inOptions = options.find((option) => {
+        return String(option.value) === String(v);
+      });
+      if (inOptions) {
+        return inOptions;
+      }
+
+      // Second, look in selectedOptionFallback prop (for async selects)
+      if (selectedOptionFallback) {
+        if (Array.isArray(selectedOptionFallback)) {
+          const inSelected = selectedOptionFallback.find((option) => {
+            return String(option.value) === String(v);
+          });
+          if (inSelected) {
+            return inSelected;
+          }
+        } else if (String(selectedOptionFallback.value) === String(v)) {
+          return selectedOptionFallback;
         }
-        return value.some((v) => {
-          return String(option.value) === String(v);
-        });
-      })
-    : (options.find((option) => {
-        return String(option.value) === String(value);
-      }) ?? null);
+      }
+
+      // Fallback: create option with value as label, marked as fallback
+      return { isFallback: true, label: String(v), value: v };
+    };
+
+    if (multiSelect) {
+      if (!Array.isArray(value) || isValueEmpty(value)) {
+        return [];
+      }
+      return value.map((v) => {
+        return findOption(v);
+      });
+    }
+
+    // Single select - use isValueEmpty to handle marker strings (__NULL__, etc.)
+    if (isValueEmpty(value)) {
+      return null;
+    }
+    return findOption(value);
+  })();
 
   // Handle selection change
   const handleChange = (
@@ -308,7 +363,8 @@ const Select = ({
       );
     } else {
       const newValue = (option as SelectOption)?.value;
-      onChange(newValue != null ? convertToOriginalType(newValue) : newValue);
+      // Pass null explicitly when clearing (not undefined)
+      onChange(newValue != null ? convertToOriginalType(newValue) : null);
     }
     // Mark field as touched immediately when a selection is made if not already touched
     // This ensures validation errors show right away (isTouched becomes true)
@@ -380,7 +436,7 @@ const Select = ({
         onInputChange={onInputChange}
         options={options}
         placeholder={placeholder}
-        value={selectedOptions}
+        value={reactSelectValue}
         // set aria-labelledby to the label id so that the select is accessible
         aria-labelledby={
           label

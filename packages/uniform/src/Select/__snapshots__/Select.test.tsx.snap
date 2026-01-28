@@ -275,6 +275,906 @@ exports[`Story Snapshots > Disabled 1`] = `
 </div>
 `;
 
+exports[`Story Snapshots > EdgeCaseMenuIsVisibleInCard 1`] = `
+<div>
+  <div
+    class="flex w-full flex-row justify-between gap-6"
+  >
+    <form
+      class="grow min-w-60"
+      data-form-is-valid="true"
+      data-testid=""
+    >
+      <div
+        class="flex flex-col relative overflow-hidden h-auto text-foreground box-border bg-content1 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 shadow-none rounded-small w-full transition-transform-background motion-reduce:transition-none border border-divider"
+        tabindex="-1"
+      >
+        <div
+          class="flex p-3 w-full justify-start items-center shrink-0 overflow-inherit color-inherit subpixel-antialiased rounded-t-small z-auto text-base font-semibold"
+        >
+          Select in a Card
+        </div>
+        <hr
+          class="shrink-0 bg-divider border-none w-full h-divider my-0 border-divider"
+          role="separator"
+        />
+        <div
+          class="relative flex w-full p-3 flex-auto flex-col place-content-inherit align-items-inherit h-auto break-words text-left overflow-y-auto subpixel-antialiased"
+        >
+          <div
+            class="group leading-normal"
+            data-has-helper="true"
+            data-has-label="true"
+            data-required="false"
+            data-slot="base"
+            data-testid="selectfield_wrapper"
+          >
+            <label
+              class="pointer-events-auto relative bottom-1.5 ml-1 subpixel-antialiased text-small group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
+              data-slot="label"
+              for="react-select-selectField-input"
+              id="react-aria-«replaced-aria-id»"
+            >
+              Some Label
+            </label>
+            <div
+              class="css-b62m3t-container"
+            >
+              <span
+                class="css-1f43avz-a11yText-A11yText"
+                id="react-select-selectField-live-region"
+              />
+              <span
+                aria-atomic="false"
+                aria-live="polite"
+                aria-relevant="additions text"
+                class="css-1f43avz-a11yText-A11yText"
+                role="log"
+              >
+                <span
+                  id="aria-selection"
+                />
+                <span
+                  id="aria-focused"
+                />
+                <span
+                  id="aria-results"
+                >
+                  15 results available.
+                </span>
+                <span
+                  id="aria-guidance"
+                >
+                  Use Up and Down to choose options, press Enter to select the currently focused option, press Escape to exit the menu, press Tab to select the option and exit the menu.
+                </span>
+              </span>
+              <div
+                data-testid="selectfield_select"
+              >
+                <div
+                  class="duration-150! rounded-lg border-2 bg-content1 transition-background hover:border-default-400 group-data-[invalid=true]:border-danger group-data-[invalid=true]:hover:border-danger motion-reduce:transition-none border-focus css-cp01gg-control"
+                >
+                  <div
+                    class="gap-1 p-1 css-14oxtc6"
+                  >
+                    <div
+                      class="ml-1 py-0.5 pl-1 text-sm text-foreground-500 css-1vlsb4t-placeholder"
+                      id="react-select-selectField-placeholder"
+                    >
+                      Select...
+                    </div>
+                    <div
+                      class="py-0.5 pl-1 css-n9qnu9"
+                      data-value=""
+                    >
+                      <input
+                        aria-activedescendant="react-select-selectField-option-0"
+                        aria-autocomplete="list"
+                        aria-controls="react-select-selectField-listbox"
+                        aria-describedby="react-select-selectField-placeholder"
+                        aria-errormessage=""
+                        aria-expanded="true"
+                        aria-haspopup="true"
+                        aria-invalid="false"
+                        aria-label="Some Label"
+                        autocapitalize="none"
+                        autocomplete="off"
+                        autocorrect="off"
+                        class=""
+                        data-testid="selectfield"
+                        id="react-select-selectField-input"
+                        role="combobox"
+                        spellcheck="false"
+                        style="color: inherit; background: 0px center; opacity: 1; width: 100%; grid-area: 1 / 2; font: inherit; min-width: 2px; border: 0px; margin: 0px; outline: 0; padding: 0px;"
+                        tabindex="0"
+                        type="text"
+                        value=""
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="gap-1 p-1 css-1wy0on6"
+                  >
+                    <span
+                      class="bg-default-300 css-j4w2j1-indicatorSeparator"
+                    />
+                    <div
+                      data-testid="selectfield_select_dropdown"
+                    >
+                      <div
+                        aria-hidden="true"
+                        class="rounded-md p-1 text-foreground-500 hover:cursor-pointer hover:bg-default-200 hover:text-black css-g56vrd-indicatorContainer"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="css-tj5bde-Svg"
+                          focusable="false"
+                          height="20"
+                          viewBox="0 0 20 20"
+                          width="20"
+                        >
+                          <path
+                            d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="z-50! css-1vbk7iu"
+              >
+                <div
+                  class="mt-2 rounded-xl border border-default-200 bg-content1 p-1 shadow-lg css-100ebu3-menu"
+                >
+                  <div
+                    class="css-bp8cua-ScrollManager"
+                  />
+                  <div
+                    aria-multiselectable="false"
+                    class="css-no1ryp"
+                    id="react-select-selectField-listbox"
+                    role="listbox"
+                  >
+                    <div
+                      data-testid="selectfield_select_option_blueberry"
+                    >
+                      <div
+                        aria-disabled="false"
+                        aria-selected="false"
+                        class="rounded px-3 py-2 hover:cursor-pointer bg-default-100 active:bg-default-200 css-bio7mv-option"
+                        id="react-select-selectField-option-0"
+                        role="option"
+                        tabindex="-1"
+                      >
+                        Blueberry
+                      </div>
+                    </div>
+                    <div
+                      data-testid="selectfield_select_option_caramel_swirl"
+                    >
+                      <div
+                        aria-disabled="false"
+                        aria-selected="false"
+                        class="rounded px-3 py-2 hover:cursor-pointer css-bio7mv-option"
+                        id="react-select-selectField-option-1"
+                        role="option"
+                        tabindex="-1"
+                      >
+                        Caramel Swirl
+                      </div>
+                    </div>
+                    <div
+                      data-testid="selectfield_select_option_chocolate"
+                    >
+                      <div
+                        aria-disabled="false"
+                        aria-selected="false"
+                        class="rounded px-3 py-2 hover:cursor-pointer css-bio7mv-option"
+                        id="react-select-selectField-option-2"
+                        role="option"
+                        tabindex="-1"
+                      >
+                        Chocolate
+                      </div>
+                    </div>
+                    <div
+                      data-testid="selectfield_select_option_coconut"
+                    >
+                      <div
+                        aria-disabled="false"
+                        aria-selected="false"
+                        class="rounded px-3 py-2 hover:cursor-pointer css-bio7mv-option"
+                        id="react-select-selectField-option-3"
+                        role="option"
+                        tabindex="-1"
+                      >
+                        Coconut
+                      </div>
+                    </div>
+                    <div
+                      data-testid="selectfield_select_option_coffee"
+                    >
+                      <div
+                        aria-disabled="false"
+                        aria-selected="false"
+                        class="rounded px-3 py-2 hover:cursor-pointer css-bio7mv-option"
+                        id="react-select-selectField-option-4"
+                        role="option"
+                        tabindex="-1"
+                      >
+                        Coffee
+                      </div>
+                    </div>
+                    <div
+                      data-testid="selectfield_select_option_cookies_cream"
+                    >
+                      <div
+                        aria-disabled="false"
+                        aria-selected="false"
+                        class="rounded px-3 py-2 hover:cursor-pointer css-bio7mv-option"
+                        id="react-select-selectField-option-5"
+                        role="option"
+                        tabindex="-1"
+                      >
+                        Cookies & Cream
+                      </div>
+                    </div>
+                    <div
+                      data-testid="selectfield_select_option_lemon_sorbet"
+                    >
+                      <div
+                        aria-disabled="false"
+                        aria-selected="false"
+                        class="rounded px-3 py-2 hover:cursor-pointer css-bio7mv-option"
+                        id="react-select-selectField-option-6"
+                        role="option"
+                        tabindex="-1"
+                      >
+                        Lemon Sorbet
+                      </div>
+                    </div>
+                    <div
+                      data-testid="selectfield_select_option_mango"
+                    >
+                      <div
+                        aria-disabled="false"
+                        aria-selected="false"
+                        class="rounded px-3 py-2 hover:cursor-pointer css-bio7mv-option"
+                        id="react-select-selectField-option-7"
+                        role="option"
+                        tabindex="-1"
+                      >
+                        Mango
+                      </div>
+                    </div>
+                    <div
+                      data-testid="selectfield_select_option_mint_chocolate"
+                    >
+                      <div
+                        aria-disabled="false"
+                        aria-selected="false"
+                        class="rounded px-3 py-2 hover:cursor-pointer css-bio7mv-option"
+                        id="react-select-selectField-option-8"
+                        role="option"
+                        tabindex="-1"
+                      >
+                        Mint Chocolate
+                      </div>
+                    </div>
+                    <div
+                      data-testid="selectfield_select_option_peanut_butter"
+                    >
+                      <div
+                        aria-disabled="false"
+                        aria-selected="false"
+                        class="rounded px-3 py-2 hover:cursor-pointer css-bio7mv-option"
+                        id="react-select-selectField-option-9"
+                        role="option"
+                        tabindex="-1"
+                      >
+                        Peanut Butter
+                      </div>
+                    </div>
+                    <div
+                      data-testid="selectfield_select_option_pistachio"
+                    >
+                      <div
+                        aria-disabled="false"
+                        aria-selected="false"
+                        class="rounded px-3 py-2 hover:cursor-pointer css-bio7mv-option"
+                        id="react-select-selectField-option-10"
+                        role="option"
+                        tabindex="-1"
+                      >
+                        Pistachio
+                      </div>
+                    </div>
+                    <div
+                      data-testid="selectfield_select_option_raspberry"
+                    >
+                      <div
+                        aria-disabled="false"
+                        aria-selected="false"
+                        class="rounded px-3 py-2 hover:cursor-pointer css-bio7mv-option"
+                        id="react-select-selectField-option-11"
+                        role="option"
+                        tabindex="-1"
+                      >
+                        Raspberry
+                      </div>
+                    </div>
+                    <div
+                      data-testid="selectfield_select_option_rocky_road"
+                    >
+                      <div
+                        aria-disabled="false"
+                        aria-selected="false"
+                        class="rounded px-3 py-2 hover:cursor-pointer css-bio7mv-option"
+                        id="react-select-selectField-option-12"
+                        role="option"
+                        tabindex="-1"
+                      >
+                        Rocky Road
+                      </div>
+                    </div>
+                    <div
+                      data-testid="selectfield_select_option_strawberry"
+                    >
+                      <div
+                        aria-disabled="false"
+                        aria-selected="false"
+                        class="rounded px-3 py-2 hover:cursor-pointer css-bio7mv-option"
+                        id="react-select-selectField-option-13"
+                        role="option"
+                        tabindex="-1"
+                      >
+                        Strawberry
+                      </div>
+                    </div>
+                    <div
+                      data-testid="selectfield_select_option_vanilla"
+                    >
+                      <div
+                        aria-disabled="false"
+                        aria-selected="false"
+                        class="rounded px-3 py-2 hover:cursor-pointer css-bio7mv-option"
+                        id="react-select-selectField-option-14"
+                        role="option"
+                        tabindex="-1"
+                      >
+                        Vanilla
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <input
+                name="selectField"
+                type="hidden"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="mt-4 flex justify-end"
+      >
+        <button
+          aria-label="Submit form"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
+          data-react-aria-pressable="true"
+          data-testid="form_submit_button"
+          tabindex="0"
+          type="submit"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`Story Snapshots > EdgeCaseMenuIsVisibleInModal 1`] = `
+<body
+  style="box-sizing: border-box; overflow: hidden; position: relative; height: 100%; padding-right: 1024px;"
+>
+  <div
+    aria-hidden="true"
+  >
+    <div
+      class="flex w-full flex-row justify-between gap-6"
+    >
+      <form
+        class="grow min-w-60"
+        data-form-is-valid="true"
+        data-testid=""
+      >
+        <button
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
+          data-react-aria-pressable="true"
+          data-testid="open_modal"
+          tabindex="0"
+          type="button"
+        >
+          Open Modal
+        </button>
+        <div
+          class="mt-4 flex justify-end"
+        >
+          <button
+            aria-label="Submit form"
+            class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
+            data-react-aria-pressable="true"
+            data-testid="form_submit_button"
+            tabindex="0"
+            type="submit"
+          >
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <span
+    aria-hidden="true"
+    data-focus-scope-start="true"
+    hidden=""
+  />
+  <div
+    tabindex="-1"
+  >
+    <div
+      aria-hidden="true"
+      class="z-50 bg-overlay/50 backdrop-opacity-disabled w-screen h-screen fixed inset-0"
+      style="opacity: 1;"
+    />
+    <div
+      class="flex w-screen fixed inset-0 z-50 overflow-x-auto justify-center h-[--visual-viewport-height] items-center sm:items-center [--scale-enter:100%] [--scale-exit:100%] [--slide-enter:0px] [--slide-exit:80px] sm:[--scale-enter:100%] sm:[--scale-exit:103%] sm:[--slide-enter:0px] sm:[--slide-exit:0px]"
+      data-slot="wrapper"
+      style="--visual-viewport-height: 768px; opacity: 1; will-change: auto; transform: translateY(var(--slide-enter)) scale(var(--scale-enter));"
+    >
+      <section
+        aria-describedby="«replaced-aria-id»"
+        aria-labelledby="«replaced-aria-id»"
+        aria-modal="true"
+        class="flex flex-col relative z-50 w-full box-border bg-content1 outline-solid outline-transparent mx-1 my-1 sm:mx-6 sm:my-16 rounded-large shadow-small max-h-[calc(100%_-_8rem)] max-w-md"
+        data-dismissable="true"
+        data-open="true"
+        data-placement="center"
+        data-testid="modal"
+        id="«replaced-aria-id»"
+        role="dialog"
+        tabindex="-1"
+      >
+        <div
+          style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+        >
+          <button
+            aria-label="Dismiss"
+            id="react-aria-«replaced-aria-id»"
+            style="width: 1px; height: 1px;"
+            tabindex="-1"
+          />
+        </div>
+        <button
+          aria-label="Close"
+          class="absolute appearance-none select-none top-1 end-1 p-2 text-foreground-500 rounded-full hover:bg-default-100 active:bg-default-200 tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2"
+          data-react-aria-pressable="true"
+          role="button"
+          tabindex="0"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            class="fill-current"
+            fill="none"
+            focusable="false"
+            height="1em"
+            role="presentation"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="1em"
+          >
+            <path
+              d="M18 6L6 18M6 6l12 12"
+            />
+          </svg>
+        </button>
+        <header
+          class="flex py-4 px-6 flex-initial text-large font-semibold border-b border-b-divider"
+          id="«replaced-aria-id»"
+        >
+          Select in a Modal
+        </header>
+        <div
+          class="flex flex-1 flex-col gap-3 px-6 overflow-y-auto py-4"
+          id="modal_body"
+        >
+          <div
+            class="group leading-normal"
+            data-has-helper="true"
+            data-has-label="true"
+            data-required="false"
+            data-slot="base"
+            data-testid="selectfield_wrapper"
+          >
+            <label
+              class="pointer-events-auto relative bottom-1.5 ml-1 subpixel-antialiased text-small group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
+              data-slot="label"
+              for="react-select-selectField-input"
+              id="react-aria-«replaced-aria-id»"
+            >
+              Some Label
+            </label>
+            <div
+              class="css-b62m3t-container"
+            >
+              <span
+                class="css-1f43avz-a11yText-A11yText"
+                id="react-select-selectField-live-region"
+              />
+              <span
+                aria-atomic="false"
+                aria-live="polite"
+                aria-relevant="additions text"
+                class="css-1f43avz-a11yText-A11yText"
+                role="log"
+              >
+                <span
+                  id="aria-selection"
+                />
+                <span
+                  id="aria-focused"
+                />
+                <span
+                  id="aria-results"
+                >
+                  15 results available.
+                </span>
+                <span
+                  id="aria-guidance"
+                >
+                  Use Up and Down to choose options, press Enter to select the currently focused option, press Escape to exit the menu, press Tab to select the option and exit the menu.
+                </span>
+              </span>
+              <div
+                data-testid="selectfield_select"
+              >
+                <div
+                  class="duration-150! rounded-lg border-2 bg-content1 transition-background hover:border-default-400 group-data-[invalid=true]:border-danger group-data-[invalid=true]:hover:border-danger motion-reduce:transition-none border-focus css-cp01gg-control"
+                >
+                  <div
+                    class="gap-1 p-1 css-14oxtc6"
+                  >
+                    <div
+                      class="ml-1 py-0.5 pl-1 text-sm text-foreground-500 css-1vlsb4t-placeholder"
+                      id="react-select-selectField-placeholder"
+                    >
+                      Select...
+                    </div>
+                    <div
+                      class="py-0.5 pl-1 css-n9qnu9"
+                      data-value=""
+                    >
+                      <input
+                        aria-activedescendant="react-select-selectField-option-0"
+                        aria-autocomplete="list"
+                        aria-controls="react-select-selectField-listbox"
+                        aria-describedby="react-select-selectField-placeholder"
+                        aria-errormessage=""
+                        aria-expanded="true"
+                        aria-haspopup="true"
+                        aria-invalid="false"
+                        aria-label="Some Label"
+                        autocapitalize="none"
+                        autocomplete="off"
+                        autocorrect="off"
+                        class=""
+                        data-testid="selectfield"
+                        id="react-select-selectField-input"
+                        role="combobox"
+                        spellcheck="false"
+                        style="color: inherit; background: 0px center; opacity: 1; width: 100%; grid-area: 1 / 2; font: inherit; min-width: 2px; border: 0px; margin: 0px; outline: 0; padding: 0px;"
+                        tabindex="0"
+                        type="text"
+                        value=""
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="gap-1 p-1 css-1wy0on6"
+                  >
+                    <span
+                      class="bg-default-300 css-j4w2j1-indicatorSeparator"
+                    />
+                    <div
+                      data-testid="selectfield_select_dropdown"
+                    >
+                      <div
+                        aria-hidden="true"
+                        class="rounded-md p-1 text-foreground-500 hover:cursor-pointer hover:bg-default-200 hover:text-black css-g56vrd-indicatorContainer"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="css-tj5bde-Svg"
+                          focusable="false"
+                          height="20"
+                          viewBox="0 0 20 20"
+                          width="20"
+                        >
+                          <path
+                            d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="z-50! css-1vbk7iu"
+              >
+                <div
+                  class="mt-2 rounded-xl border border-default-200 bg-content1 p-1 shadow-lg css-100ebu3-menu"
+                >
+                  <div
+                    class="css-bp8cua-ScrollManager"
+                  />
+                  <div
+                    aria-multiselectable="false"
+                    class="css-no1ryp"
+                    id="react-select-selectField-listbox"
+                    role="listbox"
+                  >
+                    <div
+                      data-testid="selectfield_select_option_blueberry"
+                    >
+                      <div
+                        aria-disabled="false"
+                        aria-selected="false"
+                        class="rounded px-3 py-2 hover:cursor-pointer bg-default-100 active:bg-default-200 css-bio7mv-option"
+                        id="react-select-selectField-option-0"
+                        role="option"
+                        tabindex="-1"
+                      >
+                        Blueberry
+                      </div>
+                    </div>
+                    <div
+                      data-testid="selectfield_select_option_caramel_swirl"
+                    >
+                      <div
+                        aria-disabled="false"
+                        aria-selected="false"
+                        class="rounded px-3 py-2 hover:cursor-pointer css-bio7mv-option"
+                        id="react-select-selectField-option-1"
+                        role="option"
+                        tabindex="-1"
+                      >
+                        Caramel Swirl
+                      </div>
+                    </div>
+                    <div
+                      data-testid="selectfield_select_option_chocolate"
+                    >
+                      <div
+                        aria-disabled="false"
+                        aria-selected="false"
+                        class="rounded px-3 py-2 hover:cursor-pointer css-bio7mv-option"
+                        id="react-select-selectField-option-2"
+                        role="option"
+                        tabindex="-1"
+                      >
+                        Chocolate
+                      </div>
+                    </div>
+                    <div
+                      data-testid="selectfield_select_option_coconut"
+                    >
+                      <div
+                        aria-disabled="false"
+                        aria-selected="false"
+                        class="rounded px-3 py-2 hover:cursor-pointer css-bio7mv-option"
+                        id="react-select-selectField-option-3"
+                        role="option"
+                        tabindex="-1"
+                      >
+                        Coconut
+                      </div>
+                    </div>
+                    <div
+                      data-testid="selectfield_select_option_coffee"
+                    >
+                      <div
+                        aria-disabled="false"
+                        aria-selected="false"
+                        class="rounded px-3 py-2 hover:cursor-pointer css-bio7mv-option"
+                        id="react-select-selectField-option-4"
+                        role="option"
+                        tabindex="-1"
+                      >
+                        Coffee
+                      </div>
+                    </div>
+                    <div
+                      data-testid="selectfield_select_option_cookies_cream"
+                    >
+                      <div
+                        aria-disabled="false"
+                        aria-selected="false"
+                        class="rounded px-3 py-2 hover:cursor-pointer css-bio7mv-option"
+                        id="react-select-selectField-option-5"
+                        role="option"
+                        tabindex="-1"
+                      >
+                        Cookies & Cream
+                      </div>
+                    </div>
+                    <div
+                      data-testid="selectfield_select_option_lemon_sorbet"
+                    >
+                      <div
+                        aria-disabled="false"
+                        aria-selected="false"
+                        class="rounded px-3 py-2 hover:cursor-pointer css-bio7mv-option"
+                        id="react-select-selectField-option-6"
+                        role="option"
+                        tabindex="-1"
+                      >
+                        Lemon Sorbet
+                      </div>
+                    </div>
+                    <div
+                      data-testid="selectfield_select_option_mango"
+                    >
+                      <div
+                        aria-disabled="false"
+                        aria-selected="false"
+                        class="rounded px-3 py-2 hover:cursor-pointer css-bio7mv-option"
+                        id="react-select-selectField-option-7"
+                        role="option"
+                        tabindex="-1"
+                      >
+                        Mango
+                      </div>
+                    </div>
+                    <div
+                      data-testid="selectfield_select_option_mint_chocolate"
+                    >
+                      <div
+                        aria-disabled="false"
+                        aria-selected="false"
+                        class="rounded px-3 py-2 hover:cursor-pointer css-bio7mv-option"
+                        id="react-select-selectField-option-8"
+                        role="option"
+                        tabindex="-1"
+                      >
+                        Mint Chocolate
+                      </div>
+                    </div>
+                    <div
+                      data-testid="selectfield_select_option_peanut_butter"
+                    >
+                      <div
+                        aria-disabled="false"
+                        aria-selected="false"
+                        class="rounded px-3 py-2 hover:cursor-pointer css-bio7mv-option"
+                        id="react-select-selectField-option-9"
+                        role="option"
+                        tabindex="-1"
+                      >
+                        Peanut Butter
+                      </div>
+                    </div>
+                    <div
+                      data-testid="selectfield_select_option_pistachio"
+                    >
+                      <div
+                        aria-disabled="false"
+                        aria-selected="false"
+                        class="rounded px-3 py-2 hover:cursor-pointer css-bio7mv-option"
+                        id="react-select-selectField-option-10"
+                        role="option"
+                        tabindex="-1"
+                      >
+                        Pistachio
+                      </div>
+                    </div>
+                    <div
+                      data-testid="selectfield_select_option_raspberry"
+                    >
+                      <div
+                        aria-disabled="false"
+                        aria-selected="false"
+                        class="rounded px-3 py-2 hover:cursor-pointer css-bio7mv-option"
+                        id="react-select-selectField-option-11"
+                        role="option"
+                        tabindex="-1"
+                      >
+                        Raspberry
+                      </div>
+                    </div>
+                    <div
+                      data-testid="selectfield_select_option_rocky_road"
+                    >
+                      <div
+                        aria-disabled="false"
+                        aria-selected="false"
+                        class="rounded px-3 py-2 hover:cursor-pointer css-bio7mv-option"
+                        id="react-select-selectField-option-12"
+                        role="option"
+                        tabindex="-1"
+                      >
+                        Rocky Road
+                      </div>
+                    </div>
+                    <div
+                      data-testid="selectfield_select_option_strawberry"
+                    >
+                      <div
+                        aria-disabled="false"
+                        aria-selected="false"
+                        class="rounded px-3 py-2 hover:cursor-pointer css-bio7mv-option"
+                        id="react-select-selectField-option-13"
+                        role="option"
+                        tabindex="-1"
+                      >
+                        Strawberry
+                      </div>
+                    </div>
+                    <div
+                      data-testid="selectfield_select_option_vanilla"
+                    >
+                      <div
+                        aria-disabled="false"
+                        aria-selected="false"
+                        class="rounded px-3 py-2 hover:cursor-pointer css-bio7mv-option"
+                        id="react-select-selectField-option-14"
+                        role="option"
+                        tabindex="-1"
+                      >
+                        Vanilla
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <input
+                name="selectField"
+                type="hidden"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+        >
+          <button
+            aria-label="Dismiss"
+            id="react-aria-«replaced-aria-id»"
+            style="width: 1px; height: 1px;"
+            tabindex="-1"
+          />
+        </div>
+      </section>
+    </div>
+  </div>
+  <span
+    aria-hidden="true"
+    data-focus-scope-end="true"
+    hidden=""
+  />
+</body>
+`;
+
 exports[`Story Snapshots > InitialValue 1`] = `
 <div>
   <div
@@ -795,906 +1695,6 @@ exports[`Story Snapshots > Loading 1`] = `
 </div>
 `;
 
-exports[`Story Snapshots > MenuIsVisibleInCard 1`] = `
-<div>
-  <div
-    class="flex w-full flex-row justify-between gap-6"
-  >
-    <form
-      class="grow min-w-60"
-      data-form-is-valid="true"
-      data-testid=""
-    >
-      <div
-        class="flex flex-col relative overflow-hidden h-auto text-foreground box-border bg-content1 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 shadow-none rounded-small w-full transition-transform-background motion-reduce:transition-none border border-divider"
-        tabindex="-1"
-      >
-        <div
-          class="flex p-3 w-full justify-start items-center shrink-0 overflow-inherit color-inherit subpixel-antialiased rounded-t-small z-auto text-base font-semibold"
-        >
-          Select in a Card
-        </div>
-        <hr
-          class="shrink-0 bg-divider border-none w-full h-divider my-0 border-divider"
-          role="separator"
-        />
-        <div
-          class="relative flex w-full p-3 flex-auto flex-col place-content-inherit align-items-inherit h-auto break-words text-left overflow-y-auto subpixel-antialiased"
-        >
-          <div
-            class="group leading-normal"
-            data-has-helper="true"
-            data-has-label="true"
-            data-required="false"
-            data-slot="base"
-            data-testid="selectfield_wrapper"
-          >
-            <label
-              class="pointer-events-auto relative bottom-1.5 ml-1 subpixel-antialiased text-small group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
-              data-slot="label"
-              for="react-select-selectField-input"
-              id="react-aria-«replaced-aria-id»"
-            >
-              Some Label
-            </label>
-            <div
-              class="css-b62m3t-container"
-            >
-              <span
-                class="css-1f43avz-a11yText-A11yText"
-                id="react-select-selectField-live-region"
-              />
-              <span
-                aria-atomic="false"
-                aria-live="polite"
-                aria-relevant="additions text"
-                class="css-1f43avz-a11yText-A11yText"
-                role="log"
-              >
-                <span
-                  id="aria-selection"
-                />
-                <span
-                  id="aria-focused"
-                />
-                <span
-                  id="aria-results"
-                >
-                  15 results available.
-                </span>
-                <span
-                  id="aria-guidance"
-                >
-                  Use Up and Down to choose options, press Enter to select the currently focused option, press Escape to exit the menu, press Tab to select the option and exit the menu.
-                </span>
-              </span>
-              <div
-                data-testid="selectfield_select"
-              >
-                <div
-                  class="duration-150! rounded-lg border-2 bg-content1 transition-background hover:border-default-400 group-data-[invalid=true]:border-danger group-data-[invalid=true]:hover:border-danger motion-reduce:transition-none border-focus css-cp01gg-control"
-                >
-                  <div
-                    class="gap-1 p-1 css-14oxtc6"
-                  >
-                    <div
-                      class="ml-1 py-0.5 pl-1 text-sm text-foreground-500 css-1vlsb4t-placeholder"
-                      id="react-select-selectField-placeholder"
-                    >
-                      Select...
-                    </div>
-                    <div
-                      class="py-0.5 pl-1 css-n9qnu9"
-                      data-value=""
-                    >
-                      <input
-                        aria-activedescendant="react-select-selectField-option-0"
-                        aria-autocomplete="list"
-                        aria-controls="react-select-selectField-listbox"
-                        aria-describedby="react-select-selectField-placeholder"
-                        aria-errormessage=""
-                        aria-expanded="true"
-                        aria-haspopup="true"
-                        aria-invalid="false"
-                        aria-label="Some Label"
-                        autocapitalize="none"
-                        autocomplete="off"
-                        autocorrect="off"
-                        class=""
-                        data-testid="selectfield"
-                        id="react-select-selectField-input"
-                        role="combobox"
-                        spellcheck="false"
-                        style="color: inherit; background: 0px center; opacity: 1; width: 100%; grid-area: 1 / 2; font: inherit; min-width: 2px; border: 0px; margin: 0px; outline: 0; padding: 0px;"
-                        tabindex="0"
-                        type="text"
-                        value=""
-                      />
-                    </div>
-                  </div>
-                  <div
-                    class="gap-1 p-1 css-1wy0on6"
-                  >
-                    <span
-                      class="bg-default-300 css-j4w2j1-indicatorSeparator"
-                    />
-                    <div
-                      data-testid="selectfield_select_dropdown"
-                    >
-                      <div
-                        aria-hidden="true"
-                        class="rounded-md p-1 text-foreground-500 hover:cursor-pointer hover:bg-default-200 hover:text-black css-g56vrd-indicatorContainer"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          class="css-tj5bde-Svg"
-                          focusable="false"
-                          height="20"
-                          viewBox="0 0 20 20"
-                          width="20"
-                        >
-                          <path
-                            d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"
-                          />
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                class="z-50! css-1vbk7iu"
-              >
-                <div
-                  class="mt-2 rounded-xl border border-default-200 bg-content1 p-1 shadow-lg css-100ebu3-menu"
-                >
-                  <div
-                    class="css-bp8cua-ScrollManager"
-                  />
-                  <div
-                    aria-multiselectable="false"
-                    class="css-no1ryp"
-                    id="react-select-selectField-listbox"
-                    role="listbox"
-                  >
-                    <div
-                      data-testid="selectfield_select_option_blueberry"
-                    >
-                      <div
-                        aria-disabled="false"
-                        aria-selected="false"
-                        class="rounded px-3 py-2 hover:cursor-pointer bg-default-100 active:bg-default-200 css-bio7mv-option"
-                        id="react-select-selectField-option-0"
-                        role="option"
-                        tabindex="-1"
-                      >
-                        Blueberry
-                      </div>
-                    </div>
-                    <div
-                      data-testid="selectfield_select_option_caramel_swirl"
-                    >
-                      <div
-                        aria-disabled="false"
-                        aria-selected="false"
-                        class="rounded px-3 py-2 hover:cursor-pointer css-bio7mv-option"
-                        id="react-select-selectField-option-1"
-                        role="option"
-                        tabindex="-1"
-                      >
-                        Caramel Swirl
-                      </div>
-                    </div>
-                    <div
-                      data-testid="selectfield_select_option_chocolate"
-                    >
-                      <div
-                        aria-disabled="false"
-                        aria-selected="false"
-                        class="rounded px-3 py-2 hover:cursor-pointer css-bio7mv-option"
-                        id="react-select-selectField-option-2"
-                        role="option"
-                        tabindex="-1"
-                      >
-                        Chocolate
-                      </div>
-                    </div>
-                    <div
-                      data-testid="selectfield_select_option_coconut"
-                    >
-                      <div
-                        aria-disabled="false"
-                        aria-selected="false"
-                        class="rounded px-3 py-2 hover:cursor-pointer css-bio7mv-option"
-                        id="react-select-selectField-option-3"
-                        role="option"
-                        tabindex="-1"
-                      >
-                        Coconut
-                      </div>
-                    </div>
-                    <div
-                      data-testid="selectfield_select_option_coffee"
-                    >
-                      <div
-                        aria-disabled="false"
-                        aria-selected="false"
-                        class="rounded px-3 py-2 hover:cursor-pointer css-bio7mv-option"
-                        id="react-select-selectField-option-4"
-                        role="option"
-                        tabindex="-1"
-                      >
-                        Coffee
-                      </div>
-                    </div>
-                    <div
-                      data-testid="selectfield_select_option_cookies_cream"
-                    >
-                      <div
-                        aria-disabled="false"
-                        aria-selected="false"
-                        class="rounded px-3 py-2 hover:cursor-pointer css-bio7mv-option"
-                        id="react-select-selectField-option-5"
-                        role="option"
-                        tabindex="-1"
-                      >
-                        Cookies & Cream
-                      </div>
-                    </div>
-                    <div
-                      data-testid="selectfield_select_option_lemon_sorbet"
-                    >
-                      <div
-                        aria-disabled="false"
-                        aria-selected="false"
-                        class="rounded px-3 py-2 hover:cursor-pointer css-bio7mv-option"
-                        id="react-select-selectField-option-6"
-                        role="option"
-                        tabindex="-1"
-                      >
-                        Lemon Sorbet
-                      </div>
-                    </div>
-                    <div
-                      data-testid="selectfield_select_option_mango"
-                    >
-                      <div
-                        aria-disabled="false"
-                        aria-selected="false"
-                        class="rounded px-3 py-2 hover:cursor-pointer css-bio7mv-option"
-                        id="react-select-selectField-option-7"
-                        role="option"
-                        tabindex="-1"
-                      >
-                        Mango
-                      </div>
-                    </div>
-                    <div
-                      data-testid="selectfield_select_option_mint_chocolate"
-                    >
-                      <div
-                        aria-disabled="false"
-                        aria-selected="false"
-                        class="rounded px-3 py-2 hover:cursor-pointer css-bio7mv-option"
-                        id="react-select-selectField-option-8"
-                        role="option"
-                        tabindex="-1"
-                      >
-                        Mint Chocolate
-                      </div>
-                    </div>
-                    <div
-                      data-testid="selectfield_select_option_peanut_butter"
-                    >
-                      <div
-                        aria-disabled="false"
-                        aria-selected="false"
-                        class="rounded px-3 py-2 hover:cursor-pointer css-bio7mv-option"
-                        id="react-select-selectField-option-9"
-                        role="option"
-                        tabindex="-1"
-                      >
-                        Peanut Butter
-                      </div>
-                    </div>
-                    <div
-                      data-testid="selectfield_select_option_pistachio"
-                    >
-                      <div
-                        aria-disabled="false"
-                        aria-selected="false"
-                        class="rounded px-3 py-2 hover:cursor-pointer css-bio7mv-option"
-                        id="react-select-selectField-option-10"
-                        role="option"
-                        tabindex="-1"
-                      >
-                        Pistachio
-                      </div>
-                    </div>
-                    <div
-                      data-testid="selectfield_select_option_raspberry"
-                    >
-                      <div
-                        aria-disabled="false"
-                        aria-selected="false"
-                        class="rounded px-3 py-2 hover:cursor-pointer css-bio7mv-option"
-                        id="react-select-selectField-option-11"
-                        role="option"
-                        tabindex="-1"
-                      >
-                        Raspberry
-                      </div>
-                    </div>
-                    <div
-                      data-testid="selectfield_select_option_rocky_road"
-                    >
-                      <div
-                        aria-disabled="false"
-                        aria-selected="false"
-                        class="rounded px-3 py-2 hover:cursor-pointer css-bio7mv-option"
-                        id="react-select-selectField-option-12"
-                        role="option"
-                        tabindex="-1"
-                      >
-                        Rocky Road
-                      </div>
-                    </div>
-                    <div
-                      data-testid="selectfield_select_option_strawberry"
-                    >
-                      <div
-                        aria-disabled="false"
-                        aria-selected="false"
-                        class="rounded px-3 py-2 hover:cursor-pointer css-bio7mv-option"
-                        id="react-select-selectField-option-13"
-                        role="option"
-                        tabindex="-1"
-                      >
-                        Strawberry
-                      </div>
-                    </div>
-                    <div
-                      data-testid="selectfield_select_option_vanilla"
-                    >
-                      <div
-                        aria-disabled="false"
-                        aria-selected="false"
-                        class="rounded px-3 py-2 hover:cursor-pointer css-bio7mv-option"
-                        id="react-select-selectField-option-14"
-                        role="option"
-                        tabindex="-1"
-                      >
-                        Vanilla
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <input
-                name="selectField"
-                type="hidden"
-                value=""
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="mt-4 flex justify-end"
-      >
-        <button
-          aria-label="Submit form"
-          class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
-          data-react-aria-pressable="true"
-          data-testid="form_submit_button"
-          tabindex="0"
-          type="submit"
-        >
-          Submit
-        </button>
-      </div>
-    </form>
-  </div>
-</div>
-`;
-
-exports[`Story Snapshots > MenuIsVisibleInModal 1`] = `
-<body
-  style="box-sizing: border-box; overflow: hidden; position: relative; height: 100%; padding-right: 1024px;"
->
-  <div
-    aria-hidden="true"
-  >
-    <div
-      class="flex w-full flex-row justify-between gap-6"
-    >
-      <form
-        class="grow min-w-60"
-        data-form-is-valid="true"
-        data-testid=""
-      >
-        <button
-          class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
-          data-react-aria-pressable="true"
-          data-testid="open_modal"
-          tabindex="0"
-          type="button"
-        >
-          Open Modal
-        </button>
-        <div
-          class="mt-4 flex justify-end"
-        >
-          <button
-            aria-label="Submit form"
-            class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
-            data-react-aria-pressable="true"
-            data-testid="form_submit_button"
-            tabindex="0"
-            type="submit"
-          >
-            Submit
-          </button>
-        </div>
-      </form>
-    </div>
-  </div>
-  <span
-    aria-hidden="true"
-    data-focus-scope-start="true"
-    hidden=""
-  />
-  <div
-    tabindex="-1"
-  >
-    <div
-      aria-hidden="true"
-      class="z-50 bg-overlay/50 backdrop-opacity-disabled w-screen h-screen fixed inset-0"
-      style="opacity: 1;"
-    />
-    <div
-      class="flex w-screen fixed inset-0 z-50 overflow-x-auto justify-center h-[--visual-viewport-height] items-center sm:items-center [--scale-enter:100%] [--scale-exit:100%] [--slide-enter:0px] [--slide-exit:80px] sm:[--scale-enter:100%] sm:[--scale-exit:103%] sm:[--slide-enter:0px] sm:[--slide-exit:0px]"
-      data-slot="wrapper"
-      style="--visual-viewport-height: 768px; opacity: 1; will-change: auto; transform: translateY(var(--slide-enter)) scale(var(--scale-enter));"
-    >
-      <section
-        aria-describedby="«replaced-aria-id»"
-        aria-labelledby="«replaced-aria-id»"
-        aria-modal="true"
-        class="flex flex-col relative z-50 w-full box-border bg-content1 outline-solid outline-transparent mx-1 my-1 sm:mx-6 sm:my-16 rounded-large shadow-small max-h-[calc(100%_-_8rem)] max-w-md"
-        data-dismissable="true"
-        data-open="true"
-        data-placement="center"
-        data-testid="modal"
-        id="«replaced-aria-id»"
-        role="dialog"
-        tabindex="-1"
-      >
-        <div
-          style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
-        >
-          <button
-            aria-label="Dismiss"
-            id="react-aria-«replaced-aria-id»"
-            style="width: 1px; height: 1px;"
-            tabindex="-1"
-          />
-        </div>
-        <button
-          aria-label="Close"
-          class="absolute appearance-none select-none top-1 end-1 p-2 text-foreground-500 rounded-full hover:bg-default-100 active:bg-default-200 tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2"
-          data-react-aria-pressable="true"
-          role="button"
-          tabindex="0"
-          type="button"
-        >
-          <svg
-            aria-hidden="true"
-            class="fill-current"
-            fill="none"
-            focusable="false"
-            height="1em"
-            role="presentation"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            viewBox="0 0 24 24"
-            width="1em"
-          >
-            <path
-              d="M18 6L6 18M6 6l12 12"
-            />
-          </svg>
-        </button>
-        <header
-          class="flex py-4 px-6 flex-initial text-large font-semibold border-b border-b-divider"
-          id="«replaced-aria-id»"
-        >
-          Select in a Modal
-        </header>
-        <div
-          class="flex flex-1 flex-col gap-3 px-6 overflow-y-auto py-4"
-          id="modal_body"
-        >
-          <div
-            class="group leading-normal"
-            data-has-helper="true"
-            data-has-label="true"
-            data-required="false"
-            data-slot="base"
-            data-testid="selectfield_wrapper"
-          >
-            <label
-              class="pointer-events-auto relative bottom-1.5 ml-1 subpixel-antialiased text-small group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
-              data-slot="label"
-              for="react-select-selectField-input"
-              id="react-aria-«replaced-aria-id»"
-            >
-              Some Label
-            </label>
-            <div
-              class="css-b62m3t-container"
-            >
-              <span
-                class="css-1f43avz-a11yText-A11yText"
-                id="react-select-selectField-live-region"
-              />
-              <span
-                aria-atomic="false"
-                aria-live="polite"
-                aria-relevant="additions text"
-                class="css-1f43avz-a11yText-A11yText"
-                role="log"
-              >
-                <span
-                  id="aria-selection"
-                />
-                <span
-                  id="aria-focused"
-                />
-                <span
-                  id="aria-results"
-                >
-                  15 results available.
-                </span>
-                <span
-                  id="aria-guidance"
-                >
-                  Use Up and Down to choose options, press Enter to select the currently focused option, press Escape to exit the menu, press Tab to select the option and exit the menu.
-                </span>
-              </span>
-              <div
-                data-testid="selectfield_select"
-              >
-                <div
-                  class="duration-150! rounded-lg border-2 bg-content1 transition-background hover:border-default-400 group-data-[invalid=true]:border-danger group-data-[invalid=true]:hover:border-danger motion-reduce:transition-none border-focus css-cp01gg-control"
-                >
-                  <div
-                    class="gap-1 p-1 css-14oxtc6"
-                  >
-                    <div
-                      class="ml-1 py-0.5 pl-1 text-sm text-foreground-500 css-1vlsb4t-placeholder"
-                      id="react-select-selectField-placeholder"
-                    >
-                      Select...
-                    </div>
-                    <div
-                      class="py-0.5 pl-1 css-n9qnu9"
-                      data-value=""
-                    >
-                      <input
-                        aria-activedescendant="react-select-selectField-option-0"
-                        aria-autocomplete="list"
-                        aria-controls="react-select-selectField-listbox"
-                        aria-describedby="react-select-selectField-placeholder"
-                        aria-errormessage=""
-                        aria-expanded="true"
-                        aria-haspopup="true"
-                        aria-invalid="false"
-                        aria-label="Some Label"
-                        autocapitalize="none"
-                        autocomplete="off"
-                        autocorrect="off"
-                        class=""
-                        data-testid="selectfield"
-                        id="react-select-selectField-input"
-                        role="combobox"
-                        spellcheck="false"
-                        style="color: inherit; background: 0px center; opacity: 1; width: 100%; grid-area: 1 / 2; font: inherit; min-width: 2px; border: 0px; margin: 0px; outline: 0; padding: 0px;"
-                        tabindex="0"
-                        type="text"
-                        value=""
-                      />
-                    </div>
-                  </div>
-                  <div
-                    class="gap-1 p-1 css-1wy0on6"
-                  >
-                    <span
-                      class="bg-default-300 css-j4w2j1-indicatorSeparator"
-                    />
-                    <div
-                      data-testid="selectfield_select_dropdown"
-                    >
-                      <div
-                        aria-hidden="true"
-                        class="rounded-md p-1 text-foreground-500 hover:cursor-pointer hover:bg-default-200 hover:text-black css-g56vrd-indicatorContainer"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          class="css-tj5bde-Svg"
-                          focusable="false"
-                          height="20"
-                          viewBox="0 0 20 20"
-                          width="20"
-                        >
-                          <path
-                            d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"
-                          />
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                class="z-50! css-1vbk7iu"
-              >
-                <div
-                  class="mt-2 rounded-xl border border-default-200 bg-content1 p-1 shadow-lg css-100ebu3-menu"
-                >
-                  <div
-                    class="css-bp8cua-ScrollManager"
-                  />
-                  <div
-                    aria-multiselectable="false"
-                    class="css-no1ryp"
-                    id="react-select-selectField-listbox"
-                    role="listbox"
-                  >
-                    <div
-                      data-testid="selectfield_select_option_blueberry"
-                    >
-                      <div
-                        aria-disabled="false"
-                        aria-selected="false"
-                        class="rounded px-3 py-2 hover:cursor-pointer bg-default-100 active:bg-default-200 css-bio7mv-option"
-                        id="react-select-selectField-option-0"
-                        role="option"
-                        tabindex="-1"
-                      >
-                        Blueberry
-                      </div>
-                    </div>
-                    <div
-                      data-testid="selectfield_select_option_caramel_swirl"
-                    >
-                      <div
-                        aria-disabled="false"
-                        aria-selected="false"
-                        class="rounded px-3 py-2 hover:cursor-pointer css-bio7mv-option"
-                        id="react-select-selectField-option-1"
-                        role="option"
-                        tabindex="-1"
-                      >
-                        Caramel Swirl
-                      </div>
-                    </div>
-                    <div
-                      data-testid="selectfield_select_option_chocolate"
-                    >
-                      <div
-                        aria-disabled="false"
-                        aria-selected="false"
-                        class="rounded px-3 py-2 hover:cursor-pointer css-bio7mv-option"
-                        id="react-select-selectField-option-2"
-                        role="option"
-                        tabindex="-1"
-                      >
-                        Chocolate
-                      </div>
-                    </div>
-                    <div
-                      data-testid="selectfield_select_option_coconut"
-                    >
-                      <div
-                        aria-disabled="false"
-                        aria-selected="false"
-                        class="rounded px-3 py-2 hover:cursor-pointer css-bio7mv-option"
-                        id="react-select-selectField-option-3"
-                        role="option"
-                        tabindex="-1"
-                      >
-                        Coconut
-                      </div>
-                    </div>
-                    <div
-                      data-testid="selectfield_select_option_coffee"
-                    >
-                      <div
-                        aria-disabled="false"
-                        aria-selected="false"
-                        class="rounded px-3 py-2 hover:cursor-pointer css-bio7mv-option"
-                        id="react-select-selectField-option-4"
-                        role="option"
-                        tabindex="-1"
-                      >
-                        Coffee
-                      </div>
-                    </div>
-                    <div
-                      data-testid="selectfield_select_option_cookies_cream"
-                    >
-                      <div
-                        aria-disabled="false"
-                        aria-selected="false"
-                        class="rounded px-3 py-2 hover:cursor-pointer css-bio7mv-option"
-                        id="react-select-selectField-option-5"
-                        role="option"
-                        tabindex="-1"
-                      >
-                        Cookies & Cream
-                      </div>
-                    </div>
-                    <div
-                      data-testid="selectfield_select_option_lemon_sorbet"
-                    >
-                      <div
-                        aria-disabled="false"
-                        aria-selected="false"
-                        class="rounded px-3 py-2 hover:cursor-pointer css-bio7mv-option"
-                        id="react-select-selectField-option-6"
-                        role="option"
-                        tabindex="-1"
-                      >
-                        Lemon Sorbet
-                      </div>
-                    </div>
-                    <div
-                      data-testid="selectfield_select_option_mango"
-                    >
-                      <div
-                        aria-disabled="false"
-                        aria-selected="false"
-                        class="rounded px-3 py-2 hover:cursor-pointer css-bio7mv-option"
-                        id="react-select-selectField-option-7"
-                        role="option"
-                        tabindex="-1"
-                      >
-                        Mango
-                      </div>
-                    </div>
-                    <div
-                      data-testid="selectfield_select_option_mint_chocolate"
-                    >
-                      <div
-                        aria-disabled="false"
-                        aria-selected="false"
-                        class="rounded px-3 py-2 hover:cursor-pointer css-bio7mv-option"
-                        id="react-select-selectField-option-8"
-                        role="option"
-                        tabindex="-1"
-                      >
-                        Mint Chocolate
-                      </div>
-                    </div>
-                    <div
-                      data-testid="selectfield_select_option_peanut_butter"
-                    >
-                      <div
-                        aria-disabled="false"
-                        aria-selected="false"
-                        class="rounded px-3 py-2 hover:cursor-pointer css-bio7mv-option"
-                        id="react-select-selectField-option-9"
-                        role="option"
-                        tabindex="-1"
-                      >
-                        Peanut Butter
-                      </div>
-                    </div>
-                    <div
-                      data-testid="selectfield_select_option_pistachio"
-                    >
-                      <div
-                        aria-disabled="false"
-                        aria-selected="false"
-                        class="rounded px-3 py-2 hover:cursor-pointer css-bio7mv-option"
-                        id="react-select-selectField-option-10"
-                        role="option"
-                        tabindex="-1"
-                      >
-                        Pistachio
-                      </div>
-                    </div>
-                    <div
-                      data-testid="selectfield_select_option_raspberry"
-                    >
-                      <div
-                        aria-disabled="false"
-                        aria-selected="false"
-                        class="rounded px-3 py-2 hover:cursor-pointer css-bio7mv-option"
-                        id="react-select-selectField-option-11"
-                        role="option"
-                        tabindex="-1"
-                      >
-                        Raspberry
-                      </div>
-                    </div>
-                    <div
-                      data-testid="selectfield_select_option_rocky_road"
-                    >
-                      <div
-                        aria-disabled="false"
-                        aria-selected="false"
-                        class="rounded px-3 py-2 hover:cursor-pointer css-bio7mv-option"
-                        id="react-select-selectField-option-12"
-                        role="option"
-                        tabindex="-1"
-                      >
-                        Rocky Road
-                      </div>
-                    </div>
-                    <div
-                      data-testid="selectfield_select_option_strawberry"
-                    >
-                      <div
-                        aria-disabled="false"
-                        aria-selected="false"
-                        class="rounded px-3 py-2 hover:cursor-pointer css-bio7mv-option"
-                        id="react-select-selectField-option-13"
-                        role="option"
-                        tabindex="-1"
-                      >
-                        Strawberry
-                      </div>
-                    </div>
-                    <div
-                      data-testid="selectfield_select_option_vanilla"
-                    >
-                      <div
-                        aria-disabled="false"
-                        aria-selected="false"
-                        class="rounded px-3 py-2 hover:cursor-pointer css-bio7mv-option"
-                        id="react-select-selectField-option-14"
-                        role="option"
-                        tabindex="-1"
-                      >
-                        Vanilla
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <input
-                name="selectField"
-                type="hidden"
-                value=""
-              />
-            </div>
-          </div>
-        </div>
-        <div
-          style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
-        >
-          <button
-            aria-label="Dismiss"
-            id="react-aria-«replaced-aria-id»"
-            style="width: 1px; height: 1px;"
-            tabindex="-1"
-          />
-        </div>
-      </section>
-    </div>
-  </div>
-  <span
-    aria-hidden="true"
-    data-focus-scope-end="true"
-    hidden=""
-  />
-</body>
-`;
-
 exports[`Story Snapshots > MultiSelect 1`] = `
 <div>
   <div
@@ -1750,10 +1750,10 @@ exports[`Story Snapshots > MultiSelect 1`] = `
                   <div
                     class="py-0.5 leading-6 font-normal w-full text-start text-small truncate group-data-[has-value=true]:text-default-foreground css-zztcs7"
                   >
-                    Chocolate
+                    Vanilla
                   </div>
                   <div
-                    aria-label="Remove Chocolate"
+                    aria-label="Remove Vanilla"
                     class="rounded text-default-500 hover:cursor-pointer hover:border-default-300 hover:text-default-800 css-13d4ns5"
                     role="button"
                   >
@@ -1777,10 +1777,10 @@ exports[`Story Snapshots > MultiSelect 1`] = `
                   <div
                     class="py-0.5 leading-6 font-normal w-full text-start text-small truncate group-data-[has-value=true]:text-default-foreground css-zztcs7"
                   >
-                    Vanilla
+                    Chocolate
                   </div>
                   <div
-                    aria-label="Remove Vanilla"
+                    aria-label="Remove Chocolate"
                     class="rounded text-default-500 hover:cursor-pointer hover:border-default-300 hover:text-default-800 css-13d4ns5"
                     role="button"
                   >
@@ -1876,12 +1876,12 @@ exports[`Story Snapshots > MultiSelect 1`] = `
             <input
               name="selectField"
               type="hidden"
-              value="chocolate"
+              value="vanilla"
             />
             <input
               name="selectField"
               type="hidden"
-              value="vanilla"
+              value="chocolate"
             />
           </div>
         </div>

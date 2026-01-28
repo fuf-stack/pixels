@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import type { SelectProps } from './Select';
 
 import { useState } from 'react';
 
@@ -9,6 +10,7 @@ import { Button, Card, Modal } from '@fuf-stack/pixels';
 import { string, veto } from '@fuf-stack/veto';
 
 import { Form } from '../Form';
+import { useFormContext } from '../hooks/useFormContext';
 import { SubmitButton } from '../SubmitButton';
 import Select from './Select';
 
@@ -184,7 +186,7 @@ export const NoResults: Story = {
   },
 };
 
-export const MenuIsVisibleInCard: Story = {
+export const EdgeCaseMenuIsVisibleInCard: Story = {
   args,
   render: (renderArgs) => {
     return (
@@ -205,7 +207,7 @@ export const MenuIsVisibleInCard: Story = {
   },
 };
 
-export const MenuIsVisibleInModal: Story = {
+export const EdgeCaseMenuIsVisibleInModal: Story = {
   args,
   render: (renderArgs) => {
     // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -246,5 +248,99 @@ export const MenuIsVisibleInModal: Story = {
     await expect(
       body.getByTestId('selectfield_select_option_vanilla'),
     ).toBeVisible();
+  },
+};
+
+// Simulates fetched data (in real usage this would come from Relay useLazyLoadQuery)
+const FETCHED_DATA: Record<string, { id: string; name: string }> = {
+  secret_flavor: { id: 'secret_flavor', name: 'Secret Flavor' },
+  another_secret: { id: 'another_secret', name: 'Another Secret' },
+};
+
+// Simulates a hook that fetches option data by ID (like a Relay query)
+const useFetchOptionData = (value: string | null) => {
+  // In real usage: const data = useLazyLoadQuery(ThingQuery, { id: value });
+  // Here we simulate with a lookup
+  if (!value) {
+    return null;
+  }
+  return FETCHED_DATA[value] ?? null;
+};
+
+// Shared component to render an option label (used for both dropdown and selected)
+const OptionLabel = ({ name }: { name: string }) => {
+  return <span className="font-medium">{name}</span>;
+};
+
+/**
+ * Wrapper component that handles fetching fallback data.
+ * This demonstrates the pattern for async selects with Relay.
+ */
+const SelectWithFallbackFetch = ({ options, ...props }: SelectProps) => {
+  const { watch } = useFormContext();
+  const currentValue = watch('selectField') as string | null;
+
+  // Check if current value is in options
+  const isInOptions = options?.some((o) => {
+    return o.value === currentValue;
+  });
+
+  // Fetch data for fallback value (when not in options)
+  // In real usage: useLazyLoadQuery only when !isInOptions && currentValue
+  const fetchedData = useFetchOptionData(
+    !isInOptions && currentValue ? currentValue : null,
+  );
+
+  // Build fallback option from fetched data
+  const selectedOptionFallback = fetchedData
+    ? {
+        label: fetchedData.name,
+        // Pass extra data needed by renderOptionLabel
+        node: fetchedData,
+        value: fetchedData.id,
+      }
+    : undefined;
+
+  return (
+    <Select
+      {...props}
+      options={options}
+      selectedOptionFallback={selectedOptionFallback}
+      renderOptionLabel={(data) => {
+        const option = data as {
+          isFallback?: boolean;
+          label?: string;
+          node?: { name: string };
+        };
+        // For fallback options that we fetched, use node.name
+        // For regular options from the list, use label
+        const name = option.node?.name ?? option.label ?? '';
+        return <OptionLabel name={name} />;
+      }}
+    />
+  );
+};
+
+/**
+ * Edge case: Fetching fallback option data outside renderOptionLabel.
+ *
+ * For async selects, when the form has an initial value (or a previously
+ * selected value) that's not in the current options list:
+ * 1. Watch the form value
+ * 2. Check if it's in the options list
+ * 3. If not, fetch the data (e.g., via Relay useLazyLoadQuery)
+ * 4. Pass fetched option via selectedOption prop
+ * 5. renderOptionLabel renders the same component for all options
+ */
+export const EdgeCaseFetchFallbackOutside: Story = {
+  parameters: {
+    formProps: { initialValues: { selectField: 'secret_flavor' } },
+  },
+  render: (renderArgs) => {
+    return <SelectWithFallbackFetch {...renderArgs} />;
+  },
+  args: {
+    ...args,
+    // Options don't include 'secret_flavor'
   },
 };
