@@ -86,6 +86,8 @@ export const fieldCardVariants = tv({
       // animate border color change, respect reduced motion
       'transition-colors duration-150 motion-reduce:transition-none',
     ],
+    /** class for the error text (empty base, color controlled by variant) */
+    errorText: [],
   },
   variants: {
     invalid: {
@@ -93,11 +95,13 @@ export const fieldCardVariants = tv({
         base: 'border-danger-200',
         label: 'border-danger-200 text-danger',
         errorFooter: 'border-danger-200',
+        errorText: '!text-danger text-tiny',
       },
       false: {
         base: 'border-divider',
         label: 'border-divider text-foreground',
         errorFooter: 'border-divider',
+        errorText: '!text-foreground-500 text-tiny',
       },
     },
   },
@@ -195,21 +199,31 @@ const FieldCard = ({
     name,
   );
 
-  // Check for object-level errors (_errors) - always show these as they represent
-  // explicit object-level validation rules (e.g., refineObject custom validators)
+  // Check for object-level errors (_errors)
   // @ts-expect-error - error._errors exists but not typed
   const hasObjectErrors = !!error?._errors;
 
+  // Check if any child field is touched
+  const hasAnyChildTouched =
+    fieldTouched &&
+    Object.keys(fieldTouched).some((key) => {
+      return key !== '_errors';
+    });
+
   // Check if any child field with an error is also touched
-  const hasChildErrors =
+  const hasVisibleChildren =
     submitCount > 0 ||
     hasVisibleChildErrors(
       error as unknown as Record<string, unknown>,
       fieldTouched,
     );
 
-  // Show invalid state if there are object errors or visible child errors
-  const showInvalid = hasObjectErrors || hasChildErrors;
+  // Show invalid styling (red border/header) only when:
+  // - Object errors exist AND at least one child field is touched, OR
+  // - Child field errors are visible (touched with errors)
+  const showInvalid =
+    (hasObjectErrors && (submitCount > 0 || !!hasAnyChildTouched)) ||
+    hasVisibleChildren;
 
   // className from slots
   const variants = fieldCardVariants({ invalid: showInvalid });
@@ -241,8 +255,13 @@ const FieldCard = ({
       {/* card content */}
       <div className={className.content}>{children}</div>
 
-      {/* card footer with validation errors */}
-      <FieldCardValidationError className={className.errorFooter} name={name} />
+      {/* card footer with validation errors - always show _errors, but danger styling controlled by showInvalid */}
+      <FieldCardValidationError
+        className={className.errorFooter}
+        error={error}
+        errorTextClassName={className.errorText}
+        name={name}
+      />
     </div>
   );
 };

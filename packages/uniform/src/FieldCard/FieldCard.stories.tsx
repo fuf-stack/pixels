@@ -355,25 +355,40 @@ export const ObjectLevelErrorAlwaysShown: Story = {
   play: async ({ canvasElement }: { canvasElement: HTMLElement }) => {
     const canvas = within(canvasElement);
 
+    const fieldCardLabel = canvas.getByRole('heading', {
+      name: /email settings/i,
+    });
+
+    // Initially, FieldCard should NOT have error styling (no fields touched)
+    expect(fieldCardLabel).not.toHaveClass('text-danger');
+
     // Type in external field to trigger form-wide validation
     const externalInput = canvas.getByTestId('externalfield');
     await userEvent.type(externalInput, 'trigger');
     await userEvent.tab();
 
-    // FieldCard should have error styling (red border/label)
-    const fieldCardLabel = canvas.getByRole('heading', {
-      name: /email settings/i,
-    });
-    await waitFor(() => {
-      expect(fieldCardLabel).toHaveClass('text-danger');
-    });
-
-    // Object-level error should be shown in the FieldCard footer
+    // Error message should be shown but NOT red (no child field touched yet)
     await waitFor(() => {
       expect(canvas.getByTestId('settings_error')).toBeInTheDocument();
     });
+    // Header should NOT be red yet
+    expect(fieldCardLabel).not.toHaveClass('text-danger');
 
-    // Individual field errors should NOT be shown (fields are optional and not touched)
+    // Now touch a field inside the FieldCard
+    const primaryEmailInput = canvas.getByTestId('settings_primaryemail');
+    await userEvent.click(primaryEmailInput);
+    await userEvent.tab();
+
+    // Now everything SHOULD be red (child field touched + object error exists)
+    await waitFor(() => {
+      // Header turns red
+      expect(fieldCardLabel).toHaveClass('text-danger');
+    });
+
+    // Error message should still be visible
+    expect(canvas.getByTestId('settings_error')).toBeInTheDocument();
+
+    // Individual field errors should NOT be shown (fields are optional)
     expect(
       canvas.queryByTestId('settings_primaryemail_error'),
     ).not.toBeInTheDocument();

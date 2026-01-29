@@ -1,3 +1,5 @@
+import type { FieldError } from 'react-hook-form';
+
 import {
   AnimatePresence,
   motion,
@@ -11,6 +13,10 @@ import FieldValidationError from '../../partials/FieldValidationError/FieldValid
 export interface FieldCardValidationErrorProps {
   /** CSS class name for the error footer wrapper */
   className?: string;
+  /** Error object from parent FieldCard (passed directly to avoid duplicate hook calls) */
+  error?: FieldError[] | undefined;
+  /** CSS class name for the error text (controls color based on invalid state) */
+  errorTextClassName?: string;
   /** Field name */
   name: string;
 }
@@ -20,12 +26,18 @@ export interface FieldCardValidationErrorProps {
  *
  * This component handles displaying field-level validation errors with proper
  * accessibility attributes and animates them in/out using Framer Motion.
+ *
+ * Note: Object-level errors (_errors) are always shown when they exist,
+ * but the danger styling is controlled by the parent FieldCard based on
+ * whether child fields have been touched.
  */
 const FieldCardValidationError = ({
   className = undefined,
+  error = undefined,
+  errorTextClassName = undefined,
   name,
 }: FieldCardValidationErrorProps) => {
-  const { error, getErrorMessageProps, getHelperWrapperProps, testId } =
+  const { getErrorMessageProps, getHelperWrapperProps, testId } =
     useUniformField({
       name,
     });
@@ -33,8 +45,7 @@ const FieldCardValidationError = ({
   // disable all animation if user prefers reduced motion
   const disableAnimation = useReducedMotion();
 
-  // Always show object-level errors (_errors) as they represent explicit
-  // validation rules (e.g., refineObject custom validators)
+  // Always show object-level errors (_errors) when they exist
   // @ts-expect-error - error._errors exists but not typed
   const hasErrors = !!error?._errors;
 
@@ -55,7 +66,13 @@ const FieldCardValidationError = ({
             {...getHelperWrapperProps()}
             className={cn(getHelperWrapperProps()?.className, className)}
           >
-            <div {...getErrorMessageProps()}>
+            <div
+              {...getErrorMessageProps()}
+              className={cn(
+                getErrorMessageProps()?.className,
+                errorTextClassName,
+              )}
+            >
               <FieldValidationError
                 // @ts-expect-error - error._errors exists but not typed
                 error={error._errors}
