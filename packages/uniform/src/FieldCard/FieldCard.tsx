@@ -195,7 +195,8 @@ const FieldCard = ({
     name,
   );
 
-  // Check for object-level errors (_errors)
+  // Check for object-level errors (_errors) - always show these as they represent
+  // explicit object-level validation rules (e.g., refineObject custom validators)
   // @ts-expect-error - error._errors exists but not typed
   const hasObjectErrors = !!error?._errors;
 

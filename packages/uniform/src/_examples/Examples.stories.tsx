@@ -57,18 +57,18 @@ const validation = veto({
   objectCardField: vt.refineObject(
     vt.object({
       fieldA: vt.string(),
-      fieldB: vt.string(),
+      fieldB: vt.string().optional(),
     }),
   )({
     custom: (data, ctx) => {
       const fieldA = (data.fieldA as string | undefined) ?? '';
       const fieldB = (data.fieldB as string | undefined) ?? '';
 
-      // Object-level validation: all fields are required
-      if (!fieldA && !fieldB) {
+      // Object-level validation: both fields cannot be provided at the same time
+      if (fieldA && fieldB) {
         ctx.addIssue({
           code: 'custom',
-          message: 'All fields are required',
+          message: 'Use only one of Field A or Field B',
         });
       }
     },

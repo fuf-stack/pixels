@@ -294,6 +294,95 @@ export const MixedRequiredAndOptional: Story = {
   },
 };
 
+const validationObjectErrorAlwaysShown = veto({
+  settings: refineObject(
+    object({
+      // Both fields are optional individually
+      primaryEmail: string().optional(),
+      backupEmail: string().optional(),
+    }),
+  )({
+    custom: (data, ctx) => {
+      const primary = data.primaryEmail as string | undefined;
+      const backup = data.backupEmail as string | undefined;
+
+      // Object-level validation: at least one email must be provided
+      if (!primary && !backup) {
+        ctx.addIssue({
+          code: 'custom',
+          message: 'At least one email address is required',
+        });
+      }
+    },
+  }),
+});
+
+/**
+ * Tests that object-level errors (_errors) are always shown immediately,
+ * even before any fields are touched. This is intentional behavior for
+ * explicit object-level validation rules (e.g., "at least one of X or Y").
+ */
+export const ObjectLevelErrorAlwaysShown: Story = {
+  parameters: {
+    formProps: {
+      validation: validationObjectErrorAlwaysShown,
+      // Empty initial values trigger validation
+      initialValues: { settings: {} },
+      validationTrigger: 'all',
+    },
+  },
+  args: {
+    name: 'settings',
+    label: 'Email Settings',
+    children: (
+      <Grid>
+        <Input label="Primary Email" name="settings.primaryEmail" />
+        <Input label="Backup Email" name="settings.backupEmail" />
+      </Grid>
+    ),
+  },
+  decorators: [
+    (Story) => {
+      return (
+        <>
+          {/* External field to trigger form validation without touching FieldCard fields */}
+          <Input className="mb-4" label="External Field" name="externalField" />
+          <Story />
+        </>
+      );
+    },
+  ],
+  play: async ({ canvasElement }: { canvasElement: HTMLElement }) => {
+    const canvas = within(canvasElement);
+
+    // Type in external field to trigger form-wide validation
+    const externalInput = canvas.getByTestId('externalfield');
+    await userEvent.type(externalInput, 'trigger');
+    await userEvent.tab();
+
+    // FieldCard should have error styling (red border/label)
+    const fieldCardLabel = canvas.getByRole('heading', {
+      name: /email settings/i,
+    });
+    await waitFor(() => {
+      expect(fieldCardLabel).toHaveClass('text-danger');
+    });
+
+    // Object-level error should be shown in the FieldCard footer
+    await waitFor(() => {
+      expect(canvas.getByTestId('settings_error')).toBeInTheDocument();
+    });
+
+    // Individual field errors should NOT be shown (fields are optional and not touched)
+    expect(
+      canvas.queryByTestId('settings_primaryemail_error'),
+    ).not.toBeInTheDocument();
+    expect(
+      canvas.queryByTestId('settings_backupemail_error'),
+    ).not.toBeInTheDocument();
+  },
+};
+
 const validationAllOptional = veto({
   preferences: object({
     // All optional fields

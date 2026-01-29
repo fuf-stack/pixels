@@ -25,21 +25,18 @@ const FieldCardValidationError = ({
   className = undefined,
   name,
 }: FieldCardValidationErrorProps) => {
-  const {
-    error,
-    getErrorMessageProps,
-    getHelperWrapperProps,
-    invalid,
-    testId,
-  } = useUniformField({
-    name,
-  });
+  const { error, getErrorMessageProps, getHelperWrapperProps, testId } =
+    useUniformField({
+      name,
+    });
 
   // disable all animation if user prefers reduced motion
   const disableAnimation = useReducedMotion();
 
+  // Always show object-level errors (_errors) as they represent explicit
+  // validation rules (e.g., refineObject custom validators)
   // @ts-expect-error - error._errors exists but not typed
-  const hasErrors = invalid && error?._errors;
+  const hasErrors = !!error?._errors;
 
   return (
     <AnimatePresence initial={!disableAnimation}>
