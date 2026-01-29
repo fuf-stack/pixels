@@ -2,6 +2,8 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { useState } from 'react';
 
+import { expect, waitFor, within } from 'storybook/test';
+
 import { Button, Card, Modal } from '@fuf-stack/pixels';
 import { veto } from '@fuf-stack/veto';
 import * as vt from '@fuf-stack/veto';
@@ -244,6 +246,26 @@ export const AllFieldRenderers: Story = {
         </Grid>
       </Card>
     ),
+  },
+  play: async ({ canvasElement }: { canvasElement: HTMLElement }) => {
+    const canvas = within(canvasElement);
+
+    // Verify the object-level error is shown
+    // INFO:  we do this so that snapshot is stable
+    await waitFor(() => {
+      expect(canvas.getByTestId('objectcardfield_error')).toBeInTheDocument();
+    });
+
+    // Verify the error message text
+    expect(
+      canvas.getByText('Both Field A and Field B are required'),
+    ).toBeInTheDocument();
+
+    // Verify the FieldCard header is not danger (not touched yet)
+    const fieldCardLabel = canvas.getByRole('heading', {
+      name: /field card/i,
+    });
+    expect(fieldCardLabel).not.toHaveClass('text-danger');
   },
 };
 

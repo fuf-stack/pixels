@@ -1535,6 +1535,34 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                       </div>
                     </div>
                   </div>
+                  <div
+                    style="overflow: hidden;"
+                  >
+                    <div
+                      class="group-data-[has-helper=true]:flex relative flex-col gap-1.5 p-0 border-t block px-3 pb-2 pt-1 transition-colors duration-150 motion-reduce:transition-none border-divider"
+                      data-slot="helper-wrapper"
+                    >
+                      <div
+                        class="!text-foreground-500 text-tiny"
+                        data-slot="error-message"
+                      >
+                        <ul
+                          aria-label="Validation errors of field objectcardfield"
+                          data-testid="objectcardfield_error"
+                        >
+                          <li
+                            style="overflow: hidden;"
+                          >
+                            <div
+                              class="px-1 pt-1"
+                            >
+                              Both Field A and Field B are required
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
