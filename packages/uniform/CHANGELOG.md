@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.16.0](https://github.com/fuf-stack/pixels/compare/uniform-v1.15.0...uniform-v1.16.0) (2026-01-29)
+
+
+### Features
+
+* **uniform:** improve FieldCard required detection and error styling ([2cf46cd](https://github.com/fuf-stack/pixels/commit/2cf46cdf1969b7a9091d04d3e05ccadd738b02db))
+
+
+### Bug Fixes
+
+* **uniform:** always show FieldCard object-level validation errors ([442999d](https://github.com/fuf-stack/pixels/commit/442999d2d5c46ab0dae451164ead7cff2df074c0))
+
 ## [1.15.0](https://github.com/fuf-stack/pixels/compare/uniform-v1.14.0...uniform-v1.15.0) (2026-01-28)
 
 
