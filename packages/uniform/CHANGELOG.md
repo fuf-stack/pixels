@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.16.1](https://github.com/fuf-stack/pixels/compare/uniform-v1.16.0...uniform-v1.16.1) (2026-01-29)
+
+
+### Bug Fixes
+
+* **uniform:** fix object card all field render snap logic ([edd167a](https://github.com/fuf-stack/pixels/commit/edd167a670660c52cb9b0d0f90cdd6cff41576ab))
+* **uniform:** in FieldCard show object errors immediately and error styling only when touched ([5d2b927](https://github.com/fuf-stack/pixels/commit/5d2b927a41adeebd579132219df0e732b0fcc8f5))
+
 ## [1.16.0](https://github.com/fuf-stack/pixels/compare/uniform-v1.15.0...uniform-v1.16.0) (2026-01-29)
 
 
