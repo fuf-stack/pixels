@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.15.0](https://github.com/fuf-stack/pixels/compare/uniform-v1.14.0...uniform-v1.15.0) (2026-01-28)
+
+
+### Features
+
+* **uniform:** add selectedOptionFallback prop to Select for async value handling ([2510bc0](https://github.com/fuf-stack/pixels/commit/2510bc0d122ee15211351be95500a447d522e65f))
+
+
+### Bug Fixes
+
+* **uniform:** skip onChange when value unchanged to prevent spurious triggers ([2662984](https://github.com/fuf-stack/pixels/commit/2662984cf999e78d83fee7c94f3d8235fbf9e1b4))
+
 ## [1.14.0](https://github.com/fuf-stack/pixels/compare/uniform-v1.13.0...uniform-v1.14.0) (2026-01-27)
 
 
