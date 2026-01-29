@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.17.1](https://github.com/fuf-stack/pixels/compare/uniform-v1.17.0...uniform-v1.17.1) (2026-01-29)
+
+
+### Bug Fixes
+
+* **uniform:** debounce FieldCard invalid state to prevent flicker ([4f82c1b](https://github.com/fuf-stack/pixels/commit/4f82c1bfb6c85e23d2010f354df0fd84dc385954))
+
 ## [1.17.0](https://github.com/fuf-stack/pixels/compare/uniform-v1.16.1...uniform-v1.17.0) (2026-01-29)
 
 

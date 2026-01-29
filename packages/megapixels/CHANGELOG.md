@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.9.11](https://github.com/fuf-stack/pixels/compare/megapixels-v0.9.10...megapixels-v0.9.11) (2026-01-29)
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @fuf-stack/uniform bumped to 1.17.1
+
 ## [0.9.10](https://github.com/fuf-stack/pixels/compare/megapixels-v0.9.9...megapixels-v0.9.10) (2026-01-29)
 
 
