@@ -6,7 +6,6 @@ import { expect, userEvent, waitFor, within } from 'storybook/test';
 import { object, refineObject, string, veto } from '@fuf-stack/veto';
 
 import { Form } from '../Form';
-import { Grid } from '../Grid';
 import { Input } from '../Input';
 import { SubmitButton } from '../SubmitButton';
 import FieldCard from './FieldCard';
@@ -35,284 +34,242 @@ const meta: Meta<typeof FieldCard> = {
 export default meta;
 type Story = StoryObj<typeof FieldCard>;
 
-const validationAddress = veto({
-  address: refineObject(
-    object({
-      street: string().min(3, 'Street must be at least 3 characters'),
-      city: string().min(2, 'City must be at least 2 characters'),
-      zipCode: string()
-        .min(5, 'Zip code must be 5 digits')
-        .max(5, 'Zip code must be 5 digits'),
-    }),
-  )({
-    custom: (data, ctx) => {
-      const street = (data.street as string | undefined)?.toLowerCase() ?? '';
-      const city = data.city as string | undefined;
-      const zipCode = data.zipCode as string | undefined;
+// =============================================================================
+// BASIC USAGE
+// =============================================================================
 
-      // Cross-field validation: if street is a PO Box, ensure zip code starts with specific pattern
-      const isPOBox = street.includes('po box') || street.includes('p.o. box');
-      if (isPOBox && zipCode && !zipCode.startsWith('9')) {
-        ctx.addIssue({
-          code: 'custom',
-          message: 'PO Box addresses typically use zip codes starting with 9',
-        });
-      }
-
-      // Ensure address is complete - all fields must be filled together
-
-      const hasAllFields = street && city && zipCode;
-      if (!hasAllFields) {
-        ctx.addIssue({
-          code: 'custom',
-          message: 'Complete address required (street, city, and zip code)',
-        });
-      }
-    },
+const validationPizzaDelivery = veto({
+  delivery: object({
+    street: string().min(3, 'Street too short for delivery driver to find'),
+    city: string().min(2, 'City name too short'),
+    phone: string().min(10, 'Phone number must have at least 10 digits'),
   }),
 });
 
+/**
+ * Default FieldCard grouping related form fields together.
+ * Perfect for collecting structured data like addresses or contact info.
+ */
 export const Default: Story = {
   parameters: {
-    formProps: { validation: validationAddress },
+    formProps: { validation: validationPizzaDelivery },
   },
   args: {
-    name: 'address',
-    label: 'Address',
+    name: 'delivery',
+    label: 'Pizza Delivery Address',
     children: (
-      <Grid>
-        <Input label="Street" name="address.street" />
-        <Input label="City" name="address.city" />
-        <Input label="Zip Code" name="address.zipCode" />
-      </Grid>
+      <>
+        <Input label="Street" name="delivery.street" />
+        <Input label="City" name="delivery.city" />
+        <Input label="Phone" name="delivery.phone" />
+      </>
     ),
   },
 };
 
+/**
+ * FieldCard with pre-filled initial values.
+ * Great for edit forms or when you have saved data.
+ */
 export const WithInitialValues: Story = {
   parameters: {
     formProps: {
-      validation: validationAddress,
+      validation: validationPizzaDelivery,
       initialValues: {
-        address: {
-          street: '123 Main St',
+        delivery: {
+          street: '742 Evergreen Terrace',
           city: 'Springfield',
-          zipCode: '12345',
+          phone: '555-DONUT',
         },
       },
     },
   },
   args: {
-    name: 'address',
-    label: 'Shipping Address',
+    name: 'delivery',
+    label: 'Saved Delivery Address',
     children: (
-      <Grid>
-        <Input label="Street" name="address.street" />
-        <Input label="City" name="address.city" />
-        <Input label="Zip Code" name="address.zipCode" />
-      </Grid>
+      <>
+        <Input label="Street" name="delivery.street" />
+        <Input label="City" name="delivery.city" />
+        <Input label="Phone" name="delivery.phone" />
+      </>
     ),
   },
 };
 
-export const WithObjectLevelError: Story = {
+// =============================================================================
+// REQUIRED INDICATOR (ASTERISK)
+// =============================================================================
+
+const validationSpaceMission = veto({
+  mission: object({
+    commander: string().min(2, 'Commander name required'),
+    pilot: string().optional(),
+  }),
+});
+
+/**
+ * FieldCard shows asterisk (*) when ANY child field is required.
+ * Here, Commander is required but Pilot is optional.
+ */
+export const Required: Story = {
   parameters: {
-    formProps: {
-      validation: validationAddress,
-      initialValues: {
-        address: {
-          street: 'a',
-          city: 'b',
-        },
-      },
-    },
+    formProps: { validation: validationSpaceMission },
   },
   args: {
-    name: 'address',
-    label: 'Delivery Address',
+    name: 'mission',
+    label: 'Space Mission Crew',
     children: (
-      <Grid>
-        <Input label="Street" name="address.street" />
-        <Input label="City" name="address.city" />
-        <Input label="Zip Code" name="address.zipCode" />
-      </Grid>
+      <>
+        <Input label="Commander" name="mission.commander" />
+        <Input label="Pilot" name="mission.pilot" />
+      </>
     ),
   },
-  play: async ({ canvasElement }: { canvasElement: HTMLElement }) => {
+  play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-
-    // Blur all fields to trigger validation
-    const streetInput = canvas.getByTestId('address_street');
-    await userEvent.click(streetInput);
-    await userEvent.tab();
-
-    const cityInput = canvas.getByTestId('address_city');
-    await userEvent.click(cityInput);
-    await userEvent.tab();
-
-    const zipCodeInput = canvas.getByTestId('address_zipcode');
-    await userEvent.click(zipCodeInput);
-    await userEvent.tab();
-
-    // Wait for field-level validation errors to appear
-    await waitFor(() => {
-      expect(canvas.getByTestId('address_street_error')).toBeInTheDocument();
-      expect(canvas.getByTestId('address_city_error')).toBeInTheDocument();
+    const fieldCardLabel = canvas.getByRole('heading', {
+      name: /space mission crew/i,
     });
-
-    // Wait for object-level (FieldCard) validation error to appear
-    await waitFor(() => {
-      expect(canvas.getByTestId('address_error')).toBeInTheDocument();
-    });
+    // Should show asterisk because Commander is required
+    expect(fieldCardLabel.textContent).toContain('*');
   },
 };
 
-const validationProfile = veto({
-  profile: refineObject(
+const validationHobbies = veto({
+  hobbies: object({
+    favorite: string().optional(),
+    secondary: string().optional(),
+  }).optional(),
+});
+
+/**
+ * FieldCard does NOT show asterisk when ALL fields are optional.
+ */
+export const AllOptional: Story = {
+  parameters: {
+    formProps: { validation: validationHobbies },
+  },
+  args: {
+    name: 'hobbies',
+    label: 'Your Hobbies',
+    children: (
+      <>
+        <Input label="Favorite Hobby" name="hobbies.favorite" />
+        <Input label="Secondary Hobby" name="hobbies.secondary" />
+      </>
+    ),
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const fieldCardLabel = canvas.getByRole('heading', {
+      name: /your hobbies/i,
+    });
+    // Should NOT show asterisk - all fields are optional
+    expect(fieldCardLabel.textContent).not.toContain('*');
+  },
+};
+
+// =============================================================================
+// CROSS-FIELD VALIDATION (OBJECT-LEVEL ERRORS)
+// =============================================================================
+
+const validationSecretIdentity = veto({
+  identity: refineObject(
     object({
-      firstName: string().min(2, 'First name must be at least 2 characters'),
-      lastName: string().min(2, 'Last name must be at least 2 characters'),
-      email: string().email('Must be a valid email address'),
+      realName: string().min(2, 'Name too short'),
+      heroName: string().min(2, 'Hero name too short'),
+      email: string().email('Invalid email format'),
     }),
   )({
     custom: (data, ctx) => {
-      const firstName = data.firstName as string | undefined;
-      const lastName = data.lastName as string | undefined;
+      const realName = (data.realName as string | undefined)?.toLowerCase();
+      const heroName = (data.heroName as string | undefined)?.toLowerCase();
       const email = data.email as string | undefined;
 
-      // Validate that first and last name are different
-      if (
-        firstName &&
-        lastName &&
-        firstName?.toLowerCase() === lastName?.toLowerCase()
-      ) {
+      // Rule 1: Real name and hero name must be different
+      if (realName && heroName && realName === heroName) {
         ctx.addIssue({
           code: 'custom',
-          message: 'First name and last name must be different',
+          message: "Your secret identity isn't very secret if names match!",
         });
       }
 
-      // Validate email domain matches name (example business logic)
-      if (email && lastName) {
-        const emailLower = email.toLowerCase();
-        const lastNameLower = lastName.toLowerCase();
-
-        // Check if email contains the last name
-        if (!emailLower.includes(lastNameLower)) {
-          ctx.addIssue({
-            code: 'custom',
-            message: 'Email should contain your last name for company emails',
-          });
-        }
+      // Rule 2: Email should contain hero name for official hero business
+      if (email && heroName && !email.toLowerCase().includes(heroName)) {
+        ctx.addIssue({
+          code: 'custom',
+          message: 'Official hero email must contain your hero name',
+        });
       }
     },
   }),
 });
 
-export const ComplexExample: Story = {
-  parameters: {
-    formProps: { validation: validationProfile },
-  },
-  args: {
-    name: 'profile',
-    label: 'User Profile',
-    children: (
-      <Grid>
-        <Input label="First Name" name="profile.firstName" />
-        <Input label="Last Name" name="profile.lastName" />
-        <Input label="Email" name="profile.email" />
-      </Grid>
-    ),
-  },
-};
-
-const validationMixedRequired = veto({
-  contact: object({
-    // Required field
-    name: string().min(2, 'Name must be at least 2 characters'),
-    // Optional field - can be empty
-    nickname: string().optional(),
-  }),
-});
-
 /**
- * Tests that the FieldCard does NOT turn red when an optional field is touched
- * and left empty. The required field is NOT touched, so its error shouldn't show,
- * and therefore the card should not show any error styling.
+ * FieldCard with cross-field validation using `refineObject`.
+ * Object-level errors appear in the card footer when multiple fields
+ * fail validation rules together (e.g., "names must be different").
  */
-export const MixedRequiredAndOptional: Story = {
+export const CrossFieldValidation: Story = {
   parameters: {
-    formProps: { validation: validationMixedRequired },
+    formProps: { validation: validationSecretIdentity },
   },
   args: {
-    name: 'contact',
-    label: 'Contact Info',
+    name: 'identity',
+    label: 'Secret Identity Registration',
     children: (
-      <Grid>
-        <Input label="Name" name="contact.name" />
-        <Input label="Nickname" name="contact.nickname" />
-      </Grid>
+      <>
+        <Input label="Real Name" name="identity.realName" />
+        <Input label="Hero Name" name="identity.heroName" />
+        <Input label="Official Email" name="identity.email" />
+      </>
     ),
   },
-  play: async ({ canvasElement }: { canvasElement: HTMLElement }) => {
+  play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    // FieldCard should show required asterisk since it has a required child field
-    const fieldCardLabel = canvas.getByRole('heading', {
-      name: /contact info/i,
-    });
-    expect(fieldCardLabel.textContent).toContain('*');
+    // Enter the same name for both fields (triggers "names must be different")
+    const realNameInput = canvas.getByTestId('identity_realname');
+    await userEvent.type(realNameInput, 'Bruce');
 
-    // Touch ONLY the optional field and leave it empty
-    // (do NOT touch the required field)
-    const nicknameInput = canvas.getByTestId('contact_nickname');
-    await userEvent.click(nicknameInput);
+    const heroNameInput = canvas.getByTestId('identity_heroname');
+    await userEvent.click(heroNameInput);
+    await userEvent.type(heroNameInput, 'Bruce');
     await userEvent.tab();
 
-    // Wait a moment for any validation to occur
-    await new Promise((resolve) => {
-      setTimeout(resolve, 100);
+    // Wait for object-level error to appear
+    await waitFor(() => {
+      expect(canvas.getByTestId('identity_error')).toBeInTheDocument();
     });
 
-    // The FieldCard should NOT have an error state (no red border/text)
-    // because:
-    // - The optional field has no error (it's optional)
-    // - The required field was not touched, so its error is not visible
-    // - No object-level (_errors) validation errors exist
-    await waitFor(() => {
-      // No error shown for optional field
-      expect(
-        canvas.queryByTestId('contact_nickname_error'),
-      ).not.toBeInTheDocument();
-      // No error shown for untouched required field
-      expect(
-        canvas.queryByTestId('contact_name_error'),
-      ).not.toBeInTheDocument();
-      // No FieldCard-level error
-      expect(canvas.queryByTestId('contact_error')).not.toBeInTheDocument();
-    });
+    // Check for the fun cross-field validation message
+    expect(
+      canvas.getByText(
+        "Your secret identity isn't very secret if names match!",
+      ),
+    ).toBeInTheDocument();
   },
 };
 
-const validationObjectErrorAlwaysShown = veto({
-  // External field included to avoid "unrecognized keys" error
-  externalField: string().optional(),
-  settings: refineObject(
+const validationTacoOrder = veto({
+  taco: refineObject(
     object({
-      // Both fields are optional individually
-      primaryEmail: string().optional(),
-      backupEmail: string().optional(),
+      shell: string().min(1),
+      protein: string().min(1),
+      salsa: string().min(1),
     }),
   )({
     custom: (data, ctx) => {
-      const primary = data.primaryEmail as string | undefined;
-      const backup = data.backupEmail as string | undefined;
+      const shell = data.shell as string | undefined;
+      const protein = data.protein as string | undefined;
+      const salsa = data.salsa as string | undefined;
 
-      // Object-level validation: at least one email must be provided
-      if (!primary && !backup) {
+      // All parts must be selected for a complete taco
+      if (!shell || !protein || !salsa) {
         ctx.addIssue({
           code: 'custom',
-          message: 'At least one email address is required',
+          message: 'A proper taco needs shell, protein, AND salsa!',
         });
       }
     },
@@ -320,143 +277,222 @@ const validationObjectErrorAlwaysShown = veto({
 });
 
 /**
- * Tests that object-level errors (_errors) are always shown immediately,
- * even before any fields are touched. This is intentional behavior for
- * explicit object-level validation rules (e.g., "at least one of X or Y").
+ * Demonstrates object-level validation errors appearing in the footer.
+ * The "incomplete taco" message shows when not all fields are filled.
  */
-export const ObjectLevelErrorAlwaysShown: Story = {
+export const ObjectLevelError: Story = {
   parameters: {
     formProps: {
-      validation: validationObjectErrorAlwaysShown,
-      // Empty initial values trigger validation
-      initialValues: { settings: {} },
+      validation: validationTacoOrder,
+      initialValues: {
+        taco: {
+          shell: 'c', // too short, triggers field error
+          protein: 'b',
+        },
+      },
+    },
+  },
+  args: {
+    name: 'taco',
+    label: 'Build Your Taco',
+    children: (
+      <>
+        <Input label="Shell Type" name="taco.shell" />
+        <Input label="Protein" name="taco.protein" />
+        <Input label="Salsa" name="taco.salsa" />
+      </>
+    ),
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    // Touch fields to trigger validation
+    const shellInput = canvas.getByTestId('taco_shell');
+    await userEvent.click(shellInput);
+    await userEvent.tab();
+
+    const proteinInput = canvas.getByTestId('taco_protein');
+    await userEvent.click(proteinInput);
+    await userEvent.tab();
+
+    const salsaInput = canvas.getByTestId('taco_salsa');
+    await userEvent.click(salsaInput);
+    await userEvent.tab();
+
+    // Wait for object-level error to appear
+    await waitFor(() => {
+      expect(canvas.getByTestId('taco_error')).toBeInTheDocument();
+    });
+
+    // Check the fun error message
+    expect(
+      canvas.getByText('A proper taco needs shell, protein, AND salsa!'),
+    ).toBeInTheDocument();
+  },
+};
+
+// =============================================================================
+// STYLING BEHAVIOR
+// =============================================================================
+
+const validationBackupContacts = veto({
+  // External trigger field
+  trigger: string().optional(),
+  contacts: refineObject(
+    object({
+      email: string().optional(),
+      phone: string().optional(),
+    }),
+  )({
+    custom: (data, ctx) => {
+      const email = data.email as string | undefined;
+      const phone = data.phone as string | undefined;
+
+      if (!email && !phone) {
+        ctx.addIssue({
+          code: 'custom',
+          message: 'Provide at least one way to reach you (email or phone)',
+        });
+      }
+    },
+  }),
+});
+
+/**
+ * Object-level errors show immediately when they exist, but the danger "danger"
+ * styling only appears after interacting with a field inside the card.
+ *
+ * This prevents the jarring experience of a form loading with danger error
+ * states before the user has had a chance to fill anything in.
+ *
+ * Test flow:
+ * 1. Error message appears (gray) after external trigger
+ * 2. Error message turns danger after touching a field inside the card
+ */
+export const ErrorStylingBehavior: Story = {
+  name: 'Error Styling Danger Transition',
+  parameters: {
+    formProps: {
+      validation: validationBackupContacts,
+      initialValues: { contacts: {} },
       validationTrigger: 'all',
     },
   },
   args: {
-    name: 'settings',
-    label: 'Email Settings',
+    name: 'contacts',
+    label: 'Backup Contacts',
     children: (
-      <Grid>
-        <Input label="Primary Email" name="settings.primaryEmail" />
-        <Input label="Backup Email" name="settings.backupEmail" />
-      </Grid>
+      <>
+        <Input label="Email" name="contacts.email" />
+        <Input label="Phone" name="contacts.phone" />
+      </>
     ),
   },
   decorators: [
     (Story) => {
       return (
         <>
-          {/* External field to trigger form validation without touching FieldCard fields */}
-          <Input className="mb-4" label="External Field" name="externalField" />
+          <Input
+            className="mb-4"
+            label="Type here to trigger validation"
+            name="trigger"
+          />
           <Story />
         </>
       );
     },
   ],
-  play: async ({ canvasElement }: { canvasElement: HTMLElement }) => {
+  play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
     const fieldCardLabel = canvas.getByRole('heading', {
-      name: /email settings/i,
+      name: /backup contacts/i,
     });
 
-    // Initially, FieldCard should NOT have error styling (no child touched)
+    // Initially: no error styling
     expect(fieldCardLabel).not.toHaveClass('text-danger');
 
-    // Type in external field to trigger form-wide validation
-    const externalInput = canvas.getByTestId('externalfield');
-    await userEvent.type(externalInput, 'trigger');
+    // Type in trigger field to run form validation
+    const triggerInput = canvas.getByTestId('trigger');
+    await userEvent.type(triggerInput, 'hello');
     await userEvent.tab();
 
-    // Object-level error message should be shown (but NOT red - no child touched yet)
+    // Error message appears (in gray, not danger yet)
     await waitFor(() => {
-      expect(canvas.getByTestId('settings_error')).toBeInTheDocument();
+      expect(canvas.getByTestId('contacts_error')).toBeInTheDocument();
     });
-    // Header should NOT be red (no child field touched yet)
     expect(fieldCardLabel).not.toHaveClass('text-danger');
 
-    // Touch a field inside the FieldCard
-    const primaryEmailInput = canvas.getByTestId('settings_primaryemail');
-    await userEvent.click(primaryEmailInput);
+    // Now touch a field inside the FieldCard
+    const emailInput = canvas.getByTestId('contacts_email');
+    await userEvent.click(emailInput);
     await userEvent.tab();
 
-    // Now header SHOULD be red: object error exists + no child errors + child touched
+    // Error styling turns red
     await waitFor(() => {
       expect(fieldCardLabel).toHaveClass('text-danger');
     });
-
-    // Object-level error message should still be visible (now red)
-    expect(canvas.getByTestId('settings_error')).toBeInTheDocument();
-
-    // Individual field errors should NOT be shown (fields are optional)
-    expect(
-      canvas.queryByTestId('settings_primaryemail_error'),
-    ).not.toBeInTheDocument();
-    expect(
-      canvas.queryByTestId('settings_backupemail_error'),
-    ).not.toBeInTheDocument();
   },
 };
 
-const validationAllOptional = veto({
-  preferences: object({
-    // All optional fields
-    bio: string().optional(),
-    website: string().optional(),
+// =============================================================================
+// EDGE CASES
+// =============================================================================
+
+const validationOptionalNickname = veto({
+  user: object({
+    username: string().min(3, 'Username must be at least 3 characters'),
+    nickname: string().optional(),
   }),
 });
 
 /**
- * Tests that when all fields are optional, the FieldCard label does NOT show
- * an asterisk (required indicator).
+ * Edge case: Touching an optional field should NOT trigger error styling.
+ *
+ * The card should only show errors when:
+ * - A required field is touched and invalid, or
+ * - An object-level error exists and any field is touched
+ *
+ * Touching just an optional empty field? No danger styling.
  */
-export const AllOptionalFields: Story = {
+export const EdgeCaseOptionalFieldTouched: Story = {
+  name: 'Edge Case: Optional Field Touch',
   parameters: {
-    formProps: { validation: validationAllOptional },
+    formProps: { validation: validationOptionalNickname },
   },
   args: {
-    name: 'preferences',
-    label: 'Preferences',
+    name: 'user',
+    label: 'User Profile',
     children: (
-      <Grid>
-        <Input label="Bio" name="preferences.bio" />
-        <Input label="Website" name="preferences.website" />
-      </Grid>
+      <>
+        <Input label="Username" name="user.username" />
+        <Input label="Nickname (optional)" name="user.nickname" />
+      </>
     ),
   },
-  play: async ({ canvasElement }: { canvasElement: HTMLElement }) => {
+  play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    // FieldCard should NOT show required asterisk since all child fields are optional
     const fieldCardLabel = canvas.getByRole('heading', {
-      name: /preferences/i,
+      name: /user profile/i,
     });
-    expect(fieldCardLabel.textContent).not.toContain('*');
 
-    // Touch both optional fields and leave them empty
-    const bioInput = canvas.getByTestId('preferences_bio');
-    await userEvent.click(bioInput);
+    // Touch ONLY the optional nickname field
+    const nicknameInput = canvas.getByTestId('user_nickname');
+    await userEvent.click(nicknameInput);
     await userEvent.tab();
 
-    const websiteInput = canvas.getByTestId('preferences_website');
-    await userEvent.click(websiteInput);
-    await userEvent.tab();
-
-    // Wait a moment for any validation to occur
+    // Wait a moment for validation
     await new Promise((resolve) => {
       setTimeout(resolve, 100);
     });
 
-    // No validation errors should appear for empty optional fields
-    await waitFor(() => {
-      expect(
-        canvas.queryByTestId('preferences_bio_error'),
-      ).not.toBeInTheDocument();
-      expect(
-        canvas.queryByTestId('preferences_website_error'),
-      ).not.toBeInTheDocument();
-      expect(canvas.queryByTestId('preferences_error')).not.toBeInTheDocument();
-    });
+    // Card should NOT be danger - optional field has no error
+    expect(fieldCardLabel).not.toHaveClass('text-danger');
+
+    // No errors should be visible
+    expect(canvas.queryByTestId('user_nickname_error')).not.toBeInTheDocument();
+    expect(canvas.queryByTestId('user_username_error')).not.toBeInTheDocument();
+    expect(canvas.queryByTestId('user_error')).not.toBeInTheDocument();
   },
 };

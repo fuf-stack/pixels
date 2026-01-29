@@ -269,16 +269,20 @@ const FieldCard = ({
 
   const errorRecord = error as unknown as Record<string, unknown>;
 
+  // Check if any child field has errors (regardless of touched state)
+  const hasChildErrors = hasAnyChildErrors(errorRecord);
+  // Check if any child field is touched
+  const isAnyChildTouched = hasAnyChildTouched(fieldTouched);
+
   // Show invalid styling (danger border/header/error text) when:
-  // 1. Form submitted, OR
-  // 2. Any child field is showing an error (touched + has error), OR
-  // 3. Object-level _errors exists AND no child has errors AND any child is touched
+  // 1. Any child field has an error AND (it's touched OR form was submitted), OR
+  // 2. Object-level _errors exists AND no child errors AND (any child touched OR submitted)
   const showInvalid =
-    submitCount > 0 ||
-    hasVisibleChildErrors(errorRecord, fieldTouched) ||
+    (hasChildErrors &&
+      (hasVisibleChildErrors(errorRecord, fieldTouched) || submitCount > 0)) ||
     (hasObjectErrors &&
-      !hasAnyChildErrors(errorRecord) &&
-      hasAnyChildTouched(fieldTouched));
+      !hasChildErrors &&
+      (isAnyChildTouched || submitCount > 0));
 
   // className from slots
   const variants = fieldCardVariants({ invalid: showInvalid });
