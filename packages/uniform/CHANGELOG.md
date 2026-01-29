@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.17.0](https://github.com/fuf-stack/pixels/compare/uniform-v1.16.1...uniform-v1.17.0) (2026-01-29)
+
+
+### Features
+
+* **uniform:** improve FieldCard error styling logic and restructure stories ([5fe7b03](https://github.com/fuf-stack/pixels/commit/5fe7b03dc6e888abd07012bfc246fb3a429816f3))
+
+
+### Bug Fixes
+
+* **uniform:** refine FieldCard invalid styling logic for object-level errors ([dd07ea5](https://github.com/fuf-stack/pixels/commit/dd07ea52bab1c072cfa00870cb0ced6c50559c4f))
+
 ## [1.16.1](https://github.com/fuf-stack/pixels/compare/uniform-v1.16.0...uniform-v1.16.1) (2026-01-29)
 
 
