@@ -8,6 +8,70 @@ import { useUniformField } from '../hooks/useUniformField';
 import FieldCardValidationError from './subcomponents/FieldCardValidationError';
 
 /**
+ * Recursively checks if any child field has an error (regardless of touched state).
+ * Returns true if at least one child has an error.
+ */
+export const hasAnyChildErrors = (
+  errors: Record<string, unknown> | undefined,
+): boolean => {
+  if (!errors) {
+    return false;
+  }
+
+  return Object.keys(errors)
+    .filter((key) => {
+      return key !== '_errors';
+    })
+    .some((key) => {
+      const errorValue = errors[key];
+      if (errorValue === undefined) {
+        return false;
+      }
+      // If errorValue is an array, it's a leaf field error
+      if (Array.isArray(errorValue)) {
+        return true;
+      }
+      // Recursively check nested objects
+      if (typeof errorValue === 'object' && errorValue !== null) {
+        return hasAnyChildErrors(errorValue as Record<string, unknown>);
+      }
+      return false;
+    });
+};
+
+/**
+ * Recursively checks if any child field is touched.
+ * Returns true if at least one child is touched.
+ */
+export const hasAnyChildTouched = (
+  touched: Record<string, unknown> | undefined,
+): boolean => {
+  if (!touched) {
+    return false;
+  }
+
+  return Object.keys(touched)
+    .filter((key) => {
+      return key !== '_errors';
+    })
+    .some((key) => {
+      const touchedValue = touched[key];
+      if (touchedValue === undefined) {
+        return false;
+      }
+      // If touchedValue is truthy (boolean true), field is touched
+      if (touchedValue === true) {
+        return true;
+      }
+      // Recursively check nested objects
+      if (typeof touchedValue === 'object' && touchedValue !== null) {
+        return hasAnyChildTouched(touchedValue as Record<string, unknown>);
+      }
+      return false;
+    });
+};
+
+/**
  * Recursively checks if any child field with an error is also touched.
  * Returns true if at least one touched child has an error.
  */
@@ -203,27 +267,18 @@ const FieldCard = ({
   // @ts-expect-error - error._errors exists but not typed
   const hasObjectErrors = !!error?._errors;
 
-  // Check if any child field is touched
-  const hasAnyChildTouched =
-    fieldTouched &&
-    Object.keys(fieldTouched).some((key) => {
-      return key !== '_errors';
-    });
+  const errorRecord = error as unknown as Record<string, unknown>;
 
-  // Check if any child field with an error is also touched
-  const hasVisibleChildren =
-    submitCount > 0 ||
-    hasVisibleChildErrors(
-      error as unknown as Record<string, unknown>,
-      fieldTouched,
-    );
-
-  // Show invalid styling (red border/header) only when:
-  // - Object errors exist AND at least one child field is touched, OR
-  // - Child field errors are visible (touched with errors)
+  // Show invalid styling (danger border/header/error text) when:
+  // 1. Form submitted, OR
+  // 2. Any child field is showing an error (touched + has error), OR
+  // 3. Object-level _errors exists AND no child has errors AND any child is touched
   const showInvalid =
-    (hasObjectErrors && (submitCount > 0 || !!hasAnyChildTouched)) ||
-    hasVisibleChildren;
+    submitCount > 0 ||
+    hasVisibleChildErrors(errorRecord, fieldTouched) ||
+    (hasObjectErrors &&
+      !hasAnyChildErrors(errorRecord) &&
+      hasAnyChildTouched(fieldTouched));
 
   // className from slots
   const variants = fieldCardVariants({ invalid: showInvalid });

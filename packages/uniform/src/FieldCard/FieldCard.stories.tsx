@@ -295,6 +295,8 @@ export const MixedRequiredAndOptional: Story = {
 };
 
 const validationObjectErrorAlwaysShown = veto({
+  // External field included to avoid "unrecognized keys" error
+  externalField: string().optional(),
   settings: refineObject(
     object({
       // Both fields are optional individually
@@ -359,7 +361,7 @@ export const ObjectLevelErrorAlwaysShown: Story = {
       name: /email settings/i,
     });
 
-    // Initially, FieldCard should NOT have error styling (no fields touched)
+    // Initially, FieldCard should NOT have error styling (no child touched)
     expect(fieldCardLabel).not.toHaveClass('text-danger');
 
     // Type in external field to trigger form-wide validation
@@ -367,25 +369,24 @@ export const ObjectLevelErrorAlwaysShown: Story = {
     await userEvent.type(externalInput, 'trigger');
     await userEvent.tab();
 
-    // Error message should be shown but NOT red (no child field touched yet)
+    // Object-level error message should be shown (but NOT red - no child touched yet)
     await waitFor(() => {
       expect(canvas.getByTestId('settings_error')).toBeInTheDocument();
     });
-    // Header should NOT be red yet
+    // Header should NOT be red (no child field touched yet)
     expect(fieldCardLabel).not.toHaveClass('text-danger');
 
-    // Now touch a field inside the FieldCard
+    // Touch a field inside the FieldCard
     const primaryEmailInput = canvas.getByTestId('settings_primaryemail');
     await userEvent.click(primaryEmailInput);
     await userEvent.tab();
 
-    // Now everything SHOULD be red (child field touched + object error exists)
+    // Now header SHOULD be red: object error exists + no child errors + child touched
     await waitFor(() => {
-      // Header turns red
       expect(fieldCardLabel).toHaveClass('text-danger');
     });
 
-    // Error message should still be visible
+    // Object-level error message should still be visible (now red)
     expect(canvas.getByTestId('settings_error')).toBeInTheDocument();
 
     // Individual field errors should NOT be shown (fields are optional)
