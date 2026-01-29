@@ -184,7 +184,7 @@ const validationProfile = veto({
       if (
         firstName &&
         lastName &&
-        firstName.toLowerCase() === lastName.toLowerCase()
+        firstName?.toLowerCase() === lastName?.toLowerCase()
       ) {
         ctx.addIssue({
           code: 'custom',
@@ -223,5 +223,135 @@ export const ComplexExample: Story = {
         <Input label="Email" name="profile.email" />
       </Grid>
     ),
+  },
+};
+
+const validationMixedRequired = veto({
+  contact: object({
+    // Required field
+    name: string().min(2, 'Name must be at least 2 characters'),
+    // Optional field - can be empty
+    nickname: string().optional(),
+  }),
+});
+
+/**
+ * Tests that the FieldCard does NOT turn red when an optional field is touched
+ * and left empty. The required field is NOT touched, so its error shouldn't show,
+ * and therefore the card should not show any error styling.
+ */
+export const MixedRequiredAndOptional: Story = {
+  parameters: {
+    formProps: { validation: validationMixedRequired },
+  },
+  args: {
+    name: 'contact',
+    label: 'Contact Info',
+    children: (
+      <Grid>
+        <Input label="Name" name="contact.name" />
+        <Input label="Nickname" name="contact.nickname" />
+      </Grid>
+    ),
+  },
+  play: async ({ canvasElement }: { canvasElement: HTMLElement }) => {
+    const canvas = within(canvasElement);
+
+    // FieldCard should show required asterisk since it has a required child field
+    const fieldCardLabel = canvas.getByRole('heading', {
+      name: /contact info/i,
+    });
+    expect(fieldCardLabel.textContent).toContain('*');
+
+    // Touch ONLY the optional field and leave it empty
+    // (do NOT touch the required field)
+    const nicknameInput = canvas.getByTestId('contact_nickname');
+    await userEvent.click(nicknameInput);
+    await userEvent.tab();
+
+    // Wait a moment for any validation to occur
+    await new Promise((resolve) => {
+      setTimeout(resolve, 100);
+    });
+
+    // The FieldCard should NOT have an error state (no red border/text)
+    // because:
+    // - The optional field has no error (it's optional)
+    // - The required field was not touched, so its error is not visible
+    // - No object-level (_errors) validation errors exist
+    await waitFor(() => {
+      // No error shown for optional field
+      expect(
+        canvas.queryByTestId('contact_nickname_error'),
+      ).not.toBeInTheDocument();
+      // No error shown for untouched required field
+      expect(
+        canvas.queryByTestId('contact_name_error'),
+      ).not.toBeInTheDocument();
+      // No FieldCard-level error
+      expect(canvas.queryByTestId('contact_error')).not.toBeInTheDocument();
+    });
+  },
+};
+
+const validationAllOptional = veto({
+  preferences: object({
+    // All optional fields
+    bio: string().optional(),
+    website: string().optional(),
+  }),
+});
+
+/**
+ * Tests that when all fields are optional, the FieldCard label does NOT show
+ * an asterisk (required indicator).
+ */
+export const AllOptionalFields: Story = {
+  parameters: {
+    formProps: { validation: validationAllOptional },
+  },
+  args: {
+    name: 'preferences',
+    label: 'Preferences',
+    children: (
+      <Grid>
+        <Input label="Bio" name="preferences.bio" />
+        <Input label="Website" name="preferences.website" />
+      </Grid>
+    ),
+  },
+  play: async ({ canvasElement }: { canvasElement: HTMLElement }) => {
+    const canvas = within(canvasElement);
+
+    // FieldCard should NOT show required asterisk since all child fields are optional
+    const fieldCardLabel = canvas.getByRole('heading', {
+      name: /preferences/i,
+    });
+    expect(fieldCardLabel.textContent).not.toContain('*');
+
+    // Touch both optional fields and leave them empty
+    const bioInput = canvas.getByTestId('preferences_bio');
+    await userEvent.click(bioInput);
+    await userEvent.tab();
+
+    const websiteInput = canvas.getByTestId('preferences_website');
+    await userEvent.click(websiteInput);
+    await userEvent.tab();
+
+    // Wait a moment for any validation to occur
+    await new Promise((resolve) => {
+      setTimeout(resolve, 100);
+    });
+
+    // No validation errors should appear for empty optional fields
+    await waitFor(() => {
+      expect(
+        canvas.queryByTestId('preferences_bio_error'),
+      ).not.toBeInTheDocument();
+      expect(
+        canvas.queryByTestId('preferences_website_error'),
+      ).not.toBeInTheDocument();
+      expect(canvas.queryByTestId('preferences_error')).not.toBeInTheDocument();
+    });
   },
 };

@@ -1407,17 +1407,23 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                   </button>
                 </div>
                 <div
-                  class="overflow-hidden rounded-small border bg-content1 border-divider md:col-span-2"
+                  class="overflow-hidden rounded-small border bg-content1 transition-colors duration-150 motion-reduce:transition-none border-divider md:col-span-2"
                 >
                   <div
                     aria-level="3"
-                    class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block after:content-['*'] after:text-danger after:ms-0.5 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] max-w-full text-ellipsis overflow-hidden pointer-events-auto! static! z-auto! block! w-full! translate-x-0! translate-y-0! transform-none! rounded-t-small border-b p-3 font-semibold border-divider text-foreground"
+                    class="pointer-events-auto! static! z-auto! block! w-full! translate-x-0! translate-y-0! transform-none! rounded-t-small border-b p-3 font-semibold text-medium transition-colors duration-150 motion-reduce:transition-none border-divider text-foreground"
                     data-slot="label"
                     for="react-aria-«replaced-aria-id»"
                     id="react-aria-«replaced-aria-id»"
                     role="heading"
                   >
                     Field Card
+                    <span
+                      aria-hidden="true"
+                      class="ml-0.5 text-danger"
+                    >
+                      *
+                    </span>
                   </div>
                   <div
                     class="p-3 grid gap-4"
