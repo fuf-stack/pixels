@@ -2,6 +2,7 @@ import type { TVClassName } from '@fuf-stack/pixel-utils';
 import type { ReactNode } from 'react';
 
 import { tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
+import { useDebounce } from '@fuf-stack/pixels';
 
 import { checkFieldIsRequired, useFormContext } from '../hooks/useFormContext';
 import { useUniformField } from '../hooks/useUniformField';
@@ -277,12 +278,15 @@ const FieldCard = ({
   // Show invalid styling (danger border/header/error text) when:
   // 1. Any child field has an error AND (it's touched OR form was submitted), OR
   // 2. Object-level _errors exists AND no child errors AND (any child touched OR submitted)
-  const showInvalid =
+  const rawShowInvalid =
     (hasChildErrors &&
       (hasVisibleChildErrors(errorRecord, fieldTouched) || submitCount > 0)) ||
     (hasObjectErrors &&
       !hasChildErrors &&
       (isAnyChildTouched || submitCount > 0));
+
+  // Debounce to prevent flickering during rapid state changes
+  const showInvalid = useDebounce(rawShowInvalid, 200);
 
   // className from slots
   const variants = fieldCardVariants({ invalid: showInvalid });

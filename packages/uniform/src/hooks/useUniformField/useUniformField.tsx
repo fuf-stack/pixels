@@ -4,7 +4,6 @@ import type { InputValueTransform } from '../useInputValueTransform/useInputValu
 
 import React from 'react';
 
-import { isTestEnvironment } from '@fuf-stack/pixel-utils';
 import { useDebounce } from '@fuf-stack/pixels';
 
 import { isValueEmpty } from '../../helpers';
@@ -14,31 +13,6 @@ import { useController } from '../useController/useController';
 import { useFormContext } from '../useFormContext/useFormContext';
 import { useInput } from '../useInput/useInput';
 import { useInputValueTransform } from '../useInputValueTransform/useInputValueTransform';
-
-/**
- * Debounce invalid state changes to prevent UI flicker on rapid changes.
- *
- * Primary purpose: Reduce UI flicker when validation state changes rapidly
- * (e.g., during fast typing). Without debouncing, error messages would flash
- * in/out rapidly, creating a poor UX.
- *
- * Secondary benefit: When animations are enabled (default), gives time for
- * enter/exit animations to complete smoothly.
- *
- * Behavior:
- * - Debounces both true → false and false → true transitions by `delayMs`
- * - Disabled in test environments for immediate snapshots
- */
-const useDebouncedInvalid = (invalid: boolean, delayMs: number) => {
-  const debouncedInvalid = useDebounce(invalid, delayMs);
-
-  // Disable debouncing in test environments for immediate snapshots
-  if (isTestEnvironment()) {
-    return invalid;
-  }
-
-  return debouncedInvalid;
-};
 
 export interface UseUniformFieldParams<
   TFieldValues extends FieldValues = FieldValues,
@@ -229,7 +203,8 @@ export const useUniformField = <
   // isValueEmpty handles marker strings, flat array wrappers, empty arrays, and empty objects
   const hasValue = !isValueEmpty(fieldValue);
   const showInvalid = rawInvalid && (hasValue || isTouched || submitCount > 0);
-  const invalid = useDebouncedInvalid(showInvalid, 200);
+  // Debounce to prevent flickering during rapid state changes
+  const invalid = useDebounce(showInvalid, 200);
 
   // Build a label node that:
   // - shows the provided label (unless explicitly set to false)
