@@ -7,6 +7,7 @@ import {
   nameToTestId,
   toFormFormat,
   toNullishString,
+  toSubmitFormat,
   toValidationFormat,
 } from './nullishFields';
 
@@ -452,6 +453,150 @@ describe('round trip conversion', () => {
     };
 
     expect(backToValidation).toEqual(expected);
+  });
+});
+
+describe('toSubmitFormat', () => {
+  it('should remove empty object properties', () => {
+    const input = {
+      name: 'John',
+      empty: {},
+    };
+
+    const expected = {
+      name: 'John',
+    };
+
+    expect(toSubmitFormat(input)).toEqual(expected);
+  });
+
+  it('should remove arrays containing only empty objects', () => {
+    const input = {
+      name: 'John',
+      emptyObjects: [{}, {}, {}],
+    };
+
+    const expected = {
+      name: 'John',
+    };
+
+    expect(toSubmitFormat(input)).toEqual(expected);
+  });
+
+  it('should filter empty objects from arrays with mixed content', () => {
+    const input = {
+      items: [{ name: 'John' }, {}, { name: 'Jane' }],
+    };
+
+    const expected = {
+      items: [{ name: 'John' }, { name: 'Jane' }],
+    };
+
+    expect(toSubmitFormat(input)).toEqual(expected);
+  });
+
+  it('should handle recursive empty object removal', () => {
+    const input = {
+      outer: {
+        inner: {},
+      },
+    };
+
+    const expected = {};
+
+    expect(toSubmitFormat(input)).toEqual(expected);
+  });
+
+  it('should handle deeply nested empty objects', () => {
+    const input = {
+      level1: {
+        level2: {
+          level3: {},
+          value: 'keep',
+        },
+      },
+    };
+
+    const expected = {
+      level1: {
+        level2: {
+          value: 'keep',
+        },
+      },
+    };
+
+    expect(toSubmitFormat(input)).toEqual(expected);
+  });
+
+  it('should handle mixed content with empty objects', () => {
+    const input = {
+      a: 1,
+      b: {},
+      c: 'test',
+    };
+
+    const expected = {
+      a: 1,
+      c: 'test',
+    };
+
+    expect(toSubmitFormat(input)).toEqual(expected);
+  });
+
+  it('should handle complex nested structures', () => {
+    const input = {
+      name: 'John',
+      contact: {},
+      tags: [{}, {}, {}],
+      items: [{ value: 'a' }, {}, { value: 'b' }],
+      nested: {
+        deep: {},
+      },
+    };
+
+    const expected = {
+      name: 'John',
+      items: [{ value: 'a' }, { value: 'b' }],
+    };
+
+    expect(toSubmitFormat(input)).toEqual(expected);
+  });
+
+  it('should handle null and undefined input', () => {
+    expect(toSubmitFormat(null)).toBeNull();
+    expect(toSubmitFormat(undefined)).toBeUndefined();
+  });
+
+  it('should preserve non-empty values like false and 0', () => {
+    const input = {
+      falseValue: false,
+      zeroValue: 0,
+      emptyObject: {},
+    };
+
+    const expected = {
+      falseValue: false,
+      zeroValue: 0,
+    };
+
+    expect(toSubmitFormat(input)).toEqual(expected);
+  });
+
+  it('should apply toValidationFormat transformations first', () => {
+    const input = {
+      array: [
+        { [flatArrayKey]: 'value' },
+        { [flatArrayKey]: '' },
+        { [flatArrayKey]: null },
+      ],
+      marker: '__NULL__',
+    } as unknown as Record<string, unknown>;
+
+    const expected = {
+      array: ['value', null, null],
+    };
+
+    expect(toSubmitFormat(input)).toEqual(expected);
   });
 });
 

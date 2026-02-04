@@ -13,7 +13,7 @@ import createDebug from 'debug';
 
 import { useLocalStorage } from '@fuf-stack/pixels';
 
-import { toFormFormat, toValidationFormat } from '../../helpers';
+import { toFormFormat, toSubmitFormat } from '../../helpers';
 import { useExtendedValidation, useFormResolver } from './FormResolver';
 
 const debug = createDebug('uniform:FormContext');
@@ -308,9 +308,11 @@ const FormProvider: React.FC<FormProviderProps> = ({
         : 'Form is valid and preventSubmit is false',
     });
 
-    // Convert nullish strings and filter out empty values before submission
+    // Convert form data to submission format:
+    // - Unwrap flat array wrappers and convert markers
+    // - Remove empty strings, nulls, empty arrays, and empty objects
     const wrappedOnSubmit = (data: FieldValues, event?: BaseSyntheticEvent) => {
-      const submitData = toValidationFormat(data) ?? {};
+      const submitData = toSubmitFormat(data) ?? {};
       debug('onSubmit callback called', { submitData });
       return onSubmit(submitData, event);
     };

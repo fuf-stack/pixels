@@ -335,6 +335,106 @@ export const toValidationFormat = (
 };
 
 /**
+ * Helper function to check if a value is an empty object (not an array).
+ */
+const isEmptyObject = (value: unknown): boolean => {
+  return (
+    value !== null &&
+    typeof value === 'object' &&
+    !Array.isArray(value) &&
+    Object.keys(value as Record<string, unknown>).length === 0
+  );
+};
+
+/**
+ * Recursively removes empty objects from a data structure.
+ * - Filters empty objects from arrays
+ * - Removes properties with empty object values
+ * - Removes arrays that become empty after filtering
+ */
+const removeEmptyObjects = (obj: unknown): unknown => {
+  if (Array.isArray(obj)) {
+    // Filter out empty objects from arrays, then recursively process remaining items
+    return obj
+      .filter((item) => {
+        return !isEmptyObject(item);
+      })
+      .map((item) => {
+        return removeEmptyObjects(item);
+      });
+  }
+
+  if (obj !== null && typeof obj === 'object') {
+    return Object.fromEntries(
+      Object.entries(obj)
+        .map(([key, value]) => {
+          return [key, removeEmptyObjects(value)] as [string, unknown];
+        })
+        .filter(([_, processed]) => {
+          // Skip empty objects
+          if (isEmptyObject(processed)) {
+            return false;
+          }
+          // Skip arrays that are now empty after filtering
+          if (Array.isArray(processed) && processed.length === 0) {
+            return false;
+          }
+          return true;
+        }),
+    );
+  }
+
+  return obj;
+};
+
+/**
+ * Converts form state to a format suitable for submission by:
+ * - Applying all transformations from toValidationFormat
+ * - Additionally removing empty objects from the result
+ * - Filtering empty objects from arrays
+ * - Recursively cleaning nested structures
+ *
+ * **Why separate from toValidationFormat?**
+ *
+ * Empty objects must be preserved during validation so that custom refinements
+ * can run. For example, a FieldCard with "at least email or phone required"
+ * validation needs the object to exist (even if empty) for the refine to execute.
+ *
+ * However, for submission, empty objects are meaningless and should be removed
+ * to produce clean data for APIs.
+ *
+ * @example
+ * const formState = {
+ *   name: 'John',
+ *   contact: {},           // Empty FieldCard - will be removed
+ *   tags: [{}, {}, {}],    // All empty - array will be removed
+ *   items: [
+ *     { value: 'a' },
+ *     {},                  // Empty entry - will be filtered out
+ *     { value: 'b' }
+ *   ],
+ *   nested: {
+ *     deep: {}             // Nested empty - will be removed recursively
+ *   }
+ * };
+ *
+ * // Result:
+ * {
+ *   name: 'John',
+ *   items: [{ value: 'a' }, { value: 'b' }]
+ * }
+ */
+export const toSubmitFormat = (
+  formState: Record<string, unknown> | null | undefined,
+): Record<string, unknown> | null | undefined => {
+  const validated = toValidationFormat(formState);
+  if (!validated) {
+    return validated;
+  }
+  return removeEmptyObjects(validated) as Record<string, unknown>;
+};
+
+/**
  * Converts a field name to a testId by removing flat array key segments and slugifying.
  * Removes all occurrences of `flatArrayKey` from the field name and applies slugify transformation.
  *

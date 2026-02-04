@@ -180,11 +180,10 @@ describe('Form', () => {
       expect(handleSubmit).toHaveBeenCalledExactlyOnceWith(
         {
           validString: 'keep this',
-          // null, undefined, empty string, and empty arrays should be filtered out
-          // but false, 0, and empty objects are preserved as valid data
+          // null, undefined, empty string, empty arrays, and empty objects should be filtered out
+          // but false and 0 are preserved as valid data
           zeroNumber: 0,
           falseBoolean: false,
-          emptyObject: {},
         },
         expect.anything(),
       );
@@ -255,15 +254,14 @@ describe('Form', () => {
 
       await user.click(screen.getByRole('button'));
 
-      // Verify that only null, undefined, empty strings, empty arrays, and null markers are filtered out
+      // Verify that null, undefined, empty strings, empty arrays, empty objects, and null markers are filtered out
       expect(handleSubmit).toHaveBeenCalledExactlyOnceWith(
         {
           shouldKeep: 'value',
           shouldKeepFalse: false,
           shouldKeepZero: 0,
-          shouldKeepEmptyObject: {},
           // shouldFilterNull, shouldFilterEmptyString, shouldFilterUndefined,
-          // shouldFilterNullMarker, and shouldKeepEmptyArray (now filtered) should all be filtered out
+          // shouldFilterNullMarker, shouldKeepEmptyArray, and shouldKeepEmptyObject are all filtered out
         },
         expect.anything(),
       );
