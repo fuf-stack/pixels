@@ -1,5 +1,25 @@
 # Changelog
 
+## [1.18.0](https://github.com/fuf-stack/pixels/compare/uniform-v1.17.1...uniform-v1.18.0) (2026-02-04)
+
+
+### Features
+
+* **uniform:** add toSubmitFormat to remove empty objects from submission data ([7912d17](https://github.com/fuf-stack/pixels/commit/7912d17e6b105c240bac3ee1bda37d41a1f2b1d8))
+
+
+### Bug Fixes
+
+* **deps:** update dependency framer-motion to v12.29.0 ([#1496](https://github.com/fuf-stack/pixels/issues/1496)) ([61a9d73](https://github.com/fuf-stack/pixels/commit/61a9d733275d6d32b5698249ecc316bfa13531ca))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @fuf-stack/pixel-motion bumped to 1.1.4
+    * @fuf-stack/pixels bumped to 1.7.4
+
 ## [1.17.1](https://github.com/fuf-stack/pixels/compare/uniform-v1.17.0...uniform-v1.17.1) (2026-01-29)
 
 
