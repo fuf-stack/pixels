@@ -1,10 +1,15 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import type { AlertProps } from './Alert';
 
+import { useState } from 'react';
+import { FaBell } from 'react-icons/fa';
+
+import { action } from 'storybook/actions';
 import { useArgs } from 'storybook/preview-api';
 
 import { cn } from '@fuf-stack/pixel-utils';
 
+import { Modal } from '../Modal';
 import Alert, { alertVariants } from './Alert';
 
 const meta: Meta<typeof Alert> = {
@@ -21,9 +26,45 @@ export const Default: Story = {
   args: {},
 };
 
+export const Variants: Story = {
+  render: (args) => {
+    return (
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+        {Object.keys(alertVariants.variants.variant).map((variant) => {
+          return (
+            <Alert
+              key={variant}
+              variant={variant as AlertProps['variant']}
+              {...args}
+            />
+          );
+        })}
+      </div>
+    );
+  },
+  args: {
+    title: "Something's Up",
+    children: 'A message of varying importance has been detected.',
+  },
+};
+
 export const TitleOnly: Story = {
   args: {
     title: <span>System Notification</span>,
+  },
+};
+
+export const MultilineTitleOnly: Story = {
+  args: {
+    title: (
+      <>
+        System Notification
+        <br />
+        Second Line
+        <br />
+        Third Line
+      </>
+    ),
   },
 };
 
@@ -32,6 +73,55 @@ export const ChildrenOnly: Story = {
     children: 'Your attention is required for this matter.',
   },
 };
+
+export const MultilineChildrenOnly: Story = {
+  args: {
+    children: (
+      <>
+        Your attention is required for this matter.
+        <br />
+        Please review the details below.
+        <br />
+        Thank you for your cooperation.
+      </>
+    ),
+  },
+};
+
+export const MultilineTitleAndChildren: Story = {
+  args: {
+    title: (
+      <>
+        System Notification
+        <br />
+        Important Update
+      </>
+    ),
+    children: (
+      <>
+        Your attention is required for this matter.
+        <br />
+        Please review the details below.
+        <br />
+        Thank you for your cooperation.
+      </>
+    ),
+  },
+};
+
+export const CustomIcon: Story = {
+  args: {
+    title: 'Custom Notification',
+    children: 'This alert uses a custom bell icon.',
+    icon: <FaBell />,
+  },
+};
+
+const backgrounds = [
+  { name: 'white', className: 'bg-white' },
+  { name: 'light gray', className: 'bg-gray-100' },
+  { name: 'dark', className: 'bg-gray-800' },
+];
 
 export const AllColorsAndVariants: Story = {
   render: (args) => {
@@ -47,11 +137,23 @@ export const AllColorsAndVariants: Story = {
                     <div className="mb-2 text-sm text-foreground">
                       {variant}
                     </div>
-                    <Alert
-                      color={color as AlertProps['color']}
-                      variant={variant as AlertProps['variant']}
-                      {...args}
-                    />
+                    {backgrounds.map((bg) => {
+                      return (
+                        <div
+                          key={`${color}-${variant}-${bg.name}`}
+                          className={cn('mb-2 rounded p-3', bg.className)}
+                        >
+                          <div className="mb-1 text-xs text-gray-500 dark:text-gray-400">
+                            background: {bg.name}
+                          </div>
+                          <Alert
+                            color={color as AlertProps['color']}
+                            variant={variant as AlertProps['variant']}
+                            {...args}
+                          />
+                        </div>
+                      );
+                    })}
                   </div>
                 );
               })}
@@ -115,7 +217,8 @@ export const Closable: Story = {
   args: {
     title: 'Alert: [Close to dismiss]',
     children: 'X marks the spot (to close).',
-    isClosable: true,
+    closable: true,
+    onClose: action('closed'),
     color: 'info',
   },
 };
@@ -170,7 +273,46 @@ export const AllColorsWithShowMoreButton: Story = {
   },
   args: {
     title: 'Alert Issued',
-    variant: 'faded',
+  },
+};
+
+export const WithMoreModal: Story = {
+  render: function Render(args) {
+    const [isOpen, setIsOpen] = useState(false);
+    return (
+      <>
+        <Alert
+          {...args}
+          endContent={
+            <button
+              className="ml-2 mt-2 rounded border px-2 py-1 text-xs"
+              type="button"
+              onClick={() => {
+                setIsOpen(true);
+              }}
+            >
+              More
+            </button>
+          }
+        >
+          Something requires your attention.
+        </Alert>
+        <Modal
+          header="Alert Details"
+          isOpen={isOpen}
+          onClose={() => {
+            setIsOpen(false);
+          }}
+        >
+          Here are the full details of the alert. This modal provides additional
+          context and information that does not fit in the alert itself.
+        </Modal>
+      </>
+    );
+  },
+  args: {
+    title: 'Attention Required',
+    color: 'warning',
   },
 };
 
@@ -178,134 +320,5 @@ export const SpecialFullWidth: Story = {
   args: {
     showIcon: false,
     className: 'w-screen',
-  },
-};
-
-export const LimitHeight: Story = {
-  args: {
-    showIcon: false,
-    sizeLimit: 'height',
-    children: (
-      <div>
-        Our team of highly trained monkeys has detected a minor issue.
-        Don&apos;t worry, it&apos;s not the end of the world (but we can&apos;t
-        promise anything). <br /> Seriously though, please review the following
-        info: We&apos;ve got some stuff to tell you, and it&apos;s probably
-        going to be boring. But hey, at least you&apos;ll know what&apos;s up!
-        Our team of highly trained monkeys has detected a minor issue.
-        Don&apos;t worry, it&apos;s not the end of the world (but we can&apos;t
-        promise anything). <br /> Seriously though, please review the following
-        info: We&apos;ve got some stuff to tell you, and it&apos;s probably
-        going to be boring. But hey, at least you&apos;ll know what&apos;s up!
-        Our team of highly trained monkeys has detected a minor issue.
-        Don&apos;t worry, it&apos;s not the end of the world (but we can&apos;t
-        promise anything). <br /> Seriously though, please review the following
-        info: We&apos;ve got some stuff to tell you, and it&apos;s probably
-        going to be boring. But hey, at least you&apos;ll know what&apos;s up!
-        Our team of highly trained monkeys has detected a minor issue.
-        Don&apos;t worry, it&apos;s not the end of the world (but we can&apos;t
-        promise anything). <br /> Seriously though, please review the following
-        info: We&apos;ve got some stuff to tell you, and it&apos;s probably
-        going to be boring. But hey, at least you&apos;ll know what&apos;s up!
-        Our team of highly trained monkeys has detected a minor issue.
-        Don&apos;t worry, it&apos;s not the end of the world (but we can&apos;t
-        promise anything). <br /> Seriously though, please review the following
-        info: We&apos;ve got some stuff to tell you, and it&apos;s probably
-        going to be boring. But hey, at least you&apos;ll know what&apos;s up!
-        Our team of highly trained monkeys has detected a minor issue.
-        Don&apos;t worry, it&apos;s not the end of the world (but we can&apos;t
-        promise anything). <br /> Seriously though, please review the following
-        info: We&apos;ve got some stuff to tell you, and it&apos;s probably
-        going to be boring. But hey, at least you&apos;ll know what&apos;s up!
-      </div>
-    ),
-  },
-  render: (args) => {
-    return <Alert {...args} />;
-  },
-};
-
-export const LimitWidth: Story = {
-  args: {
-    showIcon: false,
-    sizeLimit: 'width',
-    children: (
-      <div>
-        Our team of highly trained monkeys has detected a minor issue.
-        Don&apos;t worry, it&apos;s not the end of the world (but we can&apos;t
-        promise anything). <br /> Seriously though, please review the following
-        info: We&apos;ve got some stuff to tell you, and it&apos;s probably
-        going to be boring. But hey, at least you&apos;ll know what&apos;s up!
-        Our team of highly trained monkeys has detected a minor issue.
-        Don&apos;t worry, it&apos;s not the end of the world (but we can&apos;t
-        promise anything). <br /> Seriously though, please review the following
-        info: We&apos;ve got some stuff to tell you, and it&apos;s probably
-        going to be boring. But hey, at least you&apos;ll know what&apos;s up!
-        Our team of highly trained monkeys has detected a minor issue.
-        Don&apos;t worry, it&apos;s not the end of the world (but we can&apos;t
-        promise anything). <br /> Seriously though, please review the following
-        info: We&apos;ve got some stuff to tell you, and it&apos;s probably
-        going to be boring. But hey, at least you&apos;ll know what&apos;s up!
-        Our team of highly trained monkeys has detected a minor issue.
-        Don&apos;t worry, it&apos;s not the end of the world (but we can&apos;t
-        promise anything). <br /> Seriously though, please review the following
-        info: We&apos;ve got some stuff to tell you, and it&apos;s probably
-        going to be boring. But hey, at least you&apos;ll know what&apos;s up!
-        Our team of highly trained monkeys has detected a minor issue.
-        Don&apos;t worry, it&apos;s not the end of the world (but we can&apos;t
-        promise anything). <br /> Seriously though, please review the following
-        info: We&apos;ve got some stuff to tell you, and it&apos;s probably
-        going to be boring. But hey, at least you&apos;ll know what&apos;s up!
-        Our team of highly trained monkeys has detected a minor issue.
-        Don&apos;t worry, it&apos;s not the end of the world (but we can&apos;t
-        promise anything). <br /> Seriously though, please review the following
-        info: We&apos;ve got some stuff to tell you, and it&apos;s probably
-        going to be boring. But hey, at least you&apos;ll know what&apos;s up!
-      </div>
-    ),
-  },
-  render: (args) => {
-    return <Alert {...args} />;
-  },
-};
-
-export const LimitHeightWidth: Story = {
-  args: {
-    showIcon: false,
-    sizeLimit: 'both',
-    children: (
-      <div>
-        Our team of highly trained monkeys has detected a minor issue.
-        Don&apos;t worry, it&apos;s not the end of the world (but we can&apos;t
-        promise anything). <br /> Seriously though, please review the following
-        info: We&apos;ve got some stuff to tell you, and it&apos;s probably
-        going to be boring. But hey, at least you&apos;ll know what&apos;s up!
-        Our team of highly trained monkeys has detected a minor issue.
-        Don&apos;t worry, it&apos;s not the end of the world (but we can&apos;t
-        promise anything). <br /> Seriously though, please review the following
-        info: We&apos;ve got some stuff to tell you, and it&apos;s probably
-        going to be boring. But hey, at least you&apos;ll know what&apos;s up!
-        Our team of highly trained monkeys has detected a minor issue.
-        Don&apos;t worry, it&apos;s not the end of the world (but we can&apos;t
-        promise anything). <br /> Seriously though, please review the following
-        info: We&apos;ve got some stuff to tell you, and it&apos;s probably
-        going to be boring. But hey, at least you&apos;ll know what&apos;s up!
-        Our team of highly trained monkeys has detected a minor issue.
-        Don&apos;t worry, it&apos;s not the end of the world (but we can&apos;t
-        promise anything). <br /> Seriously though, please review the following
-        info: We&apos;ve got some stuff to tell you, and it&apos;s probably
-        going to be boring. But hey, at least you&apos;ll know what&apos;s up!
-        Our team of highly trained monkeys has detected a minor issue.
-        Don&apos;t worry, it&apos;s not the end of the world (but we can&apos;t
-        promise anything). <br /> Seriously though, please review the following
-        info: We&apos;ve got some stuff to tell you, and it&apos;s probably
-        going to be boring. But hey, at least you&apos;ll know what&apos;s up!
-        Our team of highly trained monkeys has detected a minor issue.
-        Don&apos;t worry, it&apos;s not the end of the world (but we can&apos;t
-        promise anything). <br /> Seriously though, please review the following
-        info: We&apos;ve got some stuff to tell you, and it&apos;s probably
-        going to be boring. But hey, at least you&apos;ll know what&apos;s up!
-      </div>
-    ),
   },
 };

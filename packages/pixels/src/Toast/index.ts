@@ -1,11 +1,8 @@
-import { Toast } from '@heroui/toast';
+import toast from './Toast';
+import Toaster from './Toaster';
 
-import { addToast, toastVariants } from './addToast';
-import ToastProvider from './ToastProvider';
+export type { ToastOptions, ToastRenderProps } from './Toast';
+export type { ToasterProps } from './Toaster';
 
-export type { ToastProps, AddToastVariantProps } from './addToast';
-export type { ToastProviderProps } from './ToastProvider';
-
-export { addToast, Toast, ToastProvider, toastVariants };
-
-export default addToast;
+export { Toaster, toast };
+export default toast;

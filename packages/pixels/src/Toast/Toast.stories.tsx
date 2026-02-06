@@ -1,25 +1,22 @@
-/* eslint-disable import-x/no-extraneous-dependencies */
-
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import type { ToastProps } from './addToast';
+
+import { useState } from 'react';
 
 import { action } from 'storybook/actions';
+import { expect, userEvent, within } from 'storybook/test';
 
-import { addToast, Toast, toastVariants } from '.';
+import { toast, Toaster } from '.';
 import { Button } from '../Button';
-import ToastProvider from './ToastProvider';
+import { Modal } from '../Modal';
 
-const meta: Meta<typeof addToast> = {
+const meta: Meta = {
   title: 'pixels/Toast',
-  component: Toast,
-  args: {
-    onClose: action('closed'),
-  },
+  component: Toaster,
   decorators: [
     (Story) => {
       return (
         <>
-          <ToastProvider placement="top-center" />
+          <Toaster />
           <Story />
         </>
       );
@@ -28,133 +25,323 @@ const meta: Meta<typeof addToast> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof addToast>;
+type Story = StoryObj;
 
-export const Default: Story = {
-  args: {
-    title: "Something's Up",
-  },
-  render: (args) => {
-    return (
-      <Button
-        onClick={() => {
-          addToast(args);
-        }}
-      >
-        Show success toast
-      </Button>
-    );
-  },
-};
-
-export const AllProps: Story = {
-  args: {
-    className: { progressIndicator: 'moep1' },
-    title: "Something's Up",
-    description: 'A message of varying importance has been detected.',
-    color: 'info' as ToastProps['color'],
-    variant: 'bordered' as ToastProps['variant'],
-    timeout: 60000,
-    closeIcon: undefined,
-    endContent: 'the end',
-    icon: undefined,
-    loadingIcon: undefined,
-    shouldShowTimeoutProgress: true,
-    showCloseButton: true,
-    showIcon: true,
-    placement: 'top-right',
-  },
-  render: (args) => {
-    return (
-      <Button
-        onClick={() => {
-          addToast(args);
-        }}
-      >
-        Show toast
-      </Button>
-    );
-  },
-};
-
-export const AllColors: Story = {
+export const Variants: Story = {
   render: () => {
     return (
-      <>
-        {[...Object.keys(toastVariants.variants.color)].map((color) => {
-          return (
-            <div key={color} className="mb-12">
-              <h2 className="mb-4 text-lg font-bold">{color}</h2>
-              <Button
-                onClick={() => {
-                  addToast({
-                    title: "Something's Up",
-                    description:
-                      'A message of varying importance has been detected.',
-                    variant: 'bordered',
-                    color: color as ToastProps['color'],
-                  });
-                }}
-              >
-                {color}
-              </Button>
-            </div>
-          );
-        })}
-      </>
+      <div className="flex flex-wrap gap-2">
+        <Button
+          onClick={() => {
+            toast.default('This is a default message', {
+              onAutoClose: action('onAutoClose'),
+              onClose: action('onClose'),
+            });
+          }}
+        >
+          Default
+        </Button>
+        <Button
+          onClick={() => {
+            toast.info('This is an info message', {
+              onAutoClose: action('onAutoClose'),
+              onClose: action('onClose'),
+            });
+          }}
+        >
+          Info
+        </Button>
+        <Button
+          onClick={() => {
+            toast.warn('This is a warning message', {
+              onAutoClose: action('onAutoClose'),
+              onClose: action('onClose'),
+            });
+          }}
+        >
+          Warn
+        </Button>
+        <Button
+          onClick={() => {
+            toast.success('This is a success message', {
+              onAutoClose: action('onAutoClose'),
+              onClose: action('onClose'),
+            });
+          }}
+        >
+          Success
+        </Button>
+        <Button
+          onClick={() => {
+            toast.error('This is an error message', {
+              onAutoClose: action('onAutoClose'),
+              onClose: action('onClose'),
+            });
+          }}
+        >
+          Error
+        </Button>
+      </div>
     );
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    await userEvent.click(canvas.getByText('Default'));
+    await expect(
+      canvas.getByText('This is a default message'),
+    ).toBeInTheDocument();
+
+    await userEvent.click(canvas.getByText('Info'));
+    await expect(
+      canvas.getByText('This is an info message'),
+    ).toBeInTheDocument();
+
+    await userEvent.click(canvas.getByText('Warn'));
+    await expect(
+      canvas.getByText('This is a warning message'),
+    ).toBeInTheDocument();
+
+    await userEvent.click(canvas.getByText('Success'));
+    await expect(
+      canvas.getByText('This is a success message'),
+    ).toBeInTheDocument();
+
+    await userEvent.click(canvas.getByText('Error'));
+    await expect(
+      canvas.getByText('This is an error message'),
+    ).toBeInTheDocument();
   },
 };
 
-export const AllVariants: Story = {
-  render: (_args) => {
+const positions = [
+  'top-left',
+  'top-center',
+  'top-right',
+  'bottom-left',
+  'bottom-center',
+  'bottom-right',
+] as const;
+
+export const Placement: Story = {
+  render: () => {
     return (
-      <>
-        {Object.keys(toastVariants.variants.variant).map((variant) => {
+      <div className="flex flex-wrap gap-2">
+        {positions.map((position) => {
           return (
-            <div key={variant} className="mb-6">
-              <div className="mb-2 text-sm text-foreground">{variant}</div>
-              <Button>{variant}</Button>
-            </div>
+            <Button
+              key={position}
+              onClick={() => {
+                return toast.info(`Toast at ${position}`, { position });
+              }}
+            >
+              {position}
+            </Button>
           );
         })}
-      </>
+      </div>
     );
-  },
-  args: {
-    title: "Something's Up",
-    description: 'A message of varying importance has been detected.',
-    color: 'info' as ToastProps['color'],
-    timeout: 0,
   },
 };
 
-export const LongContent: Story = {
-  args: {
-    className: { progressIndicator: 'moep1' },
-    title: "The Toast That Won't Shut Up (and Other Charming Qualities)",
-    description:
-      "Ever needed to tell your users something important, but also wanted to channel your inner toddler and just yell it at them repeatedly? Then you've come to the right place! This story showcases the HeroUI/NextUI Toast component – a powerful tool for delivering notifications, alerts, and passive-aggressive messages to your unsuspecting audience. Here, you can tweak the Toast's appearance, duration, and severity (from a gentle 'heads up' to a full-blown 'CODE RED! THE COFFEE MACHINE IS EMPTY!'). Be warned: overuse can lead to user frustration and potentially feature requests for a 'mute all toasts' button. But hey, sometimes you just need to make sure they really see that discount code, right? Explore different variations, from the subtly informative to the gloriously attention-grabbing. Just remember, with great toast power comes great responsibility... or at least a well-placed 'X' button.",
-    color: 'info' as ToastProps['color'],
-    variant: 'bordered' as ToastProps['variant'],
-    timeout: 60000,
-    closeIcon: undefined,
-    endContent: 'the end',
-    icon: undefined,
-    loadingIcon: undefined,
-    shouldShowTimeoutProgress: true,
-    showCloseButton: true,
-    showIcon: true,
-    placement: 'top-right',
-  },
-  render: (args) => {
+export const AllOptions: Story = {
+  render: () => {
     return (
       <Button
         onClick={() => {
-          addToast(args);
+          return toast.info("Something's Up", {
+            title: "Something's Up",
+            duration: 60000,
+            closable: true,
+            onAutoClose: action('onAutoClose'),
+            onClose: action('onClose'),
+          });
         }}
       >
         Show toast
+      </Button>
+    );
+  },
+};
+
+export const CloseExternal: Story = {
+  render: () => {
+    const toastIds: (string | number)[] = [];
+    return (
+      <div className="flex gap-2">
+        <Button
+          onClick={() => {
+            toastIds.push(
+              toast.info('This toast can be closed programmatically', {
+                duration: 60000,
+              }),
+            );
+          }}
+        >
+          Show toast
+        </Button>
+        <Button
+          onClick={() => {
+            const id = toastIds.shift();
+            if (id != null) {
+              toast.close(id);
+            }
+          }}
+        >
+          Close toast
+        </Button>
+      </div>
+    );
+  },
+};
+
+const MoreModal = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  return (
+    <>
+      <button
+        className="ml-2 mt-2 whitespace-nowrap rounded border px-2 py-1 text-xs"
+        onClick={() => {
+          setIsOpen(true);
+        }}
+        type="button"
+      >
+        More
+      </button>
+      <Modal
+        header="Alert Details"
+        isOpen={isOpen}
+        onClose={() => {
+          setIsOpen(false);
+        }}
+      >
+        Here are the full details of the alert. This modal provides additional
+        context and information that does not fit in the alert itself.
+      </Modal>
+    </>
+  );
+};
+
+export const WithMoreModal: Story = {
+  render: () => {
+    return (
+      <Button
+        onClick={() => {
+          toast.warn('Something requires your attention.', {
+            title: 'Attention Required',
+            endContent: <MoreModal />,
+          });
+        }}
+      >
+        Show toast with more
+      </Button>
+    );
+  },
+};
+
+export const Closable: Story = {
+  render: () => {
+    return (
+      <div className="flex gap-2">
+        <Button
+          onClick={() => {
+            return toast.info('This toast can be closed', {
+              closable: true,
+            });
+          }}
+        >
+          Closable
+        </Button>
+        <Button
+          onClick={() => {
+            return toast.info('This toast cannot be closed', {
+              closable: false,
+            });
+          }}
+        >
+          Not closable
+        </Button>
+      </div>
+    );
+  },
+};
+
+export const WithReactNodeMessage: Story = {
+  render: () => {
+    return (
+      <div className="flex flex-wrap gap-2">
+        <Button
+          onClick={() => {
+            toast.info(
+              <span>
+                Message with <strong>bold</strong> and <em>italic</em> text
+              </span>,
+            );
+          }}
+        >
+          Formatted text
+        </Button>
+        <Button
+          onClick={() => {
+            toast.success(
+              <span>
+                User{' '}
+                <a className="underline" href="#link" id="link">
+                  admin
+                </a>{' '}
+                was created
+              </span>,
+            );
+          }}
+        >
+          With link
+        </Button>
+        <Button
+          onClick={() => {
+            toast.warn(
+              <ul className="list-inside list-disc">
+                <li>First item</li>
+                <li>Second item</li>
+              </ul>,
+              { title: 'Multiple warnings' },
+            );
+          }}
+        >
+          With list
+        </Button>
+      </div>
+    );
+  },
+};
+
+export const CustomRender: Story = {
+  render: () => {
+    return (
+      <Button
+        onClick={() => {
+          toast.info('Custom rendered toast', {
+            render: ({ message, color, close }) => {
+              return (
+                <div className="flex items-center gap-4 rounded-lg bg-gradient-to-r from-purple-500 to-pink-500 p-4 text-white shadow-lg">
+                  <span className="text-2xl">🎉</span>
+                  <div className="flex-1">
+                    <div className="text-xs uppercase opacity-75">{color}</div>
+                    <div className="font-semibold">{message}</div>
+                  </div>
+                  <button
+                    className="rounded bg-white/20 px-2 py-1 text-sm hover:bg-white/30"
+                    onClick={close}
+                    type="button"
+                  >
+                    Close
+                  </button>
+                </div>
+              );
+            },
+          });
+        }}
+      >
+        Show custom rendered toast
       </Button>
     );
   },
