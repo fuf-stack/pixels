@@ -20,7 +20,7 @@ const Grid = ({
   testId = undefined,
 }: GridProps) => {
   return (
-    <div className={cn('grid gap-4', className)} data-testid={testId}>
+    <div className={cn('grid gap-6', className)} data-testid={testId}>
       {children}
     </div>
   );
