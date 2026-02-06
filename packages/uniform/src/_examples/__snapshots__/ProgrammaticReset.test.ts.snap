@@ -283,60 +283,58 @@ exports[`Story Snapshots > CheckboxesWithInitialValues 1`] = `
               </label>
             </div>
           </div>
-          <div>
-            <label
-              class="group inline-flex w-full cursor-pointer items-center justify-between rounded-lg border-2 border-default hover:bg-content2 data-[selected=true]:border-focus gap-4 p-4"
-              data-invalid="false"
-              data-required="false"
-              data-selected="true"
-              data-testid="enablefeature"
+          <label
+            class="group inline-flex w-full cursor-pointer items-center justify-between rounded-lg border-2 border-default hover:bg-content2 data-[selected=true]:border-focus gap-4 p-4"
+            data-invalid="false"
+            data-required="false"
+            data-selected="true"
+            data-testid="enablefeature"
+          >
+            <div
+              style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+            >
+              <input
+                aria-label="enableFeature"
+                checked=""
+                name="enableFeature"
+                tabindex="-1"
+                type="checkbox"
+              />
+              <input
+                aria-labelledby="«replaced-aria-id»"
+                checked=""
+                class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
+                data-react-aria-pressable="true"
+                name="enableFeature_switch"
+                role="switch"
+                tabindex="0"
+                type="checkbox"
+                value=""
+              />
+            </div>
+            <span
+              aria-hidden="true"
+              class="px-1 relative inline-flex items-center justify-start shrink-0 overflow-hidden bg-default-200 rounded-full outline-solid outline-transparent group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:bg-primary group-data-[selected=true]:text-primary-foreground w-12 h-7 transition-background"
+            >
+              <span
+                class="z-10 flex items-center justify-center bg-white shadow-small rounded-full origin-right pointer-events-none w-5 h-5 text-small group-data-[selected=true]:ms-5 transition-all group-data-[pressed=true]:w-6 group-data-[selected]:group-data-[pressed]:ml-4"
+              />
+            </span>
+            <div
+              class="grow"
             >
               <div
-                style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+                class="font-medium text-foreground group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"] text-sm"
               >
-                <input
-                  aria-label="enableFeature"
-                  checked=""
-                  name="enableFeature"
-                  tabindex="-1"
-                  type="checkbox"
-                />
-                <input
-                  aria-labelledby="«replaced-aria-id»"
-                  checked=""
-                  class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
-                  data-react-aria-pressable="true"
-                  name="enableFeature_switch"
-                  role="switch"
-                  tabindex="0"
-                  type="checkbox"
-                  value=""
-                />
+                Enable Feature 🧪
               </div>
-              <span
-                aria-hidden="true"
-                class="px-1 relative inline-flex items-center justify-start shrink-0 overflow-hidden bg-default-200 rounded-full outline-solid outline-transparent group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:bg-primary group-data-[selected=true]:text-primary-foreground w-12 h-7 transition-background"
-              >
-                <span
-                  class="z-10 flex items-center justify-center bg-white shadow-small rounded-full origin-right pointer-events-none w-5 h-5 text-small group-data-[selected=true]:ms-5 transition-all group-data-[pressed=true]:w-6 group-data-[selected]:group-data-[pressed]:ml-4"
-                />
-              </span>
               <div
-                class="grow"
+                class="text-foreground opacity-70 text-small"
               >
-                <div
-                  class="font-medium text-foreground group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"] text-sm"
-                >
-                  Enable Feature 🧪
-                </div>
-                <div
-                  class="text-foreground opacity-70 text-small"
-                >
-                  Enable experimental features
-                </div>
+                Enable experimental features
               </div>
-            </label>
-          </div>
+            </div>
+          </label>
         </div>
         <hr
           class="shrink-0 bg-divider border-none w-full h-divider my-0 border-divider"
@@ -652,57 +650,55 @@ exports[`Story Snapshots > CheckboxesWithoutInitialValues 1`] = `
               </label>
             </div>
           </div>
-          <div>
-            <label
-              class="group inline-flex w-full cursor-pointer items-center justify-between rounded-lg border-2 border-default hover:bg-content2 data-[selected=true]:border-focus gap-4 p-4"
-              data-invalid="false"
-              data-required="false"
-              data-testid="enablefeature"
+          <label
+            class="group inline-flex w-full cursor-pointer items-center justify-between rounded-lg border-2 border-default hover:bg-content2 data-[selected=true]:border-focus gap-4 p-4"
+            data-invalid="false"
+            data-required="false"
+            data-testid="enablefeature"
+          >
+            <div
+              style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+            >
+              <input
+                aria-label="enableFeature"
+                name="enableFeature"
+                tabindex="-1"
+                type="checkbox"
+              />
+              <input
+                aria-labelledby="«replaced-aria-id»"
+                class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
+                data-react-aria-pressable="true"
+                name="enableFeature_switch"
+                role="switch"
+                tabindex="0"
+                type="checkbox"
+                value=""
+              />
+            </div>
+            <span
+              aria-hidden="true"
+              class="px-1 relative inline-flex items-center justify-start shrink-0 overflow-hidden bg-default-200 rounded-full outline-solid outline-transparent group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:bg-primary group-data-[selected=true]:text-primary-foreground w-12 h-7 transition-background"
+            >
+              <span
+                class="z-10 flex items-center justify-center bg-white shadow-small rounded-full origin-right pointer-events-none w-5 h-5 text-small group-data-[selected=true]:ms-5 transition-all group-data-[pressed=true]:w-6 group-data-[selected]:group-data-[pressed]:ml-4"
+              />
+            </span>
+            <div
+              class="grow"
             >
               <div
-                style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+                class="font-medium text-foreground group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"] text-sm"
               >
-                <input
-                  aria-label="enableFeature"
-                  name="enableFeature"
-                  tabindex="-1"
-                  type="checkbox"
-                />
-                <input
-                  aria-labelledby="«replaced-aria-id»"
-                  class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
-                  data-react-aria-pressable="true"
-                  name="enableFeature_switch"
-                  role="switch"
-                  tabindex="0"
-                  type="checkbox"
-                  value=""
-                />
+                Enable Feature 🧪
               </div>
-              <span
-                aria-hidden="true"
-                class="px-1 relative inline-flex items-center justify-start shrink-0 overflow-hidden bg-default-200 rounded-full outline-solid outline-transparent group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:bg-primary group-data-[selected=true]:text-primary-foreground w-12 h-7 transition-background"
-              >
-                <span
-                  class="z-10 flex items-center justify-center bg-white shadow-small rounded-full origin-right pointer-events-none w-5 h-5 text-small group-data-[selected=true]:ms-5 transition-all group-data-[pressed=true]:w-6 group-data-[selected]:group-data-[pressed]:ml-4"
-                />
-              </span>
               <div
-                class="grow"
+                class="text-foreground opacity-70 text-small"
               >
-                <div
-                  class="font-medium text-foreground group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"] text-sm"
-                >
-                  Enable Feature 🧪
-                </div>
-                <div
-                  class="text-foreground opacity-70 text-small"
-                >
-                  Enable experimental features
-                </div>
+                Enable experimental features
               </div>
-            </label>
-          </div>
+            </div>
+          </label>
         </div>
         <hr
           class="shrink-0 bg-divider border-none w-full h-divider my-0 border-divider"

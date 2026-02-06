@@ -143,7 +143,7 @@ const SwitchBox = ({
   const classNames = variantsToClassNames(variants, className, 'box');
 
   return (
-    <div>
+    <>
       <Component
         {...getBaseProps()}
         className={classNames.box}
@@ -236,7 +236,7 @@ const SwitchBox = ({
           <div {...getErrorMessageProps()}>{errorMessage}</div>
         </div>
       ) : null}
-    </div>
+    </>
   );
 };
 
