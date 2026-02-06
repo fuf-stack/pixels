@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.8.0](https://github.com/fuf-stack/pixels/compare/pixels-v1.7.4...pixels-v1.8.0) (2026-02-06)
+
+
+### Features
+
+* **pixels:** replace Toast implementation with sonner and simplify Alert variant ([a3b1c82](https://github.com/fuf-stack/pixels/commit/a3b1c82f22d40577a5902616e89bb88e9dfaa193))
+
 ## [1.7.4](https://github.com/fuf-stack/pixels/compare/pixels-v1.7.3...pixels-v1.7.4) (2026-02-04)
 
 
