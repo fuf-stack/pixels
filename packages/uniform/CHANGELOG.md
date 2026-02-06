@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.18.3](https://github.com/fuf-stack/pixels/compare/uniform-v1.18.2...uniform-v1.18.3) (2026-02-06)
+
+
+### Bug Fixes
+
+* **uniform:** use gap-6 in Grid as default gap ([cd01b4a](https://github.com/fuf-stack/pixels/commit/cd01b4a1e7f2486551534a1bb9ac71ec87692877))
+
 ## [1.18.2](https://github.com/fuf-stack/pixels/compare/uniform-v1.18.1...uniform-v1.18.2) (2026-02-06)
 
 
