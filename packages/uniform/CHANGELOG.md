@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.18.2](https://github.com/fuf-stack/pixels/compare/uniform-v1.18.1...uniform-v1.18.2) (2026-02-06)
+
+
+### Bug Fixes
+
+* **uniform:** remove useless outer div from SwitchBox ([39a14ec](https://github.com/fuf-stack/pixels/commit/39a14ec55e51a0050955b703afd41ed163f1974a))
+
 ## [1.18.1](https://github.com/fuf-stack/pixels/compare/uniform-v1.18.0...uniform-v1.18.1) (2026-02-06)
 
 
