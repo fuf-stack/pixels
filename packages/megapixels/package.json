@@ -12,12 +12,12 @@
   "sideEffects": false,
   "exports": {
     ".": {
-      "require": "./dist/index.cjs",
-      "import": "./dist/index.js"
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
     },
     "./Filter": {
-      "require": "./dist/Filter/index.cjs",
-      "import": "./dist/Filter/index.js"
+      "import": "./dist/Filter/index.js",
+      "require": "./dist/Filter/index.cjs"
     },
     "./package.json": "./package.json"
   },

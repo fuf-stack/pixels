@@ -25,41 +25,30 @@ export const alertVariants = tv({
       },
     },
     // see:  https://github.com/heroui-inc/heroui/blob/canary/packages/core/theme/src/components/alert.ts
-    color: {
+    variant: {
+      danger: {
+        base: 'bg-danger-50 dark:bg-danger-50',
+      },
+      default: {
+        base: 'bg-default-100 dark:bg-default-50',
+      },
       info: {
+        alertIcon: 'fill-current',
+        base: 'border-small border-info-200 bg-info-50 text-info-600 dark:border-info-100 dark:bg-info-50',
+        closeButton: 'text-info-500 data-[hover]:bg-info-200',
+        description: 'text-inherit',
+        iconWrapper: 'border-info-100 bg-info-50 dark:bg-info-100',
         mainWrapper: 'text-inherit',
         title: 'text-inherit',
-        description: 'text-inherit',
       },
-      ...heroAlertVariants.variants.color,
-    },
-    // only 2 variants: solid and bordered (bordered uses HeroUI's faded variant)
-    variant: {
-      bordered: heroAlertVariants.variants.variant.faded,
-      solid: heroAlertVariants.variants.variant.solid,
+      success: {
+        base: 'bg-success-50 dark:bg-success-50',
+      },
+      warning: {
+        base: 'bg-warning-50 dark:bg-warning-50',
+      },
     },
   },
-  compoundVariants: [
-    {
-      color: 'info',
-      variant: 'solid',
-      className: {
-        base: 'bg-info text-info-foreground',
-        alertIcon: 'text-info-foreground',
-        closeButton: 'text-inherit',
-      },
-    },
-    {
-      color: 'info',
-      variant: 'bordered',
-      className: {
-        alertIcon: 'fill-current',
-        base: 'dark:bg-info-50/50 border-small border-info-200 bg-info-50 text-info-600 dark:border-info-100',
-        closeButton: 'text-info-500 data-[hover]:bg-info-200',
-        iconWrapper: 'border-info-100 bg-info-50 dark:bg-info-100',
-      },
-    },
-  ],
 });
 
 export type VariantProps = TVProps<typeof alertVariants>;
@@ -71,8 +60,6 @@ export interface AlertProps extends Omit<VariantProps, 'hasTitleAndChildren'> {
   children?: ReactNode;
   /** CSS class name */
   className?: ClassName;
-  /** Color scheme of the Alert */
-  color?: VariantProps['color'];
   /** Content displayed at the end of the Alert */
   endContent?: ReactNode;
   /** Icon displayed at the start of the Alert */
@@ -81,8 +68,6 @@ export interface AlertProps extends Omit<VariantProps, 'hasTitleAndChildren'> {
   closable?: boolean;
   /** Callback fired when the close button is clicked */
   onClose?: () => void;
-  /** Whether to show the icon at the start */
-  showIcon?: boolean;
   /** HTML data-testid attribute used in e2e tests */
   testId?: string;
   /** Title displayed in the Alert above the content */
@@ -97,29 +82,26 @@ export interface AlertProps extends Omit<VariantProps, 'hasTitleAndChildren'> {
 const Alert = ({
   children = undefined,
   className = undefined,
-  color = 'primary',
   endContent = undefined,
   icon = undefined,
   closable = false,
   onClose = undefined,
-  showIcon = true,
   testId = undefined,
   title = undefined,
-  variant = 'bordered',
+  variant = 'info',
 }: AlertProps) => {
   const hasTitleAndChildren = !!children && !!title;
   const variants = alertVariants({
     hasTitleAndChildren,
-    color,
     variant,
   });
   const classNames = variantsToClassNames(variants, className, 'base');
 
-  // pass color prop for heroui colors
+  // map variant to HeroUI color prop (only for variants that exist in HeroUI)
   const heroColor = Object.keys(heroAlertVariants.variants.color).includes(
-    color,
+    variant,
   )
-    ? (color as HeroAlertProps['color'])
+    ? (variant as HeroAlertProps['color'])
     : undefined;
 
   return (
@@ -129,13 +111,13 @@ const Alert = ({
       data-testid={testId}
       description={title ? children : undefined}
       endContent={endContent}
-      hideIcon={!showIcon}
+      hideIcon={variant === 'default'}
       icon={icon}
       // map closable to isClosable, because of we do not want "is" as prefix
       isClosable={closable}
       onClose={onClose}
       title={(title ?? children) as string}
-      variant={variant}
+      variant="faded"
     />
   );
 };

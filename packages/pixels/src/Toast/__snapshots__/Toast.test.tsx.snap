@@ -84,6 +84,38 @@ exports[`Story Snapshots > CloseExternal 1`] = `
 </div>
 `;
 
+exports[`Story Snapshots > CustomIcon 1`] = `
+<div>
+  <section
+    aria-atomic="false"
+    aria-label="Notifications alt+T"
+    aria-live="polite"
+    aria-relevant="additions text"
+    tabindex="-1"
+  />
+  <div
+    class="flex flex-wrap gap-2"
+  >
+    <button
+      class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
+      data-react-aria-pressable="true"
+      tabindex="0"
+      type="button"
+    >
+      Custom icon
+    </button>
+    <button
+      class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
+      data-react-aria-pressable="true"
+      tabindex="0"
+      type="button"
+    >
+      Rocket icon
+    </button>
+  </div>
+</div>
+`;
+
 exports[`Story Snapshots > CustomRender 1`] = `
 <div>
   <section
@@ -224,7 +256,7 @@ exports[`Story Snapshots > Variants 1`] = `
             data-title=""
           >
             <div
-              class="flex flex-grow flex-row w-full py-3 px-4 gap-x-1 rounded-medium items-center bg-transparent border-danger text-danger min-w-72 border-small"
+              class="flex flex-grow flex-row w-full py-3 px-4 gap-x-1 border-small rounded-medium items-center text-danger-600 dark:text-danger-500 border-danger-200 dark:border-danger-100 min-w-72 bg-danger-50 dark:bg-danger-50"
               data-closeable="true"
               data-has-title="true"
               data-visible="true"
@@ -232,7 +264,7 @@ exports[`Story Snapshots > Variants 1`] = `
               title="This is an error message"
             >
               <div
-                class="flex-none relative w-9 h-9 rounded-full grid place-items-center shadow-small bg-danger-100 dark:bg-danger-50"
+                class="flex-none relative w-9 h-9 rounded-full grid place-items-center bg-danger-50 dark:bg-danger-100 border-danger-100 shadow-small border-1"
               >
                 <svg
                   class="fill-current w-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
@@ -258,7 +290,7 @@ exports[`Story Snapshots > Variants 1`] = `
               </div>
               <button
                 aria-label="Close"
-                class="z-0 group inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny gap-2 rounded-full px-0 !gap-0 transition-transform-colors-opacity motion-reduce:transition-none bg-transparent data-[hover=true]:bg-default/40 min-w-8 w-8 h-8 relative text-inherit translate-x-1 -translate-y-1 data-[hover]:bg-danger-50"
+                class="z-0 group inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny gap-2 rounded-full px-0 !gap-0 transition-transform-colors-opacity motion-reduce:transition-none bg-transparent data-[hover=true]:bg-default/40 min-w-8 w-8 h-8 relative translate-x-1 -translate-y-1 text-danger-500 data-[hover]:bg-danger-200"
                 data-react-aria-pressable="true"
                 tabindex="0"
                 type="button"
@@ -315,14 +347,14 @@ exports[`Story Snapshots > Variants 1`] = `
             data-title=""
           >
             <div
-              class="flex flex-grow flex-row w-full py-3 px-4 gap-x-1 rounded-medium items-center bg-transparent border-success text-success min-w-72 border-small"
+              class="flex flex-grow flex-row w-full py-3 px-4 gap-x-1 border-small rounded-medium items-center text-success-700 dark:text-success border-success-300 dark:border-success-100 min-w-72 bg-success-50 dark:bg-success-50"
               data-has-title="true"
               data-visible="true"
               role="alert"
               title="This is a success message"
             >
               <div
-                class="flex-none relative w-9 h-9 rounded-full grid place-items-center shadow-small bg-success-100 dark:bg-success-50"
+                class="flex-none relative w-9 h-9 rounded-full grid place-items-center bg-success-50 dark:bg-success-100 border-success-100 shadow-small border-1"
               >
                 <svg
                   class="fill-current w-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
@@ -384,7 +416,7 @@ exports[`Story Snapshots > Variants 1`] = `
             data-title=""
           >
             <div
-              class="flex flex-grow flex-row w-full py-3 px-4 gap-x-1 rounded-medium items-center bg-transparent border-warning text-warning min-w-72 border-small"
+              class="flex flex-grow flex-row w-full py-3 px-4 gap-x-1 border-small rounded-medium items-center text-warning-700 dark:text-warning border-warning-300 dark:border-warning-100 min-w-72 bg-warning-50 dark:bg-warning-50"
               data-closeable="true"
               data-has-title="true"
               data-visible="true"
@@ -392,7 +424,7 @@ exports[`Story Snapshots > Variants 1`] = `
               title="This is a warning message"
             >
               <div
-                class="flex-none relative w-9 h-9 rounded-full grid place-items-center shadow-small bg-warning-100 dark:bg-warning-50"
+                class="flex-none relative w-9 h-9 rounded-full grid place-items-center bg-warning-50 dark:bg-warning-100 border-warning-100 shadow-small border-1"
               >
                 <svg
                   class="fill-current w-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
@@ -421,7 +453,7 @@ exports[`Story Snapshots > Variants 1`] = `
               </div>
               <button
                 aria-label="Close"
-                class="z-0 group inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny gap-2 rounded-full px-0 !gap-0 transition-transform-colors-opacity motion-reduce:transition-none bg-transparent data-[hover=true]:bg-default/40 min-w-8 w-8 h-8 relative text-inherit translate-x-1 -translate-y-1 data-[hover]:bg-warning-100"
+                class="z-0 group inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny gap-2 rounded-full px-0 !gap-0 transition-transform-colors-opacity motion-reduce:transition-none bg-transparent data-[hover=true]:bg-default/40 min-w-8 w-8 h-8 relative translate-x-1 -translate-y-1 text-warning-500 data-[hover]:bg-warning-200"
                 data-react-aria-pressable="true"
                 tabindex="0"
                 type="button"
@@ -478,14 +510,14 @@ exports[`Story Snapshots > Variants 1`] = `
             data-title=""
           >
             <div
-              class="flex flex-grow flex-row w-full py-3 px-4 gap-x-1 rounded-medium items-center min-w-72 dark:bg-info-50/50 border-small border-info-200 bg-info-50 text-info-600 dark:border-info-100"
+              class="flex flex-grow flex-row w-full py-3 px-4 gap-x-1 rounded-medium items-center min-w-72 border-small border-info-200 bg-info-50 text-info-600 dark:border-info-100 dark:bg-info-50"
               data-has-title="true"
               data-visible="true"
               role="alert"
               title="This is an info message"
             >
               <div
-                class="flex-none relative w-9 h-9 rounded-full grid place-items-center shadow-small border-info-100 bg-info-50 dark:bg-info-100"
+                class="flex-none relative w-9 h-9 rounded-full grid place-items-center shadow-small border-1 border-info-100 bg-info-50 dark:bg-info-100"
               >
                 <svg
                   class="w-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 fill-current"
@@ -542,14 +574,14 @@ exports[`Story Snapshots > Variants 1`] = `
             data-title=""
           >
             <div
-              class="flex flex-grow flex-row w-full py-3 px-4 gap-x-1 rounded-medium items-center bg-transparent border-default text-foreground min-w-72 border-small"
+              class="flex flex-grow flex-row w-full py-3 px-4 gap-x-1 border-small rounded-medium items-center text-default-foreground border-default-300 dark:border-default-200 min-w-72 bg-default-100 dark:bg-default-50"
               data-has-title="true"
               data-visible="true"
               role="alert"
               title="This is a default message"
             >
               <div
-                class="flex-none relative w-9 h-9 rounded-full grid place-items-center shadow-small bg-default-200 dark:bg-default-100"
+                class="flex-none relative w-9 h-9 rounded-full place-items-center hidden bg-default-50 dark:bg-default-100 border-default-200 shadow-small border-1"
               >
                 <svg
                   class="fill-current w-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"

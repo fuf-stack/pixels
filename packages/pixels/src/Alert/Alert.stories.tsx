@@ -17,60 +17,63 @@ const meta: Meta<typeof Alert> = {
   component: Alert,
 };
 
-const colors = [...Object.keys(alertVariants.variants.color)];
+const variants = [...Object.keys(alertVariants.variants.variant)];
+
+const backgrounds = [
+  { name: 'white', className: 'bg-white' },
+  { name: 'light gray', className: 'bg-gray-100' },
+  { name: 'dark', className: 'bg-gray-800' },
+];
 
 export default meta;
 type Story = StoryObj<typeof Alert>;
+
+export const ChildrenOnly: Story = {
+  args: {
+    children: 'Your attention is required for this matter.',
+  },
+};
+
+export const Closable: Story = {
+  render: (args) => {
+    return (
+      <>
+        {Object.keys(alertVariants.variants.variant).map((variant) => {
+          return (
+            <div key={variant} className="mb-12">
+              <div>{variant}</div>
+              <Alert variant={variant as AlertProps['variant']} {...args} />
+            </div>
+          );
+        })}
+      </>
+    );
+  },
+  args: {
+    title: 'Alert: [Close to dismiss]',
+    children: 'X marks the spot (to close).',
+    closable: true,
+    onClose: action('closed'),
+  },
+};
+
+export const CustomIcon: Story = {
+  args: {
+    title: 'Custom Notification',
+    children: 'This alert uses a custom bell icon.',
+    icon: <FaBell />,
+  },
+};
 
 export const Default: Story = {
   args: {},
 };
 
-export const Variants: Story = {
-  render: (args) => {
-    return (
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-        {Object.keys(alertVariants.variants.variant).map((variant) => {
-          return (
-            <Alert
-              key={variant}
-              variant={variant as AlertProps['variant']}
-              {...args}
-            />
-          );
-        })}
-      </div>
-    );
-  },
+export const Endcontent: Story = {
   args: {
-    title: "Something's Up",
-    children: 'A message of varying importance has been detected.',
-  },
-};
-
-export const TitleOnly: Story = {
-  args: {
-    title: <span>System Notification</span>,
-  },
-};
-
-export const MultilineTitleOnly: Story = {
-  args: {
-    title: (
-      <>
-        System Notification
-        <br />
-        Second Line
-        <br />
-        Third Line
-      </>
-    ),
-  },
-};
-
-export const ChildrenOnly: Story = {
-  args: {
-    children: 'Your attention is required for this matter.',
+    title: 'Message from Our Team',
+    children: 'We have some important news to share with you.',
+    endContent: <button type="button">End Content</button>,
   },
 };
 
@@ -109,51 +112,69 @@ export const MultilineTitleAndChildren: Story = {
   },
 };
 
-export const CustomIcon: Story = {
+export const MultilineTitleOnly: Story = {
   args: {
-    title: 'Custom Notification',
-    children: 'This alert uses a custom bell icon.',
-    icon: <FaBell />,
+    title: (
+      <>
+        System Notification
+        <br />
+        Second Line
+        <br />
+        Third Line
+      </>
+    ),
   },
 };
 
-const backgrounds = [
-  { name: 'white', className: 'bg-white' },
-  { name: 'light gray', className: 'bg-gray-100' },
-  { name: 'dark', className: 'bg-gray-800' },
-];
+export const TitleOnly: Story = {
+  args: {
+    title: <span>System Notification</span>,
+  },
+};
 
-export const AllColorsAndVariants: Story = {
+export const Variants: Story = {
+  render: (args) => {
+    return (
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+        {Object.keys(alertVariants.variants.variant).map((variant) => {
+          return (
+            <Alert
+              key={variant}
+              variant={variant as AlertProps['variant']}
+              {...args}
+            />
+          );
+        })}
+      </div>
+    );
+  },
+  args: {
+    title: "Something's Up",
+    children: 'A message of varying importance has been detected.',
+  },
+};
+
+export const VariantsOnBackgrounds: Story = {
   render: (args) => {
     return (
       <>
-        {colors.map((color) => {
+        {variants.map((variant) => {
           return (
-            <div key={color} className="mb-12">
-              <h2 className="mb-4 text-lg font-bold">{color}</h2>
-              {Object.keys(alertVariants.variants.variant).map((variant) => {
+            <div key={variant} className="mb-6">
+              <h2 className="mb-4 text-lg font-bold">{variant}</h2>
+              {backgrounds.map((bg) => {
                 return (
-                  <div key={`${color}-${variant}`} className="mb-6">
-                    <div className="mb-2 text-sm text-foreground">
-                      {variant}
+                  <div
+                    key={`${variant}-${bg.name}`}
+                    className={cn('mb-2 rounded p-3', bg.className)}
+                  >
+                    <div className="mb-1 text-xs text-gray-500 dark:text-gray-400">
+                      background: {bg.name}
                     </div>
-                    {backgrounds.map((bg) => {
-                      return (
-                        <div
-                          key={`${color}-${variant}-${bg.name}`}
-                          className={cn('mb-2 rounded p-3', bg.className)}
-                        >
-                          <div className="mb-1 text-xs text-gray-500 dark:text-gray-400">
-                            background: {bg.name}
-                          </div>
-                          <Alert
-                            color={color as AlertProps['color']}
-                            variant={variant as AlertProps['variant']}
-                            {...args}
-                          />
-                        </div>
-                      );
-                    })}
+                    <Alert
+                      variant={variant as AlertProps['variant']}
+                      {...args}
+                    />
                   </div>
                 );
               })}
@@ -169,61 +190,7 @@ export const AllColorsAndVariants: Story = {
   },
 };
 
-export const NoIcon: Story = {
-  render: (args) => {
-    return (
-      <>
-        {Object.keys(alertVariants.variants.variant).map((variant) => {
-          return (
-            <div key={variant} className="mb-12">
-              <div>{variant}</div>
-              <Alert variant={variant as AlertProps['variant']} {...args} />
-            </div>
-          );
-        })}
-      </>
-    );
-  },
-  args: {
-    title: 'Alert',
-    children: 'More details regarding the alert with no icon.',
-    showIcon: false,
-  },
-};
-
-export const Endcontent: Story = {
-  args: {
-    title: 'Message from Our Team',
-    children: 'We have some important news to share with you.',
-    endContent: <button type="button">End Content</button>,
-  },
-};
-
-export const Closable: Story = {
-  render: (args) => {
-    return (
-      <>
-        {Object.keys(alertVariants.variants.variant).map((variant) => {
-          return (
-            <div key={variant} className="mb-12">
-              <div>{variant}</div>
-              <Alert variant={variant as AlertProps['variant']} {...args} />
-            </div>
-          );
-        })}
-      </>
-    );
-  },
-  args: {
-    title: 'Alert: [Close to dismiss]',
-    children: 'X marks the spot (to close).',
-    closable: true,
-    onClose: action('closed'),
-    color: 'info',
-  },
-};
-
-export const AllColorsWithShowMoreButton: Story = {
+export const VariantsWithEndContent: Story = {
   render: function Render(args) {
     const [{ showMore }, updateArgs] = useArgs();
 
@@ -233,12 +200,12 @@ export const AllColorsWithShowMoreButton: Story = {
 
     return (
       <>
-        {colors.map((color) => {
+        {variants.map((variant) => {
           return (
-            <div key={color} className="mb-12">
-              <div>{color}</div>
+            <div key={variant} className="mb-12">
+              <div>{variant}</div>
               <Alert
-                color={color as AlertProps['color']}
+                variant={variant as AlertProps['variant']}
                 {...args}
                 endContent={
                   <button
@@ -286,10 +253,10 @@ export const WithMoreModal: Story = {
           endContent={
             <button
               className="ml-2 mt-2 rounded border px-2 py-1 text-xs"
-              type="button"
               onClick={() => {
                 setIsOpen(true);
               }}
+              type="button"
             >
               More
             </button>
@@ -312,13 +279,6 @@ export const WithMoreModal: Story = {
   },
   args: {
     title: 'Attention Required',
-    color: 'warning',
-  },
-};
-
-export const SpecialFullWidth: Story = {
-  args: {
-    showIcon: false,
-    className: 'w-screen',
+    variant: 'warning',
   },
 };

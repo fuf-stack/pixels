@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { useState } from 'react';
+import { FaBell, FaRocket } from 'react-icons/fa';
 
 import { action } from 'storybook/actions';
 import { expect, userEvent, within } from 'storybook/test';
@@ -314,18 +315,44 @@ export const WithReactNodeMessage: Story = {
   },
 };
 
+export const CustomIcon: Story = {
+  render: () => {
+    return (
+      <div className="flex flex-wrap gap-2">
+        <Button
+          onClick={() => {
+            toast.info('Custom icon toast', {
+              icon: <FaBell />,
+            });
+          }}
+        >
+          Custom icon
+        </Button>
+        <Button
+          onClick={() => {
+            toast.success('Launched!', {
+              icon: <FaRocket />,
+            });
+          }}
+        >
+          Rocket icon
+        </Button>
+      </div>
+    );
+  },
+};
+
 export const CustomRender: Story = {
   render: () => {
     return (
       <Button
         onClick={() => {
-          toast.info('Custom rendered toast', {
-            render: ({ message, color, close }) => {
+          toast.default('Custom rendered toast', {
+            render: ({ message, close }) => {
               return (
                 <div className="flex items-center gap-4 rounded-lg bg-gradient-to-r from-purple-500 to-pink-500 p-4 text-white shadow-lg">
                   <span className="text-2xl">🎉</span>
                   <div className="flex-1">
-                    <div className="text-xs uppercase opacity-75">{color}</div>
                     <div className="font-semibold">{message}</div>
                   </div>
                   <button

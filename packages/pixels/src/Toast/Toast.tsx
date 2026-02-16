@@ -6,14 +6,14 @@ import { toast as sonnerToast } from 'sonner';
 
 import AlertComponent from '../Alert';
 
-type AlertColor = NonNullable<AlertProps['color']>;
+type AlertVariant = NonNullable<AlertProps['variant']>;
 
 /** Props passed to a custom render function */
 export interface ToastRenderProps {
   /** The toast message */
   message: ReactNode;
   /** The color/severity of the toast */
-  color: AlertColor;
+  variant: AlertVariant;
   /** Function to close the toast */
   close: () => void;
   /** Whether the toast can be closed by the user */
@@ -22,6 +22,8 @@ export interface ToastRenderProps {
   title?: ReactNode;
   /** Content displayed at the end of the toast */
   endContent?: ReactNode;
+  /** Icon displayed at the start of the toast */
+  icon?: ReactNode;
 }
 
 /** Options passed to each toast method */
@@ -40,20 +42,22 @@ export interface ToastOptions {
   onClose?: ExternalToast['onDismiss'];
   /** Content displayed at the end of the toast */
   endContent?: ReactNode;
+  /** Icon displayed at the start of the toast */
+  icon?: ReactNode;
   /** Custom render function to override the default AlertComponent */
   render?: (props: ToastRenderProps) => ReactElement;
 }
 
 const showToast = (
   message: ReactNode,
-  color: AlertColor,
+  variant: AlertVariant,
   options?: ToastOptions,
 ) => {
   // Map custom ToastOptions to Sonner's ExternalToast format:
   // - onClose is mapped to Sonner's onDismiss
   // - closable is handled separately (not a Sonner option)
   // - position defaults to 'top-center'
-  const { onClose, closable, title, endContent, render, ...rest } =
+  const { onClose, closable, title, endContent, icon, render, ...rest } =
     options ?? {};
   const sonnerOptions: ExternalToast = {
     position: 'top-center' as const,
@@ -68,17 +72,26 @@ const showToast = (
 
     // Allow custom rendering via render prop
     if (render) {
-      return render({ message, color, close, closable, title, endContent });
+      return render({
+        message,
+        variant,
+        close,
+        closable,
+        title,
+        endContent,
+        icon,
+      });
     }
 
     // Default: render AlertComponent
     return (
       <AlertComponent
         closable={closable}
-        color={color}
         endContent={endContent}
+        icon={icon}
         onClose={closable ? close : undefined}
         title={title}
+        variant={variant}
       >
         {message}
       </AlertComponent>
