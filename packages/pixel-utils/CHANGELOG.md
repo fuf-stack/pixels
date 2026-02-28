@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/fuf-stack/pixels/compare/pixel-utils-v1.1.1...pixel-utils-v1.2.0) (2026-02-28)
+
+
+### Features
+
+* **pixels:** replace color prop with unified variant prop ([a4fa20a](https://github.com/fuf-stack/pixels/commit/a4fa20a9a3f1ea1910a410bbc976894d839520f6))
+
 ## [1.1.1](https://github.com/fuf-stack/pixels/compare/pixel-utils-v1.1.0...pixel-utils-v1.1.1) (2026-01-20)
 
 

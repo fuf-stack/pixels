@@ -1,5 +1,30 @@
 # Changelog
 
+## [1.19.0](https://github.com/fuf-stack/pixels/compare/uniform-v1.18.3...uniform-v1.19.0) (2026-02-28)
+
+
+### Features
+
+* **pixels:** replace color prop with unified variant prop ([a4fa20a](https://github.com/fuf-stack/pixels/commit/a4fa20a9a3f1ea1910a410bbc976894d839520f6))
+
+
+### Bug Fixes
+
+* **deps:** update dependency @react-aria/visually-hidden to v3.8.30 ([#1519](https://github.com/fuf-stack/pixels/issues/1519)) ([42b1770](https://github.com/fuf-stack/pixels/commit/42b177017d79b96b31211b8e8e22acf446ed65ec))
+* **deps:** update dependency framer-motion to v12.29.2 ([#1512](https://github.com/fuf-stack/pixels/issues/1512)) ([22f3588](https://github.com/fuf-stack/pixels/commit/22f3588488d5710891032c163e9e12d8abf3a423))
+* **deps:** update dependency framer-motion to v12.33.0 ([#1533](https://github.com/fuf-stack/pixels/issues/1533)) ([c0f84ec](https://github.com/fuf-stack/pixels/commit/c0f84eced1dcd64f70348cd579a891cf1c6caa4a))
+* **deps:** update dependency framer-motion to v12.34.0 ([#1540](https://github.com/fuf-stack/pixels/issues/1540)) ([81a892f](https://github.com/fuf-stack/pixels/commit/81a892fa247adbd4ae6c97d376a5ba1811ed4851))
+* **deps:** update dependency react-hook-form to v7.71.2 ([#1545](https://github.com/fuf-stack/pixels/issues/1545)) ([cecfa86](https://github.com/fuf-stack/pixels/commit/cecfa8696e632f175967f89e6ca9fa881b9dbd0f))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @fuf-stack/pixel-motion bumped to 1.2.0
+    * @fuf-stack/pixel-utils bumped to 1.2.0
+    * @fuf-stack/pixels bumped to 1.9.0
+
 ## [1.18.3](https://github.com/fuf-stack/pixels/compare/uniform-v1.18.2...uniform-v1.18.3) (2026-02-06)
 
 
