@@ -1,5 +1,22 @@
 # Changelog
 
+## [0.10.0](https://github.com/fuf-stack/pixels/compare/megapixels-v0.9.15...megapixels-v0.10.0) (2026-02-28)
+
+
+### Features
+
+* **pixels:** replace color prop with unified variant prop ([a4fa20a](https://github.com/fuf-stack/pixels/commit/a4fa20a9a3f1ea1910a410bbc976894d839520f6))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @fuf-stack/pixel-motion bumped to 1.2.0
+    * @fuf-stack/pixel-utils bumped to 1.2.0
+    * @fuf-stack/pixels bumped to 1.9.0
+    * @fuf-stack/uniform bumped to 1.19.0
+
 ## [0.9.15](https://github.com/fuf-stack/pixels/compare/megapixels-v0.9.14...megapixels-v0.9.15) (2026-02-06)
 
 
