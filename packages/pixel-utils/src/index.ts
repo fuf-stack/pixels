@@ -1,5 +1,6 @@
 export * from './cn';
 export * from './isTestEnvironment';
+export * from './proseTwMerge';
 export * from './slugify';
 export * from './theme';
 export * from './tv';

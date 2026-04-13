@@ -2,7 +2,8 @@
 import type { ArgumentArray } from 'classnames';
 
 import classNames from 'classnames';
-import { twMerge } from 'tailwind-merge';
+
+import { proseTwMerge } from './proseTwMerge';
 
 /**
  * A utility function that combines `classnames` and `tailwind-merge`.
@@ -21,6 +22,6 @@ import { twMerge } from 'tailwind-merge';
  */
 export const cn = (...classes: ArgumentArray) => {
   // First, `classnames` merges the input class names (conditionally if needed).
-  // Then, `twMerge` is used to resolve any Tailwind CSS conflicts.
-  return twMerge(classNames(...classes)) as unknown as string;
+  // Then, the shared prose-aware `tailwind-merge` instance resolves conflicts.
+  return proseTwMerge(classNames(...classes)) as unknown as string;
 };
