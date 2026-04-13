@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.2.0](https://github.com/fuf-stack/pixels/compare/pixel-utils-v1.1.1...pixel-utils-v1.2.0) (2026-04-13)
+
+
+### Features
+
+* **pixel-utils:** add proseTwMerge and prose-aware cn for @tailwindcss/typography support ([f109297](https://github.com/fuf-stack/pixels/commit/f109297a0aa0049e8d03d22f9d2aa239e0691084))
+* **pixels:** replace color prop with unified variant prop ([a4fa20a](https://github.com/fuf-stack/pixels/commit/a4fa20a9a3f1ea1910a410bbc976894d839520f6))
+
 ## [1.1.1](https://github.com/fuf-stack/pixels/compare/pixel-utils-v1.1.0...pixel-utils-v1.1.1) (2026-01-20)
 
 
