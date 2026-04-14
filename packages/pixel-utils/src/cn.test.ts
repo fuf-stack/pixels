@@ -1,4 +1,4 @@
-import { expect, it } from 'vitest';
+import { describe, expect, it } from 'vitest';
 
 import { cn } from './cn';
 
@@ -45,4 +45,12 @@ it('should merge complex Tailwind CSS conflicting classes', () => {
       'font-light', // light font weight (should override font-bold)
     ),
   ).toBe('p-2 text-blue-500 bg-black md:p-8 hover:bg-blue-500 font-light');
+});
+
+describe('cn prose merge config', () => {
+  it('should apply the shared prose merge config', () => {
+    expect(cn('prose prose-slate dark:prose-invert', 'prose-blue')).toBe(
+      'prose dark:prose-invert prose-blue',
+    );
+  });
 });
