@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.19.1](https://github.com/fuf-stack/pixels/compare/uniform-v1.19.0...uniform-v1.19.1) (2026-04-19)
+
+
+### Bug Fixes
+
+* **uniform:** work around jsdom 27 PointerEvent/MouseEvent crash ([fb79b77](https://github.com/fuf-stack/pixels/commit/fb79b77c0961fada07dc9eeb75ddd88fe58d8d5f))
+
 ## [1.19.0](https://github.com/fuf-stack/pixels/compare/uniform-v1.18.3...uniform-v1.19.0) (2026-04-13)
 
 
