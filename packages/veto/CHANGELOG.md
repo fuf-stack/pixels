@@ -1,5 +1,23 @@
 # Changelog
 
+## [1.0.0](https://github.com/fuf-stack/pixels/compare/veto-v0.13.2...veto-v1.0.0) (2026-04-22)
+
+
+### ⚠ BREAKING CHANGES
+
+* **veto:** veto v1 upgrades zod from v3 to v4, drops zodex, and switches schema serialization to native JSON Schema. See docs/veto-v1-upgrade.md for the full migration guide and packages/veto/codemods/v1-upgrade for an automated upgrade.
+
+### Features
+
+* **veto:** release v1 with zod v4, tsdown build, and JSON Schema serialization ([ad4df4a](https://github.com/fuf-stack/pixels/commit/ad4df4a1df136dbb40c91a183e15a5de96b759da))
+
+
+### Bug Fixes
+
+* **veto,uniform:** restore v4 compatibility for requiredness and error formatting ([77f492f](https://github.com/fuf-stack/pixels/commit/77f492f2b4d7c3932509423b1b5342b15e68a887))
+* **veto:** keep nested requiredness independent from optional parents ([c5d7763](https://github.com/fuf-stack/pixels/commit/c5d7763176124e50a6f80ab8542e873d9db4fa32))
+* **veto:** preserve mixed refineObject errors and use reportInput in normalization ([27e6c80](https://github.com/fuf-stack/pixels/commit/27e6c8095f41f7eeaedc25704f03873623906e19))
+
 ## [1.0.0] (unreleased)
 
 ### ⚠ BREAKING CHANGES

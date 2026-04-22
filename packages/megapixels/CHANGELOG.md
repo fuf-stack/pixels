@@ -1,5 +1,20 @@
 # Changelog
 
+## [0.10.1](https://github.com/fuf-stack/pixels/compare/megapixels-v0.10.0...megapixels-v0.10.1) (2026-04-22)
+
+
+### Bug Fixes
+
+* **veto,uniform:** restore v4 compatibility for requiredness and error formatting ([77f492f](https://github.com/fuf-stack/pixels/commit/77f492f2b4d7c3932509423b1b5342b15e68a887))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @fuf-stack/uniform bumped to 1.19.1
+    * @fuf-stack/veto bumped to 1.0.0
+
 ## [0.10.0](https://github.com/fuf-stack/pixels/compare/megapixels-v0.9.15...megapixels-v0.10.0) (2026-04-13)
 
 

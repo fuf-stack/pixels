@@ -1,5 +1,21 @@
 # Changelog
 
+## [1.19.1](https://github.com/fuf-stack/pixels/compare/uniform-v1.19.0...uniform-v1.19.1) (2026-04-22)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @react-aria/visually-hidden to v3.9.0 ([#1612](https://github.com/fuf-stack/pixels/issues/1612)) ([21dd0b2](https://github.com/fuf-stack/pixels/commit/21dd0b29ebb5d6c780523bc15311f0b5b97b0b50))
+* **uniform:** work around jsdom 27 PointerEvent/MouseEvent crash ([fb79b77](https://github.com/fuf-stack/pixels/commit/fb79b77c0961fada07dc9eeb75ddd88fe58d8d5f))
+* **veto,uniform:** restore v4 compatibility for requiredness and error formatting ([77f492f](https://github.com/fuf-stack/pixels/commit/77f492f2b4d7c3932509423b1b5342b15e68a887))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @fuf-stack/veto bumped to 1.0.0
+
 ## [1.19.0](https://github.com/fuf-stack/pixels/compare/uniform-v1.18.3...uniform-v1.19.0) (2026-04-13)
 
 
