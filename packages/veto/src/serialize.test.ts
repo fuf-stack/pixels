@@ -1,4 +1,4 @@
-import type { SerializedSchema } from './serialize';
+import type { SerializedSchema, SerializedSchemaPathType } from './serialize';
 
 import { describe, expect, it } from 'vitest';
 
@@ -172,6 +172,46 @@ describe('checkSerializedSchemaPath', () => {
     const isObjectType = isType('object');
 
     expect(checkSerializedSchemaPath(schema, isObjectType)).toBe(true);
+  });
+
+  it('surfaces optional object fields via traversal metadata', () => {
+    const schema = z.object({
+      optionalName: z.string().optional(),
+      requiredName: z.string(),
+    });
+
+    const isOptional = (type: SerializedSchemaPathType | null) =>
+      Boolean(type?.isOptional);
+
+    expect(
+      checkSerializedSchemaPath(schema, isOptional, ['optionalName']),
+    ).toBe(true);
+    expect(
+      checkSerializedSchemaPath(schema, isOptional, ['requiredName']),
+    ).toBe(false);
+  });
+
+  it('treats nested fields as optional when a parent wrapper is optional', () => {
+    const schema = z.object({
+      maybeUser: z
+        .object({
+          profile: z.object({
+            nickname: z.string(),
+          }),
+        })
+        .nullish(),
+    });
+
+    const isOptionalOrNullable = (type: SerializedSchemaPathType | null) =>
+      Boolean((type?.isOptional ?? false) || (type?.isNullable ?? false));
+
+    expect(
+      checkSerializedSchemaPath(schema, isOptionalOrNullable, [
+        'maybeUser',
+        'profile',
+        'nickname',
+      ]),
+    ).toBe(true);
   });
 
   it('handles null schema input', () => {

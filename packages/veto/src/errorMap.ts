@@ -160,5 +160,7 @@ export const vetoErrorMap: VetoErrorMap = (issue) => {
 // `customError` type is a discriminated union over all issue codes, while
 // `VetoErrorMap` is a loose superset suited for veto's switch-based handler.
 z.config({
-  customError: vetoErrorMap as Parameters<typeof z.config>[0]['customError'],
+  customError: vetoErrorMap as NonNullable<
+    Parameters<typeof z.config>[0]
+  >['customError'],
 });

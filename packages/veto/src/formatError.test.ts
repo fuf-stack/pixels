@@ -87,6 +87,40 @@ describe('formatError', () => {
     });
   });
 
+  it('orders custom issues before built-in issues at the same path', () => {
+    const result = formatError(
+      makeError([
+        {
+          code: 'too_small',
+          message: 'Too small: expected string to have >=3 characters',
+          minimum: 3,
+          path: ['field'],
+          origin: 'string',
+          inclusive: true,
+        },
+        {
+          code: 'custom',
+          message: 'custom first',
+          path: ['field'],
+        },
+      ]),
+      stringSchema,
+    );
+    expect(result).toEqual({
+      field: [
+        { code: 'custom', message: 'custom first' },
+        {
+          code: 'too_small',
+          message: 'String must contain at least 3 character(s)',
+          minimum: 3,
+          inclusive: true,
+          type: 'string',
+          exact: false,
+        },
+      ],
+    });
+  });
+
   it('builds nested branches for deep paths', () => {
     const result = formatError(
       makeError([

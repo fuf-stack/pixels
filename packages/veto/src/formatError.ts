@@ -116,6 +116,22 @@ const formatVetoError = (zodError: VetoIssueLike) => {
   return errorFormatted;
 };
 
+const getIssuePriority = (issue: VetoIssueLike): number => {
+  if (issue.code === 'not_unique' && issue.type !== 'array') {
+    return -1;
+  }
+  // Keep "length/range" built-ins behind custom issues at the same path.
+  // This preserves legacy veto ordering in array/object refinement output,
+  // while leaving other issue order untouched.
+  if (
+    issue.code === issueCodes.too_small ||
+    issue.code === issueCodes.too_big
+  ) {
+    return 1;
+  }
+  return 0;
+};
+
 interface FinalizedIssueTreeNode {
   _errors?: VetoIssueLike[];
   [key: string]: FinalizedIssueTree;
@@ -149,7 +165,18 @@ const finalizeIssueTree = (
   }
 
   const errorPath = issueTreeNode._errors[0]?._errorPath;
-  const formattedErrors = issueTreeNode._errors.map(formatVetoError);
+  const formattedErrors = issueTreeNode._errors
+    .map((issue, index) => {
+      return { issue: formatVetoError(issue), index };
+    })
+    .sort((a, b) => {
+      const priorityDiff =
+        getIssuePriority(a.issue) - getIssuePriority(b.issue);
+      return priorityDiff || a.index - b.index;
+    })
+    .map(({ issue }) => {
+      return issue;
+    });
 
   if (checkIsObjectLikeError(schema as VetoTypeAny, errorPath)) {
     return { ...childValues, _errors: formattedErrors };
@@ -185,9 +212,13 @@ export const formatError = (
     return formatted as VetoFormattedError;
   }
 
+  const rootErrors: NonNullable<VetoFormattedError['_errors']> = Array.isArray(
+    formatted,
+  )
+    ? (formatted as NonNullable<VetoFormattedError['_errors']>)
+    : [];
+
   return {
-    _errors: (Array.isArray(formatted)
-      ? formatted
-      : []) as VetoFormattedError['_errors'],
-  };
+    _errors: rootErrors,
+  } as VetoFormattedError;
 };
