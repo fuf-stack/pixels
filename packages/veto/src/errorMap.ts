@@ -34,6 +34,9 @@ const getReceivedType = (input: unknown): string => {
   return typeof input;
 };
 
+/**
+ * Encodes structured metadata into the message payload using the sentinel.
+ */
 const encodeMeta = (message: string, meta: Record<string, unknown>): string => {
   return `${message}${VETO_META_SENTINEL}${JSON.stringify(meta)}`;
 };
@@ -71,6 +74,9 @@ const collectDiscriminatorOptions = (
   return values.length ? values : undefined;
 };
 
+/**
+ * Formats enum/literal options in veto's legacy display style.
+ */
 const formatEnumOption = (value: unknown): string => {
   return typeof value === 'string' ? `'${value}'` : String(value);
 };

@@ -191,7 +191,7 @@ describe('checkSerializedSchemaPath', () => {
     ).toBe(false);
   });
 
-  it('treats nested fields as optional when a parent wrapper is optional', () => {
+  it('does not treat nested required fields as optional via parent wrappers', () => {
     const schema = z.object({
       maybeUser: z
         .object({
@@ -211,7 +211,7 @@ describe('checkSerializedSchemaPath', () => {
         'profile',
         'nickname',
       ]),
-    ).toBe(true);
+    ).toBe(false);
   });
 
   it('handles null schema input', () => {

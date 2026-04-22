@@ -277,22 +277,26 @@ export type CheckSerializedSchemaPathCheckFunction = (
   pathType: SerializedSchemaPathType | null,
 ) => boolean;
 
+/**
+ * Matched schema node plus optional/nullable flags recovered from Zod wrappers.
+ */
 interface ZodPathMatch {
   schema: VetoTypeAny;
   isNullable: boolean;
   isOptional: boolean;
 }
 
+/**
+ * Metadata carried while traversing Zod schema internals.
+ */
 interface ZodTraversalMeta {
   isNullable: boolean;
   isOptional: boolean;
 }
 
-const ROOT_ZOD_TRAVERSAL_META: ZodTraversalMeta = {
-  isNullable: false,
-  isOptional: false,
-};
-
+/**
+ * Reads Zod v3/v4 internal definition objects (`def`/`_def`) in a safe way.
+ */
 const getSchemaDef = (schema: unknown): Record<string, unknown> | null => {
   if (!schema || typeof schema !== 'object') {
     return null;
@@ -304,6 +308,10 @@ const getSchemaDef = (schema: unknown): Record<string, unknown> | null => {
   return maybeSchema.def ?? maybeSchema._def ?? null;
 };
 
+/**
+ * Unwraps common wrapper nodes (optional/nullable/nonoptional/pipe) and returns
+ * the effective inner schema with its optional/nullable flags.
+ */
 const unwrapSchemaFlags = (
   schema: VetoTypeAny,
 ): {
@@ -342,6 +350,9 @@ const unwrapSchemaFlags = (
   };
 };
 
+/**
+ * Returns object shape map from a Zod object schema definition.
+ */
 const getObjectShape = (
   schema: VetoTypeAny,
 ): Record<string, VetoTypeAny> | null => {
@@ -356,6 +367,9 @@ const getObjectShape = (
   return shape as Record<string, VetoTypeAny>;
 };
 
+/**
+ * Returns array element schema from a Zod array definition.
+ */
 const getArrayElementSchema = (schema: VetoTypeAny): VetoTypeAny | null => {
   const def = getSchemaDef(schema);
   if (def?.type !== 'array') {
@@ -365,6 +379,9 @@ const getArrayElementSchema = (schema: VetoTypeAny): VetoTypeAny | null => {
   return element ? (element as VetoTypeAny) : null;
 };
 
+/**
+ * Returns value schema from a Zod record definition.
+ */
 const getRecordValueSchemaFromZod = (
   schema: VetoTypeAny,
 ): VetoTypeAny | null => {
@@ -376,6 +393,9 @@ const getRecordValueSchemaFromZod = (
   return valueSchema ? (valueSchema as VetoTypeAny) : null;
 };
 
+/**
+ * Collects branch schemas for union/intersection-like Zod nodes.
+ */
 const getUnionBranchesFromZod = (schema: VetoTypeAny): VetoTypeAny[] => {
   const def = getSchemaDef(schema);
   if (!def) {
@@ -391,19 +411,20 @@ const getUnionBranchesFromZod = (schema: VetoTypeAny): VetoTypeAny[] => {
   return [];
 };
 
+/**
+ * Traverses a path through Zod schema internals and returns all matching nodes.
+ */
 const traverseZodSchemaPath = (
   schema: VetoTypeAny,
   path: (string | number)[],
-  inheritedMeta: ZodTraversalMeta = ROOT_ZOD_TRAVERSAL_META,
 ): ZodPathMatch[] => {
   const unwrapped = unwrapSchemaFlags(schema);
   const currentSchema = unwrapped.schema;
   const currentMeta: ZodTraversalMeta = {
-    isNullable: inheritedMeta.isNullable || unwrapped.isNullable,
-    isOptional:
-      inheritedMeta.isOptional ||
-      inheritedMeta.isNullable ||
-      unwrapped.isOptional,
+    // Do not auto-propagate parent requiredness to descendants.
+    // Requiredness checks should reflect the node at the current path.
+    isNullable: unwrapped.isNullable,
+    isOptional: unwrapped.isOptional,
   };
 
   if (!path.length) {
@@ -422,19 +443,19 @@ const traverseZodSchemaPath = (
   const unionBranches = getUnionBranchesFromZod(currentSchema);
   if (unionBranches.length) {
     return unionBranches.flatMap((branch) => {
-      return traverseZodSchemaPath(branch, path, currentMeta);
+      return traverseZodSchemaPath(branch, path);
     });
   }
 
   const objectShape = getObjectShape(currentSchema);
   const objectChildSchema = objectShape?.[currentKey];
   if (objectChildSchema) {
-    return traverseZodSchemaPath(objectChildSchema, remainingPath, currentMeta);
+    return traverseZodSchemaPath(objectChildSchema, remainingPath);
   }
 
   const recordValueSchema = getRecordValueSchemaFromZod(currentSchema);
   if (recordValueSchema) {
-    return traverseZodSchemaPath(recordValueSchema, remainingPath, currentMeta);
+    return traverseZodSchemaPath(recordValueSchema, remainingPath);
   }
 
   const arrayElementSchema = getArrayElementSchema(currentSchema);
@@ -443,7 +464,6 @@ const traverseZodSchemaPath = (
     return traverseZodSchemaPath(
       arrayElementSchema,
       isIndex ? remainingPath : path,
-      currentMeta,
     );
   }
 
