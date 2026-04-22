@@ -1,60 +1,97 @@
-import type { SzType } from 'zodex';
 import type { VetoTypeAny } from './types';
 
-import { zerialize } from 'zodex';
+import { z } from 'zod';
 
-// re-export zodex types
-export type * from 'zodex';
+/**
+ * JSON Schema-shaped type returned by {@link serializeSchema}.
+ *
+ * This is intentionally a structural subset of JSON Schema covering the fields
+ * veto's own traversal logic and downstream `checkSchemaPath` consumers care
+ * about. Unknown JSON Schema keywords are still accessible via the index
+ * signature.
+ */
+export interface SerializedSchema {
+  type?: string | string[];
+  properties?: Record<string, SerializedSchema>;
+  required?: string[];
+  items?: SerializedSchema | SerializedSchema[];
+  additionalProperties?: boolean | SerializedSchema;
+  oneOf?: SerializedSchema[];
+  anyOf?: SerializedSchema[];
+  allOf?: SerializedSchema[];
+  enum?: unknown[];
+  const?: unknown;
+  format?: string;
+  description?: string;
+  default?: unknown;
+  [key: string]: unknown;
+}
 
-// Type predicates for checking schema types
-const isArrayType = (
-  type: SzType,
-): type is SzType & {
-  type: 'array';
-  element: SzType;
-} => {
-  return type.type === 'array' && 'element' in type;
+const isSerializedSchema = (value: unknown): value is SerializedSchema => {
+  return !!value && typeof value === 'object' && !Array.isArray(value);
 };
 
-const isDiscriminatedUnionType = (
-  type: SzType,
-): type is SzType & {
-  type: 'discriminatedUnion';
-  options: SzType[];
-} => {
-  return type.type === 'discriminatedUnion' && 'options' in type;
+const isIndexPathSegment = (segment: string | number): boolean => {
+  return Number.isInteger(segment) || /^\d+$/.test(String(segment));
 };
 
-const isIntersectionType = (
-  type: SzType,
-): type is SzType & {
-  type: 'intersection';
-  left: SzType;
-  right: SzType;
-} => {
-  return type.type === 'intersection' && 'left' in type && 'right' in type;
+const getSchemaArray = (value: unknown): SerializedSchema[] => {
+  if (!Array.isArray(value)) {
+    return [];
+  }
+  return value.filter(isSerializedSchema);
 };
 
-const isObjectType = (
-  type: SzType,
-): type is SzType & {
-  type: 'object';
-  properties: Record<string, SzType>;
-} => {
-  return type.type === 'object' && 'properties' in type;
+const getObjectChild = (
+  parent: SerializedSchema,
+  key: string,
+): SerializedSchema | null => {
+  const { properties } = parent;
+  if (!properties || typeof properties !== 'object') {
+    return null;
+  }
+  const child = (properties as Record<string, unknown>)[key];
+  return isSerializedSchema(child) ? child : null;
 };
 
-const isRecordType = (
-  type: SzType,
-): type is SzType & {
-  type: 'record';
-  value: SzType;
-} => {
-  return type.type === 'record' && 'value' in type;
+const getRecordValueSchema = (
+  schema: SerializedSchema,
+): SerializedSchema | null => {
+  const { additionalProperties } = schema;
+  return isSerializedSchema(additionalProperties) ? additionalProperties : null;
 };
 
-export const serializeSchema = (schema: VetoTypeAny): SzType => {
-  return zerialize(schema) as SzType;
+const getArrayItemSchemas = (schema: SerializedSchema): SerializedSchema[] => {
+  const { items } = schema;
+  if (isSerializedSchema(items)) {
+    return [items];
+  }
+  return getSchemaArray(items);
+};
+
+const getUnionBranches = (schema: SerializedSchema): SerializedSchema[] => {
+  return [
+    ...getSchemaArray(schema.oneOf),
+    ...getSchemaArray(schema.anyOf),
+    ...getSchemaArray(schema.allOf),
+  ];
+};
+
+export const serializeSchema = (schema: VetoTypeAny): SerializedSchema => {
+  try {
+    // Cast to SerializedSchema: zod's toJSONSchema returns ZodStandardJSONSchemaPayload
+    // (BaseSchema + standard-schema metadata). Our SerializedSchema is a structural
+    // subset of JSON Schema, so the shape is compatible at runtime.
+    const json = z.toJSONSchema(schema, {
+      // Keep serialization resilient for transformed/preprocessed schemas used
+      // throughout veto helper refinements.
+      unrepresentable: 'any',
+    });
+    return json as unknown as SerializedSchema;
+  } catch (error) {
+    console.warn('[veto] serializeSchema failed:', error);
+    return {};
+  }
 };
 
 /**
@@ -64,44 +101,52 @@ export const serializeSchema = (schema: VetoTypeAny): SzType => {
  * @returns Array of found schema types
  */
 const traverseSchemaPath = (
-  pathType: SzType,
+  pathType: SerializedSchema,
   path: (string | number)[],
-): (SzType | null)[] => {
+): (SerializedSchema | null)[] => {
   // Base case: end of path returns current type
   if (!path.length) {
     return [pathType];
   }
 
   const [current, ...remainingPath] = path;
+  const currentKey = String(current);
 
-  if (isArrayType(pathType)) {
-    const isIndex = Number.isInteger(current) || /^\d+$/.test(String(current));
-    return traverseSchemaPath(pathType.element, isIndex ? remainingPath : path);
-  }
-
-  if (isDiscriminatedUnionType(pathType)) {
-    return pathType.options.flatMap((option: SzType) => {
-      return traverseSchemaPath(option, path);
+  const unionBranches = getUnionBranches(pathType);
+  if (unionBranches.length) {
+    return unionBranches.flatMap((branch) => {
+      return traverseSchemaPath(branch, path);
     });
   }
 
-  if (isIntersectionType(pathType)) {
-    return [
-      ...traverseSchemaPath(pathType.left, path),
-      ...traverseSchemaPath(pathType.right, path),
-    ];
+  const objectChild = getObjectChild(pathType, currentKey);
+  if (objectChild) {
+    return traverseSchemaPath(objectChild, remainingPath);
   }
 
-  if (isObjectType(pathType)) {
-    if (pathType.properties[current]) {
-      return traverseSchemaPath(pathType.properties[current], remainingPath);
+  const recordValueSchema = getRecordValueSchema(pathType);
+  if (recordValueSchema) {
+    return traverseSchemaPath(recordValueSchema, remainingPath);
+  }
+
+  const arrayItemSchemas = getArrayItemSchemas(pathType);
+  if (arrayItemSchemas.length) {
+    const isIndex = isIndexPathSegment(current);
+
+    // Tuple case: items is an array of schemas, one per position.
+    if (arrayItemSchemas.length > 1 && isIndex) {
+      const tupleIndex = Number(current);
+      if (tupleIndex < 0 || tupleIndex >= arrayItemSchemas.length) {
+        return [null];
+      }
+      return traverseSchemaPath(arrayItemSchemas[tupleIndex], remainingPath);
     }
-    // not found
-    return [null];
-  }
 
-  if (isRecordType(pathType)) {
-    return traverseSchemaPath(pathType.value, remainingPath);
+    // Uniform array case: a single item schema applies to every element.
+    return traverseSchemaPath(
+      arrayItemSchemas[0],
+      isIndex ? remainingPath : path,
+    );
   }
 
   // Default case: invalid path for current type
@@ -109,7 +154,7 @@ const traverseSchemaPath = (
 };
 
 export type CheckSerializedSchemaPathCheckFunction = (
-  pathType: SzType | null,
+  pathType: SerializedSchema | null,
 ) => boolean;
 
 /**

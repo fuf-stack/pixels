@@ -97,7 +97,7 @@ const createDeepJsonSchema = (levels: number) => {
  * ```
  */
 export const json = (levels = 10) => {
-  return createDeepJsonSchema(levels) as DeepJsonSchema;
+  return createDeepJsonSchema(levels);
 };
 
 /**
@@ -122,7 +122,17 @@ export type VJson = typeof json;
  * ```
  */
 export const jsonObject = (levels = 10) => {
-  return z.record(json(levels), { invalid_type_error: 'Invalid json object' });
+  return z.record(z.string(), json(levels), {
+    error: (issue) => {
+      if (issue.input === undefined) {
+        return 'Field is required';
+      }
+      if (issue.code === 'invalid_type') {
+        return 'Invalid json object';
+      }
+      return undefined;
+    },
+  });
 };
 
 /**
@@ -151,7 +161,7 @@ export const stringToJSON = () => {
   return z.string().transform((str, ctx): z.infer<ReturnType<typeof json>> => {
     try {
       return JSON.parse(str);
-    } catch (e) {
+    } catch {
       ctx.addIssue({ code: 'custom', message: 'Invalid JSON' });
       return z.NEVER;
     }

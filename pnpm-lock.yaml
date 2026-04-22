@@ -394,11 +394,8 @@ importers:
   packages/veto:
     dependencies:
       zod:
-        specifier: 3.24.3
-        version: 3.24.3
-      zodex:
-        specifier: 0.18.2
-        version: 0.18.2(zod@3.24.3)
+        specifier: 4.3.6
+        version: 4.3.6
 
 packages:
 
@@ -6899,10 +6896,6 @@ packages:
     resolution: {integrity: sha512-RAH822pAdBgcNMAfWnCBU3CFZcfZ/i1eZjwFU/dsLKumyuuP3niueg2UAukXYF0E2AAoc82ZSSf9J0WQBinzHA==}
     engines: {node: '>=12.20'}
 
-  type-fest@4.41.0:
-    resolution: {integrity: sha512-TeTSQ6H5YHvpqVwBRcnLDCBnDOHWYu7IvGbHT6N8AOymcr9PJGjc1GTtiWZTYg0NCgYwvnYWEkVChQAr9bjfwA==}
-    engines: {node: '>=16'}
-
   typed-array-buffer@1.0.3:
     resolution: {integrity: sha512-nAYYwfY3qnzX30IkA6AQZjVbtK6duGontcQm1WSG1MD94YLqK0515GNApXkoxKOWMusVssAHWLh9SeaoefYFGw==}
     engines: {node: '>= 0.4'}
@@ -7388,16 +7381,8 @@ packages:
     peerDependencies:
       zod: ^3.25.0
 
-  zod@3.24.3:
-    resolution: {integrity: sha512-HhY1oqzWCQWuUqvBFnsyrtZRhyPeR7SUGv+C4+MsisMuVfSPx8HpwWqH8tRahSlt6M3PiFAcoeFhZAqIXTxoSg==}
-
-  zod@3.25.76:
-    resolution: {integrity: sha512-gzUt/qt81nXsFGKIFcC3YnfEAx5NkunCfnDlvuBSSFS02bcXu4Lmea0AFIUwbLWxWPx3d9p8S5QoaujKcNQxcQ==}
-
-  zodex@0.18.2:
-    resolution: {integrity: sha512-GE0/S68lJhhBhJWeOSvq4BCigrguOeKFr7h3sbsMPd6kF4ZCHeVU/hOzNLHlj6d+ezNXcpQ4nHj6purY5RxQBg==}
-    peerDependencies:
-      zod: ^3.x
+  zod@4.3.6:
+    resolution: {integrity: sha512-rftlrkhHZOcjDwkGlnUtZZkvaPHCsDATp4pGpuOOMDaTdDDXF91wuVDJoWoPsKX/3YPQ5fHuF3STjcYyKr+Qhg==}
 
 snapshots:
 
@@ -12574,8 +12559,8 @@ snapshots:
       '@babel/parser': 7.29.0
       eslint: 9.39.4(jiti@2.6.1)
       hermes-parser: 0.25.1
-      zod: 3.25.76
-      zod-validation-error: 3.5.0(zod@3.25.76)
+      zod: 4.3.6
+      zod-validation-error: 3.5.0(zod@4.3.6)
     transitivePeerDependencies:
       - supports-color
 
@@ -15181,8 +15166,6 @@ snapshots:
 
   type-fest@2.19.0: {}
 
-  type-fest@4.41.0: {}
-
   typed-array-buffer@1.0.3:
     dependencies:
       call-bound: 1.0.4
@@ -15664,15 +15647,8 @@ snapshots:
       grammex: 3.1.11
       graphmatch: 1.1.0
 
-  zod-validation-error@3.5.0(zod@3.25.76):
+  zod-validation-error@3.5.0(zod@4.3.6):
     dependencies:
-      zod: 3.25.76
+      zod: 4.3.6
 
-  zod@3.24.3: {}
-
-  zod@3.25.76: {}
-
-  zodex@0.18.2(zod@3.24.3):
-    dependencies:
-      type-fest: 4.41.0
-      zod: 3.24.3
+  zod@4.3.6: {}

@@ -1,41 +1,51 @@
 import type {
+  input,
+  output,
   RefinementCtx,
-  SafeParseSuccess,
-  ZodEffects,
   ZodError,
-  ZodErrorMap,
-  ZodIssueCode,
   ZodNullable,
   ZodObject,
   ZodOptional,
   ZodRawShape,
-  ZodTypeAny,
+  ZodSafeParseSuccess,
+  ZodType,
 } from 'zod';
 
 export type VetoRawShape = Record<string, VetoTypeAny>;
 
-export type VetoTypeAny = ZodTypeAny;
+export type VetoTypeAny = ZodType;
 
 export type VetoNullable<T extends VetoTypeAny> = ZodNullable<T>;
 
 export type VetoOptional<T extends VetoTypeAny> = ZodOptional<T>;
 
-export type VetoObject<T extends ZodRawShape> = ZodObject<T, 'strict'>;
+export type VetoObject<T extends ZodRawShape> = ZodObject<T>;
 
-export declare type Input<T extends VetoTypeAny> = T['_input'];
-export declare type Output<T extends VetoTypeAny> = T['_output'];
+export type Input<T extends VetoTypeAny> = input<T>;
+export type Output<T extends VetoTypeAny> = output<T>;
 
-export type VetoEffects<T extends VetoTypeAny> = ZodEffects<
-  T,
-  Output<T>,
-  Input<T>
->;
+export type VetoEffects<T extends VetoTypeAny> = ZodType<Output<T>, Input<T>>;
 
 export type VetoRefinementCtx = RefinementCtx;
 
 /** veto schema types */
 
-export type VetoErrorMap = ZodErrorMap;
+/**
+ * Error map signature compatible with Zod v4.
+ *
+ * Zod v4 calls the global error map with a single `issue` argument; the
+ * second `ctx` argument from v3 is gone. The `issue` shape varies by
+ * `issue.code`, so we type it loosely here and let `errorMap.ts` narrow
+ * inside each switch branch.
+ *
+ * @see https://zod.dev/v4/error-customization
+ */
+export type VetoErrorMap = (issue: {
+  code?: string;
+  input?: unknown;
+  path?: PropertyKey[];
+  [key: string]: unknown;
+}) => string | { message: string } | undefined;
 
 export type VetoSchema = VetoRawShape | VetoTypeAny;
 
@@ -46,15 +56,16 @@ export interface VetoOptions {
 
 export type VetoInput = Record<string, unknown>;
 
+type SafeParseSuccess<SchemaType> = ZodSafeParseSuccess<SchemaType>;
+
 export type VetoSuccess<SchemaType> = SafeParseSuccess<SchemaType> & {
   errors: null;
 };
 
-type VetoIssueCode = ZodIssueCode;
-
 interface VetoFieldError {
-  code: VetoIssueCode;
+  code: string;
   message: string;
+  [key: string]: unknown;
 }
 
 export type VetoFormattedError = Record<string, VetoFieldError[]> & {
@@ -67,4 +78,10 @@ export interface VetoError {
   errors: VetoFormattedError;
 }
 
-export type VetoUnformattedError = ZodError<VetoInput>;
+/**
+ * Raw zod error before veto formatting.
+ *
+ * Typed as `ZodError<unknown>` because `formatError` only inspects
+ * `error.issues` and never touches the parsed value type.
+ */
+export type VetoUnformattedError = ZodError;

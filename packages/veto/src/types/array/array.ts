@@ -28,8 +28,7 @@ type MakeElementsUniqueOptions =
       /** a custom error (sub-)path that allows creating the element is not unique error on a sub field */
       elementErrorPath?: string[];
       /** helper to transform array elements before comparing them */
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      mapFn?: (arg: any) => any;
+      mapFn?: (arg: unknown) => unknown;
       /** custom error method in case elements are not unique (global) */
       message?: string;
     };
@@ -39,7 +38,7 @@ const makeElementsUnique = (options: MakeElementsUniqueOptions) => {
   return <T extends VetoTypeAny>(data: T[], ctx: VetoRefinementCtx) => {
     const mapFn =
       (options !== true && options?.mapFn) ||
-      ((x) => {
+      ((x: unknown) => {
         return x;
       });
     // add error to (second) duplicate array element
@@ -152,7 +151,7 @@ export const refineArray = <T extends RefineArrayInputArray>(schema: T) => {
 
     // if refinements provided
     if (Object.keys(refinements).length) {
-      _schema = z.preprocess((val, ctx) => {
+      const refinementSchema = z.preprocess((val, ctx) => {
         // add custom refinement
         if (refinements.custom && Array.isArray(val)) {
           refinements.custom(val as unknown[], ctx);
@@ -162,7 +161,14 @@ export const refineArray = <T extends RefineArrayInputArray>(schema: T) => {
           makeElementsUnique(refinements.unique)(val, ctx);
         }
         return val;
-      }, schema) as VetoEffects<VArraySchema<Element>>;
+      }, z.any());
+
+      // In Zod v4 preprocess issues can short-circuit downstream parsing.
+      // Intersecting with the original schema keeps base validation issues
+      // and custom refinement issues in the final error result.
+      _schema = z.intersection(schema, refinementSchema) as VetoEffects<
+        VArraySchema<Element>
+      >;
     }
 
     return _schema;

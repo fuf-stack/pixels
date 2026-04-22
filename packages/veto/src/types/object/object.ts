@@ -5,7 +5,7 @@ import type {
   VetoRefinementCtx,
   VetoTypeAny,
 } from 'src/types';
-import type { object as looseObject, strictObject } from 'zod';
+import type { ZodObject } from 'zod';
 
 import { z } from 'zod';
 
@@ -14,18 +14,12 @@ import { z } from 'zod';
  * @see https://zod.dev/?id=strict
  */
 export const object = <T extends VetoRawShape>(schema: T): VObjectSchema<T> => {
-  return (
-    z
-      .object(schema)
-      // expect objects to be strict (disallow unknown keys)
-      .strict()
-  );
+  // expect objects to be strict (disallow unknown keys)
+  return z.strictObject(schema);
 };
 
 export type VObject = typeof object;
-export type VObjectSchema<T extends VetoRawShape> = ReturnType<
-  typeof strictObject<T>
->;
+export type VObjectSchema<T extends VetoRawShape> = ZodObject<T>;
 
 /** when used with refine or superRefine */
 export type VObjectRefined<T extends VetoRawShape> = VetoEffects<
@@ -43,9 +37,7 @@ export const objectLoose = <T extends VetoRawShape>(
 };
 
 export type VObjectLoose = typeof objectLoose;
-export type VObjectLooseSchema<T extends VetoRawShape> = ReturnType<
-  typeof looseObject<T>
->;
+export type VObjectLooseSchema<T extends VetoRawShape> = ZodObject<T>;
 
 /** when used with refine or superRefine */
 export type VObjectLooseRefined<T extends VetoRawShape> = VetoEffects<

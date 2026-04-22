@@ -1,6 +1,6 @@
 import { expect, it } from 'vitest';
 
-import v, { record, string } from 'src';
+import veto, { record, string } from 'src';
 
 const schema = {
   recordField: record(string()),
@@ -14,7 +14,7 @@ const validInput = {
 };
 
 it('accepts valid record with string values', () => {
-  const result = v(schema).validate(validInput);
+  const result = veto(schema).validate(validInput);
   expect(result).toStrictEqual({
     success: true,
     data: validInput,
@@ -23,7 +23,7 @@ it('accepts valid record with string values', () => {
 });
 
 it('rejects non-record value', () => {
-  const result = v(schema).validate({
+  const result = veto(schema).validate({
     recordField: ['some string'],
   });
   expect(result).toStrictEqual({
@@ -34,8 +34,8 @@ it('rejects non-record value', () => {
         _errors: [
           {
             code: 'invalid_type',
-            expected: 'object',
-            message: 'Expected object, received array',
+            expected: 'record',
+            message: 'Expected record, received array',
             received: 'array',
           },
         ],
@@ -45,7 +45,7 @@ it('rejects non-record value', () => {
 });
 
 it('rejects invalid value types in record', () => {
-  const result = v(schema).validate({
+  const result = veto(schema).validate({
     recordField: {
       key1: 'valid string',
       key2: 123, // number instead of string
@@ -70,7 +70,7 @@ it('rejects invalid value types in record', () => {
 });
 
 it('accepts empty record', () => {
-  const result = v(schema).validate({
+  const result = veto(schema).validate({
     recordField: {},
   });
   expect(result).toStrictEqual({
@@ -91,7 +91,7 @@ it('accepts record with multiple valid entries', () => {
       d: 'value4',
     },
   };
-  const result = v(schema).validate(input);
+  const result = veto(schema).validate(input);
   expect(result).toStrictEqual({
     success: true,
     data: input,
@@ -100,7 +100,7 @@ it('accepts record with multiple valid entries', () => {
 });
 
 it('rejects record with mixed valid and invalid values', () => {
-  const result = v(schema).validate({
+  const result = veto(schema).validate({
     recordField: {
       valid1: 'string',
       invalid1: 123,

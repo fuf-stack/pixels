@@ -1,5 +1,22 @@
 # Changelog
 
+## [1.0.0] (unreleased)
+
+### ⚠ BREAKING CHANGES
+
+- **deps:** upgraded `zod` from `3.x` to `4.x`. Consumers must install Zod v4 in their project.
+- **deps:** dropped the `zodex` dependency. The `SzType` re-export from `@fuf-stack/veto` is gone — use the new `SerializedSchema` type instead.
+- **serializeSchema:** now returns JSON Schema (via `z.toJSONSchema`) instead of zodex's tagged tree. Custom `checkSchemaPath` callbacks must traverse JSON Schema fields (`properties`, `items`, `oneOf`/`anyOf`/`allOf`, `additionalProperties`).
+- **errors:** issue payloads now reflect Zod v4 internals. veto preserves the v0 contract for the most common cases (`code`, `message`, `received`, `expected`, `options`, `keys`, ...) via a global error map and an issue normalizer, but consumers asserting on exact field-by-field equality should re-validate their snapshots. Notably:
+  - `invalid_union_discriminator` is reported as `invalid_union` (Zod v4 collapsed the codes); veto still surfaces `message: 'Field is required'` and `options: [...]` when the discriminator is missing.
+  - `invalid_value` is normalized back to `invalid_enum_value` / `invalid_literal` for downstream compatibility.
+- **build:** package is now built with `tsdown` instead of `tsup`. The published artifacts (`dist/index.js`, `dist/index.mjs`, `dist/index.d.ts`) keep the same shape.
+
+### Features
+
+- **codemod:** added `pnpm --filter @fuf-stack/veto codemod:v1` to help consumer codebases migrate (rewrites `SzType` imports, warns on legacy zodex tag checks).
+- **docs:** added `docs/veto-v1-upgrade.md` with the upgrade guide.
+
 ## [0.13.2](https://github.com/fuf-stack/pixels/compare/veto-v0.13.1...veto-v0.13.2) (2026-01-20)
 
 

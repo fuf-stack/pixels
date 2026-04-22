@@ -1,6 +1,6 @@
 import { expect, it } from 'vitest';
 
-import v, { discriminatedUnion, literal, number, object, string } from 'src';
+import veto, { discriminatedUnion, literal, number, object, string } from 'src';
 
 const schema = {
   discriminatedUnionField: discriminatedUnion('mode', [
@@ -10,7 +10,7 @@ const schema = {
 };
 
 it('rejects undefined discriminator', () => {
-  const result = v(schema).validate({
+  const result = veto(schema).validate({
     discriminatedUnionField: {},
   });
   expect(result).toStrictEqual({
@@ -20,9 +20,11 @@ it('rejects undefined discriminator', () => {
       discriminatedUnionField: {
         mode: [
           {
-            code: 'invalid_union_discriminator',
+            // Zod v4 collapsed `invalid_union_discriminator` into `invalid_union`.
+            code: 'invalid_union',
             message: 'Field is required',
             options: ['STRING', 'NUMBER'],
+            received: 'undefined',
           },
         ],
       },
@@ -31,7 +33,7 @@ it('rejects undefined discriminator', () => {
 });
 
 it('rejects fields that are not defined in option', () => {
-  const result = v(schema).validate({
+  const result = veto(schema).validate({
     discriminatedUnionField: { mode: 'STRING', numberField: 123 },
   });
   expect(result).toStrictEqual({
@@ -63,7 +65,7 @@ it('accepts valid option', () => {
   const data = {
     discriminatedUnionField: { mode: 'NUMBER', numberField: 123 },
   };
-  const result = v(schema).validate(data);
+  const result = veto(schema).validate(data);
   expect(result).toStrictEqual({
     success: true,
     data,

@@ -9,7 +9,7 @@ export type * from './vInfer';
 export * from './issueCodes';
 
 // export serializeSchema helper
-export { serializeSchema } from './serialize';
+export * from './serialize';
 
 // export veto validator types
 export * from './types/and/and';
