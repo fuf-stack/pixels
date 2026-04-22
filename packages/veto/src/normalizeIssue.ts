@@ -47,9 +47,9 @@ const stringifyForMessage = (value: unknown): string => {
  * Splits a Zod issue message into the user-visible part and the optional
  * meta payload that `errorMap` encoded via {@link VETO_META_SENTINEL}.
  *
- * The sentinel is needed because Zod v4 strips fields like `input` from the
- * public issue. Anything we want to preserve has to round-trip through the
- * message.
+ * With `safeParse(..., { reportInput: true })`, `issue.input` is now available
+ * on public issues. The sentinel remains as a backward-compatible fallback for
+ * metadata that may still be encoded by the global error map.
  */
 const extractMessageMeta = (
   rawMessage: unknown,
@@ -75,8 +75,28 @@ const extractMessageMeta = (
 };
 
 /** invalid_type: ensure `received` is set and the message matches v0 wording. */
-const normalizeInvalidType = (issue: VetoIssueLike): VetoIssueLike => {
+const normalizeInvalidType = (
+  issue: VetoIssueLike,
+  rawInput: unknown,
+  hasRawInput: boolean,
+): VetoIssueLike => {
   const next: VetoIssueLike = { ...issue };
+
+  if (typeof next.received !== 'string') {
+    let fromInput: string;
+    if (rawInput === null) {
+      fromInput = 'null';
+    } else if (Array.isArray(rawInput)) {
+      fromInput = 'array';
+    } else if (rawInput === undefined) {
+      fromInput = 'undefined';
+    } else {
+      fromInput = typeof rawInput;
+    }
+    if (hasRawInput) {
+      next.received = fromInput;
+    }
+  }
 
   if (typeof next.received !== 'string') {
     // Fallback for issues the error map didn't (or couldn't) annotate, e.g.
@@ -211,16 +231,26 @@ export const normalizeIssue = (issue: VetoIssueLike): VetoIssueLike => {
   // Lift any meta the global error map smuggled through the message.
   const { message, meta } = extractMessageMeta(issue.message);
   const next: VetoIssueLike = { ...issue, message };
+  // eslint-disable-next-line prefer-object-has-own
+  const hasIssueInput = Object.prototype.hasOwnProperty.call(issue, 'input');
+  const rawInput = hasIssueInput ? issue.input : undefined;
   if (meta.received !== undefined) {
     next.received = meta.received;
   }
   if (meta.options !== undefined) {
     next.options = meta.options as unknown[];
   }
-  const metaInput = 'input' in meta ? meta.input : undefined;
+  let metaInput: unknown;
+  if (rawInput !== undefined || hasIssueInput) {
+    metaInput = rawInput;
+  } else if ('input' in meta) {
+    metaInput = meta.input;
+  } else {
+    metaInput = undefined;
+  }
 
   if (next.code === issueCodes.invalid_type) {
-    return normalizeInvalidType(next);
+    return normalizeInvalidType(next, rawInput, hasIssueInput);
   }
 
   if (

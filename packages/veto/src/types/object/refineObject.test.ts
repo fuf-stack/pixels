@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import v, { boolean, number, object, refineObject, string } from 'src';
+import veto, { boolean, number, object, refineObject, string } from 'src';
 
 describe('custom', () => {
   it('should validate using custom function', () => {
@@ -26,7 +26,7 @@ describe('custom', () => {
       }),
     };
 
-    const result = v(schema).validate({
+    const result = veto(schema).validate({
       user: { name: 'admin', age: 16 },
     });
 
@@ -68,7 +68,7 @@ describe('custom', () => {
       }),
     };
 
-    const result = v(schema).validate({
+    const result = veto(schema).validate({
       user: { name: 'admin', age: 20 },
     });
 
@@ -111,7 +111,7 @@ describe('custom', () => {
       }),
     };
 
-    const result = v(schema).validate({
+    const result = veto(schema).validate({
       user: { name: 'admin', age: 16, role: 'superuser' },
     });
 
@@ -157,7 +157,7 @@ describe('custom', () => {
       }),
     };
 
-    const resultWithData = v(schema).validate({
+    const resultWithData = veto(schema).validate({
       user: { name: 'admin', age: 16 },
     });
 
@@ -175,7 +175,7 @@ describe('custom', () => {
       },
     });
 
-    const resultWithoutData = v(schema).validate({});
+    const resultWithoutData = veto(schema).validate({});
     expect(resultWithoutData).toMatchObject({
       success: true,
     });
@@ -198,7 +198,7 @@ describe('custom', () => {
       }),
     };
 
-    const result = v(schema).validate({
+    const result = veto(schema).validate({
       user: 'not an object',
     });
 
@@ -239,7 +239,7 @@ describe('custom', () => {
       }),
     };
 
-    const result = v(schema).validate({
+    const result = veto(schema).validate({
       user: {
         name: 'guest',
         settings: {
@@ -288,7 +288,7 @@ describe('custom', () => {
       }),
     };
 
-    const result = v(schema).validate({
+    const result = veto(schema).validate({
       user: {
         name: 'guest',
         settings: {
@@ -310,6 +310,155 @@ describe('custom', () => {
               },
             ],
           },
+        },
+      },
+    });
+  });
+
+  it('keeps object-level custom errors alongside nested required errors', () => {
+    const schema = {
+      identity: refineObject(
+        object({
+          realName: string(),
+          heroName: string(),
+          email: string(),
+        }),
+      )({
+        custom: (data, ctx) => {
+          if (data.realName === data.heroName) {
+            ctx.addIssue({
+              code: 'custom',
+              message: "Your secret identity isn't very secret if names match!",
+            });
+          }
+        },
+      }),
+    };
+
+    const result = veto(schema).validate({
+      identity: {
+        realName: 'Bruce',
+        heroName: 'Bruce',
+      },
+    });
+
+    expect(result).toMatchObject({
+      success: false,
+      errors: {
+        identity: {
+          _errors: [
+            {
+              code: 'custom',
+              message: "Your secret identity isn't very secret if names match!",
+            },
+          ],
+          email: [
+            {
+              code: 'invalid_type',
+              message: 'Field is required',
+              received: 'undefined',
+            },
+          ],
+        },
+      },
+    });
+  });
+
+  it('keeps path-targeted custom errors alongside nested required errors', () => {
+    const schema = {
+      identity: refineObject(
+        object({
+          realName: string(),
+          heroName: string(),
+          email: string(),
+        }),
+      )({
+        custom: (data, ctx) => {
+          if (data.realName === data.heroName) {
+            ctx.addIssue({
+              code: 'custom',
+              message: 'Names must differ',
+              path: ['heroName'],
+            });
+          }
+        },
+      }),
+    };
+
+    const result = veto(schema).validate({
+      identity: {
+        realName: 'Bruce',
+        heroName: 'Bruce',
+      },
+    });
+
+    expect(result).toMatchObject({
+      success: false,
+      errors: {
+        identity: {
+          heroName: [
+            {
+              code: 'custom',
+              message: 'Names must differ',
+            },
+          ],
+          email: [
+            {
+              code: 'invalid_type',
+              message: 'Field is required',
+              received: 'undefined',
+            },
+          ],
+        },
+      },
+    });
+  });
+
+  it('keeps object-level custom errors alongside nested type errors', () => {
+    const schema = {
+      identity: refineObject(
+        object({
+          realName: string(),
+          heroName: string(),
+          email: string(),
+        }),
+      )({
+        custom: (data, ctx) => {
+          if (data.realName === data.heroName) {
+            ctx.addIssue({
+              code: 'custom',
+              message: "Your secret identity isn't very secret if names match!",
+            });
+          }
+        },
+      }),
+    };
+
+    const result = veto(schema).validate({
+      identity: {
+        realName: 'Bruce',
+        heroName: 'Bruce',
+        email: 123,
+      },
+    });
+
+    expect(result).toMatchObject({
+      success: false,
+      errors: {
+        identity: {
+          _errors: [
+            {
+              code: 'custom',
+              message: "Your secret identity isn't very secret if names match!",
+            },
+          ],
+          email: [
+            {
+              code: 'invalid_type',
+              message: 'Expected string, received number',
+              received: 'number',
+            },
+          ],
         },
       },
     });

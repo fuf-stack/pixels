@@ -65,11 +65,20 @@ type ExtractShape<T> =
       : never;
 
 /**
- * Applies validation refinements to an object schema
+ * Applies custom validation refinements to an object schema.
+ *
+ * Implementation detail: this composes two branches with an intersection:
+ * - the original object schema branch (produces built-in nested field errors)
+ * - a permissive branch that only runs `custom` checks
+ *
+ * This allows veto to surface both base schema issues (e.g. missing required
+ * nested fields) and object-level cross-field issues from `custom` in one pass.
+ * Without this split, Zod v4 can drop one side depending on parse continuity.
+ *
  * @param schema - Base object schema to refine. Can be either:
  *   - A direct object schema (ReturnType<VObject | VObjectLoose>)
  *   - A wrapped optional object schema (VetoOptional<ReturnType<VObject | VObjectLoose>>)
- * @returns Function that takes refinement options and returns enhanced schema
+ * @returns Function that takes refinement options and returns an enhanced schema
  *
  * @example
  * ```ts
@@ -77,7 +86,7 @@ type ExtractShape<T> =
  *   custom: (val, ctx) => {
  *     if (val.name === 'invalid') {
  *       ctx.addIssue({
- *         code:  'custom',
+ *         code: 'custom',
  *         message: 'Name cannot be "invalid"',
  *       });
  *     }
@@ -91,13 +100,33 @@ export const refineObject = <T extends RefineObjectInputObject>(schema: T) => {
   return (
     refinements: VObjectRefinements,
   ): VetoEffects<VObjectSchema<Shape>> => {
-    // Add custom refinement
-    const _schema = z.preprocess((val, ctx) => {
+    // Run custom object-level refinement on a permissive branch, then
+    // intersect with the base schema so we keep nested field errors too.
+    const customBranch = z.preprocess((val, ctx) => {
       if (val && typeof val === 'object' && !Array.isArray(val)) {
-        refinements.custom(val as Record<string, unknown>, ctx);
+        const refinementsCtx = {
+          ...ctx,
+          addIssue: (issue: Parameters<typeof ctx.addIssue>[0]) => {
+            if (typeof issue === 'string') {
+              ctx.addIssue(issue);
+              return;
+            }
+            ctx.addIssue({
+              ...issue,
+              continue: issue.continue ?? true,
+            });
+          },
+        } as VetoRefinementCtx;
+
+        refinements.custom(val as Record<string, unknown>, refinementsCtx);
       }
+
       return val;
-    }, schema) as VetoEffects<VObjectSchema<Shape>>;
+    }, z.any());
+
+    const _schema = z.intersection(schema, customBranch) as VetoEffects<
+      VObjectSchema<Shape>
+    >;
 
     return _schema;
   };

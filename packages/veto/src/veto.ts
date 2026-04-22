@@ -39,11 +39,18 @@ export const veto = <T extends VetoSchema>(
   const validate = <InputType extends VetoInput>(
     input: InputType,
   ): VetoError | VetoSuccess<SchemaType> => {
-    const result = vSchema.safeParse({
-      // add defaults to input when defined
-      ...(options?.defaults ?? {}),
-      ...input,
-    });
+    const result = vSchema.safeParse(
+      {
+        // add defaults to input when defined
+        ...(options?.defaults ?? {}),
+        ...input,
+      },
+      {
+        // reportInput: true is needed to get the raw input in the error
+        // see:https://zod.dev/error-customization?id=include-input-in-issues
+        reportInput: true,
+      },
+    );
 
     // error result
     if (!result.success) {
@@ -67,11 +74,18 @@ export const veto = <T extends VetoSchema>(
   const validateAsync = async <InputType extends VetoInput>(
     input: InputType,
   ): Promise<VetoError | VetoSuccess<SchemaType>> => {
-    const result = await vSchema.safeParseAsync({
-      // add defaults to input when defined
-      ...(options?.defaults ?? {}),
-      ...input,
-    });
+    const result = await vSchema.safeParseAsync(
+      {
+        // add defaults to input when defined
+        ...(options?.defaults ?? {}),
+        ...input,
+      },
+      {
+        // reportInput: true is needed to get the raw input in the error
+        // see:https://zod.dev/error-customization?id=include-input-in-issues
+        reportInput: true,
+      },
+    );
 
     // error result
     if (!result.success) {
