@@ -13,15 +13,11 @@ export default defineConfig({
   outExtensions({ format }) {
     return {
       dts: '.d.ts',
-      js: format === 'es' || format === 'esm' ? '.mjs' : '.js',
+      js: format === 'es' ? '.mjs' : '.js',
     };
   },
   // Do not auto-generate new subpath exports for veto in this migration.
   exports: false,
-  // Inline external declaration types similar to prior tsup --dts-resolve behavior.
-  dts: {
-    resolve: true,
-  },
   // Use the build-specific tsconfig
   tsconfig: 'tsconfig.build.json',
 });
