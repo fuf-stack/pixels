@@ -1,4 +1,4 @@
-import type { VetoEffects, VetoOptional, VetoRefinementCtx } from 'src/types';
+import type { VetoOptional, VetoRefinementCtx } from 'src/types';
 import type { ZodString } from 'zod';
 
 import { z } from 'zod';
@@ -22,11 +22,6 @@ export const string = (options?: VStringOptions): VStringSchema => {
 
 export type VString = typeof string;
 export type VStringSchema = ZodString;
-
-/** when used with refine or superRefine */
-export type VStringRefined<Options = undefined> = (
-  options?: Options,
-) => VetoEffects<VStringSchema>;
 
 interface BlacklistOptions {
   /** Custom error message function */
@@ -119,11 +114,15 @@ export interface VStringRefinements {
  * });
  * ```
  */
-export const refineString = <
-  T extends VStringSchema | VetoOptional<VStringSchema>,
->(
-  schema: T,
-) => {
+export function refineString(
+  schema: VStringSchema,
+): (refinements: VStringRefinements) => VStringSchema;
+export function refineString(
+  schema: VetoOptional<VStringSchema>,
+): (refinements: VStringRefinements) => VetoOptional<VStringSchema>;
+export function refineString(
+  schema: VStringSchema | VetoOptional<VStringSchema>,
+) {
   return (refinements: VStringRefinements) => {
     return schema.superRefine((val, ctx) => {
       // Skip refinements if value is undefined (because it is optional)
@@ -145,6 +144,6 @@ export const refineString = <
       if (refinements.noConsecutiveCharacters) {
         noConsecutiveCharacters(refinements.noConsecutiveCharacters)(val, ctx);
       }
-    });
+    }) as unknown as VStringSchema | VetoOptional<VStringSchema>;
   };
-};
+}

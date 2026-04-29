@@ -1,6 +1,7 @@
-import { describe, expect, it } from 'vitest';
+/* eslint-disable vitest/expect-expect */
+import { describe, expect, expectTypeOf, it } from 'vitest';
 
-import v, { refineString, string } from 'src';
+import veto, { refineString, string } from 'src';
 
 describe('blacklist', () => {
   it('should reject exact matches', () => {
@@ -9,7 +10,7 @@ describe('blacklist', () => {
         blacklist: { patterns: ['invalid'] },
       }),
     };
-    const result = v(schema).validate({ field: 'invalid' });
+    const result = veto(schema).validate({ field: 'invalid' });
     expect(result).toMatchObject({
       success: false,
       errors: {
@@ -29,7 +30,7 @@ describe('blacklist', () => {
         blacklist: { patterns: ['test*'] },
       }),
     };
-    const result = v(schema).validate({ field: 'testing' });
+    const result = veto(schema).validate({ field: 'testing' });
     expect(result).toMatchObject({
       success: false,
       errors: {
@@ -52,7 +53,7 @@ describe('blacklist', () => {
         },
       }),
     };
-    const result = v(schema).validate({ field: 'badword' });
+    const result = veto(schema).validate({ field: 'badword' });
     expect(result).toMatchObject({
       success: false,
       errors: {
@@ -77,7 +78,7 @@ describe('custom', () => {
         blacklist: { patterns: ['test'] },
       }),
     };
-    const result = v(schema).validate({ field: 'test' });
+    const result = veto(schema).validate({ field: 'test' });
     expect(result).toMatchObject({
       success: false,
       errors: {
@@ -103,7 +104,7 @@ describe('noConsecutiveCharacters', () => {
         noConsecutiveCharacters: { characters: ['!', '@'] },
       }),
     };
-    const result = v(schema).validate({ field: 'hello!!' });
+    const result = veto(schema).validate({ field: 'hello!!' });
     expect(result).toMatchObject({
       success: false,
       errors: {
@@ -123,7 +124,7 @@ describe('noConsecutiveCharacters', () => {
         noConsecutiveCharacters: { characters: ['!', '@'] },
       }),
     };
-    const result = v(schema).validate({ field: 'hello!world@' });
+    const result = veto(schema).validate({ field: 'hello!world@' });
     expect(result).toMatchObject({
       success: true,
     });
@@ -138,7 +139,7 @@ describe('noConsecutiveCharacters', () => {
         },
       }),
     };
-    const result = v(schema).validate({ field: 'hello!!' });
+    const result = veto(schema).validate({ field: 'hello!!' });
     expect(result).toMatchObject({
       success: false,
       errors: {
@@ -161,7 +162,7 @@ describe('optional strings', () => {
         noConsecutiveCharacters: { characters: ['!'] },
       }),
     };
-    const result = v(schema).validate({});
+    const result = veto(schema).validate({});
     expect(result).toMatchObject({
       success: true,
     });
@@ -173,7 +174,7 @@ describe('optional strings', () => {
         blacklist: { patterns: ['invalid'] },
       }),
     };
-    const result = v(schema).validate({ field: 'invalid' });
+    const result = veto(schema).validate({ field: 'invalid' });
     expect(result).toMatchObject({
       success: false,
       errors: {
@@ -197,7 +198,7 @@ describe('optional strings', () => {
         noConsecutiveCharacters: { characters: ['!'] },
       }),
     };
-    const result = v(schema).validate({ field: 'test!!' });
+    const result = veto(schema).validate({ field: 'test!!' });
     expect(result).toMatchObject({
       success: false,
       errors: {
@@ -217,5 +218,46 @@ describe('optional strings', () => {
         ],
       },
     });
+  });
+});
+
+describe('type behavior', () => {
+  it('preserves required schema type at compile time', () => {
+    const refined = refineString(string())({
+      custom: () => {},
+    });
+    expectTypeOf(refined).toEqualTypeOf<ReturnType<typeof string>>();
+  });
+
+  it('preserves optional schema type at compile time', () => {
+    const refined = refineString(string().optional())({
+      custom: () => {},
+    });
+    expectTypeOf(refined).toEqualTypeOf<
+      ReturnType<ReturnType<typeof string>['optional']>
+    >();
+  });
+
+  it('keeps runtime string schema methods available after refine', () => {
+    const refined = refineString(string())({
+      custom: () => {},
+    });
+
+    const withMax = (refined as unknown as ReturnType<typeof string>).max(64);
+    expectTypeOf(withMax.parse('hello')).toEqualTypeOf<string>();
+    expect(typeof (refined as { max?: unknown }).max).toBe('function');
+  });
+
+  it('keeps runtime optional schema methods available after refine', () => {
+    const refined = refineString(string().optional())({
+      custom: () => {},
+    });
+
+    const unwrapped = (
+      refined as unknown as ReturnType<ReturnType<typeof string>['optional']>
+    ).unwrap();
+    expectTypeOf(unwrapped.parse('hello')).toEqualTypeOf<string>();
+    expectTypeOf(refined.parse(undefined)).toEqualTypeOf<string | undefined>();
+    expect(typeof (refined as { unwrap?: unknown }).unwrap).toBe('function');
   });
 });

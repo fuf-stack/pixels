@@ -1,6 +1,6 @@
-import { expect, it } from 'vitest';
+import { expect, expectTypeOf, it } from 'vitest';
 
-import v, { string } from 'src';
+import veto, { string } from 'src';
 import { stringCommon } from 'test/helpers';
 
 // common string tests
@@ -14,7 +14,7 @@ stringCommon(
 
 it('trims whitespace from value', () => {
   const schema = { stringField: string() };
-  const result = v(schema).validate({ stringField: '  some value  ' });
+  const result = veto(schema).validate({ stringField: '  some value  ' });
   expect(result).toMatchObject({
     success: true,
     errors: null,
@@ -24,7 +24,7 @@ it('trims whitespace from value', () => {
 
 it('expects min length of 1 by default', () => {
   const schema = { stringField: string() };
-  const result = v(schema).validate({ stringField: '' });
+  const result = veto(schema).validate({ stringField: '' });
   expect(result).toMatchObject({
     success: false,
     errors: {
@@ -43,7 +43,7 @@ it('expects min length of 1 by default', () => {
 
 it('option min changes expected length', () => {
   const schema = { stringField: string({ min: 100 }) };
-  const result = v(schema).validate({ stringField: '' });
+  const result = veto(schema).validate({ stringField: '' });
   expect(result).toMatchObject({
     success: false,
     errors: {
@@ -62,7 +62,7 @@ it('option min changes expected length', () => {
 
 it('option mix is checked after whitespace is trimmed', () => {
   const schema = { stringField: string({ min: 5 }) };
-  const result = v(schema).validate({ stringField: '  test  ' });
+  const result = veto(schema).validate({ stringField: '  test  ' });
   expect(result).toMatchObject({
     success: false,
     errors: {
@@ -76,5 +76,74 @@ it('option mix is checked after whitespace is trimmed', () => {
         },
       ],
     },
+  });
+});
+
+it('supports chaining built-in methods after refine', () => {
+  const refinedBase = string().refine(
+    (val) => !val.includes('bad'),
+    'Must not contain bad',
+  );
+  const refined = (refinedBase as unknown as ReturnType<typeof string>).max(5);
+
+  expectTypeOf(refined.parse('hello')).toEqualTypeOf<string>();
+  expect(typeof (refinedBase as { max?: unknown }).max).toBe('function');
+  const schema = { stringField: refined };
+  const result = veto(schema).validate({ stringField: 'badvalue' });
+  const issues = (result as { errors?: { stringField?: unknown } }).errors
+    ?.stringField as unknown[];
+
+  expect(issues).toEqual(
+    expect.arrayContaining([
+      expect.objectContaining({
+        code: 'custom',
+        message: 'Must not contain bad',
+      }),
+      expect.objectContaining({
+        code: 'too_big',
+        maximum: 5,
+        message: 'String must contain at most 5 character(s)',
+        type: 'string',
+      }),
+    ]),
+  );
+  expect(result).toMatchObject({
+    success: false,
+  });
+});
+
+it('supports chaining built-in methods after superRefine', () => {
+  const superRefinedBase = string().superRefine((val, ctx) => {
+    if (val.includes('bad')) {
+      ctx.addIssue({ code: 'custom', message: 'Must not contain bad' });
+    }
+  });
+  const superRefined = (
+    superRefinedBase as unknown as ReturnType<typeof string>
+  ).max(5);
+
+  expectTypeOf(superRefined.parse('hello')).toEqualTypeOf<string>();
+  expect(typeof (superRefinedBase as { max?: unknown }).max).toBe('function');
+  const schema = { stringField: superRefined };
+  const result = veto(schema).validate({ stringField: 'badvalue' });
+  const issues = (result as { errors?: { stringField?: unknown } }).errors
+    ?.stringField as unknown[];
+
+  expect(issues).toEqual(
+    expect.arrayContaining([
+      expect.objectContaining({
+        code: 'custom',
+        message: 'Must not contain bad',
+      }),
+      expect.objectContaining({
+        code: 'too_big',
+        maximum: 5,
+        message: 'String must contain at most 5 character(s)',
+        type: 'string',
+      }),
+    ]),
+  );
+  expect(result).toMatchObject({
+    success: false,
   });
 });
