@@ -8,6 +8,17 @@ export interface VStringOptions {
   min: number;
 }
 
+/**
+ * Creates a trimmed string schema with a default minimum length of `1`.
+ *
+ * @example
+ * const schema = string();
+ * schema.parse('  hello  '); // => "hello"
+ *
+ * @example
+ * const allowEmpty = string({ min: 0 });
+ * allowEmpty.parse('');
+ */
 export const string = (options?: VStringOptions): VStringSchema => {
   return (
     z

@@ -10,7 +10,14 @@ import type { ZodObject } from 'zod';
 import { z } from 'zod';
 
 /**
- * strict object
+ * Creates a strict object schema.
+ *
+ * Unknown keys are rejected.
+ *
+ * @example
+ * const schema = object({ name: z.string() });
+ * schema.parse({ name: 'Ada' });
+ *
  * @see https://zod.dev/?id=strict
  */
 export const object = <T extends VetoRawShape>(schema: T): VObjectSchema<T> => {
@@ -22,7 +29,14 @@ export type VObject = typeof object;
 export type VObjectSchema<T extends VetoRawShape> = ZodObject<T>;
 
 /**
- * loose object
+ * Creates a non-strict object schema.
+ *
+ * Unknown keys are allowed.
+ *
+ * @example
+ * const schema = objectLoose({ name: z.string() });
+ * schema.parse({ name: 'Ada', extra: true });
+ *
  * @see https://zod.dev/?id=objects
  */
 export const objectLoose = <T extends VetoRawShape>(

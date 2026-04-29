@@ -12,6 +12,13 @@ import { z } from 'zod';
 
 import { issueCodes } from '../../issueCodes';
 
+/**
+ * Creates an array schema from an element schema.
+ *
+ * @example
+ * const schema = array(string()).min(1);
+ * schema.parse(['value']);
+ */
 export const array: <T extends VetoTypeAny>(schema: T) => ZodArray<T> = z.array;
 
 export type VArray = typeof array;
