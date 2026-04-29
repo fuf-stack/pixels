@@ -1,8 +1,39 @@
-import { describe, expect, it } from 'vitest';
+/* eslint-disable vitest/expect-expect */
+
+import { describe, expect, expectTypeOf, it } from 'vitest';
 
 import veto, { boolean, number, object, refineObject, string } from 'src';
 
 describe('custom', () => {
+  it('preserves refined object schema typing', () => {
+    const refined = refineObject(
+      object({
+        name: string(),
+        age: number(),
+      }),
+    )({
+      custom: () => {},
+    });
+
+    expectTypeOf(refined.parse({ name: 'admin', age: 20 })).toEqualTypeOf<{
+      name: string;
+      age: number;
+    }>();
+  });
+
+  it('supports refining optional objects', () => {
+    const refined = refineObject(
+      object({
+        name: string(),
+        age: number(),
+      }).optional(),
+    )({
+      custom: () => {},
+    });
+
+    expect(refined.safeParse(undefined).success).toBe(true);
+  });
+
   it('should validate using custom function', () => {
     const schema = {
       user: refineObject(

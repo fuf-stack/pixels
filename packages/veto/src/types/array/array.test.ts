@@ -1,9 +1,24 @@
-import { expect, it } from 'vitest';
+import type { VArraySchema } from './array';
 
-import v, { array, string } from 'src';
+import { expect, expectTypeOf, it } from 'vitest';
+
+import veto, { array, string } from 'src';
+
+it('exposes array schema typing', () => {
+  const arraySchema = array(string());
+  const nonEmpty = arraySchema.nonempty();
+
+  expectTypeOf(arraySchema).toEqualTypeOf<
+    VArraySchema<ReturnType<typeof string>>
+  >();
+  expectTypeOf(arraySchema.parse(['a', 'b'])).toEqualTypeOf<string[]>();
+  const nonEmptyParsed = nonEmpty.parse(['a']);
+  const _typedNonEmpty: string[] = nonEmptyParsed;
+  expect(_typedNonEmpty.length).toBeGreaterThan(0);
+});
 
 it('rejects non-array value', () => {
-  const result = v({ arrayField: array(string()) }).validate({
+  const result = veto({ arrayField: array(string()) }).validate({
     arrayField: { key: 'an object' },
   });
   expect(result).toStrictEqual({
@@ -25,7 +40,7 @@ it('rejects non-array value', () => {
 });
 
 it('rejects invalid min length', () => {
-  const result = v({ arrayField: array(string()).min(2) }).validate({
+  const result = veto({ arrayField: array(string()).min(2) }).validate({
     arrayField: [],
   });
   expect(result).toStrictEqual({
@@ -49,7 +64,7 @@ it('rejects invalid min length', () => {
 });
 
 it('rejects invalid max length', () => {
-  const result = v({ arrayField: array(string()).max(1) }).validate({
+  const result = veto({ arrayField: array(string()).max(1) }).validate({
     arrayField: ['one', 'two'],
   });
   expect(result).toStrictEqual({
@@ -73,7 +88,7 @@ it('rejects invalid max length', () => {
 });
 
 it('rejects global array errors and element errors at the same time', () => {
-  const result = v({ arrayField: array(string()).min(10) }).validate({
+  const result = veto({ arrayField: array(string()).min(10) }).validate({
     arrayField: ['one', 2, 'three'],
   });
   expect(result).toMatchObject({
@@ -94,7 +109,7 @@ it('rejects global array errors and element errors at the same time', () => {
 
 // INFO: this is used in forms to add new items to flat field arrays
 it('rejects null array element with field is required error message', () => {
-  const result = v({ arrayField: array(string()) }).validate({
+  const result = veto({ arrayField: array(string()) }).validate({
     arrayField: ['one', null, 'three'],
   });
   expect(result).toMatchObject({

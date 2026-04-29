@@ -1,8 +1,10 @@
-import type { ZodEnum } from 'zod';
-
 import { z } from 'zod';
 
-export const vEnum = z.enum;
+type VEnumValues = readonly [string, ...string[]];
+
+export const vEnum = <T extends VEnumValues>(values: T) => {
+  return z.enum(values);
+};
 
 export type VEnum = typeof vEnum;
-export type VEnumSchema<T extends [string, ...string[]]> = ZodEnum<T>;
+export type VEnumSchema = ReturnType<VEnum>;

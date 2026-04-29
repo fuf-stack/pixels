@@ -1,8 +1,26 @@
-import { describe, expect, it } from 'vitest';
+/* eslint-disable vitest/expect-expect */
 
-import v, { array, number, object, refineArray, string } from 'src';
+import { describe, expect, expectTypeOf, it } from 'vitest';
+
+import veto, { array, number, object, refineArray, string } from 'src';
 
 describe('custom refinement', () => {
+  it('preserves refined array schema typing', () => {
+    const refined = refineArray(array(string()))({
+      custom: () => {},
+    });
+
+    expectTypeOf(refined.parse(['one', 'two'])).toEqualTypeOf<string[]>();
+  });
+
+  it('supports refining optional arrays', () => {
+    const refined = refineArray(array(string()).optional())({
+      custom: () => {},
+    });
+
+    expect(refined.safeParse(undefined).success).toBe(true);
+  });
+
   it('validates array with custom logic', () => {
     const schema = {
       arrayField: refineArray(array(string()))({
@@ -13,13 +31,13 @@ describe('custom refinement', () => {
               inclusive: true,
               message: 'Array must have at least 2 elements',
               minimum: 2,
-              type: 'array',
+              origin: 'array',
             });
           }
         },
       }),
     };
-    const result = v(schema).validate({
+    const result = veto(schema).validate({
       arrayField: ['one'],
     });
     expect(result).toStrictEqual({
@@ -30,6 +48,7 @@ describe('custom refinement', () => {
           _errors: [
             {
               code: 'too_small',
+              exact: false,
               inclusive: true,
               message: 'Array must have at least 2 elements',
               minimum: 2,
@@ -60,7 +79,7 @@ describe('custom refinement', () => {
         },
       }),
     };
-    const result = v(schema).validate({
+    const result = veto(schema).validate({
       arrayField: [{ value: 1 }, { value: -2 }, { value: 3 }],
     });
     expect(result).toStrictEqual({
@@ -91,21 +110,21 @@ describe('custom refinement', () => {
               inclusive: true,
               maximum: 3,
               message: 'Array must have at most 3 elements',
-              type: 'array',
+              origin: 'array',
             });
           }
         },
       }),
     };
 
-    const resultWithEmptyObject = v(schema).validate({});
+    const resultWithEmptyObject = veto(schema).validate({});
     expect(resultWithEmptyObject).toStrictEqual({
       success: true,
       data: {},
       errors: null,
     });
 
-    const resultWithLongArray = v(schema).validate({
+    const resultWithLongArray = veto(schema).validate({
       arrayField: ['one', 'two', 'three', 'four'],
     });
     expect(resultWithLongArray).toStrictEqual({
@@ -116,6 +135,7 @@ describe('custom refinement', () => {
           _errors: [
             {
               code: 'too_big',
+              exact: false,
               inclusive: true,
               maximum: 3,
               message: 'Array must have at most 3 elements',
@@ -135,7 +155,7 @@ describe('unique refinement', () => {
         unique: true,
       }),
     };
-    const result = v(schema).validate({
+    const result = veto(schema).validate({
       arrayField: ['one', 'two', 'three', 'one'],
     });
     expect(result).toStrictEqual({
@@ -165,11 +185,21 @@ describe('unique refinement', () => {
     const schema = {
       arrayField: refineArray(array(object({ name: string(), id: number() })))({
         unique: {
-          mapFn: (val) => val.id,
+          mapFn: (val) => {
+            if (
+              typeof val === 'object' &&
+              val !== null &&
+              'id' in val &&
+              typeof val.id === 'number'
+            ) {
+              return val.id;
+            }
+            return undefined;
+          },
         },
       }),
     };
-    const result = v(schema).validate({
+    const result = veto(schema).validate({
       arrayField: [
         { name: 'one', id: 1 },
         { name: 'two', id: 2 },
@@ -217,11 +247,24 @@ describe('unique refinement', () => {
         ),
       )({
         unique: {
-          mapFn: (val) => val?.data?.fieldB,
+          mapFn: (val) => {
+            if (
+              typeof val === 'object' &&
+              val !== null &&
+              'data' in val &&
+              typeof val.data === 'object' &&
+              val.data !== null &&
+              'fieldB' in val.data &&
+              typeof val.data.fieldB === 'string'
+            ) {
+              return val.data.fieldB;
+            }
+            return undefined;
+          },
         },
       }),
     };
-    const result = v(schema).validate({
+    const result = veto(schema).validate({
       arrayField: [
         { name: 'one', data: { fieldA: 'test', fieldB: 'not-unique' } },
         { name: 'two', data: { fieldB: 'not-unique' } },
@@ -268,12 +311,25 @@ describe('unique refinement', () => {
         ),
       )({
         unique: {
-          mapFn: (val) => val?.data?.fieldB,
+          mapFn: (val) => {
+            if (
+              typeof val === 'object' &&
+              val !== null &&
+              'data' in val &&
+              typeof val.data === 'object' &&
+              val.data !== null &&
+              'fieldB' in val.data &&
+              typeof val.data.fieldB === 'string'
+            ) {
+              return val.data.fieldB;
+            }
+            return undefined;
+          },
           elementErrorPath: ['data', 'fieldB'],
         },
       }),
     };
-    const result = v(schema).validate({
+    const result = veto(schema).validate({
       arrayField: [
         { name: 'one', data: { fieldA: 'test', fieldB: 'not-unique' } },
         { name: 'two', data: { fieldB: 'not-unique' } },
@@ -318,11 +374,21 @@ describe('unique refinement', () => {
         ),
       )({
         unique: {
-          mapFn: (val) => val?.fieldA,
+          mapFn: (val) => {
+            if (
+              typeof val === 'object' &&
+              val !== null &&
+              'fieldA' in val &&
+              typeof val.fieldA === 'string'
+            ) {
+              return val.fieldA;
+            }
+            return undefined;
+          },
         },
       }),
     };
-    const result = v(schema).validate({
+    const result = veto(schema).validate({
       arrayField: [
         //  fieldB should have length of 1
         { fieldA: 'not-unique', fieldB: '' },
@@ -383,7 +449,7 @@ describe('unique refinement', () => {
         unique: true,
       }),
     };
-    const result = v(schema).validate({});
+    const result = veto(schema).validate({});
     expect(result).toStrictEqual({
       success: true,
       data: {},
@@ -398,7 +464,10 @@ describe('combined refinements', () => {
       arrayField: refineArray(array(string()))({
         unique: true,
         custom: (val, ctx) => {
-          if (Array.isArray(val) && val.some((item) => item.length < 3)) {
+          if (
+            Array.isArray(val) &&
+            val.some((item) => typeof item === 'string' && item.length < 3)
+          ) {
             ctx.addIssue({
               code: 'custom',
               message: 'All strings must be at least 3 characters long',
@@ -407,7 +476,7 @@ describe('combined refinements', () => {
         },
       }),
     };
-    const result = v(schema).validate({
+    const result = veto(schema).validate({
       arrayField: ['one', 'two', 'a', 'one'],
     });
     expect(result).toStrictEqual({

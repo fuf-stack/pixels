@@ -21,11 +21,6 @@ export const object = <T extends VetoRawShape>(schema: T): VObjectSchema<T> => {
 export type VObject = typeof object;
 export type VObjectSchema<T extends VetoRawShape> = ZodObject<T>;
 
-/** when used with refine or superRefine */
-export type VObjectRefined<T extends VetoRawShape> = VetoEffects<
-  VObjectSchema<T>
->;
-
 /**
  * loose object
  * @see https://zod.dev/?id=objects
@@ -38,11 +33,6 @@ export const objectLoose = <T extends VetoRawShape>(
 
 export type VObjectLoose = typeof objectLoose;
 export type VObjectLooseSchema<T extends VetoRawShape> = ZodObject<T>;
-
-/** when used with refine or superRefine */
-export type VObjectLooseRefined<T extends VetoRawShape> = VetoEffects<
-  VObjectLooseSchema<T>
->;
 
 /** Configuration options for object validation refinements */
 export interface VObjectRefinements {

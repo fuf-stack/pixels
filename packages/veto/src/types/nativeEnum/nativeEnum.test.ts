@@ -1,12 +1,22 @@
-import { expect, it } from 'vitest';
+/* eslint-disable vitest/expect-expect */
 
-import v, { nativeEnum } from 'src';
+import type { VNativeEnumSchema } from './nativeEnum';
+
+import { expect, expectTypeOf, it } from 'vitest';
+
+import veto, { nativeEnum } from 'src';
+
+it('exposes nativeEnum typing', () => {
+  const schema = nativeEnum({ ONE: 'ONE', TWO: 'TWO' } as const);
+  expectTypeOf(schema).toEqualTypeOf<VNativeEnumSchema>();
+  expect(schema.parse('ONE')).toBe('ONE');
+});
 
 it('rejects invalid enum value', () => {
   const schema = {
     nativeEnumField: nativeEnum({ ONE: 'ONE', TWO: 'TWO' } as const),
   };
-  const result = v(schema).validate({ nativeEnumField: 'THREE' });
+  const result = veto(schema).validate({ nativeEnumField: 'THREE' });
 
   expect(result).toStrictEqual({
     success: false,
@@ -29,7 +39,7 @@ it('accepts valid string enum value', () => {
   const schema = {
     nativeEnumField: nativeEnum({ ONE: 'ONE', TWO: 'TWO' } as const),
   };
-  const result = v(schema).validate({ nativeEnumField: 'TWO' });
+  const result = veto(schema).validate({ nativeEnumField: 'TWO' });
   expect(result).toStrictEqual({
     success: true,
     data: {
@@ -43,7 +53,7 @@ it('accepts valid mixed enum value', () => {
   const schema = {
     nativeEnumField: nativeEnum({ ONE: 'ONE', TWO: 'TWO', THREE: 3 } as const),
   };
-  const result = v(schema).validate({ nativeEnumField: 3 });
+  const result = veto(schema).validate({ nativeEnumField: 3 });
   expect(result).toStrictEqual({
     success: true,
     data: {

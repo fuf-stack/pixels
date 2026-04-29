@@ -1,4 +1,8 @@
-import { expect, it } from 'vitest';
+/* eslint-disable vitest/expect-expect */
+
+import type { VObjectLooseSchema } from './object';
+
+import { expect, expectTypeOf, it } from 'vitest';
 
 import v, { objectLoose, string } from 'src';
 
@@ -7,6 +11,17 @@ const schema = {
 };
 
 const validInput = { objectLooseField: { key: 'some string' } };
+
+it('exposes loose object schema typing', () => {
+  const objectSchema = objectLoose({ key: string() });
+
+  expectTypeOf(objectSchema).toEqualTypeOf<
+    VObjectLooseSchema<{ key: ReturnType<typeof string> }>
+  >();
+  expectTypeOf(objectSchema.parse({ key: 'value' })).toEqualTypeOf<{
+    key: string;
+  }>();
+});
 
 it('rejects missing fields', () => {
   const result = v(schema).validate({

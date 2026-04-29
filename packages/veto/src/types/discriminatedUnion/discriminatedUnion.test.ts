@@ -1,4 +1,8 @@
-import { expect, it } from 'vitest';
+/* eslint-disable vitest/expect-expect */
+
+import type { VDiscriminatedUnionSchema } from './discriminatedUnion';
+
+import { expect, expectTypeOf, it } from 'vitest';
 
 import veto, { discriminatedUnion, literal, number, object, string } from 'src';
 
@@ -8,6 +12,15 @@ const schema = {
     object({ mode: literal('NUMBER'), numberField: number() }),
   ]),
 };
+
+it('exposes discriminated union typing', () => {
+  const union = discriminatedUnion('mode', [
+    object({ mode: literal('STRING'), stringField: string() }),
+    object({ mode: literal('NUMBER'), numberField: number() }),
+  ]);
+
+  expectTypeOf(union).toEqualTypeOf<VDiscriminatedUnionSchema>();
+});
 
 it('rejects undefined discriminator', () => {
   const result = veto(schema).validate({

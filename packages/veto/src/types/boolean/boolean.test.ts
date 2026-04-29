@@ -1,10 +1,23 @@
-import { expect, it } from 'vitest';
+/* eslint-disable vitest/expect-expect */
 
-import v, { boolean } from 'src';
+import type { VBooleanSchema } from './boolean';
+
+import { expect, expectTypeOf, it } from 'vitest';
+
+import veto, { boolean } from 'src';
+
+it('exposes boolean schema typing', () => {
+  const schema = boolean();
+  const refined = schema.refine((val) => val).default(true);
+
+  expectTypeOf(boolean).returns.toEqualTypeOf<VBooleanSchema>();
+  expectTypeOf(schema).toEqualTypeOf<VBooleanSchema>();
+  expectTypeOf(refined.parse(undefined)).toEqualTypeOf<boolean>();
+});
 
 it('rejects non-boolean value', () => {
   const schema = { booleanField: boolean() };
-  const result = v(schema).validate({ booleanField: 'a string' });
+  const result = veto(schema).validate({ booleanField: 'a string' });
   expect(result).toStrictEqual({
     success: false,
     data: null,
@@ -23,7 +36,7 @@ it('rejects non-boolean value', () => {
 
 it('can be optional', () => {
   const schema = { booleanField: boolean().optional() };
-  const result = v(schema).validate({});
+  const result = veto(schema).validate({});
   expect(result).toStrictEqual({
     success: true,
     data: {},
@@ -31,11 +44,10 @@ it('can be optional', () => {
   });
 });
 
-// eslint-disable-next-line array-callback-return
-[true, false].map((value) => {
+[true, false].forEach((value) => {
   it(`accepts value '${value}'`, () => {
     const schema = { booleanField: boolean() };
-    const result = v(schema).validate({ booleanField: value });
+    const result = veto(schema).validate({ booleanField: value });
     expect(result).toStrictEqual({
       success: true,
       data: { booleanField: value },
