@@ -1,116 +1,45 @@
+import type { VRecordSchema } from '../record/record';
+
 import { z } from 'zod';
 
 /**
- * Base JSON Schema following JSON specification
- * @see https://zod.dev/?id=json-type
- * @see https://www.json.org/json-en.html
+ * Recursive type representing any valid JSON value.
  */
-const literalSchema = z.union([z.string(), z.number(), z.boolean(), z.null()]);
+export type JsonAll = string | number | boolean | null | JsonObject | JsonAll[];
 
 /**
- * Type representing JSON primitive values (string, number, boolean, null)
- */
-type Literal = z.infer<typeof literalSchema>;
-
-/**
- * Type representing a JSON object with string keys and any valid JSON value
- * Keys must be strings as per JSON specification
+ * Type representing a JSON object with string keys and JSON values.
  */
 export interface JsonObject {
   [key: string]: JsonAll;
 }
 
 /**
- * Recursive type representing any valid JSON value:
- * - Primitive values (string, number, boolean, null)
- * - Objects with string keys and JSON values
- * - Arrays of JSON values
- */
-export type JsonAll = Literal | JsonObject | JsonAll[];
-
-/**
- * Represents a single level of JSON schema validation
- * Can be either:
- * - A literal (string, number, boolean, null)
- * - An array containing any valid deep JSON schema
- * - An object with string keys and deep JSON schema values
- */
-type LevelJsonSchema =
-  | typeof literalSchema
-  | z.ZodArray<DeepJsonSchema>
-  | z.ZodRecord<z.ZodString, DeepJsonSchema>;
-
-/**
- * Represents a complete JSON schema that can validate nested structures
- * Extends LevelJsonSchema to include unions of schemas, allowing for
- * validation of deeply nested JSON structures
- */
-type DeepJsonSchema =
-  | LevelJsonSchema
-  | z.ZodUnion<
-      [
-        typeof literalSchema,
-        z.ZodArray<DeepJsonSchema>,
-        z.ZodRecord<z.ZodString, DeepJsonSchema>,
-      ]
-    >;
-
-/**
- * Creates a schema validator for nested JSON structures
- * @param levels - Maximum number of nesting levels to validate (default: 10)
- * @returns A veto schema that can validate JSON with the specified nesting depth
- *
- * @example
- * ```typescript
- * const schema = createDeepJsonSchema(3);
- * const validData = {
- *   a: [1, { b: [true, null] }],
- *   c: { d: "test" }
- * };
- * const result = schema.parse(validData);
- * ```
- */
-const createDeepJsonSchema = (levels: number) => {
-  let currentDeepSchema: DeepJsonSchema = literalSchema;
-
-  for (let i = 0; i < levels; i += 1) {
-    currentDeepSchema = z.union([
-      literalSchema,
-      z.array(currentDeepSchema),
-      z.record(z.string(), currentDeepSchema),
-    ]);
-  }
-
-  return currentDeepSchema;
-};
-
-/**
- * Creates a validator for any JSON value with specified nesting depth
- * @param levels - Maximum number of nesting levels to validate (default: 10)
+ * Creates a validator for any JSON value.
  * @returns veto schema for validating any JSON value
  *
  * @example
  * ```typescript
  * const validator = json();
  * const data = { foo: [1, "bar", { baz: true }] };
- * const result = validator(levels).parse(data);
+ * const result = validator.parse(data);
  * ```
  */
-export const json = (levels = 10) => {
-  return createDeepJsonSchema(levels);
+export const json = (): VJsonSchema => {
+  return z.json();
 };
 
 /**
  * Type representing the JSON validator function
  */
 export type VJson = typeof json;
+export type VJsonSchema = ReturnType<typeof z.json>;
 
 /**
  * Creates a validator specifically for JSON objects
  * Ensures the input is an object (not an array or primitive)
  * @see https://www.w3schools.com/js/js_json_objects.asp
  *
- * @param levels - Maximum number of nesting levels to validate (default: 10)
  * @returns veto schema for validating JSON objects
  *
  * @example
@@ -121,8 +50,8 @@ export type VJson = typeof json;
  * // Will fail for non-objects: arrays, primitives, etc.
  * ```
  */
-export const jsonObject = (levels = 10) => {
-  return z.record(z.string(), json(levels), {
+export const jsonObject = (): VJsonObjectSchema => {
+  return z.record(z.string(), json(), {
     error: (issue) => {
       if (issue.input === undefined) {
         return 'Field is required';
@@ -139,6 +68,7 @@ export const jsonObject = (levels = 10) => {
  * Type representing the JSON object validator function
  */
 export type VJsonObject = typeof jsonObject;
+export type VJsonObjectSchema = VRecordSchema<VJsonSchema>;
 
 /**
  * Transforms a JSON string into its parsed JavaScript value
@@ -158,9 +88,10 @@ export type VJsonObject = typeof jsonObject;
  * const user = userSchema.parse('{"name":"Alice"}');
  */
 export const stringToJSON = () => {
-  return z.string().transform((str, ctx): z.infer<ReturnType<typeof json>> => {
+  return z.string().transform((str, ctx): JsonAll => {
     try {
-      return JSON.parse(str);
+      const parsed: unknown = JSON.parse(str);
+      return parsed as JsonAll;
     } catch {
       ctx.addIssue({ code: 'custom', message: 'Invalid JSON' });
       return z.NEVER;

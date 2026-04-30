@@ -1,4 +1,6 @@
-import { expect, it } from 'vitest';
+import type { VRecordSchema } from './record';
+
+import { expect, expectTypeOf, it } from 'vitest';
 
 import veto, { record, string } from 'src';
 
@@ -12,6 +14,21 @@ const validInput = {
     key2: 'value2',
   },
 };
+
+it('exposes record schema typing', () => {
+  const typedRecord = record(string());
+
+  expectTypeOf(record).returns.toEqualTypeOf<
+    VRecordSchema<ReturnType<typeof string>>
+  >();
+  expectTypeOf(typedRecord).toEqualTypeOf<
+    VRecordSchema<ReturnType<typeof string>>
+  >();
+  expectTypeOf(typedRecord.parse({ key: 'value' })).toEqualTypeOf<
+    Record<string, string>
+  >();
+  expect(typedRecord.safeParse({ key: 'value' }).success).toBe(true);
+});
 
 it('accepts valid record with string values', () => {
   const result = veto(schema).validate(validInput);

@@ -1,4 +1,11 @@
-import { describe, expect, it } from 'vitest';
+import type {
+  JsonAll,
+  JsonObject,
+  VJsonObjectSchema,
+  VJsonSchema,
+} from './json';
+
+import { describe, expect, expectTypeOf, it } from 'vitest';
 
 import v, {
   boolean,
@@ -9,6 +16,25 @@ import v, {
   string,
   stringToJSON,
 } from 'src';
+
+it('exposes json schema typing', () => {
+  const jsonSchema = json();
+  const jsonObjSchema = jsonObject();
+  const parsedJson = jsonSchema.parse({
+    nested: ['value', 1, null, { ok: true }],
+  });
+  const parsedObject = jsonObjSchema.parse({ foo: 'bar' });
+
+  expectTypeOf(json).returns.toEqualTypeOf<VJsonSchema>();
+  expectTypeOf(json()).toEqualTypeOf<VJsonSchema>();
+  expectTypeOf(jsonObject).returns.toEqualTypeOf<VJsonObjectSchema>();
+  expectTypeOf(jsonObject()).toEqualTypeOf<VJsonObjectSchema>();
+  expectTypeOf(parsedJson).toEqualTypeOf<JsonAll>();
+  expectTypeOf(parsedObject).toEqualTypeOf<JsonObject>();
+  expect(jsonSchema.safeParse({ deep: { value: [1, 2, 3] } }).success).toBe(
+    true,
+  );
+});
 
 // Test data
 const literalsData = [
@@ -150,16 +176,16 @@ describe('json validator', () => {
     });
   });
 
-  describe('nesting levels', () => {
-    it('respects maximum nesting level parameter', () => {
+  describe('deep nesting', () => {
+    it('keeps accepting deeply nested values', () => {
       const deeplyNested = {
         l1: { l2: { l3: { l4: { l5: 'too deep' } } } },
       };
-      const schema = { jsonField: json(3) }; // Only 3 levels allowed
+      const schema = { jsonField: json() };
       const result = v(schema).validate({ jsonField: deeplyNested });
-      expect(result).toHaveProperty('success', false);
-      expect(result).toHaveProperty('data', null);
-      expect(result.errors).toBeTruthy();
+      expect(result).toHaveProperty('success', true);
+      expect(result).toHaveProperty('data.jsonField', deeplyNested);
+      expect(result).toHaveProperty('errors', null);
     });
   });
 });
@@ -224,16 +250,16 @@ describe('jsonObject validator', () => {
     });
   });
 
-  describe('nesting levels', () => {
-    it('respects maximum nesting level parameter', () => {
+  describe('deep nesting', () => {
+    it('keeps accepting deeply nested objects', () => {
       const deeplyNested = {
         l1: { l2: { l3: { l4: { l5: 'too deep' } } } },
       };
-      const schema = { jsonObjectField: jsonObject(3) }; // Only 3 levels allowed
+      const schema = { jsonObjectField: jsonObject() };
       const result = v(schema).validate({ jsonObjectField: deeplyNested });
-      expect(result).toHaveProperty('success', false);
-      expect(result).toHaveProperty('data', null);
-      expect(result.errors).toBeTruthy();
+      expect(result).toHaveProperty('success', true);
+      expect(result).toHaveProperty('data.jsonObjectField', deeplyNested);
+      expect(result).toHaveProperty('errors', null);
     });
   });
 });

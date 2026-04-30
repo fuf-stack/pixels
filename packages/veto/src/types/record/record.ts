@@ -1,5 +1,5 @@
 import type { VetoTypeAny } from 'src/types';
-import type { ZodRecord } from 'zod';
+import type { ZodRecord, ZodString } from 'zod';
 
 import { z } from 'zod';
 
@@ -13,9 +13,9 @@ import { z } from 'zod';
  */
 export const record = <T extends VetoTypeAny>(
   valueSchema: T,
-): VRecordSchema => {
+): VRecordSchema<T> => {
   return z.record(z.string(), valueSchema);
 };
 
 export type VRecord = typeof record;
-export type VRecordSchema = ZodRecord;
+export type VRecordSchema<T extends VetoTypeAny> = ZodRecord<ZodString, T>;
