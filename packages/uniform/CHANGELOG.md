@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.19.4](https://github.com/fuf-stack/pixels/compare/uniform-v1.19.3...uniform-v1.19.4) (2026-04-30)
+
+
+### Bug Fixes
+
+* **deps:** update dependency react-hook-form to v7.73.1 ([#1621](https://github.com/fuf-stack/pixels/issues/1621)) ([276e0fd](https://github.com/fuf-stack/pixels/commit/276e0fdaa7fc4a61603de11b5e2bafda961587b8))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @fuf-stack/veto bumped to 1.0.3
+
 ## [1.19.3](https://github.com/fuf-stack/pixels/compare/uniform-v1.19.2...uniform-v1.19.3) (2026-04-30)
 
 
