@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/fuf-stack/pixels/compare/veto-v1.0.0...veto-v1.0.1) (2026-04-29)
+
+
+### Bug Fixes
+
+* **veto:** add zod v4 string refinement type/runtime coverage ([b467a50](https://github.com/fuf-stack/pixels/commit/b467a501ab934e7e4b89dc66c83fd1744d00aa3b))
+
 ## [1.0.0](https://github.com/fuf-stack/pixels/compare/veto-v0.13.2...veto-v1.0.0) (2026-04-22)
 
 
