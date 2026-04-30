@@ -22,7 +22,7 @@ jobs:
     outputs:
       releases_created: ${{ steps.release.outputs.releases_created }}
     steps:
-      - uses: googleapis/release-please-action@v4
+      - uses: googleapis/release-please-action@v5
         id: release
         with:
           token: ${{ secrets.RELEASE_PLEASE_GITHUB_TOKEN }}
@@ -116,4 +116,4 @@ jobs:
       pull-requests: write
     if: needs.check-conflicting-prs.outputs.need_rebase == 'true'
     steps:
-      - uses: googleapis/release-please-action@v4
+      - uses: googleapis/release-please-action@v5
