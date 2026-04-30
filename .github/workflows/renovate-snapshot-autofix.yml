@@ -12,6 +12,10 @@ on:
       - labeled
       - synchronize
       - reopened
+  # Alternative request mode: comment `/autofix-snapshots` on a Renovate PR.
+  issue_comment:
+    types:
+      - created
   # Fallback manual trigger from Actions UI for a specific branch.
   workflow_dispatch:
     inputs:
@@ -36,21 +40,55 @@ jobs:
         # Run on Renovate PR events only when the opt-in label is present.
         (github.event_name == 'pull_request_target' &&
          contains(github.event.pull_request.labels.*.name, 'autofix:snapshots') &&
+         github.event.pull_request.head.repo.full_name == github.repository &&
          startsWith(github.event.pull_request.head.ref, 'renovate/')) ||
+        # Or run when a maintainer comments `/autofix-snapshots` on a PR.
+        (github.event_name == 'issue_comment' &&
+         github.event.issue.pull_request &&
+         contains(github.event.comment.body, '/autofix-snapshots')) ||
         # Or run when manually dispatched from Actions UI.
         github.event_name == 'workflow_dispatch'
       }}
 
     steps:
+      - name: Resolve PR head branch for issue comment trigger
+        id: pr-head
+        if: github.event_name == 'issue_comment'
+        uses: actions/github-script@v8
+        with:
+          script: |
+            const { owner, repo } = context.repo;
+            const issueNumber = context.payload.issue.number;
+            const { data: pr } = await github.rest.pulls.get({
+              owner,
+              repo,
+              pull_number: issueNumber,
+            });
+
+            if (!pr.head.ref.startsWith('renovate/')) {
+              core.setFailed(`PR head '${pr.head.ref}' is not a renovate branch.`);
+              return;
+            }
+            if (pr.head.repo.full_name !== `${owner}/${repo}`) {
+              core.setFailed(
+                `Refusing to push to external repo '${pr.head.repo.full_name}'.`,
+              );
+              return;
+            }
+
+            core.setOutput('ref', pr.head.ref);
+            core.setOutput('repository', pr.head.repo.full_name);
+
       - uses: actions/checkout@v6
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 0
           # For label-triggered runs, check out the Renovate PR head branch.
+          # For issue comments, resolve PR head via API first.
           # For manual runs, use the branch provided as workflow input.
-          ref: ${{ github.event_name == 'pull_request_target' && github.event.pull_request.head.ref || github.event.inputs.branch }}
+          ref: ${{ github.event_name == 'pull_request_target' && github.event.pull_request.head.ref || github.event_name == 'issue_comment' && steps.pr-head.outputs.ref || github.event.inputs.branch }}
           # For Renovate PRs this can point to a fork; for manual runs use current repo.
-          repository: ${{ github.event_name == 'pull_request_target' && github.event.pull_request.head.repo.full_name || github.repository }}
+          repository: ${{ github.event_name == 'pull_request_target' && github.event.pull_request.head.repo.full_name || github.event_name == 'issue_comment' && steps.pr-head.outputs.repository || github.repository }}
 
       - name: Setup project
         uses: ./.github/actions/setup-project
