@@ -54,7 +54,7 @@ jobs:
       - name: Resolve PR head branch for issue comment trigger
         id: pr-head
         if: github.event_name == 'issue_comment'
-        uses: actions/github-script@v8
+        uses: actions/github-script@v9
         with:
           script: |
             const { owner, repo } = context.repo;
