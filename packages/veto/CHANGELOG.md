@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.2](https://github.com/fuf-stack/pixels/compare/veto-v1.0.1...veto-v1.0.2) (2026-04-30)
+
+
+### Bug Fixes
+
+* **veto:** align json and record schema typing with zod v4 ([d19ef88](https://github.com/fuf-stack/pixels/commit/d19ef88ee2ecf30d5769b92fb0770718354ec294))
+* **veto:** expand type coverage for schema wrappers and refinements ([d04b123](https://github.com/fuf-stack/pixels/commit/d04b123f5cc12eb001745b03b7936848a98d24e8))
+
 ## [1.0.1](https://github.com/fuf-stack/pixels/compare/veto-v1.0.0...veto-v1.0.1) (2026-04-29)
 
 
