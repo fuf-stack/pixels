@@ -4,11 +4,14 @@
 name: renovate-snapshot-autofix
 
 on:
-  # Manual request from a PR: add label `autofix:snapshots`
-  # This keeps autofix explicit and avoids running on every Renovate push.
+  # Request-driven mode on Renovate PRs.
+  # We include synchronize/reopened so reruns happen automatically after updates
+  # when the label is still present.
   pull_request_target:
     types:
       - labeled
+      - synchronize
+      - reopened
   # Fallback manual trigger from Actions UI for a specific branch.
   workflow_dispatch:
     inputs:
@@ -30,11 +33,9 @@ jobs:
     timeout-minutes: 20
     if: >-
       ${{
-        # Run on PR label event only when:
-        # - label is exactly `autofix:snapshots`
-        # - source branch is a Renovate branch
+        # Run on Renovate PR events only when the opt-in label is present.
         (github.event_name == 'pull_request_target' &&
-         github.event.label.name == 'autofix:snapshots' &&
+         contains(github.event.pull_request.labels.*.name, 'autofix:snapshots') &&
          startsWith(github.event.pull_request.head.ref, 'renovate/')) ||
         # Or run when manually dispatched from Actions UI.
         github.event_name == 'workflow_dispatch'
