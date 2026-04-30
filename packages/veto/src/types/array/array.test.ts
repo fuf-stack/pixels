@@ -7,8 +7,9 @@ import veto, { array, string } from 'src';
 it('exposes array schema typing', () => {
   const arraySchema = array(string());
   const nonEmpty = arraySchema.nonempty();
+  const typedArraySchema: VArraySchema<ReturnType<typeof string>> = arraySchema;
 
-  expectTypeOf(arraySchema).toEqualTypeOf<
+  expectTypeOf(typedArraySchema).toEqualTypeOf<
     VArraySchema<ReturnType<typeof string>>
   >();
   expectTypeOf(arraySchema.parse(['a', 'b'])).toEqualTypeOf<string[]>();

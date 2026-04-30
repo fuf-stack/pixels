@@ -19,7 +19,8 @@ import { issueCodes } from '../../issueCodes';
  * const schema = array(string()).min(1);
  * schema.parse(['value']);
  */
-export const array: <T extends VetoTypeAny>(schema: T) => ZodArray<T> = z.array;
+export const array: <T extends VetoTypeAny>(schema: T) => VArraySchema<T> =
+  z.array;
 
 export type VArray = typeof array;
 export type VArraySchema<T extends VetoTypeAny> = ZodArray<T>;

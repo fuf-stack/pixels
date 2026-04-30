@@ -1,24 +1,40 @@
+import type { Input, Output, VetoTypeAny } from 'src/types';
+import type { ZodType } from 'zod';
+
 import { z } from 'zod';
 
-type ZodDiscriminatedUnionFactory = typeof z.discriminatedUnion;
-type ZodDiscriminatedUnionArgs = Parameters<ZodDiscriminatedUnionFactory>;
+interface VDiscriminatedUnionOptions {
+  error?: string | { message: string };
+  inclusive?: boolean;
+  message?: string;
+  unionFallback?: boolean;
+}
 
-export type VDiscriminatedUnionSchema =
-  ReturnType<ZodDiscriminatedUnionFactory>;
+type VDiscriminatedUnionMembers = readonly [VetoTypeAny, ...VetoTypeAny[]];
+
+export type VDiscriminatedUnionSchema<
+  TOptions extends VDiscriminatedUnionMembers = VDiscriminatedUnionMembers,
+> = ZodType<Output<TOptions[number]>, Input<TOptions[number]>>;
 
 /**
  * Creates a discriminated union schema.
  *
  * @example
  * const schema = discriminatedUnion('type', [
- *   z.object({ type: z.literal('a'), value: z.string() }),
- *   z.object({ type: z.literal('b'), count: z.number() }),
+ *   object({ type: literal('a'), value: string() }),
+ *   object({ type: literal('b'), count: number() }),
  * ]);
  */
-export const discriminatedUnion = (
-  ...args: ZodDiscriminatedUnionArgs
-): VDiscriminatedUnionSchema => {
-  return z.discriminatedUnion(...args);
+export const discriminatedUnion = <TOptions extends VDiscriminatedUnionMembers>(
+  discriminator: string,
+  options: TOptions,
+  params?: string | VDiscriminatedUnionOptions,
+): VDiscriminatedUnionSchema<TOptions> => {
+  return z.discriminatedUnion(
+    discriminator,
+    options as Parameters<typeof z.discriminatedUnion>[1],
+    params as Parameters<typeof z.discriminatedUnion>[2],
+  ) as VDiscriminatedUnionSchema<TOptions>;
 };
 
 export type VDiscriminatedUnion = typeof discriminatedUnion;

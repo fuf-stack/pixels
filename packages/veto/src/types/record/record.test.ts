@@ -17,11 +17,11 @@ const validInput = {
 
 it('exposes record schema typing', () => {
   const typedRecord = record(string());
+  const typedFactory: typeof record = record;
+  const typedSchema: VRecordSchema<ReturnType<typeof string>> = typedRecord;
 
-  expectTypeOf(record).returns.toEqualTypeOf<
-    VRecordSchema<ReturnType<typeof string>>
-  >();
-  expectTypeOf(typedRecord).toEqualTypeOf<
+  expectTypeOf(typedFactory).toEqualTypeOf<typeof record>();
+  expectTypeOf(typedSchema).toEqualTypeOf<
     VRecordSchema<ReturnType<typeof string>>
   >();
   expectTypeOf(typedRecord.parse({ key: 'value' })).toEqualTypeOf<
