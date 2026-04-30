@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.3](https://github.com/fuf-stack/pixels/compare/veto-v1.0.2...veto-v1.0.3) (2026-04-30)
+
+
+### Bug Fixes
+
+* **veto:** stabilize schema wrapper typings for discriminated unions and arrays ([0625643](https://github.com/fuf-stack/pixels/commit/0625643c6e3bb6d8028e728eb5150401736e2807))
+
 ## [1.0.2](https://github.com/fuf-stack/pixels/compare/veto-v1.0.1...veto-v1.0.2) (2026-04-30)
 
 
