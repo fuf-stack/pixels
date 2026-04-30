@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.4](https://github.com/fuf-stack/pixels/compare/veto-v1.0.3...veto-v1.0.4) (2026-04-30)
+
+
+### Bug Fixes
+
+* **veto:** add some docs ([301f2e8](https://github.com/fuf-stack/pixels/commit/301f2e84c0f5c663c1c4546b58c7deb0b08176e9))
+
 ## [1.0.3](https://github.com/fuf-stack/pixels/compare/veto-v1.0.2...veto-v1.0.3) (2026-04-30)
 
 
