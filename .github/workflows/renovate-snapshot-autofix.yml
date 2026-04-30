@@ -1,0 +1,119 @@
+# This workflow lets maintainers explicitly request snapshot autofixes on Renovate PRs.
+# It runs tests, updates snapshots only when failures are snapshot-related, and pushes
+# the snapshot commit back to the Renovate branch while blocking non-snapshot changes.
+name: renovate-snapshot-autofix
+
+on:
+  # Manual request from a PR: add label `autofix:snapshots`
+  # This keeps autofix explicit and avoids running on every Renovate push.
+  pull_request_target:
+    types:
+      - labeled
+  # Fallback manual trigger from Actions UI for a specific branch.
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: 'Renovate branch to update snapshots for (e.g. renovate/pkg-1.x)'
+        required: true
+        type: string
+
+permissions:
+  # Needed to push snapshot updates back to the Renovate branch.
+  contents: write
+  # Needed to read PR metadata (label + head branch).
+  pull-requests: read
+
+jobs:
+  autofix-snapshots:
+    name: Autofix Snapshot Updates
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    if: >-
+      ${{
+        # Run on PR label event only when:
+        # - label is exactly `autofix:snapshots`
+        # - source branch is a Renovate branch
+        (github.event_name == 'pull_request_target' &&
+         github.event.label.name == 'autofix:snapshots' &&
+         startsWith(github.event.pull_request.head.ref, 'renovate/')) ||
+        # Or run when manually dispatched from Actions UI.
+        github.event_name == 'workflow_dispatch'
+      }}
+
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+          # For label-triggered runs, check out the Renovate PR head branch.
+          # For manual runs, use the branch provided as workflow input.
+          ref: ${{ github.event_name == 'pull_request_target' && github.event.pull_request.head.ref || github.event.inputs.branch }}
+          # For Renovate PRs this can point to a fork; for manual runs use current repo.
+          repository: ${{ github.event_name == 'pull_request_target' && github.event.pull_request.head.repo.full_name || github.repository }}
+
+      - name: Setup project
+        uses: ./.github/actions/setup-project
+
+      - name: Run tests and detect snapshot-only failures
+        id: test-run
+        shell: bash
+        run: |
+          set +e
+          pnpm test 2>&1 | tee test-output.log
+          test_exit=$?
+          set -e
+
+          # Green run: no fix needed.
+          if [ "$test_exit" -eq 0 ]; then
+            echo "status=passed" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          # Only proceed when failure output indicates snapshot mismatch.
+          if rg -i "snapshot|snapshots|inline snapshot|to match snapshot" test-output.log >/dev/null; then
+            echo "status=snapshot_failure" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          # Non-snapshot failures should fail this job and require human action.
+          echo "status=non_snapshot_failure" >> "$GITHUB_OUTPUT"
+          exit 1
+
+      - name: Update snapshots
+        if: steps.test-run.outputs.status == 'snapshot_failure'
+        run: pnpm test -u
+
+      - name: Ensure only snapshot files changed
+        if: steps.test-run.outputs.status == 'snapshot_failure'
+        shell: bash
+        run: |
+          changed_files="$(git diff --name-only)"
+          # Nothing changed after update command -> nothing to commit.
+          if [ -z "$changed_files" ]; then
+            echo "No file changes after snapshot update."
+            exit 0
+          fi
+
+          # Safety gate: only allow known snapshot file patterns.
+          non_snapshot_files="$(printf '%s\n' "$changed_files" | rg -v '(^|/)__snapshots__/|\.snap$|(\.|/)(test|spec)\.(ts|tsx|js|jsx|mjs|cjs)$' || true)"
+          if [ -n "$non_snapshot_files" ]; then
+            echo "Found non-snapshot changes after update:"
+            printf '%s\n' "$non_snapshot_files"
+            exit 1
+          fi
+
+      - name: Commit and push snapshot updates
+        if: steps.test-run.outputs.status == 'snapshot_failure'
+        shell: bash
+        run: |
+          # Avoid empty commits if rerun has no diffs.
+          if git diff --quiet; then
+            echo "No snapshot updates to commit."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "test: update snapshots"
+          git push
