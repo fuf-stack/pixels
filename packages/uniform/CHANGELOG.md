@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.19.6](https://github.com/fuf-stack/pixels/compare/uniform-v1.19.5...uniform-v1.19.6) (2026-05-03)
+
+
+### Bug Fixes
+
+* **deps:** update dependency react-hook-form to v7.74.0 ([#1628](https://github.com/fuf-stack/pixels/issues/1628)) ([64dae71](https://github.com/fuf-stack/pixels/commit/64dae711425f66c69115c0efb38fa333aef93756))
+
 ## [1.19.5](https://github.com/fuf-stack/pixels/compare/uniform-v1.19.4...uniform-v1.19.5) (2026-04-30)
 
 
