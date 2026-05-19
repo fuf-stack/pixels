@@ -40,7 +40,7 @@ const fetchUser = (userId: string, delay = 1000): Promise<string> => {
     promiseCache.set(cacheKey, createDelayedPromise(`User ${userId}`, delay));
   }
   const promise = promiseCache.get(cacheKey);
-  if (!promise) {
+  if (promise === undefined) {
     throw new Error('Promise not found in cache');
   }
   return promise;
@@ -57,7 +57,7 @@ const fetchUserWithError = (userId: string, delay = 1000): Promise<string> => {
     );
   }
   const promise = promiseCache.get(cacheKey);
-  if (!promise) {
+  if (promise === undefined) {
     throw new Error('Promise not found in cache');
   }
   return promise;
@@ -235,11 +235,11 @@ export const WithCustomErrorFallback: Story = {
             <Button
               className="mt-2"
               color="warning"
-              size="sm"
-              type="button"
               onClick={() => {
                 window.location.reload();
               }}
+              size="sm"
+              type="button"
             >
               Retry
             </Button>
@@ -412,11 +412,11 @@ export const RealWorldExample: Story = {
             </details>
             <Button
               color="danger"
-              testId="error-retry-button"
-              type="button"
               onClick={() => {
                 window.location.reload();
               }}
+              testId="error-retry-button"
+              type="button"
             >
               Reload Page
             </Button>
