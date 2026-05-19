@@ -50,11 +50,5 @@
       matchPackageNames: ['framer-motion'],
       schedule: ['before 9am on monday'],
     },
-
-    // lock zod at version v3.24.3 to avoid type infer issues
-    {
-      matchPackageNames: ['zod'],
-      allowedVersions: '>=3.24.3',
-    },
   ],
 }
