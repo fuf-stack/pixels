@@ -30,7 +30,6 @@ publicHoistPattern:
   - '@tailwindcss/vite'
   - '@vitejs/plugin-react'
   - vite
-  - vite-tsconfig-paths
 
   # @fuf-stack/project-cli-tools
   - '@commitlint*'
@@ -49,5 +48,4 @@ publicHoistPattern:
 
   # @fuf-stack/vitest-config
   - '@vitest/coverage-v8'
-  - vite-tsconfig-paths
   - vitest*
