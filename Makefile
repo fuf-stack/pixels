@@ -11,13 +11,15 @@ install:
 	# setup pnpm
 	# see: https://pnpm.io/installation#on-posix-systems
 	pnpm --help > /dev/null 2>&1 || curl -fsSL https://get.pnpm.io/install.sh | sh -;
-	pnpm self-update $(shell grep '"packageManager": "pnpm@' package.json | sed 's/.*pnpm@\([^"]*\).*/\1/');
+	pnpm self-update $(shell grep packageManager package.json | cut -d'"' -f4 | cut -d'@' -f2);
+	# setup node version
+	# see: https://pnpm.io/cli/runtime
+	pnpm runtime set node --global `cat .nvmrc`;
 	# install node modules
-	pnpm env use --global `cat .nvmrc`;
 	pnpm install --ignore-scripts;
-	pnpm husky install;
-	# build packages
 	pnpm build;
+	# setup husky
+	pnpm husky;
 
 # Start Storybook development server (installs dependencies first)
 storybook:

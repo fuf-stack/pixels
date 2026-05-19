@@ -1,3 +1,48 @@
+# see: https://pnpm.io/next/npmrc#auto-install-peers
+autoInstallPeers: true
+
 packages:
   - 'packages/*'
   - 'packages/config/*'
+
+publicHoistPattern:
+  # @repo/storybook-config
+  - '@testing-library/*'
+  - '*storybook*'
+  - nyc
+  - playwright
+
+  # @repo/tailwind-config
+  - tailwindcss
+
+  # @repo/tsup-config
+  - tsup
+
+  # @repo/tsdown-config
+  - tsdown
+
+  # @repo/vite-config
+  - '@tailwindcss/vite'
+  - '@vitejs/plugin-react'
+  - vite
+  - vite-tsconfig-paths
+
+  # @fuf-stack/project-cli-tools
+  - '@commitlint*'
+  - '@lerna-lite*'
+  - commitizen
+  - cz-conventional-changelog
+  - husky
+  - lint-staged
+  - nodemon
+  - turbo
+  - wait-on
+
+  # @fuf-stack/eslint-config-fuf
+  - '*eslint*'
+  - '*prettier*'
+
+  # @fuf-stack/vitest-config
+  - '@vitest/coverage-v8'
+  - vite-tsconfig-paths
+  - vitest*
