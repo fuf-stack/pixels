@@ -17,9 +17,10 @@ install:
 	pnpm runtime set node --global `cat .nvmrc`;
 	# install node modules
 	pnpm install --ignore-scripts;
-	pnpm build;
 	# setup husky
 	pnpm husky;
+	# build all packages
+	pnpm build;
 
 # Start Storybook development server (installs dependencies first)
 storybook:
