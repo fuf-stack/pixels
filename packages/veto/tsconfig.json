@@ -2,9 +2,9 @@
   "$schema": "https://json.schemastore.org/tsconfig",
   "extends": "@fuf-stack/typescript-config/base.json",
   "compilerOptions": {
-    "baseUrl": ".",
     "composite": true,
     "paths": {
+      "src": ["./src/index.ts"],
       "src/*": ["./src/*"],
       "test/*": ["./test/*"]
     },

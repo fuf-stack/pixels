@@ -1,4 +1,9 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
-  "extends": "@fuf-stack/typescript-config/base.json"
+  "extends": "@fuf-stack/typescript-config/base.json",
+  "compilerOptions": {
+    "composite": true,
+    "tsBuildInfoFile": "node_modules/.cache/tsbuildinfo.json",
+    "types": ["node"]
+  }
 }
