@@ -1,4 +1,7 @@
 {
+  // validate with (see: https://docs.renovatebot.com/config-validation/):
+  // npx --yes --package renovate -- renovate-config-validator renovate.json5 --strict
+
   dependencyDashboardLabels: ['effort | ongoing', 'scope | dependencies'],
   dependencyDashboardOSVVulnerabilitySummary: 'all',
   extends: [
@@ -32,7 +35,7 @@
 
     // @fuf-stack packages: skip minimumReleaseAge (fuf packages)
     {
-      matchPackagePatterns: ['^@fuf-stack/'],
+      matchPackageNames: ['/^@fuf-stack/'],
       minimumReleaseAge: null,
     },
 
