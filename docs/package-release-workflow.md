@@ -44,9 +44,10 @@ If no release is created, the publish steps are skipped.
 
 To reduce supply chain risk in CI, publishing uses the workspace-pinned `@lerna-lite/cli` dependency via:
 
-- `pnpm exec lerna ...`
+- `./node_modules/.bin/lerna ...`
 
 We explicitly avoid `npx lerna ...` in release jobs, because `npx` may install packages at runtime and can execute install scripts from newly resolved artifacts.
+We also avoid `pnpm exec lerna ...` in this workflow to prevent dependency verification from triggering install behavior before execution.
 
 Pinning `@lerna-lite/cli` in root `devDependencies` gives us:
 

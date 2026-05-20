@@ -46,12 +46,12 @@ jobs:
           # Use npm publish via Lerna for trusted publishing support
           # pnpm doesn't support npm's trusted publishing (OIDC) yet, so we use npm directly
           # Lerna detects changed packages and publishes them using npm.
-          # We run the workspace-pinned binary via `pnpm exec` to avoid runtime installs.
+          # We run the installed workspace binary directly to avoid runtime installs.
           # Use 'next' dist-tag for prerelease branch, default (latest) for main
           if [ "${{ github.ref_name }}" = "next" ]; then
-            pnpm exec lerna publish from-package --yes --no-verify-access --dist-tag next
+            ./node_modules/.bin/lerna publish from-package --yes --no-verify-access --dist-tag next
           else
-            pnpm exec lerna publish from-package --yes --no-verify-access
+            ./node_modules/.bin/lerna publish from-package --yes --no-verify-access
           fi
         if: steps.release.outputs.releases_created == 'true'
         # Note: If you have private npm dependencies, you may need NODE_AUTH_TOKEN
