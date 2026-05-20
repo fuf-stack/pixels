@@ -75,7 +75,6 @@ export const AllSeparators: Story = {
               <Table
                 {...args}
                 ariaLabel={`Employee table with ${s} separator`}
-                // @ts-expect-error but it can.
                 separation={s}
               />
             </div>

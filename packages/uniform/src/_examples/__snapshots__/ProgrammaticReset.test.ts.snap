@@ -796,7 +796,7 @@ exports[`Story Snapshots > FieldArrayFlatWithInitialValues 1`] = `
                       data-slot="main-wrapper"
                     >
                       <div
-                        class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 h-10 min-h-10 rounded-small !duration-150 transition-colors motion-reduce:transition-none bg-content1 group-data-[focus=true]:border-focus is-filled"
+                        class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 group-data-[focus=true]:data-[hover=true]:border-default-foreground h-10 min-h-10 rounded-small !duration-150 transition-colors motion-reduce:transition-none bg-content1 group-data-[focus=true]:border-focus is-filled"
                         data-slot="input-wrapper"
                         style="cursor: text;"
                       >
@@ -816,7 +816,7 @@ exports[`Story Snapshots > FieldArrayFlatWithInitialValues 1`] = `
                             aria-label="Topping"
                             aria-labelledby="toppings_0 react-aria-«replaced-aria-id»"
                             autocomplete="off"
-                            class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small is-filled"
+                            class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text dark:autofill:[-webkit-text-fill-color:hsl(var(--heroui-foreground))] [&::-ms-reveal]:hidden text-small is-filled"
                             data-filled="true"
                             data-filled-within="true"
                             data-slot="input"
@@ -955,7 +955,7 @@ exports[`Story Snapshots > FieldArrayFlatWithoutInitialValues 1`] = `
                       data-slot="main-wrapper"
                     >
                       <div
-                        class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 h-10 min-h-10 rounded-small !duration-150 transition-colors motion-reduce:transition-none bg-content1 group-data-[focus=true]:border-focus"
+                        class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 group-data-[focus=true]:data-[hover=true]:border-default-foreground h-10 min-h-10 rounded-small !duration-150 transition-colors motion-reduce:transition-none bg-content1 group-data-[focus=true]:border-focus"
                         data-slot="input-wrapper"
                         style="cursor: text;"
                       >
@@ -975,7 +975,7 @@ exports[`Story Snapshots > FieldArrayFlatWithoutInitialValues 1`] = `
                             aria-label="Topping"
                             aria-labelledby="toppings_0 react-aria-«replaced-aria-id»"
                             autocomplete="off"
-                            class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small"
+                            class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text dark:autofill:[-webkit-text-fill-color:hsl(var(--heroui-foreground))] [&::-ms-reveal]:hidden text-small"
                             data-slot="input"
                             data-testid="toppings_0"
                             id="toppings_0"
@@ -1099,7 +1099,7 @@ exports[`Story Snapshots > FieldArrayWithInitialValues 1`] = `
                       data-slot="main-wrapper"
                     >
                       <div
-                        class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 h-10 min-h-10 rounded-small !duration-150 transition-colors motion-reduce:transition-none bg-content1 group-data-[focus=true]:border-focus is-filled"
+                        class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 group-data-[focus=true]:data-[hover=true]:border-default-foreground h-10 min-h-10 rounded-small !duration-150 transition-colors motion-reduce:transition-none bg-content1 group-data-[focus=true]:border-focus is-filled"
                         data-slot="input-wrapper"
                         style="cursor: text;"
                       >
@@ -1119,7 +1119,7 @@ exports[`Story Snapshots > FieldArrayWithInitialValues 1`] = `
                             aria-label="Guest Name"
                             aria-labelledby="guests_0_name react-aria-«replaced-aria-id»"
                             autocomplete="off"
-                            class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small is-filled"
+                            class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text dark:autofill:[-webkit-text-fill-color:hsl(var(--heroui-foreground))] [&::-ms-reveal]:hidden text-small is-filled"
                             data-filled="true"
                             data-filled-within="true"
                             data-slot="input"
@@ -1258,7 +1258,7 @@ exports[`Story Snapshots > FieldArrayWithoutInitialValues 1`] = `
                       data-slot="main-wrapper"
                     >
                       <div
-                        class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 h-10 min-h-10 rounded-small !duration-150 transition-colors motion-reduce:transition-none bg-content1 group-data-[focus=true]:border-focus"
+                        class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 group-data-[focus=true]:data-[hover=true]:border-default-foreground h-10 min-h-10 rounded-small !duration-150 transition-colors motion-reduce:transition-none bg-content1 group-data-[focus=true]:border-focus"
                         data-slot="input-wrapper"
                         style="cursor: text;"
                       >
@@ -1278,7 +1278,7 @@ exports[`Story Snapshots > FieldArrayWithoutInitialValues 1`] = `
                             aria-label="Guest Name"
                             aria-labelledby="guests_0_name react-aria-«replaced-aria-id»"
                             autocomplete="off"
-                            class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small"
+                            class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text dark:autofill:[-webkit-text-fill-color:hsl(var(--heroui-foreground))] [&::-ms-reveal]:hidden text-small"
                             data-slot="input"
                             data-testid="guests_0_name"
                             id="guests_0_name"
@@ -1378,7 +1378,7 @@ exports[`Story Snapshots > InputsWithInitialValues 1`] = `
                 data-slot="main-wrapper"
               >
                 <div
-                  class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 h-10 min-h-10 rounded-small !duration-150 transition-colors motion-reduce:transition-none bg-content1 group-data-[focus=true]:border-focus is-filled"
+                  class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 group-data-[focus=true]:data-[hover=true]:border-default-foreground h-10 min-h-10 rounded-small !duration-150 transition-colors motion-reduce:transition-none bg-content1 group-data-[focus=true]:border-focus is-filled"
                   data-slot="input-wrapper"
                   style="cursor: text;"
                 >
@@ -1398,7 +1398,7 @@ exports[`Story Snapshots > InputsWithInitialValues 1`] = `
                       aria-label="Username 👤"
                       aria-labelledby="username react-aria-«replaced-aria-id»"
                       autocomplete="off"
-                      class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small is-filled"
+                      class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text dark:autofill:[-webkit-text-fill-color:hsl(var(--heroui-foreground))] [&::-ms-reveal]:hidden text-small is-filled"
                       data-filled="true"
                       data-filled-within="true"
                       data-slot="input"
@@ -1434,7 +1434,7 @@ exports[`Story Snapshots > InputsWithInitialValues 1`] = `
                 Bio 📝
               </label>
               <div
-                class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 h-10 min-h-10 rounded-medium !h-auto !duration-150 transition-colors motion-reduce:transition-none py-2 bg-content1 group-data-[focus=true]:border-focus is-filled"
+                class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 group-data-[focus=true]:data-[hover=true]:border-default-foreground h-10 min-h-10 rounded-medium !h-auto !duration-150 transition-colors motion-reduce:transition-none py-2 bg-content1 group-data-[focus=true]:border-focus is-filled"
                 data-has-multiple-rows="true"
                 data-slot="input-wrapper"
                 style="cursor: text;"
@@ -1446,7 +1446,7 @@ exports[`Story Snapshots > InputsWithInitialValues 1`] = `
                   <textarea
                     aria-label="Bio 📝"
                     aria-labelledby="bio react-aria-«replaced-aria-id»"
-                    class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small resize-none data-[hide-scroll=true]:scrollbar-hide transition-height !duration-100 motion-reduce:transition-none is-filled pe-0"
+                    class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text dark:autofill:[-webkit-text-fill-color:hsl(var(--heroui-foreground))] [&::-ms-reveal]:hidden text-small resize-none data-[hide-scroll=true]:scrollbar-hide transition-height !duration-100 motion-reduce:transition-none is-filled pe-0"
                     data-filled="true"
                     data-filled-within="true"
                     data-hide-scroll="true"
@@ -1642,7 +1642,7 @@ exports[`Story Snapshots > InputsWithoutInitialValues 1`] = `
                 data-slot="main-wrapper"
               >
                 <div
-                  class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 h-10 min-h-10 rounded-small !duration-150 transition-colors motion-reduce:transition-none bg-content1 group-data-[focus=true]:border-focus"
+                  class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 group-data-[focus=true]:data-[hover=true]:border-default-foreground h-10 min-h-10 rounded-small !duration-150 transition-colors motion-reduce:transition-none bg-content1 group-data-[focus=true]:border-focus"
                   data-slot="input-wrapper"
                   style="cursor: text;"
                 >
@@ -1662,7 +1662,7 @@ exports[`Story Snapshots > InputsWithoutInitialValues 1`] = `
                       aria-label="Username 👤"
                       aria-labelledby="username react-aria-«replaced-aria-id»"
                       autocomplete="off"
-                      class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small"
+                      class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text dark:autofill:[-webkit-text-fill-color:hsl(var(--heroui-foreground))] [&::-ms-reveal]:hidden text-small"
                       data-slot="input"
                       data-testid="username"
                       id="username"
@@ -1695,7 +1695,7 @@ exports[`Story Snapshots > InputsWithoutInitialValues 1`] = `
                 Bio 📝
               </label>
               <div
-                class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 h-10 min-h-10 rounded-medium !h-auto !duration-150 transition-colors motion-reduce:transition-none py-2 bg-content1 group-data-[focus=true]:border-focus"
+                class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 group-data-[focus=true]:data-[hover=true]:border-default-foreground h-10 min-h-10 rounded-medium !h-auto !duration-150 transition-colors motion-reduce:transition-none py-2 bg-content1 group-data-[focus=true]:border-focus"
                 data-has-multiple-rows="true"
                 data-slot="input-wrapper"
                 style="cursor: text;"
@@ -1707,7 +1707,7 @@ exports[`Story Snapshots > InputsWithoutInitialValues 1`] = `
                   <textarea
                     aria-label="Bio 📝"
                     aria-labelledby="bio react-aria-«replaced-aria-id»"
-                    class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small resize-none data-[hide-scroll=true]:scrollbar-hide transition-height !duration-100 motion-reduce:transition-none pe-0"
+                    class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text dark:autofill:[-webkit-text-fill-color:hsl(var(--heroui-foreground))] [&::-ms-reveal]:hidden text-small resize-none data-[hide-scroll=true]:scrollbar-hide transition-height !duration-100 motion-reduce:transition-none pe-0"
                     data-hide-scroll="true"
                     data-slot="input"
                     data-testid="bio"
@@ -2209,12 +2209,16 @@ exports[`Story Snapshots > RadiosWithInitialValues 1`] = `
                 >
                   <div
                     aria-orientation="horizontal"
-                    class="flex p-1 h-fit gap-2 items-center flex-nowrap overflow-x-scroll scrollbar-hide bg-default-100 rounded-medium w-full"
+                    class="relative flex p-1 h-fit gap-2 items-center flex-nowrap overflow-x-scroll scrollbar-hide bg-default-100 rounded-medium w-full"
                     data-collection="react-aria-«replaced-aria-id»"
                     data-slot="tabList"
                     id="react-aria-«replaced-aria-id»"
                     role="tablist"
                   >
+                    <span
+                      class="absolute z-0 will-change-[transform,width,height] invisible data-[initialized=true]:visible data-[animated=true]:transition-[left,top,width,height] data-[animated=true]:duration-250 data-[animated=true]:ease-out rounded-small bg-background dark:bg-default shadow-small"
+                      data-slot="cursor"
+                    />
                     <button
                       aria-selected="true"
                       class="z-0 w-full px-3 py-1 flex group relative justify-center items-center cursor-pointer transition-opacity tap-highlight-transparent data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 h-8 text-small rounded-small data-[hover-unselected=true]:opacity-100"
@@ -2229,11 +2233,6 @@ exports[`Story Snapshots > RadiosWithInitialValues 1`] = `
                       tabindex="0"
                       type="button"
                     >
-                      <span
-                        class="absolute z-0 inset-0 rounded-small bg-background dark:bg-default shadow-small"
-                        data-slot="cursor"
-                        style="opacity: 1;"
-                      />
                       <div
                         class="relative z-10 whitespace-nowrap transition-colors group-data-[selected=true]:text-default-foreground text-foreground"
                         data-slot="tabContent"
@@ -2664,7 +2663,7 @@ exports[`Story Snapshots > RadiosWithoutInitialValues 1`] = `
                 >
                   <div
                     aria-orientation="horizontal"
-                    class="flex p-1 h-fit gap-2 items-center flex-nowrap overflow-x-scroll scrollbar-hide bg-default-100 rounded-medium w-full"
+                    class="relative flex p-1 h-fit gap-2 items-center flex-nowrap overflow-x-scroll scrollbar-hide bg-default-100 rounded-medium w-full"
                     data-collection="react-aria-«replaced-aria-id»"
                     data-slot="tabList"
                     id="react-aria-«replaced-aria-id»"
@@ -2848,6 +2847,7 @@ exports[`Story Snapshots > SelectWithInitialValues 1`] = `
                         aria-haspopup="true"
                         aria-invalid="false"
                         aria-label="Favorite Planet 🪐"
+                        aria-labelledby="react-aria-«replaced-aria-id»"
                         autocapitalize="none"
                         autocomplete="off"
                         autocorrect="off"
@@ -3022,6 +3022,7 @@ exports[`Story Snapshots > SelectWithInitialValues 1`] = `
                         aria-haspopup="true"
                         aria-invalid="false"
                         aria-label="Ice Cream Flavors 🍦"
+                        aria-labelledby="react-aria-«replaced-aria-id»"
                         autocapitalize="none"
                         autocomplete="off"
                         autocorrect="off"
@@ -3213,6 +3214,7 @@ exports[`Story Snapshots > SelectWithoutInitialValues 1`] = `
                         aria-haspopup="true"
                         aria-invalid="false"
                         aria-label="Favorite Planet 🪐"
+                        aria-labelledby="react-aria-«replaced-aria-id»"
                         autocapitalize="none"
                         autocomplete="off"
                         autocorrect="off"
@@ -3323,6 +3325,7 @@ exports[`Story Snapshots > SelectWithoutInitialValues 1`] = `
                         aria-haspopup="true"
                         aria-invalid="false"
                         aria-label="Ice Cream Flavors 🍦"
+                        aria-labelledby="react-aria-«replaced-aria-id»"
                         autocapitalize="none"
                         autocomplete="off"
                         autocorrect="off"

@@ -283,7 +283,7 @@ exports[`Story Snapshots > WithCustomStyles 1`] = `
                 data-slot="main-wrapper"
               >
                 <div
-                  class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs gap-3 h-8 min-h-8 !duration-150 motion-reduce:transition-none rounded-2xl px-4 transition-colors duration-500 bg-gradient-to-r from-fuchsia-100 via-rose-100 to-amber-100 dark:from-fuchsia-900 dark:via-rose-900 dark:to-amber-900 border-2 border-fuchsia-400 data-[hover=true]:border-amber-400 group-data-[focus=true]:border-amber-400 text-fuchsia-700 dark:text-fuchsia-300 is-filled"
+                  class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs gap-3 group-data-[focus=true]:data-[hover=true]:border-default-foreground h-8 min-h-8 !duration-150 motion-reduce:transition-none rounded-2xl px-4 transition-colors duration-500 bg-gradient-to-r from-fuchsia-100 via-rose-100 to-amber-100 dark:from-fuchsia-900 dark:via-rose-900 dark:to-amber-900 border-2 border-fuchsia-400 data-[hover=true]:border-amber-400 group-data-[focus=true]:border-amber-400 text-fuchsia-700 dark:text-fuchsia-300 is-filled"
                   data-slot="input-wrapper"
                   style="cursor: text;"
                 >
@@ -294,7 +294,7 @@ exports[`Story Snapshots > WithCustomStyles 1`] = `
                     <input
                       aria-label="Search with party vibes…"
                       autocomplete="off"
-                      class="w-full font-normal bg-transparent !outline-solid focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small peer pe-6 input-search-cancel-button-none placeholder:text-fuchsia-400/70 dark:placeholder:text-fuchsia-500/60 is-filled"
+                      class="w-full font-normal bg-transparent !outline-solid focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text dark:autofill:[-webkit-text-fill-color:hsl(var(--heroui-foreground))] [&::-ms-reveal]:hidden text-small peer pe-6 input-search-cancel-button-none placeholder:text-fuchsia-400/70 dark:placeholder:text-fuchsia-500/60 is-filled"
                       data-filled="true"
                       data-filled-within="true"
                       data-slot="input"
@@ -588,7 +588,7 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
                 data-slot="main-wrapper"
               >
                 <div
-                  class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 h-8 min-h-8 px-2 rounded-small !duration-150 transition-colors motion-reduce:transition-none bg-content1 group-data-[focus=true]:border-focus is-filled"
+                  class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 group-data-[focus=true]:data-[hover=true]:border-default-foreground h-8 min-h-8 px-2 rounded-small !duration-150 transition-colors motion-reduce:transition-none bg-content1 group-data-[focus=true]:border-focus is-filled"
                   data-slot="input-wrapper"
                   style="cursor: text;"
                 >
@@ -599,7 +599,7 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
                     <input
                       aria-label="Search something fun…"
                       autocomplete="off"
-                      class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small peer pe-6 input-search-cancel-button-none is-filled"
+                      class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text dark:autofill:[-webkit-text-fill-color:hsl(var(--heroui-foreground))] [&::-ms-reveal]:hidden text-small peer pe-6 input-search-cancel-button-none is-filled"
                       data-filled="true"
                       data-filled-within="true"
                       data-slot="input"
