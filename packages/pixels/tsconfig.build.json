@@ -3,7 +3,7 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "composite": false,
-    // Temporary TS6 shim for tsup DTS build:
+    // Temporary TS6 shim for declaration builds:
     // suppress TS5101 ("baseUrl" deprecation) raised by inherited/transitive config.
     // Remove when the upstream config chain no longer triggers TS5101.
     "ignoreDeprecations": "6.0"

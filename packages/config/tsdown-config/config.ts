@@ -4,11 +4,7 @@
 /**
  * Shared tsdown configuration for library packages.
  *
- * tsdown is powered by Rolldown (Rust-based bundler), making it faster than tsup (esbuild).
- *
- * Key differences from tsup:
- * - format: uses 'es' instead of 'esm' (both work in tsdown)
- * - exports: auto-generates package.json exports (replaces tsup's onSuccess hook)
+ * tsdown is powered by Rolldown (Rust-based bundler).
  *
  * @see https://tsdown.dev
  */
@@ -55,7 +51,7 @@ export const baseConfig: UserConfig = {
   outDir: 'dist',
 
   // Generate both ES modules (.js) and CommonJS (.cjs)
-  // Note: tsdown uses 'es' while tsup uses 'esm'
+  // Note: tsdown uses 'es' internally for ESM.
   format: ['esm', 'cjs'],
 
   // Customize output extensions to match expected package.json exports
@@ -78,7 +74,6 @@ export const baseConfig: UserConfig = {
   clean: true,
 
   // Auto-generate package.json exports field based on entry points
-  // This replaces tsup's manual onSuccess hook for updating exports
   // @see https://tsdown.dev/options/package-exports#auto-generating-package-exports
   exports: true,
 };
