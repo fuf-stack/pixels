@@ -82,3 +82,7 @@ pnpm --filter @fuf-stack/veto codemod:v1 --path /path/to/project --write
 
 - This migration intentionally does not modify `uniform` or other package code.
 - `checkSchemaPath` still exists, but it now traverses JSON Schema-shaped data.
+
+## See also
+
+- [tsdown bundling notes](./tsdown-bundling.md)
