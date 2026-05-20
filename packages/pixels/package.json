@@ -85,8 +85,8 @@
       "require": "./dist/Json/index.cjs"
     },
     "./Json.css": {
-      "import": "./dist/Json/index.css",
-      "require": "./dist/Json/index.css"
+      "import": "./dist/Json/theme.css",
+      "require": "./dist/Json/theme.css"
     },
     "./Label": {
       "types": "./dist/Label/index.d.ts",
@@ -175,7 +175,7 @@
     "url": "https://github.com/fuf-stack/pixels/issues"
   },
   "scripts": {
-    "build": "tsup --config node_modules/@repo/tsup-config/config.ts --dts-resolve",
+    "build": "tsdown",
     "prepack": "pnpm build",
     "test": "vitest ./src"
   },
@@ -186,9 +186,9 @@
   "dependencies": {
     "@fuf-stack/pixel-motion": "workspace:*",
     "@fuf-stack/pixel-utils": "workspace:*",
+    "@heroui/accordion": "2.2.29",
     "@heroui/alert": "2.2.32",
     "@heroui/avatar": "2.2.26",
-    "@heroui/accordion": "2.2.29",
     "@heroui/badge": "2.2.18",
     "@heroui/breadcrumbs": "2.2.25",
     "@heroui/button": "2.2.32",
@@ -204,8 +204,8 @@
     "@heroui/scroll-shadow": "2.3.19",
     "@heroui/system": "2.4.28",
     "@heroui/table": "2.2.32",
-    "@heroui/theme": "2.4.26",
     "@heroui/tabs": "2.2.29",
+    "@heroui/theme": "2.4.26",
     "@heroui/toast": "2.0.22",
     "@heroui/tooltip": "2.2.29",
     "framer-motion": "12.38.0",
@@ -214,6 +214,7 @@
     "sonner": "2.0.7"
   },
   "devDependencies": {
+    "@tsdown/css": "0.22.0",
     "@types/debug": "4.1.13",
     "@types/react": "19.2.14",
     "@types/react-dom": "19.2.3",
