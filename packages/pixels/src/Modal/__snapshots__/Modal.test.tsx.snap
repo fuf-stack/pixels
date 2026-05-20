@@ -137,7 +137,7 @@ exports[`Story Snapshots > CustomStyles 1`] = `
       class="z-50 backdrop-opacity-disabled w-screen h-screen fixed inset-0 bg-[#292f46]/50 backdrop-opacity-40"
     />
     <div
-      class="flex w-screen fixed inset-0 z-50 overflow-x-auto justify-center h-[--visual-viewport-height] items-center sm:items-center"
+      class="flex w-screen fixed inset-0 z-50 overflow-x-auto justify-center h-(--visual-viewport-height) items-center sm:items-center"
       data-slot="wrapper"
       style="--visual-viewport-height: 768px;"
     >
@@ -264,7 +264,7 @@ exports[`Story Snapshots > ScrollLongContent 1`] = `
       class="z-50 bg-overlay/50 backdrop-opacity-disabled w-screen h-screen fixed inset-0"
     />
     <div
-      class="flex w-screen fixed inset-0 z-50 overflow-x-auto justify-center h-[--visual-viewport-height] items-center sm:items-center"
+      class="flex w-screen fixed inset-0 z-50 overflow-x-auto justify-center h-(--visual-viewport-height) items-center sm:items-center"
       data-slot="wrapper"
       style="--visual-viewport-height: 768px;"
     >
@@ -497,7 +497,7 @@ exports[`Story Snapshots > WithScrollShadow 1`] = `
       class="z-50 bg-overlay/50 backdrop-opacity-disabled w-screen h-screen fixed inset-0"
     />
     <div
-      class="flex w-screen fixed inset-0 z-50 overflow-x-auto justify-center h-[--visual-viewport-height] items-center sm:items-center"
+      class="flex w-screen fixed inset-0 z-50 overflow-x-auto justify-center h-(--visual-viewport-height) items-center sm:items-center"
       data-slot="wrapper"
       style="--visual-viewport-height: 768px;"
     >
