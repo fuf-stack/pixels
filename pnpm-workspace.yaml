@@ -49,3 +49,11 @@ publicHoistPattern:
   # @fuf-stack/vitest-config
   - '@vitest/coverage-v8'
   - vitest*
+
+# Force a single workspace-wide version when transitive dependencies diverge.
+# Renovate should update these pins automatically.
+# Repo docs: ./docs/pnpm-overrides.md
+# Docs: https://pnpm.io/settings#overrides
+overrides:
+  tailwind-merge: 3.6.0
+  tailwind-variants: 3.2.2

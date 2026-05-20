@@ -23,7 +23,7 @@ exports[`Story Snapshots > AllSizes 1`] = `
           data-slot="main-wrapper"
         >
           <div
-            class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 h-8 min-h-8 px-2 rounded-small !duration-150 transition-colors motion-reduce:transition-none bg-content1 group-data-[focus=true]:border-focus"
+            class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 group-data-[focus=true]:data-[hover=true]:border-default-foreground h-8 min-h-8 px-2 rounded-small !duration-150 transition-colors motion-reduce:transition-none bg-content1 group-data-[focus=true]:border-focus"
             data-slot="input-wrapper"
             style="cursor: text;"
           >
@@ -34,7 +34,7 @@ exports[`Story Snapshots > AllSizes 1`] = `
               <input
                 aria-label="sm"
                 autocomplete="off"
-                class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small"
+                class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text dark:autofill:[-webkit-text-fill-color:hsl(var(--heroui-foreground))] [&::-ms-reveal]:hidden text-small"
                 data-slot="input"
                 data-testid="sm"
                 id="sm"
@@ -62,7 +62,7 @@ exports[`Story Snapshots > AllSizes 1`] = `
           data-slot="main-wrapper"
         >
           <div
-            class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 h-10 min-h-10 rounded-small !duration-150 transition-colors motion-reduce:transition-none bg-content1 group-data-[focus=true]:border-focus"
+            class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 group-data-[focus=true]:data-[hover=true]:border-default-foreground h-10 min-h-10 rounded-small !duration-150 transition-colors motion-reduce:transition-none bg-content1 group-data-[focus=true]:border-focus"
             data-slot="input-wrapper"
             style="cursor: text;"
           >
@@ -73,7 +73,7 @@ exports[`Story Snapshots > AllSizes 1`] = `
               <input
                 aria-label="md"
                 autocomplete="off"
-                class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small"
+                class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text dark:autofill:[-webkit-text-fill-color:hsl(var(--heroui-foreground))] [&::-ms-reveal]:hidden text-small"
                 data-slot="input"
                 data-testid="md"
                 id="md"
@@ -101,7 +101,7 @@ exports[`Story Snapshots > AllSizes 1`] = `
           data-slot="main-wrapper"
         >
           <div
-            class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 h-12 min-h-12 rounded-small !duration-150 transition-colors motion-reduce:transition-none bg-content1 group-data-[focus=true]:border-focus"
+            class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 group-data-[focus=true]:data-[hover=true]:border-default-foreground h-12 min-h-12 rounded-small !duration-150 transition-colors motion-reduce:transition-none bg-content1 group-data-[focus=true]:border-focus"
             data-slot="input-wrapper"
             style="cursor: text;"
           >
@@ -112,7 +112,7 @@ exports[`Story Snapshots > AllSizes 1`] = `
               <input
                 aria-label="lg"
                 autocomplete="off"
-                class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-medium"
+                class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text dark:autofill:[-webkit-text-fill-color:hsl(var(--heroui-foreground))] [&::-ms-reveal]:hidden text-medium"
                 data-slot="input"
                 data-testid="lg"
                 id="lg"
@@ -173,7 +173,7 @@ exports[`Story Snapshots > Clearable 1`] = `
           data-slot="main-wrapper"
         >
           <div
-            class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 h-10 min-h-10 rounded-small !duration-150 transition-colors motion-reduce:transition-none bg-content1 group-data-[focus=true]:border-focus is-filled"
+            class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 group-data-[focus=true]:data-[hover=true]:border-default-foreground h-10 min-h-10 rounded-small !duration-150 transition-colors motion-reduce:transition-none bg-content1 group-data-[focus=true]:border-focus is-filled"
             data-focus="true"
             data-hover="true"
             data-slot="input-wrapper"
@@ -186,7 +186,7 @@ exports[`Story Snapshots > Clearable 1`] = `
               <input
                 aria-label="inputField"
                 autocomplete="off"
-                class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small peer pe-6 input-search-cancel-button-none is-filled"
+                class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text dark:autofill:[-webkit-text-fill-color:hsl(var(--heroui-foreground))] [&::-ms-reveal]:hidden text-small peer pe-6 input-search-cancel-button-none is-filled"
                 data-filled="true"
                 data-filled-within="true"
                 data-slot="input"
@@ -268,7 +268,7 @@ exports[`Story Snapshots > CustomStyles 1`] = `
           data-slot="main-wrapper"
         >
           <div
-            class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs gap-3 h-10 min-h-10 !duration-150 motion-reduce:transition-none rounded-2xl px-4 transition-colors duration-500 bg-gradient-to-r from-fuchsia-100 via-rose-100 to-amber-100 dark:from-fuchsia-900 dark:via-rose-900 dark:to-amber-900 data-[hover=true]:bg-gradient-to-r data-[hover=true]:from-emerald-50 data-[hover=true]:via-teal-50 data-[hover=true]:to-lime-50 dark:data-[hover=true]:from-emerald-900 dark:data-[hover=true]:via-teal-900 dark:data-[hover=true]:to-lime-900 border-2 border-fuchsia-400 data-[hover=true]:border-emerald-400 group-data-[focus=true]:border-amber-400 text-fuchsia-700 group-hover:text-emerald-500 dark:text-fuchsia-300 is-filled"
+            class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs gap-3 group-data-[focus=true]:data-[hover=true]:border-default-foreground h-10 min-h-10 !duration-150 motion-reduce:transition-none rounded-2xl px-4 transition-colors duration-500 bg-gradient-to-r from-fuchsia-100 via-rose-100 to-amber-100 dark:from-fuchsia-900 dark:via-rose-900 dark:to-amber-900 data-[hover=true]:bg-gradient-to-r data-[hover=true]:from-emerald-50 data-[hover=true]:via-teal-50 data-[hover=true]:to-lime-50 dark:data-[hover=true]:from-emerald-900 dark:data-[hover=true]:via-teal-900 dark:data-[hover=true]:to-lime-900 border-2 border-fuchsia-400 data-[hover=true]:border-emerald-400 group-data-[focus=true]:border-amber-400 text-fuchsia-700 group-hover:text-emerald-500 dark:text-fuchsia-300 is-filled"
             data-slot="input-wrapper"
             style="cursor: text;"
           >
@@ -279,7 +279,7 @@ exports[`Story Snapshots > CustomStyles 1`] = `
               <input
                 aria-label="Search with party vibes..."
                 autocomplete="off"
-                class="w-full font-normal bg-transparent !outline-solid focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small peer pe-6 input-search-cancel-button-none placeholder:text-fuchsia-400/70 dark:placeholder:text-fuchsia-500/60 is-filled"
+                class="w-full font-normal bg-transparent !outline-solid focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text dark:autofill:[-webkit-text-fill-color:hsl(var(--heroui-foreground))] [&::-ms-reveal]:hidden text-small peer pe-6 input-search-cancel-button-none placeholder:text-fuchsia-400/70 dark:placeholder:text-fuchsia-500/60 is-filled"
                 data-filled="true"
                 data-filled-within="true"
                 data-slot="input"
@@ -360,7 +360,7 @@ exports[`Story Snapshots > Default 1`] = `
           data-slot="main-wrapper"
         >
           <div
-            class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 h-10 min-h-10 rounded-small !duration-150 transition-colors motion-reduce:transition-none bg-content1 group-data-[focus=true]:border-focus"
+            class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 group-data-[focus=true]:data-[hover=true]:border-default-foreground h-10 min-h-10 rounded-small !duration-150 transition-colors motion-reduce:transition-none bg-content1 group-data-[focus=true]:border-focus"
             data-slot="input-wrapper"
             style="cursor: text;"
           >
@@ -371,7 +371,7 @@ exports[`Story Snapshots > Default 1`] = `
               <input
                 aria-label="inputField"
                 autocomplete="off"
-                class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small"
+                class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text dark:autofill:[-webkit-text-fill-color:hsl(var(--heroui-foreground))] [&::-ms-reveal]:hidden text-small"
                 data-slot="input"
                 data-testid="inputfield"
                 id="inputfield"
@@ -430,7 +430,7 @@ exports[`Story Snapshots > Disabled 1`] = `
           data-slot="main-wrapper"
         >
           <div
-            class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 h-10 min-h-10 rounded-small pointer-events-none !duration-150 transition-colors motion-reduce:transition-none bg-content1 group-data-[focus=true]:border-focus"
+            class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 group-data-[focus=true]:data-[hover=true]:border-default-foreground h-10 min-h-10 rounded-small pointer-events-none !duration-150 transition-colors motion-reduce:transition-none bg-content1 group-data-[focus=true]:border-focus"
             data-slot="input-wrapper"
             style="cursor: text;"
           >
@@ -450,7 +450,7 @@ exports[`Story Snapshots > Disabled 1`] = `
                 aria-label="Input Field"
                 aria-labelledby="inputfield react-aria-«replaced-aria-id»"
                 autocomplete="off"
-                class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small"
+                class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text dark:autofill:[-webkit-text-fill-color:hsl(var(--heroui-foreground))] [&::-ms-reveal]:hidden text-small"
                 data-slot="input"
                 data-testid="inputfield"
                 disabled=""
@@ -510,7 +510,7 @@ exports[`Story Snapshots > Invalid 1`] = `
           data-slot="main-wrapper"
         >
           <div
-            class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 h-10 min-h-10 rounded-small !duration-150 transition-colors motion-reduce:transition-none !border-danger group-data-[focus=true]:!border-danger bg-content1 group-data-[focus=true]:border-focus is-filled"
+            class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 group-data-[focus=true]:data-[hover=true]:border-default-foreground h-10 min-h-10 rounded-small !duration-150 transition-colors motion-reduce:transition-none !border-danger group-data-[focus=true]:!border-danger bg-content1 group-data-[focus=true]:border-focus is-filled"
             data-hover="true"
             data-slot="input-wrapper"
             style="cursor: text;"
@@ -533,7 +533,7 @@ exports[`Story Snapshots > Invalid 1`] = `
                 aria-label="InvalidField"
                 aria-labelledby="inputfield react-aria-«replaced-aria-id»"
                 autocomplete="off"
-                class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small !placeholder:text-danger !text-danger is-filled"
+                class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text dark:autofill:[-webkit-text-fill-color:hsl(var(--heroui-foreground))] [&::-ms-reveal]:hidden text-small !placeholder:text-danger !text-danger is-filled"
                 data-filled="true"
                 data-filled-within="true"
                 data-slot="input"
@@ -641,7 +641,7 @@ exports[`Story Snapshots > Number 1`] = `
             data-slot="main-wrapper"
           >
             <div
-              class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-sm px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 h-10 min-h-10 rounded-small !duration-150 transition-colors motion-reduce:transition-none bg-content1 group-data-[focus=true]:border-focus is-filled"
+              class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-sm px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 group-data-[focus=true]:data-[hover=true]:border-default-foreground h-10 min-h-10 rounded-small !duration-150 transition-colors motion-reduce:transition-none bg-content1 group-data-[focus=true]:border-focus is-filled"
               data-hover="true"
               data-slot="input-wrapper"
               style="cursor: text;"
@@ -666,7 +666,7 @@ exports[`Story Snapshots > Number 1`] = `
                   aria-roledescription="Number field"
                   autocomplete="off"
                   autocorrect="off"
-                  class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 autofill:bg-transparent bg-clip-text text-small is-filled"
+                  class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 autofill:bg-transparent bg-clip-text dark:autofill:[-webkit-text-fill-color:hsl(var(--heroui-foreground))] text-small is-filled"
                   data-filled="true"
                   data-slot="input"
                   data-testid="numberfield"
@@ -693,7 +693,7 @@ exports[`Story Snapshots > Number 1`] = `
                   <button
                     aria-controls="numberfield"
                     aria-label="Increase Number Field"
-                    class="z-0 group relative box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small gap-2 rounded-medium px-0 !gap-0 motion-reduce:transition-none text-default-foreground data-[hover=true]:opacity-hover bg-transparent flex justify-center items-center before:absolute before:w-8 before:h-8 before:rounded-full after:shadow-small after:bg-background data-[focused=true]:z-10 overflow-visible transition-opacity data-[hover=true]:opacity-70 data-[pressed=true]:opacity-disabled min-w-3 w-3 h-3"
+                    class="z-0 group relative box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small gap-2 rounded-medium px-0 !gap-0 motion-reduce:transition-none text-default-foreground data-[hover=true]:opacity-hover bg-transparent flex justify-center items-center before:absolute before:w-8 before:rounded-full after:shadow-small after:bg-background data-[focused=true]:z-10 overflow-visible transition-opacity data-[hover=true]:opacity-70 data-[pressed=true]:opacity-disabled min-w-3 w-3 h-3 before:h-4"
                     data-react-aria-pressable="true"
                     data-slot="increase-button"
                     tabindex="-1"
@@ -720,7 +720,7 @@ exports[`Story Snapshots > Number 1`] = `
                   <button
                     aria-controls="numberfield"
                     aria-label="Decrease Number Field"
-                    class="z-0 group relative box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small gap-2 rounded-medium px-0 !gap-0 motion-reduce:transition-none text-default-foreground data-[hover=true]:opacity-hover bg-transparent flex justify-center items-center before:absolute before:w-8 before:h-8 before:rounded-full after:shadow-small after:bg-background data-[focused=true]:z-10 overflow-visible transition-opacity data-[hover=true]:opacity-70 data-[pressed=true]:opacity-disabled min-w-3 w-3 h-3"
+                    class="z-0 group relative box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small gap-2 rounded-medium px-0 !gap-0 motion-reduce:transition-none text-default-foreground data-[hover=true]:opacity-hover bg-transparent flex justify-center items-center before:absolute before:w-8 before:rounded-full after:shadow-small after:bg-background data-[focused=true]:z-10 overflow-visible transition-opacity data-[hover=true]:opacity-70 data-[pressed=true]:opacity-disabled min-w-3 w-3 h-3 before:h-4"
                     data-react-aria-pressable="true"
                     data-slot="decrease-button"
                     tabindex="-1"
@@ -797,7 +797,7 @@ exports[`Story Snapshots > Password 1`] = `
           data-slot="main-wrapper"
         >
           <div
-            class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 h-10 min-h-10 rounded-small !duration-150 transition-colors motion-reduce:transition-none !border-danger group-data-[focus=true]:!border-danger bg-content1 group-data-[focus=true]:border-focus is-filled"
+            class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 group-data-[focus=true]:data-[hover=true]:border-default-foreground h-10 min-h-10 rounded-small !duration-150 transition-colors motion-reduce:transition-none !border-danger group-data-[focus=true]:!border-danger bg-content1 group-data-[focus=true]:border-focus is-filled"
             data-hover="true"
             data-slot="input-wrapper"
             style="cursor: text;"
@@ -820,7 +820,7 @@ exports[`Story Snapshots > Password 1`] = `
                 aria-label="Password Field"
                 aria-labelledby="passwordfield react-aria-«replaced-aria-id»"
                 autocomplete="off"
-                class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small !placeholder:text-danger !text-danger is-filled [&::-ms-reveal]:hidden"
+                class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text dark:autofill:[-webkit-text-fill-color:hsl(var(--heroui-foreground))] text-small !placeholder:text-danger !text-danger is-filled [&::-ms-reveal]:hidden"
                 data-filled="true"
                 data-filled-within="true"
                 data-slot="input"
@@ -908,7 +908,7 @@ exports[`Story Snapshots > Required 1`] = `
           data-slot="main-wrapper"
         >
           <div
-            class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 h-10 min-h-10 rounded-small !duration-150 transition-colors motion-reduce:transition-none bg-content1 group-data-[focus=true]:border-focus"
+            class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 group-data-[focus=true]:data-[hover=true]:border-default-foreground h-10 min-h-10 rounded-small !duration-150 transition-colors motion-reduce:transition-none bg-content1 group-data-[focus=true]:border-focus"
             data-slot="input-wrapper"
             style="cursor: text;"
           >
@@ -928,7 +928,7 @@ exports[`Story Snapshots > Required 1`] = `
                 aria-label="Input Field"
                 aria-labelledby="inputfield react-aria-«replaced-aria-id»"
                 autocomplete="off"
-                class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small"
+                class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text dark:autofill:[-webkit-text-fill-color:hsl(var(--heroui-foreground))] [&::-ms-reveal]:hidden text-small"
                 data-slot="input"
                 data-testid="inputfield"
                 id="inputfield"
@@ -990,7 +990,7 @@ exports[`Story Snapshots > ValidationAfterClear 1`] = `
           data-slot="main-wrapper"
         >
           <div
-            class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 h-10 min-h-10 rounded-small !duration-150 transition-colors motion-reduce:transition-none !border-danger group-data-[focus=true]:!border-danger bg-content1 group-data-[focus=true]:border-focus"
+            class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 group-data-[focus=true]:data-[hover=true]:border-default-foreground h-10 min-h-10 rounded-small !duration-150 transition-colors motion-reduce:transition-none !border-danger group-data-[focus=true]:!border-danger bg-content1 group-data-[focus=true]:border-focus"
             data-hover="true"
             data-slot="input-wrapper"
             style="cursor: text;"
@@ -1013,7 +1013,7 @@ exports[`Story Snapshots > ValidationAfterClear 1`] = `
                 aria-label="Required Cleared Field"
                 aria-labelledby="inputfield react-aria-«replaced-aria-id»"
                 autocomplete="off"
-                class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small !placeholder:text-danger !text-danger"
+                class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text dark:autofill:[-webkit-text-fill-color:hsl(var(--heroui-foreground))] [&::-ms-reveal]:hidden text-small !placeholder:text-danger !text-danger"
                 data-slot="input"
                 data-testid="inputfield"
                 id="inputfield"
@@ -1097,7 +1097,7 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
           data-slot="main-wrapper"
         >
           <div
-            class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 h-10 min-h-10 rounded-small !duration-150 transition-colors motion-reduce:transition-none bg-content1 group-data-[focus=true]:border-focus is-filled"
+            class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 group-data-[focus=true]:data-[hover=true]:border-default-foreground h-10 min-h-10 rounded-small !duration-150 transition-colors motion-reduce:transition-none bg-content1 group-data-[focus=true]:border-focus is-filled"
             data-slot="input-wrapper"
             style="cursor: text;"
           >
@@ -1108,7 +1108,7 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
               <input
                 aria-label="inputField"
                 autocomplete="off"
-                class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small is-filled"
+                class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text dark:autofill:[-webkit-text-fill-color:hsl(var(--heroui-foreground))] [&::-ms-reveal]:hidden text-small is-filled"
                 data-filled="true"
                 data-filled-within="true"
                 data-slot="input"
@@ -1168,7 +1168,7 @@ exports[`Story Snapshots > WithLabel 1`] = `
           data-slot="main-wrapper"
         >
           <div
-            class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 h-10 min-h-10 rounded-small !duration-150 transition-colors motion-reduce:transition-none bg-content1 group-data-[focus=true]:border-focus"
+            class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 group-data-[focus=true]:data-[hover=true]:border-default-foreground h-10 min-h-10 rounded-small !duration-150 transition-colors motion-reduce:transition-none bg-content1 group-data-[focus=true]:border-focus"
             data-slot="input-wrapper"
             style="cursor: text;"
           >
@@ -1188,7 +1188,7 @@ exports[`Story Snapshots > WithLabel 1`] = `
                 aria-label="Some Label"
                 aria-labelledby="inputfield react-aria-«replaced-aria-id»"
                 autocomplete="off"
-                class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small"
+                class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text dark:autofill:[-webkit-text-fill-color:hsl(var(--heroui-foreground))] [&::-ms-reveal]:hidden text-small"
                 data-slot="input"
                 data-testid="inputfield"
                 id="inputfield"
@@ -1245,7 +1245,7 @@ exports[`Story Snapshots > WithSelect 1`] = `
           data-slot="main-wrapper"
         >
           <div
-            class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 h-10 min-h-10 rounded-small !duration-150 transition-colors motion-reduce:transition-none bg-content1 group-data-[focus=true]:border-focus"
+            class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 group-data-[focus=true]:data-[hover=true]:border-default-foreground h-10 min-h-10 rounded-small !duration-150 transition-colors motion-reduce:transition-none bg-content1 group-data-[focus=true]:border-focus"
             data-slot="input-wrapper"
             style="cursor: text;"
           >
@@ -1261,7 +1261,7 @@ exports[`Story Snapshots > WithSelect 1`] = `
               <input
                 aria-label="inputField"
                 autocomplete="off"
-                class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small"
+                class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text dark:autofill:[-webkit-text-fill-color:hsl(var(--heroui-foreground))] [&::-ms-reveal]:hidden text-small"
                 data-has-end-content="true"
                 data-has-start-content="true"
                 data-slot="input"
@@ -1337,7 +1337,7 @@ exports[`Story Snapshots > WithTransformComplexObject 1`] = `
           data-slot="main-wrapper"
         >
           <div
-            class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 h-10 min-h-10 rounded-small !duration-150 transition-colors motion-reduce:transition-none bg-content1 group-data-[focus=true]:border-focus is-filled"
+            class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 group-data-[focus=true]:data-[hover=true]:border-default-foreground h-10 min-h-10 rounded-small !duration-150 transition-colors motion-reduce:transition-none bg-content1 group-data-[focus=true]:border-focus is-filled"
             data-slot="input-wrapper"
             style="cursor: text;"
           >
@@ -1356,7 +1356,7 @@ exports[`Story Snapshots > WithTransformComplexObject 1`] = `
               <input
                 aria-labelledby="react-aria-«replaced-aria-id»"
                 autocomplete="off"
-                class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small is-filled"
+                class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text dark:autofill:[-webkit-text-fill-color:hsl(var(--heroui-foreground))] [&::-ms-reveal]:hidden text-small is-filled"
                 data-filled="true"
                 data-filled-within="true"
                 data-slot="input"
@@ -1417,7 +1417,7 @@ exports[`Story Snapshots > WithValueTransform 1`] = `
           data-slot="main-wrapper"
         >
           <div
-            class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 h-10 min-h-10 rounded-small !duration-150 transition-colors motion-reduce:transition-none bg-content1 group-data-[focus=true]:border-focus is-filled"
+            class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 group-data-[focus=true]:data-[hover=true]:border-default-foreground h-10 min-h-10 rounded-small !duration-150 transition-colors motion-reduce:transition-none bg-content1 group-data-[focus=true]:border-focus is-filled"
             data-slot="input-wrapper"
             style="cursor: text;"
           >
@@ -1436,7 +1436,7 @@ exports[`Story Snapshots > WithValueTransform 1`] = `
               <input
                 aria-labelledby="react-aria-«replaced-aria-id»"
                 autocomplete="off"
-                class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small is-filled"
+                class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text dark:autofill:[-webkit-text-fill-color:hsl(var(--heroui-foreground))] [&::-ms-reveal]:hidden text-small is-filled"
                 data-filled="true"
                 data-filled-within="true"
                 data-has-end-content="true"
