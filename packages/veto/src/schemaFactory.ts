@@ -34,11 +34,16 @@ export type VSchemaFactoryWithArgs<
  * Extracts the inferred output type from a schema factory created with
  * {@link schemaFactory}. Reads the `__vetoOutput` phantom metadata directly,
  * so inference contains no Zod internals.
+ *
+ * Requires the input type to actually declare `__vetoOutput` as a key. Without
+ * this guard, the optional `__vetoOutput?` field is structurally satisfiable
+ * by any type, which would cause `vInferFactory<string>` and similar non-
+ * factory inputs to silently resolve to `unknown` instead of `never`.
  */
-export type vInferFactory<TFactory> = TFactory extends {
-  readonly __vetoOutput?: infer TOutput;
-}
-  ? TOutput
+export type vInferFactory<TFactory> = '__vetoOutput' extends keyof TFactory
+  ? TFactory extends { readonly __vetoOutput?: infer TOutput }
+    ? TOutput
+    : never
   : never;
 
 /**

@@ -155,6 +155,23 @@ it('does not expose legacy __vetoSchema metadata', () => {
   expectTypeOf<HasLegacyMetadata>().toEqualTypeOf<false>();
 });
 
+it('resolves to never for non-factory inputs', () => {
+  // Defensive guard: `__vetoOutput?` is an optional field, so structurally
+  // any type would satisfy `{ readonly __vetoOutput?: infer T }`. Without the
+  // `keyof` guard in `vInferFactory`, primitives and unrelated objects would
+  // silently resolve to `unknown`. Locking down `never` here prevents that
+  // regression.
+  type FromPrimitive = vInferFactory<string>;
+  type FromNumber = vInferFactory<number>;
+  type FromPlainObject = vInferFactory<{ id: string }>;
+  type FromUnknown = vInferFactory<unknown>;
+
+  expectTypeOf<FromPrimitive>().toBeNever();
+  expectTypeOf<FromNumber>().toBeNever();
+  expectTypeOf<FromPlainObject>().toBeNever();
+  expectTypeOf<FromUnknown>().toBeNever();
+});
+
 it('infers discriminated union output via factory', () => {
   // Union/discriminated-union outputs are a common place inference quietly
   // degrades. Lock in that the factory path preserves the precise union.
