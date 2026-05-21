@@ -34,7 +34,10 @@
     "test": "vitest ./src",
     "test:codemod": "vitest ./codemods"
   },
-  "dependencies": {
+  "peerDependencies": {
+    "zod": "4.4.3"
+  },
+  "devDependencies": {
     "zod": "4.4.3"
   }
 }
