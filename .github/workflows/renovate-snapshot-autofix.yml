@@ -35,18 +35,19 @@ jobs:
     name: Autofix Snapshot Updates
     runs-on: ubuntu-latest
     timeout-minutes: 20
+    # Run when:
+    # 1) a Renovate PR has the opt-in label,
+    # 2) a maintainer comments `/autofix-snapshots` on a PR, or
+    # 3) the workflow is manually dispatched.
     if: >-
       ${{
-        # Run on Renovate PR events only when the opt-in label is present.
         (github.event_name == 'pull_request_target' &&
          contains(github.event.pull_request.labels.*.name, 'autofix:snapshots') &&
          github.event.pull_request.head.repo.full_name == github.repository &&
          startsWith(github.event.pull_request.head.ref, 'renovate/')) ||
-        # Or run when a maintainer comments `/autofix-snapshots` on a PR.
         (github.event_name == 'issue_comment' &&
          github.event.issue.pull_request &&
          contains(github.event.comment.body, '/autofix-snapshots')) ||
-        # Or run when manually dispatched from Actions UI.
         github.event_name == 'workflow_dispatch'
       }}
 
