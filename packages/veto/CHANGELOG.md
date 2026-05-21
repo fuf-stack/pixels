@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.1](https://github.com/fuf-stack/pixels/compare/veto-v1.2.0...veto-v1.2.1) (2026-05-21)
+
+
+### Bug Fixes
+
+* **veto:** guard vInferFactory against non-factory inputs ([b0cea5b](https://github.com/fuf-stack/pixels/commit/b0cea5bb4c682015bcbaee44476ed4a4152e7b21))
+
 ## [1.2.0](https://github.com/fuf-stack/pixels/compare/veto-v1.1.0...veto-v1.2.0) (2026-05-21)
 
 
