@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.3.0](https://github.com/fuf-stack/pixels/compare/veto-v1.2.1...veto-v1.3.0) (2026-05-21)
+
+
+### Features
+
+* **veto:** declare zod as peerDependency instead of dependency ([9522a63](https://github.com/fuf-stack/pixels/commit/9522a63f46cc517560c0783b2198af2c3e926975))
+
+
+### Bug Fixes
+
+* **veto:** remove schemaFactory again ([9895068](https://github.com/fuf-stack/pixels/commit/989506847326227f97040eb4f8734813be4658a7))
+
 ## [1.2.1](https://github.com/fuf-stack/pixels/compare/veto-v1.2.0...veto-v1.2.1) (2026-05-21)
 
 
