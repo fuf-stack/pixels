@@ -19,6 +19,7 @@ describe('custom refinement', () => {
     });
 
     expect(refined.safeParse(undefined).success).toBe(true);
+    expectTypeOf(refined.parse(undefined)).toEqualTypeOf<string[] | undefined>();
   });
 
   it('validates array with custom logic', () => {
@@ -145,6 +146,18 @@ describe('custom refinement', () => {
         },
       },
     });
+  });
+
+  it('keeps optional array field optional through refinement wrapper', () => {
+    const schema = {
+      arrayField: refineArray(array(string()).optional())({
+        custom: () => {},
+      }),
+    };
+
+    expect(veto(schema).validate({}).success).toBe(true);
+    expect(veto(schema).validate({ arrayField: undefined }).success).toBe(true);
+    expect(veto(schema).validate({ arrayField: null }).success).toBe(false);
   });
 });
 

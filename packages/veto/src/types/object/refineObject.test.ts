@@ -32,6 +32,9 @@ describe('custom', () => {
     });
 
     expect(refined.safeParse(undefined).success).toBe(true);
+    expectTypeOf(
+      refined.parse(undefined),
+    ).toEqualTypeOf<{ name: string; age: number } | undefined>();
   });
 
   it('should validate using custom function', () => {
@@ -210,6 +213,22 @@ describe('custom', () => {
     expect(resultWithoutData).toMatchObject({
       success: true,
     });
+  });
+
+  it('keeps optional object field optional through refinement wrapper', () => {
+    const schema = {
+      user: refineObject(
+        object({
+          name: string(),
+        }).optional(),
+      )({
+        custom: () => {},
+      }),
+    };
+
+    expect(veto(schema).validate({}).success).toBe(true);
+    expect(veto(schema).validate({ user: undefined }).success).toBe(true);
+    expect(veto(schema).validate({ user: null }).success).toBe(false);
   });
 
   it('should only run validation on objects', () => {

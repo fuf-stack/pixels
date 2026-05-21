@@ -104,6 +104,17 @@ export const refineObject = <T extends RefineObjectInputObject>(schema: T) => {
   return (
     refinements: VObjectRefinements,
   ): VetoEffects<VObjectSchema<Shape>> => {
+    // Zod >=4.4 separates "is key present?" from "does value parse?".
+    // Intersecting an optional object schema directly can hide optionality at
+    // the outer layer, so parent object schemas may require the key.
+    //
+    // Preserve historical behavior by intersecting the unwrapped object schema
+    // and restoring .optional() on the final wrapper.
+    const isOptionalSchema = schema instanceof z.ZodOptional;
+    const baseSchema = isOptionalSchema
+      ? (schema as VetoOptional<VetoTypeAny>).unwrap()
+      : (schema as VetoTypeAny);
+
     // Run custom object-level refinement on a permissive branch, then
     // intersect with the base schema so we keep nested field errors too.
     const customBranch = z.preprocess((val, ctx) => {
@@ -128,9 +139,17 @@ export const refineObject = <T extends RefineObjectInputObject>(schema: T) => {
       return val;
     }, z.any());
 
-    const _schema = z.intersection(schema, customBranch) as VetoEffects<
-      VObjectSchema<Shape>
-    >;
+    // Keep object base validation (nested required/type errors) and custom
+    // cross-field issues in a single parse result by intersecting both branches.
+    const refinedBaseSchema = z.intersection(
+      baseSchema,
+      customBranch,
+    ) as VetoEffects<VObjectSchema<Shape>>;
+
+    // Keep optionality visible at the top level for object key presence checks.
+    const _schema = isOptionalSchema
+      ? (refinedBaseSchema.optional() as VetoEffects<VObjectSchema<Shape>>)
+      : refinedBaseSchema;
 
     return _schema;
   };
