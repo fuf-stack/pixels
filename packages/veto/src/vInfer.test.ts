@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/consistent-type-definitions */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable vitest/expect-expect */
 
@@ -14,7 +13,6 @@ import {
   number,
   object,
   record,
-  schemaFactory,
   string,
 } from 'src';
 
@@ -162,55 +160,4 @@ it('correctly infers intersection types', () => {
     id: string;
     name: string;
   }>();
-});
-
-it('correctly infers from schemaFactory metadata (no args)', () => {
-  const factory = schemaFactory(
-    object({
-      username: string(),
-    }),
-  );
-
-  type Result = vInfer<typeof factory>;
-
-  expectTypeOf<Result>().toEqualTypeOf<{
-    username: string;
-  }>();
-});
-
-it('correctly infers from schemaFactory metadata (with args)', () => {
-  const factory = schemaFactory((required: boolean) =>
-    object({
-      name: required ? string() : string().optional(),
-    }),
-  );
-
-  type Result = vInfer<typeof factory>;
-
-  expectTypeOf<Result>().toEqualTypeOf<{ name: string | undefined }>();
-});
-
-it('reads __vetoOutput metadata directly without inspecting schema types', () => {
-  // Simulate a portable factory shape with phantom output metadata. The
-  // metadata is a plain TS shape, with no reference to Zod internals — this
-  // is what avoids TS2742/TS2883 in consumer packages.
-  type FakeFactory = {
-    readonly __vetoOutput?: { id: string; count: number };
-  };
-  type Result = vInfer<FakeFactory>;
-
-  expectTypeOf<Result>().toEqualTypeOf<{ id: string; count: number }>();
-});
-
-it('resolves __vetoOutput metadata to undefined when phantom is empty', () => {
-  // A factory whose output metadata was never set (or was explicitly empty)
-  // should resolve to `undefined`, not `never`. This protects against
-  // accidental regression where the `__vetoOutput?` optional field is
-  // collapsed to `never` by future refactors of `vInfer`.
-  type FakeFactory = {
-    readonly __vetoOutput?: undefined;
-  };
-  type Result = vInfer<FakeFactory>;
-
-  expectTypeOf<Result>().toEqualTypeOf<undefined>();
 });

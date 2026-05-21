@@ -8,9 +8,6 @@ export type * from './vInfer';
 // export veto issue codes
 export * from './issueCodes';
 
-// export schemaFactory helper
-export * from './schemaFactory';
-
 // export serializeSchema helper
 export * from './serialize';
 
