@@ -62,6 +62,10 @@ jobs:
           # pnpm reads either form depending on invocation context.
           PNPM_CONFIG_FROZEN_LOCKFILE: 'false'
           NPM_CONFIG_FROZEN_LOCKFILE: 'false'
+          # We build once in workspace context above. Disable publish-time lifecycle
+          # scripts (`prepack`) to avoid package-local installs resolving newly bumped
+          # internal versions before they are published.
+          NPM_CONFIG_IGNORE_SCRIPTS: 'true'
         # Note: If you have private npm dependencies, you may need NODE_AUTH_TOKEN
         # for installing dependencies only (not for publishing)
         # env:
