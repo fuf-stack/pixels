@@ -64,8 +64,12 @@ export const baseConfig: UserConfig = {
     };
   },
 
-  // Generate TypeScript declaration files (.d.ts)
-  dts: true,
+  // Generate declaration files with the TypeScript resolver.
+  // This avoids rolldown-dts fake-js warnings when dependencies ship .d.cts files.
+  dts: {
+    // see: https://github.com/sxzz/rolldown-plugin-dts#resolver
+    resolver: 'tsc',
+  },
 
   // Generate source maps for debugging
   sourcemap: true,
@@ -76,6 +80,12 @@ export const baseConfig: UserConfig = {
   // Auto-generate package.json exports field based on entry points
   // @see https://tsdown.dev/options/package-exports#auto-generating-package-exports
   exports: true,
+
+  // Allow mixed default + named exports in entry modules without warning.
+  // This matches our current package API surfaces that intentionally expose both.
+  outputOptions: {
+    exports: 'named',
+  },
 };
 
 /**
