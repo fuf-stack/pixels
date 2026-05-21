@@ -1,5 +1,28 @@
 # Changelog
 
+## [1.10.0](https://github.com/fuf-stack/pixels/compare/pixels-v1.9.0...pixels-v1.10.0) (2026-05-21)
+
+
+### Features
+
+* **pixels:** bundle package with tsdown ([97f8b67](https://github.com/fuf-stack/pixels/commit/97f8b67f6c92d5e91427b65a90c58101f4c3358e))
+* upgrade to typescript v6 ([ca06ae3](https://github.com/fuf-stack/pixels/commit/ca06ae3de100d5521c693ffbc669b88f964e568e))
+
+
+### Bug Fixes
+
+* **deps:** update [@heroui](https://github.com/heroui) monorepo ([f323f7b](https://github.com/fuf-stack/pixels/commit/f323f7b28e35084f6812c6cd93c77efb76faa912))
+* **deps:** update [@heroui](https://github.com/heroui) monorepo ([71b7728](https://github.com/fuf-stack/pixels/commit/71b772808415943b7fe85bafc49b29e29335be60))
+* **pixels,uniform:** update all snaps after new hero version ([7fd3ecb](https://github.com/fuf-stack/pixels/commit/7fd3ecb745ad17a636b62bcdfbcd6e9b000feb1d))
+* **pixels:** fix snaps after @uiw/react-json-view update ([3fe2b26](https://github.com/fuf-stack/pixels/commit/3fe2b26a57269cfb6ea9770c8f072670072a291a))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @fuf-stack/pixel-utils bumped to 1.3.0
+
 ## [1.9.0](https://github.com/fuf-stack/pixels/compare/pixels-v1.8.0...pixels-v1.9.0) (2026-04-13)
 
 

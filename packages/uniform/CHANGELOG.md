@@ -1,5 +1,32 @@
 # Changelog
 
+## [1.20.0](https://github.com/fuf-stack/pixels/compare/uniform-v1.19.5...uniform-v1.20.0) (2026-05-21)
+
+
+### Features
+
+* upgrade to typescript v6 ([ca06ae3](https://github.com/fuf-stack/pixels/commit/ca06ae3de100d5521c693ffbc669b88f964e568e))
+
+
+### Bug Fixes
+
+* **deps:** update [@heroui](https://github.com/heroui) monorepo ([f323f7b](https://github.com/fuf-stack/pixels/commit/f323f7b28e35084f6812c6cd93c77efb76faa912))
+* **deps:** update [@heroui](https://github.com/heroui) monorepo ([71b7728](https://github.com/fuf-stack/pixels/commit/71b772808415943b7fe85bafc49b29e29335be60))
+* **deps:** update dependency react-hook-form to v7.74.0 ([#1628](https://github.com/fuf-stack/pixels/issues/1628)) ([64dae71](https://github.com/fuf-stack/pixels/commit/64dae711425f66c69115c0efb38fa333aef93756))
+* **deps:** update dependency react-hook-form to v7.75.0 ([#1637](https://github.com/fuf-stack/pixels/issues/1637)) ([abb012a](https://github.com/fuf-stack/pixels/commit/abb012afd8ccd199201429f99a0c3d65cc7cc73a))
+* **deps:** update dependency zod to v4.4.3 ([9d77b75](https://github.com/fuf-stack/pixels/commit/9d77b75d26db36d0a4dd7221ee7c86a648c66bda))
+* **pixel-utils:** fix version tv conflict in repo with overrides ([580ea8b](https://github.com/fuf-stack/pixels/commit/580ea8b2159a450c7b0759326cfedf6a0fb34db5))
+* **pixels,uniform:** update all snaps after new hero version ([7fd3ecb](https://github.com/fuf-stack/pixels/commit/7fd3ecb745ad17a636b62bcdfbcd6e9b000feb1d))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @fuf-stack/pixel-utils bumped to 1.3.0
+    * @fuf-stack/pixels bumped to 1.10.0
+    * @fuf-stack/veto bumped to 1.1.0
+
 ## [1.19.5](https://github.com/fuf-stack/pixels/compare/uniform-v1.19.4...uniform-v1.19.5) (2026-04-30)
 
 
