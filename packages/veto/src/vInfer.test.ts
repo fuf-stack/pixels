@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/consistent-type-definitions */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable vitest/expect-expect */
 
@@ -189,10 +190,27 @@ it('correctly infers from schemaFactory metadata (with args)', () => {
   expectTypeOf<Result>().toEqualTypeOf<{ name: string | undefined }>();
 });
 
-it('returns never when __vetoSchema metadata is not a veto schema', () => {
-  type Result = vInfer<{
-    readonly __vetoSchema?: 123;
-  }>;
+it('reads __vetoOutput metadata directly without inspecting schema types', () => {
+  // Simulate a portable factory shape with phantom output metadata. The
+  // metadata is a plain TS shape, with no reference to Zod internals — this
+  // is what avoids TS2742/TS2883 in consumer packages.
+  type FakeFactory = {
+    readonly __vetoOutput?: { id: string; count: number };
+  };
+  type Result = vInfer<FakeFactory>;
 
-  expectTypeOf<Result>().toBeNever();
+  expectTypeOf<Result>().toEqualTypeOf<{ id: string; count: number }>();
+});
+
+it('resolves __vetoOutput metadata to undefined when phantom is empty', () => {
+  // A factory whose output metadata was never set (or was explicitly empty)
+  // should resolve to `undefined`, not `never`. This protects against
+  // accidental regression where the `__vetoOutput?` optional field is
+  // collapsed to `never` by future refactors of `vInfer`.
+  type FakeFactory = {
+    readonly __vetoOutput?: undefined;
+  };
+  type Result = vInfer<FakeFactory>;
+
+  expectTypeOf<Result>().toEqualTypeOf<undefined>();
 });

@@ -46,12 +46,14 @@ type InferRawShape<T extends Record<string, unknown>> = Simplify<
  * - a raw schema definition (`VetoRawShape`)
  * - a schema instance (`VetoTypeAny`)
  * - a portable schema factory produced by `schemaFactory` (detected via
- *   `__vetoSchema` metadata)
+ *   `__vetoOutput` metadata)
  *
  * Inference behavior:
- * - if `T` carries `__vetoSchema`, infer from that schema type
- * - if `T` is a raw shape, wrap it with `VetoObject<T>` and infer via `z.infer`
+ * - if `T` carries `__vetoOutput`, read the output type directly (no Zod
+ *   internals are referenced, which is what makes factory exports portable)
  * - if `T` is already a schema instance, infer directly via `z.infer`
+ * - if `T` is a raw veto shape (record of schemas / nested raw shapes),
+ *   recurse into {@link InferRawShape}
  *
  * The resulting type represents the expected data shape after validation,
  * preserving type safety for veto consumers while supporting portable factory
@@ -59,13 +61,11 @@ type InferRawShape<T extends Record<string, unknown>> = Simplify<
  *
  * @see https://zod.dev/?id=type-inference
  */
-export type vInfer<T> = '__vetoSchema' extends keyof T
-  ? // Portable factory path: infer from schema metadata instead of callable return
-    // type (which is intentionally opaque `VetoTypeAny` for declaration emit).
-    T extends { readonly __vetoSchema?: infer Schema }
-    ? Schema extends VetoTypeAny
-      ? z.infer<Schema>
-      : never
+export type vInfer<T> = '__vetoOutput' extends keyof T
+  ? // Portable factory path: read output metadata directly. The phantom
+    // metadata is a plain TS shape, so this branch never names Zod internals.
+    T extends { readonly __vetoOutput?: infer TOutput }
+    ? TOutput
     : never
   : // infer directly when already veto/zod schema
     T extends VetoTypeAny
