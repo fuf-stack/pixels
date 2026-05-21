@@ -10,6 +10,7 @@ export * from './issueCodes';
 
 // export serializeSchema helper
 export * from './serialize';
+export * from './schemaFactory';
 
 // export veto validator types
 export * from './types/and/and';

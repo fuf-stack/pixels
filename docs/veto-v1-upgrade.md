@@ -41,6 +41,45 @@ veto keeps its existing nested error shape, but issue internals now come from Zo
 - discriminator errors now come from Zod v4 `invalid_union`,
 - some fields/messages differ where Zod v4 removed legacy issue fields.
 
+### TypeScript declaration emit may require portable schema factories
+
+Some projects that export schema builders can hit TypeScript
+`TS2742`/`TS2883` errors after upgrading (non-portable inferred types that
+reference local `.pnpm/zod@...` paths).
+
+veto v1 provides `schemaFactory` to keep exported factory signatures portable
+while preserving strong inferred output types.
+
+```ts
+import type { vInfer } from '@fuf-stack/veto';
+
+import { object, schemaFactory, string } from '@fuf-stack/veto';
+
+const userInputSchema = object({
+  name: string(),
+});
+
+export const userInput = schemaFactory(userInputSchema);
+
+export type UserInput = vInfer<typeof userInput>;
+```
+
+Argumented factories are also supported:
+
+```ts
+import type { vInferFactory } from '@fuf-stack/veto';
+
+import { object, schemaFactory, string } from '@fuf-stack/veto';
+
+export const userInputByMode = schemaFactory((required: boolean) =>
+  object({
+    name: required ? string() : string().optional(),
+  }),
+);
+
+export type UserInputByMode = vInferFactory<typeof userInputByMode>;
+```
+
 ## Codemod
 
 A codemod is available in:
@@ -70,6 +109,8 @@ pnpm --filter @fuf-stack/veto codemod:v1 --path /path/to/project --write
 ## Manual migration checklist
 
 - Upgrade to veto v1 and Zod v4 in your project.
+- If declaration emit reports `TS2742`/`TS2883`, wrap exported schema builders
+  with `schemaFactory`.
 - Run the codemod in dry-run mode and inspect warnings.
 - Update schema-path logic that checks legacy zodex `type` tags:
   - `discriminatedUnion` -> `oneOf`/`anyOf`

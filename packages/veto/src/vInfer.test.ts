@@ -1,6 +1,6 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable vitest/expect-expect */
 
-import type { VetoTypeAny } from './types';
 import type { vInfer } from './vInfer';
 
 import { expectTypeOf, it } from 'vitest';
@@ -13,6 +13,7 @@ import {
   number,
   object,
   record,
+  schemaFactory,
   string,
 } from 'src';
 
@@ -25,7 +26,7 @@ it('correctly infers primitive types from raw shapes', () => {
 
   type Result = vInfer<typeof rawShape>;
 
-  expectTypeOf<Result>().toMatchTypeOf<{
+  expectTypeOf<Result>().toEqualTypeOf<{
     string: string;
     number: number;
     boolean: boolean;
@@ -43,7 +44,7 @@ it('correctly infers nested objects from raw shapes', () => {
 
   type Result = vInfer<typeof rawShape>;
 
-  expectTypeOf<Result>().toMatchTypeOf<{
+  expectTypeOf<Result>().toEqualTypeOf<{
     nested: {
       field1: string;
       field2: number;
@@ -56,11 +57,11 @@ it('correctly infers types from Zod schemas', () => {
   const schema = object({
     id: string(),
     count: number(),
-  }) as VetoTypeAny;
+  });
 
   type Result = vInfer<typeof schema>;
 
-  expectTypeOf<Result>().toMatchTypeOf<{
+  expectTypeOf<Result>().toEqualTypeOf<{
     id: string;
     count: number;
   }>();
@@ -70,11 +71,11 @@ it('correctly infers union types', () => {
   const schema = object({
     status: literal('active').or(literal('inactive')),
     data: string().or(number()),
-  }) as VetoTypeAny;
+  });
 
   type Result = vInfer<typeof schema>;
 
-  expectTypeOf<Result>().toMatchTypeOf<{
+  expectTypeOf<Result>().toEqualTypeOf<{
     status: 'active' | 'inactive';
     data: string | number;
   }>();
@@ -84,11 +85,11 @@ it('correctly infers array types', () => {
   const schema = object({
     items: array(string()),
     matrix: array(array(number())),
-  }) as VetoTypeAny;
+  });
 
   type Result = vInfer<typeof schema>;
 
-  expectTypeOf<Result>().toMatchTypeOf<{
+  expectTypeOf<Result>().toEqualTypeOf<{
     items: string[];
     matrix: number[][];
   }>();
@@ -107,10 +108,10 @@ it('correctly infers optional types', () => {
   interface Expected {
     required: string;
     optional?: string | undefined;
-    nullish: number | null | undefined;
+    nullish?: number | null | undefined;
   }
 
-  // Bidirectional type checking to ensure exact match
+  // Bidirectional type checking to ensure exact match.
   expectTypeOf<Result>().toEqualTypeOf<Expected>();
   expectTypeOf<Expected>().toEqualTypeOf<Result>();
 });
@@ -119,11 +120,11 @@ it('correctly infers record types', () => {
   const schema = object({
     metadata: record(string()),
     counts: record(number()),
-  }) as VetoTypeAny;
+  });
 
   type Result = vInfer<typeof schema>;
 
-  expectTypeOf<Result>().toMatchTypeOf<{
+  expectTypeOf<Result>().toEqualTypeOf<{
     metadata: Record<string, string>;
     counts: Record<string, number>;
   }>();
@@ -133,17 +134,16 @@ it('correctly infers discriminated union types', () => {
   const schema = discriminatedUnion('type', [
     object({ type: literal('user'), id: string() }),
     object({ type: literal('admin'), id: string(), role: string() }),
-  ]) as VetoTypeAny;
+  ]);
 
   type Result = vInfer<typeof schema>;
 
-  expectTypeOf<Result>().toMatchTypeOf<
+  expectTypeOf<Result>().toEqualTypeOf<
     { type: 'user'; id: string } | { type: 'admin'; id: string; role: string }
   >();
 });
 
 it('returns never for invalid schemas', () => {
-  // @ts-expect-error Testing invalid schema
   type Result = vInfer<string>;
 
   expectTypeOf<Result>().toBeNever();
@@ -153,12 +153,46 @@ it('correctly infers intersection types', () => {
   const baseSchema = object({ id: string() });
   const extendedSchema = baseSchema.extend({
     name: string(),
-  }) as VetoTypeAny;
+  });
 
   type Result = vInfer<typeof extendedSchema>;
 
-  expectTypeOf<Result>().toMatchTypeOf<{
+  expectTypeOf<Result>().toEqualTypeOf<{
     id: string;
     name: string;
   }>();
+});
+
+it('correctly infers from schemaFactory metadata (no args)', () => {
+  const factory = schemaFactory(
+    object({
+      username: string(),
+    }),
+  );
+
+  type Result = vInfer<typeof factory>;
+
+  expectTypeOf<Result>().toEqualTypeOf<{
+    username: string;
+  }>();
+});
+
+it('correctly infers from schemaFactory metadata (with args)', () => {
+  const factory = schemaFactory((required: boolean) =>
+    object({
+      name: required ? string() : string().optional(),
+    }),
+  );
+
+  type Result = vInfer<typeof factory>;
+
+  expectTypeOf<Result>().toEqualTypeOf<{ name: string | undefined }>();
+});
+
+it('returns never when __vetoSchema metadata is not a veto schema', () => {
+  type Result = vInfer<{
+    readonly __vetoSchema?: 123;
+  }>;
+
+  expectTypeOf<Result>().toBeNever();
 });
