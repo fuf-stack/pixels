@@ -157,6 +157,18 @@ export const refineArray = <T extends RefineArrayInputArray>(schema: T) => {
   ): VetoEffects<VArraySchema<Element>> => {
     let _schema = schema as unknown as VetoEffects<VArraySchema<Element>>;
 
+    // Zod >=4.4 treats "key presence" separately from "value validity".
+    // If we intersect an optional array schema directly, the resulting wrapper
+    // can lose top-level optional semantics when used in object shapes, causing
+    // missing keys to be treated as required.
+    //
+    // To keep optional object fields stable across Zod versions, unwrap first,
+    // apply intersection on the inner array schema, then re-apply .optional().
+    const isOptionalSchema = schema instanceof z.ZodOptional;
+    const baseSchema = isOptionalSchema
+      ? (schema as VetoOptional<VetoTypeAny>).unwrap()
+      : (schema as VetoTypeAny);
+
     // if refinements provided
     if (Object.keys(refinements).length) {
       const refinementSchema = z.preprocess((val, ctx) => {
@@ -174,9 +186,16 @@ export const refineArray = <T extends RefineArrayInputArray>(schema: T) => {
       // In Zod v4 preprocess issues can short-circuit downstream parsing.
       // Intersecting with the original schema keeps base validation issues
       // and custom refinement issues in the final error result.
-      _schema = z.intersection(schema, refinementSchema) as VetoEffects<
-        VArraySchema<Element>
-      >;
+      const refinedBaseSchema = z.intersection(
+        baseSchema,
+        refinementSchema,
+      ) as VetoEffects<VArraySchema<Element>>;
+
+      // Re-wrap optional at the outermost layer so object property presence
+      // checks still see this field as optional.
+      _schema = isOptionalSchema
+        ? (refinedBaseSchema.optional() as VetoEffects<VArraySchema<Element>>)
+        : refinedBaseSchema;
     }
 
     return _schema;
