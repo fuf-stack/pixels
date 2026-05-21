@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.3.0](https://github.com/fuf-stack/pixels/compare/pixel-utils-v1.2.0...pixel-utils-v1.3.0) (2026-05-21)
+
+
+### Features
+
+* upgrade to typescript v6 ([ca06ae3](https://github.com/fuf-stack/pixels/commit/ca06ae3de100d5521c693ffbc669b88f964e568e))
+
+
+### Bug Fixes
+
+* **deps:** update [@heroui](https://github.com/heroui) monorepo ([f323f7b](https://github.com/fuf-stack/pixels/commit/f323f7b28e35084f6812c6cd93c77efb76faa912))
+* **deps:** update [@heroui](https://github.com/heroui) monorepo ([71b7728](https://github.com/fuf-stack/pixels/commit/71b772808415943b7fe85bafc49b29e29335be60))
+* **pixel-utils:** fix version tv conflict in repo with overrides ([580ea8b](https://github.com/fuf-stack/pixels/commit/580ea8b2159a450c7b0759326cfedf6a0fb34db5))
+
 ## [1.2.0](https://github.com/fuf-stack/pixels/compare/pixel-utils-v1.1.1...pixel-utils-v1.2.0) (2026-04-13)
 
 

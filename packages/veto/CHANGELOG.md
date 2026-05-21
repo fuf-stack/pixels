@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.1.0](https://github.com/fuf-stack/pixels/compare/veto-v1.0.4...veto-v1.1.0) (2026-05-21)
+
+
+### Features
+
+* upgrade to typescript v6 ([ca06ae3](https://github.com/fuf-stack/pixels/commit/ca06ae3de100d5521c693ffbc669b88f964e568e))
+* **veto:** add portable schemaFactory inference support with args ([13c908c](https://github.com/fuf-stack/pixels/commit/13c908ce5edcd26602a044ff11e0584ddaa4116a))
+
+
+### Bug Fixes
+
+* **deps:** update dependency zod to v4.4.3 ([9d77b75](https://github.com/fuf-stack/pixels/commit/9d77b75d26db36d0a4dd7221ee7c86a648c66bda))
+* **deps:** update dependency zod to v4.4.3 ([9b650a9](https://github.com/fuf-stack/pixels/commit/9b650a97d192ee536488623f8d49cdbdd046a5d7))
+* **veto:** preserve optional refined schemas across Zod 4.4 intersections ([46c9846](https://github.com/fuf-stack/pixels/commit/46c9846cba5ec2553df90d1f932ffa98d389b7ef))
+
 ## [1.0.4](https://github.com/fuf-stack/pixels/compare/veto-v1.0.3...veto-v1.0.4) (2026-04-30)
 
 

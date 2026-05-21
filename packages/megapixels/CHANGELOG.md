@@ -1,5 +1,31 @@
 # Changelog
 
+## [0.11.0](https://github.com/fuf-stack/pixels/compare/megapixels-v0.10.5...megapixels-v0.11.0) (2026-05-21)
+
+
+### Features
+
+* upgrade to typescript v6 ([ca06ae3](https://github.com/fuf-stack/pixels/commit/ca06ae3de100d5521c693ffbc669b88f964e568e))
+
+
+### Bug Fixes
+
+* **deps:** update [@heroui](https://github.com/heroui) monorepo ([f323f7b](https://github.com/fuf-stack/pixels/commit/f323f7b28e35084f6812c6cd93c77efb76faa912))
+* **deps:** update dependency zod to v4.4.3 ([9d77b75](https://github.com/fuf-stack/pixels/commit/9d77b75d26db36d0a4dd7221ee7c86a648c66bda))
+* **pixel-utils:** fix version tv conflict in repo with overrides ([580ea8b](https://github.com/fuf-stack/pixels/commit/580ea8b2159a450c7b0759326cfedf6a0fb34db5))
+* **pixels,uniform:** update all snaps after new hero version ([7fd3ecb](https://github.com/fuf-stack/pixels/commit/7fd3ecb745ad17a636b62bcdfbcd6e9b000feb1d))
+* **veto:** preserve optional refined schemas across Zod 4.4 intersections ([46c9846](https://github.com/fuf-stack/pixels/commit/46c9846cba5ec2553df90d1f932ffa98d389b7ef))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @fuf-stack/pixel-utils bumped to 1.3.0
+    * @fuf-stack/pixels bumped to 1.10.0
+    * @fuf-stack/uniform bumped to 1.20.0
+    * @fuf-stack/veto bumped to 1.1.0
+
 ## [0.10.5](https://github.com/fuf-stack/pixels/compare/megapixels-v0.10.4...megapixels-v0.10.5) (2026-04-30)
 
 
