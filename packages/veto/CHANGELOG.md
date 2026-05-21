@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/fuf-stack/pixels/compare/veto-v1.1.0...veto-v1.2.0) (2026-05-21)
+
+
+### Features
+
+* **veto:** make schemaFactory truly portable via output-type metadata ([4c2abf2](https://github.com/fuf-stack/pixels/commit/4c2abf20cd8072433813d0056b40c0cabdbaa2af))
+
 ## [1.1.0](https://github.com/fuf-stack/pixels/compare/veto-v1.0.4...veto-v1.1.0) (2026-05-21)
 
 
