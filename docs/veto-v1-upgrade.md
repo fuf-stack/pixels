@@ -50,20 +50,21 @@ paths).
 
 The history of this problem and how it was solved:
 
-| Veto version      | Required `zod` in consumer `package.json`?                                         | Mechanism                                                                            |
-| ----------------- | ---------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
-| `1.0.x` – `1.2.x` | Effectively yes (via `schemaFactory` workaround OR direct declaration)             | Phantom-typed factories blocked composition / chaining                               |
-| `1.3.x`           | **Yes — required.** `schemaFactory` removed in favor of explicit `zod` declaration | `zod` declared as `peerDependency`, every consumer must add it                       |
-| `1.4.x` and later | **No.** Just install `@fuf-stack/veto`                                             | `zod` bundled into veto's dist via `tsdown` `deps.alwaysBundle`; no `peerDependency` |
+| Veto version      | Required `zod` in consumer `package.json`?                                         | Mechanism                                                                                                                                                                                                                                                                                                |
+| ----------------- | ---------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `1.0.x` – `1.2.x` | Effectively yes (via `schemaFactory` workaround OR direct declaration)             | Phantom-typed factories blocked composition / chaining                                                                                                                                                                                                                                                   |
+| `1.3.x`           | **Yes — required.** `schemaFactory` removed in favor of explicit `zod` declaration | `zod` declared as `peerDependency`, every consumer must add it                                                                                                                                                                                                                                           |
+| `1.4.x` and later | **No.** Just install `@fuf-stack/veto`                                             | `zod` is a regular `dependency` of veto (pnpm installs it transitively). veto's `dist/index.d.ts` inlines zod's types via a dedicated tsdown dts-only pass with `deps.alwaysBundle: ['zod']`. The runtime JS leaves `import { z } from 'zod'` external so there is exactly one zod instance per process. |
 
 If you are upgrading from `1.3.x` to `1.4+`, you can safely **remove**
 `zod` from your consumer packages' `package.json`. Existing `zod`
-declarations are harmless but redundant.
+declarations are harmless but redundant — and on a strict-deps pnpm
+setup they risk pinning a different version than the one veto was
+tested against. Prefer letting veto's transitive dependency resolve it.
 
 See [veto monorepo usage](./veto-monorepo-usage.md) for the current
-zero-configuration consumer experience and the single hard constraint
-that comes with bundling (don't mix raw zod with veto in the same
-codebase).
+zero-configuration consumer experience, the two-pass `tsdown` build,
+and why veto inlines zod's types but not its JS runtime.
 
 ## Codemod
 
@@ -104,8 +105,9 @@ pnpm --filter @fuf-stack/veto codemod:v1 --path /path/to/project --write
 - Update tests that assert exact Zod issue messages/fields.
 - Re-run validation tests that depend on enum/literal/discriminator errors.
 - **On veto `1.4.0`+**: remove any `zod` entry from your consumer
-  packages' `package.json`. It is no longer required (zod is bundled
-  into veto's dist).
+  packages' `package.json`. It is no longer required — zod's types are
+  inlined into `dist/index.d.ts`, and zod's runtime is installed
+  transitively as a dependency of veto.
 - **On veto `1.3.x` only**: if declaration emit reports
   `TS2742`/`TS2883`, add `zod` (matching veto's peer pin) to the
   `package.json` of every package that imports from `@fuf-stack/veto`,

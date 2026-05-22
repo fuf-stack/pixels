@@ -11,9 +11,10 @@ add `zod`:
 }
 ```
 
-veto bundles zod (both runtime and types) into its own `dist`, so
-consumers do not need `zod` resolvable in their own `node_modules` for
-either runtime or TypeScript declaration emit.
+veto declares `zod` as a regular `dependencies` entry, so pnpm installs
+it transitively for any package that depends on veto. veto's
+`dist/index.d.ts` inlines zod's type graph, so consumers' own
+`tsc --build` emit never needs to resolve `zod` for type names either.
 
 ## Background — why this used to be a problem
 
@@ -41,21 +42,55 @@ wrapper library in the first place.
 
 ## The current solution (since v1.4)
 
-veto's `tsdown.config.ts` uses `deps.alwaysBundle: ['zod']` to inline
-zod's full type graph and runtime into `dist/index.{mjs,js,d.ts}`. The
-relevant pieces:
+veto runs `tsdown` in **two passes**: one for the runtime JS (zod stays
+external) and one for the declaration file (zod's full type graph
+inlined into `dist/index.d.ts`). This is the only configuration that
+simultaneously satisfies all three of:
 
-| File                             | What it does                                                                                                                                                              |
-| -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `packages/veto/tsdown.config.ts` | `deps.alwaysBundle: ['zod']` forces zod to be bundled into both JS and `.d.ts` outputs                                                                                    |
-| `packages/veto/src/index.ts`     | Explicit `export type { ZodAny, ZodArray, ZodString, … } from 'zod'` for the capitalized class types so consumers can name them when they appear in inferred return types |
-| `packages/veto/package.json`     | `zod` lives only in `devDependencies` — it's needed at build time only                                                                                                    |
+- portable consumer `.d.ts` emit (no `.pnpm/zod@…/…` references),
+- a single zod runtime instance per process (so the global error map,
+  zod's default locale, metadata registries, and
+  `instanceof ZodType` checks all behave correctly),
+- zero `zod` declarations in consumer `package.json` files.
+
+The relevant pieces:
+
+| File                                                 | What it does                                                                                                                                                                                                                                                           |
+| ---------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `packages/veto/tsdown.config.ts` — pass 1            | Emit `dist/index.{mjs,js}` with `import { z } from 'zod'` left external. One shared zod instance at runtime.                                                                                                                                                           |
+| `packages/veto/tsdown.config.ts` — pass 2            | `deps.alwaysBundle: ['zod']` + `dts: { emitDtsOnly: true }` — inline zod's types into `dist/index.d.ts`, no JS emitted. `deps.onlyBundle: ['zod']` whitelists zod as the only allowed inlined dependency so any future leak from another package is a hard error.      |
+| `packages/veto/scripts/generate-zod-type-exports.ts` | Codegen step that walks `node_modules/zod/index.d.ts` via the TypeScript compiler API and writes `src/__generated__/zodTypes.ts` with one `export type { … } from 'zod'` line per `Zod*` identifier. Re-runs on every build via `"build": "pnpm build:zod && tsdown"`. |
+| `packages/veto/package.json`                         | `zod` declared in `dependencies` (not `peer`, not `dev`). pnpm installs it transitively for any package that depends on veto.                                                                                                                                          |
 
 The narrow re-export list (instead of `export type * from 'zod'`) is
 deliberate: zod also exposes lowercase identifiers (`string`, `object`,
 `record`, …) that veto re-uses as its own value-exports, and a wildcard
 re-export causes rolldown to silently drop the colliding names from the
-bundled `.d.ts`.
+bundled `.d.ts`. The codegen script keeps the list in sync with the
+installed zod version automatically — re-run `pnpm build:zod` (or just
+`pnpm build`, which chains it) to refresh.
+
+## Why JS is not bundled
+
+An earlier iteration force-bundled zod's runtime JS into
+`dist/index.mjs` via the same `deps.alwaysBundle: ['zod']` switch. That
+solved the consumer-install ergonomics, but it produced a **second
+physical zod instance** inside veto, and every piece of process-global
+zod state broke quietly:
+
+- `vetoErrorMap` was registered on the bundled zod's globals, so the
+  fallback for issue codes the map didn't override (`too_small`,
+  `too_big`, …) hit the bundled instance's missing default locale and
+  surfaced as `"Invalid input"` instead of the expected
+  `"Array must contain at least 2 element(s)"`.
+- `instanceof z.ZodType` against a raw-zod import returned `false`.
+- A consumer's own `z.config({ … })` silently affected only the outer
+  zod, never the bundled one.
+- `.meta()` written via raw zod did not show up on veto schemas.
+
+Inlining only the types preserves the portable `.d.ts` win without any
+of these breakages: one zod copy, one set of globals, one prototype
+chain.
 
 ## Verified consumer experience
 
@@ -65,9 +100,9 @@ against `tsc --build` with pnpm 11 and TypeScript 6:
 - `ex-validator` (re-exports veto and adds a local schema)
 - `ex-types` (composes schemas from `ex-validator`)
 
-Both build with **zero** `zod` declarations anywhere in the dep tree
-and produce `.d.ts` outputs with **zero** `import … from 'zod'`
-statements.
+Both build with **zero** `zod` declarations anywhere in the consumer
+dep trees and produce `.d.ts` outputs with **zero**
+`import … from 'zod'` statements.
 
 ## When TS4023 still fires
 
@@ -78,47 +113,44 @@ error TS4023: Exported variable 'X' has or is using name 'ZodFoo' from
 external module '…/@fuf-stack/veto/dist/index' but cannot be named.
 ```
 
-…it means veto's API surface exposes a zod class (`ZodFoo`) that isn't
-yet in the re-export list at `packages/veto/src/index.ts`. The fix is
-one line:
+…it means veto's API surface exposes a zod class (`ZodFoo`) that
+wasn't picked up by `scripts/generate-zod-type-exports.ts`. Fix order:
 
-```ts
-// packages/veto/src/index.ts
-export type {
-  // …existing entries…
-  ZodFoo,
-} from 'zod';
-```
+1. Regenerate: `pnpm --filter @fuf-stack/veto build:zod`. The script
+   enumerates every export from `node_modules/zod/index.d.ts` whose
+   name matches `^Zod[A-Z]`, so a brand-new zod class will be picked
+   up automatically and the regression disappears.
+2. If the failing name does **not** start with `Zod[A-Z]`, widen the
+   filter in the script (`ZOD_NAME_RE`) or add the export manually to
+   `src/__generated__/zodTypes.ts` (it will be overwritten on next
+   `build:zod`, so prefer step 1).
+3. Rebuild veto, publish a patch.
 
-Rebuild veto, publish a patch, done. This is now the only maintenance
-surface for the "consumer can't name a zod type" problem.
+CI guard: `git diff --exit-code packages/veto/src/__generated__` after
+`pnpm build` flags any drift between the committed snapshot and the
+installed zod version.
 
-## Hard constraint — don't mix raw zod with veto in the same codebase
+## Mixing raw zod and veto
 
-Because veto inlines zod's types and runtime, importing raw `zod` in a
-consumer that also uses veto creates **two structurally identical but
-nominally distinct** copies of every zod class:
+Because veto leaves zod's runtime external, raw `zod` and
+`@fuf-stack/veto` **share the same physical zod instance** at runtime
+(pnpm resolves both imports to the one copy under
+`node_modules/.pnpm/zod@…`). Integrations like
+`@hookform/resolvers/zod`, `drizzle-zod`, and `zod-to-openapi` work
+transparently on veto-built schemas — they all operate on the same
+`ZodType` prototype chain.
 
-- `import { string } from '@fuf-stack/veto'` — returns inlined-`ZodString`
-- `import { z } from 'zod'` — returns raw-`ZodString`
+Two things to keep in mind:
 
-These are not assignable to each other (zod 4 schemas have private
-fields, making them nominal). Any library that wants a zod schema by
-type (`@hookform/resolvers/zod`, `drizzle-zod`, `zod-to-openapi`, …)
-will only accept one flavor. **Pick veto or raw zod for a given
-codebase, never both.**
-
-The fuf monorepo and all internal consumer projects use veto
-exclusively. If a future consumer needs an integration that only
-accepts raw-zod schemas, the migration path is:
-
-1. Add `zod: "4.4.3"` to that consumer's `dependencies` (matching
-   the version veto was tested against — see
-   `packages/veto/devDependencies.zod`).
-2. That consumer now sees both flavors. Use raw zod **only** for the
-   third-party integration that demands it; keep veto everywhere else.
-3. Accept that TS2742 may return for any veto schemas exported from
-   that specific consumer.
+1. **Do not add `zod` to a consumer's `dependencies`.** Let pnpm
+   resolve it via veto's transitive `dependencies` entry. Adding a
+   second declaration can pin a different version and produce a
+   duplicate physical instance. If a non-veto package absolutely
+   requires a specific zod version, use a `pnpm.overrides` entry in
+   the workspace root to force a single resolved version.
+2. The zod version that ships with veto is the one veto's test suite
+   ran against — see `packages/veto/package.json:dependencies.zod`.
+   Overriding it to a newer zod is allowed but unsupported.
 
 ## See also
 
