@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.1](https://github.com/fuf-stack/pixels/compare/veto-v1.5.0...veto-v1.5.1) (2026-05-22)
+
+
+### Bug Fixes
+
+* **veto:** allign record with zod v4 ([a3549fe](https://github.com/fuf-stack/pixels/commit/a3549fe5cc78062818e2bd9988b80736f067d49f))
+
 ## [1.5.0](https://github.com/fuf-stack/pixels/compare/veto-v1.4.1...veto-v1.5.0) (2026-05-22)
 
 
