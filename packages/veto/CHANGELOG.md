@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.5.0](https://github.com/fuf-stack/pixels/compare/veto-v1.4.1...veto-v1.5.0) (2026-05-22)
+
+
+### Features
+
+* **veto:** extract refineArray and add type-safe custom helper guards ([b73e4fd](https://github.com/fuf-stack/pixels/commit/b73e4fdb9a54b6b9f27043fd6ab207c37750f031))
+* **veto:** extract refineObject and add type-safe custom refinement helpers ([71530df](https://github.com/fuf-stack/pixels/commit/71530df7172e3045a2ade261af9dba6ac5bd7122))
+
+
+### Bug Fixes
+
+* **veto:** type unique mapFn input as partial element and skip invalid items ([a89d52b](https://github.com/fuf-stack/pixels/commit/a89d52bf2c5ee748b128d0df48b312c5a102fd80))
+
 ## [1.4.1](https://github.com/fuf-stack/pixels/compare/veto-v1.4.0...veto-v1.4.1) (2026-05-22)
 
 
