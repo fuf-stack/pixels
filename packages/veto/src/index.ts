@@ -20,6 +20,7 @@ export * from './serialize';
 export * from './types/and/and';
 export * from './types/any/any';
 export * from './types/array/array';
+export * from './types/array/refineArray';
 export * from './types/boolean/boolean';
 export * from './types/discriminatedUnion/discriminatedUnion';
 export * from './types/json/json';

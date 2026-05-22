@@ -19,9 +19,7 @@ describe('custom refinement', () => {
     });
 
     expect(refined.safeParse(undefined).success).toBe(true);
-    expectTypeOf(refined.parse(undefined)).toEqualTypeOf<
-      string[] | undefined
-    >();
+    expectTypeOf(refined.parse).returns.toEqualTypeOf<string[] | undefined>();
   });
 
   it('validates array with custom logic', () => {
@@ -95,6 +93,144 @@ describe('custom refinement', () => {
               {
                 code: 'custom',
                 message: 'Value must be positive',
+              },
+            ],
+          },
+        },
+      },
+    });
+  });
+
+  it('provides type-safe custom helpers for element validation', () => {
+    refineArray(array(object({ value: number() })))({
+      custom: (val, ctx, helpers) => {
+        expectTypeOf(helpers.validElements(val)).toEqualTypeOf<
+          { value: number }[]
+        >();
+        expectTypeOf(
+          helpers.validElements(val, { partial: true }),
+        ).toEqualTypeOf<Partial<{ value: number }>[]>();
+
+        val.forEach((item, index) => {
+          if (helpers.isElement(item) && item.value < 0) {
+            ctx.addIssue({
+              code: 'custom',
+              message: 'Value must be positive',
+              path: [index, 'value'],
+            });
+          }
+        });
+      },
+    });
+  });
+
+  it('shows practical custom helper usage at runtime', () => {
+    const schema = {
+      arrayField: refineArray(array(object({ id: number(), score: number() })))(
+        {
+          custom: (val, ctx, helpers) => {
+            // Example 1: aggregate checks on validated elements only
+            const validItems = helpers.validElements(val);
+            const scoreSum = validItems.reduce(
+              (sum, item) => sum + item.score,
+              0,
+            );
+            if (scoreSum > 10) {
+              ctx.addIssue({
+                code: 'custom',
+                message: 'Sum of scores must be <= 10',
+              });
+            }
+
+            // Example 2: per-item checks with index-aware custom paths
+            val.forEach((item, index) => {
+              if (helpers.isElement(item) && item.score < 0) {
+                ctx.addIssue({
+                  code: 'custom',
+                  message: 'Score must be positive',
+                  path: [index, 'score'],
+                });
+              }
+            });
+          },
+        },
+      ),
+    };
+
+    const result = veto(schema).validate({
+      arrayField: [{ id: 1, score: 7 }, 'invalid', { id: 2, score: -3 }],
+    });
+
+    expect(result).toStrictEqual({
+      success: false,
+      data: null,
+      errors: {
+        arrayField: {
+          '1': {
+            _errors: [
+              {
+                code: 'invalid_type',
+                expected: 'object',
+                message: 'Expected object, received string',
+                received: 'string',
+              },
+            ],
+          },
+          '2': {
+            score: [
+              {
+                code: 'custom',
+                message: 'Score must be positive',
+              },
+            ],
+          },
+        },
+      },
+    });
+  });
+
+  it('supports partial mode in custom helper guards', () => {
+    const schema = {
+      arrayField: refineArray(array(object({ id: number(), score: number() })))(
+        {
+          custom: (elements, ctx, helpers) => {
+            elements.forEach((item, index) => {
+              if (
+                helpers.isElement(item, { partial: true }) &&
+                item.score === undefined
+              ) {
+                ctx.addIssue({
+                  code: 'custom',
+                  message: 'Score is missing',
+                  path: [index, 'score'],
+                });
+              }
+            });
+          },
+        },
+      ),
+    };
+
+    const result = veto(schema).validate({
+      arrayField: [{ id: 1 }, { id: 2, score: 1 }],
+    });
+
+    expect(result).toStrictEqual({
+      success: false,
+      data: null,
+      errors: {
+        arrayField: {
+          '0': {
+            score: [
+              {
+                code: 'invalid_type',
+                expected: 'number',
+                message: 'Field is required',
+                received: 'undefined',
+              },
+              {
+                code: 'custom',
+                message: 'Score is missing',
               },
             ],
           },
@@ -262,7 +398,7 @@ describe('unique refinement', () => {
   });
 
   it('does not pass invalid elements to mapFn', () => {
-    const mapFnCalls: { id: number }[] = [];
+    const mapFnCalls: Partial<{ id: number }>[] = [];
     const schema = {
       arrayField: refineArray(array(object({ id: number() })))({
         unique: {
@@ -293,6 +429,50 @@ describe('unique refinement', () => {
               },
             ],
           },
+          '3': {
+            _errors: [
+              {
+                code: 'not_unique',
+                message: 'Element already exists',
+              },
+            ],
+          },
+          _errors: [
+            {
+              code: 'not_unique',
+              message: 'Array elements are not unique',
+              type: 'array',
+            },
+          ],
+        },
+      },
+    });
+  });
+
+  it('does not mark undefined mapFn results as duplicates', () => {
+    const schema = {
+      arrayField: refineArray(
+        array(object({ name: string(), id: number().optional() })),
+      )({
+        unique: {
+          mapFn: (val) => val.id,
+        },
+      }),
+    };
+    const result = veto(schema).validate({
+      arrayField: [
+        { name: 'one' },
+        { name: 'two' },
+        { name: 'three', id: 1 },
+        { name: 'four', id: 1 },
+      ],
+    });
+
+    expect(result).toStrictEqual({
+      success: false,
+      data: null,
+      errors: {
+        arrayField: {
           '3': {
             _errors: [
               {
