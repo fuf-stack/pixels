@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.2](https://github.com/fuf-stack/pixels/compare/veto-v1.5.1...veto-v1.5.2) (2026-05-22)
+
+
+### Bug Fixes
+
+* **veto:** normalize missing discriminators message to Field is required ([98e4a6f](https://github.com/fuf-stack/pixels/commit/98e4a6f6753ab3ce841ae6487eab195a7a7526be))
+
 ## [1.5.1](https://github.com/fuf-stack/pixels/compare/veto-v1.5.0...veto-v1.5.1) (2026-05-22)
 
 
