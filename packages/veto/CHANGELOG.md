@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.3](https://github.com/fuf-stack/pixels/compare/veto-v1.5.2...veto-v1.5.3) (2026-05-22)
+
+
+### Bug Fixes
+
+* **veto:** stabilize union and discriminated-union error normalization ([b4e9857](https://github.com/fuf-stack/pixels/commit/b4e9857e49e9acfb15a644f047aae3dab4b7f906))
+
 ## [1.5.2](https://github.com/fuf-stack/pixels/compare/veto-v1.5.1...veto-v1.5.2) (2026-05-22)
 
 
