@@ -4,7 +4,11 @@
   "tasks": {
     "build": {
       "dependsOn": ["^build"],
-      "outputs": ["dist/**", "node_modules/.cache/tsbuildinfo.json"],
+      "outputs": [
+        "dist/**",
+        "node_modules/.cache/tsbuildinfo.json",
+        "src/__generated__/**"
+      ],
       "outputLogs": "new-only"
     },
     "dev": {

@@ -41,24 +41,29 @@ veto keeps its existing nested error shape, but issue internals now come from Zo
 - discriminator errors now come from Zod v4 `invalid_union`,
 - some fields/messages differ where Zod v4 removed legacy issue fields.
 
-### TypeScript declaration emit may require zod as a peer dependency
+### TypeScript declaration emit and the `zod` dependency
 
-Some projects that export schema builders can hit TypeScript
-`TS2742`/`TS2883` errors after upgrading (non-portable inferred types that
-reference local `.pnpm/zod@.../...` paths).
+Projects that export schema builders or compose veto schemas used to
+hit TypeScript `TS2742`/`TS2883` errors after upgrading to veto 1.x
+(non-portable inferred types that reference local `.pnpm/zod@.../...`
+paths).
 
-The fix is at the package-manifest level: `@fuf-stack/veto` declares `zod`
-as a `peerDependency`, and consumer projects need `autoInstallPeers: true`
-in their pnpm config so `zod` is symlinked into every package that depends
-on veto.
+The history of this problem and how it was solved:
 
-See [veto monorepo usage](./veto-monorepo-usage.md) for the full setup
-and troubleshooting steps.
+| Veto version      | Required `zod` in consumer `package.json`?                                         | Mechanism                                                                            |
+| ----------------- | ---------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
+| `1.0.x` – `1.2.x` | Effectively yes (via `schemaFactory` workaround OR direct declaration)             | Phantom-typed factories blocked composition / chaining                               |
+| `1.3.x`           | **Yes — required.** `schemaFactory` removed in favor of explicit `zod` declaration | `zod` declared as `peerDependency`, every consumer must add it                       |
+| `1.4.x` and later | **No.** Just install `@fuf-stack/veto`                                             | `zod` bundled into veto's dist via `tsdown` `deps.alwaysBundle`; no `peerDependency` |
 
-> Note: earlier `1.x` releases shipped a `schemaFactory` helper that
-> wrapped schemas in a phantom-typed factory as a workaround for this
-> problem. It was removed because the peerDependency approach solves the
-> same problem at its root without the composability trade-offs.
+If you are upgrading from `1.3.x` to `1.4+`, you can safely **remove**
+`zod` from your consumer packages' `package.json`. Existing `zod`
+declarations are harmless but redundant.
+
+See [veto monorepo usage](./veto-monorepo-usage.md) for the current
+zero-configuration consumer experience and the single hard constraint
+that comes with bundling (don't mix raw zod with veto in the same
+codebase).
 
 ## Codemod
 
@@ -88,18 +93,23 @@ pnpm --filter @fuf-stack/veto codemod:v1 --path /path/to/project --write
 
 ## Manual migration checklist
 
-- Upgrade to veto v1 and Zod v4 in your project.
-- If declaration emit reports `TS2742`/`TS2883`, follow
-  [veto monorepo usage](./veto-monorepo-usage.md) — the fix is
-  `autoInstallPeers: true` in your consumer project's pnpm config so the
-  zod peer gets installed alongside veto.
-- Run the codemod in dry-run mode and inspect warnings.
+- Upgrade to veto v1 (preferably `1.4.0` or later — see below) and Zod
+  v4 in your project.
+- If you upgraded from `1.0`–`1.2`, run the codemod in dry-run mode and
+  inspect warnings.
 - Update schema-path logic that checks legacy zodex `type` tags:
   - `discriminatedUnion` -> `oneOf`/`anyOf`
   - `intersection` -> `allOf`
   - `record` -> `additionalProperties`
 - Update tests that assert exact Zod issue messages/fields.
 - Re-run validation tests that depend on enum/literal/discriminator errors.
+- **On veto `1.4.0`+**: remove any `zod` entry from your consumer
+  packages' `package.json`. It is no longer required (zod is bundled
+  into veto's dist).
+- **On veto `1.3.x` only**: if declaration emit reports
+  `TS2742`/`TS2883`, add `zod` (matching veto's peer pin) to the
+  `package.json` of every package that imports from `@fuf-stack/veto`,
+  or upgrade to `1.4.0`+ and skip this step entirely.
 
 ## Notes
 

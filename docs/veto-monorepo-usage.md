@@ -2,81 +2,123 @@
 
 ## TL;DR
 
-**`@fuf-stack/veto` declares `zod` as a `peerDependency`** (pinned to the exact version it was tested against). As long as the consuming project's pnpm config has `autoInstallPeers: true`, using veto in any workspace package requires nothing more than adding it to `dependencies`:
+Add `@fuf-stack/veto` to your `package.json` and you're done — **do not**
+add `zod`:
 
 ```json
 "dependencies": {
-  "@fuf-stack/veto": "1.2.0"
+  "@fuf-stack/veto": "^1.4.0"
 }
 ```
 
-> **The one thing you must configure on the consumer side: `autoInstallPeers: true`** in your project's `pnpm-workspace.yaml` (or `.npmrc`). This pixels monorepo already has it set. Without it, pnpm will not install `zod` automatically and you'll hit `TS2742` / `TS2883` errors on every veto-typed value.
+veto bundles zod (both runtime and types) into its own `dist`, so
+consumers do not need `zod` resolvable in their own `node_modules` for
+either runtime or TypeScript declaration emit.
 
-With both pieces in place, pnpm sees veto's peer requirement when installing the consuming package and automatically symlinks `node_modules/zod` into that package's own `node_modules`. TypeScript can then resolve `ZodString`, `ZodObject`, etc. and emit fully-typed, portable declarations. No `publicHoistPattern`, no manual `zod` declaration, no annotations.
+## Background — why this used to be a problem
 
-Renovate updates veto's `peerDependencies.zod` and `devDependencies.zod` together in lockstep, so consumers always end up on the exact `zod` version veto's CI tested against.
+Earlier veto releases (`<= 1.3.x`) declared `zod` as a `peerDependency`.
+Under pnpm's strict-deps layout this required **every** package that
+imported from `@fuf-stack/veto` to also declare `zod` directly,
+otherwise `tsc --build` (or `tsdown`) raised `TS2742`/`TS2883` on any
+exported veto-typed value:
 
-## Consumer levels
-
-A consumer package can use veto in one of three patterns. **All three are covered by the same setup above** — none requires anything beyond adding `@fuf-stack/veto` to `dependencies`.
-
-```mermaid
-flowchart LR
-    subgraph Veto["@fuf-stack/veto"]
-        VetoPkg["package.json<br/>peerDependencies.zod: 4.4.3"]
-    end
-
-    subgraph T1["Tier 1: Pure consumer"]
-        direction TB
-        T1Code["import { vInfer } from '@fuf-stack/veto'<br/>type Form = vInfer&lt;typeof schema&gt;<br/>schema.parse(input)"]
-        T1Dts["emitted .d.ts:<br/>no zod reference"]
-        T1Code -.-> T1Dts
-    end
-
-    subgraph T2["Tier 2: Re-exporter"]
-        direction TB
-        T2Code["export { workflowSchema }<br/>from 'upstream-pkg'"]
-        T2Dts["emitted .d.ts:<br/>bare re-export by name"]
-        T2Code -.-> T2Dts
-    end
-
-    subgraph T3["Tier 3: Composer"]
-        direction TB
-        T3Code["import { object, string } from '@fuf-stack/veto'<br/>const s = object({ name: string() })"]
-        T3Dts["emitted .d.ts:<br/>VObjectSchema&lt;{<br/>  name: import('zod').ZodString<br/>}&gt;"]
-        T3Code -.-> T3Dts
-    end
-
-    Veto ==>|"@fuf-stack/veto in dependencies<br/>+ autoInstallPeers: true<br/>⇒ zod symlinked into<br/>consumer's node_modules"| T1
-    Veto ==> T2
-    Veto ==> T3
+```
+src/index.ts:9:14 - error TS2883: The inferred type of 'xx'
+cannot be named without a reference to 'ZodString' from
+'.pnpm/zod@4.4.3/node_modules/zod'. This is likely not portable.
+A type annotation is necessary.
 ```
 
-The Tier 3 case is the one that exercises the full chain: tsc needs to write `import("zod").ZodString` into the consumer's emitted `.d.ts`, and `zod` must be resolvable from that consumer's own `node_modules` for the path to be portable. The `peerDependency` + `autoInstallPeers` mechanism guarantees exactly that.
+The root cause was structural: zod's class identifiers (`ZodString`,
+`ZodObject`, …) leaked through veto's inferred return types into every
+consumer's emitted `.d.ts`. pnpm strict-deps then refused to anchor
+those identifiers as bare specifiers because veto's `peerDependencies`
+contract didn't give the consumer ownership of `zod`. The only working
+fix was to add `zod` to the consumer's own `package.json` — across
+every Tier-3/Tier-4 package — which defeated half the point of having a
+wrapper library in the first place.
 
-## When something goes wrong
+## The current solution (since v1.4)
 
-If you hit `TS2742` or `TS2883` on a veto-typed value, the package is missing its part of the chain. In order:
+veto's `tsdown.config.ts` uses `deps.alwaysBundle: ['zod']` to inline
+zod's full type graph and runtime into `dist/index.{mjs,js,d.ts}`. The
+relevant pieces:
 
-1. Confirm the package declares `@fuf-stack/veto` (or an upstream wrapper around it) in its own `dependencies`. The compiler error is telling you: "this package composes Zod schemas — it needs the dependency that pulls in the peer."
-2. Run `pnpm install` to make sure `autoInstallPeers` actually created the `node_modules/zod` symlink.
-3. If both are in place and the error persists, the package is a rare case where the workspace symlink chain doesn't reach `zod` (e.g. it depends on a wrapper that doesn't itself depend on veto). Add `"zod": "4.4.3"` (matching veto's peer pin) to that package's own `dependencies`.
+| File                             | What it does                                                                                                                                                              |
+| -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `packages/veto/tsdown.config.ts` | `deps.alwaysBundle: ['zod']` forces zod to be bundled into both JS and `.d.ts` outputs                                                                                    |
+| `packages/veto/src/index.ts`     | Explicit `export type { ZodAny, ZodArray, ZodString, … } from 'zod'` for the capitalized class types so consumers can name them when they appear in inferred return types |
+| `packages/veto/package.json`     | `zod` lives only in `devDependencies` — it's needed at build time only                                                                                                    |
 
-## Background: why a peerDependency
+The narrow re-export list (instead of `export type * from 'zod'`) is
+deliberate: zod also exposes lowercase identifiers (`string`, `object`,
+`record`, …) that veto re-uses as its own value-exports, and a wildcard
+re-export causes rolldown to silently drop the colliding names from the
+bundled `.d.ts`.
 
-`@fuf-stack/veto` is a thin wrapper around `zod`. Its public API exposes Zod schema types (`ZodObject`, `ZodString`, ...) on the return values of `object()`, `string()`, `vEnum()`, etc. When a consumer package emits `.d.ts` files referencing values inferred from veto schemas, TypeScript must be able to resolve those Zod types to a portable path.
+## Verified consumer experience
 
-If `zod` is only veto's regular `dependency`, pnpm hides it from consumers (the strict "phantom dependency" rule). TypeScript then either emits `ZodObject<T>` with `T` unbound (degrading silently to `any` downstream) or writes `.pnpm/zod@.../...` paths into the `.d.ts` (which `tsc` itself refuses with `TS2883`).
+Tested in [`tests/veto-monorepo-testing`](https://github.com/...)
+against `tsc --build` with pnpm 11 and TypeScript 6:
 
-Declaring `zod` as a `peerDependency` plus `autoInstallPeers: true` makes `zod` a first-class, visible dependency of every consumer, eliminating both failure modes.
+- `ex-validator` (re-exports veto and adds a local schema)
+- `ex-types` (composes schemas from `ex-validator`)
 
-## Things that look like fixes but are not
+Both build with **zero** `zod` declarations anywhere in the dep tree
+and produce `.d.ts` outputs with **zero** `import … from 'zod'`
+statements.
 
-- **`publicHoistPattern: [zod]`** in `pnpm-workspace.yaml`. Hoists `zod` to the workspace root, but `tsc` still emits `.pnpm/zod@.../...` paths when the consuming package has no local `node_modules/zod` symlink. `TS2883` is unaffected.
-- **Bundling `zod` into `veto`'s dist** (`deps.noExternal: ['zod']` in `tsdown.config.ts`). Inlines all Zod runtime + types into veto's output. Breaks `instanceof` for any consumer that also uses `zod` directly, explodes the published `.d.ts` size roughly 250x, and produces `TS4023` when consumers reference inlined-but-not-exported names.
-- **Explicit type annotations** on every exported schema (`export const s: VObjectSchema<{...}> = object({...})`). Defeats the inference benefit Zod exists to provide.
+## When TS4023 still fires
 
-The only mechanism that actually addresses the root cause is making `zod` resolvable from the consumer's own `node_modules`, which `peerDependencies` + `autoInstallPeers` does automatically.
+If `tsc --build` in a consumer raises something like:
+
+```
+error TS4023: Exported variable 'X' has or is using name 'ZodFoo' from
+external module '…/@fuf-stack/veto/dist/index' but cannot be named.
+```
+
+…it means veto's API surface exposes a zod class (`ZodFoo`) that isn't
+yet in the re-export list at `packages/veto/src/index.ts`. The fix is
+one line:
+
+```ts
+// packages/veto/src/index.ts
+export type {
+  // …existing entries…
+  ZodFoo,
+} from 'zod';
+```
+
+Rebuild veto, publish a patch, done. This is now the only maintenance
+surface for the "consumer can't name a zod type" problem.
+
+## Hard constraint — don't mix raw zod with veto in the same codebase
+
+Because veto inlines zod's types and runtime, importing raw `zod` in a
+consumer that also uses veto creates **two structurally identical but
+nominally distinct** copies of every zod class:
+
+- `import { string } from '@fuf-stack/veto'` — returns inlined-`ZodString`
+- `import { z } from 'zod'` — returns raw-`ZodString`
+
+These are not assignable to each other (zod 4 schemas have private
+fields, making them nominal). Any library that wants a zod schema by
+type (`@hookform/resolvers/zod`, `drizzle-zod`, `zod-to-openapi`, …)
+will only accept one flavor. **Pick veto or raw zod for a given
+codebase, never both.**
+
+The fuf monorepo and all internal consumer projects use veto
+exclusively. If a future consumer needs an integration that only
+accepts raw-zod schemas, the migration path is:
+
+1. Add `zod: "4.4.3"` to that consumer's `dependencies` (matching
+   the version veto was tested against — see
+   `packages/veto/devDependencies.zod`).
+2. That consumer now sees both flavors. Use raw zod **only** for the
+   third-party integration that demands it; keep veto everywhere else.
+3. Accept that TS2742 may return for any veto schemas exported from
+   that specific consumer.
 
 ## See also
 

@@ -27,15 +27,13 @@
     "url": "https://github.com/fuf-stack/pixels/issues"
   },
   "scripts": {
-    "build": "tsdown",
+    "build": "pnpm build:zod && tsdown",
+    "build:zod": "tsx scripts/generate-zod-type-exports.ts",
     "codemod:v1": "tsx codemods/v1-upgrade/run.ts",
     "dev": "tsdown --watch",
     "prepack": "pnpm build",
     "test": "vitest ./src",
     "test:codemod": "vitest ./codemods"
-  },
-  "peerDependencies": {
-    "zod": "4.4.3"
   },
   "devDependencies": {
     "zod": "4.4.3"
