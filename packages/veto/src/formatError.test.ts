@@ -208,4 +208,86 @@ describe('formatError', () => {
     expect(issue).not.toHaveProperty('_errorPath');
     expect(issue).not.toHaveProperty('path');
   });
+
+  it('expands non-discriminated invalid_union branch issues and normalizes them', () => {
+    const result = formatError(
+      makeError([
+        {
+          code: 'invalid_union',
+          message: 'Invalid input',
+          path: ['field'],
+          errors: [
+            [
+              {
+                code: 'invalid_value',
+                values: ['resource:*'],
+                input: undefined,
+                path: [],
+                message:
+                  'Field is required\u0000__veto_meta__\u0000{"received":"undefined"}',
+              },
+            ],
+            [
+              {
+                code: 'invalid_type',
+                expected: 'string',
+                input: undefined,
+                path: [],
+                message:
+                  'Field is required\u0000__veto_meta__\u0000{"received":"undefined"}',
+              },
+            ],
+          ],
+        },
+      ]),
+      stringSchema,
+    );
+
+    expect(result).toEqual({
+      field: [
+        {
+          code: 'invalid_literal',
+          expected: 'resource:*',
+          message: 'Field is required',
+          received: 'undefined',
+        },
+        {
+          code: 'invalid_type',
+          expected: 'string',
+          message: 'Field is required',
+          received: 'undefined',
+        },
+      ],
+    });
+  });
+
+  it('keeps discriminated invalid_union issues at top-level', () => {
+    const result = formatError(
+      makeError([
+        {
+          code: 'invalid_union',
+          path: ['field'],
+          message: "Invalid discriminator value. Expected 'apz' | 'dmz'",
+          discriminator: 'zone',
+          note: 'No matching discriminator',
+          options: ['apz', 'dmz'],
+          errors: [],
+        },
+      ]),
+      stringSchema,
+    );
+
+    expect(result).toEqual({
+      field: [
+        {
+          code: 'invalid_union',
+          message: "Invalid discriminator value. Expected 'apz' | 'dmz'",
+          options: ['apz', 'dmz'],
+          discriminator: 'zone',
+          note: 'No matching discriminator',
+          errors: [],
+        },
+      ],
+    });
+  });
 });

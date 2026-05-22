@@ -93,6 +93,57 @@ const addIssueToTree = (root: VetoIssueTreeNode, issue: VetoIssueLike) => {
 };
 
 /**
+ * Expands non-discriminated `invalid_union` issues into their branch issues.
+ *
+ * Zod v4 stores branch failures under `issue.errors` (array of branch-issue
+ * arrays). When these are left nested, downstream consumers can receive raw
+ * Zod issue payloads (including sentinel messages) that bypass veto's normal
+ * formatting. By lifting branch issues to top-level here, they flow through
+ * `normalizeIssue` like regular issues.
+ */
+const expandIssue = (issue: VetoIssueLike): VetoIssueLike[] => {
+  if (issue.code !== issueCodes.invalid_union) {
+    return [issue];
+  }
+
+  // Keep discriminated-union "no matching discriminator" issues as-is.
+  if (
+    typeof issue.discriminator === 'string' &&
+    issue.note === 'No matching discriminator'
+  ) {
+    return [issue];
+  }
+
+  const branchErrors = issue.errors;
+  if (!Array.isArray(branchErrors) || branchErrors.length === 0) {
+    return [issue];
+  }
+
+  const parentPath = Array.isArray(issue.path) ? issue.path : [];
+  const liftedIssues: VetoIssueLike[] = [];
+  branchErrors.forEach((branchIssueList) => {
+    if (!Array.isArray(branchIssueList)) {
+      return;
+    }
+    branchIssueList.forEach((branchIssue) => {
+      if (!branchIssue || typeof branchIssue !== 'object') {
+        return;
+      }
+      const typedBranchIssue = branchIssue as VetoIssueLike;
+      const branchPath = Array.isArray(typedBranchIssue.path)
+        ? typedBranchIssue.path
+        : [];
+      liftedIssues.push({
+        ...typedBranchIssue,
+        path: [...parentPath, ...branchPath],
+      });
+    });
+  });
+
+  return liftedIssues.length > 0 ? liftedIssues : [issue];
+};
+
+/**
  * Formats single zod error to veto error format
  * @param zodError - The Zod error to format
  */
@@ -203,7 +254,9 @@ export const formatError = (
   const issueTree = createIssueTreeNode();
 
   error.issues.forEach((issue) => {
-    addIssueToTree(issueTree, issue as VetoIssueLike);
+    expandIssue(issue as VetoIssueLike).forEach((expandedIssue) => {
+      addIssueToTree(issueTree, expandedIssue);
+    });
   });
 
   const formatted = finalizeIssueTree(issueTree, schema);
@@ -220,5 +273,5 @@ export const formatError = (
 
   return {
     _errors: rootErrors,
-  } as VetoFormattedError;
+  };
 };

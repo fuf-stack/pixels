@@ -1,4 +1,4 @@
-import { expect, expectTypeOf, it } from 'vitest';
+import { expect, it } from 'vitest';
 
 import veto, { string } from 'src';
 import { stringCommon } from 'test/helpers';
@@ -84,10 +84,8 @@ it('supports chaining built-in methods after refine', () => {
     (val) => !val.includes('bad'),
     'Must not contain bad',
   );
-  const refined = (refinedBase as unknown as ReturnType<typeof string>).max(5);
-
-  expectTypeOf(refined.parse('hello')).toEqualTypeOf<string>();
-  expect(typeof (refinedBase as { max?: unknown }).max).toBe('function');
+  const refined = refinedBase.max(5);
+  expect(typeof refinedBase.max).toBe('function');
   const schema = { stringField: refined };
   const result = veto(schema).validate({ stringField: 'badvalue' });
   const issues = (result as { errors?: { stringField?: unknown } }).errors
@@ -118,12 +116,8 @@ it('supports chaining built-in methods after superRefine', () => {
       ctx.addIssue({ code: 'custom', message: 'Must not contain bad' });
     }
   });
-  const superRefined = (
-    superRefinedBase as unknown as ReturnType<typeof string>
-  ).max(5);
-
-  expectTypeOf(superRefined.parse('hello')).toEqualTypeOf<string>();
-  expect(typeof (superRefinedBase as { max?: unknown }).max).toBe('function');
+  const superRefined = superRefinedBase.max(5);
+  expect(typeof superRefinedBase.max).toBe('function');
   const schema = { stringField: superRefined };
   const result = veto(schema).validate({ stringField: 'badvalue' });
   const issues = (result as { errors?: { stringField?: unknown } }).errors

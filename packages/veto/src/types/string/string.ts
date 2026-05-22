@@ -155,6 +155,6 @@ export function refineString(
       if (refinements.noConsecutiveCharacters) {
         noConsecutiveCharacters(refinements.noConsecutiveCharacters)(val, ctx);
       }
-    }) as unknown as VStringSchema | VetoOptional<VStringSchema>;
+    });
   };
 }

@@ -300,7 +300,7 @@ export const normalizeIssue = (issue: VetoIssueLike): VetoIssueLike => {
       rawInput && typeof rawInput === 'object' && !Array.isArray(rawInput)
         ? (rawInput as Record<string, unknown>)
         : undefined;
-    if (inputObj?.[discriminator] === undefined) {
+    if (inputObj && inputObj[discriminator] === undefined) {
       const {
         errors: _errors,
         note: _note,
