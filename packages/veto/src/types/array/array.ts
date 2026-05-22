@@ -28,7 +28,28 @@ export type VArraySchema<T extends VetoTypeAny> = ZodArray<T>;
 /** when used with refine or superRefine */
 export type VArrayRefined<T extends VetoTypeAny> = VetoEffects<VArraySchema<T>>;
 
-type MakeElementsUniqueOptions =
+/**
+ * Type of element passed to `unique.mapFn`.
+ *
+ * - Arrays are kept as-is.
+ * - Object elements are made `Partial` so mapFn can still run when some
+ *   properties are missing, which allows duplicate + validation errors together.
+ * - Primitives are kept unchanged.
+ */
+type UniqueMapFnInput<TElement> = TElement extends readonly unknown[]
+  ? TElement
+  : TElement extends object
+    ? Partial<TElement>
+    : TElement;
+
+/**
+ * Options for `refineArray(...){ unique: ... }`.
+ *
+ * When `true`, a default deep-ish comparison is used.
+ * When object options are provided, `mapFn` can project each element into a
+ * comparable value and custom messages/paths can be configured.
+ */
+type MakeElementsUniqueOptions<TElement = unknown> =
   | true
   | {
       /** custom error method in single element is not unique (element) */
@@ -36,21 +57,28 @@ type MakeElementsUniqueOptions =
       /** a custom error (sub-)path that allows creating the element is not unique error on a sub field */
       elementErrorPath?: string[];
       /** helper to transform array elements before comparing them */
-      mapFn?: (arg: unknown) => unknown;
+      mapFn?: (element: TElement) => unknown;
       /** custom error method in case elements are not unique (global) */
       message?: string;
     };
 
 /** Refinement to make array elements unique */
-const makeElementsUnique = (options: MakeElementsUniqueOptions) => {
-  return <T extends VetoTypeAny>(data: T[], ctx: VetoRefinementCtx) => {
+const makeElementsUnique = <TElement>(
+  options: MakeElementsUniqueOptions<TElement>,
+) => {
+  return (
+    data: { element: TElement; index: number }[],
+    ctx: VetoRefinementCtx,
+  ) => {
     const mapFn =
       (options !== true && options?.mapFn) ||
-      ((x: unknown) => {
+      ((x: TElement) => {
         return x;
       });
     // add error to (second) duplicate array element
-    const dataMapped = data.map(mapFn);
+    const dataMapped = data.map(({ element }) => {
+      return mapFn(element);
+    });
 
     // find indexes of (second) duplicate elements in array
     const duplicateIndexes = dataMapped
@@ -78,7 +106,11 @@ const makeElementsUnique = (options: MakeElementsUniqueOptions) => {
         return index !== false;
       });
     // add element errors
-    duplicateIndexes.forEach((i) => {
+    duplicateIndexes.forEach((mappedIndex) => {
+      const originalIndex = data[mappedIndex]?.index;
+      if (originalIndex === undefined) {
+        return;
+      }
       ctx.addIssue({
         code: issueCodes.custom,
         message:
@@ -86,7 +118,10 @@ const makeElementsUnique = (options: MakeElementsUniqueOptions) => {
           'Element already exists',
         params: { code: 'not_unique' },
         // add element path
-        path: [i, ...((options !== true && options?.elementErrorPath) || [])],
+        path: [
+          originalIndex,
+          ...((options !== true && options?.elementErrorPath) || []),
+        ],
       });
     });
     // add global _error to array
@@ -102,14 +137,46 @@ const makeElementsUnique = (options: MakeElementsUniqueOptions) => {
   };
 };
 
+/** Narrow unknown values to non-array object literals. */
+const isPlainObject = (val: unknown): val is Record<string, unknown> => {
+  return typeof val === 'object' && val !== null && !Array.isArray(val);
+};
+
+/**
+ * Best-effort check whether an element schema represents an object value.
+ *
+ * This is used to decide if object-like raw values should still be passed to
+ * `unique.mapFn` (for partial-object duplicate checks), even when full element
+ * validation would fail because some required keys are missing.
+ */
+const isObjectElementSchema = (schema: VetoTypeAny): boolean => {
+  if (schema instanceof z.ZodObject) {
+    return true;
+  }
+  const probeResult = schema.safeParse({});
+  if (probeResult.success) {
+    return false;
+  }
+  return probeResult.error.issues.some((issue) => {
+    return issue.path.length > 0;
+  });
+};
+
 /** Configuration options for array validation refinements */
-export interface VArrayRefinements {
+export interface VArrayRefinements<TElement = unknown> {
   /** Custom refinement function that takes the object data and context */
   custom?: (data: unknown[], ctx: VetoRefinementCtx) => void;
   /** Ensures array elements are unique based on specified criteria or comparison function */
-  unique?: MakeElementsUniqueOptions;
+  unique?: MakeElementsUniqueOptions<UniqueMapFnInput<TElement>>;
 }
 
+/**
+ * Input schema shape accepted by `refineArray`.
+ *
+ * Supports both:
+ * - direct array schemas
+ * - optional-wrapped array schemas
+ */
 type RefineArrayInputArray =
   | ReturnType<VArray>
   | VetoOptional<ReturnType<VArray>>;
@@ -151,9 +218,11 @@ type ExtractElement<T> =
  */
 export const refineArray = <T extends RefineArrayInputArray>(schema: T) => {
   type Element = ExtractElement<T>;
+  type ElementValue = z.infer<Element>;
+  type UniqueElementValue = UniqueMapFnInput<ElementValue>;
 
   return (
-    refinements: VArrayRefinements,
+    refinements: VArrayRefinements<ElementValue>,
   ): VetoEffects<VArraySchema<Element>> => {
     let _schema = schema as unknown as VetoEffects<VArraySchema<Element>>;
 
@@ -171,6 +240,7 @@ export const refineArray = <T extends RefineArrayInputArray>(schema: T) => {
 
     // if refinements provided
     if (Object.keys(refinements).length) {
+      const arrayBaseSchema = baseSchema as VArraySchema<Element>;
       const refinementSchema = z.preprocess((val, ctx) => {
         // add custom refinement
         if (refinements.custom && Array.isArray(val)) {
@@ -178,7 +248,42 @@ export const refineArray = <T extends RefineArrayInputArray>(schema: T) => {
         }
         // add unique refinement
         if (refinements.unique && Array.isArray(val)) {
-          makeElementsUnique(refinements.unique)(val, ctx);
+          const objectElementSchema = isObjectElementSchema(
+            arrayBaseSchema.element,
+          );
+          const validElements = val
+            .map(
+              (
+                item,
+                index,
+              ): { element: UniqueElementValue; index: number } | null => {
+                if (objectElementSchema) {
+                  if (!isPlainObject(item)) {
+                    return null;
+                  }
+                  return {
+                    element: item as UniqueElementValue,
+                    index,
+                  };
+                }
+                const parsedItem = arrayBaseSchema.element.safeParse(item);
+                if (!parsedItem.success) {
+                  return null;
+                }
+                return {
+                  element: parsedItem.data,
+                  index,
+                };
+              },
+            )
+            .filter(
+              (
+                item,
+              ): item is { element: UniqueElementValue; index: number } => {
+                return item !== null;
+              },
+            );
+          makeElementsUnique(refinements.unique)(validElements, ctx);
         }
         return val;
       }, z.any());

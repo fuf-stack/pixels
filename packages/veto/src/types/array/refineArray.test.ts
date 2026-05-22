@@ -19,7 +19,9 @@ describe('custom refinement', () => {
     });
 
     expect(refined.safeParse(undefined).success).toBe(true);
-    expectTypeOf(refined.parse(undefined)).toEqualTypeOf<string[] | undefined>();
+    expectTypeOf(refined.parse(undefined)).toEqualTypeOf<
+      string[] | undefined
+    >();
   });
 
   it('validates array with custom logic', () => {
@@ -162,6 +164,19 @@ describe('custom refinement', () => {
 });
 
 describe('unique refinement', () => {
+  it('types mapFn parameter as partial object element value', () => {
+    refineArray(array(object({ name: string(), id: number() })))({
+      unique: {
+        mapFn: (val) => {
+          expectTypeOf(val).toEqualTypeOf<
+            Partial<{ name: string; id: number }>
+          >();
+          return val.id;
+        },
+      },
+    });
+  });
+
   it('checks if elements are unique', () => {
     const schema = {
       arrayField: refineArray(array(string()))({
@@ -226,6 +241,58 @@ describe('unique refinement', () => {
       data: null,
       errors: {
         arrayField: {
+          '3': {
+            _errors: [
+              {
+                code: 'not_unique',
+                message: 'Element already exists',
+              },
+            ],
+          },
+          _errors: [
+            {
+              code: 'not_unique',
+              message: 'Array elements are not unique',
+              type: 'array',
+            },
+          ],
+        },
+      },
+    });
+  });
+
+  it('does not pass invalid elements to mapFn', () => {
+    const mapFnCalls: { id: number }[] = [];
+    const schema = {
+      arrayField: refineArray(array(object({ id: number() })))({
+        unique: {
+          mapFn: (val) => {
+            mapFnCalls.push(val);
+            return val.id;
+          },
+        },
+      }),
+    };
+    const result = veto(schema).validate({
+      arrayField: [{ id: 1 }, 'invalid', { id: 2 }, { id: 1 }],
+    });
+
+    expect(mapFnCalls).toStrictEqual([{ id: 1 }, { id: 2 }, { id: 1 }]);
+    expect(result).toStrictEqual({
+      success: false,
+      data: null,
+      errors: {
+        arrayField: {
+          '1': {
+            _errors: [
+              {
+                code: 'invalid_type',
+                expected: 'object',
+                message: 'Expected object, received string',
+                received: 'string',
+              },
+            ],
+          },
           '3': {
             _errors: [
               {
@@ -376,7 +443,7 @@ describe('unique refinement', () => {
     });
   });
 
-  it('array errors are present when elements have errors', () => {
+  it('shows validation and duplicate errors together for missing fields', () => {
     const schema = {
       arrayField: refineArray(
         array(
