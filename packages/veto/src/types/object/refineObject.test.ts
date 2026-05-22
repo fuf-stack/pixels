@@ -32,9 +32,85 @@ describe('custom', () => {
     });
 
     expect(refined.safeParse(undefined).success).toBe(true);
-    expectTypeOf(
-      refined.parse(undefined),
-    ).toEqualTypeOf<{ name: string; age: number } | undefined>();
+    expectTypeOf(refined.parse).returns.toEqualTypeOf<
+      { name: string; age: number } | undefined
+    >();
+  });
+
+  it('provides type-safe custom helpers for full object checks', () => {
+    refineObject(
+      object({
+        name: string(),
+        age: number(),
+      }),
+    )({
+      custom: (data, _ctx, helpers) => {
+        expectTypeOf(helpers.parseObject(data)).toEqualTypeOf<{
+          name: string;
+          age: number;
+        } | null>();
+        expectTypeOf(
+          helpers.parseObject(data, { partial: true }),
+        ).toEqualTypeOf<Partial<{ name: string; age: number }> | null>();
+
+        if (helpers.isSchemaObject(data)) {
+          expectTypeOf(data).toEqualTypeOf<{ name: string; age: number }>();
+        }
+
+        if (helpers.isSchemaObject(data, { partial: true })) {
+          expectTypeOf(data).toEqualTypeOf<
+            Partial<{ name: string; age: number }>
+          >();
+        }
+      },
+    });
+  });
+
+  it('supports partial helper mode at runtime', () => {
+    const schema = {
+      user: refineObject(
+        object({
+          name: string(),
+          age: number(),
+        }),
+      )({
+        custom: (data, ctx, helpers) => {
+          if (
+            helpers.isSchemaObject(data, { partial: true }) &&
+            data.age === undefined
+          ) {
+            ctx.addIssue({
+              code: 'custom',
+              message: 'Age is missing',
+              path: ['age'],
+            });
+          }
+        },
+      }),
+    };
+
+    const result = veto(schema).validate({
+      user: { name: 'admin' },
+    });
+
+    expect(result).toMatchObject({
+      success: false,
+      errors: {
+        user: {
+          age: [
+            {
+              code: 'invalid_type',
+              message: 'Field is required',
+              received: 'undefined',
+            },
+            {
+              code: 'custom',
+              message: 'Age is missing',
+            },
+          ],
+        },
+      },
+    });
   });
 
   it('should validate using custom function', () => {
