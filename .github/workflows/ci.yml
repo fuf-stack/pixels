@@ -18,51 +18,50 @@ jobs:
     timeout-minutes: 15
 
     steps:
+      # Clone the repository at the pushed ref.
       - uses: actions/checkout@v6
+
+      # Install pnpm + node, restore deps, build all packages.
       - uses: ./.github/actions/setup-project
+
+      # Run the full vitest suite across all packages with coverage.
       - name: Run tests
         run: pnpm test
+
+      # Declaration-emit smoke test: catches `TS4023` regressions in
+      # veto's bundled `dist/index.d.ts`. See: packages/veto/test/dts-smoke/.
+      - name: Run dts smoke test
+        run: pnpm --filter @fuf-stack/veto test:dts
+
+      # Persist coverage for the sonar job to consume.
       - name: Upload coverage reports
         uses: actions/upload-artifact@v7
         with:
           name: coverage-report
           path: coverage/
 
-  # Declaration-emit smoke test: catches `TS4023` regressions in
-  # packages that bundle external types (e.g. veto inlining zod's
-  # types into `dist/index.d.ts`). Runs in parallel with `test`; both
-  # rely on `pnpm build` already having run in the setup action.
-  # See: packages/veto/test/dts-smoke/.
-  test-dts:
-    name: Test (dts smoke)
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-
-    steps:
-      - uses: actions/checkout@v6
-      - uses: ./.github/actions/setup-project
-      - name: Run dts smoke tests
-        run: pnpm turbo test:dts
-
   sonar:
     name: Sonarqube Analysis
     # Only run sonar if we're not on a renovate or release-please branch
     if: ${{ !startsWith(github.ref, 'refs/heads/renovate/') && !startsWith(github.ref, 'refs/heads/release-please') }}
-    needs: [test, test-dts]
+    needs: [test]
     runs-on: ubuntu-latest
     timeout-minutes: 10
 
     steps:
+      # Full history clone — Sonarqube needs it for blame / new-code detection.
       - uses: actions/checkout@v6
         with:
           fetch-depth: 0 # Required for Sonarqube
 
+      # Pull the coverage artifact produced by the test job.
       - name: Download coverage report
         uses: actions/download-artifact@v8
         with:
           name: coverage-report
           path: coverage/
 
+      # Upload coverage + project metadata to Sonarqube.
       - uses: SonarSource/sonarqube-scan-action@v8
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
