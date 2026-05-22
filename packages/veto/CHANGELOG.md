@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.1](https://github.com/fuf-stack/pixels/compare/veto-v1.4.0...veto-v1.4.1) (2026-05-22)
+
+
+### Bug Fixes
+
+* **veto:** bundle missing zod types ([d608f8b](https://github.com/fuf-stack/pixels/commit/d608f8be0612561deb5ca69682c5d192740d12f8))
+
 ## [1.4.0](https://github.com/fuf-stack/pixels/compare/veto-v1.3.0...veto-v1.4.0) (2026-05-22)
 
 
