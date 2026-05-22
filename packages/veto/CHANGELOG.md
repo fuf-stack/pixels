@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.4.0](https://github.com/fuf-stack/pixels/compare/veto-v1.3.0...veto-v1.4.0) (2026-05-22)
+
+
+### Features
+
+* **veto:** bundle zod runtime and types into dist ([38712a6](https://github.com/fuf-stack/pixels/commit/38712a6217d9c51bf5b63b337cbaa4278174f887))
+
+
+### Bug Fixes
+
+* **veto:** do not bundle zod js ([e585920](https://github.com/fuf-stack/pixels/commit/e5859204edd08376cb94759062e9a13cca61be88))
+
 ## [1.3.0](https://github.com/fuf-stack/pixels/compare/veto-v1.2.1...veto-v1.3.0) (2026-05-21)
 
 
