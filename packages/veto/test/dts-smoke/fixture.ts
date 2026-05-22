@@ -40,7 +40,7 @@ export const _jsonObject = v.jsonObject();
 export const _object = v.object({ a: v.string(), b: v.number() });
 export const _objectLoose = v.objectLoose({ a: v.string() });
 export const _array = v.array(v.string()).min(2);
-export const _record = v.record(v.string());
+export const _record = v.record(v.string(), v.string());
 export const _and = v.and(
   v.object({ a: v.string() }),
   v.object({ b: v.number() }),

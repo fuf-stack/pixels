@@ -33,6 +33,31 @@ If your app imported `SzType` from `@fuf-stack/veto`, migrate to:
 import type { SerializedSchema } from '@fuf-stack/veto';
 ```
 
+### `record` now follows Zod v4 two-argument API
+
+v0 allowed the old convenience signature `record(valueSchema)`.
+v1 follows Zod v4 and requires both key and value schemas:
+
+- **Before (v0):** `record(string())`
+- **After (v1):** `record(string(), string())`
+
+Examples:
+
+```ts
+import { z } from 'zod';
+
+import { number, record, string } from '@fuf-stack/veto';
+
+const byName = record(string(), number());
+// Record<string, number>
+
+const anyObject = record(
+  z.union([z.string(), z.number(), z.symbol()]),
+  z.unknown(),
+);
+// Record<string | number | symbol, unknown>
+```
+
 ### Error issue payloads are Zod v4-based
 
 veto keeps its existing nested error shape, but issue internals now come from Zod v4.
@@ -103,6 +128,7 @@ pnpm --filter @fuf-stack/veto codemod:v1 --path /path/to/project --write
   - `intersection` -> `allOf`
   - `record` -> `additionalProperties`
 - Update tests that assert exact Zod issue messages/fields.
+- Update all `record(...)` calls to pass both `keySchema` and `valueSchema`.
 - Re-run validation tests that depend on enum/literal/discriminator errors.
 - **On veto `1.4.0`+**: remove any `zod` entry from your consumer
   packages' `package.json`. It is no longer required — zod's types are

@@ -117,8 +117,8 @@ it('correctly infers optional types', () => {
 
 it('correctly infers record types', () => {
   const schema = object({
-    metadata: record(string()),
-    counts: record(number()),
+    metadata: record(string(), string()),
+    counts: record(string(), number()),
   });
 
   type Result = vInfer<typeof schema>;

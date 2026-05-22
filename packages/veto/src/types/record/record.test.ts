@@ -1,11 +1,12 @@
 import type { VRecordSchema } from './record';
 
+import { z } from 'zod';
 import { expect, expectTypeOf, it } from 'vitest';
 
 import veto, { record, string } from 'src';
 
 const schema = {
-  recordField: record(string()),
+  recordField: record(string(), string()),
 };
 
 const validInput = {
@@ -16,16 +17,29 @@ const validInput = {
 };
 
 it('exposes record schema typing', () => {
-  const typedRecord = record(string());
+  const typedRecord = record(string(), string());
   const typedFactory: typeof record = record;
-  const typedSchema: VRecordSchema<ReturnType<typeof string>> = typedRecord;
+  const typedSchema: VRecordSchema<
+    ReturnType<typeof string>,
+    ReturnType<typeof string>
+  > = typedRecord;
 
   expectTypeOf(typedFactory).toEqualTypeOf<typeof record>();
   expectTypeOf(typedSchema).toEqualTypeOf<
-    VRecordSchema<ReturnType<typeof string>>
+    VRecordSchema<ReturnType<typeof string>, ReturnType<typeof string>>
   >();
   expectTypeOf(typedRecord.parse({ key: 'value' })).toEqualTypeOf<
     Record<string, string>
+  >();
+  expect(typedRecord.safeParse({ key: 'value' }).success).toBe(true);
+});
+
+it('accepts key schemas beyond plain string', () => {
+  const keySchema = z.union([z.string(), z.number(), z.symbol()]);
+  const typedRecord = record(keySchema, string());
+
+  expectTypeOf(typedRecord.parse({ key: 'value' })).toEqualTypeOf<
+    Record<string | number | symbol, string>
   >();
   expect(typedRecord.safeParse({ key: 'value' }).success).toBe(true);
 });
