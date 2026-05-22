@@ -98,3 +98,33 @@ it('accepts valid option', () => {
     errors: null,
   });
 });
+
+it('keeps "Field is required" for nested missing discriminator', () => {
+  const nestedSchema = {
+    network: discriminatedUnion('zone', [
+      object({ zone: literal('apz'), cidr: string() }),
+      object({ zone: literal('dmz'), vlan: number() }),
+    ]),
+  };
+
+  const result = veto(nestedSchema).validate({
+    network: {},
+  });
+
+  expect(result).toStrictEqual({
+    success: false,
+    data: null,
+    errors: {
+      network: {
+        zone: [
+          {
+            code: 'invalid_union',
+            message: 'Field is required',
+            options: ['apz', 'dmz'],
+            received: 'undefined',
+          },
+        ],
+      },
+    },
+  });
+});

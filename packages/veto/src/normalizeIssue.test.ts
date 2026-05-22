@@ -320,6 +320,46 @@ describe('normalizeIssue', () => {
         errors: [[{ code: 'invalid_type' }]],
       });
     });
+
+    it('normalizes raw missing-discriminator invalid_union to "Field is required"', () => {
+      const result = normalizeIssue({
+        code: 'invalid_union',
+        message: "Invalid discriminator value. Expected 'apz' | 'dmz'",
+        discriminator: 'zone',
+        note: 'No matching discriminator',
+        errors: [],
+        options: ['apz', 'dmz'],
+        input: {},
+      });
+      expect(result).toEqual({
+        code: 'invalid_union',
+        message: 'Field is required',
+        received: 'undefined',
+        options: ['apz', 'dmz'],
+        input: {},
+      });
+    });
+
+    it('keeps raw invalid_union when discriminator value is present', () => {
+      const result = normalizeIssue({
+        code: 'invalid_union',
+        message: "Invalid discriminator value. Expected 'apz' | 'dmz'",
+        discriminator: 'zone',
+        note: 'No matching discriminator',
+        errors: [],
+        options: ['apz', 'dmz'],
+        input: { zone: 'unknown' },
+      });
+      expect(result).toEqual({
+        code: 'invalid_union',
+        message: "Invalid discriminator value. Expected 'apz' | 'dmz'",
+        discriminator: 'zone',
+        note: 'No matching discriminator',
+        errors: [],
+        options: ['apz', 'dmz'],
+        input: { zone: 'unknown' },
+      });
+    });
   });
 
   describe('passthrough', () => {

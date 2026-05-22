@@ -238,7 +238,7 @@ export const normalizeIssue = (issue: VetoIssueLike): VetoIssueLike => {
     next.received = meta.received;
   }
   if (meta.options !== undefined) {
-    next.options = meta.options as unknown[];
+    next.options = meta.options;
   }
   let metaInput: unknown;
   if (rawInput !== undefined || hasIssueInput) {
@@ -286,6 +286,33 @@ export const normalizeIssue = (issue: VetoIssueLike): VetoIssueLike => {
       ...rest
     } = next;
     return rest;
+  }
+
+  // Fallback for raw Zod v4 discriminated-union issues when the global
+  // error map did not attach sentinel metadata (or was bypassed).
+  if (
+    next.code === issueCodes.invalid_union &&
+    next.note === 'No matching discriminator' &&
+    typeof next.discriminator === 'string'
+  ) {
+    const { discriminator } = next;
+    const inputObj =
+      rawInput && typeof rawInput === 'object' && !Array.isArray(rawInput)
+        ? (rawInput as Record<string, unknown>)
+        : undefined;
+    if (inputObj?.[discriminator] === undefined) {
+      const {
+        errors: _errors,
+        note: _note,
+        discriminator: _discriminator,
+        ...rest
+      } = next;
+      return {
+        ...rest,
+        message: 'Field is required',
+        received: 'undefined',
+      };
+    }
   }
 
   return next;
