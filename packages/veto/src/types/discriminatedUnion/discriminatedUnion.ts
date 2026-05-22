@@ -3,7 +3,7 @@ import type { ZodType } from 'zod';
 
 import { z } from 'zod';
 
-interface VDiscriminatedUnionOptions {
+export interface VDiscriminatedUnionOptions {
   error?: string | { message: string };
   inclusive?: boolean;
   message?: string;

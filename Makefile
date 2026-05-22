@@ -36,6 +36,13 @@ test:
 	@$(MAKE) install;
 	pnpm test;
 
+# Run the declaration-emit smoke test (installs dependencies first).
+# `install` already runs `pnpm build`, so dist/index.d.ts is fresh
+# by the time tsc reads it. See: packages/veto/test/dts-smoke/.
+test-dts:
+	@$(MAKE) install;
+	pnpm --filter @fuf-stack/veto test:dts;
+
 # Bootstrap or update the 'next' prerelease branch
 # Creates .release-please-manifest-next.json with major version bumps
 # Re-run this when main catches up to next's major version

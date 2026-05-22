@@ -28,11 +28,27 @@ jobs:
           name: coverage-report
           path: coverage/
 
+  # Declaration-emit smoke test: catches `TS4023` regressions in
+  # packages that bundle external types (e.g. veto inlining zod's
+  # types into `dist/index.d.ts`). Runs in parallel with `test`; both
+  # rely on `pnpm build` already having run in the setup action.
+  # See: packages/veto/test/dts-smoke/.
+  test-dts:
+    name: Test (dts smoke)
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v6
+      - uses: ./.github/actions/setup-project
+      - name: Run dts smoke tests
+        run: pnpm turbo test:dts
+
   sonar:
     name: Sonarqube Analysis
     # Only run sonar if we're not on a renovate or release-please branch
     if: ${{ !startsWith(github.ref, 'refs/heads/renovate/') && !startsWith(github.ref, 'refs/heads/release-please') }}
-    needs: [test]
+    needs: [test, test-dts]
     runs-on: ubuntu-latest
     timeout-minutes: 10
 

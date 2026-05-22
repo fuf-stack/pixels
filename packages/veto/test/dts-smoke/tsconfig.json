@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+
+  // Deliberately do NOT extend veto's own tsconfig.json — that pulls in
+  // path mappings (`src/*`) and project-references that would route
+  // `@fuf-stack/veto` back to the source. This fixture must resolve the
+  // import to the *built* `dist/index.d.ts` (via the workspace symlink)
+  // because TS4023 only surfaces in consumers reading from `dist/`.
+  "extends": "@fuf-stack/typescript-config/base.json",
+
+  "compilerOptions": {
+    "composite": false,
+
+    // Declaration emit is what triggers TS4023. With `noEmit: true` TS
+    // skips the declaration-printing pass and the error stays hidden,
+    // so we actually write `.d.ts` files into a throwaway dir.
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "noEmit": false,
+    "outDir": "./out",
+
+    // pnpm does not create a self-symlink for a workspace package, so
+    // `@fuf-stack/veto` is unresolvable from inside veto's own folder.
+    // Map the bare specifier directly to the *built* `dist/index.d.ts`
+    // — same file a real consumer's `tsc` ends up reading via the
+    // workspace package, just sourced explicitly.
+    "paths": {
+      "@fuf-stack/veto": ["../../dist/index.d.ts"]
+    },
+
+    // The fixture only imports `@fuf-stack/veto`; no JSX, no DOM, no
+    // weird globals. Keep the option surface minimal so a TS4023 in
+    // veto's dist is the *only* failure mode this config produces.
+    "moduleResolution": "Bundler",
+    "skipLibCheck": true
+  },
+
+  "include": ["fixture.ts"]
+}

@@ -11,5 +11,10 @@
     "rootDir": ".",
     "tsBuildInfoFile": "node_modules/.cache/tsbuildinfo.json"
   },
-  "include": ["src", "test"]
+  "include": ["src", "test"],
+  // The dts-smoke fixture deliberately imports `@fuf-stack/veto` from
+  // the built dist (via the workspace symlink), not from src. Including
+  // it here would route the import back to src and defeat the test.
+  // Has its own tsconfig at packages/veto/test/dts-smoke/tsconfig.json.
+  "exclude": ["test/dts-smoke"]
 }

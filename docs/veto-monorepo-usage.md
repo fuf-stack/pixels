@@ -55,12 +55,12 @@ simultaneously satisfies all three of:
 
 The relevant pieces:
 
-| File                                                 | What it does                                                                                                                                                                                                                                                           |
-| ---------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `packages/veto/tsdown.config.ts` — pass 1            | Emit `dist/index.{mjs,js}` with `import { z } from 'zod'` left external. One shared zod instance at runtime.                                                                                                                                                           |
-| `packages/veto/tsdown.config.ts` — pass 2            | `deps.alwaysBundle: ['zod']` + `dts: { emitDtsOnly: true }` — inline zod's types into `dist/index.d.ts`, no JS emitted. `deps.onlyBundle: ['zod']` whitelists zod as the only allowed inlined dependency so any future leak from another package is a hard error.      |
-| `packages/veto/scripts/generate-zod-type-exports.ts` | Codegen step that walks `node_modules/zod/index.d.ts` via the TypeScript compiler API and writes `src/__generated__/zodTypes.ts` with one `export type { … } from 'zod'` line per `Zod*` identifier. Re-runs on every build via `"build": "pnpm build:zod && tsdown"`. |
-| `packages/veto/package.json`                         | `zod` declared in `dependencies` (not `peer`, not `dev`). pnpm installs it transitively for any package that depends on veto.                                                                                                                                          |
+| File                                                 | What it does                                                                                                                                                                                                                                                     |
+| ---------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `packages/veto/tsdown.config.ts` — pass 1            | Emit `dist/index.{mjs,js}` with `import { z } from 'zod'` left external. One shared zod instance at runtime.                                                                                                                                                     |
+| `packages/veto/tsdown.config.ts` — pass 2            | `deps.alwaysBundle: [/^zod($\|\/)/]` + `dts: { emitDtsOnly: true }` — inline zod's types (incl. subpaths like `zod/v4/core`) into `dist/index.d.ts`, no JS emitted. `deps.onlyBundle` mirrors the regex so any other dep leaking into the .d.ts is a hard error. |
+| `packages/veto/scripts/generate-zod-type-exports.ts` | Codegen step that walks zod via the TypeScript compiler API and writes `src/__generated__/zodTypes.ts` with one `export type { … } from '…'` line per leaky identifier family (see [Identifier families](#identifier-families) below). Re-runs every build.      |
+| `packages/veto/package.json`                         | `zod` declared in `dependencies` (not `peer`, not `dev`). pnpm installs it transitively for any package that depends on veto.                                                                                                                                    |
 
 The narrow re-export list (instead of `export type * from 'zod'`) is
 deliberate: zod also exposes lowercase identifiers (`string`, `object`,
@@ -69,6 +69,22 @@ re-export causes rolldown to silently drop the colliding names from the
 bundled `.d.ts`. The codegen script keeps the list in sync with the
 installed zod version automatically — re-run `pnpm build:zod` (or just
 `pnpm build`, which chains it) to refresh.
+
+### Identifier families
+
+zod 4 exposes three classes of identifier that can leak through veto's
+inferred types. All three are handled by
+`scripts/generate-zod-type-exports.ts`:
+
+| Family   | Example                                      | Source module | Filter regex   |
+| -------- | -------------------------------------------- | ------------- | -------------- |
+| `Zod*`   | `ZodString`, `ZodObject`, `ZodOptional`      | `zod`         | `^Zod[A-Z]`    |
+| `$Zod*`  | `$ZodIssueInvalidValue`, `$ZodTypeInternals` | `zod/v4/core` | `^\$Zod[A-Z]`  |
+| `_$Zod*` | `_$ZodType`, `_$ZodTypeInternals`            | `zod/v4/core` | `^_\$Zod[A-Z]` |
+
+Veto's _own_ exports that appear in public signatures (e.g.
+`VDiscriminatedUnionOptions`) must be declared with `export` in the
+source file — the codegen only handles zod's identifiers.
 
 ## Why JS is not bundled
 
@@ -113,22 +129,34 @@ error TS4023: Exported variable 'X' has or is using name 'ZodFoo' from
 external module '…/@fuf-stack/veto/dist/index' but cannot be named.
 ```
 
-…it means veto's API surface exposes a zod class (`ZodFoo`) that
-wasn't picked up by `scripts/generate-zod-type-exports.ts`. Fix order:
+…something is leaking through veto's API surface that the codegen
+didn't re-export. Three possibilities, in order of likelihood:
 
-1. Regenerate: `pnpm --filter @fuf-stack/veto build:zod`. The script
-   enumerates every export from `node_modules/zod/index.d.ts` whose
-   name matches `^Zod[A-Z]`, so a brand-new zod class will be picked
-   up automatically and the regression disappears.
-2. If the failing name does **not** start with `Zod[A-Z]`, widen the
-   filter in the script (`ZOD_NAME_RE`) or add the export manually to
-   `src/__generated__/zodTypes.ts` (it will be overwritten on next
-   `build:zod`, so prefer step 1).
-3. Rebuild veto, publish a patch.
+1. **A new identifier in one of the existing zod families** — just
+   regenerate: `pnpm --filter @fuf-stack/veto build:zod`. The script
+   walks zod's modules on every build, so a brand-new `Zod*` /
+   `$Zod*` / `_$Zod*` is picked up automatically.
+2. **A new identifier family in zod** — widen the relevant filter
+   regex in `scripts/generate-zod-type-exports.ts` (`ZOD_NAME_RE` /
+   `ZOD_CORE_NAME_RE`) or, if the family lives in a new subpath, add
+   another `collectExports(…)` call and update the [Identifier
+   families](#identifier-families) table above.
+3. **A veto-owned identifier without `export`** (like the historical
+   `VDiscriminatedUnionOptions` regression) — the leaked name will
+   _not_ start with `Zod` / `$Zod` / `_$Zod`. Add the missing `export`
+   in veto's source file. The codegen does not and cannot fix this.
 
-CI guard: `git diff --exit-code packages/veto/src/__generated__` after
-`pnpm build` flags any drift between the committed snapshot and the
-installed zod version.
+CI guards:
+
+- `packages/veto/test/dts-smoke/` is a tiny declaration-emit fixture
+  that imports `@fuf-stack/veto` (mapped to the _built_ `dist/index.d.ts`)
+  and `export`s the inferred result of every public API. Run via
+  `pnpm turbo test:dts` after `pnpm build`; any TS4023 surfaces here
+  before it can reach a consumer. When you add or change a public API,
+  add a matching line to `fixture.ts`.
+- `git diff --exit-code packages/veto/src/__generated__` after
+  `pnpm build` flags any drift between the committed snapshot of the
+  `Zod*` / `$Zod*` / `_$Zod*` re-exports and the installed zod version.
 
 ## Mixing raw zod and veto
 

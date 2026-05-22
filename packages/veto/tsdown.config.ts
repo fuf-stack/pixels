@@ -53,14 +53,39 @@ export default defineConfig([
   // - `format: ['esm']` avoids a dual ESM/CJS dts emit collision (both
   //   formats would write the same `dist/index.d.ts` because of the
   //   forced `outExtensions` above).
-  // - `deps.onlyBundle: ['zod']` whitelists zod as the only allowed
-  //   inlined dep and turns "unintended dep bundled" into a hard error
-  //   if anything else leaks into the .d.ts.
+  // - `alwaysBundle: /^zod($|\/)/` inlines the bare `zod` specifier
+  //   AND any zod subpath (`zod/v4/core`, …). picomatch on the literal
+  //   `'zod'` only matches the exact id, so a string pattern would
+  //   leave `zod/v4/core` external and break the `$Zod*` re-exports.
+  // - `deps.onlyBundle` mirrors the same regex so anything else
+  //   bundled into the .d.ts is a hard error.
   {
     ...shared,
     clean: false,
-    deps: { alwaysBundle: ['zod'], onlyBundle: ['zod'] },
+    deps: {
+      alwaysBundle: [/^zod($|\/)/],
+      onlyBundle: [/^zod($|\/)/],
+    },
     dts: { emitDtsOnly: true, resolver: 'tsc' },
     format: ['esm'],
+    // Silence "uses CommonJS dts syntax" noise from `zod/v4/locales/*.d.cts`
+    // — zod's `package.json` points `./v4/core`'s `types` at `.d.cts`, so
+    // the resolver walks the `locales` namespace into CJS dts files. Locale
+    // types aren't part of veto's public surface and the bundled `.d.ts`
+    // is correct, so the warnings are noise. Remove once zod fixes that
+    // `types` condition or rolldown-plugin-dts exposes resolver conditions.
+    inputOptions: {
+      onLog(level, log, defaultHandler) {
+        const isZodLocaleCjsDtsNoise =
+          log.plugin === 'rolldown-plugin-dts:fake-js' &&
+          typeof log.message === 'string' &&
+          log.message.includes('uses CommonJS dts syntax') &&
+          /zod\/v4\/locales\/[^/]+\.d\.cts/.test(log.message);
+        if (isZodLocaleCjsDtsNoise) {
+          return;
+        }
+        defaultHandler(level, log);
+      },
+    },
   },
 ]);
