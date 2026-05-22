@@ -1,5 +1,15 @@
 # Changelog
 
+## [0.11.4](https://github.com/fuf-stack/pixels/compare/megapixels-v0.11.3...megapixels-v0.11.4) (2026-05-22)
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @fuf-stack/uniform bumped to 1.20.4
+    * @fuf-stack/veto bumped to 1.4.0
+
 ## [0.11.3](https://github.com/fuf-stack/pixels/compare/megapixels-v0.11.2...megapixels-v0.11.3) (2026-05-21)
 
 
