@@ -352,12 +352,48 @@ describe('normalizeIssue', () => {
       });
       expect(result).toEqual({
         code: 'invalid_union',
-        message: "Invalid discriminator value. Expected 'apz' | 'dmz'",
+        message:
+          "Invalid discriminator value. Expected 'apz' | 'dmz', received 'unknown'",
         discriminator: 'zone',
         note: 'No matching discriminator',
-        errors: [],
         options: ['apz', 'dmz'],
+        received: 'unknown',
         input: { zone: 'unknown' },
+      });
+    });
+
+    it('formats non-string discriminator values in received message', () => {
+      const result = normalizeIssue({
+        code: 'invalid_union',
+        message: "Invalid discriminator value. Expected 'silver' | 'gold'",
+        discriminator: 'drClass',
+        note: 'No matching discriminator',
+        errors: [],
+        options: ['silver', 'gold'],
+        input: { drClass: 42 },
+      });
+      expect(result).toEqual({
+        code: 'invalid_union',
+        message:
+          "Invalid discriminator value. Expected 'silver' | 'gold', received 42",
+        discriminator: 'drClass',
+        note: 'No matching discriminator',
+        options: ['silver', 'gold'],
+        received: 42,
+        input: { drClass: 42 },
+      });
+    });
+
+    it('keeps non-empty invalid_union branch errors', () => {
+      const result = normalizeIssue({
+        code: 'invalid_union',
+        message: 'Invalid input',
+        errors: [[{ code: 'invalid_type', expected: 'string' }]],
+      });
+      expect(result).toEqual({
+        code: 'invalid_union',
+        message: 'Invalid input',
+        errors: [[{ code: 'invalid_type', expected: 'string' }]],
       });
     });
   });

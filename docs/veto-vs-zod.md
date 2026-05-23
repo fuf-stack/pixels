@@ -1,0 +1,52 @@
+# veto vs zod
+
+This document summarizes how `@fuf-stack/veto` differs from using Zod directly.
+
+## TL;DR
+
+- veto is built on top of Zod.
+- veto adds a stable, app-specific validation API and error contract.
+- veto intentionally normalizes many Zod v4 issue shapes to veto's opinionated output style.
+
+## What veto changes compared to plain Zod
+
+### 1) Error output shape is normalized
+
+Zod returns a flat `issues[]` array. veto returns a nested error object keyed by data paths.
+
+In addition, veto normalizes several Zod v4 issue variants to its opinionated output, for example:
+
+- `invalid_value` -> `invalid_literal` / `invalid_enum_value` (with `options` / `received`)
+- `invalid_union` discriminator-missing cases -> `message: "Field is required"`
+- `invalid_type` null/undefined cases -> `message: "Field is required"` + `received`
+
+This is the main reason veto and Zod can differ for the same invalid input.
+
+### 2) Primitive factories include opinionated defaults
+
+veto factory helpers add project defaults beyond base Zod behavior.
+
+Example:
+
+- `string()` always trims.
+- `string()` is non-empty by default (`min(1)` behavior).
+- `string({ min: 0 })` opts out of the non-empty default.
+
+### 3) `veto(...)` validates full payloads with a consistent wrapper result
+
+`veto(schema).validate(input)` returns:
+
+- `{ success: true, data, errors: null }` on success
+- `{ success: false, data: null, errors }` on failure
+
+This differs from plain `safeParse` result ergonomics and keeps a single contract across the codebase.
+
+### 4) Raw object schemas are strict by default in `veto(...)`
+
+When you pass a raw shape object to `veto(...)`, veto wraps it with strict object behavior (unknown keys produce errors), instead of silently allowing unknown keys.
+
+## What veto does not change
+
+- Core parsing semantics still come from Zod.
+- You can still chain normal Zod methods on veto schemas.
+- If you need exact raw Zod issue payloads, use Zod directly instead of veto-formatted errors.

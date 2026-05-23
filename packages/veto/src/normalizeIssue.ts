@@ -218,6 +218,84 @@ const normalizeInvalidValue = (
 };
 
 /**
+ * Normalizes Zod v4 `invalid_union` issues to veto's legacy-friendly shape.
+ *
+ * Handles three cases:
+ * 1) Sentinel-driven "Field is required" issues: drop noisy transport fields.
+ * 2) Raw discriminated-union "No matching discriminator" issues:
+ *    - missing discriminator key -> "Field is required" + `received`.
+ *    - invalid discriminator value present -> preserve message + add `received`.
+ * 3) Raw invalid-union with empty branch details -> drop `errors: []`.
+ */
+const normalizeInvalidUnion = (
+  issue: VetoIssueLike,
+  rawInput: unknown,
+): VetoIssueLike => {
+  if (issue.message === 'Field is required') {
+    const {
+      errors: _errors,
+      note: _note,
+      discriminator: _discriminator,
+      ...rest
+    } = issue;
+    return rest;
+  }
+
+  if (
+    issue.note === 'No matching discriminator' &&
+    typeof issue.discriminator === 'string'
+  ) {
+    const { discriminator } = issue;
+    const inputObj =
+      rawInput && typeof rawInput === 'object' && !Array.isArray(rawInput)
+        ? (rawInput as Record<string, unknown>)
+        : undefined;
+
+    if (inputObj && inputObj[discriminator] === undefined) {
+      const {
+        errors: _errors,
+        note: _note,
+        discriminator: _discriminator,
+        ...rest
+      } = issue;
+      return {
+        ...rest,
+        message: 'Field is required',
+        received: 'undefined',
+      };
+    }
+
+    if (
+      inputObj?.[discriminator] !== undefined &&
+      issue.received === undefined
+    ) {
+      const received = inputObj[discriminator];
+      const formatReceived = (value: unknown) => {
+        return typeof value === 'string'
+          ? `'${value}'`
+          : stringifyForMessage(value);
+      };
+      const { errors: branchErrors, ...rest } = issue;
+      return {
+        ...rest,
+        message: `${issue.message}, received ${formatReceived(received)}`,
+        ...(Array.isArray(branchErrors) && branchErrors.length > 0
+          ? { errors: branchErrors }
+          : {}),
+        received,
+      };
+    }
+  }
+
+  if (Array.isArray(issue.errors) && issue.errors.length === 0) {
+    const { errors: _errors, ...rest } = issue;
+    return rest;
+  }
+
+  return issue;
+};
+
+/**
  * Adapts a Zod v4 issue to veto's v0 issue contract.
  *
  * Pairs with `errorMap.ts`:
@@ -228,7 +306,7 @@ const normalizeInvalidValue = (
  *    they did with Zod v3.
  */
 export const normalizeIssue = (issue: VetoIssueLike): VetoIssueLike => {
-  // Lift any meta the global error map smuggled through the message.
+  // Step 1: decode sentinel metadata from the message and merge it back.
   const { message, meta } = extractMessageMeta(issue.message);
   const next: VetoIssueLike = { ...issue, message };
   // eslint-disable-next-line prefer-object-has-own
@@ -240,6 +318,10 @@ export const normalizeIssue = (issue: VetoIssueLike): VetoIssueLike => {
   if (meta.options !== undefined) {
     next.options = meta.options;
   }
+
+  // Step 2: compute a single "best available" input value for branches that
+  // need to reconstruct legacy messages/codes (`invalid_value`, etc.).
+  // Prefer real issue.input, then sentinel meta.input fallback.
   let metaInput: unknown;
   if (rawInput !== undefined || hasIssueInput) {
     metaInput = rawInput;
@@ -249,6 +331,9 @@ export const normalizeIssue = (issue: VetoIssueLike): VetoIssueLike => {
     metaInput = undefined;
   }
 
+  // Step 3: normalize by issue family. Order matters:
+  // - specific code migrations first (`invalid_type`, size, keys, invalid_value)
+  // - union/discriminated-union last (more stateful branching).
   if (next.code === issueCodes.invalid_type) {
     return normalizeInvalidType(next, rawInput, hasIssueInput);
   }
@@ -273,46 +358,8 @@ export const normalizeIssue = (issue: VetoIssueLike): VetoIssueLike => {
     return normalizeInvalidValue(next, metaInput);
   }
 
-  // invalid_union: trim the noisy v4 fields when our error map already
-  // surfaced "Field is required" via the sentinel.
-  if (
-    next.code === issueCodes.invalid_union &&
-    next.message === 'Field is required'
-  ) {
-    const {
-      errors: _errors,
-      note: _note,
-      discriminator: _discriminator,
-      ...rest
-    } = next;
-    return rest;
-  }
-
-  // Fallback for raw Zod v4 discriminated-union issues when the global
-  // error map did not attach sentinel metadata (or was bypassed).
-  if (
-    next.code === issueCodes.invalid_union &&
-    next.note === 'No matching discriminator' &&
-    typeof next.discriminator === 'string'
-  ) {
-    const { discriminator } = next;
-    const inputObj =
-      rawInput && typeof rawInput === 'object' && !Array.isArray(rawInput)
-        ? (rawInput as Record<string, unknown>)
-        : undefined;
-    if (inputObj && inputObj[discriminator] === undefined) {
-      const {
-        errors: _errors,
-        note: _note,
-        discriminator: _discriminator,
-        ...rest
-      } = next;
-      return {
-        ...rest,
-        message: 'Field is required',
-        received: 'undefined',
-      };
-    }
+  if (next.code === issueCodes.invalid_union) {
+    return normalizeInvalidUnion(next, rawInput);
   }
 
   return next;

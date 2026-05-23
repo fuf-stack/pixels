@@ -285,7 +285,38 @@ describe('formatError', () => {
           options: ['apz', 'dmz'],
           discriminator: 'zone',
           note: 'No matching discriminator',
+        },
+      ],
+    });
+  });
+
+  it('adds received to discriminated invalid_union message when input has a value', () => {
+    const result = formatError(
+      makeError([
+        {
+          code: 'invalid_union',
+          path: ['field'],
+          message: "Invalid discriminator value. Expected 'apz' | 'dmz'",
+          discriminator: 'zone',
+          note: 'No matching discriminator',
+          options: ['apz', 'dmz'],
           errors: [],
+          input: { zone: 'unknown' },
+        },
+      ]),
+      stringSchema,
+    );
+
+    expect(result).toEqual({
+      field: [
+        {
+          code: 'invalid_union',
+          message:
+            "Invalid discriminator value. Expected 'apz' | 'dmz', received 'unknown'",
+          options: ['apz', 'dmz'],
+          discriminator: 'zone',
+          note: 'No matching discriminator',
+          received: 'unknown',
         },
       ],
     });
