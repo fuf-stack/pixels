@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.4](https://github.com/fuf-stack/pixels/compare/veto-v1.5.3...veto-v1.5.4) (2026-05-23)
+
+
+### Bug Fixes
+
+* **veto:** stabilize invalid_union normalization and discriminator error output ([e735fe8](https://github.com/fuf-stack/pixels/commit/e735fe8b15296c1c11d6b9733a462bad86116951))
+
 ## [1.5.3](https://github.com/fuf-stack/pixels/compare/veto-v1.5.2...veto-v1.5.3) (2026-05-22)
 
 
