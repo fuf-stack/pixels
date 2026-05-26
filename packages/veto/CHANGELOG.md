@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.5](https://github.com/fuf-stack/pixels/compare/veto-v1.5.4...veto-v1.5.5) (2026-05-26)
+
+
+### Bug Fixes
+
+* **veto:** preserve optional refineObject typing and harden object/discriminated union tests ([c07f08f](https://github.com/fuf-stack/pixels/commit/c07f08f5845dfcf9cc044e12d412a2098aed79a2))
+
 ## [1.5.4](https://github.com/fuf-stack/pixels/compare/veto-v1.5.3...veto-v1.5.4) (2026-05-23)
 
 
