@@ -5,7 +5,14 @@ import type {
 
 import { expect, expectTypeOf, it } from 'vitest';
 
-import veto, { discriminatedUnion, literal, number, object, string } from 'src';
+import veto, {
+  discriminatedUnion,
+  literal,
+  number,
+  object,
+  objectLoose,
+  string,
+} from 'src';
 
 const schema = {
   discriminatedUnionField: discriminatedUnion('mode', [
@@ -147,6 +154,80 @@ it('rejects unknown keys on the selected branch', () => {
         ],
       },
     },
+  });
+});
+
+it('treats generic branch objects as strict by default', () => {
+  const strictSchema = {
+    volumes: discriminatedUnion('databaseVendor', [
+      object({
+        databaseVendor: literal('MICROSOFT'),
+        C: object({ extendSizeGb: number() }).optional(),
+      }),
+      object({
+        databaseVendor: literal('MYSQL'),
+        '/u01': object({ extendSizeGb: number() }).optional(),
+      }),
+    ]),
+  };
+
+  const result = veto(strictSchema).validate({
+    volumes: {
+      databaseVendor: 'MICROSOFT',
+      C: { extendSizeGb: 100 },
+      invalidKey: { extendSizeGb: 100 },
+    },
+  });
+
+  expect(result).toStrictEqual({
+    success: false,
+    data: null,
+    errors: {
+      volumes: {
+        _errors: [
+          {
+            code: 'unrecognized_keys',
+            keys: ['invalidKey'],
+            message: "Unrecognized key(s) in object: 'invalidKey'",
+          },
+        ],
+      },
+    },
+  });
+});
+
+it('strips unknown keys when branch uses objectLoose', () => {
+  const looseSchema = {
+    volumes: discriminatedUnion('databaseVendor', [
+      objectLoose({
+        databaseVendor: literal('MICROSOFT'),
+        C: object({ extendSizeGb: number() }).optional(),
+      }),
+      objectLoose({
+        databaseVendor: literal('MYSQL'),
+        '/u01': object({ extendSizeGb: number() }).optional(),
+      }),
+    ]),
+  };
+
+  const input = {
+    volumes: {
+      databaseVendor: 'MICROSOFT',
+      C: { extendSizeGb: 100 },
+      invalidKey: { extendSizeGb: 100 },
+    },
+  };
+  const result = veto(looseSchema).validate(input);
+
+  expect(result).toStrictEqual({
+    success: true,
+    data: {
+      volumes: {
+        databaseVendor: 'MICROSOFT',
+        C: { extendSizeGb: 100 },
+      },
+    },
+    errors: null,
   });
 });
 

@@ -2,7 +2,7 @@
 
 import type { VObjectLooseSchema } from './object';
 
-import { expect, expectTypeOf, it } from 'vitest';
+import { describe, expect, expectTypeOf, it } from 'vitest';
 
 import veto, { objectLoose, string } from 'src';
 
@@ -12,106 +12,112 @@ const schema = {
 
 const validInput = { objectLooseField: { key: 'some string' } };
 
-it('exposes loose object schema typing', () => {
-  const objectSchema = objectLoose({ key: string() });
+describe('objectLoose', () => {
+  describe('typing', () => {
+    it('exposes loose object schema typing', () => {
+      const objectSchema = objectLoose({ key: string() });
 
-  expectTypeOf(objectSchema).toEqualTypeOf<
-    VObjectLooseSchema<{ key: ReturnType<typeof string> }>
-  >();
-  expectTypeOf(objectSchema.parse({ key: 'value' })).toEqualTypeOf<{
-    key: string;
-  }>();
-});
-
-it('rejects missing fields', () => {
-  const result = veto(schema).validate({
-    objectLooseField: {},
+      expectTypeOf(objectSchema).toEqualTypeOf<
+        VObjectLooseSchema<{ key: ReturnType<typeof string> }>
+      >();
+      expectTypeOf(objectSchema.parse({ key: 'value' })).toEqualTypeOf<{
+        key: string;
+      }>();
+    });
   });
-  expect(result).toStrictEqual({
-    success: false,
-    data: null,
-    errors: {
-      objectLooseField: {
-        key: [
-          {
-            code: 'invalid_type',
-            expected: 'string',
-            message: 'Field is required',
-            received: 'undefined',
+
+  describe('validation', () => {
+    it('accepts valid objectLoose value', () => {
+      const result = veto(schema).validate(validInput);
+      expect(result).toStrictEqual({
+        success: true,
+        data: validInput,
+        errors: null,
+      });
+    });
+
+    it('rejects missing fields', () => {
+      const result = veto(schema).validate({
+        objectLooseField: {},
+      });
+      expect(result).toStrictEqual({
+        success: false,
+        data: null,
+        errors: {
+          objectLooseField: {
+            key: [
+              {
+                code: 'invalid_type',
+                expected: 'string',
+                message: 'Field is required',
+                received: 'undefined',
+              },
+            ],
           },
-        ],
-      },
-    },
-  });
-});
+        },
+      });
+    });
 
-it('accepts unknown fields and strips data', () => {
-  const validUnknownInput = {
-    objectLooseField: {
-      key: 'some string',
-      otherField: 'some other string',
-    },
-  };
-  const result = veto(schema).validate(validUnknownInput);
-  expect(result).toStrictEqual({
-    success: true,
-    // otherField is stripped from input
-    data: validInput,
-    errors: null,
-  });
-});
+    it('accepts unknown fields and strips data', () => {
+      const validUnknownInput = {
+        objectLooseField: {
+          key: 'some string',
+          otherField: 'some other string',
+        },
+      };
+      const result = veto(schema).validate(validUnknownInput);
+      expect(result).toStrictEqual({
+        success: true,
+        // otherField is stripped from input
+        data: validInput,
+        errors: null,
+      });
+    });
 
-it('ignores unknown fields even when required fields are missing', () => {
-  const result = veto(schema).validate({
-    objectLooseField: {
-      otherField: 'some other string',
-    },
-  });
-  expect(result).toStrictEqual({
-    success: false,
-    data: null,
-    errors: {
-      objectLooseField: {
-        key: [
-          {
-            code: 'invalid_type',
-            expected: 'string',
-            message: 'Field is required',
-            received: 'undefined',
+    it('ignores unknown fields even when required fields are missing', () => {
+      const result = veto(schema).validate({
+        objectLooseField: {
+          otherField: 'some other string',
+        },
+      });
+      expect(result).toStrictEqual({
+        success: false,
+        data: null,
+        errors: {
+          objectLooseField: {
+            key: [
+              {
+                code: 'invalid_type',
+                expected: 'string',
+                message: 'Field is required',
+                received: 'undefined',
+              },
+            ],
           },
-        ],
-      },
-    },
-  });
-});
+        },
+      });
+    });
 
-it('rejects non-object value', () => {
-  const result = veto(schema).validate({
-    objectLooseField: ['some string'],
-  });
-  expect(result).toStrictEqual({
-    success: false,
-    data: null,
-    errors: {
-      objectLooseField: {
-        _errors: [
-          {
-            code: 'invalid_type',
-            expected: 'object',
-            message: 'Expected object, received array',
-            received: 'array',
+    it('rejects non-object value', () => {
+      const result = veto(schema).validate({
+        objectLooseField: ['some string'],
+      });
+      expect(result).toStrictEqual({
+        success: false,
+        data: null,
+        errors: {
+          objectLooseField: {
+            _errors: [
+              {
+                code: 'invalid_type',
+                expected: 'object',
+                message: 'Expected object, received array',
+                received: 'array',
+              },
+            ],
           },
-        ],
-      },
-    },
-  });
-});
-
-it('accepts valid objectLoose value', () => {
-  const result = veto(schema).validate(validInput);
-  expect(result).toStrictEqual({
-    success: true,
-    data: validInput,
-    errors: null,
+        },
+      });
+    });
   });
 });

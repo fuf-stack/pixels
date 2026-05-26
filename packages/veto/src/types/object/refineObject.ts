@@ -148,9 +148,8 @@ const isRecord = (value: unknown): value is Record<string, unknown> => {
 /**
  * Applies custom validation refinements to an object schema.
  *
- * Implementation detail: this composes two branches with an intersection:
- * - the original object schema branch (produces built-in nested field errors)
- * - a permissive branch that only runs `custom` checks
+ * Implementation detail: custom checks run in a permissive preprocess branch
+ * that is intersected with the original object schema.
  *
  * This allows veto to surface both base schema issues and object-level custom
  * issues in one pass.
@@ -212,7 +211,8 @@ export const refineObject = <T extends RefineObjectInputObject>(schema: T) => {
       }) as VObjectCustomHelpers<ObjectData>['parseObject'],
     };
 
-    // Run custom object-level refinement and intersect with base schema.
+    // Run custom object-level refinement in a permissive branch and combine it
+    // with the base object branch so base and custom issues are both surfaced.
     const customBranch = z.preprocess((val, ctx) => {
       if (isRecord(val)) {
         const refinementsCtx = {
@@ -235,9 +235,10 @@ export const refineObject = <T extends RefineObjectInputObject>(schema: T) => {
       return val;
     }, z.any());
 
-    const refinedBaseSchema = z.intersection(
+    const refinedBaseSchema = z.intersection(baseSchema, customBranch).pipe(
+      // Re-parse merged intersection output so base object semantics stay
+      // authoritative for result data and strict unknown-key behavior.
       baseSchema,
-      customBranch,
     ) as VetoEffects<VObjectSchema<Shape>>;
 
     if (isOptionalSchema) {
