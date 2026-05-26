@@ -175,7 +175,7 @@
     "url": "https://github.com/fuf-stack/pixels/issues"
   },
   "scripts": {
-    "build": "tsdown",
+    "build": "tsdown && node ./scripts/ensure-json-theme-cjs.mjs",
     "prepack": "pnpm build",
     "test": "vitest ./src"
   },
