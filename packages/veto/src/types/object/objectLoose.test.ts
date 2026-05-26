@@ -4,7 +4,7 @@ import type { VObjectLooseSchema } from './object';
 
 import { expect, expectTypeOf, it } from 'vitest';
 
-import v, { objectLoose, string } from 'src';
+import veto, { objectLoose, string } from 'src';
 
 const schema = {
   objectLooseField: objectLoose({ key: string() }),
@@ -24,7 +24,7 @@ it('exposes loose object schema typing', () => {
 });
 
 it('rejects missing fields', () => {
-  const result = v(schema).validate({
+  const result = veto(schema).validate({
     objectLooseField: {},
   });
   expect(result).toStrictEqual({
@@ -52,17 +52,41 @@ it('accepts unknown fields and strips data', () => {
       otherField: 'some other string',
     },
   };
-  const result = v(schema).validate(validUnknownInput);
+  const result = veto(schema).validate(validUnknownInput);
   expect(result).toStrictEqual({
     success: true,
-    // otherField is striped from input
+    // otherField is stripped from input
     data: validInput,
     errors: null,
   });
 });
 
+it('ignores unknown fields even when required fields are missing', () => {
+  const result = veto(schema).validate({
+    objectLooseField: {
+      otherField: 'some other string',
+    },
+  });
+  expect(result).toStrictEqual({
+    success: false,
+    data: null,
+    errors: {
+      objectLooseField: {
+        key: [
+          {
+            code: 'invalid_type',
+            expected: 'string',
+            message: 'Field is required',
+            received: 'undefined',
+          },
+        ],
+      },
+    },
+  });
+});
+
 it('rejects non-object value', () => {
-  const result = v(schema).validate({
+  const result = veto(schema).validate({
     objectLooseField: ['some string'],
   });
   expect(result).toStrictEqual({
@@ -84,7 +108,7 @@ it('rejects non-object value', () => {
 });
 
 it('accepts valid objectLoose value', () => {
-  const result = v(schema).validate(validInput);
+  const result = veto(schema).validate(validInput);
   expect(result).toStrictEqual({
     success: true,
     data: validInput,

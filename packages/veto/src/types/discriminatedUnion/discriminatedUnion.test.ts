@@ -58,6 +58,32 @@ it('rejects undefined discriminator', () => {
   });
 });
 
+it('includes received value for invalid discriminator', () => {
+  const result = veto(schema).validate({
+    discriminatedUnionField: { mode: 'OTHER' },
+  });
+
+  expect(result).toStrictEqual({
+    success: false,
+    data: null,
+    errors: {
+      discriminatedUnionField: {
+        mode: [
+          {
+            code: 'invalid_union',
+            discriminator: 'mode',
+            message:
+              "Invalid discriminator value. Expected 'STRING' | 'NUMBER', received 'OTHER'",
+            note: 'No matching discriminator',
+            options: ['STRING', 'NUMBER'],
+            received: 'OTHER',
+          },
+        ],
+      },
+    },
+  });
+});
+
 it('rejects fields that are not defined in option', () => {
   const result = veto(schema).validate({
     discriminatedUnionField: { mode: 'STRING', numberField: 123 },
@@ -80,6 +106,43 @@ it('rejects fields that are not defined in option', () => {
             expected: 'string',
             message: 'Field is required',
             received: 'undefined',
+          },
+        ],
+      },
+    },
+  });
+});
+
+it('rejects unknown keys on the selected branch', () => {
+  const branchSchema = {
+    config: discriminatedUnion('enabled', [
+      object({
+        enabled: literal(false),
+      }),
+      object({
+        enabled: literal(true),
+        value: string(),
+      }),
+    ]),
+  };
+
+  const result = veto(branchSchema).validate({
+    config: {
+      enabled: false,
+      value: 'unexpected',
+    },
+  });
+
+  expect(result).toStrictEqual({
+    success: false,
+    data: null,
+    errors: {
+      config: {
+        _errors: [
+          {
+            code: 'unrecognized_keys',
+            keys: ['value'],
+            message: "Unrecognized key(s) in object: 'value'",
           },
         ],
       },
@@ -124,6 +187,87 @@ it('keeps "Field is required" for nested missing discriminator', () => {
             received: 'undefined',
           },
         ],
+      },
+    },
+  });
+});
+
+it('keeps unknown-key errors in array items with nested union errors', () => {
+  const minimalSchema = {
+    config: discriminatedUnion('enabled', [
+      object({
+        enabled: literal(false),
+      }),
+      object({
+        enabled: literal(true),
+        items: object({
+          itemName: string(),
+          itemFlag: number(),
+          variant: discriminatedUnion('kind', [
+            object({ kind: literal('A'), value: string() }),
+            object({ kind: literal('B'), count: number() }),
+          ]),
+        })
+          .array()
+          .min(1),
+      }),
+    ]),
+  };
+
+  const result = veto(minimalSchema).validate({
+    config: {
+      enabled: true,
+      items: [
+        {
+          variant: {},
+          unknownBlock: {},
+        },
+      ],
+    },
+  });
+
+  expect(result).toStrictEqual({
+    success: false,
+    data: null,
+    errors: {
+      config: {
+        items: {
+          0: {
+            _errors: [
+              {
+                code: 'unrecognized_keys',
+                keys: ['unknownBlock'],
+                message: "Unrecognized key(s) in object: 'unknownBlock'",
+              },
+            ],
+            itemFlag: [
+              {
+                code: 'invalid_type',
+                expected: 'number',
+                message: 'Field is required',
+                received: 'undefined',
+              },
+            ],
+            itemName: [
+              {
+                code: 'invalid_type',
+                expected: 'string',
+                message: 'Field is required',
+                received: 'undefined',
+              },
+            ],
+            variant: {
+              kind: [
+                {
+                  code: 'invalid_union',
+                  message: 'Field is required',
+                  options: ['A', 'B'],
+                  received: 'undefined',
+                },
+              ],
+            },
+          },
+        },
       },
     },
   });

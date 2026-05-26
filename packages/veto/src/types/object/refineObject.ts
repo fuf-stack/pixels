@@ -117,6 +117,22 @@ type RefineObjectInputObject =
   | VetoOptional<ReturnType<VObject>>
   | VetoOptional<ReturnType<VObjectLoose>>;
 
+/**
+ * Maps an input object schema to the refined output schema type while
+ * preserving optionality.
+ *
+ * - optional object in -> optional refined object out
+ * - non-optional object in -> non-optional refined object out
+ */
+type RefineObjectOutput<T extends RefineObjectInputObject> =
+  T extends VetoOptional<infer TObjectSchema>
+    ? TObjectSchema extends VObjectSchema<infer TShape extends VetoRawShape>
+      ? VetoEffects<VetoOptional<VObjectSchema<TShape>>>
+      : never
+    : T extends VObjectSchema<infer TShape extends VetoRawShape>
+      ? VetoEffects<VObjectSchema<TShape>>
+      : never;
+
 // Extract shape type for direct and optional-wrapped object schemas.
 type ExtractShape<T> =
   T extends VetoOptional<VetoTypeAny>
@@ -161,7 +177,7 @@ export const refineObject = <T extends RefineObjectInputObject>(schema: T) => {
 
   return (
     refinements: VObjectRefinements<ObjectData>,
-  ): VetoEffects<VObjectSchema<Shape>> => {
+  ): RefineObjectOutput<T> => {
     // Keep optional key presence semantics by unwrapping before intersection.
     const isOptionalSchema = schema instanceof z.ZodOptional;
     const baseSchema = isOptionalSchema
@@ -224,10 +240,10 @@ export const refineObject = <T extends RefineObjectInputObject>(schema: T) => {
       customBranch,
     ) as VetoEffects<VObjectSchema<Shape>>;
 
-    const refinedSchema = isOptionalSchema
-      ? (refinedBaseSchema.optional() as VetoEffects<VObjectSchema<Shape>>)
-      : refinedBaseSchema;
+    if (isOptionalSchema) {
+      return refinedBaseSchema.optional() as unknown as RefineObjectOutput<T>;
+    }
 
-    return refinedSchema;
+    return refinedBaseSchema as unknown as RefineObjectOutput<T>;
   };
 };

@@ -4,7 +4,7 @@ import type { VObjectSchema } from './object';
 
 import { expect, expectTypeOf, it } from 'vitest';
 
-import v, { object, string } from 'src';
+import veto, { object, string } from 'src';
 
 const schema = {
   objectField: object({ key: string() }),
@@ -24,7 +24,7 @@ it('exposes object schema typing', () => {
 });
 
 it('rejects missing fields', () => {
-  const result = v(schema).validate({
+  const result = veto(schema).validate({
     objectField: {},
   });
   expect(result).toStrictEqual({
@@ -46,7 +46,7 @@ it('rejects missing fields', () => {
 });
 
 it('rejects unknown fields', () => {
-  const result = v(schema).validate({
+  const result = veto(schema).validate({
     objectField: {
       key: 'some string',
       otherField: 'some other string',
@@ -69,8 +69,39 @@ it('rejects unknown fields', () => {
   });
 });
 
+it('keeps unknown-key and missing-field errors on the same object', () => {
+  const result = veto(schema).validate({
+    objectField: {
+      otherField: 'some other string',
+    },
+  });
+  expect(result).toStrictEqual({
+    success: false,
+    data: null,
+    errors: {
+      objectField: {
+        _errors: [
+          {
+            code: 'unrecognized_keys',
+            keys: ['otherField'],
+            message: "Unrecognized key(s) in object: 'otherField'",
+          },
+        ],
+        key: [
+          {
+            code: 'invalid_type',
+            expected: 'string',
+            message: 'Field is required',
+            received: 'undefined',
+          },
+        ],
+      },
+    },
+  });
+});
+
 it('rejects non-object value', () => {
-  const result = v(schema).validate({
+  const result = veto(schema).validate({
     objectField: ['some string'],
   });
   expect(result).toStrictEqual({
@@ -92,7 +123,7 @@ it('rejects non-object value', () => {
 });
 
 it('accepts valid object value', () => {
-  const result = v(schema).validate(validInput);
+  const result = veto(schema).validate(validInput);
   expect(result).toStrictEqual({
     success: true,
     data: validInput,
