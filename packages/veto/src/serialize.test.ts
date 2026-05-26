@@ -86,7 +86,7 @@ describe('checkSerializedSchemaPath', () => {
 
   it('handles intersection schemas', () => {
     const baseSchema = z.object({ id: z.string() });
-    const extendedSchema = baseSchema.extend({ name: z.string() });
+    const extendedSchema = z.object({ ...baseSchema.shape, name: z.string() });
 
     const isStringType = isType('string');
 

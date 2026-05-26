@@ -150,7 +150,8 @@ it('returns never for invalid schemas', () => {
 
 it('correctly infers intersection types', () => {
   const baseSchema = object({ id: string() });
-  const extendedSchema = baseSchema.extend({
+  const extendedSchema = object({
+    ...baseSchema.shape,
     name: string(),
   });
 

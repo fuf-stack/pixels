@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import v, {
+import veto, {
   and,
   any,
   array,
@@ -15,7 +15,8 @@ describe('validate', () => {
   it('schema can be an object', () => {
     const schema = { stringField: string() };
     const input = { stringField: 'a string' };
-    const result = v(schema).validate(input);
+    const result = veto(schema).validate(input);
+
     expect(result).toHaveProperty('success', true);
     expect(result).toHaveProperty('data', input);
   });
@@ -23,16 +24,18 @@ describe('validate', () => {
   it('schema can be a zod object type', () => {
     const schema = object({ stringField: string() });
     const input = { stringField: 'a string' };
-    const result = v(schema).validate(input);
+    const result = veto(schema).validate(input);
+
     expect(result).toHaveProperty('success', true);
     expect(result).toHaveProperty('data', input);
   });
 
   it('schema can be and extended zod object', () => {
     const base = object({ stringField: string() });
-    const schema = base.extend({ numberField: number() });
+    const schema = object({ ...base.shape, numberField: number() });
     const input = { stringField: 'a string', numberField: 123 };
-    const result = v(schema).validate(input);
+    const result = veto(schema).validate(input);
+
     expect(result).toHaveProperty('success', true);
     expect(result).toHaveProperty('data', input);
   });
@@ -45,7 +48,8 @@ describe('validate', () => {
       stringField: 'a string',
       unknownField: 'a string',
     };
-    const result = v(schema).validate(input);
+    const result = veto(schema).validate(input);
+
     expect(result).toHaveProperty('success', false);
     expect(result).toHaveProperty('data', null);
     expect(result).toHaveProperty('errors');
@@ -75,7 +79,7 @@ describe('validate', () => {
       stringField: 'a string',
       vEnum: 'two',
     };
-    const result = v(schema).validate(input);
+    const result = veto(schema).validate(input);
     expect(result).toHaveProperty('success', true);
     expect(result).toHaveProperty('errors', null);
     expect(result).toHaveProperty('data');
@@ -93,7 +97,8 @@ describe('validate', () => {
     const defaults = {
       fieldWithDefault: 'a default value',
     };
-    const result = v(schema, { defaults }).validate(input);
+    const result = veto(schema, { defaults }).validate(input);
+
     expect(result).toHaveProperty('success', true);
     expect(result).toHaveProperty('errors', null);
     expect(result).toHaveProperty('data');
@@ -105,6 +110,68 @@ describe('validate', () => {
 });
 
 describe('validateAsync', () => {
+  it('validates async call for sync-only schema', async () => {
+    const schema = {
+      stringField: string(),
+      numberField: number(),
+    };
+    const input = {
+      stringField: 'a string',
+      numberField: 42,
+    };
+    const result = await veto(schema).validateAsync(input);
+
+    expect(result).toHaveProperty('success', true);
+    expect(result).toHaveProperty('errors', null);
+    expect(result).toHaveProperty('data');
+    expect(result.data).toMatchObject(input);
+  });
+
+  it('uses defaults in async validation', async () => {
+    const schema = {
+      stringField: string(),
+      fieldWithDefault: string(),
+    };
+    const input = {
+      stringField: 'a string',
+    };
+    const defaults = {
+      fieldWithDefault: 'a default value',
+    };
+    const result = await veto(schema, { defaults }).validateAsync(input);
+
+    expect(result).toHaveProperty('success', true);
+    expect(result).toHaveProperty('errors', null);
+    expect(result).toHaveProperty('data');
+    expect(result.data).toMatchObject({
+      stringField: 'a string',
+      fieldWithDefault: 'a default value',
+    });
+  });
+
+  it('prefers input values over defaults in async validation', async () => {
+    const schema = {
+      stringField: string(),
+      fieldWithDefault: string(),
+    };
+    const input = {
+      stringField: 'a string',
+      fieldWithDefault: 'input value',
+    };
+    const defaults = {
+      fieldWithDefault: 'a default value',
+    };
+    const result = await veto(schema, { defaults }).validateAsync(input);
+
+    expect(result).toHaveProperty('success', true);
+    expect(result).toHaveProperty('errors', null);
+    expect(result).toHaveProperty('data');
+    expect(result.data).toMatchObject({
+      stringField: 'a string',
+      fieldWithDefault: 'input value',
+    });
+  });
+
   it('validates merged sync and async schema', async () => {
     const schema = {
       stringField: string(),
@@ -115,7 +182,7 @@ describe('validateAsync', () => {
     const input = {
       stringField: 'a string',
     };
-    const result = await v(
+    const result = await veto(
       and(object(schema), object(schemaAsync)),
     ).validateAsync(input);
 
@@ -125,19 +192,19 @@ describe('validateAsync', () => {
     expect(result.data).toMatchObject(input);
   });
 
-  it('validates merged unequal sync and async schema with passthrough', async () => {
+  it('validates merged unequal sync and async schema', async () => {
     const schema = object({
       stringField: string(),
       numberField: number(),
     });
     const schemaAsync = object({
       stringField: any().refine(async (value) => value.length >= 5),
-    }).passthrough();
+    });
     const input = {
       stringField: 'a string',
       numberField: 42,
     };
-    const result = await v(and(schema, schemaAsync)).validateAsync(input);
+    const result = await veto(and(schema, schemaAsync)).validateAsync(input);
 
     expect(result).toHaveProperty('success', true);
     expect(result).toHaveProperty('errors', null);
@@ -157,7 +224,7 @@ describe('validateAsync', () => {
     const input = {
       stringField: 'a string',
     };
-    const result = await v(
+    const result = await veto(
       and(object(schema), object(schemaAsync)),
     ).validateAsync(input);
 
@@ -184,7 +251,7 @@ describe('validateAsync', () => {
     const input = {
       stringField: 42,
     };
-    const result = await v(
+    const result = await veto(
       and(object(schema), object(schemaAsync)),
     ).validateAsync(input);
 

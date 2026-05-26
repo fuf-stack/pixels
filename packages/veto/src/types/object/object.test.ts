@@ -2,9 +2,9 @@
 
 import type { VObjectSchema } from './object';
 
-import { expect, expectTypeOf, it } from 'vitest';
+import { describe, expect, expectTypeOf, it } from 'vitest';
 
-import veto, { object, string } from 'src';
+import veto, { number, object, string } from 'src';
 
 const schema = {
   objectField: object({ key: string() }),
@@ -128,5 +128,149 @@ it('accepts valid object value', () => {
     success: true,
     data: validInput,
     errors: null,
+  });
+});
+
+describe('object extension', () => {
+  it('supports object.extend() for adding fields', () => {
+    const baseSchema = object({ key: string() });
+    const extendedSchema = baseSchema.extend({ count: number() });
+    const result = veto({ objectField: extendedSchema }).validate({
+      objectField: {
+        key: 'some string',
+        count: 1,
+      },
+    });
+
+    expect(result).toStrictEqual({
+      success: true,
+      data: {
+        objectField: {
+          key: 'some string',
+          count: 1,
+        },
+      },
+      errors: null,
+    });
+  });
+
+  it('supports object.extend() overwrite semantics', () => {
+    const baseSchema = object({ key: string() });
+    const overwrittenSchema = baseSchema.extend({ key: number() });
+    const result = veto({ objectField: overwrittenSchema }).validate({
+      objectField: {
+        key: 'some string',
+      },
+    });
+
+    expect(result).toMatchObject({
+      success: false,
+      data: null,
+      errors: {
+        objectField: {
+          key: [
+            {
+              code: 'invalid_type',
+              expected: 'number',
+              received: 'string',
+            },
+          ],
+        },
+      },
+    });
+  });
+
+  it('supports object.safeExtend() on refined schemas', () => {
+    const baseSchema = object({ key: string(), confirm: string() }).refine(
+      (data) => data.key === data.confirm,
+      {
+        message: 'Values must match',
+      },
+    );
+    const safeExtendedSchema = baseSchema.safeExtend({
+      key: string().min(5),
+      count: number(),
+    });
+    const result = veto({ objectField: safeExtendedSchema }).validate({
+      objectField: {
+        key: 'abcd',
+        confirm: 'xyz',
+        count: 1,
+      },
+    });
+
+    expect(result).toMatchObject({
+      success: false,
+      data: null,
+      errors: {
+        objectField: {
+          _errors: [
+            {
+              code: 'custom',
+              message: 'Values must match',
+            },
+          ],
+          key: [
+            {
+              code: 'too_small',
+            },
+          ],
+        },
+      },
+    });
+  });
+
+  it('supports shape spread for adding fields', () => {
+    const baseSchema = object({ key: string() });
+    const spreadSchema = object({
+      ...baseSchema.shape,
+      count: number(),
+    });
+    const result = veto({ objectField: spreadSchema }).validate({
+      objectField: {
+        key: 'some string',
+        count: 1,
+      },
+    });
+
+    expect(result).toStrictEqual({
+      success: true,
+      data: {
+        objectField: {
+          key: 'some string',
+          count: 1,
+        },
+      },
+      errors: null,
+    });
+  });
+
+  it('supports shape spread overwrite semantics', () => {
+    const baseSchema = object({ key: string() });
+    const spreadSchema = object({
+      ...baseSchema.shape,
+      key: number(),
+    });
+    const result = veto({ objectField: spreadSchema }).validate({
+      objectField: {
+        key: 'some string',
+      },
+    });
+
+    expect(result).toMatchObject({
+      success: false,
+      data: null,
+      errors: {
+        objectField: {
+          key: [
+            {
+              code: 'invalid_type',
+              expected: 'number',
+              received: 'string',
+            },
+          ],
+        },
+      },
+    });
   });
 });
