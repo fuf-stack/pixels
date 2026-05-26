@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.20.11](https://github.com/fuf-stack/pixels/compare/uniform-v1.20.10...uniform-v1.20.11) (2026-05-26)
+
+
+### Bug Fixes
+
+* **uniform:** add disbled options to Select ([a11e28c](https://github.com/fuf-stack/pixels/commit/a11e28ceae2ecb7bad842da2738cc7b6298f2fec))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @fuf-stack/pixels bumped to 1.10.1
+    * @fuf-stack/veto bumped to 1.5.5
+
 ## [1.20.10](https://github.com/fuf-stack/pixels/compare/uniform-v1.20.9...uniform-v1.20.10) (2026-05-23)
 
 

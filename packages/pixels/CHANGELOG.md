@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.10.1](https://github.com/fuf-stack/pixels/compare/pixels-v1.10.0...pixels-v1.10.1) (2026-05-26)
+
+
+### Bug Fixes
+
+* **pixels:** document temporary CJS theme shim for Json ([3ae350d](https://github.com/fuf-stack/pixels/commit/3ae350dd1a0a5ab7857ffafd1a68420173c6e010))
+
 ## [1.10.0](https://github.com/fuf-stack/pixels/compare/pixels-v1.9.0...pixels-v1.10.0) (2026-05-21)
 
 
