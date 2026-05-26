@@ -163,6 +163,51 @@ export const Disabled: Story = {
   },
 };
 
+export const OptionDisabled: Story = {
+  args: {
+    ...args,
+    options: [
+      { value: 'blueberry', label: 'Blueberry', disabled: true },
+      { value: 'caramel_swirl', label: 'Caramel Swirl' },
+      { value: 'chocolate', label: 'Chocolate' },
+    ],
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const body = within(document.body);
+
+    await waitFor(() => {
+      expect(canvas.getByTestId('selectfield')).toBeVisible();
+    });
+
+    const dropdown = canvas.getByTestId('selectfield_select_dropdown')
+      .parentElement as HTMLElement;
+    await userEvent.click(dropdown, { delay: 100 });
+
+    const blueberryOption = await body.findByRole(
+      'option',
+      { name: 'Blueberry' },
+      { timeout: 5000 },
+    );
+
+    const hiddenInput = canvasElement.querySelector<HTMLInputElement>(
+      'input[name="selectField"]',
+    );
+    if (!hiddenInput) {
+      throw new Error('Hidden input selectField not found');
+    }
+
+    await expect(blueberryOption).toHaveAttribute('aria-disabled', 'true');
+    expect(hiddenInput.value).toBe('');
+    await userEvent.click(blueberryOption, { delay: 100 });
+
+    await waitFor(() => {
+      expect(hiddenInput.value).toBe('');
+      expect(canvas.getByText('Select...')).toBeVisible();
+    });
+  },
+};
+
 export const Loading: Story = {
   args: {
     ...args,
@@ -215,10 +260,10 @@ export const EdgeCaseMenuIsVisibleInModal: Story = {
     return (
       <>
         <Button
-          testId="open_modal"
           onClick={() => {
             setOpen(true);
           }}
+          testId="open_modal"
         >
           Open Modal
         </Button>
@@ -305,7 +350,6 @@ const SelectWithFallbackFetch = ({ options, ...props }: SelectProps) => {
     <Select
       {...props}
       options={options}
-      selectedOptionFallback={selectedOptionFallback}
       renderOptionLabel={(data) => {
         const option = data as {
           isFallback?: boolean;
@@ -317,6 +361,7 @@ const SelectWithFallbackFetch = ({ options, ...props }: SelectProps) => {
         const name = option.node?.name ?? option.label ?? '';
         return <OptionLabel name={name} />;
       }}
+      selectedOptionFallback={selectedOptionFallback}
     />
   );
 };

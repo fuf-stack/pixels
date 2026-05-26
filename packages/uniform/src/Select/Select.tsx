@@ -47,9 +47,11 @@ export const selectVariants = tv({
     multiValueRemove:
       'rounded text-default-500 hover:cursor-pointer hover:border-default-300 hover:text-default-800',
     noOptionsMessage: 'rounded-sm p-2 text-foreground-500',
+    option: 'rounded px-3 py-2 hover:cursor-pointer',
+    option_disabled:
+      'cursor-not-allowed! hover:cursor-not-allowed! opacity-disabled',
     option_focused: 'bg-default-100 active:bg-default-200',
     option_selected: 'bg-default-300',
-    option: 'rounded px-3 py-2 hover:cursor-pointer',
     placeholder: 'ml-1 py-0.5 pl-1 text-sm text-foreground-500',
     selectContainer: '',
     singleValue: 'ml-1! leading-7!',
@@ -58,6 +60,8 @@ export const selectVariants = tv({
 });
 
 interface SelectOption {
+  /** set option to disabled state */
+  disabled?: boolean;
   /**
    * True when option was auto-generated because the value wasn't found in options.
    * Use in renderOptionLabel to render a component that fetches the real label.
@@ -81,6 +85,8 @@ export interface SelectProps extends VariantProps {
   clearable?: boolean;
   /** Set the select to disabled state. */
   disabled?: boolean;
+  /** Force menu open for debugging or visual testing. */
+  debugMenuOpen?: boolean;
   /** Filter Select Options */
   filterOption?:
     | undefined
@@ -119,7 +125,6 @@ const InputComponent: typeof components.Input = (props) => {
   // @ts-expect-error data-testid is not a default prop
   // eslint-disable-next-line react/destructuring-assignment
   const testId = `${props.selectProps['data-testid']}`;
-
   return <components.Input data-testid={testId} {...props} />;
 };
 
@@ -129,19 +134,18 @@ const ControlComponent: typeof components.Control = (props) => {
   const testId = `${props.selectProps['data-testid']}_select`;
   return (
     <div data-testid={testId}>
-      {}
       <components.Control {...props} />
     </div>
   );
 };
 
 const OptionComponent: typeof components.Option = (props) => {
+  const { isDisabled } = props;
   // @ts-expect-error data-testid is not a default prop
   // eslint-disable-next-line react/destructuring-assignment
   const testId = `${props.selectProps['data-testid']}_select_option_${slugify(String(props?.data?.testId ?? props?.data?.value), { replaceDots: true })}`;
   return (
-    <div data-testid={testId}>
-      {}
+    <div aria-disabled={isDisabled ? true : undefined} data-testid={testId}>
       <components.Option {...props} />
     </div>
   );
@@ -151,11 +155,9 @@ const DropdownIndicatorComponent: typeof components.DropdownIndicator = (
   props,
 ) => {
   // @ts-expect-error data-testid is not a default prop
-
   const testId = props?.selectProps['data-testid'] as string;
   return (
     <div data-testid={`${testId}_select_dropdown`}>
-      {}
       <components.DropdownIndicator {...props} />
     </div>
   );
@@ -165,6 +167,7 @@ const DropdownIndicatorComponent: typeof components.DropdownIndicator = (
 const Select = ({
   className = undefined,
   clearable = true,
+  debugMenuOpen = false,
   filterOption = undefined,
   renderOptionLabel = undefined,
   inputValue = undefined,
@@ -260,13 +263,16 @@ const Select = ({
       return classNames.noOptionsMessage;
     },
     option: ({
+      isDisabled: optionIsDisabled,
       isFocused: optionIsFocused,
       isSelected: optionIsSelected,
     }: {
+      isDisabled: boolean;
       isFocused: boolean;
       isSelected: boolean;
     }) => {
       return cn(classNames.option, {
+        [classNames.option_disabled]: optionIsDisabled,
         [classNames.option_focused]: optionIsFocused,
         [classNames.option_selected]: optionIsSelected,
       });
@@ -292,6 +298,14 @@ const Select = ({
     isRequired: required,
     label,
     labelPlacement: 'outside',
+  });
+
+  // react-select expects `isDisabled`, while our option contract uses `disabled`.
+  const reactSelectOptions = options.map((option) => {
+    return {
+      ...option,
+      isDisabled: option.disabled,
+    };
   });
 
   // Compute selected option(s) for react-select
@@ -408,13 +422,22 @@ const Select = ({
       ) : null}
       <ReactSelect
         ref={ref}
-        menuShouldBlockScroll
-        unstyled
         aria-errormessage=""
         aria-invalid={invalid}
-        // set aria-labelledby to the label id so that the select is accessible
         aria-label={ariaLabel}
+        // set aria-labelledby to the label id so that the select is accessible
+        aria-labelledby={
+          label
+            ? getTriggerProps()['aria-labelledby']?.split(' ')[1]
+            : undefined
+        }
         classNames={reactSelectClassNames}
+        components={{
+          Control: ControlComponent,
+          DropdownIndicator: DropdownIndicatorComponent,
+          Input: InputComponent,
+          Option: OptionComponent,
+        }}
         // Does not affect the testId of the select, but is needed to pass it to sub-components
         data-testid={testId}
         filterOption={filterOption}
@@ -425,30 +448,21 @@ const Select = ({
         isDisabled={disabled}
         isLoading={loading}
         isMulti={multiSelect}
+        menuIsOpen={debugMenuOpen ? true : undefined}
+        menuPosition="fixed"
+        menuShouldBlockScroll
+        name={name}
         // set menuPosition to fixed so that menu can be rendered
         // inside Card / Modal components, menuShouldBlockScroll
         // prevents container scroll when menu is open
-        menuPosition="fixed"
-        name={name}
         onBlur={handleBlur}
         onChange={handleChange}
         onFocus={handleFocus}
         onInputChange={onInputChange}
-        options={options}
+        options={reactSelectOptions}
         placeholder={placeholder}
+        unstyled
         value={reactSelectValue}
-        // set aria-labelledby to the label id so that the select is accessible
-        aria-labelledby={
-          label
-            ? getTriggerProps()['aria-labelledby']?.split(' ')[1]
-            : undefined
-        }
-        components={{
-          Control: ControlComponent,
-          DropdownIndicator: DropdownIndicatorComponent,
-          Input: InputComponent,
-          Option: OptionComponent,
-        }}
       />
       {invalid ? (
         <div {...getHelperWrapperProps()}>
