@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.6](https://github.com/fuf-stack/pixels/compare/veto-v1.5.5...veto-v1.5.6) (2026-05-26)
+
+
+### Bug Fixes
+
+* **veto:** preserve strict unknown-key behavior in refineObject ([ddd1b7a](https://github.com/fuf-stack/pixels/commit/ddd1b7ad58daa843043d3587b67eea7e7121758c))
+
 ## [1.5.5](https://github.com/fuf-stack/pixels/compare/veto-v1.5.4...veto-v1.5.5) (2026-05-26)
 
 
