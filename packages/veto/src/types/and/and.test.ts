@@ -29,6 +29,30 @@ it('exposes intersection typing', () => {
   }>();
 });
 
+it('exposes intersection typing for multiple schemas', () => {
+  const schema = and(
+    objectLoose({ baseField: string() }),
+    objectLoose({ mode: literal('TYPE') }),
+    objectLoose({ isEnabled: literal(true) }),
+  );
+
+  const parsed = schema.parse({
+    baseField: 'x',
+    mode: 'TYPE',
+    isEnabled: true,
+  });
+  const typedParsed: {
+    baseField: string;
+    mode: 'TYPE';
+    isEnabled: true;
+  } = parsed;
+  expectTypeOf(typedParsed).toEqualTypeOf<{
+    baseField: string;
+    mode: 'TYPE';
+    isEnabled: true;
+  }>();
+});
+
 it('combines multiple string schema validations correctly', () => {
   const schema = { andField: and(string(), string().min(4)) };
   const result = veto(schema).validate({ andField: 'thisString' });
@@ -76,6 +100,24 @@ it('combines enum string schema validations correctly', () => {
   const result3 = veto(schema).validate({ andField: '10' });
   expect(result3).toMatchObject({
     success: false,
+  });
+});
+
+it('supports more than two schemas at runtime', () => {
+  const schema = {
+    andField: and(string(), string().min(3), string().regex(/^A/)),
+  };
+
+  const successResult = veto(schema).validate({ andField: 'Abc' });
+  expect(successResult).toMatchObject({
+    success: true,
+    errors: null,
+  });
+
+  const failResult = veto(schema).validate({ andField: 'bc' });
+  expect(failResult).toMatchObject({
+    success: false,
+    data: null,
   });
 });
 

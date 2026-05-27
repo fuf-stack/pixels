@@ -57,6 +57,18 @@ Example:
 - `or(literal('A'), literal('B'), number().min(10))` -> regular union behavior
 - `or(literal('A'), literal('B'), number().min(10), { error: 'Value must match at least one allowed schema' })` -> single custom issue
 
+### 6) `and(...)` supports `2+` schema intersections
+
+veto exposes an `and(...schemas)` helper that accepts two or more schemas.
+
+- It applies intersection semantics across all provided branches.
+- Typing is preserved as the intersection of all branch input/output types.
+
+Example:
+
+- `and(objectLoose({ a: string() }), objectLoose({ b: number() }))`
+- `and(objectLoose({ a: string() }), objectLoose({ b: number() }), objectLoose({ c: literal(true) }))`
+
 ## What veto does not change
 
 - Core parsing semantics still come from Zod.
