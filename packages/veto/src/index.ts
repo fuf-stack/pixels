@@ -29,6 +29,7 @@ export * from './types/nativeEnum/nativeEnum';
 export * from './types/number/number';
 export * from './types/object/object';
 export * from './types/object/refineObject';
+export * from './types/or/or';
 export * from './types/record/record';
 export * from './types/string/string';
 export * from './types/vEnum/vEnum';

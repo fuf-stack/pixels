@@ -45,6 +45,18 @@ This differs from plain `safeParse` result ergonomics and keeps a single contrac
 
 When you pass a raw shape object to `veto(...)`, veto wraps it with strict object behavior (unknown keys produce errors), instead of silently allowing unknown keys.
 
+### 5) `or(...)` supports `2+` branches and an optional unified error message
+
+veto exposes an `or(...schemas)` helper that accepts two or more schemas.
+
+- Without options, it behaves like a regular union (`z.union`) and keeps branch-level errors.
+- With `{ error: '...' }` as the last argument, veto still checks all branches and returns one `custom` issue if none match.
+
+Example:
+
+- `or(literal('A'), literal('B'), number().min(10))` -> regular union behavior
+- `or(literal('A'), literal('B'), number().min(10), { error: 'Value must match at least one allowed schema' })` -> single custom issue
+
 ## What veto does not change
 
 - Core parsing semantics still come from Zod.
