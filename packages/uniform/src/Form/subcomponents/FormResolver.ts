@@ -63,14 +63,16 @@ export const useExtendedValidation = (baseValidation?: VetoInstance) => {
     useClientValidationManager();
 
   // Create a stable dependency array from the client validation schemas
-  const clientSchemaValues = useMemo(
+  const clientSchemaValues = useMemo<VetoTypeAny[]>(
     () => {
       const keys = Object.keys(clientValidationSchemas).sort();
       return keys
         .map((key) => {
           return clientValidationSchemas[key];
         })
-        .filter(Boolean);
+        .filter((schema): schema is VetoTypeAny => {
+          return Boolean(schema);
+        });
     },
     // Include the object identity to react to schema instance updates with same shape
     [clientValidationSchemas],
@@ -93,17 +95,20 @@ export const useExtendedValidation = (baseValidation?: VetoInstance) => {
       }
 
       // Combine client validation schemas
-      const clientSchemasCombined = clientSchemaValues.reduce(
-        // @ts-expect-error is ok, because initially it is null
-        (combined, clientSchema) => {
-          return combined ? and(combined, clientSchema) : clientSchema;
-        },
-        null,
-      );
+      const clientSchemasCombined =
+        clientSchemaValues.reduce<VetoTypeAny | null>(
+          (combined, clientSchema) => {
+            return combined ? and(combined, clientSchema) : clientSchema;
+          },
+          null,
+        );
 
       // return combined validation
-      if (hasBaseValidation && clientSchemasCombined) {
-        return veto(and(baseValidation.schema, clientSchemasCombined));
+      if (baseValidation && clientSchemasCombined) {
+        // Put client validation first so dynamic/domain-specific messages
+        // are returned before generic base validation errors.
+        const baseSchema = baseValidation.schema as VetoTypeAny;
+        return veto(and(clientSchemasCombined, baseSchema));
       }
 
       // If we only have client schemas, return them as a veto instance
@@ -131,7 +136,9 @@ export const useExtendedValidation = (baseValidation?: VetoInstance) => {
  * @returns Object containing resolver function, current validation errors, and optimization hash
  */
 export const useFormResolver = (extendedValidation?: VetoInstance) => {
-  // Use ref to store validation errors without triggering re-renders
+  // Keep validation errors in a ref to avoid re-renders on each resolver run.
+  // This preserves UX/snapshot behavior where validation updates alone
+  // do not force immediate visual error state changes.
   const validationErrors = useRef<VetoFormattedError>(undefined);
 
   // Memoized resolver function for React Hook Form
@@ -154,10 +161,12 @@ export const useFormResolver = (extendedValidation?: VetoInstance) => {
   }, [extendedValidation]);
 
   // Hash for memo dependency optimization in consuming components
+  // eslint-disable-next-line react-hooks/refs -- intentional non-reactive cache read
   const validationErrorsHash = JSON.stringify(validationErrors.current);
 
   return {
     resolver,
+    // eslint-disable-next-line react-hooks/refs -- intentional non-reactive cache read
     validationErrors: validationErrors.current,
     validationErrorsHash,
   };
