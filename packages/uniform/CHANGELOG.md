@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.20.13](https://github.com/fuf-stack/pixels/compare/uniform-v1.20.12...uniform-v1.20.13) (2026-05-27)
+
+
+### Bug Fixes
+
+* **uniform:** render required asterisk explicitly in label to avoid missing indicator ([f45c6bb](https://github.com/fuf-stack/pixels/commit/f45c6bb000ce84f91c48cceb136ae5a7a85fd3b1))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @fuf-stack/veto bumped to 1.6.0
+
 ## [1.20.12](https://github.com/fuf-stack/pixels/compare/uniform-v1.20.11...uniform-v1.20.12) (2026-05-26)
 
 
