@@ -61,8 +61,11 @@ export interface VObjectRefinements<TData = Record<string, unknown>> {
   /**
    * Custom refinement function.
    *
-   * `data` stays `Record<string, unknown>` because preprocess runs before full
-   * base parsing. Use `helpers` for opt-in schema validation and type narrowing.
+   * `data` is the value produced by the base schema's parse step (so e.g.
+   * `string().trim()` fields are already trimmed). It is typed as
+   * `Record<string, unknown>` because some fields may have failed validation
+   * and contain pre-parse / fallback values; use `helpers` for opt-in,
+   * type-safe schema checks against `data`.
    *
    * @example
    * // Full object guard
@@ -146,13 +149,17 @@ const isRecord = (value: unknown): value is Record<string, unknown> => {
 };
 
 /**
- * Applies custom validation refinements to an object schema.
+ * Adds object-level custom validation to an object schema.
  *
- * Implementation detail: custom checks run in a permissive preprocess branch
- * that is intersected with the original object schema.
+ * The `custom` callback runs alongside the base schema's own checks, so any
+ * issues it adds appear in the same error result as field-level issues. Use
+ * it for rules that depend on multiple fields at once (e.g. "field A is
+ * required when field B is 'x'").
  *
- * This allows veto to surface both base schema issues and object-level custom
- * issues in one pass.
+ * In the callback, `data` is the value produced by the base schema (e.g.
+ * strings are already `.trim()`-ed). Use `helpers.isSchemaObject` /
+ * `helpers.parseObject` for type-safe narrowing — fields that failed the
+ * base schema may still be present but hold their pre-parse value.
  *
  * @example
  * ```ts
@@ -177,7 +184,8 @@ export const refineObject = <T extends RefineObjectInputObject>(schema: T) => {
   return (
     refinements: VObjectRefinements<ObjectData>,
   ): RefineObjectOutput<T> => {
-    // Keep optional key presence semantics by unwrapping before intersection.
+    // Keep optional key presence semantics by unwrapping before refinement and
+    // re-wrapping at the end.
     const isOptionalSchema = schema instanceof z.ZodOptional;
     const baseSchema = isOptionalSchema
       ? (schema as VetoOptional<VetoTypeAny>).unwrap()
@@ -211,10 +219,20 @@ export const refineObject = <T extends RefineObjectInputObject>(schema: T) => {
       }) as VObjectCustomHelpers<ObjectData>['parseObject'],
     };
 
-    // Run custom object-level refinement in a permissive branch and combine it
-    // with the base object branch so base and custom issues are both surfaced.
-    const customBranch = z.preprocess((val, ctx) => {
-      if (isRecord(val)) {
+    // Attach the custom callback as a `superRefine` check on the base schema.
+    // The `when: () => true` override ensures the check runs even after base
+    // parsing produced (non-fatal) issues, so users see base AND custom
+    // errors in a single pass.
+    //
+    // Keeping the result type as the original object schema preserves zod's
+    // strict / passthrough semantics and veto's serialized-schema-based error
+    // formatter (which uses object-likeness to decide between `_errors`
+    // nesting and flat error arrays).
+    const refinedBaseSchema = objectBaseSchema.superRefine(
+      (data: unknown, ctx: z.RefinementCtx) => {
+        if (!isRecord(data)) {
+          return;
+        }
         const refinementsCtx = {
           ...ctx,
           addIssue: (issue: Parameters<typeof ctx.addIssue>[0]) => {
@@ -228,18 +246,14 @@ export const refineObject = <T extends RefineObjectInputObject>(schema: T) => {
             });
           },
         } as VetoRefinementCtx;
-
-        refinements.custom(val, refinementsCtx, customHelpers);
-      }
-
-      return val;
-    }, z.any());
-
-    const refinedBaseSchema = z.intersection(baseSchema, customBranch).pipe(
-      // Re-parse merged intersection output so base object semantics stay
-      // authoritative for result data and strict unknown-key behavior.
-      baseSchema,
-    ) as VetoEffects<VObjectSchema<Shape>>;
+        refinements.custom(data, refinementsCtx, customHelpers);
+      },
+      {
+        when: () => {
+          return true;
+        },
+      },
+    ) as unknown as VetoEffects<VObjectSchema<Shape>>;
 
     if (isOptionalSchema) {
       return refinedBaseSchema.optional() as unknown as RefineObjectOutput<T>;

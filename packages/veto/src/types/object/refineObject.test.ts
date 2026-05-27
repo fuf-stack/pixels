@@ -76,8 +76,8 @@ describe('refineObject', () => {
     });
   });
 
-  describe('runtime validation behavior', () => {
-    it('supports partial helper mode at runtime', () => {
+  describe('valid input', () => {
+    it('should allow valid data', () => {
       const schema = {
         user: refineObject(
           object({
@@ -85,15 +85,15 @@ describe('refineObject', () => {
             age: number(),
           }),
         )({
-          custom: (data, ctx, helpers) => {
+          custom: (data, ctx) => {
             if (
-              helpers.isSchemaObject(data, { partial: true }) &&
-              data.age === undefined
+              data.name === 'admin' &&
+              typeof data.age === 'number' &&
+              data.age < 18
             ) {
               ctx.addIssue({
                 code: 'custom',
-                message: 'Age is missing',
-                path: ['age'],
+                message: 'Admin must be 18 or older',
               });
             }
           },
@@ -101,29 +101,16 @@ describe('refineObject', () => {
       };
 
       const result = veto(schema).validate({
-        user: { name: 'admin' },
+        user: { name: 'admin', age: 20 },
       });
 
       expect(result).toMatchObject({
-        success: false,
-        errors: {
-          user: {
-            age: [
-              {
-                code: 'invalid_type',
-                message: 'Field is required',
-                received: 'undefined',
-              },
-              {
-                code: 'custom',
-                message: 'Age is missing',
-              },
-            ],
-          },
-        },
+        success: true,
       });
     });
+  });
 
+  describe('custom validation errors', () => {
     it('should validate using custom function', () => {
       const schema = {
         user: refineObject(
@@ -163,38 +150,6 @@ describe('refineObject', () => {
             ],
           },
         },
-      });
-    });
-
-    it('should allow valid data', () => {
-      const schema = {
-        user: refineObject(
-          object({
-            name: string(),
-            age: number(),
-          }),
-        )({
-          custom: (data, ctx) => {
-            if (
-              data.name === 'admin' &&
-              typeof data.age === 'number' &&
-              data.age < 18
-            ) {
-              ctx.addIssue({
-                code: 'custom',
-                message: 'Admin must be 18 or older',
-              });
-            }
-          },
-        }),
-      };
-
-      const result = veto(schema).validate({
-        user: { name: 'admin', age: 20 },
-      });
-
-      expect(result).toMatchObject({
-        success: true,
       });
     });
 
@@ -255,152 +210,6 @@ describe('refineObject', () => {
       });
     });
 
-    it('should work with optional objects', () => {
-      const schema = {
-        user: refineObject(
-          object({
-            name: string(),
-            age: number(),
-          }).optional(),
-        )({
-          custom: (data, ctx) => {
-            if (
-              data.name === 'admin' &&
-              typeof data.age === 'number' &&
-              data.age < 18
-            ) {
-              ctx.addIssue({
-                code: 'custom',
-                message: 'Admin must be 18 or older',
-              });
-            }
-          },
-        }),
-      };
-
-      const resultWithData = veto(schema).validate({
-        user: { name: 'admin', age: 16 },
-      });
-
-      expect(resultWithData).toMatchObject({
-        success: false,
-        errors: {
-          user: {
-            _errors: [
-              {
-                code: 'custom',
-                message: 'Admin must be 18 or older',
-              },
-            ],
-          },
-        },
-      });
-
-      const resultWithoutData = veto(schema).validate({});
-      expect(resultWithoutData).toMatchObject({
-        success: true,
-      });
-    });
-
-    it('keeps optional object field optional through refinement wrapper', () => {
-      const schema = {
-        user: refineObject(
-          object({
-            name: string(),
-          }).optional(),
-        )({
-          custom: () => {},
-        }),
-      };
-
-      expect(veto(schema).validate({}).success).toBe(true);
-      expect(veto(schema).validate({ user: undefined }).success).toBe(true);
-      expect(veto(schema).validate({ user: null }).success).toBe(false);
-    });
-
-    it('should only run validation on objects', () => {
-      const schema = {
-        user: refineObject(
-          object({
-            name: string(),
-            age: number(),
-          }),
-        )({
-          custom: (_data, ctx) => {
-            ctx.addIssue({
-              code: 'custom',
-              message: 'Should not be called',
-            });
-          },
-        }),
-      };
-
-      const result = veto(schema).validate({
-        user: 'not an object',
-      });
-
-      expect(result).toMatchObject({
-        success: false,
-        errors: {
-          user: {
-            _errors: expect.arrayContaining([
-              expect.objectContaining({
-                code: 'invalid_type',
-              }),
-            ]),
-          },
-        },
-      });
-    });
-
-    it('should work with nested objects', () => {
-      const schema = {
-        user: refineObject(
-          object({
-            name: string(),
-            settings: object({
-              theme: string(),
-              notifications: boolean(),
-            }),
-          }),
-        )({
-          custom: (data, ctx) => {
-            const settings = data.settings as Record<string, unknown>;
-            if (data.name === 'guest' && settings?.notifications === true) {
-              ctx.addIssue({
-                code: 'custom',
-                message: 'Guests cannot enable notifications',
-              });
-            }
-          },
-        }),
-      };
-
-      const result = veto(schema).validate({
-        user: {
-          name: 'guest',
-          settings: {
-            theme: 'dark',
-            notifications: true,
-          },
-        },
-      });
-
-      expect(result).toMatchObject({
-        success: false,
-        errors: {
-          user: {
-            _errors: [
-              {
-                code: 'custom',
-                message: 'Guests cannot enable notifications',
-              },
-            ],
-          },
-        },
-      });
-    });
-
     it('should allow adding issues under specific paths', () => {
       const schema = {
         user: refineObject(
@@ -451,7 +260,9 @@ describe('refineObject', () => {
         },
       });
     });
+  });
 
+  describe('combined base + custom errors', () => {
     it('keeps object-level custom errors alongside nested required errors', () => {
       const schema = {
         identity: refineObject(
@@ -605,6 +416,231 @@ describe('refineObject', () => {
       });
     });
 
+    it('still reports field-level transform errors alongside custom issues', () => {
+      const schema = {
+        payload: refineObject(
+          object({
+            comment: string().max(3),
+            name: string(),
+          }),
+        )({
+          custom: (data, ctx) => {
+            if (data.name === 'forbidden') {
+              ctx.addIssue({
+                code: 'custom',
+                message: 'name cannot be forbidden',
+                path: ['name'],
+              });
+            }
+          },
+        }),
+      };
+
+      const result = veto(schema).validate({
+        payload: { comment: 'too long here  ', name: 'forbidden' },
+      });
+
+      expect(result).toMatchObject({
+        success: false,
+        errors: {
+          payload: {
+            comment: [{ code: 'too_big' }],
+            name: [{ code: 'custom', message: 'name cannot be forbidden' }],
+          },
+        },
+      });
+    });
+
+    it('runs the custom callback even when a sibling field fails its base type', () => {
+      const schema = {
+        payload: refineObject(
+          object({
+            comment: string().max(255).optional(),
+            count: number(),
+          }),
+        )({
+          custom: (data, ctx) => {
+            if (
+              typeof data.comment === 'string' &&
+              data.comment.includes('!')
+            ) {
+              ctx.addIssue({
+                code: 'custom',
+                message: 'comment cannot contain !',
+                path: ['comment'],
+              });
+            }
+          },
+        }),
+      };
+
+      const result = veto(schema).validate({
+        payload: { comment: 'hey!  ', count: 'not a number' },
+      });
+
+      expect(result).toMatchObject({
+        success: false,
+        errors: {
+          payload: {
+            comment: [{ code: 'custom', message: 'comment cannot contain !' }],
+            count: [{ code: 'invalid_type' }],
+          },
+        },
+      });
+    });
+  });
+
+  describe('non-object input', () => {
+    it('should only run validation on objects', () => {
+      const schema = {
+        user: refineObject(
+          object({
+            name: string(),
+            age: number(),
+          }),
+        )({
+          custom: (_data, ctx) => {
+            ctx.addIssue({
+              code: 'custom',
+              message: 'Should not be called',
+            });
+          },
+        }),
+      };
+
+      const result = veto(schema).validate({
+        user: 'not an object',
+      });
+
+      expect(result).toMatchObject({
+        success: false,
+        errors: {
+          user: {
+            _errors: expect.arrayContaining([
+              expect.objectContaining({
+                code: 'invalid_type',
+              }),
+            ]),
+          },
+        },
+      });
+    });
+  });
+
+  describe('optional object support', () => {
+    it('should work with optional objects', () => {
+      const schema = {
+        user: refineObject(
+          object({
+            name: string(),
+            age: number(),
+          }).optional(),
+        )({
+          custom: (data, ctx) => {
+            if (
+              data.name === 'admin' &&
+              typeof data.age === 'number' &&
+              data.age < 18
+            ) {
+              ctx.addIssue({
+                code: 'custom',
+                message: 'Admin must be 18 or older',
+              });
+            }
+          },
+        }),
+      };
+
+      const resultWithData = veto(schema).validate({
+        user: { name: 'admin', age: 16 },
+      });
+
+      expect(resultWithData).toMatchObject({
+        success: false,
+        errors: {
+          user: {
+            _errors: [
+              {
+                code: 'custom',
+                message: 'Admin must be 18 or older',
+              },
+            ],
+          },
+        },
+      });
+
+      const resultWithoutData = veto(schema).validate({});
+      expect(resultWithoutData).toMatchObject({
+        success: true,
+      });
+    });
+
+    it('keeps optional object field optional through refinement wrapper', () => {
+      const schema = {
+        user: refineObject(
+          object({
+            name: string(),
+          }).optional(),
+        )({
+          custom: () => {},
+        }),
+      };
+
+      expect(veto(schema).validate({}).success).toBe(true);
+      expect(veto(schema).validate({ user: undefined }).success).toBe(true);
+      expect(veto(schema).validate({ user: null }).success).toBe(false);
+    });
+  });
+
+  describe('nested objects and discriminated unions', () => {
+    it('should work with nested objects', () => {
+      const schema = {
+        user: refineObject(
+          object({
+            name: string(),
+            settings: object({
+              theme: string(),
+              notifications: boolean(),
+            }),
+          }),
+        )({
+          custom: (data, ctx) => {
+            const settings = data.settings as Record<string, unknown>;
+            if (data.name === 'guest' && settings?.notifications === true) {
+              ctx.addIssue({
+                code: 'custom',
+                message: 'Guests cannot enable notifications',
+              });
+            }
+          },
+        }),
+      };
+
+      const result = veto(schema).validate({
+        user: {
+          name: 'guest',
+          settings: {
+            theme: 'dark',
+            notifications: true,
+          },
+        },
+      });
+
+      expect(result).toMatchObject({
+        success: false,
+        errors: {
+          user: {
+            _errors: [
+              {
+                code: 'custom',
+                message: 'Guests cannot enable notifications',
+              },
+            ],
+          },
+        },
+      });
+    });
+
     it('preserves strict unknown-key errors with discriminated unions', () => {
       const schema = {
         storage: refineObject(
@@ -656,6 +692,109 @@ describe('refineObject', () => {
           },
         },
       });
+    });
+  });
+
+  describe('helpers at runtime', () => {
+    it('supports partial helper mode at runtime', () => {
+      const schema = {
+        user: refineObject(
+          object({
+            name: string(),
+            age: number(),
+          }),
+        )({
+          custom: (data, ctx, helpers) => {
+            if (
+              helpers.isSchemaObject(data, { partial: true }) &&
+              data.age === undefined
+            ) {
+              ctx.addIssue({
+                code: 'custom',
+                message: 'Age is missing',
+                path: ['age'],
+              });
+            }
+          },
+        }),
+      };
+
+      const result = veto(schema).validate({
+        user: { name: 'admin' },
+      });
+
+      expect(result).toMatchObject({
+        success: false,
+        errors: {
+          user: {
+            age: [
+              {
+                code: 'invalid_type',
+                message: 'Field is required',
+                received: 'undefined',
+              },
+              {
+                code: 'custom',
+                message: 'Age is missing',
+              },
+            ],
+          },
+        },
+      });
+    });
+  });
+
+  describe('base-schema field transforms', () => {
+    it('handles base-schema field transforms without "Unmergable intersection"', () => {
+      // Regression: `string()` in veto applies `.trim()`. Before the fix, the
+      // base branch produced a trimmed value while the custom branch returned
+      // the raw input, and zod 4's strict-equality intersection merge threw
+      // "Unmergable intersection. Error path: ['comment']" for any input with
+      // surrounding whitespace.
+      const schema = refineObject(
+        object({
+          comment: string().max(255).optional(),
+          flag: boolean().optional(),
+        }),
+      )({
+        custom: () => {},
+      });
+
+      expect(() => schema.parse({ comment: 'hello world ' })).not.toThrow();
+      expect(() => schema.parse({ comment: 'hello\n' })).not.toThrow();
+      expect(schema.parse({ comment: 'hello world ' })).toStrictEqual({
+        comment: 'hello world',
+      });
+    });
+
+    it('exposes the trimmed value when validation passes', () => {
+      const schema = refineObject(
+        object({
+          comment: string().max(255),
+        }),
+      )({
+        custom: () => {},
+      });
+
+      expect(schema.parse({ comment: '  hello  ' })).toStrictEqual({
+        comment: 'hello',
+      });
+    });
+
+    it('passes the parsed (trimmed) value to the custom callback', () => {
+      const seen: unknown[] = [];
+      const schema = refineObject(
+        object({
+          comment: string().max(255),
+        }),
+      )({
+        custom: (data) => {
+          seen.push(data.comment);
+        },
+      });
+
+      schema.parse({ comment: '  hello  ' });
+      expect(seen).toStrictEqual(['hello']);
     });
   });
 });
