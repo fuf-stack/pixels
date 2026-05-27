@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.6.0](https://github.com/fuf-stack/pixels/compare/veto-v1.5.6...veto-v1.6.0) (2026-05-27)
+
+
+### Features
+
+* **veto:** add multi-schema or type with optional unified error message ([c7dcc96](https://github.com/fuf-stack/pixels/commit/c7dcc96359882a9243ef0469f7b669c44019113b))
+* **veto:** support 2+ schemas in and type ([1fb1298](https://github.com/fuf-stack/pixels/commit/1fb12981ab7af13c66fccaf4b2d4cdde8577b024))
+
 ## [1.5.6](https://github.com/fuf-stack/pixels/compare/veto-v1.5.5...veto-v1.5.6) (2026-05-26)
 
 
