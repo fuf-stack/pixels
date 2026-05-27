@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.7.1](https://github.com/fuf-stack/pixels/compare/veto-v1.7.0...veto-v1.7.1) (2026-05-27)
+
+
+### Bug Fixes
+
+* **veto:** avoid "Unmergable intersection" in refineArray ([4fba571](https://github.com/fuf-stack/pixels/commit/4fba571625bb32d3edb75e5684c7d2ef26310125))
+* **veto:** avoid "Unmergable intersection" in refineObject ([ba1934b](https://github.com/fuf-stack/pixels/commit/ba1934b07353855d39af6e54057ec752311c5ba9))
+
 ## [1.7.0](https://github.com/fuf-stack/pixels/compare/veto-v1.6.0...veto-v1.7.0) (2026-05-27)
 
 
