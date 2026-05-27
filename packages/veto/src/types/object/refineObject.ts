@@ -1,5 +1,4 @@
 import type {
-  VetoEffects,
   VetoOptional,
   VetoRawShape,
   VetoRefinementCtx,
@@ -130,10 +129,10 @@ type RefineObjectInputObject =
 type RefineObjectOutput<T extends RefineObjectInputObject> =
   T extends VetoOptional<infer TObjectSchema>
     ? TObjectSchema extends VObjectSchema<infer TShape extends VetoRawShape>
-      ? VetoEffects<VetoOptional<VObjectSchema<TShape>>>
+      ? VetoOptional<VObjectSchema<TShape>>
       : never
     : T extends VObjectSchema<infer TShape extends VetoRawShape>
-      ? VetoEffects<VObjectSchema<TShape>>
+      ? VObjectSchema<TShape>
       : never;
 
 // Extract shape type for direct and optional-wrapped object schemas.
@@ -253,7 +252,7 @@ export const refineObject = <T extends RefineObjectInputObject>(schema: T) => {
           return true;
         },
       },
-    ) as unknown as VetoEffects<VObjectSchema<Shape>>;
+    );
 
     if (isOptionalSchema) {
       return refinedBaseSchema.optional() as unknown as RefineObjectOutput<T>;

@@ -24,8 +24,6 @@ export type VetoObject<T extends ZodRawShape> = ZodObject<T>;
 export type Input<T extends VetoTypeAny> = input<T>;
 export type Output<T extends VetoTypeAny> = output<T>;
 
-export type VetoEffects<T extends VetoTypeAny> = ZodType<Output<T>, Input<T>>;
-
 export type VetoRefinementCtx = RefinementCtx;
 
 /** veto schema types */

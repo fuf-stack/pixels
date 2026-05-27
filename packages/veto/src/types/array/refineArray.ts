@@ -1,11 +1,6 @@
 /* eslint-disable @typescript-eslint/prefer-nullish-coalescing */
 
-import type {
-  VetoEffects,
-  VetoOptional,
-  VetoRefinementCtx,
-  VetoTypeAny,
-} from 'src/types';
+import type { VetoOptional, VetoRefinementCtx, VetoTypeAny } from 'src/types';
 import type { VArray, VArraySchema } from './array';
 
 import { z } from 'zod';
@@ -226,9 +221,10 @@ export interface VArrayRefinements<TElement = unknown> {
   /**
    * Custom array refinement function.
    *
-   * `elements` stays `unknown[]` because preprocess runs before full base parsing.
-   * Use `helpers.isElement` / `helpers.validElements` for opt-in element-schema
-   * validation + type-safe narrowing inside this callback.
+   * `elements` is the array produced by the base schema (so e.g. `string()`
+   * elements are already `.trim()`-ed). It is typed as `unknown[]` because
+   * individual elements may have failed validation; use `helpers.isElement` /
+   * `helpers.validElements` for type-safe narrowing.
    *
    * @example
    * // Run aggregate logic on schema-valid subset only
@@ -316,29 +312,32 @@ type ExtractElement<T> =
       : never;
 
 /**
- * Applies validation refinements to an array schema
- * @param schema - Base array schema to refine. Can be either:
- *   - A direct array schema (ReturnType<VArray>)
- *   - A wrapped optional array schema (VetoOptional<ReturnType<VArray>>)
- * @returns Function that takes refinement options and returns enhanced schema
+ * Adds array-level custom and/or uniqueness validation to an array schema.
+ *
+ * Both `custom` and `unique` checks run alongside the base array schema, so
+ * element-level errors (e.g. "wrong type") and array-level errors (e.g.
+ * "duplicates") appear together in one validation result.
+ *
+ * The `custom` callback receives the value the base schema produced, so
+ * element transforms (e.g. `string().trim()`) are already applied. Use
+ * `helpers.isElement` / `helpers.validElements` for type-safe narrowing —
+ * elements that failed the element schema may still be present.
  *
  * @example
  * ```ts
- * // Add unique validation
- * const schema = refineArray(array(string()))({
- *   unique: true
- * });
+ * // unique validation
+ * const schema = refineArray(array(string()))({ unique: true });
  *
- * // Add custom validation
+ * // custom validation
  * const schema = refineArray(array(string()))({
  *   custom: (val, ctx) => {
  *     if (val.length < 2) {
  *       ctx.addIssue({
  *         code: 'custom',
- *         message: 'Array must have at least 2 elements'
+ *         message: 'Array must have at least 2 elements',
  *       });
  *     }
- *   }
+ *   },
  * });
  * ```
  */
@@ -347,70 +346,93 @@ export const refineArray = <T extends RefineArrayInputArray>(schema: T) => {
   type ElementValue = z.infer<Element>;
   type UniqueElementValue = PartialObjectElement<ElementValue>;
 
-  return (
-    refinements: VArrayRefinements<ElementValue>,
-  ): VetoEffects<VArraySchema<Element>> => {
-    let _schema = schema as unknown as VetoEffects<VArraySchema<Element>>;
+  return (refinements: VArrayRefinements<ElementValue>): T => {
+    // No refinements requested - return the original schema unchanged.
+    if (Object.keys(refinements).length === 0) {
+      return schema;
+    }
 
-    // Zod >=4.4 treats "key presence" separately from "value validity".
-    // If we intersect an optional array schema directly, the resulting wrapper
-    // can lose top-level optional semantics when used in object shapes, causing
-    // missing keys to be treated as required.
-    //
-    // To keep optional object fields stable across Zod versions, unwrap first,
-    // apply intersection on the inner array schema, then re-apply .optional().
-    const isOptionalSchema = schema instanceof z.ZodOptional;
-    const baseSchema = isOptionalSchema
-      ? (schema as VetoOptional<VetoTypeAny>).unwrap()
-      : (schema as VetoTypeAny);
+    // Unwrap optional only to access `.element` for helpers; the check itself
+    // is attached to the original schema so optional semantics are preserved.
+    const arrayBaseSchema = (
+      schema instanceof z.ZodOptional
+        ? (schema as VetoOptional<VetoTypeAny>).unwrap()
+        : schema
+    ) as VArraySchema<Element>;
+    const objectElementSchema = isObjectElementSchema(arrayBaseSchema.element);
 
-    // if refinements provided
-    if (Object.keys(refinements).length) {
-      const arrayBaseSchema = baseSchema as VArraySchema<Element>;
-      const objectElementSchema = isObjectElementSchema(
-        arrayBaseSchema.element,
-      );
-      const customHelpers: VArrayCustomHelpers<ElementValue> = {
-        isElement: ((
-          value: unknown,
-          options?: { partial: true },
-        ): value is ElementValue | PartialObjectElement<ElementValue> => {
-          if (options?.partial) {
-            return objectElementSchema
-              ? isPlainObject(value)
-              : arrayBaseSchema.element.safeParse(value).success;
-          }
-          return arrayBaseSchema.element.safeParse(value).success;
-        }) as VArrayCustomHelpers<ElementValue>['isElement'],
-        validElements: ((
-          values: unknown[],
-          options?: { partial: true },
-        ): (ElementValue | PartialObjectElement<ElementValue>)[] => {
-          if (options?.partial) {
-            return values.filter(
-              (value): value is PartialObjectElement<ElementValue> => {
-                return customHelpers.isElement(value, { partial: true });
-              },
-            );
-          }
-          return values.filter((value): value is ElementValue => {
-            return customHelpers.isElement(value);
-          });
-        }) as VArrayCustomHelpers<ElementValue>['validElements'],
-      };
-      const refinementSchema = z.preprocess((val, ctx) => {
-        // add custom refinement
-        if (refinements.custom && Array.isArray(val)) {
-          refinements.custom(val as unknown[], ctx, customHelpers);
+    const customHelpers: VArrayCustomHelpers<ElementValue> = {
+      isElement: ((
+        value: unknown,
+        options?: { partial: true },
+      ): value is ElementValue | PartialObjectElement<ElementValue> => {
+        if (options?.partial) {
+          return objectElementSchema
+            ? isPlainObject(value)
+            : arrayBaseSchema.element.safeParse(value).success;
         }
-        // add unique refinement
-        if (refinements.unique && Array.isArray(val)) {
+        return arrayBaseSchema.element.safeParse(value).success;
+      }) as VArrayCustomHelpers<ElementValue>['isElement'],
+      validElements: ((
+        values: unknown[],
+        options?: { partial: true },
+      ): (ElementValue | PartialObjectElement<ElementValue>)[] => {
+        if (options?.partial) {
+          return values.filter(
+            (value): value is PartialObjectElement<ElementValue> => {
+              return customHelpers.isElement(value, { partial: true });
+            },
+          );
+        }
+        return values.filter((value): value is ElementValue => {
+          return customHelpers.isElement(value);
+        });
+      }) as VArrayCustomHelpers<ElementValue>['validElements'],
+    };
+
+    // Run custom + unique checks as a `superRefine` on the base schema with
+    // `when: () => true`, so they fire even when the base schema produced
+    // element-level issues. This surfaces base and array-level errors in the
+    // same pass without zod's intersection merge (which throws "Unmergable
+    // intersection" whenever the base schema transforms element values).
+    return (schema as VetoTypeAny).superRefine(
+      (val: unknown, ctx: z.RefinementCtx) => {
+        if (!Array.isArray(val)) {
+          return;
+        }
+        const refinementsCtx = {
+          ...ctx,
+          addIssue: (issue: Parameters<typeof ctx.addIssue>[0]) => {
+            if (typeof issue === 'string') {
+              ctx.addIssue(issue);
+              return;
+            }
+            ctx.addIssue({
+              ...issue,
+              continue: issue.continue ?? true,
+            });
+          },
+        } as VetoRefinementCtx;
+
+        // Caller-supplied callback. Receives the parsed array (element
+        // transforms already applied) plus helpers for opt-in element-schema
+        // narrowing.
+        if (refinements.custom) {
+          refinements.custom(val as unknown[], refinementsCtx, customHelpers);
+        }
+
+        // Uniqueness check. Builds a list of "comparable" elements first so
+        // duplicates can be reported against the original array indexes.
+        if (refinements.unique) {
           const validElements = val
             .map(
               (
                 item,
                 index,
               ): { element: UniqueElementValue; index: number } | null => {
+                // Object-element schemas: accept any plain object so partial
+                // / malformed entries can still participate in duplicate
+                // detection (mapFn typically reads one id-like field).
                 if (objectElementSchema) {
                   if (!isPlainObject(item)) {
                     return null;
@@ -420,6 +442,8 @@ export const refineArray = <T extends RefineArrayInputArray>(schema: T) => {
                     index,
                   };
                 }
+                // Primitive-element schemas: require a fully valid parse,
+                // otherwise the element is excluded from the comparison.
                 const parsedItem = arrayBaseSchema.element.safeParse(item);
                 if (!parsedItem.success) {
                   return null;
@@ -437,26 +461,14 @@ export const refineArray = <T extends RefineArrayInputArray>(schema: T) => {
                 return item !== null;
               },
             );
-          makeElementsUnique(refinements.unique)(validElements, ctx);
+          makeElementsUnique(refinements.unique)(validElements, refinementsCtx);
         }
-        return val;
-      }, z.any());
-
-      // In Zod v4 preprocess issues can short-circuit downstream parsing.
-      // Intersecting with the original schema keeps base validation issues
-      // and custom refinement issues in the final error result.
-      const refinedBaseSchema = z.intersection(
-        baseSchema,
-        refinementSchema,
-      ) as VetoEffects<VArraySchema<Element>>;
-
-      // Re-wrap optional at the outermost layer so object property presence
-      // checks still see this field as optional.
-      _schema = isOptionalSchema
-        ? (refinedBaseSchema.optional() as VetoEffects<VArraySchema<Element>>)
-        : refinedBaseSchema;
-    }
-
-    return _schema;
+      },
+      {
+        when: () => {
+          return true;
+        },
+      },
+    ) as T;
   };
 };

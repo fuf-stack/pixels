@@ -4,132 +4,148 @@ import { describe, expect, expectTypeOf, it } from 'vitest';
 
 import veto, { array, number, object, refineArray, string } from 'src';
 
-describe('custom refinement', () => {
-  it('preserves refined array schema typing', () => {
-    const refined = refineArray(array(string()))({
-      custom: () => {},
+describe('refineArray', () => {
+  describe('typing and helper contracts', () => {
+    it('preserves refined array schema typing', () => {
+      const refined = refineArray(array(string()))({
+        custom: () => {},
+      });
+
+      expectTypeOf(refined.parse(['one', 'two'])).toEqualTypeOf<string[]>();
     });
 
-    expectTypeOf(refined.parse(['one', 'two'])).toEqualTypeOf<string[]>();
-  });
+    it('supports refining optional arrays', () => {
+      const refined = refineArray(array(string()).optional())({
+        custom: () => {},
+      });
 
-  it('supports refining optional arrays', () => {
-    const refined = refineArray(array(string()).optional())({
-      custom: () => {},
+      expect(refined.safeParse(undefined).success).toBe(true);
+      expectTypeOf(refined.parse).returns.toEqualTypeOf<string[] | undefined>();
     });
 
-    expect(refined.safeParse(undefined).success).toBe(true);
-    expectTypeOf(refined.parse).returns.toEqualTypeOf<string[] | undefined>();
-  });
+    it('provides type-safe custom helpers for element validation', () => {
+      refineArray(array(object({ value: number() })))({
+        custom: (val, ctx, helpers) => {
+          expectTypeOf(helpers.validElements(val)).toEqualTypeOf<
+            { value: number }[]
+          >();
+          expectTypeOf(
+            helpers.validElements(val, { partial: true }),
+          ).toEqualTypeOf<Partial<{ value: number }>[]>();
 
-  it('validates array with custom logic', () => {
-    const schema = {
-      arrayField: refineArray(array(string()))({
-        custom: (val, ctx) => {
-          if (Array.isArray(val) && val.length < 2) {
-            ctx.addIssue({
-              code: 'too_small',
-              inclusive: true,
-              message: 'Array must have at least 2 elements',
-              minimum: 2,
-              origin: 'array',
-            });
-          }
-        },
-      }),
-    };
-    const result = veto(schema).validate({
-      arrayField: ['one'],
-    });
-    expect(result).toStrictEqual({
-      success: false,
-      data: null,
-      errors: {
-        arrayField: {
-          _errors: [
-            {
-              code: 'too_small',
-              exact: false,
-              inclusive: true,
-              message: 'Array must have at least 2 elements',
-              minimum: 2,
-              type: 'array',
-            },
-          ],
-        },
-      },
-    });
-  });
-
-  it('can validate array elements', () => {
-    const schema = {
-      arrayField: refineArray(array(object({ value: number() })))({
-        custom: (val, ctx) => {
-          if (Array.isArray(val)) {
-            val.forEach((item, index) => {
-              // @ts-expect-error this is ok
-              if (item?.value < 0) {
-                ctx.addIssue({
-                  code: 'custom',
-                  message: 'Value must be positive',
-                  path: [index, 'value'],
-                });
-              }
-            });
-          }
-        },
-      }),
-    };
-    const result = veto(schema).validate({
-      arrayField: [{ value: 1 }, { value: -2 }, { value: 3 }],
-    });
-    expect(result).toStrictEqual({
-      success: false,
-      data: null,
-      errors: {
-        arrayField: {
-          '1': {
-            value: [
-              {
+          val.forEach((item, index) => {
+            if (helpers.isElement(item) && item.value < 0) {
+              ctx.addIssue({
                 code: 'custom',
                 message: 'Value must be positive',
+                path: [index, 'value'],
+              });
+            }
+          });
+        },
+      });
+    });
+
+    it('types mapFn parameter as partial object element value', () => {
+      refineArray(array(object({ name: string(), id: number() })))({
+        unique: {
+          mapFn: (val) => {
+            expectTypeOf(val).toEqualTypeOf<
+              Partial<{ name: string; id: number }>
+            >();
+            return val.id;
+          },
+        },
+      });
+    });
+  });
+
+  describe('custom validation', () => {
+    it('validates array with custom logic', () => {
+      const schema = {
+        arrayField: refineArray(array(string()))({
+          custom: (val, ctx) => {
+            if (Array.isArray(val) && val.length < 2) {
+              ctx.addIssue({
+                code: 'too_small',
+                inclusive: true,
+                message: 'Array must have at least 2 elements',
+                minimum: 2,
+                origin: 'array',
+              });
+            }
+          },
+        }),
+      };
+      const result = veto(schema).validate({
+        arrayField: ['one'],
+      });
+      expect(result).toStrictEqual({
+        success: false,
+        data: null,
+        errors: {
+          arrayField: {
+            _errors: [
+              {
+                code: 'too_small',
+                exact: false,
+                inclusive: true,
+                message: 'Array must have at least 2 elements',
+                minimum: 2,
+                type: 'array',
               },
             ],
           },
         },
-      },
+      });
     });
-  });
 
-  it('provides type-safe custom helpers for element validation', () => {
-    refineArray(array(object({ value: number() })))({
-      custom: (val, ctx, helpers) => {
-        expectTypeOf(helpers.validElements(val)).toEqualTypeOf<
-          { value: number }[]
-        >();
-        expectTypeOf(
-          helpers.validElements(val, { partial: true }),
-        ).toEqualTypeOf<Partial<{ value: number }>[]>();
-
-        val.forEach((item, index) => {
-          if (helpers.isElement(item) && item.value < 0) {
-            ctx.addIssue({
-              code: 'custom',
-              message: 'Value must be positive',
-              path: [index, 'value'],
-            });
-          }
-        });
-      },
+    it('can validate array elements', () => {
+      const schema = {
+        arrayField: refineArray(array(object({ value: number() })))({
+          custom: (val, ctx) => {
+            if (Array.isArray(val)) {
+              val.forEach((item, index) => {
+                // @ts-expect-error this is ok
+                if (item?.value < 0) {
+                  ctx.addIssue({
+                    code: 'custom',
+                    message: 'Value must be positive',
+                    path: [index, 'value'],
+                  });
+                }
+              });
+            }
+          },
+        }),
+      };
+      const result = veto(schema).validate({
+        arrayField: [{ value: 1 }, { value: -2 }, { value: 3 }],
+      });
+      expect(result).toStrictEqual({
+        success: false,
+        data: null,
+        errors: {
+          arrayField: {
+            '1': {
+              value: [
+                {
+                  code: 'custom',
+                  message: 'Value must be positive',
+                },
+              ],
+            },
+          },
+        },
+      });
     });
-  });
 
-  it('shows practical custom helper usage at runtime', () => {
-    const schema = {
-      arrayField: refineArray(array(object({ id: number(), score: number() })))(
-        {
+    it('shows practical custom helper usage at runtime', () => {
+      const schema = {
+        arrayField: refineArray(
+          array(object({ id: number(), score: number() })),
+        )({
           custom: (val, ctx, helpers) => {
-            // Example 1: aggregate checks on validated elements only
             const validItems = helpers.validElements(val);
             const scoreSum = validItems.reduce(
               (sum, item) => sum + item.score,
@@ -142,7 +158,6 @@ describe('custom refinement', () => {
               });
             }
 
-            // Example 2: per-item checks with index-aware custom paths
             val.forEach((item, index) => {
               if (helpers.isElement(item) && item.score < 0) {
                 ctx.addIssue({
@@ -153,46 +168,46 @@ describe('custom refinement', () => {
               }
             });
           },
-        },
-      ),
-    };
+        }),
+      };
 
-    const result = veto(schema).validate({
-      arrayField: [{ id: 1, score: 7 }, 'invalid', { id: 2, score: -3 }],
+      const result = veto(schema).validate({
+        arrayField: [{ id: 1, score: 7 }, 'invalid', { id: 2, score: -3 }],
+      });
+
+      expect(result).toStrictEqual({
+        success: false,
+        data: null,
+        errors: {
+          arrayField: {
+            '1': {
+              _errors: [
+                {
+                  code: 'invalid_type',
+                  expected: 'object',
+                  message: 'Expected object, received string',
+                  received: 'string',
+                },
+              ],
+            },
+            '2': {
+              score: [
+                {
+                  code: 'custom',
+                  message: 'Score must be positive',
+                },
+              ],
+            },
+          },
+        },
+      });
     });
 
-    expect(result).toStrictEqual({
-      success: false,
-      data: null,
-      errors: {
-        arrayField: {
-          '1': {
-            _errors: [
-              {
-                code: 'invalid_type',
-                expected: 'object',
-                message: 'Expected object, received string',
-                received: 'string',
-              },
-            ],
-          },
-          '2': {
-            score: [
-              {
-                code: 'custom',
-                message: 'Score must be positive',
-              },
-            ],
-          },
-        },
-      },
-    });
-  });
-
-  it('supports partial mode in custom helper guards', () => {
-    const schema = {
-      arrayField: refineArray(array(object({ id: number(), score: number() })))(
-        {
+    it('supports partial mode in custom helper guards', () => {
+      const schema = {
+        arrayField: refineArray(
+          array(object({ id: number(), score: number() })),
+        )({
           custom: (elements, ctx, helpers) => {
             elements.forEach((item, index) => {
               if (
@@ -207,562 +222,593 @@ describe('custom refinement', () => {
               }
             });
           },
-        },
-      ),
-    };
+        }),
+      };
 
-    const result = veto(schema).validate({
-      arrayField: [{ id: 1 }, { id: 2, score: 1 }],
-    });
+      const result = veto(schema).validate({
+        arrayField: [{ id: 1 }, { id: 2, score: 1 }],
+      });
 
-    expect(result).toStrictEqual({
-      success: false,
-      data: null,
-      errors: {
-        arrayField: {
-          '0': {
-            score: [
-              {
-                code: 'invalid_type',
-                expected: 'number',
-                message: 'Field is required',
-                received: 'undefined',
-              },
-              {
-                code: 'custom',
-                message: 'Score is missing',
-              },
-            ],
+      expect(result).toStrictEqual({
+        success: false,
+        data: null,
+        errors: {
+          arrayField: {
+            '0': {
+              score: [
+                {
+                  code: 'invalid_type',
+                  expected: 'number',
+                  message: 'Field is required',
+                  received: 'undefined',
+                },
+                {
+                  code: 'custom',
+                  message: 'Score is missing',
+                },
+              ],
+            },
           },
         },
-      },
+      });
     });
   });
 
-  it('works with optional arrays', () => {
-    const schema = {
-      arrayField: refineArray(array(string()).optional())({
-        custom: (val, ctx) => {
-          if (Array.isArray(val) && val.length > 3) {
-            ctx.addIssue({
-              code: 'too_big',
-              inclusive: true,
-              maximum: 3,
-              message: 'Array must have at most 3 elements',
-              origin: 'array',
-            });
-          }
-        },
-      }),
-    };
-
-    const resultWithEmptyObject = veto(schema).validate({});
-    expect(resultWithEmptyObject).toStrictEqual({
-      success: true,
-      data: {},
-      errors: null,
-    });
-
-    const resultWithLongArray = veto(schema).validate({
-      arrayField: ['one', 'two', 'three', 'four'],
-    });
-    expect(resultWithLongArray).toStrictEqual({
-      success: false,
-      data: null,
-      errors: {
-        arrayField: {
-          _errors: [
-            {
-              code: 'too_big',
-              exact: false,
-              inclusive: true,
-              maximum: 3,
-              message: 'Array must have at most 3 elements',
-              type: 'array',
-            },
-          ],
-        },
-      },
-    });
-  });
-
-  it('keeps optional array field optional through refinement wrapper', () => {
-    const schema = {
-      arrayField: refineArray(array(string()).optional())({
-        custom: () => {},
-      }),
-    };
-
-    expect(veto(schema).validate({}).success).toBe(true);
-    expect(veto(schema).validate({ arrayField: undefined }).success).toBe(true);
-    expect(veto(schema).validate({ arrayField: null }).success).toBe(false);
-  });
-});
-
-describe('unique refinement', () => {
-  it('types mapFn parameter as partial object element value', () => {
-    refineArray(array(object({ name: string(), id: number() })))({
-      unique: {
-        mapFn: (val) => {
-          expectTypeOf(val).toEqualTypeOf<
-            Partial<{ name: string; id: number }>
-          >();
-          return val.id;
-        },
-      },
-    });
-  });
-
-  it('checks if elements are unique', () => {
-    const schema = {
-      arrayField: refineArray(array(string()))({
-        unique: true,
-      }),
-    };
-    const result = veto(schema).validate({
-      arrayField: ['one', 'two', 'three', 'one'],
-    });
-    expect(result).toStrictEqual({
-      success: false,
-      data: null,
-      errors: {
-        arrayField: {
-          '3': [
-            {
-              code: 'not_unique',
-              message: 'Element already exists',
-            },
-          ],
-          _errors: [
-            {
-              code: 'not_unique',
-              message: 'Array elements are not unique',
-              type: 'array',
-            },
-          ],
-        },
-      },
-    });
-  });
-
-  it('unique + mapFn checks if elements are unique on objects', () => {
-    const schema = {
-      arrayField: refineArray(array(object({ name: string(), id: number() })))({
-        unique: {
-          mapFn: (val) => {
-            if (
-              typeof val === 'object' &&
-              val !== null &&
-              'id' in val &&
-              typeof val.id === 'number'
-            ) {
-              return val.id;
-            }
-            return undefined;
-          },
-        },
-      }),
-    };
-    const result = veto(schema).validate({
-      arrayField: [
-        { name: 'one', id: 1 },
-        { name: 'two', id: 2 },
-        { name: 'three', id: 3 },
-        { name: 'four', id: 1 },
-      ],
-    });
-
-    expect(result).toStrictEqual({
-      success: false,
-      data: null,
-      errors: {
-        arrayField: {
-          '3': {
-            _errors: [
+  describe('unique refinement', () => {
+    it('checks if elements are unique', () => {
+      const schema = {
+        arrayField: refineArray(array(string()))({
+          unique: true,
+        }),
+      };
+      const result = veto(schema).validate({
+        arrayField: ['one', 'two', 'three', 'one'],
+      });
+      expect(result).toStrictEqual({
+        success: false,
+        data: null,
+        errors: {
+          arrayField: {
+            '3': [
               {
                 code: 'not_unique',
                 message: 'Element already exists',
               },
             ],
-          },
-          _errors: [
-            {
-              code: 'not_unique',
-              message: 'Array elements are not unique',
-              type: 'array',
-            },
-          ],
-        },
-      },
-    });
-  });
-
-  it('does not pass invalid elements to mapFn', () => {
-    const mapFnCalls: Partial<{ id: number }>[] = [];
-    const schema = {
-      arrayField: refineArray(array(object({ id: number() })))({
-        unique: {
-          mapFn: (val) => {
-            mapFnCalls.push(val);
-            return val.id;
-          },
-        },
-      }),
-    };
-    const result = veto(schema).validate({
-      arrayField: [{ id: 1 }, 'invalid', { id: 2 }, { id: 1 }],
-    });
-
-    expect(mapFnCalls).toStrictEqual([{ id: 1 }, { id: 2 }, { id: 1 }]);
-    expect(result).toStrictEqual({
-      success: false,
-      data: null,
-      errors: {
-        arrayField: {
-          '1': {
-            _errors: [
-              {
-                code: 'invalid_type',
-                expected: 'object',
-                message: 'Expected object, received string',
-                received: 'string',
-              },
-            ],
-          },
-          '3': {
             _errors: [
               {
                 code: 'not_unique',
-                message: 'Element already exists',
+                message: 'Array elements are not unique',
+                type: 'array',
               },
             ],
           },
-          _errors: [
-            {
-              code: 'not_unique',
-              message: 'Array elements are not unique',
-              type: 'array',
+        },
+      });
+    });
+
+    it('unique + mapFn checks if elements are unique on objects', () => {
+      const schema = {
+        arrayField: refineArray(
+          array(object({ name: string(), id: number() })),
+        )({
+          unique: {
+            mapFn: (val) => {
+              if (
+                typeof val === 'object' &&
+                val !== null &&
+                'id' in val &&
+                typeof val.id === 'number'
+              ) {
+                return val.id;
+              }
+              return undefined;
             },
-          ],
-        },
-      },
-    });
-  });
-
-  it('does not mark undefined mapFn results as duplicates', () => {
-    const schema = {
-      arrayField: refineArray(
-        array(object({ name: string(), id: number().optional() })),
-      )({
-        unique: {
-          mapFn: (val) => val.id,
-        },
-      }),
-    };
-    const result = veto(schema).validate({
-      arrayField: [
-        { name: 'one' },
-        { name: 'two' },
-        { name: 'three', id: 1 },
-        { name: 'four', id: 1 },
-      ],
-    });
-
-    expect(result).toStrictEqual({
-      success: false,
-      data: null,
-      errors: {
-        arrayField: {
-          '3': {
-            _errors: [
-              {
-                code: 'not_unique',
-                message: 'Element already exists',
-              },
-            ],
           },
-          _errors: [
-            {
-              code: 'not_unique',
-              message: 'Array elements are not unique',
-              type: 'array',
-            },
-          ],
-        },
-      },
-    });
-  });
+        }),
+      };
+      const result = veto(schema).validate({
+        arrayField: [
+          { name: 'one', id: 1 },
+          { name: 'two', id: 2 },
+          { name: 'three', id: 3 },
+          { name: 'four', id: 1 },
+        ],
+      });
 
-  it('unique + mapFn checks if elements are unique on deeply nested objects', () => {
-    const schema = {
-      arrayField: refineArray(
-        array(
-          object({
-            name: string(),
-            data: object({
-              fieldA: string().optional(),
-              fieldB: string(),
-            }).optional(),
-          }),
-        ),
-      )({
-        unique: {
-          mapFn: (val) => {
-            if (
-              typeof val === 'object' &&
-              val !== null &&
-              'data' in val &&
-              typeof val.data === 'object' &&
-              val.data !== null &&
-              'fieldB' in val.data &&
-              typeof val.data.fieldB === 'string'
-            ) {
-              return val.data.fieldB;
-            }
-            return undefined;
-          },
-        },
-      }),
-    };
-    const result = veto(schema).validate({
-      arrayField: [
-        { name: 'one', data: { fieldA: 'test', fieldB: 'not-unique' } },
-        { name: 'two', data: { fieldB: 'not-unique' } },
-        { name: 'three' },
-      ],
-    });
-
-    expect(result).toStrictEqual({
-      success: false,
-      data: null,
-      errors: {
-        arrayField: {
-          '1': {
-            _errors: [
-              {
-                code: 'not_unique',
-                message: 'Element already exists',
-              },
-            ],
-          },
-          _errors: [
-            {
-              code: 'not_unique',
-              message: 'Array elements are not unique',
-              type: 'array',
-            },
-          ],
-        },
-      },
-    });
-  });
-
-  it('unique + mapFn + elementErrorPath allows adding error to subfield', () => {
-    const schema = {
-      arrayField: refineArray(
-        array(
-          object({
-            name: string(),
-            data: object({
-              fieldA: string().optional(),
-              fieldB: string(),
-            }).optional(),
-          }),
-        ),
-      )({
-        unique: {
-          mapFn: (val) => {
-            if (
-              typeof val === 'object' &&
-              val !== null &&
-              'data' in val &&
-              typeof val.data === 'object' &&
-              val.data !== null &&
-              'fieldB' in val.data &&
-              typeof val.data.fieldB === 'string'
-            ) {
-              return val.data.fieldB;
-            }
-            return undefined;
-          },
-          elementErrorPath: ['data', 'fieldB'],
-        },
-      }),
-    };
-    const result = veto(schema).validate({
-      arrayField: [
-        { name: 'one', data: { fieldA: 'test', fieldB: 'not-unique' } },
-        { name: 'two', data: { fieldB: 'not-unique' } },
-      ],
-    });
-
-    expect(result).toStrictEqual({
-      success: false,
-      data: null,
-      errors: {
-        arrayField: {
-          '1': {
-            data: {
-              fieldB: [
+      expect(result).toStrictEqual({
+        success: false,
+        data: null,
+        errors: {
+          arrayField: {
+            '3': {
+              _errors: [
                 {
                   code: 'not_unique',
                   message: 'Element already exists',
                 },
               ],
             },
+            _errors: [
+              {
+                code: 'not_unique',
+                message: 'Array elements are not unique',
+                type: 'array',
+              },
+            ],
           },
-          _errors: [
-            {
-              code: 'not_unique',
-              message: 'Array elements are not unique',
-              type: 'array',
-            },
-          ],
         },
-      },
+      });
+    });
+
+    it('does not pass invalid elements to mapFn', () => {
+      const mapFnCalls: Partial<{ id: number }>[] = [];
+      const schema = {
+        arrayField: refineArray(array(object({ id: number() })))({
+          unique: {
+            mapFn: (val) => {
+              mapFnCalls.push(val);
+              return val.id;
+            },
+          },
+        }),
+      };
+      const result = veto(schema).validate({
+        arrayField: [{ id: 1 }, 'invalid', { id: 2 }, { id: 1 }],
+      });
+
+      expect(mapFnCalls).toStrictEqual([{ id: 1 }, { id: 2 }, { id: 1 }]);
+      expect(result).toStrictEqual({
+        success: false,
+        data: null,
+        errors: {
+          arrayField: {
+            '1': {
+              _errors: [
+                {
+                  code: 'invalid_type',
+                  expected: 'object',
+                  message: 'Expected object, received string',
+                  received: 'string',
+                },
+              ],
+            },
+            '3': {
+              _errors: [
+                {
+                  code: 'not_unique',
+                  message: 'Element already exists',
+                },
+              ],
+            },
+            _errors: [
+              {
+                code: 'not_unique',
+                message: 'Array elements are not unique',
+                type: 'array',
+              },
+            ],
+          },
+        },
+      });
+    });
+
+    it('does not mark undefined mapFn results as duplicates', () => {
+      const schema = {
+        arrayField: refineArray(
+          array(object({ name: string(), id: number().optional() })),
+        )({
+          unique: {
+            mapFn: (val) => val.id,
+          },
+        }),
+      };
+      const result = veto(schema).validate({
+        arrayField: [
+          { name: 'one' },
+          { name: 'two' },
+          { name: 'three', id: 1 },
+          { name: 'four', id: 1 },
+        ],
+      });
+
+      expect(result).toStrictEqual({
+        success: false,
+        data: null,
+        errors: {
+          arrayField: {
+            '3': {
+              _errors: [
+                {
+                  code: 'not_unique',
+                  message: 'Element already exists',
+                },
+              ],
+            },
+            _errors: [
+              {
+                code: 'not_unique',
+                message: 'Array elements are not unique',
+                type: 'array',
+              },
+            ],
+          },
+        },
+      });
+    });
+
+    it('unique + mapFn checks if elements are unique on deeply nested objects', () => {
+      const schema = {
+        arrayField: refineArray(
+          array(
+            object({
+              name: string(),
+              data: object({
+                fieldA: string().optional(),
+                fieldB: string(),
+              }).optional(),
+            }),
+          ),
+        )({
+          unique: {
+            mapFn: (val) => {
+              if (
+                typeof val === 'object' &&
+                val !== null &&
+                'data' in val &&
+                typeof val.data === 'object' &&
+                val.data !== null &&
+                'fieldB' in val.data &&
+                typeof val.data.fieldB === 'string'
+              ) {
+                return val.data.fieldB;
+              }
+              return undefined;
+            },
+          },
+        }),
+      };
+      const result = veto(schema).validate({
+        arrayField: [
+          { name: 'one', data: { fieldA: 'test', fieldB: 'not-unique' } },
+          { name: 'two', data: { fieldB: 'not-unique' } },
+          { name: 'three' },
+        ],
+      });
+
+      expect(result).toStrictEqual({
+        success: false,
+        data: null,
+        errors: {
+          arrayField: {
+            '1': {
+              _errors: [
+                {
+                  code: 'not_unique',
+                  message: 'Element already exists',
+                },
+              ],
+            },
+            _errors: [
+              {
+                code: 'not_unique',
+                message: 'Array elements are not unique',
+                type: 'array',
+              },
+            ],
+          },
+        },
+      });
+    });
+
+    it('unique + mapFn + elementErrorPath allows adding error to subfield', () => {
+      const schema = {
+        arrayField: refineArray(
+          array(
+            object({
+              name: string(),
+              data: object({
+                fieldA: string().optional(),
+                fieldB: string(),
+              }).optional(),
+            }),
+          ),
+        )({
+          unique: {
+            mapFn: (val) => {
+              if (
+                typeof val === 'object' &&
+                val !== null &&
+                'data' in val &&
+                typeof val.data === 'object' &&
+                val.data !== null &&
+                'fieldB' in val.data &&
+                typeof val.data.fieldB === 'string'
+              ) {
+                return val.data.fieldB;
+              }
+              return undefined;
+            },
+            elementErrorPath: ['data', 'fieldB'],
+          },
+        }),
+      };
+      const result = veto(schema).validate({
+        arrayField: [
+          { name: 'one', data: { fieldA: 'test', fieldB: 'not-unique' } },
+          { name: 'two', data: { fieldB: 'not-unique' } },
+        ],
+      });
+
+      expect(result).toStrictEqual({
+        success: false,
+        data: null,
+        errors: {
+          arrayField: {
+            '1': {
+              data: {
+                fieldB: [
+                  {
+                    code: 'not_unique',
+                    message: 'Element already exists',
+                  },
+                ],
+              },
+            },
+            _errors: [
+              {
+                code: 'not_unique',
+                message: 'Array elements are not unique',
+                type: 'array',
+              },
+            ],
+          },
+        },
+      });
+    });
+
+    it('shows validation and duplicate errors together for missing fields', () => {
+      const schema = {
+        arrayField: refineArray(
+          array(
+            object({
+              fieldA: string(),
+              fieldB: string(),
+            }),
+          ),
+        )({
+          unique: {
+            mapFn: (val) => {
+              if (
+                typeof val === 'object' &&
+                val !== null &&
+                'fieldA' in val &&
+                typeof val.fieldA === 'string'
+              ) {
+                return val.fieldA;
+              }
+              return undefined;
+            },
+          },
+        }),
+      };
+      const result = veto(schema).validate({
+        arrayField: [
+          { fieldA: 'not-unique', fieldB: '' },
+          { fieldA: 'not-unique' },
+        ],
+      });
+
+      expect(result).toStrictEqual({
+        success: false,
+        data: null,
+        errors: {
+          arrayField: {
+            '0': {
+              fieldB: [
+                {
+                  code: 'too_small',
+                  exact: false,
+                  inclusive: true,
+                  message: 'String must contain at least 1 character(s)',
+                  minimum: 1,
+                  type: 'string',
+                },
+              ],
+            },
+            '1': {
+              fieldB: [
+                {
+                  code: 'invalid_type',
+                  expected: 'string',
+                  message: 'Field is required',
+                  received: 'undefined',
+                },
+              ],
+              _errors: [
+                {
+                  code: 'not_unique',
+                  message: 'Element already exists',
+                },
+              ],
+            },
+            _errors: [
+              {
+                code: 'not_unique',
+                message: 'Array elements are not unique',
+                type: 'array',
+              },
+            ],
+          },
+        },
+      });
     });
   });
 
-  it('shows validation and duplicate errors together for missing fields', () => {
-    const schema = {
-      arrayField: refineArray(
-        array(
-          object({
-            fieldA: string(),
-            fieldB: string(),
-          }),
-        ),
-      )({
-        unique: {
-          mapFn: (val) => {
+  describe('combined refinements', () => {
+    it('can combine custom and unique validations', () => {
+      const schema = {
+        arrayField: refineArray(array(string()))({
+          unique: true,
+          custom: (val, ctx) => {
             if (
-              typeof val === 'object' &&
-              val !== null &&
-              'fieldA' in val &&
-              typeof val.fieldA === 'string'
+              Array.isArray(val) &&
+              val.some((item) => typeof item === 'string' && item.length < 3)
             ) {
-              return val.fieldA;
+              ctx.addIssue({
+                code: 'custom',
+                message: 'All strings must be at least 3 characters long',
+              });
             }
-            return undefined;
           },
-        },
-      }),
-    };
-    const result = veto(schema).validate({
-      arrayField: [
-        //  fieldB should have length of 1
-        { fieldA: 'not-unique', fieldB: '' },
-        //  fieldB is missing
-        { fieldA: 'not-unique' },
-      ],
-    });
-
-    expect(result).toStrictEqual({
-      success: false,
-      data: null,
-      errors: {
-        arrayField: {
-          '0': {
-            fieldB: [
-              {
-                code: 'too_small',
-                exact: false,
-                inclusive: true,
-                message: 'String must contain at least 1 character(s)',
-                minimum: 1,
-                type: 'string',
-              },
-            ],
-          },
-          '1': {
-            fieldB: [
-              {
-                code: 'invalid_type',
-                expected: 'string',
-                message: 'Field is required',
-                received: 'undefined',
-              },
-            ],
-            _errors: [
+        }),
+      };
+      const result = veto(schema).validate({
+        arrayField: ['one', 'two', 'a', 'one'],
+      });
+      expect(result).toStrictEqual({
+        success: false,
+        data: null,
+        errors: {
+          arrayField: {
+            '3': [
               {
                 code: 'not_unique',
                 message: 'Element already exists',
               },
             ],
+            _errors: [
+              {
+                code: 'custom',
+                message: 'All strings must be at least 3 characters long',
+              },
+              {
+                code: 'not_unique',
+                message: 'Array elements are not unique',
+                type: 'array',
+              },
+            ],
           },
-          // array _error is present
-          _errors: [
-            {
-              code: 'not_unique',
-              message: 'Array elements are not unique',
-              type: 'array',
-            },
-          ],
         },
-      },
+      });
     });
   });
 
-  it('can be used with optional array', () => {
-    const schema = {
-      arrayField: refineArray(array(string()).optional())({
-        unique: true,
-      }),
-    };
-    const result = veto(schema).validate({});
-    expect(result).toStrictEqual({
-      success: true,
-      data: {},
-      errors: null,
+  describe('optional array support', () => {
+    it('works with optional arrays', () => {
+      const schema = {
+        arrayField: refineArray(array(string()).optional())({
+          custom: (val, ctx) => {
+            if (Array.isArray(val) && val.length > 3) {
+              ctx.addIssue({
+                code: 'too_big',
+                inclusive: true,
+                maximum: 3,
+                message: 'Array must have at most 3 elements',
+                origin: 'array',
+              });
+            }
+          },
+        }),
+      };
+
+      const resultWithEmptyObject = veto(schema).validate({});
+      expect(resultWithEmptyObject).toStrictEqual({
+        success: true,
+        data: {},
+        errors: null,
+      });
+
+      const resultWithLongArray = veto(schema).validate({
+        arrayField: ['one', 'two', 'three', 'four'],
+      });
+      expect(resultWithLongArray).toStrictEqual({
+        success: false,
+        data: null,
+        errors: {
+          arrayField: {
+            _errors: [
+              {
+                code: 'too_big',
+                exact: false,
+                inclusive: true,
+                maximum: 3,
+                message: 'Array must have at most 3 elements',
+                type: 'array',
+              },
+            ],
+          },
+        },
+      });
+    });
+
+    it('keeps optional array field optional through refinement wrapper', () => {
+      const schema = {
+        arrayField: refineArray(array(string()).optional())({
+          custom: () => {},
+        }),
+      };
+
+      expect(veto(schema).validate({}).success).toBe(true);
+      expect(veto(schema).validate({ arrayField: undefined }).success).toBe(
+        true,
+      );
+      expect(veto(schema).validate({ arrayField: null }).success).toBe(false);
+    });
+
+    it('unique can be used with optional array', () => {
+      const schema = {
+        arrayField: refineArray(array(string()).optional())({
+          unique: true,
+        }),
+      };
+      const result = veto(schema).validate({});
+      expect(result).toStrictEqual({
+        success: true,
+        data: {},
+        errors: null,
+      });
     });
   });
-});
 
-describe('combined refinements', () => {
-  it('can combine custom and unique validations', () => {
-    const schema = {
-      arrayField: refineArray(array(string()))({
+  describe('element-schema transforms', () => {
+    it('handles element transforms without "Unmergable intersection"', () => {
+      // Regression: `string()` in veto applies `.trim()`. The previous
+      // intersection-based implementation crashed with
+      // "Unmergable intersection. Error path: [<index>]" whenever element
+      // values needed any normalization (e.g. surrounding whitespace).
+      const schema = refineArray(array(string()))({
         unique: true,
-        custom: (val, ctx) => {
-          if (
-            Array.isArray(val) &&
-            val.some((item) => typeof item === 'string' && item.length < 3)
-          ) {
-            ctx.addIssue({
-              code: 'custom',
-              message: 'All strings must be at least 3 characters long',
-            });
-          }
-        },
-      }),
-    };
-    const result = veto(schema).validate({
-      arrayField: ['one', 'two', 'a', 'one'],
+      });
+
+      expect(() => schema.parse(['hello ', 'world'])).not.toThrow();
+      expect(schema.parse(['hello ', 'world'])).toStrictEqual([
+        'hello',
+        'world',
+      ]);
     });
-    expect(result).toStrictEqual({
-      success: false,
-      data: null,
-      errors: {
-        arrayField: {
-          '3': [
-            {
-              code: 'not_unique',
-              message: 'Element already exists',
-            },
-          ],
-          _errors: [
-            {
-              code: 'custom',
-              message: 'All strings must be at least 3 characters long',
-            },
-            {
-              code: 'not_unique',
-              message: 'Array elements are not unique',
-              type: 'array',
-            },
-          ],
+
+    it('exposes trimmed elements when validation passes', () => {
+      const schema = refineArray(array(string()))({
+        custom: () => {},
+      });
+
+      expect(schema.parse(['  hello  ', '  world  '])).toStrictEqual([
+        'hello',
+        'world',
+      ]);
+    });
+
+    it('passes parsed (trimmed) elements to the custom callback', () => {
+      const seen: unknown[] = [];
+      const schema = refineArray(array(string()))({
+        custom: (elements) => {
+          seen.push(...elements);
         },
-      },
+      });
+
+      schema.parse(['  hello  ', '  world  ']);
+      expect(seen).toStrictEqual(['hello', 'world']);
     });
   });
 });
