@@ -6,11 +6,12 @@ import '@testing-library/jest-dom/vitest';
 
 import storySnapshots from '@repo/storybook-config/story-snapshots';
 
+import { string, veto } from '@fuf-stack/veto';
+
 // eslint-disable-next-line import-x/no-named-default
 import { default as Form } from '../Form';
 // eslint-disable-next-line import-x/no-named-default
 import { default as Select } from './Select';
-// eslint-disable-next-line import-x/no-namespace
 import * as stories from './Select.stories';
 
 // EdgeCaseFetchFallbackOutside causes DOM errors in snapshot tests due to
@@ -104,8 +105,8 @@ describe('Select fallback options', () => {
         testId="form"
       >
         <Select
-          multiSelect
           label="Flavors"
+          multiSelect
           name="flavors"
           options={options}
           selectedOptionFallback={[
@@ -121,5 +122,25 @@ describe('Select fallback options', () => {
       // Secret Flavor from fallback
       expect(screen.getByText('Secret Flavor')).toBeInTheDocument();
     });
+  });
+});
+
+describe('Select required indicator', () => {
+  it('renders required asterisk when field is required by schema', () => {
+    const validation = veto({
+      flavor: string(),
+    });
+
+    render(
+      <Form onSubmit={() => {}} testId="form" validation={validation}>
+        <Select
+          label="Flavor"
+          name="flavor"
+          options={[{ label: 'Vanilla', value: 'vanilla' }]}
+        />
+      </Form>,
+    );
+
+    expect(screen.getByText('*')).toBeInTheDocument();
   });
 });

@@ -33,7 +33,7 @@ export const selectVariants = tv({
     // see HeroUI styles for group-data condition,
     // e.g.: https://github.com/heroui-inc/heroui/blob/main/packages/core/theme/src/components/select.ts
     label:
-      'pointer-events-auto relative bottom-1.5 ml-1 subpixel-antialiased text-small group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]',
+      'pointer-events-auto relative bottom-1.5 ml-1 text-foreground subpixel-antialiased text-small group-data-[invalid=true]:!text-danger',
     loadingIndicator: '',
     loadingMessage: 'rounded-sm p-2 text-foreground-500',
     menu: 'mt-2 rounded-xl border border-default-200 bg-content1 p-1 shadow-lg',
@@ -418,6 +418,11 @@ const Select = ({
           id={getLabelProps().id}
         >
           {label}
+          {required ? (
+            <span aria-hidden className="ml-0.5 text-danger">
+              *
+            </span>
+          ) : null}
         </label>
       ) : null}
       <ReactSelect

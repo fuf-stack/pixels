@@ -207,12 +207,18 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                     data-testid="selectfield_wrapper"
                   >
                     <label
-                      class="pointer-events-auto relative bottom-1.5 ml-1 subpixel-antialiased text-small group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
+                      class="pointer-events-auto relative bottom-1.5 ml-1 text-foreground subpixel-antialiased text-small group-data-[invalid=true]:!text-danger"
                       data-slot="label"
                       for="react-select-selectField-input"
                       id="react-aria-«replaced-aria-id»"
                     >
                       Select Field
+                      <span
+                        aria-hidden="true"
+                        class="ml-0.5 text-danger"
+                      >
+                        *
+                      </span>
                     </label>
                     <div
                       class="css-b62m3t-container"
