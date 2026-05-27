@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.7.0](https://github.com/fuf-stack/pixels/compare/veto-v1.6.0...veto-v1.7.0) (2026-05-27)
+
+
+### Features
+
+* **veto:** add ipV4, ipV6, cidrV4, cidrV6 types ([d5146aa](https://github.com/fuf-stack/pixels/commit/d5146aa26fee21afeb68d067de72ca3c3e03eeba))
+* **veto:** support function form for or() error option ([279e851](https://github.com/fuf-stack/pixels/commit/279e8519daff9e254478b06818dc801c9a06017b))
+
 ## [1.6.0](https://github.com/fuf-stack/pixels/compare/veto-v1.5.6...veto-v1.6.0) (2026-05-27)
 
 

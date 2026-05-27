@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.20.14](https://github.com/fuf-stack/pixels/compare/uniform-v1.20.13...uniform-v1.20.14) (2026-05-27)
+
+
+### Bug Fixes
+
+* **uniform:** prioritize client validation errors before base schema errors ([134ac12](https://github.com/fuf-stack/pixels/commit/134ac124e0ce23a8a05326102e28d00a53e4b386))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @fuf-stack/veto bumped to 1.7.0
+
 ## [1.20.13](https://github.com/fuf-stack/pixels/compare/uniform-v1.20.12...uniform-v1.20.13) (2026-05-27)
 
 
