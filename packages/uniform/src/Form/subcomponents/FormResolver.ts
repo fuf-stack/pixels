@@ -5,7 +5,7 @@ import type {
 } from '@fuf-stack/veto';
 import type { FieldValues } from 'react-hook-form';
 
-import { useMemo, useRef, useState } from 'react';
+import { useCallback, useMemo, useRef, useState } from 'react';
 
 import { and, veto } from '@fuf-stack/veto';
 
@@ -135,11 +135,34 @@ export const useExtendedValidation = (baseValidation?: VetoInstance) => {
  * @param extendedValidation - Extended validation instance from useExtendedValidation
  * @returns Object containing resolver function, current validation errors, and optimization hash
  */
-export const useFormResolver = (extendedValidation?: VetoInstance) => {
+export const useFormResolver = (
+  extendedValidation?: VetoInstance,
+  onValidationErrorsChange?: (validationErrorsHash: string | undefined) => void,
+) => {
   // Keep validation errors in a ref to avoid re-renders on each resolver run.
   // This preserves UX/snapshot behavior where validation updates alone
   // do not force immediate visual error state changes.
   const validationErrors = useRef<VetoFormattedError>(undefined);
+  const validationErrorsHash = useRef<string | undefined>(undefined);
+
+  const updateValidationErrors = useCallback(
+    (errors: VetoFormattedError | undefined): void => {
+      // Store the formatted errors in a ref so resolver runs stay cheap and do
+      // not automatically repaint every form consumer.
+      validationErrors.current = errors;
+
+      // The hash is the reactive signal for consumers. Only notify when the
+      // actual error output changes, so repeated validations with the same
+      // result do not cause avoidable context refreshes.
+      const nextHash = JSON.stringify(errors);
+
+      if (validationErrorsHash.current !== nextHash) {
+        validationErrorsHash.current = nextHash;
+        onValidationErrorsChange?.(nextHash);
+      }
+    },
+    [onValidationErrorsChange],
+  );
 
   // Memoized resolver function for React Hook Form
   const resolver = useMemo(() => {
@@ -150,7 +173,7 @@ export const useFormResolver = (extendedValidation?: VetoInstance) => {
     return async (values: FieldValues) => {
       const validationValues = toValidationFormat(values) ?? {};
       const result = await extendedValidation.validateAsync(validationValues);
-      validationErrors.current = result.errors ?? undefined;
+      updateValidationErrors(result.errors ?? undefined);
 
       // Transform veto result to React Hook Form format
       return {
@@ -158,16 +181,16 @@ export const useFormResolver = (extendedValidation?: VetoInstance) => {
         errors: result.errors ?? {},
       };
     };
-  }, [extendedValidation]);
+  }, [extendedValidation, updateValidationErrors]);
 
-  // Hash for memo dependency optimization in consuming components
-  // eslint-disable-next-line react-hooks/refs -- intentional non-reactive cache read
-  const validationErrorsHash = JSON.stringify(validationErrors.current);
+  /* eslint-disable react-hooks/refs -- intentional non-reactive cache reads */
+  const currentValidationErrors = validationErrors.current;
+  const currentValidationErrorsHash = validationErrorsHash.current;
 
   return {
     resolver,
-    // eslint-disable-next-line react-hooks/refs -- intentional non-reactive cache read
-    validationErrors: validationErrors.current,
-    validationErrorsHash,
+    validationErrors: currentValidationErrors,
+    validationErrorsHash: currentValidationErrorsHash,
   };
+  /* eslint-enable react-hooks/refs */
 };

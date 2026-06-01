@@ -230,9 +230,26 @@ const FormProvider: React.FC<FormProviderProps> = ({
   const { extendedValidation, setClientValidationSchema } =
     useExtendedValidation(baseValidation);
 
+  const hasPendingUserChangeRef = useRef(false);
+  const [validationErrorsRefreshVersion, setValidationErrorsRefreshVersion] =
+    useState(0);
+
+  const handleValidationErrorsChange = useCallback(() => {
+    if (!hasPendingUserChangeRef.current) {
+      return;
+    }
+
+    hasPendingUserChangeRef.current = false;
+    setValidationErrorsRefreshVersion((prev) => {
+      return prev + 1;
+    });
+  }, []);
+
   // Create resolver from extended validation + get current validation errors
-  const { resolver, validationErrors, validationErrorsHash } =
-    useFormResolver(extendedValidation);
+  const { resolver, validationErrors, validationErrorsHash } = useFormResolver(
+    extendedValidation,
+    handleValidationErrorsChange,
+  );
 
   // Initialize react hook form with the resolver
   const methods = useForm({
@@ -267,6 +284,8 @@ const FormProvider: React.FC<FormProviderProps> = ({
   // Notify all subscribers about user change
   const notifyUserChange = useCallback(
     (fieldName: string, value: unknown): void => {
+      hasPendingUserChangeRef.current = true;
+
       // Notify all registered listeners
       userChangeListenersRef.current.forEach((listener) => {
         listener(fieldName as Path<object>, value);
@@ -354,7 +373,12 @@ const FormProvider: React.FC<FormProviderProps> = ({
       };
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [debugMode, debugModeSettings?.disable, validationErrorsHash],
+    [
+      debugMode,
+      debugModeSettings?.disable,
+      validationErrorsHash,
+      validationErrorsRefreshVersion,
+    ],
   );
 
   return (
