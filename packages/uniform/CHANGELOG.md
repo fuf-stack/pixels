@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.20.18](https://github.com/fuf-stack/pixels/compare/uniform-v1.20.17...uniform-v1.20.18) (2026-06-01)
+
+
+### Bug Fixes
+
+* **uniform:** make resolver validation errors reactive ([02dd453](https://github.com/fuf-stack/pixels/commit/02dd4538d4e3f1d8f1391c1d5a8bcc1622720835))
+
 ## [1.20.17](https://github.com/fuf-stack/pixels/compare/uniform-v1.20.16...uniform-v1.20.17) (2026-06-01)
 
 
