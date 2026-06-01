@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.20.16](https://github.com/fuf-stack/pixels/compare/uniform-v1.20.15...uniform-v1.20.16) (2026-06-01)
+
+
+### Bug Fixes
+
+* **deps:** update dependency react-hook-form to v7.76.1 ([#1685](https://github.com/fuf-stack/pixels/issues/1685)) ([5f5b705](https://github.com/fuf-stack/pixels/commit/5f5b705887d9c44c9ef71455655455f9b845b6c0))
+* **uniform:** defer Select blur to prevent stale cross-field validation ([1c7c6b8](https://github.com/fuf-stack/pixels/commit/1c7c6b8a1574dfe2a5653a639b47c7190a09ca98))
+
 ## [1.20.15](https://github.com/fuf-stack/pixels/compare/uniform-v1.20.14...uniform-v1.20.15) (2026-05-27)
 
 
