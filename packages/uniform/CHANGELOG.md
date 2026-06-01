@@ -1,5 +1,21 @@
 # Changelog
 
+## [1.20.17](https://github.com/fuf-stack/pixels/compare/uniform-v1.20.16...uniform-v1.20.17) (2026-06-01)
+
+
+### Bug Fixes
+
+* **deps:** update dependency framer-motion to v12.40.0 ([#1688](https://github.com/fuf-stack/pixels/issues/1688)) ([da9e77d](https://github.com/fuf-stack/pixels/commit/da9e77db6c630dd0484aaf344929bc7803cca5c6))
+* **uniform:** refresh validation errors after user changes ([3b3cd48](https://github.com/fuf-stack/pixels/commit/3b3cd487a226f5baefa39fcb62a67bc8b7ca0588))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @fuf-stack/pixel-motion bumped to 1.2.1
+    * @fuf-stack/pixels bumped to 1.10.2
+
 ## [1.20.16](https://github.com/fuf-stack/pixels/compare/uniform-v1.20.15...uniform-v1.20.16) (2026-06-01)
 
 
