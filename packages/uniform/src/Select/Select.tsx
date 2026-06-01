@@ -380,13 +380,19 @@ const Select = ({
       // Pass null explicitly when clearing (not undefined)
       onChange(newValue != null ? convertToOriginalType(newValue) : null);
     }
+
     // Mark field as touched immediately when a selection is made if not already touched
     // This ensures validation errors show right away (isTouched becomes true)
     // For Select components, selecting an option is a complete user action
     // (unlike text inputs where typing is ongoing), so we mark as touched immediately
     const { isTouched: currentIsTouched } = getFieldState(name, testId);
     if (!currentIsTouched) {
-      onBlur();
+      // Defer blur/touched notification until after the onChange value commit.
+      // This prevents "one render cycle behind" validation states where blur
+      // validation runs against the previous value.
+      queueMicrotask(() => {
+        onBlur();
+      });
     }
   };
 

@@ -1729,6 +1729,532 @@ exports[`Story Snapshots > EdgeCaseFlatArrayValidationClears 1`] = `
 </div>
 `;
 
+exports[`Story Snapshots > EdgeCaseTopLevelStringNotInArray 1`] = `
+<div>
+  <div
+    class="flex w-full flex-row justify-between gap-6"
+  >
+    <form
+      class="grow min-w-md"
+      data-form-is-valid="true"
+      data-testid=""
+    >
+      <div
+        class="flex flex-col gap-6"
+      >
+        <div
+          class="group leading-normal"
+          data-has-helper="true"
+          data-has-label="true"
+          data-required="true"
+          data-slot="base"
+          data-testid="toplevelvalue_wrapper"
+        >
+          <label
+            class="pointer-events-auto relative bottom-1.5 ml-1 text-foreground subpixel-antialiased text-small group-data-[invalid=true]:!text-danger"
+            data-slot="label"
+            for="react-select-topLevelValue-input"
+            id="react-aria-«replaced-aria-id»"
+          >
+            Top-level value
+            <span
+              aria-hidden="true"
+              class="ml-0.5 text-danger"
+            >
+              *
+            </span>
+          </label>
+          <div
+            class="css-b62m3t-container"
+          >
+            <span
+              class="css-1f43avz-a11yText-A11yText"
+              id="react-select-topLevelValue-live-region"
+            />
+            <span
+              aria-atomic="false"
+              aria-live="polite"
+              aria-relevant="additions text"
+              class="css-1f43avz-a11yText-A11yText"
+              role="log"
+            />
+            <div
+              data-testid="toplevelvalue_select"
+            >
+              <div
+                class="duration-150! rounded-lg border-2 border-default-200 bg-content1 transition-background hover:border-default-400 group-data-[invalid=true]:border-danger group-data-[invalid=true]:hover:border-danger motion-reduce:transition-none css-cp01gg-control"
+              >
+                <div
+                  class="gap-1 p-1 css-14oxtc6"
+                >
+                  <div
+                    class="ml-1! leading-7! font-normal w-full text-start text-small truncate group-data-[has-value=true]:text-default-foreground css-w54w9q-singleValue"
+                  >
+                    Beta
+                  </div>
+                  <div
+                    class="py-0.5 pl-1 css-n9qnu9"
+                    data-value=""
+                  >
+                    <input
+                      aria-activedescendant=""
+                      aria-autocomplete="list"
+                      aria-errormessage=""
+                      aria-expanded="false"
+                      aria-haspopup="true"
+                      aria-invalid="false"
+                      aria-label="Top-level value"
+                      aria-labelledby="react-aria-«replaced-aria-id»"
+                      autocapitalize="none"
+                      autocomplete="off"
+                      autocorrect="off"
+                      class=""
+                      data-testid="toplevelvalue"
+                      id="react-select-topLevelValue-input"
+                      role="combobox"
+                      spellcheck="false"
+                      style="color: inherit; background: 0px center; opacity: 0; width: 100%; grid-area: 1 / 2; font: inherit; min-width: 2px; border: 0px; margin: 0px; outline: 0px; padding: 0px;"
+                      tabindex="0"
+                      type="text"
+                      value=""
+                    />
+                  </div>
+                </div>
+                <div
+                  class="gap-1 p-1 css-1wy0on6"
+                >
+                  <div
+                    aria-hidden="true"
+                    class="rounded-md p-1 text-foreground-500 hover:cursor-pointer hover:bg-default-200 hover:text-foreground-800 css-g56vrd-indicatorContainer"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="css-tj5bde-Svg"
+                      focusable="false"
+                      height="20"
+                      viewBox="0 0 20 20"
+                      width="20"
+                    >
+                      <path
+                        d="M14.348 14.849c-0.469 0.469-1.229 0.469-1.697 0l-2.651-3.030-2.651 3.029c-0.469 0.469-1.229 0.469-1.697 0-0.469-0.469-0.469-1.229 0-1.697l2.758-3.15-2.759-3.152c-0.469-0.469-0.469-1.228 0-1.697s1.228-0.469 1.697 0l2.652 3.031 2.651-3.031c0.469-0.469 1.228-0.469 1.697 0s0.469 1.229 0 1.697l-2.758 3.152 2.758 3.15c0.469 0.469 0.469 1.229 0 1.698z"
+                      />
+                    </svg>
+                  </div>
+                  <span
+                    class="bg-default-300 css-j4w2j1-indicatorSeparator"
+                  />
+                  <div
+                    data-testid="toplevelvalue_select_dropdown"
+                  >
+                    <div
+                      aria-hidden="true"
+                      class="rounded-md p-1 text-foreground-500 hover:cursor-pointer hover:bg-default-200 hover:text-black css-g56vrd-indicatorContainer"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="css-tj5bde-Svg"
+                        focusable="false"
+                        height="20"
+                        viewBox="0 0 20 20"
+                        width="20"
+                      >
+                        <path
+                          d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <input
+              name="topLevelValue"
+              type="hidden"
+              value="beta"
+            />
+          </div>
+        </div>
+        <div
+          class="overflow-hidden rounded-small border border-divider bg-content1 divide-y divide-divider"
+        >
+          <div
+            aria-level="3"
+            class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block after:content-['*'] after:text-danger after:ms-0.5 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] max-w-full text-ellipsis overflow-hidden pointer-events-auto! static! z-auto! block! w-full! translate-x-0! translate-y-0! transform-none! rounded-t-small p-3 font-semibold text-medium text-foreground!"
+            data-slot="label"
+            for="react-aria-«replaced-aria-id»"
+            id="react-aria-«replaced-aria-id»"
+            role="heading"
+          >
+            Unique Array Values
+          </div>
+          <div
+            class="overflow-hidden"
+          >
+            <ul
+              class="overflow-hidden"
+              data-testid="arrayfield"
+            >
+              <li
+                class="group relative flex flex-row first:-mt-px"
+                data-dragging="false"
+                data-testid="arrayfield_0_element"
+              >
+                <div
+                  class="flex w-full flex-row items-stretch divide-divider bg-content1 divide-x divide-solid border-b border-t border-divider"
+                >
+                  <div
+                    class="grid gap-6 w-full grow p-3"
+                    data-testid="arrayfield_0_element_fields_grid"
+                  >
+                    <div
+                      class="group leading-normal"
+                      data-has-helper="true"
+                      data-has-label="true"
+                      data-required="true"
+                      data-slot="base"
+                      data-testid="arrayfield_0_wrapper"
+                    >
+                      <label
+                        class="pointer-events-auto relative bottom-1.5 ml-1 text-foreground subpixel-antialiased text-small group-data-[invalid=true]:!text-danger"
+                        data-slot="label"
+                        for="react-select-arrayField.0.__FLAT__-input"
+                        id="react-aria-«replaced-aria-id»"
+                      >
+                        Value
+                        <span
+                          aria-hidden="true"
+                          class="ml-0.5 text-danger"
+                        >
+                          *
+                        </span>
+                      </label>
+                      <div
+                        class="css-b62m3t-container"
+                      >
+                        <span
+                          class="css-1f43avz-a11yText-A11yText"
+                          id="react-select-arrayField.0.__FLAT__-live-region"
+                        />
+                        <span
+                          aria-atomic="false"
+                          aria-live="polite"
+                          aria-relevant="additions text"
+                          class="css-1f43avz-a11yText-A11yText"
+                          role="log"
+                        />
+                        <div
+                          data-testid="arrayfield_0_select"
+                        >
+                          <div
+                            class="duration-150! rounded-lg border-2 border-default-200 bg-content1 transition-background hover:border-default-400 group-data-[invalid=true]:border-danger group-data-[invalid=true]:hover:border-danger motion-reduce:transition-none css-cp01gg-control"
+                          >
+                            <div
+                              class="gap-1 p-1 css-14oxtc6"
+                            >
+                              <div
+                                class="ml-1! leading-7! font-normal w-full text-start text-small truncate group-data-[has-value=true]:text-default-foreground css-w54w9q-singleValue"
+                              >
+                                Alpha
+                              </div>
+                              <div
+                                class="py-0.5 pl-1 css-n9qnu9"
+                                data-value=""
+                              >
+                                <input
+                                  aria-activedescendant=""
+                                  aria-autocomplete="list"
+                                  aria-errormessage=""
+                                  aria-expanded="false"
+                                  aria-haspopup="true"
+                                  aria-invalid="false"
+                                  aria-label="Value"
+                                  aria-labelledby="react-aria-«replaced-aria-id»"
+                                  autocapitalize="none"
+                                  autocomplete="off"
+                                  autocorrect="off"
+                                  class=""
+                                  data-testid="arrayfield_0"
+                                  id="react-select-arrayField.0.__FLAT__-input"
+                                  role="combobox"
+                                  spellcheck="false"
+                                  style="color: inherit; background: 0px center; opacity: 0; width: 100%; grid-area: 1 / 2; font: inherit; min-width: 2px; border: 0px; margin: 0px; outline: 0px; padding: 0px;"
+                                  tabindex="0"
+                                  type="text"
+                                  value=""
+                                />
+                              </div>
+                            </div>
+                            <div
+                              class="gap-1 p-1 css-1wy0on6"
+                            >
+                              <div
+                                aria-hidden="true"
+                                class="rounded-md p-1 text-foreground-500 hover:cursor-pointer hover:bg-default-200 hover:text-foreground-800 css-g56vrd-indicatorContainer"
+                              >
+                                <svg
+                                  aria-hidden="true"
+                                  class="css-tj5bde-Svg"
+                                  focusable="false"
+                                  height="20"
+                                  viewBox="0 0 20 20"
+                                  width="20"
+                                >
+                                  <path
+                                    d="M14.348 14.849c-0.469 0.469-1.229 0.469-1.697 0l-2.651-3.030-2.651 3.029c-0.469 0.469-1.229 0.469-1.697 0-0.469-0.469-0.469-1.229 0-1.697l2.758-3.15-2.759-3.152c-0.469-0.469-0.469-1.228 0-1.697s1.228-0.469 1.697 0l2.652 3.031 2.651-3.031c0.469-0.469 1.228-0.469 1.697 0s0.469 1.229 0 1.697l-2.758 3.152 2.758 3.15c0.469 0.469 0.469 1.229 0 1.698z"
+                                  />
+                                </svg>
+                              </div>
+                              <span
+                                class="bg-default-300 css-j4w2j1-indicatorSeparator"
+                              />
+                              <div
+                                data-testid="arrayfield_0_select_dropdown"
+                              >
+                                <div
+                                  aria-hidden="true"
+                                  class="rounded-md p-1 text-foreground-500 hover:cursor-pointer hover:bg-default-200 hover:text-black css-g56vrd-indicatorContainer"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    class="css-tj5bde-Svg"
+                                    focusable="false"
+                                    height="20"
+                                    viewBox="0 0 20 20"
+                                    width="20"
+                                  >
+                                    <path
+                                      d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"
+                                    />
+                                  </svg>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <input
+                          name="arrayField.0.__FLAT__"
+                          type="hidden"
+                          value="alpha"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <button
+                    aria-label="remove element"
+                    class="group tap-highlight-transparent [&>svg]:max-w-[theme(spacing.8)] data-[hover=true]:opacity-hover z-0 group relative box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny gap-2 rounded-small !gap-0 transition-transform-colors-opacity motion-reduce:transition-none bg-transparent text-danger data-[hover=true]:bg-danger/20 min-w-8 w-8 h-8 flex items-center justify-center !h-full !min-h-0 !rounded-none px-3 outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-focus"
+                    data-react-aria-pressable="true"
+                    data-testid="arrayfield_0_remove_button"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <span
+                      data-testid="icon-FaTimes"
+                    >
+                      FaTimes
+                    </span>
+                  </button>
+                </div>
+              </li>
+              <li
+                class="group relative flex flex-row first:-mt-px"
+                data-dragging="false"
+                data-testid="arrayfield_1_element"
+              >
+                <div
+                  class="flex w-full flex-row items-stretch divide-divider bg-content1 divide-x divide-solid border-b border-t border-divider"
+                >
+                  <div
+                    class="grid gap-6 w-full grow p-3"
+                    data-testid="arrayfield_1_element_fields_grid"
+                  >
+                    <div
+                      class="group leading-normal"
+                      data-has-helper="true"
+                      data-has-label="true"
+                      data-required="true"
+                      data-slot="base"
+                      data-testid="arrayfield_1_wrapper"
+                    >
+                      <label
+                        class="pointer-events-auto relative bottom-1.5 ml-1 text-foreground subpixel-antialiased text-small group-data-[invalid=true]:!text-danger"
+                        data-slot="label"
+                        for="react-select-arrayField.1.__FLAT__-input"
+                        id="react-aria-«replaced-aria-id»"
+                      >
+                        Value
+                        <span
+                          aria-hidden="true"
+                          class="ml-0.5 text-danger"
+                        >
+                          *
+                        </span>
+                      </label>
+                      <div
+                        class="css-b62m3t-container"
+                      >
+                        <span
+                          class="css-1f43avz-a11yText-A11yText"
+                          id="react-select-arrayField.1.__FLAT__-live-region"
+                        />
+                        <span
+                          aria-atomic="false"
+                          aria-live="polite"
+                          aria-relevant="additions text"
+                          class="css-1f43avz-a11yText-A11yText"
+                          role="log"
+                        />
+                        <div
+                          data-testid="arrayfield_1_select"
+                        >
+                          <div
+                            class="duration-150! rounded-lg border-2 border-default-200 bg-content1 transition-background hover:border-default-400 group-data-[invalid=true]:border-danger group-data-[invalid=true]:hover:border-danger motion-reduce:transition-none css-cp01gg-control"
+                          >
+                            <div
+                              class="gap-1 p-1 css-14oxtc6"
+                            >
+                              <div
+                                class="ml-1! leading-7! font-normal w-full text-start text-small truncate group-data-[has-value=true]:text-default-foreground css-w54w9q-singleValue"
+                              >
+                                Gamma
+                              </div>
+                              <div
+                                class="py-0.5 pl-1 css-n9qnu9"
+                                data-value=""
+                              >
+                                <input
+                                  aria-activedescendant=""
+                                  aria-autocomplete="list"
+                                  aria-errormessage=""
+                                  aria-expanded="false"
+                                  aria-haspopup="true"
+                                  aria-invalid="false"
+                                  aria-label="Value"
+                                  aria-labelledby="react-aria-«replaced-aria-id»"
+                                  autocapitalize="none"
+                                  autocomplete="off"
+                                  autocorrect="off"
+                                  class=""
+                                  data-testid="arrayfield_1"
+                                  id="react-select-arrayField.1.__FLAT__-input"
+                                  role="combobox"
+                                  spellcheck="false"
+                                  style="color: inherit; background: 0px center; opacity: 0; width: 100%; grid-area: 1 / 2; font: inherit; min-width: 2px; border: 0px; margin: 0px; outline: 0px; padding: 0px;"
+                                  tabindex="0"
+                                  type="text"
+                                  value=""
+                                />
+                              </div>
+                            </div>
+                            <div
+                              class="gap-1 p-1 css-1wy0on6"
+                            >
+                              <div
+                                aria-hidden="true"
+                                class="rounded-md p-1 text-foreground-500 hover:cursor-pointer hover:bg-default-200 hover:text-foreground-800 css-g56vrd-indicatorContainer"
+                              >
+                                <svg
+                                  aria-hidden="true"
+                                  class="css-tj5bde-Svg"
+                                  focusable="false"
+                                  height="20"
+                                  viewBox="0 0 20 20"
+                                  width="20"
+                                >
+                                  <path
+                                    d="M14.348 14.849c-0.469 0.469-1.229 0.469-1.697 0l-2.651-3.030-2.651 3.029c-0.469 0.469-1.229 0.469-1.697 0-0.469-0.469-0.469-1.229 0-1.697l2.758-3.15-2.759-3.152c-0.469-0.469-0.469-1.228 0-1.697s1.228-0.469 1.697 0l2.652 3.031 2.651-3.031c0.469-0.469 1.228-0.469 1.697 0s0.469 1.229 0 1.697l-2.758 3.152 2.758 3.15c0.469 0.469 0.469 1.229 0 1.698z"
+                                  />
+                                </svg>
+                              </div>
+                              <span
+                                class="bg-default-300 css-j4w2j1-indicatorSeparator"
+                              />
+                              <div
+                                data-testid="arrayfield_1_select_dropdown"
+                              >
+                                <div
+                                  aria-hidden="true"
+                                  class="rounded-md p-1 text-foreground-500 hover:cursor-pointer hover:bg-default-200 hover:text-black css-g56vrd-indicatorContainer"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    class="css-tj5bde-Svg"
+                                    focusable="false"
+                                    height="20"
+                                    viewBox="0 0 20 20"
+                                    width="20"
+                                  >
+                                    <path
+                                      d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"
+                                    />
+                                  </svg>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <input
+                          name="arrayField.1.__FLAT__"
+                          type="hidden"
+                          value="gamma"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <button
+                    aria-label="remove element"
+                    class="group tap-highlight-transparent [&>svg]:max-w-[theme(spacing.8)] data-[hover=true]:opacity-hover z-0 group relative box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny gap-2 rounded-small !gap-0 transition-transform-colors-opacity motion-reduce:transition-none bg-transparent text-danger data-[hover=true]:bg-danger/20 min-w-8 w-8 h-8 flex items-center justify-center !h-full !min-h-0 !rounded-none px-3 outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-focus"
+                    data-react-aria-pressable="true"
+                    data-testid="arrayfield_1_remove_button"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <span
+                      data-testid="icon-FaTimes"
+                    >
+                      FaTimes
+                    </span>
+                  </button>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <button
+            class="group tap-highlight-transparent transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center box-border appearance-none select-none whitespace-nowrap subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu cursor-pointer outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-3 min-w-16 h-8 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] !transition-none data-[pressed=true]:scale-100 bg-transparent text-default-foreground data-[hover=true]:bg-default/40 w-full justify-start rounded-b-small rounded-t-none font-semibold !h-[48px] !min-h-0 outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-focus"
+            data-react-aria-pressable="true"
+            data-testid="arrayfield_append_button"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              data-testid="icon-FaPlus"
+            >
+              FaPlus
+            </span>
+            <span>
+              Add Element
+            </span>
+          </button>
+        </div>
+      </div>
+      <div
+        class="mt-4 flex justify-end"
+      >
+        <button
+          aria-label="Submit form"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
+          data-react-aria-pressable="true"
+          data-testid="form_submit_button"
+          tabindex="0"
+          type="submit"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
 exports[`Story Snapshots > FlatArray 1`] = `
 <div>
   <div

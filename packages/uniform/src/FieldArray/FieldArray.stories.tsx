@@ -3,10 +3,18 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { action } from 'storybook/actions';
 import { expect, userEvent, waitFor, within } from 'storybook/test';
 
-import { array, object, refineArray, string, veto } from '@fuf-stack/veto';
+import {
+  array,
+  object,
+  refineArray,
+  refineObject,
+  string,
+  veto,
+} from '@fuf-stack/veto';
 
 import { Form } from '../Form';
 import { Input } from '../Input';
+import { Select } from '../Select';
 import { SubmitButton } from '../SubmitButton';
 import FieldArray from './FieldArray';
 
@@ -91,7 +99,6 @@ const validationDuplicates = veto({
     unique: {
       elementMessage: 'Contains duplicate name',
       mapFn: (val) => {
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-return
         return val?.name;
       },
       elementErrorPath: ['name'],
@@ -131,7 +138,6 @@ const complexValidator = veto({
   )({
     unique: {
       mapFn: (value) => {
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-return
         return value.name;
       },
       elementErrorPath: ['name'],
@@ -555,5 +561,169 @@ export const EdgeCaseFlatArrayValidationClears: Story = {
 
     // First field should still have error (still empty)
     expect(firstInput.getAttribute('aria-invalid')).toBe('true');
+  },
+};
+
+const edgeCaseTopLevelVsArrayValidation = veto(
+  refineObject(
+    object({
+      topLevelValue: string(),
+      arrayField: refineArray(array(string()))({
+        unique: true,
+      }),
+    }),
+  )({
+    custom: (data, ctx) => {
+      const { topLevelValue, arrayField } = data;
+
+      if (typeof topLevelValue !== 'string' || !Array.isArray(arrayField)) {
+        return;
+      }
+
+      const normalizedTopLevelValue = getNormalizedString(topLevelValue);
+
+      if (!normalizedTopLevelValue) {
+        return;
+      }
+
+      arrayField.forEach((item, index) => {
+        const normalizedArrayValue = getNormalizedString(item);
+        if (normalizedArrayValue === normalizedTopLevelValue) {
+          ctx.addIssue({
+            code: 'custom',
+            message: 'Array values must be different from the top-level value',
+            path: ['arrayField', index],
+          });
+        }
+      });
+    },
+  }),
+);
+
+const edgeCaseSelectOptions = [
+  { label: 'Alpha', value: 'alpha' },
+  { label: 'Beta', value: 'beta' },
+  { label: 'Gamma', value: 'gamma' },
+];
+
+const getNormalizedString = (value: unknown): string => {
+  return typeof value === 'string' ? value.trim().toLowerCase() : '';
+};
+
+/**
+ * Edge case: validates interaction between array uniqueness and cross-field rules
+ * on a flat array of Select values.
+ *
+ * What this story verifies:
+ * - duplicate array values produce a uniqueness error
+ * - array items equal to the top-level value produce a custom cross-field error
+ * - changing only the top-level value clears the cross-field error but keeps duplicates
+ * - fixing the duplicate clears all remaining array errors
+ */
+export const EdgeCaseTopLevelStringNotInArray: Story = {
+  name: 'Edge Case: Top-Level String Not In Array',
+  parameters: {
+    formProps: {
+      validation: edgeCaseTopLevelVsArrayValidation,
+      initialValues: {
+        topLevelValue: '',
+        arrayField: [''],
+      },
+    },
+  },
+  render: (args) => {
+    return (
+      <div className="flex flex-col gap-6">
+        <Select
+          label="Top-level value"
+          name="topLevelValue"
+          options={edgeCaseSelectOptions}
+        />
+        <FieldArray {...args} />
+      </div>
+    );
+  },
+  args: {
+    name: 'arrayField',
+    label: 'Unique Array Values',
+    flat: true,
+    testId: 'arrayfield',
+    children: ({ name }) => {
+      return (
+        <Select label="Value" name={name} options={edgeCaseSelectOptions} />
+      );
+    },
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const body = within(document.body);
+
+    const selectOption = async (fieldTestId: string, optionValue: string) => {
+      const dropdown = canvas.getByTestId(`${fieldTestId}_select_dropdown`)
+        .parentElement as HTMLElement;
+      await userEvent.click(dropdown, { delay: 100 });
+
+      const option = body.getByTestId(
+        `${fieldTestId}_select_option_${optionValue}`,
+      ).firstChild as HTMLElement;
+      await userEvent.click(option, { delay: 100 });
+    };
+
+    // Set top-level and first array value to same option -> custom conflict.
+    await selectOption('toplevelvalue', 'alpha');
+    await selectOption('arrayfield_0', 'alpha');
+
+    // Add second element and set to same option -> duplicate + custom conflict.
+    const appendButton = canvas.getByTestId('arrayfield_append_button');
+    await userEvent.click(appendButton);
+
+    await waitFor(() => {
+      expect(
+        canvas.getByTestId('arrayfield_1_select_dropdown'),
+      ).toBeInTheDocument();
+    });
+
+    await selectOption('arrayfield_1', 'alpha');
+
+    // Submit once so all errors are consistently visible regardless of touched state.
+    const submitButton = canvas.getByTestId('form_submit_button');
+    await userEvent.click(submitButton);
+
+    await waitFor(() => {
+      const firstError = canvas.getByTestId('arrayfield_0_error');
+      const secondError = canvas.getByTestId('arrayfield_1_error');
+
+      expect(firstError).toContainHTML(
+        'Array values must be different from the top-level value',
+      );
+      expect(secondError).toContainHTML(
+        'Array values must be different from the top-level value',
+      );
+      expect(secondError).toContainHTML('Element already exists');
+    });
+
+    // Change top-level to remove only cross-field custom conflict.
+    await selectOption('toplevelvalue', 'beta');
+    await userEvent.click(submitButton);
+
+    await waitFor(() => {
+      expect(canvas.queryByTestId('arrayfield_0_error')).toBeNull();
+
+      const secondError = canvas.getByTestId('arrayfield_1_error');
+      expect(secondError).not.toContainHTML(
+        'Array values must be different from the top-level value',
+      );
+      expect(secondError).toContainHTML('Element already exists');
+    });
+
+    // Change second array element to remove duplicate as well.
+    await selectOption('arrayfield_1', 'gamma');
+    await userEvent.click(submitButton);
+
+    await waitFor(() => {
+      expect(canvas.queryByTestId('arrayfield_0_error')).toBeNull();
+      expect(canvas.queryByTestId('arrayfield_1_error')).toBeNull();
+      expect(canvas.queryByTestId('arrayfield_error')).toBeNull();
+    });
   },
 };

@@ -1,12 +1,12 @@
 import { describe, expect, it } from 'vitest';
 
-import { render, screen, waitFor } from '@testing-library/react';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 
 import '@testing-library/jest-dom/vitest';
 
 import storySnapshots from '@repo/storybook-config/story-snapshots';
 
-import { string, veto } from '@fuf-stack/veto';
+import { object, refineObject, string, veto } from '@fuf-stack/veto';
 
 // eslint-disable-next-line import-x/no-named-default
 import { default as Form } from '../Form';
@@ -142,5 +142,93 @@ describe('Select required indicator', () => {
     );
 
     expect(screen.getByText('*')).toBeInTheDocument();
+  });
+});
+
+describe('Select validation timing', () => {
+  // Regression test for select timing:
+  // verifies cross-field validation reacts to the current selection immediately,
+  // not one render cycle later (which previously happened when blur/touched ran
+  // before the new select value was fully committed).
+  it('updates cross-field error immediately on select changes', async () => {
+    const validation = veto(
+      refineObject(
+        object({
+          additional: string(),
+          primary: string(),
+        }),
+      )({
+        custom: (data, ctx) => {
+          if (
+            typeof data.primary === 'string' &&
+            typeof data.additional === 'string' &&
+            data.primary === data.additional
+          ) {
+            ctx.addIssue({
+              code: 'custom',
+              message: 'Additional must differ from primary',
+              path: ['additional'],
+            });
+          }
+        },
+      }),
+    );
+
+    render(
+      <Form
+        initialValues={{ additional: 'beta', primary: 'alpha' }}
+        onSubmit={() => {}}
+        testId="form"
+        validation={validation}
+      >
+        <Select
+          label="Primary"
+          name="primary"
+          options={[
+            { label: 'Alpha', value: 'alpha' },
+            { label: 'Beta', value: 'beta' },
+          ]}
+        />
+        <Select
+          label="Additional"
+          name="additional"
+          options={[
+            { label: 'Alpha', value: 'alpha' },
+            { label: 'Beta', value: 'beta' },
+          ]}
+        />
+        <button data-testid="submit" type="submit">
+          Submit
+        </button>
+      </Form>,
+    );
+
+    // Start valid.
+    expect(screen.queryByTestId('additional_error')).toBeNull();
+
+    const additionalCombobox = screen.getByTestId('additional');
+    fireEvent.keyDown(additionalCombobox, { key: 'ArrowDown', keyCode: 40 });
+
+    const alphaOption = (
+      await screen.findByTestId('additional_select_option_alpha')
+    ).firstChild as HTMLElement;
+    fireEvent.click(alphaOption);
+
+    // Becomes invalid immediately after selecting the conflicting value.
+    await waitFor(() => {
+      expect(screen.getByTestId('additional_error')).toContainHTML(
+        'Additional must differ from primary',
+      );
+    });
+
+    fireEvent.keyDown(additionalCombobox, { key: 'ArrowDown', keyCode: 40 });
+    const betaOption = screen.getByTestId('additional_select_option_beta')
+      .firstChild as HTMLElement;
+    fireEvent.click(betaOption);
+
+    // Returns to valid immediately after selecting a valid value again.
+    await waitFor(() => {
+      expect(screen.queryByTestId('additional_error')).toBeNull();
+    });
   });
 });
