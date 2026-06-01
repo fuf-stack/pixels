@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { act, renderHook } from '@testing-library/react';
+import { act, renderHook, waitFor } from '@testing-library/react';
 
 import { objectLoose, string, veto } from '@fuf-stack/veto';
 
@@ -176,10 +176,46 @@ describe('useExtendedValidation', () => {
 
 describe('useFormResolver', () => {
   it('returns undefined resolver when no validation is provided', () => {
-    const { result } = renderHook(() => useFormResolver(undefined));
+    const { result } = renderHook(() => useFormResolver());
 
     expect(result.current.resolver).toBeUndefined();
     expect(result.current.validationErrors).toBeUndefined();
     expect(result.current.validationErrorsHash).toBeUndefined();
+  });
+
+  it('stores resolver validation errors in state and clears them when valid', async () => {
+    const validation = veto({
+      name: string().min(3, 'Name is too short'),
+    });
+
+    const { result } = renderHook(() => useFormResolver(validation));
+
+    await act(async () => {
+      await result.current.resolver?.({ name: 'ab' });
+    });
+
+    await waitFor(() => {
+      expect(result.current.validationErrors?.name?.[0]?.message).toBe(
+        'Name is too short',
+      );
+      expect(result.current.validationErrorsHash).toBeDefined();
+    });
+
+    const invalidHash = result.current.validationErrorsHash;
+
+    await act(async () => {
+      await result.current.resolver?.({ name: 'ab' });
+    });
+
+    expect(result.current.validationErrorsHash).toBe(invalidHash);
+
+    await act(async () => {
+      await result.current.resolver?.({ name: 'abc' });
+    });
+
+    await waitFor(() => {
+      expect(result.current.validationErrors).toBeUndefined();
+      expect(result.current.validationErrorsHash).toBeUndefined();
+    });
   });
 });

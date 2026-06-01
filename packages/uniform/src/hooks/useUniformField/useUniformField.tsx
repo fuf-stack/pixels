@@ -135,6 +135,7 @@ export const useUniformField = <
   const {
     error,
     invalid: rawInvalid,
+    isDirty,
     isTouched,
     required,
     testId,
@@ -168,7 +169,7 @@ export const useUniformField = <
       (eventOrValue as React.ChangeEvent<HTMLInputElement>)?.target?.value ??
       eventOrValue;
     const formValue = toFormValue(displayValue as TDisplay);
-    fieldOnChange(formValue as typeof fieldValue);
+    fieldOnChange(formValue);
   };
 
   const defaultValue = (getValues() as Record<string, unknown>)?.[
@@ -179,14 +180,14 @@ export const useUniformField = <
    * Determine when to show the invalid state to the user.
    *
    * Show errors when the field is invalid AND any of these conditions are met:
-   *   - Field has a value (show validation errors like format/length while typing)
+   *   - Field has a user-entered value (show validation errors like format/length while typing)
    *   - Field is touched (focused and blurred) - good for text inputs
    *   - Form has been submitted - shows all errors after submit attempt
    *
-   * Note: We intentionally don't use isDirty because:
-   *   - Newly added array elements are marked "dirty" by RHF, causing immediate errors
-   *   - Field Cards with empty initial values show errors immediately
-   *   - hasValue + isTouched covers the same use cases more reliably
+   * Note: `hasValue` is gated by `isDirty` so invalid initial values do not
+   * show errors just because resolver-backed validation state is available.
+   * Newly added empty array elements can be dirty, but stay hidden until blur
+   * because they do not have a value yet.
    *
    * This prevents showing errors on pristine/untouched/empty fields for better UX.
    * Examples:
@@ -202,7 +203,8 @@ export const useUniformField = <
 
   // isValueEmpty handles marker strings, flat array wrappers, empty arrays, and empty objects
   const hasValue = !isValueEmpty(fieldValue);
-  const showInvalid = rawInvalid && (hasValue || isTouched || submitCount > 0);
+  const showInvalid =
+    rawInvalid && ((isDirty && hasValue) || isTouched || submitCount > 0);
   // Debounce to prevent flickering during rapid state changes
   const invalid = useDebounce(showInvalid, 200);
 

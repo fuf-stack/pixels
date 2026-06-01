@@ -293,11 +293,14 @@ describe('FormContext', () => {
 
       const { result } = renderHook(
         () => {
-          const { control, getFieldState } = useFormContext();
+          const { control, getFieldState, validation } = useFormContext();
           const primary = useController({ control, name: 'primary' }).field;
           const secondaryError = getFieldState('secondary').error?.[0]?.message;
+          const contextSecondaryError =
+            validation.errors?.secondary?.[0]?.message;
 
           return {
+            contextSecondaryError,
             primary,
             secondaryError,
           };
@@ -306,17 +309,21 @@ describe('FormContext', () => {
       );
 
       expect(result.current.secondaryError).toBeUndefined();
+      expect(result.current.contextSecondaryError).toBeUndefined();
 
       // Changing primary creates an error on secondary. This verifies that
-      // resolver errors stored in refs are propagated to context consumers even
-      // when the displayed error belongs to a different field than the one
-      // changed by the user.
+      // resolver error state is propagated to context consumers even when the
+      // displayed error belongs to a different field than the one changed by the
+      // user.
       act(() => {
         result.current.primary.onChange('beta');
       });
 
       await waitFor(() => {
         expect(result.current.secondaryError).toBe(
+          'Secondary must differ from primary',
+        );
+        expect(result.current.contextSecondaryError).toBe(
           'Secondary must differ from primary',
         );
       });
@@ -327,6 +334,7 @@ describe('FormContext', () => {
 
       await waitFor(() => {
         expect(result.current.secondaryError).toBeUndefined();
+        expect(result.current.contextSecondaryError).toBeUndefined();
       });
     });
 

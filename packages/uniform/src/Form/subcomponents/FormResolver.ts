@@ -5,7 +5,7 @@ import type {
 } from '@fuf-stack/veto';
 import type { FieldValues } from 'react-hook-form';
 
-import { useCallback, useMemo, useRef, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 
 import { and, veto } from '@fuf-stack/veto';
 
@@ -130,38 +130,62 @@ export const useExtendedValidation = (baseValidation?: VetoInstance) => {
 };
 
 /**
- * Hook that creates a React Hook Form resolver from an extended validation instance.
+ * Render state for formatted validation errors produced by the resolver.
+ *
+ * `errors` is the value exposed through Uniform context. `hash` is the stable
+ * comparison key used to avoid re-rendering context consumers when validation
+ * returns an equivalent error object with a new identity.
+ */
+interface ValidationErrorsState {
+  /** Formatted validation errors exposed to Uniform consumers. */
+  errors: VetoFormattedError | undefined;
+  /** JSON hash of `errors`, used as a cheap equality signal. */
+  hash: string | undefined;
+}
+
+/**
+ * Creates a React Hook Form resolver from an extended validation instance and
+ * stores its latest formatted Veto errors as React state.
+ *
+ * Keeping the resolver errors in state lets Uniform context consumers re-render
+ * when validation output changes, while the hash prevents repeated validations
+ * with equivalent errors from causing unnecessary updates.
  *
  * @param extendedValidation - Extended validation instance from useExtendedValidation
- * @returns Object containing resolver function, current validation errors, and optimization hash
+ * @returns Resolver function plus the latest validation errors and their hash
  */
-export const useFormResolver = (
-  extendedValidation?: VetoInstance,
-  onValidationErrorsChange?: (validationErrorsHash: string | undefined) => void,
-) => {
-  // Keep validation errors in a ref to avoid re-renders on each resolver run.
-  // This preserves UX/snapshot behavior where validation updates alone
-  // do not force immediate visual error state changes.
-  const validationErrors = useRef<VetoFormattedError>(undefined);
-  const validationErrorsHash = useRef<string | undefined>(undefined);
+export const useFormResolver = (extendedValidation?: VetoInstance) => {
+  // Keep the latest resolver errors in React state so Uniform context consumers
+  // re-render when validation output changes. The paired hash lets us skip the
+  // state update when a resolver run returns equivalent errors.
+  const [validationErrorsState, setValidationErrorsState] =
+    useState<ValidationErrorsState>({
+      errors: undefined,
+      hash: undefined,
+    });
 
+  /**
+   * Updates resolver error state only when the formatted validation result
+   * actually changes. Veto/RHF may create new error objects for equivalent
+   * validation output, so the hash is the guard against avoidable context
+   * refreshes.
+   */
   const updateValidationErrors = useCallback(
     (errors: VetoFormattedError | undefined): void => {
-      // Store the formatted errors in a ref so resolver runs stay cheap and do
-      // not automatically repaint every form consumer.
-      validationErrors.current = errors;
-
-      // The hash is the reactive signal for consumers. Only notify when the
-      // actual error output changes, so repeated validations with the same
-      // result do not cause avoidable context refreshes.
       const nextHash = JSON.stringify(errors);
 
-      if (validationErrorsHash.current !== nextHash) {
-        validationErrorsHash.current = nextHash;
-        onValidationErrorsChange?.(nextHash);
-      }
+      setValidationErrorsState((current) => {
+        if (current.hash === nextHash) {
+          return current;
+        }
+
+        return {
+          errors,
+          hash: nextHash,
+        };
+      });
     },
-    [onValidationErrorsChange],
+    [],
   );
 
   // Memoized resolver function for React Hook Form
@@ -183,14 +207,9 @@ export const useFormResolver = (
     };
   }, [extendedValidation, updateValidationErrors]);
 
-  /* eslint-disable react-hooks/refs -- intentional non-reactive cache reads */
-  const currentValidationErrors = validationErrors.current;
-  const currentValidationErrorsHash = validationErrorsHash.current;
-
   return {
     resolver,
-    validationErrors: currentValidationErrors,
-    validationErrorsHash: currentValidationErrorsHash,
+    validationErrors: validationErrorsState.errors,
+    validationErrorsHash: validationErrorsState.hash,
   };
-  /* eslint-enable react-hooks/refs */
 };
