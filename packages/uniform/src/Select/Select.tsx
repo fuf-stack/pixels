@@ -91,8 +91,6 @@ export interface SelectProps extends VariantProps {
   filterOption?:
     | undefined
     | ((option?: SelectOption, inputValue?: string) => boolean);
-  /** Format the label of the option */
-  renderOptionLabel?: undefined | Props['formatOptionLabel'];
   /** The value of the search input */
   inputValue?: string;
   /** Label that should be associated with the select. */
@@ -105,10 +103,14 @@ export interface SelectProps extends VariantProps {
   name: string;
   /** Placeholder that is displayed when nothing is selected */
   placeholder?: string;
-  /** The options for the Select component */
-  options: SelectOption[];
   /** Handle change events on the input */
   onInputChange?: Props['onInputChange'];
+  /** The options for the Select component */
+  options: SelectOption[];
+  /** Render custom content when no options match the current search input. */
+  renderEmptyOptions?: Props['noOptionsMessage'];
+  /** Format the label of the option */
+  renderOptionLabel?: undefined | Props['formatOptionLabel'];
   /**
    * Fallback option(s) for async selects when value isn't in current options.
    * Use when the selected value may not be in the options list (e.g., after
@@ -169,7 +171,6 @@ const Select = ({
   clearable = true,
   debugMenuOpen = false,
   filterOption = undefined,
-  renderOptionLabel = undefined,
   inputValue = undefined,
   loading = false,
   multiSelect = false,
@@ -177,6 +178,8 @@ const Select = ({
   onInputChange = undefined,
   options,
   placeholder = undefined,
+  renderEmptyOptions = undefined,
+  renderOptionLabel = undefined,
   selectedOptionFallback = undefined,
   ...uniformFieldProps
 }: SelectProps) => {
@@ -460,12 +463,13 @@ const Select = ({
         isLoading={loading}
         isMulti={multiSelect}
         menuIsOpen={debugMenuOpen ? true : undefined}
-        menuPosition="fixed"
-        menuShouldBlockScroll
-        name={name}
         // set menuPosition to fixed so that menu can be rendered
         // inside Card / Modal components, menuShouldBlockScroll
         // prevents container scroll when menu is open
+        menuPosition="fixed"
+        menuShouldBlockScroll
+        name={name}
+        noOptionsMessage={renderEmptyOptions}
         onBlur={handleBlur}
         onChange={handleChange}
         onFocus={handleFocus}

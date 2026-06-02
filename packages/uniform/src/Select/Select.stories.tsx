@@ -6,7 +6,7 @@ import { useState } from 'react';
 import { action } from 'storybook/actions';
 import { expect, userEvent, waitFor, within } from 'storybook/test';
 
-import { Button, Card, Modal } from '@fuf-stack/pixels';
+import { Alert, Button, Card, Modal } from '@fuf-stack/pixels';
 import { string, veto } from '@fuf-stack/veto';
 
 import { Form } from '../Form';
@@ -21,7 +21,7 @@ const meta: Meta<typeof Select> = {
     (Story, { parameters }) => {
       return (
         <Form
-          className="min-w-60"
+          className="min-w-90"
           onSubmit={action('onSubmit')}
           {...(parameters?.formProps ?? {})}
         >
@@ -228,6 +228,27 @@ export const NoResults: Story = {
     const body = within(canvasElement?.parentElement as HTMLElement);
     const select = body.getByTestId('selectfield');
     await userEvent.type(select, 'search for something');
+  },
+};
+
+export const NoResultsCustomRenderer: Story = {
+  args: {
+    ...args,
+    options: [],
+    renderEmptyOptions: ({ inputValue }) => {
+      return (
+        <Alert variant="warning">
+          {inputValue
+            ? 'Searching will not help if there are no options'
+            : 'There is nothing to select here'}
+        </Alert>
+      );
+    },
+  },
+  play: async ({ canvasElement }) => {
+    const body = within(canvasElement?.parentElement as HTMLElement);
+    const select = body.getByTestId('selectfield');
+    await userEvent.click(select);
   },
 };
 

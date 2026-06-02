@@ -6,7 +6,7 @@ exports[`Story Snapshots > Default 1`] = `
     class="flex w-full flex-row justify-between gap-6"
   >
     <form
-      class="grow min-w-60"
+      class="grow min-w-90"
       data-form-is-valid="true"
       data-testid=""
     >
@@ -146,7 +146,7 @@ exports[`Story Snapshots > Disabled 1`] = `
     class="flex w-full flex-row justify-between gap-6"
   >
     <form
-      class="grow min-w-60"
+      class="grow min-w-90"
       data-form-is-valid="true"
       data-testid=""
     >
@@ -283,7 +283,7 @@ exports[`Story Snapshots > EdgeCaseMenuIsVisibleInCard 1`] = `
     class="flex w-full flex-row justify-between gap-6"
   >
     <form
-      class="grow min-w-60"
+      class="grow min-w-90"
       data-form-is-valid="true"
       data-testid=""
     >
@@ -692,7 +692,7 @@ exports[`Story Snapshots > EdgeCaseMenuIsVisibleInModal 1`] = `
       class="flex w-full flex-row justify-between gap-6"
     >
       <form
-        class="grow min-w-60"
+        class="grow min-w-90"
         data-form-is-valid="true"
         data-testid=""
       >
@@ -1185,7 +1185,7 @@ exports[`Story Snapshots > InitialValue 1`] = `
     class="flex w-full flex-row justify-between gap-6"
   >
     <form
-      class="grow min-w-60"
+      class="grow min-w-90"
       data-form-is-valid="true"
       data-testid=""
     >
@@ -1340,7 +1340,7 @@ exports[`Story Snapshots > Invalid 1`] = `
     class="flex w-full flex-row justify-between gap-6"
   >
     <form
-      class="grow min-w-60"
+      class="grow min-w-90"
       data-form-is-valid="false"
       data-testid=""
     >
@@ -1521,7 +1521,7 @@ exports[`Story Snapshots > Loading 1`] = `
     class="flex w-full flex-row justify-between gap-6"
   >
     <form
-      class="grow min-w-60"
+      class="grow min-w-90"
       data-form-is-valid="true"
       data-testid=""
     >
@@ -1708,7 +1708,7 @@ exports[`Story Snapshots > MultiSelect 1`] = `
     class="flex w-full flex-row justify-between gap-6"
   >
     <form
-      class="grow min-w-60"
+      class="grow min-w-90"
       data-form-is-valid="true"
       data-testid=""
     >
@@ -1919,7 +1919,7 @@ exports[`Story Snapshots > NoResults 1`] = `
     class="flex w-full flex-row justify-between gap-6"
   >
     <form
-      class="grow min-w-60"
+      class="grow min-w-90"
       data-form-is-valid="true"
       data-testid=""
     >
@@ -2088,13 +2088,227 @@ exports[`Story Snapshots > NoResults 1`] = `
 </div>
 `;
 
+exports[`Story Snapshots > NoResultsCustomRenderer 1`] = `
+<div>
+  <div
+    class="flex w-full flex-row justify-between gap-6"
+  >
+    <form
+      class="grow min-w-90"
+      data-form-is-valid="true"
+      data-testid=""
+    >
+      <div
+        class="group leading-normal"
+        data-has-helper="true"
+        data-has-label="true"
+        data-required="false"
+        data-slot="base"
+        data-testid="selectfield_wrapper"
+      >
+        <label
+          class="pointer-events-auto relative bottom-1.5 ml-1 text-foreground subpixel-antialiased text-small group-data-[invalid=true]:!text-danger"
+          data-slot="label"
+          for="react-select-selectField-input"
+          id="react-aria-«replaced-aria-id»"
+        >
+          Some Label
+        </label>
+        <div
+          class="css-b62m3t-container"
+        >
+          <span
+            class="css-1f43avz-a11yText-A11yText"
+            id="react-select-selectField-live-region"
+          />
+          <span
+            aria-atomic="false"
+            aria-live="polite"
+            aria-relevant="additions text"
+            class="css-1f43avz-a11yText-A11yText"
+            role="log"
+          >
+            <span
+              id="aria-selection"
+            />
+            <span
+              id="aria-focused"
+            />
+            <span
+              id="aria-results"
+            />
+            <span
+              id="aria-guidance"
+            >
+              Use Up and Down to choose options, press Enter to select the currently focused option, press Escape to exit the menu, press Tab to select the option and exit the menu.
+            </span>
+          </span>
+          <div
+            data-testid="selectfield_select"
+          >
+            <div
+              class="duration-150! rounded-lg border-2 bg-content1 transition-background hover:border-default-400 group-data-[invalid=true]:border-danger group-data-[invalid=true]:hover:border-danger motion-reduce:transition-none border-focus css-cp01gg-control"
+            >
+              <div
+                class="gap-1 p-1 css-14oxtc6"
+              >
+                <div
+                  class="ml-1 py-0.5 pl-1 text-sm text-foreground-500 css-1vlsb4t-placeholder"
+                  id="react-select-selectField-placeholder"
+                >
+                  Select...
+                </div>
+                <div
+                  class="py-0.5 pl-1 css-n9qnu9"
+                  data-value=""
+                >
+                  <input
+                    aria-activedescendant=""
+                    aria-autocomplete="list"
+                    aria-controls="react-select-selectField-listbox"
+                    aria-describedby="react-select-selectField-placeholder"
+                    aria-errormessage=""
+                    aria-expanded="true"
+                    aria-haspopup="true"
+                    aria-invalid="false"
+                    aria-label="Some Label"
+                    aria-labelledby="react-aria-«replaced-aria-id»"
+                    autocapitalize="none"
+                    autocomplete="off"
+                    autocorrect="off"
+                    class=""
+                    data-testid="selectfield"
+                    id="react-select-selectField-input"
+                    role="combobox"
+                    spellcheck="false"
+                    style="color: inherit; background: 0px center; opacity: 1; width: 100%; grid-area: 1 / 2; font: inherit; min-width: 2px; border: 0px; margin: 0px; outline: 0px; padding: 0px;"
+                    tabindex="0"
+                    type="text"
+                    value=""
+                  />
+                </div>
+              </div>
+              <div
+                class="gap-1 p-1 css-1wy0on6"
+              >
+                <span
+                  class="bg-default-300 css-j4w2j1-indicatorSeparator"
+                />
+                <div
+                  data-testid="selectfield_select_dropdown"
+                >
+                  <div
+                    aria-hidden="true"
+                    class="rounded-md p-1 text-foreground-500 hover:cursor-pointer hover:bg-default-200 hover:text-black css-g56vrd-indicatorContainer"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="css-tj5bde-Svg"
+                      focusable="false"
+                      height="20"
+                      viewBox="0 0 20 20"
+                      width="20"
+                    >
+                      <path
+                        d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="z-50! css-1vbk7iu"
+          >
+            <div
+              class="mt-2 rounded-xl border border-default-200 bg-content1 p-1 shadow-lg css-100ebu3-menu"
+            >
+              <div
+                class="css-bp8cua-ScrollManager"
+              />
+              <div
+                aria-multiselectable="false"
+                class="css-no1ryp"
+                id="react-select-selectField-listbox"
+                role="listbox"
+              >
+                <div
+                  class="rounded-sm p-2 text-foreground-500 css-1qvxrka"
+                >
+                  <div
+                    class="flex flex-grow flex-row w-full py-3 px-4 gap-x-1 border-small rounded-medium items-center text-warning-700 dark:text-warning border-warning-300 dark:border-warning-100 min-w-72 bg-warning-50 dark:bg-warning-50"
+                    data-has-title="true"
+                    data-visible="true"
+                    role="alert"
+                    title="There is nothing to select here"
+                  >
+                    <div
+                      class="flex-none relative w-9 h-9 rounded-full grid place-items-center bg-warning-50 dark:bg-warning-100 border-warning-100 shadow-small border-1"
+                    >
+                      <svg
+                        class="fill-current w-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+                        fill="none"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        width="24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          clip-rule="evenodd"
+                          d="M3 10.417C3 7.219 3 5.62 3.378 5.082C3.755 4.545 5.258 4.03 8.265 3.001L8.838 2.805C10.405 2.268 11.188 2 12 2C12.812 2 13.595 2.268 15.162 2.805L15.735 3.001C18.742 4.03 20.245 4.545 20.622 5.082C21 5.62 21 7.22 21 10.417V11.991C21 17.629 16.761 20.366 14.101 21.527C13.38 21.842 13.02 22 12 22C10.98 22 10.62 21.842 9.899 21.527C7.239 20.365 3 17.63 3 11.991V10.417ZM12 7.25C12.1989 7.25 12.3897 7.32902 12.5303 7.46967C12.671 7.61032 12.75 7.80109 12.75 8V12C12.75 12.1989 12.671 12.3897 12.5303 12.5303C12.3897 12.671 12.1989 12.75 12 12.75C11.8011 12.75 11.6103 12.671 11.4697 12.5303C11.329 12.3897 11.25 12.1989 11.25 12V8C11.25 7.80109 11.329 7.61032 11.4697 7.46967C11.6103 7.32902 11.8011 7.25 12 7.25ZM12 16C12.2652 16 12.5196 15.8946 12.7071 15.7071C12.8946 15.5196 13 15.2652 13 15C13 14.7348 12.8946 14.4804 12.7071 14.2929C12.5196 14.1054 12.2652 14 12 14C11.7348 14 11.4804 14.1054 11.2929 14.2929C11.1054 14.4804 11 14.7348 11 15C11 15.2652 11.1054 15.5196 11.2929 15.7071C11.4804 15.8946 11.7348 16 12 16Z"
+                          fill="currentColor"
+                          fill-rule="evenodd"
+                        />
+                      </svg>
+                    </div>
+                    <div
+                      class="h-full flex-grow min-h-10 ms-2 flex flex-col box-border text-inherit justify-center items-center gap-1.5"
+                    >
+                      <div
+                        class="text-small w-full font-medium block text-inherit leading-5"
+                      >
+                        There is nothing to select here
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <input
+            name="selectField"
+            type="hidden"
+            value=""
+          />
+        </div>
+      </div>
+      <div
+        class="mt-4 flex justify-end"
+      >
+        <button
+          aria-label="Submit form"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
+          data-react-aria-pressable="true"
+          data-testid="form_submit_button"
+          tabindex="0"
+          type="submit"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
 exports[`Story Snapshots > NumberValues 1`] = `
 <div>
   <div
     class="flex w-full flex-row justify-between gap-6"
   >
     <form
-      class="grow min-w-60"
+      class="grow min-w-90"
       data-form-is-valid="true"
       data-testid=""
     >
@@ -2234,7 +2448,7 @@ exports[`Story Snapshots > OptionDisabled 1`] = `
     class="flex w-full flex-row justify-between gap-6"
   >
     <form
-      class="grow min-w-60"
+      class="grow min-w-90"
       data-form-is-valid="true"
       data-testid=""
     >
@@ -2453,7 +2667,7 @@ exports[`Story Snapshots > Required 1`] = `
     class="flex w-full flex-row justify-between gap-6"
   >
     <form
-      class="grow min-w-60"
+      class="grow min-w-90"
       data-form-is-valid="false"
       data-testid=""
     >
