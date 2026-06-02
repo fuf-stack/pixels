@@ -12,7 +12,7 @@ export const alertVariants = tv({
     base: 'min-w-72',
     title: '',
     description: '',
-    mainWrapper: 'gap-1.5',
+    mainWrapper: 'items-stretch gap-1.5',
     closeButton: '',
     iconWrapper: '',
     alertIcon: '',
@@ -28,24 +28,28 @@ export const alertVariants = tv({
     variant: {
       danger: {
         base: 'bg-danger-50 dark:bg-danger-50',
+        description: 'text-foreground',
       },
       default: {
         base: 'bg-default-100 dark:bg-default-50',
+        description: 'text-foreground',
       },
       info: {
         alertIcon: 'fill-current',
         base: 'border-small border-info-200 bg-info-50 text-info-600 dark:border-info-100 dark:bg-info-50',
         closeButton: 'text-info-500 data-[hover]:bg-info-200',
-        description: 'text-inherit',
+        description: 'text-foreground',
         iconWrapper: 'border-info-100 bg-info-50 dark:bg-info-100',
         mainWrapper: 'text-inherit',
         title: 'text-inherit',
       },
       success: {
         base: 'bg-success-50 dark:bg-success-50',
+        description: 'text-foreground',
       },
       warning: {
         base: 'bg-warning-50 dark:bg-warning-50',
+        description: 'text-foreground',
       },
     },
   },
