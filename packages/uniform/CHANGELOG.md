@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.22.1](https://github.com/fuf-stack/pixels/compare/uniform-v1.22.0...uniform-v1.22.1) (2026-06-02)
+
+
+### Bug Fixes
+
+* **deps:** update [@heroui](https://github.com/heroui) monorepo to v2.3.32 ([#1694](https://github.com/fuf-stack/pixels/issues/1694)) ([51651af](https://github.com/fuf-stack/pixels/commit/51651af0bef4087950c3cc1177e480a81d4ab58f))
+* **uniform:** add timezone-stable DatePicker/Time behavior and snapshots ([ab20b20](https://github.com/fuf-stack/pixels/commit/ab20b20f1d51a6c232a065c518452ee0d2faec2c))
+* **uniform:** stabilize examples snapshots for time/date placeholders ([4034f39](https://github.com/fuf-stack/pixels/commit/4034f3942f7d97a5a04aa05841a4eec773630f65))
+
 ## [1.22.0](https://github.com/fuf-stack/pixels/compare/uniform-v1.21.0...uniform-v1.22.0) (2026-06-02)
 
 
