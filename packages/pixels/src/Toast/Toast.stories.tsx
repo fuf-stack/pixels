@@ -1,14 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { useState } from 'react';
 import { FaBell, FaRocket } from 'react-icons/fa';
 
 import { action } from 'storybook/actions';
-import { expect, userEvent, within } from 'storybook/test';
+import { expect, userEvent, waitFor, within } from 'storybook/test';
 
 import { toast, Toaster } from '.';
 import { Button } from '../Button';
-import { Modal } from '../Modal';
+import { modal, ModalHost } from '../Modal';
 
 const meta: Meta = {
   title: 'pixels/Toast',
@@ -18,6 +17,7 @@ const meta: Meta = {
       return (
         <>
           <Toaster />
+          <ModalHost />
           <Story />
         </>
       );
@@ -143,6 +143,18 @@ export const Placement: Story = {
       </div>
     );
   },
+  // Open a toast at every position so the snapshot captures all placements.
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    await positions.reduce(async (previous, position) => {
+      await previous;
+      await userEvent.click(canvas.getByText(position));
+      await expect(
+        canvas.getByText(`Toast at ${position}`),
+      ).toBeInTheDocument();
+    }, Promise.resolve());
+  },
 };
 
 export const AllOptions: Story = {
@@ -162,6 +174,15 @@ export const AllOptions: Story = {
         Show toast
       </Button>
     );
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    await userEvent.click(canvas.getByText('Show toast'));
+    // "Something's Up" is both the title and the message, so match either.
+    await waitFor(() => {
+      expect(canvas.getAllByText("Something's Up").length).toBeGreaterThan(0);
+    });
   },
 };
 
@@ -194,32 +215,32 @@ export const CloseExternal: Story = {
       </div>
     );
   },
+  // Open the toast so the snapshot shows it (it stays open for 60s).
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    await userEvent.click(canvas.getByText('Show toast'));
+    await expect(
+      canvas.getByText('This toast can be closed programmatically'),
+    ).toBeInTheDocument();
+  },
 };
 
-const MoreModal = () => {
-  const [isOpen, setIsOpen] = useState(false);
+const MoreButton = () => {
   return (
-    <>
-      <button
-        className="ml-2 mt-2 whitespace-nowrap rounded border px-2 py-1 text-xs"
-        onClick={() => {
-          setIsOpen(true);
-        }}
-        type="button"
-      >
-        More
-      </button>
-      <Modal
-        header="Alert Details"
-        isOpen={isOpen}
-        onClose={() => {
-          setIsOpen(false);
-        }}
-      >
-        Here are the full details of the alert. This modal provides additional
-        context and information that does not fit in the alert itself.
-      </Modal>
-    </>
+    <button
+      className="ml-2 mt-2 whitespace-nowrap rounded border px-2 py-1 text-xs"
+      onClick={() => {
+        modal.open({
+          header: 'Alert Details',
+          content:
+            'Here are the full details of the alert. This modal provides additional context and information that does not fit in the alert itself.',
+        });
+      }}
+      type="button"
+    >
+      More
+    </button>
   );
 };
 
@@ -228,15 +249,115 @@ export const WithMoreModal: Story = {
     return (
       <Button
         onClick={() => {
-          toast.warn('Something requires your attention.', {
-            title: 'Attention Required',
-            endContent: <MoreModal />,
-          });
+          toast.warn(
+            'Something requires your attention. This toast will close in 5 seconds.',
+            {
+              title: 'Attention Required',
+              endContent: <MoreButton />,
+              duration: 5000,
+            },
+          );
         }}
       >
         Show toast with more
       </Button>
     );
+  },
+  // Open the toast (with its "More" button) so the snapshot captures it.
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    await userEvent.click(canvas.getByText('Show toast with more'));
+    await expect(
+      canvas.getByText(
+        'Something requires your attention. This toast will close in 5 seconds.',
+      ),
+    ).toBeInTheDocument();
+  },
+};
+
+const LONG_CONTENT = `[REQUEST-ERROR-MIDDLEWARE] Field "moep" is not defined by type "Admin_Input".
+
+GraphQLError: Field "moep" is not defined by type "Admin_Input".
+    at coerceInputValueImpl (/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep.js:137:11)
+    at coerceInputValueImpl (/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep.js:49:14)
+    at coerceInputValue (/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep.js:32:10)
+    at coerceVariableValues (/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep.js:132:69)
+    at getVariableValues (/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep.js:45:21)
+    at buildExecutionContext (/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep.js:331:63)
+    at execute (/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep.js:165:22)
+    at handler (/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep.js:335:28)`;
+
+export const WithLongContent: Story = {
+  render: () => {
+    return (
+      <Button
+        onClick={() => {
+          toast.error(
+            <pre className="whitespace-pre-wrap text-xs">{LONG_CONTENT}</pre>,
+            {
+              title: 'Request failed',
+              duration: 60000,
+              closable: true,
+            },
+          );
+        }}
+      >
+        Show toast with long content
+      </Button>
+    );
+  },
+  // Open the toast so the snapshot captures the long content.
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    await userEvent.click(canvas.getByText('Show toast with long content'));
+    await expect(canvas.getByText('Request failed')).toBeInTheDocument();
+  },
+};
+
+export const WithLongContentInModal: Story = {
+  render: () => {
+    return (
+      <Button
+        onClick={() => {
+          toast.error('A request failed. See details for the full error.', {
+            title: 'Request failed',
+            duration: 60000,
+            closable: true,
+            endContent: (
+              <button
+                className="ml-2 mt-2 whitespace-nowrap rounded border px-2 py-1 text-xs"
+                onClick={() => {
+                  modal.open({
+                    header: 'Request failed',
+                    content: (
+                      <pre className="whitespace-pre-wrap text-xs">
+                        {LONG_CONTENT}
+                      </pre>
+                    ),
+                  });
+                }}
+                type="button"
+              >
+                Show details
+              </button>
+            ),
+          });
+        }}
+      >
+        Show toast with details in modal
+      </Button>
+    );
+  },
+  // Open the toast (with its "Show details" button) so the snapshot shows it.
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    await userEvent.click(canvas.getByText('Show toast with details in modal'));
+    await expect(
+      canvas.getByText('A request failed. See details for the full error.'),
+    ).toBeInTheDocument();
   },
 };
 
@@ -264,6 +385,20 @@ export const Closable: Story = {
         </Button>
       </div>
     );
+  },
+  // Open both toasts so the snapshot shows the closable and non-closable ones.
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    await userEvent.click(canvas.getByText('Closable'));
+    await expect(
+      canvas.getByText('This toast can be closed'),
+    ).toBeInTheDocument();
+
+    await userEvent.click(canvas.getByText('Not closable'));
+    await expect(
+      canvas.getByText('This toast cannot be closed'),
+    ).toBeInTheDocument();
   },
 };
 
@@ -313,6 +448,19 @@ export const WithReactNodeMessage: Story = {
       </div>
     );
   },
+  // Open every toast so the snapshot captures the rendered ReactNode messages.
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    await userEvent.click(canvas.getByText('Formatted text'));
+    await expect(canvas.getByText('bold')).toBeInTheDocument();
+
+    await userEvent.click(canvas.getByText('With link'));
+    await expect(canvas.getByText('admin')).toBeInTheDocument();
+
+    await userEvent.click(canvas.getByText('With list'));
+    await expect(canvas.getByText('First item')).toBeInTheDocument();
+  },
 };
 
 export const CustomIcon: Story = {
@@ -339,6 +487,16 @@ export const CustomIcon: Story = {
         </Button>
       </div>
     );
+  },
+  // Open both toasts so the snapshot captures the custom icons.
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    await userEvent.click(canvas.getByText('Custom icon'));
+    await expect(canvas.getByText('Custom icon toast')).toBeInTheDocument();
+
+    await userEvent.click(canvas.getByText('Rocket icon'));
+    await expect(canvas.getByText('Launched!')).toBeInTheDocument();
   },
 };
 
@@ -371,5 +529,12 @@ export const CustomRender: Story = {
         Show custom rendered toast
       </Button>
     );
+  },
+  // Open the toast so the snapshot captures the custom render output.
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    await userEvent.click(canvas.getByText('Show custom rendered toast'));
+    await expect(canvas.getByText('Custom rendered toast')).toBeInTheDocument();
   },
 };

@@ -1,6 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import type { CSSProperties } from 'react';
 
 import { useState } from 'react';
+
+import { expect, userEvent, within } from 'storybook/test';
 
 import { toast, Toaster } from '.';
 import { Button } from '../Button';
@@ -15,7 +18,7 @@ const positions = [
 ] as const;
 
 const meta: Meta<typeof Toaster> = {
-  title: 'pixels/Toaster',
+  title: 'pixels/Toast/Toaster',
   component: Toaster,
 };
 
@@ -51,5 +54,41 @@ const PositionExample = () => {
 export const Position: Story = {
   render: () => {
     return <PositionExample />;
+  },
+  // Trigger a toast so the snapshot captures it at the selected position.
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    await userEvent.click(canvas.getByText('top-center'));
+    await expect(
+      canvas.getByText('Toaster position: top-center'),
+    ).toBeInTheDocument();
+  },
+};
+
+export const CustomWidth: Story = {
+  render: () => {
+    return (
+      <>
+        <Toaster style={{ '--width': '600px' } as CSSProperties} />
+        <Button
+          onClick={() => {
+            toast.info(
+              'All toasts from this Toaster are 600px wide because the Toaster sets --width.',
+              { title: 'Wider toast' },
+            );
+          }}
+        >
+          Show toast
+        </Button>
+      </>
+    );
+  },
+  // Trigger the toast so the snapshot captures it at the custom width.
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    await userEvent.click(canvas.getByText('Show toast'));
+    await expect(canvas.getByText('Wider toast')).toBeInTheDocument();
   },
 };

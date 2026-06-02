@@ -1,5 +1,117 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`Story Snapshots > CustomWidth 1`] = `
+<div>
+  <section
+    aria-atomic="false"
+    aria-label="Notifications alt+T"
+    aria-live="polite"
+    aria-relevant="additions text"
+    tabindex="-1"
+  >
+    <ol
+      data-sonner-theme="light"
+      data-sonner-toaster="true"
+      data-x-position="right"
+      data-y-position="bottom"
+      dir="ltr"
+      style="--front-toast-height: 0px; --width: 600px; --gap: 14px; --offset-top: 24px; --offset-right: 24px; --offset-bottom: 24px; --offset-left: 24px; --mobile-offset-top: 16px; --mobile-offset-right: 16px; --mobile-offset-bottom: 16px; --mobile-offset-left: 16px;"
+      tabindex="-1"
+    />
+    <ol
+      data-sonner-theme="light"
+      data-sonner-toaster="true"
+      data-x-position="center"
+      data-y-position="top"
+      dir="ltr"
+      style="--front-toast-height: 0px; --width: 600px; --gap: 14px; --offset-top: 24px; --offset-right: 24px; --offset-bottom: 24px; --offset-left: 24px; --mobile-offset-top: 16px; --mobile-offset-right: 16px; --mobile-offset-bottom: 16px; --mobile-offset-left: 16px;"
+      tabindex="-1"
+    >
+      <li
+        class="w-[var(--width)]"
+        data-dismissible="true"
+        data-expanded="false"
+        data-front="true"
+        data-index="0"
+        data-mounted="true"
+        data-promise="false"
+        data-removed="false"
+        data-sonner-toast=""
+        data-styled="false"
+        data-swipe-out="false"
+        data-swiped="false"
+        data-swiping="false"
+        data-visible="true"
+        data-x-position="center"
+        data-y-position="top"
+        style="--index: 0; --toasts-before: 0; --z-index: 1; --offset: 0px; --initial-height: 0px;"
+        tabindex="0"
+      >
+        <div
+          class=""
+          data-content=""
+        >
+          <div
+            class=""
+            data-title=""
+          >
+            <div
+              class="flex flex-grow flex-row w-full items-center py-3 px-4 gap-x-1 rounded-medium min-w-72 border-small border-info-200 bg-info-50 text-info-600 dark:border-info-100 dark:bg-info-50"
+              data-has-description="true"
+              data-has-title="true"
+              data-visible="true"
+              role="alert"
+              title="Wider toast"
+            >
+              <div
+                class="flex-none relative w-9 h-9 rounded-full grid place-items-center shadow-small border-1 self-start border-info-100 bg-info-50 dark:bg-info-100"
+              >
+                <svg
+                  class="w-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 fill-current"
+                  fill="none"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M12 22C17.51 22 22 17.51 22 12C22 6.49 17.51 2 12 2C6.49 2 2 6.49 2 12C2 17.51 6.49 22 12 22ZM12.75 16C12.75 16.41 12.41 16.75 12 16.75C11.59 16.75 11.25 16.41 11.25 16L11.25 11C11.25 10.59 11.59 10.25 12 10.25C12.41 10.25 12.75 10.59 12.75 11L12.75 16ZM11.08 7.62C11.13 7.49 11.2 7.39 11.29 7.29C11.39 7.2 11.5 7.13 11.62 7.08C11.74 7.03 11.87 7 12 7C12.13 7 12.26 7.03 12.38 7.08C12.5 7.13 12.61 7.2 12.71 7.29C12.8 7.39 12.87 7.49 12.92 7.62C12.97 7.74 13 7.87 13 8C13 8.13 12.97 8.26 12.92 8.38C12.87 8.5 12.8 8.61 12.71 8.71C12.61 8.8 12.5 8.87 12.38 8.92C12.14 9.02 11.86 9.02 11.62 8.92C11.5 8.87 11.39 8.8 11.29 8.71C11.2 8.61 11.13 8.5 11.08 8.38C11.03 8.26 11 8.13 11 8C11 7.87 11.03 7.74 11.08 7.62Z"
+                  />
+                </svg>
+              </div>
+              <div
+                class="h-full flex-grow min-h-10 ms-2 flex flex-col box-border justify-center items-stretch gap-1.5 text-inherit"
+              >
+                <div
+                  class="text-small w-full font-medium block leading-5 text-inherit"
+                >
+                  Wider toast
+                </div>
+                <div
+                  class="pl-[1px] text-small font-normal text-foreground"
+                >
+                  All toasts from this Toaster are 600px wide because the Toaster sets --width.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ol>
+  </section>
+  <button
+    class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
+    data-focus="true"
+    data-hover="true"
+    data-react-aria-pressable="true"
+    tabindex="0"
+    type="button"
+  >
+    Show toast
+  </button>
+</div>
+`;
+
 exports[`Story Snapshots > Position 1`] = `
 <div>
   <section
@@ -8,7 +120,82 @@ exports[`Story Snapshots > Position 1`] = `
     aria-live="polite"
     aria-relevant="additions text"
     tabindex="-1"
-  />
+  >
+    <ol
+      data-sonner-theme="light"
+      data-sonner-toaster="true"
+      data-x-position="center"
+      data-y-position="top"
+      dir="ltr"
+      style="--front-toast-height: 0px; --width: 356px; --gap: 14px; --offset-top: 24px; --offset-right: 24px; --offset-bottom: 24px; --offset-left: 24px; --mobile-offset-top: 16px; --mobile-offset-right: 16px; --mobile-offset-bottom: 16px; --mobile-offset-left: 16px;"
+      tabindex="-1"
+    >
+      <li
+        class="w-[var(--width)]"
+        data-dismissible="true"
+        data-expanded="false"
+        data-front="true"
+        data-index="0"
+        data-mounted="true"
+        data-promise="false"
+        data-removed="false"
+        data-sonner-toast=""
+        data-styled="false"
+        data-swipe-out="false"
+        data-swiped="false"
+        data-swiping="false"
+        data-visible="true"
+        data-x-position="center"
+        data-y-position="top"
+        style="--index: 0; --toasts-before: 0; --z-index: 1; --offset: 0px; --initial-height: 0px;"
+        tabindex="0"
+      >
+        <div
+          class=""
+          data-content=""
+        >
+          <div
+            class=""
+            data-title=""
+          >
+            <div
+              class="flex flex-grow flex-row w-full py-3 px-4 gap-x-1 rounded-medium items-center min-w-72 border-small border-info-200 bg-info-50 text-info-600 dark:border-info-100 dark:bg-info-50"
+              data-has-title="true"
+              data-visible="true"
+              role="alert"
+              title="Toaster position: top-center"
+            >
+              <div
+                class="flex-none relative w-9 h-9 rounded-full grid place-items-center shadow-small border-1 border-info-100 bg-info-50 dark:bg-info-100"
+              >
+                <svg
+                  class="w-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 fill-current"
+                  fill="none"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M12 22C17.51 22 22 17.51 22 12C22 6.49 17.51 2 12 2C6.49 2 2 6.49 2 12C2 17.51 6.49 22 12 22ZM12.75 16C12.75 16.41 12.41 16.75 12 16.75C11.59 16.75 11.25 16.41 11.25 16L11.25 11C11.25 10.59 11.59 10.25 12 10.25C12.41 10.25 12.75 10.59 12.75 11L12.75 16ZM11.08 7.62C11.13 7.49 11.2 7.39 11.29 7.29C11.39 7.2 11.5 7.13 11.62 7.08C11.74 7.03 11.87 7 12 7C12.13 7 12.26 7.03 12.38 7.08C12.5 7.13 12.61 7.2 12.71 7.29C12.8 7.39 12.87 7.49 12.92 7.62C12.97 7.74 13 7.87 13 8C13 8.13 12.97 8.26 12.92 8.38C12.87 8.5 12.8 8.61 12.71 8.71C12.61 8.8 12.5 8.87 12.38 8.92C12.14 9.02 11.86 9.02 11.62 8.92C11.5 8.87 11.39 8.8 11.29 8.71C11.2 8.61 11.13 8.5 11.08 8.38C11.03 8.26 11 8.13 11 8C11 7.87 11.03 7.74 11.08 7.62Z"
+                  />
+                </svg>
+              </div>
+              <div
+                class="h-full flex-grow min-h-10 ms-2 flex flex-col box-border justify-center items-stretch gap-1.5 text-inherit"
+              >
+                <div
+                  class="text-small w-full font-medium block leading-5 text-inherit"
+                >
+                  Toaster position: top-center
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ol>
+  </section>
   <div
     class="flex flex-wrap gap-2"
   >
@@ -22,6 +209,8 @@ exports[`Story Snapshots > Position 1`] = `
     </button>
     <button
       class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-primary text-primary-foreground data-[hover=true]:opacity-hover"
+      data-focus="true"
+      data-hover="true"
       data-react-aria-pressable="true"
       tabindex="0"
       type="button"
