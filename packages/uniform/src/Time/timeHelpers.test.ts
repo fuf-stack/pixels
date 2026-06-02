@@ -2,7 +2,6 @@ import { describe, expect, it } from 'vitest';
 
 import {
   getLocalTimeZone,
-  now,
   parseAbsolute,
   parseAbsoluteToLocal,
   parseDateTime,
@@ -164,15 +163,15 @@ describe('resolveTimeFieldTimeZone', () => {
 });
 
 describe('getTimeFieldPlaceholderValue', () => {
-  it('returns current time for explicit timezone', () => {
+  it('returns fixed placeholder for explicit timezone', () => {
     expect(getTimeFieldPlaceholderValue('UTC')?.toString()).toBe(
-      now('UTC').toString(),
+      parseZonedDateTime('1970-01-01T00:00:00[UTC]').toString(),
     );
   });
 
-  it('returns current time for local timezone fallback', () => {
+  it('returns fixed placeholder for local timezone fallback', () => {
     expect(getTimeFieldPlaceholderValue()?.toString()).toBe(
-      now(getLocalTimeZone()).toString(),
+      parseZonedDateTime(`1970-01-01T00:00:00[${getLocalTimeZone()}]`).toString(),
     );
   });
 });

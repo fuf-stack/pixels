@@ -3,7 +3,6 @@ import type { ComponentProps } from 'react';
 
 import {
   getLocalTimeZone,
-  now,
   parseAbsolute,
   parseAbsoluteToLocal,
   parseDateTime,
@@ -184,9 +183,16 @@ export const resolveTimeFieldTimeZone = (timeZone?: string): string => {
   return timeZone ?? getLocalTimeZone();
 };
 
-/** Build default placeholder value for TimeInput. */
+/**
+ * Build default placeholder value for TimeInput.
+ *
+ * Uses a fixed reference time to keep snapshots deterministic.
+ */
 export const getTimeFieldPlaceholderValue = (timeZone?: string): TimeValue => {
-  return asTimeValue(now(resolveTimeFieldTimeZone(timeZone)));
+  const resolvedTimeZone = resolveTimeFieldTimeZone(timeZone);
+  return asTimeValue(
+    parseZonedDateTime(`1970-01-01T00:00:00[${resolvedTimeZone}]`),
+  );
 };
 
 /**

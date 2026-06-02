@@ -9,6 +9,7 @@ import { veto } from '@fuf-stack/veto';
 import * as vt from '@fuf-stack/veto';
 
 import { Checkboxes } from '../Checkboxes';
+import { DatePicker } from '../DatePicker';
 import { FieldArray } from '../FieldArray';
 import { FieldCard } from '../FieldCard';
 import { Form } from '../Form';
@@ -23,6 +24,7 @@ import { SubmitButton } from '../SubmitButton';
 import { Switch } from '../Switch';
 import { SwitchBox } from '../SwitchBox';
 import { TextArea } from '../TextArea';
+import { Time } from '../Time';
 
 const meta: Meta<typeof Form> = {
   title: 'uniform/Examples',
@@ -53,6 +55,7 @@ const selectSchema = vt.vEnum(['Value0', 'Value1', 'Value2']);
 
 const validation = veto({
   checkboxField: vt.array(checkboxSchema),
+  dateField: vt.string(),
   fieldArrayField: vt.array(vt.object({ name: vt.string() })),
   fieldArrayFlatField: vt.array(vt.string()),
   numberField: vt.number(),
@@ -87,6 +90,7 @@ const validation = veto({
   switchBoxField: vt.boolean(),
   switchField: vt.boolean(),
   textAreaField: vt.string(),
+  timeField: vt.string(),
 });
 
 const checkboxOptions: {
@@ -137,6 +141,8 @@ export const AllFieldRenderers: Story = {
             options={selectOptions}
           />
           <Input label="Password Field" name="passwordField" type="password" />
+          <DatePicker label="Date Field" name="dateField" />
+          <Time label="Time Field" name="timeField" />
           <TextArea
             className="md:col-span-2"
             label="Text Area"
@@ -216,11 +222,11 @@ export const AllFieldRenderers: Story = {
             }}
           </FieldArray>
           <FieldArray
-            flat
-            lastElementNotRemovable
             appendButtonText="Add Element"
             className="md:col-span-2"
+            flat
             label="Field Array (Flat)"
+            lastElementNotRemovable
             name="fieldArrayFlatField"
           >
             {({ name }) => {
@@ -296,10 +302,10 @@ export const FormFieldsInModal: Story = {
     return (
       <div className="fixed inset-0 flex items-center justify-center bg-black/50">
         <Button
-          testId="modal_trigger"
           onClick={() => {
             setIsOpen(true);
           }}
+          testId="modal_trigger"
         >
           Open Modal
         </Button>
