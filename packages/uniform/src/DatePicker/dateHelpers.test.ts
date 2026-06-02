@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 
 import {
   getLocalTimeZone,
+  now,
   parseAbsolute,
   parseAbsoluteToLocal,
   parseDate,
@@ -9,7 +10,12 @@ import {
   parseZonedDateTime,
 } from '@internationalized/date';
 
-import { dateValueToUtcIsoString, parseDateValue } from './dateHelpers';
+import {
+  dateValueToUtcIsoString,
+  getDatePickerPlaceholderValue,
+  parseDateValue,
+  resolveDatePickerTimeZone,
+} from './dateHelpers';
 
 describe('parseDateValue', () => {
   it('returns null for nullish and empty values', () => {
@@ -102,14 +108,16 @@ describe('dateValueToUtcIsoString', () => {
   });
 
   it('converts ZonedDateTime values to UTC ISO', () => {
-    const value = parseZonedDateTime('2026-05-30T10:15:00[Europe/Berlin]');
+    const value = parseDateValue('2026-05-30T10:15:00[Europe/Berlin]');
     expect(dateValueToUtcIsoString(value, 'America/New_York')).toBe(
-      value.toAbsoluteString(),
+      parseZonedDateTime(
+        '2026-05-30T10:15:00[Europe/Berlin]',
+      ).toAbsoluteString(),
     );
   });
 
   it('converts CalendarDateTime values using provided timezone', () => {
-    const value = parseDateTime('2026-05-30T10:15:00');
+    const value = parseDateValue('2026-05-30T10:15:00');
     expect(dateValueToUtcIsoString(value, 'Europe/Berlin')).toBe(
       parseZonedDateTime(
         '2026-05-30T10:15:00[Europe/Berlin]',
@@ -118,11 +126,45 @@ describe('dateValueToUtcIsoString', () => {
   });
 
   it('converts CalendarDate values using provided timezone midnight', () => {
-    const value = parseDate('2026-05-30');
+    const value = parseDateValue('2026-05-30');
     expect(dateValueToUtcIsoString(value, 'America/New_York')).toBe(
       parseZonedDateTime(
         '2026-05-30T00:00:00[America/New_York]',
       ).toAbsoluteString(),
+    );
+  });
+});
+
+describe('resolveDatePickerTimeZone', () => {
+  it('returns explicit timezone for date-only mode', () => {
+    expect(resolveDatePickerTimeZone(false, 'America/New_York')).toBe(
+      'America/New_York',
+    );
+  });
+
+  it('returns local timezone for time-enabled mode when omitted', () => {
+    expect(resolveDatePickerTimeZone(true)).toBe(getLocalTimeZone());
+  });
+
+  it('returns explicit timezone for time-enabled mode when provided', () => {
+    expect(resolveDatePickerTimeZone(true, 'UTC')).toBe('UTC');
+  });
+});
+
+describe('getDatePickerPlaceholderValue', () => {
+  it('returns undefined for date-only mode', () => {
+    expect(getDatePickerPlaceholderValue(false, 'UTC')).toBeUndefined();
+  });
+
+  it('returns placeholder for explicit timezone in time mode', () => {
+    expect(getDatePickerPlaceholderValue(true, 'UTC')?.toString()).toBe(
+      now('UTC').toString(),
+    );
+  });
+
+  it('returns placeholder using local timezone fallback in time mode', () => {
+    expect(getDatePickerPlaceholderValue(true)?.toString()).toBe(
+      now(getLocalTimeZone()).toString(),
     );
   });
 });

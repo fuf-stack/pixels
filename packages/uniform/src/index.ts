@@ -20,6 +20,7 @@ export * from './SubmitButton';
 export * from './Switch';
 export * from './SwitchBox';
 export * from './TextArea';
+export * from './Time';
 
 // hooks
 export * from './hooks/useClientValidation/useClientValidation';

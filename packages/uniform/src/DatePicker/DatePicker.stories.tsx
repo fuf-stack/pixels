@@ -170,3 +170,26 @@ export const WithCustomTimeZone: Story = {
     withTime: true,
   },
 };
+
+export const TwelveHourCycle: Story = {
+  args: {
+    hourCycle: 12,
+    label: 'Date & Time (12-hour cycle)',
+    name: 'dateTimeField',
+    withTime: true,
+  },
+};
+
+export const WithUtcTimeZone: Story = {
+  parameters: {
+    formProps: {
+      initialValues: { dateTimeField: '2026-05-30T10:15:00.000Z' },
+    },
+  },
+  args: {
+    label: 'Date & Time (UTC)',
+    name: 'dateTimeField',
+    timeZone: 'UTC',
+    withTime: true,
+  },
+};

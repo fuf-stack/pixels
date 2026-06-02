@@ -19,6 +19,11 @@ export const datePickerVariants = tv({
   slots: {
     /** wrapper around the whole date picker */
     base: '',
+    /** helper wrapper for error/description */
+    helperWrapper: [
+      // set padding to 0 for error message exit animation
+      'p-0',
+    ],
     /** the calendar element */
     calendar: '',
     /** the calendar's content element */
@@ -54,6 +59,12 @@ export interface DatePickerProps extends VariantProps {
   className?: ClassName;
   /** date picker is disabled */
   disabled?: boolean;
+  /**
+   * Optional hour cycle override.
+   *
+   * When omitted, the picker uses the user's locale default (12-hour or 24-hour).
+   */
+  hourCycle?: 12 | 24;
   /** hide timezone abbreviation for zoned values */
   hideTimeZone?: boolean;
   /** form field label */
@@ -89,6 +100,7 @@ export interface DatePickerProps extends VariantProps {
  */
 const DatePicker = ({
   className: _className = undefined,
+  hourCycle = 24,
   hideTimeZone = false,
   maxValue = undefined,
   minValue = undefined,
@@ -161,8 +173,7 @@ const DatePicker = ({
         base: classNames.base,
         calendar: classNames.calendar,
         calendarContent: classNames.calendarContent,
-        // set padding to 0 for error message exit animation
-        helperWrapper: 'p-0',
+        helperWrapper: classNames.helperWrapper,
         inputWrapper: classNames.inputWrapper,
         popoverContent: classNames.popoverContent,
         selectorButton: classNames.selectorButton,
@@ -174,7 +185,7 @@ const DatePicker = ({
       errorMessage={errorMessage}
       granularity={withTime ? 'minute' : 'day'}
       hideTimeZone={hideTimeZone}
-      hourCycle={24}
+      hourCycle={hourCycle}
       id={testId}
       isDisabled={disabled}
       isInvalid={invalid}
