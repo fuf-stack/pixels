@@ -2,6 +2,7 @@
 
 // components
 export * from './Checkboxes';
+export * from './DatePicker';
 export * from './FieldArray';
 export * from './FieldCard';
 export * from './Form';
