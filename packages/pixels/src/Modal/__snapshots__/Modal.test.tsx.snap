@@ -227,7 +227,9 @@ exports[`Story Snapshots > CustomStyles 1`] = `
 exports[`Story Snapshots > Default 1`] = `
 <div>
   <button
+    aria-hidden="true"
     class="group tap-highlight-transparent transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] !transition-none data-[pressed=true]:scale-100 bg-default text-default-foreground data-[hover=true]:opacity-hover"
+    data-hover="true"
     data-react-aria-pressable="true"
     data-testid="modal_trigger"
     tabindex="0"
@@ -235,6 +237,440 @@ exports[`Story Snapshots > Default 1`] = `
   >
     Open Modal
   </button>
+  <span
+    aria-hidden="true"
+    data-focus-scope-start="true"
+    hidden=""
+  />
+  <div
+    tabindex="-1"
+  >
+    <div
+      aria-hidden="true"
+      class="z-50 bg-overlay/50 backdrop-opacity-disabled w-screen h-screen fixed inset-0"
+    />
+    <div
+      class="flex w-screen fixed inset-0 z-50 overflow-x-auto justify-center h-(--visual-viewport-height) items-center sm:items-center"
+      data-slot="wrapper"
+      style="--visual-viewport-height: 768px;"
+    >
+      <section
+        aria-describedby="«replaced-aria-id»"
+        aria-modal="true"
+        class="flex flex-col relative z-50 w-full box-border bg-content1 outline-solid outline-transparent mx-1 my-1 sm:mx-6 sm:my-16 rounded-large shadow-small max-h-[calc(100%_-_8rem)] max-w-md"
+        data-dismissable="true"
+        data-open="true"
+        data-placement="center"
+        data-testid="modal"
+        id="«replaced-aria-id»"
+        role="dialog"
+        tabindex="-1"
+      >
+        <div
+          style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+        >
+          <button
+            aria-label="Dismiss"
+            id="react-aria-«replaced-aria-id»"
+            style="width: 1px; height: 1px;"
+            tabindex="-1"
+          />
+        </div>
+        <button
+          aria-label="Close"
+          class="absolute appearance-none select-none top-1 end-1 p-2 text-foreground-500 rounded-full hover:bg-default-100 active:bg-default-200 tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2"
+          data-react-aria-pressable="true"
+          role="button"
+          tabindex="0"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            class="fill-current"
+            fill="none"
+            focusable="false"
+            height="1em"
+            role="presentation"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="1em"
+          >
+            <path
+              d="M18 6L6 18M6 6l12 12"
+            />
+          </svg>
+        </button>
+        <div
+          class="flex flex-1 flex-col gap-3 px-6 overflow-y-auto py-4"
+          id="modal_body"
+        >
+          Modal Content
+        </div>
+        <div
+          style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+        >
+          <button
+            aria-label="Dismiss"
+            id="react-aria-«replaced-aria-id»"
+            style="width: 1px; height: 1px;"
+            tabindex="-1"
+          />
+        </div>
+      </section>
+    </div>
+  </div>
+  <span
+    aria-hidden="true"
+    data-focus-scope-end="true"
+    hidden=""
+  />
+</div>
+`;
+
+exports[`Story Snapshots > MultipleModalsInHost 1`] = `
+<div>
+  <button
+    aria-hidden="true"
+    class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
+    data-react-aria-pressable="true"
+    tabindex="0"
+    type="button"
+  >
+    Open all modals
+  </button>
+  <span
+    aria-hidden="true"
+    data-focus-scope-start="true"
+    hidden=""
+  />
+  <div
+    aria-hidden="true"
+    tabindex="-1"
+  >
+    <div
+      aria-hidden="true"
+      class="z-50 bg-overlay/50 backdrop-opacity-disabled w-screen h-screen fixed inset-0"
+    />
+    <div
+      class="flex w-screen fixed inset-0 z-50 overflow-x-auto justify-center h-(--visual-viewport-height) items-center sm:items-center"
+      data-slot="wrapper"
+      style="--visual-viewport-height: 768px;"
+    >
+      <section
+        aria-describedby="«replaced-aria-id»"
+        aria-labelledby="«replaced-aria-id»"
+        aria-modal="true"
+        class="flex flex-col relative z-50 w-full box-border bg-content1 outline-solid outline-transparent mx-1 my-1 sm:mx-6 sm:my-16 rounded-large shadow-small max-h-[calc(100%_-_8rem)] max-w-md"
+        data-dismissable="true"
+        data-open="true"
+        data-placement="center"
+        data-testid="modal"
+        id="«replaced-aria-id»"
+        role="dialog"
+        tabindex="-1"
+      >
+        <div
+          style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+        >
+          <button
+            aria-label="Dismiss"
+            id="react-aria-«replaced-aria-id»"
+            style="width: 1px; height: 1px;"
+            tabindex="-1"
+          />
+        </div>
+        <button
+          aria-label="Close"
+          class="absolute appearance-none select-none top-1 end-1 p-2 text-foreground-500 rounded-full hover:bg-default-100 active:bg-default-200 tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2"
+          data-react-aria-pressable="true"
+          role="button"
+          tabindex="0"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            class="fill-current"
+            fill="none"
+            focusable="false"
+            height="1em"
+            role="presentation"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="1em"
+          >
+            <path
+              d="M18 6L6 18M6 6l12 12"
+            />
+          </svg>
+        </button>
+        <header
+          class="flex py-4 px-6 flex-initial text-large font-semibold border-b border-b-divider"
+          id="«replaced-aria-id»"
+        >
+          First modal
+        </header>
+        <div
+          class="flex flex-1 flex-col gap-3 px-6 overflow-y-auto py-4"
+          id="modal_body"
+        >
+          This is the first modal. Another one will open on top.
+        </div>
+        <footer
+          class="flex flex-row gap-2 px-6 py-4 justify-end border-t border-t-divider"
+        >
+          <button
+            class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
+            data-react-aria-pressable="true"
+            tabindex="0"
+            type="button"
+          >
+            Close all
+          </button>
+        </footer>
+        <div
+          style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+        >
+          <button
+            aria-label="Dismiss"
+            id="react-aria-«replaced-aria-id»"
+            style="width: 1px; height: 1px;"
+            tabindex="-1"
+          />
+        </div>
+      </section>
+    </div>
+  </div>
+  <span
+    aria-hidden="true"
+    data-focus-scope-end="true"
+    hidden=""
+  />
+  <span
+    aria-hidden="true"
+    data-focus-scope-start="true"
+    hidden=""
+  />
+  <div
+    aria-hidden="true"
+    tabindex="-1"
+  >
+    <div
+      aria-hidden="true"
+      class="z-50 bg-overlay/50 backdrop-opacity-disabled w-screen h-screen fixed inset-0"
+    />
+    <div
+      class="flex w-screen fixed inset-0 z-50 overflow-x-auto justify-center h-(--visual-viewport-height) items-center sm:items-center"
+      data-slot="wrapper"
+      style="--visual-viewport-height: 768px;"
+    >
+      <section
+        aria-describedby="«replaced-aria-id»"
+        aria-labelledby="«replaced-aria-id»"
+        aria-modal="true"
+        class="flex flex-col relative z-50 w-full box-border bg-content1 outline-solid outline-transparent mx-1 my-1 sm:mx-6 sm:my-16 rounded-large shadow-small max-h-[calc(100%_-_8rem)] max-w-md"
+        data-dismissable="true"
+        data-open="true"
+        data-placement="center"
+        data-testid="modal"
+        id="«replaced-aria-id»"
+        role="dialog"
+        tabindex="-1"
+      >
+        <div
+          style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+        >
+          <button
+            aria-label="Dismiss"
+            id="react-aria-«replaced-aria-id»"
+            style="width: 1px; height: 1px;"
+            tabindex="-1"
+          />
+        </div>
+        <button
+          aria-label="Close"
+          class="absolute appearance-none select-none top-1 end-1 p-2 text-foreground-500 rounded-full hover:bg-default-100 active:bg-default-200 tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2"
+          data-react-aria-pressable="true"
+          role="button"
+          tabindex="0"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            class="fill-current"
+            fill="none"
+            focusable="false"
+            height="1em"
+            role="presentation"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="1em"
+          >
+            <path
+              d="M18 6L6 18M6 6l12 12"
+            />
+          </svg>
+        </button>
+        <header
+          class="flex py-4 px-6 flex-initial text-large font-semibold border-b border-b-divider"
+          id="«replaced-aria-id»"
+        >
+          Second modal
+        </header>
+        <div
+          class="flex flex-1 flex-col gap-3 px-6 overflow-y-auto py-4"
+          id="modal_body"
+        >
+          This is the second modal, stacked above the first.
+        </div>
+        <footer
+          class="flex flex-row gap-2 px-6 py-4 justify-end border-t border-t-divider"
+        >
+          <button
+            class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
+            data-react-aria-pressable="true"
+            tabindex="0"
+            type="button"
+          >
+            Close all
+          </button>
+        </footer>
+        <div
+          style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+        >
+          <button
+            aria-label="Dismiss"
+            id="react-aria-«replaced-aria-id»"
+            style="width: 1px; height: 1px;"
+            tabindex="-1"
+          />
+        </div>
+      </section>
+    </div>
+  </div>
+  <span
+    aria-hidden="true"
+    data-focus-scope-end="true"
+    hidden=""
+  />
+  <span
+    aria-hidden="true"
+    data-focus-scope-start="true"
+    hidden=""
+  />
+  <div
+    aria-hidden="true"
+    tabindex="-1"
+  >
+    <div
+      aria-hidden="true"
+      class="z-50 bg-overlay/50 backdrop-opacity-disabled w-screen h-screen fixed inset-0"
+    />
+    <div
+      class="flex w-screen fixed inset-0 z-50 overflow-x-auto justify-center h-(--visual-viewport-height) items-center sm:items-center"
+      data-slot="wrapper"
+      style="--visual-viewport-height: 768px;"
+    >
+      <section
+        aria-describedby="«replaced-aria-id»"
+        aria-labelledby="«replaced-aria-id»"
+        aria-modal="true"
+        class="flex flex-col relative z-50 w-full box-border bg-content1 outline-solid outline-transparent mx-1 my-1 sm:mx-6 sm:my-16 rounded-large shadow-small max-h-[calc(100%_-_8rem)] max-w-sm"
+        data-dismissable="true"
+        data-open="true"
+        data-placement="center"
+        data-testid="modal"
+        id="«replaced-aria-id»"
+        role="dialog"
+        tabindex="-1"
+      >
+        <div
+          style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+        >
+          <button
+            aria-label="Dismiss"
+            id="react-aria-«replaced-aria-id»"
+            style="width: 1px; height: 1px;"
+            tabindex="-1"
+          />
+        </div>
+        <button
+          aria-label="Close"
+          class="absolute appearance-none select-none top-1 end-1 p-2 text-foreground-500 rounded-full hover:bg-default-100 active:bg-default-200 tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2"
+          data-react-aria-pressable="true"
+          role="button"
+          tabindex="0"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            class="fill-current"
+            fill="none"
+            focusable="false"
+            height="1em"
+            role="presentation"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="1em"
+          >
+            <path
+              d="M18 6L6 18M6 6l12 12"
+            />
+          </svg>
+        </button>
+        <header
+          class="flex py-4 px-6 flex-initial text-large font-semibold border-b border-b-divider"
+          id="«replaced-aria-id»"
+        >
+          Third modal
+        </header>
+        <div
+          class="flex flex-1 flex-col gap-3 px-6 overflow-y-auto py-4"
+          id="modal_body"
+        >
+          Smaller modal on top of the stack.
+        </div>
+        <footer
+          class="flex flex-row gap-2 px-6 py-4 justify-end border-t border-t-divider"
+        >
+          <button
+            class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
+            data-react-aria-pressable="true"
+            tabindex="0"
+            type="button"
+          >
+            Close all
+          </button>
+        </footer>
+        <div
+          style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+        >
+          <button
+            aria-label="Dismiss"
+            id="react-aria-«replaced-aria-id»"
+            style="width: 1px; height: 1px;"
+            tabindex="-1"
+          />
+        </div>
+      </section>
+    </div>
+  </div>
+  <span
+    aria-hidden="true"
+    data-focus-scope-end="true"
+    hidden=""
+  />
 </div>
 `;
 
@@ -446,7 +882,9 @@ exports[`Story Snapshots > ScrollLongContent 1`] = `
 exports[`Story Snapshots > WithHeader 1`] = `
 <div>
   <button
+    aria-hidden="true"
     class="group tap-highlight-transparent transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] !transition-none data-[pressed=true]:scale-100 bg-default text-default-foreground data-[hover=true]:opacity-hover"
+    data-hover="true"
     data-react-aria-pressable="true"
     data-testid="modal_trigger"
     tabindex="0"
@@ -454,13 +892,114 @@ exports[`Story Snapshots > WithHeader 1`] = `
   >
     Open Modal
   </button>
+  <span
+    aria-hidden="true"
+    data-focus-scope-start="true"
+    hidden=""
+  />
+  <div
+    tabindex="-1"
+  >
+    <div
+      aria-hidden="true"
+      class="z-50 bg-overlay/50 backdrop-opacity-disabled w-screen h-screen fixed inset-0"
+    />
+    <div
+      class="flex w-screen fixed inset-0 z-50 overflow-x-auto justify-center h-(--visual-viewport-height) items-center sm:items-center"
+      data-slot="wrapper"
+      style="--visual-viewport-height: 768px;"
+    >
+      <section
+        aria-describedby="«replaced-aria-id»"
+        aria-labelledby="«replaced-aria-id»"
+        aria-modal="true"
+        class="flex flex-col relative z-50 w-full box-border bg-content1 outline-solid outline-transparent mx-1 my-1 sm:mx-6 sm:my-16 rounded-large shadow-small max-h-[calc(100%_-_8rem)] max-w-md"
+        data-dismissable="true"
+        data-open="true"
+        data-placement="center"
+        data-testid="modal"
+        id="«replaced-aria-id»"
+        role="dialog"
+        tabindex="-1"
+      >
+        <div
+          style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+        >
+          <button
+            aria-label="Dismiss"
+            id="react-aria-«replaced-aria-id»"
+            style="width: 1px; height: 1px;"
+            tabindex="-1"
+          />
+        </div>
+        <button
+          aria-label="Close"
+          class="absolute appearance-none select-none top-1 end-1 p-2 text-foreground-500 rounded-full hover:bg-default-100 active:bg-default-200 tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2"
+          data-react-aria-pressable="true"
+          role="button"
+          tabindex="0"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            class="fill-current"
+            fill="none"
+            focusable="false"
+            height="1em"
+            role="presentation"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="1em"
+          >
+            <path
+              d="M18 6L6 18M6 6l12 12"
+            />
+          </svg>
+        </button>
+        <header
+          class="flex py-4 px-6 flex-initial text-large font-semibold border-b border-b-divider"
+          id="«replaced-aria-id»"
+        >
+          Modal Header
+        </header>
+        <div
+          class="flex flex-1 flex-col gap-3 px-6 overflow-y-auto py-4"
+          id="modal_body"
+        >
+          <p>
+            It was a dark and stormy night in the React development world when a seemingly innocent modal began displaying an endless stream of content, trapping users in an infinite scroll through the epic adventures of a coding cat named Whiskers and a pixelated dragon named Codezilla. What started as a simple welcome message evolved into a sentient, humor-filled narrative that collected user data, sparked privacy scandals, inspired global fan communities, and became a cultural phenomenon complete with hackathons, merchandise, and even feature films. As the modal gained consciousness and began generating its own content while responding to user feedback and incorporating social commentary, it became both a symbol of user-centric design and a cautionary tale about the unpredictable nature of interactive web components. Despite security breaches and endless debates about its fate, the modal's legacy lived on when "The Rebuilders" created a new, improved version that retained the best aspects of the original while addressing its shortcomings, ultimately transforming a chaotic coding nightmare into a legendary example of innovation through adversity in the tech world.
+          </p>
+        </div>
+        <div
+          style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+        >
+          <button
+            aria-label="Dismiss"
+            id="react-aria-«replaced-aria-id»"
+            style="width: 1px; height: 1px;"
+            tabindex="-1"
+          />
+        </div>
+      </section>
+    </div>
+  </div>
+  <span
+    aria-hidden="true"
+    data-focus-scope-end="true"
+    hidden=""
+  />
 </div>
 `;
 
 exports[`Story Snapshots > WithHeaderAndFooter 1`] = `
 <div>
   <button
+    aria-hidden="true"
     class="group tap-highlight-transparent transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] !transition-none data-[pressed=true]:scale-100 bg-default text-default-foreground data-[hover=true]:opacity-hover"
+    data-hover="true"
     data-react-aria-pressable="true"
     data-testid="modal_trigger"
     tabindex="0"
@@ -468,6 +1007,231 @@ exports[`Story Snapshots > WithHeaderAndFooter 1`] = `
   >
     Open Modal
   </button>
+  <span
+    aria-hidden="true"
+    data-focus-scope-start="true"
+    hidden=""
+  />
+  <div
+    tabindex="-1"
+  >
+    <div
+      aria-hidden="true"
+      class="z-50 bg-overlay/50 backdrop-opacity-disabled w-screen h-screen fixed inset-0"
+    />
+    <div
+      class="flex w-screen fixed inset-0 z-50 overflow-x-auto justify-center h-(--visual-viewport-height) items-center sm:items-center"
+      data-slot="wrapper"
+      style="--visual-viewport-height: 768px;"
+    >
+      <section
+        aria-describedby="«replaced-aria-id»"
+        aria-labelledby="«replaced-aria-id»"
+        aria-modal="true"
+        class="flex flex-col relative z-50 w-full box-border bg-content1 outline-solid outline-transparent mx-1 my-1 sm:mx-6 sm:my-16 rounded-large shadow-small max-h-[calc(100%_-_8rem)] max-w-md"
+        data-dismissable="true"
+        data-open="true"
+        data-placement="center"
+        data-testid="modal"
+        id="«replaced-aria-id»"
+        role="dialog"
+        tabindex="-1"
+      >
+        <div
+          style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+        >
+          <button
+            aria-label="Dismiss"
+            id="react-aria-«replaced-aria-id»"
+            style="width: 1px; height: 1px;"
+            tabindex="-1"
+          />
+        </div>
+        <button
+          aria-label="Close"
+          class="absolute appearance-none select-none top-1 end-1 p-2 text-foreground-500 rounded-full hover:bg-default-100 active:bg-default-200 tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2"
+          data-react-aria-pressable="true"
+          role="button"
+          tabindex="0"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            class="fill-current"
+            fill="none"
+            focusable="false"
+            height="1em"
+            role="presentation"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="1em"
+          >
+            <path
+              d="M18 6L6 18M6 6l12 12"
+            />
+          </svg>
+        </button>
+        <header
+          class="flex py-4 px-6 flex-initial text-large font-semibold border-b border-b-divider"
+          id="«replaced-aria-id»"
+        >
+          Modal Header
+        </header>
+        <div
+          class="flex flex-1 flex-col gap-3 px-6 overflow-y-auto py-4"
+          id="modal_body"
+        >
+          <p>
+            It was a dark and stormy night in the React development world when a seemingly innocent modal began displaying an endless stream of content, trapping users in an infinite scroll through the epic adventures of a coding cat named Whiskers and a pixelated dragon named Codezilla. What started as a simple welcome message evolved into a sentient, humor-filled narrative that collected user data, sparked privacy scandals, inspired global fan communities, and became a cultural phenomenon complete with hackathons, merchandise, and even feature films. As the modal gained consciousness and began generating its own content while responding to user feedback and incorporating social commentary, it became both a symbol of user-centric design and a cautionary tale about the unpredictable nature of interactive web components. Despite security breaches and endless debates about its fate, the modal's legacy lived on when "The Rebuilders" created a new, improved version that retained the best aspects of the original while addressing its shortcomings, ultimately transforming a chaotic coding nightmare into a legendary example of innovation through adversity in the tech world.
+          </p>
+        </div>
+        <footer
+          class="flex flex-row gap-2 px-6 py-4 justify-end border-t border-t-divider"
+        >
+          <button
+            class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
+            data-react-aria-pressable="true"
+            tabindex="0"
+            type="button"
+          >
+            Some Action
+          </button>
+        </footer>
+        <div
+          style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+        >
+          <button
+            aria-label="Dismiss"
+            id="react-aria-«replaced-aria-id»"
+            style="width: 1px; height: 1px;"
+            tabindex="-1"
+          />
+        </div>
+      </section>
+    </div>
+  </div>
+  <span
+    aria-hidden="true"
+    data-focus-scope-end="true"
+    hidden=""
+  />
+</div>
+`;
+
+exports[`Story Snapshots > WithModalHost 1`] = `
+<div>
+  <button
+    aria-hidden="true"
+    class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
+    data-hover="true"
+    data-react-aria-pressable="true"
+    tabindex="0"
+    type="button"
+  >
+    Open via host
+  </button>
+  <span
+    aria-hidden="true"
+    data-focus-scope-start="true"
+    hidden=""
+  />
+  <div
+    tabindex="-1"
+  >
+    <div
+      aria-hidden="true"
+      class="z-50 bg-overlay/50 backdrop-opacity-disabled w-screen h-screen fixed inset-0"
+    />
+    <div
+      class="flex w-screen fixed inset-0 z-50 overflow-x-auto justify-center h-(--visual-viewport-height) items-center sm:items-center"
+      data-slot="wrapper"
+      style="--visual-viewport-height: 768px;"
+    >
+      <section
+        aria-describedby="«replaced-aria-id»"
+        aria-labelledby="«replaced-aria-id»"
+        aria-modal="true"
+        class="flex flex-col relative z-50 w-full box-border bg-content1 outline-solid outline-transparent mx-1 my-1 sm:mx-6 sm:my-16 rounded-large shadow-small max-h-[calc(100%_-_8rem)] max-w-md"
+        data-dismissable="true"
+        data-open="true"
+        data-placement="center"
+        data-testid="modal"
+        id="«replaced-aria-id»"
+        role="dialog"
+        tabindex="-1"
+      >
+        <div
+          style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+        >
+          <button
+            aria-label="Dismiss"
+            id="react-aria-«replaced-aria-id»"
+            style="width: 1px; height: 1px;"
+            tabindex="-1"
+          />
+        </div>
+        <button
+          aria-label="Close"
+          class="absolute appearance-none select-none top-1 end-1 p-2 text-foreground-500 rounded-full hover:bg-default-100 active:bg-default-200 tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2"
+          data-react-aria-pressable="true"
+          role="button"
+          tabindex="0"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            class="fill-current"
+            fill="none"
+            focusable="false"
+            height="1em"
+            role="presentation"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="1em"
+          >
+            <path
+              d="M18 6L6 18M6 6l12 12"
+            />
+          </svg>
+        </button>
+        <header
+          class="flex py-4 px-6 flex-initial text-large font-semibold border-b border-b-divider"
+          id="«replaced-aria-id»"
+        >
+          Opened via modal.open()
+        </header>
+        <div
+          class="flex flex-1 flex-col gap-3 px-6 overflow-y-auto py-4"
+          id="modal_body"
+        >
+          <p>
+            It was a dark and stormy night in the React development world when a seemingly innocent modal began displaying an endless stream of content, trapping users in an infinite scroll through the epic adventures of a coding cat named Whiskers and a pixelated dragon named Codezilla. What started as a simple welcome message evolved into a sentient, humor-filled narrative that collected user data, sparked privacy scandals, inspired global fan communities, and became a cultural phenomenon complete with hackathons, merchandise, and even feature films. As the modal gained consciousness and began generating its own content while responding to user feedback and incorporating social commentary, it became both a symbol of user-centric design and a cautionary tale about the unpredictable nature of interactive web components. Despite security breaches and endless debates about its fate, the modal's legacy lived on when "The Rebuilders" created a new, improved version that retained the best aspects of the original while addressing its shortcomings, ultimately transforming a chaotic coding nightmare into a legendary example of innovation through adversity in the tech world.
+          </p>
+        </div>
+        <div
+          style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+        >
+          <button
+            aria-label="Dismiss"
+            id="react-aria-«replaced-aria-id»"
+            style="width: 1px; height: 1px;"
+            tabindex="-1"
+          />
+        </div>
+      </section>
+    </div>
+  </div>
+  <span
+    aria-hidden="true"
+    data-focus-scope-end="true"
+    hidden=""
+  />
 </div>
 `;
 

@@ -9,6 +9,8 @@ import { expect, userEvent, waitFor, within } from 'storybook/test';
 import { Button } from '../Button';
 import { ScrollShadow } from '../ScrollShadow';
 import Modal, { modalVariants } from './Modal';
+import ModalHost from './ModalHost';
+import { modal } from './modalStore';
 import { longContent, shortContent } from './storyData';
 
 const meta: Meta<typeof Modal> = {
@@ -25,6 +27,21 @@ const meta: Meta<typeof Modal> = {
 export default meta;
 type Story = StoryObj<ModalProps>;
 
+const isTestEnv = process.env.NODE_ENV === 'test';
+
+// Click the trigger and wait until the modal is visible, so the snapshot
+// captures the opened modal instead of just the trigger button.
+const playOpenModal: Story['play'] = async ({ canvasElement }) => {
+  const canvas = within(canvasElement);
+
+  const trigger = canvas.getByTestId('modal_trigger');
+  await userEvent.click(trigger);
+
+  await waitFor(() => {
+    expect(canvas.getByTestId('modal')).toBeVisible();
+  });
+};
+
 const Template: Story['render'] = (args, { canvasElement }) => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -34,8 +51,6 @@ const Template: Story['render'] = (args, { canvasElement }) => {
   const onClose = () => {
     setIsOpen(false);
   };
-
-  const isTestEnv = process.env.NODE_ENV === 'test';
 
   return (
     <>
@@ -65,6 +80,7 @@ export const Default: Story = {
     children: 'Modal Content',
   },
   render: Template,
+  play: playOpenModal,
 };
 
 export const WithHeader: Story = {
@@ -73,6 +89,7 @@ export const WithHeader: Story = {
     children: shortContent,
   },
   render: Template,
+  play: playOpenModal,
 };
 
 export const WithHeaderAndFooter: Story = {
@@ -82,20 +99,7 @@ export const WithHeaderAndFooter: Story = {
     footer: <Button>Some Action</Button>,
   },
   render: Template,
-};
-
-const playOpenModal: Story['play'] = async ({ canvasElement }) => {
-  const canvas = within(canvasElement);
-
-  // Find and click the trigger button
-  const trigger = await canvas.getByTestId('modal_trigger');
-  await userEvent.click(trigger);
-
-  // Wait for modal to be visible
-  await waitFor(() => {
-    const modal = canvas.getByTestId('modal');
-    expect(modal).toBeVisible();
-  });
+  play: playOpenModal,
 };
 
 export const ScrollLongContent: Story = {
@@ -196,5 +200,94 @@ export const AllSizes: Story = {
         disable: true,
       },
     },
+  },
+};
+
+export const WithModalHost: Story = {
+  render: (_args, { canvasElement }) => {
+    return (
+      <>
+        <ModalHost />
+        <Button
+          onClick={() => {
+            modal.open({
+              content: shortContent,
+              header: 'Opened via modal.open()',
+              portalContainer: canvasElement,
+              disableAnimation: isTestEnv,
+            });
+          }}
+        >
+          Open via host
+        </Button>
+      </>
+    );
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    await userEvent.click(canvas.getByText('Open via host'));
+    await waitFor(() => {
+      expect(canvas.getByText('Opened via modal.open()')).toBeInTheDocument();
+    });
+  },
+};
+
+const CloseAllButton = () => {
+  return (
+    <Button
+      onClick={() => {
+        modal.closeAll();
+      }}
+    >
+      Close all
+    </Button>
+  );
+};
+
+const openThreeModals = (portalContainer: HTMLElement) => {
+  modal.open({
+    content: 'This is the first modal. Another one will open on top.',
+    footer: <CloseAllButton />,
+    header: 'First modal',
+    portalContainer,
+    disableAnimation: isTestEnv,
+  });
+  modal.open({
+    content: 'This is the second modal, stacked above the first.',
+    footer: <CloseAllButton />,
+    header: 'Second modal',
+    portalContainer,
+    disableAnimation: isTestEnv,
+  });
+  modal.open({
+    content: 'Smaller modal on top of the stack.',
+    footer: <CloseAllButton />,
+    header: 'Third modal',
+    portalContainer,
+    size: 'sm',
+    disableAnimation: isTestEnv,
+  });
+};
+
+export const MultipleModalsInHost: Story = {
+  render: (_args, { canvasElement }) => {
+    return (
+      <>
+        <ModalHost />
+        <Button
+          onClick={() => {
+            openThreeModals(canvasElement);
+          }}
+        >
+          Open all modals
+        </Button>
+      </>
+    );
+  },
+  play: async ({ canvasElement }) => {
+    // Backdrop of an opened modal blocks pointer events, so trigger
+    // the imperative API directly instead of clicking through buttons.
+    openThreeModals(canvasElement);
   },
 };

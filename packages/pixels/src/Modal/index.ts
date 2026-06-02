@@ -1,7 +1,11 @@
-import Modal, { modalVariants } from './Modal';
+import Modal from './Modal';
 
 export type { ModalProps } from './Modal';
+export type { ModalEntry, ModalOpenOptions } from './modalStore';
 
-export { Modal, modalVariants };
+export { default as ModalHost } from './ModalHost';
+export { modal } from './modalStore';
+export { modalVariants } from './Modal';
+export { Modal };
 
 export default Modal;
