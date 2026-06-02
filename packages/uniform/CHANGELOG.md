@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.22.0](https://github.com/fuf-stack/pixels/compare/uniform-v1.21.0...uniform-v1.22.0) (2026-06-02)
+
+
+### Features
+
+* **uniform:** add DatePicker ([e80b5a6](https://github.com/fuf-stack/pixels/commit/e80b5a643e126f049e1f362b669ca308939efabb))
+* **uniform:** add Time ([a40c722](https://github.com/fuf-stack/pixels/commit/a40c722beea81046846f803fbebbfd998ff325db))
+
 ## [1.21.0](https://github.com/fuf-stack/pixels/compare/uniform-v1.20.18...uniform-v1.21.0) (2026-06-02)
 
 
