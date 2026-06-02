@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.21.0](https://github.com/fuf-stack/pixels/compare/uniform-v1.20.18...uniform-v1.21.0) (2026-06-02)
+
+
+### Features
+
+* **uniform:** add customizable empty options rendering for Select ([aae0d25](https://github.com/fuf-stack/pixels/commit/aae0d2553f39caa0603fd7cb4bec7da7dbe64813))
+
 ## [1.20.18](https://github.com/fuf-stack/pixels/compare/uniform-v1.20.17...uniform-v1.20.18) (2026-06-01)
 
 
