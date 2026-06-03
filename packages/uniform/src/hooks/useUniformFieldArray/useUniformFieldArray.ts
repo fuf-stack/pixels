@@ -144,19 +144,17 @@ export const useUniformFieldArray = <
   // Why this exists:
   // RHF can keep stale field-array rows after reset when array defaults are
   // missing (e.g. value becomes undefined or [null, null] while UI still has
-  // multiple rows). For lastElementNotRemovable arrays we normalize that state
-  // back to exactly one empty row.
+  // multiple rows). We normalize this reset-only state to:
+  // - one row when lastElementNotRemovable is enabled
+  // - zero rows otherwise
   useWatchFormReset({
     onReset: () => {
-      // This normalization is only relevant for min-one arrays.
-      if (!lastElementNotRemovable) {
-        return;
-      }
-
       const currentValue = getValues(name as Path<TFieldValues>) as unknown;
       const valueIsArray = Array.isArray(currentValue);
       const arrayValue = valueIsArray ? (currentValue as unknown[]) : [];
-      const hasSingleRow = valueIsArray && arrayValue.length === 1;
+      const normalizedLength = lastElementNotRemovable ? 1 : 0;
+      const alreadyNormalized =
+        valueIsArray && arrayValue.length === normalizedLength;
 
       // Treat these as "effectively empty after reset":
       // - value missing/not-array
@@ -174,17 +172,17 @@ export const useUniformFieldArray = <
         return;
       }
 
-      // Already normalized: exactly one row remains.
-      if (hasSingleRow) {
+      // Already normalized to the target row count.
+      if (alreadyNormalized) {
         return;
       }
 
       // Avoid collapse animation flicker during reset normalization.
       setDisableAnimation(true);
 
-      // use replace so the RHF field-array length actually collapses to one row
+      // use replace so the RHF field-array length actually matches the target.
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      replace([elementInitialValue] as any);
+      replace((lastElementNotRemovable ? [elementInitialValue] : []) as any);
 
       // Restore normal animation state right after normalization.
       if (!prefersReducedMotion) {

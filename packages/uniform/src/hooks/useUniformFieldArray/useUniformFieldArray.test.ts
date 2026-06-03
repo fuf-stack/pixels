@@ -508,9 +508,43 @@ describe('useUniformFieldArray', () => {
       expect(mockReplace).not.toHaveBeenCalled();
     });
 
-    it('should not normalize on reset when lastElementNotRemovable is false', () => {
+    it('should normalize to empty array on reset when lastElementNotRemovable is false', () => {
       mockFields = [{ id: '1' }, { id: '2' }];
       mockCurrentArrayValue = [null, null];
+
+      renderHook(() =>
+        useUniformFieldArray({
+          name: 'testArray',
+          flat: true,
+          lastElementNotRemovable: false,
+        }),
+      );
+
+      mockResetListener?.();
+
+      expect(mockReplace).toHaveBeenCalledWith([]);
+    });
+
+    it('should normalize missing array value to empty array when lastElementNotRemovable is false', () => {
+      mockFields = [{ id: '1' }, { id: '2' }];
+      mockCurrentArrayValue = undefined;
+
+      renderHook(() =>
+        useUniformFieldArray({
+          name: 'testArray',
+          flat: true,
+          lastElementNotRemovable: false,
+        }),
+      );
+
+      mockResetListener?.();
+
+      expect(mockReplace).toHaveBeenCalledWith([]);
+    });
+
+    it('should not normalize when already empty array and lastElementNotRemovable is false', () => {
+      mockFields = [];
+      mockCurrentArrayValue = [];
 
       renderHook(() =>
         useUniformFieldArray({
