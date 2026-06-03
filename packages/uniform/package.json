@@ -1,6 +1,6 @@
 {
   "name": "@fuf-stack/uniform",
-  "version": "1.21.0",
+  "version": "1.22.1",
   "description": "fuf react form library",
   "author": "Fröhlich ∧ Frei",
   "homepage": "https://github.com/fuf-stack/pixels#readme",
@@ -18,6 +18,10 @@
     "./Checkboxes": {
       "import": "./dist/Checkboxes/index.js",
       "require": "./dist/Checkboxes/index.cjs"
+    },
+    "./DatePicker": {
+      "import": "./dist/DatePicker/index.js",
+      "require": "./dist/DatePicker/index.cjs"
     },
     "./FieldArray": {
       "import": "./dist/FieldArray/index.js",
@@ -123,6 +127,10 @@
       "import": "./dist/TextArea/index.js",
       "require": "./dist/TextArea/index.cjs"
     },
+    "./Time": {
+      "import": "./dist/Time/index.js",
+      "require": "./dist/Time/index.cjs"
+    },
     "./package.json": "./package.json"
   },
   "files": [
@@ -149,6 +157,7 @@
     "react-dom": ">=18"
   },
   "dependencies": {
+    "@internationalized/date": "3.12.1",
     "@dnd-kit/core": "6.3.1",
     "@dnd-kit/modifiers": "9.0.0",
     "@dnd-kit/sortable": "10.0.0",
@@ -159,6 +168,8 @@
     "@fuf-stack/veto": "workspace:*",
     "@heroui/button": "2.2.32",
     "@heroui/checkbox": "2.3.32",
+    "@heroui/date-input": "2.3.32",
+    "@heroui/date-picker": "2.3.33",
     "@heroui/input": "2.4.33",
     "@heroui/number-input": "2.0.23",
     "@heroui/radio": "2.3.32",

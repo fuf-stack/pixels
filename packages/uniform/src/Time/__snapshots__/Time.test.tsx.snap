@@ -1,0 +1,2169 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Story Snapshots > Default 1`] = `
+<div>
+  <div
+    class="flex w-full flex-row justify-between gap-6"
+  >
+    <form
+      class="grow min-w-60"
+      data-form-is-valid="true"
+      data-testid=""
+    >
+      <div
+        class="group flex flex-col data-[has-helper=true]:pb-[calc(var(--heroui-font-size-tiny)_+8px)] gap-y-1.5 w-full"
+        data-has-helper="true"
+        data-slot="base"
+      >
+        <span
+          class="block subpixel-antialiased text-small group-data-[required=true]:after:content-['*'] group-data-[required=true]:after:text-danger group-data-[required=true]:after:ml-0.5 group-data-[invalid=true]:text-danger w-full text-foreground !ease-out !duration-200 will-change-auto motion-reduce:transition-none transition-[color,opacity]"
+          data-slot="label"
+          id="react-aria-«replaced-aria-id»"
+        >
+          Time
+        </span>
+        <div
+          class="relative px-3 gap-3 inline-flex flex-row items-center cursor-text tap-highlight-transparent shadow-xs border-medium border-default-200 hover:border-default-400 focus-within:hover:border-default-foreground group-data-[invalid=true]:border-danger group-data-[invalid=true]:hover:border-danger group-data-[invalid=true]:focus-within:hover:border-danger h-10 min-h-10 rounded-small w-full !duration-150 transition-colors motion-reduce:transition-none bg-content1 focus-within:border-focus"
+          data-slot="input-wrapper"
+        >
+          <div
+            class="flex items-center text-default-400 w-full gap-x-2 h-6 group-data-[invalid=true]:text-danger"
+            data-slot="inner-wrapper"
+          >
+            <div
+              aria-labelledby="react-aria-«replaced-aria-id»"
+              class="flex h-full gap-x-0.5 w-full font-normal text-small"
+              data-react-aria-pressable="true"
+              data-slot="input"
+              data-testid="timefield"
+              id="timefield"
+              role="group"
+              style="unicode-bidi: isolate;"
+            >
+              <div
+                aria-hidden="true"
+                class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-solid outline-transparent focus:shadow-xs rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+                data-slot="segment"
+                data-type="literal"
+              >
+                ⁦
+              </div>
+              <div
+                aria-label="hour, "
+                aria-labelledby="react-aria-«replaced-aria-id» react-aria-«replaced-aria-id»"
+                aria-valuemax="12"
+                aria-valuemin="1"
+                aria-valuetext="Empty"
+                autocorrect="off"
+                class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-solid outline-transparent focus:shadow-xs rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+                contenteditable="true"
+                data-editable="true"
+                data-placeholder="true"
+                data-slot="segment"
+                data-type="hour"
+                enterkeyhint="next"
+                id="react-aria-«replaced-aria-id»"
+                inputmode="numeric"
+                role="spinbutton"
+                spellcheck="false"
+                style="caret-color: transparent;"
+                tabindex="0"
+              >
+                ––
+              </div>
+              <div
+                aria-hidden="true"
+                class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-solid outline-transparent focus:shadow-xs rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+                data-slot="segment"
+                data-type="literal"
+              >
+                :
+              </div>
+              <div
+                aria-label="minute, "
+                aria-labelledby="react-aria-«replaced-aria-id» react-aria-«replaced-aria-id»"
+                aria-valuemax="59"
+                aria-valuemin="0"
+                aria-valuetext="Empty"
+                autocorrect="off"
+                class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-solid outline-transparent focus:shadow-xs rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+                contenteditable="true"
+                data-editable="true"
+                data-placeholder="true"
+                data-slot="segment"
+                data-type="minute"
+                enterkeyhint="next"
+                id="react-aria-«replaced-aria-id»"
+                inputmode="numeric"
+                role="spinbutton"
+                spellcheck="false"
+                style="caret-color: transparent;"
+                tabindex="0"
+              >
+                ––
+              </div>
+              <div
+                aria-hidden="true"
+                class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-solid outline-transparent focus:shadow-xs rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+                data-slot="segment"
+                data-type="literal"
+              >
+                ⁩
+              </div>
+              <div
+                aria-hidden="true"
+                class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-solid outline-transparent focus:shadow-xs rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+                data-slot="segment"
+                data-type="literal"
+              >
+                 
+              </div>
+              <div
+                aria-label="AM/PM, "
+                aria-labelledby="react-aria-«replaced-aria-id» react-aria-«replaced-aria-id»"
+                aria-valuemax="1"
+                aria-valuemin="0"
+                aria-valuetext="Empty"
+                autocorrect="off"
+                class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-solid outline-transparent focus:shadow-xs rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+                contenteditable="true"
+                data-editable="true"
+                data-placeholder="true"
+                data-slot="segment"
+                data-type="dayPeriod"
+                enterkeyhint="next"
+                id="react-aria-«replaced-aria-id»"
+                role="spinbutton"
+                spellcheck="false"
+                style="caret-color: transparent;"
+                tabindex="0"
+              >
+                AM
+              </div>
+              <div
+                aria-hidden="true"
+                class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-solid outline-transparent focus:shadow-xs rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+                data-slot="segment"
+                data-type="literal"
+              >
+                 
+              </div>
+              <div
+                aria-label="time zone, "
+                aria-labelledby="react-aria-«replaced-aria-id» react-aria-«replaced-aria-id»"
+                aria-readonly="true"
+                class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-solid outline-transparent focus:shadow-xs rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+                data-slot="segment"
+                data-type="timeZoneName"
+                id="react-aria-«replaced-aria-id»"
+                role="textbox"
+                style="caret-color: transparent;"
+                tabindex="0"
+              >
+                UTC
+              </div>
+              <input
+                hidden=""
+                name="timeField"
+                title=""
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+          <div
+            class="hidden group-data-[has-helper=true]:flex flex-col gap-1.5 absolute top-[calc(100%_+_2px)] start-0 p-0"
+            data-slot="helper-wrapper"
+          />
+        </div>
+      </div>
+      <div
+        class="mt-4 flex justify-end"
+      >
+        <button
+          aria-label="Submit form"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
+          data-react-aria-pressable="true"
+          data-testid="form_submit_button"
+          tabindex="0"
+          type="submit"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`Story Snapshots > Disabled 1`] = `
+<div>
+  <div
+    class="flex w-full flex-row justify-between gap-6"
+  >
+    <form
+      class="grow min-w-60"
+      data-form-is-valid="true"
+      data-testid=""
+    >
+      <div
+        class="group flex flex-col data-[has-helper=true]:pb-[calc(var(--heroui-font-size-tiny)_+8px)] gap-y-1.5 w-full opacity-disabled pointer-events-none"
+        data-disabled="true"
+        data-has-helper="true"
+        data-slot="base"
+      >
+        <span
+          class="block subpixel-antialiased text-small group-data-[required=true]:after:content-['*'] group-data-[required=true]:after:text-danger group-data-[required=true]:after:ml-0.5 group-data-[invalid=true]:text-danger w-full text-foreground pointer-events-none !ease-out !duration-200 will-change-auto motion-reduce:transition-none transition-[color,opacity]"
+          data-slot="label"
+          id="react-aria-«replaced-aria-id»"
+        >
+          Disabled time
+        </span>
+        <div
+          class="relative px-3 gap-3 inline-flex flex-row items-center cursor-text tap-highlight-transparent shadow-xs border-medium border-default-200 hover:border-default-400 focus-within:hover:border-default-foreground group-data-[invalid=true]:border-danger group-data-[invalid=true]:hover:border-danger group-data-[invalid=true]:focus-within:hover:border-danger h-10 min-h-10 rounded-small w-full pointer-events-none !duration-150 transition-colors motion-reduce:transition-none bg-content1 focus-within:border-focus"
+          data-slot="input-wrapper"
+        >
+          <div
+            class="flex items-center text-default-400 w-full gap-x-2 h-6 group-data-[invalid=true]:text-danger"
+            data-slot="inner-wrapper"
+          >
+            <div
+              aria-disabled="true"
+              aria-labelledby="react-aria-«replaced-aria-id»"
+              class="flex h-full gap-x-0.5 w-full font-normal text-small"
+              data-react-aria-pressable="true"
+              data-slot="input"
+              data-testid="timefield"
+              id="timefield"
+              role="group"
+              style="unicode-bidi: isolate;"
+            >
+              <div
+                aria-hidden="true"
+                class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-solid outline-transparent focus:shadow-xs rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+                data-slot="segment"
+                data-type="literal"
+              >
+                ⁦
+              </div>
+              <div
+                aria-disabled="true"
+                aria-label="hour, "
+                aria-labelledby="react-aria-«replaced-aria-id» react-aria-«replaced-aria-id»"
+                aria-valuemax="12"
+                aria-valuemin="1"
+                aria-valuetext="Empty"
+                class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-solid outline-transparent focus:shadow-xs rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+                contenteditable="false"
+                data-editable="true"
+                data-placeholder="true"
+                data-slot="segment"
+                data-type="hour"
+                id="react-aria-«replaced-aria-id»"
+                role="spinbutton"
+                style="caret-color: transparent;"
+              >
+                ––
+              </div>
+              <div
+                aria-hidden="true"
+                class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-solid outline-transparent focus:shadow-xs rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+                data-slot="segment"
+                data-type="literal"
+              >
+                :
+              </div>
+              <div
+                aria-disabled="true"
+                aria-label="minute, "
+                aria-labelledby="react-aria-«replaced-aria-id» react-aria-«replaced-aria-id»"
+                aria-valuemax="59"
+                aria-valuemin="0"
+                aria-valuetext="Empty"
+                class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-solid outline-transparent focus:shadow-xs rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+                contenteditable="false"
+                data-editable="true"
+                data-placeholder="true"
+                data-slot="segment"
+                data-type="minute"
+                id="react-aria-«replaced-aria-id»"
+                role="spinbutton"
+                style="caret-color: transparent;"
+              >
+                ––
+              </div>
+              <div
+                aria-hidden="true"
+                class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-solid outline-transparent focus:shadow-xs rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+                data-slot="segment"
+                data-type="literal"
+              >
+                ⁩
+              </div>
+              <div
+                aria-hidden="true"
+                class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-solid outline-transparent focus:shadow-xs rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+                data-slot="segment"
+                data-type="literal"
+              >
+                 
+              </div>
+              <div
+                aria-disabled="true"
+                aria-label="AM/PM, "
+                aria-labelledby="react-aria-«replaced-aria-id» react-aria-«replaced-aria-id»"
+                aria-valuemax="1"
+                aria-valuemin="0"
+                aria-valuetext="Empty"
+                class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-solid outline-transparent focus:shadow-xs rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+                contenteditable="false"
+                data-editable="true"
+                data-placeholder="true"
+                data-slot="segment"
+                data-type="dayPeriod"
+                id="react-aria-«replaced-aria-id»"
+                role="spinbutton"
+                style="caret-color: transparent;"
+              >
+                AM
+              </div>
+              <div
+                aria-hidden="true"
+                class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-solid outline-transparent focus:shadow-xs rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+                data-slot="segment"
+                data-type="literal"
+              >
+                 
+              </div>
+              <div
+                aria-disabled="true"
+                aria-label="time zone, "
+                aria-labelledby="react-aria-«replaced-aria-id» react-aria-«replaced-aria-id»"
+                aria-readonly="true"
+                class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-solid outline-transparent focus:shadow-xs rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+                contenteditable="false"
+                data-slot="segment"
+                data-type="timeZoneName"
+                id="react-aria-«replaced-aria-id»"
+                role="textbox"
+                style="caret-color: transparent;"
+              >
+                UTC
+              </div>
+              <input
+                disabled=""
+                hidden=""
+                name="timeField"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+          <div
+            class="hidden group-data-[has-helper=true]:flex flex-col gap-1.5 absolute top-[calc(100%_+_2px)] start-0 p-0"
+            data-slot="helper-wrapper"
+          />
+        </div>
+      </div>
+      <div
+        class="mt-4 flex justify-end"
+      >
+        <button
+          aria-label="Submit form"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
+          data-react-aria-pressable="true"
+          data-testid="form_submit_button"
+          tabindex="0"
+          type="submit"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`Story Snapshots > HideTimeZone 1`] = `
+<body>
+  <div>
+    <div
+      class="flex w-full flex-row justify-between gap-6"
+    >
+      <form
+        class="grow min-w-60"
+        data-form-is-valid="true"
+        data-testid=""
+      >
+        <div
+          class="group flex flex-col data-[has-helper=true]:pb-[calc(var(--heroui-font-size-tiny)_+8px)] gap-y-1.5 w-full"
+          data-has-helper="true"
+          data-slot="base"
+        >
+          <span
+            class="block subpixel-antialiased text-small group-data-[required=true]:after:content-['*'] group-data-[required=true]:after:text-danger group-data-[required=true]:after:ml-0.5 group-data-[invalid=true]:text-danger w-full text-foreground !ease-out !duration-200 will-change-auto motion-reduce:transition-none transition-[color,opacity]"
+            data-slot="label"
+            id="react-aria-«replaced-aria-id»"
+          >
+            Time (timezone hidden)
+          </span>
+          <div
+            class="relative px-3 gap-3 inline-flex flex-row items-center cursor-text tap-highlight-transparent shadow-xs border-medium border-default-200 hover:border-default-400 focus-within:hover:border-default-foreground group-data-[invalid=true]:border-danger group-data-[invalid=true]:hover:border-danger group-data-[invalid=true]:focus-within:hover:border-danger h-10 min-h-10 rounded-small w-full !duration-150 transition-colors motion-reduce:transition-none bg-content1 focus-within:border-focus"
+            data-slot="input-wrapper"
+          >
+            <div
+              class="flex items-center text-default-400 w-full gap-x-2 h-6 group-data-[invalid=true]:text-danger"
+              data-slot="inner-wrapper"
+            >
+              <div
+                aria-describedby="react-aria-description-3"
+                aria-labelledby="react-aria-«replaced-aria-id»"
+                class="flex h-full gap-x-0.5 w-full font-normal text-small"
+                data-react-aria-pressable="true"
+                data-slot="input"
+                data-testid="timefield"
+                id="timefield"
+                role="group"
+                style="unicode-bidi: isolate;"
+              >
+                <div
+                  aria-hidden="true"
+                  class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-solid outline-transparent focus:shadow-xs rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+                  data-slot="segment"
+                  data-type="literal"
+                >
+                  ⁦
+                </div>
+                <div
+                  aria-describedby="react-aria-description-3"
+                  aria-label="hour, "
+                  aria-labelledby="react-aria-«replaced-aria-id» react-aria-«replaced-aria-id»"
+                  aria-valuemax="12"
+                  aria-valuemin="1"
+                  aria-valuenow="10"
+                  aria-valuetext="10 AM"
+                  autocorrect="off"
+                  class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-solid outline-transparent focus:shadow-xs rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+                  contenteditable="true"
+                  data-editable="true"
+                  data-slot="segment"
+                  data-type="hour"
+                  enterkeyhint="next"
+                  id="react-aria-«replaced-aria-id»"
+                  inputmode="numeric"
+                  role="spinbutton"
+                  spellcheck="false"
+                  style="caret-color: transparent;"
+                  tabindex="0"
+                >
+                  10
+                </div>
+                <div
+                  aria-hidden="true"
+                  class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-solid outline-transparent focus:shadow-xs rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+                  data-slot="segment"
+                  data-type="literal"
+                >
+                  :
+                </div>
+                <div
+                  aria-label="minute, "
+                  aria-labelledby="react-aria-«replaced-aria-id» react-aria-«replaced-aria-id»"
+                  aria-valuemax="59"
+                  aria-valuemin="0"
+                  aria-valuenow="15"
+                  aria-valuetext="15"
+                  autocorrect="off"
+                  class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-solid outline-transparent focus:shadow-xs rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+                  contenteditable="true"
+                  data-editable="true"
+                  data-slot="segment"
+                  data-type="minute"
+                  enterkeyhint="next"
+                  id="react-aria-«replaced-aria-id»"
+                  inputmode="numeric"
+                  role="spinbutton"
+                  spellcheck="false"
+                  style="caret-color: transparent;"
+                  tabindex="0"
+                >
+                  15
+                </div>
+                <div
+                  aria-hidden="true"
+                  class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-solid outline-transparent focus:shadow-xs rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+                  data-slot="segment"
+                  data-type="literal"
+                >
+                  ⁩
+                </div>
+                <div
+                  aria-hidden="true"
+                  class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-solid outline-transparent focus:shadow-xs rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+                  data-slot="segment"
+                  data-type="literal"
+                >
+                   
+                </div>
+                <div
+                  aria-label="AM/PM, "
+                  aria-labelledby="react-aria-«replaced-aria-id» react-aria-«replaced-aria-id»"
+                  aria-valuemax="1"
+                  aria-valuemin="0"
+                  aria-valuenow="0"
+                  aria-valuetext="AM"
+                  autocorrect="off"
+                  class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-solid outline-transparent focus:shadow-xs rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+                  contenteditable="true"
+                  data-editable="true"
+                  data-slot="segment"
+                  data-type="dayPeriod"
+                  enterkeyhint="next"
+                  id="react-aria-«replaced-aria-id»"
+                  role="spinbutton"
+                  spellcheck="false"
+                  style="caret-color: transparent;"
+                  tabindex="0"
+                >
+                  AM
+                </div>
+                <input
+                  hidden=""
+                  name="timeField"
+                  title=""
+                  type="text"
+                  value="10:15:00"
+                />
+              </div>
+            </div>
+            <div
+              class="hidden group-data-[has-helper=true]:flex flex-col gap-1.5 absolute top-[calc(100%_+_2px)] start-0 p-0"
+              data-slot="helper-wrapper"
+            />
+          </div>
+        </div>
+        <div
+          class="mt-4 flex justify-end"
+        >
+          <button
+            aria-label="Submit form"
+            class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
+            data-react-aria-pressable="true"
+            data-testid="form_submit_button"
+            tabindex="0"
+            type="submit"
+          >
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div
+    id="react-aria-description-3"
+    style="display: none;"
+  >
+    Selected Time: 10:15 AM
+  </div>
+</body>
+`;
+
+exports[`Story Snapshots > HourAsNumber 1`] = `
+<body>
+  <div>
+    <div
+      class="flex w-full flex-row justify-between gap-6"
+    >
+      <form
+        class="grow min-w-60"
+        data-form-is-valid="true"
+        data-testid=""
+      >
+        <div
+          class="group flex flex-col data-[has-helper=true]:pb-[calc(var(--heroui-font-size-tiny)_+8px)] gap-y-1.5 w-full"
+          data-has-helper="true"
+          data-slot="base"
+        >
+          <span
+            class="block subpixel-antialiased text-small group-data-[required=true]:after:content-['*'] group-data-[required=true]:after:text-danger group-data-[required=true]:after:ml-0.5 group-data-[invalid=true]:text-danger w-full text-foreground !ease-out !duration-200 will-change-auto motion-reduce:transition-none transition-[color,opacity]"
+            data-slot="label"
+            id="react-aria-«replaced-aria-id»"
+          >
+            Time (stored as hour number)
+          </span>
+          <div
+            class="relative px-3 gap-3 inline-flex flex-row items-center cursor-text tap-highlight-transparent shadow-xs border-medium border-default-200 hover:border-default-400 focus-within:hover:border-default-foreground group-data-[invalid=true]:border-danger group-data-[invalid=true]:hover:border-danger group-data-[invalid=true]:focus-within:hover:border-danger h-10 min-h-10 rounded-small w-full !duration-150 transition-colors motion-reduce:transition-none bg-content1 focus-within:border-focus"
+            data-slot="input-wrapper"
+          >
+            <div
+              class="flex items-center text-default-400 w-full gap-x-2 h-6 group-data-[invalid=true]:text-danger"
+              data-slot="inner-wrapper"
+            >
+              <div
+                aria-describedby="react-aria-description-2"
+                aria-labelledby="react-aria-«replaced-aria-id»"
+                class="flex h-full gap-x-0.5 w-full font-normal text-small"
+                data-react-aria-pressable="true"
+                data-slot="input"
+                data-testid="hourfield"
+                id="hourfield"
+                role="group"
+                style="unicode-bidi: isolate;"
+              >
+                <div
+                  aria-hidden="true"
+                  class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-solid outline-transparent focus:shadow-xs rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+                  data-slot="segment"
+                  data-type="literal"
+                >
+                  ⁦
+                </div>
+                <div
+                  aria-describedby="react-aria-description-2"
+                  aria-label="hour, "
+                  aria-labelledby="react-aria-«replaced-aria-id» react-aria-«replaced-aria-id»"
+                  aria-valuemax="12"
+                  aria-valuemin="1"
+                  aria-valuenow="10"
+                  aria-valuetext="10 AM"
+                  autocorrect="off"
+                  class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-solid outline-transparent focus:shadow-xs rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+                  contenteditable="true"
+                  data-editable="true"
+                  data-slot="segment"
+                  data-type="hour"
+                  enterkeyhint="next"
+                  id="react-aria-«replaced-aria-id»"
+                  inputmode="numeric"
+                  role="spinbutton"
+                  spellcheck="false"
+                  style="caret-color: transparent;"
+                  tabindex="0"
+                >
+                  10
+                </div>
+                <div
+                  aria-hidden="true"
+                  class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-solid outline-transparent focus:shadow-xs rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+                  data-slot="segment"
+                  data-type="literal"
+                >
+                  ⁩
+                </div>
+                <div
+                  aria-hidden="true"
+                  class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-solid outline-transparent focus:shadow-xs rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+                  data-slot="segment"
+                  data-type="literal"
+                >
+                   
+                </div>
+                <div
+                  aria-label="AM/PM, "
+                  aria-labelledby="react-aria-«replaced-aria-id» react-aria-«replaced-aria-id»"
+                  aria-valuemax="1"
+                  aria-valuemin="0"
+                  aria-valuenow="0"
+                  aria-valuetext="AM"
+                  autocorrect="off"
+                  class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-solid outline-transparent focus:shadow-xs rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+                  contenteditable="true"
+                  data-editable="true"
+                  data-slot="segment"
+                  data-type="dayPeriod"
+                  enterkeyhint="next"
+                  id="react-aria-«replaced-aria-id»"
+                  role="spinbutton"
+                  spellcheck="false"
+                  style="caret-color: transparent;"
+                  tabindex="0"
+                >
+                  AM
+                </div>
+                <div
+                  aria-hidden="true"
+                  class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-solid outline-transparent focus:shadow-xs rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+                  data-slot="segment"
+                  data-type="literal"
+                >
+                   
+                </div>
+                <div
+                  aria-label="time zone, "
+                  aria-labelledby="react-aria-«replaced-aria-id» react-aria-«replaced-aria-id»"
+                  aria-readonly="true"
+                  class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-solid outline-transparent focus:shadow-xs rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+                  data-slot="segment"
+                  data-type="timeZoneName"
+                  id="react-aria-«replaced-aria-id»"
+                  role="textbox"
+                  style="caret-color: transparent;"
+                  tabindex="0"
+                >
+                  UTC
+                </div>
+                <input
+                  hidden=""
+                  name="hourField"
+                  title=""
+                  type="text"
+                  value="10:00:00"
+                />
+              </div>
+            </div>
+            <div
+              class="hidden group-data-[has-helper=true]:flex flex-col gap-1.5 absolute top-[calc(100%_+_2px)] start-0 p-0"
+              data-slot="helper-wrapper"
+            />
+          </div>
+        </div>
+        <div
+          class="mt-4 flex justify-end"
+        >
+          <button
+            aria-label="Submit form"
+            class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
+            data-react-aria-pressable="true"
+            data-testid="form_submit_button"
+            tabindex="0"
+            type="submit"
+          >
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div
+    id="react-aria-description-2"
+    style="display: none;"
+  >
+    Selected Time: 10 AM UTC
+  </div>
+</body>
+`;
+
+exports[`Story Snapshots > HourGranularity 1`] = `
+<div>
+  <div
+    class="flex w-full flex-row justify-between gap-6"
+  >
+    <form
+      class="grow min-w-60"
+      data-form-is-valid="true"
+      data-testid=""
+    >
+      <div
+        class="group flex flex-col data-[has-helper=true]:pb-[calc(var(--heroui-font-size-tiny)_+8px)] gap-y-1.5 w-full"
+        data-has-helper="true"
+        data-slot="base"
+      >
+        <span
+          class="block subpixel-antialiased text-small group-data-[required=true]:after:content-['*'] group-data-[required=true]:after:text-danger group-data-[required=true]:after:ml-0.5 group-data-[invalid=true]:text-danger w-full text-foreground !ease-out !duration-200 will-change-auto motion-reduce:transition-none transition-[color,opacity]"
+          data-slot="label"
+          id="react-aria-«replaced-aria-id»"
+        >
+          Time (hour granularity)
+        </span>
+        <div
+          class="relative px-3 gap-3 inline-flex flex-row items-center cursor-text tap-highlight-transparent shadow-xs border-medium border-default-200 hover:border-default-400 focus-within:hover:border-default-foreground group-data-[invalid=true]:border-danger group-data-[invalid=true]:hover:border-danger group-data-[invalid=true]:focus-within:hover:border-danger h-10 min-h-10 rounded-small w-full !duration-150 transition-colors motion-reduce:transition-none bg-content1 focus-within:border-focus"
+          data-slot="input-wrapper"
+        >
+          <div
+            class="flex items-center text-default-400 w-full gap-x-2 h-6 group-data-[invalid=true]:text-danger"
+            data-slot="inner-wrapper"
+          >
+            <div
+              aria-labelledby="react-aria-«replaced-aria-id»"
+              class="flex h-full gap-x-0.5 w-full font-normal text-small"
+              data-react-aria-pressable="true"
+              data-slot="input"
+              data-testid="timefield"
+              id="timefield"
+              role="group"
+              style="unicode-bidi: isolate;"
+            >
+              <div
+                aria-hidden="true"
+                class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-solid outline-transparent focus:shadow-xs rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+                data-slot="segment"
+                data-type="literal"
+              >
+                ⁦
+              </div>
+              <div
+                aria-label="hour, "
+                aria-labelledby="react-aria-«replaced-aria-id» react-aria-«replaced-aria-id»"
+                aria-valuemax="12"
+                aria-valuemin="1"
+                aria-valuetext="Empty"
+                autocorrect="off"
+                class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-solid outline-transparent focus:shadow-xs rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+                contenteditable="true"
+                data-editable="true"
+                data-placeholder="true"
+                data-slot="segment"
+                data-type="hour"
+                enterkeyhint="next"
+                id="react-aria-«replaced-aria-id»"
+                inputmode="numeric"
+                role="spinbutton"
+                spellcheck="false"
+                style="caret-color: transparent;"
+                tabindex="0"
+              >
+                ––
+              </div>
+              <div
+                aria-hidden="true"
+                class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-solid outline-transparent focus:shadow-xs rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+                data-slot="segment"
+                data-type="literal"
+              >
+                ⁩
+              </div>
+              <div
+                aria-hidden="true"
+                class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-solid outline-transparent focus:shadow-xs rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+                data-slot="segment"
+                data-type="literal"
+              >
+                 
+              </div>
+              <div
+                aria-label="AM/PM, "
+                aria-labelledby="react-aria-«replaced-aria-id» react-aria-«replaced-aria-id»"
+                aria-valuemax="1"
+                aria-valuemin="0"
+                aria-valuetext="Empty"
+                autocorrect="off"
+                class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-solid outline-transparent focus:shadow-xs rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+                contenteditable="true"
+                data-editable="true"
+                data-placeholder="true"
+                data-slot="segment"
+                data-type="dayPeriod"
+                enterkeyhint="next"
+                id="react-aria-«replaced-aria-id»"
+                role="spinbutton"
+                spellcheck="false"
+                style="caret-color: transparent;"
+                tabindex="0"
+              >
+                AM
+              </div>
+              <div
+                aria-hidden="true"
+                class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-solid outline-transparent focus:shadow-xs rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+                data-slot="segment"
+                data-type="literal"
+              >
+                 
+              </div>
+              <div
+                aria-label="time zone, "
+                aria-labelledby="react-aria-«replaced-aria-id» react-aria-«replaced-aria-id»"
+                aria-readonly="true"
+                class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-solid outline-transparent focus:shadow-xs rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+                data-slot="segment"
+                data-type="timeZoneName"
+                id="react-aria-«replaced-aria-id»"
+                role="textbox"
+                style="caret-color: transparent;"
+                tabindex="0"
+              >
+                UTC
+              </div>
+              <input
+                hidden=""
+                name="timeField"
+                title=""
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+          <div
+            class="hidden group-data-[has-helper=true]:flex flex-col gap-1.5 absolute top-[calc(100%_+_2px)] start-0 p-0"
+            data-slot="helper-wrapper"
+          />
+        </div>
+      </div>
+      <div
+        class="mt-4 flex justify-end"
+      >
+        <button
+          aria-label="Submit form"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
+          data-react-aria-pressable="true"
+          data-testid="form_submit_button"
+          tabindex="0"
+          type="submit"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`Story Snapshots > Invalid 1`] = `
+<body>
+  <div>
+    <div
+      class="flex w-full flex-row justify-between gap-6"
+    >
+      <form
+        class="grow min-w-60"
+        data-form-is-valid="false"
+        data-testid=""
+      >
+        <div
+          class="group flex flex-col data-[has-helper=true]:pb-[calc(var(--heroui-font-size-tiny)_+8px)] gap-y-1.5 w-full"
+          data-has-helper="true"
+          data-invalid="true"
+          data-slot="base"
+        >
+          <span
+            class="block subpixel-antialiased text-small group-data-[required=true]:after:content-['*'] group-data-[required=true]:after:text-danger group-data-[required=true]:after:ml-0.5 group-data-[invalid=true]:text-danger w-full text-foreground !ease-out !duration-200 will-change-auto motion-reduce:transition-none transition-[color,opacity]"
+            data-slot="label"
+            id="react-aria-«replaced-aria-id»"
+          >
+            Invalid time
+          </span>
+          <div
+            class="relative px-3 gap-3 inline-flex flex-row items-center cursor-text tap-highlight-transparent shadow-xs border-medium border-default-200 hover:border-default-400 focus-within:hover:border-default-foreground group-data-[invalid=true]:border-danger group-data-[invalid=true]:hover:border-danger group-data-[invalid=true]:focus-within:hover:border-danger h-10 min-h-10 rounded-small w-full !duration-150 transition-colors motion-reduce:transition-none bg-content1 focus-within:border-focus"
+            data-slot="input-wrapper"
+          >
+            <div
+              class="flex items-center text-default-400 w-full gap-x-2 h-6 group-data-[invalid=true]:text-danger"
+              data-slot="inner-wrapper"
+            >
+              <div
+                aria-describedby="react-aria-description-1 react-aria-«replaced-aria-id»"
+                aria-labelledby="react-aria-«replaced-aria-id»"
+                class="flex h-full gap-x-0.5 w-full font-normal text-small"
+                data-react-aria-pressable="true"
+                data-slot="input"
+                data-testid="timefield"
+                id="timefield"
+                role="group"
+                style="unicode-bidi: isolate;"
+              >
+                <div
+                  aria-hidden="true"
+                  class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-solid outline-transparent focus:shadow-xs rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+                  data-invalid="true"
+                  data-slot="segment"
+                  data-type="literal"
+                >
+                  ⁦
+                </div>
+                <div
+                  aria-describedby="react-aria-description-1 react-aria-«replaced-aria-id»"
+                  aria-invalid="true"
+                  aria-label="hour, "
+                  aria-labelledby="react-aria-«replaced-aria-id» react-aria-«replaced-aria-id»"
+                  aria-valuemax="12"
+                  aria-valuemin="1"
+                  aria-valuenow="10"
+                  aria-valuetext="10 AM"
+                  autocorrect="off"
+                  class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-solid outline-transparent focus:shadow-xs rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+                  contenteditable="true"
+                  data-editable="true"
+                  data-invalid="true"
+                  data-slot="segment"
+                  data-type="hour"
+                  enterkeyhint="next"
+                  id="react-aria-«replaced-aria-id»"
+                  inputmode="numeric"
+                  role="spinbutton"
+                  spellcheck="false"
+                  style="caret-color: transparent;"
+                  tabindex="0"
+                >
+                  10
+                </div>
+                <div
+                  aria-hidden="true"
+                  class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-solid outline-transparent focus:shadow-xs rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+                  data-invalid="true"
+                  data-slot="segment"
+                  data-type="literal"
+                >
+                  :
+                </div>
+                <div
+                  aria-describedby="react-aria-description-1 react-aria-«replaced-aria-id»"
+                  aria-invalid="true"
+                  aria-label="minute, "
+                  aria-labelledby="react-aria-«replaced-aria-id» react-aria-«replaced-aria-id»"
+                  aria-valuemax="59"
+                  aria-valuemin="0"
+                  aria-valuenow="15"
+                  aria-valuetext="15"
+                  autocorrect="off"
+                  class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-solid outline-transparent focus:shadow-xs rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+                  contenteditable="true"
+                  data-editable="true"
+                  data-invalid="true"
+                  data-slot="segment"
+                  data-type="minute"
+                  enterkeyhint="next"
+                  id="react-aria-«replaced-aria-id»"
+                  inputmode="numeric"
+                  role="spinbutton"
+                  spellcheck="false"
+                  style="caret-color: transparent;"
+                  tabindex="0"
+                >
+                  15
+                </div>
+                <div
+                  aria-hidden="true"
+                  class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-solid outline-transparent focus:shadow-xs rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+                  data-invalid="true"
+                  data-slot="segment"
+                  data-type="literal"
+                >
+                  ⁩
+                </div>
+                <div
+                  aria-hidden="true"
+                  class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-solid outline-transparent focus:shadow-xs rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+                  data-invalid="true"
+                  data-slot="segment"
+                  data-type="literal"
+                >
+                   
+                </div>
+                <div
+                  aria-describedby="react-aria-description-1 react-aria-«replaced-aria-id»"
+                  aria-invalid="true"
+                  aria-label="AM/PM, "
+                  aria-labelledby="react-aria-«replaced-aria-id» react-aria-«replaced-aria-id»"
+                  aria-valuemax="1"
+                  aria-valuemin="0"
+                  aria-valuenow="0"
+                  aria-valuetext="AM"
+                  autocorrect="off"
+                  class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-solid outline-transparent focus:shadow-xs rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+                  contenteditable="true"
+                  data-editable="true"
+                  data-invalid="true"
+                  data-slot="segment"
+                  data-type="dayPeriod"
+                  enterkeyhint="next"
+                  id="react-aria-«replaced-aria-id»"
+                  role="spinbutton"
+                  spellcheck="false"
+                  style="caret-color: transparent;"
+                  tabindex="0"
+                >
+                  AM
+                </div>
+                <div
+                  aria-hidden="true"
+                  class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-solid outline-transparent focus:shadow-xs rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+                  data-invalid="true"
+                  data-slot="segment"
+                  data-type="literal"
+                >
+                   
+                </div>
+                <div
+                  aria-describedby="react-aria-description-1 react-aria-«replaced-aria-id»"
+                  aria-invalid="true"
+                  aria-label="time zone, "
+                  aria-labelledby="react-aria-«replaced-aria-id» react-aria-«replaced-aria-id»"
+                  aria-readonly="true"
+                  class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-solid outline-transparent focus:shadow-xs rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+                  data-invalid="true"
+                  data-slot="segment"
+                  data-type="timeZoneName"
+                  id="react-aria-«replaced-aria-id»"
+                  role="textbox"
+                  style="caret-color: transparent;"
+                  tabindex="0"
+                >
+                  UTC
+                </div>
+                <input
+                  hidden=""
+                  name="timeField"
+                  title=""
+                  type="text"
+                  value="10:15:00"
+                />
+              </div>
+            </div>
+            <div
+              class="hidden group-data-[has-helper=true]:flex flex-col gap-1.5 absolute top-[calc(100%_+_2px)] start-0 p-0"
+              data-slot="helper-wrapper"
+            >
+              <div
+                class="text-tiny text-danger"
+                data-slot="error-message"
+                id="react-aria-«replaced-aria-id»"
+              >
+                <ul
+                  aria-label="Validation errors of field timefield"
+                  data-testid="timefield_error"
+                >
+                  <li
+                    style="overflow: hidden;"
+                  >
+                    <div
+                      class="px-1 pt-1"
+                    >
+                      Please choose another time
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="mt-4 flex justify-end"
+        >
+          <button
+            aria-label="Submit form"
+            class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
+            data-react-aria-pressable="true"
+            data-testid="form_submit_button"
+            tabindex="0"
+            type="submit"
+          >
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div
+    id="react-aria-description-1"
+    style="display: none;"
+  >
+    Selected Time: 10:15 AM UTC
+  </div>
+</body>
+`;
+
+exports[`Story Snapshots > Required 1`] = `
+<div>
+  <div
+    class="flex w-full flex-row justify-between gap-6"
+  >
+    <form
+      class="grow min-w-60"
+      data-form-is-valid="false"
+      data-testid=""
+    >
+      <div
+        class="group flex flex-col data-[has-helper=true]:pb-[calc(var(--heroui-font-size-tiny)_+8px)] gap-y-1.5 w-full"
+        data-has-helper="true"
+        data-required="true"
+        data-slot="base"
+      >
+        <span
+          class="block subpixel-antialiased text-small group-data-[required=true]:after:content-['*'] group-data-[required=true]:after:text-danger group-data-[required=true]:after:ml-0.5 group-data-[invalid=true]:text-danger w-full text-foreground !ease-out !duration-200 will-change-auto motion-reduce:transition-none transition-[color,opacity]"
+          data-slot="label"
+          id="react-aria-«replaced-aria-id»"
+        >
+          Required time
+        </span>
+        <div
+          class="relative px-3 gap-3 inline-flex flex-row items-center cursor-text tap-highlight-transparent shadow-xs border-medium border-default-200 hover:border-default-400 focus-within:hover:border-default-foreground group-data-[invalid=true]:border-danger group-data-[invalid=true]:hover:border-danger group-data-[invalid=true]:focus-within:hover:border-danger h-10 min-h-10 rounded-small w-full !duration-150 transition-colors motion-reduce:transition-none bg-content1 focus-within:border-focus"
+          data-slot="input-wrapper"
+        >
+          <div
+            class="flex items-center text-default-400 w-full gap-x-2 h-6 group-data-[invalid=true]:text-danger"
+            data-slot="inner-wrapper"
+          >
+            <div
+              aria-labelledby="react-aria-«replaced-aria-id»"
+              class="flex h-full gap-x-0.5 w-full font-normal text-small"
+              data-react-aria-pressable="true"
+              data-slot="input"
+              data-testid="timefield"
+              id="timefield"
+              role="group"
+              style="unicode-bidi: isolate;"
+            >
+              <div
+                aria-hidden="true"
+                class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-solid outline-transparent focus:shadow-xs rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+                data-slot="segment"
+                data-type="literal"
+              >
+                ⁦
+              </div>
+              <div
+                aria-label="hour, "
+                aria-labelledby="react-aria-«replaced-aria-id» react-aria-«replaced-aria-id»"
+                aria-required="true"
+                aria-valuemax="12"
+                aria-valuemin="1"
+                aria-valuetext="Empty"
+                autocorrect="off"
+                class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-solid outline-transparent focus:shadow-xs rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+                contenteditable="true"
+                data-editable="true"
+                data-placeholder="true"
+                data-slot="segment"
+                data-type="hour"
+                enterkeyhint="next"
+                id="react-aria-«replaced-aria-id»"
+                inputmode="numeric"
+                role="spinbutton"
+                spellcheck="false"
+                style="caret-color: transparent;"
+                tabindex="0"
+              >
+                ––
+              </div>
+              <div
+                aria-hidden="true"
+                class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-solid outline-transparent focus:shadow-xs rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+                data-slot="segment"
+                data-type="literal"
+              >
+                :
+              </div>
+              <div
+                aria-label="minute, "
+                aria-labelledby="react-aria-«replaced-aria-id» react-aria-«replaced-aria-id»"
+                aria-required="true"
+                aria-valuemax="59"
+                aria-valuemin="0"
+                aria-valuetext="Empty"
+                autocorrect="off"
+                class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-solid outline-transparent focus:shadow-xs rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+                contenteditable="true"
+                data-editable="true"
+                data-placeholder="true"
+                data-slot="segment"
+                data-type="minute"
+                enterkeyhint="next"
+                id="react-aria-«replaced-aria-id»"
+                inputmode="numeric"
+                role="spinbutton"
+                spellcheck="false"
+                style="caret-color: transparent;"
+                tabindex="0"
+              >
+                ––
+              </div>
+              <div
+                aria-hidden="true"
+                class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-solid outline-transparent focus:shadow-xs rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+                data-slot="segment"
+                data-type="literal"
+              >
+                ⁩
+              </div>
+              <div
+                aria-hidden="true"
+                class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-solid outline-transparent focus:shadow-xs rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+                data-slot="segment"
+                data-type="literal"
+              >
+                 
+              </div>
+              <div
+                aria-label="AM/PM, "
+                aria-labelledby="react-aria-«replaced-aria-id» react-aria-«replaced-aria-id»"
+                aria-required="true"
+                aria-valuemax="1"
+                aria-valuemin="0"
+                aria-valuetext="Empty"
+                autocorrect="off"
+                class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-solid outline-transparent focus:shadow-xs rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+                contenteditable="true"
+                data-editable="true"
+                data-placeholder="true"
+                data-slot="segment"
+                data-type="dayPeriod"
+                enterkeyhint="next"
+                id="react-aria-«replaced-aria-id»"
+                role="spinbutton"
+                spellcheck="false"
+                style="caret-color: transparent;"
+                tabindex="0"
+              >
+                AM
+              </div>
+              <div
+                aria-hidden="true"
+                class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-solid outline-transparent focus:shadow-xs rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+                data-slot="segment"
+                data-type="literal"
+              >
+                 
+              </div>
+              <div
+                aria-label="time zone, "
+                aria-labelledby="react-aria-«replaced-aria-id» react-aria-«replaced-aria-id»"
+                aria-readonly="true"
+                aria-required="true"
+                class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-solid outline-transparent focus:shadow-xs rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+                data-slot="segment"
+                data-type="timeZoneName"
+                id="react-aria-«replaced-aria-id»"
+                role="textbox"
+                style="caret-color: transparent;"
+                tabindex="0"
+              >
+                UTC
+              </div>
+              <input
+                hidden=""
+                name="timeField"
+                required=""
+                title=""
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+          <div
+            class="hidden group-data-[has-helper=true]:flex flex-col gap-1.5 absolute top-[calc(100%_+_2px)] start-0 p-0"
+            data-slot="helper-wrapper"
+          />
+        </div>
+      </div>
+      <div
+        class="mt-4 flex justify-end"
+      >
+        <button
+          aria-label="Submit form"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
+          data-react-aria-pressable="true"
+          data-testid="form_submit_button"
+          tabindex="0"
+          type="submit"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`Story Snapshots > TwelveHourCycle 1`] = `
+<div>
+  <div
+    class="flex w-full flex-row justify-between gap-6"
+  >
+    <form
+      class="grow min-w-60"
+      data-form-is-valid="true"
+      data-testid=""
+    >
+      <div
+        class="group flex flex-col data-[has-helper=true]:pb-[calc(var(--heroui-font-size-tiny)_+8px)] gap-y-1.5 w-full"
+        data-has-helper="true"
+        data-slot="base"
+      >
+        <span
+          class="block subpixel-antialiased text-small group-data-[required=true]:after:content-['*'] group-data-[required=true]:after:text-danger group-data-[required=true]:after:ml-0.5 group-data-[invalid=true]:text-danger w-full text-foreground !ease-out !duration-200 will-change-auto motion-reduce:transition-none transition-[color,opacity]"
+          data-slot="label"
+          id="react-aria-«replaced-aria-id»"
+        >
+          Time (12-hour cycle)
+        </span>
+        <div
+          class="relative px-3 gap-3 inline-flex flex-row items-center cursor-text tap-highlight-transparent shadow-xs border-medium border-default-200 hover:border-default-400 focus-within:hover:border-default-foreground group-data-[invalid=true]:border-danger group-data-[invalid=true]:hover:border-danger group-data-[invalid=true]:focus-within:hover:border-danger h-10 min-h-10 rounded-small w-full !duration-150 transition-colors motion-reduce:transition-none bg-content1 focus-within:border-focus"
+          data-slot="input-wrapper"
+        >
+          <div
+            class="flex items-center text-default-400 w-full gap-x-2 h-6 group-data-[invalid=true]:text-danger"
+            data-slot="inner-wrapper"
+          >
+            <div
+              aria-labelledby="react-aria-«replaced-aria-id»"
+              class="flex h-full gap-x-0.5 w-full font-normal text-small"
+              data-react-aria-pressable="true"
+              data-slot="input"
+              data-testid="timefield"
+              id="timefield"
+              role="group"
+              style="unicode-bidi: isolate;"
+            >
+              <div
+                aria-hidden="true"
+                class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-solid outline-transparent focus:shadow-xs rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+                data-slot="segment"
+                data-type="literal"
+              >
+                ⁦
+              </div>
+              <div
+                aria-label="hour, "
+                aria-labelledby="react-aria-«replaced-aria-id» react-aria-«replaced-aria-id»"
+                aria-valuemax="12"
+                aria-valuemin="1"
+                aria-valuetext="Empty"
+                autocorrect="off"
+                class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-solid outline-transparent focus:shadow-xs rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+                contenteditable="true"
+                data-editable="true"
+                data-placeholder="true"
+                data-slot="segment"
+                data-type="hour"
+                enterkeyhint="next"
+                id="react-aria-«replaced-aria-id»"
+                inputmode="numeric"
+                role="spinbutton"
+                spellcheck="false"
+                style="caret-color: transparent;"
+                tabindex="0"
+              >
+                ––
+              </div>
+              <div
+                aria-hidden="true"
+                class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-solid outline-transparent focus:shadow-xs rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+                data-slot="segment"
+                data-type="literal"
+              >
+                :
+              </div>
+              <div
+                aria-label="minute, "
+                aria-labelledby="react-aria-«replaced-aria-id» react-aria-«replaced-aria-id»"
+                aria-valuemax="59"
+                aria-valuemin="0"
+                aria-valuetext="Empty"
+                autocorrect="off"
+                class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-solid outline-transparent focus:shadow-xs rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+                contenteditable="true"
+                data-editable="true"
+                data-placeholder="true"
+                data-slot="segment"
+                data-type="minute"
+                enterkeyhint="next"
+                id="react-aria-«replaced-aria-id»"
+                inputmode="numeric"
+                role="spinbutton"
+                spellcheck="false"
+                style="caret-color: transparent;"
+                tabindex="0"
+              >
+                ––
+              </div>
+              <div
+                aria-hidden="true"
+                class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-solid outline-transparent focus:shadow-xs rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+                data-slot="segment"
+                data-type="literal"
+              >
+                ⁩
+              </div>
+              <div
+                aria-hidden="true"
+                class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-solid outline-transparent focus:shadow-xs rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+                data-slot="segment"
+                data-type="literal"
+              >
+                 
+              </div>
+              <div
+                aria-label="AM/PM, "
+                aria-labelledby="react-aria-«replaced-aria-id» react-aria-«replaced-aria-id»"
+                aria-valuemax="1"
+                aria-valuemin="0"
+                aria-valuetext="Empty"
+                autocorrect="off"
+                class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-solid outline-transparent focus:shadow-xs rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+                contenteditable="true"
+                data-editable="true"
+                data-placeholder="true"
+                data-slot="segment"
+                data-type="dayPeriod"
+                enterkeyhint="next"
+                id="react-aria-«replaced-aria-id»"
+                role="spinbutton"
+                spellcheck="false"
+                style="caret-color: transparent;"
+                tabindex="0"
+              >
+                AM
+              </div>
+              <div
+                aria-hidden="true"
+                class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-solid outline-transparent focus:shadow-xs rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+                data-slot="segment"
+                data-type="literal"
+              >
+                 
+              </div>
+              <div
+                aria-label="time zone, "
+                aria-labelledby="react-aria-«replaced-aria-id» react-aria-«replaced-aria-id»"
+                aria-readonly="true"
+                class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-solid outline-transparent focus:shadow-xs rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+                data-slot="segment"
+                data-type="timeZoneName"
+                id="react-aria-«replaced-aria-id»"
+                role="textbox"
+                style="caret-color: transparent;"
+                tabindex="0"
+              >
+                UTC
+              </div>
+              <input
+                hidden=""
+                name="timeField"
+                title=""
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+          <div
+            class="hidden group-data-[has-helper=true]:flex flex-col gap-1.5 absolute top-[calc(100%_+_2px)] start-0 p-0"
+            data-slot="helper-wrapper"
+          />
+        </div>
+      </div>
+      <div
+        class="mt-4 flex justify-end"
+      >
+        <button
+          aria-label="Submit form"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
+          data-react-aria-pressable="true"
+          data-testid="form_submit_button"
+          tabindex="0"
+          type="submit"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`Story Snapshots > WithCustomTimeZone 1`] = `
+<body>
+  <div>
+    <div
+      class="flex w-full flex-row justify-between gap-6"
+    >
+      <form
+        class="grow min-w-60"
+        data-form-is-valid="true"
+        data-testid=""
+      >
+        <div
+          class="group flex flex-col data-[has-helper=true]:pb-[calc(var(--heroui-font-size-tiny)_+8px)] gap-y-1.5 w-full"
+          data-has-helper="true"
+          data-slot="base"
+        >
+          <span
+            class="block subpixel-antialiased text-small group-data-[required=true]:after:content-['*'] group-data-[required=true]:after:text-danger group-data-[required=true]:after:ml-0.5 group-data-[invalid=true]:text-danger w-full text-foreground !ease-out !duration-200 will-change-auto motion-reduce:transition-none transition-[color,opacity]"
+            data-slot="label"
+            id="react-aria-«replaced-aria-id»"
+          >
+            Time (New York)
+          </span>
+          <div
+            class="relative px-3 gap-3 inline-flex flex-row items-center cursor-text tap-highlight-transparent shadow-xs border-medium border-default-200 hover:border-default-400 focus-within:hover:border-default-foreground group-data-[invalid=true]:border-danger group-data-[invalid=true]:hover:border-danger group-data-[invalid=true]:focus-within:hover:border-danger h-10 min-h-10 rounded-small w-full !duration-150 transition-colors motion-reduce:transition-none bg-content1 focus-within:border-focus"
+            data-slot="input-wrapper"
+          >
+            <div
+              class="flex items-center text-default-400 w-full gap-x-2 h-6 group-data-[invalid=true]:text-danger"
+              data-slot="inner-wrapper"
+            >
+              <div
+                aria-describedby="react-aria-description-4"
+                aria-labelledby="react-aria-«replaced-aria-id»"
+                class="flex h-full gap-x-0.5 w-full font-normal text-small"
+                data-react-aria-pressable="true"
+                data-slot="input"
+                data-testid="timefield"
+                id="timefield"
+                role="group"
+                style="unicode-bidi: isolate;"
+              >
+                <div
+                  aria-hidden="true"
+                  class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-solid outline-transparent focus:shadow-xs rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+                  data-slot="segment"
+                  data-type="literal"
+                >
+                  ⁦
+                </div>
+                <div
+                  aria-describedby="react-aria-description-4"
+                  aria-label="hour, "
+                  aria-labelledby="react-aria-«replaced-aria-id» react-aria-«replaced-aria-id»"
+                  aria-valuemax="12"
+                  aria-valuemin="1"
+                  aria-valuenow="5"
+                  aria-valuetext="5 AM"
+                  autocorrect="off"
+                  class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-solid outline-transparent focus:shadow-xs rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+                  contenteditable="true"
+                  data-editable="true"
+                  data-slot="segment"
+                  data-type="hour"
+                  enterkeyhint="next"
+                  id="react-aria-«replaced-aria-id»"
+                  inputmode="numeric"
+                  role="spinbutton"
+                  spellcheck="false"
+                  style="caret-color: transparent;"
+                  tabindex="0"
+                >
+                  05
+                </div>
+                <div
+                  aria-hidden="true"
+                  class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-solid outline-transparent focus:shadow-xs rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+                  data-slot="segment"
+                  data-type="literal"
+                >
+                  :
+                </div>
+                <div
+                  aria-label="minute, "
+                  aria-labelledby="react-aria-«replaced-aria-id» react-aria-«replaced-aria-id»"
+                  aria-valuemax="59"
+                  aria-valuemin="0"
+                  aria-valuenow="15"
+                  aria-valuetext="15"
+                  autocorrect="off"
+                  class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-solid outline-transparent focus:shadow-xs rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+                  contenteditable="true"
+                  data-editable="true"
+                  data-slot="segment"
+                  data-type="minute"
+                  enterkeyhint="next"
+                  id="react-aria-«replaced-aria-id»"
+                  inputmode="numeric"
+                  role="spinbutton"
+                  spellcheck="false"
+                  style="caret-color: transparent;"
+                  tabindex="0"
+                >
+                  15
+                </div>
+                <div
+                  aria-hidden="true"
+                  class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-solid outline-transparent focus:shadow-xs rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+                  data-slot="segment"
+                  data-type="literal"
+                >
+                  ⁩
+                </div>
+                <div
+                  aria-hidden="true"
+                  class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-solid outline-transparent focus:shadow-xs rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+                  data-slot="segment"
+                  data-type="literal"
+                >
+                   
+                </div>
+                <div
+                  aria-label="AM/PM, "
+                  aria-labelledby="react-aria-«replaced-aria-id» react-aria-«replaced-aria-id»"
+                  aria-valuemax="1"
+                  aria-valuemin="0"
+                  aria-valuenow="0"
+                  aria-valuetext="AM"
+                  autocorrect="off"
+                  class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-solid outline-transparent focus:shadow-xs rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+                  contenteditable="true"
+                  data-editable="true"
+                  data-slot="segment"
+                  data-type="dayPeriod"
+                  enterkeyhint="next"
+                  id="react-aria-«replaced-aria-id»"
+                  role="spinbutton"
+                  spellcheck="false"
+                  style="caret-color: transparent;"
+                  tabindex="0"
+                >
+                  AM
+                </div>
+                <div
+                  aria-hidden="true"
+                  class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-solid outline-transparent focus:shadow-xs rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+                  data-slot="segment"
+                  data-type="literal"
+                >
+                   
+                </div>
+                <div
+                  aria-label="time zone, "
+                  aria-labelledby="react-aria-«replaced-aria-id» react-aria-«replaced-aria-id»"
+                  aria-readonly="true"
+                  class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-solid outline-transparent focus:shadow-xs rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+                  data-slot="segment"
+                  data-type="timeZoneName"
+                  id="react-aria-«replaced-aria-id»"
+                  role="textbox"
+                  style="caret-color: transparent;"
+                  tabindex="0"
+                >
+                  EST
+                </div>
+                <input
+                  hidden=""
+                  name="timeField"
+                  title=""
+                  type="text"
+                  value="05:15:00"
+                />
+              </div>
+            </div>
+            <div
+              class="hidden group-data-[has-helper=true]:flex flex-col gap-1.5 absolute top-[calc(100%_+_2px)] start-0 p-0"
+              data-slot="helper-wrapper"
+            />
+          </div>
+        </div>
+        <div
+          class="mt-4 flex justify-end"
+        >
+          <button
+            aria-label="Submit form"
+            class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
+            data-react-aria-pressable="true"
+            data-testid="form_submit_button"
+            tabindex="0"
+            type="submit"
+          >
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div
+    id="react-aria-description-4"
+    style="display: none;"
+  >
+    Selected Time: 05:15 AM EST
+  </div>
+</body>
+`;
+
+exports[`Story Snapshots > WithInitialValue 1`] = `
+<body>
+  <div>
+    <div
+      class="flex w-full flex-row justify-between gap-6"
+    >
+      <form
+        class="grow min-w-60"
+        data-form-is-valid="true"
+        data-testid=""
+      >
+        <div
+          class="group flex flex-col data-[has-helper=true]:pb-[calc(var(--heroui-font-size-tiny)_+8px)] gap-y-1.5 w-full"
+          data-has-helper="true"
+          data-slot="base"
+        >
+          <span
+            class="block subpixel-antialiased text-small group-data-[required=true]:after:content-['*'] group-data-[required=true]:after:text-danger group-data-[required=true]:after:ml-0.5 group-data-[invalid=true]:text-danger w-full text-foreground !ease-out !duration-200 will-change-auto motion-reduce:transition-none transition-[color,opacity]"
+            data-slot="label"
+            id="react-aria-«replaced-aria-id»"
+          >
+            With initial value
+          </span>
+          <div
+            class="relative px-3 gap-3 inline-flex flex-row items-center cursor-text tap-highlight-transparent shadow-xs border-medium border-default-200 hover:border-default-400 focus-within:hover:border-default-foreground group-data-[invalid=true]:border-danger group-data-[invalid=true]:hover:border-danger group-data-[invalid=true]:focus-within:hover:border-danger h-10 min-h-10 rounded-small w-full !duration-150 transition-colors motion-reduce:transition-none bg-content1 focus-within:border-focus"
+            data-slot="input-wrapper"
+          >
+            <div
+              class="flex items-center text-default-400 w-full gap-x-2 h-6 group-data-[invalid=true]:text-danger"
+              data-slot="inner-wrapper"
+            >
+              <div
+                aria-describedby="react-aria-description-0"
+                aria-labelledby="react-aria-«replaced-aria-id»"
+                class="flex h-full gap-x-0.5 w-full font-normal text-small"
+                data-react-aria-pressable="true"
+                data-slot="input"
+                data-testid="timefield"
+                id="timefield"
+                role="group"
+                style="unicode-bidi: isolate;"
+              >
+                <div
+                  aria-hidden="true"
+                  class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-solid outline-transparent focus:shadow-xs rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+                  data-slot="segment"
+                  data-type="literal"
+                >
+                  ⁦
+                </div>
+                <div
+                  aria-describedby="react-aria-description-0"
+                  aria-label="hour, "
+                  aria-labelledby="react-aria-«replaced-aria-id» react-aria-«replaced-aria-id»"
+                  aria-valuemax="12"
+                  aria-valuemin="1"
+                  aria-valuenow="10"
+                  aria-valuetext="10 AM"
+                  autocorrect="off"
+                  class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-solid outline-transparent focus:shadow-xs rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+                  contenteditable="true"
+                  data-editable="true"
+                  data-slot="segment"
+                  data-type="hour"
+                  enterkeyhint="next"
+                  id="react-aria-«replaced-aria-id»"
+                  inputmode="numeric"
+                  role="spinbutton"
+                  spellcheck="false"
+                  style="caret-color: transparent;"
+                  tabindex="0"
+                >
+                  10
+                </div>
+                <div
+                  aria-hidden="true"
+                  class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-solid outline-transparent focus:shadow-xs rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+                  data-slot="segment"
+                  data-type="literal"
+                >
+                  :
+                </div>
+                <div
+                  aria-label="minute, "
+                  aria-labelledby="react-aria-«replaced-aria-id» react-aria-«replaced-aria-id»"
+                  aria-valuemax="59"
+                  aria-valuemin="0"
+                  aria-valuenow="15"
+                  aria-valuetext="15"
+                  autocorrect="off"
+                  class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-solid outline-transparent focus:shadow-xs rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+                  contenteditable="true"
+                  data-editable="true"
+                  data-slot="segment"
+                  data-type="minute"
+                  enterkeyhint="next"
+                  id="react-aria-«replaced-aria-id»"
+                  inputmode="numeric"
+                  role="spinbutton"
+                  spellcheck="false"
+                  style="caret-color: transparent;"
+                  tabindex="0"
+                >
+                  15
+                </div>
+                <div
+                  aria-hidden="true"
+                  class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-solid outline-transparent focus:shadow-xs rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+                  data-slot="segment"
+                  data-type="literal"
+                >
+                  ⁩
+                </div>
+                <div
+                  aria-hidden="true"
+                  class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-solid outline-transparent focus:shadow-xs rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+                  data-slot="segment"
+                  data-type="literal"
+                >
+                   
+                </div>
+                <div
+                  aria-label="AM/PM, "
+                  aria-labelledby="react-aria-«replaced-aria-id» react-aria-«replaced-aria-id»"
+                  aria-valuemax="1"
+                  aria-valuemin="0"
+                  aria-valuenow="0"
+                  aria-valuetext="AM"
+                  autocorrect="off"
+                  class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-solid outline-transparent focus:shadow-xs rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+                  contenteditable="true"
+                  data-editable="true"
+                  data-slot="segment"
+                  data-type="dayPeriod"
+                  enterkeyhint="next"
+                  id="react-aria-«replaced-aria-id»"
+                  role="spinbutton"
+                  spellcheck="false"
+                  style="caret-color: transparent;"
+                  tabindex="0"
+                >
+                  AM
+                </div>
+                <div
+                  aria-hidden="true"
+                  class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-solid outline-transparent focus:shadow-xs rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+                  data-slot="segment"
+                  data-type="literal"
+                >
+                   
+                </div>
+                <div
+                  aria-label="time zone, "
+                  aria-labelledby="react-aria-«replaced-aria-id» react-aria-«replaced-aria-id»"
+                  aria-readonly="true"
+                  class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-solid outline-transparent focus:shadow-xs rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+                  data-slot="segment"
+                  data-type="timeZoneName"
+                  id="react-aria-«replaced-aria-id»"
+                  role="textbox"
+                  style="caret-color: transparent;"
+                  tabindex="0"
+                >
+                  UTC
+                </div>
+                <input
+                  hidden=""
+                  name="timeField"
+                  title=""
+                  type="text"
+                  value="10:15:00"
+                />
+              </div>
+            </div>
+            <div
+              class="hidden group-data-[has-helper=true]:flex flex-col gap-1.5 absolute top-[calc(100%_+_2px)] start-0 p-0"
+              data-slot="helper-wrapper"
+            />
+          </div>
+        </div>
+        <div
+          class="mt-4 flex justify-end"
+        >
+          <button
+            aria-label="Submit form"
+            class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
+            data-react-aria-pressable="true"
+            data-testid="form_submit_button"
+            tabindex="0"
+            type="submit"
+          >
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div
+    id="react-aria-description-0"
+    style="display: none;"
+  >
+    Selected Time: 10:15 AM UTC
+  </div>
+</body>
+`;
+
+exports[`Story Snapshots > WithUtcTimeZone 1`] = `
+<body>
+  <div>
+    <div
+      class="flex w-full flex-row justify-between gap-6"
+    >
+      <form
+        class="grow min-w-60"
+        data-form-is-valid="true"
+        data-testid=""
+      >
+        <div
+          class="group flex flex-col data-[has-helper=true]:pb-[calc(var(--heroui-font-size-tiny)_+8px)] gap-y-1.5 w-full"
+          data-has-helper="true"
+          data-slot="base"
+        >
+          <span
+            class="block subpixel-antialiased text-small group-data-[required=true]:after:content-['*'] group-data-[required=true]:after:text-danger group-data-[required=true]:after:ml-0.5 group-data-[invalid=true]:text-danger w-full text-foreground !ease-out !duration-200 will-change-auto motion-reduce:transition-none transition-[color,opacity]"
+            data-slot="label"
+            id="react-aria-«replaced-aria-id»"
+          >
+            Time (UTC)
+          </span>
+          <div
+            class="relative px-3 gap-3 inline-flex flex-row items-center cursor-text tap-highlight-transparent shadow-xs border-medium border-default-200 hover:border-default-400 focus-within:hover:border-default-foreground group-data-[invalid=true]:border-danger group-data-[invalid=true]:hover:border-danger group-data-[invalid=true]:focus-within:hover:border-danger h-10 min-h-10 rounded-small w-full !duration-150 transition-colors motion-reduce:transition-none bg-content1 focus-within:border-focus"
+            data-slot="input-wrapper"
+          >
+            <div
+              class="flex items-center text-default-400 w-full gap-x-2 h-6 group-data-[invalid=true]:text-danger"
+              data-slot="inner-wrapper"
+            >
+              <div
+                aria-describedby="react-aria-description-5"
+                aria-labelledby="react-aria-«replaced-aria-id»"
+                class="flex h-full gap-x-0.5 w-full font-normal text-small"
+                data-react-aria-pressable="true"
+                data-slot="input"
+                data-testid="timefield"
+                id="timefield"
+                role="group"
+                style="unicode-bidi: isolate;"
+              >
+                <div
+                  aria-hidden="true"
+                  class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-solid outline-transparent focus:shadow-xs rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+                  data-slot="segment"
+                  data-type="literal"
+                >
+                  ⁦
+                </div>
+                <div
+                  aria-describedby="react-aria-description-5"
+                  aria-label="hour, "
+                  aria-labelledby="react-aria-«replaced-aria-id» react-aria-«replaced-aria-id»"
+                  aria-valuemax="12"
+                  aria-valuemin="1"
+                  aria-valuenow="10"
+                  aria-valuetext="10 AM"
+                  autocorrect="off"
+                  class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-solid outline-transparent focus:shadow-xs rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+                  contenteditable="true"
+                  data-editable="true"
+                  data-slot="segment"
+                  data-type="hour"
+                  enterkeyhint="next"
+                  id="react-aria-«replaced-aria-id»"
+                  inputmode="numeric"
+                  role="spinbutton"
+                  spellcheck="false"
+                  style="caret-color: transparent;"
+                  tabindex="0"
+                >
+                  10
+                </div>
+                <div
+                  aria-hidden="true"
+                  class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-solid outline-transparent focus:shadow-xs rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+                  data-slot="segment"
+                  data-type="literal"
+                >
+                  :
+                </div>
+                <div
+                  aria-label="minute, "
+                  aria-labelledby="react-aria-«replaced-aria-id» react-aria-«replaced-aria-id»"
+                  aria-valuemax="59"
+                  aria-valuemin="0"
+                  aria-valuenow="15"
+                  aria-valuetext="15"
+                  autocorrect="off"
+                  class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-solid outline-transparent focus:shadow-xs rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+                  contenteditable="true"
+                  data-editable="true"
+                  data-slot="segment"
+                  data-type="minute"
+                  enterkeyhint="next"
+                  id="react-aria-«replaced-aria-id»"
+                  inputmode="numeric"
+                  role="spinbutton"
+                  spellcheck="false"
+                  style="caret-color: transparent;"
+                  tabindex="0"
+                >
+                  15
+                </div>
+                <div
+                  aria-hidden="true"
+                  class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-solid outline-transparent focus:shadow-xs rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+                  data-slot="segment"
+                  data-type="literal"
+                >
+                  ⁩
+                </div>
+                <div
+                  aria-hidden="true"
+                  class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-solid outline-transparent focus:shadow-xs rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+                  data-slot="segment"
+                  data-type="literal"
+                >
+                   
+                </div>
+                <div
+                  aria-label="AM/PM, "
+                  aria-labelledby="react-aria-«replaced-aria-id» react-aria-«replaced-aria-id»"
+                  aria-valuemax="1"
+                  aria-valuemin="0"
+                  aria-valuenow="0"
+                  aria-valuetext="AM"
+                  autocorrect="off"
+                  class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-solid outline-transparent focus:shadow-xs rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+                  contenteditable="true"
+                  data-editable="true"
+                  data-slot="segment"
+                  data-type="dayPeriod"
+                  enterkeyhint="next"
+                  id="react-aria-«replaced-aria-id»"
+                  role="spinbutton"
+                  spellcheck="false"
+                  style="caret-color: transparent;"
+                  tabindex="0"
+                >
+                  AM
+                </div>
+                <div
+                  aria-hidden="true"
+                  class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-solid outline-transparent focus:shadow-xs rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+                  data-slot="segment"
+                  data-type="literal"
+                >
+                   
+                </div>
+                <div
+                  aria-label="time zone, "
+                  aria-labelledby="react-aria-«replaced-aria-id» react-aria-«replaced-aria-id»"
+                  aria-readonly="true"
+                  class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-solid outline-transparent focus:shadow-xs rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+                  data-slot="segment"
+                  data-type="timeZoneName"
+                  id="react-aria-«replaced-aria-id»"
+                  role="textbox"
+                  style="caret-color: transparent;"
+                  tabindex="0"
+                >
+                  UTC
+                </div>
+                <input
+                  hidden=""
+                  name="timeField"
+                  title=""
+                  type="text"
+                  value="10:15:00"
+                />
+              </div>
+            </div>
+            <div
+              class="hidden group-data-[has-helper=true]:flex flex-col gap-1.5 absolute top-[calc(100%_+_2px)] start-0 p-0"
+              data-slot="helper-wrapper"
+            />
+          </div>
+        </div>
+        <div
+          class="mt-4 flex justify-end"
+        >
+          <button
+            aria-label="Submit form"
+            class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
+            data-react-aria-pressable="true"
+            data-testid="form_submit_button"
+            tabindex="0"
+            type="submit"
+          >
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div
+    id="react-aria-description-5"
+    style="display: none;"
+  >
+    Selected Time: 10:15 AM UTC
+  </div>
+</body>
+`;

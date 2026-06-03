@@ -2,6 +2,7 @@
 
 // components
 export * from './Checkboxes';
+export * from './DatePicker';
 export * from './FieldArray';
 export * from './FieldCard';
 export * from './Form';
@@ -19,6 +20,7 @@ export * from './SubmitButton';
 export * from './Switch';
 export * from './SwitchBox';
 export * from './TextArea';
+export * from './Time';
 
 // hooks
 export * from './hooks/useClientValidation/useClientValidation';
