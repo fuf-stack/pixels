@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.11.0](https://github.com/fuf-stack/pixels/compare/pixels-v1.10.2...pixels-v1.11.0) (2026-06-03)
+
+
+### Features
+
+* **pixels:** add modal store and ModalHost ([f97ade3](https://github.com/fuf-stack/pixels/commit/f97ade3d53f01d31d2f7c0b33d34aac7a7253c57))
+* **pixels:** apply Toaster width to custom toasts ([9fd125d](https://github.com/fuf-stack/pixels/commit/9fd125d10355112da0c4eca38e57ecd853227ee5))
+
+
+### Bug Fixes
+
+* **pixels:** align Alert description colors ([eab3648](https://github.com/fuf-stack/pixels/commit/eab3648b207af68e188c3c2d4a882983bdaab78e))
+
 ## [1.10.2](https://github.com/fuf-stack/pixels/compare/pixels-v1.10.1...pixels-v1.10.2) (2026-06-01)
 
 
