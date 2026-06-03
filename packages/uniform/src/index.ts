@@ -31,6 +31,7 @@ export * from './hooks/useInputValueDebounce/useInputValueDebounce';
 export * from './hooks/useInputValueTransform/useInputValueTransform';
 export * from './hooks/useUniformField/useUniformField';
 export * from './hooks/useUniformFieldArray/useUniformFieldArray';
+export * from './hooks/useWatchFormReset/useWatchFormReset';
 export * from './hooks/useWatchUserChange/useWatchUserChange';
 
 /* v8 ignore stop */

@@ -27,6 +27,9 @@ export interface DebugModeSettings {
   localStorageKey?: string;
 }
 
+/** Listener function that gets called when a form reset is triggered */
+export type FormResetListener = () => void;
+
 /**
  * Listener function that gets called when a field changes due to user input
  */
@@ -52,6 +55,9 @@ const DEBUG_MODE_LOCAL_STORAGE_KEY_DEFAULT = 'uniform:debug-mode';
  *    user-initiated field changes (typing, clicking, selecting) - NOT programmatic changes like
  *    form.reset() or form.setValue(). Used by the `useWatchUserChange` hook to enable reactive
  *    field dependencies.
+ * 5. **Form Reset Tracking**: The `formReset` property provides a pub/sub system for tracking
+ *    programmatic form resets triggered via the wrapped `reset()` from `useFormContext`.
+ *    Used by hooks like `useWatchFormReset` to run reset-specific normalization logic.
  *
  * This context is useful for components that need to interact with or control the form submission state,
  * or access the validation schema for managing form validation logic.
@@ -97,6 +103,19 @@ interface UniformContextType {
   debugMode: DebugMode;
   /** settings for form debug mode */
   debugModeSettings?: DebugModeSettings;
+  /** Form reset tracking (programmatic reset calls) */
+  formReset: {
+    /**
+     * Subscribe to programmatic form resets.
+     * Returns an unsubscribe function.
+     */
+    subscribe: (listener: FormResetListener) => () => void;
+    /**
+     * Notify all subscribers about a programmatic form reset.
+     * Called from useFormContext when reset() is invoked.
+     */
+    notify: () => void;
+  };
   /** Function to update if the form can currently be submitted */
   preventSubmit: (prevent: boolean) => void;
   /** Setter to enable or disable form debug mode */
@@ -138,6 +157,16 @@ if (!(window as any).__UNIFORM_CONTEXT__) {
   (window as any).__UNIFORM_CONTEXT__ = React.createContext<UniformContextType>(
     {
       debugMode: 'off',
+      formReset: {
+        subscribe: () => {
+          return () => {
+            return undefined;
+          };
+        },
+        notify: () => {
+          return undefined;
+        },
+      },
       preventSubmit: () => {
         return undefined;
       },
@@ -211,6 +240,8 @@ interface FormProviderProps {
  * - Client validation schema management
  * - Submit handler with automatic data conversion and submission control with preventSubmit
  * - Form Debug Mode state
+ * - Form reset pub/sub notifications (`formReset`)
+ * - User change pub/sub notifications (`userChange`)
  * - React Hook Form context
  */
 const FormProvider: React.FC<FormProviderProps> = ({
@@ -249,6 +280,27 @@ const FormProvider: React.FC<FormProviderProps> = ({
 
   // Control if the form can currently be submitted
   const [preventSubmit, setPreventSubmit] = useState(false);
+
+  // Form reset listener registry (stored in ref to avoid re-renders)
+  const formResetListenersRef = useRef<Set<FormResetListener>>(new Set());
+
+  // Subscribe to form reset notifications
+  const subscribeFormReset = useCallback(
+    (listener: FormResetListener): (() => void) => {
+      formResetListenersRef.current.add(listener);
+      return () => {
+        formResetListenersRef.current.delete(listener);
+      };
+    },
+    [],
+  );
+
+  // Notify all subscribers about a programmatic form reset
+  const notifyFormReset = useCallback((): void => {
+    formResetListenersRef.current.forEach((listener) => {
+      listener();
+    });
+  }, []);
 
   // User change listener registry (stored in ref to avoid re-renders)
   const userChangeListenersRef = useRef<Set<UserChangeListener>>(new Set());
@@ -343,6 +395,10 @@ const FormProvider: React.FC<FormProviderProps> = ({
         setClientValidationSchema,
         setDebugMode,
         triggerSubmit: handleSubmit,
+        formReset: {
+          subscribe: subscribeFormReset,
+          notify: notifyFormReset,
+        },
         userChange: {
           subscribe: subscribeUserChange,
           notify: notifyUserChange,

@@ -6,9 +6,10 @@ import { useFieldArray as useRHFFieldArray } from 'react-hook-form';
 
 import { useReducedMotion } from '@fuf-stack/pixel-motion';
 
-import { flatArrayKey } from '../../helpers';
+import { flatArrayKey, isValueEmpty } from '../../helpers';
 import { useFormContext } from '../useFormContext';
 import { useUniformField } from '../useUniformField';
+import { useWatchFormReset } from '../useWatchFormReset';
 
 export interface UseUniformFieldArrayProps<
   TFieldValues extends FieldValues = FieldValues,
@@ -33,7 +34,9 @@ export interface UseUniformFieldArrayProps<
  * Enhanced useFieldArray hook with initialization and animation logic.
  * Based on React Hook Form's useFieldArray with additional features:
  * - Automatic initialization when lastElementNotRemovable is set
+ * - Reset-only normalization for stale empty placeholder rows (via useWatchFormReset)
  * - Animation control (disabled during initialization)
+ * - Temporary animation disable during reset normalization collapse
  * - Support for flat arrays (arrays of primitives)
  *
  * Note: Automatic validation triggering on length change is disabled to prevent
@@ -62,19 +65,20 @@ export const useUniformFieldArray = <
 
   const { control } = uniformField;
 
-  const { fields, append, remove, insert, move } = useRHFFieldArray({
+  const { fields, append, remove, insert, move, replace } = useRHFFieldArray({
     control,
     name,
   });
 
-  const { trigger, setValue } = useFormContext<TFieldValues>();
+  const { trigger, setValue, getValues } = useFormContext<TFieldValues>();
 
   // Determine if initialization is needed (initially or after reset).
-  // This flag automatically handles both scenarios:
+  // lastElementNotRemovable is purely a minimum-count guarantee: when there are
+  // no rows, add one. This handles both:
   // - Initial mount: fields.length starts at 0
-  // - Form reset: fields.length becomes 0 again
-  // Additional initialization conditions can be added here later (e.g., minElements > 0)
-  // Using useMemo ensures this value is properly tracked by React and effects can depend on it
+  // - Form reset to an empty array: fields.length becomes 0 again
+  // It intentionally does NOT inspect row contents, so manually added empty rows
+  // are never collapsed.
   const needsInitialize = useMemo(() => {
     return lastElementNotRemovable && fields.length === 0;
   }, [lastElementNotRemovable, fields.length]);
@@ -133,8 +137,73 @@ export const useUniformFieldArray = <
       : (_elementInitialValue ?? {});
   }, [flat, _elementInitialValue]);
 
-  // Initialization/Re-initialization: Add initial element when needed.
-  // This handles both initial mount and form reset scenarios by reacting to needsInitialize.
+  // Reset normalization:
+  // Run ONLY when an actual form reset is emitted (via useWatchFormReset), not
+  // on regular field edits. This does not collapse rows users add manually.
+  //
+  // Why this exists:
+  // RHF can keep stale field-array rows after reset when array defaults are
+  // missing (e.g. value becomes undefined or [null, null] while UI still has
+  // multiple rows). For lastElementNotRemovable arrays we normalize that state
+  // back to exactly one empty row.
+  useWatchFormReset({
+    onReset: () => {
+      // This normalization is only relevant for min-one arrays.
+      if (!lastElementNotRemovable) {
+        return;
+      }
+
+      const currentValue = getValues(name as Path<TFieldValues>) as unknown;
+      const valueIsArray = Array.isArray(currentValue);
+      const arrayValue = valueIsArray ? (currentValue as unknown[]) : [];
+      const hasSingleRow = valueIsArray && arrayValue.length === 1;
+
+      // Treat these as "effectively empty after reset":
+      // - value missing/not-array
+      // - empty array
+      // - array where all entries are empty placeholders
+      const isEffectivelyEmptyAfterReset =
+        !valueIsArray ||
+        arrayValue.length === 0 ||
+        arrayValue.every((entry) => {
+          return isValueEmpty(entry);
+        });
+
+      // Nothing to fix when the reset restored real values (e.g. from defaults).
+      if (!isEffectivelyEmptyAfterReset) {
+        return;
+      }
+
+      // Already normalized: exactly one row remains.
+      if (hasSingleRow) {
+        return;
+      }
+
+      // Avoid collapse animation flicker during reset normalization.
+      setDisableAnimation(true);
+
+      // use replace so the RHF field-array length actually collapses to one row
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      replace([elementInitialValue] as any);
+
+      // Restore normal animation state right after normalization.
+      if (!prefersReducedMotion) {
+        setTimeout(() => {
+          setDisableAnimation(false);
+        }, 1);
+      }
+    },
+  });
+
+  // Initialization/Re-initialization: add one element only when array length is 0.
+  // This is the min-count behavior for lastElementNotRemovable and is intentionally
+  // separate from reset normalization above.
+  //
+  // Reset behavior in this hook is split into two phases:
+  // 1) Reset normalization (useWatchFormReset): collapse stale placeholder rows
+  //    left by reset edge cases.
+  // 2) Length-based initialization (this effect): ensure a min-one array when
+  //    the field array is truly empty.
   // CRITICAL: This effect MUST be the LAST hook in this component.
   // It sets hasInitialized.current = true, which acts as a gate for other effects.
   // If this runs before other effects, hasInitialized will be true during their first run,

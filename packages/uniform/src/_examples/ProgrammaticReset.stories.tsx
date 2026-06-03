@@ -78,10 +78,10 @@ export const InputsWithInitialValues: Story = {
           <Button
             className="w-full"
             color="danger"
-            testId="reset-all"
             onClick={() => {
               reset();
             }}
+            testId="reset-all"
           >
             Reset All
           </Button>
@@ -158,10 +158,10 @@ export const InputsWithoutInitialValues: Story = {
           <Button
             className="w-full"
             color="danger"
-            testId="reset-all"
             onClick={() => {
               reset();
             }}
+            testId="reset-all"
           >
             Reset All
           </Button>
@@ -248,10 +248,10 @@ export const SelectWithInitialValues: Story = {
           <Button
             className="w-full"
             color="danger"
-            testId="reset-all"
             onClick={() => {
               reset();
             }}
+            testId="reset-all"
           >
             Reset All
           </Button>
@@ -267,8 +267,8 @@ export const SelectWithInitialValues: Story = {
           ]}
         />
         <Select
-          multiSelect
           label="Ice Cream Flavors 🍦"
+          multiSelect
           name="flavors"
           options={[
             { label: 'Vanilla', value: 'vanilla' },
@@ -332,10 +332,10 @@ export const SelectWithoutInitialValues: Story = {
           <Button
             className="w-full"
             color="danger"
-            testId="reset-all"
             onClick={() => {
               reset();
             }}
+            testId="reset-all"
           >
             Reset All
           </Button>
@@ -351,8 +351,8 @@ export const SelectWithoutInitialValues: Story = {
           ]}
         />
         <Select
-          multiSelect
           label="Ice Cream Flavors 🍦"
+          multiSelect
           name="flavors"
           options={[
             { label: 'Vanilla', value: 'vanilla' },
@@ -436,10 +436,10 @@ export const CheckboxesWithInitialValues: Story = {
           <Button
             className="w-full"
             color="danger"
-            testId="reset-all"
             onClick={() => {
               reset();
             }}
+            testId="reset-all"
           >
             Reset All
           </Button>
@@ -586,10 +586,10 @@ export const CheckboxesWithoutInitialValues: Story = {
           <Button
             className="w-full"
             color="danger"
-            testId="reset-all"
             onClick={() => {
               reset();
             }}
+            testId="reset-all"
           >
             Reset All
           </Button>
@@ -742,10 +742,10 @@ export const RadiosWithInitialValues: Story = {
           <Button
             className="w-full"
             color="danger"
-            testId="reset-all"
             onClick={() => {
               reset();
             }}
+            testId="reset-all"
           >
             Reset All
           </Button>
@@ -870,10 +870,10 @@ export const RadiosWithoutInitialValues: Story = {
           <Button
             className="w-full"
             color="danger"
-            testId="reset-all"
             onClick={() => {
               reset();
             }}
+            testId="reset-all"
           >
             Reset All
           </Button>
@@ -1018,10 +1018,10 @@ export const FieldArrayWithInitialValues: Story = {
         <Button
           className="w-full"
           color="danger"
-          testId="reset-all"
           onClick={() => {
             reset();
           }}
+          testId="reset-all"
         >
           Reset All
         </Button>
@@ -1071,18 +1071,16 @@ export const FieldArrayWithInitialValues: Story = {
  */
 export const FieldArrayWithoutInitialValues: Story = {
   args: {
-    initialValues: {
-      guests: [],
-    },
+    // No initialValues provided
   },
   render: () => {
     const { reset } = useFormContext();
     return (
       <>
         <FieldArray
-          lastElementNotRemovable
           className="mb-4"
           label="Party Guests 🎉 (Object Array)"
+          lastElementNotRemovable
           name="guests"
           testId="guests"
         >
@@ -1094,10 +1092,10 @@ export const FieldArrayWithoutInitialValues: Story = {
         <Button
           className="w-full"
           color="danger"
-          testId="reset-all"
           onClick={() => {
             reset();
           }}
+          testId="reset-all"
         >
           Reset All
         </Button>
@@ -1133,7 +1131,7 @@ export const FieldArrayWithoutInitialValues: Story = {
     // Reset
     await userEvent.click(canvas.getByTestId('reset-all'), { delay: 50 });
 
-    // Should reset to empty
+    // Reset should collapse back to one empty row
     await waitFor(() => {
       expect(canvas.getByTestId('guests_0_name')).toHaveValue('');
       expect(canvas.queryByTestId('guests_1_name')).not.toBeInTheDocument();
@@ -1155,8 +1153,8 @@ export const FieldArrayFlatWithInitialValues: Story = {
     return (
       <>
         <FieldArray
-          flat
           className="mb-4"
+          flat
           label="Pizza Toppings 🍕 (Flat Array)"
           name="toppings"
           testId="toppings"
@@ -1169,10 +1167,10 @@ export const FieldArrayFlatWithInitialValues: Story = {
         <Button
           className="w-full"
           color="danger"
-          testId="reset-all"
           onClick={() => {
             reset();
           }}
+          testId="reset-all"
         >
           Reset All
         </Button>
@@ -1222,19 +1220,17 @@ export const FieldArrayFlatWithInitialValues: Story = {
  */
 export const FieldArrayFlatWithoutInitialValues: Story = {
   args: {
-    initialValues: {
-      toppings: [],
-    },
+    // No initialValues provided
   },
   render: () => {
     const { reset } = useFormContext();
     return (
       <>
         <FieldArray
-          flat
-          lastElementNotRemovable
           className="mb-4"
+          flat
           label="Pizza Toppings 🍕 (Flat Array)"
+          lastElementNotRemovable
           name="toppings"
           testId="toppings"
         >
@@ -1246,10 +1242,10 @@ export const FieldArrayFlatWithoutInitialValues: Story = {
         <Button
           className="w-full"
           color="danger"
-          testId="reset-all"
           onClick={() => {
             reset();
           }}
+          testId="reset-all"
         >
           Reset All
         </Button>
@@ -1285,7 +1281,7 @@ export const FieldArrayFlatWithoutInitialValues: Story = {
     // Reset
     await userEvent.click(canvas.getByTestId('reset-all'), { delay: 50 });
 
-    // Should reset to empty
+    // Reset should collapse back to one empty row
     await waitFor(() => {
       expect(canvas.getByTestId('toppings_0')).toHaveValue('');
       expect(canvas.queryByTestId('toppings_1')).not.toBeInTheDocument();

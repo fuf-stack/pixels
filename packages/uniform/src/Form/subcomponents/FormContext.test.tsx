@@ -41,6 +41,9 @@ describe('FormContext', () => {
       const { result } = renderHook(() => useContext(UniformContext));
 
       expect(result.current.debugMode).toBe('off');
+      expect(result.current.formReset).toBeDefined();
+      expect(typeof result.current.formReset.subscribe).toBe('function');
+      expect(typeof result.current.formReset.notify).toBe('function');
       expect(typeof result.current.preventSubmit).toBe('function');
       expect(typeof result.current.setDebugMode).toBe('function');
       expect(typeof result.current.triggerSubmit).toBe('function');
@@ -204,6 +207,40 @@ describe('FormContext', () => {
       await waitFor(() => {
         expect(onSubmit).toHaveBeenCalled();
       });
+    });
+
+    it('provides formReset pub/sub notifications', () => {
+      const onSubmit = vi.fn();
+
+      const wrapper = ({ children }: { children: ReactNode }) => (
+        <FormProvider onSubmit={onSubmit} validationTrigger="onChange">
+          {() => <>{children}</>}
+        </FormProvider>
+      );
+
+      const { result } = renderHook(() => useContext(UniformContext), {
+        wrapper,
+      });
+
+      const listener = vi.fn();
+
+      let unsubscribe: () => void = () => undefined;
+      act(() => {
+        unsubscribe = result.current.formReset.subscribe(listener);
+      });
+
+      act(() => {
+        result.current.formReset.notify();
+      });
+      expect(listener).toHaveBeenCalledTimes(1);
+
+      act(() => {
+        unsubscribe();
+      });
+      act(() => {
+        result.current.formReset.notify();
+      });
+      expect(listener).toHaveBeenCalledTimes(1);
     });
 
     it('passes initialValues to form', () => {

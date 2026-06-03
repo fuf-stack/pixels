@@ -7,13 +7,19 @@ import { useUniformFieldArray } from './useUniformFieldArray';
 // Mock dependencies
 const mockTrigger = vi.fn();
 const mockSetValue = vi.fn();
+const mockGetValues = vi.fn();
 const mockAppend = vi.fn();
 const mockRemove = vi.fn();
 const mockInsert = vi.fn();
 const mockMove = vi.fn();
+const mockReplace = vi.fn();
+const mockFormResetSubscribe = vi.fn();
+const mockFormResetNotify = vi.fn();
 
 let mockPrefersReducedMotion = false;
 let mockFields: unknown[] = [];
+let mockCurrentArrayValue: unknown;
+let mockResetListener: (() => void) | undefined;
 
 vi.mock('react-hook-form', () => ({
   useFieldArray: vi.fn(() => ({
@@ -22,6 +28,7 @@ vi.mock('react-hook-form', () => ({
     remove: mockRemove,
     insert: mockInsert,
     move: mockMove,
+    replace: mockReplace,
   })),
 }));
 
@@ -29,6 +36,11 @@ vi.mock('../useFormContext/useFormContext', () => ({
   useFormContext: vi.fn(() => ({
     trigger: mockTrigger,
     setValue: mockSetValue,
+    getValues: mockGetValues,
+    formReset: {
+      subscribe: mockFormResetSubscribe,
+      notify: mockFormResetNotify,
+    },
   })),
 }));
 
@@ -55,6 +67,13 @@ describe('useUniformFieldArray', () => {
     vi.useFakeTimers();
     mockPrefersReducedMotion = false;
     mockFields = [];
+    mockCurrentArrayValue = undefined;
+    mockResetListener = undefined;
+    mockFormResetSubscribe.mockImplementation((listener: () => void) => {
+      mockResetListener = listener;
+      return () => undefined;
+    });
+    mockGetValues.mockImplementation(() => mockCurrentArrayValue);
   });
 
   afterEach(() => {
@@ -370,6 +389,140 @@ describe('useUniformFieldArray', () => {
         vi.advanceTimersByTime(1);
       });
       expect(mockTrigger).toHaveBeenCalledWith('testArray');
+    });
+  });
+
+  describe('Reset normalization (formReset signal)', () => {
+    it('should collapse stale empty placeholder rows when a reset is signalled', () => {
+      mockFields = [{ id: '1' }, { id: '2' }];
+      mockCurrentArrayValue = [null, null];
+
+      renderHook(() =>
+        useUniformFieldArray({
+          name: 'testArray',
+          flat: true,
+          lastElementNotRemovable: true,
+        }),
+      );
+
+      // No reset has happened yet on mount -> must not collapse
+      expect(mockReplace).not.toHaveBeenCalled();
+
+      // Simulate a programmatic reset that left stale empty rows behind
+      mockResetListener?.();
+
+      expect(mockReplace).toHaveBeenCalledWith([{ __FLAT__: null }]);
+    });
+
+    it('should collapse stale rows on reset when the array value is missing', () => {
+      mockFields = [{ id: '1' }, { id: '2' }];
+      mockCurrentArrayValue = undefined;
+
+      renderHook(() =>
+        useUniformFieldArray({
+          name: 'testArray',
+          flat: true,
+          lastElementNotRemovable: true,
+        }),
+      );
+
+      mockResetListener?.();
+
+      expect(mockReplace).toHaveBeenCalledWith([{ __FLAT__: null }]);
+    });
+
+    it('should temporarily disable animation while collapsing on reset', async () => {
+      mockFields = [{ id: '1' }, { id: '2' }];
+      mockCurrentArrayValue = [null, null];
+
+      const { result } = renderHook(() =>
+        useUniformFieldArray({
+          name: 'testArray',
+          flat: true,
+          lastElementNotRemovable: true,
+        }),
+      );
+
+      await act(async () => {
+        mockResetListener?.();
+      });
+      expect(result.current.disableAnimation).toBe(true);
+
+      await act(async () => {
+        vi.advanceTimersByTime(2);
+        await Promise.resolve();
+      });
+      expect(result.current.disableAnimation).toBe(false);
+    });
+
+    it('should NOT collapse multiple empty rows without a reset signal', () => {
+      // This guards the UX: a user may add several empty rows before filling
+      // them in. Those must never be collapsed outside of a reset.
+      mockFields = [{ id: '1' }, { id: '2' }];
+      mockCurrentArrayValue = [null, null];
+
+      const { rerender } = renderHook(() =>
+        useUniformFieldArray({
+          name: 'testArray',
+          flat: true,
+          lastElementNotRemovable: true,
+        }),
+      );
+
+      // Re-render without any reset notification (e.g. unrelated state change)
+      rerender();
+
+      expect(mockReplace).not.toHaveBeenCalled();
+    });
+
+    it('should not collapse on reset when a single empty row remains', () => {
+      mockFields = [{ id: '1' }];
+      mockCurrentArrayValue = [null];
+
+      renderHook(() =>
+        useUniformFieldArray({
+          name: 'testArray',
+          flat: true,
+          lastElementNotRemovable: true,
+        }),
+      );
+
+      mockResetListener?.();
+
+      expect(mockReplace).not.toHaveBeenCalled();
+    });
+
+    it('should not collapse on reset when real values were restored from defaults', () => {
+      mockFields = [{ id: '1' }, { id: '2' }];
+      mockCurrentArrayValue = [{ name: 'a' }, { name: 'b' }];
+
+      renderHook(() =>
+        useUniformFieldArray({
+          name: 'testArray',
+          lastElementNotRemovable: true,
+        }),
+      );
+
+      mockResetListener?.();
+
+      expect(mockReplace).not.toHaveBeenCalled();
+    });
+
+    it('should not normalize on reset when lastElementNotRemovable is false', () => {
+      mockFields = [{ id: '1' }, { id: '2' }];
+      mockCurrentArrayValue = [null, null];
+
+      renderHook(() =>
+        useUniformFieldArray({
+          name: 'testArray',
+          flat: true,
+          lastElementNotRemovable: false,
+        }),
+      );
+
+      mockResetListener?.();
+
+      expect(mockReplace).not.toHaveBeenCalled();
     });
   });
 
