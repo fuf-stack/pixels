@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.22.4](https://github.com/fuf-stack/pixels/compare/uniform-v1.22.3...uniform-v1.22.4) (2026-06-03)
+
+
+### Bug Fixes
+
+* **uniform:** normalize reset placeholders for all field arrays ([1973478](https://github.com/fuf-stack/pixels/commit/1973478c27c3ec6249d15e7d5e3f1b10c0c7ce47))
+
 ## [1.22.3](https://github.com/fuf-stack/pixels/compare/uniform-v1.22.2...uniform-v1.22.3) (2026-06-03)
 
 
