@@ -37,6 +37,33 @@ if (globalThis.ResizeObserver === undefined) {
   });
 }
 
+// sonner's swipe-to-dismiss handler expects pointer capture APIs to exist.
+// jsdom does not currently implement them, so provide a minimal test shim.
+if (
+  globalThis.HTMLElement !== undefined &&
+  globalThis.HTMLElement.prototype.setPointerCapture === undefined
+) {
+  Object.defineProperties(globalThis.HTMLElement.prototype, {
+    setPointerCapture: {
+      configurable: true,
+      writable: true,
+      value() {},
+    },
+    releasePointerCapture: {
+      configurable: true,
+      writable: true,
+      value() {},
+    },
+    hasPointerCapture: {
+      configurable: true,
+      writable: true,
+      value() {
+        return false;
+      },
+    },
+  });
+}
+
 // Force cleanup and reset DOM state between each test to prevent cross-test contamination
 beforeEach(() => {
   // cleanup() from React Testing Library unmounts any React components and removes
