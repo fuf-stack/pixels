@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.22.3](https://github.com/fuf-stack/pixels/compare/uniform-v1.22.2...uniform-v1.22.3) (2026-06-03)
+
+
+### Bug Fixes
+
+* **uniform:** normalize FieldArray reset artifacts via explicit form reset events ([58fc87b](https://github.com/fuf-stack/pixels/commit/58fc87b549bb9927840b94bfbdcb3c53524e1830))
+
 ## [1.22.2](https://github.com/fuf-stack/pixels/compare/uniform-v1.22.1...uniform-v1.22.2) (2026-06-03)
 
 
