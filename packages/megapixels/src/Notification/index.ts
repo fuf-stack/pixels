@@ -1,7 +1,10 @@
-import notification from './Notification';
+import notification from './notification';
 import NotificationHost from './NotificationHost';
 
-export type { NotificationOptions } from './Notification';
+export type {
+  NotificationOptions,
+  NotificationRenderProps,
+} from './notification';
 export type { NotificationHostProps } from './NotificationHost';
 
 export { NotificationHost, notification };

@@ -18,7 +18,7 @@ import { expect, within } from 'storybook/test';
 import Filter, { filters as f } from '.';
 
 const meta: Meta<typeof Filter> = {
-  title: 'Common/Filter',
+  title: 'Megapixels/Filter',
   component: Filter,
   args: {
     className: 'w-full',
@@ -29,11 +29,11 @@ const meta: Meta<typeof Filter> = {
     return (
       <Filter
         {...args}
-        values={values ?? {}}
         onChange={(next) => {
           action('onChange')(next);
           updateArgs({ values: next });
         }}
+        values={values ?? {}}
       />
     );
   },
@@ -132,7 +132,6 @@ export const WithCustomStyles: Story = {
     return (
       <Filter
         {...args}
-        values={values ?? {}}
         className={{
           // outer gradient border wrapper
           base: [
@@ -222,6 +221,7 @@ export const WithCustomStyles: Story = {
           action('onChange')(next);
           updateArgs({ values: next });
         }}
+        values={values ?? {}}
       />
     );
   },

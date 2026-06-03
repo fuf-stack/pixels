@@ -629,257 +629,154 @@ exports[`Story Snapshots > Variants 1`] = `
 </div>
 `;
 
-exports[`Story Snapshots > WithCustomMoreButtonLabel 1`] = `
-<body>
-  <div
-    aria-hidden="true"
+exports[`Story Snapshots > WithActionButton 1`] = `
+<div>
+  <section
+    aria-atomic="false"
+    aria-label="Notifications alt+T"
+    aria-live="polite"
+    aria-relevant="additions text"
+    tabindex="-1"
   >
-    <section
-      aria-atomic="false"
-      aria-label="Notifications alt+T"
-      aria-live="polite"
-      aria-relevant="additions text"
+    <ol
+      data-sonner-theme="light"
+      data-sonner-toaster="true"
+      data-x-position="right"
+      data-y-position="bottom"
+      dir="ltr"
+      style="--front-toast-height: 0px; --width: 600px; --gap: 14px; z-index: 40; --offset-top: 24px; --offset-right: 24px; --offset-bottom: 24px; --offset-left: 24px; --mobile-offset-top: 16px; --mobile-offset-right: 16px; --mobile-offset-bottom: 16px; --mobile-offset-left: 16px;"
+      tabindex="-1"
+    />
+    <ol
+      data-sonner-theme="light"
+      data-sonner-toaster="true"
+      data-x-position="center"
+      data-y-position="top"
+      dir="ltr"
+      style="--front-toast-height: 0px; --width: 600px; --gap: 14px; z-index: 40; --offset-top: 24px; --offset-right: 24px; --offset-bottom: 24px; --offset-left: 24px; --mobile-offset-top: 16px; --mobile-offset-right: 16px; --mobile-offset-bottom: 16px; --mobile-offset-left: 16px;"
       tabindex="-1"
     >
-      <ol
-        data-sonner-theme="light"
-        data-sonner-toaster="true"
-        data-x-position="right"
-        data-y-position="bottom"
-        dir="ltr"
-        style="--front-toast-height: 0px; --width: 600px; --gap: 14px; z-index: 40; --offset-top: 24px; --offset-right: 24px; --offset-bottom: 24px; --offset-left: 24px; --mobile-offset-top: 16px; --mobile-offset-right: 16px; --mobile-offset-bottom: 16px; --mobile-offset-left: 16px;"
-        tabindex="-1"
-      />
-      <ol
-        data-sonner-theme="light"
-        data-sonner-toaster="true"
+      <li
+        class="w-[var(--width)]"
+        data-dismissible="true"
+        data-expanded="false"
+        data-front="true"
+        data-index="0"
+        data-mounted="true"
+        data-promise="false"
+        data-removed="false"
+        data-sonner-toast=""
+        data-styled="false"
+        data-swipe-out="false"
+        data-swiped="false"
+        data-swiping="false"
+        data-visible="true"
         data-x-position="center"
         data-y-position="top"
-        dir="ltr"
-        style="--front-toast-height: 0px; --width: 600px; --gap: 14px; z-index: 40; --offset-top: 24px; --offset-right: 24px; --offset-bottom: 24px; --offset-left: 24px; --mobile-offset-top: 16px; --mobile-offset-right: 16px; --mobile-offset-bottom: 16px; --mobile-offset-left: 16px;"
-        tabindex="-1"
+        style="--index: 0; --toasts-before: 0; --z-index: 1; --offset: 0px; --initial-height: 0px;"
+        tabindex="0"
       >
-        <li
-          class="w-[var(--width)]"
-          data-dismissible="true"
-          data-expanded="true"
-          data-front="true"
-          data-index="0"
-          data-mounted="true"
-          data-promise="false"
-          data-removed="false"
-          data-sonner-toast=""
-          data-styled="false"
-          data-swipe-out="false"
-          data-swiped="false"
-          data-swiping="false"
-          data-visible="true"
-          data-x-position="center"
-          data-y-position="top"
-          style="--index: 0; --toasts-before: 0; --z-index: 1; --offset: 0px; --initial-height: 0px; --swipe-amount-x: 0px; --swipe-amount-y: 0px;"
-          tabindex="0"
+        <div
+          class=""
+          data-content=""
         >
           <div
             class=""
-            data-content=""
+            data-title=""
           >
             <div
-              class=""
-              data-title=""
+              class="flex flex-grow flex-row w-full items-center py-3 px-4 gap-x-1 border-small rounded-medium text-warning-700 dark:text-warning border-warning-300 dark:border-warning-100 min-w-72 bg-warning-50 dark:bg-warning-50"
+              data-closeable="true"
+              data-has-description="true"
+              data-has-title="true"
+              data-visible="true"
+              role="alert"
+              title="Session expiring"
             >
               <div
-                class="flex flex-grow flex-row w-full items-center py-3 px-4 gap-x-1 border-small rounded-medium text-warning-700 dark:text-warning border-warning-300 dark:border-warning-100 min-w-72 bg-warning-50 dark:bg-warning-50"
-                data-closeable="true"
-                data-has-description="true"
-                data-has-title="true"
-                data-visible="true"
-                role="alert"
-                title="Attention required"
+                class="flex-none relative w-9 h-9 rounded-full grid place-items-center bg-warning-50 dark:bg-warning-100 border-warning-100 shadow-small border-1 self-start"
+              >
+                <svg
+                  class="fill-current w-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+                  fill="none"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    clip-rule="evenodd"
+                    d="M3 10.417C3 7.219 3 5.62 3.378 5.082C3.755 4.545 5.258 4.03 8.265 3.001L8.838 2.805C10.405 2.268 11.188 2 12 2C12.812 2 13.595 2.268 15.162 2.805L15.735 3.001C18.742 4.03 20.245 4.545 20.622 5.082C21 5.62 21 7.22 21 10.417V11.991C21 17.629 16.761 20.366 14.101 21.527C13.38 21.842 13.02 22 12 22C10.98 22 10.62 21.842 9.899 21.527C7.239 20.365 3 17.63 3 11.991V10.417ZM12 7.25C12.1989 7.25 12.3897 7.32902 12.5303 7.46967C12.671 7.61032 12.75 7.80109 12.75 8V12C12.75 12.1989 12.671 12.3897 12.5303 12.5303C12.3897 12.671 12.1989 12.75 12 12.75C11.8011 12.75 11.6103 12.671 11.4697 12.5303C11.329 12.3897 11.25 12.1989 11.25 12V8C11.25 7.80109 11.329 7.61032 11.4697 7.46967C11.6103 7.32902 11.8011 7.25 12 7.25ZM12 16C12.2652 16 12.5196 15.8946 12.7071 15.7071C12.8946 15.5196 13 15.2652 13 15C13 14.7348 12.8946 14.4804 12.7071 14.2929C12.5196 14.1054 12.2652 14 12 14C11.7348 14 11.4804 14.1054 11.2929 14.2929C11.1054 14.4804 11 14.7348 11 15C11 15.2652 11.1054 15.5196 11.2929 15.7071C11.4804 15.8946 11.7348 16 12 16Z"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                  />
+                </svg>
+              </div>
+              <div
+                class="h-full flex-grow min-h-10 ms-2 flex flex-col box-border text-inherit justify-center items-stretch gap-1.5"
               >
                 <div
-                  class="flex-none relative w-9 h-9 rounded-full grid place-items-center bg-warning-50 dark:bg-warning-100 border-warning-100 shadow-small border-1 self-start"
+                  class="text-small w-full font-medium block text-inherit leading-5"
                 >
-                  <svg
-                    class="fill-current w-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-                    fill="none"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    width="24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      clip-rule="evenodd"
-                      d="M3 10.417C3 7.219 3 5.62 3.378 5.082C3.755 4.545 5.258 4.03 8.265 3.001L8.838 2.805C10.405 2.268 11.188 2 12 2C12.812 2 13.595 2.268 15.162 2.805L15.735 3.001C18.742 4.03 20.245 4.545 20.622 5.082C21 5.62 21 7.22 21 10.417V11.991C21 17.629 16.761 20.366 14.101 21.527C13.38 21.842 13.02 22 12 22C10.98 22 10.62 21.842 9.899 21.527C7.239 20.365 3 17.63 3 11.991V10.417ZM12 7.25C12.1989 7.25 12.3897 7.32902 12.5303 7.46967C12.671 7.61032 12.75 7.80109 12.75 8V12C12.75 12.1989 12.671 12.3897 12.5303 12.5303C12.3897 12.671 12.1989 12.75 12 12.75C11.8011 12.75 11.6103 12.671 11.4697 12.5303C11.329 12.3897 11.25 12.1989 11.25 12V8C11.25 7.80109 11.329 7.61032 11.4697 7.46967C11.6103 7.32902 11.8011 7.25 12 7.25ZM12 16C12.2652 16 12.5196 15.8946 12.7071 15.7071C12.8946 15.5196 13 15.2652 13 15C13 14.7348 12.8946 14.4804 12.7071 14.2929C12.5196 14.1054 12.2652 14 12 14C11.7348 14 11.4804 14.1054 11.2929 14.2929C11.1054 14.4804 11 14.7348 11 15C11 15.2652 11.1054 15.5196 11.2929 15.7071C11.4804 15.8946 11.7348 16 12 16Z"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                    />
-                  </svg>
+                  Session expiring
                 </div>
                 <div
-                  class="h-full flex-grow min-h-10 ms-2 flex flex-col box-border text-inherit justify-center items-stretch gap-1.5"
+                  class="pl-[1px] text-small font-normal text-foreground"
                 >
-                  <div
-                    class="text-small w-full font-medium block text-inherit leading-5"
-                  >
-                    Attention required
-                  </div>
-                  <div
-                    class="pl-[1px] text-small font-normal text-foreground"
-                  >
-                    Something needs your attention.
-                  </div>
+                  Your session is about to expire.
                 </div>
-                <button
-                  class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 border-medium px-3 min-w-16 h-8 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-transparent data-[hover=true]:opacity-hover whitespace-nowrap border-inherit text-inherit"
-                  data-hover="true"
-                  data-react-aria-pressable="true"
-                  tabindex="0"
-                  type="button"
-                >
-                  Show details
-                </button>
-                <button
-                  aria-label="Close"
-                  class="z-0 group inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny gap-2 rounded-full px-0 !gap-0 transition-transform-colors-opacity motion-reduce:transition-none bg-transparent data-[hover=true]:bg-default/40 min-w-8 w-8 h-8 relative translate-x-1 -translate-y-1 text-warning-500 data-[hover]:bg-warning-200"
-                  data-react-aria-pressable="true"
-                  tabindex="0"
-                  type="button"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class="fill-current"
-                    fill="none"
-                    focusable="false"
-                    height="20"
-                    role="presentation"
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    viewBox="0 0 24 24"
-                    width="20"
-                  >
-                    <path
-                      d="M18 6L6 18M6 6l12 12"
-                    />
-                  </svg>
-                </button>
               </div>
+              <button
+                class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-3 min-w-16 h-8 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-warning/20 text-warning-700 dark:text-warning data-[hover=true]:opacity-hover"
+                data-react-aria-pressable="true"
+                tabindex="0"
+                type="button"
+              >
+                Extend
+              </button>
+              <button
+                aria-label="Close"
+                class="z-0 group inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny gap-2 rounded-full px-0 !gap-0 transition-transform-colors-opacity motion-reduce:transition-none bg-transparent data-[hover=true]:bg-default/40 min-w-8 w-8 h-8 relative translate-x-1 -translate-y-1 text-warning-500 data-[hover]:bg-warning-200"
+                data-react-aria-pressable="true"
+                tabindex="0"
+                type="button"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="fill-current"
+                  fill="none"
+                  focusable="false"
+                  height="20"
+                  role="presentation"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  width="20"
+                >
+                  <path
+                    d="M18 6L6 18M6 6l12 12"
+                  />
+                </svg>
+              </button>
             </div>
           </div>
-        </li>
-      </ol>
-    </section>
-    <button
-      class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
-      data-focus="true"
-      data-react-aria-pressable="true"
-      tabindex="0"
-      type="button"
-    >
-      Show notification with custom button label
-    </button>
-  </div>
-  <span
-    aria-hidden="true"
-    data-focus-scope-start="true"
-    hidden=""
-  />
-  <div
-    tabindex="-1"
+        </div>
+      </li>
+    </ol>
+  </section>
+  <button
+    class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
+    data-focus="true"
+    data-hover="true"
+    data-react-aria-pressable="true"
+    tabindex="0"
+    type="button"
   >
-    <div
-      aria-hidden="true"
-      class="z-50 bg-overlay/50 backdrop-opacity-disabled w-screen h-screen fixed inset-0"
-    />
-    <div
-      class="flex w-screen fixed inset-0 z-50 overflow-x-auto justify-center h-(--visual-viewport-height) items-center sm:items-center"
-      data-slot="wrapper"
-      style="--visual-viewport-height: 768px;"
-    >
-      <section
-        aria-describedby="«replaced-aria-id»"
-        aria-labelledby="«replaced-aria-id»"
-        aria-modal="true"
-        class="flex flex-col relative z-50 w-full box-border bg-content1 outline-solid outline-transparent mx-1 my-1 sm:mx-6 sm:my-16 rounded-large shadow-small max-h-[calc(100%_-_8rem)] max-w-md"
-        data-dismissable="true"
-        data-open="true"
-        data-placement="center"
-        data-testid="modal"
-        id="«replaced-aria-id»"
-        role="dialog"
-        tabindex="-1"
-      >
-        <div
-          style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
-        >
-          <button
-            aria-label="Dismiss"
-            id="react-aria-«replaced-aria-id»"
-            style="width: 1px; height: 1px;"
-            tabindex="-1"
-          />
-        </div>
-        <button
-          aria-label="Close"
-          class="absolute appearance-none select-none top-1 end-1 p-2 text-foreground-500 rounded-full hover:bg-default-100 active:bg-default-200 tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2"
-          data-react-aria-pressable="true"
-          role="button"
-          tabindex="0"
-          type="button"
-        >
-          <svg
-            aria-hidden="true"
-            class="fill-current"
-            fill="none"
-            focusable="false"
-            height="1em"
-            role="presentation"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            viewBox="0 0 24 24"
-            width="1em"
-          >
-            <path
-              d="M18 6L6 18M6 6l12 12"
-            />
-          </svg>
-        </button>
-        <header
-          class="flex py-4 px-6 flex-initial text-large font-semibold border-b border-b-divider"
-          id="«replaced-aria-id»"
-        >
-          Attention required
-        </header>
-        <div
-          class="flex flex-1 flex-col gap-3 px-6 overflow-y-auto py-4"
-          id="modal_body"
-        >
-          <p>
-            Additional details that didn't fit into the notification itself. The button label and the modal header can both be customized.
-          </p>
-        </div>
-        <div
-          style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
-        >
-          <button
-            aria-label="Dismiss"
-            id="react-aria-«replaced-aria-id»"
-            style="width: 1px; height: 1px;"
-            tabindex="-1"
-          />
-        </div>
-      </section>
-    </div>
-  </div>
-  <span
-    aria-hidden="true"
-    data-focus-scope-end="true"
-    hidden=""
-  />
-</body>
+    Show notification with action
+  </button>
+</div>
 `;
 
 exports[`Story Snapshots > WithLargeMoreContentModal 1`] = `
@@ -979,7 +876,7 @@ exports[`Story Snapshots > WithLargeMoreContentModal 1`] = `
                   </div>
                 </div>
                 <button
-                  class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 border-medium px-3 min-w-16 h-8 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-transparent data-[hover=true]:opacity-hover whitespace-nowrap border-inherit text-inherit"
+                  class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-3 min-w-16 h-8 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover bg-info/20 text-info-600 whitespace-nowrap"
                   data-hover="true"
                   data-react-aria-pressable="true"
                   tabindex="0"
@@ -1264,13 +1161,13 @@ exports[`Story Snapshots > WithMoreContent 1`] = `
                   </div>
                 </div>
                 <button
-                  class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 border-medium px-3 min-w-16 h-8 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-transparent data-[hover=true]:opacity-hover whitespace-nowrap border-inherit text-inherit"
+                  class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-3 min-w-16 h-8 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-danger/20 text-danger-600 dark:text-danger-500 data-[hover=true]:opacity-hover"
                   data-hover="true"
                   data-react-aria-pressable="true"
                   tabindex="0"
                   type="button"
                 >
-                  More
+                  Show error details
                 </button>
                 <button
                   aria-label="Close"

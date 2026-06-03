@@ -10,7 +10,11 @@ import {
   ModalHeader as HeroModalHeader,
 } from '@heroui/modal';
 
-import { tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
+import {
+  isTestEnvironment,
+  tv,
+  variantsToClassNames,
+} from '@fuf-stack/pixel-utils';
 
 // modal variants
 export const modalVariants = tv({
@@ -42,7 +46,11 @@ export interface ModalProps extends VariantProps {
   children?: ReactNode;
   /** CSS class name */
   className?: ClassName;
-  /** Disable animations completely */
+  /**
+   * Disable animations completely. Defaults to `true` in test environments so
+   * snapshots are deterministic (the open/close opacity tween otherwise
+   * captures a random mid-animation frame).
+   */
   disableAnimation?: boolean;
   /** modal footer */
   footer?: ReactNode;
@@ -66,7 +74,7 @@ export interface ModalProps extends VariantProps {
 const Modal = ({
   children = null,
   className = undefined,
-  disableAnimation = false,
+  disableAnimation = isTestEnvironment(),
   footer = undefined,
   header = undefined,
   isOpen,

@@ -104,3 +104,6 @@ export const modal = {
   closeAll,
   reset,
 };
+
+/** Imperative modal API as exposed by the `modal` store. */
+export type ModalStoreApi = typeof modal;
