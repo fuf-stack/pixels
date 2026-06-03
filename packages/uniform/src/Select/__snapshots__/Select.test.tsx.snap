@@ -733,12 +733,11 @@ exports[`Story Snapshots > EdgeCaseMenuIsVisibleInModal 1`] = `
     <div
       aria-hidden="true"
       class="z-50 bg-overlay/50 backdrop-opacity-disabled w-screen h-screen fixed inset-0"
-      style="opacity: 1;"
     />
     <div
-      class="flex w-screen fixed inset-0 z-50 overflow-x-auto justify-center h-(--visual-viewport-height) items-center sm:items-center [--scale-enter:100%] [--scale-exit:100%] [--slide-enter:0px] [--slide-exit:80px] sm:[--scale-enter:100%] sm:[--scale-exit:103%] sm:[--slide-enter:0px] sm:[--slide-exit:0px]"
+      class="flex w-screen fixed inset-0 z-50 overflow-x-auto justify-center h-(--visual-viewport-height) items-center sm:items-center"
       data-slot="wrapper"
-      style="--visual-viewport-height: 768px; opacity: 1; will-change: auto; transform: translateY(var(--slide-enter)) scale(var(--scale-enter));"
+      style="--visual-viewport-height: 768px;"
     >
       <section
         aria-describedby="«replaced-aria-id»"
@@ -2263,7 +2262,7 @@ exports[`Story Snapshots > NoResultsCustomRenderer 1`] = `
                       </svg>
                     </div>
                     <div
-                      class="h-full flex-grow min-h-10 ms-2 flex flex-col box-border text-inherit justify-center items-center gap-1.5"
+                      class="h-full flex-grow min-h-10 ms-2 flex flex-col box-border text-inherit justify-center items-stretch gap-1.5"
                     >
                       <div
                         class="text-small w-full font-medium block text-inherit leading-5"
