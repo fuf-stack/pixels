@@ -145,4 +145,123 @@ describe('FormDebugViewer', () => {
     unmount();
     expect(unsubscribe).toHaveBeenCalled();
   });
+
+  it('handles repeated subscription updates without render loops', () => {
+    let currentValues: Record<string, unknown> = { username: 'john' };
+    let notifyValuesChanged: (() => void) | undefined;
+
+    const subscribe = vi
+      .fn()
+      .mockImplementation(
+        ({
+          callback,
+        }: {
+          callback: (state: { values?: Record<string, unknown> }) => void;
+        }) => {
+          notifyValuesChanged = () => {
+            callback({ values: currentValues });
+          };
+
+          return () => {};
+        },
+      );
+
+    mockUseFormContext.mockReturnValue({
+      debugMode: 'debug',
+      formState: {
+        isSubmitSuccessful: false,
+        isSubmitting: false,
+        isValid: true,
+        submitCount: 1,
+      },
+      getValues: () => currentValues,
+      setDebugMode: vi.fn(),
+      subscribe,
+      validation: { errors: undefined },
+    });
+
+    render(<FormDebugViewer />);
+
+    expect(() => {
+      act(() => {
+        for (let index = 0; index < 20; index += 1) {
+          currentValues = { username: `user-${index}` };
+          notifyValuesChanged?.();
+        }
+      });
+    }).not.toThrow();
+
+    const updatedPayload = JSON.parse(
+      screen.getByTestId('debug-json').textContent ?? '{}',
+    ) as { values: Record<string, unknown> };
+    expect(updatedPayload.values).toEqual({ username: 'user-19' });
+  });
+
+  it('unsubscribes when debug panel is hidden and resubscribes when reopened', () => {
+    let currentValues: Record<string, unknown> = { username: 'john' };
+    let notifyValuesChanged: (() => void) | undefined;
+    const unsubscribe = vi.fn();
+    let debugMode: 'off' | 'debug' = 'debug';
+
+    const setDebugMode = vi.fn((nextMode: 'off' | 'debug') => {
+      debugMode = nextMode;
+    });
+
+    const subscribe = vi
+      .fn()
+      .mockImplementation(
+        ({
+          callback,
+        }: {
+          callback: (state: { values?: Record<string, unknown> }) => void;
+        }) => {
+          notifyValuesChanged = () => {
+            callback({ values: currentValues });
+          };
+
+          return unsubscribe;
+        },
+      );
+
+    mockUseFormContext.mockImplementation(() => ({
+      debugMode,
+      formState: {
+        isSubmitSuccessful: false,
+        isSubmitting: false,
+        isValid: true,
+        submitCount: 1,
+      },
+      getValues: () => currentValues,
+      setDebugMode,
+      subscribe,
+      validation: { errors: undefined },
+    }));
+
+    const { rerender } = render(<FormDebugViewer />);
+    const initialSubscribeCalls = subscribe.mock.calls.length;
+    expect(initialSubscribeCalls).toBeGreaterThan(0);
+
+    act(() => {
+      setDebugMode('off');
+    });
+    rerender(<FormDebugViewer />);
+    const unsubscribeCallsAfterHide = unsubscribe.mock.calls.length;
+    expect(unsubscribeCallsAfterHide).toBeGreaterThan(0);
+
+    act(() => {
+      setDebugMode('debug');
+    });
+    rerender(<FormDebugViewer />);
+    expect(subscribe.mock.calls.length).toBeGreaterThan(initialSubscribeCalls);
+
+    act(() => {
+      currentValues = { username: 'reopened-user' };
+      notifyValuesChanged?.();
+    });
+
+    const updatedPayload = JSON.parse(
+      screen.getByTestId('debug-json').textContent ?? '{}',
+    ) as { values: Record<string, unknown> };
+    expect(updatedPayload.values).toEqual({ username: 'reopened-user' });
+  });
 });

@@ -1,4 +1,4 @@
-import { useSyncExternalStore } from 'react';
+import { useRef, useSyncExternalStore } from 'react';
 import { FaTimes } from 'react-icons/fa';
 import { FaBug, FaBullseye } from 'react-icons/fa6';
 
@@ -34,6 +34,7 @@ const FormDebugViewer = ({ className = undefined }: FormDebugViewerProps) => {
   const showDebugButton = debugMode === 'off';
   const showDebugCard = debugMode === 'debug' || debugMode === 'debug-testids';
   const showDebugTestIds = debugMode === 'debug-testids';
+  const latestValuesRef = useRef<Record<string, unknown>>(EMPTY_VALUES);
 
   // Subscribe to RHF as an external store so this component updates itself
   // without forcing parent re-renders via watch().
@@ -45,9 +46,14 @@ const FormDebugViewer = ({ className = undefined }: FormDebugViewerProps) => {
         return () => {};
       }
 
+      // Seed the snapshot once when the debug panel becomes visible.
+      latestValuesRef.current = getValues() ?? EMPTY_VALUES;
+      onStoreChange();
+
       const unsubscribe = subscribe({
         formState: { values: true },
-        callback: () => {
+        callback: (state) => {
+          latestValuesRef.current = state.values ?? EMPTY_VALUES;
           // Notify React that a new snapshot is available.
           onStoreChange();
         },
@@ -65,8 +71,7 @@ const FormDebugViewer = ({ className = undefined }: FormDebugViewerProps) => {
         return EMPTY_VALUES;
       }
 
-      // Read current form values on demand; no effect-local setState needed.
-      return getValues() ?? {};
+      return latestValuesRef.current;
     },
     // getServerSnapshot: stable fallback for non-client rendering environments.
     () => {
