@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.22.8](https://github.com/fuf-stack/pixels/compare/uniform-v1.22.7...uniform-v1.22.8) (2026-06-04)
+
+
+### Bug Fixes
+
+* **deps:** update react-spectrum monorepo ([#1705](https://github.com/fuf-stack/pixels/issues/1705)) ([164639c](https://github.com/fuf-stack/pixels/commit/164639ccfe4f4d7310f9b07f15b129f0664f67e0))
+* **uniform:** keep FormDebugViewer on state/subscription flow and avoid effect sync setState ([d7ad405](https://github.com/fuf-stack/pixels/commit/d7ad40551cab6cedd9f8a4873620859f17568413))
+
 ## [1.22.7](https://github.com/fuf-stack/pixels/compare/uniform-v1.22.6...uniform-v1.22.7) (2026-06-04)
 
 
