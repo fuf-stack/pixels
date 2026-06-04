@@ -1,4 +1,4 @@
-import { useRef, useSyncExternalStore } from 'react';
+import { useEffect, useState } from 'react';
 import { FaTimes } from 'react-icons/fa';
 import { FaBug, FaBullseye } from 'react-icons/fa6';
 
@@ -11,9 +11,6 @@ import { useFormContext } from '../../hooks/useFormContext';
 
 // import Json css (theme)
 import '@fuf-stack/pixels/Json.css';
-
-// Stable empty snapshot used by useSyncExternalStore to avoid re-render loops.
-const EMPTY_VALUES: Record<string, unknown> = {};
 
 interface FormDebugViewerProps {
   /** CSS class name */
@@ -34,50 +31,44 @@ const FormDebugViewer = ({ className = undefined }: FormDebugViewerProps) => {
   const showDebugButton = debugMode === 'off';
   const showDebugCard = debugMode === 'debug' || debugMode === 'debug-testids';
   const showDebugTestIds = debugMode === 'debug-testids';
-  const latestValuesRef = useRef<Record<string, unknown>>(EMPTY_VALUES);
 
-  // Subscribe to RHF as an external store so this component updates itself
-  // without forcing parent re-renders via watch().
-  const values = useSyncExternalStore<Record<string, unknown>>(
-    // subscribe: tell React how to listen for external store changes
-    (onStoreChange) => {
-      if (!showDebugCard) {
-        // No-op while the panel is hidden to avoid unnecessary subscriptions.
-        return () => {};
-      }
+  // We intentionally keep the local state + subscription approach here.
+  // A previous useSyncExternalStore refactor caused unstable runtime behavior
+  // in consuming wizard apps (max update depth loops inside react-json-view).
+  // Keeping this explicit state bridge is the currently stable baseline.
+  // Use subscribe instead of watch() to avoid triggering re-renders on parent components.
+  // This component manages its own state and only updates itself when form values change.
+  const [values, setValues] = useState<Record<string, unknown>>(() => {
+    return getValues() ?? {};
+  });
 
-      // Seed the snapshot once when the debug panel becomes visible.
-      latestValuesRef.current = getValues() ?? EMPTY_VALUES;
-      onStoreChange();
+  useEffect(() => {
+    // Only subscribe when debug card is visible
+    if (!showDebugCard) {
+      return undefined;
+    }
 
-      const unsubscribe = subscribe({
-        formState: { values: true },
-        callback: (state) => {
-          latestValuesRef.current = state.values ?? EMPTY_VALUES;
-          // Notify React that a new snapshot is available.
-          onStoreChange();
-        },
-      });
+    const subscription = subscribe({
+      formState: { values: true },
+      callback: (state) => {
+        setValues(state.values ?? {});
+      },
+    });
 
-      return () => {
-        // Ensure RHF subscription is always cleaned up.
-        unsubscribe();
-      };
-    },
-    // getSnapshot: return the current client-side value for this render.
-    () => {
-      if (!showDebugCard) {
-        // Keep the debug payload empty when the panel is not visible.
-        return EMPTY_VALUES;
-      }
+    return () => {
+      subscription();
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [showDebugCard]);
 
-      return latestValuesRef.current;
-    },
-    // getServerSnapshot: stable fallback for non-client rendering environments.
-    () => {
-      return EMPTY_VALUES;
-    },
-  );
+  // handle show debug mode
+  const handleShowDebugMode = () => {
+    // Seed current values on open from an event handler (not effect body)
+    // to avoid cascading-render lint warnings for sync setState in effects.
+    setValues(getValues() ?? {});
+    // set debug mode to debug
+    setDebugMode('debug');
+  };
 
   if (showDebugButton) {
     return (
@@ -85,9 +76,7 @@ const FormDebugViewer = ({ className = undefined }: FormDebugViewerProps) => {
         ariaLabel="Enable form debug mode"
         className="fixed bottom-2.5 right-2.5 w-5 text-default-400"
         icon={<FaBug />}
-        onClick={() => {
-          setDebugMode('debug');
-        }}
+        onClick={handleShowDebugMode}
         variant="light"
       />
     );
