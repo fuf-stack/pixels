@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.22.7](https://github.com/fuf-stack/pixels/compare/uniform-v1.22.6...uniform-v1.22.7) (2026-06-04)
+
+
+### Bug Fixes
+
+* **uniform:** stabilize FormDebugViewer external-store snapshots and extend regression tests ([1a9d039](https://github.com/fuf-stack/pixels/commit/1a9d039c5b0e5b00092d1ee76b0b3d7a994232d6))
+
 ## [1.22.6](https://github.com/fuf-stack/pixels/compare/uniform-v1.22.5...uniform-v1.22.6) (2026-06-04)
 
 
