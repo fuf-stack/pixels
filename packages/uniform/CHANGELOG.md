@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.22.10](https://github.com/fuf-stack/pixels/compare/uniform-v1.22.9...uniform-v1.22.10) (2026-06-04)
+
+
+### Bug Fixes
+
+* **uniform:** normalize field label cursor and wrapper spacing across form controls ([cf14111](https://github.com/fuf-stack/pixels/commit/cf14111be31e617bae91fb68c32c3d6f408fe6d9))
+
 ## [1.22.9](https://github.com/fuf-stack/pixels/compare/uniform-v1.22.8...uniform-v1.22.9) (2026-06-04)
 
 
