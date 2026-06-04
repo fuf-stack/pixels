@@ -31,12 +31,12 @@ describe('Drawer Component', () => {
   test('should render header, body, and footer when provided', () => {
     render(
       <Drawer
-        isOpen // Must be open to render content
-        footer={<div data-testid="drawer-footer">Footer Content</div>}
-        onClose={() => {}}
-        header={<div data-testid="drawer-header">Header Content</div>}
         // eslint-disable-next-line react/no-children-prop
         children={<div data-testid="drawer-body">Body Content</div>}
+        footer={<div data-testid="drawer-footer">Footer Content</div>}
+        header={<div data-testid="drawer-header">Header Content</div>}
+        isOpen // Must be open to render content
+        onClose={() => {}}
       />,
     );
     expect(screen.getByTestId('drawer-header')).toHaveTextContent(
@@ -62,8 +62,8 @@ describe('Drawer Component', () => {
   test('should render only header if only header provided', () => {
     render(
       <Drawer
-        isOpen
         header={<div data-testid="drawer-header">Header Content</div>}
+        isOpen
         onClose={() => {}}
       />,
     );

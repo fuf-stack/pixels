@@ -120,7 +120,7 @@ const Filter = ({
   // Submit handler: map form state back into the controlled `values` shape
   const handleSubmit = (nextValues: Record<string, unknown>) => {
     debug('handleSubmit', { nextValues });
-    onChange(nextValues as FilterValues);
+    onChange(nextValues);
   };
 
   // Build validation schema for all configured filters (and optional search)
@@ -165,7 +165,6 @@ const Filter = ({
         {/* Render search if search config is provided */}
         {config.search ? (
           <SearchInput
-            config={config.search}
             classNames={{
               searchInput: classNames.searchInput,
               searchInputWrapper: classNames.searchInputWrapper,
@@ -174,6 +173,7 @@ const Filter = ({
               searchSubmitButton: classNames.searchSubmitButton,
               searchWrapper: classNames.searchWrapper,
             }}
+            config={config.search}
           />
         ) : null}
         {/*

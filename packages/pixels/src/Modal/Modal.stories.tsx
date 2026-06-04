@@ -63,13 +63,13 @@ const Template: Story['render'] = (args, { canvasElement }) => {
       </Button>
       <Modal
         {...args}
-        isOpen={isOpen}
-        onClose={onClose}
-        portalContainer={canvasElement}
         disableAnimation={
           // eslint-disable-next-line react/destructuring-assignment
           isTestEnv || args.disableAnimation
         }
+        isOpen={isOpen}
+        onClose={onClose}
+        portalContainer={canvasElement}
       />
     </>
   );
@@ -174,10 +174,10 @@ const AllSizesTemplate: Story['render'] = (args) => {
               {...args}
               header={`Size ${size} Modal`}
               isOpen={isOpen}
-              size={currentSize}
               onClose={() => {
                 setArgs({ isOpen: false });
               }}
+              size={currentSize}
             >
               {content}
             </Modal>

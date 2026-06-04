@@ -243,7 +243,7 @@ describe('type behavior', () => {
       custom: () => {},
     });
 
-    const withMax = (refined as unknown as ReturnType<typeof string>).max(64);
+    const withMax = refined.max(64);
     expectTypeOf(withMax.parse('hello')).toEqualTypeOf<string>();
     expect(typeof (refined as { max?: unknown }).max).toBe('function');
   });
@@ -253,9 +253,7 @@ describe('type behavior', () => {
       custom: () => {},
     });
 
-    const unwrapped = (
-      refined as unknown as ReturnType<ReturnType<typeof string>['optional']>
-    ).unwrap();
+    const unwrapped = refined.unwrap();
     expectTypeOf(unwrapped.parse('hello')).toEqualTypeOf<string>();
     expectTypeOf(refined.parse(undefined)).toEqualTypeOf<string | undefined>();
     expect(typeof (refined as { unwrap?: unknown }).unwrap).toBe('function');

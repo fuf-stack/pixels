@@ -49,13 +49,13 @@ const CopiedRenderer = () => {
             aria-label={isCopied ? 'Copied to clipboard' : 'Copy to clipboard'}
             className="ml-0! h-[1em]! w-0! relative"
             data-testid="copy-button"
+            onClick={(e) => {
+              return onClick?.(e as unknown as MouseEvent<SVGSVGElement>);
+            }}
             onKeyDown={handleKeyDown}
             role="button"
             style={style}
             tabIndex={0}
-            onClick={(e) => {
-              return onClick?.(e as unknown as MouseEvent<SVGSVGElement>);
-            }}
           >
             {isCopied ? (
               <HiOutlineClipboardCheck className={elmClasses} />

@@ -51,12 +51,12 @@ const SearchInput = ({ classNames = {}, config }: SearchInputProps) => {
           ariaLabel="Show search input"
           className={classNames.searchShowButton}
           icon={<FaSearch />}
-          size="sm"
-          testId="show_search_input_button"
-          variant="bordered"
           onClick={() => {
             setIsVisible(true);
           }}
+          size="sm"
+          testId="show_search_input_button"
+          variant="bordered"
         />
       )}
       {isVisible ? (
@@ -81,26 +81,26 @@ const SearchInput = ({ classNames = {}, config }: SearchInputProps) => {
             clearable
             debounceDelay={0}
             name="search"
-            placeholder={placeholder}
-            size="sm"
-            className={{
-              input: classNames.searchInput,
-              inputWrapper: classNames.searchInputWrapper,
-            }}
             // submit on clear
             onClear={() => {
               triggerSubmit();
             }}
+            placeholder={placeholder}
+            className={{
+              input: classNames.searchInput,
+              inputWrapper: classNames.searchInputWrapper,
+            }}
+            size="sm"
           />
           <SubmitButton
-            ariaLabel="Submit search"
-            // eslint-disable-next-line react/no-children-prop
-            children={null}
             className={classNames.searchSubmitButton}
             color="primary"
             icon={<FaSearch />}
             size="sm"
             testId="submit_search_button"
+            ariaLabel="Submit search"
+            // eslint-disable-next-line react/no-children-prop
+            children={null}
           />
         </motion.div>
       ) : null}

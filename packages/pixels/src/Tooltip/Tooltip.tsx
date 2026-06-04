@@ -125,15 +125,9 @@ const Tooltip = ({
 
   return (
     <HeroTooltip
-      shouldFlip
-      showArrow
       classNames={classNames}
       closeDelay={closeDelay}
       containerPadding={containerPadding}
-      defaultOpen={defaultOpen}
-      delay={delay}
-      onOpenChange={onOpenChange}
-      placement={placement}
       content={
         <div>
           {header ? (
@@ -151,9 +145,15 @@ const Tooltip = ({
           ) : null}
         </div>
       }
+      defaultOpen={defaultOpen}
+      delay={delay}
       onClick={(e) => {
         e.preventDefault();
       }}
+      onOpenChange={onOpenChange}
+      placement={placement}
+      shouldFlip
+      showArrow
     >
       <span className={classNames.trigger}>{children}</span>
     </HeroTooltip>

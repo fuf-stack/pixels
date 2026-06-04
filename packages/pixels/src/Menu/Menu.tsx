@@ -163,8 +163,8 @@ const Menu = ({
     //  default to ellipsis icon when no children are provided
     triggerButton = (
       <Button
-        isIconOnly
         className={cn('min-w-0 outline outline-divider', className.trigger)}
+        isIconOnly
         radius="full"
         size="sm"
         variant="light"

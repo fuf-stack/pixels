@@ -74,11 +74,17 @@ const SearchInput = ({
 
   return (
     <HeroInput
-      isClearable
       // disable password manager integrations
       autoComplete="off"
+      classNames={{
+        base: classNames.base,
+        clearButton: classNames.clearButton,
+        input: classNames.input,
+        inputWrapper: classNames.inputWrapper,
+      }}
       data-testid={testId ? slugify(testId) : undefined}
       endContent={endContent}
+      isClearable
       isDisabled={disabled}
       onChange={handleChange}
       onClear={handleChange}
@@ -88,12 +94,6 @@ const SearchInput = ({
       startContent={startContent ?? <FaSearch className="opacity-50" />}
       value={value}
       variant="bordered"
-      classNames={{
-        base: classNames.base,
-        clearButton: classNames.clearButton,
-        input: classNames.input,
-        inputWrapper: classNames.inputWrapper,
-      }}
     />
   );
 };

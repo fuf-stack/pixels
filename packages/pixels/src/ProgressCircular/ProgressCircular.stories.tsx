@@ -6,7 +6,7 @@ import ProgressCircular, { progressCircularVariants } from './ProgressCircular';
 const meta: Meta<typeof ProgressCircular> = {
   title: 'pixels/ProgressCircular',
   component: ProgressCircular,
-} as Meta<typeof ProgressCircular>;
+};
 
 export default meta;
 type Story = StoryObj<typeof ProgressCircular>;

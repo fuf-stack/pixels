@@ -90,12 +90,12 @@ const Popover = ({
 
   return (
     <HeroPopover
-      showArrow
       classNames={className}
       placement={placement}
       portalContainer={portalContainer}
       radius="sm"
       shouldBlockScroll={shouldBlockScroll}
+      showArrow
       {...(openControlled
         ? { isOpen: openControlled.open, onOpenChange: openControlled.setOpen }
         : {})}

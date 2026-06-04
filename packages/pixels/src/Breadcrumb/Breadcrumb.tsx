@@ -97,26 +97,26 @@ const Breadcrumb = ({
 
   return (
     <HeroBreadcrumb
+      classNames={{
+        base: classNames.nav,
+        ellipsis: classNames.separator,
+        list: classNames.list,
+      }}
       color={color}
       disableAnimation={disableAnimation}
       hideSeparator={hideSeparator}
       isDisabled={disabled}
+      itemClasses={{
+        base: classNames.itemBase,
+        item: classNames.item,
+        separator: classNames.separator,
+      }}
       maxItems={maxItems}
       radius={radius}
       separator={separator}
       size={size}
       underline={underline}
       variant={variant}
-      classNames={{
-        base: classNames.nav,
-        ellipsis: classNames.separator,
-        list: classNames.list,
-      }}
-      itemClasses={{
-        base: classNames.itemBase,
-        item: classNames.item,
-        separator: classNames.separator,
-      }}
     >
       {breadcrumbItems.map((item, index) => {
         return (

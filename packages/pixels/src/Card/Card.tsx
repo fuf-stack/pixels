@@ -67,9 +67,9 @@ const Card = forwardRef<HTMLDivElement, CardProps>(
     return (
       <HeroCard
         ref={ref}
-        fullWidth
         classNames={classNames}
         data-testid={testId ? `card_${testId}` : null}
+        fullWidth
         radius="sm"
         shadow="none"
       >

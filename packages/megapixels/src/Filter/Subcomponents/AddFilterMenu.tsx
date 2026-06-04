@@ -37,13 +37,13 @@ const AddFilterMenu = ({ classNames = {} }: AddFilterMenuProps) => {
 
   return (
     <Menu
-      isDisabled={!menuItems.length}
-      items={menuItems}
-      placement="bottom-start"
       className={{
         item: classNames.addFilterMenuItem,
         trigger: classNames.addFilterMenuButton,
       }}
+      isDisabled={!menuItems.length}
+      items={menuItems}
+      placement="bottom-start"
       triggerButtonProps={{
         'aria-label': 'Add Filter',
         'data-testid': 'add_filter_button',

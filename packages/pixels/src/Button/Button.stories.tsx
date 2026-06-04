@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import type { ButtonProps } from './Button';
 
 import { useRef, useState } from 'react';
 import { FaEnvelope } from 'react-icons/fa';
@@ -88,7 +87,7 @@ export const AllColors: Story = {
         {colors.map((color) => {
           return (
             <div key={color} style={{ marginTop: '10px' }}>
-              <Button color={color as ButtonProps['color']}>{color}</Button>
+              <Button color={color}>{color}</Button>
             </div>
           );
         })}
@@ -104,7 +103,7 @@ export const AllRadius: Story = {
         {['sm', 'md', 'lg', 'none', 'full'].map((radius) => {
           return (
             <div key={radius} style={{ marginTop: '10px' }}>
-              <Button radius={radius as ButtonProps['radius']} {...args}>
+              <Button radius={radius} {...args}>
                 {radius}
               </Button>
             </div>
@@ -122,7 +121,7 @@ export const AllSizes: Story = {
         {sizes.map((size) => {
           return (
             <div key={size} style={{ marginTop: '10px' }}>
-              <Button size={size as ButtonProps['size']} {...args}>
+              <Button size={size} {...args}>
                 {size}
               </Button>
             </div>
@@ -140,7 +139,7 @@ export const AllVariants: Story = {
         {variants.map((variant) => {
           return (
             <div key={variant} style={{ marginTop: '10px' }}>
-              <Button variant={variant as ButtonProps['variant']} {...args}>
+              <Button variant={variant} {...args}>
                 {variant}
               </Button>
             </div>
@@ -203,28 +202,28 @@ const ButtonWithRefFocus = () => {
       </p>
       <div className="flex gap-2">
         <Button
-          onClick={handleFocusClick}
-          testId="focus-trigger"
           onBlur={() => {
             setFocusedButton(null);
           }}
+          onClick={handleFocusClick}
           onFocus={() => {
             setFocusedButton('trigger');
           }}
+          testId="focus-trigger"
         >
           Focus Target
         </Button>
         <Button
           ref={targetButtonRef}
           color="success"
-          onClick={action('target-clicked')}
-          testId="focus-target"
           onBlur={() => {
             setFocusedButton(null);
           }}
+          onClick={action('target-clicked')}
           onFocus={() => {
             setFocusedButton('target');
           }}
+          testId="focus-target"
         >
           Target Button
         </Button>

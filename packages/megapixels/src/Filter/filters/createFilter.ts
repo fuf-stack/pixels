@@ -23,7 +23,7 @@ const createFilter = <Config, Value>(
   return ({ name, icon, config }) => {
     return {
       components: definition.components,
-      config: { ...definition.defaults.config, ...(config ?? {}) } as Config,
+      config: { ...definition.defaults.config, ...(config ?? {}) },
       defaultValue: definition.defaults.value,
       icon,
       name,

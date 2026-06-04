@@ -169,11 +169,11 @@ const ProgressCircular = ({
 
   return (
     <HeroCircularProgress
-      showValueLabel
       aria-label={ariaLabel}
       classNames={classNames}
       color={heroUiColor}
       disableAnimation={isInitialRenderCycle || disableAnimation}
+      showValueLabel
       strokeWidth={strokeWidth}
       // INFO: we do NOT use spinner animation when no percent provided
       value={percent || 0}

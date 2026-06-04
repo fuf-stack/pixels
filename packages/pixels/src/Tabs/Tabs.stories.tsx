@@ -14,7 +14,7 @@ const meta: Meta<typeof Tabs> = {
       );
     },
   ],
-} as Meta<typeof Tabs>;
+};
 
 export default meta;
 type Story = StoryObj<typeof Tabs>;
@@ -252,7 +252,6 @@ export const Radius: Story = {
           <Tabs
             ariaLabel="No radius tabs"
             radius="none"
-            variant="solid"
             tabs={[
               {
                 key: '1',
@@ -270,6 +269,7 @@ export const Radius: Story = {
                 content: 'Not the framework, just the shape',
               },
             ]}
+            variant="solid"
           />
         </div>
 
@@ -280,7 +280,6 @@ export const Radius: Story = {
           <Tabs
             ariaLabel="Small radius tabs"
             radius="sm"
-            variant="bordered"
             tabs={[
               {
                 key: '1',
@@ -298,6 +297,7 @@ export const Radius: Story = {
                 content: 'A minor curve in the matrix',
               },
             ]}
+            variant="bordered"
           />
         </div>
 
@@ -308,7 +308,6 @@ export const Radius: Story = {
           <Tabs
             ariaLabel="Medium radius tabs"
             radius="md"
-            variant="light"
             tabs={[
               {
                 key: '1',
@@ -326,6 +325,7 @@ export const Radius: Story = {
                 content: 'The safe choice, like copying from Stack Overflow',
               },
             ]}
+            variant="light"
           />
         </div>
 
@@ -336,7 +336,6 @@ export const Radius: Story = {
           <Tabs
             ariaLabel="Large radius tabs"
             radius="lg"
-            variant="solid"
             tabs={[
               {
                 key: '1',
@@ -354,6 +353,7 @@ export const Radius: Story = {
                 content: 'Easy on the eyes, unlike my variable names',
               },
             ]}
+            variant="solid"
           />
         </div>
 
@@ -364,7 +364,6 @@ export const Radius: Story = {
           <Tabs
             ariaLabel="Full radius tabs"
             radius="full"
-            variant="bordered"
             tabs={[
               {
                 key: '1',
@@ -382,6 +381,7 @@ export const Radius: Story = {
                 content: 'Perfect circles, unlike my project timelines',
               },
             ]}
+            variant="bordered"
           />
         </div>
       </div>
@@ -462,7 +462,6 @@ export const Variants: Story = {
           </h3>
           <Tabs
             ariaLabel="Solid tabs"
-            variant="solid"
             tabs={[
               { key: '1', label: 'Monday', content: "My alarm didn't ring" },
               {
@@ -476,6 +475,7 @@ export const Variants: Story = {
                 content: 'Internet was down (really!)',
               },
             ]}
+            variant="solid"
           />
         </div>
         <div>
@@ -484,12 +484,12 @@ export const Variants: Story = {
           </h3>
           <Tabs
             ariaLabel="Bordered tabs"
-            variant="bordered"
             tabs={[
               { key: '1', label: 'Sleep', content: 'A distant memory' },
               { key: '2', label: 'Work', content: 'An ongoing nightmare' },
               { key: '3', label: 'Coffee', content: 'The only solution' },
             ]}
+            variant="bordered"
           />
         </div>
         <div>
@@ -498,7 +498,6 @@ export const Variants: Story = {
           </h3>
           <Tabs
             ariaLabel="Light tabs"
-            variant="light"
             tabs={[
               {
                 key: '1',
@@ -512,6 +511,7 @@ export const Variants: Story = {
                 content: "We don't talk about that",
               },
             ]}
+            variant="light"
           />
         </div>
         <div>
@@ -520,7 +520,6 @@ export const Variants: Story = {
           </h3>
           <Tabs
             ariaLabel="Underlined tabs"
-            variant="underlined"
             tabs={[
               {
                 key: '1',
@@ -538,6 +537,7 @@ export const Variants: Story = {
                 content: '"Refactored code" (Ctrl+Z wasn\'t working)',
               },
             ]}
+            variant="underlined"
           />
         </div>
       </div>

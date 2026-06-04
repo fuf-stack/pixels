@@ -142,9 +142,9 @@ export const SomePercentages: Story = {
             <div key={p} style={{ marginTop: '20px' }}>
               <Progress
                 {...args}
-                showValueLabel
                 disableAnimation={isSSR || args.disableAnimation}
                 percent={p}
+                showValueLabel
               />
             </div>
           );

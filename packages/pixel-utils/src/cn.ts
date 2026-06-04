@@ -23,5 +23,5 @@ import { proseTwMerge } from './proseTwMerge';
 export const cn = (...classes: ArgumentArray) => {
   // First, `classnames` merges the input class names (conditionally if needed).
   // Then, the shared prose-aware `tailwind-merge` instance resolves conflicts.
-  return proseTwMerge(classNames(...classes)) as unknown as string;
+  return proseTwMerge(classNames(...classes));
 };

@@ -31,12 +31,12 @@ describe('Coverage', () => {
   test('should render header, body, and footer when provided', () => {
     render(
       <Modal
-        isOpen // Must be open to render content
-        footer={<div data-testid="modal-footer">Footer Content</div>}
-        onClose={() => {}}
-        header={<div data-testid="modal-header">Header Content</div>}
         // eslint-disable-next-line react/no-children-prop
         children={<div data-testid="modal-body">Body Content</div>}
+        footer={<div data-testid="modal-footer">Footer Content</div>}
+        header={<div data-testid="modal-header">Header Content</div>}
+        isOpen // Must be open to render content
+        onClose={() => {}}
       />,
     );
 
@@ -67,8 +67,8 @@ describe('Coverage', () => {
   test('should render only header if only header provided', () => {
     render(
       <Modal
-        isOpen
         header={<div data-testid="modal-header">Header Content</div>}
+        isOpen
         onClose={() => {}}
       />,
     );

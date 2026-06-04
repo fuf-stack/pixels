@@ -1,5 +1,3 @@
-/* eslint-disable vitest/expect-expect */
-
 import type { VNativeEnumSchema } from './nativeEnum';
 
 import { expect, expectTypeOf, it } from 'vitest';

@@ -1,9 +1,9 @@
 import type { VRecordSchema } from './record';
 
-import { z } from 'zod';
 import { expect, expectTypeOf, it } from 'vitest';
 
 import veto, { record, string } from 'src';
+import { z } from 'zod';
 
 const schema = {
   recordField: record(string(), string()),

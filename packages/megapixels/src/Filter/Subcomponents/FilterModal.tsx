@@ -37,8 +37,6 @@ const FilterModal = ({ classNames = {} }: FilterModalProps) => {
 
   return (
     <Modal
-      isOpen
-      onClose={closeFilterModal}
       className={{
         body: classNames.body,
         footer: classNames.footer,
@@ -49,11 +47,11 @@ const FilterModal = ({ classNames = {} }: FilterModalProps) => {
           <Button
             ariaLabel="Remove filter"
             color="danger"
-            testId="remove_filter_button"
-            variant="flat"
             onClick={() => {
               removeFilter(modalFilterName);
             }}
+            testId="remove_filter_button"
+            variant="flat"
           >
             Remove
           </Button>
@@ -68,6 +66,8 @@ const FilterModal = ({ classNames = {} }: FilterModalProps) => {
           <div>{`${config?.text ?? modalFilterName} Filter`}</div>
         </>
       }
+      isOpen
+      onClose={closeFilterModal}
     >
       <Suspense>
         <FormComponent

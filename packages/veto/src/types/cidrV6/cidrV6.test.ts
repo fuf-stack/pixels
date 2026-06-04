@@ -56,12 +56,7 @@ it('can be optional', () => {
 });
 
 describe('accepts valid cidrv6 ranges', () => {
-  const validRanges = [
-    '::/0',
-    '::1/128',
-    '2001:db8::/32',
-    'fe80::/10',
-  ];
+  const validRanges = ['::/0', '::1/128', '2001:db8::/32', 'fe80::/10'];
 
   validRanges.forEach((value) => {
     it(`accepts '${value}'`, () => {

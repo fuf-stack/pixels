@@ -100,9 +100,9 @@ export const CustomSizes: Story = {
     ];
     return (
       <div className="flex space-x-4">
-        {sizes.map(({ key, className }) => (
-          <Avatar key={key} {...args} className={className} />
-        ))}
+        {sizes.map(({ key, className }) => {
+          return <Avatar key={key} {...args} className={className} />;
+        })}
       </div>
     );
   },
