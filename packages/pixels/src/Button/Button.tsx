@@ -11,7 +11,10 @@ import { tv } from '@fuf-stack/pixel-utils';
 
 import LoadingSpinner from './subcomponents/LoadingSpinner';
 
-export const buttonVariants = tv({
+// TODO: `tv(...)` inference here triggers TS2742/TS2883 during declaration emit
+// (non-portable `tailwind-variants` type path). Keep this explicit annotation
+// until we have a portable `tv` return type strategy.
+export const buttonVariants: ReturnType<typeof tv> = tv({
   extend: heroButtonVariants,
   variants: {
     color: {

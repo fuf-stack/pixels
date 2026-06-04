@@ -1,4 +1,3 @@
-/* eslint-disable import-x/no-extraneous-dependencies */
 /* eslint-disable n/no-sync */
 
 /**
@@ -12,16 +11,14 @@
 import type { UserConfig } from 'tsdown';
 
 import { readdirSync, statSync } from 'node:fs';
-import path from 'node:path';
-
-import { defineConfig } from 'tsdown';
+import { join } from 'node:path';
 
 /**
  * Recursively collects all file paths from a directory.
  */
 function getAllFilePaths(dirPath: string): string[] {
   return readdirSync(dirPath).reduce<string[]>((allFiles, file) => {
-    const fullPath = path.join(dirPath, file);
+    const fullPath = join(dirPath, file);
     if (statSync(fullPath).isDirectory()) {
       return allFiles.concat(getAllFilePaths(fullPath));
     }
@@ -43,7 +40,7 @@ const entry = getAllFilePaths('./src')
  * Base configuration object (without defineConfig wrapper).
  * Can be spread into other configs for customization.
  */
-export const baseConfig: UserConfig = {
+export const libraryBaseConfig: UserConfig = {
   // Entry points for the build
   entry,
 
@@ -88,8 +85,81 @@ export const baseConfig: UserConfig = {
   },
 };
 
+type BundleMatcher = RegExp | string;
+
+interface DepBundledConfigOptions extends UserConfig {
+  /**
+   * Allowlist of dependencies that may be inlined into generated `.d.ts`.
+   *
+   * Prefer regexes that match both bare ids and subpaths
+   * (example: `/^zod($|\\/)/`).
+   */
+  bundledDeps: BundleMatcher[];
+  /**
+   * Optional overrides for pass 1 (runtime JS pass).
+   * `dts` is always forced to `false` for this pass.
+   */
+  firstPassConfig?: UserConfig;
+  /**
+   * Optional overrides for pass 2 (declaration pass).
+   * Safe defaults are applied when omitted.
+   */
+  dtsPassConfig?: UserConfig;
+}
+
 /**
- * Default export: ready-to-use config with defineConfig wrapper.
- * Use this for packages that don't need customization.
+ * Build helper for packages that need portable declaration output.
+ *
+ * Shared options are passed directly to this helper (for example `tsconfig`,
+ * `entry`, `exports`, or `outExtensions`). They are merged onto
+ * `libraryBaseConfig` automatically.
+ *
+ * Produces two tsdown configs:
+ * 1. Runtime pass: emits JS artifacts (ESM/CJS), with `dts: false`.
+ * 2. DTS pass: emits declaration files only, bundling only allowlisted deps.
+ *
+ * Defaults in pass 2:
+ * - `clean: false` to preserve runtime artifacts from pass 1
+ * - `dts: { emitDtsOnly: true, resolver: 'tsc' }`
+ * - `format: ['esm']` to avoid duplicate `.d.ts` write collisions
+ * - `deps.alwaysBundle` / `deps.onlyBundle` derived from `bundledDeps`
  */
-export default defineConfig(baseConfig);
+export function createDepBundledDtsConfig({
+  bundledDeps,
+  firstPassConfig,
+  dtsPassConfig,
+  ...sharedOverrides
+}: DepBundledConfigOptions): UserConfig[] {
+  const dtsPassDeps = dtsPassConfig?.deps;
+  const sharedConfig: UserConfig = {
+    ...libraryBaseConfig,
+    ...sharedOverrides,
+  };
+
+  return [
+    // Pass 1: runtime bundles only (no declaration output here).
+    {
+      ...sharedConfig,
+      ...firstPassConfig,
+      dts: false,
+    },
+    // Pass 2: declaration-only output with explicit bundling guardrails.
+    {
+      ...sharedConfig,
+      ...dtsPassConfig,
+      // Keep runtime output from pass 1.
+      clean: dtsPassConfig?.clean ?? false,
+      deps: {
+        ...dtsPassDeps,
+        // Dependencies to inline into `.d.ts`.
+        alwaysBundle: dtsPassDeps?.alwaysBundle ?? bundledDeps,
+        // Hard guard: fail if non-allowlisted deps are pulled into `.d.ts`.
+        onlyBundle: dtsPassDeps?.onlyBundle ?? bundledDeps,
+      },
+      // Emit declaration files only in pass 2 by default.
+      dts: dtsPassConfig?.dts ?? { emitDtsOnly: true, resolver: 'tsc' },
+      // Single d.ts graph avoids duplicate write targets for CJS + ESM.
+      format: dtsPassConfig?.format ?? ['esm'],
+    },
+  ];
+}

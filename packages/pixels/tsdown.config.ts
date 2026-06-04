@@ -1,9 +1,9 @@
 /* eslint-disable import-x/no-extraneous-dependencies */
-import { baseConfig } from '@repo/tsdown-config/config';
+import { libraryBaseConfig } from '@repo/tsdown-config/config';
 import { defineConfig } from 'tsdown';
 
 export default defineConfig({
-  ...baseConfig,
+  ...libraryBaseConfig,
   // Keep file names stable per entry (avoid hashed chunk names in published exports).
   unbundle: true,
   // Keep using the package's build-specific tsconfig.

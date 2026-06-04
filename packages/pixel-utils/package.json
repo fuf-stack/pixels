@@ -6,7 +6,7 @@
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
-  "types": "./dist/index.d.cts",
+  "types": "./dist/index.d.ts",
   "sideEffects": false,
   "exports": {
     ".": {
@@ -49,5 +49,11 @@
   },
   "devDependencies": {
     "@types/slug": "5.0.9"
+  },
+  "inlinedDependencies": {
+    "@heroui/theme": "2.4.26",
+    "tailwind-merge": "3.6.0",
+    "tailwind-variants": "3.2.2",
+    "tailwindcss": "4.3.0"
   }
 }
