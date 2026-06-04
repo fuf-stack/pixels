@@ -135,8 +135,6 @@ const SizeTemplate: Story['render'] = (args) => {
               {...args}
               header={`Size ${size}`}
               isOpen={openDrawers?.[size] || false}
-              size={size}
-              testId={`drawer-${size}`}
               onClose={() => {
                 updateArgs({
                   openDrawers: {
@@ -145,6 +143,8 @@ const SizeTemplate: Story['render'] = (args) => {
                   },
                 });
               }}
+              size={size}
+              testId={`drawer-${size}`}
             >
               {size} Content
             </Drawer>
@@ -199,8 +199,6 @@ const RadiiTemplate: Story['render'] = (args) => {
               {...args}
               header={`radius ${radius}`}
               isOpen={openDrawers?.[radius] || false}
-              radius={radius}
-              testId={`drawer-${radius}`}
               onClose={() => {
                 updateArgs({
                   openDrawers: {
@@ -209,6 +207,8 @@ const RadiiTemplate: Story['render'] = (args) => {
                   },
                 });
               }}
+              radius={radius}
+              testId={`drawer-${radius}`}
             >
               {radius} Content
             </Drawer>
@@ -263,8 +263,6 @@ const PlacementTemplate: Story['render'] = (args) => {
               {...args}
               header={`placement ${placement}`}
               isOpen={openDrawers?.[placement] || false}
-              placement={placement}
-              testId={`drawer-${placement}`}
               onClose={() => {
                 updateArgs({
                   openDrawers: {
@@ -273,6 +271,8 @@ const PlacementTemplate: Story['render'] = (args) => {
                   },
                 });
               }}
+              placement={placement}
+              testId={`drawer-${placement}`}
             >
               {placement} Content
             </Drawer>
@@ -328,7 +328,6 @@ const BackdropTemplate: Story['render'] = (args) => {
               backdrop={backdrop}
               header={`backdrop ${backdrop}`}
               isOpen={openDrawers?.[backdrop] || false}
-              testId={`drawer-${backdrop}`}
               onClose={() => {
                 updateArgs({
                   openDrawers: {
@@ -337,6 +336,7 @@ const BackdropTemplate: Story['render'] = (args) => {
                   },
                 });
               }}
+              testId={`drawer-${backdrop}`}
             >
               {backdrop} Content
             </Drawer>
@@ -363,14 +363,16 @@ export const AllBackdrops: Story = {
 
 const CardTemplate: Story['render'] = (args) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isRefReady, setIsRefReady] = useState(false);
+  const [portalContainer, setPortalContainer] = useState<HTMLDivElement | null>(
+    null,
+  );
   const drawerContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (drawerContainerRef?.current && !isRefReady) {
-      setIsRefReady(true);
+    if (drawerContainerRef.current) {
+      setPortalContainer(drawerContainerRef.current);
     }
-  }, [drawerContainerRef, isRefReady]);
+  }, []);
 
   const onClick = () => {
     setIsOpen(true);
@@ -404,7 +406,7 @@ const CardTemplate: Story['render'] = (args) => {
     </Card>
   );
 
-  if (!isRefReady) {
+  if (!portalContainer) {
     return card;
   }
 
@@ -416,15 +418,15 @@ const CardTemplate: Story['render'] = (args) => {
       {card}
       <Drawer
         {...args}
-        header="So you made it. High five!"
-        isOpen={isOpen}
-        onClose={onClose}
-        portalContainer={drawerContainerRef.current ?? undefined}
-        size="xs"
         className={{
           wrapper: 'absolute right-0 h-full w-full',
           backdrop: 'absolute right-0 h-full w-full',
         }}
+        header="So you made it. High five!"
+        isOpen={isOpen}
+        onClose={onClose}
+        portalContainer={portalContainer}
+        size="xs"
       >
         {drawerContent}
       </Drawer>

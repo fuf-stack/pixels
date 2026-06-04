@@ -40,17 +40,18 @@ const handleCopy = (rawValue?: unknown, onCopy?: JsonProps['onCopy']) => {
     if (rawValue !== NullRenderer && typeof rawValue === 'object') {
       isObject = true;
     }
-  } catch (_err) {
+  } catch {
     // ignore
   }
   const copyValue = isObject
-    ? JSON.stringify(rawValue as string, null, 2)
+    ? JSON.stringify(rawValue, null, 2)
     : (rawValue as string);
 
   // JsonView (CopiedRenderer) does copy on its own but doesn't handle
   // object serialization correctly. We use setTimeout to overwrite its
   // clipboard value with our properly formatted version in the next tick.
   setTimeout(async () => {
+    // eslint-disable-next-line n/no-unsupported-features/node-builtins
     return navigator.clipboard.writeText(copyValue);
   }, 1);
 
@@ -88,13 +89,40 @@ const Json = ({
   value,
 }: JsonProps) => {
   const [showDetails, setShowDetails] = useState(false);
-
-  let content: ReactNode = null;
-  let error: ReactNode = null;
+  let parsedValue: object | undefined;
+  let parsingError: Error | null = null;
 
   try {
-    const parsedValue = getValue(value);
-    content = (
+    parsedValue = getValue(value);
+  } catch (err) {
+    parsingError = err as Error;
+  }
+
+  if (parsingError) {
+    const defaultError = (
+      <ErrorRenderer
+        data={value}
+        error={parsingError}
+        onToggleDetails={() => {
+          setShowDetails(!showDetails);
+        }}
+        showDetails={showDetails}
+      />
+    );
+
+    const renderedError = errorRenderer
+      ? errorRenderer(parsingError, value)
+      : defaultError;
+
+    return (
+      <div aria-label="JSON viewer" className={cn(className)} role="region">
+        {renderedError}
+      </div>
+    );
+  }
+
+  return (
+    <div aria-label="JSON viewer" className={cn(className)} role="region">
       <div
         className="relative"
         style={{ maxHeight, overflowY: maxHeight ? 'auto' : undefined }}
@@ -103,34 +131,15 @@ const Json = ({
           className="pr-5"
           collapsed={collapsed}
           displayDataTypes={false}
-          value={parsedValue}
           onCopied={(_, rawValue) => {
             handleCopy(rawValue, onCopy);
           }}
+          value={parsedValue}
         >
           <CopiedRenderer />
           <NullRenderer />
         </JsonView>
       </div>
-    );
-  } catch (err) {
-    const defaultError = (
-      <ErrorRenderer
-        data={value}
-        error={err}
-        showDetails={showDetails}
-        onToggleDetails={() => {
-          setShowDetails(!showDetails);
-        }}
-      />
-    );
-
-    error = errorRenderer ? errorRenderer(err as Error, value) : defaultError;
-  }
-
-  return (
-    <div aria-label="JSON viewer" className={cn(className)} role="region">
-      {error ?? content}
     </div>
   );
 };
