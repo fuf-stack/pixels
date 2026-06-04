@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useSyncExternalStore } from 'react';
 import { FaTimes } from 'react-icons/fa';
 import { FaBug, FaBullseye } from 'react-icons/fa6';
 
@@ -11,6 +11,9 @@ import { useFormContext } from '../../hooks/useFormContext';
 
 // import Json css (theme)
 import '@fuf-stack/pixels/Json.css';
+
+// Stable empty snapshot used by useSyncExternalStore to avoid re-render loops.
+const EMPTY_VALUES: Record<string, unknown> = {};
 
 interface FormDebugViewerProps {
   /** CSS class name */
@@ -32,31 +35,44 @@ const FormDebugViewer = ({ className = undefined }: FormDebugViewerProps) => {
   const showDebugCard = debugMode === 'debug' || debugMode === 'debug-testids';
   const showDebugTestIds = debugMode === 'debug-testids';
 
-  // Use subscribe instead of watch() to avoid triggering re-renders on parent components.
-  // This component manages its own state and only updates itself when form values change.
-  const [values, setValues] = useState<Record<string, unknown>>({});
+  // Subscribe to RHF as an external store so this component updates itself
+  // without forcing parent re-renders via watch().
+  const values = useSyncExternalStore<Record<string, unknown>>(
+    // subscribe: tell React how to listen for external store changes
+    (onStoreChange) => {
+      if (!showDebugCard) {
+        // No-op while the panel is hidden to avoid unnecessary subscriptions.
+        return () => {};
+      }
 
-  useEffect(() => {
-    // Only subscribe when debug card is visible
-    if (!showDebugCard) {
-      return undefined;
-    }
+      const unsubscribe = subscribe({
+        formState: { values: true },
+        callback: () => {
+          // Notify React that a new snapshot is available.
+          onStoreChange();
+        },
+      });
 
-    // Initialize with current values when debug card is opened
-    setValues(getValues() ?? {});
+      return () => {
+        // Ensure RHF subscription is always cleaned up.
+        unsubscribe();
+      };
+    },
+    // getSnapshot: return the current client-side value for this render.
+    () => {
+      if (!showDebugCard) {
+        // Keep the debug payload empty when the panel is not visible.
+        return EMPTY_VALUES;
+      }
 
-    const subscription = subscribe({
-      formState: { values: true },
-      callback: (state) => {
-        setValues(state.values ?? {});
-      },
-    });
-
-    return () => {
-      subscription();
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [showDebugCard]);
+      // Read current form values on demand; no effect-local setState needed.
+      return getValues() ?? {};
+    },
+    // getServerSnapshot: stable fallback for non-client rendering environments.
+    () => {
+      return EMPTY_VALUES;
+    },
+  );
 
   if (showDebugButton) {
     return (
@@ -64,10 +80,10 @@ const FormDebugViewer = ({ className = undefined }: FormDebugViewerProps) => {
         ariaLabel="Enable form debug mode"
         className="fixed bottom-2.5 right-2.5 w-5 text-default-400"
         icon={<FaBug />}
-        variant="light"
         onClick={() => {
           setDebugMode('debug');
         }}
+        variant="light"
       />
     );
   }
@@ -86,11 +102,11 @@ const FormDebugViewer = ({ className = undefined }: FormDebugViewerProps) => {
           <Button
             color="danger"
             icon={<FaTimes />}
-            size="sm"
-            variant="light"
             onClick={() => {
               setDebugMode('off');
             }}
+            size="sm"
+            variant="light"
           />
         </div>
       }
@@ -98,10 +114,10 @@ const FormDebugViewer = ({ className = undefined }: FormDebugViewerProps) => {
       <Button
         className="mb-4 ml-auto mr-auto"
         icon={<FaBullseye />}
-        variant={showDebugTestIds ? 'solid' : 'light'}
         onClick={() => {
           setDebugMode(debugMode === 'debug' ? 'debug-testids' : 'debug');
         }}
+        variant={showDebugTestIds ? 'solid' : 'light'}
       >
         {showDebugTestIds ? 'Hide CopyButton' : 'Show CopyButton'}
       </Button>
