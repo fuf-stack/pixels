@@ -157,14 +157,23 @@ describe('getDatePickerPlaceholderValue', () => {
   });
 
   it('returns placeholder for explicit timezone in time mode', () => {
-    expect(getDatePickerPlaceholderValue(true, 'UTC')?.toString()).toBe(
-      now('UTC').toString(),
-    );
+    const placeholder = getDatePickerPlaceholderValue(true, 'UTC');
+    expect(placeholder?.toString()).toContain('[UTC]');
+
+    const placeholderTime = placeholder?.toDate('UTC').getTime();
+    const expectedTime = now('UTC').toDate('UTC').getTime();
+
+    expect(Math.abs((placeholderTime ?? 0) - expectedTime)).toBeLessThan(1000);
   });
 
   it('returns placeholder using local timezone fallback in time mode', () => {
-    expect(getDatePickerPlaceholderValue(true)?.toString()).toBe(
-      now(getLocalTimeZone()).toString(),
-    );
+    const localTimeZone = getLocalTimeZone();
+    const placeholder = getDatePickerPlaceholderValue(true);
+    expect(placeholder?.toString()).toContain(`[${localTimeZone}]`);
+
+    const placeholderTime = placeholder?.toDate(localTimeZone).getTime();
+    const expectedTime = now(localTimeZone).toDate(localTimeZone).getTime();
+
+    expect(Math.abs((placeholderTime ?? 0) - expectedTime)).toBeLessThan(1000);
   });
 });
