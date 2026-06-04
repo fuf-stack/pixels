@@ -1743,7 +1743,7 @@ exports[`Story Snapshots > EdgeCaseTopLevelStringNotInArray 1`] = `
         class="flex flex-col gap-6"
       >
         <div
-          class="group leading-normal"
+          class="group flex w-full flex-col gap-y-1.5 leading-normal"
           data-has-helper="true"
           data-has-label="true"
           data-required="true"
@@ -1751,7 +1751,7 @@ exports[`Story Snapshots > EdgeCaseTopLevelStringNotInArray 1`] = `
           data-testid="toplevelvalue_wrapper"
         >
           <label
-            class="pointer-events-auto relative bottom-1.5 ml-1 text-foreground subpixel-antialiased text-small group-data-[invalid=true]:!text-danger"
+            class="pointer-events-auto inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger"
             data-slot="label"
             for="react-select-topLevelValue-input"
             id="react-aria-«replaced-aria-id»"
@@ -1907,7 +1907,7 @@ exports[`Story Snapshots > EdgeCaseTopLevelStringNotInArray 1`] = `
                     data-testid="arrayfield_0_element_fields_grid"
                   >
                     <div
-                      class="group leading-normal"
+                      class="group flex w-full flex-col gap-y-1.5 leading-normal"
                       data-has-helper="true"
                       data-has-label="true"
                       data-required="true"
@@ -1915,7 +1915,7 @@ exports[`Story Snapshots > EdgeCaseTopLevelStringNotInArray 1`] = `
                       data-testid="arrayfield_0_wrapper"
                     >
                       <label
-                        class="pointer-events-auto relative bottom-1.5 ml-1 text-foreground subpixel-antialiased text-small group-data-[invalid=true]:!text-danger"
+                        class="pointer-events-auto inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger"
                         data-slot="label"
                         for="react-select-arrayField.0.__FLAT__-input"
                         id="react-aria-«replaced-aria-id»"
@@ -2068,7 +2068,7 @@ exports[`Story Snapshots > EdgeCaseTopLevelStringNotInArray 1`] = `
                     data-testid="arrayfield_1_element_fields_grid"
                   >
                     <div
-                      class="group leading-normal"
+                      class="group flex w-full flex-col gap-y-1.5 leading-normal"
                       data-has-helper="true"
                       data-has-label="true"
                       data-required="true"
@@ -2076,7 +2076,7 @@ exports[`Story Snapshots > EdgeCaseTopLevelStringNotInArray 1`] = `
                       data-testid="arrayfield_1_wrapper"
                     >
                       <label
-                        class="pointer-events-auto relative bottom-1.5 ml-1 text-foreground subpixel-antialiased text-small group-data-[invalid=true]:!text-danger"
+                        class="pointer-events-auto inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger"
                         data-slot="label"
                         for="react-select-arrayField.1.__FLAT__-input"
                         id="react-aria-«replaced-aria-id»"

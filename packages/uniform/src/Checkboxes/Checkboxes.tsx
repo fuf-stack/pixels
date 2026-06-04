@@ -18,12 +18,19 @@ import { useUniformField } from '../hooks/useUniformField';
 
 export const checkboxesVariants = tv({
   slots: {
-    base: 'group', // Needs group for group-data condition
+    base: [
+      // Needs group for group-data condition.
+      'group',
+      // Match shared field wrapper layout.
+      'flex w-full flex-col',
+      // Keep spacing between label/group consistent.
+      'gap-y-1.5',
+    ],
     errorMessage: 'text-tiny',
     // see HeroUI styles for group-data condition,
     // e.g.: https://github.com/heroui-inc/heroui/blob/main/packages/core/theme/src/components/select.ts
     label:
-      'inline-flex text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger',
+      'inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger',
     optionBase: '',
     optionIcon: '',
     optionLabel: '',

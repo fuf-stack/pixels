@@ -14,7 +14,7 @@ exports[`Story Snapshots > AllSizes 1`] = `
         class="flex flex-col gap-8"
       >
         <div
-          class="group"
+          class="group flex w-full flex-col gap-y-1.5"
           data-invalid="false"
           data-required="false"
           data-testid="smallslider"
@@ -44,11 +44,11 @@ exports[`Story Snapshots > AllSizes 1`] = `
             role="group"
           >
             <div
-              class="w-full flex justify-between items-center"
+              class="w-full flex justify-between items-center mb-1"
               data-slot="labelWrapper"
             >
               <label
-                class="text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
+                class="cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
                 data-slot="label"
                 id="react-aria-«replaced-aria-id»"
               >
@@ -115,7 +115,7 @@ exports[`Story Snapshots > AllSizes 1`] = `
           </div>
         </div>
         <div
-          class="group"
+          class="group flex w-full flex-col gap-y-1.5"
           data-invalid="false"
           data-required="false"
           data-testid="mediumslider"
@@ -145,11 +145,11 @@ exports[`Story Snapshots > AllSizes 1`] = `
             role="group"
           >
             <div
-              class="w-full flex justify-between items-center"
+              class="w-full flex justify-between items-center mb-1"
               data-slot="labelWrapper"
             >
               <label
-                class="text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
+                class="cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
                 data-slot="label"
                 id="react-aria-«replaced-aria-id»"
               >
@@ -216,7 +216,7 @@ exports[`Story Snapshots > AllSizes 1`] = `
           </div>
         </div>
         <div
-          class="group"
+          class="group flex w-full flex-col gap-y-1.5"
           data-invalid="false"
           data-required="false"
           data-testid="largeslider"
@@ -246,11 +246,11 @@ exports[`Story Snapshots > AllSizes 1`] = `
             role="group"
           >
             <div
-              class="w-full flex justify-between items-center"
+              class="w-full flex justify-between items-center mb-1"
               data-slot="labelWrapper"
             >
               <label
-                class="text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
+                class="cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
                 data-slot="label"
                 id="react-aria-«replaced-aria-id»"
               >
@@ -347,7 +347,7 @@ exports[`Story Snapshots > CustomRange 1`] = `
       data-testid=""
     >
       <div
-        class="group"
+        class="group flex w-full flex-col gap-y-1.5"
         data-invalid="false"
         data-required="false"
         data-testid="sliderfield"
@@ -377,11 +377,11 @@ exports[`Story Snapshots > CustomRange 1`] = `
           role="group"
         >
           <div
-            class="w-full flex justify-between items-center"
+            class="w-full flex justify-between items-center mb-1"
             data-slot="labelWrapper"
           >
             <label
-              class="text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
+              class="cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
               data-slot="label"
               id="react-aria-«replaced-aria-id»"
             >
@@ -477,7 +477,7 @@ exports[`Story Snapshots > Default 1`] = `
       data-testid=""
     >
       <div
-        class="group"
+        class="group flex w-full flex-col gap-y-1.5"
         data-invalid="false"
         data-required="false"
         data-testid="sliderfield"
@@ -586,7 +586,7 @@ exports[`Story Snapshots > Disabled 1`] = `
       data-testid=""
     >
       <div
-        class="group"
+        class="group flex w-full flex-col gap-y-1.5"
         data-invalid="false"
         data-required="false"
         data-testid="sliderfield"
@@ -617,11 +617,11 @@ exports[`Story Snapshots > Disabled 1`] = `
           role="group"
         >
           <div
-            class="w-full flex justify-between items-center"
+            class="w-full flex justify-between items-center mb-1"
             data-slot="labelWrapper"
           >
             <label
-              class="text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
+              class="cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
               data-slot="label"
               id="react-aria-«replaced-aria-id»"
             >
@@ -718,7 +718,7 @@ exports[`Story Snapshots > EdgeCaseRequiredTouchedViaTab 1`] = `
       data-testid=""
     >
       <div
-        class="group"
+        class="group flex w-full flex-col gap-y-1.5"
         data-invalid="true"
         data-required="true"
         data-testid="sliderfield"
@@ -748,11 +748,11 @@ exports[`Story Snapshots > EdgeCaseRequiredTouchedViaTab 1`] = `
           role="group"
         >
           <div
-            class="w-full flex justify-between items-center"
+            class="w-full flex justify-between items-center mb-1"
             data-slot="labelWrapper"
           >
             <label
-              class="text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
+              class="cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
               data-slot="label"
               id="react-aria-«replaced-aria-id»"
             >
@@ -875,7 +875,7 @@ exports[`Story Snapshots > Invalid 1`] = `
       data-testid=""
     >
       <div
-        class="group"
+        class="group flex w-full flex-col gap-y-1.5"
         data-invalid="true"
         data-required="true"
         data-testid="sliderfield"
@@ -905,11 +905,11 @@ exports[`Story Snapshots > Invalid 1`] = `
           role="group"
         >
           <div
-            class="w-full flex justify-between items-center"
+            class="w-full flex justify-between items-center mb-1"
             data-slot="labelWrapper"
           >
             <label
-              class="text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
+              class="cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
               data-slot="label"
               id="react-aria-«replaced-aria-id»"
             >
@@ -1033,7 +1033,7 @@ exports[`Story Snapshots > Required 1`] = `
       data-testid=""
     >
       <div
-        class="group"
+        class="group flex w-full flex-col gap-y-1.5"
         data-invalid="false"
         data-required="true"
         data-testid="sliderfield"
@@ -1063,11 +1063,11 @@ exports[`Story Snapshots > Required 1`] = `
           role="group"
         >
           <div
-            class="w-full flex justify-between items-center"
+            class="w-full flex justify-between items-center mb-1"
             data-slot="labelWrapper"
           >
             <label
-              class="text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
+              class="cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
               data-slot="label"
               id="react-aria-«replaced-aria-id»"
             >
@@ -1163,7 +1163,7 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
       data-testid=""
     >
       <div
-        class="group"
+        class="group flex w-full flex-col gap-y-1.5"
         data-invalid="false"
         data-required="false"
         data-testid="sliderfield"
@@ -1193,11 +1193,11 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
           role="group"
         >
           <div
-            class="w-full flex justify-between items-center"
+            class="w-full flex justify-between items-center mb-1"
             data-slot="labelWrapper"
           >
             <label
-              class="text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
+              class="cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
               data-slot="label"
               id="react-aria-«replaced-aria-id»"
             >
@@ -1293,7 +1293,7 @@ exports[`Story Snapshots > WithLabel 1`] = `
       data-testid=""
     >
       <div
-        class="group"
+        class="group flex w-full flex-col gap-y-1.5"
         data-invalid="false"
         data-required="false"
         data-testid="sliderfield"
@@ -1323,11 +1323,11 @@ exports[`Story Snapshots > WithLabel 1`] = `
           role="group"
         >
           <div
-            class="w-full flex justify-between items-center"
+            class="w-full flex justify-between items-center mb-1"
             data-slot="labelWrapper"
           >
             <label
-              class="text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
+              class="cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
               data-slot="label"
               id="react-aria-«replaced-aria-id»"
             >
@@ -1423,7 +1423,7 @@ exports[`Story Snapshots > WithStartAndEndContent 1`] = `
       data-testid=""
     >
       <div
-        class="group"
+        class="group flex w-full flex-col gap-y-1.5"
         data-invalid="false"
         data-required="false"
         data-testid="sliderfield"
@@ -1453,11 +1453,11 @@ exports[`Story Snapshots > WithStartAndEndContent 1`] = `
           role="group"
         >
           <div
-            class="w-full flex justify-between items-center"
+            class="w-full flex justify-between items-center mb-1"
             data-slot="labelWrapper"
           >
             <label
-              class="text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
+              class="cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
               data-slot="label"
               id="react-aria-«replaced-aria-id»"
             >
@@ -1589,7 +1589,7 @@ exports[`Story Snapshots > WithStep 1`] = `
       data-testid=""
     >
       <div
-        class="group"
+        class="group flex w-full flex-col gap-y-1.5"
         data-invalid="false"
         data-required="false"
         data-testid="sliderfield"
@@ -1619,11 +1619,11 @@ exports[`Story Snapshots > WithStep 1`] = `
           role="group"
         >
           <div
-            class="w-full flex justify-between items-center"
+            class="w-full flex justify-between items-center mb-1"
             data-slot="labelWrapper"
           >
             <label
-              class="text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
+              class="cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
               data-slot="label"
               id="react-aria-«replaced-aria-id»"
             >
@@ -1719,7 +1719,7 @@ exports[`Story Snapshots > WithSteps 1`] = `
       data-testid=""
     >
       <div
-        class="group"
+        class="group flex w-full flex-col gap-y-1.5"
         data-invalid="false"
         data-required="false"
         data-testid="sliderfield"
@@ -1749,11 +1749,11 @@ exports[`Story Snapshots > WithSteps 1`] = `
           role="group"
         >
           <div
-            class="w-full flex justify-between items-center"
+            class="w-full flex justify-between items-center mb-1"
             data-slot="labelWrapper"
           >
             <label
-              class="text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
+              class="cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
               data-slot="label"
               id="react-aria-«replaced-aria-id»"
             >

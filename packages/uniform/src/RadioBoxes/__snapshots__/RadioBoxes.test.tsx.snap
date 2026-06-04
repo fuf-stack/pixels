@@ -13,7 +13,7 @@ exports[`Story Snapshots > Default 1`] = `
       <div
         aria-label="radioBoxesField"
         aria-orientation="vertical"
-        class="relative flex flex-col group gap-0"
+        class="relative gap-2 group flex w-full flex-col gap-y-1.5"
         data-invalid="false"
         data-required="false"
         data-testid="radioboxesfield"
@@ -188,7 +188,7 @@ exports[`Story Snapshots > DisabledCompletely 1`] = `
       <div
         aria-label="radioBoxesField"
         aria-orientation="vertical"
-        class="relative flex flex-col group gap-0"
+        class="relative gap-2 group flex w-full flex-col gap-y-1.5"
         data-invalid="false"
         data-required="false"
         data-testid="radioboxesfield"
@@ -363,7 +363,7 @@ exports[`Story Snapshots > DisabledOption 1`] = `
       <div
         aria-label="radioBoxesField"
         aria-orientation="vertical"
-        class="relative flex flex-col group gap-0"
+        class="relative gap-2 group flex w-full flex-col gap-y-1.5"
         data-invalid="false"
         data-required="false"
         data-testid="radioboxesfield"
@@ -538,7 +538,7 @@ exports[`Story Snapshots > Inline 1`] = `
       <div
         aria-label="radioBoxesField"
         aria-orientation="horizontal"
-        class="relative flex flex-col group gap-0"
+        class="relative gap-2 group flex w-full flex-col gap-y-1.5"
         data-invalid="false"
         data-required="false"
         data-testid="radioboxesfield"
@@ -716,7 +716,7 @@ exports[`Story Snapshots > Invalid 1`] = `
         aria-label="Choose Your Pizza"
         aria-orientation="vertical"
         aria-required="true"
-        class="relative flex flex-col group gap-0"
+        class="relative gap-2 group flex w-full flex-col gap-y-1.5"
         data-invalid="true"
         data-required="true"
         data-testid="radioboxesfield"
@@ -724,7 +724,7 @@ exports[`Story Snapshots > Invalid 1`] = `
         role="radiogroup"
       >
         <span
-          class="relative after:content-['*'] after:text-danger after:ml-0.5 mb-2 inline-flex text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger"
+          class="relative after:content-['*'] after:text-danger after:ml-0.5 mb-2 inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger"
         >
           <legend>
             Choose Your Pizza
@@ -929,7 +929,7 @@ exports[`Story Snapshots > NumberValues 1`] = `
       <div
         aria-label="radioBoxesField"
         aria-orientation="vertical"
-        class="relative flex flex-col group gap-0"
+        class="relative gap-2 group flex w-full flex-col gap-y-1.5"
         data-invalid="false"
         data-required="false"
         data-testid="radioboxesfield"
@@ -1105,7 +1105,7 @@ exports[`Story Snapshots > Required 1`] = `
         aria-label="Pick Your Superpower"
         aria-orientation="vertical"
         aria-required="true"
-        class="relative flex flex-col group gap-0"
+        class="relative gap-2 group flex w-full flex-col gap-y-1.5"
         data-invalid="false"
         data-required="true"
         data-testid="radioboxesfield"
@@ -1113,7 +1113,7 @@ exports[`Story Snapshots > Required 1`] = `
         role="radiogroup"
       >
         <span
-          class="relative after:content-['*'] after:text-danger after:ml-0.5 mb-2 inline-flex text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger"
+          class="relative after:content-['*'] after:text-danger after:ml-0.5 mb-2 inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger"
         >
           <legend>
             Pick Your Superpower
@@ -1293,7 +1293,7 @@ exports[`Story Snapshots > WithIcons 1`] = `
       <div
         aria-label="radioBoxesField"
         aria-orientation="vertical"
-        class="relative flex flex-col group gap-0"
+        class="relative gap-2 group flex w-full flex-col gap-y-1.5"
         data-invalid="false"
         data-required="false"
         data-testid="radioboxesfield"
@@ -1489,7 +1489,7 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
       <div
         aria-label="radioBoxesField"
         aria-orientation="vertical"
-        class="relative flex flex-col group gap-0"
+        class="relative gap-2 group flex w-full flex-col gap-y-1.5"
         data-invalid="false"
         data-required="false"
         data-testid="radioboxesfield"

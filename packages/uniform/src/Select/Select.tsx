@@ -21,7 +21,16 @@ import {
 
 export const selectVariants = tv({
   slots: {
-    base: 'group leading-normal',
+    base: [
+      // Enables group-data selectors used by child slots.
+      'group',
+      // Make field wrappers align with other form controls.
+      'flex w-full flex-col',
+      // Keep label/control vertical rhythm consistent.
+      'gap-y-1.5',
+      // Preserve existing text flow for select content.
+      'leading-normal',
+    ],
     clearIndicator:
       'rounded-md p-1 text-foreground-500 hover:cursor-pointer hover:bg-default-200 hover:text-foreground-800',
     control:
@@ -39,7 +48,7 @@ export const selectVariants = tv({
     // see HeroUI styles for group-data condition,
     // e.g.: https://github.com/heroui-inc/heroui/blob/main/packages/core/theme/src/components/select.ts
     label:
-      'pointer-events-auto relative bottom-1.5 ml-1 text-foreground subpixel-antialiased text-small group-data-[invalid=true]:!text-danger',
+      'pointer-events-auto inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger',
     loadingIndicator: '',
     loadingMessage: 'rounded-sm p-2 text-foreground-500',
     menu: 'mt-2 rounded-xl border border-default-200 bg-content1 p-1 shadow-lg',

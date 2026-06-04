@@ -13,7 +13,14 @@ import { RadioBox } from './RadioBox';
 
 export const radioBoxesVariants = tv({
   slots: {
-    base: 'group gap-0', // Needs group for group-data condition
+    base: [
+      // Needs group for group-data condition.
+      'group',
+      // Match shared field wrapper layout.
+      'flex w-full flex-col',
+      // Keep spacing between label/radio boxes consistent.
+      'gap-y-1.5',
+    ],
     boxBase: '',
     boxControl: '',
     boxDescription: '',
@@ -22,7 +29,7 @@ export const radioBoxesVariants = tv({
     // see HeroUI styles for group-data condition,
     // e.g.: https://github.com/heroui-inc/heroui/blob/main/packages/core/theme/src/components/select.ts
     label:
-      'mb-2 inline-flex text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger',
+      'mb-2 inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger',
     wrapper: '',
   },
 });

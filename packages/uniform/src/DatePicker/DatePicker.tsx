@@ -36,6 +36,8 @@ export const datePickerVariants = tv({
      * driven by the native `focus-within` state of the segment inputs.
      */
     inputWrapper: 'bg-content1 focus-within:border-focus',
+    /** field label */
+    label: 'cursor-default',
     /** the calendar popover element */
     popoverContent: '',
     /** selector button element */
@@ -175,6 +177,7 @@ const DatePicker = ({
         calendarContent: classNames.calendarContent,
         helperWrapper: classNames.helperWrapper,
         inputWrapper: classNames.inputWrapper,
+        label: classNames.label,
         popoverContent: classNames.popoverContent,
         selectorButton: classNames.selectorButton,
         selectorIcon: classNames.selectorIcon,

@@ -21,7 +21,7 @@ exports[`Story Snapshots > SimpleReset 1`] = `
             class="grid gap-6"
           >
             <div
-              class="group leading-normal"
+              class="group flex w-full flex-col gap-y-1.5 leading-normal"
               data-has-helper="true"
               data-has-label="true"
               data-required="false"
@@ -29,7 +29,7 @@ exports[`Story Snapshots > SimpleReset 1`] = `
               data-testid="country_wrapper"
             >
               <label
-                class="pointer-events-auto relative bottom-1.5 ml-1 text-foreground subpixel-antialiased text-small group-data-[invalid=true]:!text-danger"
+                class="pointer-events-auto inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger"
                 data-slot="label"
                 for="react-select-country-input"
                 id="react-aria-«replaced-aria-id»"
@@ -285,7 +285,7 @@ exports[`Story Snapshots > SmartDefaults 1`] = `
             class="grid gap-6"
           >
             <div
-              class="group leading-normal"
+              class="group flex w-full flex-col gap-y-1.5 leading-normal"
               data-has-helper="true"
               data-has-label="true"
               data-required="false"
@@ -293,7 +293,7 @@ exports[`Story Snapshots > SmartDefaults 1`] = `
               data-testid="animal_wrapper"
             >
               <label
-                class="pointer-events-auto relative bottom-1.5 ml-1 text-foreground subpixel-antialiased text-small group-data-[invalid=true]:!text-danger"
+                class="pointer-events-auto inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger"
                 data-slot="label"
                 for="react-select-animal-input"
                 id="react-aria-«replaced-aria-id»"

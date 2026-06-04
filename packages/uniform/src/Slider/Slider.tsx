@@ -12,15 +12,22 @@ import { useUniformField } from '../hooks/useUniformField';
 
 export const sliderVariants = tv({
   slots: {
-    base: 'group',
+    base: [
+      // Enables group-data selectors used by slider slots.
+      'group',
+      // Match shared field wrapper layout.
+      'flex w-full flex-col',
+      // Keep spacing between label/track consistent.
+      'gap-y-1.5',
+    ],
     endContent: '',
     errorMessage: 'ml-1 mt-1',
     filler: '',
     // see HeroUI styles for group-data condition,
     // e.g.: https://github.com/heroui-inc/heroui/blob/main/packages/core/theme/src/components/select.ts
     label:
-      'text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]',
-    labelWrapper: '',
+      'cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]',
+    labelWrapper: 'mb-1',
     mark: '',
     startContent: '',
     step: '',

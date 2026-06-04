@@ -13,8 +13,14 @@ import { useUniformField } from '../hooks/useUniformField';
 
 export const radiosVariants = tv({
   slots: {
-    // Needs group for group-data condition
-    base: 'group gap-0',
+    base: [
+      // Needs group for group-data condition.
+      'group',
+      // Match shared field wrapper layout.
+      'flex w-full flex-col',
+      // Keep spacing between label/group consistent.
+      'gap-y-1.5',
+    ],
     itemBase: '',
     itemControl: 'bg-focus group-data-[invalid=true]:bg-danger',
     itemDescription: '',
@@ -24,7 +30,7 @@ export const radiosVariants = tv({
       'group-data-[invalid=true]:border-danger! [&:not(group-data-[invalid="true"]):not(group-data-[selected="false"])]:border-focus',
     // e.g.: https://github.com/heroui-inc/heroui/blob/main/packages/core/theme/src/components/select.ts
     label:
-      'mb-2 inline-flex text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger',
+      'mb-2 inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger',
     wrapper: '',
   },
 });

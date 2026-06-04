@@ -30,7 +30,7 @@ export const timeVariants = tv({
     /** outer input wrapper */
     inputWrapper: 'bg-content1 focus-within:border-focus',
     /** field label */
-    label: '',
+    label: 'cursor-default',
     /** individual segment */
     segment: '',
   },

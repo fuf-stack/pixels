@@ -11,7 +11,7 @@ exports[`Story Snapshots > Default 1`] = `
       data-testid=""
     >
       <div
-        class="group leading-normal"
+        class="group flex w-full flex-col gap-y-1.5 leading-normal"
         data-has-helper="true"
         data-has-label="true"
         data-required="false"
@@ -19,7 +19,7 @@ exports[`Story Snapshots > Default 1`] = `
         data-testid="selectfield_wrapper"
       >
         <label
-          class="pointer-events-auto relative bottom-1.5 ml-1 text-foreground subpixel-antialiased text-small group-data-[invalid=true]:!text-danger"
+          class="pointer-events-auto inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger"
           data-slot="label"
           for="react-select-selectField-input"
           id="react-aria-«replaced-aria-id»"
@@ -151,7 +151,7 @@ exports[`Story Snapshots > Disabled 1`] = `
       data-testid=""
     >
       <div
-        class="group leading-normal"
+        class="group flex w-full flex-col gap-y-1.5 leading-normal"
         data-has-helper="true"
         data-has-label="true"
         data-required="false"
@@ -159,7 +159,7 @@ exports[`Story Snapshots > Disabled 1`] = `
         data-testid="selectfield_wrapper"
       >
         <label
-          class="pointer-events-auto relative bottom-1.5 ml-1 text-foreground subpixel-antialiased text-small group-data-[invalid=true]:!text-danger"
+          class="pointer-events-auto inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger"
           data-slot="label"
           for="react-select-selectField-input"
           id="react-aria-«replaced-aria-id»"
@@ -304,7 +304,7 @@ exports[`Story Snapshots > EdgeCaseMenuIsVisibleInCard 1`] = `
           class="relative flex w-full p-3 flex-auto flex-col place-content-inherit align-items-inherit h-auto break-words text-left overflow-y-auto subpixel-antialiased"
         >
           <div
-            class="group leading-normal"
+            class="group flex w-full flex-col gap-y-1.5 leading-normal"
             data-has-helper="true"
             data-has-label="true"
             data-required="false"
@@ -312,7 +312,7 @@ exports[`Story Snapshots > EdgeCaseMenuIsVisibleInCard 1`] = `
             data-testid="selectfield_wrapper"
           >
             <label
-              class="pointer-events-auto relative bottom-1.5 ml-1 text-foreground subpixel-antialiased text-small group-data-[invalid=true]:!text-danger"
+              class="pointer-events-auto inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger"
               data-slot="label"
               for="react-select-selectField-input"
               id="react-aria-«replaced-aria-id»"
@@ -800,7 +800,7 @@ exports[`Story Snapshots > EdgeCaseMenuIsVisibleInModal 1`] = `
           id="modal_body"
         >
           <div
-            class="group leading-normal"
+            class="group flex w-full flex-col gap-y-1.5 leading-normal"
             data-has-helper="true"
             data-has-label="true"
             data-required="false"
@@ -808,7 +808,7 @@ exports[`Story Snapshots > EdgeCaseMenuIsVisibleInModal 1`] = `
             data-testid="selectfield_wrapper"
           >
             <label
-              class="pointer-events-auto relative bottom-1.5 ml-1 text-foreground subpixel-antialiased text-small group-data-[invalid=true]:!text-danger"
+              class="pointer-events-auto inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger"
               data-slot="label"
               for="react-select-selectField-input"
               id="react-aria-«replaced-aria-id»"
@@ -1189,7 +1189,7 @@ exports[`Story Snapshots > InitialValue 1`] = `
       data-testid=""
     >
       <div
-        class="group leading-normal"
+        class="group flex w-full flex-col gap-y-1.5 leading-normal"
         data-has-helper="true"
         data-has-label="true"
         data-required="false"
@@ -1197,7 +1197,7 @@ exports[`Story Snapshots > InitialValue 1`] = `
         data-testid="selectfield_wrapper"
       >
         <label
-          class="pointer-events-auto relative bottom-1.5 ml-1 text-foreground subpixel-antialiased text-small group-data-[invalid=true]:!text-danger"
+          class="pointer-events-auto inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger"
           data-slot="label"
           for="react-select-selectField-input"
           id="react-aria-«replaced-aria-id»"
@@ -1344,7 +1344,7 @@ exports[`Story Snapshots > Invalid 1`] = `
       data-testid=""
     >
       <div
-        class="group leading-normal"
+        class="group flex w-full flex-col gap-y-1.5 leading-normal"
         data-has-helper="true"
         data-has-label="true"
         data-invalid="true"
@@ -1353,7 +1353,7 @@ exports[`Story Snapshots > Invalid 1`] = `
         data-testid="selectfield_wrapper"
       >
         <label
-          class="pointer-events-auto relative bottom-1.5 ml-1 text-foreground subpixel-antialiased text-small group-data-[invalid=true]:!text-danger"
+          class="pointer-events-auto inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger"
           data-slot="label"
           for="react-select-selectField-input"
           id="react-aria-«replaced-aria-id»"
@@ -1525,7 +1525,7 @@ exports[`Story Snapshots > Loading 1`] = `
       data-testid=""
     >
       <div
-        class="group leading-normal"
+        class="group flex w-full flex-col gap-y-1.5 leading-normal"
         data-has-helper="true"
         data-has-label="true"
         data-required="false"
@@ -1533,7 +1533,7 @@ exports[`Story Snapshots > Loading 1`] = `
         data-testid="selectfield_wrapper"
       >
         <label
-          class="pointer-events-auto relative bottom-1.5 ml-1 text-foreground subpixel-antialiased text-small group-data-[invalid=true]:!text-danger"
+          class="pointer-events-auto inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger"
           data-slot="label"
           for="react-select-selectField-input"
           id="react-aria-«replaced-aria-id»"
@@ -1712,7 +1712,7 @@ exports[`Story Snapshots > MultiSelect 1`] = `
       data-testid=""
     >
       <div
-        class="group leading-normal"
+        class="group flex w-full flex-col gap-y-1.5 leading-normal"
         data-has-helper="true"
         data-has-label="true"
         data-required="false"
@@ -1720,7 +1720,7 @@ exports[`Story Snapshots > MultiSelect 1`] = `
         data-testid="selectfield_wrapper"
       >
         <label
-          class="pointer-events-auto relative bottom-1.5 ml-1 text-foreground subpixel-antialiased text-small group-data-[invalid=true]:!text-danger"
+          class="pointer-events-auto inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger"
           data-slot="label"
           for="react-select-selectField-input"
           id="react-aria-«replaced-aria-id»"
@@ -1923,7 +1923,7 @@ exports[`Story Snapshots > NoResults 1`] = `
       data-testid=""
     >
       <div
-        class="group leading-normal"
+        class="group flex w-full flex-col gap-y-1.5 leading-normal"
         data-has-helper="true"
         data-has-label="true"
         data-required="false"
@@ -1931,7 +1931,7 @@ exports[`Story Snapshots > NoResults 1`] = `
         data-testid="selectfield_wrapper"
       >
         <label
-          class="pointer-events-auto relative bottom-1.5 ml-1 text-foreground subpixel-antialiased text-small group-data-[invalid=true]:!text-danger"
+          class="pointer-events-auto inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger"
           data-slot="label"
           for="react-select-selectField-input"
           id="react-aria-«replaced-aria-id»"
@@ -2098,7 +2098,7 @@ exports[`Story Snapshots > NoResultsCustomRenderer 1`] = `
       data-testid=""
     >
       <div
-        class="group leading-normal"
+        class="group flex w-full flex-col gap-y-1.5 leading-normal"
         data-has-helper="true"
         data-has-label="true"
         data-required="false"
@@ -2106,7 +2106,7 @@ exports[`Story Snapshots > NoResultsCustomRenderer 1`] = `
         data-testid="selectfield_wrapper"
       >
         <label
-          class="pointer-events-auto relative bottom-1.5 ml-1 text-foreground subpixel-antialiased text-small group-data-[invalid=true]:!text-danger"
+          class="pointer-events-auto inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger"
           data-slot="label"
           for="react-select-selectField-input"
           id="react-aria-«replaced-aria-id»"
@@ -2312,7 +2312,7 @@ exports[`Story Snapshots > NumberValues 1`] = `
       data-testid=""
     >
       <div
-        class="group leading-normal"
+        class="group flex w-full flex-col gap-y-1.5 leading-normal"
         data-has-helper="true"
         data-has-label="true"
         data-required="false"
@@ -2320,7 +2320,7 @@ exports[`Story Snapshots > NumberValues 1`] = `
         data-testid="selectfield_wrapper"
       >
         <label
-          class="pointer-events-auto relative bottom-1.5 ml-1 text-foreground subpixel-antialiased text-small group-data-[invalid=true]:!text-danger"
+          class="pointer-events-auto inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger"
           data-slot="label"
           for="react-select-selectField-input"
           id="react-aria-«replaced-aria-id»"
@@ -2452,7 +2452,7 @@ exports[`Story Snapshots > OptionDisabled 1`] = `
       data-testid=""
     >
       <div
-        class="group leading-normal"
+        class="group flex w-full flex-col gap-y-1.5 leading-normal"
         data-has-helper="true"
         data-has-label="true"
         data-required="false"
@@ -2460,7 +2460,7 @@ exports[`Story Snapshots > OptionDisabled 1`] = `
         data-testid="selectfield_wrapper"
       >
         <label
-          class="pointer-events-auto relative bottom-1.5 ml-1 text-foreground subpixel-antialiased text-small group-data-[invalid=true]:!text-danger"
+          class="pointer-events-auto inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger"
           data-slot="label"
           for="react-select-selectField-input"
           id="react-aria-«replaced-aria-id»"
@@ -2671,7 +2671,7 @@ exports[`Story Snapshots > Required 1`] = `
       data-testid=""
     >
       <div
-        class="group leading-normal"
+        class="group flex w-full flex-col gap-y-1.5 leading-normal"
         data-has-helper="true"
         data-has-label="true"
         data-required="true"
@@ -2679,7 +2679,7 @@ exports[`Story Snapshots > Required 1`] = `
         data-testid="selectfield_wrapper"
       >
         <label
-          class="pointer-events-auto relative bottom-1.5 ml-1 text-foreground subpixel-antialiased text-small group-data-[invalid=true]:!text-danger"
+          class="pointer-events-auto inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger"
           data-slot="label"
           for="react-select-selectField-input"
           id="react-aria-«replaced-aria-id»"

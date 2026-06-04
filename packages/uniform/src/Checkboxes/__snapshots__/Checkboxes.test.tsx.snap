@@ -12,14 +12,14 @@ exports[`Story Snapshots > DangerColor 1`] = `
     >
       <div
         aria-label="Danger Color"
-        class="relative flex flex-col gap-2 group"
+        class="relative gap-2 group flex w-full flex-col gap-y-1.5"
         data-invalid="false"
         data-testid="checkboxfield"
         id="react-aria-«replaced-aria-id»"
         role="group"
       >
         <span
-          class="relative inline-flex text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger"
+          class="relative inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger"
         >
           <legend>
             Danger Color
@@ -207,7 +207,7 @@ exports[`Story Snapshots > Default 1`] = `
     >
       <div
         aria-label="checkboxField"
-        class="relative flex flex-col gap-2 group"
+        class="relative gap-2 group flex w-full flex-col gap-y-1.5"
         data-invalid="false"
         data-testid="checkboxfield"
         id="react-aria-«replaced-aria-id»"
@@ -389,7 +389,7 @@ exports[`Story Snapshots > DisabledCompletely 1`] = `
     >
       <div
         aria-label="checkboxField"
-        class="relative flex flex-col gap-2 group"
+        class="relative gap-2 group flex w-full flex-col gap-y-1.5"
         data-invalid="false"
         data-testid="checkboxfield"
         id="react-aria-«replaced-aria-id»"
@@ -571,7 +571,7 @@ exports[`Story Snapshots > DisabledOption 1`] = `
     >
       <div
         aria-label="checkboxField"
-        class="relative flex flex-col gap-2 group"
+        class="relative gap-2 group flex w-full flex-col gap-y-1.5"
         data-invalid="false"
         data-testid="checkboxfield"
         id="react-aria-«replaced-aria-id»"
@@ -753,7 +753,7 @@ exports[`Story Snapshots > Inline 1`] = `
     >
       <div
         aria-label="checkboxField"
-        class="relative flex flex-col gap-2 group"
+        class="relative gap-2 group flex w-full flex-col gap-y-1.5"
         data-invalid="false"
         data-testid="checkboxfield"
         id="react-aria-«replaced-aria-id»"
@@ -936,14 +936,14 @@ exports[`Story Snapshots > Invalid 1`] = `
       <div
         aria-describedby="react-aria-«replaced-aria-id»"
         aria-label="Checkbox Field"
-        class="relative flex flex-col gap-2 group"
+        class="relative gap-2 group flex w-full flex-col gap-y-1.5"
         data-invalid="true"
         data-testid="checkboxfield"
         id="react-aria-«replaced-aria-id»"
         role="group"
       >
         <span
-          class="relative after:content-['*'] after:text-danger after:ml-0.5 inline-flex text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger"
+          class="relative after:content-['*'] after:text-danger after:ml-0.5 inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger"
         >
           <legend>
             Checkbox Field
@@ -1163,7 +1163,7 @@ exports[`Story Snapshots > OnlyOneCheckbox 1`] = `
     >
       <div
         aria-label="checkboxField"
-        class="relative flex flex-col gap-2 group"
+        class="relative gap-2 group flex w-full flex-col gap-y-1.5"
         data-invalid="false"
         data-testid="checkboxfield"
         id="react-aria-«replaced-aria-id»"
@@ -1253,14 +1253,14 @@ exports[`Story Snapshots > Required 1`] = `
     >
       <div
         aria-label="Checkbox Field"
-        class="relative flex flex-col gap-2 group"
+        class="relative gap-2 group flex w-full flex-col gap-y-1.5"
         data-invalid="false"
         data-testid="checkboxfield"
         id="react-aria-«replaced-aria-id»"
         role="group"
       >
         <span
-          class="relative after:content-['*'] after:text-danger after:ml-0.5 inline-flex text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger"
+          class="relative after:content-['*'] after:text-danger after:ml-0.5 inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger"
         >
           <legend>
             Checkbox Field
@@ -1445,7 +1445,7 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
     >
       <div
         aria-label="checkboxField"
-        class="relative flex flex-col gap-2 group"
+        class="relative gap-2 group flex w-full flex-col gap-y-1.5"
         data-invalid="false"
         data-testid="checkboxfield"
         id="react-aria-«replaced-aria-id»"
@@ -1630,14 +1630,14 @@ exports[`Story Snapshots > WithLabel 1`] = `
     >
       <div
         aria-label="Checkbox Field"
-        class="relative flex flex-col gap-2 group"
+        class="relative gap-2 group flex w-full flex-col gap-y-1.5"
         data-invalid="false"
         data-testid="checkboxfield"
         id="react-aria-«replaced-aria-id»"
         role="group"
       >
         <span
-          class="relative inline-flex text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger"
+          class="relative inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger"
         >
           <legend>
             Checkbox Field
@@ -1819,14 +1819,14 @@ exports[`Story Snapshots > WithLineThrough 1`] = `
     >
       <div
         aria-label="Todo List"
-        class="relative flex flex-col gap-2 group"
+        class="relative gap-2 group flex w-full flex-col gap-y-1.5"
         data-invalid="false"
         data-testid="checkboxfield"
         id="react-aria-«replaced-aria-id»"
         role="group"
       >
         <span
-          class="relative inline-flex text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger"
+          class="relative inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger"
         >
           <legend>
             Todo List
@@ -2073,7 +2073,7 @@ exports[`Story Snapshots > WithOptionLabelSubline 1`] = `
     >
       <div
         aria-label="checkboxField"
-        class="relative flex flex-col gap-2 group"
+        class="relative gap-2 group flex w-full flex-col gap-y-1.5"
         data-invalid="false"
         data-testid="checkboxfield"
         id="react-aria-«replaced-aria-id»"
@@ -2288,14 +2288,14 @@ exports[`Story Snapshots > WithTransformComplexObjects 1`] = `
     >
       <div
         aria-label="Select your favorite foods (stored as objects with metadata)"
-        class="relative flex flex-col gap-2 group"
+        class="relative gap-2 group flex w-full flex-col gap-y-1.5"
         data-invalid="false"
         data-testid="selectedfoods"
         id="react-aria-«replaced-aria-id»"
         role="group"
       >
         <span
-          class="relative inline-flex text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger"
+          class="relative inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger"
         >
           <legend>
             Select your favorite foods (stored as objects with metadata)
@@ -2529,14 +2529,14 @@ exports[`Story Snapshots > WithTransformSingleValue 1`] = `
     >
       <div
         aria-label="Terms & Conditions"
-        class="relative flex flex-col gap-2 group"
+        class="relative gap-2 group flex w-full flex-col gap-y-1.5"
         data-invalid="false"
         data-testid="acceptterms"
         id="react-aria-«replaced-aria-id»"
         role="group"
       >
         <span
-          class="relative inline-flex text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger"
+          class="relative inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger"
         >
           <legend>
             Terms & Conditions

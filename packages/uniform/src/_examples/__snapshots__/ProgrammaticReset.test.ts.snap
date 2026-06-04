@@ -19,14 +19,14 @@ exports[`Story Snapshots > CheckboxesWithInitialValues 1`] = `
         >
           <div
             aria-label="Notifications"
-            class="relative flex flex-col gap-2 group"
+            class="relative gap-2 group flex w-full flex-col gap-y-1.5"
             data-invalid="false"
             data-testid="notifications"
             id="react-aria-«replaced-aria-id»"
             role="group"
           >
             <span
-              class="relative inline-flex text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger"
+              class="relative inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger"
             >
               <legend>
                 Notifications
@@ -394,14 +394,14 @@ exports[`Story Snapshots > CheckboxesWithoutInitialValues 1`] = `
         >
           <div
             aria-label="Notifications"
-            class="relative flex flex-col gap-2 group"
+            class="relative gap-2 group flex w-full flex-col gap-y-1.5"
             data-invalid="false"
             data-testid="notifications"
             id="react-aria-«replaced-aria-id»"
             role="group"
           >
             <span
-              class="relative inline-flex text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger"
+              class="relative inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger"
             >
               <legend>
                 Notifications
@@ -1464,7 +1464,7 @@ exports[`Story Snapshots > InputsWithInitialValues 1`] = `
               </div>
             </div>
             <div
-              class="group"
+              class="group flex w-full flex-col gap-y-1.5"
               data-invalid="false"
               data-required="false"
               data-testid="volume"
@@ -1494,11 +1494,11 @@ exports[`Story Snapshots > InputsWithInitialValues 1`] = `
                 role="group"
               >
                 <div
-                  class="w-full flex justify-between items-center"
+                  class="w-full flex justify-between items-center mb-1"
                   data-slot="labelWrapper"
                 >
                   <label
-                    class="text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
+                    class="cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
                     data-slot="label"
                     id="react-aria-«replaced-aria-id»"
                   >
@@ -1721,7 +1721,7 @@ exports[`Story Snapshots > InputsWithoutInitialValues 1`] = `
               </div>
             </div>
             <div
-              class="group"
+              class="group flex w-full flex-col gap-y-1.5"
               data-invalid="false"
               data-required="false"
               data-testid="volume"
@@ -1751,11 +1751,11 @@ exports[`Story Snapshots > InputsWithoutInitialValues 1`] = `
                 role="group"
               >
                 <div
-                  class="w-full flex justify-between items-center"
+                  class="w-full flex justify-between items-center mb-1"
                   data-slot="labelWrapper"
                 >
                   <label
-                    class="text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
+                    class="cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
                     data-slot="label"
                     id="react-aria-«replaced-aria-id»"
                   >
@@ -1887,7 +1887,7 @@ exports[`Story Snapshots > RadiosWithInitialValues 1`] = `
           <div
             aria-label="Radios: Favorite Food"
             aria-orientation="horizontal"
-            class="relative flex flex-col group gap-0"
+            class="relative gap-2 group flex w-full flex-col gap-y-1.5"
             data-invalid="false"
             data-required="false"
             data-testid="radiosfield"
@@ -1895,7 +1895,7 @@ exports[`Story Snapshots > RadiosWithInitialValues 1`] = `
             role="radiogroup"
           >
             <span
-              class="relative mb-2 inline-flex text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger"
+              class="relative mb-2 inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger"
             >
               <legend>
                 Radios: Favorite Food
@@ -2015,7 +2015,7 @@ exports[`Story Snapshots > RadiosWithInitialValues 1`] = `
           <div
             aria-label="RadioBoxes: Spirit Animal"
             aria-orientation="vertical"
-            class="relative flex flex-col group gap-0"
+            class="relative gap-2 group flex w-full flex-col gap-y-1.5"
             data-invalid="false"
             data-required="false"
             data-testid="radioboxesfield"
@@ -2023,7 +2023,7 @@ exports[`Story Snapshots > RadiosWithInitialValues 1`] = `
             role="radiogroup"
           >
             <span
-              class="relative mb-2 inline-flex text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger"
+              class="relative mb-2 inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger"
             >
               <legend>
                 RadioBoxes: Spirit Animal
@@ -2179,7 +2179,7 @@ exports[`Story Snapshots > RadiosWithInitialValues 1`] = `
           <div
             aria-label="RadioTabs: Weapon"
             aria-orientation="vertical"
-            class="relative flex flex-col group gap-0"
+            class="relative gap-2 group flex w-full flex-col gap-y-1.5"
             data-invalid="false"
             data-required="false"
             data-testid="radiotabsfield"
@@ -2187,7 +2187,7 @@ exports[`Story Snapshots > RadiosWithInitialValues 1`] = `
             role="radiogroup"
           >
             <span
-              class="relative mb-2 inline-flex text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger"
+              class="relative mb-2 inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger"
             >
               <legend>
                 RadioTabs: Weapon
@@ -2345,7 +2345,7 @@ exports[`Story Snapshots > RadiosWithoutInitialValues 1`] = `
           <div
             aria-label="Radios: Favorite Food"
             aria-orientation="horizontal"
-            class="relative flex flex-col group gap-0"
+            class="relative gap-2 group flex w-full flex-col gap-y-1.5"
             data-invalid="false"
             data-required="false"
             data-testid="radiosfield"
@@ -2353,7 +2353,7 @@ exports[`Story Snapshots > RadiosWithoutInitialValues 1`] = `
             role="radiogroup"
           >
             <span
-              class="relative mb-2 inline-flex text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger"
+              class="relative mb-2 inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger"
             >
               <legend>
                 Radios: Favorite Food
@@ -2471,7 +2471,7 @@ exports[`Story Snapshots > RadiosWithoutInitialValues 1`] = `
           <div
             aria-label="RadioBoxes: Spirit Animal"
             aria-orientation="vertical"
-            class="relative flex flex-col group gap-0"
+            class="relative gap-2 group flex w-full flex-col gap-y-1.5"
             data-invalid="false"
             data-required="false"
             data-testid="radioboxesfield"
@@ -2479,7 +2479,7 @@ exports[`Story Snapshots > RadiosWithoutInitialValues 1`] = `
             role="radiogroup"
           >
             <span
-              class="relative mb-2 inline-flex text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger"
+              class="relative mb-2 inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger"
             >
               <legend>
                 RadioBoxes: Spirit Animal
@@ -2633,7 +2633,7 @@ exports[`Story Snapshots > RadiosWithoutInitialValues 1`] = `
           <div
             aria-label="RadioTabs: Weapon"
             aria-orientation="vertical"
-            class="relative flex flex-col group gap-0"
+            class="relative gap-2 group flex w-full flex-col gap-y-1.5"
             data-invalid="false"
             data-required="false"
             data-testid="radiotabsfield"
@@ -2641,7 +2641,7 @@ exports[`Story Snapshots > RadiosWithoutInitialValues 1`] = `
             role="radiogroup"
           >
             <span
-              class="relative mb-2 inline-flex text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger"
+              class="relative mb-2 inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger"
             >
               <legend>
                 RadioTabs: Weapon
@@ -2792,7 +2792,7 @@ exports[`Story Snapshots > SelectWithInitialValues 1`] = `
           class="relative flex w-full p-3 flex-auto flex-col place-content-inherit align-items-inherit h-auto break-words text-left overflow-y-auto subpixel-antialiased gap-6"
         >
           <div
-            class="group leading-normal"
+            class="group flex w-full flex-col gap-y-1.5 leading-normal"
             data-has-helper="true"
             data-has-label="true"
             data-required="false"
@@ -2800,7 +2800,7 @@ exports[`Story Snapshots > SelectWithInitialValues 1`] = `
             data-testid="planet_wrapper"
           >
             <label
-              class="pointer-events-auto relative bottom-1.5 ml-1 text-foreground subpixel-antialiased text-small group-data-[invalid=true]:!text-danger"
+              class="pointer-events-auto inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger"
               data-slot="label"
               for="react-select-planet-input"
               id="react-aria-«replaced-aria-id»"
@@ -2918,7 +2918,7 @@ exports[`Story Snapshots > SelectWithInitialValues 1`] = `
             </div>
           </div>
           <div
-            class="group leading-normal"
+            class="group flex w-full flex-col gap-y-1.5 leading-normal"
             data-has-helper="true"
             data-has-label="true"
             data-required="false"
@@ -2926,7 +2926,7 @@ exports[`Story Snapshots > SelectWithInitialValues 1`] = `
             data-testid="flavors_wrapper"
           >
             <label
-              class="pointer-events-auto relative bottom-1.5 ml-1 text-foreground subpixel-antialiased text-small group-data-[invalid=true]:!text-danger"
+              class="pointer-events-auto inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger"
               data-slot="label"
               for="react-select-flavors-input"
               id="react-aria-«replaced-aria-id»"
@@ -3157,7 +3157,7 @@ exports[`Story Snapshots > SelectWithoutInitialValues 1`] = `
           class="relative flex w-full p-3 flex-auto flex-col place-content-inherit align-items-inherit h-auto break-words text-left overflow-y-auto subpixel-antialiased gap-6"
         >
           <div
-            class="group leading-normal"
+            class="group flex w-full flex-col gap-y-1.5 leading-normal"
             data-has-helper="true"
             data-has-label="true"
             data-required="false"
@@ -3165,7 +3165,7 @@ exports[`Story Snapshots > SelectWithoutInitialValues 1`] = `
             data-testid="planet_wrapper"
           >
             <label
-              class="pointer-events-auto relative bottom-1.5 ml-1 text-foreground subpixel-antialiased text-small group-data-[invalid=true]:!text-danger"
+              class="pointer-events-auto inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger"
               data-slot="label"
               for="react-select-planet-input"
               id="react-aria-«replaced-aria-id»"
@@ -3268,7 +3268,7 @@ exports[`Story Snapshots > SelectWithoutInitialValues 1`] = `
             </div>
           </div>
           <div
-            class="group leading-normal"
+            class="group flex w-full flex-col gap-y-1.5 leading-normal"
             data-has-helper="true"
             data-has-label="true"
             data-required="false"
@@ -3276,7 +3276,7 @@ exports[`Story Snapshots > SelectWithoutInitialValues 1`] = `
             data-testid="flavors_wrapper"
           >
             <label
-              class="pointer-events-auto relative bottom-1.5 ml-1 text-foreground subpixel-antialiased text-small group-data-[invalid=true]:!text-danger"
+              class="pointer-events-auto inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger"
               data-slot="label"
               for="react-select-flavors-input"
               id="react-aria-«replaced-aria-id»"

@@ -13,7 +13,7 @@ exports[`Story Snapshots > Default 1`] = `
       <div
         aria-label="radiosField"
         aria-orientation="vertical"
-        class="relative flex flex-col group gap-0"
+        class="relative gap-2 group flex w-full flex-col gap-y-1.5"
         data-invalid="false"
         data-required="false"
         data-testid="radiosfield"
@@ -161,7 +161,7 @@ exports[`Story Snapshots > DisabledCompletely 1`] = `
       <div
         aria-label="radiosField"
         aria-orientation="vertical"
-        class="relative flex flex-col group gap-0"
+        class="relative gap-2 group flex w-full flex-col gap-y-1.5"
         data-invalid="false"
         data-required="false"
         data-testid="radiosfield"
@@ -309,7 +309,7 @@ exports[`Story Snapshots > DisabledOption 1`] = `
       <div
         aria-label="radiosField"
         aria-orientation="vertical"
-        class="relative flex flex-col group gap-0"
+        class="relative gap-2 group flex w-full flex-col gap-y-1.5"
         data-invalid="false"
         data-required="false"
         data-testid="radiosfield"
@@ -457,7 +457,7 @@ exports[`Story Snapshots > Inline 1`] = `
       <div
         aria-label="radiosField"
         aria-orientation="horizontal"
-        class="relative flex flex-col group gap-0"
+        class="relative gap-2 group flex w-full flex-col gap-y-1.5"
         data-invalid="false"
         data-required="false"
         data-testid="radiosfield"
@@ -608,7 +608,7 @@ exports[`Story Snapshots > Invalid 1`] = `
         aria-label="radiosField"
         aria-orientation="vertical"
         aria-required="true"
-        class="relative flex flex-col group gap-0"
+        class="relative gap-2 group flex w-full flex-col gap-y-1.5"
         data-invalid="true"
         data-required="true"
         data-testid="radiosfield"
@@ -616,7 +616,7 @@ exports[`Story Snapshots > Invalid 1`] = `
         role="radiogroup"
       >
         <span
-          class="relative after:content-['*'] after:text-danger after:ml-0.5 mb-2 inline-flex text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger"
+          class="relative after:content-['*'] after:text-danger after:ml-0.5 mb-2 inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger"
         >
           <legend>
             radiosField
@@ -794,7 +794,7 @@ exports[`Story Snapshots > NumberValues 1`] = `
       <div
         aria-label="radiosField"
         aria-orientation="vertical"
-        class="relative flex flex-col group gap-0"
+        class="relative gap-2 group flex w-full flex-col gap-y-1.5"
         data-invalid="false"
         data-required="false"
         data-testid="radiosfield"
@@ -943,7 +943,7 @@ exports[`Story Snapshots > Required 1`] = `
         aria-label="radiosField"
         aria-orientation="vertical"
         aria-required="true"
-        class="relative flex flex-col group gap-0"
+        class="relative gap-2 group flex w-full flex-col gap-y-1.5"
         data-invalid="false"
         data-required="true"
         data-testid="radiosfield"
@@ -951,7 +951,7 @@ exports[`Story Snapshots > Required 1`] = `
         role="radiogroup"
       >
         <span
-          class="relative after:content-['*'] after:text-danger after:ml-0.5 mb-2 inline-flex text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger"
+          class="relative after:content-['*'] after:text-danger after:ml-0.5 mb-2 inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger"
         >
           <legend>
             radiosField
@@ -1104,7 +1104,7 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
       <div
         aria-label="radiosField"
         aria-orientation="vertical"
-        class="relative flex flex-col group gap-0"
+        class="relative gap-2 group flex w-full flex-col gap-y-1.5"
         data-invalid="false"
         data-required="false"
         data-testid="radiosfield"
