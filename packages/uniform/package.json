@@ -6,15 +6,8 @@
   "homepage": "https://github.com/fuf-stack/pixels#readme",
   "license": "MIT",
   "type": "module",
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.cts",
   "sideEffects": false,
   "exports": {
-    ".": {
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
-    },
     "./Checkboxes": {
       "import": "./dist/Checkboxes/index.js",
       "require": "./dist/Checkboxes/index.cjs"

@@ -4,6 +4,4 @@ export type { RadioBoxesProps, RadioBoxOption } from './RadioBoxes';
 
 export { radioBoxVariants } from './RadioBox';
 
-export { RadioBoxes };
-
 export default RadioBoxes;

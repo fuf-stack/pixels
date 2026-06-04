@@ -169,7 +169,6 @@ export const parseTimeValue = (
   return (
     parsers
       .map((parser) => {
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-return
         return tryParse(parser);
       })
       .find((parsedValue) => {

@@ -132,12 +132,8 @@ describe('useInputValueTransform', () => {
     it('should handle null values', () => {
       const { result } = renderHook(() => useInputValueTransform({}));
 
-      expect(
-        result.current.toDisplayValue(null as unknown as string | number),
-      ).toBe('');
-      expect(
-        result.current.toFormValue(null as unknown as string | number),
-      ).toBe(null);
+      expect(result.current.toDisplayValue(null)).toBe('');
+      expect(result.current.toFormValue(null)).toBe(null);
     });
 
     it('should handle transforms that return null/undefined', () => {

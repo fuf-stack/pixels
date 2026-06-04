@@ -299,10 +299,10 @@ describe('Form', () => {
       render(
         <Form
           onSubmit={handleSubmit}
-          validationTrigger="onSubmit"
           validation={veto({
             test: string().min(3),
           })}
+          validationTrigger="onSubmit"
         >
           <input data-testid="input" name="test" />
           <button type="submit">Submit</button>

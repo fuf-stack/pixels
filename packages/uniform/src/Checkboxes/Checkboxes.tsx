@@ -16,7 +16,7 @@ import { checkbox as heroCheckboxVariants } from '@heroui/theme';
 import { slugify, tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 
 import { useUniformField } from '../hooks/useUniformField';
-import { FieldValidationError } from '../partials/FieldValidationError';
+import FieldValidationError from '../partials/FieldValidationError';
 
 export const checkboxesVariants = tv({
   slots: {
@@ -205,14 +205,14 @@ const Checkboxes = ({
         return (
           <HeroCheckbox
             key={`index_${option.value}`}
+            aria-label={
+              typeof option.label === 'string' ? option.label : option.value
+            }
             classNames={optionClassNames}
             data-invalid={invalid}
             data-testid={optionTestId}
             isDisabled={!!disabled || option.disabled}
             value={option?.value}
-            aria-label={
-              typeof option.label === 'string' ? option.label : option.value
-            }
           >
             {labelContent}
           </HeroCheckbox>

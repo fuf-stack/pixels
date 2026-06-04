@@ -95,10 +95,10 @@ const SortContext = ({
       sensors={sensors}
     >
       <SortableContext
-        strategy={verticalListSortingStrategy}
         items={fields.map((field) => {
           return field.id;
         })}
+        strategy={verticalListSortingStrategy}
       >
         {children}
       </SortableContext>

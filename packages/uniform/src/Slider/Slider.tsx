@@ -142,10 +142,6 @@ const Slider = ({
           min={minValue}
           name={name}
           onBlur={onBlur}
-          step={step}
-          tabIndex={-1}
-          type="range"
-          value={currentValue}
           onChange={(e) => {
             onChange(Number(e.target.value));
           }}
@@ -154,12 +150,29 @@ const Slider = ({
             // forward focus to the visual slider to show focus ring
             visualSliderRef.current?.focus();
           }}
+          step={step}
+          tabIndex={-1}
+          type="range"
+          value={currentValue}
         />
       </VisuallyHidden>
       {/* Visual HeroUISlider component */}
       <HeroUISlider
         ref={visualSliderRef}
         aria-label={ariaLabel}
+        classNames={{
+          endContent: classNames.endContent,
+          filler: classNames.filler,
+          label: classNames.label,
+          labelWrapper: classNames.labelWrapper,
+          mark: classNames.mark,
+          startContent: classNames.startContent,
+          step: classNames.step,
+          thumb: classNames.thumb,
+          track: classNames.track,
+          trackWrapper: classNames.trackWrapper,
+          value: classNames.value,
+        }}
         color={invalid ? 'danger' : 'primary'}
         endContent={endContent}
         fillOffset={fillOffset}
@@ -175,19 +188,6 @@ const Slider = ({
         startContent={startContent}
         step={step}
         value={currentValue}
-        classNames={{
-          endContent: classNames.endContent,
-          filler: classNames.filler,
-          label: classNames.label,
-          labelWrapper: classNames.labelWrapper,
-          mark: classNames.mark,
-          startContent: classNames.startContent,
-          step: classNames.step,
-          thumb: classNames.thumb,
-          track: classNames.track,
-          trackWrapper: classNames.trackWrapper,
-          value: classNames.value,
-        }}
       />
       {invalid ? (
         <div

@@ -161,7 +161,7 @@ describe('useClientValidation', () => {
         ({ data }: { data: TestData | null }) =>
           useClientValidation(data, schemaFactory),
         {
-          initialProps: { data: initialData as TestData | null },
+          initialProps: { data: initialData },
         },
       );
 

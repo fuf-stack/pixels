@@ -3,10 +3,10 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { action } from 'storybook/actions';
 import { expect, userEvent, waitFor, within } from 'storybook/test';
 
-import { SubmitButton } from '@fuf-stack/uniform';
 import { string, veto } from '@fuf-stack/veto';
 
-import { Form } from '../Form';
+import Form from '../Form';
+import SubmitButton from '../SubmitButton';
 import TextArea from './TextArea';
 
 const meta: Meta<typeof TextArea> = {

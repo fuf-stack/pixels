@@ -8,23 +8,23 @@ import { Button, Card, Modal } from '@fuf-stack/pixels';
 import { veto } from '@fuf-stack/veto';
 import * as vt from '@fuf-stack/veto';
 
-import { Checkboxes } from '../Checkboxes';
-import { DatePicker } from '../DatePicker';
-import { FieldArray } from '../FieldArray';
-import { FieldCard } from '../FieldCard';
-import { Form } from '../Form';
-import { Grid } from '../Grid';
-import { Input } from '../Input';
-import { RadioBoxes } from '../RadioBoxes';
-import { Radios } from '../Radios';
-import { RadioTabs } from '../RadioTabs';
-import { Select } from '../Select';
-import { Slider } from '../Slider';
-import { SubmitButton } from '../SubmitButton';
-import { Switch } from '../Switch';
-import { SwitchBox } from '../SwitchBox';
-import { TextArea } from '../TextArea';
-import { Time } from '../Time';
+import Checkboxes from '../Checkboxes';
+import DatePicker from '../DatePicker';
+import FieldArray from '../FieldArray';
+import FieldCard from '../FieldCard';
+import Form from '../Form';
+import Grid from '../Grid';
+import Input from '../Input';
+import RadioBoxes from '../RadioBoxes';
+import Radios from '../Radios';
+import RadioTabs from '../RadioTabs';
+import Select from '../Select';
+import Slider from '../Slider';
+import SubmitButton from '../SubmitButton';
+import Switch from '../Switch';
+import SwitchBox from '../SwitchBox';
+import TextArea from '../TextArea';
+import Time from '../Time';
 
 const meta: Meta<typeof Form> = {
   title: 'uniform/Examples',

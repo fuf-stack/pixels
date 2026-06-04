@@ -103,7 +103,6 @@ const Switch = ({
           checked={!!field.value}
           name={name}
           onBlur={onBlur}
-          type="checkbox"
           onChange={(e) => {
             onChange(e.target.checked);
           }}
@@ -112,6 +111,7 @@ const Switch = ({
             // forward focus to the visual switch to show focus ring
             visualSwitchRef.current?.focus();
           }}
+          type="checkbox"
         />
       </VisuallyHidden>
       {/* Visual HeroSwitch component */}

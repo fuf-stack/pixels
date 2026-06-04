@@ -5,21 +5,21 @@ import { action } from 'storybook/actions';
 import { expect, userEvent, waitFor, within } from 'storybook/test';
 
 import { Button, Card } from '@fuf-stack/pixels';
-import { SubmitButton } from '@fuf-stack/uniform';
 
-import { Checkboxes } from '../Checkboxes';
-import { FieldArray } from '../FieldArray';
-import { Form } from '../Form';
+import Checkboxes from '../Checkboxes';
+import FieldArray from '../FieldArray';
+import Form from '../Form';
 import { useFormContext } from '../hooks/useFormContext';
-import { Input } from '../Input';
-import { RadioBoxes } from '../RadioBoxes';
-import { Radios } from '../Radios';
-import { RadioTabs } from '../RadioTabs';
-import { Select } from '../Select';
-import { Slider } from '../Slider';
-import { Switch } from '../Switch';
-import { SwitchBox } from '../SwitchBox';
-import { TextArea } from '../TextArea';
+import Input from '../Input';
+import RadioBoxes from '../RadioBoxes';
+import Radios from '../Radios';
+import RadioTabs from '../RadioTabs';
+import Select from '../Select';
+import Slider from '../Slider';
+import SubmitButton from '../SubmitButton';
+import Switch from '../Switch';
+import SwitchBox from '../SwitchBox';
+import TextArea from '../TextArea';
 
 const meta: Meta<typeof Form> = {
   title: 'uniform/_examples/ProgrammaticReset',

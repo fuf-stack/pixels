@@ -170,9 +170,6 @@ const Input = ({
     return (
       <HeroNumberInput
         {...commonProps}
-        // @ts-expect-error - HeroUI NumberInput type is not compatible with null,
-        // but it needs to be for empty/cleared state to be controlled
-        value={numberValue}
         // Disable thousands separator to avoid parsing issues
         formatOptions={{
           useGrouping: false,
@@ -183,12 +180,15 @@ const Input = ({
             // Convert number to synthetic event and pass through debounced onChange
             onChange({
               target: { value: String(e) },
-            } as React.ChangeEvent<HTMLInputElement>);
+            });
           } else {
             // Pass event through debounced onChange
             onChange(e);
           }
         }}
+        // @ts-expect-error - HeroUI NumberInput type is not compatible with null,
+        // but it needs to be for empty/cleared state to be controlled
+        value={numberValue}
       />
     );
   }

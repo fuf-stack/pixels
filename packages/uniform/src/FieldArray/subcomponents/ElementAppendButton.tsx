@@ -24,8 +24,8 @@ const ElementAppendButton = ({
 }: ElementAppendButtonProps) => {
   return (
     <Button
-      disableAnimation
       className={cn(className)}
+      disableAnimation
       onClick={onClick}
       size="sm"
       testId={testId}

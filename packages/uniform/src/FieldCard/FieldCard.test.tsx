@@ -7,7 +7,6 @@ import {
   hasAnyChildTouched,
   hasVisibleChildErrors,
 } from './FieldCard';
-// eslint-disable-next-line import-x/no-namespace
 import * as stories from './FieldCard.stories';
 
 describe('Story Snapshots', () => {

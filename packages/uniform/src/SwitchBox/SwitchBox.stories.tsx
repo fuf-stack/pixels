@@ -5,10 +5,10 @@ import { FaFlask, FaPhone, FaRocket } from 'react-icons/fa';
 import { action } from 'storybook/actions';
 import { expect, userEvent, waitFor, within } from 'storybook/test';
 
-import { SubmitButton } from '@fuf-stack/uniform';
 import { boolean, veto } from '@fuf-stack/veto';
 
-import { Form } from '../Form';
+import Form from '../Form';
+import SubmitButton from '../SubmitButton';
 import SwitchBox from './SwitchBox';
 
 const meta: Meta<typeof SwitchBox> = {

@@ -6,19 +6,19 @@ import { useFormContext } from 'react-hook-form';
 import { action } from 'storybook/actions';
 import { expect, userEvent, waitFor, within } from 'storybook/test';
 
-import { SubmitButton } from '@fuf-stack/uniform';
 import { array, object, objectLoose, string, veto } from '@fuf-stack/veto';
 
-import { FieldArray } from '../FieldArray';
-import { Form } from '../Form';
-import { Grid } from '../Grid';
+import FieldArray from '../FieldArray';
+import Form from '../Form';
+import Grid from '../Grid';
 import { flatArrayKey } from '../helpers';
 import {
   clientValidationSchemaByName,
   useClientValidation,
 } from '../hooks/useClientValidation';
-import { Input } from '../Input';
-import { Select } from '../Select';
+import Input from '../Input';
+import Select from '../Select';
+import SubmitButton from '../SubmitButton';
 
 // Mock data - existing usernames per team
 const MOCK_EXISTING_USERNAMES = {
@@ -29,20 +29,15 @@ const MOCK_EXISTING_USERNAMES = {
 
 // Mock query hook that simulates fetching existing usernames for a team
 const useMockUsernamesQuery = (teamId: string | null) => {
-  const [loading, setLoading] = useState(false);
-  const [data, setData] = useState<{ existingUsernames: string[] } | undefined>(
-    undefined,
-  );
+  const [data, setData] = useState<
+    { teamId: string; existingUsernames: string[] } | undefined
+  >(undefined);
 
   useEffect(() => {
-    // Immediately clear data when teamId changes to prevent stale validation
-    setData(undefined);
-
     if (!teamId) {
       return;
     }
 
-    setLoading(true);
     // Simulate API delay
     const timeout = setTimeout(() => {
       const usernames = [
@@ -50,8 +45,7 @@ const useMockUsernamesQuery = (teamId: string | null) => {
           teamId as keyof typeof MOCK_EXISTING_USERNAMES
         ] || []),
       ];
-      setData({ existingUsernames: usernames });
-      setLoading(false);
+      setData({ teamId, existingUsernames: usernames });
     }, 300);
 
     // eslint-disable-next-line consistent-return
@@ -60,7 +54,13 @@ const useMockUsernamesQuery = (teamId: string | null) => {
     };
   }, [teamId]);
 
-  return { data, loading };
+  const currentData =
+    teamId && data?.teamId === teamId
+      ? { existingUsernames: data.existingUsernames }
+      : undefined;
+  const loading = Boolean(teamId) && currentData === undefined;
+
+  return { data: currentData, loading };
 };
 
 // Simple client validation schema factory that creates a validation object
@@ -311,9 +311,9 @@ const ArrayPathValidationForm = () => {
   return (
     <Grid>
       <FieldArray
-        lastElementNotRemovable
         appendButtonText="Add Item"
         label="Items (array of objects)"
+        lastElementNotRemovable
         name="items"
       >
         {({ name }) => {
@@ -384,10 +384,10 @@ const FlatArrayValidationForm = () => {
   return (
     <Grid>
       <FieldArray
-        flat
-        lastElementNotRemovable
         appendButtonText="Add Tag"
+        flat
         label="Tags (flat array of strings)"
+        lastElementNotRemovable
         name="tags"
       >
         {({ name }) => {

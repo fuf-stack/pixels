@@ -10,7 +10,7 @@ import { CSS } from '@dnd-kit/utilities';
 import { AnimatePresence, motion } from '@fuf-stack/pixel-motion';
 import { cn } from '@fuf-stack/pixel-utils';
 
-import { Grid } from '../../Grid';
+import Grid from '../../Grid';
 import ElementActionsMenu from './ElementActionsMenu';
 import ElementRemoveButton from './ElementRemoveButton';
 import SortDragHandle from './SortDragHandle';
@@ -166,8 +166,6 @@ const FieldArrayElement = ({
                 className={className.actionsMenuButton}
                 duplicate={duplicate}
                 insertAfter={insertAfter}
-                showRemove={!(lastNotDeletable && fields.length === 1)}
-                testId={`${testId}_actions_menu`}
                 methods={{
                   ...methods,
                   remove: () => {
@@ -178,6 +176,8 @@ const FieldArrayElement = ({
                     }
                   },
                 }}
+                showRemove={!(lastNotDeletable && fields.length === 1)}
+                testId={`${testId}_actions_menu`}
               />
             ) : (
               <>
@@ -188,7 +188,6 @@ const FieldArrayElement = ({
                       key="remove-button"
                       className={className.removeButton}
                       disableAnimation={disableAnimation}
-                      testId={`${testId}_remove_button`}
                       onClick={() => {
                         if (disableAnimation) {
                           methods.remove();
@@ -196,6 +195,7 @@ const FieldArrayElement = ({
                           setIsVisible(false);
                         }
                       }}
+                      testId={`${testId}_remove_button`}
                     />
                   )}
                 </AnimatePresence>

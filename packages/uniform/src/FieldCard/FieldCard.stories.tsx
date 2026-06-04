@@ -5,9 +5,9 @@ import { expect, userEvent, waitFor, within } from 'storybook/test';
 
 import { object, refineObject, string, veto } from '@fuf-stack/veto';
 
-import { Form } from '../Form';
-import { Input } from '../Input';
-import { SubmitButton } from '../SubmitButton';
+import Form from '../Form';
+import Input from '../Input';
+import SubmitButton from '../SubmitButton';
 import FieldCard from './FieldCard';
 
 const meta: Meta<typeof FieldCard> = {

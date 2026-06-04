@@ -3,10 +3,10 @@ import type { FieldValues } from 'react-hook-form';
 
 import { number, string, veto } from '@fuf-stack/veto';
 
-import { Form } from '../Form';
-import { Grid } from '../Grid';
-import { Input } from '../Input';
-import { SubmitButton } from '../SubmitButton';
+import Form from '../Form';
+import Grid from '../Grid';
+import Input from '../Input';
+import SubmitButton from '../SubmitButton';
 
 const meta: Meta<typeof Form> = {
   title: 'uniform/_examples/RenderCycles',

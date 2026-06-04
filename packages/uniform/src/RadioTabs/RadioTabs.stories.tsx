@@ -3,11 +3,12 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { action } from 'storybook/actions';
 import { expect, userEvent, waitFor, within } from 'storybook/test';
 
-import { Input, SubmitButton } from '@fuf-stack/uniform';
 import { string, veto } from '@fuf-stack/veto';
 
-import { Form } from '../Form';
+import Form from '../Form';
 import { useWatchUserChange } from '../hooks/useWatchUserChange';
+import Input from '../Input';
+import SubmitButton from '../SubmitButton';
 import RadioTabs from './RadioTabs';
 
 const meta: Meta<typeof RadioTabs> = {

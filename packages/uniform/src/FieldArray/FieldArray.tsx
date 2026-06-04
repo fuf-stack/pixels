@@ -229,10 +229,10 @@ const FieldArray = ({
       <ElementAppendButton
         appendButtonText={appendButtonText}
         className={className.appendButton}
-        testId={`${testId}_append_button`}
         onClick={() => {
           append(elementInitialValue);
         }}
+        testId={`${testId}_append_button`}
       />
     </div>
   );

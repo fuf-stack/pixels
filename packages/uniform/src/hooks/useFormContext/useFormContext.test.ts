@@ -523,7 +523,7 @@ describe('field state integration (errors, invalid, testId)', () => {
         baseInstance: null,
         errors: {},
       },
-    } as unknown as ReturnType<typeof useFormContext>;
+    };
   });
 
   it('extracts nested errors by dotted path and sets invalid=true when error exists', () => {
@@ -536,7 +536,7 @@ describe('field state integration (errors, invalid, testId)', () => {
           },
         },
       },
-    } as unknown as Record<string, unknown>;
+    };
 
     mockGetFieldState.mockReturnValue({ isTouched: false });
 
@@ -575,7 +575,7 @@ describe('field state integration (errors, invalid, testId)', () => {
       tags: {
         0: [{ message: 'Tag is required' }],
       },
-    } as unknown as Record<string, unknown>;
+    };
 
     mockGetFieldState.mockReturnValue({ isTouched: false });
 

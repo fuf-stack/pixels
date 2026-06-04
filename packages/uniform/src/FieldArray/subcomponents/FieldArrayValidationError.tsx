@@ -47,13 +47,13 @@ const FieldArrayValidationError = ({
       {hasErrors ? (
         <motion.div
           key="field-array-errors"
+          animate={
+            disableAnimation ? undefined : { opacity: 1, height: 'auto' }
+          }
           exit={disableAnimation ? undefined : { opacity: 0, height: 0 }}
           initial={disableAnimation ? false : { height: 0, opacity: 0 }}
           style={{ overflow: 'hidden' }}
           transition={{ duration: 0.4, ease: 'circOut' }}
-          animate={
-            disableAnimation ? undefined : { opacity: 1, height: 'auto' }
-          }
         >
           <div
             {...getHelperWrapperProps()}

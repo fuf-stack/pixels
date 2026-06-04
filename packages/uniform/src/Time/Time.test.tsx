@@ -1,6 +1,6 @@
-import { resetLocalTimeZone, setLocalTimeZone } from '@internationalized/date';
 import { afterAll, beforeAll, describe } from 'vitest';
 
+import { resetLocalTimeZone, setLocalTimeZone } from '@internationalized/date';
 import storySnapshots from '@repo/storybook-config/story-snapshots';
 
 import * as stories from './Time.stories';

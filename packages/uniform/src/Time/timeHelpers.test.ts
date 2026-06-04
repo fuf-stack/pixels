@@ -171,7 +171,9 @@ describe('getTimeFieldPlaceholderValue', () => {
 
   it('returns fixed placeholder for local timezone fallback', () => {
     expect(getTimeFieldPlaceholderValue()?.toString()).toBe(
-      parseZonedDateTime(`1970-01-01T00:00:00[${getLocalTimeZone()}]`).toString(),
+      parseZonedDateTime(
+        `1970-01-01T00:00:00[${getLocalTimeZone()}]`,
+      ).toString(),
     );
   });
 });

@@ -259,10 +259,7 @@ const FieldCard = ({
     return current as Record<string, unknown> | undefined;
   };
 
-  const fieldTouched = getNestedValue(
-    touchedFields as Record<string, unknown>,
-    name,
-  );
+  const fieldTouched = getNestedValue(touchedFields, name);
 
   // Check for object-level errors (_errors)
   // @ts-expect-error - error._errors exists but not typed

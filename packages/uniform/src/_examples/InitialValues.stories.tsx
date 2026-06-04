@@ -5,12 +5,12 @@ import { action } from 'storybook/actions';
 import { expect, userEvent, waitFor, within } from 'storybook/test';
 
 import { Button } from '@fuf-stack/pixels';
-import { SubmitButton } from '@fuf-stack/uniform';
 
-import { Form } from '../Form';
-import { Grid } from '../Grid';
+import Form from '../Form';
+import Grid from '../Grid';
 import { useFormContext } from '../hooks/useFormContext';
-import { Input } from '../Input';
+import Input from '../Input';
+import SubmitButton from '../SubmitButton';
 
 const meta: Meta<typeof Form> = {
   title: 'uniform/_examples/InitialValues',
@@ -54,10 +54,10 @@ export const TwoInputsDebug: Story = {
         <Input label="Field 2" name="field2" />
         <Button
           className="w-full"
-          testId="reset_button"
           onClick={() => {
             reset();
           }}
+          testId="reset_button"
         >
           Reset
         </Button>

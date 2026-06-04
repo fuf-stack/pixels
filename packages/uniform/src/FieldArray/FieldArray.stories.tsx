@@ -12,10 +12,10 @@ import {
   veto,
 } from '@fuf-stack/veto';
 
-import { Form } from '../Form';
-import { Input } from '../Input';
-import { Select } from '../Select';
-import { SubmitButton } from '../SubmitButton';
+import Form from '../Form';
+import Input from '../Input';
+import Select from '../Select';
+import SubmitButton from '../SubmitButton';
 import FieldArray from './FieldArray';
 
 const meta: Meta<typeof FieldArray> = {

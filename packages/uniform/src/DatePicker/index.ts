@@ -4,6 +4,4 @@ export type { DatePickerProps } from './DatePicker';
 
 export { datePickerVariants } from './DatePicker';
 
-export { DatePicker };
-
 export default DatePicker;

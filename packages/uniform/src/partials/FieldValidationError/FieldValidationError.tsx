@@ -38,13 +38,13 @@ const FieldValidationError = ({
           return (
             <motion.li
               key={slugify(`${testId}_error_${i}`)}
+              animate={
+                disableAnimation ? undefined : { opacity: 1, height: 'auto' }
+              }
               exit={disableAnimation ? undefined : { opacity: 0, height: 0 }}
               initial={disableAnimation ? false : { height: 0, opacity: 0 }}
               style={{ overflow: 'hidden' }}
               transition={{ duration: 0.2, ease: 'circOut' }}
-              animate={
-                disableAnimation ? undefined : { opacity: 1, height: 'auto' }
-              }
             >
               {/* wrap in div to apply padding and animation does not jump */}
               <div className="px-1 pt-1">{message}</div>

@@ -24,7 +24,7 @@ import { cleanup } from '@testing-library/react';
 if (globalThis.window !== undefined) {
   try {
     const probe = new MouseEvent('click', { view: globalThis.window });
-    new PointerEvent('click', probe as unknown as PointerEventInit);
+    new PointerEvent('click', probe);
     console.info(
       '[FUF][vitest.setup] jsdom event cloning works natively now — ' +
         'the MouseEvent/PointerEvent workaround below can be removed.',

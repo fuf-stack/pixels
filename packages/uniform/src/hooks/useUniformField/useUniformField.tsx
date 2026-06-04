@@ -7,8 +7,8 @@ import React from 'react';
 import { useDebounce } from '@fuf-stack/pixels';
 
 import { isValueEmpty } from '../../helpers';
-import { FieldCopyTestIdButton } from '../../partials/FieldCopyTestIdButton';
-import { FieldValidationError } from '../../partials/FieldValidationError';
+import FieldCopyTestIdButton from '../../partials/FieldCopyTestIdButton';
+import FieldValidationError from '../../partials/FieldValidationError';
 import { useController } from '../useController/useController';
 import { useFormContext } from '../useFormContext/useFormContext';
 import { useInput } from '../useInput/useInput';

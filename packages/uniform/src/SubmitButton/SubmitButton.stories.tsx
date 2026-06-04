@@ -6,7 +6,7 @@ import { action } from 'storybook/actions';
 
 import { string, veto } from '@fuf-stack/veto';
 
-import { Form } from '../Form';
+import Form from '../Form';
 import SubmitButton from './SubmitButton';
 
 const meta: Meta<typeof SubmitButton> = {

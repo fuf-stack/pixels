@@ -9,9 +9,9 @@ import { expect, userEvent, waitFor, within } from 'storybook/test';
 import { Alert, Button, Card, Modal } from '@fuf-stack/pixels';
 import { string, veto } from '@fuf-stack/veto';
 
-import { Form } from '../Form';
+import Form from '../Form';
 import { useFormContext } from '../hooks/useFormContext';
-import { SubmitButton } from '../SubmitButton';
+import SubmitButton from '../SubmitButton';
 import Select from './Select';
 
 const meta: Meta<typeof Select> = {

@@ -41,11 +41,11 @@ const FieldArrayLabel = ({
     <div
       {...getLabelProps()}
       aria-level={3}
-      role="heading"
       className={cn(getLabelProps()?.className, className, {
         // when there are no array level errors, the label should have foreground color
         'text-foreground!': !hasErrors,
       })}
+      role="heading"
     >
       {label}
     </div>

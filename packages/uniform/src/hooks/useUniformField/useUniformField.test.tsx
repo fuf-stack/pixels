@@ -47,17 +47,27 @@ vi.mock('../useController/useController', () => ({
   }),
 }));
 
-vi.mock('../../partials/FieldCopyTestIdButton', () => ({
-  FieldCopyTestIdButton: ({ testId }: { testId: string }) => (
+vi.mock('../../partials/FieldCopyTestIdButton', () => {
+  const MockFieldCopyTestIdButton = ({ testId }: { testId: string }) => (
     <span data-testid={`copy-${testId}`}>copy</span>
-  ),
-}));
+  );
 
-vi.mock('../../partials/FieldValidationError', () => ({
-  FieldValidationError: ({ testId }: { testId: string }) => (
+  return {
+    default: MockFieldCopyTestIdButton,
+    FieldCopyTestIdButton: MockFieldCopyTestIdButton,
+  };
+});
+
+vi.mock('../../partials/FieldValidationError', () => {
+  const MockFieldValidationError = ({ testId }: { testId: string }) => (
     <span data-testid={`error-${testId}`}>error</span>
-  ),
-}));
+  );
+
+  return {
+    default: MockFieldValidationError,
+    FieldValidationError: MockFieldValidationError,
+  };
+});
 
 describe('useUniformField', () => {
   beforeEach(() => {

@@ -121,11 +121,11 @@ const Radios = ({
       label={label ? <legend>{label}</legend> : null}
       name={name}
       onBlur={onBlur}
-      orientation={inline ? 'horizontal' : 'vertical'}
-      value={value != null ? String(value) : ''}
       onValueChange={(newValue) => {
         onChange(convertToOriginalType(newValue));
       }}
+      orientation={inline ? 'horizontal' : 'vertical'}
+      value={value != null ? String(value) : ''}
     >
       {options.map((option) => {
         if ('value' in option) {

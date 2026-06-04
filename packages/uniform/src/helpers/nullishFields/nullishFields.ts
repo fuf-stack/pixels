@@ -113,7 +113,7 @@ export const toNullishString = (value: unknown): unknown => {
     if (isPrimitiveArray) {
       return (value as unknown[]).map((v) => {
         // Store raw primitive; do not convert to marker strings inside the wrapper
-        return { [flatArrayKey]: v } as Record<string, unknown>;
+        return { [flatArrayKey]: v };
       });
     }
     return value;
@@ -342,7 +342,7 @@ const isEmptyObject = (value: unknown): boolean => {
     value !== null &&
     typeof value === 'object' &&
     !Array.isArray(value) &&
-    Object.keys(value as Record<string, unknown>).length === 0
+    Object.keys(value).length === 0
   );
 };
 
