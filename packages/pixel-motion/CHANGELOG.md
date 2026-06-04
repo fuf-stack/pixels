@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.2](https://github.com/fuf-stack/pixels/compare/pixel-motion-v1.2.1...pixel-motion-v1.2.2) (2026-06-04)
+
+
+### Bug Fixes
+
+* add shared dep-bundled dts config and annotate buttonVariants for portable types ([ab3e5d6](https://github.com/fuf-stack/pixels/commit/ab3e5d66fbf84324dd20ecc4db0b097ed1a80e44))
+
 ## [1.2.1](https://github.com/fuf-stack/pixels/compare/pixel-motion-v1.2.0...pixel-motion-v1.2.1) (2026-06-01)
 
 

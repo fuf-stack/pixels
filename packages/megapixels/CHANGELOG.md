@@ -1,5 +1,23 @@
 # Changelog
 
+## [0.11.25](https://github.com/fuf-stack/pixels/compare/megapixels-v0.11.24...megapixels-v0.11.25) (2026-06-04)
+
+
+### Bug Fixes
+
+* add shared dep-bundled dts config and annotate buttonVariants for portable types ([ab3e5d6](https://github.com/fuf-stack/pixels/commit/ab3e5d66fbf84324dd20ecc4db0b097ed1a80e44))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @fuf-stack/pixel-motion bumped to 1.2.2
+    * @fuf-stack/pixel-utils bumped to 1.3.1
+    * @fuf-stack/pixels bumped to 1.11.1
+    * @fuf-stack/uniform bumped to 1.22.5
+    * @fuf-stack/veto bumped to 1.7.2
+
 ## [0.11.24](https://github.com/fuf-stack/pixels/compare/megapixels-v0.11.23...megapixels-v0.11.24) (2026-06-03)
 
 
