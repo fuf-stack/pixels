@@ -1,5 +1,9 @@
-import FieldCard, { fieldCardVariants } from './FieldCard';
+import FieldCard from './FieldCard';
 
 export type { FieldCardProps } from './FieldCard';
 
-export { FieldCard, fieldCardVariants };
+export { fieldCardVariants } from './FieldCard';
+
+export { FieldCard };
+
+export default FieldCard;

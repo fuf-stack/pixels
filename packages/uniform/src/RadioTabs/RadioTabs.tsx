@@ -57,7 +57,7 @@ export const radioTabsVariants = tv({
 type VariantProps = TVProps<typeof radioTabsVariants>;
 type ClassName = TVClassName<typeof radioTabsVariants>;
 
-export interface RadioTabsOption {
+export interface RadioTabOption {
   /** Optional content inside of the tab */
   content?: ReactNode;
   /** disables the option */
@@ -88,7 +88,7 @@ export interface RadioTabsProps extends Omit<VariantProps, 'hasContent'> {
   /** Name the RadioButtons are registered at in HTML forms (react-hook-form). */
   name: string;
   /** Radio button configuration. */
-  options: RadioTabsOption[];
+  options: RadioTabOption[];
   /** Id to grab element in internal tests. */
   testId?: string;
   /** How the RadioTabs should look like. */
@@ -168,7 +168,6 @@ const RadioTabs = ({
           aria-label={ariaLabel}
           name={name}
           onBlur={onBlur}
-          value={value ?? ''}
           onChange={(e) => {
             onChange(convertToOriginalType(e.target.value));
           }}
@@ -179,12 +178,18 @@ const RadioTabs = ({
             ) as HTMLElement;
             firstTab?.focus();
           }}
+          value={value ?? ''}
         />
       </VisuallyHidden>
 
       <HeroRadioGroup
         ref={visualRadioGroupRef}
         aria-label={ariaLabel}
+        classNames={{
+          base: classNames.base,
+          label: classNames.label,
+          wrapper: classNames.wrapper,
+        }}
         // see HeroUI styles for group-data condition (data-invalid),
         // e.g.: https://github.com/heroui-inc/heroui/blob/main/packages/components/select/src/use-select.ts
         data-invalid={invalid}
@@ -197,19 +202,8 @@ const RadioTabs = ({
         label={label ? <legend>{label}</legend> : null}
         name={`${name}_radiotabs`}
         orientation={inline ? 'horizontal' : 'vertical'}
-        classNames={{
-          base: classNames.base,
-          label: classNames.label,
-          wrapper: classNames.wrapper,
-        }}
       >
         <Tabs
-          disabledKeys={disabled ? disabledAllKeys : undefined}
-          // make sure component is controlled (convert to string for Tabs)
-          selectedKey={value != null ? String(value) : ''}
-          tabs={tabOptions}
-          testId={testId}
-          variant={variant}
           className={{
             base: classNames.tabBase,
             cursor: classNames.cursor,
@@ -219,11 +213,17 @@ const RadioTabs = ({
             tabList: classNames.tabList,
             tabWrapper: classNames.tabWrapper,
           }}
+          disabledKeys={disabled ? disabledAllKeys : undefined}
           onSelectionChange={(key) => {
             if (key != null) {
               onChange(convertToOriginalType(key));
             }
           }}
+          tabs={tabOptions}
+          testId={testId}
+          variant={variant}
+          // make sure component is controlled (convert to string for Tabs)
+          selectedKey={value != null ? String(value) : ''}
         />
       </HeroRadioGroup>
     </>

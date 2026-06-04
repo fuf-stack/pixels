@@ -59,7 +59,7 @@ export const selectVariants = tv({
   },
 });
 
-interface SelectOption {
+export interface SelectOption {
   /** set option to disabled state */
   disabled?: boolean;
   /**

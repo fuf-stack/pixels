@@ -30,7 +30,7 @@ export const radioBoxesVariants = tv({
 type VariantProps = TVProps<typeof radioBoxesVariants>;
 type ClassName = TVClassName<typeof radioBoxesVariants>;
 
-export interface RadioBoxesOption {
+export interface RadioBoxOption {
   /** Description of the value. Works with variant radioBox. */
   description?: ReactNode;
   /** disables the option */
@@ -59,7 +59,7 @@ export interface RadioBoxesProps extends VariantProps {
   /** Name the RadioButtons are registered at in HTML forms (react-hook-form). */
   name: string;
   /** Radio button configuration. */
-  options: RadioBoxesOption[];
+  options: RadioBoxOption[];
   /** Id to grab element in internal tests. */
   testId?: string;
 }
@@ -119,11 +119,11 @@ const RadioBoxes = ({
       label={label ? <legend>{label}</legend> : null}
       name={name}
       onBlur={onBlur}
-      orientation={inline ? 'horizontal' : 'vertical'}
-      value={value != null ? String(value) : ''}
       onValueChange={(newValue) => {
         onChange(convertToOriginalType(newValue));
       }}
+      orientation={inline ? 'horizontal' : 'vertical'}
+      value={value != null ? String(value) : ''}
     >
       {options.map((option) => {
         if ('value' in option) {
