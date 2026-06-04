@@ -1,5 +1,23 @@
 # Changelog
 
+## [1.22.6](https://github.com/fuf-stack/pixels/compare/uniform-v1.22.5...uniform-v1.22.6) (2026-06-04)
+
+
+### Bug Fixes
+
+* **uniform:** fix flaky dateHelper test ([a2fd711](https://github.com/fuf-stack/pixels/commit/a2fd71115470132507a2ae74c886765b35e97f3d))
+* **uniform:** migrate FormDebugViewer to useSyncExternalStore and add focused tests ([d9fe7c4](https://github.com/fuf-stack/pixels/commit/d9fe7c429de96f543f3096f063598b75e70dbbaa))
+* **uniform:** switch to subpath-only exports and default component imports + reformat ([ea35814](https://github.com/fuf-stack/pixels/commit/ea358146290f80f033924c2c1161d999b7adeacd))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @fuf-stack/pixel-utils bumped to 1.3.2
+    * @fuf-stack/pixels bumped to 1.11.2
+    * @fuf-stack/veto bumped to 1.7.3
+
 ## [1.22.5](https://github.com/fuf-stack/pixels/compare/uniform-v1.22.4...uniform-v1.22.5) (2026-06-04)
 
 
