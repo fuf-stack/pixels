@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.11.2](https://github.com/fuf-stack/pixels/compare/pixels-v1.11.1...pixels-v1.11.2) (2026-06-04)
+
+
+### Bug Fixes
+
+* **pixels:** resolve react-hooks lint issues in Drawer story and Json renderer ([d807dd6](https://github.com/fuf-stack/pixels/commit/d807dd6e21b8b05a6a75c0f2e85d0ac44f75654e))
+* reformat some code ([f40f4b0](https://github.com/fuf-stack/pixels/commit/f40f4b05a9eb03baf0b1dc972425e79a4cfe0db2))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @fuf-stack/pixel-utils bumped to 1.3.2
+
 ## [1.11.1](https://github.com/fuf-stack/pixels/compare/pixels-v1.11.0...pixels-v1.11.1) (2026-06-04)
 
 

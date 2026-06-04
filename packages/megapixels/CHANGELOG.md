@@ -1,5 +1,22 @@
 # Changelog
 
+## [0.11.26](https://github.com/fuf-stack/pixels/compare/megapixels-v0.11.25...megapixels-v0.11.26) (2026-06-04)
+
+
+### Bug Fixes
+
+* reformat some code ([f40f4b0](https://github.com/fuf-stack/pixels/commit/f40f4b05a9eb03baf0b1dc972425e79a4cfe0db2))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @fuf-stack/pixel-utils bumped to 1.3.2
+    * @fuf-stack/pixels bumped to 1.11.2
+    * @fuf-stack/uniform bumped to 1.22.6
+    * @fuf-stack/veto bumped to 1.7.3
+
 ## [0.11.25](https://github.com/fuf-stack/pixels/compare/megapixels-v0.11.24...megapixels-v0.11.25) (2026-06-04)
 
 
