@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.7.3](https://github.com/fuf-stack/pixels/compare/veto-v1.7.2...veto-v1.7.3) (2026-06-04)
+
+
+### Bug Fixes
+
+* reformat some code ([f40f4b0](https://github.com/fuf-stack/pixels/commit/f40f4b05a9eb03baf0b1dc972425e79a4cfe0db2))
+
 ## [1.7.2](https://github.com/fuf-stack/pixels/compare/veto-v1.7.1...veto-v1.7.2) (2026-06-04)
 
 
