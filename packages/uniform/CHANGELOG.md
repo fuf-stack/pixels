@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.22.9](https://github.com/fuf-stack/pixels/compare/uniform-v1.22.8...uniform-v1.22.9) (2026-06-04)
+
+
+### Bug Fixes
+
+* **uniform:** add isArrayValue error normalization in useUniformField fixes Select/Checkboxes issues ([786c13a](https://github.com/fuf-stack/pixels/commit/786c13ae4ab8b8855b460218907974e0fe522635))
+
 ## [1.22.8](https://github.com/fuf-stack/pixels/compare/uniform-v1.22.7...uniform-v1.22.8) (2026-06-04)
 
 
