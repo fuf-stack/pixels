@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.11.1](https://github.com/fuf-stack/pixels/compare/pixels-v1.11.0...pixels-v1.11.1) (2026-06-04)
+
+
+### Bug Fixes
+
+* add shared dep-bundled dts config and annotate buttonVariants for portable types ([ab3e5d6](https://github.com/fuf-stack/pixels/commit/ab3e5d66fbf84324dd20ecc4db0b097ed1a80e44))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @fuf-stack/pixel-motion bumped to 1.2.2
+    * @fuf-stack/pixel-utils bumped to 1.3.1
+
 ## [1.11.0](https://github.com/fuf-stack/pixels/compare/pixels-v1.10.2...pixels-v1.11.0) (2026-06-03)
 
 

@@ -1,5 +1,23 @@
 # Changelog
 
+## [1.22.5](https://github.com/fuf-stack/pixels/compare/uniform-v1.22.4...uniform-v1.22.5) (2026-06-04)
+
+
+### Bug Fixes
+
+* add shared dep-bundled dts config and annotate buttonVariants for portable types ([ab3e5d6](https://github.com/fuf-stack/pixels/commit/ab3e5d66fbf84324dd20ecc4db0b097ed1a80e44))
+* **uniform:** allign all exports ([bdee259](https://github.com/fuf-stack/pixels/commit/bdee2593ad9c7f91fcc467c94be917efe032cbee))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @fuf-stack/pixel-motion bumped to 1.2.2
+    * @fuf-stack/pixel-utils bumped to 1.3.1
+    * @fuf-stack/pixels bumped to 1.11.1
+    * @fuf-stack/veto bumped to 1.7.2
+
 ## [1.22.4](https://github.com/fuf-stack/pixels/compare/uniform-v1.22.3...uniform-v1.22.4) (2026-06-03)
 
 
