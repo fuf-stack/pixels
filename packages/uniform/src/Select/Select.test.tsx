@@ -6,12 +6,11 @@ import '@testing-library/jest-dom/vitest';
 
 import storySnapshots from '@repo/storybook-config/story-snapshots';
 
-import { object, refineObject, string, veto } from '@fuf-stack/veto';
+import { array, object, refineObject, string, veto } from '@fuf-stack/veto';
 
 // eslint-disable-next-line import-x/no-named-default
 import { default as Form } from '../Form';
-// eslint-disable-next-line import-x/no-named-default
-import { default as Select } from './Select';
+import Select from './Select';
 import * as stories from './Select.stories';
 
 // EdgeCaseFetchFallbackOutside causes DOM errors in snapshot tests due to
@@ -142,6 +141,53 @@ describe('Select required indicator', () => {
     );
 
     expect(screen.getByText('*')).toBeInTheDocument();
+  });
+});
+
+describe('Select array error rendering', () => {
+  it('renders nested index errors for multi-select fields', async () => {
+    const validation = veto(
+      refineObject(
+        object({
+          flavors: array(string()),
+        }),
+      )({
+        custom: (_data, ctx) => {
+          ctx.addIssue({
+            code: 'custom',
+            message: 'Pick at least one valid flavor',
+            path: ['flavors', '0'],
+          });
+        },
+      }),
+    );
+
+    render(
+      <Form
+        initialValues={{ flavors: ['vanilla'] }}
+        onSubmit={() => {}}
+        testId="form"
+        validation={validation}
+      >
+        <Select
+          label="Flavors"
+          multiSelect
+          name="flavors"
+          options={[{ label: 'Vanilla', value: 'vanilla' }]}
+        />
+        <button data-testid="submit" type="submit">
+          Submit
+        </button>
+      </Form>,
+    );
+
+    fireEvent.click(screen.getByTestId('submit'));
+
+    await waitFor(() => {
+      expect(screen.getByTestId('flavors_error')).toContainHTML(
+        'Pick at least one valid flavor',
+      );
+    });
   });
 });
 

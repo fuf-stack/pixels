@@ -3,15 +3,21 @@ import type { ReactNode } from 'react';
 import type { MultiValue, Props, SingleValue } from 'react-select';
 
 import { useState } from 'react';
-import ReactSelect, { components } from 'react-select';
+import ReactSelect from 'react-select';
 
 import { useSelect } from '@heroui/select';
 
-import { cn, slugify, tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
+import { cn, tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 
 import { createOptionValueConverter, isValueEmpty } from '../helpers';
 import { useFormContext } from '../hooks/useFormContext';
 import { useUniformField } from '../hooks/useUniformField';
+import {
+  ControlComponent,
+  DropdownIndicatorComponent,
+  InputComponent,
+  OptionComponent,
+} from './SelectComponents';
 
 export const selectVariants = tv({
   slots: {
@@ -123,48 +129,6 @@ export interface SelectProps extends VariantProps {
   testId?: string;
 }
 
-const InputComponent: typeof components.Input = (props) => {
-  // @ts-expect-error data-testid is not a default prop
-  // eslint-disable-next-line react/destructuring-assignment
-  const testId = `${props.selectProps['data-testid']}`;
-  return <components.Input data-testid={testId} {...props} />;
-};
-
-const ControlComponent: typeof components.Control = (props) => {
-  // @ts-expect-error data-testid is not a default prop
-  // eslint-disable-next-line react/destructuring-assignment
-  const testId = `${props.selectProps['data-testid']}_select`;
-  return (
-    <div data-testid={testId}>
-      <components.Control {...props} />
-    </div>
-  );
-};
-
-const OptionComponent: typeof components.Option = (props) => {
-  const { isDisabled } = props;
-  // @ts-expect-error data-testid is not a default prop
-  // eslint-disable-next-line react/destructuring-assignment
-  const testId = `${props.selectProps['data-testid']}_select_option_${slugify(String(props?.data?.testId ?? props?.data?.value), { replaceDots: true })}`;
-  return (
-    <div aria-disabled={isDisabled ? true : undefined} data-testid={testId}>
-      <components.Option {...props} />
-    </div>
-  );
-};
-
-const DropdownIndicatorComponent: typeof components.DropdownIndicator = (
-  props,
-) => {
-  // @ts-expect-error data-testid is not a default prop
-  const testId = props?.selectProps['data-testid'] as string;
-  return (
-    <div data-testid={`${testId}_select_dropdown`}>
-      <components.DropdownIndicator {...props} />
-    </div>
-  );
-};
-
 /** Select component based on [HeroUI Select](https://www.heroui.com//docs/components/select) and [React-Select](https://react-select.com/home) */
 const Select = ({
   className = undefined,
@@ -196,6 +160,8 @@ const Select = ({
     required,
     testId,
   } = useUniformField({
+    // Multi-select values are arrays and can produce nested RHF error shapes.
+    isArrayValue: multiSelect,
     name,
     ...uniformFieldProps,
   });

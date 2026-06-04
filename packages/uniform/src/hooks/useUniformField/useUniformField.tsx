@@ -6,7 +6,7 @@ import React from 'react';
 
 import { useDebounce } from '@fuf-stack/pixels';
 
-import { isValueEmpty } from '../../helpers';
+import { flattenFieldErrors, isValueEmpty } from '../../helpers';
 import FieldCopyTestIdButton from '../../partials/FieldCopyTestIdButton';
 import FieldValidationError from '../../partials/FieldValidationError';
 import { useController } from '../useController/useController';
@@ -24,6 +24,8 @@ export interface UseUniformFieldParams<
   ariaLabel?: string;
   /** Disable the field */
   disabled?: boolean;
+  /** Normalize nested RHF errors into a flat array for array-like fields */
+  isArrayValue?: boolean;
   /** Optional label content */
   label?: ReactNode;
   /** Optional explicit test id used to build stable test ids */
@@ -47,7 +49,7 @@ export interface UseUniformFieldReturn<
   defaultValue: unknown;
   /** Whether the field is currently disabled (from RHF) */
   disabled: boolean | undefined;
-  /** Validation error(s) for the field */
+  /** Validation errors from form state; flattened only when `isArrayValue` is enabled */
   error: FieldError[] | undefined;
   /** Pre-built errorMessage node to plug into components */
   errorMessage: ReactNode | null;
@@ -99,7 +101,7 @@ export interface UseUniformFieldReturn<
  *   • Shows errors when field is dirty OR touched OR form has been submitted
  *   • Prevents showing errors on pristine/untouched fields for better UX
  *   • Works well for all field types (text inputs, checkboxes, radios, arrays)
- * - Prebuilt `errorMessage` React node using `FieldValidationError`
+ * - Prebuilt `errorMessage` React node (with optional array-error normalization via `isArrayValue`)
  * - Computed `label` node which appends a `FieldCopyTestIdButton` in
  *   `debug-testids` mode
  * - `defaultValue` for uncontrolled defaults and all usual field handlers
@@ -117,6 +119,7 @@ export const useUniformField = <
     name,
     ariaLabel: customAriaLabel,
     disabled = false,
+    isArrayValue = false,
     testId: explicitTestId,
     label,
     type,
@@ -133,7 +136,7 @@ export const useUniformField = <
   } = useFormContext<TFieldValues>();
 
   const {
-    error,
+    error: rawError,
     invalid: rawInvalid,
     isDirty,
     isTouched,
@@ -223,9 +226,17 @@ export const useUniformField = <
       </>
     ) : null;
 
+  // Array-like fields can receive nested RHF error objects (index keys, _errors).
+  // Opt-in flattening keeps backward compatibility for components that rely on
+  // object-shaped errors (e.g. FieldCard/FieldArray).
+  const error = isArrayValue ? flattenFieldErrors(rawError) : rawError;
+  const normalizedError = flattenFieldErrors(rawError);
+
   // Ready-to-render error message; consumers can drop this into their
   // component `errorMessage` prop without repeating mapping/markup
-  const errorMessage = <FieldValidationError error={error} testId={testId} />;
+  const errorMessage = (
+    <FieldValidationError error={normalizedError} testId={testId} />
+  );
 
   // Generate standardized props for label, helper wrapper and error message
   // so consumers can spread them directly into UI components (e.g. HeroUI),

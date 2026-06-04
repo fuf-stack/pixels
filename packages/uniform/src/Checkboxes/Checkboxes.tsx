@@ -4,7 +4,6 @@ import type {
   CheckboxProps as HeroCheckboxProps,
 } from '@heroui/checkbox';
 import type { ReactNode } from 'react';
-import type { FieldError } from 'react-hook-form';
 import type { InputValueTransform } from '../hooks/useInputValueTransform';
 
 import {
@@ -16,7 +15,6 @@ import { checkbox as heroCheckboxVariants } from '@heroui/theme';
 import { slugify, tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 
 import { useUniformField } from '../hooks/useUniformField';
-import FieldValidationError from '../partials/FieldValidationError';
 
 export const checkboxesVariants = tv({
   slots: {
@@ -111,33 +109,21 @@ const Checkboxes = ({
   const {
     ariaLabel,
     disabled,
-    error: _error,
+    errorMessage,
     field: { onChange, value: fieldValue, ref, onBlur },
     invalid,
     label,
     required,
     testId,
   } = useUniformField({
+    // Checkbox group values are arrays and can produce nested RHF error shapes.
+    isArrayValue: true,
     name,
     ...uniformFieldProps,
   });
 
   // Ensure value is always an array (checkboxes need arrays)
   const value = Array.isArray(fieldValue) ? fieldValue : [];
-
-  // Convert React Hook Form's nested error object structure to a flat array
-  // RHF errors can be nested like: checkboxField.0 (individual checkbox errors)
-  // and checkboxField._error (global field errors) - this flattens all
-  // error values into a single array for rendering with FieldValidationError
-  const errorFlat: FieldError[] =
-    (_error &&
-      Object.values(
-        _error as unknown as Record<string, FieldError[]>,
-      ).flat()) ??
-    [];
-  const errorMessage = (
-    <FieldValidationError error={errorFlat} testId={testId} />
-  );
 
   // classNames from slots
   const variants = checkboxesVariants({ lineThrough });

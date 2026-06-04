@@ -8,7 +8,7 @@ import { useUniformField } from './useUniformField';
 
 // ------- Mocks -------
 interface MockGetFieldStateReturn {
-  error?: FieldError[];
+  error?: unknown;
   invalid: boolean;
   isDirty?: boolean;
   isTouched?: boolean;
@@ -269,6 +269,59 @@ describe('useUniformField', () => {
 
     const { result } = renderHook(() => useUniformField({ name: 'field' }));
     expect(result.current.errorMessage).not.toBeNull();
+  });
+
+  it('keeps nested object-shaped errors by default', () => {
+    const indexedError: FieldError = {
+      message: 'Invalid option at index',
+      type: 'custom',
+    };
+    const arrayLevelError: FieldError = {
+      message: 'At least one option is required',
+      type: 'custom',
+    };
+
+    mockContext.getFieldState = vi.fn((name: string) => ({
+      error: {
+        0: [indexedError],
+        _errors: [arrayLevelError],
+      },
+      invalid: true,
+      required: true,
+      testId: `${name}-tid`,
+    }));
+
+    const { result } = renderHook(() => useUniformField({ name: 'field' }));
+    expect(result.current.error).toEqual({
+      0: [indexedError],
+      _errors: [arrayLevelError],
+    });
+  });
+
+  it('normalizes nested object-shaped errors when isArrayValue is true', () => {
+    const indexedError: FieldError = {
+      message: 'Invalid option at index',
+      type: 'custom',
+    };
+    const arrayLevelError: FieldError = {
+      message: 'At least one option is required',
+      type: 'custom',
+    };
+
+    mockContext.getFieldState = vi.fn((name: string) => ({
+      error: {
+        0: [indexedError],
+        _errors: [arrayLevelError],
+      },
+      invalid: true,
+      required: true,
+      testId: `${name}-tid`,
+    }));
+
+    const { result } = renderHook(() =>
+      useUniformField({ isArrayValue: true, name: 'field' }),
+    );
+    expect(result.current.error).toEqual([indexedError, arrayLevelError]);
   });
 
   // Note: These tests verify the debouncing behavior exists but are implementation-aware
