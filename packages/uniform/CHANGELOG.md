@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.22.11](https://github.com/fuf-stack/pixels/compare/uniform-v1.22.10...uniform-v1.22.11) (2026-06-05)
+
+
+### Bug Fixes
+
+* **uniform:** keep multi-select chips compact ([e032901](https://github.com/fuf-stack/pixels/commit/e032901bd598ec3d05239695c1c44443b79d5e3e))
+
 ## [1.22.10](https://github.com/fuf-stack/pixels/compare/uniform-v1.22.9...uniform-v1.22.10) (2026-06-04)
 
 
