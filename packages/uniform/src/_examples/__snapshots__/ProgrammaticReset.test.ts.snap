@@ -2825,7 +2825,7 @@ exports[`Story Snapshots > SelectWithInitialValues 1`] = `
                 data-testid="planet_select"
               >
                 <div
-                  class="duration-150! rounded-lg border-2 border-default-200 bg-content1 transition-background hover:border-default-400 group-data-[invalid=true]:border-danger group-data-[invalid=true]:hover:border-danger motion-reduce:transition-none css-cp01gg-control"
+                  class="duration-150! min-h-10 rounded-lg border-2 border-default-200 bg-content1 transition-background hover:border-default-400 group-data-[invalid=true]:border-danger group-data-[invalid=true]:hover:border-danger motion-reduce:transition-none css-cp01gg-control"
                 >
                   <div
                     class="gap-1 p-1 css-14oxtc6"
@@ -2951,22 +2951,22 @@ exports[`Story Snapshots > SelectWithInitialValues 1`] = `
                 data-testid="flavors_select"
               >
                 <div
-                  class="duration-150! rounded-lg border-2 border-default-200 bg-content1 transition-background hover:border-default-400 group-data-[invalid=true]:border-danger group-data-[invalid=true]:hover:border-danger motion-reduce:transition-none css-cp01gg-control"
+                  class="duration-150! min-h-10 rounded-lg border-2 border-default-200 bg-content1 transition-background hover:border-default-400 group-data-[invalid=true]:border-danger group-data-[invalid=true]:hover:border-danger motion-reduce:transition-none css-cp01gg-control"
                 >
                   <div
                     class="gap-1 p-1 css-pl07w5"
                   >
                     <div
-                      class="items-center gap-1.5 rounded bg-default-100 py-0.5 pl-2 pr-1 css-x2yrli-multiValue"
+                      class="h-6 items-center gap-1.5 rounded bg-default-100 pl-2 pr-1 css-x2yrli-multiValue"
                     >
                       <div
-                        class="py-0.5 leading-6 font-normal w-full text-start text-small truncate group-data-[has-value=true]:text-default-foreground css-zztcs7"
+                        class="font-normal w-full text-start text-small truncate group-data-[has-value=true]:text-default-foreground py-0 leading-5 css-zztcs7"
                       >
                         Vanilla
                       </div>
                       <div
                         aria-label="Remove Vanilla"
-                        class="rounded text-default-500 hover:cursor-pointer hover:border-default-300 hover:text-default-800 css-13d4ns5"
+                        class="flex h-5 w-5 items-center justify-center rounded text-default-500 hover:cursor-pointer hover:border-default-300 hover:text-default-800 css-13d4ns5"
                         role="button"
                       >
                         <svg
@@ -2984,16 +2984,16 @@ exports[`Story Snapshots > SelectWithInitialValues 1`] = `
                       </div>
                     </div>
                     <div
-                      class="items-center gap-1.5 rounded bg-default-100 py-0.5 pl-2 pr-1 css-x2yrli-multiValue"
+                      class="h-6 items-center gap-1.5 rounded bg-default-100 pl-2 pr-1 css-x2yrli-multiValue"
                     >
                       <div
-                        class="py-0.5 leading-6 font-normal w-full text-start text-small truncate group-data-[has-value=true]:text-default-foreground css-zztcs7"
+                        class="font-normal w-full text-start text-small truncate group-data-[has-value=true]:text-default-foreground py-0 leading-5 css-zztcs7"
                       >
                         Chocolate
                       </div>
                       <div
                         aria-label="Remove Chocolate"
-                        class="rounded text-default-500 hover:cursor-pointer hover:border-default-300 hover:text-default-800 css-13d4ns5"
+                        class="flex h-5 w-5 items-center justify-center rounded text-default-500 hover:cursor-pointer hover:border-default-300 hover:text-default-800 css-13d4ns5"
                         role="button"
                       >
                         <svg
@@ -3190,7 +3190,7 @@ exports[`Story Snapshots > SelectWithoutInitialValues 1`] = `
                 data-testid="planet_select"
               >
                 <div
-                  class="duration-150! rounded-lg border-2 border-default-200 bg-content1 transition-background hover:border-default-400 group-data-[invalid=true]:border-danger group-data-[invalid=true]:hover:border-danger motion-reduce:transition-none css-cp01gg-control"
+                  class="duration-150! min-h-10 rounded-lg border-2 border-default-200 bg-content1 transition-background hover:border-default-400 group-data-[invalid=true]:border-danger group-data-[invalid=true]:hover:border-danger motion-reduce:transition-none css-cp01gg-control"
                 >
                   <div
                     class="gap-1 p-1 css-14oxtc6"
@@ -3301,7 +3301,7 @@ exports[`Story Snapshots > SelectWithoutInitialValues 1`] = `
                 data-testid="flavors_select"
               >
                 <div
-                  class="duration-150! rounded-lg border-2 border-default-200 bg-content1 transition-background hover:border-default-400 group-data-[invalid=true]:border-danger group-data-[invalid=true]:hover:border-danger motion-reduce:transition-none css-cp01gg-control"
+                  class="duration-150! min-h-10 rounded-lg border-2 border-default-200 bg-content1 transition-background hover:border-default-400 group-data-[invalid=true]:border-danger group-data-[invalid=true]:hover:border-danger motion-reduce:transition-none css-cp01gg-control"
                 >
                   <div
                     class="gap-1 p-1 css-14oxtc6"

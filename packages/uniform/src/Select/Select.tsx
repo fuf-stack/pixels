@@ -34,7 +34,7 @@ export const selectVariants = tv({
     clearIndicator:
       'rounded-md p-1 text-foreground-500 hover:cursor-pointer hover:bg-default-200 hover:text-foreground-800',
     control:
-      'duration-150! rounded-lg border-2 border-default-200 bg-content1 transition-background hover:border-default-400 group-data-[invalid=true]:border-danger group-data-[invalid=true]:hover:border-danger motion-reduce:transition-none',
+      'duration-150! min-h-10 rounded-lg border-2 border-default-200 bg-content1 transition-background hover:border-default-400 group-data-[invalid=true]:border-danger group-data-[invalid=true]:hover:border-danger motion-reduce:transition-none',
     control_focused: 'border-focus',
     crossIcon: '',
     downChevron: '',
@@ -56,11 +56,11 @@ export const selectVariants = tv({
     // ensure menu has same z-index as modal so it is visible when rendered in modal
     // see: https://github.com/heroui-inc/heroui/blob/main/packages/core/theme/src/components/modal.ts (see z-50)
     menuPortal: 'z-50!',
-    multiValue: 'items-center gap-1.5 rounded bg-default-100 py-0.5 pl-2 pr-1',
+    multiValue: 'h-6 items-center gap-1.5 rounded bg-default-100 pl-2 pr-1',
     multiValueContainer: '',
-    multiValueLabel: 'py-0.5 leading-6',
+    multiValueLabel: 'py-0 leading-5',
     multiValueRemove:
-      'rounded text-default-500 hover:cursor-pointer hover:border-default-300 hover:text-default-800',
+      'flex h-5 w-5 items-center justify-center rounded text-default-500 hover:cursor-pointer hover:border-default-300 hover:text-default-800',
     noOptionsMessage: 'rounded-sm p-2 text-foreground-500',
     option: 'rounded px-3 py-2 hover:cursor-pointer',
     option_disabled:
@@ -232,7 +232,7 @@ const Select = ({
       return classNames.multiValue;
     },
     multiValueLabel: () => {
-      return cn(classNames.multiValueLabel, `${getValueProps().className}`);
+      return cn(`${getValueProps().className}`, classNames.multiValueLabel);
     },
     multiValueRemove: () => {
       return classNames.multiValueRemove;

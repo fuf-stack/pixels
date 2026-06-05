@@ -105,6 +105,20 @@ export const MultiSelect: Story = {
   },
 };
 
+export const MultiSelectInitialValue: Story = {
+  parameters: {
+    formProps: {
+      initialValues: {
+        selectField: ['vanilla', 'chocolate', 'strawberry'],
+      },
+    },
+  },
+  args: {
+    ...args,
+    multiSelect: true,
+  },
+};
+
 export const InitialValue: Story = {
   parameters: {
     formProps: { initialValues: { selectField: 'vanilla' } },
