@@ -245,6 +245,58 @@ export const NoResults: Story = {
   },
 };
 
+// Helper function to sort string values alphabetically
+const sortStringValues = (a: unknown, b: unknown) => {
+  return String(a).localeCompare(String(b));
+};
+
+// Transform to sort multi select options alphabetically
+const selectFieldSortTransform = {
+  toDisplayValue: (value: unknown) => {
+    return Array.isArray(value) ? [...value].sort(sortStringValues) : value;
+  },
+  toFormValue: (value: unknown) => {
+    return Array.isArray(value) ? [...value].sort(sortStringValues) : value;
+  },
+};
+
+export const TransformMultiSelectSorted: Story = {
+  args: {
+    ...args,
+    label: 'Sorted Multi Select',
+    multiSelect: true,
+    transform: selectFieldSortTransform,
+  },
+  play: async ({ canvasElement }) => {
+    const body = within(canvasElement?.parentElement as HTMLElement);
+    const dropdown = body.getByTestId('selectfield_select_dropdown')
+      .parentElement as HTMLElement;
+
+    await userEvent.click(dropdown, { delay: 100 });
+    await userEvent.click(
+      body.getByTestId('selectfield_select_option_vanilla')
+        .firstChild as HTMLElement,
+      { delay: 100 },
+    );
+
+    await userEvent.click(dropdown, { delay: 100 });
+    await userEvent.click(
+      body.getByTestId('selectfield_select_option_chocolate')
+        .firstChild as HTMLElement,
+      { delay: 100 },
+    );
+
+    await waitFor(() => {
+      const chips = Array.from(
+        canvasElement.querySelectorAll('[class*="multiValue"]'),
+      ).map((chip) => {
+        return chip.textContent;
+      });
+      expect(chips).toEqual(['Chocolate', 'Vanilla']);
+    });
+  },
+};
+
 export const NoResultsCustomRenderer: Story = {
   args: {
     ...args,

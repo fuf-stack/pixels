@@ -1,6 +1,7 @@
 import type { TVClassName, TVProps } from '@fuf-stack/pixel-utils';
 import type { ReactNode } from 'react';
 import type { MultiValue, Props, SingleValue } from 'react-select';
+import type { InputValueTransform } from '../hooks/useInputValueTransform';
 
 import { useState } from 'react';
 import ReactSelect from 'react-select';
@@ -136,6 +137,8 @@ export interface SelectProps extends VariantProps {
   selectedOptionFallback?: SelectOption | SelectOption[];
   /** HTML data-testid attribute used in e2e tests */
   testId?: string;
+  /** Allows disentangled display and form values for a field. */
+  transform?: InputValueTransform;
 }
 
 /** Select component based on [HeroUI Select](https://www.heroui.com//docs/components/select) and [React-Select](https://react-select.com/home) */
