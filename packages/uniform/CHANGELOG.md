@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.23.0](https://github.com/fuf-stack/pixels/compare/uniform-v1.22.11...uniform-v1.23.0) (2026-06-05)
+
+
+### Features
+
+* **uniform:** add select transform story and stabilize multi-value sizing ([ac56742](https://github.com/fuf-stack/pixels/commit/ac56742b3fc902da48c7a00746083522053ddcd1))
+
 ## [1.22.11](https://github.com/fuf-stack/pixels/compare/uniform-v1.22.10...uniform-v1.22.11) (2026-06-05)
 
 
