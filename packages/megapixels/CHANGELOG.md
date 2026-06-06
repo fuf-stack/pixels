@@ -1,5 +1,21 @@
 # Changelog
 
+## [0.11.33](https://github.com/fuf-stack/pixels/compare/megapixels-v0.11.32...megapixels-v0.11.33) (2026-06-06)
+
+
+### Bug Fixes
+
+* **pixels:** fix Alert default style ([2028f43](https://github.com/fuf-stack/pixels/commit/2028f43b85ed4cdde979cecb9c7d3719a9b4d770))
+* **pixels:** improve Alert styles and stories ([d0aec48](https://github.com/fuf-stack/pixels/commit/d0aec4811477fd1852da3d7226dd88b324214b39))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @fuf-stack/pixels bumped to 1.11.3
+    * @fuf-stack/uniform bumped to 1.23.1
+
 ## [0.11.32](https://github.com/fuf-stack/pixels/compare/megapixels-v0.11.31...megapixels-v0.11.32) (2026-06-05)
 
 
