@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import type { AlertProps } from './Alert';
+import type { AlertProps, VariantProps } from './Alert';
 
 import { FaBell } from 'react-icons/fa';
 
@@ -15,7 +15,13 @@ const meta: Meta<typeof Alert> = {
   component: Alert,
 };
 
-const variants = [...Object.keys(alertVariants.variants.variant)];
+const variants: VariantProps['variant'][] = [
+  'default',
+  'info',
+  'success',
+  'warning',
+  'danger',
+] as const;
 
 const backgrounds = [
   { name: 'white', className: 'bg-white' },
@@ -30,14 +36,8 @@ export const AllVariants: Story = {
   render: (args) => {
     return (
       <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-        {Object.keys(alertVariants.variants.variant).map((variant) => {
-          return (
-            <Alert
-              key={variant}
-              variant={variant as AlertProps['variant']}
-              {...args}
-            />
-          );
+        {variants.map((variant) => {
+          return <Alert key={variant} variant={variant} {...args} />;
         })}
       </div>
     );
@@ -139,10 +139,7 @@ export const VariantsOnBackgrounds: Story = {
                     <div className="mb-1 text-xs text-gray-500 dark:text-gray-400">
                       background: {bg.name}
                     </div>
-                    <Alert
-                      variant={variant as AlertProps['variant']}
-                      {...args}
-                    />
+                    <Alert variant={variant} {...args} />
                   </div>
                 );
               })}

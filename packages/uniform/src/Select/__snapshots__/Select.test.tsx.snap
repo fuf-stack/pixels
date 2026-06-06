@@ -2479,11 +2479,10 @@ exports[`Story Snapshots > NoResultsCustomRenderer 1`] = `
                   class="rounded-sm p-2 text-foreground-500 css-1qvxrka"
                 >
                   <div
-                    class="flex flex-grow flex-row w-full py-3 px-4 gap-x-1 border-small rounded-medium items-center text-warning-700 dark:text-warning border-warning-300 dark:border-warning-100 min-w-72 bg-warning-50 dark:bg-warning-50"
-                    data-has-title="true"
+                    class="flex flex-grow flex-row w-full items-center py-3 px-4 border-small rounded-medium text-warning-700 dark:text-warning border-warning-300 dark:border-warning-100 min-w-72 gap-3 bg-warning-50 dark:bg-warning-50"
+                    data-has-description="true"
                     data-visible="true"
                     role="alert"
-                    title="There is nothing to select here"
                   >
                     <div
                       class="flex-none relative w-9 h-9 rounded-full grid place-items-center bg-warning-50 dark:bg-warning-100 border-warning-100 shadow-small border-1"
@@ -2505,10 +2504,10 @@ exports[`Story Snapshots > NoResultsCustomRenderer 1`] = `
                       </svg>
                     </div>
                     <div
-                      class="h-full flex-grow min-h-10 ms-2 flex flex-col box-border text-inherit justify-center items-stretch gap-1.5"
+                      class="h-full flex-grow min-h-10 flex flex-col box-border text-inherit justify-center ms-0 items-stretch gap-1.5"
                     >
                       <div
-                        class="text-small w-full font-medium block text-inherit leading-5"
+                        class="pl-[1px] text-small font-normal text-foreground"
                       >
                         There is nothing to select here
                       </div>

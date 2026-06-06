@@ -32,7 +32,7 @@ export const alertVariants = tv({
         description: 'text-foreground',
       },
       default: {
-        base: 'bg-default-100 dark:bg-default-50',
+        base: 'bg-background',
         description: 'text-foreground',
       },
       info: {
