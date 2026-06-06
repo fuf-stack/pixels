@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import type { AlertProps, VariantProps } from './Alert';
+import type { VariantProps } from './Alert';
 
 import { FaBell } from 'react-icons/fa';
 
@@ -8,7 +8,7 @@ import { action } from 'storybook/actions';
 import { cn } from '@fuf-stack/pixel-utils';
 
 import { Button } from '../Button';
-import Alert, { alertVariants } from './Alert';
+import Alert from './Alert';
 
 const meta: Meta<typeof Alert> = {
   title: 'pixels/Alert',
@@ -64,11 +64,11 @@ export const Closable: Story = {
   render: (args) => {
     return (
       <>
-        {Object.keys(alertVariants.variants.variant).map((variant) => {
+        {variants.map((variant) => {
           return (
             <div key={variant} className="mb-12">
               <div>{variant}</div>
-              <Alert variant={variant as AlertProps['variant']} {...args} />
+              <Alert variant={variant} {...args} />
             </div>
           );
         })}

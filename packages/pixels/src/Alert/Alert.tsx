@@ -29,15 +29,17 @@ export const alertVariants = tv({
     variant: {
       danger: {
         base: 'bg-danger-50 dark:bg-danger-50',
+        closeButton: 'data-[hover=true]:bg-danger/20',
         description: 'text-foreground',
       },
       default: {
         base: 'bg-background',
+        closeButton: 'data-[hover=true]:bg-default/40',
         description: 'text-foreground',
       },
       info: {
         base: 'border-small border-info-200 bg-info-50 text-info-600 dark:border-info-100 dark:bg-info-50',
-        closeButton: 'text-info-500 data-[hover]:bg-info-200',
+        closeButton: 'data-[hover=true]:bg-info/20 text-info-500',
         description: 'text-foreground',
         icon: 'fill-current',
         iconWrapper: 'border-info-100 bg-info-50 dark:bg-info-100',
@@ -46,10 +48,12 @@ export const alertVariants = tv({
       },
       success: {
         base: 'bg-success-50 dark:bg-success-50',
+        closeButton: 'data-[hover=true]:bg-success/20',
         description: 'text-foreground',
       },
       warning: {
         base: 'bg-warning-50 dark:bg-warning-50',
+        closeButton: 'data-[hover=true]:bg-warning/20',
         description: 'text-foreground',
       },
     },

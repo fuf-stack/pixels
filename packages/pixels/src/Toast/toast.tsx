@@ -4,6 +4,8 @@ import type { AlertProps } from '../Alert';
 
 import { toast as sonnerToast } from 'sonner';
 
+import { cn } from '@fuf-stack/pixel-utils';
+
 import { Alert } from '../Alert';
 
 type AlertVariant = NonNullable<AlertProps['variant']>;
@@ -44,8 +46,8 @@ export interface ToastOptions {
   position?: ExternalToast['position'];
   /** Custom render function to override the default Alert */
   render?: (props: ToastRenderProps) => ReactElement;
-  /** Title displayed above the toast message */
-  title?: ReactNode;
+  /** Title of the toast message */
+  title?: string;
 }
 
 const showToast = (
@@ -73,19 +75,21 @@ const showToast = (
     // Allow custom rendering via render prop
     if (render) {
       return render({
-        message,
-        variant,
-        close,
         closable,
-        title,
+        close,
         endContent,
         icon,
+        message,
+        title,
+        variant,
       });
     }
 
     // Default: render Alert
     return (
       <Alert
+        // default toast in light mode is white, in dark mode is background
+        className={cn({ 'bg-white dark:bg-background': variant === 'default' })}
         closable={closable}
         endContent={endContent}
         icon={icon}
