@@ -39,7 +39,7 @@ export const Simple: Story = {
     return (
       <Button
         onClick={() => {
-          notification.success('Saved successfully.', {
+          notification.info('This is an info notification', {
             closable: true,
           });
         }}
@@ -53,7 +53,9 @@ export const Simple: Story = {
     const canvas = within(canvasElement);
 
     await userEvent.click(canvas.getByText('Show simple notification'));
-    await expect(canvas.getByText('Saved successfully.')).toBeInTheDocument();
+    await expect(
+      canvas.getByText('This is an info notification'),
+    ).toBeInTheDocument();
   },
 };
 
@@ -179,6 +181,7 @@ export const WithLargeMoreContentModal: Story = {
       <Button
         onClick={() => {
           notification.info('Report is ready.', {
+            title: 'Daily report',
             endContent: ({ modal }) => {
               return (
                 <Button
@@ -226,6 +229,7 @@ export const WithErrorModal: Story = {
       <Button
         onClick={() => {
           notification.error('A request failed.', {
+            title: 'Request failed',
             endContent: ({ modal }) => {
               return (
                 <Button

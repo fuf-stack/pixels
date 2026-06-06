@@ -10,42 +10,42 @@ type AlertVariant = NonNullable<AlertProps['variant']>;
 
 /** Props passed to a custom render function */
 export interface ToastRenderProps {
+  /** Whether the toast can be closed by the user */
+  closable?: boolean;
+  /** Function to close the toast */
+  close: () => void;
+  /** Content displayed at the end of the toast */
+  endContent?: ReactNode;
+  /** Icon displayed at the start of the toast */
+  icon?: ReactNode;
   /** The toast message */
   message: ReactNode;
   /** The color/severity of the toast */
   variant: AlertVariant;
-  /** Function to close the toast */
-  close: () => void;
-  /** Whether the toast can be closed by the user */
-  closable?: boolean;
   /** Title displayed above the toast message */
   title?: ReactNode;
-  /** Content displayed at the end of the toast */
-  endContent?: ReactNode;
-  /** Icon displayed at the start of the toast */
-  icon?: ReactNode;
 }
 
 /** Options passed to each toast method */
 export interface ToastOptions {
-  /** Title displayed above the toast message */
-  title?: ReactNode;
   /** Whether the toast can be closed by the user */
   closable?: boolean;
   /** Duration in milliseconds before the toast auto-closes */
   duration?: number;
-  /** Position of the toast on the screen */
-  position?: ExternalToast['position'];
-  /** Callback fired when the toast auto-closes */
-  onAutoClose?: ExternalToast['onAutoClose'];
-  /** Callback fired when the toast is closed */
-  onClose?: ExternalToast['onDismiss'];
   /** Content displayed at the end of the toast */
   endContent?: ReactNode;
   /** Icon displayed at the start of the toast */
   icon?: ReactNode;
+  /** Callback fired when the toast auto-closes */
+  onAutoClose?: ExternalToast['onAutoClose'];
+  /** Callback fired when the toast is closed */
+  onClose?: ExternalToast['onDismiss'];
+  /** Position of the toast on the screen */
+  position?: ExternalToast['position'];
   /** Custom render function to override the default Alert */
   render?: (props: ToastRenderProps) => ReactElement;
+  /** Title displayed above the toast message */
+  title?: ReactNode;
 }
 
 const showToast = (
