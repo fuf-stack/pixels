@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.23.1](https://github.com/fuf-stack/pixels/compare/uniform-v1.23.0...uniform-v1.23.1) (2026-06-06)
+
+
+### Bug Fixes
+
+* **pixels:** fix Alert default style ([2028f43](https://github.com/fuf-stack/pixels/commit/2028f43b85ed4cdde979cecb9c7d3719a9b4d770))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @fuf-stack/pixels bumped to 1.11.3
+
 ## [1.23.0](https://github.com/fuf-stack/pixels/compare/uniform-v1.22.11...uniform-v1.23.0) (2026-06-05)
 
 
