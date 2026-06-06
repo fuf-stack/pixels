@@ -5,7 +5,7 @@ import { act } from '@testing-library/react';
 
 import { modal } from '@fuf-stack/pixels/Modal';
 
-import * as stories from './Notification.stories';
+import * as stories from './notification.stories';
 
 // The notification stories open modals via the global modal store, which
 // renders into a document.body portal. Hard-reset the store after each test —

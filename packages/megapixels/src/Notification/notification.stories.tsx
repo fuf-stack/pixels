@@ -34,100 +34,26 @@ const meta: Meta = {
 export default meta;
 type Story = StoryObj;
 
-const errorDetails = (
-  <pre className="whitespace-pre-wrap text-xs">
-    {`[REQUEST-ERROR-MIDDLEWARE] Field "moep" is not defined by type "Admin_Input".
-
-GraphQLError: Field "moep" is not defined by type "Admin_Input".
-    at coerceInputValueImpl (/path/to/graphql.js:137:11)
-    at coerceVariableValues (/path/to/graphql.js:132:69)
-    at getVariableValues (/path/to/graphql.js:45:21)
-    at buildExecutionContext (/path/to/graphql.js:331:63)
-    at execute (/path/to/graphql.js:165:22)
-    at handler (/path/to/graphql.js:335:28)`}
-  </pre>
-);
-
-const reportContent = (
-  <div className="space-y-2">
-    {Array.from({ length: 20 }, (_, i) => {
-      return `Line ${i + 1}: report content goes here. The modal opens in xl size so longer reports are easier to read.`;
-    }).map((line) => {
-      return <p key={line}>{line}</p>;
-    })}
-  </div>
-);
-
-const widthPresets: { label: string; value: NotificationHostProps['width'] }[] =
-  [
-    { label: 'default (600x)', value: undefined },
-    { label: '40rem', value: '40rem' },
-    { label: '30em', value: '30em' },
-    { label: '80%', value: '80%' },
-  ];
-
-const WidthDemo = () => {
-  const [width, setWidth] = useState<NotificationHostProps['width']>(600);
-  return (
-    <>
-      <NotificationHost width={width} />
-      <div className="flex flex-col gap-3">
-        <div className="flex flex-wrap items-center gap-2">
-          <span className="text-sm">Toaster width:</span>
-          {widthPresets.map((preset) => {
-            const active = preset.value === width;
-            return (
-              <Button
-                key={preset.label}
-                color={active ? 'primary' : 'default'}
-                onClick={() => {
-                  setWidth(preset.value);
-                }}
-              >
-                {preset.label}
-              </Button>
-            );
-          })}
-        </div>
-        <div className="flex flex-wrap gap-2">
-          <Button
-            onClick={() => {
-              notification.info('Short message.', {
-                title: `width: ${String(width ?? 'default')}`,
-              });
-            }}
-          >
-            Short notification
-          </Button>
-          <Button
-            onClick={() => {
-              notification.success(
-                'This notification fills the configured Toaster width. ' +
-                  'Even short messages stay centered because every toast ' +
-                  'takes the full Toaster width.',
-                { title: `width: ${String(width ?? 'default')}` },
-              );
-            }}
-          >
-            Long notification
-          </Button>
-        </div>
-      </div>
-    </>
-  );
-};
-
-export const CustomWidth: Story = {
-  parameters: { notificationHost: false },
+export const Simple: Story = {
   render: () => {
-    return <WidthDemo />;
+    return (
+      <Button
+        onClick={() => {
+          notification.success('Saved successfully.', {
+            closable: true,
+          });
+        }}
+      >
+        Show simple notification
+      </Button>
+    );
   },
-  // Trigger a notification so the snapshot shows the toast at the chosen width.
+  // Open the toast so the snapshot captures the rendered notification.
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    await userEvent.click(canvas.getByText('Short notification'));
-    await expect(canvas.getByText('Short message.')).toBeInTheDocument();
+    await userEvent.click(canvas.getByText('Show simple notification'));
+    await expect(canvas.getByText('Saved successfully.')).toBeInTheDocument();
   },
 };
 
@@ -226,7 +152,7 @@ export const WithActionButton: Story = {
                 type="button"
                 variant="flat"
               >
-                Extend
+                Extend Session
               </Button>
             ),
           });
@@ -253,7 +179,6 @@ export const WithLargeMoreContentModal: Story = {
       <Button
         onClick={() => {
           notification.info('Report is ready.', {
-            title: 'Daily report',
             endContent: ({ modal }) => {
               return (
                 <Button
@@ -295,13 +220,12 @@ export const WithLargeMoreContentModal: Story = {
   },
 };
 
-export const WithMoreContent: Story = {
+export const WithErrorModal: Story = {
   render: () => {
     return (
       <Button
         onClick={() => {
           notification.error('A request failed.', {
-            title: 'Request failed',
             endContent: ({ modal }) => {
               return (
                 <Button
@@ -344,26 +268,99 @@ export const WithMoreContent: Story = {
   },
 };
 
-export const WithoutMoreContent: Story = {
+const errorDetails = (
+  <pre className="whitespace-pre-wrap text-xs">
+    {`[PIZZA-TRACKER] Pineapple paradox detected.
+
+ToppingConflictError: Cannot apply "ADD_PINEAPPLE" and "REMOVE_PINEAPPLE" in the same transaction.
+    at reconcileToppingVotes (/path/to/toppings.js:132:69)
+    at chooseToppings (/path/to/pizza.js:137:11)
+    at buildPizza (/path/to/oven.js:45:21)
+    at preheatOven (/path/to/oven.js:28:9)
+    at bakeOrder (/path/to/kitchen.js:201:18)
+    at handler (/path/to/server.js:335:28)`}
+  </pre>
+);
+
+const reportContent = (
+  <div className="space-y-2">
+    {Array.from({ length: 20 }, (_, i) => {
+      return `Line ${i + 1}: report content goes here. The modal opens in xl size so longer reports are easier to read.`;
+    }).map((line) => {
+      return <p key={line}>{line}</p>;
+    })}
+  </div>
+);
+
+const widthPresets: { label: string; value: NotificationHostProps['width'] }[] =
+  [
+    { label: 'default (600x)', value: undefined },
+    { label: '40rem', value: '40rem' },
+    { label: '30em', value: '30em' },
+    { label: '80%', value: '80%' },
+  ];
+
+const CustomWidthRenderer = () => {
+  const [width, setWidth] = useState<NotificationHostProps['width']>(600);
+  return (
+    <>
+      <NotificationHost width={width} />
+      <div className="flex flex-col gap-3">
+        <div className="flex flex-wrap items-center gap-2">
+          <span className="text-sm">Toaster width:</span>
+          {widthPresets.map((preset) => {
+            const active = preset.value === width;
+            return (
+              <Button
+                key={preset.label}
+                color={active ? 'primary' : 'default'}
+                onClick={() => {
+                  setWidth(preset.value);
+                }}
+              >
+                {preset.label}
+              </Button>
+            );
+          })}
+        </div>
+        <div className="flex flex-wrap gap-2">
+          <Button
+            onClick={() => {
+              notification.info('Short message.', {
+                title: `width: ${String(width ?? 'default')}`,
+              });
+            }}
+          >
+            Short notification
+          </Button>
+          <Button
+            onClick={() => {
+              notification.success(
+                'This notification fills the configured Toaster width. ' +
+                  'Even short messages stay centered because every toast ' +
+                  'takes the full Toaster width.',
+                { title: `width: ${String(width ?? 'default')}` },
+              );
+            }}
+          >
+            Long notification
+          </Button>
+        </div>
+      </div>
+    </>
+  );
+};
+
+export const CustomWidth: Story = {
+  parameters: { notificationHost: false },
   render: () => {
-    return (
-      <Button
-        onClick={() => {
-          notification.success('Saved successfully.', {
-            title: 'Saved',
-            closable: true,
-          });
-        }}
-      >
-        Show simple notification
-      </Button>
-    );
+    return <CustomWidthRenderer />;
   },
-  // Open the toast so the snapshot captures the rendered notification.
+  // Trigger a notification so the snapshot shows the toast at the chosen width.
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    await userEvent.click(canvas.getByText('Show simple notification'));
-    await expect(canvas.getByText('Saved successfully.')).toBeInTheDocument();
+    await userEvent.click(canvas.getByText('Short notification'));
+    await expect(canvas.getByText('Short message.')).toBeInTheDocument();
   },
 };
