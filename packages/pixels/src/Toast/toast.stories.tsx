@@ -7,7 +7,6 @@ import { expect, userEvent, waitFor, within } from 'storybook/test';
 
 import { toast, Toaster } from '.';
 import { Button } from '../Button';
-import { modal, ModalHost } from '../Modal';
 
 const meta: Meta = {
   title: 'pixels/Toast',
@@ -17,7 +16,6 @@ const meta: Meta = {
       return (
         <>
           <Toaster />
-          <ModalHost />
           <Story />
         </>
       );
@@ -27,6 +25,28 @@ const meta: Meta = {
 
 export default meta;
 type Story = StoryObj;
+
+export const Simple: Story = {
+  render: () => {
+    return (
+      <Button
+        onClick={() => {
+          toast.info('This is an info message');
+        }}
+      >
+        Show toast
+      </Button>
+    );
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    await userEvent.click(canvas.getByText('Show toast'));
+    await expect(
+      canvas.getByText('This is an info message'),
+    ).toBeInTheDocument();
+  },
+};
 
 export const Variants: Story = {
   render: () => {
@@ -124,7 +144,7 @@ const positions = [
   'bottom-right',
 ] as const;
 
-export const Placement: Story = {
+export const AllPositions: Story = {
   render: () => {
     return (
       <div className="flex flex-wrap gap-2">
@@ -186,181 +206,6 @@ export const AllOptions: Story = {
   },
 };
 
-export const CloseExternal: Story = {
-  render: () => {
-    const toastIds: (string | number)[] = [];
-    return (
-      <div className="flex gap-2">
-        <Button
-          onClick={() => {
-            toastIds.push(
-              toast.info('This toast can be closed programmatically', {
-                duration: 60000,
-              }),
-            );
-          }}
-        >
-          Show toast
-        </Button>
-        <Button
-          onClick={() => {
-            const id = toastIds.shift();
-            if (id != null) {
-              toast.close(id);
-            }
-          }}
-        >
-          Close toast
-        </Button>
-      </div>
-    );
-  },
-  // Open the toast so the snapshot shows it (it stays open for 60s).
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
-
-    await userEvent.click(canvas.getByText('Show toast'));
-    await expect(
-      canvas.getByText('This toast can be closed programmatically'),
-    ).toBeInTheDocument();
-  },
-};
-
-const MoreButton = () => {
-  return (
-    <button
-      className="ml-2 mt-2 whitespace-nowrap rounded border px-2 py-1 text-xs"
-      onClick={() => {
-        modal.open({
-          header: 'Alert Details',
-          content:
-            'Here are the full details of the alert. This modal provides additional context and information that does not fit in the alert itself.',
-        });
-      }}
-      type="button"
-    >
-      More
-    </button>
-  );
-};
-
-export const WithMoreModal: Story = {
-  render: () => {
-    return (
-      <Button
-        onClick={() => {
-          toast.warn(
-            'Something requires your attention. This toast will close in 5 seconds.',
-            {
-              title: 'Attention Required',
-              endContent: <MoreButton />,
-              duration: 5000,
-            },
-          );
-        }}
-      >
-        Show toast with more
-      </Button>
-    );
-  },
-  // Open the toast (with its "More" button) so the snapshot captures it.
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
-
-    await userEvent.click(canvas.getByText('Show toast with more'));
-    await expect(
-      canvas.getByText(
-        'Something requires your attention. This toast will close in 5 seconds.',
-      ),
-    ).toBeInTheDocument();
-  },
-};
-
-const LONG_CONTENT = `[REQUEST-ERROR-MIDDLEWARE] Field "moep" is not defined by type "Admin_Input".
-
-GraphQLError: Field "moep" is not defined by type "Admin_Input".
-    at coerceInputValueImpl (/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep.js:137:11)
-    at coerceInputValueImpl (/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep.js:49:14)
-    at coerceInputValue (/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep.js:32:10)
-    at coerceVariableValues (/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep.js:132:69)
-    at getVariableValues (/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep.js:45:21)
-    at buildExecutionContext (/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep.js:331:63)
-    at execute (/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep.js:165:22)
-    at handler (/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep/moep.js:335:28)`;
-
-export const WithLongContent: Story = {
-  render: () => {
-    return (
-      <Button
-        onClick={() => {
-          toast.error(
-            <pre className="whitespace-pre-wrap text-xs">{LONG_CONTENT}</pre>,
-            {
-              title: 'Request failed',
-              duration: 60000,
-              closable: true,
-            },
-          );
-        }}
-      >
-        Show toast with long content
-      </Button>
-    );
-  },
-  // Open the toast so the snapshot captures the long content.
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
-
-    await userEvent.click(canvas.getByText('Show toast with long content'));
-    await expect(canvas.getByText('Request failed')).toBeInTheDocument();
-  },
-};
-
-export const WithLongContentInModal: Story = {
-  render: () => {
-    return (
-      <Button
-        onClick={() => {
-          toast.error('A request failed. See details for the full error.', {
-            title: 'Request failed',
-            duration: 60000,
-            closable: true,
-            endContent: (
-              <button
-                className="ml-2 mt-2 whitespace-nowrap rounded border px-2 py-1 text-xs"
-                onClick={() => {
-                  modal.open({
-                    header: 'Request failed',
-                    content: (
-                      <pre className="whitespace-pre-wrap text-xs">
-                        {LONG_CONTENT}
-                      </pre>
-                    ),
-                  });
-                }}
-                type="button"
-              >
-                Show details
-              </button>
-            ),
-          });
-        }}
-      >
-        Show toast with details in modal
-      </Button>
-    );
-  },
-  // Open the toast (with its "Show details" button) so the snapshot shows it.
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
-
-    await userEvent.click(canvas.getByText('Show toast with details in modal'));
-    await expect(
-      canvas.getByText('A request failed. See details for the full error.'),
-    ).toBeInTheDocument();
-  },
-};
-
 export const Closable: Story = {
   render: () => {
     return (
@@ -402,7 +247,47 @@ export const Closable: Story = {
   },
 };
 
-export const WithReactNodeMessage: Story = {
+export const CloseExternal: Story = {
+  render: () => {
+    const toastIds: (string | number)[] = [];
+    return (
+      <div className="flex gap-2">
+        <Button
+          onClick={() => {
+            toastIds.push(
+              toast.info('This toast can be closed programmatically', {
+                duration: 60000,
+              }),
+            );
+          }}
+        >
+          Show toast
+        </Button>
+        <Button
+          onClick={() => {
+            const id = toastIds.shift();
+            if (id != null) {
+              toast.close(id);
+            }
+          }}
+        >
+          Close toast
+        </Button>
+      </div>
+    );
+  },
+  // Open the toast so the snapshot shows it (it stays open for 60s).
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    await userEvent.click(canvas.getByText('Show toast'));
+    await expect(
+      canvas.getByText('This toast can be closed programmatically'),
+    ).toBeInTheDocument();
+  },
+};
+
+export const WithFormattedMessages: Story = {
   render: () => {
     return (
       <div className="flex flex-wrap gap-2">
@@ -460,6 +345,42 @@ export const WithReactNodeMessage: Story = {
 
     await userEvent.click(canvas.getByText('With list'));
     await expect(canvas.getByText('First item')).toBeInTheDocument();
+  },
+};
+
+const LONG_CONTENT = `[TOAST-LAB] Marshmallow overflow detected.
+
+The snack machine got a little too excited.
+No real damage, just extra crispy vibes.
+Recommendation: reduce toast level and try again.`;
+
+export const WithLongContent: Story = {
+  render: () => {
+    return (
+      <Button
+        onClick={() => {
+          toast.error(
+            <pre className="whitespace-pre-wrap text-xs">{LONG_CONTENT}</pre>,
+            {
+              title: 'Snack machine complained',
+              duration: 60000,
+              closable: true,
+            },
+          );
+        }}
+      >
+        Show toast with long content
+      </Button>
+    );
+  },
+  // Open the toast so the snapshot captures the long content.
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    await userEvent.click(canvas.getByText('Show toast with long content'));
+    await expect(
+      canvas.getByText('Snack machine complained'),
+    ).toBeInTheDocument();
   },
 };
 

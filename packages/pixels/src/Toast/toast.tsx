@@ -4,7 +4,7 @@ import type { AlertProps } from '../Alert';
 
 import { toast as sonnerToast } from 'sonner';
 
-import AlertComponent from '../Alert';
+import { Alert } from '../Alert';
 
 type AlertVariant = NonNullable<AlertProps['variant']>;
 
@@ -44,7 +44,7 @@ export interface ToastOptions {
   endContent?: ReactNode;
   /** Icon displayed at the start of the toast */
   icon?: ReactNode;
-  /** Custom render function to override the default AlertComponent */
+  /** Custom render function to override the default Alert */
   render?: (props: ToastRenderProps) => ReactElement;
 }
 
@@ -65,7 +65,7 @@ const showToast = (
     ...rest,
   };
   return sonnerToast.custom((id) => {
-    // Close function passed to custom render or AlertComponent
+    // Close function passed to custom render or Alert
     const close = () => {
       return sonnerToast.dismiss(id);
     };
@@ -83,9 +83,9 @@ const showToast = (
       });
     }
 
-    // Default: render AlertComponent
+    // Default: render Alert
     return (
-      <AlertComponent
+      <Alert
         closable={closable}
         endContent={endContent}
         icon={icon}
@@ -94,7 +94,7 @@ const showToast = (
         variant={variant}
       >
         {message}
-      </AlertComponent>
+      </Alert>
     );
   }, sonnerOptions);
 };
