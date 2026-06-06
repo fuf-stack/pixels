@@ -1,5 +1,20 @@
 # Changelog
 
+## [0.11.34](https://github.com/fuf-stack/pixels/compare/megapixels-v0.11.33...megapixels-v0.11.34) (2026-06-06)
+
+
+### Bug Fixes
+
+* **pixels:** some Alert and Toast style fixes ([26f8115](https://github.com/fuf-stack/pixels/commit/26f81157d3a535442504a2ffd749fbb2b6a02e46))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @fuf-stack/pixels bumped to 1.11.4
+    * @fuf-stack/uniform bumped to 1.23.2
+
 ## [0.11.33](https://github.com/fuf-stack/pixels/compare/megapixels-v0.11.32...megapixels-v0.11.33) (2026-06-06)
 
 

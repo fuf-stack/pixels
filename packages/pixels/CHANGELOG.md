@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.11.4](https://github.com/fuf-stack/pixels/compare/pixels-v1.11.3...pixels-v1.11.4) (2026-06-06)
+
+
+### Bug Fixes
+
+* **pixels:** some Alert and Toast style fixes ([26f8115](https://github.com/fuf-stack/pixels/commit/26f81157d3a535442504a2ffd749fbb2b6a02e46))
+
 ## [1.11.3](https://github.com/fuf-stack/pixels/compare/pixels-v1.11.2...pixels-v1.11.3) (2026-06-06)
 
 
