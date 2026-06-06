@@ -9,13 +9,14 @@ import { tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 
 export const alertVariants = tv({
   slots: {
-    base: 'min-w-72',
-    title: '',
-    description: '',
-    mainWrapper: 'items-stretch gap-1.5',
+    base: 'min-w-72 gap-3',
     closeButton: '',
+    description: '',
+    endContent: '',
+    icon: '',
     iconWrapper: '',
-    alertIcon: '',
+    mainWrapper: 'ms-0 items-stretch gap-1.5',
+    title: '',
   },
   variants: {
     // if HeroUI Alert title and description are set the icon is placed on top (looks better)
@@ -35,10 +36,10 @@ export const alertVariants = tv({
         description: 'text-foreground',
       },
       info: {
-        alertIcon: 'fill-current',
         base: 'border-small border-info-200 bg-info-50 text-info-600 dark:border-info-100 dark:bg-info-50',
         closeButton: 'text-info-500 data-[hover]:bg-info-200',
         description: 'text-foreground',
+        icon: 'fill-current',
         iconWrapper: 'border-info-100 bg-info-50 dark:bg-info-100',
         mainWrapper: 'text-inherit',
         title: 'text-inherit',
@@ -75,7 +76,7 @@ export interface AlertProps extends Omit<VariantProps, 'hasTitleAndChildren'> {
   /** HTML data-testid attribute used in e2e tests */
   testId?: string;
   /** Title displayed in the Alert above the content */
-  title?: ReactNode;
+  title?: string;
   /** Style variant of the Alert */
   variant?: VariantProps['variant'];
 }
@@ -95,11 +96,11 @@ const Alert = ({
   variant = 'info',
 }: AlertProps) => {
   const hasTitleAndChildren = !!children && !!title;
-  const variants = alertVariants({
-    hasTitleAndChildren,
-    variant,
-  });
-  const classNames = variantsToClassNames(variants, className, 'base');
+
+  // classNames from slots
+  const variants = alertVariants({ hasTitleAndChildren, variant });
+  const { endContent: endContentClassName, ...classNames } =
+    variantsToClassNames(variants, className, 'base');
 
   // map variant to HeroUI color prop (only for variants that exist in HeroUI)
   const heroColor = Object.keys(heroAlertVariants.variants.color).includes(
@@ -113,14 +114,18 @@ const Alert = ({
       classNames={classNames}
       color={heroColor}
       data-testid={testId}
-      description={title ? children : undefined}
-      endContent={endContent}
+      description={children}
+      endContent={
+        endContent ? (
+          <div className={endContentClassName}>{endContent}</div>
+        ) : undefined
+      }
       hideIcon={variant === 'default'}
       icon={icon}
       // map closable to isClosable, because of we do not want "is" as prefix
       isClosable={closable}
       onClose={onClose}
-      title={(title ?? children) as string}
+      title={title}
       variant="faded"
     />
   );

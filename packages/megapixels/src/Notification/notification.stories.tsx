@@ -244,7 +244,7 @@ export const WithErrorModal: Story = {
                   type="button"
                   variant="flat"
                 >
-                  Show error details
+                  Show Error
                 </Button>
               );
             },
@@ -262,7 +262,7 @@ export const WithErrorModal: Story = {
     await userEvent.click(canvas.getByText('Show notification with details'));
     await expect(canvas.getByText('A request failed.')).toBeInTheDocument();
 
-    await userEvent.click(canvas.getByText('Show error details'));
+    await userEvent.click(canvas.getByText('Show Error'));
     // The modal renders in a portal on document.body, outside the canvas.
     await waitFor(() => {
       expect(

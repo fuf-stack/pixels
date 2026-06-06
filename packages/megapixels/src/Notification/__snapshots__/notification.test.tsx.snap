@@ -56,7 +56,7 @@ exports[`Story Snapshots > CustomWidth 1`] = `
             data-title=""
           >
             <div
-              class="flex flex-grow flex-row w-full items-center py-3 px-4 gap-x-1 rounded-medium min-w-72 border-small border-info-200 bg-info-50 text-info-600 dark:border-info-100 dark:bg-info-50"
+              class="flex flex-grow flex-row w-full items-center py-3 px-4 rounded-medium min-w-72 gap-3 border-small border-info-200 bg-info-50 text-info-600 dark:border-info-100 dark:bg-info-50"
               data-has-description="true"
               data-has-title="true"
               data-visible="true"
@@ -67,7 +67,7 @@ exports[`Story Snapshots > CustomWidth 1`] = `
                 class="flex-none relative w-9 h-9 rounded-full grid place-items-center shadow-small border-1 self-start border-info-100 bg-info-50 dark:bg-info-100"
               >
                 <svg
-                  class="w-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 fill-current"
+                  class="fill-current w-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
                   fill="none"
                   height="24"
                   viewBox="0 0 24 24"
@@ -80,7 +80,7 @@ exports[`Story Snapshots > CustomWidth 1`] = `
                 </svg>
               </div>
               <div
-                class="h-full flex-grow min-h-10 ms-2 flex flex-col box-border justify-center items-stretch gap-1.5 text-inherit"
+                class="h-full flex-grow min-h-10 flex flex-col box-border justify-center ms-0 items-stretch gap-1.5 text-inherit"
               >
                 <div
                   class="text-small w-full font-medium block leading-5 text-inherit"
@@ -225,18 +225,17 @@ exports[`Story Snapshots > Simple 1`] = `
             data-title=""
           >
             <div
-              class="flex flex-grow flex-row w-full py-3 px-4 gap-x-1 rounded-medium items-center min-w-72 border-small border-info-200 bg-info-50 text-info-600 dark:border-info-100 dark:bg-info-50"
+              class="flex flex-grow flex-row w-full items-center py-3 px-4 rounded-medium min-w-72 gap-3 border-small border-info-200 bg-info-50 text-info-600 dark:border-info-100 dark:bg-info-50"
               data-closeable="true"
-              data-has-title="true"
+              data-has-description="true"
               data-visible="true"
               role="alert"
-              title="This is an info notification"
             >
               <div
                 class="flex-none relative w-9 h-9 rounded-full grid place-items-center shadow-small border-1 border-info-100 bg-info-50 dark:bg-info-100"
               >
                 <svg
-                  class="w-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 fill-current"
+                  class="fill-current w-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
                   fill="none"
                   height="24"
                   viewBox="0 0 24 24"
@@ -249,10 +248,10 @@ exports[`Story Snapshots > Simple 1`] = `
                 </svg>
               </div>
               <div
-                class="h-full flex-grow min-h-10 ms-2 flex flex-col box-border justify-center items-stretch gap-1.5 text-inherit"
+                class="h-full flex-grow min-h-10 flex flex-col box-border justify-center ms-0 items-stretch gap-1.5 text-inherit"
               >
                 <div
-                  class="text-small w-full font-medium block leading-5 text-inherit"
+                  class="pl-[1px] text-small font-normal text-foreground"
                 >
                   This is an info notification
                 </div>
@@ -358,12 +357,11 @@ exports[`Story Snapshots > Variants 1`] = `
             data-title=""
           >
             <div
-              class="flex flex-grow flex-row w-full py-3 px-4 gap-x-1 border-small rounded-medium items-center text-danger-600 dark:text-danger-500 border-danger-200 dark:border-danger-100 min-w-72 bg-danger-50 dark:bg-danger-50"
+              class="flex flex-grow flex-row w-full items-center py-3 px-4 border-small rounded-medium text-danger-600 dark:text-danger-500 border-danger-200 dark:border-danger-100 min-w-72 gap-3 bg-danger-50 dark:bg-danger-50"
               data-closeable="true"
-              data-has-title="true"
+              data-has-description="true"
               data-visible="true"
               role="alert"
-              title="This is an error notification"
             >
               <div
                 class="flex-none relative w-9 h-9 rounded-full grid place-items-center bg-danger-50 dark:bg-danger-100 border-danger-100 shadow-small border-1"
@@ -382,10 +380,10 @@ exports[`Story Snapshots > Variants 1`] = `
                 </svg>
               </div>
               <div
-                class="h-full flex-grow min-h-10 ms-2 flex flex-col box-border text-inherit justify-center items-stretch gap-1.5"
+                class="h-full flex-grow min-h-10 flex flex-col box-border text-inherit justify-center ms-0 items-stretch gap-1.5"
               >
                 <div
-                  class="text-small w-full font-medium block text-inherit leading-5"
+                  class="pl-[1px] text-small font-normal text-foreground"
                 >
                   This is an error notification
                 </div>
@@ -449,11 +447,10 @@ exports[`Story Snapshots > Variants 1`] = `
             data-title=""
           >
             <div
-              class="flex flex-grow flex-row w-full py-3 px-4 gap-x-1 border-small rounded-medium items-center text-success-700 dark:text-success border-success-300 dark:border-success-100 min-w-72 bg-success-50 dark:bg-success-50"
-              data-has-title="true"
+              class="flex flex-grow flex-row w-full items-center py-3 px-4 border-small rounded-medium text-success-700 dark:text-success border-success-300 dark:border-success-100 min-w-72 gap-3 bg-success-50 dark:bg-success-50"
+              data-has-description="true"
               data-visible="true"
               role="alert"
-              title="This is a success notification"
             >
               <div
                 class="flex-none relative w-9 h-9 rounded-full grid place-items-center bg-success-50 dark:bg-success-100 border-success-100 shadow-small border-1"
@@ -477,10 +474,10 @@ exports[`Story Snapshots > Variants 1`] = `
                 </svg>
               </div>
               <div
-                class="h-full flex-grow min-h-10 ms-2 flex flex-col box-border text-inherit justify-center items-stretch gap-1.5"
+                class="h-full flex-grow min-h-10 flex flex-col box-border text-inherit justify-center ms-0 items-stretch gap-1.5"
               >
                 <div
-                  class="text-small w-full font-medium block text-inherit leading-5"
+                  class="pl-[1px] text-small font-normal text-foreground"
                 >
                   This is a success notification
                 </div>
@@ -518,12 +515,11 @@ exports[`Story Snapshots > Variants 1`] = `
             data-title=""
           >
             <div
-              class="flex flex-grow flex-row w-full py-3 px-4 gap-x-1 border-small rounded-medium items-center text-warning-700 dark:text-warning border-warning-300 dark:border-warning-100 min-w-72 bg-warning-50 dark:bg-warning-50"
+              class="flex flex-grow flex-row w-full items-center py-3 px-4 border-small rounded-medium text-warning-700 dark:text-warning border-warning-300 dark:border-warning-100 min-w-72 gap-3 bg-warning-50 dark:bg-warning-50"
               data-closeable="true"
-              data-has-title="true"
+              data-has-description="true"
               data-visible="true"
               role="alert"
-              title="This is a warning notification"
             >
               <div
                 class="flex-none relative w-9 h-9 rounded-full grid place-items-center bg-warning-50 dark:bg-warning-100 border-warning-100 shadow-small border-1"
@@ -545,10 +541,10 @@ exports[`Story Snapshots > Variants 1`] = `
                 </svg>
               </div>
               <div
-                class="h-full flex-grow min-h-10 ms-2 flex flex-col box-border text-inherit justify-center items-stretch gap-1.5"
+                class="h-full flex-grow min-h-10 flex flex-col box-border text-inherit justify-center ms-0 items-stretch gap-1.5"
               >
                 <div
-                  class="text-small w-full font-medium block text-inherit leading-5"
+                  class="pl-[1px] text-small font-normal text-foreground"
                 >
                   This is a warning notification
                 </div>
@@ -612,17 +608,16 @@ exports[`Story Snapshots > Variants 1`] = `
             data-title=""
           >
             <div
-              class="flex flex-grow flex-row w-full py-3 px-4 gap-x-1 rounded-medium items-center min-w-72 border-small border-info-200 bg-info-50 text-info-600 dark:border-info-100 dark:bg-info-50"
-              data-has-title="true"
+              class="flex flex-grow flex-row w-full items-center py-3 px-4 rounded-medium min-w-72 gap-3 border-small border-info-200 bg-info-50 text-info-600 dark:border-info-100 dark:bg-info-50"
+              data-has-description="true"
               data-visible="true"
               role="alert"
-              title="This is an info notification"
             >
               <div
                 class="flex-none relative w-9 h-9 rounded-full grid place-items-center shadow-small border-1 border-info-100 bg-info-50 dark:bg-info-100"
               >
                 <svg
-                  class="w-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 fill-current"
+                  class="fill-current w-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
                   fill="none"
                   height="24"
                   viewBox="0 0 24 24"
@@ -635,10 +630,10 @@ exports[`Story Snapshots > Variants 1`] = `
                 </svg>
               </div>
               <div
-                class="h-full flex-grow min-h-10 ms-2 flex flex-col box-border justify-center items-stretch gap-1.5 text-inherit"
+                class="h-full flex-grow min-h-10 flex flex-col box-border justify-center ms-0 items-stretch gap-1.5 text-inherit"
               >
                 <div
-                  class="text-small w-full font-medium block leading-5 text-inherit"
+                  class="pl-[1px] text-small font-normal text-foreground"
                 >
                   This is an info notification
                 </div>
@@ -676,11 +671,10 @@ exports[`Story Snapshots > Variants 1`] = `
             data-title=""
           >
             <div
-              class="flex flex-grow flex-row w-full py-3 px-4 gap-x-1 border-small rounded-medium items-center text-default-foreground border-default-300 dark:border-default-200 min-w-72 bg-default-100 dark:bg-default-50"
-              data-has-title="true"
+              class="flex flex-grow flex-row w-full items-center py-3 px-4 border-small rounded-medium text-default-foreground border-default-300 dark:border-default-200 min-w-72 gap-3 bg-default-100 dark:bg-default-50"
+              data-has-description="true"
               data-visible="true"
               role="alert"
-              title="This is a default notification"
             >
               <div
                 class="flex-none relative w-9 h-9 rounded-full place-items-center hidden bg-default-50 dark:bg-default-100 border-default-200 shadow-small border-1"
@@ -699,10 +693,10 @@ exports[`Story Snapshots > Variants 1`] = `
                 </svg>
               </div>
               <div
-                class="h-full flex-grow min-h-10 ms-2 flex flex-col box-border text-inherit justify-center items-stretch gap-1.5"
+                class="h-full flex-grow min-h-10 flex flex-col box-border text-inherit justify-center ms-0 items-stretch gap-1.5"
               >
                 <div
-                  class="text-small w-full font-medium block text-inherit leading-5"
+                  class="pl-[1px] text-small font-normal text-foreground"
                 >
                   This is a default notification
                 </div>
@@ -818,7 +812,7 @@ exports[`Story Snapshots > WithActionButton 1`] = `
             data-title=""
           >
             <div
-              class="flex flex-grow flex-row w-full items-center py-3 px-4 gap-x-1 border-small rounded-medium text-warning-700 dark:text-warning border-warning-300 dark:border-warning-100 min-w-72 bg-warning-50 dark:bg-warning-50"
+              class="flex flex-grow flex-row w-full items-center py-3 px-4 border-small rounded-medium text-warning-700 dark:text-warning border-warning-300 dark:border-warning-100 min-w-72 gap-3 bg-warning-50 dark:bg-warning-50"
               data-closeable="true"
               data-has-description="true"
               data-has-title="true"
@@ -846,7 +840,7 @@ exports[`Story Snapshots > WithActionButton 1`] = `
                 </svg>
               </div>
               <div
-                class="h-full flex-grow min-h-10 ms-2 flex flex-col box-border text-inherit justify-center items-stretch gap-1.5"
+                class="h-full flex-grow min-h-10 flex flex-col box-border text-inherit justify-center ms-0 items-stretch gap-1.5"
               >
                 <div
                   class="text-small w-full font-medium block text-inherit leading-5"
@@ -859,14 +853,16 @@ exports[`Story Snapshots > WithActionButton 1`] = `
                   Your session is about to expire.
                 </div>
               </div>
-              <button
-                class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-3 min-w-16 h-8 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-warning/20 text-warning-700 dark:text-warning data-[hover=true]:opacity-hover"
-                data-react-aria-pressable="true"
-                tabindex="0"
-                type="button"
-              >
-                Extend Session
-              </button>
+              <div>
+                <button
+                  class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-3 min-w-16 h-8 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-warning/20 text-warning-700 dark:text-warning data-[hover=true]:opacity-hover"
+                  data-react-aria-pressable="true"
+                  tabindex="0"
+                  type="button"
+                >
+                  Extend Session
+                </button>
+              </div>
               <button
                 aria-label="Close"
                 class="z-0 group inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny gap-2 rounded-full px-0 !gap-0 transition-transform-colors-opacity motion-reduce:transition-none bg-transparent data-[hover=true]:bg-default/40 min-w-8 w-8 h-8 relative translate-x-1 -translate-y-1 text-warning-500 data-[hover]:bg-warning-200"
@@ -971,7 +967,7 @@ exports[`Story Snapshots > WithErrorModal 1`] = `
               data-title=""
             >
               <div
-                class="flex flex-grow flex-row w-full items-center py-3 px-4 gap-x-1 border-small rounded-medium text-danger-600 dark:text-danger-500 border-danger-200 dark:border-danger-100 min-w-72 bg-danger-50 dark:bg-danger-50"
+                class="flex flex-grow flex-row w-full items-center py-3 px-4 border-small rounded-medium text-danger-600 dark:text-danger-500 border-danger-200 dark:border-danger-100 min-w-72 gap-3 bg-danger-50 dark:bg-danger-50"
                 data-closeable="true"
                 data-has-description="true"
                 data-has-title="true"
@@ -996,7 +992,7 @@ exports[`Story Snapshots > WithErrorModal 1`] = `
                   </svg>
                 </div>
                 <div
-                  class="h-full flex-grow min-h-10 ms-2 flex flex-col box-border text-inherit justify-center items-stretch gap-1.5"
+                  class="h-full flex-grow min-h-10 flex flex-col box-border text-inherit justify-center ms-0 items-stretch gap-1.5"
                 >
                   <div
                     class="text-small w-full font-medium block text-inherit leading-5"
@@ -1009,15 +1005,17 @@ exports[`Story Snapshots > WithErrorModal 1`] = `
                     A request failed.
                   </div>
                 </div>
-                <button
-                  class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-3 min-w-16 h-8 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-danger/20 text-danger-600 dark:text-danger-500 data-[hover=true]:opacity-hover"
-                  data-hover="true"
-                  data-react-aria-pressable="true"
-                  tabindex="0"
-                  type="button"
-                >
-                  Show error details
-                </button>
+                <div>
+                  <button
+                    class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-3 min-w-16 h-8 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-danger/20 text-danger-600 dark:text-danger-500 data-[hover=true]:opacity-hover"
+                    data-hover="true"
+                    data-react-aria-pressable="true"
+                    tabindex="0"
+                    type="button"
+                  >
+                    Show Error
+                  </button>
+                </div>
                 <button
                   aria-label="Close"
                   class="z-0 group inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny gap-2 rounded-full px-0 !gap-0 transition-transform-colors-opacity motion-reduce:transition-none bg-transparent data-[hover=true]:bg-default/40 min-w-8 w-8 h-8 relative translate-x-1 -translate-y-1 text-danger-500 data-[hover]:bg-danger-200"
@@ -1231,7 +1229,7 @@ exports[`Story Snapshots > WithLargeMoreContentModal 1`] = `
               data-title=""
             >
               <div
-                class="flex flex-grow flex-row w-full items-center py-3 px-4 gap-x-1 rounded-medium min-w-72 border-small border-info-200 bg-info-50 text-info-600 dark:border-info-100 dark:bg-info-50"
+                class="flex flex-grow flex-row w-full items-center py-3 px-4 rounded-medium min-w-72 gap-3 border-small border-info-200 bg-info-50 text-info-600 dark:border-info-100 dark:bg-info-50"
                 data-has-description="true"
                 data-has-title="true"
                 data-visible="true"
@@ -1242,7 +1240,7 @@ exports[`Story Snapshots > WithLargeMoreContentModal 1`] = `
                   class="flex-none relative w-9 h-9 rounded-full grid place-items-center shadow-small border-1 self-start border-info-100 bg-info-50 dark:bg-info-100"
                 >
                   <svg
-                    class="w-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 fill-current"
+                    class="fill-current w-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
                     fill="none"
                     height="24"
                     viewBox="0 0 24 24"
@@ -1255,7 +1253,7 @@ exports[`Story Snapshots > WithLargeMoreContentModal 1`] = `
                   </svg>
                 </div>
                 <div
-                  class="h-full flex-grow min-h-10 ms-2 flex flex-col box-border justify-center items-stretch gap-1.5 text-inherit"
+                  class="h-full flex-grow min-h-10 flex flex-col box-border justify-center ms-0 items-stretch gap-1.5 text-inherit"
                 >
                   <div
                     class="text-small w-full font-medium block leading-5 text-inherit"
@@ -1268,15 +1266,17 @@ exports[`Story Snapshots > WithLargeMoreContentModal 1`] = `
                     Report is ready.
                   </div>
                 </div>
-                <button
-                  class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-3 min-w-16 h-8 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover bg-info/20 text-info-600 whitespace-nowrap"
-                  data-hover="true"
-                  data-react-aria-pressable="true"
-                  tabindex="0"
-                  type="button"
-                >
-                  Open report
-                </button>
+                <div>
+                  <button
+                    class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-3 min-w-16 h-8 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover bg-info/20 text-info-600 whitespace-nowrap"
+                    data-hover="true"
+                    data-react-aria-pressable="true"
+                    tabindex="0"
+                    type="button"
+                  >
+                    Open report
+                  </button>
+                </div>
               </div>
             </div>
           </div>

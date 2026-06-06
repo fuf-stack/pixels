@@ -56,7 +56,7 @@ exports[`Story Snapshots > CustomWidth 1`] = `
             data-title=""
           >
             <div
-              class="flex flex-grow flex-row w-full items-center py-3 px-4 gap-x-1 rounded-medium min-w-72 border-small border-info-200 bg-info-50 text-info-600 dark:border-info-100 dark:bg-info-50"
+              class="flex flex-grow flex-row w-full items-center py-3 px-4 rounded-medium min-w-72 gap-3 border-small border-info-200 bg-info-50 text-info-600 dark:border-info-100 dark:bg-info-50"
               data-has-description="true"
               data-has-title="true"
               data-visible="true"
@@ -67,7 +67,7 @@ exports[`Story Snapshots > CustomWidth 1`] = `
                 class="flex-none relative w-9 h-9 rounded-full grid place-items-center shadow-small border-1 self-start border-info-100 bg-info-50 dark:bg-info-100"
               >
                 <svg
-                  class="w-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 fill-current"
+                  class="fill-current w-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
                   fill="none"
                   height="24"
                   viewBox="0 0 24 24"
@@ -80,7 +80,7 @@ exports[`Story Snapshots > CustomWidth 1`] = `
                 </svg>
               </div>
               <div
-                class="h-full flex-grow min-h-10 ms-2 flex flex-col box-border justify-center items-stretch gap-1.5 text-inherit"
+                class="h-full flex-grow min-h-10 flex flex-col box-border justify-center ms-0 items-stretch gap-1.5 text-inherit"
               >
                 <div
                   class="text-small w-full font-medium block leading-5 text-inherit"
@@ -159,17 +159,16 @@ exports[`Story Snapshots > Position 1`] = `
             data-title=""
           >
             <div
-              class="flex flex-grow flex-row w-full py-3 px-4 gap-x-1 rounded-medium items-center min-w-72 border-small border-info-200 bg-info-50 text-info-600 dark:border-info-100 dark:bg-info-50"
-              data-has-title="true"
+              class="flex flex-grow flex-row w-full items-center py-3 px-4 rounded-medium min-w-72 gap-3 border-small border-info-200 bg-info-50 text-info-600 dark:border-info-100 dark:bg-info-50"
+              data-has-description="true"
               data-visible="true"
               role="alert"
-              title="Toaster position: top-center"
             >
               <div
                 class="flex-none relative w-9 h-9 rounded-full grid place-items-center shadow-small border-1 border-info-100 bg-info-50 dark:bg-info-100"
               >
                 <svg
-                  class="w-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 fill-current"
+                  class="fill-current w-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
                   fill="none"
                   height="24"
                   viewBox="0 0 24 24"
@@ -182,10 +181,10 @@ exports[`Story Snapshots > Position 1`] = `
                 </svg>
               </div>
               <div
-                class="h-full flex-grow min-h-10 ms-2 flex flex-col box-border justify-center items-stretch gap-1.5 text-inherit"
+                class="h-full flex-grow min-h-10 flex flex-col box-border justify-center ms-0 items-stretch gap-1.5 text-inherit"
               >
                 <div
-                  class="text-small w-full font-medium block leading-5 text-inherit"
+                  class="pl-[1px] text-small font-normal text-foreground"
                 >
                   Toaster position: top-center
                 </div>

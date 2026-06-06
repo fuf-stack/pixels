@@ -56,7 +56,7 @@ exports[`Story Snapshots > AllOptions 1`] = `
             data-title=""
           >
             <div
-              class="flex flex-grow flex-row w-full items-center py-3 px-4 gap-x-1 rounded-medium min-w-72 border-small border-info-200 bg-info-50 text-info-600 dark:border-info-100 dark:bg-info-50"
+              class="flex flex-grow flex-row w-full items-center py-3 px-4 rounded-medium min-w-72 gap-3 border-small border-info-200 bg-info-50 text-info-600 dark:border-info-100 dark:bg-info-50"
               data-closeable="true"
               data-has-description="true"
               data-has-title="true"
@@ -68,7 +68,7 @@ exports[`Story Snapshots > AllOptions 1`] = `
                 class="flex-none relative w-9 h-9 rounded-full grid place-items-center shadow-small border-1 self-start border-info-100 bg-info-50 dark:bg-info-100"
               >
                 <svg
-                  class="w-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 fill-current"
+                  class="fill-current w-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
                   fill="none"
                   height="24"
                   viewBox="0 0 24 24"
@@ -81,7 +81,7 @@ exports[`Story Snapshots > AllOptions 1`] = `
                 </svg>
               </div>
               <div
-                class="h-full flex-grow min-h-10 ms-2 flex flex-col box-border justify-center items-stretch gap-1.5 text-inherit"
+                class="h-full flex-grow min-h-10 flex flex-col box-border justify-center ms-0 items-stretch gap-1.5 text-inherit"
               >
                 <div
                   class="text-small w-full font-medium block leading-5 text-inherit"
@@ -186,17 +186,16 @@ exports[`Story Snapshots > AllPositions 1`] = `
             data-title=""
           >
             <div
-              class="flex flex-grow flex-row w-full py-3 px-4 gap-x-1 rounded-medium items-center min-w-72 border-small border-info-200 bg-info-50 text-info-600 dark:border-info-100 dark:bg-info-50"
-              data-has-title="true"
+              class="flex flex-grow flex-row w-full items-center py-3 px-4 rounded-medium min-w-72 gap-3 border-small border-info-200 bg-info-50 text-info-600 dark:border-info-100 dark:bg-info-50"
+              data-has-description="true"
               data-visible="true"
               role="alert"
-              title="Toast at bottom-right"
             >
               <div
                 class="flex-none relative w-9 h-9 rounded-full grid place-items-center shadow-small border-1 border-info-100 bg-info-50 dark:bg-info-100"
               >
                 <svg
-                  class="w-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 fill-current"
+                  class="fill-current w-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
                   fill="none"
                   height="24"
                   viewBox="0 0 24 24"
@@ -209,10 +208,10 @@ exports[`Story Snapshots > AllPositions 1`] = `
                 </svg>
               </div>
               <div
-                class="h-full flex-grow min-h-10 ms-2 flex flex-col box-border justify-center items-stretch gap-1.5 text-inherit"
+                class="h-full flex-grow min-h-10 flex flex-col box-border justify-center ms-0 items-stretch gap-1.5 text-inherit"
               >
                 <div
-                  class="text-small w-full font-medium block leading-5 text-inherit"
+                  class="pl-[1px] text-small font-normal text-foreground"
                 >
                   Toast at bottom-right
                 </div>
@@ -260,17 +259,16 @@ exports[`Story Snapshots > AllPositions 1`] = `
             data-title=""
           >
             <div
-              class="flex flex-grow flex-row w-full py-3 px-4 gap-x-1 rounded-medium items-center min-w-72 border-small border-info-200 bg-info-50 text-info-600 dark:border-info-100 dark:bg-info-50"
-              data-has-title="true"
+              class="flex flex-grow flex-row w-full items-center py-3 px-4 rounded-medium min-w-72 gap-3 border-small border-info-200 bg-info-50 text-info-600 dark:border-info-100 dark:bg-info-50"
+              data-has-description="true"
               data-visible="true"
               role="alert"
-              title="Toast at bottom-center"
             >
               <div
                 class="flex-none relative w-9 h-9 rounded-full grid place-items-center shadow-small border-1 border-info-100 bg-info-50 dark:bg-info-100"
               >
                 <svg
-                  class="w-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 fill-current"
+                  class="fill-current w-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
                   fill="none"
                   height="24"
                   viewBox="0 0 24 24"
@@ -283,10 +281,10 @@ exports[`Story Snapshots > AllPositions 1`] = `
                 </svg>
               </div>
               <div
-                class="h-full flex-grow min-h-10 ms-2 flex flex-col box-border justify-center items-stretch gap-1.5 text-inherit"
+                class="h-full flex-grow min-h-10 flex flex-col box-border justify-center ms-0 items-stretch gap-1.5 text-inherit"
               >
                 <div
-                  class="text-small w-full font-medium block leading-5 text-inherit"
+                  class="pl-[1px] text-small font-normal text-foreground"
                 >
                   Toast at bottom-center
                 </div>
@@ -334,17 +332,16 @@ exports[`Story Snapshots > AllPositions 1`] = `
             data-title=""
           >
             <div
-              class="flex flex-grow flex-row w-full py-3 px-4 gap-x-1 rounded-medium items-center min-w-72 border-small border-info-200 bg-info-50 text-info-600 dark:border-info-100 dark:bg-info-50"
-              data-has-title="true"
+              class="flex flex-grow flex-row w-full items-center py-3 px-4 rounded-medium min-w-72 gap-3 border-small border-info-200 bg-info-50 text-info-600 dark:border-info-100 dark:bg-info-50"
+              data-has-description="true"
               data-visible="true"
               role="alert"
-              title="Toast at bottom-left"
             >
               <div
                 class="flex-none relative w-9 h-9 rounded-full grid place-items-center shadow-small border-1 border-info-100 bg-info-50 dark:bg-info-100"
               >
                 <svg
-                  class="w-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 fill-current"
+                  class="fill-current w-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
                   fill="none"
                   height="24"
                   viewBox="0 0 24 24"
@@ -357,10 +354,10 @@ exports[`Story Snapshots > AllPositions 1`] = `
                 </svg>
               </div>
               <div
-                class="h-full flex-grow min-h-10 ms-2 flex flex-col box-border justify-center items-stretch gap-1.5 text-inherit"
+                class="h-full flex-grow min-h-10 flex flex-col box-border justify-center ms-0 items-stretch gap-1.5 text-inherit"
               >
                 <div
-                  class="text-small w-full font-medium block leading-5 text-inherit"
+                  class="pl-[1px] text-small font-normal text-foreground"
                 >
                   Toast at bottom-left
                 </div>
@@ -408,17 +405,16 @@ exports[`Story Snapshots > AllPositions 1`] = `
             data-title=""
           >
             <div
-              class="flex flex-grow flex-row w-full py-3 px-4 gap-x-1 rounded-medium items-center min-w-72 border-small border-info-200 bg-info-50 text-info-600 dark:border-info-100 dark:bg-info-50"
-              data-has-title="true"
+              class="flex flex-grow flex-row w-full items-center py-3 px-4 rounded-medium min-w-72 gap-3 border-small border-info-200 bg-info-50 text-info-600 dark:border-info-100 dark:bg-info-50"
+              data-has-description="true"
               data-visible="true"
               role="alert"
-              title="Toast at top-right"
             >
               <div
                 class="flex-none relative w-9 h-9 rounded-full grid place-items-center shadow-small border-1 border-info-100 bg-info-50 dark:bg-info-100"
               >
                 <svg
-                  class="w-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 fill-current"
+                  class="fill-current w-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
                   fill="none"
                   height="24"
                   viewBox="0 0 24 24"
@@ -431,10 +427,10 @@ exports[`Story Snapshots > AllPositions 1`] = `
                 </svg>
               </div>
               <div
-                class="h-full flex-grow min-h-10 ms-2 flex flex-col box-border justify-center items-stretch gap-1.5 text-inherit"
+                class="h-full flex-grow min-h-10 flex flex-col box-border justify-center ms-0 items-stretch gap-1.5 text-inherit"
               >
                 <div
-                  class="text-small w-full font-medium block leading-5 text-inherit"
+                  class="pl-[1px] text-small font-normal text-foreground"
                 >
                   Toast at top-right
                 </div>
@@ -482,17 +478,16 @@ exports[`Story Snapshots > AllPositions 1`] = `
             data-title=""
           >
             <div
-              class="flex flex-grow flex-row w-full py-3 px-4 gap-x-1 rounded-medium items-center min-w-72 border-small border-info-200 bg-info-50 text-info-600 dark:border-info-100 dark:bg-info-50"
-              data-has-title="true"
+              class="flex flex-grow flex-row w-full items-center py-3 px-4 rounded-medium min-w-72 gap-3 border-small border-info-200 bg-info-50 text-info-600 dark:border-info-100 dark:bg-info-50"
+              data-has-description="true"
               data-visible="true"
               role="alert"
-              title="Toast at top-center"
             >
               <div
                 class="flex-none relative w-9 h-9 rounded-full grid place-items-center shadow-small border-1 border-info-100 bg-info-50 dark:bg-info-100"
               >
                 <svg
-                  class="w-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 fill-current"
+                  class="fill-current w-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
                   fill="none"
                   height="24"
                   viewBox="0 0 24 24"
@@ -505,10 +500,10 @@ exports[`Story Snapshots > AllPositions 1`] = `
                 </svg>
               </div>
               <div
-                class="h-full flex-grow min-h-10 ms-2 flex flex-col box-border justify-center items-stretch gap-1.5 text-inherit"
+                class="h-full flex-grow min-h-10 flex flex-col box-border justify-center ms-0 items-stretch gap-1.5 text-inherit"
               >
                 <div
-                  class="text-small w-full font-medium block leading-5 text-inherit"
+                  class="pl-[1px] text-small font-normal text-foreground"
                 >
                   Toast at top-center
                 </div>
@@ -556,17 +551,16 @@ exports[`Story Snapshots > AllPositions 1`] = `
             data-title=""
           >
             <div
-              class="flex flex-grow flex-row w-full py-3 px-4 gap-x-1 rounded-medium items-center min-w-72 border-small border-info-200 bg-info-50 text-info-600 dark:border-info-100 dark:bg-info-50"
-              data-has-title="true"
+              class="flex flex-grow flex-row w-full items-center py-3 px-4 rounded-medium min-w-72 gap-3 border-small border-info-200 bg-info-50 text-info-600 dark:border-info-100 dark:bg-info-50"
+              data-has-description="true"
               data-visible="true"
               role="alert"
-              title="Toast at top-left"
             >
               <div
                 class="flex-none relative w-9 h-9 rounded-full grid place-items-center shadow-small border-1 border-info-100 bg-info-50 dark:bg-info-100"
               >
                 <svg
-                  class="w-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 fill-current"
+                  class="fill-current w-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
                   fill="none"
                   height="24"
                   viewBox="0 0 24 24"
@@ -579,10 +573,10 @@ exports[`Story Snapshots > AllPositions 1`] = `
                 </svg>
               </div>
               <div
-                class="h-full flex-grow min-h-10 ms-2 flex flex-col box-border justify-center items-stretch gap-1.5 text-inherit"
+                class="h-full flex-grow min-h-10 flex flex-col box-border justify-center ms-0 items-stretch gap-1.5 text-inherit"
               >
                 <div
-                  class="text-small w-full font-medium block leading-5 text-inherit"
+                  class="pl-[1px] text-small font-normal text-foreground"
                 >
                   Toast at top-left
                 </div>
@@ -706,17 +700,16 @@ exports[`Story Snapshots > Closable 1`] = `
             data-title=""
           >
             <div
-              class="flex flex-grow flex-row w-full py-3 px-4 gap-x-1 rounded-medium items-center min-w-72 border-small border-info-200 bg-info-50 text-info-600 dark:border-info-100 dark:bg-info-50"
-              data-has-title="true"
+              class="flex flex-grow flex-row w-full items-center py-3 px-4 rounded-medium min-w-72 gap-3 border-small border-info-200 bg-info-50 text-info-600 dark:border-info-100 dark:bg-info-50"
+              data-has-description="true"
               data-visible="true"
               role="alert"
-              title="This toast cannot be closed"
             >
               <div
                 class="flex-none relative w-9 h-9 rounded-full grid place-items-center shadow-small border-1 border-info-100 bg-info-50 dark:bg-info-100"
               >
                 <svg
-                  class="w-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 fill-current"
+                  class="fill-current w-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
                   fill="none"
                   height="24"
                   viewBox="0 0 24 24"
@@ -729,10 +722,10 @@ exports[`Story Snapshots > Closable 1`] = `
                 </svg>
               </div>
               <div
-                class="h-full flex-grow min-h-10 ms-2 flex flex-col box-border justify-center items-stretch gap-1.5 text-inherit"
+                class="h-full flex-grow min-h-10 flex flex-col box-border justify-center ms-0 items-stretch gap-1.5 text-inherit"
               >
                 <div
-                  class="text-small w-full font-medium block leading-5 text-inherit"
+                  class="pl-[1px] text-small font-normal text-foreground"
                 >
                   This toast cannot be closed
                 </div>
@@ -770,18 +763,17 @@ exports[`Story Snapshots > Closable 1`] = `
             data-title=""
           >
             <div
-              class="flex flex-grow flex-row w-full py-3 px-4 gap-x-1 rounded-medium items-center min-w-72 border-small border-info-200 bg-info-50 text-info-600 dark:border-info-100 dark:bg-info-50"
+              class="flex flex-grow flex-row w-full items-center py-3 px-4 rounded-medium min-w-72 gap-3 border-small border-info-200 bg-info-50 text-info-600 dark:border-info-100 dark:bg-info-50"
               data-closeable="true"
-              data-has-title="true"
+              data-has-description="true"
               data-visible="true"
               role="alert"
-              title="This toast can be closed"
             >
               <div
                 class="flex-none relative w-9 h-9 rounded-full grid place-items-center shadow-small border-1 border-info-100 bg-info-50 dark:bg-info-100"
               >
                 <svg
-                  class="w-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 fill-current"
+                  class="fill-current w-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
                   fill="none"
                   height="24"
                   viewBox="0 0 24 24"
@@ -794,10 +786,10 @@ exports[`Story Snapshots > Closable 1`] = `
                 </svg>
               </div>
               <div
-                class="h-full flex-grow min-h-10 ms-2 flex flex-col box-border justify-center items-stretch gap-1.5 text-inherit"
+                class="h-full flex-grow min-h-10 flex flex-col box-border justify-center ms-0 items-stretch gap-1.5 text-inherit"
               >
                 <div
-                  class="text-small w-full font-medium block leading-5 text-inherit"
+                  class="pl-[1px] text-small font-normal text-foreground"
                 >
                   This toast can be closed
                 </div>
@@ -915,17 +907,16 @@ exports[`Story Snapshots > CloseExternal 1`] = `
             data-title=""
           >
             <div
-              class="flex flex-grow flex-row w-full py-3 px-4 gap-x-1 rounded-medium items-center min-w-72 border-small border-info-200 bg-info-50 text-info-600 dark:border-info-100 dark:bg-info-50"
-              data-has-title="true"
+              class="flex flex-grow flex-row w-full items-center py-3 px-4 rounded-medium min-w-72 gap-3 border-small border-info-200 bg-info-50 text-info-600 dark:border-info-100 dark:bg-info-50"
+              data-has-description="true"
               data-visible="true"
               role="alert"
-              title="This toast can be closed programmatically"
             >
               <div
                 class="flex-none relative w-9 h-9 rounded-full grid place-items-center shadow-small border-1 border-info-100 bg-info-50 dark:bg-info-100"
               >
                 <svg
-                  class="w-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 fill-current"
+                  class="fill-current w-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
                   fill="none"
                   height="24"
                   viewBox="0 0 24 24"
@@ -938,10 +929,10 @@ exports[`Story Snapshots > CloseExternal 1`] = `
                 </svg>
               </div>
               <div
-                class="h-full flex-grow min-h-10 ms-2 flex flex-col box-border justify-center items-stretch gap-1.5 text-inherit"
+                class="h-full flex-grow min-h-10 flex flex-col box-border justify-center ms-0 items-stretch gap-1.5 text-inherit"
               >
                 <div
-                  class="text-small w-full font-medium block leading-5 text-inherit"
+                  class="pl-[1px] text-small font-normal text-foreground"
                 >
                   This toast can be closed programmatically
                 </div>
@@ -1033,12 +1024,11 @@ exports[`Story Snapshots > CustomIcon 1`] = `
             data-title=""
           >
             <div
-              class="flex flex-grow flex-row w-full py-3 px-4 gap-x-1 border-small rounded-medium items-center text-success-700 dark:text-success border-success-300 dark:border-success-100 min-w-72 bg-success-50 dark:bg-success-50"
-              data-has-title="true"
+              class="flex flex-grow flex-row w-full items-center py-3 px-4 border-small rounded-medium text-success-700 dark:text-success border-success-300 dark:border-success-100 min-w-72 gap-3 bg-success-50 dark:bg-success-50"
+              data-has-description="true"
               data-visible="true"
               icon="[object Object]"
               role="alert"
-              title="Launched!"
             >
               <div
                 class="flex-none relative w-9 h-9 rounded-full grid place-items-center bg-success-50 dark:bg-success-100 border-success-100 shadow-small border-1"
@@ -1059,10 +1049,10 @@ exports[`Story Snapshots > CustomIcon 1`] = `
                 </svg>
               </div>
               <div
-                class="h-full flex-grow min-h-10 ms-2 flex flex-col box-border text-inherit justify-center items-stretch gap-1.5"
+                class="h-full flex-grow min-h-10 flex flex-col box-border text-inherit justify-center ms-0 items-stretch gap-1.5"
               >
                 <div
-                  class="text-small w-full font-medium block text-inherit leading-5"
+                  class="pl-[1px] text-small font-normal text-foreground"
                 >
                   Launched!
                 </div>
@@ -1100,18 +1090,17 @@ exports[`Story Snapshots > CustomIcon 1`] = `
             data-title=""
           >
             <div
-              class="flex flex-grow flex-row w-full py-3 px-4 gap-x-1 rounded-medium items-center min-w-72 border-small border-info-200 bg-info-50 text-info-600 dark:border-info-100 dark:bg-info-50"
-              data-has-title="true"
+              class="flex flex-grow flex-row w-full items-center py-3 px-4 rounded-medium min-w-72 gap-3 border-small border-info-200 bg-info-50 text-info-600 dark:border-info-100 dark:bg-info-50"
+              data-has-description="true"
               data-visible="true"
               icon="[object Object]"
               role="alert"
-              title="Custom icon toast"
             >
               <div
                 class="flex-none relative w-9 h-9 rounded-full grid place-items-center shadow-small border-1 border-info-100 bg-info-50 dark:bg-info-100"
               >
                 <svg
-                  class="w-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 fill-current"
+                  class="fill-current w-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
                   fill="currentColor"
                   height="1em"
                   stroke="currentColor"
@@ -1126,10 +1115,10 @@ exports[`Story Snapshots > CustomIcon 1`] = `
                 </svg>
               </div>
               <div
-                class="h-full flex-grow min-h-10 ms-2 flex flex-col box-border justify-center items-stretch gap-1.5 text-inherit"
+                class="h-full flex-grow min-h-10 flex flex-col box-border justify-center ms-0 items-stretch gap-1.5 text-inherit"
               >
                 <div
-                  class="text-small w-full font-medium block leading-5 text-inherit"
+                  class="pl-[1px] text-small font-normal text-foreground"
                 >
                   Custom icon toast
                 </div>
@@ -1318,17 +1307,16 @@ exports[`Story Snapshots > Simple 1`] = `
             data-title=""
           >
             <div
-              class="flex flex-grow flex-row w-full py-3 px-4 gap-x-1 rounded-medium items-center min-w-72 border-small border-info-200 bg-info-50 text-info-600 dark:border-info-100 dark:bg-info-50"
-              data-has-title="true"
+              class="flex flex-grow flex-row w-full items-center py-3 px-4 rounded-medium min-w-72 gap-3 border-small border-info-200 bg-info-50 text-info-600 dark:border-info-100 dark:bg-info-50"
+              data-has-description="true"
               data-visible="true"
               role="alert"
-              title="This is an info message"
             >
               <div
                 class="flex-none relative w-9 h-9 rounded-full grid place-items-center shadow-small border-1 border-info-100 bg-info-50 dark:bg-info-100"
               >
                 <svg
-                  class="w-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 fill-current"
+                  class="fill-current w-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
                   fill="none"
                   height="24"
                   viewBox="0 0 24 24"
@@ -1341,10 +1329,10 @@ exports[`Story Snapshots > Simple 1`] = `
                 </svg>
               </div>
               <div
-                class="h-full flex-grow min-h-10 ms-2 flex flex-col box-border justify-center items-stretch gap-1.5 text-inherit"
+                class="h-full flex-grow min-h-10 flex flex-col box-border justify-center ms-0 items-stretch gap-1.5 text-inherit"
               >
                 <div
-                  class="text-small w-full font-medium block leading-5 text-inherit"
+                  class="pl-[1px] text-small font-normal text-foreground"
                 >
                   This is an info message
                 </div>
@@ -1424,12 +1412,11 @@ exports[`Story Snapshots > Variants 1`] = `
             data-title=""
           >
             <div
-              class="flex flex-grow flex-row w-full py-3 px-4 gap-x-1 border-small rounded-medium items-center text-danger-600 dark:text-danger-500 border-danger-200 dark:border-danger-100 min-w-72 bg-danger-50 dark:bg-danger-50"
+              class="flex flex-grow flex-row w-full items-center py-3 px-4 border-small rounded-medium text-danger-600 dark:text-danger-500 border-danger-200 dark:border-danger-100 min-w-72 gap-3 bg-danger-50 dark:bg-danger-50"
               data-closeable="true"
-              data-has-title="true"
+              data-has-description="true"
               data-visible="true"
               role="alert"
-              title="This is an error message"
             >
               <div
                 class="flex-none relative w-9 h-9 rounded-full grid place-items-center bg-danger-50 dark:bg-danger-100 border-danger-100 shadow-small border-1"
@@ -1448,10 +1435,10 @@ exports[`Story Snapshots > Variants 1`] = `
                 </svg>
               </div>
               <div
-                class="h-full flex-grow min-h-10 ms-2 flex flex-col box-border text-inherit justify-center items-stretch gap-1.5"
+                class="h-full flex-grow min-h-10 flex flex-col box-border text-inherit justify-center ms-0 items-stretch gap-1.5"
               >
                 <div
-                  class="text-small w-full font-medium block text-inherit leading-5"
+                  class="pl-[1px] text-small font-normal text-foreground"
                 >
                   This is an error message
                 </div>
@@ -1515,11 +1502,10 @@ exports[`Story Snapshots > Variants 1`] = `
             data-title=""
           >
             <div
-              class="flex flex-grow flex-row w-full py-3 px-4 gap-x-1 border-small rounded-medium items-center text-success-700 dark:text-success border-success-300 dark:border-success-100 min-w-72 bg-success-50 dark:bg-success-50"
-              data-has-title="true"
+              class="flex flex-grow flex-row w-full items-center py-3 px-4 border-small rounded-medium text-success-700 dark:text-success border-success-300 dark:border-success-100 min-w-72 gap-3 bg-success-50 dark:bg-success-50"
+              data-has-description="true"
               data-visible="true"
               role="alert"
-              title="This is a success message"
             >
               <div
                 class="flex-none relative w-9 h-9 rounded-full grid place-items-center bg-success-50 dark:bg-success-100 border-success-100 shadow-small border-1"
@@ -1543,10 +1529,10 @@ exports[`Story Snapshots > Variants 1`] = `
                 </svg>
               </div>
               <div
-                class="h-full flex-grow min-h-10 ms-2 flex flex-col box-border text-inherit justify-center items-stretch gap-1.5"
+                class="h-full flex-grow min-h-10 flex flex-col box-border text-inherit justify-center ms-0 items-stretch gap-1.5"
               >
                 <div
-                  class="text-small w-full font-medium block text-inherit leading-5"
+                  class="pl-[1px] text-small font-normal text-foreground"
                 >
                   This is a success message
                 </div>
@@ -1584,12 +1570,11 @@ exports[`Story Snapshots > Variants 1`] = `
             data-title=""
           >
             <div
-              class="flex flex-grow flex-row w-full py-3 px-4 gap-x-1 border-small rounded-medium items-center text-warning-700 dark:text-warning border-warning-300 dark:border-warning-100 min-w-72 bg-warning-50 dark:bg-warning-50"
+              class="flex flex-grow flex-row w-full items-center py-3 px-4 border-small rounded-medium text-warning-700 dark:text-warning border-warning-300 dark:border-warning-100 min-w-72 gap-3 bg-warning-50 dark:bg-warning-50"
               data-closeable="true"
-              data-has-title="true"
+              data-has-description="true"
               data-visible="true"
               role="alert"
-              title="This is a warning message"
             >
               <div
                 class="flex-none relative w-9 h-9 rounded-full grid place-items-center bg-warning-50 dark:bg-warning-100 border-warning-100 shadow-small border-1"
@@ -1611,10 +1596,10 @@ exports[`Story Snapshots > Variants 1`] = `
                 </svg>
               </div>
               <div
-                class="h-full flex-grow min-h-10 ms-2 flex flex-col box-border text-inherit justify-center items-stretch gap-1.5"
+                class="h-full flex-grow min-h-10 flex flex-col box-border text-inherit justify-center ms-0 items-stretch gap-1.5"
               >
                 <div
-                  class="text-small w-full font-medium block text-inherit leading-5"
+                  class="pl-[1px] text-small font-normal text-foreground"
                 >
                   This is a warning message
                 </div>
@@ -1678,17 +1663,16 @@ exports[`Story Snapshots > Variants 1`] = `
             data-title=""
           >
             <div
-              class="flex flex-grow flex-row w-full py-3 px-4 gap-x-1 rounded-medium items-center min-w-72 border-small border-info-200 bg-info-50 text-info-600 dark:border-info-100 dark:bg-info-50"
-              data-has-title="true"
+              class="flex flex-grow flex-row w-full items-center py-3 px-4 rounded-medium min-w-72 gap-3 border-small border-info-200 bg-info-50 text-info-600 dark:border-info-100 dark:bg-info-50"
+              data-has-description="true"
               data-visible="true"
               role="alert"
-              title="This is an info message"
             >
               <div
                 class="flex-none relative w-9 h-9 rounded-full grid place-items-center shadow-small border-1 border-info-100 bg-info-50 dark:bg-info-100"
               >
                 <svg
-                  class="w-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 fill-current"
+                  class="fill-current w-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
                   fill="none"
                   height="24"
                   viewBox="0 0 24 24"
@@ -1701,10 +1685,10 @@ exports[`Story Snapshots > Variants 1`] = `
                 </svg>
               </div>
               <div
-                class="h-full flex-grow min-h-10 ms-2 flex flex-col box-border justify-center items-stretch gap-1.5 text-inherit"
+                class="h-full flex-grow min-h-10 flex flex-col box-border justify-center ms-0 items-stretch gap-1.5 text-inherit"
               >
                 <div
-                  class="text-small w-full font-medium block leading-5 text-inherit"
+                  class="pl-[1px] text-small font-normal text-foreground"
                 >
                   This is an info message
                 </div>
@@ -1742,11 +1726,10 @@ exports[`Story Snapshots > Variants 1`] = `
             data-title=""
           >
             <div
-              class="flex flex-grow flex-row w-full py-3 px-4 gap-x-1 border-small rounded-medium items-center text-default-foreground border-default-300 dark:border-default-200 min-w-72 bg-default-100 dark:bg-default-50"
-              data-has-title="true"
+              class="flex flex-grow flex-row w-full items-center py-3 px-4 border-small rounded-medium text-default-foreground border-default-300 dark:border-default-200 min-w-72 gap-3 bg-default-100 dark:bg-default-50"
+              data-has-description="true"
               data-visible="true"
               role="alert"
-              title="This is a default message"
             >
               <div
                 class="flex-none relative w-9 h-9 rounded-full place-items-center hidden bg-default-50 dark:bg-default-100 border-default-200 shadow-small border-1"
@@ -1765,10 +1748,10 @@ exports[`Story Snapshots > Variants 1`] = `
                 </svg>
               </div>
               <div
-                class="h-full flex-grow min-h-10 ms-2 flex flex-col box-border text-inherit justify-center items-stretch gap-1.5"
+                class="h-full flex-grow min-h-10 flex flex-col box-border text-inherit justify-center ms-0 items-stretch gap-1.5"
               >
                 <div
-                  class="text-small w-full font-medium block text-inherit leading-5"
+                  class="pl-[1px] text-small font-normal text-foreground"
                 >
                   This is a default message
                 </div>
@@ -1884,7 +1867,7 @@ exports[`Story Snapshots > WithFormattedMessages 1`] = `
             data-title=""
           >
             <div
-              class="flex flex-grow flex-row w-full items-center py-3 px-4 gap-x-1 border-small rounded-medium text-warning-700 dark:text-warning border-warning-300 dark:border-warning-100 min-w-72 bg-warning-50 dark:bg-warning-50"
+              class="flex flex-grow flex-row w-full items-center py-3 px-4 border-small rounded-medium text-warning-700 dark:text-warning border-warning-300 dark:border-warning-100 min-w-72 gap-3 bg-warning-50 dark:bg-warning-50"
               data-closeable="true"
               data-has-description="true"
               data-has-title="true"
@@ -1912,7 +1895,7 @@ exports[`Story Snapshots > WithFormattedMessages 1`] = `
                 </svg>
               </div>
               <div
-                class="h-full flex-grow min-h-10 ms-2 flex flex-col box-border text-inherit justify-center items-stretch gap-1.5"
+                class="h-full flex-grow min-h-10 flex flex-col box-border text-inherit justify-center ms-0 items-stretch gap-1.5"
               >
                 <div
                   class="text-small w-full font-medium block text-inherit leading-5"
@@ -1993,11 +1976,10 @@ exports[`Story Snapshots > WithFormattedMessages 1`] = `
             data-title=""
           >
             <div
-              class="flex flex-grow flex-row w-full py-3 px-4 gap-x-1 border-small rounded-medium items-center text-success-700 dark:text-success border-success-300 dark:border-success-100 min-w-72 bg-success-50 dark:bg-success-50"
-              data-has-title="true"
+              class="flex flex-grow flex-row w-full items-center py-3 px-4 border-small rounded-medium text-success-700 dark:text-success border-success-300 dark:border-success-100 min-w-72 gap-3 bg-success-50 dark:bg-success-50"
+              data-has-description="true"
               data-visible="true"
               role="alert"
-              title="[object Object]"
             >
               <div
                 class="flex-none relative w-9 h-9 rounded-full grid place-items-center bg-success-50 dark:bg-success-100 border-success-100 shadow-small border-1"
@@ -2021,10 +2003,10 @@ exports[`Story Snapshots > WithFormattedMessages 1`] = `
                 </svg>
               </div>
               <div
-                class="h-full flex-grow min-h-10 ms-2 flex flex-col box-border text-inherit justify-center items-stretch gap-1.5"
+                class="h-full flex-grow min-h-10 flex flex-col box-border text-inherit justify-center ms-0 items-stretch gap-1.5"
               >
                 <div
-                  class="text-small w-full font-medium block text-inherit leading-5"
+                  class="pl-[1px] text-small font-normal text-foreground"
                 >
                   <span>
                     User
@@ -2074,17 +2056,16 @@ exports[`Story Snapshots > WithFormattedMessages 1`] = `
             data-title=""
           >
             <div
-              class="flex flex-grow flex-row w-full py-3 px-4 gap-x-1 rounded-medium items-center min-w-72 border-small border-info-200 bg-info-50 text-info-600 dark:border-info-100 dark:bg-info-50"
-              data-has-title="true"
+              class="flex flex-grow flex-row w-full items-center py-3 px-4 rounded-medium min-w-72 gap-3 border-small border-info-200 bg-info-50 text-info-600 dark:border-info-100 dark:bg-info-50"
+              data-has-description="true"
               data-visible="true"
               role="alert"
-              title="[object Object]"
             >
               <div
                 class="flex-none relative w-9 h-9 rounded-full grid place-items-center shadow-small border-1 border-info-100 bg-info-50 dark:bg-info-100"
               >
                 <svg
-                  class="w-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 fill-current"
+                  class="fill-current w-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
                   fill="none"
                   height="24"
                   viewBox="0 0 24 24"
@@ -2097,10 +2078,10 @@ exports[`Story Snapshots > WithFormattedMessages 1`] = `
                 </svg>
               </div>
               <div
-                class="h-full flex-grow min-h-10 ms-2 flex flex-col box-border justify-center items-stretch gap-1.5 text-inherit"
+                class="h-full flex-grow min-h-10 flex flex-col box-border justify-center ms-0 items-stretch gap-1.5 text-inherit"
               >
                 <div
-                  class="text-small w-full font-medium block leading-5 text-inherit"
+                  class="pl-[1px] text-small font-normal text-foreground"
                 >
                   <span>
                     Message with 
@@ -2210,7 +2191,7 @@ exports[`Story Snapshots > WithLongContent 1`] = `
             data-title=""
           >
             <div
-              class="flex flex-grow flex-row w-full items-center py-3 px-4 gap-x-1 border-small rounded-medium text-danger-600 dark:text-danger-500 border-danger-200 dark:border-danger-100 min-w-72 bg-danger-50 dark:bg-danger-50"
+              class="flex flex-grow flex-row w-full items-center py-3 px-4 border-small rounded-medium text-danger-600 dark:text-danger-500 border-danger-200 dark:border-danger-100 min-w-72 gap-3 bg-danger-50 dark:bg-danger-50"
               data-closeable="true"
               data-has-description="true"
               data-has-title="true"
@@ -2235,7 +2216,7 @@ exports[`Story Snapshots > WithLongContent 1`] = `
                 </svg>
               </div>
               <div
-                class="h-full flex-grow min-h-10 ms-2 flex flex-col box-border text-inherit justify-center items-stretch gap-1.5"
+                class="h-full flex-grow min-h-10 flex flex-col box-border text-inherit justify-center ms-0 items-stretch gap-1.5"
               >
                 <div
                   class="text-small w-full font-medium block text-inherit leading-5"
