@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.11.3](https://github.com/fuf-stack/pixels/compare/pixels-v1.11.2...pixels-v1.11.3) (2026-06-06)
+
+
+### Bug Fixes
+
+* **pixels:** fix Alert default style ([2028f43](https://github.com/fuf-stack/pixels/commit/2028f43b85ed4cdde979cecb9c7d3719a9b4d770))
+* **pixels:** fix toast snap ([d60bedb](https://github.com/fuf-stack/pixels/commit/d60bedb9aec6f2106de729a997604d254bb8430e))
+* **pixels:** improve Alert styles and stories ([d0aec48](https://github.com/fuf-stack/pixels/commit/d0aec4811477fd1852da3d7226dd88b324214b39))
+
 ## [1.11.2](https://github.com/fuf-stack/pixels/compare/pixels-v1.11.1...pixels-v1.11.2) (2026-06-04)
 
 
