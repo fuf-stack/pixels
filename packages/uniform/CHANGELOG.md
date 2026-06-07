@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.24.1](https://github.com/fuf-stack/pixels/compare/uniform-v1.24.0...uniform-v1.24.1) (2026-06-07)
+
+
+### Bug Fixes
+
+* **deps:** update dependency react-hook-form to v7.77.0 ([#1716](https://github.com/fuf-stack/pixels/issues/1716)) ([14943f9](https://github.com/fuf-stack/pixels/commit/14943f9dd0032c4c68dffab25f24b27ad572ad9a))
+* **uniform:** pass refs in DatePicker and Time ([a91f86d](https://github.com/fuf-stack/pixels/commit/a91f86d6aba4ee7674c2c22c6aa2a4974ea5bab0))
+
 ## [1.24.0](https://github.com/fuf-stack/pixels/compare/uniform-v1.23.2...uniform-v1.24.0) (2026-06-07)
 
 
