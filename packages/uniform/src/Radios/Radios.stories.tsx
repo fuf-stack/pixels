@@ -153,3 +153,63 @@ export const Invalid: Story = {
     });
   },
 };
+
+const cardValidation = veto({
+  radiosField: string().refine((value) => {
+    return typeof value === 'string' && value.length > 0;
+  }, 'Please pick one quest'),
+});
+
+export const CustomOptionsRendering: Story = {
+  parameters: {
+    formProps: { validation: cardValidation },
+  },
+  args: {
+    label: 'Pick one side quest',
+    name: 'radiosField',
+    className: {
+      wrapper: 'rounded-lg border border-divider bg-content1',
+      itemBase: 'm-2 w-full',
+    },
+    options: [
+      {
+        label: 'Treasure Hunt 🗺️',
+        value: 'treasure-hunt',
+        meta: { danger: 'low' },
+      },
+      {
+        label: 'Potion Brewing 🧪',
+        value: 'potion-brewing',
+        meta: { danger: 'medium' },
+      },
+      {
+        label: 'Dragon Negotiation 🐉',
+        value: 'dragon-negotiation',
+        meta: { danger: 'high' },
+      },
+    ],
+  },
+  render: (renderArgs) => {
+    return (
+      <Radios {...renderArgs}>
+        {(options) => {
+          return (
+            <div className="divide-y divide-default-200">
+              {options.map(({ option, radio }) => {
+                return <div key={option.value}>{radio}</div>;
+              })}
+            </div>
+          );
+        }}
+      </Radios>
+    );
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    await userEvent.click(canvas.getByText('Submit'));
+    await waitFor(() => {
+      expect(canvas.getByTestId('radiosfield_error')).toBeVisible();
+    });
+  },
+};

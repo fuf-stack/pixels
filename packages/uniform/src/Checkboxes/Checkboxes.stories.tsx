@@ -324,3 +324,61 @@ export const WithTransformComplexObjects: Story = {
     },
   },
 };
+
+const customOptionsRenderingValidation = veto({
+  checkboxField: array(string()).min(1),
+});
+
+export const CustomOptionsRendering: Story = {
+  parameters: {
+    formProps: { validation: customOptionsRenderingValidation },
+  },
+  args: {
+    label: 'Pick your side quest',
+    name: 'checkboxField',
+    className: {
+      wrapper: 'rounded-lg border border-divider bg-content1',
+      optionBase: 'my-0 mx-2 w-full',
+    },
+    options: [
+      {
+        label: 'Treasure Hunt 🗺️',
+        labelSubline: 'Follow questionable map directions',
+        value: 'treasure-hunt',
+      },
+      {
+        label: 'Potion Brewing 🧪',
+        labelSubline: 'Probably safe at room temperature',
+        value: 'potion-brewing',
+      },
+      {
+        label: 'Dragon Negotiation 🐉',
+        labelSubline: 'Bring snacks and stay polite',
+        value: 'dragon-negotiation',
+      },
+    ],
+  },
+  render: (renderArgs) => {
+    return (
+      <Checkboxes {...renderArgs}>
+        {(options) => {
+          return (
+            <div className="divide-y divide-default-200">
+              {options.map(({ option, checkbox }) => {
+                return <div key={option.value}>{checkbox}</div>;
+              })}
+            </div>
+          );
+        }}
+      </Checkboxes>
+    );
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    await userEvent.click(canvas.getByText('Submit'));
+    await waitFor(() => {
+      expect(canvas.getByTestId('checkboxfield_error')).toBeVisible();
+    });
+  },
+};

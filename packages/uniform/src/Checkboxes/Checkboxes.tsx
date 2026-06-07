@@ -68,6 +68,8 @@ export interface CheckboxOption {
   label?: ReactNode;
   /** subline displayed below the label */
   labelSubline?: ReactNode;
+  /** Arbitrary option metadata for custom render logic. */
+  meta?: Record<string, unknown>;
   /** option value */
   value: string;
   /** disables the option */
@@ -76,9 +78,27 @@ export interface CheckboxOption {
   testId?: string;
 }
 
+interface ChildRenderOption {
+  /** Prebuilt checkbox element so consumers don't need to recreate HeroCheckbox */
+  checkbox: ReactNode;
+  /** Option data as provided in `options` */
+  option: CheckboxOption;
+  /** Render-state flags for this option */
+  state: {
+    /** Whether this option is currently selected */
+    checked: boolean;
+    /** Whether this option is disabled */
+    disabled: boolean;
+    /** Whether the checkbox group is invalid */
+    invalid: boolean;
+  };
+}
+
 export interface CheckboxesProps extends VariantProps {
   /** Custom aria-label for accessibility. If not provided, falls back to field name when no visible label exists */
   ariaLabel?: string;
+  /** Optional child render function for custom full-list layout rendering. */
+  children?: (options: ChildRenderOption[]) => ReactNode;
   /** CSS class name */
   className?: ClassName;
   /** Color scheme of the checkboxes */
@@ -95,6 +115,7 @@ export interface CheckboxesProps extends VariantProps {
   name: string;
   /** Checkboxes that should be displayed. */
   options: CheckboxOption[];
+
   /** HTML data-testid attribute used in e2e tests */
   testId?: string;
   /** allows disentangled display and form values for a field */
@@ -105,12 +126,13 @@ export interface CheckboxesProps extends VariantProps {
  * Checkboxes component based on [HeroUI CheckboxGroup](https://www.heroui.com//docs/components/checkbox-group)
  */
 const Checkboxes = ({
+  children = undefined,
   className = undefined,
   color = 'primary',
   inline = false,
   lineThrough = false,
-  options,
   name,
+  options,
   ...uniformFieldProps
 }: CheckboxesProps) => {
   const {
@@ -130,7 +152,7 @@ const Checkboxes = ({
   });
 
   // Ensure value is always an array (checkboxes need arrays)
-  const value = Array.isArray(fieldValue) ? fieldValue : [];
+  const value = Array.isArray(fieldValue) ? (fieldValue as string[]) : [];
 
   // classNames from slots
   const variants = checkboxesVariants({ lineThrough });
@@ -148,6 +170,62 @@ const Checkboxes = ({
     label: classNames.optionLabel,
     wrapper: classNames.optionWrapper,
   };
+
+  // Build option descriptors once so default and custom layouts share the same checkbox nodes/state.
+  const renderedOptions = options?.map((option) => {
+    const optionTestId = slugify(
+      `${testId}_option_${option?.testId ?? option?.value}`,
+      {
+        replaceDots: true,
+      },
+    );
+
+    // set content and classes depending option has subline
+    const hasSubline = !!option.labelSubline;
+    let labelContent: ReactNode;
+    let optionClassNames = heroCheckboxClassNames;
+    if (hasSubline) {
+      labelContent = (
+        <div className="flex grow flex-col items-start">
+          <span className={classNames.optionLabel}>{option.label}</span>
+          <span className={classNames.optionLabelSubline}>
+            {option.labelSubline}
+          </span>
+        </div>
+      );
+      // remove label classes from outer label when subline is used
+      optionClassNames = { ...optionClassNames, label: '' };
+    } else {
+      labelContent = option.label;
+    }
+
+    const optionIsDisabled = !!disabled || !!option.disabled;
+    const checkbox = (
+      <HeroCheckbox
+        key={`index_${option.value}`}
+        aria-label={
+          typeof option.label === 'string' ? option.label : option.value
+        }
+        classNames={optionClassNames}
+        data-invalid={invalid}
+        data-testid={optionTestId}
+        isDisabled={optionIsDisabled}
+        value={option?.value}
+      >
+        {labelContent}
+      </HeroCheckbox>
+    );
+
+    return {
+      checkbox,
+      option,
+      state: {
+        checked: value.includes(option.value),
+        disabled: optionIsDisabled,
+        invalid: !!invalid,
+      },
+    };
+  });
 
   return (
     <HeroCheckboxGroup
@@ -170,47 +248,12 @@ const Checkboxes = ({
       orientation={inline ? 'horizontal' : 'vertical'}
       value={value}
     >
-      {options?.map((option) => {
-        const optionTestId = slugify(
-          `${testId}_option_${option?.testId ?? option?.value}`,
-          { replaceDots: true },
-        );
-
-        // set content and classes depending option has subline
-        const hasSubline = !!option.labelSubline;
-        let labelContent: ReactNode;
-        let optionClassNames = heroCheckboxClassNames;
-        if (hasSubline) {
-          labelContent = (
-            <div className="flex grow flex-col items-start">
-              <span className={classNames.optionLabel}>{option.label}</span>
-              <span className={classNames.optionLabelSubline}>
-                {option.labelSubline}
-              </span>
-            </div>
-          );
-          // remove label classes from outer label when subline is used
-          optionClassNames = { ...optionClassNames, label: '' };
-        } else {
-          labelContent = option.label;
-        }
-
-        return (
-          <HeroCheckbox
-            key={`index_${option.value}`}
-            aria-label={
-              typeof option.label === 'string' ? option.label : option.value
-            }
-            classNames={optionClassNames}
-            data-invalid={invalid}
-            data-testid={optionTestId}
-            isDisabled={!!disabled || option.disabled}
-            value={option?.value}
-          >
-            {labelContent}
-          </HeroCheckbox>
-        );
-      })}
+      {/* Child render function can fully control list layout; fallback keeps default rendering. */}
+      {children
+        ? children(renderedOptions ?? [])
+        : renderedOptions?.map(({ checkbox }) => {
+            return checkbox;
+          })}
     </HeroCheckboxGroup>
   );
 };

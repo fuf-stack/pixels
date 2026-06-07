@@ -21,11 +21,12 @@ export const radiosVariants = tv({
       // Keep spacing between label/group consistent.
       'gap-y-1.5',
     ],
+    errorMessage: '',
     itemBase: '',
     itemControl: 'bg-focus group-data-[invalid=true]:bg-danger',
     itemDescription: '',
     itemLabel: 'text-sm',
-    itemLabelWrapper: '',
+    itemLabelWrapper: 'ml-2',
     itemWrapper:
       'group-data-[invalid=true]:border-danger! [&:not(group-data-[invalid="true"]):not(group-data-[selected="false"])]:border-focus',
     // e.g.: https://github.com/heroui-inc/heroui/blob/main/packages/core/theme/src/components/select.ts
@@ -45,15 +46,35 @@ export interface RadioOption {
   label?: ReactNode;
   /** option icon */
   icon?: ReactNode;
+  /** Arbitrary option metadata for custom render logic. */
+  meta?: Record<string, unknown>;
   /** HTML data-testid attribute of the option */
   testId?: string;
   /** option value */
   value: string | number;
 }
 
+export interface RadioRenderedOption {
+  /** Prebuilt radio element so consumers don't need to recreate HeroRadio */
+  radio: ReactNode;
+  /** Option data as provided in `options` */
+  option: RadioOption;
+  /** Render-state flags for this option */
+  state: {
+    /** Whether this option is currently selected */
+    selected: boolean;
+    /** Whether this option is disabled */
+    disabled: boolean;
+    /** Whether the radio group is invalid */
+    invalid: boolean;
+  };
+}
+
 export interface RadiosProps extends VariantProps {
   /** Custom aria-label for accessibility. If not provided, falls back to field name when no visible label exists */
   ariaLabel?: string;
+  /** Optional child render function for custom full-list layout rendering. */
+  children?: (options: RadioRenderedOption[]) => ReactNode;
   /** CSS class name */
   className?: ClassName;
   /** Determines if the Buttons are disabled or not. */
@@ -74,6 +95,7 @@ export interface RadiosProps extends VariantProps {
  * Radios component based on [HeroUI RadioGroup](https://www.heroui.com//docs/components/radio-group)
  */
 const Radios = ({
+  children = undefined,
   className = undefined,
   inline = false,
   name,
@@ -110,6 +132,39 @@ const Radios = ({
     wrapper: classNames.itemWrapper,
   };
 
+  const selectedValue = value != null ? String(value) : '';
+
+  // Build option descriptors once so default and custom layouts share the same radio nodes/state.
+  const renderedOptions = options.map((option) => {
+    const optionTestId = slugify(
+      `${testId}_option_${option.testId ?? option.value}`,
+      { replaceDots: true },
+    );
+    const optionIsDisabled = !!disabled || !!option.disabled;
+    const optionValue = String(option.value);
+    const radio = (
+      <HeroRadio
+        key={optionValue}
+        classNames={itemClassNames}
+        data-testid={optionTestId}
+        isDisabled={optionIsDisabled}
+        value={optionValue}
+      >
+        {option.label ?? option.value}
+      </HeroRadio>
+    );
+
+    return {
+      option,
+      radio,
+      state: {
+        selected: selectedValue === optionValue,
+        disabled: optionIsDisabled,
+        invalid: !!invalid,
+      },
+    };
+  });
+
   return (
     <HeroRadioGroup
       ref={ref}
@@ -131,28 +186,14 @@ const Radios = ({
         onChange(convertToOriginalType(newValue));
       }}
       orientation={inline ? 'horizontal' : 'vertical'}
-      value={value != null ? String(value) : ''}
+      value={selectedValue}
     >
-      {options.map((option) => {
-        if ('value' in option) {
-          const optionTestId = slugify(
-            `${testId}_option_${option.testId ?? option.value}`,
-            { replaceDots: true },
-          );
-          return (
-            <HeroRadio
-              key={String(option.value)}
-              classNames={itemClassNames}
-              data-testid={optionTestId}
-              isDisabled={!!disabled || option.disabled}
-              value={String(option.value)}
-            >
-              {option.label ?? option.value}
-            </HeroRadio>
-          );
-        }
-        return null;
-      })}
+      {/* Child render function can fully control list layout; fallback keeps default rendering. */}
+      {children
+        ? children(renderedOptions)
+        : renderedOptions.map(({ radio }) => {
+            return radio;
+          })}
     </HeroRadioGroup>
   );
 };
