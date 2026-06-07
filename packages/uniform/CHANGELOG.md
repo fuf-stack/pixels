@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.24.0](https://github.com/fuf-stack/pixels/compare/uniform-v1.23.2...uniform-v1.24.0) (2026-06-07)
+
+
+### Features
+
+* **uniform:** add custom option rendering for checkboxes and radios ([9a1398c](https://github.com/fuf-stack/pixels/commit/9a1398cf6e9ffb841d484404a537e1568cd7163f))
+
+
+### Bug Fixes
+
+* **uniform:** remove snaps ([3fd30d4](https://github.com/fuf-stack/pixels/commit/3fd30d4ff069dc85aa521faf3972f7b07ff5808e))
+
 ## [1.23.2](https://github.com/fuf-stack/pixels/compare/uniform-v1.23.1...uniform-v1.23.2) (2026-06-06)
 
 
