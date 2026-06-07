@@ -116,7 +116,7 @@ const DatePicker = ({
     ariaLabel,
     disabled,
     errorMessage,
-    field: { onBlur, onChange, value },
+    field: { onBlur, onChange, ref, value },
     invalid,
     label,
     required,
@@ -170,6 +170,7 @@ const DatePicker = ({
 
   return (
     <HeroDatePicker
+      ref={ref}
       aria-label={label ? undefined : ariaLabel}
       classNames={{
         base: classNames.base,

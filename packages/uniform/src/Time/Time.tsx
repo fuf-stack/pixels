@@ -87,7 +87,7 @@ const Time = ({
     ariaLabel,
     disabled,
     errorMessage,
-    field: { onBlur, onChange, value },
+    field: { onBlur, onChange, ref, value },
     invalid,
     label,
     required,
@@ -148,6 +148,7 @@ const Time = ({
 
   return (
     <HeroTimeInput
+      ref={ref}
       aria-label={label ? undefined : ariaLabel}
       classNames={{
         base: classNames.base,
