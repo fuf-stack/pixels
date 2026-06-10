@@ -55,6 +55,10 @@ publicHoistPattern:
 # Repo docs: ./docs/pnpm-overrides.md
 # Docs: https://pnpm.io/settings#overrides
 overrides:
-  # Force a single copy so Tailwind Merge and Tailwind Variants are used consistently.
+  # Keep a single Tailwind Merge + Tailwind Variants pair across the workspace.
+  # If multiple copies are installed (same tv version but different tailwind-merge),
+  # tv(..., { extend }) can merge classes inconsistently across packages and drop
+  # variant classes (e.g. bordered/ghost/faded losing `border-medium` in snapshots).
+  # Pinning both avoids that split runtime behavior.
   tailwind-merge: 3.6.0
   tailwind-variants: 3.2.2
