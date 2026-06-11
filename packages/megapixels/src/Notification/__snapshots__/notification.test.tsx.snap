@@ -15,7 +15,7 @@ exports[`Story Snapshots > CustomWidth 1`] = `
       data-x-position="right"
       data-y-position="bottom"
       dir="ltr"
-      style="--front-toast-height: 0px; --width: 600px; --gap: 14px; z-index: 40; --offset-top: 24px; --offset-right: 24px; --offset-bottom: 24px; --offset-left: 24px; --mobile-offset-top: 16px; --mobile-offset-right: 16px; --mobile-offset-bottom: 16px; --mobile-offset-left: 16px;"
+      style="--front-toast-height: 0px; --width: 600px; --gap: 14px; z-index: 60; --offset-top: 24px; --offset-right: 24px; --offset-bottom: 24px; --offset-left: 24px; --mobile-offset-top: 16px; --mobile-offset-right: 16px; --mobile-offset-bottom: 16px; --mobile-offset-left: 16px;"
       tabindex="-1"
     />
     <ol
@@ -24,7 +24,7 @@ exports[`Story Snapshots > CustomWidth 1`] = `
       data-x-position="center"
       data-y-position="top"
       dir="ltr"
-      style="--front-toast-height: 0px; --width: 600px; --gap: 14px; z-index: 40; --offset-top: 24px; --offset-right: 24px; --offset-bottom: 24px; --offset-left: 24px; --mobile-offset-top: 16px; --mobile-offset-right: 16px; --mobile-offset-bottom: 16px; --mobile-offset-left: 16px;"
+      style="--front-toast-height: 0px; --width: 600px; --gap: 14px; z-index: 60; --offset-top: 24px; --offset-right: 24px; --offset-bottom: 24px; --offset-left: 24px; --mobile-offset-top: 16px; --mobile-offset-right: 16px; --mobile-offset-bottom: 16px; --mobile-offset-left: 16px;"
       tabindex="-1"
     >
       <li
@@ -184,7 +184,7 @@ exports[`Story Snapshots > Simple 1`] = `
       data-x-position="right"
       data-y-position="bottom"
       dir="ltr"
-      style="--front-toast-height: 0px; --width: 600px; --gap: 14px; z-index: 40; --offset-top: 24px; --offset-right: 24px; --offset-bottom: 24px; --offset-left: 24px; --mobile-offset-top: 16px; --mobile-offset-right: 16px; --mobile-offset-bottom: 16px; --mobile-offset-left: 16px;"
+      style="--front-toast-height: 0px; --width: 600px; --gap: 14px; z-index: 60; --offset-top: 24px; --offset-right: 24px; --offset-bottom: 24px; --offset-left: 24px; --mobile-offset-top: 16px; --mobile-offset-right: 16px; --mobile-offset-bottom: 16px; --mobile-offset-left: 16px;"
       tabindex="-1"
     />
     <ol
@@ -193,7 +193,7 @@ exports[`Story Snapshots > Simple 1`] = `
       data-x-position="center"
       data-y-position="top"
       dir="ltr"
-      style="--front-toast-height: 0px; --width: 600px; --gap: 14px; z-index: 40; --offset-top: 24px; --offset-right: 24px; --offset-bottom: 24px; --offset-left: 24px; --mobile-offset-top: 16px; --mobile-offset-right: 16px; --mobile-offset-bottom: 16px; --mobile-offset-left: 16px;"
+      style="--front-toast-height: 0px; --width: 600px; --gap: 14px; z-index: 60; --offset-top: 24px; --offset-right: 24px; --offset-bottom: 24px; --offset-left: 24px; --mobile-offset-top: 16px; --mobile-offset-right: 16px; --mobile-offset-bottom: 16px; --mobile-offset-left: 16px;"
       tabindex="-1"
     >
       <li
@@ -301,6 +301,233 @@ exports[`Story Snapshots > Simple 1`] = `
 </div>
 `;
 
+exports[`Story Snapshots > StackingOverModal 1`] = `
+<body>
+  <div
+    aria-hidden="true"
+  >
+    <section
+      aria-atomic="false"
+      aria-label="Notifications alt+T"
+      aria-live="polite"
+      aria-relevant="additions text"
+      tabindex="-1"
+    >
+      <ol
+        data-sonner-theme="light"
+        data-sonner-toaster="true"
+        data-x-position="right"
+        data-y-position="bottom"
+        dir="ltr"
+        style="--front-toast-height: 0px; --width: 600px; --gap: 14px; z-index: 60; --offset-top: 24px; --offset-right: 24px; --offset-bottom: 24px; --offset-left: 24px; --mobile-offset-top: 16px; --mobile-offset-right: 16px; --mobile-offset-bottom: 16px; --mobile-offset-left: 16px;"
+        tabindex="-1"
+      />
+      <ol
+        data-sonner-theme="light"
+        data-sonner-toaster="true"
+        data-x-position="center"
+        data-y-position="top"
+        dir="ltr"
+        style="--front-toast-height: 0px; --width: 600px; --gap: 14px; z-index: 60; --offset-top: 24px; --offset-right: 24px; --offset-bottom: 24px; --offset-left: 24px; --mobile-offset-top: 16px; --mobile-offset-right: 16px; --mobile-offset-bottom: 16px; --mobile-offset-left: 16px;"
+        tabindex="-1"
+      >
+        <li
+          class="w-[var(--width)]"
+          data-dismissible="true"
+          data-expanded="false"
+          data-front="true"
+          data-index="0"
+          data-mounted="true"
+          data-promise="false"
+          data-removed="false"
+          data-sonner-toast=""
+          data-styled="false"
+          data-swipe-out="false"
+          data-swiped="false"
+          data-swiping="false"
+          data-visible="true"
+          data-x-position="center"
+          data-y-position="top"
+          style="--index: 0; --toasts-before: 0; --z-index: 1; --offset: 0px; --initial-height: 0px;"
+          tabindex="0"
+        >
+          <div
+            class=""
+            data-content=""
+          >
+            <div
+              class=""
+              data-title=""
+            >
+              <div
+                class="flex flex-grow flex-row w-full items-center py-3 px-4 rounded-medium min-w-72 gap-3 border-small border-info-200 bg-info-50 text-info-600 dark:border-info-100 dark:bg-info-50"
+                data-has-description="true"
+                data-has-title="true"
+                data-visible="true"
+                role="alert"
+                title="Notification"
+              >
+                <div
+                  class="flex-none relative w-9 h-9 rounded-full grid place-items-center shadow-small border-1 self-start border-info-100 bg-info-50 dark:bg-info-100"
+                >
+                  <svg
+                    class="fill-current w-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+                    fill="none"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M12 22C17.51 22 22 17.51 22 12C22 6.49 17.51 2 12 2C6.49 2 2 6.49 2 12C2 17.51 6.49 22 12 22ZM12.75 16C12.75 16.41 12.41 16.75 12 16.75C11.59 16.75 11.25 16.41 11.25 16L11.25 11C11.25 10.59 11.59 10.25 12 10.25C12.41 10.25 12.75 10.59 12.75 11L12.75 16ZM11.08 7.62C11.13 7.49 11.2 7.39 11.29 7.29C11.39 7.2 11.5 7.13 11.62 7.08C11.74 7.03 11.87 7 12 7C12.13 7 12.26 7.03 12.38 7.08C12.5 7.13 12.61 7.2 12.71 7.29C12.8 7.39 12.87 7.49 12.92 7.62C12.97 7.74 13 7.87 13 8C13 8.13 12.97 8.26 12.92 8.38C12.87 8.5 12.8 8.61 12.71 8.71C12.61 8.8 12.5 8.87 12.38 8.92C12.14 9.02 11.86 9.02 11.62 8.92C11.5 8.87 11.39 8.8 11.29 8.71C11.2 8.61 11.13 8.5 11.08 8.38C11.03 8.26 11 8.13 11 8C11 7.87 11.03 7.74 11.08 7.62Z"
+                    />
+                  </svg>
+                </div>
+                <div
+                  class="h-full flex-grow min-h-10 flex flex-col box-border justify-center ms-0 items-stretch gap-1.5 text-inherit"
+                >
+                  <div
+                    class="text-small w-full font-medium block leading-5 text-inherit"
+                  >
+                    Notification
+                  </div>
+                  <div
+                    class="pl-[1px] text-small font-normal text-foreground"
+                  >
+                    A notification on top of the modal.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ol>
+    </section>
+    <button
+      class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
+      data-react-aria-pressable="true"
+      tabindex="0"
+      type="button"
+    >
+      Open modal
+    </button>
+  </div>
+  <span
+    aria-hidden="true"
+    data-focus-scope-start="true"
+    hidden=""
+  />
+  <div
+    tabindex="-1"
+  >
+    <div
+      aria-hidden="true"
+      class="z-50 bg-overlay/50 backdrop-opacity-disabled w-screen h-screen fixed inset-0"
+    />
+    <div
+      class="flex w-screen fixed inset-0 z-50 overflow-x-auto justify-center h-(--visual-viewport-height) items-center sm:items-center"
+      data-slot="wrapper"
+      style="--visual-viewport-height: 768px;"
+    >
+      <section
+        aria-describedby="«replaced-aria-id»"
+        aria-labelledby="«replaced-aria-id»"
+        aria-modal="true"
+        class="flex flex-col relative z-50 w-full box-border bg-content1 outline-solid outline-transparent mx-1 my-1 sm:mx-6 sm:my-16 rounded-large shadow-small max-h-[calc(100%_-_8rem)] max-w-md"
+        data-dismissable="true"
+        data-open="true"
+        data-placement="center"
+        data-testid="modal"
+        id="«replaced-aria-id»"
+        role="dialog"
+        tabindex="-1"
+      >
+        <div
+          style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+        >
+          <button
+            aria-label="Dismiss"
+            id="react-aria-«replaced-aria-id»"
+            style="width: 1px; height: 1px;"
+            tabindex="-1"
+          />
+        </div>
+        <button
+          aria-label="Close"
+          class="absolute appearance-none select-none top-1 end-1 p-2 text-foreground-500 rounded-full hover:bg-default-100 active:bg-default-200 tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2"
+          data-react-aria-pressable="true"
+          role="button"
+          tabindex="0"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            class="fill-current"
+            fill="none"
+            focusable="false"
+            height="1em"
+            role="presentation"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="1em"
+          >
+            <path
+              d="M18 6L6 18M6 6l12 12"
+            />
+          </svg>
+        </button>
+        <header
+          class="flex py-4 px-6 flex-initial text-large font-semibold border-b border-b-divider"
+          id="«replaced-aria-id»"
+        >
+          Normal modal
+        </header>
+        <div
+          class="flex flex-1 flex-col gap-3 px-6 overflow-y-auto py-4"
+          id="modal_body"
+        >
+          <div
+            class="space-y-3"
+          >
+            <p>
+              I am a normal modal (z-50).
+            </p>
+            <button
+              class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
+              data-focus="true"
+              data-hover="true"
+              data-react-aria-pressable="true"
+              tabindex="0"
+              type="button"
+            >
+              Show notification
+            </button>
+          </div>
+        </div>
+        <div
+          style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+        >
+          <button
+            aria-label="Dismiss"
+            id="react-aria-«replaced-aria-id»"
+            style="width: 1px; height: 1px;"
+            tabindex="-1"
+          />
+        </div>
+      </section>
+    </div>
+  </div>
+  <span
+    aria-hidden="true"
+    data-focus-scope-end="true"
+    hidden=""
+  />
+</body>
+`;
+
 exports[`Story Snapshots > Variants 1`] = `
 <div>
   <section
@@ -316,7 +543,7 @@ exports[`Story Snapshots > Variants 1`] = `
       data-x-position="right"
       data-y-position="bottom"
       dir="ltr"
-      style="--front-toast-height: 0px; --width: 600px; --gap: 14px; z-index: 40; --offset-top: 24px; --offset-right: 24px; --offset-bottom: 24px; --offset-left: 24px; --mobile-offset-top: 16px; --mobile-offset-right: 16px; --mobile-offset-bottom: 16px; --mobile-offset-left: 16px;"
+      style="--front-toast-height: 0px; --width: 600px; --gap: 14px; z-index: 60; --offset-top: 24px; --offset-right: 24px; --offset-bottom: 24px; --offset-left: 24px; --mobile-offset-top: 16px; --mobile-offset-right: 16px; --mobile-offset-bottom: 16px; --mobile-offset-left: 16px;"
       tabindex="-1"
     />
     <ol
@@ -325,7 +552,7 @@ exports[`Story Snapshots > Variants 1`] = `
       data-x-position="center"
       data-y-position="top"
       dir="ltr"
-      style="--front-toast-height: 0px; --width: 600px; --gap: 14px; z-index: 40; --offset-top: 24px; --offset-right: 24px; --offset-bottom: 24px; --offset-left: 24px; --mobile-offset-top: 16px; --mobile-offset-right: 16px; --mobile-offset-bottom: 16px; --mobile-offset-left: 16px;"
+      style="--front-toast-height: 0px; --width: 600px; --gap: 14px; z-index: 60; --offset-top: 24px; --offset-right: 24px; --offset-bottom: 24px; --offset-left: 24px; --mobile-offset-top: 16px; --mobile-offset-right: 16px; --mobile-offset-bottom: 16px; --mobile-offset-left: 16px;"
       tabindex="-1"
     >
       <li
@@ -771,7 +998,7 @@ exports[`Story Snapshots > WithActionButton 1`] = `
       data-x-position="right"
       data-y-position="bottom"
       dir="ltr"
-      style="--front-toast-height: 0px; --width: 600px; --gap: 14px; z-index: 40; --offset-top: 24px; --offset-right: 24px; --offset-bottom: 24px; --offset-left: 24px; --mobile-offset-top: 16px; --mobile-offset-right: 16px; --mobile-offset-bottom: 16px; --mobile-offset-left: 16px;"
+      style="--front-toast-height: 0px; --width: 600px; --gap: 14px; z-index: 60; --offset-top: 24px; --offset-right: 24px; --offset-bottom: 24px; --offset-left: 24px; --mobile-offset-top: 16px; --mobile-offset-right: 16px; --mobile-offset-bottom: 16px; --mobile-offset-left: 16px;"
       tabindex="-1"
     />
     <ol
@@ -780,7 +1007,7 @@ exports[`Story Snapshots > WithActionButton 1`] = `
       data-x-position="center"
       data-y-position="top"
       dir="ltr"
-      style="--front-toast-height: 0px; --width: 600px; --gap: 14px; z-index: 40; --offset-top: 24px; --offset-right: 24px; --offset-bottom: 24px; --offset-left: 24px; --mobile-offset-top: 16px; --mobile-offset-right: 16px; --mobile-offset-bottom: 16px; --mobile-offset-left: 16px;"
+      style="--front-toast-height: 0px; --width: 600px; --gap: 14px; z-index: 60; --offset-top: 24px; --offset-right: 24px; --offset-bottom: 24px; --offset-left: 24px; --mobile-offset-top: 16px; --mobile-offset-right: 16px; --mobile-offset-bottom: 16px; --mobile-offset-left: 16px;"
       tabindex="-1"
     >
       <li
@@ -926,7 +1153,7 @@ exports[`Story Snapshots > WithErrorModal 1`] = `
         data-x-position="right"
         data-y-position="bottom"
         dir="ltr"
-        style="--front-toast-height: 0px; --width: 600px; --gap: 14px; z-index: 40; --offset-top: 24px; --offset-right: 24px; --offset-bottom: 24px; --offset-left: 24px; --mobile-offset-top: 16px; --mobile-offset-right: 16px; --mobile-offset-bottom: 16px; --mobile-offset-left: 16px;"
+        style="--front-toast-height: 0px; --width: 600px; --gap: 14px; z-index: 60; --offset-top: 24px; --offset-right: 24px; --offset-bottom: 24px; --offset-left: 24px; --mobile-offset-top: 16px; --mobile-offset-right: 16px; --mobile-offset-bottom: 16px; --mobile-offset-left: 16px;"
         tabindex="-1"
       />
       <ol
@@ -935,7 +1162,7 @@ exports[`Story Snapshots > WithErrorModal 1`] = `
         data-x-position="center"
         data-y-position="top"
         dir="ltr"
-        style="--front-toast-height: 0px; --width: 600px; --gap: 14px; z-index: 40; --offset-top: 24px; --offset-right: 24px; --offset-bottom: 24px; --offset-left: 24px; --mobile-offset-top: 16px; --mobile-offset-right: 16px; --mobile-offset-bottom: 16px; --mobile-offset-left: 16px;"
+        style="--front-toast-height: 0px; --width: 600px; --gap: 14px; z-index: 60; --offset-top: 24px; --offset-right: 24px; --offset-bottom: 24px; --offset-left: 24px; --mobile-offset-top: 16px; --mobile-offset-right: 16px; --mobile-offset-bottom: 16px; --mobile-offset-left: 16px;"
         tabindex="-1"
       >
         <li
@@ -1068,10 +1295,10 @@ exports[`Story Snapshots > WithErrorModal 1`] = `
   >
     <div
       aria-hidden="true"
-      class="z-50 bg-overlay/50 backdrop-opacity-disabled w-screen h-screen fixed inset-0"
+      class="bg-overlay/50 backdrop-opacity-disabled w-screen h-screen fixed inset-0 z-[70]"
     />
     <div
-      class="flex w-screen fixed inset-0 z-50 overflow-x-auto justify-center h-(--visual-viewport-height) items-center sm:items-center"
+      class="flex w-screen fixed inset-0 overflow-x-auto justify-center h-(--visual-viewport-height) items-center sm:items-center z-[70]"
       data-slot="wrapper"
       style="--visual-viewport-height: 768px;"
     >
@@ -1188,7 +1415,7 @@ exports[`Story Snapshots > WithLargeMoreContentModal 1`] = `
         data-x-position="right"
         data-y-position="bottom"
         dir="ltr"
-        style="--front-toast-height: 0px; --width: 600px; --gap: 14px; z-index: 40; --offset-top: 24px; --offset-right: 24px; --offset-bottom: 24px; --offset-left: 24px; --mobile-offset-top: 16px; --mobile-offset-right: 16px; --mobile-offset-bottom: 16px; --mobile-offset-left: 16px;"
+        style="--front-toast-height: 0px; --width: 600px; --gap: 14px; z-index: 60; --offset-top: 24px; --offset-right: 24px; --offset-bottom: 24px; --offset-left: 24px; --mobile-offset-top: 16px; --mobile-offset-right: 16px; --mobile-offset-bottom: 16px; --mobile-offset-left: 16px;"
         tabindex="-1"
       />
       <ol
@@ -1197,7 +1424,7 @@ exports[`Story Snapshots > WithLargeMoreContentModal 1`] = `
         data-x-position="center"
         data-y-position="top"
         dir="ltr"
-        style="--front-toast-height: 0px; --width: 600px; --gap: 14px; z-index: 40; --offset-top: 24px; --offset-right: 24px; --offset-bottom: 24px; --offset-left: 24px; --mobile-offset-top: 16px; --mobile-offset-right: 16px; --mobile-offset-bottom: 16px; --mobile-offset-left: 16px;"
+        style="--front-toast-height: 0px; --width: 600px; --gap: 14px; z-index: 60; --offset-top: 24px; --offset-right: 24px; --offset-bottom: 24px; --offset-left: 24px; --mobile-offset-top: 16px; --mobile-offset-right: 16px; --mobile-offset-bottom: 16px; --mobile-offset-left: 16px;"
         tabindex="-1"
       >
         <li
@@ -1303,10 +1530,10 @@ exports[`Story Snapshots > WithLargeMoreContentModal 1`] = `
   >
     <div
       aria-hidden="true"
-      class="z-50 bg-overlay/50 backdrop-opacity-disabled w-screen h-screen fixed inset-0"
+      class="bg-overlay/50 backdrop-opacity-disabled w-screen h-screen fixed inset-0 z-[70]"
     />
     <div
-      class="flex w-screen fixed inset-0 z-50 overflow-x-auto justify-center h-(--visual-viewport-height) items-center sm:items-center"
+      class="flex w-screen fixed inset-0 overflow-x-auto justify-center h-(--visual-viewport-height) items-center sm:items-center z-[70]"
       data-slot="wrapper"
       style="--visual-viewport-height: 768px;"
     >
