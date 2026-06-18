@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.12.0](https://github.com/fuf-stack/pixels/compare/megapixels-v0.11.36...megapixels-v0.12.0) (2026-06-17)
+
+
+### Features
+
+* **megapixels:** added notification Toast over Modal stacked ([da0140a](https://github.com/fuf-stack/pixels/commit/da0140a6bdc37b8a6400db5cda76dd3ea2804adc))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @fuf-stack/uniform bumped to 1.24.2
+
 ## [0.11.36](https://github.com/fuf-stack/pixels/compare/megapixels-v0.11.35...megapixels-v0.11.36) (2026-06-07)
 
 
