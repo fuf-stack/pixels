@@ -6,6 +6,7 @@ import { useState } from 'react';
 import { expect, userEvent, waitFor, within } from 'storybook/test';
 
 import { Button } from '@fuf-stack/pixels/Button';
+import { Modal } from '@fuf-stack/pixels/Modal';
 
 import { notification, NotificationHost } from '.';
 
@@ -366,5 +367,71 @@ export const CustomWidth: Story = {
 
     await userEvent.click(canvas.getByText('Short notification'));
     await expect(canvas.getByText('Short message.')).toBeInTheDocument();
+  },
+};
+
+/**
+ * Notifications stack above an already-open modal: a **normal modal** sits at
+ * the HeroUI default `z-50`, while the Toaster sits at `z-60`, so a notification
+ * raised while the modal is open appears **on top of** it.
+ *
+ * Opening a modal *from* a notification (which then stacks above the
+ * notification at `z-70`) is shown in `WithErrorModal` /
+ * `WithLargeMoreContentModal`.
+ */
+export const StackingOverModal: Story = {
+  render: () => {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const [isOpen, setIsOpen] = useState(false);
+    return (
+      <>
+        <Button
+          onClick={() => {
+            setIsOpen(true);
+          }}
+        >
+          Open modal
+        </Button>
+        <Modal
+          header="Normal modal"
+          isOpen={isOpen}
+          onClose={() => {
+            setIsOpen(false);
+          }}
+        >
+          <div className="space-y-3">
+            <p>I am a normal modal (z-50).</p>
+            <Button
+              onClick={() => {
+                notification.info('A notification on top of the modal.', {
+                  title: 'Notification',
+                });
+              }}
+            >
+              Show notification
+            </Button>
+          </div>
+        </Modal>
+      </>
+    );
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    // The modal renders in a portal on document.body, outside the canvas.
+    const body = within(document.body);
+
+    // Open the normal modal.
+    await userEvent.click(canvas.getByText('Open modal'));
+    await waitFor(() => {
+      expect(body.getByText('I am a normal modal (z-50).')).toBeInTheDocument();
+    });
+
+    // Raise a notification from inside the modal — it stacks above the modal.
+    await userEvent.click(body.getByText('Show notification'));
+    await waitFor(() => {
+      expect(
+        body.getByText('A notification on top of the modal.'),
+      ).toBeInTheDocument();
+    });
   },
 };
