@@ -55,6 +55,28 @@ importers:
         specifier: 6.0.3
         version: 6.0.3
 
+  packages/atelier:
+    dependencies:
+      '@fuf-stack/pixel-utils':
+        specifier: workspace:*
+        version: link:../pixel-utils
+      '@fuf-stack/pixels':
+        specifier: workspace:*
+        version: link:../pixels
+    devDependencies:
+      '@types/react':
+        specifier: 19.2.15
+        version: 19.2.15
+      '@types/react-dom':
+        specifier: 19.2.3
+        version: 19.2.3(@types/react@19.2.15)
+      react:
+        specifier: 19.2.6
+        version: 19.2.6
+      react-dom:
+        specifier: 19.2.6
+        version: 19.2.6(react@19.2.6)
+
   packages/config/storybook-config:
     devDependencies:
       '@repo/tailwind-config':

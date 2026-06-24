@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "extends": "@fuf-stack/typescript-config/react-library.json",
+  "compilerOptions": {
+    "composite": true,
+    "paths": {
+      "@fuf-stack/pixels/*": ["../pixels/src/*"],
+      "src/": ["./src/"]
+    },
+    "tsBuildInfoFile": "node_modules/.cache/tsbuildinfo.json"
+  },
+  "include": ["src", "Globals.d.ts"],
+  "references": [{ "path": "../pixels" }]
+}

@@ -1,0 +1,61 @@
+{
+  "name": "@fuf-stack/atelier",
+  "version": "0.1.0",
+  "description": "fuf customizable base app package",
+  "author": "Fröhlich ∧ Frei",
+  "homepage": "https://github.com/fuf-stack/pixels/tree/main/packages/atelier",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.cts",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./AtelierFrame": {
+      "import": "./dist/AtelierFrame/index.js",
+      "require": "./dist/AtelierFrame/index.cjs"
+    },
+    "./core": {
+      "import": "./dist/core/index.js",
+      "require": "./dist/core/index.cjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fuf-stack/pixels.git",
+    "directory": "packages/atelier"
+  },
+  "bugs": {
+    "url": "https://github.com/fuf-stack/pixels/issues"
+  },
+  "scripts": {
+    "build": "tsdown",
+    "prepack": "pnpm build",
+    "test": "vitest ./src"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18"
+  },
+  "dependencies": {
+    "@fuf-stack/pixel-utils": "workspace:*",
+    "@fuf-stack/pixels": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/react": "19.2.15",
+    "@types/react-dom": "19.2.3",
+    "react": "19.2.6",
+    "react-dom": "19.2.6"
+  }
+}

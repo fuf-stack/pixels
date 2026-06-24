@@ -78,19 +78,19 @@ const SearchInput = ({ classNames = {}, config }: SearchInputProps) => {
           }}
         >
           <Input
+            className={{
+              input: classNames.searchInput,
+              inputWrapper: classNames.searchInputWrapper,
+            }}
             clearable
             debounceDelay={0}
+            placeholder={placeholder}
+            size="sm"
             name="search"
             // submit on clear
             onClear={() => {
               triggerSubmit();
             }}
-            placeholder={placeholder}
-            className={{
-              input: classNames.searchInput,
-              inputWrapper: classNames.searchInputWrapper,
-            }}
-            size="sm"
           />
           <SubmitButton
             className={classNames.searchSubmitButton}

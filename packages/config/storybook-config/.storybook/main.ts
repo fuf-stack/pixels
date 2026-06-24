@@ -7,6 +7,7 @@ import sharedConfig from '../main.ts';
 const config: StorybookConfig = {
   ...sharedConfig,
   stories: [
+    '../../../atelier/src/**/*.stories.@(ts|tsx)',
     '../../../megapixels/src/**/*.stories.@(ts|tsx)',
     '../../../pixels/src/**/*.stories.@(ts|tsx)',
     '../../../uniform/src/**/*.stories.@(ts|tsx)',
