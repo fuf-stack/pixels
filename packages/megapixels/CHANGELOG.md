@@ -1,5 +1,26 @@
 # Changelog
 
+## [0.13.0](https://github.com/fuf-stack/pixels/compare/megapixels-v0.12.0...megapixels-v0.13.0) (2026-06-25)
+
+
+### Features
+
+* **atelier:** add customizable app frame package with core APIs and story/test coverage ([ecdcabd](https://github.com/fuf-stack/pixels/commit/ecdcabde04430d952011c35db97231f84fee59e9))
+* **pixels:** add closeNotification to NotificationRenderProps ([d991d7b](https://github.com/fuf-stack/pixels/commit/d991d7bd5f237d2a12e213a42532d44802165759))
+
+
+### Bug Fixes
+
+* **pixels:** mark Toaster as react-aria top layer so toasts work over modals ([4c76058](https://github.com/fuf-stack/pixels/commit/4c76058c9f0f7fe928f39a79b67e116520ab0fd3))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @fuf-stack/pixels bumped to 1.11.5
+    * @fuf-stack/uniform bumped to 1.24.3
+
 ## [0.12.0](https://github.com/fuf-stack/pixels/compare/megapixels-v0.11.36...megapixels-v0.12.0) (2026-06-17)
 
 
