@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.11.5](https://github.com/fuf-stack/pixels/compare/pixels-v1.11.4...pixels-v1.11.5) (2026-06-25)
+
+
+### Bug Fixes
+
+* **pixels:** mark Toaster as react-aria top layer so toasts work over modals ([4c76058](https://github.com/fuf-stack/pixels/commit/4c76058c9f0f7fe928f39a79b67e116520ab0fd3))
+
 ## [1.11.4](https://github.com/fuf-stack/pixels/compare/pixels-v1.11.3...pixels-v1.11.4) (2026-06-06)
 
 
