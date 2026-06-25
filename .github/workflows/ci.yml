@@ -19,7 +19,7 @@ jobs:
 
     steps:
       # Clone the repository at the pushed ref.
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
 
       # Install pnpm + node, restore deps, build all packages.
       - uses: ./.github/actions/setup-project
@@ -50,7 +50,7 @@ jobs:
 
     steps:
       # Full history clone — Sonarqube needs it for blame / new-code detection.
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 0 # Required for Sonarqube
 
