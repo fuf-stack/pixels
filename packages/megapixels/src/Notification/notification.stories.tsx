@@ -424,10 +424,11 @@ export const StackingOverModal: Story = {
             notification.warn('A notification beneath the modal.', {
               title: 'Notification',
               // TODO: on close
-              endContent: ({ modal }) => {
+              endContent: ({ modal, closeNotification }) => {
                 return (
                   <Button
                     onClick={() => {
+                      closeNotification();
                       modal.open({
                         content: (
                           <p>I am a modal opened from a notification (z-70).</p>
