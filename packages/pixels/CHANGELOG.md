@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.11.6](https://github.com/fuf-stack/pixels/compare/pixels-v1.11.5...pixels-v1.11.6) (2026-06-26)
+
+
+### Bug Fixes
+
+* **pixels:** bump versions ([74adb0e](https://github.com/fuf-stack/pixels/commit/74adb0e7443486d445a59b0fcbd5bd3a72914b29))
+
 ## [1.11.5](https://github.com/fuf-stack/pixels/compare/pixels-v1.11.4...pixels-v1.11.5) (2026-06-25)
 
 
