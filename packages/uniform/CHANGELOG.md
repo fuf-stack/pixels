@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.24.7](https://github.com/fuf-stack/pixels/compare/uniform-v1.24.6...uniform-v1.24.7) (2026-06-30)
+
+
+### Bug Fixes
+
+* **uniform:** try to fix react-select cjs exports ([5475949](https://github.com/fuf-stack/pixels/commit/54759498448dceba965181ee33e0ec3e02d65fec))
+
 ## [1.24.6](https://github.com/fuf-stack/pixels/compare/uniform-v1.24.5...uniform-v1.24.6) (2026-06-30)
 
 
