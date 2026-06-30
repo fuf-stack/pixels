@@ -4,7 +4,7 @@ import type { MultiValue, Props, SingleValue } from 'react-select';
 import type { InputValueTransform } from '../hooks/useInputValueTransform';
 
 import { useState } from 'react';
-import ReactSelect from 'react-select';
+import ReactSelectImport from 'react-select';
 
 import { useSelect } from '@heroui/select';
 
@@ -19,6 +19,17 @@ import {
   InputComponent,
   OptionComponent,
 } from './SelectComponents';
+
+type ReactSelectModule = typeof ReactSelectImport & {
+  default?: typeof ReactSelectImport;
+};
+
+// Some CommonJS test/build pipelines resolve react-select to its module object
+// instead of the default component. Normalize it here until the package build
+// emits default interop consistently for both ESM and CJS consumers.
+// TODO: this can be removed once we release ESM only builds.
+const ReactSelect =
+  (ReactSelectImport as ReactSelectModule).default ?? ReactSelectImport;
 
 export const selectVariants = tv({
   slots: {
