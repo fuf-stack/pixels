@@ -121,10 +121,11 @@ const normalizeInvalidType = (
 };
 
 /**
- * too_small/too_big: restore v0 wording for string and array origins.
+ * too_small/too_big: normalize built-in size validator messages.
  *
- * Only rewrites the message when it is still Zod v4's default ("Too small"/
- * "Too big" prefix); preserves any custom message provided by the user.
+ * String/array keep veto's v0 wording. Number keeps the Zod-style bound
+ * wording, including when Zod falls back to the generic "Invalid input".
+ * Preserves custom messages provided by the user.
  */
 const normalizeTooSmallOrBig = (issue: VetoIssueLike): VetoIssueLike => {
   // `origin` is a Zod v4 field set by built-in min/max validators (string,
@@ -135,7 +136,7 @@ const normalizeTooSmallOrBig = (issue: VetoIssueLike): VetoIssueLike => {
     ? (issue.origin as string)
     : (issue.type as string);
 
-  if (origin !== 'string' && origin !== 'array') {
+  if (origin !== 'string' && origin !== 'array' && origin !== 'number') {
     return { ...issue };
   }
 
@@ -143,7 +144,8 @@ const normalizeTooSmallOrBig = (issue: VetoIssueLike): VetoIssueLike => {
   const hasV4DefaultMessage =
     typeof issue.message === 'string' &&
     (issue.message.startsWith('Too small') ||
-      issue.message.startsWith('Too big'));
+      issue.message.startsWith('Too big') ||
+      issue.message === 'Invalid input');
 
   const { origin: _origin, ...rest } = issue;
   const next: VetoIssueLike = { ...rest, type: origin };
@@ -161,8 +163,16 @@ const normalizeTooSmallOrBig = (issue: VetoIssueLike): VetoIssueLike => {
     const direction = isTooSmall ? 'at least' : 'at most';
     if (origin === 'string') {
       next.message = `String must contain ${direction} ${limit} character(s)`;
-    } else {
+    } else if (origin === 'array') {
       next.message = `Array must contain ${direction} ${limit} element(s)`;
+    } else {
+      let operator: string;
+      if (isTooSmall) {
+        operator = next.inclusive === false ? '>' : '>=';
+      } else {
+        operator = next.inclusive === false ? '<' : '<=';
+      }
+      next.message = `${isTooSmall ? 'Too small' : 'Too big'}: expected number to be ${operator}${limit}`;
     }
   }
 

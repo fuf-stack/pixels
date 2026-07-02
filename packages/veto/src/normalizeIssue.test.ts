@@ -187,7 +187,7 @@ describe('normalizeIssue', () => {
       expect(result).not.toHaveProperty('exact');
     });
 
-    it('returns the issue unchanged when origin is neither string nor array', () => {
+    it('rewrites number min from a built-in validator and adds exact: false', () => {
       const result = normalizeIssue({
         code: 'too_small',
         origin: 'number',
@@ -197,10 +197,64 @@ describe('normalizeIssue', () => {
       });
       expect(result).toEqual({
         code: 'too_small',
-        origin: 'number',
+        type: 'number',
         minimum: 10,
         inclusive: true,
+        exact: false,
         message: 'Too small: expected number to be >=10',
+      });
+    });
+
+    it('rewrites number max from a built-in validator when Zod returns the generic fallback', () => {
+      const result = normalizeIssue({
+        code: 'too_big',
+        origin: 'number',
+        maximum: 12,
+        inclusive: true,
+        message: 'Invalid input',
+      });
+      expect(result).toEqual({
+        code: 'too_big',
+        type: 'number',
+        maximum: 12,
+        inclusive: true,
+        exact: false,
+        message: 'Too big: expected number to be <=12',
+      });
+    });
+
+    it('rewrites number max with a float limit from a built-in validator', () => {
+      const result = normalizeIssue({
+        code: 'too_big',
+        origin: 'number',
+        maximum: 12.5,
+        inclusive: false,
+        message: 'Too big: expected number to be <12.5',
+      });
+      expect(result).toEqual({
+        code: 'too_big',
+        type: 'number',
+        maximum: 12.5,
+        inclusive: false,
+        exact: false,
+        message: 'Too big: expected number to be <12.5',
+      });
+    });
+
+    it('returns the issue unchanged when origin is not string, array, or number', () => {
+      const result = normalizeIssue({
+        code: 'too_small',
+        origin: 'date',
+        minimum: 10,
+        inclusive: true,
+        message: 'Too small: expected date to be >=10',
+      });
+      expect(result).toEqual({
+        code: 'too_small',
+        origin: 'date',
+        minimum: 10,
+        inclusive: true,
+        message: 'Too small: expected date to be >=10',
       });
     });
 

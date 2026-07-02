@@ -45,6 +45,48 @@ it('rejects non-number input', () => {
   });
 });
 
+it('returns a meaningful max error for integer number validation', () => {
+  const schema = { numberField: number().max(12) };
+  const result = veto(schema).validate({ numberField: 13 });
+
+  expect(result).toMatchObject({
+    success: false,
+    errors: {
+      numberField: [
+        {
+          code: 'too_big',
+          type: 'number',
+          maximum: 12,
+          inclusive: true,
+          exact: false,
+          message: 'Too big: expected number to be <=12',
+        },
+      ],
+    },
+  });
+});
+
+it('returns a meaningful max error for float number validation', () => {
+  const schema = { numberField: number().max(12.5) };
+  const result = veto(schema).validate({ numberField: 13.1 });
+
+  expect(result).toMatchObject({
+    success: false,
+    errors: {
+      numberField: [
+        {
+          code: 'too_big',
+          type: 'number',
+          maximum: 12.5,
+          inclusive: true,
+          exact: false,
+          message: 'Too big: expected number to be <=12.5',
+        },
+      ],
+    },
+  });
+});
+
 it('supports chaining built-in methods after refine', () => {
   const refined = number()
     .refine((val) => val % 2 === 0, 'Must be even')
