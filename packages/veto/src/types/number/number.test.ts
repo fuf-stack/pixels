@@ -33,6 +33,24 @@ it('rejects non-number input', () => {
   });
 });
 
+it('treats an empty string number input as a required field', () => {
+  const schema = { numberField: number() };
+  const result = veto(schema).validate({ numberField: '' });
+  expect(result).toMatchObject({
+    success: false,
+    errors: {
+      numberField: [
+        {
+          code: 'invalid_type',
+          expected: 'number',
+          message: 'Field is required',
+          received: 'string',
+        },
+      ],
+    },
+  });
+});
+
 [1, 1.1].forEach((value) => {
   it(`accepts value '${value}'`, () => {
     const schema = { numberField: number() };

@@ -111,6 +111,12 @@ const normalizeInvalidType = (
 
   if (
     typeof next.expected === 'string' &&
+    next.expected === 'number' &&
+    rawInput === ''
+  ) {
+    next.message = 'Field is required';
+  } else if (
+    typeof next.expected === 'string' &&
     typeof next.message === 'string' &&
     next.message.startsWith('Invalid input')
   ) {

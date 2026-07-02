@@ -118,6 +118,22 @@ describe('normalizeIssue', () => {
       });
       expect(result.message).toBe('My custom error');
     });
+
+    it('treats an empty string for number input as a required field', () => {
+      const result = normalizeIssue({
+        code: 'invalid_type',
+        expected: 'number',
+        message: 'Invalid input: expected number, received string',
+        input: '',
+      });
+      expect(result).toEqual({
+        code: 'invalid_type',
+        expected: 'number',
+        message: 'Field is required',
+        received: 'string',
+        input: '',
+      });
+    });
   });
 
   describe('too_small / too_big', () => {
