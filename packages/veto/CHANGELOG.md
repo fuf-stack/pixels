@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.7.4](https://github.com/fuf-stack/pixels/compare/veto-v1.7.3...veto-v1.7.4) (2026-07-02)
+
+
+### Bug Fixes
+
+* **veto:** add better min max validation messages ([6f1101c](https://github.com/fuf-stack/pixels/commit/6f1101c7986f8538c01b409413f9bf077e5ac557))
+* **veto:** treat empty string input in numbers as required field ([c85b6d8](https://github.com/fuf-stack/pixels/commit/c85b6d87da7e24a8f325b447e70762f852180275))
+
 ## [1.7.3](https://github.com/fuf-stack/pixels/compare/veto-v1.7.2...veto-v1.7.3) (2026-06-04)
 
 
