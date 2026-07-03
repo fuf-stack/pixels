@@ -13,9 +13,12 @@ import {
 
 import { action } from 'storybook/actions';
 import { useArgs } from 'storybook/preview-api';
-import { expect, within } from 'storybook/test';
+import { expect, userEvent, waitFor, within } from 'storybook/test';
 
 import Filter, { filters as f } from '.';
+
+// Animations are disabled in the test environment so snapshots are stable.
+const isTestEnv = process.env.NODE_ENV === 'test';
 
 const meta: Meta<typeof Filter> = {
   title: 'Megapixels/Filter',
@@ -108,6 +111,49 @@ export const WithInitialValue: Story = {
         setTimeout(resolve, 0);
       });
     });
+  },
+};
+
+export const AddFilterInteraction: Story = {
+  args: {
+    config: { filters },
+  },
+  render: (args, { canvasElement }) => {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const [{ values }, updateArgs] = useArgs();
+    return (
+      <Filter
+        {...args}
+        // Disable animations and portal into the story root so the play's
+        // menu/modal interactions produce deterministic snapshots.
+        disableAnimation={isTestEnv}
+        onChange={(next) => {
+          action('onChange')(next);
+          updateArgs({ values: next });
+        }}
+        portalContainer={canvasElement}
+        values={values ?? {}}
+      />
+    );
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    // Open the add-filter menu and add the "Mood" filter.
+    await userEvent.click(canvas.getByTestId('add_filter_button'));
+    await userEvent.click(
+      await canvas.findByRole('menuitem', { name: /Mood/ }),
+    );
+
+    // Pick a mood option in the modal and apply the filter.
+    await userEvent.click(await canvas.findByRole('checkbox', { name: '😊' }));
+    await userEvent.click(canvas.getByTestId('apply_filter_button'));
+
+    // The modal closes and the active "Mood" filter chip is shown.
+    await waitFor(async () => {
+      return expect(canvas.queryByRole('dialog')).not.toBeInTheDocument();
+    });
+    await expect(canvas.getByText('😊')).toBeInTheDocument();
   },
 };
 

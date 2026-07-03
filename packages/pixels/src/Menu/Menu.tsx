@@ -16,6 +16,7 @@ import {
   DropdownTrigger as HeroDropdownTrigger,
 } from '@heroui/dropdown';
 
+import { useReducedMotion } from '@fuf-stack/pixel-motion';
 import { cn, slugify, tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 
 import VerticalDotsIcon from './VerticalDotsIcon';
@@ -28,6 +29,8 @@ export interface MenuItem {
   key: string;
   /** CSS class name */
   className?: string;
+  /** Slot name for styling/debugging hooks */
+  dataSlot?: string;
   /** additional description shown under the label */
   description?: string;
   /** disables the menu item */
@@ -40,6 +43,8 @@ export interface MenuItem {
   onClick?: HeroDropdownItemProps['onPress'];
   /** e2e test identifier */
   testId?: string;
+  /** plain-text value used for type-to-select when the label is not plain text */
+  textValue?: string;
 }
 
 /**
@@ -72,12 +77,16 @@ export interface MenuProps extends VariantProps {
   children?: ReactNode;
   /** CSS class name */
   className?: ClassName;
+  /** disables the open/close popover animation (also auto-disabled when the user prefers reduced motion) */
+  disableAnimation?: boolean;
   /** menu item structure */
   items: (MenuSection | MenuItem)[];
   /** disable menu trigger */
   isDisabled?: boolean;
   /** placement of the menu */
   placement?: HeroDropdownProps['placement'];
+  /** container the popover portal is rendered into (defaults to document.body) */
+  portalContainer?: HeroDropdownProps['portalContainer'];
   /** called if item is selected */
   onAction?: (key: Key) => void;
   /** HTML data-testid attribute used in e2e tests */
@@ -93,7 +102,7 @@ export interface MenuProps extends VariantProps {
     | 'disabled'
     | 'size'
     | 'variant'
-  > & { 'data-testid'?: string };
+  > & { 'data-testid'?: string; dataSlot?: string };
 }
 
 // type guard for MenuSection
@@ -125,10 +134,12 @@ const renderMenuItem = (item: MenuItem, itemClassName?: string) => {
     <HeroDropdownItem
       key={item.key}
       className={cn(itemClassName, item.className)}
+      data-slot={item.dataSlot}
       data-testid={slugify(item.testId ?? item.key)}
       description={item.description}
       onPress={item.onClick}
       startContent={item.icon}
+      textValue={item.textValue}
     >
       {item.label}
     </HeroDropdownItem>
@@ -142,16 +153,22 @@ const Menu = ({
   ariaLabel = undefined,
   children = null,
   className: _className = undefined,
+  disableAnimation = false,
   isDisabled = false,
   items,
   onAction = undefined,
   placement = undefined,
+  portalContainer = undefined,
   testId = undefined,
   triggerButtonProps = undefined,
 }: MenuProps) => {
   // className from slots
   const variants = menuVariants();
   const className = variantsToClassNames(variants, _className, 'trigger');
+
+  // disable popover animation when requested or when the user prefers reduced motion
+  const prefersReducedMotion = useReducedMotion();
+  const shouldDisableAnimation = disableAnimation || !!prefersReducedMotion;
 
   // determine trigger button variant
   let triggerButton = (
@@ -185,8 +202,10 @@ const Menu = ({
   return (
     <HeroDropdown
       aria-label={ariaLabel}
+      disableAnimation={shouldDisableAnimation}
       isDisabled={isDisabled}
       placement={placement}
+      portalContainer={portalContainer}
     >
       <HeroDropdownTrigger data-testid={testId}>
         {/* NOTE: type and aria properties are injected by HeroDropdownTrigger */}

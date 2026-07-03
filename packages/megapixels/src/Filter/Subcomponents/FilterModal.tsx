@@ -13,9 +13,17 @@ interface FilterModalProps {
     footer: string;
     body: string;
   }>;
+  /** disables the modal open/close animation */
+  disableAnimation?: boolean;
+  /** container the modal portal is rendered into (defaults to document.body) */
+  portalContainer?: HTMLElement;
 }
 
-const FilterModal = ({ classNames = {} }: FilterModalProps) => {
+const FilterModal = ({
+  classNames = {},
+  disableAnimation = false,
+  portalContainer = undefined,
+}: FilterModalProps) => {
   const {
     closeFilterModal,
     getFilterFormFieldName,
@@ -42,6 +50,7 @@ const FilterModal = ({ classNames = {} }: FilterModalProps) => {
         footer: classNames.footer,
         header: classNames.header,
       }}
+      disableAnimation={disableAnimation}
       footer={
         <>
           <Button
@@ -68,6 +77,7 @@ const FilterModal = ({ classNames = {} }: FilterModalProps) => {
       }
       isOpen
       onClose={closeFilterModal}
+      portalContainer={portalContainer}
     >
       <Suspense>
         <FormComponent

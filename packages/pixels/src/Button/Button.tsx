@@ -97,6 +97,8 @@ export interface ButtonProps extends VariantProps {
   children?: ReactNode;
   /** CSS class name */
   className?: string;
+  /** Slot name for styling/debugging hooks */
+  dataSlot?: string;
   /** color of the button */
   color?: VariantProps['color'];
   /** disables the button */
@@ -137,6 +139,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       ariaLabel = undefined,
       children = undefined,
       className: _className = undefined,
+      dataSlot = undefined,
       color = 'default',
       disableAnimation = false,
       disabled = false,
@@ -164,14 +167,16 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       isIconOnly: !!(icon && !children),
       radius,
     });
+    const shouldDisableRipple = disableAnimation ? true : !ripple;
 
     return (
       <HeroButton
         ref={ref}
         aria-label={ariaLabel}
         className={className}
+        data-slot={dataSlot}
         data-testid={testId}
-        disableRipple={disableAnimation || !ripple}
+        disableRipple={shouldDisableRipple}
         isDisabled={disabled}
         isLoading={loading}
         onBlur={onBlur}

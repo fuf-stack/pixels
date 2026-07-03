@@ -10,6 +10,10 @@ interface AddFilterMenuProps {
     addFilterMenuItem: string;
     addFilterMenuButton: string;
   }>;
+  /** disables the menu open/close animation */
+  disableAnimation?: boolean;
+  /** container the menu popover portal is rendered into (defaults to document.body) */
+  portalContainer?: HTMLElement;
 }
 
 /**
@@ -18,7 +22,11 @@ interface AddFilterMenuProps {
  * Renders a menu trigger that opens a list of addable filters. Selecting an
  * item triggers the parent to seed a default value and open the modal.
  */
-const AddFilterMenu = ({ classNames = {} }: AddFilterMenuProps) => {
+const AddFilterMenu = ({
+  classNames = {},
+  disableAnimation = false,
+  portalContainer = undefined,
+}: AddFilterMenuProps) => {
   const { unusedFilters, addFilter, getFilterInstanceByName } = useFilters();
 
   const menuItems = unusedFilters.map((name) => {
@@ -41,9 +49,11 @@ const AddFilterMenu = ({ classNames = {} }: AddFilterMenuProps) => {
         item: classNames.addFilterMenuItem,
         trigger: classNames.addFilterMenuButton,
       }}
+      disableAnimation={disableAnimation}
       isDisabled={!menuItems.length}
       items={menuItems}
       placement="bottom-start"
+      portalContainer={portalContainer}
       triggerButtonProps={{
         'aria-label': 'Add Filter',
         'data-testid': 'add_filter_button',

@@ -86,6 +86,8 @@ export interface FilterProps {
   children?: FilterChildRenderFn;
   /** CSS class name */
   className?: ClassName;
+  /** Disables the add-filter menu and modal open/close animations */
+  disableAnimation?: boolean;
   /** Configuration of the filter */
   config: {
     /**
@@ -100,6 +102,12 @@ export interface FilterProps {
   formName?: string;
   /** Controlled setter invoked on submit with the next canonical values */
   onChange: (nextValues: FilterValues) => void;
+  /**
+   * Container the add-filter menu and filter modal portals render into.
+   * Defaults to document.body; set this to keep portals scoped to a parent
+   * (e.g. for embedding or deterministic snapshot tests).
+   */
+  portalContainer?: HTMLElement;
   /** Controlled committed state: the canonical `search` and `filter` values */
   values: FilterValues;
 }
@@ -113,8 +121,10 @@ const Filter = ({
   children = undefined,
   className = undefined,
   config,
+  disableAnimation = false,
   formName = 'filterComponentForm',
   onChange,
+  portalContainer = undefined,
   values,
 }: FilterProps) => {
   // Submit handler: map form state back into the controlled `values` shape
@@ -189,6 +199,8 @@ const Filter = ({
               addFilterMenuButton: classNames.addFilterMenuButton,
               addFilterMenuItem: classNames.addFilterMenuItem,
             }}
+            disableAnimation={disableAnimation}
+            portalContainer={portalContainer}
           />
           <FilterModal
             classNames={{
@@ -196,6 +208,8 @@ const Filter = ({
               footer: classNames.filterModalFooter,
               header: classNames.filterModalHeader,
             }}
+            disableAnimation={disableAnimation}
+            portalContainer={portalContainer}
           />
         </FiltersContextProvider>
       </Form>

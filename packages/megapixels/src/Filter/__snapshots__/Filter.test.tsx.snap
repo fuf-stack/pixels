@@ -1,5 +1,108 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`Story Snapshots > AddFilterInteraction 1`] = `
+<div>
+  <div
+    class="flex flex-auto flex-col w-full"
+  >
+    <div
+      class="flex w-full flex-row justify-between gap-6"
+    >
+      <form
+        class="grow mb-3 flex flex-wrap gap-3"
+        data-form-is-valid="true"
+        data-testid="filtercomponentform"
+        name="filterComponentForm"
+      >
+        <button
+          aria-label="Open mood filter"
+          type="button"
+        >
+          <div
+            class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 text-small bg-primary/20 text-primary-600 h-8 cursor-pointer rounded-md dark:text-foreground"
+          >
+            <span
+              class="flex-1 text-inherit font-normal px-2 pr-1 flex items-center gap-2"
+            >
+              <svg
+                fill="currentColor"
+                height="1em"
+                stroke="currentColor"
+                stroke-width="0"
+                viewBox="0 0 496 512"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm80 168c17.7 0 32 14.3 32 32s-14.3 32-32 32-32-14.3-32-32 14.3-32 32-32zm-160 0c17.7 0 32 14.3 32 32s-14.3 32-32 32-32-14.3-32-32 14.3-32 32-32zm194.8 170.2C334.3 380.4 292.5 400 248 400s-86.3-19.6-114.8-53.8c-13.6-16.3 11-36.7 24.6-20.5 22.4 26.9 55.2 42.2 90.2 42.2s67.8-15.4 90.2-42.2c13.4-16.2 38.1 4.2 24.6 20.5z"
+                />
+              </svg>
+              <span
+                class="flex items-center gap-1"
+              >
+                Mood
+                 is
+                <span>
+                  😊
+                </span>
+              </span>
+            </span>
+            <span
+              aria-label="close chip"
+              class="z-10 appearance-none outline-solid outline-transparent select-none transition-opacity opacity-70 hover:opacity-100 cursor-pointer active:opacity-disabled tap-highlight-transparent text-large"
+              data-react-aria-pressable="true"
+              role="button"
+              tabindex="0"
+            >
+              <svg
+                aria-hidden="true"
+                focusable="false"
+                height="1em"
+                role="presentation"
+                viewBox="0 0 24 24"
+                width="1em"
+              >
+                <path
+                  d="M12 2a10 10 0 1010 10A10.016 10.016 0 0012 2zm3.36 12.3a.754.754 0 010 1.06.748.748 0 01-1.06 0l-2.3-2.3-2.3 2.3a.748.748 0 01-1.06 0 .754.754 0 010-1.06l2.3-2.3-2.3-2.3A.75.75 0 019.7 8.64l2.3 2.3 2.3-2.3a.75.75 0 011.06 1.06l-2.3 2.3z"
+                  fill="currentColor"
+                />
+              </svg>
+            </span>
+          </div>
+        </button>
+        <button
+          aria-expanded="false"
+          aria-haspopup="true"
+          aria-label="Add Filter"
+          class="group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 border-medium px-3 min-w-16 h-8 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-transparent border-default text-foreground data-[hover=true]:opacity-hover aria-expanded:scale-[0.97] aria-expanded:opacity-70 subpixel-antialiased z-auto"
+          data-react-aria-pressable="true"
+          data-slot="trigger"
+          data-testid="add_filter_button"
+          id="react-aria-«replaced-aria-id»"
+          tabindex="0"
+          type="button"
+        >
+          <svg
+            fill="currentColor"
+            height="1em"
+            stroke="currentColor"
+            stroke-width="0"
+            viewBox="0 0 512 512"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0 416c0 17.7 14.3 32 32 32l54.7 0c12.3 28.3 40.5 48 73.3 48s61-19.7 73.3-48L480 448c17.7 0 32-14.3 32-32s-14.3-32-32-32l-246.7 0c-12.3-28.3-40.5-48-73.3-48s-61 19.7-73.3 48L32 384c-17.7 0-32 14.3-32 32zm128 0a32 32 0 1 1 64 0 32 32 0 1 1 -64 0zM320 256a32 32 0 1 1 64 0 32 32 0 1 1 -64 0zm32-80c-32.8 0-61 19.7-73.3 48L32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l246.7 0c12.3 28.3 40.5 48 73.3 48s61-19.7 73.3-48l54.7 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-54.7 0c-12.3-28.3-40.5-48-73.3-48zM192 128a32 32 0 1 1 0-64 32 32 0 1 1 0 64zm73.3-64C253 35.7 224.8 16 192 16s-61 19.7-73.3 48L32 64C14.3 64 0 78.3 0 96s14.3 32 32 32l86.7 0c12.3 28.3 40.5 48 73.3 48s61-19.7 73.3-48L480 128c17.7 0 32-14.3 32-32s-14.3-32-32-32L265.3 64z"
+            />
+          </svg>
+          Filter
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Story Snapshots > CheckboxesWithReactNodeLabels 1`] = `
 <div>
   <div

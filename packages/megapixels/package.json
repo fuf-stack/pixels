@@ -15,6 +15,10 @@
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
     },
+    "./DataTable": {
+      "import": "./dist/DataTable/index.js",
+      "require": "./dist/DataTable/index.cjs"
+    },
     "./Filter": {
       "import": "./dist/Filter/index.js",
       "require": "./dist/Filter/index.cjs"
@@ -49,11 +53,13 @@
     "react-dom": ">=18"
   },
   "dependencies": {
+    "@base-ui/react": "1.6.0",
     "@fuf-stack/pixel-motion": "workspace:*",
     "@fuf-stack/pixel-utils": "workspace:*",
     "@fuf-stack/pixels": "workspace:*",
     "@fuf-stack/uniform": "workspace:*",
     "@fuf-stack/veto": "workspace:*",
+    "@tanstack/react-table": "8.21.3",
     "debug": "4.4.3",
     "react-icons": "5.6.0"
   },
