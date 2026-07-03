@@ -33,11 +33,13 @@ const rows: Row[] = [
 
 const renderDataTableController = ({
   controllerColumns = columns,
+  enableExpandableRows = false,
   enablePagination = true,
   enableRowSelection = false,
   pageSizeOptions = [10],
 }: {
   controllerColumns?: ColumnDef<Row>[];
+  enableExpandableRows?: boolean;
   enablePagination?: boolean;
   enableRowSelection?: boolean;
   pageSizeOptions?: number[];
@@ -47,8 +49,10 @@ const renderDataTableController = ({
       checkboxClassNames: {},
       columns: controllerColumns,
       data: rows,
+      enableExpandableRows,
       enablePagination,
       enableRowSelection,
+      expansionClassNames: {},
       pageSizeOptions,
     }),
   );
@@ -67,6 +71,21 @@ describe('useDataTableController', () => {
 
     expect(result.current.tableColumns).toHaveLength(columns.length);
     expect(result.current.tableColumns[0]?.id).not.toBe('__select');
+  });
+
+  it('adds expansion column and stores expanded row state when expandable rows are enabled', () => {
+    const { result } = renderDataTableController({
+      enableExpandableRows: true,
+    });
+
+    expect(result.current.tableColumns[0]?.id).toBe('__expand');
+    expect(result.current.tableColumns).toHaveLength(columns.length + 1);
+
+    act(() => {
+      result.current.table.getRowModel().rows[0]?.toggleExpanded(true);
+    });
+
+    expect(result.current.table.getState().expanded).toEqual({ 0: true });
   });
 
   it('keeps the injected selection column fixed and non-sortable', () => {

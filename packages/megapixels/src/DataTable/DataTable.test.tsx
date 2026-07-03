@@ -232,6 +232,33 @@ describe('DataTable interactions', () => {
     ).toBeGreaterThan(0);
   });
 
+  it('expands and collapses custom row content', async () => {
+    const user = userEvent.setup();
+    render(
+      <DataTable
+        columns={columns}
+        data={rows}
+        features={{
+          expandableRows: {
+            renderContent: (row) => <div>Details for {row.original.email}</div>,
+          },
+          rowSelection: false,
+        }}
+      />,
+    );
+
+    expect(
+      screen.queryByText('Details for zoe@example.com'),
+    ).not.toBeInTheDocument();
+    await user.click(screen.getByLabelText('Expand row 0'));
+    expect(screen.getByText('Details for zoe@example.com')).toBeInTheDocument();
+
+    await user.click(screen.getByLabelText('Collapse row 0'));
+    expect(
+      screen.queryByText('Details for zoe@example.com'),
+    ).not.toBeInTheDocument();
+  });
+
   it('updates row selection summary when selecting rows', async () => {
     const user = userEvent.setup();
     render(

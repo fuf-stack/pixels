@@ -58,6 +58,15 @@ exports[`Story Snapshots > CustomIcons 1`] = `
           >
             <th
               class="h-10 align-middle font-medium text-foreground w-10 px-0 text-center"
+              data-slot="expansion-cell"
+            >
+              <div
+                class="items-center flex justify-center"
+                data-slot="expansion-cell-content"
+              />
+            </th>
+            <th
+              class="h-10 align-middle font-medium text-foreground w-10 px-0 text-center"
               data-slot="selection-cell"
             >
               <div
@@ -218,6 +227,38 @@ exports[`Story Snapshots > CustomIcons 1`] = `
           >
             <td
               class="p-3 align-middle text-foreground w-10 px-0 text-center"
+              data-slot="expansion-cell"
+            >
+              <div
+                class="flex justify-center"
+                data-slot="expansion-cell-content"
+              >
+                <button
+                  aria-label="Collapse row 0"
+                  class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-transparent text-default-foreground data-[hover=true]:bg-default/40 h-8 min-w-8 px-0"
+                  data-focus="true"
+                  data-hover="true"
+                  data-react-aria-pressable="true"
+                  data-slot="expand-button"
+                  tabindex="0"
+                  type="button"
+                >
+                  <span
+                    aria-hidden="true"
+                    class="inline-flex h-3.5 w-3.5 shrink-0 items-center justify-center text-default-500"
+                    data-slot="expand-icon"
+                  >
+                    <span
+                      aria-hidden="true"
+                    >
+                      🔽
+                    </span>
+                  </span>
+                </button>
+              </div>
+            </td>
+            <td
+              class="p-3 align-middle text-foreground w-10 px-0 text-center"
               data-slot="selection-cell"
             >
               <div
@@ -282,9 +323,94 @@ exports[`Story Snapshots > CustomIcons 1`] = `
             </td>
           </tr>
           <tr
+            class="border-b border-divider last:border-b-0 data-[state=selected]:bg-content2/60 bg-content1"
+            data-slot="expanded-row"
+          >
+            <td
+              class="p-4 text-sm text-default-600"
+              colspan="7"
+              data-slot="expanded-cell"
+            >
+              <div
+                class="grid gap-2 rounded-large bg-content2/60 p-4 text-sm md:grid-cols-3"
+              >
+                <div>
+                  <div
+                    class="font-medium text-foreground"
+                  >
+                    Delivery note
+                  </div>
+                  <div
+                    class="text-default-500"
+                  >
+                    Pack 
+                    cloudberry buns
+                     for 
+                    Freya Hansen
+                    .
+                  </div>
+                </div>
+                <div>
+                  <div
+                    class="font-medium text-foreground"
+                  >
+                    Contact
+                  </div>
+                  <div
+                    class="text-default-500"
+                  >
+                    freya@oslo-oven.no
+                  </div>
+                </div>
+                <div>
+                  <div
+                    class="font-medium text-foreground"
+                  >
+                    Kitchen status
+                  </div>
+                  <div
+                    class="text-default-500"
+                  >
+                    The tiny bakery team is tracking this order closely.
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr
             class="border-b border-divider last:border-b-0 data-[state=selected]:bg-content2/60"
             data-slot="tr"
           >
+            <td
+              class="p-3 align-middle text-foreground w-10 px-0 text-center"
+              data-slot="expansion-cell"
+            >
+              <div
+                class="flex justify-center"
+                data-slot="expansion-cell-content"
+              >
+                <button
+                  aria-label="Expand row 1"
+                  class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-transparent text-default-foreground data-[hover=true]:bg-default/40 h-8 min-w-8 px-0"
+                  data-react-aria-pressable="true"
+                  data-slot="expand-button"
+                  tabindex="0"
+                  type="button"
+                >
+                  <span
+                    aria-hidden="true"
+                    class="inline-flex h-3.5 w-3.5 shrink-0 items-center justify-center text-default-500"
+                    data-slot="expand-icon"
+                  >
+                    <span
+                      aria-hidden="true"
+                    >
+                      ▶️
+                    </span>
+                  </span>
+                </button>
+              </div>
+            </td>
             <td
               class="p-3 align-middle text-foreground w-10 px-0 text-center"
               data-slot="selection-cell"
@@ -354,6 +480,36 @@ exports[`Story Snapshots > CustomIcons 1`] = `
             class="border-b border-divider last:border-b-0 data-[state=selected]:bg-content2/60"
             data-slot="tr"
           >
+            <td
+              class="p-3 align-middle text-foreground w-10 px-0 text-center"
+              data-slot="expansion-cell"
+            >
+              <div
+                class="flex justify-center"
+                data-slot="expansion-cell-content"
+              >
+                <button
+                  aria-label="Expand row 2"
+                  class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-transparent text-default-foreground data-[hover=true]:bg-default/40 h-8 min-w-8 px-0"
+                  data-react-aria-pressable="true"
+                  data-slot="expand-button"
+                  tabindex="0"
+                  type="button"
+                >
+                  <span
+                    aria-hidden="true"
+                    class="inline-flex h-3.5 w-3.5 shrink-0 items-center justify-center text-default-500"
+                    data-slot="expand-icon"
+                  >
+                    <span
+                      aria-hidden="true"
+                    >
+                      ▶️
+                    </span>
+                  </span>
+                </button>
+              </div>
+            </td>
             <td
               class="p-3 align-middle text-foreground w-10 px-0 text-center"
               data-slot="selection-cell"
@@ -1308,6 +1464,331 @@ exports[`Story Snapshots > Empty 1`] = `
 </div>
 `;
 
+exports[`Story Snapshots > ExpandableRows 1`] = `
+<div>
+  <div
+    class="w-full"
+    data-slot="base"
+    data-testid="datatable-expandable"
+  >
+    <div
+      class="overflow-hidden rounded-md border border-divider"
+      data-slot="table-wrapper"
+    >
+      <table
+        aria-label="Expandable European snack shop orders"
+        class="w-full caption-bottom text-sm"
+        data-slot="table"
+      >
+        <thead
+          class="bg-content2"
+          data-slot="thead"
+        >
+          <tr
+            class="border-b border-divider last:border-b-0 data-[state=selected]:bg-content2/60"
+            data-slot="tr"
+          >
+            <th
+              class="h-10 align-middle font-medium text-foreground w-10 px-0 text-center"
+              data-slot="expansion-cell"
+            >
+              <div
+                class="items-center flex justify-center"
+                data-slot="expansion-cell-content"
+              />
+            </th>
+            <th
+              class="h-10 px-3 text-left align-middle font-medium text-foreground"
+              data-slot="th"
+            >
+              <div
+                class="inline-flex items-center"
+                data-slot="non-sortable-header-content"
+              >
+                Customer
+              </div>
+            </th>
+            <th
+              class="h-10 px-3 text-left align-middle font-medium text-foreground"
+              data-slot="th"
+            >
+              <div
+                class="inline-flex items-center"
+                data-slot="non-sortable-header-content"
+              >
+                Snack
+              </div>
+            </th>
+            <th
+              class="h-10 px-3 text-left align-middle font-medium text-foreground"
+              data-slot="th"
+            >
+              <div
+                class="inline-flex items-center"
+                data-slot="non-sortable-header-content"
+              >
+                Email
+              </div>
+            </th>
+            <th
+              class="h-10 px-3 text-left align-middle font-medium text-foreground"
+              data-slot="th"
+            >
+              <div
+                class="inline-flex items-center"
+                data-slot="non-sortable-header-content"
+              >
+                Total
+              </div>
+            </th>
+            <th
+              class="h-10 px-3 text-left align-middle font-medium text-foreground"
+              data-slot="th"
+            >
+              <div
+                class="inline-flex items-center"
+                data-slot="non-sortable-header-content"
+              >
+                Status
+              </div>
+            </th>
+          </tr>
+        </thead>
+        <tbody
+          data-slot="tbody"
+        >
+          <tr
+            class="border-b border-divider last:border-b-0 data-[state=selected]:bg-content2/60"
+            data-slot="tr"
+          >
+            <td
+              class="p-3 align-middle text-foreground w-10 px-0 text-center"
+              data-slot="expansion-cell"
+            >
+              <div
+                class="flex justify-center"
+                data-slot="expansion-cell-content"
+              >
+                <button
+                  aria-label="Collapse row 0"
+                  class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-transparent text-default-foreground data-[hover=true]:bg-default/40 h-8 min-w-8 px-0"
+                  data-focus="true"
+                  data-hover="true"
+                  data-react-aria-pressable="true"
+                  data-slot="expand-button"
+                  tabindex="0"
+                  type="button"
+                >
+                  <span
+                    aria-hidden="true"
+                    class="inline-flex h-3.5 w-3.5 shrink-0 items-center justify-center text-default-500"
+                    data-slot="expand-icon"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      fill="none"
+                      focusable="false"
+                      height="14"
+                      viewBox="0 0 16 16"
+                      width="14"
+                    >
+                      <path
+                        d="m4 6 4 4 4-4"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.75"
+                      />
+                    </svg>
+                  </span>
+                </button>
+              </div>
+            </td>
+            <td
+              class="p-3 align-middle text-foreground"
+              data-slot="td"
+            >
+              Anna Kowalski
+            </td>
+            <td
+              class="p-3 align-middle text-foreground"
+              data-slot="td"
+            >
+              Chocolate wafers
+            </td>
+            <td
+              class="p-3 align-middle text-foreground"
+              data-slot="td"
+            >
+              anna@warsaw-wafers.pl
+            </td>
+            <td
+              class="p-3 align-middle text-foreground"
+              data-slot="td"
+            >
+              13,50 €
+            </td>
+            <td
+              class="p-3 align-middle text-foreground"
+              data-slot="td"
+            >
+              <div
+                class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-6 text-tiny rounded-full bg-success/20 text-success-700 dark:text-success"
+              >
+                <span
+                  class="flex-1 text-inherit font-normal px-1 flex items-center gap-2"
+                >
+                  Delivered
+                </span>
+              </div>
+            </td>
+          </tr>
+          <tr
+            class="border-b border-divider last:border-b-0 data-[state=selected]:bg-content2/60 bg-content1"
+            data-slot="expanded-row"
+          >
+            <td
+              class="p-4 text-sm text-default-600"
+              colspan="6"
+              data-slot="expanded-cell"
+            >
+              <div
+                class="grid gap-2 rounded-large bg-content2/60 p-4 text-sm md:grid-cols-3"
+              >
+                <div>
+                  <div
+                    class="font-medium text-foreground"
+                  >
+                    Delivery note
+                  </div>
+                  <div
+                    class="text-default-500"
+                  >
+                    Pack 
+                    chocolate wafers
+                     for 
+                    Anna Kowalski
+                    .
+                  </div>
+                </div>
+                <div>
+                  <div
+                    class="font-medium text-foreground"
+                  >
+                    Contact
+                  </div>
+                  <div
+                    class="text-default-500"
+                  >
+                    anna@warsaw-wafers.pl
+                  </div>
+                </div>
+                <div>
+                  <div
+                    class="font-medium text-foreground"
+                  >
+                    Kitchen status
+                  </div>
+                  <div
+                    class="text-default-500"
+                  >
+                    The tiny bakery team is tracking this order closely.
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr
+            class="border-b border-divider last:border-b-0 data-[state=selected]:bg-content2/60"
+            data-slot="tr"
+          >
+            <td
+              class="p-3 align-middle text-foreground w-10 px-0 text-center"
+              data-slot="expansion-cell"
+            >
+              <div
+                class="flex justify-center"
+                data-slot="expansion-cell-content"
+              >
+                <button
+                  aria-label="Expand row 1"
+                  class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-transparent text-default-foreground data-[hover=true]:bg-default/40 h-8 min-w-8 px-0"
+                  data-react-aria-pressable="true"
+                  data-slot="expand-button"
+                  tabindex="0"
+                  type="button"
+                >
+                  <span
+                    aria-hidden="true"
+                    class="inline-flex h-3.5 w-3.5 shrink-0 items-center justify-center text-default-500"
+                    data-slot="expand-icon"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      fill="none"
+                      focusable="false"
+                      height="14"
+                      viewBox="0 0 16 16"
+                      width="14"
+                    >
+                      <path
+                        d="m6 4 4 4-4 4"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.75"
+                      />
+                    </svg>
+                  </span>
+                </button>
+              </div>
+            </td>
+            <td
+              class="p-3 align-middle text-foreground"
+              data-slot="td"
+            >
+              Milo Jensen
+            </td>
+            <td
+              class="p-3 align-middle text-foreground"
+              data-slot="td"
+            >
+              Cardamom buns
+            </td>
+            <td
+              class="p-3 align-middle text-foreground"
+              data-slot="td"
+            >
+              milo@copenhagen-cakes.dk
+            </td>
+            <td
+              class="p-3 align-middle text-foreground"
+              data-slot="td"
+            >
+              17,80 €
+            </td>
+            <td
+              class="p-3 align-middle text-foreground"
+              data-slot="td"
+            >
+              <div
+                class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-6 text-tiny rounded-full bg-warning/20 text-warning-700 dark:text-warning"
+              >
+                <span
+                  class="flex-1 text-inherit font-normal px-1 flex items-center gap-2"
+                >
+                  Packing
+                </span>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Story Snapshots > Loading 1`] = `
 <div>
   <div
@@ -1487,6 +1968,15 @@ exports[`Story Snapshots > Playground 1`] = `
             class="border-b border-divider last:border-b-0 data-[state=selected]:bg-content2/60"
             data-slot="tr"
           >
+            <th
+              class="h-10 align-middle font-medium text-foreground w-10 px-0 text-center"
+              data-slot="expansion-cell"
+            >
+              <div
+                class="items-center flex justify-center"
+                data-slot="expansion-cell-content"
+              />
+            </th>
             <th
               class="h-10 align-middle font-medium text-foreground w-10 px-0 text-center"
               data-slot="selection-cell"
@@ -1739,6 +2229,47 @@ exports[`Story Snapshots > Playground 1`] = `
           >
             <td
               class="p-3 align-middle text-foreground w-10 px-0 text-center"
+              data-slot="expansion-cell"
+            >
+              <div
+                class="flex justify-center"
+                data-slot="expansion-cell-content"
+              >
+                <button
+                  aria-label="Expand row 0"
+                  class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-transparent text-default-foreground data-[hover=true]:bg-default/40 h-8 min-w-8 px-0"
+                  data-react-aria-pressable="true"
+                  data-slot="expand-button"
+                  tabindex="0"
+                  type="button"
+                >
+                  <span
+                    aria-hidden="true"
+                    class="inline-flex h-3.5 w-3.5 shrink-0 items-center justify-center text-default-500"
+                    data-slot="expand-icon"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      fill="none"
+                      focusable="false"
+                      height="14"
+                      viewBox="0 0 16 16"
+                      width="14"
+                    >
+                      <path
+                        d="m6 4 4 4-4 4"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.75"
+                      />
+                    </svg>
+                  </span>
+                </button>
+              </div>
+            </td>
+            <td
+              class="p-3 align-middle text-foreground w-10 px-0 text-center"
               data-slot="selection-cell"
             >
               <div
@@ -1806,6 +2337,47 @@ exports[`Story Snapshots > Playground 1`] = `
             class="border-b border-divider last:border-b-0 data-[state=selected]:bg-content2/60"
             data-slot="tr"
           >
+            <td
+              class="p-3 align-middle text-foreground w-10 px-0 text-center"
+              data-slot="expansion-cell"
+            >
+              <div
+                class="flex justify-center"
+                data-slot="expansion-cell-content"
+              >
+                <button
+                  aria-label="Expand row 1"
+                  class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-transparent text-default-foreground data-[hover=true]:bg-default/40 h-8 min-w-8 px-0"
+                  data-react-aria-pressable="true"
+                  data-slot="expand-button"
+                  tabindex="0"
+                  type="button"
+                >
+                  <span
+                    aria-hidden="true"
+                    class="inline-flex h-3.5 w-3.5 shrink-0 items-center justify-center text-default-500"
+                    data-slot="expand-icon"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      fill="none"
+                      focusable="false"
+                      height="14"
+                      viewBox="0 0 16 16"
+                      width="14"
+                    >
+                      <path
+                        d="m6 4 4 4-4 4"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.75"
+                      />
+                    </svg>
+                  </span>
+                </button>
+              </div>
+            </td>
             <td
               class="p-3 align-middle text-foreground w-10 px-0 text-center"
               data-slot="selection-cell"
@@ -1877,6 +2449,47 @@ exports[`Story Snapshots > Playground 1`] = `
           >
             <td
               class="p-3 align-middle text-foreground w-10 px-0 text-center"
+              data-slot="expansion-cell"
+            >
+              <div
+                class="flex justify-center"
+                data-slot="expansion-cell-content"
+              >
+                <button
+                  aria-label="Expand row 2"
+                  class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-transparent text-default-foreground data-[hover=true]:bg-default/40 h-8 min-w-8 px-0"
+                  data-react-aria-pressable="true"
+                  data-slot="expand-button"
+                  tabindex="0"
+                  type="button"
+                >
+                  <span
+                    aria-hidden="true"
+                    class="inline-flex h-3.5 w-3.5 shrink-0 items-center justify-center text-default-500"
+                    data-slot="expand-icon"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      fill="none"
+                      focusable="false"
+                      height="14"
+                      viewBox="0 0 16 16"
+                      width="14"
+                    >
+                      <path
+                        d="m6 4 4 4-4 4"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.75"
+                      />
+                    </svg>
+                  </span>
+                </button>
+              </div>
+            </td>
+            <td
+              class="p-3 align-middle text-foreground w-10 px-0 text-center"
               data-slot="selection-cell"
             >
               <div
@@ -1944,6 +2557,47 @@ exports[`Story Snapshots > Playground 1`] = `
             class="border-b border-divider last:border-b-0 data-[state=selected]:bg-content2/60"
             data-slot="tr"
           >
+            <td
+              class="p-3 align-middle text-foreground w-10 px-0 text-center"
+              data-slot="expansion-cell"
+            >
+              <div
+                class="flex justify-center"
+                data-slot="expansion-cell-content"
+              >
+                <button
+                  aria-label="Expand row 3"
+                  class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-transparent text-default-foreground data-[hover=true]:bg-default/40 h-8 min-w-8 px-0"
+                  data-react-aria-pressable="true"
+                  data-slot="expand-button"
+                  tabindex="0"
+                  type="button"
+                >
+                  <span
+                    aria-hidden="true"
+                    class="inline-flex h-3.5 w-3.5 shrink-0 items-center justify-center text-default-500"
+                    data-slot="expand-icon"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      fill="none"
+                      focusable="false"
+                      height="14"
+                      viewBox="0 0 16 16"
+                      width="14"
+                    >
+                      <path
+                        d="m6 4 4 4-4 4"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.75"
+                      />
+                    </svg>
+                  </span>
+                </button>
+              </div>
+            </td>
             <td
               class="p-3 align-middle text-foreground w-10 px-0 text-center"
               data-slot="selection-cell"
@@ -2015,6 +2669,47 @@ exports[`Story Snapshots > Playground 1`] = `
           >
             <td
               class="p-3 align-middle text-foreground w-10 px-0 text-center"
+              data-slot="expansion-cell"
+            >
+              <div
+                class="flex justify-center"
+                data-slot="expansion-cell-content"
+              >
+                <button
+                  aria-label="Expand row 4"
+                  class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-transparent text-default-foreground data-[hover=true]:bg-default/40 h-8 min-w-8 px-0"
+                  data-react-aria-pressable="true"
+                  data-slot="expand-button"
+                  tabindex="0"
+                  type="button"
+                >
+                  <span
+                    aria-hidden="true"
+                    class="inline-flex h-3.5 w-3.5 shrink-0 items-center justify-center text-default-500"
+                    data-slot="expand-icon"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      fill="none"
+                      focusable="false"
+                      height="14"
+                      viewBox="0 0 16 16"
+                      width="14"
+                    >
+                      <path
+                        d="m6 4 4 4-4 4"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.75"
+                      />
+                    </svg>
+                  </span>
+                </button>
+              </div>
+            </td>
+            <td
+              class="p-3 align-middle text-foreground w-10 px-0 text-center"
               data-slot="selection-cell"
             >
               <div
@@ -2084,6 +2779,47 @@ exports[`Story Snapshots > Playground 1`] = `
           >
             <td
               class="p-3 align-middle text-foreground w-10 px-0 text-center"
+              data-slot="expansion-cell"
+            >
+              <div
+                class="flex justify-center"
+                data-slot="expansion-cell-content"
+              >
+                <button
+                  aria-label="Expand row 5"
+                  class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-transparent text-default-foreground data-[hover=true]:bg-default/40 h-8 min-w-8 px-0"
+                  data-react-aria-pressable="true"
+                  data-slot="expand-button"
+                  tabindex="0"
+                  type="button"
+                >
+                  <span
+                    aria-hidden="true"
+                    class="inline-flex h-3.5 w-3.5 shrink-0 items-center justify-center text-default-500"
+                    data-slot="expand-icon"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      fill="none"
+                      focusable="false"
+                      height="14"
+                      viewBox="0 0 16 16"
+                      width="14"
+                    >
+                      <path
+                        d="m6 4 4 4-4 4"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.75"
+                      />
+                    </svg>
+                  </span>
+                </button>
+              </div>
+            </td>
+            <td
+              class="p-3 align-middle text-foreground w-10 px-0 text-center"
               data-slot="selection-cell"
             >
               <div
@@ -2151,6 +2887,47 @@ exports[`Story Snapshots > Playground 1`] = `
             class="border-b border-divider last:border-b-0 data-[state=selected]:bg-content2/60"
             data-slot="tr"
           >
+            <td
+              class="p-3 align-middle text-foreground w-10 px-0 text-center"
+              data-slot="expansion-cell"
+            >
+              <div
+                class="flex justify-center"
+                data-slot="expansion-cell-content"
+              >
+                <button
+                  aria-label="Expand row 6"
+                  class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-transparent text-default-foreground data-[hover=true]:bg-default/40 h-8 min-w-8 px-0"
+                  data-react-aria-pressable="true"
+                  data-slot="expand-button"
+                  tabindex="0"
+                  type="button"
+                >
+                  <span
+                    aria-hidden="true"
+                    class="inline-flex h-3.5 w-3.5 shrink-0 items-center justify-center text-default-500"
+                    data-slot="expand-icon"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      fill="none"
+                      focusable="false"
+                      height="14"
+                      viewBox="0 0 16 16"
+                      width="14"
+                    >
+                      <path
+                        d="m6 4 4 4-4 4"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.75"
+                      />
+                    </svg>
+                  </span>
+                </button>
+              </div>
+            </td>
             <td
               class="p-3 align-middle text-foreground w-10 px-0 text-center"
               data-slot="selection-cell"

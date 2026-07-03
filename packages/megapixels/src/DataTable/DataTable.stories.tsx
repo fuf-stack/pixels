@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import type { ColumnDef } from '@tanstack/react-table';
+import type { ColumnDef, Row } from '@tanstack/react-table';
 import type { DataTableProps, DataTableSearchField } from './DataTable';
 import type { SnackOrder } from './storybookData';
 
@@ -77,6 +77,30 @@ const sortableColumns: ColumnDef<SnackOrder>[] = defaultColumns.map(
     return column;
   },
 );
+
+const renderOrderDetails = (row: Row<SnackOrder>) => {
+  const order = row.original;
+  return (
+    <div className="grid gap-2 rounded-large bg-content2/60 p-4 text-sm md:grid-cols-3">
+      <div>
+        <div className="font-medium text-foreground">Delivery note</div>
+        <div className="text-default-500">
+          Pack {order.snack.toLowerCase()} for {order.customer}.
+        </div>
+      </div>
+      <div>
+        <div className="font-medium text-foreground">Contact</div>
+        <div className="text-default-500">{order.email}</div>
+      </div>
+      <div>
+        <div className="font-medium text-foreground">Kitchen status</div>
+        <div className="text-default-500">
+          The tiny bakery team is tracking this order closely.
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const DataTableWithMegapixelsFilter = ({
   disableAnimation = false,
@@ -183,6 +207,7 @@ export default meta;
 type Story = StoryObj<typeof SnackOrderDataTable>;
 
 type PlaygroundArgs = DataTableProps<SnackOrder, unknown> & {
+  enableExpandableRows: boolean;
   enableColumnVisibility: boolean;
   enablePagination: boolean;
   enableRowSelection: boolean;
@@ -197,6 +222,7 @@ const playgroundArgs: PlaygroundArgs = {
   ariaLabel: 'Playground European snack shop orders',
   columns: defaultColumns,
   data: playgroundOrders,
+  enableExpandableRows: true,
   enableColumnVisibility: true,
   enablePagination: true,
   enableRowSelection: true,
@@ -221,6 +247,7 @@ export const Default: Story = {
 export const Playground: Story = {
   args: playgroundArgs,
   argTypes: {
+    enableExpandableRows: { control: 'boolean' },
     enableColumnVisibility: { control: 'boolean' },
     enablePagination: { control: 'boolean' },
     enableRowSelection: { control: 'boolean' },
@@ -234,6 +261,7 @@ export const Playground: Story = {
   render: (storyArgs) => {
     const {
       enableColumnVisibility,
+      enableExpandableRows,
       enablePagination,
       enableRowSelection,
       enableSearch,
@@ -249,6 +277,9 @@ export const Playground: Story = {
         {...args}
         columns={enableSorting ? sortableColumns : defaultColumns}
         features={{
+          expandableRows: enableExpandableRows
+            ? { renderContent: renderOrderDetails }
+            : undefined,
           columnVisibility: enableColumnVisibility,
           pagination: enablePagination
             ? { pageSizeOptions, showRowsPerPage }
@@ -332,6 +363,28 @@ export const WithMegapixelsFilter: Story = {
     });
     await expect(canvas.getByText('Lena Weber')).toBeInTheDocument();
     await expect(canvas.getByText('Greta Fischer')).toBeInTheDocument();
+  },
+};
+
+export const ExpandableRows: Story = {
+  args: {
+    ariaLabel: 'Expandable European snack shop orders',
+    columns: defaultColumns,
+    data: compactOrders,
+    features: {
+      expandableRows: { renderContent: renderOrderDetails },
+    },
+    testId: 'datatable-expandable',
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    await expect(canvas.queryByText(/Delivery note/i)).not.toBeInTheDocument();
+    await userEvent.click(canvas.getByLabelText('Expand row 0'));
+    await expect(canvas.getByText(/Delivery note/i)).toBeInTheDocument();
+    await expect(
+      canvas.getByText(/Pack chocolate wafers for Anna Kowalski/i),
+    ).toBeInTheDocument();
   },
 };
 
@@ -462,6 +515,7 @@ export const CustomIcons: Story = {
     columns: sortableColumns,
     data: iconOrders,
     features: {
+      expandableRows: { renderContent: renderOrderDetails },
       columnVisibility: true,
       search: {
         columns: [{ column: 'email', placeholder: 'Search customer email...' }],
@@ -470,6 +524,10 @@ export const CustomIcons: Story = {
       rowSelection: true,
     },
     icons: {
+      expandableRows: {
+        collapsed: <span aria-hidden="true">▶️</span>,
+        expanded: <span aria-hidden="true">🔽</span>,
+      },
       columnVisibility: {
         trigger: <span aria-hidden="true">🧭</span>,
         visible: <span aria-hidden="true">👁️</span>,
@@ -489,8 +547,11 @@ export const CustomIcons: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    // Injected emoji icons replace the defaults for the trigger and sort state.
+    // Injected emoji icons replace the defaults for expansion, trigger, and sort state.
     await expect(canvas.getByText('🧭')).toBeInTheDocument();
+    await expect(canvas.getAllByText('▶️').length).toBeGreaterThan(0);
+    await userEvent.click(canvas.getByLabelText('Expand row 0'));
+    await expect(canvas.getByText('🔽')).toBeInTheDocument();
     await expect(canvas.getAllByText('↕️').length).toBeGreaterThan(0);
   },
 };

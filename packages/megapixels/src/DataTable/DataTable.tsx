@@ -1,20 +1,17 @@
 import type { TVClassName } from '@fuf-stack/pixel-utils';
-import type { ColumnDef } from '@tanstack/react-table';
+import type { ColumnDef, Row } from '@tanstack/react-table';
 import type { ReactNode } from 'react';
 
 import { useMemo } from 'react';
 
-import { flexRender } from '@tanstack/react-table';
+import { tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 
-import { cn, tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
-import Button from '@fuf-stack/pixels/Button';
-
-import {
-  getSortIndicator,
-  SELECTION_COLUMN_ID,
-  useDataTableController,
-} from './hooks/useDataTableController';
+import { useDataTableController } from './hooks/useDataTableController';
 import DataTablePagination from './Subcomponents/DataTablePagination';
+import {
+  DataTableBodyRows,
+  DataTableHeaderCell,
+} from './Subcomponents/DataTableRows';
 import DataTableViewOptions from './Subcomponents/DataTableViewOptions';
 
 export const dataTableVariants = tv({
@@ -29,6 +26,19 @@ export const dataTableVariants = tv({
       'pointer-events-none absolute inset-0 flex items-center justify-center text-[10px] leading-none',
     // Empty-state cell shown when no rows match.
     emptyCell: 'h-24 text-center text-default-500',
+    // Button used by the injected expandable-row toggle column.
+    expandButton: 'h-8 min-w-8 px-0',
+    // Icon wrapper inside the expandable-row toggle button.
+    expandIcon:
+      'inline-flex h-3.5 w-3.5 shrink-0 items-center justify-center text-default-500',
+    // Header/body cell reserved for the expandable-row toggle column.
+    expansionCell: 'w-10 px-0 text-center',
+    // Inner wrapper that visually centers expandable-row toggle buttons.
+    expansionCellContent: 'flex justify-center',
+    // Table row rendered directly below an expanded data row.
+    expandedRow: 'bg-content1',
+    // Table cell that spans all visible columns for expanded content.
+    expandedCell: 'p-4 text-sm text-default-600',
     // Built-in text search input(s) rendered in the toolbar.
     searchInput:
       'h-10 w-full max-w-sm rounded-small border-2 border-default-200 bg-transparent px-3 text-sm text-foreground outline-none transition-colors placeholder:text-default-500 hover:border-default-400 data-[focused=true]:border-focus dark:border-default-100',
@@ -101,6 +111,13 @@ export interface DataTableSearchField {
 }
 
 export interface DataTableIcons {
+  /** Icons used by expandable row controls. */
+  expandableRows?: {
+    /** Icon for collapsed rows; pass `false` to hide. */
+    collapsed?: ReactNode | false;
+    /** Icon for expanded rows; pass `false` to hide. */
+    expanded?: ReactNode | false;
+  };
   /** Icons used for sorting indicators. */
   sort?: {
     /** Icon for ascending sort; pass `false` to hide. */
@@ -126,7 +143,14 @@ export interface DataTableIcons {
   };
 }
 
-export interface DataTableFeatures {
+export interface DataTableExpandableRowsFeature<TData = unknown> {
+  /** Content rendered in a full-width row below an expanded table row. */
+  renderContent: (row: Row<TData>) => ReactNode;
+}
+
+export interface DataTableFeatures<TData = unknown> {
+  /** Enables expandable detail rows with custom expanded content. */
+  expandableRows?: DataTableExpandableRowsFeature<TData>;
   /** Enables the "Columns" menu for toggling visible columns. */
   columnVisibility?: boolean;
   /** Enables pagination row model and footer controls, optionally with page-size settings. */
@@ -159,7 +183,7 @@ export interface DataTableProps<TData, TValue> {
   /** Content shown when no rows match current table state. */
   emptyContent?: ReactNode;
   /** Grouped feature switches/configuration. */
-  features?: DataTableFeatures;
+  features?: DataTableFeatures<TData>;
   /** Optional icon overrides for all built-in DataTable icons. */
   icons?: DataTableIcons;
   /** Shows loading row instead of regular row output. */
@@ -199,6 +223,10 @@ const DataTable = <TData, TValue>({
   toolbarContent = undefined,
 }: DataTableProps<TData, TValue>) => {
   const resolvedEnableColumnVisibility = features?.columnVisibility ?? false;
+  // Expandable rows need a renderer, so this feature is an object rather than
+  // a boolean flag like row selection.
+  const resolvedExpandableRows = features?.expandableRows;
+  const resolvedEnableExpandableRows = Boolean(resolvedExpandableRows);
   const paginationConfig =
     typeof features?.pagination === 'object' ? features.pagination : undefined;
   const resolvedEnablePagination = Boolean(features?.pagination);
@@ -221,13 +249,25 @@ const DataTable = <TData, TValue>({
     };
   }, [classNames.checkbox, classNames.checkboxIndicator]);
 
+  // Same stability requirement as selection: the controller memoizes injected
+  // columns and should only recreate them when relevant slot classes change.
+  const expansionClassNames = useMemo(() => {
+    return {
+      expandButton: classNames.expandButton,
+      expandIcon: classNames.expandIcon,
+    };
+  }, [classNames.expandButton, classNames.expandIcon]);
+
   // Centralized TanStack state/control lives in the controller hook.
   const { table } = useDataTableController<TData, TValue>({
     checkboxClassNames,
     columns,
     data,
+    enableExpandableRows: resolvedEnableExpandableRows,
     enablePagination: resolvedEnablePagination,
     enableRowSelection: resolvedEnableRowSelection,
+    expansionClassNames,
+    expansionIcons: icons?.expandableRows,
     pageSizeOptions: resolvedPageSizeOptions,
     selectionIcons: icons?.selection,
   });
@@ -312,75 +352,13 @@ const DataTable = <TData, TValue>({
                   data-slot="tr"
                 >
                   {headerGroup.headers.map((header) => {
-                    const canSort = header.column.getCanSort();
-                    const isSelectionColumn =
-                      header.column.id === SELECTION_COLUMN_ID;
-                    const sortState = header.column.getIsSorted();
-                    const sortIndicator = getSortIndicator(
-                      canSort,
-                      sortState,
-                      icons?.sort,
-                    );
                     return (
-                      <th
+                      <DataTableHeaderCell
                         key={header.id}
-                        className={cn(
-                          classNames.th,
-                          isSelectionColumn && classNames.selectionCell,
-                        )}
-                        data-slot={isSelectionColumn ? 'selection-cell' : 'th'}
-                      >
-                        {header.isPlaceholder ? null : (
-                          <>
-                            {canSort ? (
-                              <Button
-                                className={classNames.sortButton}
-                                data-sortable={canSort}
-                                dataSlot="sort-button"
-                                onClick={() => {
-                                  header.column.toggleSorting(
-                                    sortState === 'asc',
-                                  );
-                                }}
-                                size="sm"
-                                variant="light"
-                              >
-                                {flexRender(
-                                  header.column.columnDef.header,
-                                  header.getContext(),
-                                )}
-                                {sortIndicator ? (
-                                  <span
-                                    aria-hidden="true"
-                                    className={classNames.sortIcon}
-                                    data-slot="sort-icon"
-                                  >
-                                    {sortIndicator}
-                                  </span>
-                                ) : null}
-                              </Button>
-                            ) : (
-                              <div
-                                className={cn(
-                                  classNames.nonSortableHeaderContent,
-                                  isSelectionColumn &&
-                                    classNames.selectionCellContent,
-                                )}
-                                data-slot={
-                                  isSelectionColumn
-                                    ? 'selection-cell-content'
-                                    : 'non-sortable-header-content'
-                                }
-                              >
-                                {flexRender(
-                                  header.column.columnDef.header,
-                                  header.getContext(),
-                                )}
-                              </div>
-                            )}
-                          </>
-                        )}
-                      </th>
+                        classNames={classNames}
+                        header={header}
+                        sortIcons={icons?.sort}
+                      />
                     );
                   })}
                 </tr>
@@ -389,50 +367,14 @@ const DataTable = <TData, TValue>({
           </thead>
           <tbody className={classNames.tbody} data-slot="tbody">
             {/* Render regular rows unless loading mode is active. */}
-            {loading
-              ? null
-              : tableRows.map((row) => {
-                  return (
-                    <tr
-                      key={row.id}
-                      className={classNames.tr}
-                      data-slot="tr"
-                      data-state={row.getIsSelected() ? 'selected' : undefined}
-                    >
-                      {row.getVisibleCells().map((cell) => {
-                        const isSelectionColumn =
-                          cell.column.id === SELECTION_COLUMN_ID;
-                        const cellContent = flexRender(
-                          cell.column.columnDef.cell,
-                          cell.getContext(),
-                        );
-                        return (
-                          <td
-                            key={cell.id}
-                            className={cn(
-                              classNames.td,
-                              isSelectionColumn && classNames.selectionCell,
-                            )}
-                            data-slot={
-                              isSelectionColumn ? 'selection-cell' : 'td'
-                            }
-                          >
-                            {isSelectionColumn ? (
-                              <div
-                                className={classNames.selectionCellContent}
-                                data-slot="selection-cell-content"
-                              >
-                                {cellContent}
-                              </div>
-                            ) : (
-                              cellContent
-                            )}
-                          </td>
-                        );
-                      })}
-                    </tr>
-                  );
-                })}
+            {loading ? null : (
+              <DataTableBodyRows
+                classNames={classNames}
+                expandableRows={resolvedExpandableRows}
+                rows={tableRows}
+                visibleColumnCount={visibleColumnCount}
+              />
+            )}
             {/* Loading and empty states reserve full table width via visible column span. */}
             {loading ? (
               <tr className={classNames.tr} data-slot="tr">
