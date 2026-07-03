@@ -27,7 +27,8 @@ export const dataTableVariants = tv({
     // Empty-state cell shown when no rows match.
     emptyCell: 'h-24 text-center text-default-500',
     // Button used by the injected expandable-row toggle column.
-    expandButton: 'h-8 min-w-8 px-0',
+    expandButton:
+      'h-8 min-w-8 px-0 disabled:cursor-not-allowed data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed',
     // Icon wrapper inside the expandable-row toggle button.
     expandIcon:
       'inline-flex h-3.5 w-3.5 shrink-0 items-center justify-center text-default-500',
@@ -144,12 +145,18 @@ export interface DataTableIcons {
 }
 
 export interface DataTableExpandableRowsFeature<TData = unknown> {
+  /**
+   * Returns nested child rows for TanStack-style hierarchical expansion.
+   * Provide this when your data contains multi-level rows (for example
+   * `row.children` or `row.subRows`).
+   */
+  getSubRows?: (originalRow: TData, index: number) => TData[] | undefined;
   /** Content rendered in a full-width row below an expanded table row. */
-  renderContent: (row: Row<TData>) => ReactNode;
+  renderContent?: (row: Row<TData>) => ReactNode;
 }
 
 export interface DataTableFeatures<TData = unknown> {
-  /** Enables expandable detail rows with custom expanded content. */
+  /** Enables TanStack expanding for detail panels, nested sub rows, or both. */
   expandableRows?: DataTableExpandableRowsFeature<TData>;
   /** Enables the "Columns" menu for toggling visible columns. */
   columnVisibility?: boolean;
@@ -223,8 +230,8 @@ const DataTable = <TData, TValue>({
   toolbarContent = undefined,
 }: DataTableProps<TData, TValue>) => {
   const resolvedEnableColumnVisibility = features?.columnVisibility ?? false;
-  // Expandable rows need a renderer, so this feature is an object rather than
-  // a boolean flag like row selection.
+  // Expandable rows need configuration (detail renderer, nested row getter, or
+  // both), so this feature is an object rather than a boolean flag.
   const resolvedExpandableRows = features?.expandableRows;
   const resolvedEnableExpandableRows = Boolean(resolvedExpandableRows);
   const paginationConfig =
@@ -268,6 +275,8 @@ const DataTable = <TData, TValue>({
     enableRowSelection: resolvedEnableRowSelection,
     expansionClassNames,
     expansionIcons: icons?.expandableRows,
+    getSubRows: resolvedExpandableRows?.getSubRows,
+    hasExpandableRowContent: Boolean(resolvedExpandableRows?.renderContent),
     pageSizeOptions: resolvedPageSizeOptions,
     selectionIcons: icons?.selection,
   });

@@ -178,6 +178,10 @@ const DataTableBodyCell = <TData,>({
   const isSelectionColumn = columnKind === 'selection';
   const isControlColumn = columnKind !== 'data';
   const cellContent = flexRender(cell.column.columnDef.cell, cell.getContext());
+  const expansionIndent =
+    isExpansionColumn && cell.row.depth > 0
+      ? { paddingLeft: `${cell.row.depth * 1.25}rem` }
+      : undefined;
 
   return (
     <td
@@ -196,6 +200,7 @@ const DataTableBodyCell = <TData,>({
             isSelectionColumn && classNames.selectionCellContent,
           )}
           data-slot={getControlCellContentDataSlot(columnKind)}
+          style={expansionIndent}
         >
           {cellContent}
         </div>
@@ -242,7 +247,7 @@ export const DataTableBodyRows = <TData,>({
           Expanded content is a sibling <tr> so it can span all currently
           visible columns without coupling detail markup to every cell.
         */}
-        {expandableRows && row.getIsExpanded() ? (
+        {expandableRows?.renderContent && row.getIsExpanded() ? (
           <tr
             className={cn(classNames.tr, classNames.expandedRow)}
             data-slot="expanded-row"

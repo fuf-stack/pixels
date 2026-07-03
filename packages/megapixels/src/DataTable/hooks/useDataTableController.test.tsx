@@ -12,6 +12,7 @@ import {
 interface Row {
   amount: number;
   email: string;
+  subRows?: Row[];
 }
 
 const columns: ColumnDef<Row>[] = [
@@ -31,28 +32,45 @@ const rows: Row[] = [
   { amount: 200, email: 'amelia@example.com' },
 ];
 
+const nestedRows: Row[] = [
+  {
+    amount: 100,
+    email: 'parent@example.com',
+    subRows: [{ amount: 50, email: 'child@example.com' }],
+  },
+  { amount: 200, email: 'leaf@example.com' },
+];
+
 const renderDataTableController = ({
   controllerColumns = columns,
   enableExpandableRows = false,
   enablePagination = true,
   enableRowSelection = false,
+  getSubRows = undefined,
+  hasExpandableRowContent = false,
   pageSizeOptions = [10],
+  controllerRows = rows,
 }: {
   controllerColumns?: ColumnDef<Row>[];
   enableExpandableRows?: boolean;
   enablePagination?: boolean;
   enableRowSelection?: boolean;
+  getSubRows?: (originalRow: Row, index: number) => Row[] | undefined;
+  hasExpandableRowContent?: boolean;
   pageSizeOptions?: number[];
+  controllerRows?: Row[];
 } = {}) =>
   renderHook(() =>
     useDataTableController({
       checkboxClassNames: {},
       columns: controllerColumns,
-      data: rows,
+      data: controllerRows,
       enableExpandableRows,
       enablePagination,
       enableRowSelection,
       expansionClassNames: {},
+      getSubRows,
+      hasExpandableRowContent,
       pageSizeOptions,
     }),
   );
@@ -76,6 +94,7 @@ describe('useDataTableController', () => {
   it('adds expansion column and stores expanded row state when expandable rows are enabled', () => {
     const { result } = renderDataTableController({
       enableExpandableRows: true,
+      hasExpandableRowContent: true,
     });
 
     expect(result.current.tableColumns[0]?.id).toBe('__expand');
@@ -86,6 +105,31 @@ describe('useDataTableController', () => {
     });
 
     expect(result.current.table.getState().expanded).toEqual({ 0: true });
+  });
+
+  it('uses getSubRows for hierarchical expansion', () => {
+    const { result } = renderDataTableController({
+      controllerRows: nestedRows,
+      enableExpandableRows: true,
+      getSubRows: (row) => row.subRows,
+    });
+
+    expect(result.current.table.getRowModel().rows).toHaveLength(2);
+    expect(result.current.table.getRowModel().rows[0]?.getCanExpand()).toBe(
+      true,
+    );
+    expect(result.current.table.getRowModel().rows[1]?.getCanExpand()).toBe(
+      false,
+    );
+
+    act(() => {
+      result.current.table.getRowModel().rows[0]?.toggleExpanded(true);
+    });
+
+    expect(result.current.table.getRowModel().rows).toHaveLength(3);
+    expect(result.current.table.getRowModel().rows[1]?.original.email).toBe(
+      'child@example.com',
+    );
   });
 
   it('keeps the injected selection column fixed and non-sortable', () => {

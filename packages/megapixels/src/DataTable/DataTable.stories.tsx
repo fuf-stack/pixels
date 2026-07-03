@@ -78,6 +78,52 @@ const sortableColumns: ColumnDef<SnackOrder>[] = defaultColumns.map(
   },
 );
 
+type NestedSnackOrder = SnackOrder & { subRows?: NestedSnackOrder[] };
+
+const nestedOrders: NestedSnackOrder[] = [
+  {
+    amount: 52.4,
+    customer: 'Klara Müller',
+    email: 'klara@berlin-bites.de',
+    snack: 'Weekend market bundle',
+    status: 'delivered',
+    subRows: [
+      {
+        amount: 31.6,
+        customer: 'Klara Müller',
+        email: 'klara@berlin-bites.de',
+        snack: 'Currywurst fries',
+        status: 'delivered',
+        subRows: [
+          {
+            amount: 8.2,
+            customer: 'Klara Müller',
+            email: 'klara@berlin-bites.de',
+            snack: 'Extra paprika dip',
+            status: 'delivered',
+          },
+        ],
+      },
+      {
+        amount: 20.8,
+        customer: 'Klara Müller',
+        email: 'klara@berlin-bites.de',
+        snack: 'Pretzel bites',
+        status: 'packing',
+      },
+    ],
+  },
+  {
+    amount: 24.2,
+    customer: 'Jules Dubois',
+    email: 'jules@paris-pastry.fr',
+    snack: 'Mini croissants',
+    status: 'delivered',
+  },
+];
+
+const nestedColumns = defaultColumns as ColumnDef<NestedSnackOrder>[];
+
 const renderOrderDetails = (row: Row<SnackOrder>) => {
   const order = row.original;
   return (
@@ -385,6 +431,42 @@ export const ExpandableRows: Story = {
     await expect(
       canvas.getByText(/Pack chocolate wafers for Anna Kowalski/i),
     ).toBeInTheDocument();
+  },
+};
+
+export const MultiLevelExpandableRows: Story = {
+  render: () => {
+    const NestedSnackOrderDataTable = DataTable<NestedSnackOrder, unknown>;
+    return (
+      <NestedSnackOrderDataTable
+        ariaLabel="Multi-level European snack shop orders"
+        columns={nestedColumns}
+        data={nestedOrders}
+        features={{
+          expandableRows: {
+            getSubRows: (row) => {
+              return row.subRows;
+            },
+          },
+        }}
+        testId="datatable-multi-level-expandable"
+      />
+    );
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    await expect(
+      canvas.queryByText('Currywurst fries'),
+    ).not.toBeInTheDocument();
+    await userEvent.click(canvas.getByLabelText('Expand row 0'));
+    await expect(canvas.getByText('Currywurst fries')).toBeInTheDocument();
+
+    await expect(
+      canvas.queryByText('Extra paprika dip'),
+    ).not.toBeInTheDocument();
+    await userEvent.click(canvas.getByLabelText('Expand row 0.0'));
+    await expect(canvas.getByText('Extra paprika dip')).toBeInTheDocument();
   },
 };
 

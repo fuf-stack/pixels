@@ -200,6 +200,10 @@ export interface UseDataTableControllerParams<TData, TValue> {
   expansionClassNames: ExpansionColumnClassNames;
   /** Icons used by injected expansion controls. */
   expansionIcons?: ExpansionColumnIcons;
+  /** Returns nested child rows for TanStack hierarchical expansion. */
+  getSubRows?: (originalRow: TData, index: number) => TData[] | undefined;
+  /** Enables expansion for rows without sub rows so they can show detail content. */
+  hasExpandableRowContent: boolean;
   /** Available pagination page sizes. First value is initial page size. */
   pageSizeOptions: number[];
   /** Icons used by injected selection controls. */
@@ -338,6 +342,8 @@ export const useDataTableController = <TData, TValue>({
   enableRowSelection,
   expansionClassNames,
   expansionIcons = undefined,
+  getSubRows = undefined,
+  hasExpandableRowContent,
   pageSizeOptions,
   selectionIcons = undefined,
 }: UseDataTableControllerParams<TData, TValue>) => {
@@ -399,9 +405,10 @@ export const useDataTableController = <TData, TValue>({
     getPaginationRowModel: enablePagination
       ? getPaginationRowModel()
       : undefined,
-    getRowCanExpand: () => {
-      return enableExpandableRows;
+    getRowCanExpand: (row) => {
+      return hasExpandableRowContent || row.subRows.length > 0;
     },
+    getSubRows,
     getSortedRowModel: getSortedRowModel(),
     onColumnFiltersChange: setColumnFilters,
     onColumnVisibilityChange: setColumnVisibility,

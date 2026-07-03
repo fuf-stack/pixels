@@ -17,6 +17,7 @@ interface Row {
   amount: number;
   email: string;
   status: 'failed' | 'success';
+  subRows?: Row[];
 }
 
 const columns: ColumnDef<Row>[] = [
@@ -38,6 +39,28 @@ const columns: ColumnDef<Row>[] = [
 const rows: Row[] = [
   { amount: 100, email: 'zoe@example.com', status: 'success' },
   { amount: 200, email: 'amelia@example.com', status: 'failed' },
+];
+
+const nestedRows: Row[] = [
+  {
+    amount: 100,
+    email: 'parent@example.com',
+    status: 'success',
+    subRows: [
+      {
+        amount: 50,
+        email: 'child@example.com',
+        status: 'success',
+        subRows: [
+          {
+            amount: 25,
+            email: 'grandchild@example.com',
+            status: 'failed',
+          },
+        ],
+      },
+    ],
+  },
 ];
 
 describe('DataTable interactions', () => {
@@ -257,6 +280,32 @@ describe('DataTable interactions', () => {
     expect(
       screen.queryByText('Details for zoe@example.com'),
     ).not.toBeInTheDocument();
+  });
+
+  it('expands multiple levels of nested sub rows', async () => {
+    const user = userEvent.setup();
+    render(
+      <DataTable
+        columns={columns}
+        data={nestedRows}
+        features={{
+          expandableRows: {
+            getSubRows: (row) => row.subRows,
+          },
+          rowSelection: false,
+        }}
+      />,
+    );
+
+    expect(screen.queryByText('child@example.com')).not.toBeInTheDocument();
+    await user.click(screen.getByLabelText('Expand row 0'));
+    expect(screen.getByText('child@example.com')).toBeInTheDocument();
+    expect(
+      screen.queryByText('grandchild@example.com'),
+    ).not.toBeInTheDocument();
+
+    await user.click(screen.getByLabelText('Expand row 0.0'));
+    expect(screen.getByText('grandchild@example.com')).toBeInTheDocument();
   });
 
   it('updates row selection summary when selecting rows', async () => {
