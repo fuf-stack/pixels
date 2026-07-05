@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.12.0](https://github.com/fuf-stack/pixels/compare/pixels-v1.11.8...pixels-v1.12.0) (2026-07-05)
+
+
+### Features
+
+* **megapixels,pixels:** add DataTable component ([e3077cb](https://github.com/fuf-stack/pixels/commit/e3077cb907a9776f76c5cf398d5067fdfacceb3f))
+* **pixels,megapixels:** integrate ScrollShadow with virtualized infinite scroll ([2618186](https://github.com/fuf-stack/pixels/commit/26181865a55c33e212af123c7b0aefc6f5dd940d))
+
 ## [1.11.8](https://github.com/fuf-stack/pixels/compare/pixels-v1.11.7...pixels-v1.11.8) (2026-06-30)
 
 
