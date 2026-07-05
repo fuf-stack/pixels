@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.14.1](https://github.com/fuf-stack/pixels/compare/megapixels-v0.14.0...megapixels-v0.14.1) (2026-07-05)
+
+
+### Bug Fixes
+
+* **megapixels:** fix some imports for cjs compatibility ([fc9ad2a](https://github.com/fuf-stack/pixels/commit/fc9ad2af1bd3db39476b65162b03dda499cf3b4e))
+
 ## [0.14.0](https://github.com/fuf-stack/pixels/compare/megapixels-v0.13.5...megapixels-v0.14.0) (2026-07-05)
 
 
