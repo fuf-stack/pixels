@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { FaSearch } from 'react-icons/fa';
 
 import { motion } from '@fuf-stack/pixel-motion';
-import Button from '@fuf-stack/pixels/Button';
+import { Button } from '@fuf-stack/pixels/Button';
 import { useFormContext } from '@fuf-stack/uniform/hooks/useFormContext';
 import Input from '@fuf-stack/uniform/Input';
 import SubmitButton from '@fuf-stack/uniform/SubmitButton';

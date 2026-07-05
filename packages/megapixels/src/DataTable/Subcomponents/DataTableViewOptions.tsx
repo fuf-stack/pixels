@@ -3,7 +3,7 @@ import type { ReactNode } from 'react';
 
 import { LuColumns3 } from 'react-icons/lu';
 
-import Menu from '@fuf-stack/pixels/Menu';
+import { Menu } from '@fuf-stack/pixels/Menu';
 
 /**
  * Resolves a human-readable label for a column, preferring its string header

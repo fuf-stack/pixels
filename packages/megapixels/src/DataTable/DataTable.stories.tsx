@@ -9,7 +9,7 @@ import { useMemo, useState } from 'react';
 
 import { expect, userEvent, waitFor, within } from 'storybook/test';
 
-import Label from '@fuf-stack/pixels/Label';
+import { Label } from '@fuf-stack/pixels/Label';
 
 import Filter, { filters as filterRegistry } from '../Filter';
 import DataTable from './DataTable';

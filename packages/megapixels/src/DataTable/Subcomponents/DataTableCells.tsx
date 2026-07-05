@@ -5,7 +5,7 @@ import type { DataTableIcons } from '../DataTable';
 import { flexRender } from '@tanstack/react-table';
 
 import { cn } from '@fuf-stack/pixel-utils';
-import Button from '@fuf-stack/pixels/Button';
+import { Button } from '@fuf-stack/pixels/Button';
 
 import {
   EXPANSION_COLUMN_ID,

@@ -20,7 +20,7 @@ import {
   useReactTable,
 } from '@tanstack/react-table';
 
-import Button from '@fuf-stack/pixels/Button';
+import { Button } from '@fuf-stack/pixels/Button';
 
 import DataTableCheckbox from '../Subcomponents/DataTableCheckbox';
 

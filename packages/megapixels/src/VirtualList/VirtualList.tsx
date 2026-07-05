@@ -6,7 +6,7 @@ import type {
 } from '../DataTable';
 
 import { tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
-import ScrollShadow from '@fuf-stack/pixels/ScrollShadow';
+import { ScrollShadow } from '@fuf-stack/pixels/ScrollShadow';
 
 import { useInfiniteVirtualizer } from '../hooks/useInfiniteVirtualizer';
 
@@ -183,10 +183,11 @@ const VirtualList = <TData,>({
               : classNames.scrollContainer
           }
           // show scroll shadow when there is no page load more error
-          visibility={infiniteScroll?.loadMoreError ? 'none' : 'auto'}
           dataSlot="scroll-container"
-          style={{ maxHeight: virtualization.maxHeight }}
           size={virtualization.scrollShadowSize ?? 40}
+          style={{ maxHeight: virtualization.maxHeight }}
+          // show scroll shadow when there is no page load more error
+          visibility={infiniteScroll?.loadMoreError ? 'none' : 'auto'}
         >
           <ul
             className={classNames.list}

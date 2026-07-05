@@ -1,4 +1,4 @@
-import Label from '@fuf-stack/pixels/Label';
+import { Label } from '@fuf-stack/pixels/Label';
 
 import { useFilters } from './FiltersContext';
 

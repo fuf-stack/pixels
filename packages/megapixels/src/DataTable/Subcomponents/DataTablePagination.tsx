@@ -1,7 +1,7 @@
 import type { Table } from '@tanstack/react-table';
 
-import Button from '@fuf-stack/pixels/Button';
-import Menu from '@fuf-stack/pixels/Menu';
+import { Button } from '@fuf-stack/pixels/Button';
+import { Menu } from '@fuf-stack/pixels/Menu';
 
 interface PaginationClassNames {
   pageSizeLabel?: string;

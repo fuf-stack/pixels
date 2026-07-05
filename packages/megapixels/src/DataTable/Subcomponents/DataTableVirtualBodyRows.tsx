@@ -10,7 +10,7 @@ import type {
 import type { DataTableClassNames } from './DataTableCells';
 
 import { cn } from '@fuf-stack/pixel-utils';
-import Button from '@fuf-stack/pixels/Button';
+import { Button } from '@fuf-stack/pixels/Button';
 
 import { useDataTableVirtualizer } from '../hooks/useDataTableVirtualizer';
 import {
