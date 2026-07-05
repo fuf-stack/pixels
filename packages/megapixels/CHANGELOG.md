@@ -1,5 +1,24 @@
 # Changelog
 
+## [0.14.0](https://github.com/fuf-stack/pixels/compare/megapixels-v0.13.5...megapixels-v0.14.0) (2026-07-05)
+
+
+### Features
+
+* **megapixels,pixels:** add DataTable component ([e3077cb](https://github.com/fuf-stack/pixels/commit/e3077cb907a9776f76c5cf398d5067fdfacceb3f))
+* **megapixels:** add expandable DataTable rows ([ee5f1f6](https://github.com/fuf-stack/pixels/commit/ee5f1f6853dabc17ae1b2c38a24c2b0d7c8d0b18))
+* **megapixels:** add infinite scroll and virtualization to DataTable, add VirtualList component ([14940d6](https://github.com/fuf-stack/pixels/commit/14940d619b29874e4ffb4412d421ce82a41ad83e))
+* **megapixels:** support expandable sub DataTable rows ([98f082f](https://github.com/fuf-stack/pixels/commit/98f082fce3897771b362050ff219244650290ddf))
+* **pixels,megapixels:** integrate ScrollShadow with virtualized infinite scroll ([2618186](https://github.com/fuf-stack/pixels/commit/26181865a55c33e212af123c7b0aefc6f5dd940d))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @fuf-stack/pixels bumped to 1.12.0
+    * @fuf-stack/uniform bumped to 1.24.9
+
 ## [0.13.5](https://github.com/fuf-stack/pixels/compare/megapixels-v0.13.4...megapixels-v0.13.5) (2026-07-02)
 
 
