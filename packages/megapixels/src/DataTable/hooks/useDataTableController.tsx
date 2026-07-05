@@ -31,26 +31,31 @@ export const EXPANSION_COLUMN_ID = '__expand';
 
 type SortState = false | 'asc' | 'desc';
 
+/** Slot classes consumed by the injected selection checkbox column. */
 interface SelectionColumnClassNames {
   checkbox?: string;
   checkboxIndicator?: string;
 }
 
+/** Slot classes consumed by the injected expansion toggle column. */
 interface ExpansionColumnClassNames {
   expandButton?: string;
   expandIcon?: string;
 }
 
+/** Optional icon overrides for row expansion controls. */
 interface ExpansionColumnIcons {
   collapsed?: ReactNode | false;
   expanded?: ReactNode | false;
 }
 
+/** Optional icon overrides for row selection controls. */
 interface SelectionColumnIcons {
   checked?: ReactNode | false;
   indeterminate?: ReactNode | false;
 }
 
+/** Optional icon overrides for sort state indicators. */
 interface SortIndicatorIcons {
   asc?: ReactNode | false;
   desc?: ReactNode | false;
@@ -194,6 +199,8 @@ export interface UseDataTableControllerParams<TData, TValue> {
   enableExpandableRows: boolean;
   /** Enables TanStack pagination row model and state. */
   enablePagination: boolean;
+  /** Enables TanStack manual mode for server-driven filtering/sorting. */
+  enableServerMode?: boolean;
   /** Enables injected selection column and row selection state. */
   enableRowSelection: boolean;
   /** Class names forwarded to the injected expansion button column. */
@@ -208,6 +215,8 @@ export interface UseDataTableControllerParams<TData, TValue> {
   pageSizeOptions: number[];
   /** Icons used by injected selection controls. */
   selectionIcons?: SelectionColumnIcons;
+  /** Optional callback for sorting state updates. */
+  onSortingChange?: (sorting: SortingState) => void;
 }
 
 /** Builds the optional leading expansion column used by DataTable. */
@@ -339,6 +348,7 @@ export const useDataTableController = <TData, TValue>({
   data,
   enableExpandableRows,
   enablePagination,
+  enableServerMode = false,
   enableRowSelection,
   expansionClassNames,
   expansionIcons = undefined,
@@ -346,6 +356,7 @@ export const useDataTableController = <TData, TValue>({
   hasExpandableRowContent,
   pageSizeOptions,
   selectionIcons = undefined,
+  onSortingChange = undefined,
 }: UseDataTableControllerParams<TData, TValue>) => {
   // Stateful table mechanics managed by TanStack.
   const [sorting, setSorting] = useState<SortingState>([]);
@@ -388,6 +399,19 @@ export const useDataTableController = <TData, TValue>({
     selectionIcons,
   ]);
 
+  const handleSortingChange = (
+    nextSorting: SortingState | ((previousState: SortingState) => SortingState),
+  ) => {
+    setSorting((previousState) => {
+      const resolvedSorting =
+        typeof nextSorting === 'function'
+          ? nextSorting(previousState)
+          : nextSorting;
+      onSortingChange?.(resolvedSorting);
+      return resolvedSorting;
+    });
+  };
+
   // eslint-disable-next-line react-hooks/incompatible-library -- TanStack Table intentionally returns function helpers that React Compiler cannot memoize.
   const table = useReactTable({
     columns: tableColumns,
@@ -401,7 +425,7 @@ export const useDataTableController = <TData, TValue>({
     getExpandedRowModel: enableExpandableRows
       ? getExpandedRowModel()
       : undefined,
-    getFilteredRowModel: getFilteredRowModel(),
+    getFilteredRowModel: enableServerMode ? undefined : getFilteredRowModel(),
     getPaginationRowModel: enablePagination
       ? getPaginationRowModel()
       : undefined,
@@ -409,13 +433,15 @@ export const useDataTableController = <TData, TValue>({
       return hasExpandableRowContent || row.subRows.length > 0;
     },
     getSubRows,
-    getSortedRowModel: getSortedRowModel(),
+    getSortedRowModel: enableServerMode ? undefined : getSortedRowModel(),
+    manualFiltering: enableServerMode,
+    manualSorting: enableServerMode,
     onColumnFiltersChange: setColumnFilters,
     onColumnVisibilityChange: setColumnVisibility,
     onExpandedChange: setExpanded,
     onPaginationChange: setPagination,
     onRowSelectionChange: setRowSelection,
-    onSortingChange: setSorting,
+    onSortingChange: handleSortingChange,
     state: {
       columnFilters,
       columnVisibility,

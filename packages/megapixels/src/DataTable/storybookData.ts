@@ -17,6 +17,7 @@ export const statusConfig: Record<
   packing: { color: 'warning', label: 'Packing' },
 };
 
+// Minimal baseline fixture used by default/basic stories.
 export const defaultOrders: SnackOrder[] = [
   {
     amount: 31.6,
@@ -41,6 +42,7 @@ export const defaultOrders: SnackOrder[] = [
   },
 ];
 
+// Larger mixed fixture used in playground-style examples.
 export const playgroundOrders: SnackOrder[] = [
   ...defaultOrders,
   {
@@ -73,6 +75,7 @@ export const playgroundOrders: SnackOrder[] = [
   },
 ];
 
+// Intentionally varied statuses for filter/search interactions.
 export const filterOrders: SnackOrder[] = [
   {
     amount: 19.4,
@@ -104,6 +107,7 @@ export const filterOrders: SnackOrder[] = [
   },
 ];
 
+// Small dataset for compact table variants.
 export const compactOrders: SnackOrder[] = [
   {
     amount: 13.5,
@@ -121,6 +125,7 @@ export const compactOrders: SnackOrder[] = [
   },
 ];
 
+// Fixture used by styled/theme-focused stories.
 export const styledOrders: SnackOrder[] = [
   {
     amount: 33.4,
@@ -145,6 +150,49 @@ export const styledOrders: SnackOrder[] = [
   },
 ];
 
+/**
+ * Deterministically generates a larger dataset for infinite scroll and
+ * virtualization stories (no randomness so snapshots stay stable).
+ */
+export const generateOrders = (count: number): SnackOrder[] => {
+  // Repeated source pools keep generated data deterministic but non-uniform.
+  const customers = [
+    'Klara Müller',
+    'Jules Dubois',
+    'Marta Silva',
+    'Noah van Dijk',
+    'Sofia Rossi',
+    'Elsa Lindström',
+    'Theo Novak',
+    'Lena Weber',
+  ];
+  const snacks = [
+    'Currywurst fries',
+    'Mini croissants',
+    'Pastéis de nata',
+    'Stroopwafels',
+    'Aperitivo crisps',
+    'Cinnamon buns',
+    'Kolache box',
+    'Apricot waffles',
+  ];
+  const statuses: OrderStatus[] = ['delivered', 'packing', 'delayed'];
+
+  return Array.from({ length: count }, (_, index) => {
+    // Cycle through source pools so each row has stable pseudo-variety.
+    const customer = customers[index % customers.length];
+    return {
+      // Keep value distribution realistic enough for sorting demos.
+      amount: 10 + (index % 40) + (index % 7) * 0.5,
+      customer: `${customer} #${index + 1}`,
+      email: `order-${index + 1}@snack-shop.eu`,
+      snack: snacks[index % snacks.length],
+      status: statuses[index % statuses.length],
+    };
+  });
+};
+
+// Fixture used by icon override stories.
 export const iconOrders: SnackOrder[] = [
   {
     amount: 26.5,

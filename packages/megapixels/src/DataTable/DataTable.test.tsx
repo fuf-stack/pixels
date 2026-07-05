@@ -1,6 +1,6 @@
 import type { ColumnDef } from '@tanstack/react-table';
 
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 
 import storySnapshots from '@repo/storybook-config/story-snapshots';
 import { render, screen, within } from '@testing-library/react';
@@ -40,6 +40,15 @@ const rows: Row[] = [
   { amount: 100, email: 'zoe@example.com', status: 'success' },
   { amount: 200, email: 'amelia@example.com', status: 'failed' },
 ];
+
+const infiniteScrollFeature = {
+  onLoadMore: () => undefined,
+  pageInfo: {
+    endCursor: 'cursor-1',
+    hasNextPage: true,
+    totalCount: 100,
+  },
+} as const;
 
 const nestedRows: Row[] = [
   {
@@ -409,5 +418,65 @@ describe('DataTable interactions', () => {
     expect(
       screen.queryByTestId('dt-features-precedence-next-page'),
     ).not.toBeInTheDocument();
+  });
+
+  it('disables pagination footer when infinite scroll is enabled', () => {
+    render(
+      <DataTable
+        columns={columns}
+        data={rows}
+        features={{
+          infiniteScroll: infiniteScrollFeature,
+          pagination: true,
+          virtualization: { maxHeight: 300 },
+        }}
+        testId="dt-infinite-no-pagination"
+      />,
+    );
+
+    expect(
+      screen.queryByTestId('dt-infinite-no-pagination-next-page'),
+    ).not.toBeInTheDocument();
+  });
+
+  it('disables row selection when infinite scroll is enabled', () => {
+    render(
+      <DataTable
+        columns={columns}
+        data={rows}
+        features={{
+          infiniteScroll: infiniteScrollFeature,
+          rowSelection: true,
+          virtualization: { maxHeight: 300 },
+        }}
+      />,
+    );
+
+    expect(screen.queryByLabelText('Select row 0')).not.toBeInTheDocument();
+  });
+
+  it('shows a retry button when loading the next page failed', async () => {
+    const user = userEvent.setup();
+    const onLoadMore = vi.fn();
+    render(
+      <DataTable
+        columns={columns}
+        data={rows}
+        features={{
+          infiniteScroll: {
+            ...infiniteScrollFeature,
+            loadMoreError: true,
+            onLoadMore,
+            retryContent: 'Retry loading page',
+          },
+          virtualization: { maxHeight: 300 },
+        }}
+      />,
+    );
+
+    await user.click(
+      screen.getByRole('button', { name: 'Retry loading page' }),
+    );
+    expect(onLoadMore).toHaveBeenCalledTimes(1);
   });
 });

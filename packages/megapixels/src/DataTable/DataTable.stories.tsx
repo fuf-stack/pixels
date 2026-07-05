@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/rules-of-hooks */
+
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import type { ColumnDef, Row } from '@tanstack/react-table';
 import type { DataTableProps, DataTableSearchField } from './DataTable';
@@ -15,6 +17,7 @@ import {
   compactOrders,
   defaultOrders,
   filterOrders,
+  generateOrders,
   iconOrders,
   playgroundOrders,
   filterOrders as searchOrders,
@@ -635,5 +638,191 @@ export const CustomIcons: Story = {
     await userEvent.click(canvas.getByLabelText('Expand row 0'));
     await expect(canvas.getByText('🔽')).toBeInTheDocument();
     await expect(canvas.getAllByText('↕️').length).toBeGreaterThan(0);
+  },
+};
+
+/**
+ * Simulates a cursor-paginated backend: pages of `pageSize` rows out of a
+ * fixed server dataset, delivered asynchronously like a network request.
+ */
+const useSimulatedOrderConnection = ({
+  latencyMs = isTestEnv ? 0 : 100,
+  pageSize = 20,
+  serverRowCount = 200,
+}: {
+  latencyMs?: number;
+  pageSize?: number;
+  serverRowCount?: number;
+} = {}) => {
+  const serverOrders = useMemo(() => {
+    return generateOrders(serverRowCount);
+  }, [serverRowCount]);
+  const [loadedCount, setLoadedCount] = useState(pageSize);
+  const [isFetchingNextPage, setIsFetchingNextPage] = useState(false);
+
+  const data = useMemo(() => {
+    return serverOrders.slice(0, loadedCount);
+  }, [serverOrders, loadedCount]);
+
+  const onLoadMore = () => {
+    setIsFetchingNextPage(true);
+    // Simulated network latency (disabled in tests to keep snapshots stable).
+    setTimeout(() => {
+      setLoadedCount((currentCount) => {
+        return Math.min(currentCount + pageSize, serverOrders.length);
+      });
+      setIsFetchingNextPage(false);
+    }, latencyMs);
+  };
+
+  return {
+    data,
+    isFetchingNextPage,
+    onLoadMore,
+    pageInfo: {
+      endCursor: String(loadedCount),
+      hasNextPage: loadedCount < serverOrders.length,
+      totalCount: serverOrders.length,
+    },
+  };
+};
+
+export const InfiniteScrollLoadedCount: Story = {
+  render: () => {
+    const { data, isFetchingNextPage, onLoadMore, pageInfo } =
+      useSimulatedOrderConnection();
+
+    return (
+      <SnackOrderDataTable
+        ariaLabel="Infinite scroll loaded-count orders"
+        columns={defaultColumns}
+        data={data}
+        features={{
+          infiniteScroll: {
+            isFetchingNextPage,
+            onLoadMore,
+            pageInfo,
+            scrollbarMode: 'loaded-count',
+          },
+          virtualization: { maxHeight: 350 },
+        }}
+        testId="datatable-infinite-loaded"
+      />
+    );
+  },
+};
+
+export const InfiniteScrollTotalCount: Story = {
+  render: () => {
+    const { data, isFetchingNextPage, onLoadMore, pageInfo } =
+      useSimulatedOrderConnection({
+        // Keep loading placeholders visible long enough to inspect in Storybook.
+        latencyMs: isTestEnv ? 0 : 1400,
+      });
+
+    return (
+      <SnackOrderDataTable
+        ariaLabel="Infinite scroll total-count orders"
+        columns={defaultColumns}
+        data={data}
+        features={{
+          infiniteScroll: {
+            isFetchingNextPage,
+            loadingMoreContent: (
+              <div className="w-full space-y-2 px-3 py-1">
+                <div className="h-3 w-full animate-pulse rounded bg-default-300/40 dark:bg-default-300/20" />
+                <div className="h-3 w-10/12 animate-pulse rounded bg-default-300/40 dark:bg-default-300/20" />
+              </div>
+            ),
+            onLoadMore,
+            pageInfo,
+            scrollbarMode: 'total-count',
+          },
+          virtualization: { maxHeight: 350 },
+        }}
+        testId="datatable-infinite-total"
+      />
+    );
+  },
+};
+
+export const InfiniteScrollLoadError: Story = {
+  render: () => {
+    const serverOrders = useMemo(() => {
+      return [...compactOrders, ...generateOrders(18)];
+    }, []);
+    const pageSize = 10;
+    const [loadedCount, setLoadedCount] = useState(compactOrders.length);
+    const [hasNextPage, setHasNextPage] = useState(true);
+    const [isFetchingNextPage, setIsFetchingNextPage] = useState(false);
+    const [loadError, setLoadError] = useState(true);
+    const data = useMemo(() => {
+      return serverOrders.slice(0, loadedCount);
+    }, [serverOrders, loadedCount]);
+
+    return (
+      <SnackOrderDataTable
+        ariaLabel="Infinite scroll load error orders"
+        columns={defaultColumns}
+        data={data}
+        features={{
+          infiniteScroll: {
+            isFetchingNextPage,
+            loadMoreError: loadError,
+            onLoadMore: () => {
+              if (isFetchingNextPage) {
+                return;
+              }
+              setLoadError(false);
+              setIsFetchingNextPage(true);
+              setTimeout(
+                () => {
+                  setLoadedCount((currentCount) => {
+                    return Math.min(
+                      currentCount + pageSize,
+                      serverOrders.length,
+                    );
+                  });
+                  setHasNextPage(false);
+                  setIsFetchingNextPage(false);
+                },
+                isTestEnv ? 0 : 600,
+              );
+            },
+            pageInfo: {
+              endCursor: hasNextPage ? 'error' : 'resolved',
+              hasNextPage,
+              totalCount: serverOrders.length,
+            },
+            retryContent: 'Load next page',
+          },
+          virtualization: { maxHeight: 350 },
+        }}
+        testId="datatable-infinite-error"
+      />
+    );
+  },
+};
+
+export const VirtualizedDynamicHeight: Story = {
+  render: () => {
+    const largeDataset = useMemo(() => {
+      return generateOrders(500);
+    }, []);
+    return (
+      <SnackOrderDataTable
+        ariaLabel="Virtualized dynamic height orders"
+        columns={defaultColumns}
+        data={largeDataset}
+        features={{
+          expandableRows: { renderContent: renderOrderDetails },
+          virtualization: {
+            dynamicRowHeight: true,
+            maxHeight: 350,
+          },
+        }}
+        testId="datatable-virtualized-dynamic-height"
+      />
+    );
   },
 };

@@ -45,6 +45,7 @@ const renderDataTableController = ({
   controllerColumns = columns,
   enableExpandableRows = false,
   enablePagination = true,
+  enableServerMode = false,
   enableRowSelection = false,
   getSubRows = undefined,
   hasExpandableRowContent = false,
@@ -54,6 +55,7 @@ const renderDataTableController = ({
   controllerColumns?: ColumnDef<Row>[];
   enableExpandableRows?: boolean;
   enablePagination?: boolean;
+  enableServerMode?: boolean;
   enableRowSelection?: boolean;
   getSubRows?: (originalRow: Row, index: number) => Row[] | undefined;
   hasExpandableRowContent?: boolean;
@@ -67,6 +69,7 @@ const renderDataTableController = ({
       data: controllerRows,
       enableExpandableRows,
       enablePagination,
+      enableServerMode,
       enableRowSelection,
       expansionClassNames: {},
       getSubRows,
@@ -235,6 +238,23 @@ describe('useDataTableController', () => {
     ]);
     expect(result.current.table.getRowModel().rows[0]?.original.email).toBe(
       'amelia@example.com',
+    );
+  });
+
+  it('keeps server ordering when server mode is enabled', () => {
+    const { result } = renderDataTableController({
+      enableServerMode: true,
+    });
+
+    act(() => {
+      result.current.table.getColumn('email')?.toggleSorting(false);
+    });
+
+    expect(result.current.table.getState().sorting).toEqual([
+      { desc: false, id: 'email' },
+    ]);
+    expect(result.current.table.getRowModel().rows[0]?.original.email).toBe(
+      'zoe@example.com',
     );
   });
 });

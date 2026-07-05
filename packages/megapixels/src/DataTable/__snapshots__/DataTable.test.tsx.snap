@@ -1789,6 +1789,2389 @@ exports[`Story Snapshots > ExpandableRows 1`] = `
 </div>
 `;
 
+exports[`Story Snapshots > InfiniteScrollLoadError 1`] = `
+<div>
+  <div
+    class="w-full"
+    data-slot="base"
+    data-testid="datatable-infinite-error"
+  >
+    <div
+      class="overflow-hidden rounded-md border border-divider"
+      data-slot="table-wrapper"
+    >
+      <table
+        class="w-full caption-bottom text-sm"
+        data-slot="table"
+        style="display: grid;"
+      >
+        <thead
+          class="bg-content2"
+          data-slot="thead"
+        >
+          <tr
+            class="border-b border-divider last:border-b-0 data-[state=selected]:bg-content2/60"
+            data-slot="tr"
+            style="display: flex; width: 100%;"
+          >
+            <th
+              class="h-10 px-3 text-left align-middle font-medium text-foreground"
+              data-slot="th"
+              style="align-items: center; display: flex; flex: 1 1 150px; min-width: 0px; width: 150px;"
+            >
+              <div
+                class="inline-flex items-center"
+                data-slot="non-sortable-header-content"
+              >
+                Customer
+              </div>
+            </th>
+            <th
+              class="h-10 px-3 text-left align-middle font-medium text-foreground"
+              data-slot="th"
+              style="align-items: center; display: flex; flex: 1 1 150px; min-width: 0px; width: 150px;"
+            >
+              <div
+                class="inline-flex items-center"
+                data-slot="non-sortable-header-content"
+              >
+                Snack
+              </div>
+            </th>
+            <th
+              class="h-10 px-3 text-left align-middle font-medium text-foreground"
+              data-slot="th"
+              style="align-items: center; display: flex; flex: 1 1 150px; min-width: 0px; width: 150px;"
+            >
+              <div
+                class="inline-flex items-center"
+                data-slot="non-sortable-header-content"
+              >
+                Email
+              </div>
+            </th>
+            <th
+              class="h-10 px-3 text-left align-middle font-medium text-foreground"
+              data-slot="th"
+              style="align-items: center; display: flex; flex: 1 1 150px; min-width: 0px; width: 150px;"
+            >
+              <div
+                class="inline-flex items-center"
+                data-slot="non-sortable-header-content"
+              >
+                Total
+              </div>
+            </th>
+            <th
+              class="h-10 px-3 text-left align-middle font-medium text-foreground"
+              data-slot="th"
+              style="align-items: center; display: flex; flex: 1 1 150px; min-width: 0px; width: 150px;"
+            >
+              <div
+                class="inline-flex items-center"
+                data-slot="non-sortable-header-content"
+              >
+                Status
+              </div>
+            </th>
+          </tr>
+        </thead>
+      </table>
+      <div
+        class="overflow-y-auto overflow-x-hidden"
+        data-slot="scroll-container"
+        style="max-height: 350px;"
+      >
+        <table
+          aria-label="Infinite scroll load error orders"
+          class="w-full caption-bottom text-sm"
+          data-slot="table"
+          style="display: grid;"
+        >
+          <tbody
+            data-slot="tbody"
+            style="display: grid; position: relative;"
+          >
+            <tr
+              style="height: 135px;"
+            >
+              <td
+                aria-label="Virtual spacer row"
+                colspan="5"
+                style="padding: 0px;"
+              />
+            </tr>
+            <tr
+              class="border-b border-divider last:border-b-0 data-[state=selected]:bg-content2/60"
+              data-index="0"
+              data-slot="tr"
+              style="display: flex; position: absolute; transform: translateY(0px); width: 100%;"
+            >
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Anna Kowalski
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Chocolate wafers
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                anna@warsaw-wafers.pl
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                13,50 €
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                <div
+                  class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-6 text-tiny rounded-full bg-success/20 text-success-700 dark:text-success"
+                >
+                  <span
+                    class="flex-1 text-inherit font-normal px-1 flex items-center gap-2"
+                  >
+                    Delivered
+                  </span>
+                </div>
+              </td>
+            </tr>
+            <tr
+              class="border-b border-divider last:border-b-0 data-[state=selected]:bg-content2/60"
+              data-index="1"
+              data-slot="tr"
+              style="display: flex; position: absolute; transform: translateY(45px); width: 100%;"
+            >
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Milo Jensen
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Cardamom buns
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                milo@copenhagen-cakes.dk
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                17,80 €
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                <div
+                  class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-6 text-tiny rounded-full bg-warning/20 text-warning-700 dark:text-warning"
+                >
+                  <span
+                    class="flex-1 text-inherit font-normal px-1 flex items-center gap-2"
+                  >
+                    Packing
+                  </span>
+                </div>
+              </td>
+            </tr>
+            <tr
+              class="border-b border-divider last:border-b-0 data-[state=selected]:bg-content2/60"
+              data-index="2"
+              data-slot="loading-more-row"
+              style="display: flex; position: absolute; transform: translateY(90px); width: 100%;"
+            >
+              <td
+                class="flex h-14 items-center justify-center text-default-500"
+                colspan="5"
+                data-slot="loading-more-cell"
+                style="flex: 1 1 auto; width: 100%;"
+              >
+                <button
+                  class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 border-medium px-3 min-w-16 h-8 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-transparent border-default text-foreground data-[hover=true]:opacity-hover"
+                  data-react-aria-pressable="true"
+                  data-slot="load-more-retry-button"
+                  tabindex="0"
+                  type="button"
+                >
+                  Load next page
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Story Snapshots > InfiniteScrollLoadedCount 1`] = `
+<div>
+  <div
+    class="w-full"
+    data-slot="base"
+    data-testid="datatable-infinite-loaded"
+  >
+    <div
+      class="overflow-hidden rounded-md border border-divider"
+      data-slot="table-wrapper"
+    >
+      <table
+        class="w-full caption-bottom text-sm"
+        data-slot="table"
+        style="display: grid;"
+      >
+        <thead
+          class="bg-content2"
+          data-slot="thead"
+        >
+          <tr
+            class="border-b border-divider last:border-b-0 data-[state=selected]:bg-content2/60"
+            data-slot="tr"
+            style="display: flex; width: 100%;"
+          >
+            <th
+              class="h-10 px-3 text-left align-middle font-medium text-foreground"
+              data-slot="th"
+              style="align-items: center; display: flex; flex: 1 1 150px; min-width: 0px; width: 150px;"
+            >
+              <div
+                class="inline-flex items-center"
+                data-slot="non-sortable-header-content"
+              >
+                Customer
+              </div>
+            </th>
+            <th
+              class="h-10 px-3 text-left align-middle font-medium text-foreground"
+              data-slot="th"
+              style="align-items: center; display: flex; flex: 1 1 150px; min-width: 0px; width: 150px;"
+            >
+              <div
+                class="inline-flex items-center"
+                data-slot="non-sortable-header-content"
+              >
+                Snack
+              </div>
+            </th>
+            <th
+              class="h-10 px-3 text-left align-middle font-medium text-foreground"
+              data-slot="th"
+              style="align-items: center; display: flex; flex: 1 1 150px; min-width: 0px; width: 150px;"
+            >
+              <div
+                class="inline-flex items-center"
+                data-slot="non-sortable-header-content"
+              >
+                Email
+              </div>
+            </th>
+            <th
+              class="h-10 px-3 text-left align-middle font-medium text-foreground"
+              data-slot="th"
+              style="align-items: center; display: flex; flex: 1 1 150px; min-width: 0px; width: 150px;"
+            >
+              <div
+                class="inline-flex items-center"
+                data-slot="non-sortable-header-content"
+              >
+                Total
+              </div>
+            </th>
+            <th
+              class="h-10 px-3 text-left align-middle font-medium text-foreground"
+              data-slot="th"
+              style="align-items: center; display: flex; flex: 1 1 150px; min-width: 0px; width: 150px;"
+            >
+              <div
+                class="inline-flex items-center"
+                data-slot="non-sortable-header-content"
+              >
+                Status
+              </div>
+            </th>
+          </tr>
+        </thead>
+      </table>
+      <div
+        class="overflow-y-auto overflow-x-hidden"
+        data-slot="scroll-container"
+        style="max-height: 350px;"
+      >
+        <table
+          aria-label="Infinite scroll loaded-count orders"
+          class="w-full caption-bottom text-sm"
+          data-slot="table"
+          style="display: grid;"
+        >
+          <tbody
+            data-slot="tbody"
+            style="display: grid; position: relative;"
+          >
+            <tr
+              style="height: 3645px;"
+            >
+              <td
+                aria-label="Virtual spacer row"
+                colspan="5"
+                style="padding: 0px;"
+              />
+            </tr>
+            <tr
+              class="border-b border-divider last:border-b-0 data-[state=selected]:bg-content2/60"
+              data-index="0"
+              data-slot="tr"
+              style="display: flex; position: absolute; transform: translateY(0px); width: 100%;"
+            >
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Klara Müller #1
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Currywurst fries
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                order-1@snack-shop.eu
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                10,00 €
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                <div
+                  class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-6 text-tiny rounded-full bg-success/20 text-success-700 dark:text-success"
+                >
+                  <span
+                    class="flex-1 text-inherit font-normal px-1 flex items-center gap-2"
+                  >
+                    Delivered
+                  </span>
+                </div>
+              </td>
+            </tr>
+            <tr
+              class="border-b border-divider last:border-b-0 data-[state=selected]:bg-content2/60"
+              data-index="1"
+              data-slot="tr"
+              style="display: flex; position: absolute; transform: translateY(45px); width: 100%;"
+            >
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Jules Dubois #2
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Mini croissants
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                order-2@snack-shop.eu
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                11,50 €
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                <div
+                  class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-6 text-tiny rounded-full bg-warning/20 text-warning-700 dark:text-warning"
+                >
+                  <span
+                    class="flex-1 text-inherit font-normal px-1 flex items-center gap-2"
+                  >
+                    Packing
+                  </span>
+                </div>
+              </td>
+            </tr>
+            <tr
+              class="border-b border-divider last:border-b-0 data-[state=selected]:bg-content2/60"
+              data-index="2"
+              data-slot="tr"
+              style="display: flex; position: absolute; transform: translateY(90px); width: 100%;"
+            >
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Marta Silva #3
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Pastéis de nata
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                order-3@snack-shop.eu
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                13,00 €
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                <div
+                  class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-6 text-tiny rounded-full bg-danger/20 text-danger-600 dark:text-danger-500"
+                >
+                  <span
+                    class="flex-1 text-inherit font-normal px-1 flex items-center gap-2"
+                  >
+                    Delayed
+                  </span>
+                </div>
+              </td>
+            </tr>
+            <tr
+              class="border-b border-divider last:border-b-0 data-[state=selected]:bg-content2/60"
+              data-index="3"
+              data-slot="tr"
+              style="display: flex; position: absolute; transform: translateY(135px); width: 100%;"
+            >
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Noah van Dijk #4
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Stroopwafels
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                order-4@snack-shop.eu
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                14,50 €
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                <div
+                  class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-6 text-tiny rounded-full bg-success/20 text-success-700 dark:text-success"
+                >
+                  <span
+                    class="flex-1 text-inherit font-normal px-1 flex items-center gap-2"
+                  >
+                    Delivered
+                  </span>
+                </div>
+              </td>
+            </tr>
+            <tr
+              class="border-b border-divider last:border-b-0 data-[state=selected]:bg-content2/60"
+              data-index="4"
+              data-slot="tr"
+              style="display: flex; position: absolute; transform: translateY(180px); width: 100%;"
+            >
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Sofia Rossi #5
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Aperitivo crisps
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                order-5@snack-shop.eu
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                16,00 €
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                <div
+                  class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-6 text-tiny rounded-full bg-warning/20 text-warning-700 dark:text-warning"
+                >
+                  <span
+                    class="flex-1 text-inherit font-normal px-1 flex items-center gap-2"
+                  >
+                    Packing
+                  </span>
+                </div>
+              </td>
+            </tr>
+            <tr
+              class="border-b border-divider last:border-b-0 data-[state=selected]:bg-content2/60"
+              data-index="5"
+              data-slot="tr"
+              style="display: flex; position: absolute; transform: translateY(225px); width: 100%;"
+            >
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Elsa Lindström #6
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Cinnamon buns
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                order-6@snack-shop.eu
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                17,50 €
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                <div
+                  class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-6 text-tiny rounded-full bg-danger/20 text-danger-600 dark:text-danger-500"
+                >
+                  <span
+                    class="flex-1 text-inherit font-normal px-1 flex items-center gap-2"
+                  >
+                    Delayed
+                  </span>
+                </div>
+              </td>
+            </tr>
+            <tr
+              class="border-b border-divider last:border-b-0 data-[state=selected]:bg-content2/60"
+              data-index="6"
+              data-slot="tr"
+              style="display: flex; position: absolute; transform: translateY(270px); width: 100%;"
+            >
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Theo Novak #7
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Kolache box
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                order-7@snack-shop.eu
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                19,00 €
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                <div
+                  class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-6 text-tiny rounded-full bg-success/20 text-success-700 dark:text-success"
+                >
+                  <span
+                    class="flex-1 text-inherit font-normal px-1 flex items-center gap-2"
+                  >
+                    Delivered
+                  </span>
+                </div>
+              </td>
+            </tr>
+            <tr
+              class="border-b border-divider last:border-b-0 data-[state=selected]:bg-content2/60"
+              data-index="7"
+              data-slot="tr"
+              style="display: flex; position: absolute; transform: translateY(315px); width: 100%;"
+            >
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Lena Weber #8
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Apricot waffles
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                order-8@snack-shop.eu
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                17,00 €
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                <div
+                  class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-6 text-tiny rounded-full bg-warning/20 text-warning-700 dark:text-warning"
+                >
+                  <span
+                    class="flex-1 text-inherit font-normal px-1 flex items-center gap-2"
+                  >
+                    Packing
+                  </span>
+                </div>
+              </td>
+            </tr>
+            <tr
+              class="border-b border-divider last:border-b-0 data-[state=selected]:bg-content2/60"
+              data-index="8"
+              data-slot="tr"
+              style="display: flex; position: absolute; transform: translateY(360px); width: 100%;"
+            >
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Klara Müller #9
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Currywurst fries
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                order-9@snack-shop.eu
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                18,50 €
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                <div
+                  class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-6 text-tiny rounded-full bg-danger/20 text-danger-600 dark:text-danger-500"
+                >
+                  <span
+                    class="flex-1 text-inherit font-normal px-1 flex items-center gap-2"
+                  >
+                    Delayed
+                  </span>
+                </div>
+              </td>
+            </tr>
+            <tr
+              class="border-b border-divider last:border-b-0 data-[state=selected]:bg-content2/60"
+              data-index="9"
+              data-slot="tr"
+              style="display: flex; position: absolute; transform: translateY(405px); width: 100%;"
+            >
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Jules Dubois #10
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Mini croissants
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                order-10@snack-shop.eu
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                20,00 €
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                <div
+                  class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-6 text-tiny rounded-full bg-success/20 text-success-700 dark:text-success"
+                >
+                  <span
+                    class="flex-1 text-inherit font-normal px-1 flex items-center gap-2"
+                  >
+                    Delivered
+                  </span>
+                </div>
+              </td>
+            </tr>
+            <tr
+              class="border-b border-divider last:border-b-0 data-[state=selected]:bg-content2/60"
+              data-index="10"
+              data-slot="tr"
+              style="display: flex; position: absolute; transform: translateY(450px); width: 100%;"
+            >
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Marta Silva #11
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Pastéis de nata
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                order-11@snack-shop.eu
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                21,50 €
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                <div
+                  class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-6 text-tiny rounded-full bg-warning/20 text-warning-700 dark:text-warning"
+                >
+                  <span
+                    class="flex-1 text-inherit font-normal px-1 flex items-center gap-2"
+                  >
+                    Packing
+                  </span>
+                </div>
+              </td>
+            </tr>
+            <tr
+              class="border-b border-divider last:border-b-0 data-[state=selected]:bg-content2/60"
+              data-index="11"
+              data-slot="tr"
+              style="display: flex; position: absolute; transform: translateY(495px); width: 100%;"
+            >
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Noah van Dijk #12
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Stroopwafels
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                order-12@snack-shop.eu
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                23,00 €
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                <div
+                  class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-6 text-tiny rounded-full bg-danger/20 text-danger-600 dark:text-danger-500"
+                >
+                  <span
+                    class="flex-1 text-inherit font-normal px-1 flex items-center gap-2"
+                  >
+                    Delayed
+                  </span>
+                </div>
+              </td>
+            </tr>
+            <tr
+              class="border-b border-divider last:border-b-0 data-[state=selected]:bg-content2/60"
+              data-index="12"
+              data-slot="tr"
+              style="display: flex; position: absolute; transform: translateY(540px); width: 100%;"
+            >
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Sofia Rossi #13
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Aperitivo crisps
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                order-13@snack-shop.eu
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                24,50 €
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                <div
+                  class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-6 text-tiny rounded-full bg-success/20 text-success-700 dark:text-success"
+                >
+                  <span
+                    class="flex-1 text-inherit font-normal px-1 flex items-center gap-2"
+                  >
+                    Delivered
+                  </span>
+                </div>
+              </td>
+            </tr>
+            <tr
+              class="border-b border-divider last:border-b-0 data-[state=selected]:bg-content2/60"
+              data-index="13"
+              data-slot="tr"
+              style="display: flex; position: absolute; transform: translateY(585px); width: 100%;"
+            >
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Elsa Lindström #14
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Cinnamon buns
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                order-14@snack-shop.eu
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                26,00 €
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                <div
+                  class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-6 text-tiny rounded-full bg-warning/20 text-warning-700 dark:text-warning"
+                >
+                  <span
+                    class="flex-1 text-inherit font-normal px-1 flex items-center gap-2"
+                  >
+                    Packing
+                  </span>
+                </div>
+              </td>
+            </tr>
+            <tr
+              class="border-b border-divider last:border-b-0 data-[state=selected]:bg-content2/60"
+              data-index="14"
+              data-slot="tr"
+              style="display: flex; position: absolute; transform: translateY(630px); width: 100%;"
+            >
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Theo Novak #15
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Kolache box
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                order-15@snack-shop.eu
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                24,00 €
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                <div
+                  class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-6 text-tiny rounded-full bg-danger/20 text-danger-600 dark:text-danger-500"
+                >
+                  <span
+                    class="flex-1 text-inherit font-normal px-1 flex items-center gap-2"
+                  >
+                    Delayed
+                  </span>
+                </div>
+              </td>
+            </tr>
+            <tr
+              class="border-b border-divider last:border-b-0 data-[state=selected]:bg-content2/60"
+              data-index="15"
+              data-slot="tr"
+              style="display: flex; position: absolute; transform: translateY(675px); width: 100%;"
+            >
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Lena Weber #16
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Apricot waffles
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                order-16@snack-shop.eu
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                25,50 €
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                <div
+                  class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-6 text-tiny rounded-full bg-success/20 text-success-700 dark:text-success"
+                >
+                  <span
+                    class="flex-1 text-inherit font-normal px-1 flex items-center gap-2"
+                  >
+                    Delivered
+                  </span>
+                </div>
+              </td>
+            </tr>
+            <tr
+              class="border-b border-divider last:border-b-0 data-[state=selected]:bg-content2/60"
+              data-index="16"
+              data-slot="tr"
+              style="display: flex; position: absolute; transform: translateY(720px); width: 100%;"
+            >
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Klara Müller #17
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Currywurst fries
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                order-17@snack-shop.eu
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                27,00 €
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                <div
+                  class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-6 text-tiny rounded-full bg-warning/20 text-warning-700 dark:text-warning"
+                >
+                  <span
+                    class="flex-1 text-inherit font-normal px-1 flex items-center gap-2"
+                  >
+                    Packing
+                  </span>
+                </div>
+              </td>
+            </tr>
+            <tr
+              class="border-b border-divider last:border-b-0 data-[state=selected]:bg-content2/60"
+              data-index="17"
+              data-slot="tr"
+              style="display: flex; position: absolute; transform: translateY(765px); width: 100%;"
+            >
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Jules Dubois #18
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Mini croissants
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                order-18@snack-shop.eu
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                28,50 €
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                <div
+                  class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-6 text-tiny rounded-full bg-danger/20 text-danger-600 dark:text-danger-500"
+                >
+                  <span
+                    class="flex-1 text-inherit font-normal px-1 flex items-center gap-2"
+                  >
+                    Delayed
+                  </span>
+                </div>
+              </td>
+            </tr>
+            <tr
+              class="border-b border-divider last:border-b-0 data-[state=selected]:bg-content2/60"
+              data-index="18"
+              data-slot="tr"
+              style="display: flex; position: absolute; transform: translateY(810px); width: 100%;"
+            >
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Marta Silva #19
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Pastéis de nata
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                order-19@snack-shop.eu
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                30,00 €
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                <div
+                  class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-6 text-tiny rounded-full bg-success/20 text-success-700 dark:text-success"
+                >
+                  <span
+                    class="flex-1 text-inherit font-normal px-1 flex items-center gap-2"
+                  >
+                    Delivered
+                  </span>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Story Snapshots > InfiniteScrollTotalCount 1`] = `
+<div>
+  <div
+    class="w-full"
+    data-slot="base"
+    data-testid="datatable-infinite-total"
+  >
+    <div
+      class="overflow-hidden rounded-md border border-divider"
+      data-slot="table-wrapper"
+    >
+      <table
+        class="w-full caption-bottom text-sm"
+        data-slot="table"
+        style="display: grid;"
+      >
+        <thead
+          class="bg-content2"
+          data-slot="thead"
+        >
+          <tr
+            class="border-b border-divider last:border-b-0 data-[state=selected]:bg-content2/60"
+            data-slot="tr"
+            style="display: flex; width: 100%;"
+          >
+            <th
+              class="h-10 px-3 text-left align-middle font-medium text-foreground"
+              data-slot="th"
+              style="align-items: center; display: flex; flex: 1 1 150px; min-width: 0px; width: 150px;"
+            >
+              <div
+                class="inline-flex items-center"
+                data-slot="non-sortable-header-content"
+              >
+                Customer
+              </div>
+            </th>
+            <th
+              class="h-10 px-3 text-left align-middle font-medium text-foreground"
+              data-slot="th"
+              style="align-items: center; display: flex; flex: 1 1 150px; min-width: 0px; width: 150px;"
+            >
+              <div
+                class="inline-flex items-center"
+                data-slot="non-sortable-header-content"
+              >
+                Snack
+              </div>
+            </th>
+            <th
+              class="h-10 px-3 text-left align-middle font-medium text-foreground"
+              data-slot="th"
+              style="align-items: center; display: flex; flex: 1 1 150px; min-width: 0px; width: 150px;"
+            >
+              <div
+                class="inline-flex items-center"
+                data-slot="non-sortable-header-content"
+              >
+                Email
+              </div>
+            </th>
+            <th
+              class="h-10 px-3 text-left align-middle font-medium text-foreground"
+              data-slot="th"
+              style="align-items: center; display: flex; flex: 1 1 150px; min-width: 0px; width: 150px;"
+            >
+              <div
+                class="inline-flex items-center"
+                data-slot="non-sortable-header-content"
+              >
+                Total
+              </div>
+            </th>
+            <th
+              class="h-10 px-3 text-left align-middle font-medium text-foreground"
+              data-slot="th"
+              style="align-items: center; display: flex; flex: 1 1 150px; min-width: 0px; width: 150px;"
+            >
+              <div
+                class="inline-flex items-center"
+                data-slot="non-sortable-header-content"
+              >
+                Status
+              </div>
+            </th>
+          </tr>
+        </thead>
+      </table>
+      <div
+        class="overflow-y-auto overflow-x-hidden"
+        data-slot="scroll-container"
+        style="max-height: 350px;"
+      >
+        <table
+          aria-label="Infinite scroll total-count orders"
+          class="w-full caption-bottom text-sm"
+          data-slot="table"
+          style="display: grid;"
+        >
+          <tbody
+            data-slot="tbody"
+            style="display: grid; position: relative;"
+          >
+            <tr
+              style="height: 9000px;"
+            >
+              <td
+                aria-label="Virtual spacer row"
+                colspan="5"
+                style="padding: 0px;"
+              />
+            </tr>
+            <tr
+              class="border-b border-divider last:border-b-0 data-[state=selected]:bg-content2/60"
+              data-index="0"
+              data-slot="tr"
+              style="display: flex; position: absolute; transform: translateY(0px); width: 100%;"
+            >
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Klara Müller #1
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Currywurst fries
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                order-1@snack-shop.eu
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                10,00 €
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                <div
+                  class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-6 text-tiny rounded-full bg-success/20 text-success-700 dark:text-success"
+                >
+                  <span
+                    class="flex-1 text-inherit font-normal px-1 flex items-center gap-2"
+                  >
+                    Delivered
+                  </span>
+                </div>
+              </td>
+            </tr>
+            <tr
+              class="border-b border-divider last:border-b-0 data-[state=selected]:bg-content2/60"
+              data-index="1"
+              data-slot="tr"
+              style="display: flex; position: absolute; transform: translateY(45px); width: 100%;"
+            >
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Jules Dubois #2
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Mini croissants
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                order-2@snack-shop.eu
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                11,50 €
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                <div
+                  class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-6 text-tiny rounded-full bg-warning/20 text-warning-700 dark:text-warning"
+                >
+                  <span
+                    class="flex-1 text-inherit font-normal px-1 flex items-center gap-2"
+                  >
+                    Packing
+                  </span>
+                </div>
+              </td>
+            </tr>
+            <tr
+              class="border-b border-divider last:border-b-0 data-[state=selected]:bg-content2/60"
+              data-index="2"
+              data-slot="tr"
+              style="display: flex; position: absolute; transform: translateY(90px); width: 100%;"
+            >
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Marta Silva #3
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Pastéis de nata
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                order-3@snack-shop.eu
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                13,00 €
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                <div
+                  class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-6 text-tiny rounded-full bg-danger/20 text-danger-600 dark:text-danger-500"
+                >
+                  <span
+                    class="flex-1 text-inherit font-normal px-1 flex items-center gap-2"
+                  >
+                    Delayed
+                  </span>
+                </div>
+              </td>
+            </tr>
+            <tr
+              class="border-b border-divider last:border-b-0 data-[state=selected]:bg-content2/60"
+              data-index="3"
+              data-slot="tr"
+              style="display: flex; position: absolute; transform: translateY(135px); width: 100%;"
+            >
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Noah van Dijk #4
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Stroopwafels
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                order-4@snack-shop.eu
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                14,50 €
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                <div
+                  class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-6 text-tiny rounded-full bg-success/20 text-success-700 dark:text-success"
+                >
+                  <span
+                    class="flex-1 text-inherit font-normal px-1 flex items-center gap-2"
+                  >
+                    Delivered
+                  </span>
+                </div>
+              </td>
+            </tr>
+            <tr
+              class="border-b border-divider last:border-b-0 data-[state=selected]:bg-content2/60"
+              data-index="4"
+              data-slot="tr"
+              style="display: flex; position: absolute; transform: translateY(180px); width: 100%;"
+            >
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Sofia Rossi #5
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Aperitivo crisps
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                order-5@snack-shop.eu
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                16,00 €
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                <div
+                  class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-6 text-tiny rounded-full bg-warning/20 text-warning-700 dark:text-warning"
+                >
+                  <span
+                    class="flex-1 text-inherit font-normal px-1 flex items-center gap-2"
+                  >
+                    Packing
+                  </span>
+                </div>
+              </td>
+            </tr>
+            <tr
+              class="border-b border-divider last:border-b-0 data-[state=selected]:bg-content2/60"
+              data-index="5"
+              data-slot="tr"
+              style="display: flex; position: absolute; transform: translateY(225px); width: 100%;"
+            >
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Elsa Lindström #6
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Cinnamon buns
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                order-6@snack-shop.eu
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                17,50 €
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                <div
+                  class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-6 text-tiny rounded-full bg-danger/20 text-danger-600 dark:text-danger-500"
+                >
+                  <span
+                    class="flex-1 text-inherit font-normal px-1 flex items-center gap-2"
+                  >
+                    Delayed
+                  </span>
+                </div>
+              </td>
+            </tr>
+            <tr
+              class="border-b border-divider last:border-b-0 data-[state=selected]:bg-content2/60"
+              data-index="6"
+              data-slot="tr"
+              style="display: flex; position: absolute; transform: translateY(270px); width: 100%;"
+            >
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Theo Novak #7
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Kolache box
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                order-7@snack-shop.eu
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                19,00 €
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                <div
+                  class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-6 text-tiny rounded-full bg-success/20 text-success-700 dark:text-success"
+                >
+                  <span
+                    class="flex-1 text-inherit font-normal px-1 flex items-center gap-2"
+                  >
+                    Delivered
+                  </span>
+                </div>
+              </td>
+            </tr>
+            <tr
+              class="border-b border-divider last:border-b-0 data-[state=selected]:bg-content2/60"
+              data-index="7"
+              data-slot="tr"
+              style="display: flex; position: absolute; transform: translateY(315px); width: 100%;"
+            >
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Lena Weber #8
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Apricot waffles
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                order-8@snack-shop.eu
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                17,00 €
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                <div
+                  class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-6 text-tiny rounded-full bg-warning/20 text-warning-700 dark:text-warning"
+                >
+                  <span
+                    class="flex-1 text-inherit font-normal px-1 flex items-center gap-2"
+                  >
+                    Packing
+                  </span>
+                </div>
+              </td>
+            </tr>
+            <tr
+              class="border-b border-divider last:border-b-0 data-[state=selected]:bg-content2/60"
+              data-index="8"
+              data-slot="tr"
+              style="display: flex; position: absolute; transform: translateY(360px); width: 100%;"
+            >
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Klara Müller #9
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Currywurst fries
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                order-9@snack-shop.eu
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                18,50 €
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                <div
+                  class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-6 text-tiny rounded-full bg-danger/20 text-danger-600 dark:text-danger-500"
+                >
+                  <span
+                    class="flex-1 text-inherit font-normal px-1 flex items-center gap-2"
+                  >
+                    Delayed
+                  </span>
+                </div>
+              </td>
+            </tr>
+            <tr
+              class="border-b border-divider last:border-b-0 data-[state=selected]:bg-content2/60"
+              data-index="9"
+              data-slot="tr"
+              style="display: flex; position: absolute; transform: translateY(405px); width: 100%;"
+            >
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Jules Dubois #10
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Mini croissants
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                order-10@snack-shop.eu
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                20,00 €
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                <div
+                  class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-6 text-tiny rounded-full bg-success/20 text-success-700 dark:text-success"
+                >
+                  <span
+                    class="flex-1 text-inherit font-normal px-1 flex items-center gap-2"
+                  >
+                    Delivered
+                  </span>
+                </div>
+              </td>
+            </tr>
+            <tr
+              class="border-b border-divider last:border-b-0 data-[state=selected]:bg-content2/60"
+              data-index="10"
+              data-slot="tr"
+              style="display: flex; position: absolute; transform: translateY(450px); width: 100%;"
+            >
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Marta Silva #11
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Pastéis de nata
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                order-11@snack-shop.eu
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                21,50 €
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                <div
+                  class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-6 text-tiny rounded-full bg-warning/20 text-warning-700 dark:text-warning"
+                >
+                  <span
+                    class="flex-1 text-inherit font-normal px-1 flex items-center gap-2"
+                  >
+                    Packing
+                  </span>
+                </div>
+              </td>
+            </tr>
+            <tr
+              class="border-b border-divider last:border-b-0 data-[state=selected]:bg-content2/60"
+              data-index="11"
+              data-slot="tr"
+              style="display: flex; position: absolute; transform: translateY(495px); width: 100%;"
+            >
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Noah van Dijk #12
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Stroopwafels
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                order-12@snack-shop.eu
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                23,00 €
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                <div
+                  class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-6 text-tiny rounded-full bg-danger/20 text-danger-600 dark:text-danger-500"
+                >
+                  <span
+                    class="flex-1 text-inherit font-normal px-1 flex items-center gap-2"
+                  >
+                    Delayed
+                  </span>
+                </div>
+              </td>
+            </tr>
+            <tr
+              class="border-b border-divider last:border-b-0 data-[state=selected]:bg-content2/60"
+              data-index="12"
+              data-slot="tr"
+              style="display: flex; position: absolute; transform: translateY(540px); width: 100%;"
+            >
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Sofia Rossi #13
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Aperitivo crisps
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                order-13@snack-shop.eu
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                24,50 €
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                <div
+                  class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-6 text-tiny rounded-full bg-success/20 text-success-700 dark:text-success"
+                >
+                  <span
+                    class="flex-1 text-inherit font-normal px-1 flex items-center gap-2"
+                  >
+                    Delivered
+                  </span>
+                </div>
+              </td>
+            </tr>
+            <tr
+              class="border-b border-divider last:border-b-0 data-[state=selected]:bg-content2/60"
+              data-index="13"
+              data-slot="tr"
+              style="display: flex; position: absolute; transform: translateY(585px); width: 100%;"
+            >
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Elsa Lindström #14
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Cinnamon buns
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                order-14@snack-shop.eu
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                26,00 €
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                <div
+                  class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-6 text-tiny rounded-full bg-warning/20 text-warning-700 dark:text-warning"
+                >
+                  <span
+                    class="flex-1 text-inherit font-normal px-1 flex items-center gap-2"
+                  >
+                    Packing
+                  </span>
+                </div>
+              </td>
+            </tr>
+            <tr
+              class="border-b border-divider last:border-b-0 data-[state=selected]:bg-content2/60"
+              data-index="14"
+              data-slot="tr"
+              style="display: flex; position: absolute; transform: translateY(630px); width: 100%;"
+            >
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Theo Novak #15
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Kolache box
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                order-15@snack-shop.eu
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                24,00 €
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                <div
+                  class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-6 text-tiny rounded-full bg-danger/20 text-danger-600 dark:text-danger-500"
+                >
+                  <span
+                    class="flex-1 text-inherit font-normal px-1 flex items-center gap-2"
+                  >
+                    Delayed
+                  </span>
+                </div>
+              </td>
+            </tr>
+            <tr
+              class="border-b border-divider last:border-b-0 data-[state=selected]:bg-content2/60"
+              data-index="15"
+              data-slot="tr"
+              style="display: flex; position: absolute; transform: translateY(675px); width: 100%;"
+            >
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Lena Weber #16
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Apricot waffles
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                order-16@snack-shop.eu
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                25,50 €
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                <div
+                  class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-6 text-tiny rounded-full bg-success/20 text-success-700 dark:text-success"
+                >
+                  <span
+                    class="flex-1 text-inherit font-normal px-1 flex items-center gap-2"
+                  >
+                    Delivered
+                  </span>
+                </div>
+              </td>
+            </tr>
+            <tr
+              class="border-b border-divider last:border-b-0 data-[state=selected]:bg-content2/60"
+              data-index="16"
+              data-slot="tr"
+              style="display: flex; position: absolute; transform: translateY(720px); width: 100%;"
+            >
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Klara Müller #17
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Currywurst fries
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                order-17@snack-shop.eu
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                27,00 €
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                <div
+                  class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-6 text-tiny rounded-full bg-warning/20 text-warning-700 dark:text-warning"
+                >
+                  <span
+                    class="flex-1 text-inherit font-normal px-1 flex items-center gap-2"
+                  >
+                    Packing
+                  </span>
+                </div>
+              </td>
+            </tr>
+            <tr
+              class="border-b border-divider last:border-b-0 data-[state=selected]:bg-content2/60"
+              data-index="17"
+              data-slot="tr"
+              style="display: flex; position: absolute; transform: translateY(765px); width: 100%;"
+            >
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Jules Dubois #18
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Mini croissants
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                order-18@snack-shop.eu
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                28,50 €
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                <div
+                  class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-6 text-tiny rounded-full bg-danger/20 text-danger-600 dark:text-danger-500"
+                >
+                  <span
+                    class="flex-1 text-inherit font-normal px-1 flex items-center gap-2"
+                  >
+                    Delayed
+                  </span>
+                </div>
+              </td>
+            </tr>
+            <tr
+              class="border-b border-divider last:border-b-0 data-[state=selected]:bg-content2/60"
+              data-index="18"
+              data-slot="tr"
+              style="display: flex; position: absolute; transform: translateY(810px); width: 100%;"
+            >
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Marta Silva #19
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Pastéis de nata
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                order-19@snack-shop.eu
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                30,00 €
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                <div
+                  class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-6 text-tiny rounded-full bg-success/20 text-success-700 dark:text-success"
+                >
+                  <span
+                    class="flex-1 text-inherit font-normal px-1 flex items-center gap-2"
+                  >
+                    Delivered
+                  </span>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Story Snapshots > Loading 1`] = `
 <div>
   <div
@@ -4228,6 +6611,1884 @@ exports[`Story Snapshots > SortableAndSearchable 1`] = `
           </tr>
         </tbody>
       </table>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Story Snapshots > VirtualizedDynamicHeight 1`] = `
+<div>
+  <div
+    class="w-full"
+    data-slot="base"
+    data-testid="datatable-virtualized-dynamic-height"
+  >
+    <div
+      class="overflow-hidden rounded-md border border-divider"
+      data-slot="table-wrapper"
+    >
+      <table
+        class="w-full caption-bottom text-sm"
+        data-slot="table"
+        style="display: grid;"
+      >
+        <thead
+          class="bg-content2"
+          data-slot="thead"
+        >
+          <tr
+            class="border-b border-divider last:border-b-0 data-[state=selected]:bg-content2/60"
+            data-slot="tr"
+            style="display: flex; width: 100%;"
+          >
+            <th
+              class="h-10 align-middle font-medium text-foreground w-10 px-0 text-center"
+              data-slot="expansion-cell"
+              style="align-items: center; display: flex; flex: 0 0 36px; width: 36px;"
+            >
+              <div
+                class="items-center flex justify-center"
+                data-slot="expansion-cell-content"
+              />
+            </th>
+            <th
+              class="h-10 px-3 text-left align-middle font-medium text-foreground"
+              data-slot="th"
+              style="align-items: center; display: flex; flex: 1 1 150px; min-width: 0px; width: 150px;"
+            >
+              <div
+                class="inline-flex items-center"
+                data-slot="non-sortable-header-content"
+              >
+                Customer
+              </div>
+            </th>
+            <th
+              class="h-10 px-3 text-left align-middle font-medium text-foreground"
+              data-slot="th"
+              style="align-items: center; display: flex; flex: 1 1 150px; min-width: 0px; width: 150px;"
+            >
+              <div
+                class="inline-flex items-center"
+                data-slot="non-sortable-header-content"
+              >
+                Snack
+              </div>
+            </th>
+            <th
+              class="h-10 px-3 text-left align-middle font-medium text-foreground"
+              data-slot="th"
+              style="align-items: center; display: flex; flex: 1 1 150px; min-width: 0px; width: 150px;"
+            >
+              <div
+                class="inline-flex items-center"
+                data-slot="non-sortable-header-content"
+              >
+                Email
+              </div>
+            </th>
+            <th
+              class="h-10 px-3 text-left align-middle font-medium text-foreground"
+              data-slot="th"
+              style="align-items: center; display: flex; flex: 1 1 150px; min-width: 0px; width: 150px;"
+            >
+              <div
+                class="inline-flex items-center"
+                data-slot="non-sortable-header-content"
+              >
+                Total
+              </div>
+            </th>
+            <th
+              class="h-10 px-3 text-left align-middle font-medium text-foreground"
+              data-slot="th"
+              style="align-items: center; display: flex; flex: 1 1 150px; min-width: 0px; width: 150px;"
+            >
+              <div
+                class="inline-flex items-center"
+                data-slot="non-sortable-header-content"
+              >
+                Status
+              </div>
+            </th>
+          </tr>
+        </thead>
+      </table>
+      <div
+        class="overflow-y-auto overflow-x-hidden"
+        data-slot="scroll-container"
+        style="max-height: 350px;"
+      >
+        <table
+          aria-label="Virtualized dynamic height orders"
+          class="w-full caption-bottom text-sm"
+          data-slot="table"
+          style="display: grid;"
+        >
+          <tbody
+            data-slot="tbody"
+            style="display: grid; position: relative;"
+          >
+            <tr
+              style="height: 22500px;"
+            >
+              <td
+                aria-label="Virtual spacer row"
+                colspan="6"
+                style="padding: 0px;"
+              />
+            </tr>
+            <tr
+              class="border-b border-divider last:border-b-0 data-[state=selected]:bg-content2/60"
+              data-index="0"
+              data-slot="tr"
+              style="display: flex; position: absolute; transform: translateY(0px); width: 100%;"
+            >
+              <td
+                class="p-3 align-middle text-foreground w-10 px-0 text-center"
+                data-slot="expansion-cell"
+                style="flex: 0 0 36px; width: 36px;"
+              >
+                <div
+                  class="flex justify-center"
+                  data-slot="expansion-cell-content"
+                >
+                  <button
+                    aria-label="Expand row 0"
+                    class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-transparent text-default-foreground data-[hover=true]:bg-default/40 h-8 min-w-8 px-0 disabled:cursor-not-allowed data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed"
+                    data-react-aria-pressable="true"
+                    data-slot="expand-button"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <span
+                      aria-hidden="true"
+                      class="inline-flex h-3.5 w-3.5 shrink-0 items-center justify-center text-default-500"
+                      data-slot="expand-icon"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        fill="none"
+                        focusable="false"
+                        height="14"
+                        viewBox="0 0 16 16"
+                        width="14"
+                      >
+                        <path
+                          d="m6 4 4 4-4 4"
+                          stroke="currentColor"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="1.75"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                </div>
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Klara Müller #1
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Currywurst fries
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                order-1@snack-shop.eu
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                10,00 €
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                <div
+                  class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-6 text-tiny rounded-full bg-success/20 text-success-700 dark:text-success"
+                >
+                  <span
+                    class="flex-1 text-inherit font-normal px-1 flex items-center gap-2"
+                  >
+                    Delivered
+                  </span>
+                </div>
+              </td>
+            </tr>
+            <tr
+              class="border-b border-divider last:border-b-0 data-[state=selected]:bg-content2/60"
+              data-index="1"
+              data-slot="tr"
+              style="display: flex; position: absolute; transform: translateY(45px); width: 100%;"
+            >
+              <td
+                class="p-3 align-middle text-foreground w-10 px-0 text-center"
+                data-slot="expansion-cell"
+                style="flex: 0 0 36px; width: 36px;"
+              >
+                <div
+                  class="flex justify-center"
+                  data-slot="expansion-cell-content"
+                >
+                  <button
+                    aria-label="Expand row 1"
+                    class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-transparent text-default-foreground data-[hover=true]:bg-default/40 h-8 min-w-8 px-0 disabled:cursor-not-allowed data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed"
+                    data-react-aria-pressable="true"
+                    data-slot="expand-button"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <span
+                      aria-hidden="true"
+                      class="inline-flex h-3.5 w-3.5 shrink-0 items-center justify-center text-default-500"
+                      data-slot="expand-icon"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        fill="none"
+                        focusable="false"
+                        height="14"
+                        viewBox="0 0 16 16"
+                        width="14"
+                      >
+                        <path
+                          d="m6 4 4 4-4 4"
+                          stroke="currentColor"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="1.75"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                </div>
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Jules Dubois #2
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Mini croissants
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                order-2@snack-shop.eu
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                11,50 €
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                <div
+                  class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-6 text-tiny rounded-full bg-warning/20 text-warning-700 dark:text-warning"
+                >
+                  <span
+                    class="flex-1 text-inherit font-normal px-1 flex items-center gap-2"
+                  >
+                    Packing
+                  </span>
+                </div>
+              </td>
+            </tr>
+            <tr
+              class="border-b border-divider last:border-b-0 data-[state=selected]:bg-content2/60"
+              data-index="2"
+              data-slot="tr"
+              style="display: flex; position: absolute; transform: translateY(90px); width: 100%;"
+            >
+              <td
+                class="p-3 align-middle text-foreground w-10 px-0 text-center"
+                data-slot="expansion-cell"
+                style="flex: 0 0 36px; width: 36px;"
+              >
+                <div
+                  class="flex justify-center"
+                  data-slot="expansion-cell-content"
+                >
+                  <button
+                    aria-label="Expand row 2"
+                    class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-transparent text-default-foreground data-[hover=true]:bg-default/40 h-8 min-w-8 px-0 disabled:cursor-not-allowed data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed"
+                    data-react-aria-pressable="true"
+                    data-slot="expand-button"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <span
+                      aria-hidden="true"
+                      class="inline-flex h-3.5 w-3.5 shrink-0 items-center justify-center text-default-500"
+                      data-slot="expand-icon"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        fill="none"
+                        focusable="false"
+                        height="14"
+                        viewBox="0 0 16 16"
+                        width="14"
+                      >
+                        <path
+                          d="m6 4 4 4-4 4"
+                          stroke="currentColor"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="1.75"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                </div>
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Marta Silva #3
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Pastéis de nata
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                order-3@snack-shop.eu
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                13,00 €
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                <div
+                  class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-6 text-tiny rounded-full bg-danger/20 text-danger-600 dark:text-danger-500"
+                >
+                  <span
+                    class="flex-1 text-inherit font-normal px-1 flex items-center gap-2"
+                  >
+                    Delayed
+                  </span>
+                </div>
+              </td>
+            </tr>
+            <tr
+              class="border-b border-divider last:border-b-0 data-[state=selected]:bg-content2/60"
+              data-index="3"
+              data-slot="tr"
+              style="display: flex; position: absolute; transform: translateY(135px); width: 100%;"
+            >
+              <td
+                class="p-3 align-middle text-foreground w-10 px-0 text-center"
+                data-slot="expansion-cell"
+                style="flex: 0 0 36px; width: 36px;"
+              >
+                <div
+                  class="flex justify-center"
+                  data-slot="expansion-cell-content"
+                >
+                  <button
+                    aria-label="Expand row 3"
+                    class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-transparent text-default-foreground data-[hover=true]:bg-default/40 h-8 min-w-8 px-0 disabled:cursor-not-allowed data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed"
+                    data-react-aria-pressable="true"
+                    data-slot="expand-button"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <span
+                      aria-hidden="true"
+                      class="inline-flex h-3.5 w-3.5 shrink-0 items-center justify-center text-default-500"
+                      data-slot="expand-icon"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        fill="none"
+                        focusable="false"
+                        height="14"
+                        viewBox="0 0 16 16"
+                        width="14"
+                      >
+                        <path
+                          d="m6 4 4 4-4 4"
+                          stroke="currentColor"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="1.75"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                </div>
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Noah van Dijk #4
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Stroopwafels
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                order-4@snack-shop.eu
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                14,50 €
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                <div
+                  class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-6 text-tiny rounded-full bg-success/20 text-success-700 dark:text-success"
+                >
+                  <span
+                    class="flex-1 text-inherit font-normal px-1 flex items-center gap-2"
+                  >
+                    Delivered
+                  </span>
+                </div>
+              </td>
+            </tr>
+            <tr
+              class="border-b border-divider last:border-b-0 data-[state=selected]:bg-content2/60"
+              data-index="4"
+              data-slot="tr"
+              style="display: flex; position: absolute; transform: translateY(180px); width: 100%;"
+            >
+              <td
+                class="p-3 align-middle text-foreground w-10 px-0 text-center"
+                data-slot="expansion-cell"
+                style="flex: 0 0 36px; width: 36px;"
+              >
+                <div
+                  class="flex justify-center"
+                  data-slot="expansion-cell-content"
+                >
+                  <button
+                    aria-label="Expand row 4"
+                    class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-transparent text-default-foreground data-[hover=true]:bg-default/40 h-8 min-w-8 px-0 disabled:cursor-not-allowed data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed"
+                    data-react-aria-pressable="true"
+                    data-slot="expand-button"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <span
+                      aria-hidden="true"
+                      class="inline-flex h-3.5 w-3.5 shrink-0 items-center justify-center text-default-500"
+                      data-slot="expand-icon"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        fill="none"
+                        focusable="false"
+                        height="14"
+                        viewBox="0 0 16 16"
+                        width="14"
+                      >
+                        <path
+                          d="m6 4 4 4-4 4"
+                          stroke="currentColor"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="1.75"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                </div>
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Sofia Rossi #5
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Aperitivo crisps
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                order-5@snack-shop.eu
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                16,00 €
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                <div
+                  class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-6 text-tiny rounded-full bg-warning/20 text-warning-700 dark:text-warning"
+                >
+                  <span
+                    class="flex-1 text-inherit font-normal px-1 flex items-center gap-2"
+                  >
+                    Packing
+                  </span>
+                </div>
+              </td>
+            </tr>
+            <tr
+              class="border-b border-divider last:border-b-0 data-[state=selected]:bg-content2/60"
+              data-index="5"
+              data-slot="tr"
+              style="display: flex; position: absolute; transform: translateY(225px); width: 100%;"
+            >
+              <td
+                class="p-3 align-middle text-foreground w-10 px-0 text-center"
+                data-slot="expansion-cell"
+                style="flex: 0 0 36px; width: 36px;"
+              >
+                <div
+                  class="flex justify-center"
+                  data-slot="expansion-cell-content"
+                >
+                  <button
+                    aria-label="Expand row 5"
+                    class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-transparent text-default-foreground data-[hover=true]:bg-default/40 h-8 min-w-8 px-0 disabled:cursor-not-allowed data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed"
+                    data-react-aria-pressable="true"
+                    data-slot="expand-button"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <span
+                      aria-hidden="true"
+                      class="inline-flex h-3.5 w-3.5 shrink-0 items-center justify-center text-default-500"
+                      data-slot="expand-icon"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        fill="none"
+                        focusable="false"
+                        height="14"
+                        viewBox="0 0 16 16"
+                        width="14"
+                      >
+                        <path
+                          d="m6 4 4 4-4 4"
+                          stroke="currentColor"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="1.75"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                </div>
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Elsa Lindström #6
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Cinnamon buns
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                order-6@snack-shop.eu
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                17,50 €
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                <div
+                  class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-6 text-tiny rounded-full bg-danger/20 text-danger-600 dark:text-danger-500"
+                >
+                  <span
+                    class="flex-1 text-inherit font-normal px-1 flex items-center gap-2"
+                  >
+                    Delayed
+                  </span>
+                </div>
+              </td>
+            </tr>
+            <tr
+              class="border-b border-divider last:border-b-0 data-[state=selected]:bg-content2/60"
+              data-index="6"
+              data-slot="tr"
+              style="display: flex; position: absolute; transform: translateY(270px); width: 100%;"
+            >
+              <td
+                class="p-3 align-middle text-foreground w-10 px-0 text-center"
+                data-slot="expansion-cell"
+                style="flex: 0 0 36px; width: 36px;"
+              >
+                <div
+                  class="flex justify-center"
+                  data-slot="expansion-cell-content"
+                >
+                  <button
+                    aria-label="Expand row 6"
+                    class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-transparent text-default-foreground data-[hover=true]:bg-default/40 h-8 min-w-8 px-0 disabled:cursor-not-allowed data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed"
+                    data-react-aria-pressable="true"
+                    data-slot="expand-button"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <span
+                      aria-hidden="true"
+                      class="inline-flex h-3.5 w-3.5 shrink-0 items-center justify-center text-default-500"
+                      data-slot="expand-icon"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        fill="none"
+                        focusable="false"
+                        height="14"
+                        viewBox="0 0 16 16"
+                        width="14"
+                      >
+                        <path
+                          d="m6 4 4 4-4 4"
+                          stroke="currentColor"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="1.75"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                </div>
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Theo Novak #7
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Kolache box
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                order-7@snack-shop.eu
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                19,00 €
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                <div
+                  class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-6 text-tiny rounded-full bg-success/20 text-success-700 dark:text-success"
+                >
+                  <span
+                    class="flex-1 text-inherit font-normal px-1 flex items-center gap-2"
+                  >
+                    Delivered
+                  </span>
+                </div>
+              </td>
+            </tr>
+            <tr
+              class="border-b border-divider last:border-b-0 data-[state=selected]:bg-content2/60"
+              data-index="7"
+              data-slot="tr"
+              style="display: flex; position: absolute; transform: translateY(315px); width: 100%;"
+            >
+              <td
+                class="p-3 align-middle text-foreground w-10 px-0 text-center"
+                data-slot="expansion-cell"
+                style="flex: 0 0 36px; width: 36px;"
+              >
+                <div
+                  class="flex justify-center"
+                  data-slot="expansion-cell-content"
+                >
+                  <button
+                    aria-label="Expand row 7"
+                    class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-transparent text-default-foreground data-[hover=true]:bg-default/40 h-8 min-w-8 px-0 disabled:cursor-not-allowed data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed"
+                    data-react-aria-pressable="true"
+                    data-slot="expand-button"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <span
+                      aria-hidden="true"
+                      class="inline-flex h-3.5 w-3.5 shrink-0 items-center justify-center text-default-500"
+                      data-slot="expand-icon"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        fill="none"
+                        focusable="false"
+                        height="14"
+                        viewBox="0 0 16 16"
+                        width="14"
+                      >
+                        <path
+                          d="m6 4 4 4-4 4"
+                          stroke="currentColor"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="1.75"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                </div>
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Lena Weber #8
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Apricot waffles
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                order-8@snack-shop.eu
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                17,00 €
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                <div
+                  class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-6 text-tiny rounded-full bg-warning/20 text-warning-700 dark:text-warning"
+                >
+                  <span
+                    class="flex-1 text-inherit font-normal px-1 flex items-center gap-2"
+                  >
+                    Packing
+                  </span>
+                </div>
+              </td>
+            </tr>
+            <tr
+              class="border-b border-divider last:border-b-0 data-[state=selected]:bg-content2/60"
+              data-index="8"
+              data-slot="tr"
+              style="display: flex; position: absolute; transform: translateY(360px); width: 100%;"
+            >
+              <td
+                class="p-3 align-middle text-foreground w-10 px-0 text-center"
+                data-slot="expansion-cell"
+                style="flex: 0 0 36px; width: 36px;"
+              >
+                <div
+                  class="flex justify-center"
+                  data-slot="expansion-cell-content"
+                >
+                  <button
+                    aria-label="Expand row 8"
+                    class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-transparent text-default-foreground data-[hover=true]:bg-default/40 h-8 min-w-8 px-0 disabled:cursor-not-allowed data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed"
+                    data-react-aria-pressable="true"
+                    data-slot="expand-button"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <span
+                      aria-hidden="true"
+                      class="inline-flex h-3.5 w-3.5 shrink-0 items-center justify-center text-default-500"
+                      data-slot="expand-icon"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        fill="none"
+                        focusable="false"
+                        height="14"
+                        viewBox="0 0 16 16"
+                        width="14"
+                      >
+                        <path
+                          d="m6 4 4 4-4 4"
+                          stroke="currentColor"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="1.75"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                </div>
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Klara Müller #9
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Currywurst fries
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                order-9@snack-shop.eu
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                18,50 €
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                <div
+                  class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-6 text-tiny rounded-full bg-danger/20 text-danger-600 dark:text-danger-500"
+                >
+                  <span
+                    class="flex-1 text-inherit font-normal px-1 flex items-center gap-2"
+                  >
+                    Delayed
+                  </span>
+                </div>
+              </td>
+            </tr>
+            <tr
+              class="border-b border-divider last:border-b-0 data-[state=selected]:bg-content2/60"
+              data-index="9"
+              data-slot="tr"
+              style="display: flex; position: absolute; transform: translateY(405px); width: 100%;"
+            >
+              <td
+                class="p-3 align-middle text-foreground w-10 px-0 text-center"
+                data-slot="expansion-cell"
+                style="flex: 0 0 36px; width: 36px;"
+              >
+                <div
+                  class="flex justify-center"
+                  data-slot="expansion-cell-content"
+                >
+                  <button
+                    aria-label="Expand row 9"
+                    class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-transparent text-default-foreground data-[hover=true]:bg-default/40 h-8 min-w-8 px-0 disabled:cursor-not-allowed data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed"
+                    data-react-aria-pressable="true"
+                    data-slot="expand-button"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <span
+                      aria-hidden="true"
+                      class="inline-flex h-3.5 w-3.5 shrink-0 items-center justify-center text-default-500"
+                      data-slot="expand-icon"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        fill="none"
+                        focusable="false"
+                        height="14"
+                        viewBox="0 0 16 16"
+                        width="14"
+                      >
+                        <path
+                          d="m6 4 4 4-4 4"
+                          stroke="currentColor"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="1.75"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                </div>
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Jules Dubois #10
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Mini croissants
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                order-10@snack-shop.eu
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                20,00 €
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                <div
+                  class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-6 text-tiny rounded-full bg-success/20 text-success-700 dark:text-success"
+                >
+                  <span
+                    class="flex-1 text-inherit font-normal px-1 flex items-center gap-2"
+                  >
+                    Delivered
+                  </span>
+                </div>
+              </td>
+            </tr>
+            <tr
+              class="border-b border-divider last:border-b-0 data-[state=selected]:bg-content2/60"
+              data-index="10"
+              data-slot="tr"
+              style="display: flex; position: absolute; transform: translateY(450px); width: 100%;"
+            >
+              <td
+                class="p-3 align-middle text-foreground w-10 px-0 text-center"
+                data-slot="expansion-cell"
+                style="flex: 0 0 36px; width: 36px;"
+              >
+                <div
+                  class="flex justify-center"
+                  data-slot="expansion-cell-content"
+                >
+                  <button
+                    aria-label="Expand row 10"
+                    class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-transparent text-default-foreground data-[hover=true]:bg-default/40 h-8 min-w-8 px-0 disabled:cursor-not-allowed data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed"
+                    data-react-aria-pressable="true"
+                    data-slot="expand-button"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <span
+                      aria-hidden="true"
+                      class="inline-flex h-3.5 w-3.5 shrink-0 items-center justify-center text-default-500"
+                      data-slot="expand-icon"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        fill="none"
+                        focusable="false"
+                        height="14"
+                        viewBox="0 0 16 16"
+                        width="14"
+                      >
+                        <path
+                          d="m6 4 4 4-4 4"
+                          stroke="currentColor"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="1.75"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                </div>
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Marta Silva #11
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Pastéis de nata
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                order-11@snack-shop.eu
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                21,50 €
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                <div
+                  class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-6 text-tiny rounded-full bg-warning/20 text-warning-700 dark:text-warning"
+                >
+                  <span
+                    class="flex-1 text-inherit font-normal px-1 flex items-center gap-2"
+                  >
+                    Packing
+                  </span>
+                </div>
+              </td>
+            </tr>
+            <tr
+              class="border-b border-divider last:border-b-0 data-[state=selected]:bg-content2/60"
+              data-index="11"
+              data-slot="tr"
+              style="display: flex; position: absolute; transform: translateY(495px); width: 100%;"
+            >
+              <td
+                class="p-3 align-middle text-foreground w-10 px-0 text-center"
+                data-slot="expansion-cell"
+                style="flex: 0 0 36px; width: 36px;"
+              >
+                <div
+                  class="flex justify-center"
+                  data-slot="expansion-cell-content"
+                >
+                  <button
+                    aria-label="Expand row 11"
+                    class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-transparent text-default-foreground data-[hover=true]:bg-default/40 h-8 min-w-8 px-0 disabled:cursor-not-allowed data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed"
+                    data-react-aria-pressable="true"
+                    data-slot="expand-button"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <span
+                      aria-hidden="true"
+                      class="inline-flex h-3.5 w-3.5 shrink-0 items-center justify-center text-default-500"
+                      data-slot="expand-icon"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        fill="none"
+                        focusable="false"
+                        height="14"
+                        viewBox="0 0 16 16"
+                        width="14"
+                      >
+                        <path
+                          d="m6 4 4 4-4 4"
+                          stroke="currentColor"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="1.75"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                </div>
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Noah van Dijk #12
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Stroopwafels
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                order-12@snack-shop.eu
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                23,00 €
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                <div
+                  class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-6 text-tiny rounded-full bg-danger/20 text-danger-600 dark:text-danger-500"
+                >
+                  <span
+                    class="flex-1 text-inherit font-normal px-1 flex items-center gap-2"
+                  >
+                    Delayed
+                  </span>
+                </div>
+              </td>
+            </tr>
+            <tr
+              class="border-b border-divider last:border-b-0 data-[state=selected]:bg-content2/60"
+              data-index="12"
+              data-slot="tr"
+              style="display: flex; position: absolute; transform: translateY(540px); width: 100%;"
+            >
+              <td
+                class="p-3 align-middle text-foreground w-10 px-0 text-center"
+                data-slot="expansion-cell"
+                style="flex: 0 0 36px; width: 36px;"
+              >
+                <div
+                  class="flex justify-center"
+                  data-slot="expansion-cell-content"
+                >
+                  <button
+                    aria-label="Expand row 12"
+                    class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-transparent text-default-foreground data-[hover=true]:bg-default/40 h-8 min-w-8 px-0 disabled:cursor-not-allowed data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed"
+                    data-react-aria-pressable="true"
+                    data-slot="expand-button"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <span
+                      aria-hidden="true"
+                      class="inline-flex h-3.5 w-3.5 shrink-0 items-center justify-center text-default-500"
+                      data-slot="expand-icon"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        fill="none"
+                        focusable="false"
+                        height="14"
+                        viewBox="0 0 16 16"
+                        width="14"
+                      >
+                        <path
+                          d="m6 4 4 4-4 4"
+                          stroke="currentColor"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="1.75"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                </div>
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Sofia Rossi #13
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Aperitivo crisps
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                order-13@snack-shop.eu
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                24,50 €
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                <div
+                  class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-6 text-tiny rounded-full bg-success/20 text-success-700 dark:text-success"
+                >
+                  <span
+                    class="flex-1 text-inherit font-normal px-1 flex items-center gap-2"
+                  >
+                    Delivered
+                  </span>
+                </div>
+              </td>
+            </tr>
+            <tr
+              class="border-b border-divider last:border-b-0 data-[state=selected]:bg-content2/60"
+              data-index="13"
+              data-slot="tr"
+              style="display: flex; position: absolute; transform: translateY(585px); width: 100%;"
+            >
+              <td
+                class="p-3 align-middle text-foreground w-10 px-0 text-center"
+                data-slot="expansion-cell"
+                style="flex: 0 0 36px; width: 36px;"
+              >
+                <div
+                  class="flex justify-center"
+                  data-slot="expansion-cell-content"
+                >
+                  <button
+                    aria-label="Expand row 13"
+                    class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-transparent text-default-foreground data-[hover=true]:bg-default/40 h-8 min-w-8 px-0 disabled:cursor-not-allowed data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed"
+                    data-react-aria-pressable="true"
+                    data-slot="expand-button"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <span
+                      aria-hidden="true"
+                      class="inline-flex h-3.5 w-3.5 shrink-0 items-center justify-center text-default-500"
+                      data-slot="expand-icon"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        fill="none"
+                        focusable="false"
+                        height="14"
+                        viewBox="0 0 16 16"
+                        width="14"
+                      >
+                        <path
+                          d="m6 4 4 4-4 4"
+                          stroke="currentColor"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="1.75"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                </div>
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Elsa Lindström #14
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Cinnamon buns
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                order-14@snack-shop.eu
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                26,00 €
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                <div
+                  class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-6 text-tiny rounded-full bg-warning/20 text-warning-700 dark:text-warning"
+                >
+                  <span
+                    class="flex-1 text-inherit font-normal px-1 flex items-center gap-2"
+                  >
+                    Packing
+                  </span>
+                </div>
+              </td>
+            </tr>
+            <tr
+              class="border-b border-divider last:border-b-0 data-[state=selected]:bg-content2/60"
+              data-index="14"
+              data-slot="tr"
+              style="display: flex; position: absolute; transform: translateY(630px); width: 100%;"
+            >
+              <td
+                class="p-3 align-middle text-foreground w-10 px-0 text-center"
+                data-slot="expansion-cell"
+                style="flex: 0 0 36px; width: 36px;"
+              >
+                <div
+                  class="flex justify-center"
+                  data-slot="expansion-cell-content"
+                >
+                  <button
+                    aria-label="Expand row 14"
+                    class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-transparent text-default-foreground data-[hover=true]:bg-default/40 h-8 min-w-8 px-0 disabled:cursor-not-allowed data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed"
+                    data-react-aria-pressable="true"
+                    data-slot="expand-button"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <span
+                      aria-hidden="true"
+                      class="inline-flex h-3.5 w-3.5 shrink-0 items-center justify-center text-default-500"
+                      data-slot="expand-icon"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        fill="none"
+                        focusable="false"
+                        height="14"
+                        viewBox="0 0 16 16"
+                        width="14"
+                      >
+                        <path
+                          d="m6 4 4 4-4 4"
+                          stroke="currentColor"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="1.75"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                </div>
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Theo Novak #15
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Kolache box
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                order-15@snack-shop.eu
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                24,00 €
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                <div
+                  class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-6 text-tiny rounded-full bg-danger/20 text-danger-600 dark:text-danger-500"
+                >
+                  <span
+                    class="flex-1 text-inherit font-normal px-1 flex items-center gap-2"
+                  >
+                    Delayed
+                  </span>
+                </div>
+              </td>
+            </tr>
+            <tr
+              class="border-b border-divider last:border-b-0 data-[state=selected]:bg-content2/60"
+              data-index="15"
+              data-slot="tr"
+              style="display: flex; position: absolute; transform: translateY(675px); width: 100%;"
+            >
+              <td
+                class="p-3 align-middle text-foreground w-10 px-0 text-center"
+                data-slot="expansion-cell"
+                style="flex: 0 0 36px; width: 36px;"
+              >
+                <div
+                  class="flex justify-center"
+                  data-slot="expansion-cell-content"
+                >
+                  <button
+                    aria-label="Expand row 15"
+                    class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-transparent text-default-foreground data-[hover=true]:bg-default/40 h-8 min-w-8 px-0 disabled:cursor-not-allowed data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed"
+                    data-react-aria-pressable="true"
+                    data-slot="expand-button"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <span
+                      aria-hidden="true"
+                      class="inline-flex h-3.5 w-3.5 shrink-0 items-center justify-center text-default-500"
+                      data-slot="expand-icon"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        fill="none"
+                        focusable="false"
+                        height="14"
+                        viewBox="0 0 16 16"
+                        width="14"
+                      >
+                        <path
+                          d="m6 4 4 4-4 4"
+                          stroke="currentColor"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="1.75"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                </div>
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Lena Weber #16
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Apricot waffles
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                order-16@snack-shop.eu
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                25,50 €
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                <div
+                  class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-6 text-tiny rounded-full bg-success/20 text-success-700 dark:text-success"
+                >
+                  <span
+                    class="flex-1 text-inherit font-normal px-1 flex items-center gap-2"
+                  >
+                    Delivered
+                  </span>
+                </div>
+              </td>
+            </tr>
+            <tr
+              class="border-b border-divider last:border-b-0 data-[state=selected]:bg-content2/60"
+              data-index="16"
+              data-slot="tr"
+              style="display: flex; position: absolute; transform: translateY(720px); width: 100%;"
+            >
+              <td
+                class="p-3 align-middle text-foreground w-10 px-0 text-center"
+                data-slot="expansion-cell"
+                style="flex: 0 0 36px; width: 36px;"
+              >
+                <div
+                  class="flex justify-center"
+                  data-slot="expansion-cell-content"
+                >
+                  <button
+                    aria-label="Expand row 16"
+                    class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-transparent text-default-foreground data-[hover=true]:bg-default/40 h-8 min-w-8 px-0 disabled:cursor-not-allowed data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed"
+                    data-react-aria-pressable="true"
+                    data-slot="expand-button"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <span
+                      aria-hidden="true"
+                      class="inline-flex h-3.5 w-3.5 shrink-0 items-center justify-center text-default-500"
+                      data-slot="expand-icon"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        fill="none"
+                        focusable="false"
+                        height="14"
+                        viewBox="0 0 16 16"
+                        width="14"
+                      >
+                        <path
+                          d="m6 4 4 4-4 4"
+                          stroke="currentColor"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="1.75"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                </div>
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Klara Müller #17
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Currywurst fries
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                order-17@snack-shop.eu
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                27,00 €
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                <div
+                  class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-6 text-tiny rounded-full bg-warning/20 text-warning-700 dark:text-warning"
+                >
+                  <span
+                    class="flex-1 text-inherit font-normal px-1 flex items-center gap-2"
+                  >
+                    Packing
+                  </span>
+                </div>
+              </td>
+            </tr>
+            <tr
+              class="border-b border-divider last:border-b-0 data-[state=selected]:bg-content2/60"
+              data-index="17"
+              data-slot="tr"
+              style="display: flex; position: absolute; transform: translateY(765px); width: 100%;"
+            >
+              <td
+                class="p-3 align-middle text-foreground w-10 px-0 text-center"
+                data-slot="expansion-cell"
+                style="flex: 0 0 36px; width: 36px;"
+              >
+                <div
+                  class="flex justify-center"
+                  data-slot="expansion-cell-content"
+                >
+                  <button
+                    aria-label="Expand row 17"
+                    class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-transparent text-default-foreground data-[hover=true]:bg-default/40 h-8 min-w-8 px-0 disabled:cursor-not-allowed data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed"
+                    data-react-aria-pressable="true"
+                    data-slot="expand-button"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <span
+                      aria-hidden="true"
+                      class="inline-flex h-3.5 w-3.5 shrink-0 items-center justify-center text-default-500"
+                      data-slot="expand-icon"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        fill="none"
+                        focusable="false"
+                        height="14"
+                        viewBox="0 0 16 16"
+                        width="14"
+                      >
+                        <path
+                          d="m6 4 4 4-4 4"
+                          stroke="currentColor"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="1.75"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                </div>
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Jules Dubois #18
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Mini croissants
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                order-18@snack-shop.eu
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                28,50 €
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                <div
+                  class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-6 text-tiny rounded-full bg-danger/20 text-danger-600 dark:text-danger-500"
+                >
+                  <span
+                    class="flex-1 text-inherit font-normal px-1 flex items-center gap-2"
+                  >
+                    Delayed
+                  </span>
+                </div>
+              </td>
+            </tr>
+            <tr
+              class="border-b border-divider last:border-b-0 data-[state=selected]:bg-content2/60"
+              data-index="18"
+              data-slot="tr"
+              style="display: flex; position: absolute; transform: translateY(810px); width: 100%;"
+            >
+              <td
+                class="p-3 align-middle text-foreground w-10 px-0 text-center"
+                data-slot="expansion-cell"
+                style="flex: 0 0 36px; width: 36px;"
+              >
+                <div
+                  class="flex justify-center"
+                  data-slot="expansion-cell-content"
+                >
+                  <button
+                    aria-label="Expand row 18"
+                    class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-transparent text-default-foreground data-[hover=true]:bg-default/40 h-8 min-w-8 px-0 disabled:cursor-not-allowed data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed"
+                    data-react-aria-pressable="true"
+                    data-slot="expand-button"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <span
+                      aria-hidden="true"
+                      class="inline-flex h-3.5 w-3.5 shrink-0 items-center justify-center text-default-500"
+                      data-slot="expand-icon"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        fill="none"
+                        focusable="false"
+                        height="14"
+                        viewBox="0 0 16 16"
+                        width="14"
+                      >
+                        <path
+                          d="m6 4 4 4-4 4"
+                          stroke="currentColor"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="1.75"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                </div>
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Marta Silva #19
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                Pastéis de nata
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                order-19@snack-shop.eu
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                30,00 €
+              </td>
+              <td
+                class="p-3 align-middle text-foreground"
+                data-slot="td"
+                style="flex: 1 1 150px; min-width: 0px; width: 150px;"
+              >
+                <div
+                  class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-6 text-tiny rounded-full bg-success/20 text-success-700 dark:text-success"
+                >
+                  <span
+                    class="flex-1 text-inherit font-normal px-1 flex items-center gap-2"
+                  >
+                    Delivered
+                  </span>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </div>

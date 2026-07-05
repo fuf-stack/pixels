@@ -1,18 +1,17 @@
 import type { TVClassName } from '@fuf-stack/pixel-utils';
-import type { ColumnDef, Row } from '@tanstack/react-table';
+import type { ColumnDef, Row, SortingState } from '@tanstack/react-table';
 import type { ReactNode } from 'react';
 
-import { useMemo } from 'react';
+import { useCallback, useMemo, useRef } from 'react';
 
 import { tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 
 import { useDataTableController } from './hooks/useDataTableController';
+import DataTableBodyRows from './Subcomponents/DataTableBodyRows';
+import { DataTableHeaderCell } from './Subcomponents/DataTableCells';
 import DataTablePagination from './Subcomponents/DataTablePagination';
-import {
-  DataTableBodyRows,
-  DataTableHeaderCell,
-} from './Subcomponents/DataTableRows';
 import DataTableViewOptions from './Subcomponents/DataTableViewOptions';
+import { DataTableVirtualBodyRows } from './Subcomponents/DataTableVirtualBodyRows';
 
 export const dataTableVariants = tv({
   slots: {
@@ -45,6 +44,8 @@ export const dataTableVariants = tv({
       'h-10 w-full max-w-sm rounded-small border-2 border-default-200 bg-transparent px-3 text-sm text-foreground outline-none transition-colors placeholder:text-default-500 hover:border-default-400 data-[focused=true]:border-focus dark:border-default-100',
     // Loading-state cell shown while data is being fetched.
     loadingCell: 'h-24 text-center text-default-500',
+    // Loading/retry cell shown when fetching next page in infinite mode.
+    loadingMoreCell: 'flex h-14 items-center justify-center text-default-500',
     // Plain header content used for non-sortable columns.
     nonSortableHeaderContent: 'inline-flex items-center',
     // Label wrapping the "Rows per page" selector.
@@ -57,6 +58,9 @@ export const dataTableVariants = tv({
     pagination: 'flex items-center gap-2 py-4',
     // Shared class applied to pagination action buttons.
     paginationButton: '',
+    // Placeholder rows for unknown-yet data in total-count mode.
+    placeholderCell:
+      'h-10 animate-pulse bg-default-100/60 p-3 dark:bg-default-100/10',
     // Selected rows summary text in pagination footer.
     selectionSummary: 'mr-auto text-sm text-default-500',
     // Header/body cell reserved for the selection checkbox column.
@@ -69,6 +73,8 @@ export const dataTableVariants = tv({
     // Icon wrapper for sort direction indicators.
     sortIcon:
       'inline-flex h-3.5 w-3.5 shrink-0 items-center justify-center text-default-400',
+    // Scroll container in virtualized/infinite mode.
+    scrollContainer: 'overflow-y-auto overflow-x-hidden',
     // Semantic table element.
     table: 'w-full caption-bottom text-sm',
     // Border/overflow container around the table.
@@ -156,10 +162,12 @@ export interface DataTableExpandableRowsFeature<TData = unknown> {
 }
 
 export interface DataTableFeatures<TData = unknown> {
-  /** Enables TanStack expanding for detail panels, nested sub rows, or both. */
-  expandableRows?: DataTableExpandableRowsFeature<TData>;
   /** Enables the "Columns" menu for toggling visible columns. */
   columnVisibility?: boolean;
+  /** Enables TanStack expanding for detail panels, nested sub rows, or both. */
+  expandableRows?: DataTableExpandableRowsFeature<TData>;
+  /** Enables cursor-based infinite scroll behavior. */
+  infiniteScroll?: DataTableInfiniteScrollFeature;
   /** Enables pagination row model and footer controls, optionally with page-size settings. */
   pagination?: boolean | DataTablePaginationFeature;
   /** Enables row selection and select-all checkbox column. */
@@ -169,6 +177,8 @@ export interface DataTableFeatures<TData = unknown> {
     /** Built-in search inputs keyed by TanStack column id. */
     columns?: DataTableSearchField[];
   };
+  /** Enables virtualization for large client-side data arrays. */
+  virtualization?: DataTableVirtualizationFeature;
 }
 
 export interface DataTablePaginationFeature {
@@ -176,6 +186,52 @@ export interface DataTablePaginationFeature {
   pageSizeOptions?: number[];
   /** Shows the "Rows per page" selector in the pagination footer. */
   showRowsPerPage?: boolean;
+}
+
+/** Cursor pagination state provided by the parent data source. */
+export interface InfiniteScrollPageInfo {
+  /** Cursor for the currently loaded tail (used for forward pagination). */
+  endCursor?: string | null;
+  /** Whether a forward page exists beyond the currently loaded data. */
+  hasNextPage: boolean;
+  /** Total result size reported by the backend for total-count mode. */
+  totalCount: number;
+}
+
+/** Infinite-scroll behavior configuration for DataTable. */
+export interface DataTableInfiniteScrollFeature {
+  /** True while the parent is fetching the next page. */
+  isFetchingNextPage?: boolean;
+  /** True when the most recent load-more request failed. */
+  loadMoreError?: boolean;
+  /** Prefetch threshold from the loaded tail (in virtual rows). */
+  loadMoreThreshold?: number;
+  /** Custom loading-row content shown while next page is in flight. */
+  loadingMoreContent?: ReactNode;
+  /** Callback used to request the next page from the parent. */
+  onLoadMore: (args: { direction: 'forward'; cursor?: string | null }) => void;
+  /** Server-side search callback for infinite mode. */
+  onSearchChange?: (columnId: string, value: string) => void;
+  /** Server-side sorting callback for infinite mode. */
+  onSortingChange?: (sorting: SortingState) => void;
+  /** Parent-provided cursor page metadata. */
+  pageInfo: InfiniteScrollPageInfo;
+  /** Custom retry-row content shown when `loadMoreError` is true. */
+  retryContent?: ReactNode;
+  /** Scrollbar strategy for infinite mode. */
+  scrollbarMode?: 'loaded-count' | 'total-count';
+}
+
+/** Virtualization settings shared by DataTable and VirtualList behavior. */
+export interface DataTableVirtualizationFeature {
+  /** Enables dynamic DOM measurement for variable-height rows. */
+  dynamicRowHeight?: boolean;
+  /** Fallback row-height estimate used before measurement. */
+  estimateRowHeight?: number;
+  /** Scroll viewport max height. */
+  maxHeight: number | string;
+  /** Number of extra virtual rows rendered above/below the viewport. */
+  overscan?: number;
 }
 
 export interface DataTableProps<TData, TValue> {
@@ -236,16 +292,46 @@ const DataTable = <TData, TValue>({
   const resolvedEnableExpandableRows = Boolean(resolvedExpandableRows);
   const paginationConfig =
     typeof features?.pagination === 'object' ? features.pagination : undefined;
-  const resolvedEnablePagination = Boolean(features?.pagination);
-  const resolvedEnableRowSelection = features?.rowSelection ?? false;
+  const resolvedInfiniteScroll = features?.infiniteScroll;
+  const resolvedVirtualization = features?.virtualization;
+  const resolvedEnableVirtualization = Boolean(
+    resolvedVirtualization ?? resolvedInfiniteScroll,
+  );
+  const resolvedEnablePagination = Boolean(
+    features?.pagination && !resolvedInfiniteScroll,
+  );
+  const resolvedEnableRowSelection = Boolean(
+    features?.rowSelection && !resolvedInfiniteScroll,
+  );
   const resolvedPageSizeOptions = paginationConfig?.pageSizeOptions ?? [
     10, 20, 50,
   ];
   const resolvedShowRowsPerPage = paginationConfig?.showRowsPerPage ?? true;
 
   const resolvedSearchFields = features?.search?.columns ?? [];
+  const virtualConfig: DataTableVirtualizationFeature | undefined =
+    resolvedVirtualization ??
+    (resolvedInfiniteScroll
+      ? {
+          dynamicRowHeight: true,
+          maxHeight: 600,
+        }
+      : undefined);
 
   const variants = dataTableVariants();
+  const scrollContainerRef = useRef<HTMLDivElement | null>(null);
+  const handleSortingChange = useCallback(
+    (sorting: SortingState) => {
+      if (resolvedInfiniteScroll) {
+        scrollContainerRef.current?.scrollTo({
+          top: 0,
+        });
+      }
+      resolvedInfiniteScroll?.onSortingChange?.(sorting);
+    },
+    [resolvedInfiniteScroll],
+  );
+
   const classNames = variantsToClassNames(variants, className, 'base');
 
   // Stable object identity so the controller's selection-column memo holds.
@@ -272,24 +358,169 @@ const DataTable = <TData, TValue>({
     data,
     enableExpandableRows: resolvedEnableExpandableRows,
     enablePagination: resolvedEnablePagination,
+    enableServerMode: Boolean(resolvedInfiniteScroll),
     enableRowSelection: resolvedEnableRowSelection,
     expansionClassNames,
     expansionIcons: icons?.expandableRows,
     getSubRows: resolvedExpandableRows?.getSubRows,
     hasExpandableRowContent: Boolean(resolvedExpandableRows?.renderContent),
+    onSortingChange: handleSortingChange,
     pageSizeOptions: resolvedPageSizeOptions,
     selectionIcons: icons?.selection,
   });
   // Used by loading/empty rows and main table rendering loop.
   const visibleColumnCount = table.getVisibleLeafColumns().length;
   const tableRows = table.getRowModel().rows;
+  const showToolbar =
+    resolvedSearchFields.length > 0 ||
+    resolvedEnableColumnVisibility ||
+    Boolean(toolbarContent);
+
+  // Shared header row renderer used by both standard and virtualized layouts.
+  const renderHeaderRows = (virtualized: boolean) => {
+    return table.getHeaderGroups().map((headerGroup) => {
+      return (
+        <tr
+          key={headerGroup.id}
+          className={classNames.tr}
+          data-slot="tr"
+          style={virtualized ? { display: 'flex', width: '100%' } : undefined}
+        >
+          {headerGroup.headers.map((header) => {
+            return (
+              <DataTableHeaderCell
+                key={header.id}
+                classNames={classNames}
+                header={header}
+                sortIcons={icons?.sort}
+                virtualized={virtualized}
+              />
+            );
+          })}
+        </tr>
+      );
+    });
+  };
+
+  // Shared fallback rows for loading and empty states.
+  const renderBodyStateRows = () => {
+    return (
+      <>
+        {loading ? (
+          <tr className={classNames.tr} data-slot="tr">
+            <td
+              className={classNames.loadingCell}
+              colSpan={visibleColumnCount}
+              data-slot="loading-cell"
+            >
+              {loadingContent}
+            </td>
+          </tr>
+        ) : null}
+        {!loading && tableRows.length === 0 ? (
+          <tr className={classNames.tr} data-slot="tr">
+            <td
+              className={classNames.emptyCell}
+              colSpan={visibleColumnCount}
+              data-slot="empty-cell"
+            >
+              {emptyContent}
+            </td>
+          </tr>
+        ) : null}
+      </>
+    );
+  };
+
+  // Virtualized layout keeps header separate so body owns the scrollbar.
+  const renderVirtualizedTable = () => {
+    return (
+      <>
+        {/* Keep header outside the scroll container so body owns scrollbar. */}
+        <table
+          aria-hidden={loading && tableRows.length === 0 ? 'true' : undefined}
+          className={classNames.table}
+          data-slot="table"
+          style={{ display: 'grid' }}
+        >
+          <thead className={classNames.thead} data-slot="thead">
+            {renderHeaderRows(true)}
+          </thead>
+        </table>
+
+        <div
+          ref={scrollContainerRef}
+          className={classNames.scrollContainer}
+          data-slot="scroll-container"
+          style={{ maxHeight: virtualConfig?.maxHeight }}
+        >
+          <table
+            aria-label={ariaLabel}
+            className={classNames.table}
+            data-slot="table"
+            style={{ display: 'grid' }}
+          >
+            <tbody
+              className={classNames.tbody}
+              data-slot="tbody"
+              style={{ display: 'grid', position: 'relative' }}
+            >
+              {loading ? null : (
+                <DataTableVirtualBodyRows
+                  classNames={classNames}
+                  expandableRows={resolvedExpandableRows}
+                  infiniteScroll={resolvedInfiniteScroll}
+                  loadingMoreContent={
+                    resolvedInfiniteScroll?.loadingMoreContent
+                  }
+                  retryContent={resolvedInfiniteScroll?.retryContent}
+                  rows={tableRows}
+                  scrollElementRef={scrollContainerRef}
+                  virtualization={virtualConfig}
+                  virtualized
+                  visibleColumnCount={visibleColumnCount}
+                />
+              )}
+              {renderBodyStateRows()}
+            </tbody>
+          </table>
+        </div>
+      </>
+    );
+  };
+
+  // Standard semantic table layout when virtualization is disabled.
+  const renderStandardTable = () => {
+    return (
+      <table
+        aria-label={ariaLabel}
+        className={classNames.table}
+        data-slot="table"
+      >
+        <thead className={classNames.thead} data-slot="thead">
+          {/* Header groups come from TanStack and support sorting per column. */}
+          {renderHeaderRows(false)}
+        </thead>
+        <tbody className={classNames.tbody} data-slot="tbody">
+          {loading ? null : (
+            <DataTableBodyRows
+              classNames={classNames}
+              expandableRows={resolvedExpandableRows}
+              rows={tableRows}
+              visibleColumnCount={visibleColumnCount}
+            />
+          )}
+          {/* Loading and empty states reserve full table width via visible column span. */}
+          {renderBodyStateRows()}
+        </tbody>
+      </table>
+    );
+  };
 
   return (
     <div className={classNames.base} data-slot="base" data-testid={testId}>
       {/* Optional toolbar area for built-in search, custom content, and column visibility controls. */}
-      {resolvedSearchFields.length > 0 ||
-      resolvedEnableColumnVisibility ||
-      toolbarContent ? (
+      {showToolbar ? (
         <div className={classNames.toolbar} data-slot="toolbar">
           {toolbarContent ? (
             <div
@@ -319,9 +550,17 @@ const DataTable = <TData, TValue>({
                 data-slot="search-input"
                 data-testid={searchTestId}
                 onChange={(event) => {
-                  table
-                    .getColumn(searchField.column)
-                    ?.setFilterValue(event.target.value);
+                  const { value } = event.target;
+                  table.getColumn(searchField.column)?.setFilterValue(value);
+                  if (resolvedInfiniteScroll) {
+                    resolvedInfiniteScroll.onSearchChange?.(
+                      searchField.column,
+                      value,
+                    );
+                    scrollContainerRef.current?.scrollTo({
+                      top: 0,
+                    });
+                  }
                 }}
                 placeholder={searchField.placeholder ?? 'Search...'}
                 value={searchValue}
@@ -345,70 +584,11 @@ const DataTable = <TData, TValue>({
         </div>
       ) : null}
 
+      {/* Switch between virtualized and standard table markup at one boundary. */}
       <div className={classNames.tableWrapper} data-slot="table-wrapper">
-        <table
-          aria-label={ariaLabel}
-          className={classNames.table}
-          data-slot="table"
-        >
-          <thead className={classNames.thead} data-slot="thead">
-            {/* Header groups come from TanStack and support sorting per column. */}
-            {table.getHeaderGroups().map((headerGroup) => {
-              return (
-                <tr
-                  key={headerGroup.id}
-                  className={classNames.tr}
-                  data-slot="tr"
-                >
-                  {headerGroup.headers.map((header) => {
-                    return (
-                      <DataTableHeaderCell
-                        key={header.id}
-                        classNames={classNames}
-                        header={header}
-                        sortIcons={icons?.sort}
-                      />
-                    );
-                  })}
-                </tr>
-              );
-            })}
-          </thead>
-          <tbody className={classNames.tbody} data-slot="tbody">
-            {/* Render regular rows unless loading mode is active. */}
-            {loading ? null : (
-              <DataTableBodyRows
-                classNames={classNames}
-                expandableRows={resolvedExpandableRows}
-                rows={tableRows}
-                visibleColumnCount={visibleColumnCount}
-              />
-            )}
-            {/* Loading and empty states reserve full table width via visible column span. */}
-            {loading ? (
-              <tr className={classNames.tr} data-slot="tr">
-                <td
-                  className={classNames.loadingCell}
-                  colSpan={visibleColumnCount}
-                  data-slot="loading-cell"
-                >
-                  {loadingContent}
-                </td>
-              </tr>
-            ) : null}
-            {!loading && tableRows.length === 0 ? (
-              <tr className={classNames.tr} data-slot="tr">
-                <td
-                  className={classNames.emptyCell}
-                  colSpan={visibleColumnCount}
-                  data-slot="empty-cell"
-                >
-                  {emptyContent}
-                </td>
-              </tr>
-            ) : null}
-          </tbody>
-        </table>
+        {resolvedEnableVirtualization
+          ? renderVirtualizedTable()
+          : renderStandardTable()}
       </div>
 
       {/* Footer pagination controls are feature-gated. */}
