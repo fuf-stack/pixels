@@ -5,6 +5,7 @@ import type { ReactNode } from 'react';
 import { useCallback, useMemo, useRef } from 'react';
 
 import { tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
+import ScrollShadow from '@fuf-stack/pixels/ScrollShadow';
 
 import { useDataTableController } from './hooks/useDataTableController';
 import DataTableBodyRows from './Subcomponents/DataTableBodyRows';
@@ -75,6 +76,8 @@ export const dataTableVariants = tv({
       'inline-flex h-3.5 w-3.5 shrink-0 items-center justify-center text-default-400',
     // Scroll container in virtualized/infinite mode.
     scrollContainer: 'overflow-y-auto overflow-x-hidden',
+    // Optional styling slot for ScrollShadow wrapper behavior.
+    scrollShadow: '',
     // Semantic table element.
     table: 'w-full caption-bottom text-sm',
     // Border/overflow container around the table.
@@ -232,6 +235,8 @@ export interface DataTableVirtualizationFeature {
   maxHeight: number | string;
   /** Number of extra virtual rows rendered above/below the viewport. */
   overscan?: number;
+  /** ScrollShadow fade size in pixels for virtualized containers. */
+  scrollShadowSize?: number;
 }
 
 export interface DataTableProps<TData, TValue> {
@@ -448,11 +453,18 @@ const DataTable = <TData, TValue>({
           </thead>
         </table>
 
-        <div
+        <ScrollShadow
           ref={scrollContainerRef}
-          className={classNames.scrollContainer}
-          data-slot="scroll-container"
+          className={
+            classNames.scrollShadow
+              ? `${classNames.scrollContainer} ${classNames.scrollShadow}`
+              : classNames.scrollContainer
+          }
+          // show scroll shadow when there is no page load more error
+          visibility={resolvedInfiniteScroll?.loadMoreError ? 'none' : 'auto'}
+          dataSlot="scroll-container"
           style={{ maxHeight: virtualConfig?.maxHeight }}
+          size={virtualConfig?.scrollShadowSize ?? 40}
         >
           <table
             aria-label={ariaLabel}
@@ -484,7 +496,7 @@ const DataTable = <TData, TValue>({
               {renderBodyStateRows()}
             </tbody>
           </table>
-        </div>
+        </ScrollShadow>
       </>
     );
   };

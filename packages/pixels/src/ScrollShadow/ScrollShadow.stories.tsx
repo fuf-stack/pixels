@@ -149,3 +149,27 @@ export const SmallShadow: Story = {
     children: <VerticalContent />,
   },
 };
+
+export const TopOnlyShadow: Story = {
+  args: {
+    className: 'w-[300px] h-[400px]',
+    visibility: 'top',
+    children: <VerticalContent />,
+  },
+};
+
+export const NoShadow: Story = {
+  args: {
+    className: 'w-[300px] h-[400px]',
+    visibility: 'none',
+    children: <VerticalContent />,
+  },
+};
+
+export const MaxHeightViaStyle: Story = {
+  args: {
+    className: 'w-[300px]',
+    style: { maxHeight: 260 },
+    children: <VerticalContent />,
+  },
+};

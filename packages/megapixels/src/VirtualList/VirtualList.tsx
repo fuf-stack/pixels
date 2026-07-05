@@ -6,6 +6,7 @@ import type {
 } from '../DataTable';
 
 import { tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
+import ScrollShadow from '@fuf-stack/pixels/ScrollShadow';
 
 import { useInfiniteVirtualizer } from '../hooks/useInfiniteVirtualizer';
 
@@ -22,8 +23,11 @@ export const virtualListVariants = tv({
     // Skeleton-like placeholder for unloaded rows in total-count mode.
     placeholderItem: 'box-border border-b border-divider bg-content1 px-3',
     // Scrollable viewport used as the virtualizer scroll element.
-    scrollContainer:
-      'w-full min-w-80 overflow-y-auto overflow-x-hidden rounded-md border border-divider bg-content1',
+    scrollContainer: 'w-full min-w-80 overflow-y-auto overflow-x-hidden',
+    // Visual frame around the masked scroll area (stays fully opaque).
+    scrollFrame: 'rounded-md border border-divider bg-content1',
+    // Optional styling slot for ScrollShadow wrapper behavior.
+    scrollShadow: '',
   },
 });
 
@@ -170,96 +174,105 @@ const VirtualList = <TData,>({
 
   return (
     <div className={classNames.base} data-slot="base" data-testid={testId}>
-      <div
-        ref={scrollElementRef}
-        className={classNames.scrollContainer}
-        data-slot="scroll-container"
-        style={{ maxHeight: virtualization.maxHeight }}
-      >
-        <ul
-          className={classNames.list}
-          data-slot="list"
-          // Total virtual height (loaded rows + optional placeholders/sentinel).
-          style={{ height: `${totalSize}px` }}
+      <div className={classNames.scrollFrame} data-slot="scroll-frame">
+        <ScrollShadow
+          ref={scrollElementRef}
+          className={
+            classNames.scrollShadow
+              ? `${classNames.scrollContainer} ${classNames.scrollShadow}`
+              : classNames.scrollContainer
+          }
+          // show scroll shadow when there is no page load more error
+          visibility={infiniteScroll?.loadMoreError ? 'none' : 'auto'}
+          dataSlot="scroll-container"
+          style={{ maxHeight: virtualization.maxHeight }}
+          size={virtualization.scrollShadowSize ?? 40}
         >
-          {virtualItems.map((virtualItem) => {
-            const item = baseItems[virtualItem.index];
-            if (!item) {
+          <ul
+            className={classNames.list}
+            data-slot="list"
+            // Total virtual height (loaded rows + optional placeholders/sentinel).
+            style={{ height: `${totalSize}px` }}
+          >
+            {virtualItems.map((virtualItem) => {
+              const item = baseItems[virtualItem.index];
+              if (!item) {
+                return null;
+              }
+
+              if (item.kind === 'placeholder') {
+                // Reserved space for rows we have not loaded yet (total-count mode).
+                return (
+                  <li
+                    key={item.key}
+                    ref={measureElement}
+                    className={classNames.placeholderItem}
+                    data-index={virtualItem.index}
+                    data-slot="placeholder-item"
+                    style={{
+                      alignItems: 'center',
+                      display: 'flex',
+                      height: `${virtualItem.size}px`,
+                      position: 'absolute',
+                      transform: `translateY(${virtualItem.start}px)`,
+                      width: '100%',
+                    }}
+                  >
+                    <span className="block h-3 w-2/3 animate-pulse rounded bg-default-300/50 dark:bg-default-300/20" />
+                  </li>
+                );
+              }
+
+              if (item.kind === 'load-more') {
+                // Infinite-scroll sentinel row: loading indicator or retry action.
+                return (
+                  <li
+                    key={item.key}
+                    ref={measureElement}
+                    className={classNames.loadingMoreCell}
+                    data-index={virtualItem.index}
+                    data-slot="loading-more-cell"
+                    style={{
+                      position: 'absolute',
+                      transform: `translateY(${virtualItem.start}px)`,
+                      width: '100%',
+                    }}
+                  >
+                    {infiniteScroll?.loadMoreError ? (
+                      <button onClick={retry} type="button">
+                        {infiniteScroll.retryContent ?? retryContent}
+                      </button>
+                    ) : (
+                      loadingMoreContent
+                    )}
+                  </li>
+                );
+              }
+
+              if (item.kind === 'item') {
+                return (
+                  // Standard loaded item row.
+                  <li
+                    key={item.key}
+                    ref={measureElement}
+                    className={classNames.item}
+                    data-index={virtualItem.index}
+                    data-slot="item"
+                    style={{
+                      position: 'absolute',
+                      transform: `translateY(${virtualItem.start}px)`,
+                      width: '100%',
+                    }}
+                  >
+                    {renderItem(item.value, item.index)}
+                  </li>
+                );
+              }
+
               return null;
-            }
-
-            if (item.kind === 'placeholder') {
-              // Reserved space for rows we have not loaded yet (total-count mode).
-              return (
-                <li
-                  key={item.key}
-                  ref={measureElement}
-                  className={classNames.placeholderItem}
-                  data-index={virtualItem.index}
-                  data-slot="placeholder-item"
-                  style={{
-                    alignItems: 'center',
-                    display: 'flex',
-                    height: `${virtualItem.size}px`,
-                    position: 'absolute',
-                    transform: `translateY(${virtualItem.start}px)`,
-                    width: '100%',
-                  }}
-                >
-                  <span className="block h-3 w-2/3 animate-pulse rounded bg-default-300/50 dark:bg-default-300/20" />
-                </li>
-              );
-            }
-
-            if (item.kind === 'load-more') {
-              // Infinite-scroll sentinel row: loading indicator or retry action.
-              return (
-                <li
-                  key={item.key}
-                  ref={measureElement}
-                  className={classNames.loadingMoreCell}
-                  data-index={virtualItem.index}
-                  data-slot="loading-more-cell"
-                  style={{
-                    position: 'absolute',
-                    transform: `translateY(${virtualItem.start}px)`,
-                    width: '100%',
-                  }}
-                >
-                  {infiniteScroll?.loadMoreError ? (
-                    <button onClick={retry} type="button">
-                      {infiniteScroll.retryContent ?? retryContent}
-                    </button>
-                  ) : (
-                    loadingMoreContent
-                  )}
-                </li>
-              );
-            }
-
-            if (item.kind === 'item') {
-              return (
-                // Standard loaded item row.
-                <li
-                  key={item.key}
-                  ref={measureElement}
-                  className={classNames.item}
-                  data-index={virtualItem.index}
-                  data-slot="item"
-                  style={{
-                    position: 'absolute',
-                    transform: `translateY(${virtualItem.start}px)`,
-                    width: '100%',
-                  }}
-                >
-                  {renderItem(item.value, item.index)}
-                </li>
-              );
-            }
-
-            return null;
-          })}
-        </ul>
+            })}
+          </ul>
+        </ScrollShadow>
       </div>
     </div>
   );
