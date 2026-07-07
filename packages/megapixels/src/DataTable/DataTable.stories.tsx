@@ -2,14 +2,20 @@
 
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import type { ColumnDef, Row } from '@tanstack/react-table';
+import type { ReactElement, ReactNode } from 'react';
 import type { DataTableProps, DataTableSearchField } from './DataTable';
 import type { SnackOrder } from './storybookData';
 
-import { useMemo, useState } from 'react';
+import { isValidElement, useMemo, useState } from 'react';
 
+import { action } from 'storybook/actions';
 import { expect, userEvent, waitFor, within } from 'storybook/test';
 
 import { Label } from '@fuf-stack/pixels/Label';
+import Checkboxes from '@fuf-stack/uniform/Checkboxes';
+import Form from '@fuf-stack/uniform/Form';
+import Radios from '@fuf-stack/uniform/Radios';
+import SubmitButton from '@fuf-stack/uniform/SubmitButton';
 
 import Filter, { filters as filterRegistry } from '../Filter';
 import DataTable from './DataTable';
@@ -823,6 +829,182 @@ export const VirtualizedDynamicHeight: Story = {
         }}
         testId="datatable-virtualized-dynamic-height"
       />
+    );
+  },
+};
+
+interface UniformRenderedOrderOption {
+  /** Prebuilt Uniform checkbox control, present for checkbox field examples. */
+  checkbox?: ReactNode;
+  /** Uniform option data. The value maps back to `compactOrders` by index here. */
+  option: {
+    value: string | number;
+  };
+  /** Prebuilt Uniform radio control, present for radio field examples. */
+  radio?: ReactNode;
+}
+
+interface UniformOrderTableRow {
+  /** Full order used by DataTable columns. */
+  order: SnackOrder;
+  /** Actual Uniform field control rendered in the first DataTable column. */
+  selectionControl: ReactElement;
+}
+
+const uniformOrderOptions = compactOrders.map((order, index) => {
+  return {
+    label: order.customer,
+    meta: { order },
+    value: String(index),
+  };
+});
+
+/**
+ * Columns for the Uniform field-renderer examples.
+ *
+ * The first column renders the actual Uniform checkbox/radio control, while
+ * the remaining columns render the selected option's order metadata.
+ */
+const uniformOrderTableColumns: ColumnDef<UniformOrderTableRow>[] = [
+  {
+    cell: ({ row }) => {
+      return row.original.selectionControl;
+    },
+    enableSorting: false,
+    header: 'Select',
+    id: 'selection',
+    size: 36,
+  },
+  {
+    cell: ({ row }) => {
+      return row.original.order.customer;
+    },
+    header: 'Customer',
+    id: 'customer',
+  },
+  {
+    cell: ({ row }) => {
+      return row.original.order.snack;
+    },
+    header: 'Snack',
+    id: 'snack',
+  },
+  {
+    cell: ({ row }) => {
+      return row.original.order.email;
+    },
+    header: 'Email',
+    id: 'email',
+  },
+  {
+    cell: ({ row }) => {
+      return new Intl.NumberFormat('de-DE', {
+        currency: 'EUR',
+        style: 'currency',
+      }).format(row.original.order.amount);
+    },
+    header: 'Total',
+    id: 'amount',
+  },
+  {
+    cell: ({ row }) => {
+      return renderStatusLabel(row.original.order.status);
+    },
+    header: 'Status',
+    id: 'status',
+  },
+];
+
+/**
+ * Adapts Uniform render-prop options into DataTable rows.
+ *
+ * The checkbox/radio node remains the real Uniform field control; DataTable
+ * only provides the tabular layout around the option metadata.
+ */
+const createUniformOrderTableRows = (
+  renderedOptions: UniformRenderedOrderOption[],
+  controlKind: 'checkbox' | 'radio',
+) => {
+  return renderedOptions.reduce<UniformOrderTableRow[]>(
+    (rows, renderedOption) => {
+      const order = compactOrders[Number(renderedOption.option.value)];
+      const selectionControl =
+        controlKind === 'checkbox'
+          ? renderedOption.checkbox
+          : renderedOption.radio;
+
+      if (order && isValidElement(selectionControl)) {
+        rows.push({ order, selectionControl });
+      }
+
+      return rows;
+    },
+    [],
+  );
+};
+
+export const UniformCheckboxField: Story = {
+  render: () => {
+    return (
+      <Form
+        className="flex flex-col gap-4"
+        initialValues={{ selectedOrderIds: ['0', '1'] }}
+        name="datatable-uniform-checkbox-form"
+        onSubmit={action('onSubmit')}
+      >
+        <Checkboxes
+          label="Choose snack orders"
+          name="selectedOrderIds"
+          options={uniformOrderOptions}
+        >
+          {(renderedOptions) => {
+            return (
+              <DataTable
+                ariaLabel="Uniform checkbox DataTable field"
+                columns={uniformOrderTableColumns}
+                data={createUniformOrderTableRows(renderedOptions, 'checkbox')}
+                testId="datatable-uniform-checkbox-field"
+              />
+            );
+          }}
+        </Checkboxes>
+        <div className="mt-4 flex justify-end">
+          <SubmitButton />
+        </div>
+      </Form>
+    );
+  },
+};
+
+export const UniformRadioField: Story = {
+  render: () => {
+    return (
+      <Form
+        className="flex flex-col gap-4"
+        initialValues={{ primaryOrderId: '1' }}
+        name="datatable-uniform-radio-form"
+        onSubmit={action('onSubmit')}
+      >
+        <Radios
+          label="Choose one primary snack order"
+          name="primaryOrderId"
+          options={uniformOrderOptions}
+        >
+          {(renderedOptions) => {
+            return (
+              <DataTable
+                ariaLabel="Uniform radio DataTable field"
+                columns={uniformOrderTableColumns}
+                data={createUniformOrderTableRows(renderedOptions, 'radio')}
+                testId="datatable-uniform-radio-field"
+              />
+            );
+          }}
+        </Radios>
+        <div className="mt-4 flex justify-end">
+          <SubmitButton />
+        </div>
+      </Form>
     );
   },
 };

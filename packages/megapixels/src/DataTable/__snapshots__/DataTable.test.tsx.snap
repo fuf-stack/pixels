@@ -6629,6 +6629,666 @@ exports[`Story Snapshots > SortableAndSearchable 1`] = `
 </div>
 `;
 
+exports[`Story Snapshots > UniformCheckboxField 1`] = `
+<div>
+  <div
+    class="flex w-full flex-row justify-between gap-6"
+  >
+    <form
+      class="grow flex flex-col gap-4"
+      data-form-is-valid="true"
+      data-testid="datatable_uniform_checkbox_form"
+      name="datatable-uniform-checkbox-form"
+    >
+      <div
+        aria-label="Choose snack orders"
+        class="relative gap-2 group flex w-full flex-col gap-y-1.5"
+        data-invalid="false"
+        data-testid="selectedorderids"
+        id="react-aria-«replaced-aria-id»"
+        role="group"
+      >
+        <span
+          class="relative inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger"
+        >
+          <legend>
+            Choose snack orders
+          </legend>
+        </span>
+        <div
+          class="flex flex-col flex-wrap gap-2 data-[orientation=horizontal]:flex-row"
+          data-orientation="vertical"
+          role="presentation"
+        >
+          <div
+            class="w-full"
+            data-slot="base"
+            data-testid="datatable-uniform-checkbox-field"
+          >
+            <div
+              class="overflow-hidden rounded-md border border-divider"
+              data-slot="table-wrapper"
+            >
+              <table
+                aria-label="Uniform checkbox DataTable field"
+                class="w-full caption-bottom text-sm"
+                data-slot="table"
+              >
+                <thead
+                  class="bg-content2"
+                  data-slot="thead"
+                >
+                  <tr
+                    class="border-b border-divider last:border-b-0 data-[state=selected]:bg-content2/60"
+                    data-slot="tr"
+                  >
+                    <th
+                      class="h-10 px-3 text-left align-middle font-medium text-foreground"
+                      data-slot="th"
+                    >
+                      <div
+                        class="inline-flex items-center"
+                        data-slot="non-sortable-header-content"
+                      >
+                        Select
+                      </div>
+                    </th>
+                    <th
+                      class="h-10 px-3 text-left align-middle font-medium text-foreground"
+                      data-slot="th"
+                    >
+                      <div
+                        class="inline-flex items-center"
+                        data-slot="non-sortable-header-content"
+                      >
+                        Customer
+                      </div>
+                    </th>
+                    <th
+                      class="h-10 px-3 text-left align-middle font-medium text-foreground"
+                      data-slot="th"
+                    >
+                      <div
+                        class="inline-flex items-center"
+                        data-slot="non-sortable-header-content"
+                      >
+                        Snack
+                      </div>
+                    </th>
+                    <th
+                      class="h-10 px-3 text-left align-middle font-medium text-foreground"
+                      data-slot="th"
+                    >
+                      <div
+                        class="inline-flex items-center"
+                        data-slot="non-sortable-header-content"
+                      >
+                        Email
+                      </div>
+                    </th>
+                    <th
+                      class="h-10 px-3 text-left align-middle font-medium text-foreground"
+                      data-slot="th"
+                    >
+                      <div
+                        class="inline-flex items-center"
+                        data-slot="non-sortable-header-content"
+                      >
+                        Total
+                      </div>
+                    </th>
+                    <th
+                      class="h-10 px-3 text-left align-middle font-medium text-foreground"
+                      data-slot="th"
+                    >
+                      <div
+                        class="inline-flex items-center"
+                        data-slot="non-sortable-header-content"
+                      >
+                        Status
+                      </div>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody
+                  data-slot="tbody"
+                >
+                  <tr
+                    class="border-b border-divider last:border-b-0 data-[state=selected]:bg-content2/60"
+                    data-slot="tr"
+                  >
+                    <td
+                      class="p-3 align-middle text-foreground"
+                      data-slot="td"
+                    >
+                      <label
+                        aria-label="Anna Kowalski"
+                        class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
+                        data-invalid="false"
+                        data-selected="true"
+                        data-testid="selectedorderids_option_0"
+                      >
+                        <input
+                          aria-label="Anna Kowalski"
+                          aria-labelledby="«replaced-aria-id»"
+                          checked=""
+                          class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
+                          data-react-aria-pressable="true"
+                          name="selectedOrderIds"
+                          tabindex="0"
+                          title=""
+                          type="checkbox"
+                          value="0"
+                        />
+                        <span
+                          aria-hidden="true"
+                          class="relative inline-flex items-center justify-center shrink-0 overflow-hidden before:content-[''] before:absolute before:inset-0 before:border-solid before:border-2 before:box-border before:border-default after:content-[''] after:absolute after:inset-0 after:scale-50 after:opacity-0 after:origin-center group-data-[selected=true]:after:scale-100 group-data-[selected=true]:after:opacity-100 group-data-[hover=true]:before:bg-default-100 outline-solid outline-transparent group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background after:bg-primary after:text-primary-foreground text-primary-foreground w-5 h-5 me-2 rounded-[calc(var(--heroui-radius-medium)*0.6)] before:rounded-[calc(var(--heroui-radius-medium)*0.6)] after:rounded-[calc(var(--heroui-radius-medium)*0.6)] before:transition-colors group-data-[pressed=true]:scale-95 transition-transform after:transition-transform-opacity after:!ease-linear after:!duration-200 motion-reduce:transition-none"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            class="z-10 opacity-0 group-data-[selected=true]:opacity-100 pointer-events-none w-4 h-3 transition-opacity motion-reduce:transition-none"
+                            fill="none"
+                            role="presentation"
+                            stroke="currentColor"
+                            stroke-dasharray="22"
+                            stroke-dashoffset="44"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            style="transition: stroke-dashoffset 250ms linear 0.2s;"
+                            viewBox="0 0 17 18"
+                          >
+                            <polyline
+                              points="1 9 7 14 15 4"
+                            />
+                          </svg>
+                        </span>
+                        <span
+                          class="relative text-foreground select-none text-medium transition-colors-opacity before:transition-width motion-reduce:transition-none"
+                          id="«replaced-aria-id»"
+                        >
+                          Anna Kowalski
+                        </span>
+                      </label>
+                    </td>
+                    <td
+                      class="p-3 align-middle text-foreground"
+                      data-slot="td"
+                    >
+                      Anna Kowalski
+                    </td>
+                    <td
+                      class="p-3 align-middle text-foreground"
+                      data-slot="td"
+                    >
+                      Chocolate wafers
+                    </td>
+                    <td
+                      class="p-3 align-middle text-foreground"
+                      data-slot="td"
+                    >
+                      anna@warsaw-wafers.pl
+                    </td>
+                    <td
+                      class="p-3 align-middle text-foreground"
+                      data-slot="td"
+                    >
+                      13,50 €
+                    </td>
+                    <td
+                      class="p-3 align-middle text-foreground"
+                      data-slot="td"
+                    >
+                      <div
+                        class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-6 text-tiny rounded-full bg-success/20 text-success-700 dark:text-success"
+                      >
+                        <span
+                          class="flex-1 text-inherit font-normal px-1 flex items-center gap-2"
+                        >
+                          Delivered
+                        </span>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr
+                    class="border-b border-divider last:border-b-0 data-[state=selected]:bg-content2/60"
+                    data-slot="tr"
+                  >
+                    <td
+                      class="p-3 align-middle text-foreground"
+                      data-slot="td"
+                    >
+                      <label
+                        aria-label="Milo Jensen"
+                        class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
+                        data-invalid="false"
+                        data-selected="true"
+                        data-testid="selectedorderids_option_1"
+                      >
+                        <input
+                          aria-label="Milo Jensen"
+                          aria-labelledby="«replaced-aria-id»"
+                          checked=""
+                          class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
+                          data-react-aria-pressable="true"
+                          name="selectedOrderIds"
+                          tabindex="0"
+                          title=""
+                          type="checkbox"
+                          value="1"
+                        />
+                        <span
+                          aria-hidden="true"
+                          class="relative inline-flex items-center justify-center shrink-0 overflow-hidden before:content-[''] before:absolute before:inset-0 before:border-solid before:border-2 before:box-border before:border-default after:content-[''] after:absolute after:inset-0 after:scale-50 after:opacity-0 after:origin-center group-data-[selected=true]:after:scale-100 group-data-[selected=true]:after:opacity-100 group-data-[hover=true]:before:bg-default-100 outline-solid outline-transparent group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background after:bg-primary after:text-primary-foreground text-primary-foreground w-5 h-5 me-2 rounded-[calc(var(--heroui-radius-medium)*0.6)] before:rounded-[calc(var(--heroui-radius-medium)*0.6)] after:rounded-[calc(var(--heroui-radius-medium)*0.6)] before:transition-colors group-data-[pressed=true]:scale-95 transition-transform after:transition-transform-opacity after:!ease-linear after:!duration-200 motion-reduce:transition-none"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            class="z-10 opacity-0 group-data-[selected=true]:opacity-100 pointer-events-none w-4 h-3 transition-opacity motion-reduce:transition-none"
+                            fill="none"
+                            role="presentation"
+                            stroke="currentColor"
+                            stroke-dasharray="22"
+                            stroke-dashoffset="44"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            style="transition: stroke-dashoffset 250ms linear 0.2s;"
+                            viewBox="0 0 17 18"
+                          >
+                            <polyline
+                              points="1 9 7 14 15 4"
+                            />
+                          </svg>
+                        </span>
+                        <span
+                          class="relative text-foreground select-none text-medium transition-colors-opacity before:transition-width motion-reduce:transition-none"
+                          id="«replaced-aria-id»"
+                        >
+                          Milo Jensen
+                        </span>
+                      </label>
+                    </td>
+                    <td
+                      class="p-3 align-middle text-foreground"
+                      data-slot="td"
+                    >
+                      Milo Jensen
+                    </td>
+                    <td
+                      class="p-3 align-middle text-foreground"
+                      data-slot="td"
+                    >
+                      Cardamom buns
+                    </td>
+                    <td
+                      class="p-3 align-middle text-foreground"
+                      data-slot="td"
+                    >
+                      milo@copenhagen-cakes.dk
+                    </td>
+                    <td
+                      class="p-3 align-middle text-foreground"
+                      data-slot="td"
+                    >
+                      17,80 €
+                    </td>
+                    <td
+                      class="p-3 align-middle text-foreground"
+                      data-slot="td"
+                    >
+                      <div
+                        class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-6 text-tiny rounded-full bg-warning/20 text-warning-700 dark:text-warning"
+                      >
+                        <span
+                          class="flex-1 text-inherit font-normal px-1 flex items-center gap-2"
+                        >
+                          Packing
+                        </span>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="mt-4 flex justify-end"
+      >
+        <button
+          aria-label="Submit form"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
+          data-react-aria-pressable="true"
+          data-testid="form_submit_button"
+          tabindex="0"
+          type="submit"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`Story Snapshots > UniformRadioField 1`] = `
+<div>
+  <div
+    class="flex w-full flex-row justify-between gap-6"
+  >
+    <form
+      class="grow flex flex-col gap-4"
+      data-form-is-valid="true"
+      data-testid="datatable_uniform_radio_form"
+      name="datatable-uniform-radio-form"
+    >
+      <div
+        aria-label="Choose one primary snack order"
+        aria-orientation="vertical"
+        class="relative gap-2 group flex w-full flex-col gap-y-1.5"
+        data-invalid="false"
+        data-required="false"
+        data-testid="primaryorderid"
+        id="react-aria-«replaced-aria-id»"
+        role="radiogroup"
+      >
+        <span
+          class="relative mb-2 inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger"
+        >
+          <legend>
+            Choose one primary snack order
+          </legend>
+        </span>
+        <div
+          class="flex flex-col flex-wrap gap-2 data-[orientation=horizontal]:flex-row"
+          data-orientation="vertical"
+          role="presentation"
+        >
+          <div
+            class="w-full"
+            data-slot="base"
+            data-testid="datatable-uniform-radio-field"
+          >
+            <div
+              class="overflow-hidden rounded-md border border-divider"
+              data-slot="table-wrapper"
+            >
+              <table
+                aria-label="Uniform radio DataTable field"
+                class="w-full caption-bottom text-sm"
+                data-slot="table"
+              >
+                <thead
+                  class="bg-content2"
+                  data-slot="thead"
+                >
+                  <tr
+                    class="border-b border-divider last:border-b-0 data-[state=selected]:bg-content2/60"
+                    data-slot="tr"
+                  >
+                    <th
+                      class="h-10 px-3 text-left align-middle font-medium text-foreground"
+                      data-slot="th"
+                    >
+                      <div
+                        class="inline-flex items-center"
+                        data-slot="non-sortable-header-content"
+                      >
+                        Select
+                      </div>
+                    </th>
+                    <th
+                      class="h-10 px-3 text-left align-middle font-medium text-foreground"
+                      data-slot="th"
+                    >
+                      <div
+                        class="inline-flex items-center"
+                        data-slot="non-sortable-header-content"
+                      >
+                        Customer
+                      </div>
+                    </th>
+                    <th
+                      class="h-10 px-3 text-left align-middle font-medium text-foreground"
+                      data-slot="th"
+                    >
+                      <div
+                        class="inline-flex items-center"
+                        data-slot="non-sortable-header-content"
+                      >
+                        Snack
+                      </div>
+                    </th>
+                    <th
+                      class="h-10 px-3 text-left align-middle font-medium text-foreground"
+                      data-slot="th"
+                    >
+                      <div
+                        class="inline-flex items-center"
+                        data-slot="non-sortable-header-content"
+                      >
+                        Email
+                      </div>
+                    </th>
+                    <th
+                      class="h-10 px-3 text-left align-middle font-medium text-foreground"
+                      data-slot="th"
+                    >
+                      <div
+                        class="inline-flex items-center"
+                        data-slot="non-sortable-header-content"
+                      >
+                        Total
+                      </div>
+                    </th>
+                    <th
+                      class="h-10 px-3 text-left align-middle font-medium text-foreground"
+                      data-slot="th"
+                    >
+                      <div
+                        class="inline-flex items-center"
+                        data-slot="non-sortable-header-content"
+                      >
+                        Status
+                      </div>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody
+                  data-slot="tbody"
+                >
+                  <tr
+                    class="border-b border-divider last:border-b-0 data-[state=selected]:bg-content2/60"
+                    data-slot="tr"
+                  >
+                    <td
+                      class="p-3 align-middle text-foreground"
+                      data-slot="td"
+                    >
+                      <label
+                        class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
+                        data-testid="primaryorderid_option_0"
+                      >
+                        <input
+                          aria-describedby="«replaced-aria-id» react-aria-«replaced-aria-id»"
+                          aria-labelledby="«replaced-aria-id»"
+                          class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
+                          data-react-aria-pressable="true"
+                          name="primaryOrderId"
+                          tabindex="-1"
+                          title=""
+                          type="radio"
+                          value="0"
+                        />
+                        <span
+                          aria-hidden="true"
+                          class="relative inline-flex items-center justify-center shrink-0 overflow-hidden border-solid border-medium box-border border-default rounded-full group-data-[hover-unselected=true]:bg-default-100 outline-solid outline-transparent group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:border-primary w-5 h-5 group-data-[pressed=true]:scale-95 transition-transform-colors motion-reduce:transition-none group-data-[invalid=true]:border-danger! [&:not(group-data-[invalid="true"]):not(group-data-[selected="false"])]:border-focus"
+                        >
+                          <span
+                            class="z-10 opacity-0 scale-0 origin-center rounded-full group-data-[selected=true]:opacity-100 group-data-[selected=true]:scale-100 text-primary-foreground w-2 h-2 transition-transform-opacity motion-reduce:transition-none bg-focus group-data-[invalid=true]:bg-danger"
+                          />
+                        </span>
+                        <div
+                          class="flex flex-col ms-2 ml-2"
+                        >
+                          <span
+                            class="relative text-foreground select-none transition-colors motion-reduce:transition-none text-sm"
+                            id="«replaced-aria-id»"
+                          >
+                            Anna Kowalski
+                          </span>
+                        </div>
+                      </label>
+                    </td>
+                    <td
+                      class="p-3 align-middle text-foreground"
+                      data-slot="td"
+                    >
+                      Anna Kowalski
+                    </td>
+                    <td
+                      class="p-3 align-middle text-foreground"
+                      data-slot="td"
+                    >
+                      Chocolate wafers
+                    </td>
+                    <td
+                      class="p-3 align-middle text-foreground"
+                      data-slot="td"
+                    >
+                      anna@warsaw-wafers.pl
+                    </td>
+                    <td
+                      class="p-3 align-middle text-foreground"
+                      data-slot="td"
+                    >
+                      13,50 €
+                    </td>
+                    <td
+                      class="p-3 align-middle text-foreground"
+                      data-slot="td"
+                    >
+                      <div
+                        class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-6 text-tiny rounded-full bg-success/20 text-success-700 dark:text-success"
+                      >
+                        <span
+                          class="flex-1 text-inherit font-normal px-1 flex items-center gap-2"
+                        >
+                          Delivered
+                        </span>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr
+                    class="border-b border-divider last:border-b-0 data-[state=selected]:bg-content2/60"
+                    data-slot="tr"
+                  >
+                    <td
+                      class="p-3 align-middle text-foreground"
+                      data-slot="td"
+                    >
+                      <label
+                        class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
+                        data-selected="true"
+                        data-testid="primaryorderid_option_1"
+                      >
+                        <input
+                          aria-describedby="«replaced-aria-id» react-aria-«replaced-aria-id»"
+                          aria-labelledby="«replaced-aria-id»"
+                          checked=""
+                          class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
+                          data-react-aria-pressable="true"
+                          name="primaryOrderId"
+                          tabindex="0"
+                          title=""
+                          type="radio"
+                          value="1"
+                        />
+                        <span
+                          aria-hidden="true"
+                          class="relative inline-flex items-center justify-center shrink-0 overflow-hidden border-solid border-medium box-border border-default rounded-full group-data-[hover-unselected=true]:bg-default-100 outline-solid outline-transparent group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:border-primary w-5 h-5 group-data-[pressed=true]:scale-95 transition-transform-colors motion-reduce:transition-none group-data-[invalid=true]:border-danger! [&:not(group-data-[invalid="true"]):not(group-data-[selected="false"])]:border-focus"
+                        >
+                          <span
+                            class="z-10 opacity-0 scale-0 origin-center rounded-full group-data-[selected=true]:opacity-100 group-data-[selected=true]:scale-100 text-primary-foreground w-2 h-2 transition-transform-opacity motion-reduce:transition-none bg-focus group-data-[invalid=true]:bg-danger"
+                          />
+                        </span>
+                        <div
+                          class="flex flex-col ms-2 ml-2"
+                        >
+                          <span
+                            class="relative text-foreground select-none transition-colors motion-reduce:transition-none text-sm"
+                            id="«replaced-aria-id»"
+                          >
+                            Milo Jensen
+                          </span>
+                        </div>
+                      </label>
+                    </td>
+                    <td
+                      class="p-3 align-middle text-foreground"
+                      data-slot="td"
+                    >
+                      Milo Jensen
+                    </td>
+                    <td
+                      class="p-3 align-middle text-foreground"
+                      data-slot="td"
+                    >
+                      Cardamom buns
+                    </td>
+                    <td
+                      class="p-3 align-middle text-foreground"
+                      data-slot="td"
+                    >
+                      milo@copenhagen-cakes.dk
+                    </td>
+                    <td
+                      class="p-3 align-middle text-foreground"
+                      data-slot="td"
+                    >
+                      17,80 €
+                    </td>
+                    <td
+                      class="p-3 align-middle text-foreground"
+                      data-slot="td"
+                    >
+                      <div
+                        class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-6 text-tiny rounded-full bg-warning/20 text-warning-700 dark:text-warning"
+                      >
+                        <span
+                          class="flex-1 text-inherit font-normal px-1 flex items-center gap-2"
+                        >
+                          Packing
+                        </span>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="mt-4 flex justify-end"
+      >
+        <button
+          aria-label="Submit form"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
+          data-react-aria-pressable="true"
+          data-testid="form_submit_button"
+          tabindex="0"
+          type="submit"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
 exports[`Story Snapshots > VirtualizedDynamicHeight 1`] = `
 <div>
   <div
