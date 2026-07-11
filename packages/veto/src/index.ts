@@ -24,6 +24,7 @@ export * from './types/array/refineArray';
 export * from './types/boolean/boolean';
 export * from './types/cidrV4/cidrV4';
 export * from './types/cidrV6/cidrV6';
+export * from './types/deepPartial/deepPartial';
 export * from './types/discriminatedUnion/discriminatedUnion';
 export * from './types/ipV4/ipV4';
 export * from './types/ipV6/ipV6';

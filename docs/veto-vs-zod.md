@@ -69,6 +69,35 @@ Example:
 - `and(objectLoose({ a: string() }), objectLoose({ b: number() }))`
 - `and(objectLoose({ a: string() }), objectLoose({ b: number() }), objectLoose({ c: literal(true) }))`
 
+### 7) `deepPartial(...)` replaces removed Zod v3 `deepPartial()` usage
+
+Zod v4 removed the old object `deepPartial()` helper. veto exposes a
+standalone `deepPartial(schema)` helper for schema-backed override configs.
+
+It recursively optionalizes object fields while preserving the original schema
+validation for values that are present. It supports objects, arrays, tuples,
+records, optional/nullable wrappers, default/catch/readonly/lazy wrappers,
+unions, discriminated unions, and intersections.
+
+For discriminated unions, the discriminator remains required so Zod can still
+select the correct branch. Arrays stay arrays: object elements become partial,
+while scalar elements keep their scalar type (`string[]` stays `string[]`, not
+`(string | undefined)[]`).
+
+Example:
+
+```ts
+const overrides = deepPartial(
+  object({
+    theme: object({
+      color: string(),
+    }),
+  }),
+);
+
+overrides.parse({ theme: {} });
+```
+
 ## What veto does not change
 
 - Core parsing semantics still come from Zod.
