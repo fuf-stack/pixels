@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.8.0](https://github.com/fuf-stack/pixels/compare/veto-v1.7.4...veto-v1.8.0) (2026-07-11)
+
+
+### Features
+
+* **veto:** add deepPartial schema helper ([ed5f600](https://github.com/fuf-stack/pixels/commit/ed5f600e27713ff46b24fd904f41acf3b4e087ab))
+
 ## [1.7.4](https://github.com/fuf-stack/pixels/compare/veto-v1.7.3...veto-v1.7.4) (2026-07-02)
 
 

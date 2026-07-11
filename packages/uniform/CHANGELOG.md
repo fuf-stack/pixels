@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.24.10](https://github.com/fuf-stack/pixels/compare/uniform-v1.24.9...uniform-v1.24.10) (2026-07-11)
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @fuf-stack/veto bumped to 1.8.0
+
 ## [1.24.9](https://github.com/fuf-stack/pixels/compare/uniform-v1.24.8...uniform-v1.24.9) (2026-07-05)
 
 
