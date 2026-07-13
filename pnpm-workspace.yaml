@@ -1,6 +1,13 @@
 # see: https://pnpm.io/next/npmrc#auto-install-peers
 autoInstallPeers: true
 
+# Match Renovate's 7-day delay and enforce it for direct and transitive
+# dependencies when pnpm creates or verifies the lockfile.
+# https://pnpm.io/settings#minimumreleaseage
+# https://docs.renovatebot.com/configuration-options/#minimumreleaseage
+minimumReleaseAge: 10080
+minimumReleaseAgeStrict: true
+
 # Allow freshly published internal @fuf-stack packages even when a global
 # minimumReleaseAge is enforced (e.g. in CI/user pnpm config).
 minimumReleaseAgeExclude:
