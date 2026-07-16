@@ -25,8 +25,8 @@ importers:
         specifier: 5.0.3
         version: 5.0.3(@types/node@24.13.2)(jsdom@29.1.1)(vite@8.1.0(@types/node@24.13.2)(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.22.4)(yaml@2.9.0))
       '@lerna-lite/cli':
-        specifier: 5.3.0
-        version: 5.3.0(@types/node@24.13.2)
+        specifier: 5.4.0
+        version: 5.4.0(@types/node@24.13.2)
       '@repo/storybook-config':
         specifier: workspace:*
         version: link:packages/config/storybook-config
@@ -1674,8 +1674,8 @@ packages:
       '@lerna-lite/watch':
         optional: true
 
-  '@lerna-lite/cli@5.3.0':
-    resolution: {integrity: sha512-gm+XWT2XRR3H8XXDMuWhL1jlqaAt0llwLZCGA/uUwe05HS2QKbEsYeaK0kZZKtt1ff7DAZYadMW4uazz9iHczg==}
+  '@lerna-lite/cli@5.4.0':
+    resolution: {integrity: sha512-ivA7RdrCP4q5nCzAbrjVAejNFBW0WrMdbRvfKlib+vax/jTZlSSC4Eq3IxQXVAAtPznJkl+jx+/xB57XNZvbig==}
     engines: {node: ^22.17.0 || >=24.0.0}
     hasBin: true
     peerDependencies:
@@ -1703,16 +1703,16 @@ packages:
     resolution: {integrity: sha512-9D89YzTVcqL7o5iJU230bQzbOhuuhHK8dFo/AREYsAbis+eXk90AV/+FWyUnHIwIW0x/WrXRhqIrM7nWLRN53A==}
     engines: {node: ^22.17.0 || >=24.0.0}
 
-  '@lerna-lite/core@5.3.0':
-    resolution: {integrity: sha512-3RnmZhOV0PccgrorAzgO33L+UcG7GlpINsGBujafrVW1Qo6yNz+tW1K9bz/WLZilXwcxc15Odg/wTicAaDbU7Q==}
+  '@lerna-lite/core@5.4.0':
+    resolution: {integrity: sha512-/1bnOt09mk1lS0AWG/irkFeia0eX1Lp4Muon089czrHX3k4QLe5w2o4UKkBEYTK1aM3nS9sTvi6RAbeZQUB2LA==}
     engines: {node: ^22.17.0 || >=24.0.0}
 
   '@lerna-lite/init@5.2.1':
     resolution: {integrity: sha512-tozwvLdz+skCZ8o0wAnjLClIsLwDejqtvt5iWdUCxNTOiPActtN/GijW8i7ypm1eR0i5mMSMbaU/nHrSNnp4BQ==}
     engines: {node: ^22.17.0 || >=24.0.0}
 
-  '@lerna-lite/init@5.3.0':
-    resolution: {integrity: sha512-RuCFCxjcqtcmi50b3j0/tSVC3LXBhJXhPDucpe3U3sqPFInFhvK3pazLPBRS9bbaIMOG3Xtaz4PoSzsQ9lP1pw==}
+  '@lerna-lite/init@5.4.0':
+    resolution: {integrity: sha512-uFZxj+Re3GFkNCgzEIlL34+KDG5OckqOTEegFBXH5fbAxxKJwd+GDnfrE+xTbkSLCbeb6UDnfoSV2EGJBqLA1g==}
     engines: {node: ^22.17.0 || >=24.0.0}
 
   '@lerna-lite/list@5.2.1':
@@ -1727,8 +1727,8 @@ packages:
     resolution: {integrity: sha512-CO/+LNXRktMnZOFB/d3Ngtytkd/6mmIvkbPrIwnd5bACDVyEbg/MKM/G5wQZSa6ILwGfD3PX1FCvvGn9mzSIeQ==}
     engines: {node: ^22.17.0 || >=24.0.0}
 
-  '@lerna-lite/npmlog@5.3.0':
-    resolution: {integrity: sha512-W2Z7ZAJrA4jfuvbDU59fNFVp3hHBAOnO1+LeX8Y2bHNNYNv5EAR9UuyIXikUqewIw7VDWaT6xh+85GjxLLKpcw==}
+  '@lerna-lite/npmlog@5.4.0':
+    resolution: {integrity: sha512-jcRBjGr0aedHMt/7gPm6vKX1HBEJRf1/bGEFOBrckU01UjNqbrg/yiNPz4F95JmfGZ6Lm0j9fyp5NynI1YOP9A==}
     engines: {node: ^22.17.0 || >=24.0.0}
 
   '@lerna-lite/publish@5.2.1':
@@ -9046,11 +9046,11 @@ snapshots:
       - '@types/node'
       - babel-plugin-macros
 
-  '@lerna-lite/cli@5.3.0(@types/node@24.13.2)':
+  '@lerna-lite/cli@5.4.0(@types/node@24.13.2)':
     dependencies:
-      '@lerna-lite/core': 5.3.0(@types/node@24.13.2)
-      '@lerna-lite/init': 5.3.0(@types/node@24.13.2)
-      '@lerna-lite/npmlog': 5.3.0
+      '@lerna-lite/core': 5.4.0(@types/node@24.13.2)
+      '@lerna-lite/init': 5.4.0(@types/node@24.13.2)
+      '@lerna-lite/npmlog': 5.4.0
       dotenv: 17.4.2
       import-local: 3.2.0
       yargs: 18.0.0
@@ -9083,12 +9083,12 @@ snapshots:
       - '@types/node'
       - babel-plugin-macros
 
-  '@lerna-lite/core@5.3.0(@types/node@24.13.2)':
+  '@lerna-lite/core@5.4.0(@types/node@24.13.2)':
     dependencies:
       '@inquirer/expand': 5.1.1(@types/node@24.13.2)
       '@inquirer/input': 5.1.2(@types/node@24.13.2)
       '@inquirer/select': 5.2.1(@types/node@24.13.2)
-      '@lerna-lite/npmlog': 5.3.0
+      '@lerna-lite/npmlog': 5.4.0
       '@npmcli/run-script': 10.0.4
       ci-info: 4.4.0
       json5: 2.2.3
@@ -9112,9 +9112,9 @@ snapshots:
       - '@types/node'
       - babel-plugin-macros
 
-  '@lerna-lite/init@5.3.0(@types/node@24.13.2)':
+  '@lerna-lite/init@5.4.0(@types/node@24.13.2)':
     dependencies:
-      '@lerna-lite/core': 5.3.0(@types/node@24.13.2)
+      '@lerna-lite/core': 5.4.0(@types/node@24.13.2)
       write-json-file: 7.0.0
     transitivePeerDependencies:
       - '@types/node'
@@ -9146,7 +9146,7 @@ snapshots:
       fast-string-width: 3.0.2
       signal-exit: 4.1.0
 
-  '@lerna-lite/npmlog@5.3.0':
+  '@lerna-lite/npmlog@5.4.0':
     dependencies:
       fast-string-width: 3.0.2
       signal-exit: 4.1.0
