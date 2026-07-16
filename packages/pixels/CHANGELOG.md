@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.12.1](https://github.com/fuf-stack/pixels/compare/pixels-v1.12.0...pixels-v1.12.1) (2026-07-16)
+
+
+### Bug Fixes
+
+* **pixels:** ship Json CSS as Json.styles.css ([bbd1c63](https://github.com/fuf-stack/pixels/commit/bbd1c63f7d6e15e61e21e8982b57666a1042484a))
+
 ## [1.12.0](https://github.com/fuf-stack/pixels/compare/pixels-v1.11.8...pixels-v1.12.0) (2026-07-05)
 
 
