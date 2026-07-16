@@ -34,6 +34,7 @@ storybook-react-scan:
 # Run all tests (installs dependencies first)
 test:
 	@$(MAKE) install;
+	clear;
 	pnpm test;
 
 # Run the declaration-emit smoke test (installs dependencies first).
@@ -41,6 +42,7 @@ test:
 # by the time tsc reads it. See: packages/veto/test/dts-smoke/.
 test-dts:
 	@$(MAKE) install;
+	clear;
 	pnpm --filter @fuf-stack/veto test:dts;
 
 # Bootstrap or update the 'next' prerelease branch

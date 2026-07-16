@@ -14,7 +14,7 @@ import CopiedRenderer from './subcomponents/CopiedRenderer';
 import ErrorRenderer from './subcomponents/ErrorRenderer';
 import NullRenderer from './subcomponents/NullRenderer';
 
-import './theme.css';
+import './Json.styles.css';
 
 /**
  * Handles copying text or object values to clipboard.

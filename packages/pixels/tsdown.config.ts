@@ -10,7 +10,10 @@ export default defineConfig({
   tsconfig: 'tsconfig.build.json',
   // Keep existing package.json exports stable.
   exports: false,
-  // Emit per-entry CSS files so Json's theme stylesheet is available as dist/Json/theme.css.
+  // Extract component CSS imports (e.g. `import './Json.styles.css'`) into sibling
+  // stylesheet files in dist. Combined with `sideEffects: ["**/*.css"]` in
+  // package.json, this lets consumers tree-shake unused components together
+  // with their CSS while preserving CSS for the components they use.
   css: {
     splitting: true,
   },

@@ -7,7 +7,9 @@
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
-  "sideEffects": false,
+  "sideEffects": [
+    "**/*.css"
+  ],
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -85,8 +87,8 @@
       "require": "./dist/Json/index.cjs"
     },
     "./Json.css": {
-      "import": "./dist/Json/theme.css",
-      "require": "./dist/Json/theme.css"
+      "import": "./dist/Json/Json.styles.css",
+      "require": "./dist/Json/Json.styles.css"
     },
     "./Label": {
       "types": "./dist/Label/index.d.ts",
@@ -175,7 +177,7 @@
     "url": "https://github.com/fuf-stack/pixels/issues"
   },
   "scripts": {
-    "build": "tsdown && node ./scripts/ensure-json-theme-cjs.mjs",
+    "build": "tsdown",
     "prepack": "pnpm build",
     "test": "vitest ./src"
   },
