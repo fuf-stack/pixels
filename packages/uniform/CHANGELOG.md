@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.24.12](https://github.com/fuf-stack/pixels/compare/uniform-v1.24.11...uniform-v1.24.12) (2026-07-16)
+
+
+### Bug Fixes
+
+* **uniform:** removed Json.css import from FormDebugViewer ([4516e2f](https://github.com/fuf-stack/pixels/commit/4516e2faa131b705ce662a85d0b091b70f77a5b3))
+
 ## [1.24.11](https://github.com/fuf-stack/pixels/compare/uniform-v1.24.10...uniform-v1.24.11) (2026-07-16)
 
 
