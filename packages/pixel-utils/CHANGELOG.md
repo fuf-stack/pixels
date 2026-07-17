@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.0](https://github.com/fuf-stack/pixels/compare/pixel-utils-v1.3.2...pixel-utils-v1.4.0) (2026-07-17)
+
+
+### Features
+
+* build esm only, no cjs anymore ([7856711](https://github.com/fuf-stack/pixels/commit/78567111820395bb9b0017c04820e0c8efea0e9f))
+
 ## [1.3.2](https://github.com/fuf-stack/pixels/compare/pixel-utils-v1.3.1...pixel-utils-v1.3.2) (2026-06-04)
 
 
