@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.9.0](https://github.com/fuf-stack/pixels/compare/veto-v1.8.0...veto-v1.9.0) (2026-07-17)
+
+
+### Features
+
+* build esm only, no cjs anymore ([7856711](https://github.com/fuf-stack/pixels/commit/78567111820395bb9b0017c04820e0c8efea0e9f))
+
 ## [1.8.0](https://github.com/fuf-stack/pixels/compare/veto-v1.7.4...veto-v1.8.0) (2026-07-11)
 
 

@@ -1,5 +1,29 @@
 # Changelog
 
+## [0.15.0](https://github.com/fuf-stack/pixels/compare/megapixels-v0.14.4...megapixels-v0.15.0) (2026-07-17)
+
+
+### Features
+
+* build esm only, no cjs anymore ([7856711](https://github.com/fuf-stack/pixels/commit/78567111820395bb9b0017c04820e0c8efea0e9f))
+
+
+### Bug Fixes
+
+* **deps:** update dependency @tanstack/react-virtual to v3.14.5 ([62eb634](https://github.com/fuf-stack/pixels/commit/62eb63491e833221d68e633dbd28d3ef491ea257))
+* **deps:** update dependency react-icons to v5.7.0 ([#1769](https://github.com/fuf-stack/pixels/issues/1769)) ([22db442](https://github.com/fuf-stack/pixels/commit/22db442b51cb3de20cf9962a619c7872019a842d))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @fuf-stack/pixel-motion bumped to 1.3.0
+    * @fuf-stack/pixel-utils bumped to 1.4.0
+    * @fuf-stack/pixels bumped to 1.13.0
+    * @fuf-stack/uniform bumped to 1.25.0
+    * @fuf-stack/veto bumped to 1.9.0
+
 ## [0.14.4](https://github.com/fuf-stack/pixels/compare/megapixels-v0.14.3...megapixels-v0.14.4) (2026-07-16)
 
 
