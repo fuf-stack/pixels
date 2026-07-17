@@ -4,156 +4,127 @@
   "author": "Fröhlich ∧ Frei",
   "version": "1.12.1",
   "type": "module",
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.mts",
   "sideEffects": [
     "**/*.css"
   ],
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs"
     },
     "./Accordion": {
-      "types": "./dist/Accordion/index.d.ts",
-      "import": "./dist/Accordion/index.js",
-      "require": "./dist/Accordion/index.cjs"
+      "types": "./dist/Accordion/index.d.mts",
+      "import": "./dist/Accordion/index.mjs"
     },
     "./Alert": {
-      "types": "./dist/Alert/index.d.ts",
-      "import": "./dist/Alert/index.js",
-      "require": "./dist/Alert/index.cjs"
+      "types": "./dist/Alert/index.d.mts",
+      "import": "./dist/Alert/index.mjs"
     },
     "./Avatar": {
-      "types": "./dist/Avatar/index.d.ts",
-      "import": "./dist/Avatar/index.js",
-      "require": "./dist/Avatar/index.cjs"
+      "types": "./dist/Avatar/index.d.mts",
+      "import": "./dist/Avatar/index.mjs"
     },
     "./AvatarGroup": {
-      "types": "./dist/AvatarGroup/index.d.ts",
-      "import": "./dist/AvatarGroup/index.js",
-      "require": "./dist/AvatarGroup/index.cjs"
+      "types": "./dist/AvatarGroup/index.d.mts",
+      "import": "./dist/AvatarGroup/index.mjs"
     },
     "./Badge": {
-      "types": "./dist/Badge/index.d.ts",
-      "import": "./dist/Badge/index.js",
-      "require": "./dist/Badge/index.cjs"
+      "types": "./dist/Badge/index.d.mts",
+      "import": "./dist/Badge/index.mjs"
     },
     "./Breadcrumb": {
-      "types": "./dist/Breadcrumb/index.d.ts",
-      "import": "./dist/Breadcrumb/index.js",
-      "require": "./dist/Breadcrumb/index.cjs"
+      "types": "./dist/Breadcrumb/index.d.mts",
+      "import": "./dist/Breadcrumb/index.mjs"
     },
     "./Button": {
-      "types": "./dist/Button/index.d.ts",
-      "import": "./dist/Button/index.js",
-      "require": "./dist/Button/index.cjs"
+      "types": "./dist/Button/index.d.mts",
+      "import": "./dist/Button/index.mjs"
     },
     "./ButtonGroup": {
-      "types": "./dist/ButtonGroup/index.d.ts",
-      "import": "./dist/ButtonGroup/index.js",
-      "require": "./dist/ButtonGroup/index.cjs"
+      "types": "./dist/ButtonGroup/index.d.mts",
+      "import": "./dist/ButtonGroup/index.mjs"
     },
     "./Card": {
-      "types": "./dist/Card/index.d.ts",
-      "import": "./dist/Card/index.js",
-      "require": "./dist/Card/index.cjs"
+      "types": "./dist/Card/index.d.mts",
+      "import": "./dist/Card/index.mjs"
     },
     "./Drawer": {
-      "types": "./dist/Drawer/index.d.ts",
-      "import": "./dist/Drawer/index.js",
-      "require": "./dist/Drawer/index.cjs"
+      "types": "./dist/Drawer/index.d.mts",
+      "import": "./dist/Drawer/index.mjs"
     },
     "./hooks/useDebounce": {
-      "types": "./dist/hooks/useDebounce/index.d.ts",
-      "import": "./dist/hooks/useDebounce/index.js",
-      "require": "./dist/hooks/useDebounce/index.cjs"
+      "types": "./dist/hooks/useDebounce/index.d.mts",
+      "import": "./dist/hooks/useDebounce/index.mjs"
     },
     "./hooks/useIsInitialRenderCycle": {
-      "types": "./dist/hooks/useIsInitialRenderCycle/index.d.ts",
-      "import": "./dist/hooks/useIsInitialRenderCycle/index.js",
-      "require": "./dist/hooks/useIsInitialRenderCycle/index.cjs"
+      "types": "./dist/hooks/useIsInitialRenderCycle/index.d.mts",
+      "import": "./dist/hooks/useIsInitialRenderCycle/index.mjs"
     },
     "./hooks/useLocalStorage": {
-      "types": "./dist/hooks/useLocalStorage/index.d.ts",
-      "import": "./dist/hooks/useLocalStorage/index.js",
-      "require": "./dist/hooks/useLocalStorage/index.cjs"
+      "types": "./dist/hooks/useLocalStorage/index.d.mts",
+      "import": "./dist/hooks/useLocalStorage/index.mjs"
     },
     "./Json": {
-      "types": "./dist/Json/index.d.ts",
-      "import": "./dist/Json/index.js",
-      "require": "./dist/Json/index.cjs"
+      "types": "./dist/Json/index.d.mts",
+      "import": "./dist/Json/index.mjs"
     },
     "./Json.css": {
-      "import": "./dist/Json/Json.styles.css",
-      "require": "./dist/Json/Json.styles.css"
+      "import": "./dist/Json/Json.styles.css"
     },
     "./Label": {
-      "types": "./dist/Label/index.d.ts",
-      "import": "./dist/Label/index.js",
-      "require": "./dist/Label/index.cjs"
+      "types": "./dist/Label/index.d.mts",
+      "import": "./dist/Label/index.mjs"
     },
     "./Menu": {
-      "types": "./dist/Menu/index.d.ts",
-      "import": "./dist/Menu/index.js",
-      "require": "./dist/Menu/index.cjs"
+      "types": "./dist/Menu/index.d.mts",
+      "import": "./dist/Menu/index.mjs"
     },
     "./Modal": {
-      "types": "./dist/Modal/index.d.ts",
-      "import": "./dist/Modal/index.js",
-      "require": "./dist/Modal/index.cjs"
+      "types": "./dist/Modal/index.d.mts",
+      "import": "./dist/Modal/index.mjs"
     },
     "./Popover": {
-      "types": "./dist/Popover/index.d.ts",
-      "import": "./dist/Popover/index.js",
-      "require": "./dist/Popover/index.cjs"
+      "types": "./dist/Popover/index.d.mts",
+      "import": "./dist/Popover/index.mjs"
     },
     "./Progress": {
-      "types": "./dist/Progress/index.d.ts",
-      "import": "./dist/Progress/index.js",
-      "require": "./dist/Progress/index.cjs"
+      "types": "./dist/Progress/index.d.mts",
+      "import": "./dist/Progress/index.mjs"
     },
     "./ProgressCircular": {
-      "types": "./dist/ProgressCircular/index.d.ts",
-      "import": "./dist/ProgressCircular/index.js",
-      "require": "./dist/ProgressCircular/index.cjs"
+      "types": "./dist/ProgressCircular/index.d.mts",
+      "import": "./dist/ProgressCircular/index.mjs"
     },
     "./ScrollShadow": {
-      "types": "./dist/ScrollShadow/index.d.ts",
-      "import": "./dist/ScrollShadow/index.js",
-      "require": "./dist/ScrollShadow/index.cjs"
+      "types": "./dist/ScrollShadow/index.d.mts",
+      "import": "./dist/ScrollShadow/index.mjs"
     },
     "./SearchInput": {
-      "types": "./dist/SearchInput/index.d.ts",
-      "import": "./dist/SearchInput/index.js",
-      "require": "./dist/SearchInput/index.cjs"
+      "types": "./dist/SearchInput/index.d.mts",
+      "import": "./dist/SearchInput/index.mjs"
     },
     "./Table": {
-      "types": "./dist/Table/index.d.ts",
-      "import": "./dist/Table/index.js",
-      "require": "./dist/Table/index.cjs"
+      "types": "./dist/Table/index.d.mts",
+      "import": "./dist/Table/index.mjs"
     },
     "./Tabs": {
-      "types": "./dist/Tabs/index.d.ts",
-      "import": "./dist/Tabs/index.js",
-      "require": "./dist/Tabs/index.cjs"
+      "types": "./dist/Tabs/index.d.mts",
+      "import": "./dist/Tabs/index.mjs"
     },
     "./Toast": {
-      "types": "./dist/Toast/index.d.ts",
-      "import": "./dist/Toast/index.js",
-      "require": "./dist/Toast/index.cjs"
+      "types": "./dist/Toast/index.d.mts",
+      "import": "./dist/Toast/index.mjs"
     },
     "./Tooltip": {
-      "types": "./dist/Tooltip/index.d.ts",
-      "import": "./dist/Tooltip/index.js",
-      "require": "./dist/Tooltip/index.cjs"
+      "types": "./dist/Tooltip/index.d.mts",
+      "import": "./dist/Tooltip/index.mjs"
     },
     "./utils/createWithSuspense": {
-      "types": "./dist/utils/createWithSuspense/index.d.ts",
-      "import": "./dist/utils/createWithSuspense/index.js",
-      "require": "./dist/utils/createWithSuspense/index.cjs"
+      "types": "./dist/utils/createWithSuspense/index.d.mts",
+      "import": "./dist/utils/createWithSuspense/index.mjs"
     }
   },
   "files": [

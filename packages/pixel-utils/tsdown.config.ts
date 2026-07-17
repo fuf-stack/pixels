@@ -16,7 +16,7 @@ const dtsBundledDeps = [
 ];
 
 // Two-pass build:
-// 1) runtime JS output (ESM + CJS) with dependencies left external, and
+// 1) runtime JS output (ESM) with dependencies left external, and
 // 2) declaration-only output that bundles only the allowlisted dep types above.
 export default defineConfig(
   createDepBundledDtsConfig({

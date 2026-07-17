@@ -7,7 +7,7 @@ import { defineConfig } from 'tsdown';
  *
  * `createDepBundledDtsConfig(...)` builds veto in two passes:
  *
- * 1) Runtime pass (ESM + CJS):
+ * 1) Runtime pass (ESM):
  *    - emits JS only (`dts: false`)
  *    - leaves `zod` external, so veto and consumers share one runtime zod
  *      instance (important for global error map / registry behavior and
@@ -29,14 +29,6 @@ export default defineConfig(
     entry: ['src/index.ts'],
     // Do not auto-generate subpath exports.
     exports: false,
-    // Preserve existing output naming used by package.json
-    // (`module` -> .mjs, `main` -> .js, single shared .d.ts).
-    outExtensions({ format }) {
-      return {
-        dts: '.d.ts',
-        js: format === 'es' ? '.mjs' : '.js',
-      };
-    },
     // Use the build-specific tsconfig.
     tsconfig: 'tsconfig.build.json',
     // `alwaysBundle: /^zod($|\/)/` inlines the bare `zod` specifier

@@ -6,31 +6,14 @@
   "homepage": "https://github.com/fuf-stack/megapixels#readme",
   "license": "MIT",
   "type": "module",
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.cts",
+  "types": "./dist/index.d.mts",
   "sideEffects": false,
   "exports": {
-    ".": {
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
-    },
-    "./DataTable": {
-      "import": "./dist/DataTable/index.js",
-      "require": "./dist/DataTable/index.cjs"
-    },
-    "./Filter": {
-      "import": "./dist/Filter/index.js",
-      "require": "./dist/Filter/index.cjs"
-    },
-    "./Notification": {
-      "import": "./dist/Notification/index.js",
-      "require": "./dist/Notification/index.cjs"
-    },
-    "./VirtualList": {
-      "import": "./dist/VirtualList/index.js",
-      "require": "./dist/VirtualList/index.cjs"
-    },
+    ".": "./dist/index.mjs",
+    "./DataTable": "./dist/DataTable/index.mjs",
+    "./Filter": "./dist/Filter/index.mjs",
+    "./Notification": "./dist/Notification/index.mjs",
+    "./VirtualList": "./dist/VirtualList/index.mjs",
     "./package.json": "./package.json"
   },
   "files": [

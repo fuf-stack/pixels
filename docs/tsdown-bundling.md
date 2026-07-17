@@ -7,6 +7,7 @@ This document explains how bundling works for packages in this repo that use `ts
 The shared `tsdown` config in `packages/config/tsdown-config/config.ts` enables:
 
 - `bundle` behavior via tsdown defaults
+- `format: ['esm']` ESM-only runtime output
 - `dts: true`
 - `exports: true`
 

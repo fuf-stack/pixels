@@ -47,19 +47,8 @@ export const libraryBaseConfig: UserConfig = {
   // Output directory
   outDir: 'dist',
 
-  // Generate both ES modules (.js) and CommonJS (.cjs)
-  // Note: tsdown uses 'es' internally for ESM.
-  format: ['esm', 'cjs'],
-
-  // Customize output extensions to match expected package.json exports
-  // ESM: .js, CJS: .cjs (for type: "module" packages)
-  // Note: tsdown passes format as 'es' (not 'esm') internally
-  outExtensions({ format }) {
-    return {
-      js: format === 'es' ? '.js' : '.cjs',
-      dts: format === 'es' ? '.d.ts' : '.d.cts',
-    };
-  },
+  // Generate ES modules only.
+  format: ['esm'],
 
   // Generate declaration files with the TypeScript resolver.
   // This avoids rolldown-dts fake-js warnings when dependencies ship .d.cts files.
@@ -115,13 +104,13 @@ interface DepBundledConfigOptions extends UserConfig {
  * `libraryBaseConfig` automatically.
  *
  * Produces two tsdown configs:
- * 1. Runtime pass: emits JS artifacts (ESM/CJS), with `dts: false`.
+ * 1. Runtime pass: emits JS artifacts (ESM), with `dts: false`.
  * 2. DTS pass: emits declaration files only, bundling only allowlisted deps.
  *
  * Defaults in pass 2:
  * - `clean: false` to preserve runtime artifacts from pass 1
  * - `dts: { emitDtsOnly: true, resolver: 'tsc' }`
- * - `format: ['esm']` to avoid duplicate `.d.ts` write collisions
+ * - `format: ['esm']` (single module output)
  * - `deps.alwaysBundle` / `deps.onlyBundle` derived from `bundledDeps`
  */
 export function createDepBundledDtsConfig({
@@ -158,7 +147,7 @@ export function createDepBundledDtsConfig({
       },
       // Emit declaration files only in pass 2 by default.
       dts: dtsPassConfig?.dts ?? { emitDtsOnly: true, resolver: 'tsc' },
-      // Single d.ts graph avoids duplicate write targets for CJS + ESM.
+      // Single d.ts graph for ESM-only output.
       format: dtsPassConfig?.format ?? ['esm'],
     },
   ];

@@ -160,7 +160,7 @@ custom properties. The `Json` component is the current example: it ships
 
    ```jsonc
    // package.json exports
-   "./Json.css": { "import": "./dist/Json/Json.styles.css", "require": "./dist/Json/Json.styles.css" }
+   "./Json.css": { "import": "./dist/Json/Json.styles.css" }
    ```
 
 Storybook needs no extra wiring: stories import the component from source, the

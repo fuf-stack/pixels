@@ -4,15 +4,10 @@
   "author": "Fröhlich ∧ Frei",
   "version": "1.3.2",
   "type": "module",
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "types": "./dist/index.d.mts",
   "sideEffects": false,
   "exports": {
-    ".": {
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
-    },
+    ".": "./dist/index.mjs",
     "./package.json": "./package.json"
   },
   "files": [

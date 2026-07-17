@@ -6,22 +6,19 @@
   "homepage": "https://github.com/fuf-stack/pixels/tree/main/packages/atelier",
   "license": "MIT",
   "type": "module",
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.cts",
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.mts",
   "sideEffects": false,
   "exports": {
     ".": {
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
+      "import": "./dist/index.mjs"
     },
     "./AtelierFrame": {
-      "import": "./dist/AtelierFrame/index.js",
-      "require": "./dist/AtelierFrame/index.cjs"
+      "import": "./dist/AtelierFrame/index.mjs"
     },
     "./core": {
-      "import": "./dist/core/index.js",
-      "require": "./dist/core/index.cjs"
+      "import": "./dist/core/index.mjs"
     },
     "./package.json": "./package.json"
   },

@@ -1,4 +1,6 @@
-module.exports = {
+export default {
+  // atelier
+  'packages/atelier/**/*.{js,ts,tsx}': ['vitest related --run', 'eslint'],
   // megapixels
   'packages/megapixels/**/*.{js,ts,tsx}': ['vitest related --run', 'eslint'],
   // pixel-motion
