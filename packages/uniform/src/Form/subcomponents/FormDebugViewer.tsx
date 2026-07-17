@@ -9,9 +9,6 @@ import { Json } from '@fuf-stack/pixels/Json';
 
 import { useFormContext } from '../../hooks/useFormContext';
 
-// import Json css (theme)
-import '@fuf-stack/pixels/Json.css';
-
 interface FormDebugViewerProps {
   /** CSS class name */
   className?: string;
