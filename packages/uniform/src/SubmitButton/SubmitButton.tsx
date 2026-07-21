@@ -4,8 +4,6 @@ import type { ReactNode } from 'react';
 import { cn, slugify } from '@fuf-stack/pixel-utils';
 import { Button } from '@fuf-stack/pixels';
 
-import { useFormContext } from '../hooks/useFormContext';
-
 export interface SubmitButtonProps {
   /** sets HTML aria-label attribute */
   ariaLabel?: string;
@@ -19,6 +17,10 @@ export interface SubmitButtonProps {
   icon?: ButtonProps['icon'];
   /** If set loading animation is shown */
   loading?: boolean;
+  /** id of the form this button should submit when it is rendered OUTSIDE that
+   * form (e.g. a modal footer). Associates the button with the form via the
+   * native HTML `form` attribute — set the same id on `<Form remoteFormId>`. */
+  remoteFormId?: string;
   /** size of the submit button */
   size?: ButtonProps['size'];
   /** HTML data-testid attribute used in e2e tests */
@@ -26,7 +28,19 @@ export interface SubmitButtonProps {
 }
 
 /**
- * From SubmitButton
+ * Submit button for a uniform `Form`.
+ *
+ * It is a plain native submit button (`type="submit"`) and reads no form
+ * context, so it works both inside a `<Form>` and standalone. Submission is
+ * handled entirely by the browser:
+ * - click submits the associated form,
+ * - pressing Enter in a form field triggers native implicit form submission.
+ *
+ * When rendered OUTSIDE the form it belongs to, pass `remoteFormId` (matching the
+ * form's `remoteFormId`) to associate them via the native HTML `form` attribute.
+ *
+ * See SUBMITBUTTON_CONTEXT.md for the (intentionally dropped) context-based
+ * features `isSubmitting` and `triggerSubmit` and how to re-add them safely.
  */
 const SubmitButton = ({
   ariaLabel = 'Submit form',
@@ -35,28 +49,26 @@ const SubmitButton = ({
   color = 'success',
   icon = undefined,
   loading = false,
+  remoteFormId = undefined,
   size = 'md',
   testId = 'form_submit_button',
 }: SubmitButtonProps) => {
-  const {
-    formState: { isSubmitting },
-    triggerSubmit,
-  } = useFormContext();
-
   return (
     <Button
       ariaLabel={ariaLabel}
       className={cn(className)}
       color={color}
-      disabled={isSubmitting}
+      // associate with a form rendered elsewhere via the native `form` attribute
+      // (see remoteFormId prop) so the button can submit a form it is not a DOM
+      // descendant of
+      form={remoteFormId}
       icon={icon}
-      loading={loading || isSubmitting}
-      // @ts-expect-error we use form context triggerSubmit
-      // here so that submit button also works in special
-      // scenarios (e.g. when used in modal)
-      onClick={triggerSubmit}
+      loading={loading}
       size={size}
       testId={slugify(testId, { replaceDots: true })}
+      // type="submit" makes the button a submit control of its form. Required for
+      // the browser's native "implicit form submission" (pressing Enter in a form
+      // field submits the form and thereby runs its validation).
       type="submit"
     >
       {children}

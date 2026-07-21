@@ -170,6 +170,10 @@ const Filter = ({
         initialValues={valuesValidated ?? {}}
         name={formName}
         onSubmit={handleSubmit}
+        // the FilterModal footer's SubmitButton is portalled OUTSIDE this form's
+        // DOM subtree, so it associates with the form via the native `form`
+        // attribute (SubmitButton `remoteFormId`) instead of DOM descent
+        remoteFormId={formName}
         validation={validation}
       >
         {/* Render search if search config is provided */}
@@ -210,6 +214,7 @@ const Filter = ({
             }}
             disableAnimation={disableAnimation}
             portalContainer={portalContainer}
+            remoteFormId={formName}
           />
         </FiltersContextProvider>
       </Form>

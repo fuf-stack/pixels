@@ -9,6 +9,7 @@ exports[`Story Snapshots > AllFeatures 1`] = `
       class="grow min-w-md"
       data-form-is-valid="false"
       data-testid=""
+      novalidate=""
     >
       <div
         class="overflow-hidden rounded-small border border-divider bg-content1 divide-y divide-divider"
@@ -414,6 +415,7 @@ exports[`Story Snapshots > CustomTestId 1`] = `
       class="grow min-w-md"
       data-form-is-valid="true"
       data-testid=""
+      novalidate=""
     >
       <div
         class="overflow-hidden rounded-small border border-divider bg-content1 divide-y divide-divider"
@@ -609,6 +611,7 @@ exports[`Story Snapshots > Default 1`] = `
       class="grow min-w-md"
       data-form-is-valid="false"
       data-testid=""
+      novalidate=""
     >
       <div
         class="overflow-hidden rounded-small border border-divider bg-content1 divide-y divide-divider"
@@ -668,6 +671,7 @@ exports[`Story Snapshots > Duplicate 1`] = `
       class="grow min-w-md"
       data-form-is-valid="true"
       data-testid=""
+      novalidate=""
     >
       <div
         class="overflow-hidden rounded-small border border-divider bg-content1 divide-y divide-divider"
@@ -1014,6 +1018,7 @@ exports[`Story Snapshots > DuplicateAndInsertAfter 1`] = `
       class="grow min-w-md"
       data-form-is-valid="true"
       data-testid=""
+      novalidate=""
     >
       <div
         class="overflow-hidden rounded-small border border-divider bg-content1 divide-y divide-divider"
@@ -1366,6 +1371,7 @@ exports[`Story Snapshots > EdgeCaseFlatArrayValidationClears 1`] = `
       class="grow min-w-md"
       data-form-is-valid="false"
       data-testid=""
+      novalidate=""
     >
       <div
         class="overflow-hidden rounded-small border border-divider bg-content1 divide-y divide-divider"
@@ -1738,6 +1744,7 @@ exports[`Story Snapshots > EdgeCaseTopLevelStringNotInArray 1`] = `
       class="grow min-w-md"
       data-form-is-valid="true"
       data-testid=""
+      novalidate=""
     >
       <div
         class="flex flex-col gap-6"
@@ -2242,6 +2249,8 @@ exports[`Story Snapshots > EdgeCaseTopLevelStringNotInArray 1`] = `
         <button
           aria-label="Submit form"
           class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
+          data-focus="true"
+          data-hover="true"
           data-react-aria-pressable="true"
           data-testid="form_submit_button"
           tabindex="0"
@@ -2264,6 +2273,7 @@ exports[`Story Snapshots > FlatArray 1`] = `
       class="grow min-w-md"
       data-form-is-valid="false"
       data-testid=""
+      novalidate=""
     >
       <div
         class="overflow-hidden rounded-small border border-divider bg-content1 divide-y divide-divider"
@@ -2323,6 +2333,7 @@ exports[`Story Snapshots > FlatLastElementNotRemovable 1`] = `
       class="grow min-w-md"
       data-form-is-valid="false"
       data-testid=""
+      novalidate=""
     >
       <div
         class="overflow-hidden rounded-small border border-divider bg-content1 divide-y divide-divider"
@@ -2457,6 +2468,7 @@ exports[`Story Snapshots > InsertAfter 1`] = `
       class="grow min-w-md"
       data-form-is-valid="true"
       data-testid=""
+      novalidate=""
     >
       <div
         class="overflow-hidden rounded-small border border-divider bg-content1 divide-y divide-divider"
@@ -2711,6 +2723,7 @@ exports[`Story Snapshots > Invalid 1`] = `
       class="grow min-w-md"
       data-form-is-valid="false"
       data-testid=""
+      novalidate=""
     >
       <div
         class="overflow-hidden rounded-small border border-divider bg-content1 divide-y divide-divider"
@@ -3231,6 +3244,7 @@ exports[`Story Snapshots > LastElementNotRemovable 1`] = `
       class="grow min-w-md"
       data-form-is-valid="false"
       data-testid=""
+      novalidate=""
     >
       <div
         class="overflow-hidden rounded-small border border-divider bg-content1 divide-y divide-divider"
@@ -3365,6 +3379,7 @@ exports[`Story Snapshots > Required 1`] = `
       class="grow min-w-md"
       data-form-is-valid="false"
       data-testid=""
+      novalidate=""
     >
       <div
         class="overflow-hidden rounded-small border border-divider bg-content1 divide-y divide-divider"
@@ -3513,6 +3528,7 @@ exports[`Story Snapshots > Sortable 1`] = `
       class="grow min-w-md"
       data-form-is-valid="true"
       data-testid=""
+      novalidate=""
     >
       <div
         class="overflow-hidden rounded-small border border-divider bg-content1 divide-y divide-divider"
@@ -3792,6 +3808,7 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
       class="grow min-w-md"
       data-form-is-valid="true"
       data-testid=""
+      novalidate=""
     >
       <div
         class="overflow-hidden rounded-small border border-divider bg-content1 divide-y divide-divider"
@@ -4022,6 +4039,7 @@ exports[`Story Snapshots > WithoutLabels 1`] = `
       class="grow min-w-md"
       data-form-is-valid="false"
       data-testid=""
+      novalidate=""
     >
       <div
         class="overflow-hidden rounded-small border border-divider bg-content1 divide-y divide-divider"

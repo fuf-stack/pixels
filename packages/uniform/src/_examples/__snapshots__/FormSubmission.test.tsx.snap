@@ -1,0 +1,1001 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Story Snapshots > FormSubmission 1`] = `
+<div>
+  <div
+    class="flex w-full flex-row justify-between gap-6"
+  >
+    <form
+      class="grow min-w-lg"
+      data-form-is-valid="false"
+      data-testid=""
+      novalidate=""
+    >
+      <div
+        class="grid gap-6"
+      >
+        <div
+          class="group flex flex-col data-[hidden=true]:hidden w-full relative justify-end data-[has-label=true]:mt-[calc(var(--heroui-font-size-small)_+_10px)]"
+          data-filled="true"
+          data-filled-within="true"
+          data-focus="true"
+          data-focus-within="true"
+          data-has-elements="true"
+          data-has-helper="true"
+          data-has-label="true"
+          data-invalid="true"
+          data-required="true"
+          data-slot="base"
+        >
+          <div
+            class="h-full flex flex-col"
+            data-slot="main-wrapper"
+          >
+            <div
+              class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 group-data-[focus=true]:data-[hover=true]:border-default-foreground h-10 min-h-10 rounded-small !duration-150 transition-colors motion-reduce:transition-none !border-danger group-data-[focus=true]:!border-danger bg-content1 group-data-[focus=true]:border-focus"
+              data-focus="true"
+              data-slot="input-wrapper"
+              style="cursor: text;"
+            >
+              <label
+                class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block text-foreground-500 !text-danger after:content-['*'] after:text-danger after:ms-0.5 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto text-small group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden"
+                data-slot="label"
+                for="firstname"
+                id="react-aria-«replaced-aria-id»"
+              >
+                First name
+              </label>
+              <div
+                class="inline-flex w-full items-center h-full box-border"
+                data-slot="inner-wrapper"
+              >
+                <input
+                  aria-describedby="react-aria-«replaced-aria-id»"
+                  aria-invalid="true"
+                  aria-label="First name"
+                  aria-labelledby="firstname react-aria-«replaced-aria-id»"
+                  autocomplete="off"
+                  class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text dark:autofill:[-webkit-text-fill-color:hsl(var(--heroui-foreground))] [&::-ms-reveal]:hidden text-small !placeholder:text-danger !text-danger"
+                  data-filled-within="true"
+                  data-slot="input"
+                  data-testid="firstname"
+                  id="firstname"
+                  name="firstName"
+                  placeholder=" "
+                  required=""
+                  tabindex="0"
+                  title=""
+                  type="text"
+                  value=""
+                />
+              </div>
+            </div>
+            <div
+              class="hidden group-data-[has-helper=true]:flex relative flex-col gap-1.5 p-0"
+              data-slot="helper-wrapper"
+            >
+              <div
+                class="text-tiny text-danger"
+                data-slot="error-message"
+                id="react-aria-«replaced-aria-id»"
+              >
+                <ul
+                  aria-label="Validation errors of field firstname"
+                  data-testid="firstname_error"
+                >
+                  <li
+                    style="overflow: hidden;"
+                  >
+                    <div
+                      class="px-1 pt-1"
+                    >
+                      Field is required
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="group flex flex-col data-[hidden=true]:hidden w-full relative justify-end data-[has-label=true]:mt-[calc(var(--heroui-font-size-small)_+_10px)]"
+          data-filled="true"
+          data-filled-within="true"
+          data-has-elements="true"
+          data-has-helper="true"
+          data-has-label="true"
+          data-invalid="true"
+          data-required="true"
+          data-slot="base"
+        >
+          <div
+            class="h-full flex flex-col"
+            data-slot="main-wrapper"
+          >
+            <div
+              class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 group-data-[focus=true]:data-[hover=true]:border-default-foreground h-10 min-h-10 rounded-small !duration-150 transition-colors motion-reduce:transition-none !border-danger group-data-[focus=true]:!border-danger bg-content1 group-data-[focus=true]:border-focus"
+              data-slot="input-wrapper"
+              style="cursor: text;"
+            >
+              <label
+                class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block text-foreground-500 !text-danger after:content-['*'] after:text-danger after:ms-0.5 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto text-small group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden"
+                data-slot="label"
+                for="lastname"
+                id="react-aria-«replaced-aria-id»"
+              >
+                Last name
+              </label>
+              <div
+                class="inline-flex w-full items-center h-full box-border"
+                data-slot="inner-wrapper"
+              >
+                <input
+                  aria-describedby="react-aria-«replaced-aria-id»"
+                  aria-invalid="true"
+                  aria-label="Last name"
+                  aria-labelledby="lastname react-aria-«replaced-aria-id»"
+                  autocomplete="off"
+                  class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text dark:autofill:[-webkit-text-fill-color:hsl(var(--heroui-foreground))] [&::-ms-reveal]:hidden text-small !placeholder:text-danger !text-danger"
+                  data-slot="input"
+                  data-testid="lastname"
+                  id="lastname"
+                  name="lastName"
+                  placeholder=" "
+                  required=""
+                  tabindex="0"
+                  title=""
+                  type="text"
+                  value=""
+                />
+              </div>
+            </div>
+            <div
+              class="hidden group-data-[has-helper=true]:flex relative flex-col gap-1.5 p-0"
+              data-slot="helper-wrapper"
+            >
+              <div
+                class="text-tiny text-danger"
+                data-slot="error-message"
+                id="react-aria-«replaced-aria-id»"
+              >
+                <ul
+                  aria-label="Validation errors of field lastname"
+                  data-testid="lastname_error"
+                >
+                  <li
+                    style="overflow: hidden;"
+                  >
+                    <div
+                      class="px-1 pt-1"
+                    >
+                      Field is required
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="mt-6"
+      >
+        <button
+          aria-label="Submit form"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
+          data-hover="true"
+          data-react-aria-pressable="true"
+          data-testid="form_submit_button"
+          tabindex="0"
+          type="submit"
+        >
+          Submit (inside form)
+        </button>
+      </div>
+      <div
+        class="flex flex-col relative overflow-hidden h-auto text-foreground box-border bg-content1 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 shadow-none rounded-small w-full transition-transform-background motion-reduce:transition-none border border-divider mt-6"
+        tabindex="-1"
+      >
+        <div
+          class="flex p-3 w-full justify-start items-center shrink-0 overflow-inherit color-inherit subpixel-antialiased rounded-t-small z-auto text-base font-semibold"
+        >
+          Form State
+        </div>
+        <hr
+          class="shrink-0 bg-divider border-none w-full h-divider my-0 border-divider"
+          role="separator"
+        />
+        <div
+          class="relative flex w-full p-3 flex-auto flex-col place-content-inherit align-items-inherit h-auto break-words text-left overflow-y-auto subpixel-antialiased"
+        >
+          <dl
+            class="grid grid-cols-[auto_1fr] gap-x-6 gap-y-1 text-small"
+          >
+            <dt
+              class="text-default-500"
+            >
+              isValid
+            </dt>
+            <dd
+              class="text-right font-mono"
+              data-testid="state_is_valid"
+            >
+              false
+            </dd>
+            <dt
+              class="text-default-500"
+            >
+              isSubmitting
+            </dt>
+            <dd
+              class="text-right font-mono"
+              data-testid="state_is_submitting"
+            >
+              false
+            </dd>
+            <dt
+              class="text-default-500"
+            >
+              isSubmitSuccessful
+            </dt>
+            <dd
+              class="text-right font-mono"
+              data-testid="state_is_submit_successful"
+            >
+              false
+            </dd>
+            <dt
+              class="text-default-500"
+            >
+              submitCount
+            </dt>
+            <dd
+              class="text-right font-mono"
+              data-testid="state_submit_count"
+            >
+              1
+            </dd>
+          </dl>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`Story Snapshots > LongRunningSubmit 1`] = `
+<div>
+  <div
+    class="flex w-full flex-row justify-between gap-6"
+  >
+    <form
+      class="grow min-w-lg"
+      data-form-is-valid="true"
+      data-testid=""
+      novalidate=""
+    >
+      <div
+        class="grid gap-6"
+      >
+        <div
+          class="group flex flex-col data-[hidden=true]:hidden w-full relative justify-end data-[has-label=true]:mt-[calc(var(--heroui-font-size-small)_+_10px)] is-filled"
+          data-filled="true"
+          data-filled-within="true"
+          data-has-elements="true"
+          data-has-helper="true"
+          data-has-label="true"
+          data-has-value="true"
+          data-required="true"
+          data-slot="base"
+        >
+          <div
+            class="h-full flex flex-col"
+            data-slot="main-wrapper"
+          >
+            <div
+              class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 group-data-[focus=true]:data-[hover=true]:border-default-foreground h-10 min-h-10 rounded-small !duration-150 transition-colors motion-reduce:transition-none bg-content1 group-data-[focus=true]:border-focus is-filled"
+              data-slot="input-wrapper"
+              style="cursor: text;"
+            >
+              <label
+                class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block text-foreground-500 after:content-['*'] after:text-danger after:ms-0.5 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto text-small group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden"
+                data-slot="label"
+                for="firstname"
+                id="react-aria-«replaced-aria-id»"
+              >
+                First name
+              </label>
+              <div
+                class="inline-flex w-full items-center h-full box-border"
+                data-slot="inner-wrapper"
+              >
+                <input
+                  aria-label="First name"
+                  aria-labelledby="firstname react-aria-«replaced-aria-id»"
+                  autocomplete="off"
+                  class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text dark:autofill:[-webkit-text-fill-color:hsl(var(--heroui-foreground))] [&::-ms-reveal]:hidden text-small is-filled"
+                  data-filled="true"
+                  data-filled-within="true"
+                  data-slot="input"
+                  data-testid="firstname"
+                  id="firstname"
+                  name="firstName"
+                  placeholder=" "
+                  required=""
+                  tabindex="0"
+                  title=""
+                  type="text"
+                  value="John"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="group flex flex-col data-[hidden=true]:hidden w-full relative justify-end data-[has-label=true]:mt-[calc(var(--heroui-font-size-small)_+_10px)] is-filled"
+          data-filled="true"
+          data-filled-within="true"
+          data-has-elements="true"
+          data-has-helper="true"
+          data-has-label="true"
+          data-has-value="true"
+          data-required="true"
+          data-slot="base"
+        >
+          <div
+            class="h-full flex flex-col"
+            data-slot="main-wrapper"
+          >
+            <div
+              class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 group-data-[focus=true]:data-[hover=true]:border-default-foreground h-10 min-h-10 rounded-small !duration-150 transition-colors motion-reduce:transition-none bg-content1 group-data-[focus=true]:border-focus is-filled"
+              data-slot="input-wrapper"
+              style="cursor: text;"
+            >
+              <label
+                class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block text-foreground-500 after:content-['*'] after:text-danger after:ms-0.5 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto text-small group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden"
+                data-slot="label"
+                for="lastname"
+                id="react-aria-«replaced-aria-id»"
+              >
+                Last name
+              </label>
+              <div
+                class="inline-flex w-full items-center h-full box-border"
+                data-slot="inner-wrapper"
+              >
+                <input
+                  aria-label="Last name"
+                  aria-labelledby="lastname react-aria-«replaced-aria-id»"
+                  autocomplete="off"
+                  class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text dark:autofill:[-webkit-text-fill-color:hsl(var(--heroui-foreground))] [&::-ms-reveal]:hidden text-small is-filled"
+                  data-filled="true"
+                  data-filled-within="true"
+                  data-slot="input"
+                  data-testid="lastname"
+                  id="lastname"
+                  name="lastName"
+                  placeholder=" "
+                  required=""
+                  tabindex="0"
+                  title=""
+                  type="text"
+                  value="Doe"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="mt-6"
+      >
+        <button
+          aria-label="Submit form"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
+          data-react-aria-pressable="true"
+          data-testid="form_submit_button"
+          tabindex="0"
+          type="submit"
+        >
+          Submit
+        </button>
+      </div>
+      <div
+        class="flex flex-col relative overflow-hidden h-auto text-foreground box-border bg-content1 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 shadow-none rounded-small w-full transition-transform-background motion-reduce:transition-none border border-divider mt-6"
+        tabindex="-1"
+      >
+        <div
+          class="flex p-3 w-full justify-start items-center shrink-0 overflow-inherit color-inherit subpixel-antialiased rounded-t-small z-auto text-base font-semibold"
+        >
+          Form State
+        </div>
+        <hr
+          class="shrink-0 bg-divider border-none w-full h-divider my-0 border-divider"
+          role="separator"
+        />
+        <div
+          class="relative flex w-full p-3 flex-auto flex-col place-content-inherit align-items-inherit h-auto break-words text-left overflow-y-auto subpixel-antialiased"
+        >
+          <dl
+            class="grid grid-cols-[auto_1fr] gap-x-6 gap-y-1 text-small"
+          >
+            <dt
+              class="text-default-500"
+            >
+              isValid
+            </dt>
+            <dd
+              class="text-right font-mono"
+              data-testid="state_is_valid"
+            >
+              true
+            </dd>
+            <dt
+              class="text-default-500"
+            >
+              isSubmitting
+            </dt>
+            <dd
+              class="text-right font-mono"
+              data-testid="state_is_submitting"
+            >
+              false
+            </dd>
+            <dt
+              class="text-default-500"
+            >
+              isSubmitSuccessful
+            </dt>
+            <dd
+              class="text-right font-mono"
+              data-testid="state_is_submit_successful"
+            >
+              true
+            </dd>
+            <dt
+              class="text-default-500"
+            >
+              submitCount
+            </dt>
+            <dd
+              class="text-right font-mono"
+              data-testid="state_submit_count"
+            >
+              1
+            </dd>
+          </dl>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`Story Snapshots > RemoteFormSubmission 1`] = `
+<div>
+  <div
+    class="flex w-full flex-row justify-between gap-6"
+  >
+    <form
+      class="grow min-w-lg"
+      data-form-is-valid="false"
+      data-testid=""
+      id="remote-form-submission"
+      novalidate=""
+    >
+      <div
+        class="grid gap-6"
+      >
+        <div
+          class="group flex flex-col data-[hidden=true]:hidden w-full relative justify-end data-[has-label=true]:mt-[calc(var(--heroui-font-size-small)_+_10px)]"
+          data-filled="true"
+          data-filled-within="true"
+          data-focus="true"
+          data-focus-within="true"
+          data-has-elements="true"
+          data-has-helper="true"
+          data-has-label="true"
+          data-invalid="true"
+          data-required="true"
+          data-slot="base"
+        >
+          <div
+            class="h-full flex flex-col"
+            data-slot="main-wrapper"
+          >
+            <div
+              class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 group-data-[focus=true]:data-[hover=true]:border-default-foreground h-10 min-h-10 rounded-small !duration-150 transition-colors motion-reduce:transition-none !border-danger group-data-[focus=true]:!border-danger bg-content1 group-data-[focus=true]:border-focus"
+              data-focus="true"
+              data-slot="input-wrapper"
+              style="cursor: text;"
+            >
+              <label
+                class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block text-foreground-500 !text-danger after:content-['*'] after:text-danger after:ms-0.5 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto text-small group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden"
+                data-slot="label"
+                for="firstname"
+                id="react-aria-«replaced-aria-id»"
+              >
+                First name
+              </label>
+              <div
+                class="inline-flex w-full items-center h-full box-border"
+                data-slot="inner-wrapper"
+              >
+                <input
+                  aria-describedby="react-aria-«replaced-aria-id»"
+                  aria-invalid="true"
+                  aria-label="First name"
+                  aria-labelledby="firstname react-aria-«replaced-aria-id»"
+                  autocomplete="off"
+                  class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text dark:autofill:[-webkit-text-fill-color:hsl(var(--heroui-foreground))] [&::-ms-reveal]:hidden text-small !placeholder:text-danger !text-danger"
+                  data-filled-within="true"
+                  data-slot="input"
+                  data-testid="firstname"
+                  id="firstname"
+                  name="firstName"
+                  placeholder=" "
+                  required=""
+                  tabindex="0"
+                  title=""
+                  type="text"
+                  value=""
+                />
+              </div>
+            </div>
+            <div
+              class="hidden group-data-[has-helper=true]:flex relative flex-col gap-1.5 p-0"
+              data-slot="helper-wrapper"
+            >
+              <div
+                class="text-tiny text-danger"
+                data-slot="error-message"
+                id="react-aria-«replaced-aria-id»"
+              >
+                <ul
+                  aria-label="Validation errors of field firstname"
+                  data-testid="firstname_error"
+                >
+                  <li
+                    style="overflow: hidden;"
+                  >
+                    <div
+                      class="px-1 pt-1"
+                    >
+                      Field is required
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="group flex flex-col data-[hidden=true]:hidden w-full relative justify-end data-[has-label=true]:mt-[calc(var(--heroui-font-size-small)_+_10px)]"
+          data-filled="true"
+          data-filled-within="true"
+          data-has-elements="true"
+          data-has-helper="true"
+          data-has-label="true"
+          data-invalid="true"
+          data-required="true"
+          data-slot="base"
+        >
+          <div
+            class="h-full flex flex-col"
+            data-slot="main-wrapper"
+          >
+            <div
+              class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 group-data-[focus=true]:data-[hover=true]:border-default-foreground h-10 min-h-10 rounded-small !duration-150 transition-colors motion-reduce:transition-none !border-danger group-data-[focus=true]:!border-danger bg-content1 group-data-[focus=true]:border-focus"
+              data-slot="input-wrapper"
+              style="cursor: text;"
+            >
+              <label
+                class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block text-foreground-500 !text-danger after:content-['*'] after:text-danger after:ms-0.5 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto text-small group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden"
+                data-slot="label"
+                for="lastname"
+                id="react-aria-«replaced-aria-id»"
+              >
+                Last name
+              </label>
+              <div
+                class="inline-flex w-full items-center h-full box-border"
+                data-slot="inner-wrapper"
+              >
+                <input
+                  aria-describedby="react-aria-«replaced-aria-id»"
+                  aria-invalid="true"
+                  aria-label="Last name"
+                  aria-labelledby="lastname react-aria-«replaced-aria-id»"
+                  autocomplete="off"
+                  class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text dark:autofill:[-webkit-text-fill-color:hsl(var(--heroui-foreground))] [&::-ms-reveal]:hidden text-small !placeholder:text-danger !text-danger"
+                  data-slot="input"
+                  data-testid="lastname"
+                  id="lastname"
+                  name="lastName"
+                  placeholder=" "
+                  required=""
+                  tabindex="0"
+                  title=""
+                  type="text"
+                  value=""
+                />
+              </div>
+            </div>
+            <div
+              class="hidden group-data-[has-helper=true]:flex relative flex-col gap-1.5 p-0"
+              data-slot="helper-wrapper"
+            >
+              <div
+                class="text-tiny text-danger"
+                data-slot="error-message"
+                id="react-aria-«replaced-aria-id»"
+              >
+                <ul
+                  aria-label="Validation errors of field lastname"
+                  data-testid="lastname_error"
+                >
+                  <li
+                    style="overflow: hidden;"
+                  >
+                    <div
+                      class="px-1 pt-1"
+                    >
+                      Field is required
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="flex flex-col relative overflow-hidden h-auto text-foreground box-border bg-content1 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 shadow-none rounded-small w-full transition-transform-background motion-reduce:transition-none border border-divider mt-6"
+        tabindex="-1"
+      >
+        <div
+          class="flex p-3 w-full justify-start items-center shrink-0 overflow-inherit color-inherit subpixel-antialiased rounded-t-small z-auto text-base font-semibold"
+        >
+          Form State
+        </div>
+        <hr
+          class="shrink-0 bg-divider border-none w-full h-divider my-0 border-divider"
+          role="separator"
+        />
+        <div
+          class="relative flex w-full p-3 flex-auto flex-col place-content-inherit align-items-inherit h-auto break-words text-left overflow-y-auto subpixel-antialiased"
+        >
+          <dl
+            class="grid grid-cols-[auto_1fr] gap-x-6 gap-y-1 text-small"
+          >
+            <dt
+              class="text-default-500"
+            >
+              isValid
+            </dt>
+            <dd
+              class="text-right font-mono"
+              data-testid="state_is_valid"
+            >
+              false
+            </dd>
+            <dt
+              class="text-default-500"
+            >
+              isSubmitting
+            </dt>
+            <dd
+              class="text-right font-mono"
+              data-testid="state_is_submitting"
+            >
+              false
+            </dd>
+            <dt
+              class="text-default-500"
+            >
+              isSubmitSuccessful
+            </dt>
+            <dd
+              class="text-right font-mono"
+              data-testid="state_is_submit_successful"
+            >
+              false
+            </dd>
+            <dt
+              class="text-default-500"
+            >
+              submitCount
+            </dt>
+            <dd
+              class="text-right font-mono"
+              data-testid="state_submit_count"
+            >
+              1
+            </dd>
+          </dl>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div
+    class="mt-6"
+  >
+    <button
+      aria-label="Submit form"
+      class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
+      data-hover="true"
+      data-react-aria-pressable="true"
+      data-testid="form_submit_button"
+      form="remote-form-submission"
+      tabindex="0"
+      type="submit"
+    >
+      Submit (outside form, via remoteFormId)
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Story Snapshots > SubmitWithEnter 1`] = `
+<div>
+  <div
+    class="flex w-full flex-row justify-between gap-6"
+  >
+    <form
+      class="grow min-w-lg"
+      data-form-is-valid="false"
+      data-testid=""
+      novalidate=""
+    >
+      <div
+        class="grid gap-6"
+      >
+        <div
+          class="group flex flex-col data-[hidden=true]:hidden w-full relative justify-end data-[has-label=true]:mt-[calc(var(--heroui-font-size-small)_+_10px)]"
+          data-filled="true"
+          data-filled-within="true"
+          data-focus="true"
+          data-focus-within="true"
+          data-has-elements="true"
+          data-has-helper="true"
+          data-has-label="true"
+          data-hover="true"
+          data-invalid="true"
+          data-required="true"
+          data-slot="base"
+        >
+          <div
+            class="h-full flex flex-col"
+            data-slot="main-wrapper"
+          >
+            <div
+              class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 group-data-[focus=true]:data-[hover=true]:border-default-foreground h-10 min-h-10 rounded-small !duration-150 transition-colors motion-reduce:transition-none !border-danger group-data-[focus=true]:!border-danger bg-content1 group-data-[focus=true]:border-focus"
+              data-focus="true"
+              data-hover="true"
+              data-slot="input-wrapper"
+              style="cursor: text;"
+            >
+              <label
+                class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block text-foreground-500 !text-danger after:content-['*'] after:text-danger after:ms-0.5 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto text-small group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden"
+                data-slot="label"
+                for="firstname"
+                id="react-aria-«replaced-aria-id»"
+              >
+                First name
+              </label>
+              <div
+                class="inline-flex w-full items-center h-full box-border"
+                data-slot="inner-wrapper"
+              >
+                <input
+                  aria-describedby="react-aria-«replaced-aria-id»"
+                  aria-invalid="true"
+                  aria-label="First name"
+                  aria-labelledby="firstname react-aria-«replaced-aria-id»"
+                  autocomplete="off"
+                  class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text dark:autofill:[-webkit-text-fill-color:hsl(var(--heroui-foreground))] [&::-ms-reveal]:hidden text-small !placeholder:text-danger !text-danger"
+                  data-filled-within="true"
+                  data-slot="input"
+                  data-testid="firstname"
+                  id="firstname"
+                  name="firstName"
+                  placeholder=" "
+                  required=""
+                  tabindex="0"
+                  title=""
+                  type="text"
+                  value=""
+                />
+              </div>
+            </div>
+            <div
+              class="hidden group-data-[has-helper=true]:flex relative flex-col gap-1.5 p-0"
+              data-slot="helper-wrapper"
+            >
+              <div
+                class="text-tiny text-danger"
+                data-slot="error-message"
+                id="react-aria-«replaced-aria-id»"
+              >
+                <ul
+                  aria-label="Validation errors of field firstname"
+                  data-testid="firstname_error"
+                >
+                  <li
+                    style="overflow: hidden;"
+                  >
+                    <div
+                      class="px-1 pt-1"
+                    >
+                      Field is required
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="group flex flex-col data-[hidden=true]:hidden w-full relative justify-end data-[has-label=true]:mt-[calc(var(--heroui-font-size-small)_+_10px)]"
+          data-filled="true"
+          data-filled-within="true"
+          data-has-elements="true"
+          data-has-helper="true"
+          data-has-label="true"
+          data-invalid="true"
+          data-required="true"
+          data-slot="base"
+        >
+          <div
+            class="h-full flex flex-col"
+            data-slot="main-wrapper"
+          >
+            <div
+              class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 group-data-[focus=true]:data-[hover=true]:border-default-foreground h-10 min-h-10 rounded-small !duration-150 transition-colors motion-reduce:transition-none !border-danger group-data-[focus=true]:!border-danger bg-content1 group-data-[focus=true]:border-focus"
+              data-slot="input-wrapper"
+              style="cursor: text;"
+            >
+              <label
+                class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block text-foreground-500 !text-danger after:content-['*'] after:text-danger after:ms-0.5 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto text-small group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden"
+                data-slot="label"
+                for="lastname"
+                id="react-aria-«replaced-aria-id»"
+              >
+                Last name
+              </label>
+              <div
+                class="inline-flex w-full items-center h-full box-border"
+                data-slot="inner-wrapper"
+              >
+                <input
+                  aria-describedby="react-aria-«replaced-aria-id»"
+                  aria-invalid="true"
+                  aria-label="Last name"
+                  aria-labelledby="lastname react-aria-«replaced-aria-id»"
+                  autocomplete="off"
+                  class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text dark:autofill:[-webkit-text-fill-color:hsl(var(--heroui-foreground))] [&::-ms-reveal]:hidden text-small !placeholder:text-danger !text-danger"
+                  data-slot="input"
+                  data-testid="lastname"
+                  id="lastname"
+                  name="lastName"
+                  placeholder=" "
+                  required=""
+                  tabindex="0"
+                  title=""
+                  type="text"
+                  value=""
+                />
+              </div>
+            </div>
+            <div
+              class="hidden group-data-[has-helper=true]:flex relative flex-col gap-1.5 p-0"
+              data-slot="helper-wrapper"
+            >
+              <div
+                class="text-tiny text-danger"
+                data-slot="error-message"
+                id="react-aria-«replaced-aria-id»"
+              >
+                <ul
+                  aria-label="Validation errors of field lastname"
+                  data-testid="lastname_error"
+                >
+                  <li
+                    style="overflow: hidden;"
+                  >
+                    <div
+                      class="px-1 pt-1"
+                    >
+                      Field is required
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="mt-6"
+      >
+        <button
+          aria-label="Submit form"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
+          data-react-aria-pressable="true"
+          data-testid="form_submit_button"
+          tabindex="0"
+          type="submit"
+        >
+          Submit
+        </button>
+      </div>
+      <div
+        class="flex flex-col relative overflow-hidden h-auto text-foreground box-border bg-content1 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 shadow-none rounded-small w-full transition-transform-background motion-reduce:transition-none border border-divider mt-6"
+        tabindex="-1"
+      >
+        <div
+          class="flex p-3 w-full justify-start items-center shrink-0 overflow-inherit color-inherit subpixel-antialiased rounded-t-small z-auto text-base font-semibold"
+        >
+          Form State
+        </div>
+        <hr
+          class="shrink-0 bg-divider border-none w-full h-divider my-0 border-divider"
+          role="separator"
+        />
+        <div
+          class="relative flex w-full p-3 flex-auto flex-col place-content-inherit align-items-inherit h-auto break-words text-left overflow-y-auto subpixel-antialiased"
+        >
+          <dl
+            class="grid grid-cols-[auto_1fr] gap-x-6 gap-y-1 text-small"
+          >
+            <dt
+              class="text-default-500"
+            >
+              isValid
+            </dt>
+            <dd
+              class="text-right font-mono"
+              data-testid="state_is_valid"
+            >
+              false
+            </dd>
+            <dt
+              class="text-default-500"
+            >
+              isSubmitting
+            </dt>
+            <dd
+              class="text-right font-mono"
+              data-testid="state_is_submitting"
+            >
+              false
+            </dd>
+            <dt
+              class="text-default-500"
+            >
+              isSubmitSuccessful
+            </dt>
+            <dd
+              class="text-right font-mono"
+              data-testid="state_is_submit_successful"
+            >
+              false
+            </dd>
+            <dt
+              class="text-default-500"
+            >
+              submitCount
+            </dt>
+            <dd
+              class="text-right font-mono"
+              data-testid="state_submit_count"
+            >
+              1
+            </dd>
+          </dl>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+`;

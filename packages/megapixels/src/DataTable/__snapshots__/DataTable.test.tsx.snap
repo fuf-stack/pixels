@@ -6639,6 +6639,7 @@ exports[`Story Snapshots > UniformCheckboxField 1`] = `
       data-form-is-valid="true"
       data-testid="datatable_uniform_checkbox_form"
       name="datatable-uniform-checkbox-form"
+      novalidate=""
     >
       <div
         aria-label="Choose snack orders"
@@ -6982,6 +6983,7 @@ exports[`Story Snapshots > UniformRadioField 1`] = `
       data-form-is-valid="true"
       data-testid="datatable_uniform_radio_form"
       name="datatable-uniform-radio-form"
+      novalidate=""
     >
       <div
         aria-label="Choose one primary snack order"
@@ -9195,7 +9197,9 @@ exports[`Story Snapshots > WithMegapixelsFilter 1`] = `
               class="grow mb-0 flex flex-wrap items-center gap-3"
               data-form-is-valid="true"
               data-testid="filtercomponentform"
+              id="filterComponentForm"
               name="filterComponentForm"
+              novalidate=""
             >
               <div
                 class="flex items-center"

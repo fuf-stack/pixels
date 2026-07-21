@@ -15,6 +15,10 @@ interface FilterModalProps {
   }>;
   /** disables the modal open/close animation */
   disableAnimation?: boolean;
+  /** id of the Form this modal's SubmitButton belongs to. The footer is
+   * portalled OUTSIDE the form's DOM subtree, so the button associates with the
+   * form via the native `form` attribute (see SubmitButton `remoteFormId`). */
+  remoteFormId?: string;
   /** container the modal portal is rendered into (defaults to document.body) */
   portalContainer?: HTMLElement;
 }
@@ -23,6 +27,7 @@ const FilterModal = ({
   classNames = {},
   disableAnimation = false,
   portalContainer = undefined,
+  remoteFormId = undefined,
 }: FilterModalProps) => {
   const {
     closeFilterModal,
@@ -64,7 +69,11 @@ const FilterModal = ({
           >
             Remove
           </Button>
-          <SubmitButton ariaLabel="Apply filter" testId="apply_filter_button">
+          <SubmitButton
+            ariaLabel="Apply filter"
+            remoteFormId={remoteFormId}
+            testId="apply_filter_button"
+          >
             Apply Filter
           </SubmitButton>
         </>

@@ -23,6 +23,10 @@ export interface FormProps {
   name?: string;
   /** form submit handler */
   onSubmit: SubmitHandler<FieldValues>;
+  /** id set as the form's HTML `id`, so a SubmitButton rendered OUTSIDE this
+   * form (e.g. a modal footer) can be associated with it via its own
+   * `remoteFormId` prop (native HTML `form` attribute) */
+  remoteFormId?: string;
   /** HTML data-testid attribute used in e2e tests */
   testId?: string;
   /** veto validation schema */
@@ -41,6 +45,7 @@ const Form = ({
   initialValues = undefined,
   name = undefined,
   onSubmit,
+  remoteFormId = undefined,
   testId = undefined,
   validation = undefined,
   validationTrigger = 'all',
@@ -60,7 +65,13 @@ const Form = ({
               className={cn('grow', className)}
               data-form-is-valid={isValid}
               data-testid={slugify(testId ?? name ?? '')}
+              id={remoteFormId}
               name={name}
+              // disable native HTML constraint validation so an invalid submit
+              // (e.g. pressing Enter with empty required fields) still fires the
+              // submit event and lets react-hook-form/veto validate and show
+              // field errors, instead of the browser blocking the submit.
+              noValidate
               onSubmit={handleSubmit}
             >
               {children}

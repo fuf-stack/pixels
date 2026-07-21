@@ -105,6 +105,9 @@ export interface ButtonProps extends VariantProps {
   disabled?: boolean;
   /** disables all animations */
   disableAnimation?: boolean;
+  /** associates the button with a form by the form's id (HTML `form` attribute),
+   * so the button can submit a form it is not a DOM descendant of */
+  form?: string;
   /** shows loading animation */
   loading?: boolean;
   /** optional icon */
@@ -143,6 +146,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       color = 'default',
       disableAnimation = false,
       disabled = false,
+      form = undefined,
       icon = undefined,
       loading = false,
       onBlur = undefined,
@@ -177,6 +181,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         data-slot={dataSlot}
         data-testid={testId}
         disableRipple={shouldDisableRipple}
+        form={form}
         isDisabled={disabled}
         isLoading={loading}
         onBlur={onBlur}

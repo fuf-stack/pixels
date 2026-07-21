@@ -9,6 +9,7 @@ exports[`Story Snapshots > Default 1`] = `
       class="grow min-w-60"
       data-form-is-valid="true"
       data-testid=""
+      novalidate=""
     >
       <div
         class="group flex flex-col data-[has-helper=true]:pb-[calc(var(--heroui-font-size-tiny)_+8px)] gap-y-1.5 w-full"
@@ -205,6 +206,7 @@ exports[`Story Snapshots > Disabled 1`] = `
       class="grow min-w-60"
       data-form-is-valid="true"
       data-testid=""
+      novalidate=""
     >
       <div
         class="group flex flex-col data-[has-helper=true]:pb-[calc(var(--heroui-font-size-tiny)_+8px)] gap-y-1.5 w-full opacity-disabled pointer-events-none"
@@ -394,6 +396,7 @@ exports[`Story Snapshots > HideTimeZone 1`] = `
         class="grow min-w-60"
         data-form-is-valid="true"
         data-testid=""
+        novalidate=""
       >
         <div
           class="group flex flex-col data-[has-helper=true]:pb-[calc(var(--heroui-font-size-tiny)_+8px)] gap-y-1.5 w-full"
@@ -578,6 +581,7 @@ exports[`Story Snapshots > HourAsNumber 1`] = `
         class="grow min-w-60"
         data-form-is-valid="true"
         data-testid=""
+        novalidate=""
       >
         <div
           class="group flex flex-col data-[has-helper=true]:pb-[calc(var(--heroui-font-size-tiny)_+8px)] gap-y-1.5 w-full"
@@ -752,6 +756,7 @@ exports[`Story Snapshots > HourGranularity 1`] = `
       class="grow min-w-60"
       data-form-is-valid="true"
       data-testid=""
+      novalidate=""
     >
       <div
         class="group flex flex-col data-[has-helper=true]:pb-[calc(var(--heroui-font-size-tiny)_+8px)] gap-y-1.5 w-full"
@@ -918,6 +923,7 @@ exports[`Story Snapshots > Invalid 1`] = `
         class="grow min-w-60"
         data-form-is-valid="false"
         data-testid=""
+        novalidate=""
       >
         <div
           class="group flex flex-col data-[has-helper=true]:pb-[calc(var(--heroui-font-size-tiny)_+8px)] gap-y-1.5 w-full"
@@ -1132,6 +1138,8 @@ exports[`Story Snapshots > Invalid 1`] = `
           <button
             aria-label="Submit form"
             class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
+            data-focus="true"
+            data-hover="true"
             data-react-aria-pressable="true"
             data-testid="form_submit_button"
             tabindex="0"
@@ -1161,6 +1169,7 @@ exports[`Story Snapshots > Required 1`] = `
       class="grow min-w-60"
       data-form-is-valid="false"
       data-testid=""
+      novalidate=""
     >
       <div
         class="group flex flex-col data-[has-helper=true]:pb-[calc(var(--heroui-font-size-tiny)_+8px)] gap-y-1.5 w-full"
@@ -1363,6 +1372,7 @@ exports[`Story Snapshots > TwelveHourCycle 1`] = `
       class="grow min-w-60"
       data-form-is-valid="true"
       data-testid=""
+      novalidate=""
     >
       <div
         class="group flex flex-col data-[has-helper=true]:pb-[calc(var(--heroui-font-size-tiny)_+8px)] gap-y-1.5 w-full"
@@ -1560,6 +1570,7 @@ exports[`Story Snapshots > WithCustomTimeZone 1`] = `
         class="grow min-w-60"
         data-form-is-valid="true"
         data-testid=""
+        novalidate=""
       >
         <div
           class="group flex flex-col data-[has-helper=true]:pb-[calc(var(--heroui-font-size-tiny)_+8px)] gap-y-1.5 w-full"
@@ -1766,6 +1777,7 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
         class="grow min-w-60"
         data-form-is-valid="true"
         data-testid=""
+        novalidate=""
       >
         <div
           class="group flex flex-col data-[has-helper=true]:pb-[calc(var(--heroui-font-size-tiny)_+8px)] gap-y-1.5 w-full"
@@ -1972,6 +1984,7 @@ exports[`Story Snapshots > WithUtcTimeZone 1`] = `
         class="grow min-w-60"
         data-form-is-valid="true"
         data-testid=""
+        novalidate=""
       >
         <div
           class="group flex flex-col data-[has-helper=true]:pb-[calc(var(--heroui-font-size-tiny)_+8px)] gap-y-1.5 w-full"

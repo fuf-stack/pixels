@@ -9,6 +9,7 @@ exports[`Story Snapshots > CustomOptionsRendering 1`] = `
       class="grow min-w-60"
       data-form-is-valid="false"
       data-testid=""
+      novalidate=""
     >
       <div
         aria-describedby="react-aria-«replaced-aria-id»"
@@ -38,7 +39,6 @@ exports[`Story Snapshots > CustomOptionsRendering 1`] = `
               <label
                 aria-label="Treasure Hunt 🗺️"
                 class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none my-0 mx-2 w-full"
-                data-focus="true"
                 data-invalid="true"
                 data-testid="checkboxfield_option_treasure_hunt"
               >
@@ -249,6 +249,8 @@ exports[`Story Snapshots > CustomOptionsRendering 1`] = `
         <button
           aria-label="Submit form"
           class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
+          data-focus="true"
+          data-hover="true"
           data-react-aria-pressable="true"
           data-testid="form_submit_button"
           tabindex="0"
@@ -271,6 +273,7 @@ exports[`Story Snapshots > DangerColor 1`] = `
       class="grow min-w-60"
       data-form-is-valid="true"
       data-testid=""
+      novalidate=""
     >
       <div
         aria-label="Danger Color"
@@ -466,6 +469,7 @@ exports[`Story Snapshots > Default 1`] = `
       class="grow min-w-60"
       data-form-is-valid="true"
       data-testid=""
+      novalidate=""
     >
       <div
         aria-label="checkboxField"
@@ -648,6 +652,7 @@ exports[`Story Snapshots > DisabledCompletely 1`] = `
       class="grow min-w-60"
       data-form-is-valid="true"
       data-testid=""
+      novalidate=""
     >
       <div
         aria-label="checkboxField"
@@ -830,6 +835,7 @@ exports[`Story Snapshots > DisabledOption 1`] = `
       class="grow min-w-60"
       data-form-is-valid="true"
       data-testid=""
+      novalidate=""
     >
       <div
         aria-label="checkboxField"
@@ -1012,6 +1018,7 @@ exports[`Story Snapshots > Inline 1`] = `
       class="grow min-w-60"
       data-form-is-valid="true"
       data-testid=""
+      novalidate=""
     >
       <div
         aria-label="checkboxField"
@@ -1194,6 +1201,7 @@ exports[`Story Snapshots > Invalid 1`] = `
       class="grow min-w-60"
       data-form-is-valid="false"
       data-testid=""
+      novalidate=""
     >
       <div
         aria-describedby="react-aria-«replaced-aria-id»"
@@ -1422,6 +1430,7 @@ exports[`Story Snapshots > OnlyOneCheckbox 1`] = `
       class="grow min-w-60"
       data-form-is-valid="true"
       data-testid=""
+      novalidate=""
     >
       <div
         aria-label="checkboxField"
@@ -1512,6 +1521,7 @@ exports[`Story Snapshots > Required 1`] = `
       class="grow min-w-60"
       data-form-is-valid="false"
       data-testid=""
+      novalidate=""
     >
       <div
         aria-label="Checkbox Field"
@@ -1704,6 +1714,7 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
       class="grow min-w-60"
       data-form-is-valid="true"
       data-testid=""
+      novalidate=""
     >
       <div
         aria-label="checkboxField"
@@ -1889,6 +1900,7 @@ exports[`Story Snapshots > WithLabel 1`] = `
       class="grow min-w-60"
       data-form-is-valid="true"
       data-testid=""
+      novalidate=""
     >
       <div
         aria-label="Checkbox Field"
@@ -2078,6 +2090,7 @@ exports[`Story Snapshots > WithLineThrough 1`] = `
       class="grow min-w-60"
       data-form-is-valid="true"
       data-testid=""
+      novalidate=""
     >
       <div
         aria-label="Todo List"
@@ -2332,6 +2345,7 @@ exports[`Story Snapshots > WithOptionLabelSubline 1`] = `
       class="grow min-w-60"
       data-form-is-valid="true"
       data-testid=""
+      novalidate=""
     >
       <div
         aria-label="checkboxField"
@@ -2547,6 +2561,7 @@ exports[`Story Snapshots > WithTransformComplexObjects 1`] = `
       class="grow min-w-60"
       data-form-is-valid="true"
       data-testid=""
+      novalidate=""
     >
       <div
         aria-label="Select your favorite foods (stored as objects with metadata)"
@@ -2788,6 +2803,7 @@ exports[`Story Snapshots > WithTransformSingleValue 1`] = `
       class="grow min-w-60"
       data-form-is-valid="true"
       data-testid=""
+      novalidate=""
     >
       <div
         aria-label="Terms & Conditions"
