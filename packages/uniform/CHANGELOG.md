@@ -1,5 +1,25 @@
 # Changelog
 
+## [1.26.0](https://github.com/fuf-stack/pixels/compare/uniform-v1.25.0...uniform-v1.26.0) (2026-07-29)
+
+
+### Features
+
+* **uniform,megapixels:** add className slots to Form and FormDebugViewer ([2fed04a](https://github.com/fuf-stack/pixels/commit/2fed04a1caf0e4a080071463b3f53e8d282f20a0))
+
+
+### Bug Fixes
+
+* **deps:** update dependency framer-motion to v12.42.2 ([#1785](https://github.com/fuf-stack/pixels/issues/1785)) ([24c1f81](https://github.com/fuf-stack/pixels/commit/24c1f814c54aa84e470c096bd89574c977242632))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @fuf-stack/pixel-motion bumped to 1.3.1
+    * @fuf-stack/pixels bumped to 1.13.1
+
 ## [1.25.0](https://github.com/fuf-stack/pixels/compare/uniform-v1.24.12...uniform-v1.25.0) (2026-07-17)
 
 

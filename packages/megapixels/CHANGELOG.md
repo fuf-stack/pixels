@@ -1,5 +1,28 @@
 # Changelog
 
+## [0.16.0](https://github.com/fuf-stack/pixels/compare/megapixels-v0.15.0...megapixels-v0.16.0) (2026-07-29)
+
+
+### Features
+
+* **uniform,megapixels:** add className slots to Form and FormDebugViewer ([2fed04a](https://github.com/fuf-stack/pixels/commit/2fed04a1caf0e4a080071463b3f53e8d282f20a0))
+
+
+### Bug Fixes
+
+* **deps:** update dependency @tanstack/react-virtual to v3.14.6 ([#1784](https://github.com/fuf-stack/pixels/issues/1784)) ([58b739b](https://github.com/fuf-stack/pixels/commit/58b739b19e94be97a658112fec99d56dd7486ffe))
+* **deps:** update dependency @tanstack/react-virtual to v3.14.7 ([#1805](https://github.com/fuf-stack/pixels/issues/1805)) ([4d87f94](https://github.com/fuf-stack/pixels/commit/4d87f945d2026c3a11b81e3e50a74f15646dc8f5))
+* **deps:** update dependency @tanstack/react-virtual to v3.14.8 ([#1811](https://github.com/fuf-stack/pixels/issues/1811)) ([3ecef48](https://github.com/fuf-stack/pixels/commit/3ecef4802e0e3db8e0ba169a08b4260e3fcaa740))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @fuf-stack/pixel-motion bumped to 1.3.1
+    * @fuf-stack/pixels bumped to 1.13.1
+    * @fuf-stack/uniform bumped to 1.26.0
+
 ## [0.15.0](https://github.com/fuf-stack/pixels/compare/megapixels-v0.14.4...megapixels-v0.15.0) (2026-07-17)
 
 
