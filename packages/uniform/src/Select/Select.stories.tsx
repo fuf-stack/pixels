@@ -21,7 +21,7 @@ const meta: Meta<typeof Select> = {
     (Story, { parameters }) => {
       return (
         <Form
-          className="min-w-90"
+          className={{ form: 'min-w-90' }}
           onSubmit={action('onSubmit')}
           {...(parameters?.formProps ?? {})}
         >

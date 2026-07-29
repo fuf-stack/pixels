@@ -164,7 +164,7 @@ const Filter = ({
         - onSubmit maps form values back into values/onChange
       */}
       <Form
-        className={classNames.form}
+        className={{ form: classNames.form }}
         // disable debug mode for now
         debug={{ disable: true }}
         initialValues={valuesValidated ?? {}}

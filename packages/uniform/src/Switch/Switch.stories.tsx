@@ -19,7 +19,7 @@ const meta: Meta<typeof Switch> = {
     (Story, { parameters }) => {
       return (
         <Form
-          className="min-w-60"
+          className={{ form: 'min-w-60' }}
           onSubmit={action('onSubmit')}
           {...(parameters?.formProps ?? {})}
         >

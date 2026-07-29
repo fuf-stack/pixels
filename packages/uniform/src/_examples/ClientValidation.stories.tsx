@@ -132,7 +132,7 @@ const meta: Meta<typeof SimpleClientValidationForm> = {
     (Story, { parameters }) => {
       return (
         <Form
-          className="min-w-lg"
+          className={{ form: 'min-w-lg' }}
           onSubmit={action('onSubmit')}
           {...(parameters?.formProps ?? {})}
         >

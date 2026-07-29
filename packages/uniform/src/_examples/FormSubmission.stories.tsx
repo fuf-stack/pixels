@@ -76,7 +76,7 @@ export const FormSubmission: Story = {
   render: () => {
     return (
       <Form
-        className="min-w-lg"
+        className={{ form: 'min-w-lg' }}
         onSubmit={action('onSubmit')}
         validation={requiredFieldsValidation}
       >
@@ -122,7 +122,7 @@ export const SubmitWithEnter: Story = {
   render: () => {
     return (
       <Form
-        className="min-w-lg"
+        className={{ form: 'min-w-lg' }}
         onSubmit={action('onSubmit')}
         validation={requiredFieldsValidation}
       >
@@ -175,7 +175,7 @@ const SubmitWithLoading = () => {
 const LongRunningSubmitDemo = () => {
   return (
     <Form
-      className="min-w-lg"
+      className={{ form: 'min-w-lg' }}
       // onSubmit returns a promise; react-hook-form keeps formState.isSubmitting
       // true until it settles
       onSubmit={async (values) => {
@@ -278,7 +278,7 @@ export const RemoteFormSubmission: Story = {
     return (
       <>
         <Form
-          className="min-w-lg"
+          className={{ form: 'min-w-lg' }}
           onSubmit={action('onSubmit')}
           remoteFormId={REMOTE_FORM_ID}
           validation={requiredFieldsValidation}

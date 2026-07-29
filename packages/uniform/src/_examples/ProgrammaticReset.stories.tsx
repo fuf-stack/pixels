@@ -29,7 +29,7 @@ const meta: Meta<typeof Form> = {
       return (
         <Form
           {...(args ?? {})}
-          className="min-w-lg"
+          className={{ form: 'min-w-lg' }}
           onSubmit={action('onSubmit')}
         >
           <Story />

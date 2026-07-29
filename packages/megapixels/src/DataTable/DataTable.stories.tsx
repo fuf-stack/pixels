@@ -947,7 +947,7 @@ export const UniformCheckboxField: Story = {
   render: () => {
     return (
       <Form
-        className="flex flex-col gap-4"
+        className={{ form: 'flex flex-col gap-4' }}
         initialValues={{ selectedOrderIds: ['0', '1'] }}
         name="datatable-uniform-checkbox-form"
         onSubmit={action('onSubmit')}
@@ -980,7 +980,7 @@ export const UniformRadioField: Story = {
   render: () => {
     return (
       <Form
-        className="flex flex-col gap-4"
+        className={{ form: 'flex flex-col gap-4' }}
         initialValues={{ primaryOrderId: '1' }}
         name="datatable-uniform-radio-form"
         onSubmit={action('onSubmit')}

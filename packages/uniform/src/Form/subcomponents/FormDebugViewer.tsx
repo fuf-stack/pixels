@@ -1,17 +1,39 @@
+import type { TVClassName, TVProps } from '@fuf-stack/pixel-utils';
+import type { CardProps } from '@fuf-stack/pixels/Card';
+
 import { useEffect, useState } from 'react';
 import { FaTimes } from 'react-icons/fa';
 import { FaBug, FaBullseye } from 'react-icons/fa6';
 
-import { cn } from '@fuf-stack/pixel-utils';
+import { tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 import { Button } from '@fuf-stack/pixels/Button';
 import { Card } from '@fuf-stack/pixels/Card';
 import { Json } from '@fuf-stack/pixels/Json';
 
 import { useFormContext } from '../../hooks/useFormContext';
 
-interface FormDebugViewerProps {
+// form debug viewer styling variants
+export const formDebugViewerVariants = tv({
+  slots: {
+    /** class of the debug card */
+    base: '',
+    /** class of the button that toggles the field copy testid buttons */
+    copyButtonToggle: 'mb-4 ml-auto mr-auto',
+    /** class of the debug card header */
+    header: 'justify-between',
+    /** class of the json viewer */
+    json: '',
+    /** class of the button that enables debug mode */
+    triggerButton: 'fixed bottom-2.5 right-2.5 w-5 text-default-400',
+  },
+});
+
+type VariantProps = TVProps<typeof formDebugViewerVariants>;
+type ClassName = TVClassName<typeof formDebugViewerVariants>;
+
+export interface FormDebugViewerProps extends VariantProps {
   /** CSS class name */
-  className?: string;
+  className?: ClassName;
 }
 
 /** Renders a form debug panel with information about the current form state */
@@ -28,6 +50,14 @@ const FormDebugViewer = ({ className = undefined }: FormDebugViewerProps) => {
   const showDebugButton = debugMode === 'off';
   const showDebugCard = debugMode === 'debug' || debugMode === 'debug-testids';
   const showDebugTestIds = debugMode === 'debug-testids';
+
+  // classNames from slots
+  const variants = formDebugViewerVariants();
+  const classNames = variantsToClassNames(variants, className, 'base');
+  const cardClassNames: CardProps['className'] = {
+    base: classNames.base,
+    header: classNames.header,
+  };
 
   // We intentionally keep the local state + subscription approach here.
   // A previous useSyncExternalStore refactor caused unstable runtime behavior
@@ -71,7 +101,7 @@ const FormDebugViewer = ({ className = undefined }: FormDebugViewerProps) => {
     return (
       <Button
         ariaLabel="Enable form debug mode"
-        className="fixed bottom-2.5 right-2.5 w-5 text-default-400"
+        className={classNames.triggerButton}
         icon={<FaBug />}
         onClick={handleShowDebugMode}
         variant="light"
@@ -86,9 +116,9 @@ const FormDebugViewer = ({ className = undefined }: FormDebugViewerProps) => {
 
   return (
     <Card
-      className={cn(className)}
+      className={cardClassNames}
       header={
-        <div className="flex w-full flex-row justify-between">
+        <>
           <span className="text-lg">Debug Mode</span>
           <Button
             color="danger"
@@ -99,11 +129,11 @@ const FormDebugViewer = ({ className = undefined }: FormDebugViewerProps) => {
             size="sm"
             variant="light"
           />
-        </div>
+        </>
       }
     >
       <Button
-        className="mb-4 ml-auto mr-auto"
+        className={classNames.copyButtonToggle}
         icon={<FaBullseye />}
         onClick={() => {
           setDebugMode(debugMode === 'debug' ? 'debug-testids' : 'debug');
@@ -113,6 +143,7 @@ const FormDebugViewer = ({ className = undefined }: FormDebugViewerProps) => {
         {showDebugTestIds ? 'Hide CopyButton' : 'Show CopyButton'}
       </Button>
       <Json
+        className={classNames.json}
         value={{
           values,
           errors: errors ?? null,

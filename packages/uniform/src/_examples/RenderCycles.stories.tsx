@@ -44,7 +44,7 @@ export const TwoInputsDebug: Story = {
         </p>
 
         <Form
-          className="max-w-md space-y-4"
+          className={{ form: 'max-w-md space-y-4' }}
           onSubmit={handleSubmit}
           validation={schema}
         >
@@ -93,7 +93,7 @@ export const MultipleFieldTypes: Story = {
         </p>
 
         <Form
-          className="max-w-md space-y-4"
+          className={{ form: 'max-w-md space-y-4' }}
           onSubmit={handleSubmit}
           validation={complexSchema}
         >
@@ -154,7 +154,7 @@ export const PerformanceComparison: Story = {
         </p>
 
         <Form
-          className="max-w-md space-y-4"
+          className={{ form: 'max-w-md space-y-4' }}
           onSubmit={handleSubmit}
           validation={manyFieldsSchema}
         >

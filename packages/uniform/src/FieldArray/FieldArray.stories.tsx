@@ -25,7 +25,7 @@ const meta: Meta<typeof FieldArray> = {
     (Story, { parameters }) => {
       return (
         <Form
-          className="min-w-md"
+          className={{ form: 'min-w-md' }}
           onSubmit={action('onSubmit')}
           {...(parameters?.formProps ?? {})}
         >

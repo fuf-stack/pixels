@@ -21,26 +21,48 @@ describe('Form', () => {
       expect(screen.getByTestId('child')).toBeInTheDocument();
     });
 
-    it('should apply className', () => {
+    it('should apply className to the base slot (form wrapper)', () => {
       render(
-        <Form className="custom-class" onSubmit={() => {}}>
+        <Form className="custom-class" onSubmit={() => {}} testId="test-form">
           <div>content</div>
         </Form>,
       );
 
-      const form = screen.getByTestId('');
-      expect(form).toHaveClass('custom-class', 'grow');
+      const form = screen.getByTestId('test_form');
+      expect(form).toHaveClass('grow');
+      expect(form.parentElement).toHaveClass('custom-class');
     });
 
-    it('should apply multiple classNames', () => {
+    it('should apply multiple classNames to the base slot (form wrapper)', () => {
       render(
-        <Form className={['class1', 'class2']} onSubmit={() => {}}>
+        <Form
+          className={['class1', 'class2']}
+          onSubmit={() => {}}
+          testId="test-form"
+        >
           <div>content</div>
         </Form>,
       );
 
-      const form = screen.getByTestId('');
-      expect(form).toHaveClass('class1', 'class2', 'grow');
+      const form = screen.getByTestId('test_form');
+      expect(form).toHaveClass('grow');
+      expect(form.parentElement).toHaveClass('class1', 'class2');
+    });
+
+    it('should apply classNames of the form slot to the HTML form element', () => {
+      render(
+        <Form
+          className={{ base: 'wrapper-class', form: 'form-class' }}
+          onSubmit={() => {}}
+          testId="test-form"
+        >
+          <div>content</div>
+        </Form>,
+      );
+
+      const form = screen.getByTestId('test_form');
+      expect(form).toHaveClass('form-class', 'grow');
+      expect(form.parentElement).toHaveClass('wrapper-class');
     });
 
     it('should set form name', () => {
@@ -76,12 +98,12 @@ describe('Form', () => {
 
     it('should not render FormDebugViewer in test environment', () => {
       render(
-        <Form onSubmit={() => {}}>
+        <Form onSubmit={() => {}} testId="test-form">
           <div>content</div>
         </Form>,
       );
 
-      const formWrapper = screen.getByTestId('').parentElement;
+      const formWrapper = screen.getByTestId('test_form').parentElement;
       expect(formWrapper?.children).toHaveLength(1);
     });
   });
