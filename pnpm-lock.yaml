@@ -25,8 +25,8 @@ importers:
         specifier: 5.0.4
         version: 5.0.4(@types/node@24.13.3)(jsdom@29.1.1)(vite@8.1.5(@types/node@24.13.3)(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.23.1)(yaml@2.9.0))
       '@lerna-lite/cli':
-        specifier: 5.4.1
-        version: 5.4.1(@lerna-lite/list@5.4.0(@lerna-lite/publish@5.4.0)(@lerna-lite/version@5.4.0)(@types/node@24.13.3))(@lerna-lite/publish@5.4.0(@lerna-lite/list@5.4.0)(@types/node@24.13.3)(conventional-commits-filter@6.0.1)(supports-color@5.5.0))(@lerna-lite/version@5.4.0(@lerna-lite/list@5.4.0)(@lerna-lite/publish@5.4.0)(@types/node@24.13.3)(conventional-commits-filter@6.0.1))(@types/node@24.13.3)
+        specifier: 5.4.2
+        version: 5.4.2(@lerna-lite/list@5.4.0(@lerna-lite/publish@5.4.0)(@lerna-lite/version@5.4.0)(@types/node@24.13.3))(@lerna-lite/publish@5.4.0(@lerna-lite/list@5.4.0)(@types/node@24.13.3)(conventional-commits-filter@6.0.1)(supports-color@5.5.0))(@lerna-lite/version@5.4.0(@lerna-lite/list@5.4.0)(@lerna-lite/publish@5.4.0)(@types/node@24.13.3)(conventional-commits-filter@6.0.1))(@types/node@24.13.3)
       '@repo/storybook-config':
         specifier: workspace:*
         version: link:packages/config/storybook-config
@@ -1689,8 +1689,8 @@ packages:
       '@lerna-lite/watch':
         optional: true
 
-  '@lerna-lite/cli@5.4.1':
-    resolution: {integrity: sha512-5w2kq3Dnto5R7qfAwlL2ZsBzTgNPZFXiRNPNAJxcLderAVjipye83MOJ2gk2uOnffHjr6kropu5u2YPZBJDnRg==}
+  '@lerna-lite/cli@5.4.2':
+    resolution: {integrity: sha512-iYGYCmNUez3w738TSeJcC2pEY1vnvYl3F7a1OY7wCitKrtVFsXVwRkMH/e0m2AmHKT33HOH5x4dANiWE+K3jKQ==}
     engines: {node: ^22.17.0 || >=24.0.0}
     hasBin: true
     peerDependencies:
@@ -1718,16 +1718,16 @@ packages:
     resolution: {integrity: sha512-/1bnOt09mk1lS0AWG/irkFeia0eX1Lp4Muon089czrHX3k4QLe5w2o4UKkBEYTK1aM3nS9sTvi6RAbeZQUB2LA==}
     engines: {node: ^22.17.0 || >=24.0.0}
 
-  '@lerna-lite/core@5.4.1':
-    resolution: {integrity: sha512-/Ujtt5v6tdLikijcwlHCpAtm9hTKd2unGyDAgVT3vRQeZGt4MOonu+tnSKpLq2LF12MEAMA+R5qj/p+XWp/Zyg==}
+  '@lerna-lite/core@5.4.2':
+    resolution: {integrity: sha512-z1XL/x/6PJofwvV7ye5yc9Bxr43DkKxeyaHTXwongON1JIbaVKFFMfK8Wnp3TlC2h6bkyp0sZsD6tXMz5fCiQg==}
     engines: {node: ^22.17.0 || >=24.0.0}
 
   '@lerna-lite/init@5.4.0':
     resolution: {integrity: sha512-uFZxj+Re3GFkNCgzEIlL34+KDG5OckqOTEegFBXH5fbAxxKJwd+GDnfrE+xTbkSLCbeb6UDnfoSV2EGJBqLA1g==}
     engines: {node: ^22.17.0 || >=24.0.0}
 
-  '@lerna-lite/init@5.4.1':
-    resolution: {integrity: sha512-MZzrOnbYps/cllvgi8FkQxQGMXJJI2IBSY/B6AnVcRT6WsKB5CiSGLJBjRzNVFAjFoRGJw6caOxzt9uEpVkcGQ==}
+  '@lerna-lite/init@5.4.2':
+    resolution: {integrity: sha512-Wh3VpAaKHMsbu2WNZVFZMWtSGC3YZ8FZvB8BxwkgkU6K2zq6FN6bi8hCgKeos2IF+kGpBg8YXYkh5GJs49Ferg==}
     engines: {node: ^22.17.0 || >=24.0.0}
 
   '@lerna-lite/list@5.4.0':
@@ -9280,10 +9280,10 @@ snapshots:
     transitivePeerDependencies:
       - '@types/node'
 
-  '@lerna-lite/cli@5.4.1(@lerna-lite/list@5.4.0(@lerna-lite/publish@5.4.0)(@lerna-lite/version@5.4.0)(@types/node@24.13.3))(@lerna-lite/publish@5.4.0(@lerna-lite/list@5.4.0)(@types/node@24.13.3)(conventional-commits-filter@6.0.1)(supports-color@5.5.0))(@lerna-lite/version@5.4.0(@lerna-lite/list@5.4.0)(@lerna-lite/publish@5.4.0)(@types/node@24.13.3)(conventional-commits-filter@6.0.1))(@types/node@24.13.3)':
+  '@lerna-lite/cli@5.4.2(@lerna-lite/list@5.4.0(@lerna-lite/publish@5.4.0)(@lerna-lite/version@5.4.0)(@types/node@24.13.3))(@lerna-lite/publish@5.4.0(@lerna-lite/list@5.4.0)(@types/node@24.13.3)(conventional-commits-filter@6.0.1)(supports-color@5.5.0))(@lerna-lite/version@5.4.0(@lerna-lite/list@5.4.0)(@lerna-lite/publish@5.4.0)(@types/node@24.13.3)(conventional-commits-filter@6.0.1))(@types/node@24.13.3)':
     dependencies:
-      '@lerna-lite/core': 5.4.1(@types/node@24.13.3)
-      '@lerna-lite/init': 5.4.1(@types/node@24.13.3)
+      '@lerna-lite/core': 5.4.2(@types/node@24.13.3)
+      '@lerna-lite/init': 5.4.2(@types/node@24.13.3)
       '@lerna-lite/npmlog': 5.4.1
       dotenv: 17.4.2
       import-local: 3.2.0
@@ -9315,7 +9315,7 @@ snapshots:
     transitivePeerDependencies:
       - '@types/node'
 
-  '@lerna-lite/core@5.4.1(@types/node@24.13.3)':
+  '@lerna-lite/core@5.4.2(@types/node@24.13.3)':
     dependencies:
       '@inquirer/expand': 5.1.1(@types/node@24.13.3)
       '@inquirer/input': 5.1.2(@types/node@24.13.3)
@@ -9342,9 +9342,9 @@ snapshots:
     transitivePeerDependencies:
       - '@types/node'
 
-  '@lerna-lite/init@5.4.1(@types/node@24.13.3)':
+  '@lerna-lite/init@5.4.2(@types/node@24.13.3)':
     dependencies:
-      '@lerna-lite/core': 5.4.1(@types/node@24.13.3)
+      '@lerna-lite/core': 5.4.2(@types/node@24.13.3)
       write-json-file: 7.0.0
     transitivePeerDependencies:
       - '@types/node'
