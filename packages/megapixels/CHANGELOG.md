@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.16.1](https://github.com/fuf-stack/pixels/compare/megapixels-v0.16.0...megapixels-v0.16.1) (2026-08-07)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @tanstack/react-virtual to v3.14.9 ([#1822](https://github.com/fuf-stack/pixels/issues/1822)) ([508afad](https://github.com/fuf-stack/pixels/commit/508afad6c63c307c9308491081912af980c2b8a1))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @fuf-stack/uniform bumped to 1.26.1
+
 ## [0.16.0](https://github.com/fuf-stack/pixels/compare/megapixels-v0.15.0...megapixels-v0.16.0) (2026-07-29)
 
 

@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.26.1](https://github.com/fuf-stack/pixels/compare/uniform-v1.26.0...uniform-v1.26.1) (2026-08-07)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @internationalized/date to v3.12.3 ([#1829](https://github.com/fuf-stack/pixels/issues/1829)) ([c0e50af](https://github.com/fuf-stack/pixels/commit/c0e50af30e1cd6bc21c5ccfb7a8ab397ecadd50c))
+
 ## [1.26.0](https://github.com/fuf-stack/pixels/compare/uniform-v1.25.0...uniform-v1.26.0) (2026-07-29)
 
 
