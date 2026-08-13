@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.10.0](https://github.com/fuf-stack/pixels/compare/veto-v1.9.0...veto-v1.10.0) (2026-08-13)
+
+
+### Features
+
+* **veto:** allow stringToJSON to accept already-parsed JSON ([20ec660](https://github.com/fuf-stack/pixels/commit/20ec66015caa85f68e2923a630fb93a1320b5946))
+
 ## [1.9.0](https://github.com/fuf-stack/pixels/compare/veto-v1.8.0...veto-v1.9.0) (2026-07-17)
 
 

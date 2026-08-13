@@ -1,5 +1,22 @@
 # Changelog
 
+## [1.26.1](https://github.com/fuf-stack/pixels/compare/uniform-v1.26.0...uniform-v1.26.1) (2026-08-13)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @internationalized/date to v3.12.3 ([#1829](https://github.com/fuf-stack/pixels/issues/1829)) ([c0e50af](https://github.com/fuf-stack/pixels/commit/c0e50af30e1cd6bc21c5ccfb7a8ab397ecadd50c))
+* **deps:** update dependency framer-motion to v12.43.0 ([#1833](https://github.com/fuf-stack/pixels/issues/1833)) ([ab240cf](https://github.com/fuf-stack/pixels/commit/ab240cf6e906f7d7fb4d868372144cbfef92478f))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @fuf-stack/pixel-motion bumped to 1.3.2
+    * @fuf-stack/pixels bumped to 1.13.2
+    * @fuf-stack/veto bumped to 1.10.0
+
 ## [1.26.0](https://github.com/fuf-stack/pixels/compare/uniform-v1.25.0...uniform-v1.26.0) (2026-07-29)
 
 

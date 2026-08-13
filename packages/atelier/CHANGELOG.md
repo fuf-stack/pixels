@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.3.2](https://github.com/fuf-stack/pixels/compare/atelier-v0.3.1...atelier-v0.3.2) (2026-08-13)
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @fuf-stack/pixels bumped to 1.13.2
+
 ## [0.3.1](https://github.com/fuf-stack/pixels/compare/atelier-v0.3.0...atelier-v0.3.1) (2026-07-29)
 
 

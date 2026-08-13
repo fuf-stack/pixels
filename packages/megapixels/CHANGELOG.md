@@ -1,5 +1,23 @@
 # Changelog
 
+## [0.16.1](https://github.com/fuf-stack/pixels/compare/megapixels-v0.16.0...megapixels-v0.16.1) (2026-08-13)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @base-ui/react to v1.7.0 ([#1838](https://github.com/fuf-stack/pixels/issues/1838)) ([09842f7](https://github.com/fuf-stack/pixels/commit/09842f74c0181856c4f8552ff777e5114428a05d))
+* **deps:** update dependency @tanstack/react-virtual to v3.14.9 ([#1822](https://github.com/fuf-stack/pixels/issues/1822)) ([508afad](https://github.com/fuf-stack/pixels/commit/508afad6c63c307c9308491081912af980c2b8a1))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @fuf-stack/pixel-motion bumped to 1.3.2
+    * @fuf-stack/pixels bumped to 1.13.2
+    * @fuf-stack/uniform bumped to 1.26.1
+    * @fuf-stack/veto bumped to 1.10.0
+
 ## [0.16.0](https://github.com/fuf-stack/pixels/compare/megapixels-v0.15.0...megapixels-v0.16.0) (2026-07-29)
 
 
