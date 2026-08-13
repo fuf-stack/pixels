@@ -287,6 +287,15 @@ describe('stringToJSON validator', () => {
     expect(schema.parse(JSON.stringify(nested))).toEqual(nested);
   });
 
+  it('passes through already-parsed JSON values', () => {
+    const nested = { one: ['two', { three: 4 }] };
+    expect(schema.parse(nested)).toEqual(nested);
+    expect(schema.parse([1, 'two', null])).toEqual([1, 'two', null]);
+    expect(schema.parse(42)).toBe(42);
+    expect(schema.parse(true)).toBe(true);
+    expect(schema.parse(null)).toBeNull();
+  });
+
   it('rejects invalid JSON', () => {
     /* invalid JSON */
     expect(() => schema.parse('{ keys: "must be quoted" }')).toThrow();
@@ -299,6 +308,7 @@ describe('stringToJSON validator', () => {
     /* piping */
     const jsonNumberSchema = stringToJSON().pipe(number());
     expect(jsonNumberSchema.parse('500')).toBe(500);
+    expect(jsonNumberSchema.parse(500)).toBe(500);
     expect(() => jsonNumberSchema.parse('"JSON, but not a number"')).toThrow();
   });
 

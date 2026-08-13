@@ -71,7 +71,8 @@ export type VJsonObject = typeof jsonObject;
 export type VJsonObjectSchema = VRecordSchema<VJsonSchema>;
 
 /**
- * Transforms a JSON string into its parsed JavaScript value
+ * Transforms a JSON string into its parsed JavaScript value.
+ * Already-parsed JSON values (objects, arrays, primitives) pass through as-is.
  *
  * Handles standard JSON types (strings, numbers, booleans, null, objects, arrays)
  * and rejects malformed JSON, JavaScript-specific values (undefined, BigInt),
@@ -80,21 +81,26 @@ export type VJsonObjectSchema = VRecordSchema<VJsonSchema>;
  * @returns veto schema that parses JSON strings into JavaScript values
  *
  * @example
- * // Basic usage
+ * // From a JSON string
  * const result = stringToJSON().parse('{"name":"John","age":30}');
+ *
+ * // Already parsed — parsing is skipped
+ * const same = stringToJSON().parse({ name: 'John', age: 30 });
  *
  * // With additional validation using pipe
  * const userSchema = stringToJSON().pipe(z.object({ name: z.string() }));
  * const user = userSchema.parse('{"name":"Alice"}');
  */
 export const stringToJSON = () => {
-  return z.string().transform((str, ctx): JsonAll => {
+  return z.preprocess((data, ctx) => {
+    if (typeof data !== 'string') {
+      return data;
+    }
     try {
-      const parsed: unknown = JSON.parse(str);
-      return parsed as JsonAll;
+      return JSON.parse(data) as JsonAll;
     } catch {
       ctx.addIssue({ code: 'custom', message: 'Invalid JSON' });
       return z.NEVER;
     }
-  });
+  }, json());
 };
