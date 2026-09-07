@@ -25,6 +25,9 @@ on:
         type: string
 
 permissions:
+  # Needed to dispatch CI after the GITHUB_TOKEN-backed push. Such pushes do not
+  # emit another pull_request event themselves.
+  actions: write
   # Needed to push snapshot updates back to the Renovate branch.
   contents: write
   # Needed to read PR metadata (label + head branch).
@@ -47,7 +50,8 @@ jobs:
          startsWith(github.event.pull_request.head.ref, 'renovate/')) ||
         (github.event_name == 'issue_comment' &&
          github.event.issue.pull_request &&
-         contains(github.event.comment.body, '/autofix-snapshots')) ||
+         github.event.comment.body == '/autofix-snapshots' &&
+         contains(fromJSON('["OWNER", "MEMBER", "COLLABORATOR"]'), github.event.comment.author_association)) ||
         github.event_name == 'workflow_dispatch'
       }}
 
@@ -94,44 +98,34 @@ jobs:
       - name: Setup project
         uses: ./.github/actions/setup-project
 
-      - name: Run tests and detect snapshot-only failures
+      - name: Run tests
         id: test-run
         shell: bash
         run: |
           set +e
-          pnpm test 2>&1 | tee test-output.log
+          pnpm test
           test_exit=$?
           set -e
 
-          # Green run: no fix needed.
           if [ "$test_exit" -eq 0 ]; then
             echo "status=passed" >> "$GITHUB_OUTPUT"
             exit 0
           fi
 
-          # Only proceed when failure output indicates snapshot mismatch.
-          if rg -i "snapshot|snapshots|inline snapshot|to match snapshot" test-output.log >/dev/null; then
-            echo "status=snapshot_failure" >> "$GITHUB_OUTPUT"
-            exit 0
-          fi
-
-          # Non-snapshot failures should fail this job and require human action.
-          echo "status=non_snapshot_failure" >> "$GITHUB_OUTPUT"
-          exit 1
+          echo "status=failed" >> "$GITHUB_OUTPUT"
 
       - name: Update snapshots
-        if: steps.test-run.outputs.status == 'snapshot_failure'
+        if: steps.test-run.outputs.status == 'failed'
         run: pnpm test -u
 
       - name: Ensure only snapshot files changed
-        if: steps.test-run.outputs.status == 'snapshot_failure'
+        if: steps.test-run.outputs.status == 'failed'
         shell: bash
         run: |
-          changed_files="$(git diff --name-only)"
-          # Nothing changed after update command -> nothing to commit.
+          changed_files="$(git status --porcelain=v1 --untracked-files=all | cut -c4-)"
           if [ -z "$changed_files" ]; then
-            echo "No file changes after snapshot update."
-            exit 0
+            echo "Tests failed, but updating snapshots produced no changes."
+            exit 1
           fi
 
           # Safety gate: only allow known snapshot file patterns.
@@ -142,18 +136,31 @@ jobs:
             exit 1
           fi
 
+      - name: Verify tests pass with updated snapshots
+        if: steps.test-run.outputs.status == 'failed'
+        run: pnpm test
+
       - name: Commit and push snapshot updates
-        if: steps.test-run.outputs.status == 'snapshot_failure'
+        id: snapshot-commit
+        if: steps.test-run.outputs.status == 'failed'
         shell: bash
         run: |
-          # Avoid empty commits if rerun has no diffs.
-          if git diff --quiet; then
-            echo "No snapshot updates to commit."
-            exit 0
-          fi
-
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add -A
           git commit -m "test: update snapshots"
           git push
+          echo "pushed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Run CI for the snapshot commit
+        if: steps.snapshot-commit.outputs.pushed == 'true'
+        uses: actions/github-script@v9
+        env:
+          HEAD_REF: ${{ github.event_name == 'pull_request_target' && github.event.pull_request.head.ref || github.event_name == 'issue_comment' && steps.pr-head.outputs.ref || github.event.inputs.branch }}
+        with:
+          script: |
+            await github.rest.actions.createWorkflowDispatch({
+              ...context.repo,
+              workflow_id: 'ci.yml',
+              ref: process.env.HEAD_REF,
+            });

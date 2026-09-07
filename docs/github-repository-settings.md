@@ -9,7 +9,7 @@ repository administrator.
 - Create an active branch ruleset for `main` and `next`, require pull requests
   before merging, and require these checks:
   - `Lint and dependency boundaries`
-  - `Unit tests`
+  - `Unit tests and coverage`
   - `Storybook tests`
   - `Package smoke tests`
   - `Dependency review`

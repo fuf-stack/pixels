@@ -36,6 +36,12 @@ not add an override without documenting why one version must be forced. Run
 `pnpm check`, with extra package-consumer or migration tests when behavior or
 published declarations can change.
 
+When a Renovate pull request fails only because committed Vitest snapshots are
+out of date, comment `/autofix-snapshots` on the pull request or add the
+`autofix:snapshots` label. The snapshot autofix workflow runs the test suite in
+update mode, refuses to commit non-snapshot changes, verifies the updated suite,
+pushes the snapshot commit to the Renovate branch, and dispatches CI for it.
+
 ## Visual and accessibility verification
 
 Use Storybook to cover meaningful states, themes, responsive behavior, and
