@@ -24,8 +24,6 @@ jobs:
     steps:
       - uses: actions/checkout@v7
       - uses: ./.github/actions/setup-project
-        with:
-          build: 'false'
       - run: pnpm check:boundaries
       - run: pnpm lint
 
@@ -37,8 +35,6 @@ jobs:
     steps:
       - uses: actions/checkout@v7
       - uses: ./.github/actions/setup-project
-        with:
-          build: 'false'
       - run: pnpm test
       - name: Upload coverage reports
         uses: actions/upload-artifact@v7
@@ -54,8 +50,6 @@ jobs:
     steps:
       - uses: actions/checkout@v7
       - uses: ./.github/actions/setup-project
-        with:
-          build: 'false'
       - name: Install Playwright browser
         run: pnpm exec playwright install --with-deps chromium
       - run: pnpm test:storybook
