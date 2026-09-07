@@ -16,31 +16,60 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  lint:
+    name: Lint and dependency boundaries
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v7
+      - uses: ./.github/actions/setup-project
+        with:
+          build: 'false'
+      - run: pnpm check:boundaries
+      - run: pnpm lint
+
   test:
-    name: Test
+    name: Unit tests
     runs-on: ubuntu-latest
     timeout-minutes: 15
 
     steps:
-      # Clone the repository at the pushed ref.
       - uses: actions/checkout@v7
-
-      # Install pnpm + node, restore deps, build all packages.
       - uses: ./.github/actions/setup-project
-
-      - name: Install Playwright browser
-        run: pnpm exec playwright install --with-deps chromium
-
-      # One definition of done for local development, agents, and CI.
-      - name: Run repository checks
-        run: pnpm check
-
-      # Persist coverage for the sonar job to consume.
+        with:
+          build: 'false'
+      - run: pnpm test
       - name: Upload coverage reports
         uses: actions/upload-artifact@v7
         with:
           name: coverage-report
           path: coverage/
+
+  storybook:
+    name: Storybook tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@v7
+      - uses: ./.github/actions/setup-project
+        with:
+          build: 'false'
+      - name: Install Playwright browser
+        run: pnpm exec playwright install --with-deps chromium
+      - run: pnpm test:storybook
+
+  package-smoke:
+    name: Package smoke tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@v7
+      # Package verification consumes the built publishable artifacts.
+      - uses: ./.github/actions/setup-project
+      - run: pnpm verify:packages
 
   sonar:
     name: Sonarqube Analysis

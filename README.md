@@ -37,6 +37,9 @@ It validates dependency boundaries, linting, declaration-producing package
 builds, unit tests, Storybook browser tests, published tarball contents, and a
 clean consumer installation of every published package. All checks run even if
 an earlier one fails; the final exit status is non-zero if any check failed.
+CI runs the same stages as separate jobs so linting, unit tests, Storybook, and
+package smoke tests can execute in parallel.
+
 Install Chromium once before the first local Storybook run:
 
 ```sh

@@ -6,9 +6,14 @@ repository administrator.
 
 ## Required settings
 
-- Create an active branch ruleset for `main` and `next`. Require the `Test`,
-  `Dependency review`, and `Analyze JavaScript and TypeScript` checks and require
-  pull requests before merging.
+- Create an active branch ruleset for `main` and `next`, require pull requests
+  before merging, and require these checks:
+  - `Lint and dependency boundaries`
+  - `Unit tests`
+  - `Storybook tests`
+  - `Package smoke tests`
+  - `Dependency review`
+  - `Analyze JavaScript and TypeScript`
 - In that ruleset, enable **Automatically request Copilot code review**. Leave
   draft reviews disabled so the first automatic review occurs when a pull
   request leaves draft. Decide separately whether every new push needs review.

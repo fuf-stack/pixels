@@ -1,6 +1,12 @@
 name: 'Setup project'
 description: 'Sets up node and installs node_modules with pnpm'
 
+inputs:
+  build:
+    description: 'Build workspace packages after installing dependencies'
+    required: false
+    default: 'true'
+
 runs:
   using: composite
   steps:
@@ -24,5 +30,6 @@ runs:
         PNPM_CONFIG_STRICT_DEP_BUILDS: false
 
     - name: Build packages
+      if: ${{ inputs.build == 'true' }}
       shell: bash
       run: pnpm build
