@@ -70,6 +70,9 @@ export const useLocalStorage = <T>(
   };
 
   useEffect(() => {
+    // Re-read after mounting so changes made between initialization and the
+    // first committed render are reflected before listeners take over.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setStoredValue(readValue());
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

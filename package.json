@@ -3,13 +3,18 @@
   "packageManager": "pnpm@12.1.0",
   "scripts": {
     "build": "pnpm turbo build",
+    "check": "node scripts/check.mjs",
+    "check:boundaries": "node scripts/check-dependency-boundaries.mjs",
     "commit": "lint-staged && git-cz",
     "dev": "lerna run --parallel dev",
     "fix": "eslint --debug --fix packages || true && prettier --write \"packages/**/*\"",
-    "lint": "eslint --debug ./packages",
+    "lint": "eslint ./packages",
+    "lint:debug": "eslint --debug ./packages",
     "test": "FORCE_COLOR=1 vitest run --coverage $VITEST_EXTRA_OPTS",
-    "test:storybook": "pnpm exec playwright install chromium && test-storybook --coverage --config-dir packages/config/storybook-config/.storybook --maxWorkers=4 && nyc report --reporter=lcov -t coverage/storybook --report-dir coverage/storybook",
-    "turbo": "TURBO_TELEMETRY_DISABLED=1 FORCE_COLOR=1 turbo --cache-dir ./.turbo-cache --color"
+    "test:storybook": "vitest run --config packages/config/storybook-config/vitest.config.ts --project=storybook --maxWorkers=4",
+    "typecheck": "pnpm build",
+    "turbo": "TURBO_TELEMETRY_DISABLED=1 FORCE_COLOR=1 turbo --cache-dir ./.turbo-cache --color",
+    "verify:packages": "node scripts/verify-packages.mjs"
   },
   "devDependencies": {
     "@fuf-stack/eslint-config-fuf": "2.0.6",

@@ -1,3 +1,5 @@
+/* eslint-disable import-x/namespace -- The resolver cannot enumerate framer-motion's wildcard exports; this file verifies them at runtime. */
+
 import { describe, expect, it } from 'vitest';
 
 import * as OriginalFramerMotion from 'framer-motion';

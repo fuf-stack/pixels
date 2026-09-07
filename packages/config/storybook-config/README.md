@@ -22,7 +22,6 @@ consistent config instead of duplicating Storybook boilerplate.
 - `story-snapshots.ts`: deterministic story snapshot helper for Vitest.
 - `.storybook/main.ts`: consumer-facing Storybook main wrapper.
 - `.storybook/preview.tsx`: consumer-facing preview wrapper.
-- `.storybook/test-runner.ts`: test-runner bridge.
 
 ## Notes
 

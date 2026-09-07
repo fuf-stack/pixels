@@ -11,6 +11,7 @@ import { isTestEnvironment } from '@fuf-stack/pixel-utils';
  * @returns The debounced value
  */
 export const useDebounce = <Value>(value: Value, delay: number) => {
+  const skipDebounce = isTestEnvironment();
   // State and setters for debounced value
   const [debouncedValue, setDebouncedValue] = useState(value);
   // Track if component is mounted to prevent setState on unmounted component
@@ -28,9 +29,8 @@ export const useDebounce = <Value>(value: Value, delay: number) => {
   useEffect(
     () => {
       // In test environments, skip debouncing for immediate snapshots
-      if (isTestEnvironment()) {
-        setDebouncedValue(value);
-        return;
+      if (skipDebounce) {
+        return undefined;
       }
 
       // Update debounced value after delay
@@ -44,13 +44,12 @@ export const useDebounce = <Value>(value: Value, delay: number) => {
       // Cancel the timeout if value changes (also on delay change or unmount)
       // This is how we prevent debounced value from updating if value is changed ...
       // .. within the delay period. Timeout gets cleared and restarted.
-      // eslint-disable-next-line consistent-return
       return () => {
         clearTimeout(handler);
       };
     },
-    [value, delay], // Only re-call effect if value or delay changes
+    [value, delay, skipDebounce], // Only re-call effect if value or delay changes
   );
 
-  return debouncedValue;
+  return skipDebounce ? value : debouncedValue;
 };

@@ -1,10 +1,14 @@
 name: ci
 
-# only on push in branches
 on:
   push:
     branches:
-      - '**'
+      - main
+      - next
+  pull_request:
+
+permissions:
+  contents: read
 
 # Cancel in-progress runs when a new workflow is triggered
 concurrency:
@@ -24,14 +28,12 @@ jobs:
       # Install pnpm + node, restore deps, build all packages.
       - uses: ./.github/actions/setup-project
 
-      # Run the full vitest suite across all packages with coverage.
-      - name: Run tests
-        run: pnpm test
+      - name: Install Playwright browser
+        run: pnpm exec playwright install --with-deps chromium
 
-      # Declaration-emit smoke test: catches `TS4023` regressions in
-      # veto's bundled `dist/index.d.ts`. See: packages/veto/test/dts-smoke/.
-      - name: Run dts smoke test
-        run: pnpm --filter @fuf-stack/veto test:dts
+      # One definition of done for local development, agents, and CI.
+      - name: Run repository checks
+        run: pnpm check
 
       # Persist coverage for the sonar job to consume.
       - name: Upload coverage reports
@@ -42,8 +44,8 @@ jobs:
 
   sonar:
     name: Sonarqube Analysis
-    # Only run sonar if we're not on a renovate or release-please branch
-    if: ${{ !startsWith(github.ref, 'refs/heads/renovate/') && !startsWith(github.ref, 'refs/heads/release-please') }}
+    # SONAR_TOKEN is unavailable to fork PRs, so analysis remains push-only.
+    if: ${{ github.event_name == 'push' && !startsWith(github.ref, 'refs/heads/renovate/') && !startsWith(github.ref, 'refs/heads/release-please') }}
     needs: [test]
     runs-on: ubuntu-latest
     timeout-minutes: 10

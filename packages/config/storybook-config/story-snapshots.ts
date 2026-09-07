@@ -65,9 +65,13 @@ const compose = (
 ): ReturnType<typeof composeStories<StoryFile>> => {
   try {
     return composeStories(entry);
-  } catch (e) {
+  } catch (error) {
+    // ErrorOptions.cause is available in the repository's Node toolchain; the
+    // shared lint config still targets the broader Node 16.0 baseline.
+    // eslint-disable-next-line n/no-unsupported-features/es-syntax
     throw new Error(
-      `There was an issue composing stories for the module: ${JSON.stringify(entry)}, ${e}`,
+      `There was an issue composing stories for the module: ${JSON.stringify(entry)}, ${error}`,
+      { cause: error },
     );
   }
 };

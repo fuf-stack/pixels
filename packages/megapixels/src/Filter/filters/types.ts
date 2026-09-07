@@ -89,8 +89,14 @@ export interface FilterInstance<Config, Value> {
  * and FiltersContext. Each entry is a concrete FilterInstance (already created
  * via a filter factory), carrying its merged config, default value, UI
  * components, and validate function.
+ *
+ * The collection is intentionally heterogeneous: each entry can have a
+ * different configuration and value type, so their generic types are erased
+ * at this shared boundary.
  */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export type FiltersConfiguration = FilterInstance<any, any>[];
+/* eslint-enable @typescript-eslint/no-explicit-any */
 
 /**
  * FilterDisplayProps

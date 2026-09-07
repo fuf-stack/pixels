@@ -1,0 +1,36 @@
+name: Breaking change
+description: Propose an intentional incompatible public API or behavior change.
+title: 'breaking: '
+labels: [breaking]
+body:
+  - type: input
+    id: packages
+    attributes:
+      label: Affected packages
+    validations:
+      required: true
+  - type: textarea
+    id: rationale
+    attributes:
+      label: Why a breaking change is necessary
+    validations:
+      required: true
+  - type: textarea
+    id: breakage
+    attributes:
+      label: Affected consumers and behavior
+    validations:
+      required: true
+  - type: textarea
+    id: migration
+    attributes:
+      label: Migration plan
+      description: Include before/after usage, compatibility options, and release sequencing.
+    validations:
+      required: true
+  - type: textarea
+    id: verification
+    attributes:
+      label: Verification and rollout
+    validations:
+      required: true

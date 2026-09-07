@@ -6,7 +6,7 @@ import type {
   UseFormSetValue,
 } from 'react-hook-form';
 
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 
 import { useFormContext } from '../useFormContext/useFormContext';
 
@@ -93,20 +93,35 @@ export const useWatchUserChange = <
   const { setValue, resetField, reset, userChange } =
     useFormContext<TFieldValues>();
 
+  // Callers commonly pass an inline callback, and useFormContext may return new
+  // helper wrappers after a form render. Keep their latest values in a ref so
+  // those identity changes do not tear down and recreate the subscription.
+  const callbackRef = useRef({ onChange, reset, resetField, setValue });
+
+  useEffect(() => {
+    callbackRef.current = { onChange, reset, resetField, setValue };
+  }, [onChange, reset, resetField, setValue]);
+
+  // The subscribe function is stable even when the surrounding userChange
+  // object is reconstructed. Depending on it directly keeps one active listener.
+  const { subscribe } = userChange;
+
   useEffect(() => {
     // Create listener that checks if changed field is the one we're watching
     const listener = (fieldName: Path<TFieldValues>, value: unknown) => {
       // Check if this is the field we're watching
       if (fieldName === watchField) {
-        // Call the onChange callback with helpers
-        onChange(value, { setValue, resetField, reset });
+        // Read at notification time so the stable listener never closes over a
+        // stale callback or stale form helpers.
+        const { onChange: callback, ...helpers } = callbackRef.current;
+        callback(value, helpers);
       }
     };
 
     // Subscribe to user changes
-    const unsubscribe = userChange.subscribe(listener);
+    const unsubscribe = subscribe(listener);
 
     // Cleanup on unmount
     return unsubscribe;
-  }, [watchField, onChange, setValue, resetField, reset, userChange]);
+  }, [subscribe, watchField]);
 };

@@ -1,0 +1,44 @@
+name: New component or package
+description: Propose a reusable component or a new independently released package.
+title: 'proposal: '
+labels: [enhancement]
+body:
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Proposal type
+      options:
+        [
+          Pixels component,
+          Uniform field,
+          Megapixels component,
+          Atelier feature,
+          New package,
+        ]
+    validations:
+      required: true
+  - type: textarea
+    id: use_cases
+    attributes:
+      label: Use cases and scope
+    validations:
+      required: true
+  - type: textarea
+    id: api
+    attributes:
+      label: Proposed API and examples
+    validations:
+      required: true
+  - type: textarea
+    id: states
+    attributes:
+      label: States, interactions, and accessibility
+      description: Include keyboard, focus, responsive, loading, empty, and error behavior where relevant.
+    validations:
+      required: true
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Package ownership and dependencies
+    validations:
+      required: true

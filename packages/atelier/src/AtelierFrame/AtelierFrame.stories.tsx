@@ -191,7 +191,11 @@ export const CustomSlotsAndStyles: Story = {
           Tenant: <strong>fuf-stack</strong>
         </div>
       ),
-      userMenu: <button className="text-xs underline">Sign out</button>,
+      userMenu: (
+        <button className="text-xs underline" type="button">
+          Sign out
+        </button>
+      ),
     },
   },
 };

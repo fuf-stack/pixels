@@ -4,9 +4,9 @@ import storySnapshots from '@repo/storybook-config/story-snapshots';
 
 import * as stories from './RadioTabs.stories';
 
-// TODO: Investigate hanging behavior in the full monorepo run.
-// We repeatedly see this suite stuck around "src/RadioTabs/RadioTabs.test.tsx 4/11"
-// (while isolated story/name runs pass), so this is skipped temporarily to unblock CI.
+// TODO(#1873): Re-enable with the browser stories when the runner isolation issue is fixed.
+// Both runners can deadlock while advancing through this story module. See the
+// matching `test-exclude` tag in RadioTabs.stories.tsx.
 describe.skip('Story Snapshots', () => {
   storySnapshots(stories);
 });

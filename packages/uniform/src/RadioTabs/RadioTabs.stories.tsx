@@ -14,6 +14,11 @@ import RadioTabs from './RadioTabs';
 const meta: Meta<typeof RadioTabs> = {
   title: 'uniform/RadioTabs',
   component: RadioTabs,
+  // TODO(#1873): Remove this exclusion when the runner isolation issue is fixed.
+  // Both the JSDOM snapshot suite and Storybook's Chromium suite can deadlock
+  // while advancing through this module. Individual stories often pass, but
+  // the complete module is not reliable enough to run in CI yet.
+  tags: ['test-exclude'],
   decorators: [
     (Story, { parameters }) => {
       return (

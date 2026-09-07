@@ -332,10 +332,13 @@ export const EdgeCaseMenuIsVisibleInCard: Story = {
     const dropdown = body.getByTestId('selectfield_select_dropdown')
       .parentElement as HTMLElement;
     await userEvent.click(dropdown, { delay: 100 });
-    // check that select menu option is visible
-    await expect(
-      body.getByTestId('selectfield_select_option_vanilla'),
-    ).toBeVisible();
+    // The option portal is inserted before the menu transition finishes.
+    // Wait for visibility so parallel browser workers do not race the animation.
+    await waitFor(() => {
+      expect(
+        body.getByTestId('selectfield_select_option_vanilla'),
+      ).toBeVisible();
+    });
   },
 };
 
@@ -376,10 +379,13 @@ export const EdgeCaseMenuIsVisibleInModal: Story = {
     const dropdown = body.getByTestId('selectfield_select_dropdown')
       .parentElement as HTMLElement;
     await userEvent.click(dropdown, { delay: 100 });
-    // check that select menu option is visible
-    await expect(
-      body.getByTestId('selectfield_select_option_vanilla'),
-    ).toBeVisible();
+    // The option portal is inserted before the modal/menu transition finishes.
+    // Wait for visibility so parallel browser workers do not race the animation.
+    await waitFor(() => {
+      expect(
+        body.getByTestId('selectfield_select_option_vanilla'),
+      ).toBeVisible();
+    });
   },
 };
 

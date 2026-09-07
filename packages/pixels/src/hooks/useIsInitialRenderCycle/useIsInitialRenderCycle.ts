@@ -19,5 +19,8 @@ export const useIsInitialRenderCycle = (): boolean => {
     // No cleanup needed for this effect
   }, []);
 
+  // Reading this mount marker is the purpose of the hook; it never drives a
+  // mutation during render and changes only after the initial commit.
+  // eslint-disable-next-line react-hooks/refs
   return isInitialRender.current;
 };

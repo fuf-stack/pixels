@@ -34,7 +34,7 @@ export const useFilterValidation = (
         .optional()
         .nullable()
         // transform null to undefined
-        .transform((val) => {
+        .transform((val: unknown) => {
           return val ?? undefined;
         }),
       // optional search validation

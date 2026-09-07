@@ -41,6 +41,10 @@ jobs:
         uses: ./.github/actions/setup-project
         if: steps.release.outputs.releases_created == 'true'
 
+      - name: Verify publish artifacts
+        run: pnpm verify:packages
+        if: steps.release.outputs.releases_created == 'true'
+
       - name: Publish to npm
         run: |
           # Use npm publish via Lerna for trusted publishing support
@@ -66,6 +70,7 @@ jobs:
           # scripts (`prepack`) to avoid package-local installs resolving newly bumped
           # internal versions before they are published.
           NPM_CONFIG_IGNORE_SCRIPTS: 'true'
+          NPM_CONFIG_PROVENANCE: 'true'
         # Note: If you have private npm dependencies, you may need NODE_AUTH_TOKEN
         # for installing dependencies only (not for publishing)
         # env:

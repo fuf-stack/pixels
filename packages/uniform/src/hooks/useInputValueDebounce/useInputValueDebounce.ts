@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useRef, useState } from 'react';
 
 import { useFormContext } from '../useFormContext';
 
@@ -72,13 +72,16 @@ export const useInputValueDebounce = <TValue = unknown>({
 
   // Track value for synchronous updates
   const [currentValue, setCurrentValue] = useState<TValue>(value);
+  const [lastExternalValue, setLastExternalValue] = useState<TValue>(value);
 
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
-  // Sync with external value changes
-  useEffect(() => {
+  // Keep the displayed value in sync during the same render when the form
+  // replaces it (for example after reset), without an extra effect render.
+  if (!Object.is(lastExternalValue, value)) {
+    setLastExternalValue(value);
     setCurrentValue(value);
-  }, [value]);
+  }
 
   // Enhanced onChange handler with debouncing
   const handleChange = useCallback(

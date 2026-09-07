@@ -1,0 +1,32 @@
+name: Public API proposal
+description: Propose a new export, prop, type, hook, or behavior contract.
+title: 'api: '
+labels: [enhancement]
+body:
+  - type: input
+    id: packages
+    attributes:
+      label: Affected packages
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Consumer problem
+      description: Describe the use case without assuming a particular API.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed API
+      description: Include TypeScript usage and expected runtime behavior.
+    validations:
+      required: true
+  - type: textarea
+    id: compatibility
+    attributes:
+      label: Compatibility and alternatives
+      description: Cover existing APIs, migration, versioning, and rejected alternatives.
+    validations:
+      required: true

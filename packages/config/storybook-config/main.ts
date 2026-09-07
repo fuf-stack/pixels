@@ -1,12 +1,5 @@
 import type { StorybookConfig } from '@storybook/react-vite';
 
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
-
-// Get __dirname equivalent in ES modules
-// eslint-disable-next-line @typescript-eslint/naming-convention
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-
 const config: StorybookConfig = {
   // this has to be defined where shared config is used
   stories: [],
@@ -14,18 +7,7 @@ const config: StorybookConfig = {
     '@storybook/addon-a11y',
     '@storybook/addon-docs',
     '@storybook/addon-links',
-    // '@storybook/addon-vitest',
-    {
-      name: '@storybook/addon-coverage',
-      options: {
-        istanbul: {
-          // coverage paths should be from project root
-          cwd: path.resolve(__dirname, '../../'),
-          // exclude files from coverage report
-          exclude: ['**/__generated__/*', '**/*.cy.*', '**/*.stories.*'],
-        },
-      },
-    },
+    '@storybook/addon-vitest',
     // see: https://www.npmjs.com/package/@vueless/storybook-dark-mode
     '@vueless/storybook-dark-mode',
   ],

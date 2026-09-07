@@ -34,6 +34,12 @@ Both config files use the Node workspace plugin and track packages under `packag
 3. When a release PR is merged and `releases_created == 'true'`, publish steps run.
 4. CI checks out the repo, runs the shared project setup action, and publishes to npm.
 
+Before publishing, CI runs `pnpm verify:packages` against every publishable
+workspace package. The check inspects packed files and declarations, rejects
+unresolved `workspace:` ranges, installs all tarballs into a clean consumer
+fixture, and type-checks every public JavaScript entry point through the package
+resolver.
+
 If no release is created, the publish steps are skipped.
 
 ## Why we publish with Lerna
@@ -69,3 +75,7 @@ The release job requires:
 - `contents: write`
 - `pull-requests: write`
 - `id-token: write` (required for npm trusted publishing via OIDC)
+
+Publishing sets npm provenance explicitly. The npm trusted-publisher settings
+must restrict each package to this repository and `.github/workflows/release-please.yml`;
+see `github-repository-settings.md` for the administrator checklist.
