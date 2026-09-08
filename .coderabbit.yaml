@@ -1,0 +1,39 @@
+# yaml-language-server: $schema=https://coderabbit.ai/integrations/schema.v2.json
+
+language: en-US
+
+reviews:
+  profile: chill
+  request_changes_workflow: false
+  high_level_summary: true
+  poem: false
+  review_status: true
+
+  auto_review:
+    enabled: true
+    drafts: false
+    auto_incremental_review: true
+    auto_pause_after_reviewed_commits: 3
+    ignore_title_keywords:
+      - WIP
+      - DO NOT MERGE
+      - '[skip review]'
+
+  # CodeRabbit already ignores dependency directories, lockfiles, binaries, and
+  # common generated output. These repository-specific paths keep local reports
+  # and caches out of review as well.
+  path_filters:
+    - '!**/coverage/**'
+    - '!**/.turbo-cache/**'
+    - '!**/storybook-static/**'
+    - '!**/*.tsbuildinfo'
+
+  tools:
+    github-checks:
+      enabled: true
+
+  # Start in advisory mode. Failed-check analysis remains enabled, but applying
+  # a generated fix should stay a deliberate developer action during the trial.
+  finishing_touches:
+    fix_ci:
+      enabled: false
