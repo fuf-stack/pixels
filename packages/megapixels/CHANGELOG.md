@@ -1,5 +1,27 @@
 # Changelog
 
+## [0.17.0](https://github.com/fuf-stack/pixels/compare/megapixels-v0.16.1...megapixels-v0.17.0) (2026-09-11)
+
+
+### Features
+
+* expand verification and contribution tooling ([cf200f0](https://github.com/fuf-stack/pixels/commit/cf200f0f6985e010b34b81eed494356c27099d55))
+
+
+### Bug Fixes
+
+* **deps:** update dependency @tanstack/react-virtual to v3.14.10 ([#1852](https://github.com/fuf-stack/pixels/issues/1852)) ([b47c480](https://github.com/fuf-stack/pixels/commit/b47c480428d8d987981a92b6daea5b3edb5bc057))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @fuf-stack/pixel-motion bumped to 1.4.0
+    * @fuf-stack/pixels bumped to 1.14.0
+    * @fuf-stack/uniform bumped to 1.27.0
+    * @fuf-stack/veto bumped to 1.11.0
+
 ## [0.16.1](https://github.com/fuf-stack/pixels/compare/megapixels-v0.16.0...megapixels-v0.16.1) (2026-08-13)
 
 

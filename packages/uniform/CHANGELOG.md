@@ -1,5 +1,26 @@
 # Changelog
 
+## [1.27.0](https://github.com/fuf-stack/pixels/compare/uniform-v1.26.1...uniform-v1.27.0) (2026-09-11)
+
+
+### Features
+
+* expand verification and contribution tooling ([cf200f0](https://github.com/fuf-stack/pixels/commit/cf200f0f6985e010b34b81eed494356c27099d55))
+
+
+### Bug Fixes
+
+* **deps:** update dependency @internationalized/date to v3.12.4 ([#1878](https://github.com/fuf-stack/pixels/issues/1878)) ([c9af25a](https://github.com/fuf-stack/pixels/commit/c9af25a46a4c6d6fed011dbcf208ef7a59d70ded))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @fuf-stack/pixel-motion bumped to 1.4.0
+    * @fuf-stack/pixels bumped to 1.14.0
+    * @fuf-stack/veto bumped to 1.11.0
+
 ## [1.26.1](https://github.com/fuf-stack/pixels/compare/uniform-v1.26.0...uniform-v1.26.1) (2026-08-13)
 
 

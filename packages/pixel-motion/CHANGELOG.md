@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.0](https://github.com/fuf-stack/pixels/compare/pixel-motion-v1.3.2...pixel-motion-v1.4.0) (2026-09-11)
+
+
+### Features
+
+* expand verification and contribution tooling ([cf200f0](https://github.com/fuf-stack/pixels/commit/cf200f0f6985e010b34b81eed494356c27099d55))
+
 ## [1.3.2](https://github.com/fuf-stack/pixels/compare/pixel-motion-v1.3.1...pixel-motion-v1.3.2) (2026-08-13)
 
 
