@@ -30,6 +30,14 @@ visual changes.
 
 ## Dependency upgrade
 
+Renovate and pnpm use a 14-day minimum release age for registry packages.
+Both exempt `@fuf-stack/*` so freshly published internal packages can be
+updated and installed immediately. pnpm strictly enforces the delay for other
+direct and transitive dependencies. Keep `minimumReleaseAge` aligned in
+`renovate.json5` (`14 days`) and `pnpm-workspace.yaml` (`20160` minutes).
+Existing non-exempt lockfile entries that are too new remain blocked until they
+mature or are replaced with compatible older versions.
+
 Let Renovate update exact pins and the lockfile. Review release notes for API,
 type, browser, and peer-range changes; inspect every workspace consumer; and do
 not add an override without documenting why one version must be forced. Run
