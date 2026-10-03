@@ -1,4 +1,3 @@
-# see: https://pnpm.io/next/npmrc#auto-install-peers
 autoInstallPeers: true
 
 # Match Renovate's 14-day delay and enforce it for direct and transitive
@@ -69,4 +68,4 @@ overrides:
   # variant classes (e.g. bordered/ghost/faded losing `border-medium` in snapshots).
   # Pinning both avoids that split runtime behavior.
   tailwind-merge: 3.6.0
-  tailwind-variants: 3.2.2
+  tailwind-variants: 3.3.1
