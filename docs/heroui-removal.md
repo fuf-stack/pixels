@@ -1,6 +1,6 @@
 # HeroUI removal: implementation inventory
 
-Status: styling/token foundations and production Input/TextArea/Select/Switch migrated; remaining components and final theme removal pending.
+Status: owned styling/tokens, Input/TextArea/Select/Switch/SwitchBox, array/card groups and radio families migrated; remaining fields and final theme removal pending.
 This is a staged breaking migration. It is not ready for a HeroUI-free release.
 The only agreed breaking changes are consumer theme setup and removal of
 `uniform/hooks/useInput`; other exported props, recipes, slots, and storage
@@ -306,3 +306,36 @@ Final `pnpm check` passed all six gates with 1,503 unit tests (12 skipped), 443
 browser stories and seven packed consumers. Eleven consumer DOM snapshots were
 reviewed and updated. The audit records light invalid-state contrast; the other
 audited SwitchBox states have no findings.
+
+## Owned radio families (2026-10-15)
+
+Radios and RadioBoxes now use owned React Aria radio groups and option controls.
+Their existing option descriptors, custom list rendering, numeric conversion,
+registered values, reset behavior, disabled options and styling slots remain
+available. Label/help/error IDs associate with the group and editable inputs;
+invalid submission focuses an enabled input. RadioBoxes also associates option
+descriptions. The compatibility-only RadioBox prop type still references the
+existing HeroUI type; its production renderer no longer invokes HeroUI hooks.
+
+RadioTabs now owns its tab engine and presentation within Uniform. Investigation
+of the existing #1873 runner hang found an infinite loop in the older Tabs
+keyboard delegate when every tab is disabled. The React Aria foundation already
+used by Uniform has the terminating traversal. Moving RadioTabs onto it fixes
+that case without changing Pixels. All eleven previously excluded RadioTabs
+stories now run in both snapshot and browser suites. Numeric/boolean values,
+conditional panels, reset, keyboard selection, disabled state and actual error
+focus are checked; disabled RHF fields retain their existing submission omission.
+Its public slots and four variants remain available, with measured cursor
+placement and reduced-motion styling. The tab selection field uses a named group
+and tab list rather than an empty radiogroup. Required selection is described
+accessibly, and help/errors associate with the editable tabs.
+
+All 18 captured light/dark group/option geometry comparisons match the baseline.
+Browser checks additionally cover configured option typography and all four tab
+variants. The 22-state accessibility audit records invalid-state contrast;
+other audited states have no findings. Pixels and application migrations remain
+outside this phase.
+
+Final `pnpm check` passed all six gates: 1,523 unit tests (one skipped), 460 browser
+stories and seven packed consumers. The DataTable filter consumer snapshot was
+updated for the owned radio markup; no application implementation was migrated.

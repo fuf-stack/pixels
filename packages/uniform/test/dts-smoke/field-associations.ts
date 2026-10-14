@@ -1,10 +1,15 @@
 import type { InputProps } from '@fuf-stack/uniform/Input';
+import type { RadioBoxesProps } from '@fuf-stack/uniform/RadioBoxes';
+import type { RadiosProps } from '@fuf-stack/uniform/Radios';
+import type { RadioTabsProps } from '@fuf-stack/uniform/RadioTabs';
 import type { SelectProps } from '@fuf-stack/uniform/Select';
 import type { SwitchProps } from '@fuf-stack/uniform/Switch';
 import type { SwitchBoxProps } from '@fuf-stack/uniform/SwitchBox';
 import type { TextAreaProps } from '@fuf-stack/uniform/TextArea';
 
 import { useUniformField } from '@fuf-stack/uniform/hooks/useUniformField';
+
+type OptionNode = ReturnType<NonNullable<RadiosProps['children']>>;
 
 // Exercise the existing input contract against the packed declarations.
 export const inputProps: InputProps = {
@@ -86,3 +91,24 @@ export default function useEditorField() {
   useUniformField<{ editor: string }>({ name: 'missing' });
   return { id, ariaRequired };
 }
+
+export const radiosProps: RadiosProps = {
+  name: 'choice',
+  description: 'Pick one.',
+  options: [{ value: 0, meta: { example: true } }],
+  className: { itemLabel: 'text-option' },
+  children: (items): OptionNode => items.map(({ radio }): OptionNode => radio),
+};
+export const radioBoxesProps: RadioBoxesProps = {
+  name: 'choice',
+  description: 'Pick one.',
+  options: [{ value: 0, description: 'Zero' }],
+  className: { boxControl: 'bg-danger' },
+};
+export const radioTabsProps: RadioTabsProps = {
+  name: 'choice',
+  description: 'Pick one.',
+  options: [{ value: false, content: 'No' }],
+  variant: 'underlined',
+  className: { tabContent: 'text-option' },
+};

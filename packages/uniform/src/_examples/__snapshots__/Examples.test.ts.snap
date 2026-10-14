@@ -1147,276 +1147,167 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                     </div>
                   </div>
                   <div
-                    aria-label="Radio Field"
+                    aria-labelledby="uniform-«replaced-aria-id»-label"
                     aria-orientation="horizontal"
                     aria-required="true"
-                    class="relative gap-2 group flex w-full flex-col gap-y-1.5"
+                    class="relative group flex w-full flex-col gap-y-1.5"
                     data-invalid="false"
+                    data-orientation="horizontal"
+                    data-rac=""
                     data-required="true"
+                    data-slot="base"
                     data-testid="radiofield"
-                    id="react-aria-«replaced-aria-id»"
+                    id="uniform-«replaced-aria-id»"
                     role="radiogroup"
                   >
                     <span
-                      class="relative after:content-['*'] after:text-danger after:ml-0.5 mb-2 inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger"
+                      class="relative mb-2 inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger"
+                      data-slot="label"
+                      id="uniform-«replaced-aria-id»-label"
                     >
-                      <legend>
-                        Radio Field
-                      </legend>
+                      Radio Field
+                      <span
+                        aria-hidden="true"
+                        class="ml-0.5 text-danger"
+                      >
+                        *
+                      </span>
                     </span>
                     <div
                       class="flex flex-col flex-wrap gap-2 data-[orientation=horizontal]:flex-row"
                       data-orientation="horizontal"
-                      role="presentation"
+                      data-slot="wrapper"
                     >
                       <label
-                        aria-required="true"
-                        class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
+                        class="group relative -m-2 inline-flex max-w-fit cursor-pointer select-none items-center justify-start p-2 tap-highlight-transparent data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-disabled"
+                        data-rac=""
+                        data-react-aria-pressable="true"
+                        data-required="true"
+                        data-slot="base"
                         data-testid="radiofield_option_value0"
+                        for="«replaced-aria-id»-control"
                       >
-                        <input
-                          aria-describedby="«replaced-aria-id» react-aria-«replaced-aria-id»"
-                          aria-labelledby="«replaced-aria-id»"
-                          class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
-                          data-react-aria-pressable="true"
-                          name="radioField"
-                          required=""
-                          tabindex="-1"
-                          title=""
-                          type="radio"
-                          value="Value0"
-                        />
                         <span
-                          aria-hidden="true"
-                          class="relative inline-flex items-center justify-center shrink-0 overflow-hidden border-solid border-medium box-border border-default rounded-full group-data-[hover-unselected=true]:bg-default-100 outline-solid outline-transparent group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:border-primary w-5 h-5 group-data-[pressed=true]:scale-95 transition-transform-colors motion-reduce:transition-none group-data-[invalid=true]:border-danger! [&:not(group-data-[invalid="true"]):not(group-data-[selected="false"])]:border-focus"
-                        >
-                          <span
-                            class="z-10 opacity-0 scale-0 origin-center rounded-full group-data-[selected=true]:opacity-100 group-data-[selected=true]:scale-100 text-primary-foreground w-2 h-2 transition-transform-opacity motion-reduce:transition-none bg-focus group-data-[invalid=true]:bg-danger"
-                          />
-                        </span>
-                        <div
-                          class="flex flex-col ms-2 ml-2"
-                        >
-                          <span
-                            class="relative text-foreground select-none transition-colors motion-reduce:transition-none text-sm"
-                            id="«replaced-aria-id»"
-                          >
-                            LabelA
-                          </span>
-                        </div>
-                      </label>
-                      <label
-                        aria-required="true"
-                        class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
-                        data-testid="radiofield_option_value1"
-                      >
-                        <input
-                          aria-describedby="«replaced-aria-id» react-aria-«replaced-aria-id»"
-                          aria-labelledby="«replaced-aria-id»"
-                          class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
-                          data-react-aria-pressable="true"
-                          name="radioField"
-                          required=""
-                          tabindex="-1"
-                          title=""
-                          type="radio"
-                          value="Value1"
-                        />
-                        <span
-                          aria-hidden="true"
-                          class="relative inline-flex items-center justify-center shrink-0 overflow-hidden border-solid border-medium box-border border-default rounded-full group-data-[hover-unselected=true]:bg-default-100 outline-solid outline-transparent group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:border-primary w-5 h-5 group-data-[pressed=true]:scale-95 transition-transform-colors motion-reduce:transition-none group-data-[invalid=true]:border-danger! [&:not(group-data-[invalid="true"]):not(group-data-[selected="false"])]:border-focus"
-                        >
-                          <span
-                            class="z-10 opacity-0 scale-0 origin-center rounded-full group-data-[selected=true]:opacity-100 group-data-[selected=true]:scale-100 text-primary-foreground w-2 h-2 transition-transform-opacity motion-reduce:transition-none bg-focus group-data-[invalid=true]:bg-danger"
-                          />
-                        </span>
-                        <div
-                          class="flex flex-col ms-2 ml-2"
-                        >
-                          <span
-                            class="relative text-foreground select-none transition-colors motion-reduce:transition-none text-sm"
-                            id="«replaced-aria-id»"
-                          >
-                            LabelB
-                          </span>
-                        </div>
-                      </label>
-                      <label
-                        aria-required="true"
-                        class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
-                        data-testid="radiofield_option_value2"
-                      >
-                        <input
-                          aria-describedby="«replaced-aria-id» react-aria-«replaced-aria-id»"
-                          aria-labelledby="«replaced-aria-id»"
-                          class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
-                          data-react-aria-pressable="true"
-                          name="radioField"
-                          required=""
-                          tabindex="-1"
-                          title=""
-                          type="radio"
-                          value="Value2"
-                        />
-                        <span
-                          aria-hidden="true"
-                          class="relative inline-flex items-center justify-center shrink-0 overflow-hidden border-solid border-medium box-border border-default rounded-full group-data-[hover-unselected=true]:bg-default-100 outline-solid outline-transparent group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:border-primary w-5 h-5 group-data-[pressed=true]:scale-95 transition-transform-colors motion-reduce:transition-none group-data-[invalid=true]:border-danger! [&:not(group-data-[invalid="true"]):not(group-data-[selected="false"])]:border-focus"
-                        >
-                          <span
-                            class="z-10 opacity-0 scale-0 origin-center rounded-full group-data-[selected=true]:opacity-100 group-data-[selected=true]:scale-100 text-primary-foreground w-2 h-2 transition-transform-opacity motion-reduce:transition-none bg-focus group-data-[invalid=true]:bg-danger"
-                          />
-                        </span>
-                        <div
-                          class="flex flex-col ms-2 ml-2"
-                        >
-                          <span
-                            class="relative text-foreground select-none transition-colors motion-reduce:transition-none text-sm"
-                            id="«replaced-aria-id»"
-                          >
-                            LabelC
-                          </span>
-                        </div>
-                      </label>
-                    </div>
-                  </div>
-                  <div
-                    aria-label="Radio Box Field"
-                    aria-orientation="vertical"
-                    aria-required="true"
-                    class="relative gap-2 group flex w-full flex-col gap-y-1.5 md:col-span-2"
-                    data-invalid="false"
-                    data-required="true"
-                    data-testid="radioboxfield"
-                    id="react-aria-«replaced-aria-id»"
-                    role="radiogroup"
-                  >
-                    <span
-                      class="relative after:content-['*'] after:text-danger after:ml-0.5 mb-2 inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger"
-                    >
-                      <legend>
-                        Radio Box Field
-                      </legend>
-                    </span>
-                    <div
-                      class="flex flex-col flex-wrap gap-2 data-[orientation=horizontal]:flex-row"
-                      data-orientation="vertical"
-                      role="presentation"
-                    >
-                      <label
-                        aria-required="true"
-                        class="group inline-flex flex-auto cursor-pointer items-center justify-between gap-4 rounded-lg border-2 border-default p-4 hover:bg-content2 data-[selected=true]:border-focus"
-                        data-testid="radioboxfield_option_value0"
-                      >
-                        <div
                           style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
                         >
                           <input
-                            aria-describedby="«replaced-aria-id» react-aria-«replaced-aria-id»"
-                            aria-labelledby="«replaced-aria-id»"
-                            class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
+                            aria-labelledby="«replaced-aria-id»-label"
                             data-react-aria-pressable="true"
-                            name="radioBoxField"
-                            required=""
+                            id="«replaced-aria-id»-control"
+                            name="radioField"
                             tabindex="-1"
-                            title=""
                             type="radio"
                             value="Value0"
                           />
-                        </div>
+                        </span>
                         <span
                           aria-hidden="true"
-                          class="relative inline-flex items-center justify-center shrink-0 overflow-hidden border-solid border-medium box-border border-default rounded-full group-data-[hover-unselected=true]:bg-default-100 outline-solid outline-transparent group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:border-primary w-5 h-5 group-data-[pressed=true]:scale-95 transition-transform-colors motion-reduce:transition-none"
+                          class="relative box-border inline-flex h-5 w-5 shrink-0 items-center justify-center overflow-hidden rounded-full border-2 border-solid border-default transition-transform-colors group-data-[pressed=true]:scale-95 group-data-[invalid=true]:border-danger group-data-[invalid=true]:group-data-[selected=true]:border-danger group-data-[selected=true]:border-primary group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background motion-reduce:transition-none group-data-[invalid=true]:border-danger! [&:not(group-data-[invalid="true"]):not(group-data-[selected="false"])]:border-focus"
+                          data-slot="wrapper"
                         >
                           <span
-                            class="z-10 opacity-0 scale-0 origin-center rounded-full group-data-[selected=true]:opacity-100 group-data-[selected=true]:scale-100 bg-primary text-primary-foreground w-2 h-2 transition-transform-opacity motion-reduce:transition-none"
+                            class="z-10 h-2 w-2 origin-center scale-0 rounded-full text-primary-foreground opacity-0 transition-transform-opacity group-data-[selected=true]:scale-100 group-data-[invalid=true]:text-danger-foreground group-data-[selected=true]:opacity-100 motion-reduce:transition-none bg-focus group-data-[invalid=true]:bg-danger"
+                            data-slot="control"
                           />
                         </span>
                         <div
-                          class="flex flex-col ml-1 ms-2 grow"
+                          class="ms-2 flex flex-col ml-2"
+                          data-slot="label-wrapper"
                         >
                           <span
-                            class="relative select-none text-medium transition-colors motion-reduce:transition-none"
-                            id="«replaced-aria-id»"
+                            class="relative select-none text-foreground transition-colors motion-reduce:transition-none text-sm"
+                            data-slot="label"
+                            id="«replaced-aria-id»-label"
                           >
                             LabelA
                           </span>
                         </div>
                       </label>
                       <label
-                        aria-required="true"
-                        class="group inline-flex flex-auto cursor-pointer items-center justify-between gap-4 rounded-lg border-2 border-default p-4 hover:bg-content2 data-[selected=true]:border-focus"
-                        data-testid="radioboxfield_option_value1"
+                        class="group relative -m-2 inline-flex max-w-fit cursor-pointer select-none items-center justify-start p-2 tap-highlight-transparent data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-disabled"
+                        data-rac=""
+                        data-react-aria-pressable="true"
+                        data-required="true"
+                        data-slot="base"
+                        data-testid="radiofield_option_value1"
+                        for="«replaced-aria-id»-control"
                       >
-                        <div
+                        <span
                           style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
                         >
                           <input
-                            aria-describedby="«replaced-aria-id» react-aria-«replaced-aria-id»"
-                            aria-labelledby="«replaced-aria-id»"
-                            class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
+                            aria-labelledby="«replaced-aria-id»-label"
                             data-react-aria-pressable="true"
-                            name="radioBoxField"
-                            required=""
+                            id="«replaced-aria-id»-control"
+                            name="radioField"
                             tabindex="-1"
-                            title=""
                             type="radio"
                             value="Value1"
                           />
-                        </div>
+                        </span>
                         <span
                           aria-hidden="true"
-                          class="relative inline-flex items-center justify-center shrink-0 overflow-hidden border-solid border-medium box-border border-default rounded-full group-data-[hover-unselected=true]:bg-default-100 outline-solid outline-transparent group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:border-primary w-5 h-5 group-data-[pressed=true]:scale-95 transition-transform-colors motion-reduce:transition-none"
+                          class="relative box-border inline-flex h-5 w-5 shrink-0 items-center justify-center overflow-hidden rounded-full border-2 border-solid border-default transition-transform-colors group-data-[pressed=true]:scale-95 group-data-[invalid=true]:border-danger group-data-[invalid=true]:group-data-[selected=true]:border-danger group-data-[selected=true]:border-primary group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background motion-reduce:transition-none group-data-[invalid=true]:border-danger! [&:not(group-data-[invalid="true"]):not(group-data-[selected="false"])]:border-focus"
+                          data-slot="wrapper"
                         >
                           <span
-                            class="z-10 opacity-0 scale-0 origin-center rounded-full group-data-[selected=true]:opacity-100 group-data-[selected=true]:scale-100 bg-primary text-primary-foreground w-2 h-2 transition-transform-opacity motion-reduce:transition-none"
+                            class="z-10 h-2 w-2 origin-center scale-0 rounded-full text-primary-foreground opacity-0 transition-transform-opacity group-data-[selected=true]:scale-100 group-data-[invalid=true]:text-danger-foreground group-data-[selected=true]:opacity-100 motion-reduce:transition-none bg-focus group-data-[invalid=true]:bg-danger"
+                            data-slot="control"
                           />
                         </span>
                         <div
-                          class="flex flex-col ml-1 ms-2 grow"
+                          class="ms-2 flex flex-col ml-2"
+                          data-slot="label-wrapper"
                         >
                           <span
-                            class="relative select-none text-medium transition-colors motion-reduce:transition-none"
-                            id="«replaced-aria-id»"
+                            class="relative select-none text-foreground transition-colors motion-reduce:transition-none text-sm"
+                            data-slot="label"
+                            id="«replaced-aria-id»-label"
                           >
                             LabelB
                           </span>
                         </div>
                       </label>
                       <label
-                        aria-required="true"
-                        class="group inline-flex flex-auto cursor-pointer items-center justify-between gap-4 rounded-lg border-2 border-default p-4 hover:bg-content2 data-[selected=true]:border-focus"
-                        data-testid="radioboxfield_option_value2"
+                        class="group relative -m-2 inline-flex max-w-fit cursor-pointer select-none items-center justify-start p-2 tap-highlight-transparent data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-disabled"
+                        data-rac=""
+                        data-react-aria-pressable="true"
+                        data-required="true"
+                        data-slot="base"
+                        data-testid="radiofield_option_value2"
+                        for="«replaced-aria-id»-control"
                       >
-                        <div
+                        <span
                           style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
                         >
                           <input
-                            aria-describedby="«replaced-aria-id» react-aria-«replaced-aria-id»"
-                            aria-labelledby="«replaced-aria-id»"
-                            class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
+                            aria-labelledby="«replaced-aria-id»-label"
                             data-react-aria-pressable="true"
-                            name="radioBoxField"
-                            required=""
+                            id="«replaced-aria-id»-control"
+                            name="radioField"
                             tabindex="-1"
-                            title=""
                             type="radio"
                             value="Value2"
                           />
-                        </div>
+                        </span>
                         <span
                           aria-hidden="true"
-                          class="relative inline-flex items-center justify-center shrink-0 overflow-hidden border-solid border-medium box-border border-default rounded-full group-data-[hover-unselected=true]:bg-default-100 outline-solid outline-transparent group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:border-primary w-5 h-5 group-data-[pressed=true]:scale-95 transition-transform-colors motion-reduce:transition-none"
+                          class="relative box-border inline-flex h-5 w-5 shrink-0 items-center justify-center overflow-hidden rounded-full border-2 border-solid border-default transition-transform-colors group-data-[pressed=true]:scale-95 group-data-[invalid=true]:border-danger group-data-[invalid=true]:group-data-[selected=true]:border-danger group-data-[selected=true]:border-primary group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background motion-reduce:transition-none group-data-[invalid=true]:border-danger! [&:not(group-data-[invalid="true"]):not(group-data-[selected="false"])]:border-focus"
+                          data-slot="wrapper"
                         >
                           <span
-                            class="z-10 opacity-0 scale-0 origin-center rounded-full group-data-[selected=true]:opacity-100 group-data-[selected=true]:scale-100 bg-primary text-primary-foreground w-2 h-2 transition-transform-opacity motion-reduce:transition-none"
+                            class="z-10 h-2 w-2 origin-center scale-0 rounded-full text-primary-foreground opacity-0 transition-transform-opacity group-data-[selected=true]:scale-100 group-data-[invalid=true]:text-danger-foreground group-data-[selected=true]:opacity-100 motion-reduce:transition-none bg-focus group-data-[invalid=true]:bg-danger"
+                            data-slot="control"
                           />
                         </span>
                         <div
-                          class="flex flex-col ml-1 ms-2 grow"
+                          class="ms-2 flex flex-col ml-2"
+                          data-slot="label-wrapper"
                         >
                           <span
-                            class="relative select-none text-medium transition-colors motion-reduce:transition-none"
-                            id="«replaced-aria-id»"
+                            class="relative select-none text-foreground transition-colors motion-reduce:transition-none text-sm"
+                            data-slot="label"
+                            id="«replaced-aria-id»-label"
                           >
                             LabelC
                           </span>
@@ -1425,39 +1316,213 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                     </div>
                   </div>
                   <div
-                    style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
-                  >
-                    <input
-                      aria-label="Radio Tabs Field"
-                      name="radioTabsField"
-                      value=""
-                    />
-                  </div>
-                  <div
-                    aria-label="Radio Tabs Field"
+                    aria-labelledby="uniform-«replaced-aria-id»-label"
                     aria-orientation="vertical"
                     aria-required="true"
-                    class="relative gap-2 group flex w-full flex-col gap-y-1.5 md:col-span-2"
+                    class="relative group flex w-full flex-col gap-y-1.5 md:col-span-2"
                     data-invalid="false"
+                    data-orientation="vertical"
+                    data-rac=""
                     data-required="true"
-                    data-testid="radiotabsfield"
-                    id="react-aria-«replaced-aria-id»"
+                    data-slot="base"
+                    data-testid="radioboxfield"
+                    id="uniform-«replaced-aria-id»"
                     role="radiogroup"
                   >
                     <span
-                      class="relative after:content-['*'] after:text-danger after:ml-0.5 mb-2 inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger"
+                      class="relative mb-2 inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger"
+                      data-slot="label"
+                      id="uniform-«replaced-aria-id»-label"
                     >
-                      <legend>
-                        Radio Tabs Field
-                      </legend>
+                      Radio Box Field
+                      <span
+                        aria-hidden="true"
+                        class="ml-0.5 text-danger"
+                      >
+                        *
+                      </span>
                     </span>
                     <div
                       class="flex flex-col flex-wrap gap-2 data-[orientation=horizontal]:flex-row"
                       data-orientation="vertical"
-                      role="presentation"
+                      data-slot="wrapper"
                     >
+                      <label
+                        class="group inline-flex flex-auto cursor-pointer items-center justify-between gap-4 rounded-lg border-2 border-default p-4 hover:bg-content2 data-[selected=true]:border-focus"
+                        data-rac=""
+                        data-react-aria-pressable="true"
+                        data-required="true"
+                        data-slot="base"
+                        data-testid="radioboxfield_option_value0"
+                        for="«replaced-aria-id»-control"
+                      >
+                        <span
+                          style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+                        >
+                          <input
+                            aria-labelledby="«replaced-aria-id»-label"
+                            data-react-aria-pressable="true"
+                            id="«replaced-aria-id»-control"
+                            name="radioBoxField"
+                            tabindex="-1"
+                            type="radio"
+                            value="Value0"
+                          />
+                        </span>
+                        <span
+                          aria-hidden="true"
+                          class="relative box-border inline-flex h-5 w-5 shrink-0 items-center justify-center overflow-hidden rounded-full border-2 border-solid border-default transition-transform-colors group-data-[pressed=true]:scale-95 group-data-[invalid=true]:border-danger group-data-[invalid=true]:group-data-[selected=true]:border-danger group-data-[selected=true]:border-primary group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background motion-reduce:transition-none"
+                          data-slot="wrapper"
+                        >
+                          <span
+                            class="z-10 h-2 w-2 origin-center scale-0 rounded-full bg-primary text-primary-foreground opacity-0 transition-transform-opacity group-data-[selected=true]:scale-100 group-data-[invalid=true]:bg-danger group-data-[invalid=true]:text-danger-foreground group-data-[selected=true]:opacity-100 motion-reduce:transition-none"
+                            data-slot="control"
+                          />
+                        </span>
+                        <div
+                          class="ml-1 ms-2 flex flex-col grow"
+                          data-slot="label-wrapper"
+                        >
+                          <span
+                            class="relative select-none text-foreground transition-colors text-medium motion-reduce:transition-none"
+                            data-slot="label"
+                            id="«replaced-aria-id»-label"
+                          >
+                            LabelA
+                          </span>
+                        </div>
+                      </label>
+                      <label
+                        class="group inline-flex flex-auto cursor-pointer items-center justify-between gap-4 rounded-lg border-2 border-default p-4 hover:bg-content2 data-[selected=true]:border-focus"
+                        data-rac=""
+                        data-react-aria-pressable="true"
+                        data-required="true"
+                        data-slot="base"
+                        data-testid="radioboxfield_option_value1"
+                        for="«replaced-aria-id»-control"
+                      >
+                        <span
+                          style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+                        >
+                          <input
+                            aria-labelledby="«replaced-aria-id»-label"
+                            data-react-aria-pressable="true"
+                            id="«replaced-aria-id»-control"
+                            name="radioBoxField"
+                            tabindex="-1"
+                            type="radio"
+                            value="Value1"
+                          />
+                        </span>
+                        <span
+                          aria-hidden="true"
+                          class="relative box-border inline-flex h-5 w-5 shrink-0 items-center justify-center overflow-hidden rounded-full border-2 border-solid border-default transition-transform-colors group-data-[pressed=true]:scale-95 group-data-[invalid=true]:border-danger group-data-[invalid=true]:group-data-[selected=true]:border-danger group-data-[selected=true]:border-primary group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background motion-reduce:transition-none"
+                          data-slot="wrapper"
+                        >
+                          <span
+                            class="z-10 h-2 w-2 origin-center scale-0 rounded-full bg-primary text-primary-foreground opacity-0 transition-transform-opacity group-data-[selected=true]:scale-100 group-data-[invalid=true]:bg-danger group-data-[invalid=true]:text-danger-foreground group-data-[selected=true]:opacity-100 motion-reduce:transition-none"
+                            data-slot="control"
+                          />
+                        </span>
+                        <div
+                          class="ml-1 ms-2 flex flex-col grow"
+                          data-slot="label-wrapper"
+                        >
+                          <span
+                            class="relative select-none text-foreground transition-colors text-medium motion-reduce:transition-none"
+                            data-slot="label"
+                            id="«replaced-aria-id»-label"
+                          >
+                            LabelB
+                          </span>
+                        </div>
+                      </label>
+                      <label
+                        class="group inline-flex flex-auto cursor-pointer items-center justify-between gap-4 rounded-lg border-2 border-default p-4 hover:bg-content2 data-[selected=true]:border-focus"
+                        data-rac=""
+                        data-react-aria-pressable="true"
+                        data-required="true"
+                        data-slot="base"
+                        data-testid="radioboxfield_option_value2"
+                        for="«replaced-aria-id»-control"
+                      >
+                        <span
+                          style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+                        >
+                          <input
+                            aria-labelledby="«replaced-aria-id»-label"
+                            data-react-aria-pressable="true"
+                            id="«replaced-aria-id»-control"
+                            name="radioBoxField"
+                            tabindex="-1"
+                            type="radio"
+                            value="Value2"
+                          />
+                        </span>
+                        <span
+                          aria-hidden="true"
+                          class="relative box-border inline-flex h-5 w-5 shrink-0 items-center justify-center overflow-hidden rounded-full border-2 border-solid border-default transition-transform-colors group-data-[pressed=true]:scale-95 group-data-[invalid=true]:border-danger group-data-[invalid=true]:group-data-[selected=true]:border-danger group-data-[selected=true]:border-primary group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background motion-reduce:transition-none"
+                          data-slot="wrapper"
+                        >
+                          <span
+                            class="z-10 h-2 w-2 origin-center scale-0 rounded-full bg-primary text-primary-foreground opacity-0 transition-transform-opacity group-data-[selected=true]:scale-100 group-data-[invalid=true]:bg-danger group-data-[invalid=true]:text-danger-foreground group-data-[selected=true]:opacity-100 motion-reduce:transition-none"
+                            data-slot="control"
+                          />
+                        </span>
+                        <div
+                          class="ml-1 ms-2 flex flex-col grow"
+                          data-slot="label-wrapper"
+                        >
+                          <span
+                            class="relative select-none text-foreground transition-colors text-medium motion-reduce:transition-none"
+                            data-slot="label"
+                            id="«replaced-aria-id»-label"
+                          >
+                            LabelC
+                          </span>
+                        </div>
+                      </label>
+                    </div>
+                  </div>
+                  <div
+                    aria-describedby="uniform-«replaced-aria-id»-required"
+                    aria-labelledby="uniform-«replaced-aria-id»-label"
+                    class="group flex w-full flex-col gap-y-1.5 relative md:col-span-2"
+                    data-invalid="false"
+                    data-required="true"
+                    data-testid="radiotabsfield"
+                    id="uniform-«replaced-aria-id»"
+                    role="group"
+                  >
+                    <div
+                      class="mb-2 inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger relative"
+                      data-slot="label"
+                      id="uniform-«replaced-aria-id»-label"
+                    >
+                      Radio Tabs Field
+                      <span
+                        aria-hidden="true"
+                        class="ml-0.5 text-danger"
+                      >
+                        *
+                      </span>
+                    </div>
+                    <span
+                      class="sr-only"
+                      id="uniform-«replaced-aria-id»-required"
+                    >
+                      Required selection.
+                    </span>
+                    <div
+                      class="flex flex-col flex-wrap gap-2"
+                      data-slot="wrapper"
+                    >
+                      <template />
                       <div
+                        class="react-aria-Tabs"
+                        data-orientation="horizontal"
                         data-placement="top"
+                        data-rac=""
                         data-slot="tabWrapper"
                         data-vertical="horizontal"
                       >
@@ -1466,113 +1531,123 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                           data-slot="base"
                         >
                           <div
+                            aria-label="Radio Tabs Field"
                             aria-orientation="horizontal"
-                            class="relative flex p-1 h-fit gap-2 items-center flex-nowrap overflow-x-scroll scrollbar-hide bg-default-100 rounded-medium w-full"
+                            class="relative flex h-fit w-full flex-nowrap items-center gap-2 overflow-x-auto rounded-medium bg-default-100 p-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
                             data-collection="react-aria-«replaced-aria-id»"
+                            data-orientation="horizontal"
+                            data-rac=""
                             data-slot="tabList"
                             id="react-aria-«replaced-aria-id»"
                             role="tablist"
                           >
-                            <button
+                            <div
+                              aria-describedby="uniform-«replaced-aria-id»-required"
                               aria-selected="false"
-                              class="z-0 w-full px-3 py-1 flex group relative justify-center items-center cursor-pointer transition-opacity tap-highlight-transparent data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 h-8 text-small rounded-small data-[hover-unselected=true]:opacity-100"
+                              class="outline-solid group relative z-0 flex h-8 w-full cursor-pointer items-center justify-center rounded-small px-3 py-1 outline-transparent transition-opacity text-small data-[focus-visible=true]:z-10 data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus motion-reduce:transition-none"
                               data-collection="react-aria-«replaced-aria-id»"
                               data-key="Value0"
+                              data-rac=""
                               data-react-aria-pressable="true"
                               data-slot="tab"
                               data-testid="radiotabsfield_option_value0"
                               id="react-aria-«replaced-aria-id»-tab-Value0"
                               role="tab"
                               tabindex="-1"
-                              type="button"
                             >
-                              <div
-                                class="relative z-10 whitespace-nowrap transition-colors group-data-[selected=true]:text-default-foreground text-foreground"
+                              <span
+                                class="relative z-10 whitespace-nowrap text-foreground transition-colors group-data-[selected=true]:text-default-foreground motion-reduce:transition-none"
                                 data-slot="tabContent"
                               >
                                 LabelA
-                              </div>
-                            </button>
-                            <button
+                              </span>
+                            </div>
+                            <div
+                              aria-describedby="uniform-«replaced-aria-id»-required"
                               aria-selected="false"
-                              class="z-0 w-full px-3 py-1 flex group relative justify-center items-center cursor-pointer transition-opacity tap-highlight-transparent data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 h-8 text-small rounded-small data-[hover-unselected=true]:opacity-100"
+                              class="outline-solid group relative z-0 flex h-8 w-full cursor-pointer items-center justify-center rounded-small px-3 py-1 outline-transparent transition-opacity text-small data-[focus-visible=true]:z-10 data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus motion-reduce:transition-none"
                               data-collection="react-aria-«replaced-aria-id»"
                               data-key="Value1"
+                              data-rac=""
                               data-react-aria-pressable="true"
                               data-slot="tab"
                               data-testid="radiotabsfield_option_value1"
                               id="react-aria-«replaced-aria-id»-tab-Value1"
                               role="tab"
                               tabindex="-1"
-                              type="button"
                             >
-                              <div
-                                class="relative z-10 whitespace-nowrap transition-colors group-data-[selected=true]:text-default-foreground text-foreground"
+                              <span
+                                class="relative z-10 whitespace-nowrap text-foreground transition-colors group-data-[selected=true]:text-default-foreground motion-reduce:transition-none"
                                 data-slot="tabContent"
                               >
                                 LabelB
-                              </div>
-                            </button>
-                            <button
+                              </span>
+                            </div>
+                            <div
+                              aria-describedby="uniform-«replaced-aria-id»-required"
                               aria-selected="false"
-                              class="z-0 w-full px-3 py-1 flex group relative justify-center items-center cursor-pointer transition-opacity tap-highlight-transparent data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 h-8 text-small rounded-small data-[hover-unselected=true]:opacity-100"
+                              class="outline-solid group relative z-0 flex h-8 w-full cursor-pointer items-center justify-center rounded-small px-3 py-1 outline-transparent transition-opacity text-small data-[focus-visible=true]:z-10 data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus motion-reduce:transition-none"
                               data-collection="react-aria-«replaced-aria-id»"
                               data-key="Value2"
+                              data-rac=""
                               data-react-aria-pressable="true"
                               data-slot="tab"
                               data-testid="radiotabsfield_option_value2"
                               id="react-aria-«replaced-aria-id»-tab-Value2"
                               role="tab"
                               tabindex="-1"
-                              type="button"
                             >
-                              <div
-                                class="relative z-10 whitespace-nowrap transition-colors group-data-[selected=true]:text-default-foreground text-foreground"
+                              <span
+                                class="relative z-10 whitespace-nowrap text-foreground transition-colors group-data-[selected=true]:text-default-foreground motion-reduce:transition-none"
                                 data-slot="tabContent"
                               >
                                 LabelC
-                              </div>
-                            </button>
+                              </span>
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
                   <div
-                    style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
-                  >
-                    <input
-                      aria-label="Radio Tabs with Content Field"
-                      name="radioTabsWithContentField"
-                      value=""
-                    />
-                  </div>
-                  <div
-                    aria-label="Radio Tabs with Content Field"
-                    aria-orientation="vertical"
-                    aria-required="true"
-                    class="relative gap-2 group flex w-full flex-col gap-y-1.5 md:col-span-2"
+                    aria-describedby="uniform-«replaced-aria-id»-required"
+                    aria-labelledby="uniform-«replaced-aria-id»-label"
+                    class="group flex w-full flex-col gap-y-1.5 relative md:col-span-2"
                     data-invalid="false"
                     data-required="true"
                     data-testid="radiotabswithcontentfield"
-                    id="react-aria-«replaced-aria-id»"
-                    role="radiogroup"
+                    id="uniform-«replaced-aria-id»"
+                    role="group"
                   >
-                    <span
-                      class="relative after:content-['*'] after:text-danger after:ml-0.5 mb-2 inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger"
+                    <div
+                      class="mb-2 inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger relative"
+                      data-slot="label"
+                      id="uniform-«replaced-aria-id»-label"
                     >
-                      <legend>
-                        Radio Tabs with Content Field
-                      </legend>
+                      Radio Tabs with Content Field
+                      <span
+                        aria-hidden="true"
+                        class="ml-0.5 text-danger"
+                      >
+                        *
+                      </span>
+                    </div>
+                    <span
+                      class="sr-only"
+                      id="uniform-«replaced-aria-id»-required"
+                    >
+                      Required selection.
                     </span>
                     <div
-                      class="flex flex-col flex-wrap gap-2 data-[orientation=horizontal]:flex-row"
-                      data-orientation="vertical"
-                      role="presentation"
+                      class="flex flex-col flex-wrap gap-2"
+                      data-slot="wrapper"
                     >
+                      <template />
                       <div
                         class="rounded-medium border border-divider w-full"
+                        data-orientation="horizontal"
                         data-placement="top"
+                        data-rac=""
                         data-slot="tabWrapper"
                         data-vertical="horizontal"
                       >
@@ -1581,73 +1656,79 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                           data-slot="base"
                         >
                           <div
+                            aria-label="Radio Tabs with Content Field"
                             aria-orientation="horizontal"
-                            class="relative flex p-1 h-fit gap-2 items-center flex-nowrap overflow-x-scroll scrollbar-hide bg-default-100 rounded-medium w-full"
+                            class="relative flex h-fit w-full flex-nowrap items-center gap-2 overflow-x-auto rounded-medium bg-default-100 p-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
                             data-collection="react-aria-«replaced-aria-id»"
+                            data-orientation="horizontal"
+                            data-rac=""
                             data-slot="tabList"
                             id="react-aria-«replaced-aria-id»"
                             role="tablist"
                           >
-                            <button
+                            <div
+                              aria-describedby="uniform-«replaced-aria-id»-required"
                               aria-selected="false"
-                              class="z-0 w-full px-3 py-1 flex group relative justify-center items-center cursor-pointer transition-opacity tap-highlight-transparent data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 h-8 text-small rounded-small data-[hover-unselected=true]:opacity-100"
+                              class="outline-solid group relative z-0 flex h-8 w-full cursor-pointer items-center justify-center rounded-small px-3 py-1 outline-transparent transition-opacity text-small data-[focus-visible=true]:z-10 data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus motion-reduce:transition-none"
                               data-collection="react-aria-«replaced-aria-id»"
                               data-key="Value0"
+                              data-rac=""
                               data-react-aria-pressable="true"
                               data-slot="tab"
                               data-testid="radiotabswithcontentfield_option_value0"
                               id="react-aria-«replaced-aria-id»-tab-Value0"
                               role="tab"
                               tabindex="-1"
-                              type="button"
                             >
-                              <div
-                                class="relative z-10 whitespace-nowrap transition-colors group-data-[selected=true]:text-default-foreground text-foreground"
+                              <span
+                                class="relative z-10 whitespace-nowrap text-foreground transition-colors group-data-[selected=true]:text-default-foreground motion-reduce:transition-none"
                                 data-slot="tabContent"
                               >
                                 LabelA
-                              </div>
-                            </button>
-                            <button
+                              </span>
+                            </div>
+                            <div
+                              aria-describedby="uniform-«replaced-aria-id»-required"
                               aria-selected="false"
-                              class="z-0 w-full px-3 py-1 flex group relative justify-center items-center cursor-pointer transition-opacity tap-highlight-transparent data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 h-8 text-small rounded-small data-[hover-unselected=true]:opacity-100"
+                              class="outline-solid group relative z-0 flex h-8 w-full cursor-pointer items-center justify-center rounded-small px-3 py-1 outline-transparent transition-opacity text-small data-[focus-visible=true]:z-10 data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus motion-reduce:transition-none"
                               data-collection="react-aria-«replaced-aria-id»"
                               data-key="Value1"
+                              data-rac=""
                               data-react-aria-pressable="true"
                               data-slot="tab"
                               data-testid="radiotabswithcontentfield_option_value1"
                               id="react-aria-«replaced-aria-id»-tab-Value1"
                               role="tab"
                               tabindex="-1"
-                              type="button"
                             >
-                              <div
-                                class="relative z-10 whitespace-nowrap transition-colors group-data-[selected=true]:text-default-foreground text-foreground"
+                              <span
+                                class="relative z-10 whitespace-nowrap text-foreground transition-colors group-data-[selected=true]:text-default-foreground motion-reduce:transition-none"
                                 data-slot="tabContent"
                               >
                                 LabelB
-                              </div>
-                            </button>
-                            <button
+                              </span>
+                            </div>
+                            <div
+                              aria-describedby="uniform-«replaced-aria-id»-required"
                               aria-selected="false"
-                              class="z-0 w-full px-3 py-1 flex group relative justify-center items-center cursor-pointer transition-opacity tap-highlight-transparent data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 h-8 text-small rounded-small data-[hover-unselected=true]:opacity-100"
+                              class="outline-solid group relative z-0 flex h-8 w-full cursor-pointer items-center justify-center rounded-small px-3 py-1 outline-transparent transition-opacity text-small data-[focus-visible=true]:z-10 data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus motion-reduce:transition-none"
                               data-collection="react-aria-«replaced-aria-id»"
                               data-key="Value2"
+                              data-rac=""
                               data-react-aria-pressable="true"
                               data-slot="tab"
                               data-testid="radiotabswithcontentfield_option_value2"
                               id="react-aria-«replaced-aria-id»-tab-Value2"
                               role="tab"
                               tabindex="-1"
-                              type="button"
                             >
-                              <div
-                                class="relative z-10 whitespace-nowrap transition-colors group-data-[selected=true]:text-default-foreground text-foreground"
+                              <span
+                                class="relative z-10 whitespace-nowrap text-foreground transition-colors group-data-[selected=true]:text-default-foreground motion-reduce:transition-none"
                                 data-slot="tabContent"
                               >
                                 LabelC
-                              </div>
-                            </button>
+                              </span>
+                            </div>
                           </div>
                         </div>
                       </div>

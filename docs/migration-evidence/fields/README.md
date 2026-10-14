@@ -127,3 +127,23 @@ description and error footer.
 `switchbox-production-a11y.json` audits the switch label and adjacent error
 footer across eight states per theme. Light invalid-state contrast is reported;
 other audited states have no findings. No assistive-technology review is claimed.
+
+## Production radio families
+
+`radio-family-production-before.json` and `radio-family-production-after.json`
+cover Radios, RadioBoxes and RadioTabs default/required/invalid states in both
+themes, paired with their `production-before`/`production-after` screenshots.
+All 18 group/option geometry and typography comparisons match. RadioTabs changes
+its field wrapper from an empty radiogroup to a named group around real tabs;
+Radios/RadioBoxes keep native radio semantics. Owned markup adds explicit IDs,
+required markers hidden from names, descriptions and actual error-focus targets.
+
+Browser stories check arrow-key navigation past disabled options, configured
+option font-size merging and cursor dimensions across solid/light/bordered/
+underlined tabs. The older all-disabled Tabs keyboard delegate loop was reproduced
+and inspected; Uniform's own newer tab engine fixes it, allowing all eleven
+previously excluded RadioTabs stories to run again. No Pixels source was changed.
+
+`radio-family-production-a11y.json` audits 22 states. It reports light invalid
+contrast for each family and keyboard/error tab-story contrast in both themes;
+other audited states have no findings. No assistive-technology review is claimed.

@@ -2,10 +2,13 @@ import type { TVClassName } from '@fuf-stack/pixel-utils';
 import type { RadioProps as HeroRadioProps } from '@heroui/radio';
 import type { ReactNode } from 'react';
 
-import { useRadio } from '@heroui/radio';
-import { VisuallyHidden } from '@react-aria/visually-hidden';
+import { tv } from '@fuf-stack/pixel-utils';
+import { useStyling } from '@fuf-stack/pixels/StylingProvider';
 
-import { cn, tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
+import {
+  RadioControl,
+  radioControlVariants,
+} from '../partials/RadioLayout/RadioLayout';
 
 export const radioBoxVariants = tv({
   slots: {
@@ -42,78 +45,43 @@ export interface RadioBoxProps extends Omit<HeroRadioProps, 'className'> {
 }
 
 export const RadioBox = ({
+  className = undefined,
   classNames: _classNames = undefined,
   icon = undefined,
   isInvalid = false,
+  isDisabled = false,
+  description = undefined,
+  children = undefined,
+  value,
   ...props
 }: RadioBoxProps) => {
-  const {
-    children,
-    Component,
-    description,
-    getBaseProps,
-    getControlProps,
-    getInputProps,
-    getLabelProps,
-    getLabelWrapperProps,
-    getWrapperProps,
-    isDisabled,
-  } = useRadio(props as HeroRadioProps);
-
-  // classNames from slots
-  const variants = radioBoxVariants({
-    isDisabled,
-    isInvalid,
-  });
-  const classNames = variantsToClassNames(
-    variants,
-    // @ts-expect-error not sure here, but it works
-    _classNames,
+  const styling = useStyling();
+  const classes = styling.variantsToClassNames(
+    styling.resolve(radioBoxVariants, { isDisabled, isInvalid }),
+    _classNames ?? className,
     'base',
   );
-
+  const defaults = styling.resolve(radioControlVariants, {
+    invalid: isInvalid,
+  });
   return (
-    <Component {...getBaseProps()} className={classNames.base}>
-      <VisuallyHidden>
-        <input {...getInputProps()} />
-      </VisuallyHidden>
-      {!icon ? (
-        <span {...getWrapperProps()}>
-          <span
-            {...getControlProps()}
-            className={cn(getControlProps().className, classNames.control)}
-          />
-        </span>
-      ) : null}
-      {icon ? <div className={classNames.icon}>{icon}</div> : null}
-      <div
-        {...getLabelWrapperProps()}
-        className={cn(
-          getLabelWrapperProps().className,
-          classNames.labelWrapper,
-        )}
-      >
-        {children ? (
-          <span
-            {...getLabelProps()}
-            className={cn(getLabelProps().className, classNames.label)}
-          >
-            {children}
-          </span>
-        ) : null}
-        {description ? (
-          <div className={classNames.description}>{description}</div>
-        ) : null}
-      </div>
-      {icon ? (
-        <span {...getWrapperProps()}>
-          <span
-            {...getControlProps()}
-            className={cn(getControlProps().className, classNames.control)}
-          />
-        </span>
-      ) : null}
-    </Component>
+    <RadioControl
+      classes={{
+        ...classes,
+        wrapper: defaults.wrapper(),
+        control: styling.cn(defaults.control(), classes.control),
+        labelWrapper: styling.cn(defaults.labelWrapper(), classes.labelWrapper),
+        label: styling.cn(defaults.label(), classes.label),
+      }}
+      disabled={isDisabled}
+      invalid={isInvalid}
+      description={description}
+      icon={icon}
+      testId={(props as { 'data-testid'?: string })['data-testid']}
+      value={value}
+    >
+      {children}
+    </RadioControl>
   );
 };
 

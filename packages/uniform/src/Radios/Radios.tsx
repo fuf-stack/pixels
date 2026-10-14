@@ -1,15 +1,16 @@
 import type { TVClassName, TVProps } from '@fuf-stack/pixel-utils';
 import type { ReactElement, ReactNode } from 'react';
 
-import {
-  Radio as HeroRadio,
-  RadioGroup as HeroRadioGroup,
-} from '@heroui/radio';
-
-import { slugify, tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
+import { slugify, tv } from '@fuf-stack/pixel-utils';
+import { useStyling } from '@fuf-stack/pixels/StylingProvider';
 
 import { createOptionValueConverter } from '../helpers';
-import { useUniformField } from '../hooks/useUniformField';
+import useUniformFieldState from '../hooks/useUniformField/useUniformFieldState';
+import {
+  RadioControl,
+  radioControlVariants,
+  RadioLayout,
+} from '../partials/RadioLayout/RadioLayout';
 
 export const radiosVariants = tv({
   slots: {
@@ -21,7 +22,7 @@ export const radiosVariants = tv({
       // Keep spacing between label/group consistent.
       'gap-y-1.5',
     ],
-    errorMessage: '',
+    errorMessage: 'text-danger text-tiny',
     itemBase: '',
     itemControl: 'bg-focus group-data-[invalid=true]:bg-danger',
     itemDescription: '',
@@ -32,7 +33,8 @@ export const radiosVariants = tv({
     // e.g.: https://github.com/heroui-inc/heroui/blob/main/packages/core/theme/src/components/select.ts
     label:
       'mb-2 inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger',
-    wrapper: '',
+    wrapper:
+      'flex flex-col flex-wrap gap-2 data-[orientation=horizontal]:flex-row',
   },
 });
 
@@ -55,7 +57,7 @@ export interface RadioOption {
 }
 
 export interface RadioRenderedOption {
-  /** Prebuilt radio element so consumers don't need to recreate HeroRadio */
+  /** Prebuilt radio element for custom option layouts */
   radio: ReactNode;
   /** Option data as provided in `options` */
   option: RadioOption;
@@ -79,6 +81,8 @@ export interface RadiosProps extends VariantProps {
   className?: ClassName;
   /** Determines if the Buttons are disabled or not. */
   disabled?: boolean;
+  /** Optional help text associated with the radio group. */
+  description?: ReactNode;
   /** determines orientation of the Buttons. */
   inline?: boolean;
   /** Label displayed next to the RadioButton. */
@@ -92,7 +96,7 @@ export interface RadiosProps extends VariantProps {
 }
 
 /**
- * Radios component based on [HeroUI RadioGroup](https://www.heroui.com//docs/components/radio-group)
+ * Radio group with owned presentation and React Aria keyboard interactions
  */
 const Radios = ({
   children = undefined,
@@ -102,34 +106,36 @@ const Radios = ({
   options,
   ...uniformFieldProps
 }: RadiosProps): ReactElement => {
+  const field = useUniformFieldState({ name, ...uniformFieldProps });
   const {
-    ariaLabel,
     disabled,
-    errorMessage,
-    field: { onBlur, onChange, ref, value },
     invalid,
-    label,
-    required,
     testId,
-  } = useUniformField({
-    name,
-    ...uniformFieldProps,
-  });
+    field: { value },
+  } = field;
 
   // Create converter to preserve number types for option values
   const { convertToOriginalType } = createOptionValueConverter(options);
 
   // classNames from slots
-  const variants = radiosVariants();
-  const classNames = variantsToClassNames(variants, className, 'base');
+  const styling = useStyling();
+  const classNames = styling.variantsToClassNames(
+    styling.resolve(radiosVariants),
+    className,
+    'base',
+  );
+  const defaults = styling.resolve(radioControlVariants, { invalid });
 
   const itemClassNames = {
-    base: classNames.itemBase,
-    control: classNames.itemControl,
-    description: classNames.itemDescription,
-    label: classNames.itemLabel,
-    labelWrapper: classNames.itemLabelWrapper,
-    wrapper: classNames.itemWrapper,
+    base: styling.cn(defaults.base(), classNames.itemBase),
+    control: styling.cn(defaults.control(), classNames.itemControl),
+    description: styling.cn(defaults.description(), classNames.itemDescription),
+    label: styling.cn(defaults.label(), classNames.itemLabel),
+    labelWrapper: styling.cn(
+      defaults.labelWrapper(),
+      classNames.itemLabelWrapper,
+    ),
+    wrapper: styling.cn(defaults.wrapper(), classNames.itemWrapper),
   };
 
   const selectedValue = value != null ? String(value) : '';
@@ -143,15 +149,16 @@ const Radios = ({
     const optionIsDisabled = !!disabled || !!option.disabled;
     const optionValue = String(option.value);
     const radio = (
-      <HeroRadio
+      <RadioControl
         key={optionValue}
-        classNames={itemClassNames}
-        data-testid={optionTestId}
-        isDisabled={optionIsDisabled}
+        classes={itemClassNames}
+        testId={optionTestId}
+        disabled={optionIsDisabled}
+        invalid={invalid}
         value={optionValue}
       >
         {option.label ?? option.value}
-      </HeroRadio>
+      </RadioControl>
     );
 
     return {
@@ -166,27 +173,11 @@ const Radios = ({
   });
 
   return (
-    <HeroRadioGroup
-      ref={ref}
-      aria-label={ariaLabel}
-      classNames={classNames}
-      // see HeroUI styles for group-data condition (data-invalid),
-      // e.g.: https://github.com/heroui-inc/heroui/blob/main/packages/components/select/src/use-select.ts
-      data-invalid={invalid}
-      data-required={required}
-      data-testid={testId}
-      errorMessage={errorMessage}
-      isDisabled={disabled}
-      isInvalid={invalid}
-      isRequired={required}
-      label={label ? <legend>{label}</legend> : null}
-      name={name}
-      onBlur={onBlur}
-      onValueChange={(newValue) => {
-        onChange(convertToOriginalType(newValue));
-      }}
-      orientation={inline ? 'horizontal' : 'vertical'}
-      value={selectedValue}
+    <RadioLayout
+      classes={classNames}
+      field={field}
+      inline={inline}
+      onChange={(newValue) => field.onChange(convertToOriginalType(newValue))}
     >
       {/* Child render function can fully control list layout; fallback keeps default rendering. */}
       {children
@@ -194,7 +185,7 @@ const Radios = ({
         : renderedOptions.map(({ radio }) => {
             return radio;
           })}
-    </HeroRadioGroup>
+    </RadioLayout>
   );
 };
 
