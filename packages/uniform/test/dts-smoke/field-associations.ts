@@ -2,6 +2,7 @@ import { useUniformField } from '@fuf-stack/uniform/hooks/useUniformField';
 import type { InputProps } from '@fuf-stack/uniform/Input';
 import type { TextAreaProps } from '@fuf-stack/uniform/TextArea';
 import type { SelectProps } from '@fuf-stack/uniform/Select';
+import type { SwitchProps } from '@fuf-stack/uniform/Switch';
 
 // Exercise the existing input contract against the packed declarations.
 export const inputProps: InputProps = {
@@ -48,6 +49,17 @@ export const selectProps: SelectProps = {
     multiValueContainer: 'rounded',
     crossIcon: 'text-danger',
     downChevron: 'text-danger',
+  },
+};
+
+export const switchProps: SwitchProps = {
+  name: 'enabled',
+  size: 'lg',
+  description: 'Toggle setting',
+  className: { label: 'text-body', thumbIcon: 'text-danger' },
+  thumbIcon: ({ width, height, className, isSelected, 'data-checked': checked }) => {
+    const dimensions: string[] = [width, height, className, checked];
+    return isSelected ? dimensions.join(' ') : null;
   },
 };
 

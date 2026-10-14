@@ -190,48 +190,47 @@ exports[`Story Snapshots > CheckboxesWithInitialValues 1`] = `
           >
             <div
               class="place-content-center"
+              data-slot="outer-wrapper"
             >
-              <div
-                style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
-              >
-                <input
-                  aria-label="Dark Mode 🌙"
-                  checked=""
-                  name="darkMode"
-                  type="checkbox"
-                />
-              </div>
               <label
-                aria-label="Dark Mode 🌙"
-                class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer touch-none tap-highlight-transparent select-none"
+                class="group relative inline-flex max-w-fit cursor-pointer touch-none select-none items-center justify-start tap-highlight-transparent"
                 data-invalid="false"
+                data-react-aria-pressable="true"
                 data-required="false"
                 data-selected="true"
+                data-slot="base"
                 data-testid="darkmode"
+                for="uniform-«replaced-aria-id»"
               >
-                <input
-                  aria-label="[object Object]"
-                  aria-labelledby="«replaced-aria-id»"
-                  checked=""
-                  class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
-                  data-react-aria-pressable="true"
-                  name="darkMode_switch"
-                  role="switch"
-                  tabindex="0"
-                  type="checkbox"
-                  value=""
-                />
                 <span
-                  aria-hidden="true"
-                  class="px-1 relative inline-flex items-center justify-start shrink-0 overflow-hidden bg-default-200 rounded-full outline-solid outline-transparent group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:bg-primary group-data-[selected=true]:text-primary-foreground w-12 h-7 transition-background"
+                  style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
                 >
-                  <span
-                    class="z-10 flex items-center justify-center bg-white shadow-small rounded-full origin-right pointer-events-none w-5 h-5 text-small group-data-[selected=true]:ms-5 transition-all group-data-[pressed=true]:w-6 group-data-[selected]:group-data-[pressed]:ml-4"
+                  <input
+                    aria-labelledby="uniform-«replaced-aria-id»-label"
+                    checked=""
+                    data-react-aria-pressable="true"
+                    data-slot="input"
+                    id="uniform-«replaced-aria-id»"
+                    name="darkMode"
+                    role="switch"
+                    tabindex="0"
+                    type="checkbox"
                   />
                 </span>
                 <span
-                  class="relative select-none ms-2 text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
-                  id="«replaced-aria-id»"
+                  aria-hidden="true"
+                  class="relative inline-flex h-7 w-12 shrink-0 items-center justify-start overflow-hidden rounded-full bg-default-200 px-1 transition-background group-data-[selected=true]:bg-primary group-data-[selected=true]:text-primary-foreground group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background motion-reduce:transition-none"
+                  data-slot="wrapper"
+                >
+                  <span
+                    class="pointer-events-none z-10 flex h-5 w-5 origin-right items-center justify-center rounded-full bg-white shadow-small transition-all text-small group-data-[selected=true]:group-data-[pressed=true]:ms-4 group-data-[selected=true]:ms-5 group-data-[pressed=true]:w-6 motion-reduce:transition-none"
+                    data-slot="thumb"
+                  />
+                </span>
+                <span
+                  class="group-data-[invalid=true]:text-danger! relative ms-2 select-none text-sm text-foreground subpixel-antialiased"
+                  data-slot="label"
+                  id="uniform-«replaced-aria-id»-label"
                 >
                   Dark Mode 🌙
                 </span>
@@ -239,45 +238,45 @@ exports[`Story Snapshots > CheckboxesWithInitialValues 1`] = `
             </div>
             <div
               class="place-content-center"
+              data-slot="outer-wrapper"
             >
-              <div
-                style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
-              >
-                <input
-                  aria-label="Newsletter 📰"
-                  name="newsletter"
-                  type="checkbox"
-                />
-              </div>
               <label
-                aria-label="Newsletter 📰"
-                class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer touch-none tap-highlight-transparent select-none"
+                class="group relative inline-flex max-w-fit cursor-pointer touch-none select-none items-center justify-start tap-highlight-transparent"
                 data-invalid="false"
+                data-react-aria-pressable="true"
                 data-required="false"
+                data-slot="base"
                 data-testid="newsletter"
+                for="uniform-«replaced-aria-id»"
               >
-                <input
-                  aria-label="[object Object]"
-                  aria-labelledby="«replaced-aria-id»"
-                  class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
-                  data-react-aria-pressable="true"
-                  name="newsletter_switch"
-                  role="switch"
-                  tabindex="0"
-                  type="checkbox"
-                  value=""
-                />
                 <span
-                  aria-hidden="true"
-                  class="px-1 relative inline-flex items-center justify-start shrink-0 overflow-hidden bg-default-200 rounded-full outline-solid outline-transparent group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:bg-primary group-data-[selected=true]:text-primary-foreground w-12 h-7 transition-background"
+                  style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
                 >
-                  <span
-                    class="z-10 flex items-center justify-center bg-white shadow-small rounded-full origin-right pointer-events-none w-5 h-5 text-small group-data-[selected=true]:ms-5 transition-all group-data-[pressed=true]:w-6 group-data-[selected]:group-data-[pressed]:ml-4"
+                  <input
+                    aria-labelledby="uniform-«replaced-aria-id»-label"
+                    data-react-aria-pressable="true"
+                    data-slot="input"
+                    id="uniform-«replaced-aria-id»"
+                    name="newsletter"
+                    role="switch"
+                    tabindex="0"
+                    type="checkbox"
                   />
                 </span>
                 <span
-                  class="relative select-none ms-2 text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
-                  id="«replaced-aria-id»"
+                  aria-hidden="true"
+                  class="relative inline-flex h-7 w-12 shrink-0 items-center justify-start overflow-hidden rounded-full bg-default-200 px-1 transition-background group-data-[selected=true]:bg-primary group-data-[selected=true]:text-primary-foreground group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background motion-reduce:transition-none"
+                  data-slot="wrapper"
+                >
+                  <span
+                    class="pointer-events-none z-10 flex h-5 w-5 origin-right items-center justify-center rounded-full bg-white shadow-small transition-all text-small group-data-[selected=true]:group-data-[pressed=true]:ms-4 group-data-[selected=true]:ms-5 group-data-[pressed=true]:w-6 motion-reduce:transition-none"
+                    data-slot="thumb"
+                  />
+                </span>
+                <span
+                  class="group-data-[invalid=true]:text-danger! relative ms-2 select-none text-sm text-foreground subpixel-antialiased"
+                  data-slot="label"
+                  id="uniform-«replaced-aria-id»-label"
                 >
                   Newsletter 📰
                 </span>
@@ -561,45 +560,45 @@ exports[`Story Snapshots > CheckboxesWithoutInitialValues 1`] = `
           >
             <div
               class="place-content-center"
+              data-slot="outer-wrapper"
             >
-              <div
-                style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
-              >
-                <input
-                  aria-label="Dark Mode 🌙"
-                  name="darkMode"
-                  type="checkbox"
-                />
-              </div>
               <label
-                aria-label="Dark Mode 🌙"
-                class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer touch-none tap-highlight-transparent select-none"
+                class="group relative inline-flex max-w-fit cursor-pointer touch-none select-none items-center justify-start tap-highlight-transparent"
                 data-invalid="false"
+                data-react-aria-pressable="true"
                 data-required="false"
+                data-slot="base"
                 data-testid="darkmode"
+                for="uniform-«replaced-aria-id»"
               >
-                <input
-                  aria-label="[object Object]"
-                  aria-labelledby="«replaced-aria-id»"
-                  class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
-                  data-react-aria-pressable="true"
-                  name="darkMode_switch"
-                  role="switch"
-                  tabindex="0"
-                  type="checkbox"
-                  value=""
-                />
                 <span
-                  aria-hidden="true"
-                  class="px-1 relative inline-flex items-center justify-start shrink-0 overflow-hidden bg-default-200 rounded-full outline-solid outline-transparent group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:bg-primary group-data-[selected=true]:text-primary-foreground w-12 h-7 transition-background"
+                  style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
                 >
-                  <span
-                    class="z-10 flex items-center justify-center bg-white shadow-small rounded-full origin-right pointer-events-none w-5 h-5 text-small group-data-[selected=true]:ms-5 transition-all group-data-[pressed=true]:w-6 group-data-[selected]:group-data-[pressed]:ml-4"
+                  <input
+                    aria-labelledby="uniform-«replaced-aria-id»-label"
+                    data-react-aria-pressable="true"
+                    data-slot="input"
+                    id="uniform-«replaced-aria-id»"
+                    name="darkMode"
+                    role="switch"
+                    tabindex="0"
+                    type="checkbox"
                   />
                 </span>
                 <span
-                  class="relative select-none ms-2 text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
-                  id="«replaced-aria-id»"
+                  aria-hidden="true"
+                  class="relative inline-flex h-7 w-12 shrink-0 items-center justify-start overflow-hidden rounded-full bg-default-200 px-1 transition-background group-data-[selected=true]:bg-primary group-data-[selected=true]:text-primary-foreground group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background motion-reduce:transition-none"
+                  data-slot="wrapper"
+                >
+                  <span
+                    class="pointer-events-none z-10 flex h-5 w-5 origin-right items-center justify-center rounded-full bg-white shadow-small transition-all text-small group-data-[selected=true]:group-data-[pressed=true]:ms-4 group-data-[selected=true]:ms-5 group-data-[pressed=true]:w-6 motion-reduce:transition-none"
+                    data-slot="thumb"
+                  />
+                </span>
+                <span
+                  class="group-data-[invalid=true]:text-danger! relative ms-2 select-none text-sm text-foreground subpixel-antialiased"
+                  data-slot="label"
+                  id="uniform-«replaced-aria-id»-label"
                 >
                   Dark Mode 🌙
                 </span>
@@ -607,45 +606,45 @@ exports[`Story Snapshots > CheckboxesWithoutInitialValues 1`] = `
             </div>
             <div
               class="place-content-center"
+              data-slot="outer-wrapper"
             >
-              <div
-                style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
-              >
-                <input
-                  aria-label="Newsletter 📰"
-                  name="newsletter"
-                  type="checkbox"
-                />
-              </div>
               <label
-                aria-label="Newsletter 📰"
-                class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer touch-none tap-highlight-transparent select-none"
+                class="group relative inline-flex max-w-fit cursor-pointer touch-none select-none items-center justify-start tap-highlight-transparent"
                 data-invalid="false"
+                data-react-aria-pressable="true"
                 data-required="false"
+                data-slot="base"
                 data-testid="newsletter"
+                for="uniform-«replaced-aria-id»"
               >
-                <input
-                  aria-label="[object Object]"
-                  aria-labelledby="«replaced-aria-id»"
-                  class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
-                  data-react-aria-pressable="true"
-                  name="newsletter_switch"
-                  role="switch"
-                  tabindex="0"
-                  type="checkbox"
-                  value=""
-                />
                 <span
-                  aria-hidden="true"
-                  class="px-1 relative inline-flex items-center justify-start shrink-0 overflow-hidden bg-default-200 rounded-full outline-solid outline-transparent group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:bg-primary group-data-[selected=true]:text-primary-foreground w-12 h-7 transition-background"
+                  style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
                 >
-                  <span
-                    class="z-10 flex items-center justify-center bg-white shadow-small rounded-full origin-right pointer-events-none w-5 h-5 text-small group-data-[selected=true]:ms-5 transition-all group-data-[pressed=true]:w-6 group-data-[selected]:group-data-[pressed]:ml-4"
+                  <input
+                    aria-labelledby="uniform-«replaced-aria-id»-label"
+                    data-react-aria-pressable="true"
+                    data-slot="input"
+                    id="uniform-«replaced-aria-id»"
+                    name="newsletter"
+                    role="switch"
+                    tabindex="0"
+                    type="checkbox"
                   />
                 </span>
                 <span
-                  class="relative select-none ms-2 text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
-                  id="«replaced-aria-id»"
+                  aria-hidden="true"
+                  class="relative inline-flex h-7 w-12 shrink-0 items-center justify-start overflow-hidden rounded-full bg-default-200 px-1 transition-background group-data-[selected=true]:bg-primary group-data-[selected=true]:text-primary-foreground group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background motion-reduce:transition-none"
+                  data-slot="wrapper"
+                >
+                  <span
+                    class="pointer-events-none z-10 flex h-5 w-5 origin-right items-center justify-center rounded-full bg-white shadow-small transition-all text-small group-data-[selected=true]:group-data-[pressed=true]:ms-4 group-data-[selected=true]:ms-5 group-data-[pressed=true]:w-6 motion-reduce:transition-none"
+                    data-slot="thumb"
+                  />
+                </span>
+                <span
+                  class="group-data-[invalid=true]:text-danger! relative ms-2 select-none text-sm text-foreground subpixel-antialiased"
+                  data-slot="label"
+                  id="uniform-«replaced-aria-id»-label"
                 >
                   Newsletter 📰
                 </span>

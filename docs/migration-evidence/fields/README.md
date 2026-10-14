@@ -82,3 +82,19 @@ listbox (which contains a loading message rather than options). These findings
 remain release-review items. No clean accessibility audit or before/after axe
 equivalence is claimed for Select; the engine and captured appearance are
 retained in this integration slice.
+
+## Production Switch rollout
+
+Paired Switch `production-before`/`production-after` captures cover eight
+stories in each theme: default, selected, disabled, required, invalid, thumb
+callback, start/end icons and all sizes. Track and thumb dimensions, thumb
+positions, backgrounds, radii, label typography/colors and base heights match
+across all 16 comparisons. New markup exposes the existing styling slot targets
+explicitly and replaces the duplicate hidden input with one editable control.
+Browser checks cover Space toggling, actual error focus and required/help
+associations; unit checks preserve boolean `false` submission, reset behavior,
+disabled state and thumb callback props.
+
+`switch-production-a11y.json` covers eight states in each theme. It reports
+light-mode invalid-state contrast; all other audited states have no findings.
+No assistive-technology review is claimed.

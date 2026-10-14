@@ -1,6 +1,6 @@
 # HeroUI removal: implementation inventory
 
-Status: styling/token foundations and production Input/TextArea/Select migrated; remaining components and final theme removal pending.
+Status: styling/token foundations and production Input/TextArea/Select/Switch migrated; remaining components and final theme removal pending.
 This is a staged breaking migration. It is not ready for a HeroUI-free release.
 The only agreed breaking changes are consumer theme setup and removal of
 `uniform/hooks/useInput`; other exported props, recipes, slots, and storage
@@ -73,7 +73,7 @@ must accompany each renderer migration, with before/after browser evidence.
 | uniform/Select          | [SelectProps](../packages/uniform/src/Select/Select.tsx)                                 | selectVariants           | base, clearIndicator, control, control_focused, crossIcon, downChevron, dropdownIndicator, group, groupHeading, indicatorsContainer, indicatorSeparator, input, label, loadingIndicator, loadingMessage, menu, menuList, menuPortal, multiValue, multiValueContainer, multiValueLabel, multiValueRemove, noOptionsMessage, option, option_disabled, option_focused, option_selected, placeholder, selectContainer, singleValue, valueContainer | —                          | 3           |
 | uniform/Slider          | [SliderProps](../packages/uniform/src/Slider/Slider.tsx)                                 | sliderVariants           | base, endContent, errorMessage, filler, label, labelWrapper, mark, startContent, step, thumb, track, trackWrapper, value                                                                                                                                                                                                                                                                                                                       | slider                     | 2           |
 | uniform/SubmitButton    | [SubmitButtonProps](../packages/uniform/src/SubmitButton/SubmitButton.tsx)               | —                        | —                                                                                                                                                                                                                                                                                                                                                                                                                                              | via Pixels/useUniformField | 1           |
-| uniform/Switch          | [SwitchProps](../packages/uniform/src/Switch/Switch.tsx)                                 | switchVariants           | base, endContent, errorMessage, label, outerWrapper, startContent, thumb, thumbIcon, wrapper                                                                                                                                                                                                                                                                                                                                                   | switch                     | 1           |
+| uniform/Switch          | [SwitchProps](../packages/uniform/src/Switch/Switch.tsx)                                 | switchVariants           | base, endContent, errorMessage, label, outerWrapper, startContent, thumb, thumbIcon, wrapper                                                                                                                                                                                                                                                                                                                                                   | —                          | 2           |
 | uniform/SwitchBox       | [SwitchBoxProps](../packages/uniform/src/SwitchBox/SwitchBox.tsx)                        | switchBoxVariants        | box, description, icon, label, wrapper, thumb, thumbIcon                                                                                                                                                                                                                                                                                                                                                                                       | switch                     | 1           |
 | uniform/TextArea        | [TextAreaProps](../packages/uniform/src/TextArea/TextArea.tsx)                           | textAreaVariants         | base, clearButton, input, inputWrapper                                                                                                                                                                                                                                                                                                                                                                                                         | —                          | 2           |
 | uniform/Time            | [TimeProps](../packages/uniform/src/Time/Time.tsx)                                       | timeVariants             | base, helperWrapper, input, innerWrapper, inputWrapper, label, segment                                                                                                                                                                                                                                                                                                                                                                         | date-input                 | 1           |
@@ -251,3 +251,18 @@ Final `pnpm check` passed all six gates: 1,495 unit tests (12 skipped), 440 brow
 stories and seven packed consumers. Twenty-four consumer snapshots were updated
 for the intentional association/slot wiring changes; behavior assertions were
 retained. Select accessibility findings are recorded with its field evidence.
+
+## Production Switch verification (2026-10-15)
+
+Switch now uses React Aria hooks with owned presentation and one registered
+input. Keyboard/pointer interaction, boolean false/true submission, defaults,
+reset, disabled behavior, actual invalid-submit focus and thumb callback types
+are verified. Public styling slots remain available; the declared thumb props
+are local structural types. Sixteen light/dark comparisons match the baseline
+track/thumb geometry, colors, typography and positions. Eleven consumer DOM
+snapshots were updated without changing their behavior assertions.
+
+Final `pnpm check` passed all six gates with 1,498 unit tests (12 skipped), 441
+browser stories and seven packed consumers. The audit records light-mode
+invalid-state contrast; all other audited states have no findings. The remaining
+Uniform field families and group consumers still need their production slices.

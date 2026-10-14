@@ -112,3 +112,20 @@ retain their existing contracts. All class resolution uses the current styling
 instance. Consumer single-value and multi-value label classes merge after owned
 defaults. The declared `crossIcon`, `downChevron`, `multiValueContainer`, `group`
 and `selectContainer` slots now reach their React Select elements as well.
+
+## Owned Switch rendering
+
+`Switch` uses React Aria toggle, hover and focus hooks with owned presentation.
+One native switch input carries the field name, RHF ref, checked state and
+label/help/error associations; the duplicate hidden form input and visual-focus
+proxy are removed. Boolean values, controlled defaults/reset and supported
+sizes and styling slots are retained. Space toggles the same editable control
+that receives invalid-submission focus. Veto remains authoritative: schema
+required state uses `aria-required`, so a valid boolean `false` is not rejected
+by native checkbox validation.
+
+The thumb callback retains its declared `width`, `height`, `className`,
+`isSelected` and `data-checked` shape without referencing HeroUI types. The
+required marker is hidden from the accessible name. Optional `description` and
+visible errors describe the actual input. Use its field name or switch role
+rather than the old visual input's internal `*_switch` name.
