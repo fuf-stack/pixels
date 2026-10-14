@@ -76,8 +76,40 @@ const classes = variantsToClassNames(
 // => { base: 'shadow-lg', content: 'p-4 max-w-sm', trigger: 'cursor-pointer' }
 ```
 
-> **Why doesn't `tv` include prose-aware merging?**
-> `tailwind-variants` uses a shared module-level cache for its merge function. Injecting a custom `twMergeConfig` here would corrupt the cache when the same bundle also contains HeroUI components (which set their own `twMergeConfig`). Use `cn(...)` or `proseTwMerge(...)` for prose deduplication instead.
+`tv` includes the same prose merge rules as `cn`. Owned recipes additionally
+classify existing semantic sizes, radii, borders, shadows and transitions.
+The legacy standalone `cn` keeps its previous semantic classification during
+HeroUI coexistence; use instance helpers for new or migrated components. Recipes use the unmerged
+Tailwind Variants engine, then resolve conflicts with an isolated instance.
+Compound variants and recipe extension retain their classes until final merging.
+
+### `createStyling(config?)`, `defaultStyling`
+
+Create an immutable set of `cn`, `tv`, `resolve`, and `variantsToClassNames`
+helpers using Tailwind Merge's `extend`/`override` configuration format. Custom
+class groups and directional conflicts are supported. The configuration is
+copied when the instance is created; separate instances do not share settings.
+
+```ts
+import { createStyling, tv } from '@fuf-stack/pixel-utils';
+
+export const styling = createStyling({
+  extend: { classGroups: { 'font-size': [{ text: ['body'] }] } },
+});
+styling.cn('text-sm text-danger', 'text-body');
+// => 'text-danger text-body'
+
+// Resolve an existing module-level recipe before merging slot overrides.
+const input = tv({ slots: { input: 'text-sm text-danger' } });
+styling.variantsToClassNames(styling.resolve(input), { input: 'text-body' });
+// => { base: undefined, input: 'text-danger text-body' }
+```
+
+Use `styling.tv` for application recipes. Use `styling.resolve` only with recipes
+created by pixel-utils: classes discarded inside a third-party recipe cannot be
+recovered. Define the corresponding utility in Tailwind separately; merge
+configuration does not generate CSS. See [styling](../../docs/styling.md) for
+React context usage and current migration limits.
 
 ### `slugify(string, options?)`
 

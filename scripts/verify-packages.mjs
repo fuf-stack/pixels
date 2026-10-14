@@ -194,6 +194,14 @@ function installAndTestConsumer(tarballs) {
       )
       .join('\n')}\n`,
   );
+  // Exercise styling generics against packed declarations, not workspace source.
+  writeFileSync(
+    path.join(fixtureDirectory, 'styling.ts'),
+    readFileSync(
+      path.join(root, 'packages/pixel-utils/test/dts-smoke/fixture.ts'),
+      'utf8',
+    ),
+  );
   writeFileSync(
     path.join(fixtureDirectory, 'tsconfig.json'),
     `${JSON.stringify(
@@ -210,7 +218,7 @@ function installAndTestConsumer(tarballs) {
           strict: true,
           target: 'ES2022',
         },
-        files: ['consumer.ts'],
+        files: ['consumer.ts', 'styling.ts'],
       },
       null,
       2,

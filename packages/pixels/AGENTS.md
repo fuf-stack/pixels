@@ -7,8 +7,10 @@ subpath exports are public API.
   tests, story, and snapshots where they add value. Export new entry points from
   `package.json` and from `src/index.ts` only when a root export is intentional.
 - Preserve DOM semantics, keyboard behavior, focus management, ARIA naming, and
-  controlled/uncontrolled behavior. Extend existing HeroUI primitives and
-  shared styling patterns before adding a new abstraction.
+  controlled/uncontrolled behavior. For HeroUI migration slices, prefer React
+  Aria Components (hooks where the existing contract requires control) with
+  owned Tailwind Variants recipes. Resolve recipes through `useStyling()` before
+  merging consumer slot classes. Preserve the existing appearance and slots.
 - Keep dependencies flowing only to `pixel-utils` and `pixel-motion`; do not
   import from `uniform`, `atelier`, or `megapixels`.
 - For visual changes, exercise meaningful states in Storybook and report manual

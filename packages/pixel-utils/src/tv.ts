@@ -1,7 +1,6 @@
-import type { VariantProps } from '@heroui/theme';
-import type { ClassProp, TV } from 'tailwind-variants';
+import type { TV, VariantProps } from 'tailwind-variants';
 
-import { tv as tailwindVariants } from 'tailwind-variants';
+import { defaultStyling } from './styling';
 
 /**
  * Represents a class value which can be either a string or an array of strings
@@ -10,31 +9,10 @@ import { tv as tailwindVariants } from 'tailwind-variants';
 export type ClassValue = string | string[];
 
 /**
- * Props accepted by tailwind-variants slot functions
- * Combines a dynamic record of string/number values with the ClassProp from tailwind-variants
- */
-type TVSlotProps = {
-  [x: string]: string | number | undefined;
-  [x: number]: string | number | undefined;
-} & ClassProp<ClassValue>;
-
-/**
- * Represents a tailwind-variants slot function
- * Takes optional TVSlotProps and returns a string of class names
- */
-type TVFunction = (slotProps?: TVSlotProps) => string;
-
-/**
- * A record of slot names to their corresponding tailwind-variants functions
- * Used to type the variants parameter in variantsToClassNames
- */
-type TVRecord = Record<string, TVFunction>;
-
-/**
- * Re-export of tailwind-variants tv function
+ * Tailwind Variants recipe factory with isolated semantic class merging
  * Used to create variant definitions with slots and variants
  */
-export const tv: TV = tailwindVariants;
+export const tv: TV = defaultStyling.tv;
 
 /**
  * Extracts variant props from a tailwind-variants component
@@ -50,58 +28,6 @@ export type TVProps<Component extends (...args: any) => any> =
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type TVClassName<Component extends (...args: any) => any> =
-  | Partial<Record<keyof ReturnType<Component>, ClassValue>>
-  | ClassValue;
+  Partial<Record<keyof ReturnType<Component>, ClassValue>> | ClassValue;
 
-/**
- * Converts tailwind-variants slots instance to actual classnames object
- *
- * @param variants - Object containing slot variant functions from tailwind-variants
- * @param className - Optional class names to merge with variant classes. Can be string, array, or record
- * @param baseSlot - Optional slot name to apply global className to
- * @returns Record mapping slot names to their final class name strings
- *
- * @example
- * ```tsx
- * const variants = tv({ slots: { base: 'bg-white', content: 'p-4' } });
- * const classes = variantsToClassNames(variants(), 'shadow-lg', 'base');
- * // Result: { base: 'bg-white shadow-lg', content: 'p-4' }
- * ```
- *
- * @example
- * ```tsx
- * const variants = tv({ slots: { base: '', content: '' } });
- * const classes = variantsToClassNames(variants(), {
- *   base: 'bg-white',
- *   content: ['p-4', 'text-gray-700']
- * });
- * // Result: { base: 'bg-white', content: 'p-4 text-gray-700' }
- * ```
- */
-export const variantsToClassNames = <T extends TVRecord>(
-  variants: T,
-  className?: ClassValue | Record<string, ClassValue>,
-  baseSlot?: keyof T,
-): Record<keyof T, string> => {
-  const classNames =
-    typeof className === 'object' && !Array.isArray(className) ? className : {};
-
-  return Object.entries(variants).reduce(
-    (acc, [slot, variantFn]) => {
-      const slotKey = slot as keyof T;
-      const slotClassName =
-        typeof className === 'string' || Array.isArray(className)
-          ? className
-          : classNames[slot];
-
-      // @ts-expect-error not sure here
-      acc[slotKey] = variantFn({
-        className:
-          baseSlot && slot === baseSlot ? slotClassName : classNames[slot],
-      });
-
-      return acc;
-    },
-    {} as Record<keyof T, string>,
-  );
-};
+export { default as variantsToClassNames } from './slotClassNames';

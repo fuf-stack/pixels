@@ -122,6 +122,59 @@ import { cn } from '@fuf-stack/pixel-utils';
 - When wrapping HeroUI, map the resolved `classNames` onto its `classNames` prop
   and translate our prop names to HeroUI's where they differ.
 
+## Isolated consumer class merging
+
+`createStyling` from `@fuf-stack/pixel-utils` accepts Tailwind Merge's
+`extend`/`override` format. Its `cn`, `tv`, and slot resolution use one effective
+configuration, including typography plugin groups. It uses the Tailwind Variants
+lite engine so compound variants and extended recipes reach the final merge
+without previously discarded classes. `TVProps` now comes directly from
+Tailwind Variants rather than the HeroUI theme.
+
+```tsx
+import { createStyling, tv } from '@fuf-stack/pixel-utils';
+import { StylingProvider, useStyling } from '@fuf-stack/pixels/StylingProvider';
+
+const styling = createStyling({
+  extend: { classGroups: { 'font-size': [{ text: ['body'] }] } },
+});
+const recipe = tv({ slots: { input: 'text-sm text-danger' } });
+
+function Control() {
+  const helpers = useStyling();
+  const classes = helpers.variantsToClassNames(helpers.resolve(recipe), {
+    input: 'text-body',
+  });
+  return <input aria-label="Example" className={classes.input} />;
+}
+
+<StylingProvider styling={styling}>
+  <Control />
+</StylingProvider>;
+```
+
+Create instances outside rendering and reuse them in application helpers.
+The provider follows the React tree through portals and allows nested providers,
+independent roots, and separate server requests. With no provider, `useStyling`
+returns `defaultStyling`. String, array, and per-slot record overrides keep their
+existing meaning. For module-level recipes, call `resolve` before slot functions
+are evaluated; applying a custom merge after default resolution cannot recover
+discarded classes.
+
+The legacy standalone `cn` export keeps its previous merge rules during
+coexistence: changing its classification of `text-medium` would change existing
+HeroUI wrapper output. Use the instance’s `cn` together with its recipes for
+migrated components and application code. Unifying the legacy export is gated
+on the component/visual migration.
+
+This is the first migration slice. Existing HeroUI wrappers do not yet consume
+this context and HeroUI performs its own merges. The provider currently supports
+application components using `useStyling`; it does not make custom merge rules
+work across all existing Pixels/Uniform components yet. Tailwind must generate
+`text-body` independently (for example via a `--text-body` theme token).
+The token stylesheet and theme migration remain pending. Track remaining work in
+[the migration inventory](./heroui-removal.md).
+
 ## When a component needs a real CSS file
 
 Almost all styling is Tailwind. A raw `.css` file is only needed when a
