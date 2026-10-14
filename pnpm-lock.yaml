@@ -590,9 +590,6 @@ importers:
       '@heroui/slider':
         specifier: 2.4.29
         version: 2.4.29(@heroui/system@2.4.28(@heroui/theme@2.4.26(tailwindcss@4.3.3))(@react-spectrum/provider@3.11.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(framer-motion@12.43.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(@heroui/theme@2.4.26(tailwindcss@4.3.3))(@react-spectrum/provider@3.11.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(framer-motion@12.43.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@heroui/switch':
-        specifier: 2.2.27
-        version: 2.2.27(@heroui/system@2.4.28(@heroui/theme@2.4.26(tailwindcss@4.3.3))(@react-spectrum/provider@3.11.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(framer-motion@12.43.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(@heroui/theme@2.4.26(tailwindcss@4.3.3))(@react-spectrum/provider@3.11.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       '@heroui/system':
         specifier: 2.4.28
         version: 2.4.28(@heroui/theme@2.4.26(tailwindcss@4.3.3))(@react-spectrum/provider@3.11.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(framer-motion@12.43.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
@@ -1598,14 +1595,6 @@ packages:
   '@heroui/spinner@2.2.29':
     resolution: {integrity: sha512-08mWpL4+pdACcyzT5MjR0nSkKoWbab0oPzY+JHxIdPSSh3S8JJ7C8dUeV3Kj/15NRzzZlcTM3ClRCV8fdeGmuw==}
     peerDependencies:
-      '@heroui/theme': '>=2.4.24'
-      react: '>=18 || >=19.0.0-rc.0'
-      react-dom: '>=18 || >=19.0.0-rc.0'
-
-  '@heroui/switch@2.2.27':
-    resolution: {integrity: sha512-z23is+gtPkX29EpixY5ZLY1+NQaP+ueshuiXzdgD9SfCQLOSDYDWuFVdR8ZgfdDPyhP8xpOnJf6l9zfgXHD8Rw==}
-    peerDependencies:
-      '@heroui/system': '>=2.4.18'
       '@heroui/theme': '>=2.4.24'
       react: '>=18 || >=19.0.0-rc.0'
       react-dom: '>=18 || >=19.0.0-rc.0'
@@ -9158,23 +9147,6 @@ snapshots:
     transitivePeerDependencies:
       - '@react-spectrum/provider'
       - framer-motion
-
-  '@heroui/switch@2.2.27(@heroui/system@2.4.28(@heroui/theme@2.4.26(tailwindcss@4.3.3))(@react-spectrum/provider@3.11.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(framer-motion@12.43.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(@heroui/theme@2.4.26(tailwindcss@4.3.3))(@react-spectrum/provider@3.11.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
-    dependencies:
-      '@heroui/react-utils': 2.1.14(react@19.2.8)
-      '@heroui/shared-utils': 2.1.12
-      '@heroui/system': 2.4.28(@heroui/theme@2.4.26(tailwindcss@4.3.3))(@react-spectrum/provider@3.11.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(framer-motion@12.43.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@heroui/theme': 2.4.26(tailwindcss@4.3.3)
-      '@heroui/use-safe-layout-effect': 2.1.8(react@19.2.8)
-      '@react-aria/focus': 3.21.5(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@react-aria/interactions': 3.27.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@react-aria/switch': 3.7.11(@react-spectrum/provider@3.11.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@react-aria/visually-hidden': 3.8.31(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@react-stately/toggle': 3.9.5(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      react: 19.2.8
-      react-dom: 19.2.8(react@19.2.8)
-    transitivePeerDependencies:
-      - '@react-spectrum/provider'
 
   '@heroui/system-rsc@2.3.24(@heroui/theme@2.4.26(tailwindcss@4.3.3))(react@19.2.8)':
     dependencies:

@@ -114,3 +114,16 @@ in both themes; default/required stories have no findings. These remain release
 review items. Existing array mutation/reset and card touched/error stories are
 retained, with new checks for named groups, child submission and configured
 heading font-size merging.
+
+## Production SwitchBox rollout
+
+Paired SwitchBox `production-before`/`production-after` captures cover default,
+selected, required, disabled, invalid, icon, thumb callback and all-size stories
+in both themes. All 16 comparisons match root/track/thumb/label/description
+geometry, typography, colors and radii after animations settle. Markup replaces
+two inputs with one registered switch and explicitly associates its label,
+description and error footer.
+
+`switchbox-production-a11y.json` audits the switch label and adjacent error
+footer across eight states per theme. Light invalid-state contrast is reported;
+other audited states have no findings. No assistive-technology review is claimed.

@@ -1,23 +1,28 @@
 import type { TVClassName } from '@fuf-stack/pixel-utils';
-import type { SwitchProps as HeroSwitchProps } from '@heroui/switch';
 import type { ReactNode } from 'react';
+import type { SwitchProps } from '../Switch/Switch';
 
 import { useRef } from 'react';
+import { mergeProps } from 'react-aria/mergeProps';
+import { useFocusRing } from 'react-aria/useFocusRing';
+import { useHover } from 'react-aria/useHover';
+import { useSwitch } from 'react-aria/useSwitch';
+import { VisuallyHidden } from 'react-aria/VisuallyHidden';
+import { useToggleState } from 'react-stately/useToggleState';
 
-import { useSwitch } from '@heroui/switch';
-import { VisuallyHidden } from '@react-aria/visually-hidden';
+import { tv } from '@fuf-stack/pixel-utils';
+import { useStyling } from '@fuf-stack/pixels/StylingProvider';
 
-import { cn, tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
-
-import { useUniformField } from '../hooks/useUniformField';
+import useUniformFieldState from '../hooks/useUniformField/useUniformFieldState';
+import { FieldHints } from '../partials/FieldLayout/FieldLayout';
+import { switchVariants } from '../Switch/Switch';
 
 export const switchBoxVariants = tv({
   slots: {
     box: 'group inline-flex w-full cursor-pointer items-center justify-between rounded-lg border-2 border-default hover:bg-content2 data-[selected=true]:border-focus',
     description: 'text-foreground opacity-70',
     icon: '',
-    label:
-      'font-medium text-foreground group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]',
+    label: 'font-medium text-foreground',
     wrapper: '',
     thumb: '',
     thumbIcon: '',
@@ -79,7 +84,7 @@ export interface SwitchBoxProps {
   /** HTML data-testid attribute used in e2e tests */
   testId?: string;
   /** Icon to be displayed inside the thumb */
-  thumbIcon?: HeroSwitchProps['thumbIcon'];
+  thumbIcon?: SwitchProps['thumbIcon'];
 }
 
 /**
@@ -95,147 +100,134 @@ const SwitchBox = ({
   ...uniformFieldProps
 }: SwitchBoxProps) => {
   const {
-    defaultValue,
     disabled,
     errorMessage,
-    field,
-    getErrorMessageProps,
-    getHelperWrapperProps,
+    field: { value, onChange, onBlur },
     invalid,
     label,
-    onBlur,
-    onChange,
     ref,
     required,
+    ids,
     testId,
-  } = useUniformField({
-    name,
-    ...uniformFieldProps,
-  });
-
-  // Ref for the visual switch to forward focus
-  const visualSwitchRef = useRef<HTMLInputElement>(null);
-
-  // Use the useSwitch hook to get access to all the necessary props
-  const {
-    Component,
-    slots,
-    isSelected,
-    getBaseProps,
-    getInputProps,
-    getWrapperProps,
-  } = useSwitch({
-    defaultSelected: !!defaultValue,
-    isDisabled: disabled,
-    isSelected: !!field.value,
-    name: `${name}_switch`,
-    onValueChange: onChange,
-    size,
-    thumbIcon,
-  });
-
-  // classNames from slots
-  const variants = switchBoxVariants({
-    isDisabled: disabled,
-    isInvalid: invalid,
-    size,
-  });
-  const classNames = variantsToClassNames(variants, className, 'box');
+    getControlProps,
+  } = useUniformFieldState({ name, description, ...uniformFieldProps });
+  const inputRef = useRef<HTMLInputElement>(null);
+  const associations = getControlProps();
+  const state = useToggleState({ isSelected: !!value, onChange });
+  const { inputProps, labelProps, isPressed } = useSwitch(
+    {
+      ...associations,
+      name,
+      children: label,
+      isDisabled: disabled,
+      isInvalid: invalid,
+      isRequired: required,
+      validationBehavior: 'aria',
+      onBlur,
+    },
+    state,
+    inputRef,
+  );
+  const { focusProps, isFocused, isFocusVisible } = useFocusRing();
+  const { hoverProps, isHovered } = useHover({ isDisabled: disabled });
+  const styling = useStyling();
+  const classes = styling.variantsToClassNames(
+    styling.resolve(switchBoxVariants, {
+      isDisabled: disabled,
+      isInvalid: invalid,
+      size,
+    }),
+    className,
+    'box',
+  );
+  const track = styling.resolve(switchVariants);
+  const trackSizes = { sm: 'h-6 w-10', md: '', lg: 'h-8 w-14' };
+  const thumbSizes = {
+    sm: 'h-4 w-4 text-tiny group-data-[selected=true]:ms-4 group-data-[selected=true]:group-data-[pressed=true]:ms-3 group-data-[pressed=true]:w-5',
+    md: '',
+    lg: 'h-6 w-6 text-medium group-data-[selected=true]:ms-6 group-data-[selected=true]:group-data-[pressed=true]:ms-5 group-data-[pressed=true]:w-7',
+  };
+  const trackClass = styling.cn(
+    track.wrapper(),
+    trackSizes[size ?? 'md'],
+    classes.wrapper,
+  );
+  const thumbClass = styling.cn(
+    track.thumb(),
+    thumbSizes[size ?? 'md'],
+    classes.thumb,
+  );
+  const thumb = (
+    <span aria-hidden className={trackClass} data-slot="wrapper">
+      <span className={thumbClass} data-slot="thumb">
+        {typeof thumbIcon === 'function'
+          ? thumbIcon({
+              isSelected: state.isSelected,
+              className: styling.cn(track.thumbIcon(), classes.thumbIcon),
+              width: '1em',
+              height: '1em',
+              'data-checked': String(state.isSelected),
+            })
+          : thumbIcon}
+      </span>
+    </span>
+  );
 
   return (
     <>
-      <Component
-        {...getBaseProps()}
-        className={classNames.box}
+      <label
+        {...mergeProps(labelProps, hoverProps)}
+        className={classes.box}
+        data-focus={isFocused || undefined}
+        data-focus-visible={isFocusVisible || undefined}
+        data-hover={isHovered || undefined}
+        data-pressed={isPressed || undefined}
+        data-selected={state.isSelected || undefined}
         data-invalid={invalid}
         data-required={required}
         data-testid={testId}
+        htmlFor={ids.control}
       >
-        <VisuallyHidden>
+        <VisuallyHidden elementType="span">
           <input
-            ref={ref}
-            aria-label={typeof label === 'string' ? label : name}
-            checked={!!field.value}
-            name={name}
-            onChange={(e) => {
-              onChange(e.target.checked);
+            {...mergeProps(inputProps, focusProps, associations)}
+            ref={(node) => {
+              inputRef.current = node;
+              ref(node);
             }}
-            onFocus={() => {
-              // When RHF focuses this hidden input (e.g., on validation error),
-              // forward focus to the visual switch to show focus ring
-              visualSwitchRef.current?.focus();
-            }}
-            tabIndex={-1}
-            type="checkbox"
-          />
-          {/* Visual switch input for focus ring */}
-          <input
-            ref={visualSwitchRef}
-            {...getInputProps()}
-            onBlur={(e) => {
-              // Call HeroUI's internal onBlur to clear focus state and remove focus ring
-              getInputProps().onBlur?.(e);
-              // Then call RHF's onBlur to mark field as touched
-              onBlur();
-            }}
+            data-slot="input"
           />
         </VisuallyHidden>
-        {!icon ? (
-          <span
-            {...getWrapperProps()}
-            className={cn(getWrapperProps().className, classNames.wrapper)}
-          >
-            <span className={cn(slots.thumb({ class: classNames.thumb }))}>
-              {thumbIcon && typeof thumbIcon === 'function'
-                ? thumbIcon({
-                    isSelected: !!isSelected,
-                    className: slots.thumbIcon({ class: classNames.thumbIcon }),
-                    width: '1em',
-                    height: '1em',
-                    'data-checked': isSelected ? 'true' : 'false',
-                  })
-                : thumbIcon}
-            </span>
-          </span>
-        ) : null}
-        {icon ? <div className={classNames.icon}>{icon}</div> : null}
+        {!icon ? thumb : null}
+        {icon ? <div className={classes.icon}>{icon}</div> : null}
         <div className="grow">
-          {label ? <div className={classNames.label}>{label}</div> : null}
+          {label ? (
+            <div className={classes.label} data-slot="label" id={ids.label}>
+              {label}
+              {required ? (
+                <span aria-hidden className="ml-0.5 text-danger">
+                  *
+                </span>
+              ) : null}
+            </div>
+          ) : null}
           {description ? (
-            <div className={classNames.description}>{description}</div>
+            <div className={classes.description} id={ids.description}>
+              {description}
+            </div>
           ) : null}
         </div>
-        {icon ? (
-          <span
-            {...getWrapperProps()}
-            className={cn(getWrapperProps().className, classNames.wrapper)}
-          >
-            <span className={cn(slots.thumb({ class: classNames.thumb }))}>
-              {thumbIcon && typeof thumbIcon === 'function'
-                ? thumbIcon({
-                    isSelected: !!isSelected,
-                    className: slots.thumbIcon({ class: classNames.thumbIcon }),
-                    width: '1em',
-                    height: '1em',
-                    'data-checked': isSelected ? 'true' : 'false',
-                  })
-                : thumbIcon}
-            </span>
-          </span>
-        ) : null}
-      </Component>
-      {invalid ? (
-        <div
-          {...getHelperWrapperProps()}
-          className={cn(
-            getHelperWrapperProps()?.className,
-            // force helper to be visible (for some reason it's hidden by default) and remove margin
-            'ml-0 block',
-          )}
-        >
-          <div {...getErrorMessageProps()}>{errorMessage}</div>
-        </div>
-      ) : null}
+        {icon ? thumb : null}
+      </label>
+      <FieldHints
+        classes={{
+          helperWrapper: 'relative ml-0 block p-0',
+          errorMessage: 'text-danger text-tiny',
+        }}
+        errorMessage={errorMessage}
+        ids={ids}
+        invalid={invalid}
+      />
     </>
   );
 };

@@ -286,3 +286,23 @@ buttons, menus and drag controls used by arrays remain in the later Pixels phase
 Final `pnpm check` passed all six gates: 1,500 unit tests (12 skipped), 442 browser
 stories and seven packed consumers. Thirty-one group/consumer snapshots were
 reviewed and updated for the intentional DOM association changes.
+
+## Production SwitchBox verification (2026-10-15)
+
+SwitchBox uses React Aria interactions and one registered native input. Its
+visible label and description now associate explicitly with that input; the
+same input handles invalid-submit focus, Space toggling, blur and boolean
+submission. Required markers are hidden from accessible names. Existing card,
+track, thumb, icon and description slots remain configurable, including size
+and thumb callback types. Its unused direct `@heroui/switch` dependency is removed.
+
+Sixteen light/dark comparisons match the baseline geometry, colors and
+typography, including icon positioning and all three sizes. Unit checks cover
+false submission, reset, disabled behavior, required/help/error focus and thumb
+callbacks; the browser story checks keyboard toggling. Existing consumer/reset
+stories retain their behavior assertions while updating the intentional markup.
+
+Final `pnpm check` passed all six gates with 1,503 unit tests (12 skipped), 443
+browser stories and seven packed consumers. Eleven consumer DOM snapshots were
+reviewed and updated. The audit records light invalid-state contrast; the other
+audited SwitchBox states have no findings.

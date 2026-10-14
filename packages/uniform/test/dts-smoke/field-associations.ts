@@ -1,8 +1,10 @@
-import { useUniformField } from '@fuf-stack/uniform/hooks/useUniformField';
 import type { InputProps } from '@fuf-stack/uniform/Input';
-import type { TextAreaProps } from '@fuf-stack/uniform/TextArea';
 import type { SelectProps } from '@fuf-stack/uniform/Select';
 import type { SwitchProps } from '@fuf-stack/uniform/Switch';
+import type { SwitchBoxProps } from '@fuf-stack/uniform/SwitchBox';
+import type { TextAreaProps } from '@fuf-stack/uniform/TextArea';
+
+import { useUniformField } from '@fuf-stack/uniform/hooks/useUniformField';
 
 // Exercise the existing input contract against the packed declarations.
 export const inputProps: InputProps = {
@@ -57,11 +59,19 @@ export const switchProps: SwitchProps = {
   size: 'lg',
   description: 'Toggle setting',
   className: { label: 'text-body', thumbIcon: 'text-danger' },
-  thumbIcon: ({ width, height, className, isSelected, 'data-checked': checked }) => {
+  thumbIcon: ({
+    width,
+    height,
+    className,
+    isSelected,
+    'data-checked': checked,
+  }) => {
     const dimensions: string[] = [width, height, className, checked];
     return isSelected ? dimensions.join(' ') : null;
   },
 };
+
+export const switchBoxProps: SwitchBoxProps = { ...switchProps, icon: null };
 
 export default function useEditorField() {
   const field = useUniformField<{ editor: string }>({
