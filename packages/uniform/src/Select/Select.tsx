@@ -6,18 +6,24 @@ import type { InputValueTransform } from '../hooks/useInputValueTransform';
 import { useState } from 'react';
 import ReactSelect from 'react-select';
 
-import { useSelect } from '@heroui/select';
-
-import { cn, tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
+import { tv } from '@fuf-stack/pixel-utils';
+import { useStyling } from '@fuf-stack/pixels/StylingProvider';
 
 import { createOptionValueConverter, isValueEmpty } from '../helpers';
 import { useFormContext } from '../hooks/useFormContext';
-import { useUniformField } from '../hooks/useUniformField';
+import useUniformFieldState from '../hooks/useUniformField/useUniformFieldState';
+import { FieldHints, FieldLabel } from '../partials/FieldLayout/FieldLayout';
 import {
+  ClearIndicatorComponent,
   ControlComponent,
+  DownChevronComponent,
   DropdownIndicatorComponent,
   InputComponent,
+  MultiValueContainerComponent,
+  MultiValueRemoveComponent,
   OptionComponent,
+  SelectControlContext,
+  SelectSlotContext,
 } from './SelectComponents';
 
 export const selectVariants = tv({
@@ -75,6 +81,20 @@ export const selectVariants = tv({
   },
 });
 
+const selectStateVariants = tv({
+  extend: selectVariants,
+  slots: {
+    selectedValue: 'w-full truncate text-start font-normal text-small',
+    helperWrapper: 'relative flex flex-col gap-1.5 p-0',
+    description: 'text-foreground-500 text-tiny',
+    errorMessage: 'text-danger text-tiny',
+  },
+  variants: {
+    disabled: { true: { base: 'pointer-events-none opacity-disabled' } },
+    invalid: { true: { selectedValue: 'text-danger!' } },
+  },
+});
+
 export interface SelectOption {
   /** set option to disabled state */
   disabled?: boolean;
@@ -97,6 +117,8 @@ export interface SelectProps extends VariantProps {
   ariaLabel?: string;
   /** CSS class name */
   className?: ClassName; // string;
+  /** Optional help text associated with the editable search input. */
+  description?: ReactNode;
   /** Determine if the  */
   clearable?: boolean;
   /** Set the select to disabled state. */
@@ -105,8 +127,7 @@ export interface SelectProps extends VariantProps {
   debugMenuOpen?: boolean;
   /** Filter Select Options */
   filterOption?:
-    | undefined
-    | ((option?: SelectOption, inputValue?: string) => boolean);
+    undefined | ((option?: SelectOption, inputValue?: string) => boolean);
   /** The value of the search input */
   inputValue?: string;
   /** Label that should be associated with the select. */
@@ -141,7 +162,7 @@ export interface SelectProps extends VariantProps {
   transform?: InputValueTransform;
 }
 
-/** Select component based on [HeroUI Select](https://www.heroui.com//docs/components/select) and [React-Select](https://react-select.com/home) */
+/** React Select interaction engine with owned styling and Uniform associations. */
 const Select = ({
   className = undefined,
   clearable = true,
@@ -160,18 +181,17 @@ const Select = ({
   ...uniformFieldProps
 }: SelectProps) => {
   const {
-    ariaLabel,
+    ids,
+    description,
+    getControlProps,
     disabled,
     errorMessage,
     field: { onBlur, onChange, ref, value },
-    getErrorMessageProps,
-    getHelperWrapperProps,
-    getLabelProps,
     invalid,
     label,
     required,
     testId,
-  } = useUniformField({
+  } = useUniformFieldState({
     // Multi-select values are arrays and can produce nested RHF error shapes.
     isArrayValue: multiSelect,
     name,
@@ -188,11 +208,23 @@ const Select = ({
   const { convertToOriginalType } = createOptionValueConverter(options);
 
   // classNames from slots
-  const variants = selectVariants();
-  const classNames = variantsToClassNames(variants, className, 'base');
+  const styling = useStyling();
+  const { cn } = styling;
+  const classNames = styling.variantsToClassNames(
+    styling.resolve(selectStateVariants, { disabled, invalid }),
+    className,
+    'base',
+  );
+  const controlProps = getControlProps();
 
   // React-select classNames configuration
   const reactSelectClassNames = {
+    container: () => {
+      return classNames.selectContainer;
+    },
+    group: () => {
+      return classNames.group;
+    },
     clearIndicator: () => {
       return classNames.clearIndicator;
     },
@@ -235,7 +267,7 @@ const Select = ({
       return classNames.multiValue;
     },
     multiValueLabel: () => {
-      return cn(`${getValueProps().className}`, classNames.multiValueLabel);
+      return cn(classNames.selectedValue, classNames.multiValueLabel);
     },
     multiValueRemove: () => {
       return classNames.multiValueRemove;
@@ -262,24 +294,12 @@ const Select = ({
       return classNames.placeholder;
     },
     singleValue: () => {
-      return cn(classNames.singleValue, `${getValueProps().className}`);
+      return cn(classNames.selectedValue, classNames.singleValue);
     },
     valueContainer: () => {
       return classNames.valueContainer;
     },
   };
-
-  const { getBaseProps, getTriggerProps, getValueProps } = useSelect({
-    children: [],
-    classNames,
-    errorMessage,
-    isDisabled: disabled,
-    isInvalid: invalid,
-    isLoading: loading,
-    isRequired: required,
-    label,
-    labelPlacement: 'outside',
-  });
 
   // react-select expects `isDisabled`, while our option contract uses `disabled`.
   const reactSelectOptions = options.map((option) => {
@@ -390,78 +410,79 @@ const Select = ({
 
   return (
     <div
-      {...getBaseProps()}
+      data-disabled={disabled ? true : undefined}
+      data-has-helper
+      data-has-label={!!label || undefined}
+      data-invalid={invalid || undefined}
+      data-required={required}
       className={cn(classNames.base)}
       // see HeroUI styles for group-data condition (data-invalid),
       // e.g.: https://github.com/heroui-inc/heroui/blob/main/packages/components/select/src/use-select.ts
-      data-required={required}
+      data-slot="base"
       data-testid={`${testId}_wrapper`}
     >
-      {label ? (
-        <label
-          className={classNames.label}
-          data-slot="label"
-          htmlFor={`react-select-${name}-input`}
-          id={getLabelProps().id}
-        >
-          {label}
-          {required ? (
-            <span aria-hidden className="ml-0.5 text-danger">
-              *
-            </span>
-          ) : null}
-        </label>
-      ) : null}
-      <ReactSelect
-        ref={ref}
-        aria-errormessage=""
-        aria-invalid={invalid}
-        aria-label={ariaLabel}
-        // set aria-labelledby to the label id so that the select is accessible
-        aria-labelledby={
-          label
-            ? getTriggerProps()['aria-labelledby']?.split(' ')[1]
-            : undefined
-        }
-        classNames={reactSelectClassNames}
-        components={{
-          Control: ControlComponent,
-          DropdownIndicator: DropdownIndicatorComponent,
-          Input: InputComponent,
-          Option: OptionComponent,
-        }}
-        // Does not affect the testId of the select, but is needed to pass it to sub-components
-        data-testid={testId}
-        filterOption={filterOption}
-        formatOptionLabel={renderOptionLabel}
-        inputValue={inputValue}
-        instanceId={name}
-        isClearable={clearable}
-        isDisabled={disabled}
-        isLoading={loading}
-        isMulti={multiSelect}
-        menuIsOpen={debugMenuOpen ? true : undefined}
-        // set menuPosition to fixed so that menu can be rendered
-        // inside Card / Modal components, menuShouldBlockScroll
-        // prevents container scroll when menu is open
-        menuPosition="fixed"
-        menuShouldBlockScroll
-        name={name}
-        noOptionsMessage={renderEmptyOptions}
-        onBlur={handleBlur}
-        onChange={handleChange}
-        onFocus={handleFocus}
-        onInputChange={onInputChange}
-        options={reactSelectOptions}
-        placeholder={placeholder}
-        unstyled
-        value={reactSelectValue}
+      <FieldLabel
+        className={classNames.label}
+        ids={ids}
+        label={label}
+        required={required}
       />
-      {invalid ? (
-        <div {...getHelperWrapperProps()}>
-          <div {...getErrorMessageProps()}>{errorMessage}</div>
-        </div>
-      ) : null}
+      <SelectControlContext.Provider value={controlProps}>
+        <SelectSlotContext.Provider value={classNames}>
+          <ReactSelect
+            ref={ref}
+            aria-errormessage=""
+            aria-invalid={invalid}
+            aria-label={controlProps['aria-label']}
+            aria-labelledby={controlProps['aria-labelledby']}
+            classNames={reactSelectClassNames}
+            data-testid={testId}
+            components={{
+              Control: ControlComponent,
+              ClearIndicator: ClearIndicatorComponent,
+              MultiValueRemove: MultiValueRemoveComponent,
+              DownChevron: DownChevronComponent,
+              MultiValueContainer: MultiValueContainerComponent,
+              DropdownIndicator: DropdownIndicatorComponent,
+              Input: InputComponent,
+              Option: OptionComponent,
+            }}
+            // Does not affect the testId of the select, but is needed to pass it to sub-components
+            filterOption={filterOption}
+            formatOptionLabel={renderOptionLabel}
+            inputId={ids.control}
+            inputValue={inputValue}
+            instanceId={ids.control}
+            isClearable={clearable}
+            isDisabled={disabled}
+            isLoading={loading}
+            isMulti={multiSelect}
+            menuIsOpen={debugMenuOpen ? true : undefined}
+            // set menuPosition to fixed so that menu can be rendered
+            // inside Card / Modal components, menuShouldBlockScroll
+            // prevents container scroll when menu is open
+            menuPosition="fixed"
+            menuShouldBlockScroll
+            name={name}
+            noOptionsMessage={renderEmptyOptions}
+            onBlur={handleBlur}
+            onChange={handleChange}
+            onFocus={handleFocus}
+            onInputChange={onInputChange}
+            options={reactSelectOptions}
+            placeholder={placeholder}
+            unstyled
+            value={reactSelectValue}
+          />
+        </SelectSlotContext.Provider>
+      </SelectControlContext.Provider>
+      <FieldHints
+        classes={classNames}
+        description={description}
+        errorMessage={errorMessage}
+        ids={ids}
+        invalid={invalid}
+      />
     </div>
   );
 };

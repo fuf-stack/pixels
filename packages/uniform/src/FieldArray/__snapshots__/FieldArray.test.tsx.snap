@@ -1758,8 +1758,8 @@ exports[`Story Snapshots > EdgeCaseTopLevelStringNotInArray 1`] = `
             <label
               class="pointer-events-auto inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger"
               data-slot="label"
-              for="react-select-topLevelValue-input"
-              id="react-aria-«replaced-aria-id»"
+              for="uniform-«replaced-aria-id»"
+              id="uniform-«replaced-aria-id»-label"
             >
               Top-level value
               <span
@@ -1774,7 +1774,7 @@ exports[`Story Snapshots > EdgeCaseTopLevelStringNotInArray 1`] = `
             >
               <span
                 class="css-1f43avz-a11yText-A11yText"
-                id="react-select-topLevelValue-live-region"
+                id="react-select-uniform-«replaced-aria-id»-live-region"
               />
               <span
                 aria-atomic="false"
@@ -1793,7 +1793,7 @@ exports[`Story Snapshots > EdgeCaseTopLevelStringNotInArray 1`] = `
                     class="gap-1 p-1 css-14oxtc6"
                   >
                     <div
-                      class="ml-1! leading-7! font-normal w-full text-start text-small truncate group-data-[has-value=true]:text-default-foreground css-w54w9q-singleValue"
+                      class="w-full truncate text-start font-normal text-small ml-1! leading-7! css-w54w9q-singleValue"
                     >
                       Beta
                     </div>
@@ -1807,15 +1807,14 @@ exports[`Story Snapshots > EdgeCaseTopLevelStringNotInArray 1`] = `
                         aria-errormessage=""
                         aria-expanded="false"
                         aria-haspopup="true"
-                        aria-invalid="false"
-                        aria-label="Top-level value"
-                        aria-labelledby="react-aria-«replaced-aria-id»"
+                        aria-labelledby="uniform-«replaced-aria-id»-label"
+                        aria-required="true"
                         autocapitalize="none"
                         autocomplete="off"
                         autocorrect="off"
                         class=""
                         data-testid="toplevelvalue"
-                        id="react-select-topLevelValue-input"
+                        id="uniform-«replaced-aria-id»"
                         role="combobox"
                         spellcheck="false"
                         style="color: inherit; background: 0px center; opacity: 0; width: 100%; grid-area: 1 / 2; font: inherit; min-width: 2px; border: 0px; margin: 0px; outline: 0px; padding: 0px;"
@@ -1922,8 +1921,8 @@ exports[`Story Snapshots > EdgeCaseTopLevelStringNotInArray 1`] = `
                         <label
                           class="pointer-events-auto inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger"
                           data-slot="label"
-                          for="react-select-arrayField.0.__FLAT__-input"
-                          id="react-aria-«replaced-aria-id»"
+                          for="uniform-«replaced-aria-id»"
+                          id="uniform-«replaced-aria-id»-label"
                         >
                           Value
                           <span
@@ -1938,7 +1937,7 @@ exports[`Story Snapshots > EdgeCaseTopLevelStringNotInArray 1`] = `
                         >
                           <span
                             class="css-1f43avz-a11yText-A11yText"
-                            id="react-select-arrayField.0.__FLAT__-live-region"
+                            id="react-select-uniform-«replaced-aria-id»-live-region"
                           />
                           <span
                             aria-atomic="false"
@@ -1957,7 +1956,7 @@ exports[`Story Snapshots > EdgeCaseTopLevelStringNotInArray 1`] = `
                                 class="gap-1 p-1 css-14oxtc6"
                               >
                                 <div
-                                  class="ml-1! leading-7! font-normal w-full text-start text-small truncate group-data-[has-value=true]:text-default-foreground css-w54w9q-singleValue"
+                                  class="w-full truncate text-start font-normal text-small ml-1! leading-7! css-w54w9q-singleValue"
                                 >
                                   Alpha
                                 </div>
@@ -1971,15 +1970,14 @@ exports[`Story Snapshots > EdgeCaseTopLevelStringNotInArray 1`] = `
                                     aria-errormessage=""
                                     aria-expanded="false"
                                     aria-haspopup="true"
-                                    aria-invalid="false"
-                                    aria-label="Value"
-                                    aria-labelledby="react-aria-«replaced-aria-id»"
+                                    aria-labelledby="uniform-«replaced-aria-id»-label"
+                                    aria-required="true"
                                     autocapitalize="none"
                                     autocomplete="off"
                                     autocorrect="off"
                                     class=""
                                     data-testid="arrayfield_0"
-                                    id="react-select-arrayField.0.__FLAT__-input"
+                                    id="uniform-«replaced-aria-id»"
                                     role="combobox"
                                     spellcheck="false"
                                     style="color: inherit; background: 0px center; opacity: 0; width: 100%; grid-area: 1 / 2; font: inherit; min-width: 2px; border: 0px; margin: 0px; outline: 0px; padding: 0px;"
@@ -2083,8 +2081,8 @@ exports[`Story Snapshots > EdgeCaseTopLevelStringNotInArray 1`] = `
                         <label
                           class="pointer-events-auto inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger"
                           data-slot="label"
-                          for="react-select-arrayField.1.__FLAT__-input"
-                          id="react-aria-«replaced-aria-id»"
+                          for="uniform-«replaced-aria-id»"
+                          id="uniform-«replaced-aria-id»-label"
                         >
                           Value
                           <span
@@ -2099,7 +2097,7 @@ exports[`Story Snapshots > EdgeCaseTopLevelStringNotInArray 1`] = `
                         >
                           <span
                             class="css-1f43avz-a11yText-A11yText"
-                            id="react-select-arrayField.1.__FLAT__-live-region"
+                            id="react-select-uniform-«replaced-aria-id»-live-region"
                           />
                           <span
                             aria-atomic="false"
@@ -2118,7 +2116,7 @@ exports[`Story Snapshots > EdgeCaseTopLevelStringNotInArray 1`] = `
                                 class="gap-1 p-1 css-14oxtc6"
                               >
                                 <div
-                                  class="ml-1! leading-7! font-normal w-full text-start text-small truncate group-data-[has-value=true]:text-default-foreground css-w54w9q-singleValue"
+                                  class="w-full truncate text-start font-normal text-small ml-1! leading-7! css-w54w9q-singleValue"
                                 >
                                   Gamma
                                 </div>
@@ -2132,15 +2130,14 @@ exports[`Story Snapshots > EdgeCaseTopLevelStringNotInArray 1`] = `
                                     aria-errormessage=""
                                     aria-expanded="false"
                                     aria-haspopup="true"
-                                    aria-invalid="false"
-                                    aria-label="Value"
-                                    aria-labelledby="react-aria-«replaced-aria-id»"
+                                    aria-labelledby="uniform-«replaced-aria-id»-label"
+                                    aria-required="true"
                                     autocapitalize="none"
                                     autocomplete="off"
                                     autocorrect="off"
                                     class=""
                                     data-testid="arrayfield_1"
-                                    id="react-select-arrayField.1.__FLAT__-input"
+                                    id="uniform-«replaced-aria-id»"
                                     role="combobox"
                                     spellcheck="false"
                                     style="color: inherit; background: 0px center; opacity: 0; width: 100%; grid-area: 1 / 2; font: inherit; min-width: 2px; border: 0px; margin: 0px; outline: 0px; padding: 0px;"

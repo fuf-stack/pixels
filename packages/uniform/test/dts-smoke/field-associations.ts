@@ -1,6 +1,7 @@
 import { useUniformField } from '@fuf-stack/uniform/hooks/useUniformField';
 import type { InputProps } from '@fuf-stack/uniform/Input';
 import type { TextAreaProps } from '@fuf-stack/uniform/TextArea';
+import type { SelectProps } from '@fuf-stack/uniform/Select';
 
 // Exercise the existing input contract against the packed declarations.
 export const inputProps: InputProps = {
@@ -32,6 +33,21 @@ export const textAreaProps: TextAreaProps = {
     inputWrapper: 'border-danger',
     input: 'text-body text-danger',
     clearButton: 'unused-existing-slot',
+  },
+};
+
+export const selectProps: SelectProps = {
+  name: 'choice',
+  description: 'Choose a number',
+  options: [{ label: 'Zero', value: 0 }],
+  multiSelect: true,
+  selectedOptionFallback: [{ label: 'Two', value: 2 }],
+  className: {
+    input: 'text-body',
+    singleValue: 'text-body text-danger',
+    multiValueContainer: 'rounded',
+    crossIcon: 'text-danger',
+    downChevron: 'text-danger',
   },
 };
 

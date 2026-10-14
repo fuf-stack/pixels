@@ -63,3 +63,22 @@ stories assert this geometry. Number input captures explicitly retain the
 focused state represented by the baseline to avoid story blur timing differences.
 The textarea audit is recorded in `textarea-production-a11y.json`; invalid text
 contrast is reported in each theme and the other audited states have no findings.
+
+## Select integration
+
+The paired Select `integration-before`/`integration-after` captures and JSON
+measurements cover default, single/multi initial values, required, invalid,
+disabled, loading and numeric-option stories in both themes. The integration
+retains React Select and replaces only the HeroUI presentation helper and
+association wiring. Existing control and wrapper dimensions, fonts, foregrounds,
+backgrounds, borders and radii are compared across these 16 states. Association
+IDs and icon/container class wiring intentionally change. Browser stories verify
+configured single-value font-size merging and required/help/error focus behavior.
+
+`select-integration-a11y.json` records nine audited states in both themes. The
+audit reports invalid-state contrast in light mode, search-input contrast in
+several dark-mode states and `aria-required-children` for React Select's loading
+listbox (which contains a loading message rather than options). These findings
+remain release-review items. No clean accessibility audit or before/after axe
+equivalence is claimed for Select; the engine and captured appearance are
+retained in this integration slice.

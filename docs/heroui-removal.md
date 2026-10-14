@@ -1,6 +1,6 @@
 # HeroUI removal: implementation inventory
 
-Status: styling/token foundations and production Input/TextArea migrated; remaining components and final theme removal pending.
+Status: styling/token foundations and production Input/TextArea/Select migrated; remaining components and final theme removal pending.
 This is a staged breaking migration. It is not ready for a HeroUI-free release.
 The only agreed breaking changes are consumer theme setup and removal of
 `uniform/hooks/useInput`; other exported props, recipes, slots, and storage
@@ -70,7 +70,7 @@ must accompany each renderer migration, with before/after browser evidence.
 | uniform/RadioBoxes      | [RadioBoxesProps](../packages/uniform/src/RadioBoxes/RadioBoxes.tsx)                     | radioBoxesVariants       | base, boxBase, boxControl, boxDescription, boxLabel, boxLabelWrapper, label, wrapper                                                                                                                                                                                                                                                                                                                                                           | radio                      | 1           |
 | uniform/RadioTabs       | [RadioTabsProps](../packages/uniform/src/RadioTabs/RadioTabs.tsx)                        | radioTabsVariants        | base, cursor, label, tab, tabBase, tabContent, tabList, tabPanel, tabWrapper, wrapper                                                                                                                                                                                                                                                                                                                                                          | radio                      | 1           |
 | uniform/Radios          | [RadiosProps](../packages/uniform/src/Radios/Radios.tsx)                                 | radiosVariants           | base, errorMessage, itemBase, itemControl, itemDescription, itemLabel, itemLabelWrapper, itemWrapper, label, wrapper                                                                                                                                                                                                                                                                                                                           | radio                      | 1           |
-| uniform/Select          | [SelectProps](../packages/uniform/src/Select/Select.tsx)                                 | selectVariants           | base, clearIndicator, control, control_focused, crossIcon, downChevron, dropdownIndicator, group, groupHeading, indicatorsContainer, indicatorSeparator, input, label, loadingIndicator, loadingMessage, menu, menuList, menuPortal, multiValue, multiValueContainer, multiValueLabel, multiValueRemove, noOptionsMessage, option, option_disabled, option_focused, option_selected, placeholder, selectContainer, singleValue, valueContainer | select                     | 2           |
+| uniform/Select          | [SelectProps](../packages/uniform/src/Select/Select.tsx)                                 | selectVariants           | base, clearIndicator, control, control_focused, crossIcon, downChevron, dropdownIndicator, group, groupHeading, indicatorsContainer, indicatorSeparator, input, label, loadingIndicator, loadingMessage, menu, menuList, menuPortal, multiValue, multiValueContainer, multiValueLabel, multiValueRemove, noOptionsMessage, option, option_disabled, option_focused, option_selected, placeholder, selectContainer, singleValue, valueContainer | —                          | 3           |
 | uniform/Slider          | [SliderProps](../packages/uniform/src/Slider/Slider.tsx)                                 | sliderVariants           | base, endContent, errorMessage, filler, label, labelWrapper, mark, startContent, step, thumb, track, trackWrapper, value                                                                                                                                                                                                                                                                                                                       | slider                     | 2           |
 | uniform/SubmitButton    | [SubmitButtonProps](../packages/uniform/src/SubmitButton/SubmitButton.tsx)               | —                        | —                                                                                                                                                                                                                                                                                                                                                                                                                                              | via Pixels/useUniformField | 1           |
 | uniform/Switch          | [SwitchProps](../packages/uniform/src/Switch/Switch.tsx)                                 | switchVariants           | base, endContent, errorMessage, label, outerWrapper, startContent, thumb, thumbIcon, wrapper                                                                                                                                                                                                                                                                                                                                                   | switch                     | 1           |
@@ -231,3 +231,23 @@ check TextArea props and slots. The textarea audit records invalid-state text
 contrast findings in both themes; its other audited states have no findings.
 Pixels primitives, grouped/date/time/slider fields, Select integration and final
 HeroUI/theme removal remain pending.
+
+## Uniform-only phase and Select integration (2026-10-15)
+
+The current phase covers remaining Uniform fields, React Select integration and
+Uniform consumers. Pixels primitives and application package migrations remain
+outside this phase; they continue to supply HeroUI-backed presentation until a
+later rollout. The external Markdown editor remains deferred.
+
+Select keeps React Select while removing HeroUI select/input-presentation hooks
+from its production path. Actual input associations preserve the engine’s own
+placeholder/live-region descriptions. Declared icon/container slots now target
+their intended elements, configured font-size merging is checked in a browser,
+and numeric values, fallback options, transforms and deferred touched timing
+are retained. The unused `@heroui/select` dependency is removed.
+
+All 16 light/dark control/wrapper measurement comparisons match the baseline.
+Final `pnpm check` passed all six gates: 1,495 unit tests (12 skipped), 440 browser
+stories and seven packed consumers. Twenty-four consumer snapshots were updated
+for the intentional association/slot wiring changes; behavior assertions were
+retained. Select accessibility findings are recorded with its field evidence.

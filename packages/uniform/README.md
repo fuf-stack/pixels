@@ -95,3 +95,20 @@ TextArea has no clear action. Optional `description` text and visible errors are
 associated with the actual textarea; consumer styling instances apply before
 merging its slot classes. Both field renderers keep RHF/Veto validation
 authoritative and use `aria-required` without competing native validation.
+
+## Owned Select integration
+
+`Select` keeps React Select as its interaction engine and now uses the shared
+Uniform field-state core without HeroUI's select or input-presentation hooks.
+Visible labels, explicit accessible names, required state, optional `description`
+and visible errors are applied to the actual search input. React Select's
+placeholder/live-region descriptions remain alongside these field associations.
+Control and announcement IDs are distinct even when separate forms repeat a
+field name; `data-testid` values remain unchanged.
+
+Option values, numeric conversion, fallback options, loading/search callbacks,
+single/multi selection, clearing, transforms and deferred touched notification
+retain their existing contracts. All class resolution uses the current styling
+instance. Consumer single-value and multi-value label classes merge after owned
+defaults. The declared `crossIcon`, `downChevron`, `multiValueContainer`, `group`
+and `selectContainer` slots now reach their React Select elements as well.

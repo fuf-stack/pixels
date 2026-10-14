@@ -215,8 +215,8 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                     <label
                       class="pointer-events-auto inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger"
                       data-slot="label"
-                      for="react-select-selectField-input"
-                      id="react-aria-«replaced-aria-id»"
+                      for="uniform-«replaced-aria-id»"
+                      id="uniform-«replaced-aria-id»-label"
                     >
                       Select Field
                       <span
@@ -231,7 +231,7 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                     >
                       <span
                         class="css-1f43avz-a11yText-A11yText"
-                        id="react-select-selectField-live-region"
+                        id="react-select-uniform-«replaced-aria-id»-live-region"
                       />
                       <span
                         aria-atomic="false"
@@ -251,7 +251,7 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                           >
                             <div
                               class="ml-1 py-0.5 pl-1 text-sm text-foreground-500 css-1vlsb4t-placeholder"
-                              id="react-select-selectField-placeholder"
+                              id="react-select-uniform-«replaced-aria-id»-placeholder"
                             >
                               Select...
                             </div>
@@ -262,19 +262,18 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                               <input
                                 aria-activedescendant=""
                                 aria-autocomplete="list"
-                                aria-describedby="react-select-selectField-placeholder"
+                                aria-describedby="react-select-uniform-«replaced-aria-id»-placeholder"
                                 aria-errormessage=""
                                 aria-expanded="false"
                                 aria-haspopup="true"
-                                aria-invalid="false"
-                                aria-label="Select Field"
-                                aria-labelledby="react-aria-«replaced-aria-id»"
+                                aria-labelledby="uniform-«replaced-aria-id»-label"
+                                aria-required="true"
                                 autocapitalize="none"
                                 autocomplete="off"
                                 autocorrect="off"
                                 class=""
                                 data-testid="selectfield"
-                                id="react-select-selectField-input"
+                                id="uniform-«replaced-aria-id»"
                                 role="combobox"
                                 spellcheck="false"
                                 style="color: inherit; background: 0px center; opacity: 1; width: 100%; grid-area: 1 / 2; font: inherit; min-width: 2px; border: 0px; margin: 0px; outline: 0px; padding: 0px;"
