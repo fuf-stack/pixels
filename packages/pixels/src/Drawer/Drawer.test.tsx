@@ -15,10 +15,12 @@ describe('Drawer Component', () => {
     const { container } = render(<Drawer />);
     expect(container.firstChild).toMatchSnapshot();
   });
+
   test('Should have correct testIds', () => {
     const { container } = render(<Drawer testId="drawer1" />);
     expect(container.firstChild).toMatchSnapshot();
   });
+
   test('should render with only header', () => {
     const { container } = render(
       <Drawer
@@ -28,6 +30,7 @@ describe('Drawer Component', () => {
     );
     expect(container.firstChild).toMatchSnapshot();
   });
+
   test('should render header, body, and footer when provided', () => {
     render(
       <Drawer
@@ -47,6 +50,7 @@ describe('Drawer Component', () => {
       'Footer Content',
     );
   });
+
   test('should not render header, footer if not provided', () => {
     render(
       <Drawer isOpen onClose={() => {}}>
@@ -59,6 +63,7 @@ describe('Drawer Component', () => {
     // Body should still be present
     expect(screen.getByTestId('drawer-body')).toHaveTextContent('Body Content');
   });
+
   test('should render only header if only header provided', () => {
     render(
       <Drawer
