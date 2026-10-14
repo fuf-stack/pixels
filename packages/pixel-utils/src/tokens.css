@@ -1,0 +1,574 @@
+/* Pixels semantic tokens. Import after Tailwind CSS in the global stylesheet. */
+
+@custom-variant dark (&:where(.dark, .dark *, [data-theme="dark"], [data-theme="dark"] *));
+
+@layer base {
+  :root,
+  .light,
+  [data-theme='light'] {
+    color-scheme: light;
+    color: var(--pixel-color-foreground);
+    background-color: var(--pixel-color-background);
+    --pixel-color-background: #ffffff;
+    --pixel-color-foreground-50: #fafafa;
+    --pixel-color-foreground-100: #f4f4f5;
+    --pixel-color-foreground-200: #e4e4e7;
+    --pixel-color-foreground-300: #d4d4d8;
+    --pixel-color-foreground-400: #a1a1aa;
+    --pixel-color-foreground-500: #71717a;
+    --pixel-color-foreground-600: #52525b;
+    --pixel-color-foreground-700: #3f3f46;
+    --pixel-color-foreground-800: #27272a;
+    --pixel-color-foreground-900: #18181b;
+    --pixel-color-foreground: #11181c;
+    --pixel-color-divider: rgba(17, 17, 17, 0.15);
+    --pixel-color-focus: #006fee;
+    --pixel-color-overlay: #000000;
+    --pixel-color-content1: #ffffff;
+    --pixel-color-content1-foreground: #11181c;
+    --pixel-color-content2: #f4f4f5;
+    --pixel-color-content2-foreground: #27272a;
+    --pixel-color-content3: #e4e4e7;
+    --pixel-color-content3-foreground: #3f3f46;
+    --pixel-color-content4: #d4d4d8;
+    --pixel-color-content4-foreground: #52525b;
+    --pixel-color-default-50: #fafafa;
+    --pixel-color-default-100: #f4f4f5;
+    --pixel-color-default-200: #e4e4e7;
+    --pixel-color-default-300: #d4d4d8;
+    --pixel-color-default-400: #a1a1aa;
+    --pixel-color-default-500: #71717a;
+    --pixel-color-default-600: #52525b;
+    --pixel-color-default-700: #3f3f46;
+    --pixel-color-default-800: #27272a;
+    --pixel-color-default-900: #18181b;
+    --pixel-color-default-foreground: #000;
+    --pixel-color-default: #d4d4d8;
+    --pixel-color-primary-50: #e6f1fe;
+    --pixel-color-primary-100: #cce3fd;
+    --pixel-color-primary-200: #99c7fb;
+    --pixel-color-primary-300: #66aaf9;
+    --pixel-color-primary-400: #338ef7;
+    --pixel-color-primary-500: #006fee;
+    --pixel-color-primary-600: #005bc4;
+    --pixel-color-primary-700: #004493;
+    --pixel-color-primary-800: #002e62;
+    --pixel-color-primary-900: #001731;
+    --pixel-color-primary-foreground: #fff;
+    --pixel-color-primary: #006fee;
+    --pixel-color-secondary-50: #f2eafa;
+    --pixel-color-secondary-100: #e4d4f4;
+    --pixel-color-secondary-200: #c9a9e9;
+    --pixel-color-secondary-300: #ae7ede;
+    --pixel-color-secondary-400: #9353d3;
+    --pixel-color-secondary-500: #7828c8;
+    --pixel-color-secondary-600: #6020a0;
+    --pixel-color-secondary-700: #481878;
+    --pixel-color-secondary-800: #301050;
+    --pixel-color-secondary-900: #180828;
+    --pixel-color-secondary-foreground: #fff;
+    --pixel-color-secondary: #7828c8;
+    --pixel-color-success-50: #e8faf0;
+    --pixel-color-success-100: #d1f4e0;
+    --pixel-color-success-200: #a2e9c1;
+    --pixel-color-success-300: #74dfa2;
+    --pixel-color-success-400: #45d483;
+    --pixel-color-success-500: #17c964;
+    --pixel-color-success-600: #12a150;
+    --pixel-color-success-700: #0e793c;
+    --pixel-color-success-800: #095028;
+    --pixel-color-success-900: #052814;
+    --pixel-color-success-foreground: #000;
+    --pixel-color-success: #17c964;
+    --pixel-color-warning-50: #fefce8;
+    --pixel-color-warning-100: #fdedd3;
+    --pixel-color-warning-200: #fbdba7;
+    --pixel-color-warning-300: #f9c97c;
+    --pixel-color-warning-400: #f7b750;
+    --pixel-color-warning-500: #f5a524;
+    --pixel-color-warning-600: #c4841d;
+    --pixel-color-warning-700: #936316;
+    --pixel-color-warning-800: #62420e;
+    --pixel-color-warning-900: #312107;
+    --pixel-color-warning-foreground: #000;
+    --pixel-color-warning: #f5a524;
+    --pixel-color-danger-50: #fee7ef;
+    --pixel-color-danger-100: #fdd0df;
+    --pixel-color-danger-200: #faa0bf;
+    --pixel-color-danger-300: #f871a0;
+    --pixel-color-danger-400: #f54180;
+    --pixel-color-danger-500: #f31260;
+    --pixel-color-danger-600: #c20e4d;
+    --pixel-color-danger-700: #920b3a;
+    --pixel-color-danger-800: #610726;
+    --pixel-color-danger-900: #310413;
+    --pixel-color-danger-foreground: #ffffff;
+    --pixel-color-danger: #f31260;
+    --pixel-color-info: var(--pixel-color-info-500);
+    --pixel-color-info-foreground: oklch(100% 0 89.88);
+    --pixel-color-info-50: oklch(95.374% 0.0211 252.5);
+    --pixel-color-info-100: oklch(90.703% 0.0434 251.52);
+    --pixel-color-info-200: oklch(81.593% 0.0885 251.95);
+    --pixel-color-info-300: oklch(72.661% 0.1349 253.3);
+    --pixel-color-info-400: oklch(64.678% 0.1781 254.76);
+    --pixel-color-info-500: oklch(56.713% 0.2095 257.94);
+    --pixel-color-info-600: oklch(49.195% 0.18 257.73);
+    --pixel-color-info-700: oklch(40.117% 0.1436 257.21);
+    --pixel-color-info-800: oklch(30.742% 0.1034 255.59);
+    --pixel-color-info-900: oklch(20.335% 0.0604 251.77);
+    --pixel-divider-weight: 1px;
+    --pixel-disabled-opacity: 0.5;
+    --pixel-font-size-tiny: 0.75rem;
+    --pixel-font-size-small: 0.875rem;
+    --pixel-font-size-medium: 1rem;
+    --pixel-font-size-large: 1.125rem;
+    --pixel-line-height-tiny: 1rem;
+    --pixel-line-height-small: 1.25rem;
+    --pixel-line-height-medium: 1.5rem;
+    --pixel-line-height-large: 1.75rem;
+    --pixel-radius-small: 8px;
+    --pixel-radius-medium: 12px;
+    --pixel-radius-large: 14px;
+    --pixel-border-width-small: 1px;
+    --pixel-border-width-medium: 2px;
+    --pixel-border-width-large: 3px;
+    --pixel-box-shadow-small:
+      0px 0px 5px 0px rgb(0 0 0 / 0.02), 0px 2px 10px 0px rgb(0 0 0 / 0.06),
+      0px 0px 1px 0px rgb(0 0 0 / 0.3);
+    --pixel-box-shadow-medium:
+      0px 0px 15px 0px rgb(0 0 0 / 0.03), 0px 2px 30px 0px rgb(0 0 0 / 0.08),
+      0px 0px 1px 0px rgb(0 0 0 / 0.3);
+    --pixel-box-shadow-large:
+      0px 0px 30px 0px rgb(0 0 0 / 0.04), 0px 30px 60px 0px rgb(0 0 0 / 0.12),
+      0px 0px 1px 0px rgb(0 0 0 / 0.3);
+    --pixel-hover-opacity: 0.8;
+  }
+
+  .dark,
+  [data-theme='dark'] {
+    color-scheme: dark;
+    color: var(--pixel-color-foreground);
+    background-color: var(--pixel-color-background);
+    --pixel-color-background: #000000;
+    --pixel-color-foreground-50: #18181b;
+    --pixel-color-foreground-100: #27272a;
+    --pixel-color-foreground-200: #3f3f46;
+    --pixel-color-foreground-300: #52525b;
+    --pixel-color-foreground-400: #71717a;
+    --pixel-color-foreground-500: #a1a1aa;
+    --pixel-color-foreground-600: #d4d4d8;
+    --pixel-color-foreground-700: #e4e4e7;
+    --pixel-color-foreground-800: #f4f4f5;
+    --pixel-color-foreground-900: #fafafa;
+    --pixel-color-foreground: #ecedee;
+    --pixel-color-focus: #006fee;
+    --pixel-color-overlay: #000000;
+    --pixel-color-divider: rgba(255, 255, 255, 0.15);
+    --pixel-color-content1: #18181b;
+    --pixel-color-content1-foreground: #fafafa;
+    --pixel-color-content2: #27272a;
+    --pixel-color-content2-foreground: #f4f4f5;
+    --pixel-color-content3: #3f3f46;
+    --pixel-color-content3-foreground: #e4e4e7;
+    --pixel-color-content4: #52525b;
+    --pixel-color-content4-foreground: #d4d4d8;
+    --pixel-color-default-50: #18181b;
+    --pixel-color-default-100: #27272a;
+    --pixel-color-default-200: #3f3f46;
+    --pixel-color-default-300: #52525b;
+    --pixel-color-default-400: #71717a;
+    --pixel-color-default-500: #a1a1aa;
+    --pixel-color-default-600: #d4d4d8;
+    --pixel-color-default-700: #e4e4e7;
+    --pixel-color-default-800: #f4f4f5;
+    --pixel-color-default-900: #fafafa;
+    --pixel-color-default-foreground: #fff;
+    --pixel-color-default: #3f3f46;
+    --pixel-color-primary-50: #001731;
+    --pixel-color-primary-100: #002e62;
+    --pixel-color-primary-200: #004493;
+    --pixel-color-primary-300: #005bc4;
+    --pixel-color-primary-400: #006fee;
+    --pixel-color-primary-500: #338ef7;
+    --pixel-color-primary-600: #66aaf9;
+    --pixel-color-primary-700: #99c7fb;
+    --pixel-color-primary-800: #cce3fd;
+    --pixel-color-primary-900: #e6f1fe;
+    --pixel-color-primary-foreground: #fff;
+    --pixel-color-primary: #006fee;
+    --pixel-color-secondary-50: #180828;
+    --pixel-color-secondary-100: #301050;
+    --pixel-color-secondary-200: #481878;
+    --pixel-color-secondary-300: #6020a0;
+    --pixel-color-secondary-400: #7828c8;
+    --pixel-color-secondary-500: #9353d3;
+    --pixel-color-secondary-600: #ae7ede;
+    --pixel-color-secondary-700: #c9a9e9;
+    --pixel-color-secondary-800: #e4d4f4;
+    --pixel-color-secondary-900: #f2eafa;
+    --pixel-color-secondary-foreground: #fff;
+    --pixel-color-secondary: #9353d3;
+    --pixel-color-success-50: #052814;
+    --pixel-color-success-100: #095028;
+    --pixel-color-success-200: #0e793c;
+    --pixel-color-success-300: #12a150;
+    --pixel-color-success-400: #17c964;
+    --pixel-color-success-500: #45d483;
+    --pixel-color-success-600: #74dfa2;
+    --pixel-color-success-700: #a2e9c1;
+    --pixel-color-success-800: #d1f4e0;
+    --pixel-color-success-900: #e8faf0;
+    --pixel-color-success-foreground: #000;
+    --pixel-color-success: #17c964;
+    --pixel-color-warning-50: #312107;
+    --pixel-color-warning-100: #62420e;
+    --pixel-color-warning-200: #936316;
+    --pixel-color-warning-300: #c4841d;
+    --pixel-color-warning-400: #f5a524;
+    --pixel-color-warning-500: #f7b750;
+    --pixel-color-warning-600: #f9c97c;
+    --pixel-color-warning-700: #fbdba7;
+    --pixel-color-warning-800: #fdedd3;
+    --pixel-color-warning-900: #fefce8;
+    --pixel-color-warning-foreground: #000;
+    --pixel-color-warning: #f5a524;
+    --pixel-color-danger-50: #310413;
+    --pixel-color-danger-100: #610726;
+    --pixel-color-danger-200: #920b3a;
+    --pixel-color-danger-300: #c20e4d;
+    --pixel-color-danger-400: #f31260;
+    --pixel-color-danger-500: #f54180;
+    --pixel-color-danger-600: #f871a0;
+    --pixel-color-danger-700: #faa0bf;
+    --pixel-color-danger-800: #fdd0df;
+    --pixel-color-danger-900: #fee7ef;
+    --pixel-color-danger-foreground: #ffffff;
+    --pixel-color-danger: #f31260;
+    --pixel-color-info: var(--pixel-color-info-400);
+    --pixel-color-info-foreground: oklch(100% 0 89.88);
+    --pixel-color-info-50: oklch(20.335% 0.0604 251.77);
+    --pixel-color-info-100: oklch(30.742% 0.1034 255.59);
+    --pixel-color-info-200: oklch(40.117% 0.1436 257.21);
+    --pixel-color-info-300: oklch(49.195% 0.18 257.73);
+    --pixel-color-info-400: oklch(56.713% 0.2095 257.94);
+    --pixel-color-info-500: oklch(64.678% 0.1781 254.76);
+    --pixel-color-info-600: oklch(72.661% 0.1349 253.3);
+    --pixel-color-info-700: oklch(81.593% 0.0885 251.95);
+    --pixel-color-info-800: oklch(90.703% 0.0434 251.52);
+    --pixel-color-info-900: oklch(95.374% 0.0211 252.5);
+    --pixel-divider-weight: 1px;
+    --pixel-disabled-opacity: 0.5;
+    --pixel-font-size-tiny: 0.75rem;
+    --pixel-font-size-small: 0.875rem;
+    --pixel-font-size-medium: 1rem;
+    --pixel-font-size-large: 1.125rem;
+    --pixel-line-height-tiny: 1rem;
+    --pixel-line-height-small: 1.25rem;
+    --pixel-line-height-medium: 1.5rem;
+    --pixel-line-height-large: 1.75rem;
+    --pixel-radius-small: 8px;
+    --pixel-radius-medium: 12px;
+    --pixel-radius-large: 14px;
+    --pixel-border-width-small: 1px;
+    --pixel-border-width-medium: 2px;
+    --pixel-border-width-large: 3px;
+    --pixel-box-shadow-small:
+      0px 0px 5px 0px rgb(0 0 0 / 0.05), 0px 2px 10px 0px rgb(0 0 0 / 0.2),
+      inset 0px 0px 1px 0px rgb(255 255 255 / 0.15);
+    --pixel-box-shadow-medium:
+      0px 0px 15px 0px rgb(0 0 0 / 0.06), 0px 2px 30px 0px rgb(0 0 0 / 0.22),
+      inset 0px 0px 1px 0px rgb(255 255 255 / 0.15);
+    --pixel-box-shadow-large:
+      0px 0px 30px 0px rgb(0 0 0 / 0.07), 0px 30px 60px 0px rgb(0 0 0 / 0.26),
+      inset 0px 0px 1px 0px rgb(255 255 255 / 0.15);
+    --pixel-hover-opacity: 0.9;
+  }
+}
+
+@theme inline {
+  --color-background: var(--pixel-color-background);
+  --color-foreground-50: var(--pixel-color-foreground-50);
+  --color-foreground-100: var(--pixel-color-foreground-100);
+  --color-foreground-200: var(--pixel-color-foreground-200);
+  --color-foreground-300: var(--pixel-color-foreground-300);
+  --color-foreground-400: var(--pixel-color-foreground-400);
+  --color-foreground-500: var(--pixel-color-foreground-500);
+  --color-foreground-600: var(--pixel-color-foreground-600);
+  --color-foreground-700: var(--pixel-color-foreground-700);
+  --color-foreground-800: var(--pixel-color-foreground-800);
+  --color-foreground-900: var(--pixel-color-foreground-900);
+  --color-foreground: var(--pixel-color-foreground);
+  --color-divider: var(--pixel-color-divider);
+  --color-focus: var(--pixel-color-focus);
+  --color-overlay: var(--pixel-color-overlay);
+  --color-content1: var(--pixel-color-content1);
+  --color-content1-foreground: var(--pixel-color-content1-foreground);
+  --color-content2: var(--pixel-color-content2);
+  --color-content2-foreground: var(--pixel-color-content2-foreground);
+  --color-content3: var(--pixel-color-content3);
+  --color-content3-foreground: var(--pixel-color-content3-foreground);
+  --color-content4: var(--pixel-color-content4);
+  --color-content4-foreground: var(--pixel-color-content4-foreground);
+  --color-default-50: var(--pixel-color-default-50);
+  --color-default-100: var(--pixel-color-default-100);
+  --color-default-200: var(--pixel-color-default-200);
+  --color-default-300: var(--pixel-color-default-300);
+  --color-default-400: var(--pixel-color-default-400);
+  --color-default-500: var(--pixel-color-default-500);
+  --color-default-600: var(--pixel-color-default-600);
+  --color-default-700: var(--pixel-color-default-700);
+  --color-default-800: var(--pixel-color-default-800);
+  --color-default-900: var(--pixel-color-default-900);
+  --color-default-foreground: var(--pixel-color-default-foreground);
+  --color-default: var(--pixel-color-default);
+  --color-primary-50: var(--pixel-color-primary-50);
+  --color-primary-100: var(--pixel-color-primary-100);
+  --color-primary-200: var(--pixel-color-primary-200);
+  --color-primary-300: var(--pixel-color-primary-300);
+  --color-primary-400: var(--pixel-color-primary-400);
+  --color-primary-500: var(--pixel-color-primary-500);
+  --color-primary-600: var(--pixel-color-primary-600);
+  --color-primary-700: var(--pixel-color-primary-700);
+  --color-primary-800: var(--pixel-color-primary-800);
+  --color-primary-900: var(--pixel-color-primary-900);
+  --color-primary-foreground: var(--pixel-color-primary-foreground);
+  --color-primary: var(--pixel-color-primary);
+  --color-secondary-50: var(--pixel-color-secondary-50);
+  --color-secondary-100: var(--pixel-color-secondary-100);
+  --color-secondary-200: var(--pixel-color-secondary-200);
+  --color-secondary-300: var(--pixel-color-secondary-300);
+  --color-secondary-400: var(--pixel-color-secondary-400);
+  --color-secondary-500: var(--pixel-color-secondary-500);
+  --color-secondary-600: var(--pixel-color-secondary-600);
+  --color-secondary-700: var(--pixel-color-secondary-700);
+  --color-secondary-800: var(--pixel-color-secondary-800);
+  --color-secondary-900: var(--pixel-color-secondary-900);
+  --color-secondary-foreground: var(--pixel-color-secondary-foreground);
+  --color-secondary: var(--pixel-color-secondary);
+  --color-success-50: var(--pixel-color-success-50);
+  --color-success-100: var(--pixel-color-success-100);
+  --color-success-200: var(--pixel-color-success-200);
+  --color-success-300: var(--pixel-color-success-300);
+  --color-success-400: var(--pixel-color-success-400);
+  --color-success-500: var(--pixel-color-success-500);
+  --color-success-600: var(--pixel-color-success-600);
+  --color-success-700: var(--pixel-color-success-700);
+  --color-success-800: var(--pixel-color-success-800);
+  --color-success-900: var(--pixel-color-success-900);
+  --color-success-foreground: var(--pixel-color-success-foreground);
+  --color-success: var(--pixel-color-success);
+  --color-warning-50: var(--pixel-color-warning-50);
+  --color-warning-100: var(--pixel-color-warning-100);
+  --color-warning-200: var(--pixel-color-warning-200);
+  --color-warning-300: var(--pixel-color-warning-300);
+  --color-warning-400: var(--pixel-color-warning-400);
+  --color-warning-500: var(--pixel-color-warning-500);
+  --color-warning-600: var(--pixel-color-warning-600);
+  --color-warning-700: var(--pixel-color-warning-700);
+  --color-warning-800: var(--pixel-color-warning-800);
+  --color-warning-900: var(--pixel-color-warning-900);
+  --color-warning-foreground: var(--pixel-color-warning-foreground);
+  --color-warning: var(--pixel-color-warning);
+  --color-danger-50: var(--pixel-color-danger-50);
+  --color-danger-100: var(--pixel-color-danger-100);
+  --color-danger-200: var(--pixel-color-danger-200);
+  --color-danger-300: var(--pixel-color-danger-300);
+  --color-danger-400: var(--pixel-color-danger-400);
+  --color-danger-500: var(--pixel-color-danger-500);
+  --color-danger-600: var(--pixel-color-danger-600);
+  --color-danger-700: var(--pixel-color-danger-700);
+  --color-danger-800: var(--pixel-color-danger-800);
+  --color-danger-900: var(--pixel-color-danger-900);
+  --color-danger-foreground: var(--pixel-color-danger-foreground);
+  --color-danger: var(--pixel-color-danger);
+  --color-info: var(--pixel-color-info);
+  --color-info-foreground: var(--pixel-color-info-foreground);
+  --color-info-50: var(--pixel-color-info-50);
+  --color-info-100: var(--pixel-color-info-100);
+  --color-info-200: var(--pixel-color-info-200);
+  --color-info-300: var(--pixel-color-info-300);
+  --color-info-400: var(--pixel-color-info-400);
+  --color-info-500: var(--pixel-color-info-500);
+  --color-info-600: var(--pixel-color-info-600);
+  --color-info-700: var(--pixel-color-info-700);
+  --color-info-800: var(--pixel-color-info-800);
+  --color-info-900: var(--pixel-color-info-900);
+  --text-tiny: var(--pixel-font-size-tiny);
+  --text-tiny--line-height: var(--pixel-line-height-tiny);
+  --text-small: var(--pixel-font-size-small);
+  --text-small--line-height: var(--pixel-line-height-small);
+  --text-medium: var(--pixel-font-size-medium);
+  --text-medium--line-height: var(--pixel-line-height-medium);
+  --text-large: var(--pixel-font-size-large);
+  --text-large--line-height: var(--pixel-line-height-large);
+  --radius-small: var(--pixel-radius-small);
+  --shadow-small: var(--pixel-box-shadow-small);
+  --radius-medium: var(--pixel-radius-medium);
+  --shadow-medium: var(--pixel-box-shadow-medium);
+  --radius-large: var(--pixel-radius-large);
+  --shadow-large: var(--pixel-box-shadow-large);
+  --spacing-divider: var(--pixel-divider-weight);
+  --ease-soft-spring: cubic-bezier(0.155, 1.105, 0.295, 1.12);
+  --border-width-small: var(--pixel-border-width-small);
+  --border-width-medium: var(--pixel-border-width-medium);
+  --border-width-large: var(--pixel-border-width-large);
+}
+
+@utility opacity-disabled {
+  opacity: var(--pixel-disabled-opacity);
+}
+@utility opacity-hover {
+  opacity: var(--pixel-hover-opacity);
+}
+
+@utility transition-background {
+  transition-property: background-color;
+  transition-timing-function: var(--default-transition-timing-function);
+  transition-duration: var(--default-transition-duration);
+}
+
+@utility transition-colors-opacity {
+  transition-property:
+    color, background-color, border-color, text-decoration-color, fill, stroke,
+    opacity;
+  transition-timing-function: var(--default-transition-timing-function);
+  transition-duration: var(--default-transition-duration);
+}
+
+@utility transition-width {
+  transition-property: width;
+  transition-timing-function: var(--default-transition-timing-function);
+  transition-duration: var(--default-transition-duration);
+}
+
+@utility transition-height {
+  transition-property: height;
+  transition-timing-function: var(--default-transition-timing-function);
+  transition-duration: var(--default-transition-duration);
+}
+
+@utility transition-size {
+  transition-property: width, height;
+  transition-timing-function: var(--default-transition-timing-function);
+  transition-duration: var(--default-transition-duration);
+}
+
+@utility transition-left {
+  transition-property: left;
+  transition-timing-function: var(--default-transition-timing-function);
+  transition-duration: var(--default-transition-duration);
+}
+
+@utility transition-transform-opacity {
+  transition-property: transform, translate, scale, rotate, opacity;
+  transition-timing-function: var(--default-transition-timing-function);
+  transition-duration: var(--default-transition-duration);
+}
+
+@utility transition-transform-background {
+  transition-property: transform, translate, scale, rotate, background-color;
+  transition-timing-function: var(--default-transition-timing-function);
+  transition-duration: var(--default-transition-duration);
+}
+
+@utility transition-transform-colors {
+  transition-property:
+    transform, translate, scale, rotate, color, background-color, border-color,
+    text-decoration-color, fill, stroke;
+  transition-timing-function: var(--default-transition-timing-function);
+  transition-duration: var(--default-transition-duration);
+}
+
+@utility transition-transform-colors-opacity {
+  transition-property:
+    transform, translate, scale, rotate, color, background-color, border-color,
+    text-decoration-color, fill, stroke, opacity;
+  transition-timing-function: var(--default-transition-timing-function);
+  transition-duration: var(--default-transition-duration);
+}
+
+@utility tap-highlight-transparent {
+  -webkit-tap-highlight-color: transparent;
+}
+
+@utility bg-stripe-size {
+  background-size: 1.25rem 1.25rem;
+}
+
+@utility bg-stripe-gradient-default {
+  background-image: linear-gradient(
+    45deg,
+    var(--pixel-color-default-200) 25%,
+    var(--pixel-color-default-400) 25%,
+    var(--pixel-color-default-400) 50%,
+    var(--pixel-color-default-200) 50%,
+    var(--pixel-color-default-200) 75%,
+    var(--pixel-color-default-400) 75%,
+    var(--pixel-color-default-400)
+  );
+}
+
+@utility bg-stripe-gradient-primary {
+  background-image: linear-gradient(
+    45deg,
+    var(--pixel-color-primary-200) 25%,
+    var(--pixel-color-primary) 25%,
+    var(--pixel-color-primary) 50%,
+    var(--pixel-color-primary-200) 50%,
+    var(--pixel-color-primary-200) 75%,
+    var(--pixel-color-primary) 75%,
+    var(--pixel-color-primary)
+  );
+}
+
+@utility bg-stripe-gradient-secondary {
+  background-image: linear-gradient(
+    45deg,
+    var(--pixel-color-secondary-200) 25%,
+    var(--pixel-color-secondary) 25%,
+    var(--pixel-color-secondary) 50%,
+    var(--pixel-color-secondary-200) 50%,
+    var(--pixel-color-secondary-200) 75%,
+    var(--pixel-color-secondary) 75%,
+    var(--pixel-color-secondary)
+  );
+}
+
+@utility bg-stripe-gradient-success {
+  background-image: linear-gradient(
+    45deg,
+    var(--pixel-color-success-200) 25%,
+    var(--pixel-color-success) 25%,
+    var(--pixel-color-success) 50%,
+    var(--pixel-color-success-200) 50%,
+    var(--pixel-color-success-200) 75%,
+    var(--pixel-color-success) 75%,
+    var(--pixel-color-success)
+  );
+}
+
+@utility bg-stripe-gradient-warning {
+  background-image: linear-gradient(
+    45deg,
+    var(--pixel-color-warning-200) 25%,
+    var(--pixel-color-warning) 25%,
+    var(--pixel-color-warning) 50%,
+    var(--pixel-color-warning-200) 50%,
+    var(--pixel-color-warning-200) 75%,
+    var(--pixel-color-warning) 75%,
+    var(--pixel-color-warning)
+  );
+}
+
+@utility bg-stripe-gradient-danger {
+  background-image: linear-gradient(
+    45deg,
+    var(--pixel-color-danger-200) 25%,
+    var(--pixel-color-danger) 25%,
+    var(--pixel-color-danger) 50%,
+    var(--pixel-color-danger-200) 50%,
+    var(--pixel-color-danger-200) 75%,
+    var(--pixel-color-danger) 75%,
+    var(--pixel-color-danger)
+  );
+}

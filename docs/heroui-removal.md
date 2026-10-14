@@ -1,6 +1,6 @@
 # HeroUI removal: implementation inventory
 
-Status: foundation slice implemented; component and theme migration pending.
+Status: styling instances and packaged token foundation implemented; component and theme migration pending.
 This is a staged breaking migration. It is not ready for a HeroUI-free release.
 The only agreed breaking changes are consumer theme setup and removal of
 `uniform/hooks/useInput`; other exported props, recipes, slots, and storage
@@ -130,9 +130,9 @@ renderer or default theme was replaced in this foundation slice.
 
 1. Capture representative light/dark Storybook visuals and complete per-component
    DOM/state/ref/callback mapping. Add packaged API compilation fixtures.
-2. Package project-owned CSS tokens (public path still undecided), including
-   colors, dimensions, focus and disabled treatments. Verify exported CSS,
-   side effects, and Tailwind discovery in a packed consumer.
+2. Owned tokens are packaged at `pixel-utils/tokens.css`, with CSS side effects
+   and plugin-free Tailwind compilation/source detection checked against packed
+   packages. Compare renderer visuals as each component adopts these tokens.
 3. Prototype React Aria text/number, grouped controls, DatePicker with time and
    Time against the field contracts above. Resolve composition before rollout.
 4. Migrate required Pixels primitives first, then field slices, using
@@ -162,3 +162,12 @@ fixture checks variant/slot inference, extension and the provider’s public typ
 Existing snapshots were not updated. No manual keyboard/assistive-technology
 review or before/after screenshot capture was performed; those remain gates for
 the upcoming renderer/theme migration.
+
+## Token foundation verification
+
+`pnpm check` passed all six gates after adding the exported, side-effectful
+stylesheet and plugin-free packed CSS consumer. The consumer verifies semantic
+colors, font sizes, radii, border widths (including directional utilities),
+opacity, responsive/dark utilities and source discovery from compiled package
+files. Storybook continues to use the transitional HeroUI setup until renderer
+slices adopt the owned stylesheet.

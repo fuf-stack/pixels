@@ -1,4 +1,6 @@
 /* eslint-disable import-x/no-extraneous-dependencies */
+import { copyFile } from 'node:fs/promises';
+
 import { createDepBundledDtsConfig } from '@repo/tsdown-config/config';
 import { defineConfig } from 'tsdown';
 
@@ -21,6 +23,13 @@ const dtsBundledDeps = [
 export default defineConfig(
   createDepBundledDtsConfig({
     bundledDeps: dtsBundledDeps,
+    exports: false,
     tsconfig: 'tsconfig.build.json',
+    firstPassConfig: {
+      // Keep Tailwind directives intact for the consuming application's build.
+      onSuccess: async () => {
+        await copyFile('src/tokens.css', 'dist/tokens.css');
+      },
+    },
   }),
 );

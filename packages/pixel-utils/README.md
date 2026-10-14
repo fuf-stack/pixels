@@ -2,6 +2,15 @@
 
 Shared helper utilities for the fuf pixels component library.
 
+## Token stylesheet
+
+Import `@fuf-stack/pixel-utils/tokens.css` after Tailwind in your global CSS entry.
+It provides owned semantic tokens and utilities in light/dark themes, including
+`bg-content1`, `text-danger`, `text-small`, `border-small` and `rounded-small`.
+Override `--pixel-*` variables in theme scopes. See [styling](../../docs/styling.md)
+for source detection and transitional HeroUI setup. CSS is marked side-effectful
+and is never imported through the JavaScript entry.
+
 ## Exports
 
 ### `cn(...classes)`

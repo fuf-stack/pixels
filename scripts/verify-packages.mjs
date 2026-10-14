@@ -12,6 +12,9 @@ import {
 import os from 'node:os';
 import path from 'node:path';
 
+import { compile } from '@tailwindcss/node';
+import { Scanner } from '@tailwindcss/oxide';
+
 /**
  * Verify publishable packages exactly as consumers receive them.
  *
@@ -74,11 +77,67 @@ try {
   }
 
   installAndTestConsumer(tarballs);
+  await verifyTokenConsumer();
   console.log(
     `Verified declarations, tarballs, and clean installation for ${packages.length} published packages.`,
   );
 } finally {
   rmSync(temporaryDirectory, { recursive: true, force: true });
+}
+
+/** Verify token imports and built-package source discovery without HeroUI's plugin. */
+async function verifyTokenConsumer() {
+  const tokensPath = path.join(
+    fixtureDirectory,
+    'node_modules/@fuf-stack/pixel-utils/dist/tokens.css',
+  );
+  const tokens = readFileSync(tokensPath, 'utf8');
+  if (tokens.includes('--heroui') || tokens.includes('@repo/')) {
+    throw new Error(
+      'Owned tokens must not reference HeroUI or private tooling.',
+    );
+  }
+  writeFileSync(
+    path.join(fixtureDirectory, 'consumer-styles.html'),
+    '<input class="text-sm text-danger text-body bg-content1 border-small border-t-small rounded-small opacity-disabled md:text-body dark:bg-content2 tap-highlight-transparent" />',
+  );
+  const compiler = await compile(
+    '@import "tailwindcss" source(none);\n' +
+      '@import "@fuf-stack/pixel-utils/tokens.css";\n' +
+      '@source "./consumer-styles.html";\n' +
+      '@source "./node_modules/@fuf-stack/pixels/dist";\n' +
+      '@theme { --text-body: 1.125rem; }\n',
+    { base: fixtureDirectory, onDependency: () => {} },
+  );
+  const scanner = new Scanner({ sources: compiler.sources });
+  const css = compiler.build(scanner.scan());
+  for (const expected of [
+    '.text-danger',
+    'color: var(--pixel-color-danger)',
+    '.text-body',
+    'font-size: var(--text-body)',
+    '.border-small',
+    'border-width: var(--pixel-border-width-small)',
+    '.border-t-small',
+    'border-top-width: var(--pixel-border-width-small)',
+    '.md\\:text-body',
+    '.dark\\:bg-content2',
+    '.rounded-small',
+    'border-radius: var(--pixel-radius-small)',
+    '.opacity-disabled',
+    'opacity: var(--pixel-disabled-opacity)',
+    '.tap-highlight-transparent',
+    // Comes from the published Json error renderer, not the fixture class list.
+    '.bg-danger-50',
+    '--pixel-color-content1: #FFFFFF',
+    '--pixel-color-content1: #18181b',
+  ]) {
+    if (!css.toLowerCase().includes(expected.toLowerCase()))
+      throw new Error(`Token consumer missing ${expected}`);
+  }
+  console.log(
+    'Verified owned token CSS and built-package Tailwind source discovery.',
+  );
 }
 
 /**
@@ -152,6 +211,8 @@ function installAndTestConsumer(tarballs) {
         private: true,
         type: 'module',
         dependencies,
+        // Consumer build tooling; no HeroUI theme plugin/configuration is loaded.
+        devDependencies: { tailwindcss: '4.3.3' },
       },
       null,
       2,

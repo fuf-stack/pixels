@@ -172,8 +172,47 @@ this context and HeroUI performs its own merges. The provider currently supports
 application components using `useStyling`; it does not make custom merge rules
 work across all existing Pixels/Uniform components yet. Tailwind must generate
 `text-body` independently (for example via a `--text-body` theme token).
-The token stylesheet and theme migration remain pending. Track remaining work in
+The owned token stylesheet is available; renderer and final theme migration
+remain pending. Track remaining work in
 [the migration inventory](./heroui-removal.md).
+
+## Owned semantic tokens (migration)
+
+The public stylesheet `@fuf-stack/pixel-utils/tokens.css` preserves the default
+semantic color palettes, layout sizes, radii, shadows, opacity and transition
+utilities. It contains owned `--pixel-*` variables and Tailwind v4 directives;
+it does not load the HeroUI plugin or reference HeroUI variables. Import it
+after Tailwind in the application's global CSS entry:
+
+```css
+@import 'tailwindcss';
+@import '@fuf-stack/pixel-utils/tokens.css';
+
+/* Tailwind normally excludes node_modules from automatic source discovery. */
+@source '../node_modules/@fuf-stack/pixels/dist';
+@source '../node_modules/@fuf-stack/uniform/dist';
+
+@theme {
+  --text-body: 1.125rem;
+}
+
+:root {
+  --pixel-color-primary: #006fee;
+}
+```
+
+Paths in `@source` are relative to this stylesheet. Add Megapixels when used.
+The tokens follow `.light`/`.dark` classes and `data-theme="light"`/`"dark"`,
+including nested theme scopes. Theme overrides can target those same scopes.
+Configure merge rules separately when a custom utility such as `text-body`
+needs to conflict with a built-in utility; token generation alone is insufficient.
+
+During coexistence, existing HeroUI wrappers still require their original
+plugin/source configuration. Use the owned tokens for migrated components;
+do not remove HeroUI configuration until all remaining wrappers migrate.
+The stylesheet is shipped unchanged in `dist`, explicitly exported and marked
+side-effectful. Packed-consumer verification compiles it without HeroUI tooling
+and scans built component files for utility classes.
 
 ## When a component needs a real CSS file
 

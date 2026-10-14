@@ -5,10 +5,13 @@
   "version": "1.4.0",
   "type": "module",
   "types": "./dist/index.d.mts",
-  "sideEffects": false,
+  "sideEffects": [
+    "**/*.css"
+  ],
   "exports": {
     ".": "./dist/index.mjs",
-    "./package.json": "./package.json"
+    "./package.json": "./package.json",
+    "./tokens.css": "./dist/tokens.css"
   },
   "files": [
     "./dist"
