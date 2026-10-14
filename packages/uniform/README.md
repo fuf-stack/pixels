@@ -56,3 +56,13 @@ Number inputs display `null`, `undefined`, and empty strings as an empty control
 `0` remains a visible numeric value. Clearing resets the field to an empty state
 without displaying zero. Existing schema/empty-field submission normalization is
 unchanged: optional empty fields are omitted from submitted values.
+
+## Debounced custom controls
+
+`useInputValueDebounce` updates the displayed value immediately and flushes a
+pending edit on blur. A programmatic form reset cancels queued edits, including
+when the reset restores the same committed value. For a custom clear action,
+call `cancelPendingChange('')` before `resetField(name, { defaultValue: null })`
+to discard pending text and preserve the field's existing reset semantics. The
+cancellation helper changes the display only; it does not commit a value or
+trigger validation itself.

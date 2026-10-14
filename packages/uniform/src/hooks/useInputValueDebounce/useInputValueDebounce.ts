@@ -1,6 +1,7 @@
 import { useCallback, useRef, useState } from 'react';
 
 import { useFormContext } from '../useFormContext';
+import { useWatchFormReset } from '../useWatchFormReset';
 
 export interface UseInputValueDebounceOptions<TValue = unknown> {
   /** Debounce delay in milliseconds (default: 300) */
@@ -17,6 +18,8 @@ export interface UseInputValueDebounceOptions<TValue = unknown> {
 }
 
 export interface UseInputValueDebounceReturn<TValue = unknown> {
+  /** Cancel queued edits and replace only the displayed value (for clear/reset). */
+  cancelPendingChange: (value: TValue) => void;
   /** Enhanced onChange function with debouncing */
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onChange: (...event: any[]) => void;
@@ -75,6 +78,18 @@ export const useInputValueDebounce = <TValue = unknown>({
   const [lastExternalValue, setLastExternalValue] = useState<TValue>(value);
 
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const cancelPendingChange = useCallback((nextValue: TValue) => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+      timeoutRef.current = null;
+    }
+    setCurrentValue(nextValue);
+  }, []);
+  useWatchFormReset({
+    onReset: useCallback(() => {
+      cancelPendingChange(value);
+    }, [cancelPendingChange, value]),
+  });
 
   // Keep the displayed value in sync during the same render when the form
   // replaces it (for example after reset), without an extra effect render.
@@ -137,6 +152,7 @@ export const useInputValueDebounce = <TValue = unknown>({
   }, [onChange, onBlur, currentValue]);
 
   return {
+    cancelPendingChange,
     onChange: handleChange,
     onBlur: handleBlur,
     value: currentValue,

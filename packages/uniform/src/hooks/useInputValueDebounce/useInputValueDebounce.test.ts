@@ -20,11 +20,20 @@ vi.mock('@fuf-stack/pixels', () => ({
 
 // Mock trigger function
 const mockTrigger = vi.fn();
+const mockResetListeners = new Set<() => void>();
 
 // Mock useFormContext
-vi.mock('../useFormContext', () => ({
+vi.mock('../useFormContext/useFormContext', () => ({
   useFormContext: () => ({
     trigger: mockTrigger,
+    formReset: {
+      subscribe: (listener: () => void) => {
+        mockResetListeners.add(listener);
+        return () => {
+          mockResetListeners.delete(listener);
+        };
+      },
+    },
   }),
 }));
 
@@ -32,6 +41,57 @@ describe('useInputValueDebounce', () => {
   const mockOnChange = vi.fn();
   const mockOnBlur = vi.fn();
   const testFieldName = 'testField';
+
+  it('discards queued edits when a reset keeps the same external value', () => {
+    const { result } = renderHook(() =>
+      useInputValueDebounce({
+        name: testFieldName,
+        value: 'initial',
+        debounceDelay: 1000,
+        onChange: mockOnChange,
+        onBlur: mockOnBlur,
+      }),
+    );
+    act(() => {
+      result.current.onChange('pending');
+    });
+    act(() => {
+      mockResetListeners.forEach((listener) => listener());
+    });
+    expect(result.current.value).toBe('initial');
+    act(() => {
+      vi.advanceTimersByTime(1000);
+    });
+    expect(mockOnChange).not.toHaveBeenCalled();
+  });
+
+  it('cancels queued edits for a clear/reset without committing a user change', () => {
+    const { result } = renderHook(() =>
+      useInputValueDebounce({
+        name: testFieldName,
+        value: 'initial',
+        debounceDelay: 1000,
+        onChange: mockOnChange,
+        onBlur: mockOnBlur,
+      }),
+    );
+    act(() => {
+      result.current.onChange('pending');
+    });
+    act(() => {
+      result.current.cancelPendingChange('');
+    });
+    expect(result.current.value).toBe('');
+    act(() => {
+      vi.advanceTimersByTime(1000);
+    });
+    expect(mockOnChange).not.toHaveBeenCalled();
+    act(() => {
+      result.current.onBlur();
+    });
+    expect(mockOnChange).not.toHaveBeenCalled();
+    expect(mockOnBlur).toHaveBeenCalledOnce();
+  });
 
   beforeEach(() => {
     vi.clearAllMocks();
