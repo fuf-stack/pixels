@@ -161,11 +161,11 @@ const Input = ({
 
   // Render NumberInput for number type
   if (type === 'number') {
-    // Parse the string value to number - use null for empty/cleared state to keep component controlled
+    // Parse the string value to number - use NaN for empty/cleared state to keep component controlled
     const numberValue =
       value !== '' && value != null && !Number.isNaN(Number(value))
         ? Number(value)
-        : null;
+        : NaN;
 
     return (
       <HeroNumberInput
@@ -186,8 +186,6 @@ const Input = ({
             onChange(e);
           }
         }}
-        // @ts-expect-error - HeroUI NumberInput type is not compatible with null,
-        // but it needs to be for empty/cleared state to be controlled
         value={numberValue}
       />
     );

@@ -49,3 +49,10 @@ The existing presentation getters remain available during HeroUI coexistence.
 When using the owned association helper, use the explicit `ids` on local label,
 description, and error elements as above. Do not combine its associations with
 the legacy getters' generated IDs. See [the migration inventory](../../docs/heroui-removal.md).
+
+## Numeric empty values
+
+Number inputs display `null`, `undefined`, and empty strings as an empty control;
+`0` remains a visible numeric value. Clearing resets the field to an empty state
+without displaying zero. Existing schema/empty-field submission normalization is
+unchanged: optional empty fields are omitted from submitted values.
