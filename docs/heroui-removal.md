@@ -122,9 +122,19 @@ competing with RHF/Veto.
 | Pixels overlays                         | Modal/drawer/popover/menu focus, portals, Escape, scroll locking, stacking and toast behavior                                                | Select/calendar inside overlays; restoration and keyboard/automated accessibility                                              |
 
 Committed story DOM snapshots and existing behavioral tests are the current
-source baseline. Before/after screenshot evidence, manual keyboard checks and
-complete per-slot DOM mappings have **not** been captured yet. No existing
-renderer or default theme was replaced in this foundation slice.
+source baseline. Representative field screenshots and computed-style baselines
+are now captured in [field evidence](./migration-evidence/fields/README.md).
+Complete per-slot mappings and checks for other renderers remain pending. No
+production renderer has been replaced yet.
+
+The private React Aria text/number prototype consumes a shared field-state core
+without calling the legacy presentation hook. The public `useUniformField`
+adapter retains its existing getters during coexistence. Prototype tests cover
+registration, resets, blur/submission flushing, pending-edit cancellation on
+clear, focus restoration, decimal/zero/empty numbers, stepper updates, labels,
+required markers, errors and consumer font-size merging. The form's existing
+empty-field serialization remains unchanged. Local label and hint components
+own presentation only and are not public entry points.
 
 ## Remaining sequence and release prerequisites
 
@@ -171,3 +181,15 @@ colors, font sizes, radii, border widths (including directional utilities),
 opacity, responsive/dark utilities and source discovery from compiled package
 files. Storybook continues to use the transitional HeroUI setup until renderer
 slices adopt the owned stylesheet.
+
+## Private input prototype verification
+
+`pnpm check` passed all six gates with the shared state core and private React
+Aria input prototype: 1,483 unit tests (12 skipped), 441 browser stories, and
+clean packed consumers for seven published packages. Existing production DOM
+snapshots were retained. Ten visual comparisons match the captured input
+metrics. Keyboard, clear, numeric stepper, error focus and provider merging are
+covered by prototype stories/tests. Automated accessibility findings and their
+baseline comparison are recorded with the field evidence; invalid-state
+contrast remains unresolved. Other field families and production promotion
+remain pending. The external Markdown editor is deferred at the user's request.
