@@ -25,6 +25,7 @@ describe('isolated styling instances', () => {
       'text-tiny text-body',
     );
   });
+
   it('copies configuration before lazy merging and later recipe creation', () => {
     const sizes = ['body'];
     const styling = createStyling({
