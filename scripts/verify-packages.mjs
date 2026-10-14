@@ -264,6 +264,13 @@ function installAndTestConsumer(tarballs) {
     ),
   );
   writeFileSync(
+    path.join(fixtureDirectory, 'field-associations.ts'),
+    readFileSync(
+      path.join(root, 'packages/uniform/test/dts-smoke/field-associations.ts'),
+      'utf8',
+    ),
+  );
+  writeFileSync(
     path.join(fixtureDirectory, 'tsconfig.json'),
     `${JSON.stringify(
       {
@@ -279,7 +286,7 @@ function installAndTestConsumer(tarballs) {
           strict: true,
           target: 'ES2022',
         },
-        files: ['consumer.ts', 'styling.ts'],
+        files: ['consumer.ts', 'styling.ts', 'field-associations.ts'],
       },
       null,
       2,

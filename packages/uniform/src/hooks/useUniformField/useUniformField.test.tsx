@@ -2,7 +2,7 @@ import type { FieldError } from 'react-hook-form';
 
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
-import { render, renderHook } from '@testing-library/react';
+import { render, renderHook, screen } from '@testing-library/react';
 
 import { useUniformField } from './useUniformField';
 
@@ -70,6 +70,95 @@ vi.mock('../../partials/FieldValidationError', () => {
 });
 
 describe('useUniformField', () => {
+  describe('owned control associations', () => {
+    it('keeps IDs stable through rerenders and distinct for repeated field names', () => {
+      const { result, rerender } = renderHook(() => [
+        useUniformField({ name: 'field', label: 'First' }),
+        useUniformField({ name: 'field', label: 'Second' }),
+      ]);
+      const firstIds = result.current[0].ids;
+      expect(firstIds.control).not.toBe(result.current[1].ids.control);
+      rerender();
+      expect(result.current[0].ids).toEqual(firstIds);
+    });
+
+    it('associates labels and help with the editable control without native validation', () => {
+      mockContext.getFieldState = vi.fn(() => ({
+        required: true,
+        invalid: false,
+        testId: 'field',
+      }));
+      const { result } = renderHook(() =>
+        useUniformField({
+          name: 'field',
+          label: 'Editor',
+          description: 'Markdown supported',
+        }),
+      );
+      const { ids, getControlProps } = result.current;
+      const controlId = ids.control;
+      render(
+        <>
+          <label htmlFor={controlId} id={ids.label}>
+            Editor
+            <textarea {...getControlProps()} />
+          </label>
+          <div id={ids.description}>Markdown supported</div>
+        </>,
+      );
+      const editor = screen.getByRole('textbox', { name: 'Editor' });
+      expect(editor).toHaveAccessibleDescription('Markdown supported');
+      expect(editor.getAttribute('aria-required')).toBe('true');
+      expect(editor).not.toHaveAttribute('required');
+      expect(editor).not.toHaveAttribute('aria-invalid');
+    });
+
+    it('associates visible errors according to existing touched/validation timing', () => {
+      const state = {
+        required: true,
+        invalid: true,
+        isTouched: false,
+        testId: 'field',
+        error: [{ message: 'Required', type: 'required' }] as FieldError[],
+      };
+      mockContext.getFieldState = vi.fn(() => state);
+      const { result, rerender } = renderHook(() =>
+        useUniformField({
+          name: 'field',
+          description: 'Help',
+        }),
+      );
+      expect(result.current.getControlProps()['aria-describedby']).toBe(
+        result.current.ids.description,
+      );
+      state.isTouched = true;
+      rerender();
+      expect(result.current.getControlProps()['aria-describedby']).toBe(
+        `${result.current.ids.description} ${result.current.ids.error}`,
+      );
+      expect(result.current.getControlProps()['aria-invalid']).toBe(true);
+    });
+
+    it('keeps explicit aria-label precedence and the field-name fallback', () => {
+      const { result } = renderHook(() => [
+        useUniformField({
+          name: 'field',
+          label: 'Visible',
+          ariaLabel: 'Custom',
+        }),
+        useUniformField({ name: 'field' }),
+      ]);
+      expect(result.current[0].getControlProps()).toMatchObject({
+        'aria-label': 'Custom',
+        'aria-labelledby': undefined,
+      });
+      expect(result.current[1].getControlProps()).toMatchObject({
+        'aria-label': 'field',
+        'aria-labelledby': undefined,
+      });
+    });
+  });
+
   beforeEach(() => {
     vi.useFakeTimers();
     mockFormState = { submitCount: 0 };

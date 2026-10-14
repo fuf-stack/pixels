@@ -24,6 +24,8 @@ export interface UseUniformFieldParams<
   ariaLabel?: string;
   /** Disable the field */
   disabled?: boolean;
+  /** Optional help text, associated with the editable control. */
+  description?: ReactNode;
   /** Normalize nested RHF errors into a flat array for array-like fields */
   isArrayValue?: boolean;
   /** Optional label content */
@@ -49,6 +51,7 @@ export interface UseUniformFieldReturn<
   defaultValue: unknown;
   /** Whether the field is currently disabled (from RHF) */
   disabled: boolean | undefined;
+  description: ReactNode | undefined;
   /** Validation errors from form state; flattened only when `isArrayValue` is enabled */
   error: FieldError[] | undefined;
   /** Pre-built errorMessage node to plug into components */
@@ -61,6 +64,23 @@ export interface UseUniformFieldReturn<
   getHelperWrapperProps: ReturnType<typeof useInput>['getHelperWrapperProps'];
   /** Helper to spread standardized label props to underlying components */
   getLabelProps: ReturnType<typeof useInput>['getLabelProps'];
+  /** Owned association props for custom/migrated editable controls. RHF owns validation. */
+  getControlProps: () => Pick<
+    React.HTMLAttributes<HTMLElement>,
+    | 'id'
+    | 'aria-label'
+    | 'aria-labelledby'
+    | 'aria-describedby'
+    | 'aria-invalid'
+    | 'aria-required'
+  >;
+  /** Stable IDs for the control and its local label/help/error elements. */
+  ids: {
+    control: string;
+    label: string;
+    description: string;
+    error: string;
+  };
   /** Access current form values (converted to validation-friendly format) */
   getValues: ReturnType<typeof useFormContext<TFieldValues>>['getValues'];
   /** Whether the field should show invalid state (debounced for smooth animations). True when field is invalid AND (dirty OR touched OR submitted) */
@@ -119,12 +139,20 @@ export const useUniformField = <
     name,
     ariaLabel: customAriaLabel,
     disabled = false,
+    description,
     isArrayValue = false,
     testId: explicitTestId,
     label,
     type,
     transform,
   } = params;
+  const associationId = React.useId();
+  const ids = {
+    control: `uniform-${associationId}`,
+    label: `uniform-${associationId}-label`,
+    description: `uniform-${associationId}-description`,
+    error: `uniform-${associationId}-error`,
+  };
 
   const {
     control,
@@ -261,12 +289,30 @@ export const useUniformField = <
   const ariaLabel =
     customAriaLabel ?? (typeof label === 'string' ? label : name);
 
+  const getControlProps = () => {
+    return {
+      id: ids.control,
+      'aria-label': customAriaLabel ?? (!label ? ariaLabel : undefined),
+      'aria-labelledby': !customAriaLabel && label ? ids.label : undefined,
+      'aria-describedby':
+        [
+          description ? ids.description : undefined,
+          invalid && normalizedError?.length ? ids.error : undefined,
+        ]
+          .filter(Boolean)
+          .join(' ') || undefined,
+      'aria-invalid': invalid || undefined,
+      'aria-required': required || undefined,
+    };
+  };
+
   return {
     ariaLabel,
     control,
     debugMode,
     defaultValue,
     disabled: isDisabled,
+    description,
     error,
     errorMessage,
     field: {
@@ -277,6 +323,8 @@ export const useUniformField = <
     getErrorMessageProps,
     getHelperWrapperProps,
     getLabelProps,
+    getControlProps,
+    ids,
     getValues,
     invalid,
     label: labelNode,
