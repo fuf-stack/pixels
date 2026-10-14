@@ -9,6 +9,7 @@
     "storybook:build": "STORYBOOK_DISABLE_TELEMETRY=true storybook build --quiet"
   },
   "devDependencies": {
+    "@tailwindcss/vite": "4.3.3",
     "@repo/tailwind-config": "workspace:*",
     "@repo/vite-config": "workspace:*",
     "@storybook/addon-a11y": "10.6.0",
