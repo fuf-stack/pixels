@@ -43,3 +43,23 @@ all 24 comparisons. These checks also cover the focused/hovered state left by
 the clearable and number story interactions. Small-input font/padding, inherited
 custom-wrapper text color, clear-button appearance and combined focus/hover
 selectors were corrected during rollout before accepting the new DOM snapshots.
+
+## Production TextArea rollout
+
+The textarea `production-before`/`production-after` PNGs and JSON measurements
+cover default, long initial value, required and invalid states in both themes.
+All eight comparisons match editable fonts, colors, padding and heights, plus
+wrapper dimensions, backgrounds, borders and radii. The default input is 60px
+(three rows), capped at 160px (eight rows) with the captured default typography.
+Live browser stories check growth, the scroll threshold, shrinking after clear,
+consumer font-size merging and combined help/error descriptions. Unit tests
+cover multiline submission, reset, error focus, disabled behavior, explicit
+names, public slot targets and wrapper click focus.
+
+The final Input and TextArea rollout captures also restore the baseline
+control-to-error spacing: label spacing lives on the label, leaving zero gap
+between the control wrapper and error helper. Both production composition
+stories assert this geometry. Number input captures explicitly retain the
+focused state represented by the baseline to avoid story blur timing differences.
+The textarea audit is recorded in `textarea-production-a11y.json`; invalid text
+contrast is reported in each theme and the other audited states have no findings.

@@ -785,7 +785,7 @@ exports[`Story Snapshots > FieldArrayFlatWithInitialValues 1`] = `
                   data-testid="toppings_0_element_fields_grid"
                 >
                   <div
-                    class="group relative flex w-full flex-col gap-1 is-filled"
+                    class="group relative flex w-full flex-col is-filled"
                     data-filled="true"
                     data-filled-within="true"
                     data-has-elements="true"
@@ -796,7 +796,7 @@ exports[`Story Snapshots > FieldArrayFlatWithInitialValues 1`] = `
                     data-slot="base"
                   >
                     <label
-                      class="block cursor-default text-foreground text-small group-data-[invalid=true]:text-danger"
+                      class="block cursor-default pb-1 text-foreground text-small group-data-[invalid=true]:text-danger"
                       data-slot="label"
                       for="uniform-«replaced-aria-id»"
                       id="uniform-«replaced-aria-id»-label"
@@ -941,7 +941,7 @@ exports[`Story Snapshots > FieldArrayFlatWithoutInitialValues 1`] = `
                   data-testid="toppings_0_element_fields_grid"
                 >
                   <div
-                    class="group relative flex w-full flex-col gap-1"
+                    class="group relative flex w-full flex-col"
                     data-filled="true"
                     data-filled-within="true"
                     data-has-elements="true"
@@ -951,7 +951,7 @@ exports[`Story Snapshots > FieldArrayFlatWithoutInitialValues 1`] = `
                     data-slot="base"
                   >
                     <label
-                      class="block cursor-default text-foreground text-small group-data-[invalid=true]:text-danger"
+                      class="block cursor-default pb-1 text-foreground text-small group-data-[invalid=true]:text-danger"
                       data-slot="label"
                       for="uniform-«replaced-aria-id»"
                       id="uniform-«replaced-aria-id»-label"
@@ -1081,7 +1081,7 @@ exports[`Story Snapshots > FieldArrayWithInitialValues 1`] = `
                   data-testid="guests_0_element_fields_grid"
                 >
                   <div
-                    class="group relative flex w-full flex-col gap-1 is-filled"
+                    class="group relative flex w-full flex-col is-filled"
                     data-filled="true"
                     data-filled-within="true"
                     data-has-elements="true"
@@ -1092,7 +1092,7 @@ exports[`Story Snapshots > FieldArrayWithInitialValues 1`] = `
                     data-slot="base"
                   >
                     <label
-                      class="block cursor-default text-foreground text-small group-data-[invalid=true]:text-danger"
+                      class="block cursor-default pb-1 text-foreground text-small group-data-[invalid=true]:text-danger"
                       data-slot="label"
                       for="uniform-«replaced-aria-id»"
                       id="uniform-«replaced-aria-id»-label"
@@ -1237,7 +1237,7 @@ exports[`Story Snapshots > FieldArrayWithoutInitialValues 1`] = `
                   data-testid="guests_0_element_fields_grid"
                 >
                   <div
-                    class="group relative flex w-full flex-col gap-1"
+                    class="group relative flex w-full flex-col"
                     data-filled="true"
                     data-filled-within="true"
                     data-has-elements="true"
@@ -1247,7 +1247,7 @@ exports[`Story Snapshots > FieldArrayWithoutInitialValues 1`] = `
                     data-slot="base"
                   >
                     <label
-                      class="block cursor-default text-foreground text-small group-data-[invalid=true]:text-danger"
+                      class="block cursor-default pb-1 text-foreground text-small group-data-[invalid=true]:text-danger"
                       data-slot="label"
                       for="uniform-«replaced-aria-id»"
                       id="uniform-«replaced-aria-id»-label"
@@ -1353,7 +1353,7 @@ exports[`Story Snapshots > InputsWithInitialValues 1`] = `
             class="relative flex w-full p-3 flex-auto flex-col place-content-inherit align-items-inherit h-auto break-words text-left overflow-y-auto subpixel-antialiased gap-6"
           >
             <div
-              class="group relative flex w-full flex-col gap-1 is-filled"
+              class="group relative flex w-full flex-col is-filled"
               data-filled="true"
               data-filled-within="true"
               data-has-elements="true"
@@ -1364,7 +1364,7 @@ exports[`Story Snapshots > InputsWithInitialValues 1`] = `
               data-slot="base"
             >
               <label
-                class="block cursor-default text-foreground text-small group-data-[invalid=true]:text-danger"
+                class="block cursor-default pb-1 text-foreground text-small group-data-[invalid=true]:text-danger"
                 data-slot="label"
                 for="uniform-«replaced-aria-id»"
                 id="uniform-«replaced-aria-id»-label"
@@ -1400,7 +1400,7 @@ exports[`Story Snapshots > InputsWithInitialValues 1`] = `
               </div>
             </div>
             <div
-              class="group flex flex-col data-[hidden=true]:hidden w-full is-filled"
+              class="group relative flex w-full flex-col is-filled"
               data-filled="true"
               data-filled-within="true"
               data-has-elements="true"
@@ -1410,37 +1410,35 @@ exports[`Story Snapshots > InputsWithInitialValues 1`] = `
               data-slot="base"
             >
               <label
-                class="z-10 pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block text-small text-foreground-500 relative will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-1.5 pe-2 max-w-full text-ellipsis overflow-hidden"
+                class="block pb-1.5 text-foreground text-small"
                 data-slot="label"
-                for="bio"
-                id="react-aria-«replaced-aria-id»"
+                for="uniform-«replaced-aria-id»"
+                id="uniform-«replaced-aria-id»-label"
               >
                 Bio 📝
               </label>
               <div
-                class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 group-data-[focus=true]:data-[hover=true]:border-default-foreground h-10 min-h-10 rounded-medium !h-auto !duration-150 transition-colors motion-reduce:transition-none py-2 bg-content1 group-data-[focus=true]:border-focus is-filled"
+                class="shadow-xs relative inline-flex w-full cursor-text items-start rounded-medium border-medium border-default-200 bg-content1 px-3 py-2 text-foreground transition-colors data-[hover=true]:border-default-400 group-data-[focus=true]:border-focus group-data-[focus=true]:data-[hover=true]:border-default-foreground motion-reduce:transition-none is-filled"
                 data-has-multiple-rows="true"
+                data-rac=""
                 data-slot="input-wrapper"
-                style="cursor: text;"
+                role="presentation"
               >
                 <div
-                  class="inline-flex w-full h-full box-border items-start group-data-[has-label=true]:items-start"
+                  class="inline-flex w-full items-start"
                   data-slot="inner-wrapper"
                 >
                   <textarea
-                    aria-label="Bio 📝"
-                    aria-labelledby="bio react-aria-«replaced-aria-id»"
-                    class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text dark:autofill:[-webkit-text-fill-color:hsl(var(--heroui-foreground))] [&::-ms-reveal]:hidden text-small resize-none data-[hide-scroll=true]:scrollbar-hide transition-height !duration-100 motion-reduce:transition-none is-filled pe-0"
+                    aria-labelledby="uniform-«replaced-aria-id»-label"
+                    class="w-full min-w-0 resize-none bg-transparent bg-clip-text font-normal text-inherit outline-none duration-100 transition-height text-small placeholder:text-foreground-500 autofill:bg-transparent data-[hide-scroll=true]:[scrollbar-width:none] motion-reduce:transition-none dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] data-[hide-scroll=true]:[&::-webkit-scrollbar]:hidden is-filled"
                     data-filled="true"
-                    data-filled-within="true"
                     data-hide-scroll="true"
                     data-slot="input"
                     data-testid="bio"
-                    id="bio"
+                    id="uniform-«replaced-aria-id»"
                     name="bio"
                     placeholder=" "
                     tabindex="0"
-                    title=""
                   >
                     Hello, I am John!
                   </textarea>
@@ -1615,7 +1613,7 @@ exports[`Story Snapshots > InputsWithoutInitialValues 1`] = `
             class="relative flex w-full p-3 flex-auto flex-col place-content-inherit align-items-inherit h-auto break-words text-left overflow-y-auto subpixel-antialiased gap-6"
           >
             <div
-              class="group relative flex w-full flex-col gap-1"
+              class="group relative flex w-full flex-col"
               data-filled="true"
               data-filled-within="true"
               data-has-elements="true"
@@ -1625,7 +1623,7 @@ exports[`Story Snapshots > InputsWithoutInitialValues 1`] = `
               data-slot="base"
             >
               <label
-                class="block cursor-default text-foreground text-small group-data-[invalid=true]:text-danger"
+                class="block cursor-default pb-1 text-foreground text-small group-data-[invalid=true]:text-danger"
                 data-slot="label"
                 for="uniform-«replaced-aria-id»"
                 id="uniform-«replaced-aria-id»-label"
@@ -1660,7 +1658,7 @@ exports[`Story Snapshots > InputsWithoutInitialValues 1`] = `
               </div>
             </div>
             <div
-              class="group flex flex-col data-[hidden=true]:hidden w-full"
+              class="group relative flex w-full flex-col"
               data-filled="true"
               data-filled-within="true"
               data-has-elements="true"
@@ -1669,35 +1667,34 @@ exports[`Story Snapshots > InputsWithoutInitialValues 1`] = `
               data-slot="base"
             >
               <label
-                class="z-10 pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block text-small text-foreground-500 relative will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-1.5 pe-2 max-w-full text-ellipsis overflow-hidden"
+                class="block pb-1.5 text-foreground text-small"
                 data-slot="label"
-                for="bio"
-                id="react-aria-«replaced-aria-id»"
+                for="uniform-«replaced-aria-id»"
+                id="uniform-«replaced-aria-id»-label"
               >
                 Bio 📝
               </label>
               <div
-                class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 group-data-[focus=true]:data-[hover=true]:border-default-foreground h-10 min-h-10 rounded-medium !h-auto !duration-150 transition-colors motion-reduce:transition-none py-2 bg-content1 group-data-[focus=true]:border-focus"
+                class="shadow-xs relative inline-flex w-full cursor-text items-start rounded-medium border-medium border-default-200 bg-content1 px-3 py-2 text-foreground transition-colors data-[hover=true]:border-default-400 group-data-[focus=true]:border-focus group-data-[focus=true]:data-[hover=true]:border-default-foreground motion-reduce:transition-none"
                 data-has-multiple-rows="true"
+                data-rac=""
                 data-slot="input-wrapper"
-                style="cursor: text;"
+                role="presentation"
               >
                 <div
-                  class="inline-flex w-full h-full box-border items-start group-data-[has-label=true]:items-start"
+                  class="inline-flex w-full items-start"
                   data-slot="inner-wrapper"
                 >
                   <textarea
-                    aria-label="Bio 📝"
-                    aria-labelledby="bio react-aria-«replaced-aria-id»"
-                    class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text dark:autofill:[-webkit-text-fill-color:hsl(var(--heroui-foreground))] [&::-ms-reveal]:hidden text-small resize-none data-[hide-scroll=true]:scrollbar-hide transition-height !duration-100 motion-reduce:transition-none pe-0"
+                    aria-labelledby="uniform-«replaced-aria-id»-label"
+                    class="w-full min-w-0 resize-none bg-transparent bg-clip-text font-normal text-inherit outline-none duration-100 transition-height text-small placeholder:text-foreground-500 autofill:bg-transparent data-[hide-scroll=true]:[scrollbar-width:none] motion-reduce:transition-none dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] data-[hide-scroll=true]:[&::-webkit-scrollbar]:hidden"
                     data-hide-scroll="true"
                     data-slot="input"
                     data-testid="bio"
-                    id="bio"
+                    id="uniform-«replaced-aria-id»"
                     name="bio"
                     placeholder=" "
                     tabindex="0"
-                    title=""
                   />
                 </div>
               </div>

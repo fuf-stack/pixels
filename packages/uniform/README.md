@@ -86,3 +86,12 @@ For clearable text/password fields, `endContent` is the custom clear-button
 content, as before. Numeric fields retain separate end content and a clear
 button. Clearing discards pending edits, resets to the existing empty state,
 calls `onClear` once and restores focus to the editable control.
+
+`TextArea` also uses owned presentation and React Aria field behavior. It retains
+three-to-eight-row autosizing through the same `react-textarea-autosize` engine,
+its existing exported props and four slot names, controlled values, disabled
+state and debounce/reset timing. Its `clearButton` slot remains accepted, but
+TextArea has no clear action. Optional `description` text and visible errors are
+associated with the actual textarea; consumer styling instances apply before
+merging its slot classes. Both field renderers keep RHF/Veto validation
+authoritative and use `aria-required` without competing native validation.

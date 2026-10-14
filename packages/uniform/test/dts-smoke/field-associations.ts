@@ -1,5 +1,6 @@
 import { useUniformField } from '@fuf-stack/uniform/hooks/useUniformField';
 import type { InputProps } from '@fuf-stack/uniform/Input';
+import type { TextAreaProps } from '@fuf-stack/uniform/TextArea';
 
 // Exercise the existing input contract against the packed declarations.
 export const inputProps: InputProps = {
@@ -19,6 +20,19 @@ export const inputProps: InputProps = {
     toFormValue: (value) => Number(value),
   },
   onClear: () => {},
+};
+
+export const textAreaProps: TextAreaProps = {
+  name: 'editor',
+  label: 'Editor',
+  description: 'Multiline text',
+  debounceDelay: 500,
+  className: {
+    base: ['mt-4'],
+    inputWrapper: 'border-danger',
+    input: 'text-body text-danger',
+    clearButton: 'unused-existing-slot',
+  },
 };
 
 export default function useEditorField() {

@@ -12,7 +12,7 @@ exports[`Story Snapshots > AllSizes 1`] = `
       novalidate=""
     >
       <div
-        class="group relative flex w-full flex-col gap-1 mt-4"
+        class="group relative flex w-full flex-col mt-4"
         data-filled="true"
         data-filled-within="true"
         data-has-elements="true"
@@ -48,7 +48,7 @@ exports[`Story Snapshots > AllSizes 1`] = `
         </div>
       </div>
       <div
-        class="group relative flex w-full flex-col gap-1 mt-4"
+        class="group relative flex w-full flex-col mt-4"
         data-filled="true"
         data-filled-within="true"
         data-has-elements="true"
@@ -84,7 +84,7 @@ exports[`Story Snapshots > AllSizes 1`] = `
         </div>
       </div>
       <div
-        class="group relative flex w-full flex-col gap-1 mt-4"
+        class="group relative flex w-full flex-col mt-4"
         data-filled="true"
         data-filled-within="true"
         data-has-elements="true"
@@ -150,7 +150,7 @@ exports[`Story Snapshots > Clearable 1`] = `
       novalidate=""
     >
       <div
-        class="group relative flex w-full flex-col gap-1 is-filled"
+        class="group relative flex w-full flex-col is-filled"
         data-filled="true"
         data-filled-within="true"
         data-focus="true"
@@ -250,7 +250,7 @@ exports[`Story Snapshots > CustomStyles 1`] = `
       novalidate=""
     >
       <div
-        class="group relative flex w-full flex-col gap-1 is-filled"
+        class="group relative flex w-full flex-col is-filled"
         data-filled="true"
         data-filled-within="true"
         data-has-elements="true"
@@ -341,7 +341,7 @@ exports[`Story Snapshots > Default 1`] = `
       novalidate=""
     >
       <div
-        class="group relative flex w-full flex-col gap-1"
+        class="group relative flex w-full flex-col"
         data-filled="true"
         data-filled-within="true"
         data-has-elements="true"
@@ -407,7 +407,7 @@ exports[`Story Snapshots > Disabled 1`] = `
       novalidate=""
     >
       <div
-        class="group relative flex w-full flex-col gap-1 pointer-events-none opacity-disabled"
+        class="group relative flex w-full flex-col pointer-events-none opacity-disabled"
         data-disabled="true"
         data-filled="true"
         data-filled-within="true"
@@ -418,7 +418,7 @@ exports[`Story Snapshots > Disabled 1`] = `
         data-slot="base"
       >
         <label
-          class="block cursor-default text-foreground text-small group-data-[invalid=true]:text-danger"
+          class="block cursor-default pb-1 text-foreground text-small group-data-[invalid=true]:text-danger"
           data-slot="label"
           for="uniform-«replaced-aria-id»"
           id="uniform-«replaced-aria-id»-label"
@@ -485,7 +485,7 @@ exports[`Story Snapshots > Invalid 1`] = `
       novalidate=""
     >
       <div
-        class="group relative flex w-full flex-col gap-1 is-filled"
+        class="group relative flex w-full flex-col is-filled"
         data-filled="true"
         data-filled-within="true"
         data-has-elements="true"
@@ -498,7 +498,7 @@ exports[`Story Snapshots > Invalid 1`] = `
         data-slot="base"
       >
         <label
-          class="block cursor-default text-small group-data-[invalid=true]:text-danger text-danger"
+          class="block cursor-default pb-1 text-small group-data-[invalid=true]:text-danger text-danger"
           data-slot="label"
           for="uniform-«replaced-aria-id»"
           id="uniform-«replaced-aria-id»-label"
@@ -612,7 +612,7 @@ exports[`Story Snapshots > NullishNumber 1`] = `
         novalidate=""
       >
         <div
-          class="group relative flex w-full flex-col gap-1"
+          class="group relative flex w-full flex-col"
           data-filled="true"
           data-filled-within="true"
           data-focus="true"
@@ -625,7 +625,7 @@ exports[`Story Snapshots > NullishNumber 1`] = `
           data-slot="base"
         >
           <label
-            class="block cursor-default text-foreground text-small group-data-[invalid=true]:text-danger"
+            class="block cursor-default pb-1 text-foreground text-small group-data-[invalid=true]:text-danger"
             data-slot="label"
             for="uniform-«replaced-aria-id»"
             id="uniform-«replaced-aria-id»-label"
@@ -786,7 +786,7 @@ exports[`Story Snapshots > Number 1`] = `
         novalidate=""
       >
         <div
-          class="group relative flex w-full flex-col gap-1 is-filled"
+          class="group relative flex w-full flex-col is-filled"
           data-filled="true"
           data-filled-within="true"
           data-has-elements="true"
@@ -799,7 +799,7 @@ exports[`Story Snapshots > Number 1`] = `
           data-slot="base"
         >
           <label
-            class="block cursor-default text-foreground text-small group-data-[invalid=true]:text-danger"
+            class="block cursor-default pb-1 text-foreground text-small group-data-[invalid=true]:text-danger"
             data-slot="label"
             for="uniform-«replaced-aria-id»"
             id="uniform-«replaced-aria-id»-label"
@@ -946,7 +946,7 @@ exports[`Story Snapshots > Password 1`] = `
       novalidate=""
     >
       <div
-        class="group relative flex w-full flex-col gap-1 is-filled"
+        class="group relative flex w-full flex-col is-filled"
         data-filled="true"
         data-filled-within="true"
         data-has-elements="true"
@@ -960,7 +960,7 @@ exports[`Story Snapshots > Password 1`] = `
         data-slot="base"
       >
         <label
-          class="block cursor-default text-small group-data-[invalid=true]:text-danger text-danger"
+          class="block cursor-default pb-1 text-small group-data-[invalid=true]:text-danger text-danger"
           data-slot="label"
           for="uniform-«replaced-aria-id»"
           id="uniform-«replaced-aria-id»-label"
@@ -1065,7 +1065,7 @@ exports[`Story Snapshots > Required 1`] = `
       novalidate=""
     >
       <div
-        class="group relative flex w-full flex-col gap-1"
+        class="group relative flex w-full flex-col"
         data-filled="true"
         data-filled-within="true"
         data-has-elements="true"
@@ -1076,7 +1076,7 @@ exports[`Story Snapshots > Required 1`] = `
         data-slot="base"
       >
         <label
-          class="block cursor-default text-foreground text-small group-data-[invalid=true]:text-danger"
+          class="block cursor-default pb-1 text-foreground text-small group-data-[invalid=true]:text-danger"
           data-slot="label"
           for="uniform-«replaced-aria-id»"
           id="uniform-«replaced-aria-id»-label"
@@ -1164,7 +1164,7 @@ exports[`Story Snapshots > ValidationAfterClear 1`] = `
         novalidate=""
       >
         <div
-          class="group relative flex w-full flex-col gap-1"
+          class="group relative flex w-full flex-col"
           data-filled="true"
           data-filled-within="true"
           data-has-elements="true"
@@ -1177,7 +1177,7 @@ exports[`Story Snapshots > ValidationAfterClear 1`] = `
           data-slot="base"
         >
           <label
-            class="block cursor-default text-small group-data-[invalid=true]:text-danger text-danger"
+            class="block cursor-default pb-1 text-small group-data-[invalid=true]:text-danger text-danger"
             data-slot="label"
             for="uniform-«replaced-aria-id»"
             id="uniform-«replaced-aria-id»-label"
@@ -1282,7 +1282,7 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
       novalidate=""
     >
       <div
-        class="group relative flex w-full flex-col gap-1 is-filled"
+        class="group relative flex w-full flex-col is-filled"
         data-filled="true"
         data-filled-within="true"
         data-has-elements="true"
@@ -1350,7 +1350,7 @@ exports[`Story Snapshots > WithLabel 1`] = `
       novalidate=""
     >
       <div
-        class="group relative flex w-full flex-col gap-1"
+        class="group relative flex w-full flex-col"
         data-filled="true"
         data-filled-within="true"
         data-has-elements="true"
@@ -1360,7 +1360,7 @@ exports[`Story Snapshots > WithLabel 1`] = `
         data-slot="base"
       >
         <label
-          class="block cursor-default text-foreground text-small group-data-[invalid=true]:text-danger"
+          class="block cursor-default pb-1 text-foreground text-small group-data-[invalid=true]:text-danger"
           data-slot="label"
           for="uniform-«replaced-aria-id»"
           id="uniform-«replaced-aria-id»-label"
@@ -1425,7 +1425,7 @@ exports[`Story Snapshots > WithSelect 1`] = `
       novalidate=""
     >
       <div
-        class="group relative flex w-full flex-col gap-1"
+        class="group relative flex w-full flex-col"
         data-filled="true"
         data-filled-within="true"
         data-has-elements="true"
@@ -1513,7 +1513,7 @@ exports[`Story Snapshots > WithTransformComplexObject 1`] = `
       novalidate=""
     >
       <div
-        class="group relative flex w-full flex-col gap-1 is-filled"
+        class="group relative flex w-full flex-col is-filled"
         data-filled="true"
         data-filled-within="true"
         data-has-elements="true"
@@ -1524,7 +1524,7 @@ exports[`Story Snapshots > WithTransformComplexObject 1`] = `
         data-slot="base"
       >
         <label
-          class="block cursor-default text-foreground text-small group-data-[invalid=true]:text-danger"
+          class="block cursor-default pb-1 text-foreground text-small group-data-[invalid=true]:text-danger"
           data-slot="label"
           for="uniform-«replaced-aria-id»"
           id="uniform-«replaced-aria-id»-label"
@@ -1590,7 +1590,7 @@ exports[`Story Snapshots > WithValueTransform 1`] = `
       novalidate=""
     >
       <div
-        class="group relative flex w-full flex-col gap-1 is-filled"
+        class="group relative flex w-full flex-col is-filled"
         data-filled="true"
         data-filled-within="true"
         data-has-elements="true"
@@ -1601,7 +1601,7 @@ exports[`Story Snapshots > WithValueTransform 1`] = `
         data-slot="base"
       >
         <label
-          class="block cursor-default text-foreground text-small group-data-[invalid=true]:text-danger"
+          class="block cursor-default pb-1 text-foreground text-small group-data-[invalid=true]:text-danger"
           data-slot="label"
           for="uniform-«replaced-aria-id»"
           id="uniform-«replaced-aria-id»-label"

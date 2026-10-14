@@ -96,3 +96,7 @@ export const Invalid: Story = {
     });
   },
 };
+
+export const Disabled: Story = {
+  args: { name: 'textareaField', label: 'Text Area', disabled: true },
+};

@@ -3,7 +3,7 @@ import { tv } from '@fuf-stack/pixel-utils';
 /** Owned defaults for the existing public input slots. */
 const inputVariants = tv({
   slots: {
-    base: 'group relative flex w-full flex-col gap-1',
+    base: 'group relative flex w-full flex-col',
     inputWrapper:
       'shadow-xs relative inline-flex h-10 min-h-10 w-full cursor-text items-center rounded-small border-medium border-default-200 bg-content1 px-3 text-foreground transition-colors data-[hover=true]:border-default-400 group-data-[disabled=true]:pointer-events-none group-data-[focus=true]:border-focus group-data-[invalid=true]:border-danger group-data-[focus=true]:data-[hover=true]:border-default-foreground motion-reduce:transition-none',
     input:
@@ -18,7 +18,7 @@ export const inputStateVariants = tv({
   slots: {
     innerWrapper: 'inline-flex h-full w-full items-center gap-0',
     label:
-      'block cursor-default text-foreground text-small group-data-[invalid=true]:text-danger',
+      'block cursor-default pb-1 text-foreground text-small group-data-[invalid=true]:text-danger',
     helperWrapper: 'relative flex flex-col p-0',
     description: 'text-foreground-500 text-tiny',
     errorMessage: 'text-danger text-tiny',

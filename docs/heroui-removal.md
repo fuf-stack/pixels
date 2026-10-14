@@ -1,6 +1,6 @@
 # HeroUI removal: implementation inventory
 
-Status: styling/token foundations and production Input migrated; remaining components and final theme removal pending.
+Status: styling/token foundations and production Input/TextArea migrated; remaining components and final theme removal pending.
 This is a staged breaking migration. It is not ready for a HeroUI-free release.
 The only agreed breaking changes are consumer theme setup and removal of
 `uniform/hooks/useInput`; other exported props, recipes, slots, and storage
@@ -75,7 +75,7 @@ must accompany each renderer migration, with before/after browser evidence.
 | uniform/SubmitButton    | [SubmitButtonProps](../packages/uniform/src/SubmitButton/SubmitButton.tsx)               | —                        | —                                                                                                                                                                                                                                                                                                                                                                                                                                              | via Pixels/useUniformField | 1           |
 | uniform/Switch          | [SwitchProps](../packages/uniform/src/Switch/Switch.tsx)                                 | switchVariants           | base, endContent, errorMessage, label, outerWrapper, startContent, thumb, thumbIcon, wrapper                                                                                                                                                                                                                                                                                                                                                   | switch                     | 1           |
 | uniform/SwitchBox       | [SwitchBoxProps](../packages/uniform/src/SwitchBox/SwitchBox.tsx)                        | switchBoxVariants        | box, description, icon, label, wrapper, thumb, thumbIcon                                                                                                                                                                                                                                                                                                                                                                                       | switch                     | 1           |
-| uniform/TextArea        | [TextAreaProps](../packages/uniform/src/TextArea/TextArea.tsx)                           | textAreaVariants         | base, clearButton, input, inputWrapper                                                                                                                                                                                                                                                                                                                                                                                                         | input                      | 1           |
+| uniform/TextArea        | [TextAreaProps](../packages/uniform/src/TextArea/TextArea.tsx)                           | textAreaVariants         | base, clearButton, input, inputWrapper                                                                                                                                                                                                                                                                                                                                                                                                         | —                          | 2           |
 | uniform/Time            | [TimeProps](../packages/uniform/src/Time/Time.tsx)                                       | timeVariants             | base, helperWrapper, input, innerWrapper, inputWrapper, label, segment                                                                                                                                                                                                                                                                                                                                                                         | date-input                 | 1           |
 
 Additional coupling:
@@ -125,7 +125,7 @@ Committed story DOM snapshots and existing behavioral tests are the current
 source baseline. Representative field screenshots and computed-style baselines
 are now captured in [field evidence](./migration-evidence/fields/README.md).
 Complete per-slot mappings and checks for other renderers remain pending. No
-production renderer other than Input has been replaced yet.
+production renderer other than Input and TextArea has been replaced yet.
 
 The production React Aria text/number Input consumes a shared field-state core
 without calling the legacy presentation hook. The public `useUniformField`
@@ -212,3 +212,22 @@ checks the production input prop/slot/transform declarations. Accessibility
 findings remain identical to the captured invalid-state baseline. TextArea,
 other field families, Pixels primitives and final HeroUI/theme removal remain
 pending.
+
+## Production TextArea rollout verification
+
+`TextArea` now uses owned markup, React Aria field behavior and the same
+three-to-eight-row autosizing engine declared as a direct dependency. Existing
+props, four slot names, controlled values and debounce/reset behavior remain
+available. Optional help text and visible errors are associated with the actual
+textarea. Eight light/dark comparisons match the previous editable and wrapper
+measurements. The shared text-field layout also restores original error spacing;
+Input and TextArea browser stories now assert the control-to-error boundary.
+
+Final `pnpm check` passed all six gates: 1,491 unit tests (12 skipped), 438
+browser stories and seven packed consumers. Browser tests now compile Tailwind
+utilities through the same plugin as the development preview, so live autosizing
+and typography assertions exercise real utility styles. Packed declarations
+check TextArea props and slots. The textarea audit records invalid-state text
+contrast findings in both themes; its other audited states have no findings.
+Pixels primitives, grouped/date/time/slider fields, Select integration and final
+HeroUI/theme removal remain pending.

@@ -1,26 +1,21 @@
 import type { TVClassName, TVProps } from '@fuf-stack/pixel-utils';
 import type { ReactNode } from 'react';
+import type textAreaVariants from './textAreaVariants';
 
-import { Textarea as HeroTextArea } from '@heroui/input';
+import { useRef, useState } from 'react';
+import { Group } from 'react-aria-components';
+import { useFocusRing } from 'react-aria/useFocusRing';
+import { useTextField } from 'react-aria/useTextField';
+import TextareaAutosize from 'react-textarea-autosize';
 
-import { tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
+import { useStyling } from '@fuf-stack/pixels/StylingProvider';
 
 import { useInputValueDebounce } from '../hooks/useInputValueDebounce';
-import { useUniformField } from '../hooks/useUniformField';
+import useUniformFieldState from '../hooks/useUniformField/useUniformFieldState';
+import { FieldHints, FieldLabel } from '../partials/FieldLayout/FieldLayout';
+import { textAreaStateVariants } from './textAreaVariants';
 
-// input variants
-export const textAreaVariants = tv({
-  slots: {
-    /** wrapper around the whole input */
-    base: '',
-    /** clear button */
-    clearButton: '',
-    /** actual input element */
-    input: '',
-    /** inner wrapper (HeroUI inputWrapper slot) */
-    inputWrapper: 'bg-content1 group-data-[focus=true]:border-focus',
-  },
-});
+export { default as textAreaVariants } from './textAreaVariants';
 
 type VariantProps = TVProps<typeof textAreaVariants>;
 type ClassName = TVClassName<typeof textAreaVariants>;
@@ -34,6 +29,8 @@ export interface TextAreaProps extends VariantProps {
   className?: ClassName;
   /** debounce delay in milliseconds for form state updates (default: 300ms) */
   debounceDelay?: number;
+  /** Help text associated with the editable control. */
+  description?: ReactNode;
   /** Determines if the TextArea is disabled or not. */
   disabled?: boolean;
   /** Label displayed above the TextArea. */
@@ -46,78 +43,150 @@ export interface TextAreaProps extends VariantProps {
   testId?: string;
 }
 
-/**
- * TextArea component based on [HeroUI TextArea](https://www.heroui.com//docs/components/textarea)
- */
+/** Owned multiline field with React Aria behavior and three-to-eight-row autosizing. */
 const TextArea = ({
-  children = null,
-  className: _className = undefined,
+  className = undefined,
   debounceDelay = 300,
   name,
   placeholder = ' ',
-  ...uniformFieldProps
+  ...uniformProps
 }: TextAreaProps) => {
   const {
-    ariaLabel,
+    field: { value: fieldValue, onChange: fieldOnChange, onBlur: fieldOnBlur },
+    ref,
     disabled,
-    errorMessage,
-    field: {
-      onChange: fieldOnChange,
-      onBlur: fieldOnBlur,
-      value: fieldValue,
-      ref,
-    },
     invalid,
-    label,
     required,
+    label,
+    description,
+    errorMessage,
+    ids,
     testId,
-  } = useUniformField({ name, ...uniformFieldProps });
-
-  // Use debounced handlers for form updates
-  const { onChange, onBlur, value } = useInputValueDebounce({
-    debounceDelay,
+    getControlProps,
+  } = useUniformFieldState({
     name,
-    onBlur: fieldOnBlur,
-    onChange: fieldOnChange,
-    value: fieldValue,
+    ...uniformProps,
+    ariaLabel:
+      uniformProps.ariaLabel ??
+      (!uniformProps.label && placeholder.trim() ? placeholder : undefined),
   });
-
-  // classNames from slots
-  const variants = textAreaVariants();
-  const classNames = variantsToClassNames(variants, _className, 'base');
+  const controlRef = useRef<HTMLTextAreaElement>(null);
+  const { focusProps, isFocused, isFocusVisible } = useFocusRing({
+    within: true,
+    isTextInput: true,
+  });
+  const [hovered, setHovered] = useState(false);
+  const [limitReached, setLimitReached] = useState(false);
+  const { value, onChange, onBlur } = useInputValueDebounce({
+    name,
+    debounceDelay,
+    value: fieldValue,
+    onChange: fieldOnChange,
+    onBlur: fieldOnBlur,
+  });
+  const hasValue = value !== '' && value != null;
+  const associations = getControlProps();
+  const { inputProps } = useTextField(
+    {
+      ...associations,
+      inputElementType: 'textarea',
+      name,
+      value: String(value ?? ''),
+      onChange,
+      onBlur,
+      isDisabled: disabled,
+      isInvalid: invalid,
+      isRequired: required,
+      validationBehavior: 'aria',
+    },
+    controlRef,
+  );
+  const styling = useStyling();
+  const classes = styling.variantsToClassNames(
+    styling.resolve(textAreaStateVariants, {
+      disabled,
+      invalid,
+      filled: hasValue,
+    }),
+    className,
+    'base',
+  );
 
   return (
-    <HeroTextArea
-      ref={ref}
-      // Only add aria-label if there's no meaningful placeholder (HeroUI uses placeholder as aria-label)
-      aria-label={
-        !placeholder || placeholder.trim() === '' ? ariaLabel : undefined
-      }
-      classNames={{
-        base: classNames.base,
-        clearButton: classNames.clearButton,
-        // set padding to 0 for error message exit animation
-        helperWrapper: 'p-0',
-        input: classNames.input,
-        inputWrapper: classNames.inputWrapper,
-      }}
-      data-testid={testId}
-      errorMessage={errorMessage}
-      id={testId}
-      isDisabled={disabled}
-      isInvalid={invalid}
-      isRequired={required}
-      label={label}
-      labelPlacement="outside"
-      name={name}
-      onBlur={onBlur}
-      onChange={onChange}
-      placeholder={placeholder}
-      value={value}
-      variant="bordered"
+    <div
+      {...focusProps}
+      className={classes.base}
+      data-disabled={disabled ? true : undefined}
+      data-filled={hasValue || !!placeholder || undefined}
+      data-filled-within={hasValue || isFocused || !!placeholder || undefined}
+      data-focus={isFocused || undefined}
+      data-focus-visible={isFocusVisible || undefined}
+      data-focus-within={isFocused || undefined}
+      data-has-elements
+      data-has-helper
+      data-has-label={!!label || undefined}
+      data-has-value={hasValue || !placeholder || undefined}
+      data-hover={hovered || undefined}
+      data-invalid={invalid || undefined}
+      data-required={required || undefined}
+      data-slot="base"
     >
-      {children}
-    </HeroTextArea>
+      <FieldLabel
+        className={classes.label}
+        ids={ids}
+        label={label}
+        required={required}
+      />
+      <Group
+        className={classes.inputWrapper}
+        data-focus={isFocused || undefined}
+        data-has-multiple-rows
+        data-hover={hovered || undefined}
+        data-slot="input-wrapper"
+        isDisabled={disabled}
+        onClick={(event) => {
+          if (!disabled && event.target === event.currentTarget) {
+            controlRef.current?.focus();
+          }
+        }}
+        onHoverEnd={() => {
+          setHovered(false);
+        }}
+        onHoverStart={() => {
+          setHovered(true);
+        }}
+        role="presentation"
+      >
+        <div className={classes.innerWrapper} data-slot="inner-wrapper">
+          <TextareaAutosize
+            {...inputProps}
+            {...associations}
+            ref={(node) => {
+              controlRef.current = node;
+              ref(node);
+            }}
+            className={classes.input}
+            data-filled={hasValue || undefined}
+            data-hide-scroll={!limitReached || undefined}
+            data-slot="input"
+            data-testid={testId}
+            maxRows={8}
+            minRows={3}
+            onHeightChange={(height, { rowHeight }) => {
+              setLimitReached(height >= rowHeight * 8);
+            }}
+            placeholder={placeholder}
+          />
+        </div>
+      </Group>
+      <FieldHints
+        classes={classes}
+        description={description}
+        errorMessage={errorMessage}
+        ids={ids}
+        invalid={invalid}
+      />
+    </div>
   );
 };
 

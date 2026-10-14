@@ -60,6 +60,13 @@ export const HelpAndRequired: Story = {
       await expect(input).toHaveAttribute('aria-invalid', 'true');
     });
     const error = canvas.getByTestId('inputfield_error');
+    const wrapper = input.closest('[data-slot="input-wrapper"]');
+    const helper = input
+      .closest('[data-slot="base"]')
+      ?.querySelector('[data-slot="helper-wrapper"]');
+    await expect(helper?.getBoundingClientRect().top).toBe(
+      wrapper?.getBoundingClientRect().bottom,
+    );
     await expect(input).toHaveAccessibleDescription(
       `Enter a value. ${error.textContent}`,
     );
