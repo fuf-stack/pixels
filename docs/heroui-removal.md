@@ -1,6 +1,6 @@
 # HeroUI removal: implementation inventory
 
-Status: styling instances and packaged token foundation implemented; component and theme migration pending.
+Status: styling/token foundations and production Input migrated; remaining components and final theme removal pending.
 This is a staged breaking migration. It is not ready for a HeroUI-free release.
 The only agreed breaking changes are consumer theme setup and removal of
 `uniform/hooks/useInput`; other exported props, recipes, slots, and storage
@@ -66,7 +66,7 @@ must accompany each renderer migration, with before/after browser evidence.
 | uniform/FieldArray      | [inferred/re-exported](../packages/uniform/src/FieldArray/FieldArray.tsx)                | fieldArrayVariants       | base, actionsMenuButton, appendButton, elementFieldsGrid, label, list, listWrapper, listItem, listItemInner, removeButton, sortDragHandle                                                                                                                                                                                                                                                                                                      | via Pixels/useUniformField | 2           |
 | uniform/FieldCard       | [FieldCardProps](../packages/uniform/src/FieldCard/FieldCard.tsx)                        | fieldCardVariants        | base, label, content, errorFooter, errorText                                                                                                                                                                                                                                                                                                                                                                                                   | via Pixels/useUniformField | 2           |
 | uniform/Form            | [FormProps](../packages/uniform/src/Form/Form.tsx)                                       | formVariants             | base, debugViewer, debugViewerCopyButtonToggle, debugViewerHeader, debugViewerJson, debugViewerTriggerButton, form                                                                                                                                                                                                                                                                                                                             | via Pixels/useUniformField | 0           |
-| uniform/Input           | [InputProps](../packages/uniform/src/Input/Input.tsx)                                    | inputVariants            | base, clearButton, input, inputWrapper                                                                                                                                                                                                                                                                                                                                                                                                         | input, number-input        | 2           |
+| uniform/Input           | [InputProps](../packages/uniform/src/Input/Input.tsx)                                    | inputVariants            | base, clearButton, input, inputWrapper                                                                                                                                                                                                                                                                                                                                                                                                         | —                          | 3           |
 | uniform/RadioBoxes      | [RadioBoxesProps](../packages/uniform/src/RadioBoxes/RadioBoxes.tsx)                     | radioBoxesVariants       | base, boxBase, boxControl, boxDescription, boxLabel, boxLabelWrapper, label, wrapper                                                                                                                                                                                                                                                                                                                                                           | radio                      | 1           |
 | uniform/RadioTabs       | [RadioTabsProps](../packages/uniform/src/RadioTabs/RadioTabs.tsx)                        | radioTabsVariants        | base, cursor, label, tab, tabBase, tabContent, tabList, tabPanel, tabWrapper, wrapper                                                                                                                                                                                                                                                                                                                                                          | radio                      | 1           |
 | uniform/Radios          | [RadiosProps](../packages/uniform/src/Radios/Radios.tsx)                                 | radiosVariants           | base, errorMessage, itemBase, itemControl, itemDescription, itemLabel, itemLabelWrapper, itemWrapper, label, wrapper                                                                                                                                                                                                                                                                                                                           | radio                      | 1           |
@@ -125,11 +125,11 @@ Committed story DOM snapshots and existing behavioral tests are the current
 source baseline. Representative field screenshots and computed-style baselines
 are now captured in [field evidence](./migration-evidence/fields/README.md).
 Complete per-slot mappings and checks for other renderers remain pending. No
-production renderer has been replaced yet.
+production renderer other than Input has been replaced yet.
 
-The private React Aria text/number prototype consumes a shared field-state core
+The production React Aria text/number Input consumes a shared field-state core
 without calling the legacy presentation hook. The public `useUniformField`
-adapter retains its existing getters during coexistence. Prototype tests cover
+adapter retains its existing getters during coexistence. Production input tests cover
 registration, resets, blur/submission flushing, pending-edit cancellation on
 clear, focus restoration, decimal/zero/empty numbers, stepper updates, labels,
 required markers, errors and consumer font-size merging. The form's existing
@@ -143,8 +143,8 @@ own presentation only and are not public entry points.
 2. Owned tokens are packaged at `pixel-utils/tokens.css`, with CSS side effects
    and plugin-free Tailwind compilation/source detection checked against packed
    packages. Compare renderer visuals as each component adopts these tokens.
-3. Prototype React Aria text/number, grouped controls, DatePicker with time and
-   Time against the field contracts above. Resolve composition before rollout.
+3. Text/number composition is now in production. Prototype grouped controls,
+   DatePicker with time and Time against the field contracts above.
 4. Migrate required Pixels primitives first, then field slices, using
    `useStyling().resolve` and configured `cn` throughout each slice. HeroUI
    wrappers currently do not honor the new provider.
@@ -193,3 +193,22 @@ covered by prototype stories/tests. Automated accessibility findings and their
 baseline comparison are recorded with the field evidence; invalid-state
 contrast remains unresolved. Other field families and production promotion
 remain pending. The external Markdown editor is deferred at the user's request.
+
+## Production Input rollout verification
+
+`Input` now renders owned React Aria text/password/number controls. All four
+public styling slots and existing props remain available; consumer merge
+configuration applies before classes are discarded. The old private prototype
+was removed and its focused stories/tests now exercise production composition.
+The unused `@heroui/number-input` dependency was removed. Twenty-four visual
+comparisons match the legacy measurements, including sizes, addons, custom
+styles and focused/hovered inputs. Sixty-three affected consumer DOM snapshots
+were reviewed and updated; behavior assertions were retained.
+
+Final `pnpm check` passed all six gates with 1,486 unit tests (12 skipped),
+434 browser stories and seven packed consumers. The browser story count is
+lower because seven prototype duplicates were removed. The packed fixture also
+checks the production input prop/slot/transform declarations. Accessibility
+findings remain identical to the captured invalid-state baseline. TextArea,
+other field families, Pixels primitives and final HeroUI/theme removal remain
+pending.

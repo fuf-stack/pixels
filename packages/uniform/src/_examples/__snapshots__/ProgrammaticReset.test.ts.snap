@@ -785,54 +785,49 @@ exports[`Story Snapshots > FieldArrayFlatWithInitialValues 1`] = `
                   data-testid="toppings_0_element_fields_grid"
                 >
                   <div
-                    class="group flex flex-col data-[hidden=true]:hidden w-full relative justify-end data-[has-label=true]:mt-[calc(var(--heroui-font-size-small)_+_10px)] is-filled"
+                    class="group relative flex w-full flex-col gap-1 is-filled"
                     data-filled="true"
                     data-filled-within="true"
                     data-has-elements="true"
                     data-has-helper="true"
                     data-has-label="true"
                     data-has-value="true"
+                    data-rac=""
                     data-slot="base"
                   >
+                    <label
+                      class="block cursor-default text-foreground text-small group-data-[invalid=true]:text-danger"
+                      data-slot="label"
+                      for="uniform-«replaced-aria-id»"
+                      id="uniform-«replaced-aria-id»-label"
+                    >
+                      Topping
+                    </label>
                     <div
-                      class="h-full flex flex-col"
-                      data-slot="main-wrapper"
+                      class="shadow-xs relative inline-flex h-10 min-h-10 w-full cursor-text items-center rounded-small border-medium border-default-200 bg-content1 px-3 text-foreground transition-colors data-[hover=true]:border-default-400 group-data-[disabled=true]:pointer-events-none group-data-[focus=true]:border-focus group-data-[invalid=true]:border-danger group-data-[focus=true]:data-[hover=true]:border-default-foreground motion-reduce:transition-none is-filled"
+                      data-rac=""
+                      data-slot="input-wrapper"
+                      role="presentation"
                     >
                       <div
-                        class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 group-data-[focus=true]:data-[hover=true]:border-default-foreground h-10 min-h-10 rounded-small !duration-150 transition-colors motion-reduce:transition-none bg-content1 group-data-[focus=true]:border-focus is-filled"
-                        data-slot="input-wrapper"
-                        style="cursor: text;"
+                        class="inline-flex h-full w-full items-center gap-0"
+                        data-slot="inner-wrapper"
                       >
-                        <label
-                          class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block text-foreground-500 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto text-small group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden"
-                          data-slot="label"
-                          for="toppings_0"
-                          id="react-aria-«replaced-aria-id»"
-                        >
-                          Topping
-                        </label>
-                        <div
-                          class="inline-flex w-full items-center h-full box-border"
-                          data-slot="inner-wrapper"
-                        >
-                          <input
-                            aria-label="Topping"
-                            aria-labelledby="toppings_0 react-aria-«replaced-aria-id»"
-                            autocomplete="off"
-                            class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text dark:autofill:[-webkit-text-fill-color:hsl(var(--heroui-foreground))] [&::-ms-reveal]:hidden text-small is-filled"
-                            data-filled="true"
-                            data-filled-within="true"
-                            data-slot="input"
-                            data-testid="toppings_0"
-                            id="toppings_0"
-                            name="toppings.0.__FLAT__"
-                            placeholder=" "
-                            tabindex="0"
-                            title=""
-                            type="text"
-                            value="pepperoni"
-                          />
-                        </div>
+                        <input
+                          aria-labelledby="uniform-«replaced-aria-id»-label"
+                          autocomplete="off"
+                          class="w-full min-w-0 bg-transparent bg-clip-text font-normal text-inherit outline-none text-small placeholder:text-foreground-500 autofill:bg-transparent data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden is-filled"
+                          data-filled="true"
+                          data-rac=""
+                          data-slot="input"
+                          data-testid="toppings_0"
+                          id="uniform-«replaced-aria-id»"
+                          name="toppings.0.__FLAT__"
+                          placeholder=" "
+                          tabindex="0"
+                          type="text"
+                          value="pepperoni"
+                        />
                       </div>
                     </div>
                   </div>
@@ -946,51 +941,47 @@ exports[`Story Snapshots > FieldArrayFlatWithoutInitialValues 1`] = `
                   data-testid="toppings_0_element_fields_grid"
                 >
                   <div
-                    class="group flex flex-col data-[hidden=true]:hidden w-full relative justify-end data-[has-label=true]:mt-[calc(var(--heroui-font-size-small)_+_10px)]"
+                    class="group relative flex w-full flex-col gap-1"
                     data-filled="true"
                     data-filled-within="true"
                     data-has-elements="true"
                     data-has-helper="true"
                     data-has-label="true"
+                    data-rac=""
                     data-slot="base"
                   >
+                    <label
+                      class="block cursor-default text-foreground text-small group-data-[invalid=true]:text-danger"
+                      data-slot="label"
+                      for="uniform-«replaced-aria-id»"
+                      id="uniform-«replaced-aria-id»-label"
+                    >
+                      Topping
+                    </label>
                     <div
-                      class="h-full flex flex-col"
-                      data-slot="main-wrapper"
+                      class="shadow-xs relative inline-flex h-10 min-h-10 w-full cursor-text items-center rounded-small border-medium border-default-200 bg-content1 px-3 text-foreground transition-colors data-[hover=true]:border-default-400 group-data-[disabled=true]:pointer-events-none group-data-[focus=true]:border-focus group-data-[invalid=true]:border-danger group-data-[focus=true]:data-[hover=true]:border-default-foreground motion-reduce:transition-none"
+                      data-rac=""
+                      data-slot="input-wrapper"
+                      role="presentation"
                     >
                       <div
-                        class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 group-data-[focus=true]:data-[hover=true]:border-default-foreground h-10 min-h-10 rounded-small !duration-150 transition-colors motion-reduce:transition-none bg-content1 group-data-[focus=true]:border-focus"
-                        data-slot="input-wrapper"
-                        style="cursor: text;"
+                        class="inline-flex h-full w-full items-center gap-0"
+                        data-slot="inner-wrapper"
                       >
-                        <label
-                          class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block text-foreground-500 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto text-small group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden"
-                          data-slot="label"
-                          for="toppings_0"
-                          id="react-aria-«replaced-aria-id»"
-                        >
-                          Topping
-                        </label>
-                        <div
-                          class="inline-flex w-full items-center h-full box-border"
-                          data-slot="inner-wrapper"
-                        >
-                          <input
-                            aria-label="Topping"
-                            aria-labelledby="toppings_0 react-aria-«replaced-aria-id»"
-                            autocomplete="off"
-                            class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text dark:autofill:[-webkit-text-fill-color:hsl(var(--heroui-foreground))] [&::-ms-reveal]:hidden text-small"
-                            data-slot="input"
-                            data-testid="toppings_0"
-                            id="toppings_0"
-                            name="toppings.0.__FLAT__"
-                            placeholder=" "
-                            tabindex="0"
-                            title=""
-                            type="text"
-                            value=""
-                          />
-                        </div>
+                        <input
+                          aria-labelledby="uniform-«replaced-aria-id»-label"
+                          autocomplete="off"
+                          class="w-full min-w-0 bg-transparent bg-clip-text font-normal text-inherit outline-none text-small placeholder:text-foreground-500 autofill:bg-transparent data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden"
+                          data-rac=""
+                          data-slot="input"
+                          data-testid="toppings_0"
+                          id="uniform-«replaced-aria-id»"
+                          name="toppings.0.__FLAT__"
+                          placeholder=" "
+                          tabindex="0"
+                          type="text"
+                          value=""
+                        />
                       </div>
                     </div>
                   </div>
@@ -1090,54 +1081,49 @@ exports[`Story Snapshots > FieldArrayWithInitialValues 1`] = `
                   data-testid="guests_0_element_fields_grid"
                 >
                   <div
-                    class="group flex flex-col data-[hidden=true]:hidden w-full relative justify-end data-[has-label=true]:mt-[calc(var(--heroui-font-size-small)_+_10px)] is-filled"
+                    class="group relative flex w-full flex-col gap-1 is-filled"
                     data-filled="true"
                     data-filled-within="true"
                     data-has-elements="true"
                     data-has-helper="true"
                     data-has-label="true"
                     data-has-value="true"
+                    data-rac=""
                     data-slot="base"
                   >
+                    <label
+                      class="block cursor-default text-foreground text-small group-data-[invalid=true]:text-danger"
+                      data-slot="label"
+                      for="uniform-«replaced-aria-id»"
+                      id="uniform-«replaced-aria-id»-label"
+                    >
+                      Guest Name
+                    </label>
                     <div
-                      class="h-full flex flex-col"
-                      data-slot="main-wrapper"
+                      class="shadow-xs relative inline-flex h-10 min-h-10 w-full cursor-text items-center rounded-small border-medium border-default-200 bg-content1 px-3 text-foreground transition-colors data-[hover=true]:border-default-400 group-data-[disabled=true]:pointer-events-none group-data-[focus=true]:border-focus group-data-[invalid=true]:border-danger group-data-[focus=true]:data-[hover=true]:border-default-foreground motion-reduce:transition-none is-filled"
+                      data-rac=""
+                      data-slot="input-wrapper"
+                      role="presentation"
                     >
                       <div
-                        class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 group-data-[focus=true]:data-[hover=true]:border-default-foreground h-10 min-h-10 rounded-small !duration-150 transition-colors motion-reduce:transition-none bg-content1 group-data-[focus=true]:border-focus is-filled"
-                        data-slot="input-wrapper"
-                        style="cursor: text;"
+                        class="inline-flex h-full w-full items-center gap-0"
+                        data-slot="inner-wrapper"
                       >
-                        <label
-                          class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block text-foreground-500 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto text-small group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden"
-                          data-slot="label"
-                          for="guests_0_name"
-                          id="react-aria-«replaced-aria-id»"
-                        >
-                          Guest Name
-                        </label>
-                        <div
-                          class="inline-flex w-full items-center h-full box-border"
-                          data-slot="inner-wrapper"
-                        >
-                          <input
-                            aria-label="Guest Name"
-                            aria-labelledby="guests_0_name react-aria-«replaced-aria-id»"
-                            autocomplete="off"
-                            class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text dark:autofill:[-webkit-text-fill-color:hsl(var(--heroui-foreground))] [&::-ms-reveal]:hidden text-small is-filled"
-                            data-filled="true"
-                            data-filled-within="true"
-                            data-slot="input"
-                            data-testid="guests_0_name"
-                            id="guests_0_name"
-                            name="guests.0.name"
-                            placeholder=" "
-                            tabindex="0"
-                            title=""
-                            type="text"
-                            value="Alice"
-                          />
-                        </div>
+                        <input
+                          aria-labelledby="uniform-«replaced-aria-id»-label"
+                          autocomplete="off"
+                          class="w-full min-w-0 bg-transparent bg-clip-text font-normal text-inherit outline-none text-small placeholder:text-foreground-500 autofill:bg-transparent data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden is-filled"
+                          data-filled="true"
+                          data-rac=""
+                          data-slot="input"
+                          data-testid="guests_0_name"
+                          id="uniform-«replaced-aria-id»"
+                          name="guests.0.name"
+                          placeholder=" "
+                          tabindex="0"
+                          type="text"
+                          value="Alice"
+                        />
                       </div>
                     </div>
                   </div>
@@ -1251,51 +1237,47 @@ exports[`Story Snapshots > FieldArrayWithoutInitialValues 1`] = `
                   data-testid="guests_0_element_fields_grid"
                 >
                   <div
-                    class="group flex flex-col data-[hidden=true]:hidden w-full relative justify-end data-[has-label=true]:mt-[calc(var(--heroui-font-size-small)_+_10px)]"
+                    class="group relative flex w-full flex-col gap-1"
                     data-filled="true"
                     data-filled-within="true"
                     data-has-elements="true"
                     data-has-helper="true"
                     data-has-label="true"
+                    data-rac=""
                     data-slot="base"
                   >
+                    <label
+                      class="block cursor-default text-foreground text-small group-data-[invalid=true]:text-danger"
+                      data-slot="label"
+                      for="uniform-«replaced-aria-id»"
+                      id="uniform-«replaced-aria-id»-label"
+                    >
+                      Guest Name
+                    </label>
                     <div
-                      class="h-full flex flex-col"
-                      data-slot="main-wrapper"
+                      class="shadow-xs relative inline-flex h-10 min-h-10 w-full cursor-text items-center rounded-small border-medium border-default-200 bg-content1 px-3 text-foreground transition-colors data-[hover=true]:border-default-400 group-data-[disabled=true]:pointer-events-none group-data-[focus=true]:border-focus group-data-[invalid=true]:border-danger group-data-[focus=true]:data-[hover=true]:border-default-foreground motion-reduce:transition-none"
+                      data-rac=""
+                      data-slot="input-wrapper"
+                      role="presentation"
                     >
                       <div
-                        class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 group-data-[focus=true]:data-[hover=true]:border-default-foreground h-10 min-h-10 rounded-small !duration-150 transition-colors motion-reduce:transition-none bg-content1 group-data-[focus=true]:border-focus"
-                        data-slot="input-wrapper"
-                        style="cursor: text;"
+                        class="inline-flex h-full w-full items-center gap-0"
+                        data-slot="inner-wrapper"
                       >
-                        <label
-                          class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block text-foreground-500 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto text-small group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden"
-                          data-slot="label"
-                          for="guests_0_name"
-                          id="react-aria-«replaced-aria-id»"
-                        >
-                          Guest Name
-                        </label>
-                        <div
-                          class="inline-flex w-full items-center h-full box-border"
-                          data-slot="inner-wrapper"
-                        >
-                          <input
-                            aria-label="Guest Name"
-                            aria-labelledby="guests_0_name react-aria-«replaced-aria-id»"
-                            autocomplete="off"
-                            class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text dark:autofill:[-webkit-text-fill-color:hsl(var(--heroui-foreground))] [&::-ms-reveal]:hidden text-small"
-                            data-slot="input"
-                            data-testid="guests_0_name"
-                            id="guests_0_name"
-                            name="guests.0.name"
-                            placeholder=" "
-                            tabindex="0"
-                            title=""
-                            type="text"
-                            value=""
-                          />
-                        </div>
+                        <input
+                          aria-labelledby="uniform-«replaced-aria-id»-label"
+                          autocomplete="off"
+                          class="w-full min-w-0 bg-transparent bg-clip-text font-normal text-inherit outline-none text-small placeholder:text-foreground-500 autofill:bg-transparent data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden"
+                          data-rac=""
+                          data-slot="input"
+                          data-testid="guests_0_name"
+                          id="uniform-«replaced-aria-id»"
+                          name="guests.0.name"
+                          placeholder=" "
+                          tabindex="0"
+                          type="text"
+                          value=""
+                        />
                       </div>
                     </div>
                   </div>
@@ -1371,54 +1353,49 @@ exports[`Story Snapshots > InputsWithInitialValues 1`] = `
             class="relative flex w-full p-3 flex-auto flex-col place-content-inherit align-items-inherit h-auto break-words text-left overflow-y-auto subpixel-antialiased gap-6"
           >
             <div
-              class="group flex flex-col data-[hidden=true]:hidden w-full relative justify-end data-[has-label=true]:mt-[calc(var(--heroui-font-size-small)_+_10px)] is-filled"
+              class="group relative flex w-full flex-col gap-1 is-filled"
               data-filled="true"
               data-filled-within="true"
               data-has-elements="true"
               data-has-helper="true"
               data-has-label="true"
               data-has-value="true"
+              data-rac=""
               data-slot="base"
             >
+              <label
+                class="block cursor-default text-foreground text-small group-data-[invalid=true]:text-danger"
+                data-slot="label"
+                for="uniform-«replaced-aria-id»"
+                id="uniform-«replaced-aria-id»-label"
+              >
+                Username 👤
+              </label>
               <div
-                class="h-full flex flex-col"
-                data-slot="main-wrapper"
+                class="shadow-xs relative inline-flex h-10 min-h-10 w-full cursor-text items-center rounded-small border-medium border-default-200 bg-content1 px-3 text-foreground transition-colors data-[hover=true]:border-default-400 group-data-[disabled=true]:pointer-events-none group-data-[focus=true]:border-focus group-data-[invalid=true]:border-danger group-data-[focus=true]:data-[hover=true]:border-default-foreground motion-reduce:transition-none is-filled"
+                data-rac=""
+                data-slot="input-wrapper"
+                role="presentation"
               >
                 <div
-                  class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 group-data-[focus=true]:data-[hover=true]:border-default-foreground h-10 min-h-10 rounded-small !duration-150 transition-colors motion-reduce:transition-none bg-content1 group-data-[focus=true]:border-focus is-filled"
-                  data-slot="input-wrapper"
-                  style="cursor: text;"
+                  class="inline-flex h-full w-full items-center gap-0"
+                  data-slot="inner-wrapper"
                 >
-                  <label
-                    class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block text-foreground-500 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto text-small group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden"
-                    data-slot="label"
-                    for="username"
-                    id="react-aria-«replaced-aria-id»"
-                  >
-                    Username 👤
-                  </label>
-                  <div
-                    class="inline-flex w-full items-center h-full box-border"
-                    data-slot="inner-wrapper"
-                  >
-                    <input
-                      aria-label="Username 👤"
-                      aria-labelledby="username react-aria-«replaced-aria-id»"
-                      autocomplete="off"
-                      class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text dark:autofill:[-webkit-text-fill-color:hsl(var(--heroui-foreground))] [&::-ms-reveal]:hidden text-small is-filled"
-                      data-filled="true"
-                      data-filled-within="true"
-                      data-slot="input"
-                      data-testid="username"
-                      id="username"
-                      name="username"
-                      placeholder=" "
-                      tabindex="0"
-                      title=""
-                      type="text"
-                      value="john_doe"
-                    />
-                  </div>
+                  <input
+                    aria-labelledby="uniform-«replaced-aria-id»-label"
+                    autocomplete="off"
+                    class="w-full min-w-0 bg-transparent bg-clip-text font-normal text-inherit outline-none text-small placeholder:text-foreground-500 autofill:bg-transparent data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden is-filled"
+                    data-filled="true"
+                    data-rac=""
+                    data-slot="input"
+                    data-testid="username"
+                    id="uniform-«replaced-aria-id»"
+                    name="username"
+                    placeholder=" "
+                    tabindex="0"
+                    type="text"
+                    value="john_doe"
+                  />
                 </div>
               </div>
             </div>
@@ -1638,51 +1615,47 @@ exports[`Story Snapshots > InputsWithoutInitialValues 1`] = `
             class="relative flex w-full p-3 flex-auto flex-col place-content-inherit align-items-inherit h-auto break-words text-left overflow-y-auto subpixel-antialiased gap-6"
           >
             <div
-              class="group flex flex-col data-[hidden=true]:hidden w-full relative justify-end data-[has-label=true]:mt-[calc(var(--heroui-font-size-small)_+_10px)]"
+              class="group relative flex w-full flex-col gap-1"
               data-filled="true"
               data-filled-within="true"
               data-has-elements="true"
               data-has-helper="true"
               data-has-label="true"
+              data-rac=""
               data-slot="base"
             >
+              <label
+                class="block cursor-default text-foreground text-small group-data-[invalid=true]:text-danger"
+                data-slot="label"
+                for="uniform-«replaced-aria-id»"
+                id="uniform-«replaced-aria-id»-label"
+              >
+                Username 👤
+              </label>
               <div
-                class="h-full flex flex-col"
-                data-slot="main-wrapper"
+                class="shadow-xs relative inline-flex h-10 min-h-10 w-full cursor-text items-center rounded-small border-medium border-default-200 bg-content1 px-3 text-foreground transition-colors data-[hover=true]:border-default-400 group-data-[disabled=true]:pointer-events-none group-data-[focus=true]:border-focus group-data-[invalid=true]:border-danger group-data-[focus=true]:data-[hover=true]:border-default-foreground motion-reduce:transition-none"
+                data-rac=""
+                data-slot="input-wrapper"
+                role="presentation"
               >
                 <div
-                  class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 group-data-[focus=true]:data-[hover=true]:border-default-foreground h-10 min-h-10 rounded-small !duration-150 transition-colors motion-reduce:transition-none bg-content1 group-data-[focus=true]:border-focus"
-                  data-slot="input-wrapper"
-                  style="cursor: text;"
+                  class="inline-flex h-full w-full items-center gap-0"
+                  data-slot="inner-wrapper"
                 >
-                  <label
-                    class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block text-foreground-500 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto text-small group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden"
-                    data-slot="label"
-                    for="username"
-                    id="react-aria-«replaced-aria-id»"
-                  >
-                    Username 👤
-                  </label>
-                  <div
-                    class="inline-flex w-full items-center h-full box-border"
-                    data-slot="inner-wrapper"
-                  >
-                    <input
-                      aria-label="Username 👤"
-                      aria-labelledby="username react-aria-«replaced-aria-id»"
-                      autocomplete="off"
-                      class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text dark:autofill:[-webkit-text-fill-color:hsl(var(--heroui-foreground))] [&::-ms-reveal]:hidden text-small"
-                      data-slot="input"
-                      data-testid="username"
-                      id="username"
-                      name="username"
-                      placeholder=" "
-                      tabindex="0"
-                      title=""
-                      type="text"
-                      value=""
-                    />
-                  </div>
+                  <input
+                    aria-labelledby="uniform-«replaced-aria-id»-label"
+                    autocomplete="off"
+                    class="w-full min-w-0 bg-transparent bg-clip-text font-normal text-inherit outline-none text-small placeholder:text-foreground-500 autofill:bg-transparent data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden"
+                    data-rac=""
+                    data-slot="input"
+                    data-testid="username"
+                    id="uniform-«replaced-aria-id»"
+                    name="username"
+                    placeholder=" "
+                    tabindex="0"
+                    type="text"
+                    value=""
+                  />
                 </div>
               </div>
             </div>

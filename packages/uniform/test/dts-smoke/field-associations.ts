@@ -1,4 +1,25 @@
 import { useUniformField } from '@fuf-stack/uniform/hooks/useUniformField';
+import type { InputProps } from '@fuf-stack/uniform/Input';
+
+// Exercise the existing input contract against the packed declarations.
+export const inputProps: InputProps = {
+  name: 'amount',
+  type: 'number',
+  size: 'sm',
+  description: 'Enter an amount',
+  clearable: true,
+  className: {
+    base: ['mt-4'],
+    inputWrapper: 'border-danger',
+    input: 'text-body text-danger',
+    clearButton: 'text-danger',
+  },
+  transform: {
+    toDisplayValue: (value) => String(value ?? ''),
+    toFormValue: (value) => Number(value),
+  },
+  onClear: () => {},
+};
 
 export default function useEditorField() {
   const field = useUniformField<{ editor: string }>({

@@ -5,24 +5,16 @@ import { expect, userEvent, waitFor, within } from 'storybook/test';
 import { createStyling } from '@fuf-stack/pixel-utils';
 import { StylingProvider } from '@fuf-stack/pixels/StylingProvider';
 
+import Input from './Input';
 import meta, * as existing from './Input.stories';
-import InputAriaPrototype from './InputAriaPrototype';
 
-const prototypeMeta: Meta<typeof InputAriaPrototype> = {
+const compositionMeta: Meta<typeof Input> = {
   ...meta,
-  component: InputAriaPrototype,
-  title: 'uniform/Input/Aria Prototype',
+  component: Input,
+  title: 'uniform/Input/Composition',
 };
-export default prototypeMeta;
-type Story = StoryObj<typeof InputAriaPrototype>;
-
-export const WithLabel: Story = { ...existing.WithLabel };
-export const Required: Story = { ...existing.Required };
-export const Disabled: Story = { ...existing.Disabled };
-export const Invalid: Story = { ...existing.Invalid };
-export const Number: Story = { ...existing.Number };
-export const Clearable: Story = { ...existing.Clearable };
-export const Transformed: Story = { ...existing.WithValueTransform };
+export default compositionMeta;
+type Story = StoryObj<typeof Input>;
 
 const styling = createStyling({
   extend: { classGroups: { 'font-size': [{ text: ['body'] }] } },

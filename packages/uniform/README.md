@@ -66,3 +66,23 @@ call `cancelPendingChange('')` before `resetField(name, { defaultValue: null })`
 to discard pending text and preserve the field's existing reset semantics. The
 cancellation helper changes the display only; it does not commit a value or
 trigger validation itself.
+
+## Owned input rendering
+
+`Input` now uses React Aria text/number controls with owned Tailwind styling.
+Its existing props, exports, transforms and `base`, `inputWrapper`, `input` and
+`clearButton` slots are preserved. Consumer styling instances now apply to the
+production input: custom font-size utilities replace its default font size while
+retaining text colors. Import the packaged token stylesheet as described in
+[the styling guide](../../docs/styling.md).
+
+Labels and optional `description` text use the shared field association IDs;
+`testId` remains the editable control's `data-testid`. Use the label or that test
+attribute to find a control rather than relying on its old DOM ID. Markup is
+owned by Uniform, so selectors into undocumented HeroUI wrappers should migrate
+to supported slots. Required and invalid state continue to come from RHF/Veto.
+
+For clearable text/password fields, `endContent` is the custom clear-button
+content, as before. Numeric fields retain separate end content and a clear
+button. Clearing discards pending edits, resets to the existing empty state,
+calls `onClear` once and restores focus to the editable control.

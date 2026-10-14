@@ -15,7 +15,7 @@ exports[`Story Snapshots > FormSubmission 1`] = `
         class="grid gap-6"
       >
         <div
-          class="group flex flex-col data-[hidden=true]:hidden w-full relative justify-end data-[has-label=true]:mt-[calc(var(--heroui-font-size-small)_+_10px)]"
+          class="group relative flex w-full flex-col gap-1"
           data-filled="true"
           data-filled-within="true"
           data-focus="true"
@@ -24,155 +24,164 @@ exports[`Story Snapshots > FormSubmission 1`] = `
           data-has-helper="true"
           data-has-label="true"
           data-invalid="true"
+          data-rac=""
           data-required="true"
           data-slot="base"
         >
+          <label
+            class="block cursor-default text-small group-data-[invalid=true]:text-danger text-danger"
+            data-slot="label"
+            for="uniform-«replaced-aria-id»"
+            id="uniform-«replaced-aria-id»-label"
+          >
+            First name
+            <span
+              aria-hidden="true"
+              class="ml-0.5 text-danger"
+            >
+              *
+            </span>
+          </label>
           <div
-            class="h-full flex flex-col"
-            data-slot="main-wrapper"
+            class="shadow-xs relative inline-flex h-10 min-h-10 w-full cursor-text items-center rounded-small border-medium bg-content1 px-3 text-foreground transition-colors group-data-[disabled=true]:pointer-events-none group-data-[invalid=true]:border-danger motion-reduce:transition-none border-danger data-[hover=true]:border-danger group-data-[focus=true]:border-danger group-data-[focus=true]:data-[hover=true]:border-danger"
+            data-focus="true"
+            data-focus-within="true"
+            data-invalid="true"
+            data-rac=""
+            data-slot="input-wrapper"
+            role="presentation"
           >
             <div
-              class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 group-data-[focus=true]:data-[hover=true]:border-default-foreground h-10 min-h-10 rounded-small !duration-150 transition-colors motion-reduce:transition-none !border-danger group-data-[focus=true]:!border-danger bg-content1 group-data-[focus=true]:border-focus"
-              data-focus="true"
-              data-slot="input-wrapper"
-              style="cursor: text;"
+              class="inline-flex h-full w-full items-center gap-0"
+              data-slot="inner-wrapper"
             >
-              <label
-                class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block text-foreground-500 !text-danger after:content-['*'] after:text-danger after:ms-0.5 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto text-small group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden"
-                data-slot="label"
-                for="firstname"
-                id="react-aria-«replaced-aria-id»"
-              >
-                First name
-              </label>
-              <div
-                class="inline-flex w-full items-center h-full box-border"
-                data-slot="inner-wrapper"
-              >
-                <input
-                  aria-describedby="react-aria-«replaced-aria-id»"
-                  aria-invalid="true"
-                  aria-label="First name"
-                  aria-labelledby="firstname react-aria-«replaced-aria-id»"
-                  autocomplete="off"
-                  class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text dark:autofill:[-webkit-text-fill-color:hsl(var(--heroui-foreground))] [&::-ms-reveal]:hidden text-small !placeholder:text-danger !text-danger"
-                  data-filled-within="true"
-                  data-slot="input"
-                  data-testid="firstname"
-                  id="firstname"
-                  name="firstName"
-                  placeholder=" "
-                  required=""
-                  tabindex="0"
-                  title=""
-                  type="text"
-                  value=""
-                />
-              </div>
+              <input
+                aria-describedby="uniform-«replaced-aria-id»-error"
+                aria-invalid="true"
+                aria-labelledby="uniform-«replaced-aria-id»-label"
+                aria-required="true"
+                autocomplete="off"
+                class="w-full min-w-0 bg-transparent bg-clip-text font-normal outline-none text-small placeholder:text-foreground-500 autofill:bg-transparent data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden text-danger"
+                data-focused="true"
+                data-invalid="true"
+                data-rac=""
+                data-slot="input"
+                data-testid="firstname"
+                id="uniform-«replaced-aria-id»"
+                name="firstName"
+                placeholder=" "
+                tabindex="0"
+                type="text"
+                value=""
+              />
             </div>
+          </div>
+          <div
+            class="relative flex flex-col p-0"
+            data-slot="helper-wrapper"
+          >
             <div
-              class="hidden group-data-[has-helper=true]:flex relative flex-col gap-1.5 p-0"
-              data-slot="helper-wrapper"
+              class="text-danger text-tiny"
+              data-slot="error-message"
+              id="uniform-«replaced-aria-id»-error"
             >
-              <div
-                class="text-tiny text-danger"
-                data-slot="error-message"
-                id="react-aria-«replaced-aria-id»"
+              <ul
+                aria-label="Validation errors of field firstname"
+                data-testid="firstname_error"
               >
-                <ul
-                  aria-label="Validation errors of field firstname"
-                  data-testid="firstname_error"
+                <li
+                  style="overflow: hidden;"
                 >
-                  <li
-                    style="overflow: hidden;"
+                  <div
+                    class="px-1 pt-1"
                   >
-                    <div
-                      class="px-1 pt-1"
-                    >
-                      Field is required
-                    </div>
-                  </li>
-                </ul>
-              </div>
+                    Field is required
+                  </div>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
         <div
-          class="group flex flex-col data-[hidden=true]:hidden w-full relative justify-end data-[has-label=true]:mt-[calc(var(--heroui-font-size-small)_+_10px)]"
+          class="group relative flex w-full flex-col gap-1"
           data-filled="true"
           data-filled-within="true"
           data-has-elements="true"
           data-has-helper="true"
           data-has-label="true"
           data-invalid="true"
+          data-rac=""
           data-required="true"
           data-slot="base"
         >
+          <label
+            class="block cursor-default text-small group-data-[invalid=true]:text-danger text-danger"
+            data-slot="label"
+            for="uniform-«replaced-aria-id»"
+            id="uniform-«replaced-aria-id»-label"
+          >
+            Last name
+            <span
+              aria-hidden="true"
+              class="ml-0.5 text-danger"
+            >
+              *
+            </span>
+          </label>
           <div
-            class="h-full flex flex-col"
-            data-slot="main-wrapper"
+            class="shadow-xs relative inline-flex h-10 min-h-10 w-full cursor-text items-center rounded-small border-medium bg-content1 px-3 text-foreground transition-colors group-data-[disabled=true]:pointer-events-none group-data-[invalid=true]:border-danger motion-reduce:transition-none border-danger data-[hover=true]:border-danger group-data-[focus=true]:border-danger group-data-[focus=true]:data-[hover=true]:border-danger"
+            data-invalid="true"
+            data-rac=""
+            data-slot="input-wrapper"
+            role="presentation"
           >
             <div
-              class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 group-data-[focus=true]:data-[hover=true]:border-default-foreground h-10 min-h-10 rounded-small !duration-150 transition-colors motion-reduce:transition-none !border-danger group-data-[focus=true]:!border-danger bg-content1 group-data-[focus=true]:border-focus"
-              data-slot="input-wrapper"
-              style="cursor: text;"
+              class="inline-flex h-full w-full items-center gap-0"
+              data-slot="inner-wrapper"
             >
-              <label
-                class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block text-foreground-500 !text-danger after:content-['*'] after:text-danger after:ms-0.5 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto text-small group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden"
-                data-slot="label"
-                for="lastname"
-                id="react-aria-«replaced-aria-id»"
-              >
-                Last name
-              </label>
-              <div
-                class="inline-flex w-full items-center h-full box-border"
-                data-slot="inner-wrapper"
-              >
-                <input
-                  aria-describedby="react-aria-«replaced-aria-id»"
-                  aria-invalid="true"
-                  aria-label="Last name"
-                  aria-labelledby="lastname react-aria-«replaced-aria-id»"
-                  autocomplete="off"
-                  class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text dark:autofill:[-webkit-text-fill-color:hsl(var(--heroui-foreground))] [&::-ms-reveal]:hidden text-small !placeholder:text-danger !text-danger"
-                  data-slot="input"
-                  data-testid="lastname"
-                  id="lastname"
-                  name="lastName"
-                  placeholder=" "
-                  required=""
-                  tabindex="0"
-                  title=""
-                  type="text"
-                  value=""
-                />
-              </div>
+              <input
+                aria-describedby="uniform-«replaced-aria-id»-error"
+                aria-invalid="true"
+                aria-labelledby="uniform-«replaced-aria-id»-label"
+                aria-required="true"
+                autocomplete="off"
+                class="w-full min-w-0 bg-transparent bg-clip-text font-normal outline-none text-small placeholder:text-foreground-500 autofill:bg-transparent data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden text-danger"
+                data-invalid="true"
+                data-rac=""
+                data-slot="input"
+                data-testid="lastname"
+                id="uniform-«replaced-aria-id»"
+                name="lastName"
+                placeholder=" "
+                tabindex="0"
+                type="text"
+                value=""
+              />
             </div>
+          </div>
+          <div
+            class="relative flex flex-col p-0"
+            data-slot="helper-wrapper"
+          >
             <div
-              class="hidden group-data-[has-helper=true]:flex relative flex-col gap-1.5 p-0"
-              data-slot="helper-wrapper"
+              class="text-danger text-tiny"
+              data-slot="error-message"
+              id="uniform-«replaced-aria-id»-error"
             >
-              <div
-                class="text-tiny text-danger"
-                data-slot="error-message"
-                id="react-aria-«replaced-aria-id»"
+              <ul
+                aria-label="Validation errors of field lastname"
+                data-testid="lastname_error"
               >
-                <ul
-                  aria-label="Validation errors of field lastname"
-                  data-testid="lastname_error"
+                <li
+                  style="overflow: hidden;"
                 >
-                  <li
-                    style="overflow: hidden;"
+                  <div
+                    class="px-1 pt-1"
                   >
-                    <div
-                      class="px-1 pt-1"
-                    >
-                      Field is required
-                    </div>
-                  </li>
-                </ul>
-              </div>
+                    Field is required
+                  </div>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
@@ -278,110 +287,112 @@ exports[`Story Snapshots > LongRunningSubmit 1`] = `
         class="grid gap-6"
       >
         <div
-          class="group flex flex-col data-[hidden=true]:hidden w-full relative justify-end data-[has-label=true]:mt-[calc(var(--heroui-font-size-small)_+_10px)] is-filled"
+          class="group relative flex w-full flex-col gap-1 is-filled"
           data-filled="true"
           data-filled-within="true"
           data-has-elements="true"
           data-has-helper="true"
           data-has-label="true"
           data-has-value="true"
+          data-rac=""
           data-required="true"
           data-slot="base"
         >
+          <label
+            class="block cursor-default text-foreground text-small group-data-[invalid=true]:text-danger"
+            data-slot="label"
+            for="uniform-«replaced-aria-id»"
+            id="uniform-«replaced-aria-id»-label"
+          >
+            First name
+            <span
+              aria-hidden="true"
+              class="ml-0.5 text-danger"
+            >
+              *
+            </span>
+          </label>
           <div
-            class="h-full flex flex-col"
-            data-slot="main-wrapper"
+            class="shadow-xs relative inline-flex h-10 min-h-10 w-full cursor-text items-center rounded-small border-medium border-default-200 bg-content1 px-3 text-foreground transition-colors data-[hover=true]:border-default-400 group-data-[disabled=true]:pointer-events-none group-data-[focus=true]:border-focus group-data-[invalid=true]:border-danger group-data-[focus=true]:data-[hover=true]:border-default-foreground motion-reduce:transition-none is-filled"
+            data-rac=""
+            data-slot="input-wrapper"
+            role="presentation"
           >
             <div
-              class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 group-data-[focus=true]:data-[hover=true]:border-default-foreground h-10 min-h-10 rounded-small !duration-150 transition-colors motion-reduce:transition-none bg-content1 group-data-[focus=true]:border-focus is-filled"
-              data-slot="input-wrapper"
-              style="cursor: text;"
+              class="inline-flex h-full w-full items-center gap-0"
+              data-slot="inner-wrapper"
             >
-              <label
-                class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block text-foreground-500 after:content-['*'] after:text-danger after:ms-0.5 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto text-small group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden"
-                data-slot="label"
-                for="firstname"
-                id="react-aria-«replaced-aria-id»"
-              >
-                First name
-              </label>
-              <div
-                class="inline-flex w-full items-center h-full box-border"
-                data-slot="inner-wrapper"
-              >
-                <input
-                  aria-label="First name"
-                  aria-labelledby="firstname react-aria-«replaced-aria-id»"
-                  autocomplete="off"
-                  class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text dark:autofill:[-webkit-text-fill-color:hsl(var(--heroui-foreground))] [&::-ms-reveal]:hidden text-small is-filled"
-                  data-filled="true"
-                  data-filled-within="true"
-                  data-slot="input"
-                  data-testid="firstname"
-                  id="firstname"
-                  name="firstName"
-                  placeholder=" "
-                  required=""
-                  tabindex="0"
-                  title=""
-                  type="text"
-                  value="John"
-                />
-              </div>
+              <input
+                aria-labelledby="uniform-«replaced-aria-id»-label"
+                aria-required="true"
+                autocomplete="off"
+                class="w-full min-w-0 bg-transparent bg-clip-text font-normal text-inherit outline-none text-small placeholder:text-foreground-500 autofill:bg-transparent data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden is-filled"
+                data-filled="true"
+                data-rac=""
+                data-slot="input"
+                data-testid="firstname"
+                id="uniform-«replaced-aria-id»"
+                name="firstName"
+                placeholder=" "
+                tabindex="0"
+                type="text"
+                value="John"
+              />
             </div>
           </div>
         </div>
         <div
-          class="group flex flex-col data-[hidden=true]:hidden w-full relative justify-end data-[has-label=true]:mt-[calc(var(--heroui-font-size-small)_+_10px)] is-filled"
+          class="group relative flex w-full flex-col gap-1 is-filled"
           data-filled="true"
           data-filled-within="true"
           data-has-elements="true"
           data-has-helper="true"
           data-has-label="true"
           data-has-value="true"
+          data-rac=""
           data-required="true"
           data-slot="base"
         >
+          <label
+            class="block cursor-default text-foreground text-small group-data-[invalid=true]:text-danger"
+            data-slot="label"
+            for="uniform-«replaced-aria-id»"
+            id="uniform-«replaced-aria-id»-label"
+          >
+            Last name
+            <span
+              aria-hidden="true"
+              class="ml-0.5 text-danger"
+            >
+              *
+            </span>
+          </label>
           <div
-            class="h-full flex flex-col"
-            data-slot="main-wrapper"
+            class="shadow-xs relative inline-flex h-10 min-h-10 w-full cursor-text items-center rounded-small border-medium border-default-200 bg-content1 px-3 text-foreground transition-colors data-[hover=true]:border-default-400 group-data-[disabled=true]:pointer-events-none group-data-[focus=true]:border-focus group-data-[invalid=true]:border-danger group-data-[focus=true]:data-[hover=true]:border-default-foreground motion-reduce:transition-none is-filled"
+            data-rac=""
+            data-slot="input-wrapper"
+            role="presentation"
           >
             <div
-              class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 group-data-[focus=true]:data-[hover=true]:border-default-foreground h-10 min-h-10 rounded-small !duration-150 transition-colors motion-reduce:transition-none bg-content1 group-data-[focus=true]:border-focus is-filled"
-              data-slot="input-wrapper"
-              style="cursor: text;"
+              class="inline-flex h-full w-full items-center gap-0"
+              data-slot="inner-wrapper"
             >
-              <label
-                class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block text-foreground-500 after:content-['*'] after:text-danger after:ms-0.5 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto text-small group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden"
-                data-slot="label"
-                for="lastname"
-                id="react-aria-«replaced-aria-id»"
-              >
-                Last name
-              </label>
-              <div
-                class="inline-flex w-full items-center h-full box-border"
-                data-slot="inner-wrapper"
-              >
-                <input
-                  aria-label="Last name"
-                  aria-labelledby="lastname react-aria-«replaced-aria-id»"
-                  autocomplete="off"
-                  class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text dark:autofill:[-webkit-text-fill-color:hsl(var(--heroui-foreground))] [&::-ms-reveal]:hidden text-small is-filled"
-                  data-filled="true"
-                  data-filled-within="true"
-                  data-slot="input"
-                  data-testid="lastname"
-                  id="lastname"
-                  name="lastName"
-                  placeholder=" "
-                  required=""
-                  tabindex="0"
-                  title=""
-                  type="text"
-                  value="Doe"
-                />
-              </div>
+              <input
+                aria-labelledby="uniform-«replaced-aria-id»-label"
+                aria-required="true"
+                autocomplete="off"
+                class="w-full min-w-0 bg-transparent bg-clip-text font-normal text-inherit outline-none text-small placeholder:text-foreground-500 autofill:bg-transparent data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden is-filled"
+                data-filled="true"
+                data-rac=""
+                data-slot="input"
+                data-testid="lastname"
+                id="uniform-«replaced-aria-id»"
+                name="lastName"
+                placeholder=" "
+                tabindex="0"
+                type="text"
+                value="Doe"
+              />
             </div>
           </div>
         </div>
@@ -487,7 +498,7 @@ exports[`Story Snapshots > RemoteFormSubmission 1`] = `
         class="grid gap-6"
       >
         <div
-          class="group flex flex-col data-[hidden=true]:hidden w-full relative justify-end data-[has-label=true]:mt-[calc(var(--heroui-font-size-small)_+_10px)]"
+          class="group relative flex w-full flex-col gap-1"
           data-filled="true"
           data-filled-within="true"
           data-focus="true"
@@ -496,155 +507,164 @@ exports[`Story Snapshots > RemoteFormSubmission 1`] = `
           data-has-helper="true"
           data-has-label="true"
           data-invalid="true"
+          data-rac=""
           data-required="true"
           data-slot="base"
         >
+          <label
+            class="block cursor-default text-small group-data-[invalid=true]:text-danger text-danger"
+            data-slot="label"
+            for="uniform-«replaced-aria-id»"
+            id="uniform-«replaced-aria-id»-label"
+          >
+            First name
+            <span
+              aria-hidden="true"
+              class="ml-0.5 text-danger"
+            >
+              *
+            </span>
+          </label>
           <div
-            class="h-full flex flex-col"
-            data-slot="main-wrapper"
+            class="shadow-xs relative inline-flex h-10 min-h-10 w-full cursor-text items-center rounded-small border-medium bg-content1 px-3 text-foreground transition-colors group-data-[disabled=true]:pointer-events-none group-data-[invalid=true]:border-danger motion-reduce:transition-none border-danger data-[hover=true]:border-danger group-data-[focus=true]:border-danger group-data-[focus=true]:data-[hover=true]:border-danger"
+            data-focus="true"
+            data-focus-within="true"
+            data-invalid="true"
+            data-rac=""
+            data-slot="input-wrapper"
+            role="presentation"
           >
             <div
-              class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 group-data-[focus=true]:data-[hover=true]:border-default-foreground h-10 min-h-10 rounded-small !duration-150 transition-colors motion-reduce:transition-none !border-danger group-data-[focus=true]:!border-danger bg-content1 group-data-[focus=true]:border-focus"
-              data-focus="true"
-              data-slot="input-wrapper"
-              style="cursor: text;"
+              class="inline-flex h-full w-full items-center gap-0"
+              data-slot="inner-wrapper"
             >
-              <label
-                class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block text-foreground-500 !text-danger after:content-['*'] after:text-danger after:ms-0.5 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto text-small group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden"
-                data-slot="label"
-                for="firstname"
-                id="react-aria-«replaced-aria-id»"
-              >
-                First name
-              </label>
-              <div
-                class="inline-flex w-full items-center h-full box-border"
-                data-slot="inner-wrapper"
-              >
-                <input
-                  aria-describedby="react-aria-«replaced-aria-id»"
-                  aria-invalid="true"
-                  aria-label="First name"
-                  aria-labelledby="firstname react-aria-«replaced-aria-id»"
-                  autocomplete="off"
-                  class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text dark:autofill:[-webkit-text-fill-color:hsl(var(--heroui-foreground))] [&::-ms-reveal]:hidden text-small !placeholder:text-danger !text-danger"
-                  data-filled-within="true"
-                  data-slot="input"
-                  data-testid="firstname"
-                  id="firstname"
-                  name="firstName"
-                  placeholder=" "
-                  required=""
-                  tabindex="0"
-                  title=""
-                  type="text"
-                  value=""
-                />
-              </div>
+              <input
+                aria-describedby="uniform-«replaced-aria-id»-error"
+                aria-invalid="true"
+                aria-labelledby="uniform-«replaced-aria-id»-label"
+                aria-required="true"
+                autocomplete="off"
+                class="w-full min-w-0 bg-transparent bg-clip-text font-normal outline-none text-small placeholder:text-foreground-500 autofill:bg-transparent data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden text-danger"
+                data-focused="true"
+                data-invalid="true"
+                data-rac=""
+                data-slot="input"
+                data-testid="firstname"
+                id="uniform-«replaced-aria-id»"
+                name="firstName"
+                placeholder=" "
+                tabindex="0"
+                type="text"
+                value=""
+              />
             </div>
+          </div>
+          <div
+            class="relative flex flex-col p-0"
+            data-slot="helper-wrapper"
+          >
             <div
-              class="hidden group-data-[has-helper=true]:flex relative flex-col gap-1.5 p-0"
-              data-slot="helper-wrapper"
+              class="text-danger text-tiny"
+              data-slot="error-message"
+              id="uniform-«replaced-aria-id»-error"
             >
-              <div
-                class="text-tiny text-danger"
-                data-slot="error-message"
-                id="react-aria-«replaced-aria-id»"
+              <ul
+                aria-label="Validation errors of field firstname"
+                data-testid="firstname_error"
               >
-                <ul
-                  aria-label="Validation errors of field firstname"
-                  data-testid="firstname_error"
+                <li
+                  style="overflow: hidden;"
                 >
-                  <li
-                    style="overflow: hidden;"
+                  <div
+                    class="px-1 pt-1"
                   >
-                    <div
-                      class="px-1 pt-1"
-                    >
-                      Field is required
-                    </div>
-                  </li>
-                </ul>
-              </div>
+                    Field is required
+                  </div>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
         <div
-          class="group flex flex-col data-[hidden=true]:hidden w-full relative justify-end data-[has-label=true]:mt-[calc(var(--heroui-font-size-small)_+_10px)]"
+          class="group relative flex w-full flex-col gap-1"
           data-filled="true"
           data-filled-within="true"
           data-has-elements="true"
           data-has-helper="true"
           data-has-label="true"
           data-invalid="true"
+          data-rac=""
           data-required="true"
           data-slot="base"
         >
+          <label
+            class="block cursor-default text-small group-data-[invalid=true]:text-danger text-danger"
+            data-slot="label"
+            for="uniform-«replaced-aria-id»"
+            id="uniform-«replaced-aria-id»-label"
+          >
+            Last name
+            <span
+              aria-hidden="true"
+              class="ml-0.5 text-danger"
+            >
+              *
+            </span>
+          </label>
           <div
-            class="h-full flex flex-col"
-            data-slot="main-wrapper"
+            class="shadow-xs relative inline-flex h-10 min-h-10 w-full cursor-text items-center rounded-small border-medium bg-content1 px-3 text-foreground transition-colors group-data-[disabled=true]:pointer-events-none group-data-[invalid=true]:border-danger motion-reduce:transition-none border-danger data-[hover=true]:border-danger group-data-[focus=true]:border-danger group-data-[focus=true]:data-[hover=true]:border-danger"
+            data-invalid="true"
+            data-rac=""
+            data-slot="input-wrapper"
+            role="presentation"
           >
             <div
-              class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 group-data-[focus=true]:data-[hover=true]:border-default-foreground h-10 min-h-10 rounded-small !duration-150 transition-colors motion-reduce:transition-none !border-danger group-data-[focus=true]:!border-danger bg-content1 group-data-[focus=true]:border-focus"
-              data-slot="input-wrapper"
-              style="cursor: text;"
+              class="inline-flex h-full w-full items-center gap-0"
+              data-slot="inner-wrapper"
             >
-              <label
-                class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block text-foreground-500 !text-danger after:content-['*'] after:text-danger after:ms-0.5 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto text-small group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden"
-                data-slot="label"
-                for="lastname"
-                id="react-aria-«replaced-aria-id»"
-              >
-                Last name
-              </label>
-              <div
-                class="inline-flex w-full items-center h-full box-border"
-                data-slot="inner-wrapper"
-              >
-                <input
-                  aria-describedby="react-aria-«replaced-aria-id»"
-                  aria-invalid="true"
-                  aria-label="Last name"
-                  aria-labelledby="lastname react-aria-«replaced-aria-id»"
-                  autocomplete="off"
-                  class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text dark:autofill:[-webkit-text-fill-color:hsl(var(--heroui-foreground))] [&::-ms-reveal]:hidden text-small !placeholder:text-danger !text-danger"
-                  data-slot="input"
-                  data-testid="lastname"
-                  id="lastname"
-                  name="lastName"
-                  placeholder=" "
-                  required=""
-                  tabindex="0"
-                  title=""
-                  type="text"
-                  value=""
-                />
-              </div>
+              <input
+                aria-describedby="uniform-«replaced-aria-id»-error"
+                aria-invalid="true"
+                aria-labelledby="uniform-«replaced-aria-id»-label"
+                aria-required="true"
+                autocomplete="off"
+                class="w-full min-w-0 bg-transparent bg-clip-text font-normal outline-none text-small placeholder:text-foreground-500 autofill:bg-transparent data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden text-danger"
+                data-invalid="true"
+                data-rac=""
+                data-slot="input"
+                data-testid="lastname"
+                id="uniform-«replaced-aria-id»"
+                name="lastName"
+                placeholder=" "
+                tabindex="0"
+                type="text"
+                value=""
+              />
             </div>
+          </div>
+          <div
+            class="relative flex flex-col p-0"
+            data-slot="helper-wrapper"
+          >
             <div
-              class="hidden group-data-[has-helper=true]:flex relative flex-col gap-1.5 p-0"
-              data-slot="helper-wrapper"
+              class="text-danger text-tiny"
+              data-slot="error-message"
+              id="uniform-«replaced-aria-id»-error"
             >
-              <div
-                class="text-tiny text-danger"
-                data-slot="error-message"
-                id="react-aria-«replaced-aria-id»"
+              <ul
+                aria-label="Validation errors of field lastname"
+                data-testid="lastname_error"
               >
-                <ul
-                  aria-label="Validation errors of field lastname"
-                  data-testid="lastname_error"
+                <li
+                  style="overflow: hidden;"
                 >
-                  <li
-                    style="overflow: hidden;"
+                  <div
+                    class="px-1 pt-1"
                   >
-                    <div
-                      class="px-1 pt-1"
-                    >
-                      Field is required
-                    </div>
-                  </li>
-                </ul>
-              </div>
+                    Field is required
+                  </div>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
@@ -751,7 +771,7 @@ exports[`Story Snapshots > SubmitWithEnter 1`] = `
         class="grid gap-6"
       >
         <div
-          class="group flex flex-col data-[hidden=true]:hidden w-full relative justify-end data-[has-label=true]:mt-[calc(var(--heroui-font-size-small)_+_10px)]"
+          class="group relative flex w-full flex-col gap-1"
           data-filled="true"
           data-filled-within="true"
           data-focus="true"
@@ -761,156 +781,167 @@ exports[`Story Snapshots > SubmitWithEnter 1`] = `
           data-has-label="true"
           data-hover="true"
           data-invalid="true"
+          data-rac=""
           data-required="true"
           data-slot="base"
         >
+          <label
+            class="block cursor-default text-small group-data-[invalid=true]:text-danger text-danger"
+            data-slot="label"
+            for="uniform-«replaced-aria-id»"
+            id="uniform-«replaced-aria-id»-label"
+          >
+            First name
+            <span
+              aria-hidden="true"
+              class="ml-0.5 text-danger"
+            >
+              *
+            </span>
+          </label>
           <div
-            class="h-full flex flex-col"
-            data-slot="main-wrapper"
+            class="shadow-xs relative inline-flex h-10 min-h-10 w-full cursor-text items-center rounded-small border-medium bg-content1 px-3 text-foreground transition-colors group-data-[disabled=true]:pointer-events-none group-data-[invalid=true]:border-danger motion-reduce:transition-none border-danger data-[hover=true]:border-danger group-data-[focus=true]:border-danger group-data-[focus=true]:data-[hover=true]:border-danger"
+            data-focus="true"
+            data-focus-within="true"
+            data-hover="true"
+            data-hovered="true"
+            data-invalid="true"
+            data-rac=""
+            data-slot="input-wrapper"
+            role="presentation"
           >
             <div
-              class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 group-data-[focus=true]:data-[hover=true]:border-default-foreground h-10 min-h-10 rounded-small !duration-150 transition-colors motion-reduce:transition-none !border-danger group-data-[focus=true]:!border-danger bg-content1 group-data-[focus=true]:border-focus"
-              data-focus="true"
-              data-hover="true"
-              data-slot="input-wrapper"
-              style="cursor: text;"
+              class="inline-flex h-full w-full items-center gap-0"
+              data-slot="inner-wrapper"
             >
-              <label
-                class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block text-foreground-500 !text-danger after:content-['*'] after:text-danger after:ms-0.5 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto text-small group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden"
-                data-slot="label"
-                for="firstname"
-                id="react-aria-«replaced-aria-id»"
-              >
-                First name
-              </label>
-              <div
-                class="inline-flex w-full items-center h-full box-border"
-                data-slot="inner-wrapper"
-              >
-                <input
-                  aria-describedby="react-aria-«replaced-aria-id»"
-                  aria-invalid="true"
-                  aria-label="First name"
-                  aria-labelledby="firstname react-aria-«replaced-aria-id»"
-                  autocomplete="off"
-                  class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text dark:autofill:[-webkit-text-fill-color:hsl(var(--heroui-foreground))] [&::-ms-reveal]:hidden text-small !placeholder:text-danger !text-danger"
-                  data-filled-within="true"
-                  data-slot="input"
-                  data-testid="firstname"
-                  id="firstname"
-                  name="firstName"
-                  placeholder=" "
-                  required=""
-                  tabindex="0"
-                  title=""
-                  type="text"
-                  value=""
-                />
-              </div>
+              <input
+                aria-describedby="uniform-«replaced-aria-id»-error"
+                aria-invalid="true"
+                aria-labelledby="uniform-«replaced-aria-id»-label"
+                aria-required="true"
+                autocomplete="off"
+                class="w-full min-w-0 bg-transparent bg-clip-text font-normal outline-none text-small placeholder:text-foreground-500 autofill:bg-transparent data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden text-danger"
+                data-focused="true"
+                data-hovered="true"
+                data-invalid="true"
+                data-rac=""
+                data-slot="input"
+                data-testid="firstname"
+                id="uniform-«replaced-aria-id»"
+                name="firstName"
+                placeholder=" "
+                tabindex="0"
+                type="text"
+                value=""
+              />
             </div>
+          </div>
+          <div
+            class="relative flex flex-col p-0"
+            data-slot="helper-wrapper"
+          >
             <div
-              class="hidden group-data-[has-helper=true]:flex relative flex-col gap-1.5 p-0"
-              data-slot="helper-wrapper"
+              class="text-danger text-tiny"
+              data-slot="error-message"
+              id="uniform-«replaced-aria-id»-error"
             >
-              <div
-                class="text-tiny text-danger"
-                data-slot="error-message"
-                id="react-aria-«replaced-aria-id»"
+              <ul
+                aria-label="Validation errors of field firstname"
+                data-testid="firstname_error"
               >
-                <ul
-                  aria-label="Validation errors of field firstname"
-                  data-testid="firstname_error"
+                <li
+                  style="overflow: hidden;"
                 >
-                  <li
-                    style="overflow: hidden;"
+                  <div
+                    class="px-1 pt-1"
                   >
-                    <div
-                      class="px-1 pt-1"
-                    >
-                      Field is required
-                    </div>
-                  </li>
-                </ul>
-              </div>
+                    Field is required
+                  </div>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
         <div
-          class="group flex flex-col data-[hidden=true]:hidden w-full relative justify-end data-[has-label=true]:mt-[calc(var(--heroui-font-size-small)_+_10px)]"
+          class="group relative flex w-full flex-col gap-1"
           data-filled="true"
           data-filled-within="true"
           data-has-elements="true"
           data-has-helper="true"
           data-has-label="true"
           data-invalid="true"
+          data-rac=""
           data-required="true"
           data-slot="base"
         >
+          <label
+            class="block cursor-default text-small group-data-[invalid=true]:text-danger text-danger"
+            data-slot="label"
+            for="uniform-«replaced-aria-id»"
+            id="uniform-«replaced-aria-id»-label"
+          >
+            Last name
+            <span
+              aria-hidden="true"
+              class="ml-0.5 text-danger"
+            >
+              *
+            </span>
+          </label>
           <div
-            class="h-full flex flex-col"
-            data-slot="main-wrapper"
+            class="shadow-xs relative inline-flex h-10 min-h-10 w-full cursor-text items-center rounded-small border-medium bg-content1 px-3 text-foreground transition-colors group-data-[disabled=true]:pointer-events-none group-data-[invalid=true]:border-danger motion-reduce:transition-none border-danger data-[hover=true]:border-danger group-data-[focus=true]:border-danger group-data-[focus=true]:data-[hover=true]:border-danger"
+            data-invalid="true"
+            data-rac=""
+            data-slot="input-wrapper"
+            role="presentation"
           >
             <div
-              class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 group-data-[focus=true]:data-[hover=true]:border-default-foreground h-10 min-h-10 rounded-small !duration-150 transition-colors motion-reduce:transition-none !border-danger group-data-[focus=true]:!border-danger bg-content1 group-data-[focus=true]:border-focus"
-              data-slot="input-wrapper"
-              style="cursor: text;"
+              class="inline-flex h-full w-full items-center gap-0"
+              data-slot="inner-wrapper"
             >
-              <label
-                class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block text-foreground-500 !text-danger after:content-['*'] after:text-danger after:ms-0.5 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto text-small group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden"
-                data-slot="label"
-                for="lastname"
-                id="react-aria-«replaced-aria-id»"
-              >
-                Last name
-              </label>
-              <div
-                class="inline-flex w-full items-center h-full box-border"
-                data-slot="inner-wrapper"
-              >
-                <input
-                  aria-describedby="react-aria-«replaced-aria-id»"
-                  aria-invalid="true"
-                  aria-label="Last name"
-                  aria-labelledby="lastname react-aria-«replaced-aria-id»"
-                  autocomplete="off"
-                  class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text dark:autofill:[-webkit-text-fill-color:hsl(var(--heroui-foreground))] [&::-ms-reveal]:hidden text-small !placeholder:text-danger !text-danger"
-                  data-slot="input"
-                  data-testid="lastname"
-                  id="lastname"
-                  name="lastName"
-                  placeholder=" "
-                  required=""
-                  tabindex="0"
-                  title=""
-                  type="text"
-                  value=""
-                />
-              </div>
+              <input
+                aria-describedby="uniform-«replaced-aria-id»-error"
+                aria-invalid="true"
+                aria-labelledby="uniform-«replaced-aria-id»-label"
+                aria-required="true"
+                autocomplete="off"
+                class="w-full min-w-0 bg-transparent bg-clip-text font-normal outline-none text-small placeholder:text-foreground-500 autofill:bg-transparent data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden text-danger"
+                data-invalid="true"
+                data-rac=""
+                data-slot="input"
+                data-testid="lastname"
+                id="uniform-«replaced-aria-id»"
+                name="lastName"
+                placeholder=" "
+                tabindex="0"
+                type="text"
+                value=""
+              />
             </div>
+          </div>
+          <div
+            class="relative flex flex-col p-0"
+            data-slot="helper-wrapper"
+          >
             <div
-              class="hidden group-data-[has-helper=true]:flex relative flex-col gap-1.5 p-0"
-              data-slot="helper-wrapper"
+              class="text-danger text-tiny"
+              data-slot="error-message"
+              id="uniform-«replaced-aria-id»-error"
             >
-              <div
-                class="text-tiny text-danger"
-                data-slot="error-message"
-                id="react-aria-«replaced-aria-id»"
+              <ul
+                aria-label="Validation errors of field lastname"
+                data-testid="lastname_error"
               >
-                <ul
-                  aria-label="Validation errors of field lastname"
-                  data-testid="lastname_error"
+                <li
+                  style="overflow: hidden;"
                 >
-                  <li
-                    style="overflow: hidden;"
+                  <div
+                    class="px-1 pt-1"
                   >
-                    <div
-                      class="px-1 pt-1"
-                    >
-                      Field is required
-                    </div>
-                  </li>
-                </ul>
-              </div>
+                    Field is required
+                  </div>
+                </li>
+              </ul>
             </div>
           </div>
         </div>

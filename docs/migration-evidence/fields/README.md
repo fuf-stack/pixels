@@ -30,3 +30,16 @@ contrast findings: label/input/error text in light mode and input text in dark
 mode. A separate audit of the existing renderer reproduced the same findings;
 the prototype introduces no additional findings in this set. This remains a
 theme accessibility limitation to resolve before release.
+
+## Production Input rollout
+
+`input-production-before.json` and `input-production-after.json` expand the
+comparison to 12 production stories in each theme: default, label, required,
+clearable, disabled, invalid, addons, number, password, custom styles,
+transformation and all sizes. The paired `production-before`/`production-after`
+PNGs capture each decorated form. Editable-control fonts, line heights, colors,
+heights and wrapper heights, padding, backgrounds, borders and radii match in
+all 24 comparisons. These checks also cover the focused/hovered state left by
+the clearable and number story interactions. Small-input font/padding, inherited
+custom-wrapper text color, clear-button appearance and combined focus/hover
+selectors were corrected during rollout before accepting the new DOM snapshots.

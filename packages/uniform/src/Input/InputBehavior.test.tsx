@@ -7,7 +7,7 @@ import { number, string, veto } from '@fuf-stack/veto';
 
 import Form from '../Form';
 import { useFormContext } from '../hooks/useFormContext';
-import InputAriaPrototype from './InputAriaPrototype';
+import Input from './Input';
 
 // A migrated field must not invoke the legacy renderer or presentation hook.
 vi.mock('@heroui/input', () => ({
@@ -25,18 +25,18 @@ vi.mock('@heroui/input', () => ({
 const Reset = () => {
   const { reset } = useFormContext();
   return (
-    <button type="button" onClick={() => reset({ value: 'reset' })}>
+    <button onClick={() => reset({ value: 'reset' })} type="button">
       Reset
     </button>
   );
 };
 
-describe('React Aria input prototype', () => {
+describe('Production React Aria input', () => {
   it('registers, flushes edits on blur/submit, and receives form resets', async () => {
     const submit = vi.fn();
     render(
       <Form initialValues={{ value: 'initial' }} onSubmit={submit}>
-        <InputAriaPrototype name="value" label="Value" debounceDelay={1000} />
+        <Input debounceDelay={1000} label="Value" name="value" />
         <Reset />
         <button type="submit">Save</button>
       </Form>,
@@ -58,15 +58,15 @@ describe('React Aria input prototype', () => {
     render(
       <Form
         initialValues={{ value: 'initial' }}
-        validation={veto({ value: string().optional() })}
         onSubmit={submit}
+        validation={veto({ value: string().optional() })}
       >
-        <InputAriaPrototype
-          name="value"
-          label="Value"
+        <Input
           clearable
-          onClear={cleared}
           debounceDelay={1000}
+          label="Value"
+          name="value"
+          onClear={cleared}
         />
         <button type="submit">Save</button>
       </Form>,
@@ -87,15 +87,10 @@ describe('React Aria input prototype', () => {
     render(
       <Form
         initialValues={{ value: 0 }}
-        validation={veto({ value: number().nullable().optional() })}
         onSubmit={submit}
+        validation={veto({ value: number().nullable().optional() })}
       >
-        <InputAriaPrototype
-          name="value"
-          label="Number"
-          type="number"
-          clearable
-        />
+        <Input clearable label="Number" name="value" type="number" />
         <button type="submit">Save</button>
       </Form>,
     );
@@ -125,14 +120,10 @@ describe('React Aria input prototype', () => {
   it('routes invalid form focus and error descriptions to the actual control', async () => {
     render(
       <Form
-        validation={veto({ value: string({ min: 3 }) })}
         onSubmit={() => {}}
+        validation={veto({ value: string({ min: 3 }) })}
       >
-        <InputAriaPrototype
-          name="value"
-          label="Value"
-          description="Help text"
-        />
+        <Input description="Help text" label="Value" name="value" />
         <button type="submit">Save</button>
       </Form>,
     );
@@ -146,12 +137,104 @@ describe('React Aria input prototype', () => {
   });
 
   it('keeps required validation hidden on pristine controls and preserves placeholder naming', () => {
-    render(<Form validation={veto({ value: string() })} onSubmit={() => {}}>
-      <InputAriaPrototype name="value" placeholder="Enter a value" />
-    </Form>);
+    render(
+      <Form onSubmit={() => {}} validation={veto({ value: string() })}>
+        <Input name="value" placeholder="Enter a value" />
+      </Form>,
+    );
     const input = screen.getByRole('textbox', { name: 'Enter a value' });
     expect(input).toHaveAttribute('aria-required', 'true');
     expect(input).not.toHaveAttribute('aria-invalid');
     expect(screen.queryByTestId('value_error')).not.toBeInTheDocument();
+  });
+
+  it('preserves every public slot target, addons, explicit names and password editing', async () => {
+    const submit = vi.fn();
+    render(
+      <Form initialValues={{ password: 'initial' }} onSubmit={submit}>
+        <Input
+          ariaLabel="Secret"
+          className={{
+            base: ['slot-base', 'mt-4'],
+            inputWrapper: 'slot-wrapper',
+            input: 'slot-input',
+            clearButton: 'slot-clear',
+          }}
+          clearable
+          endContent={<span>End</span>}
+          label="Visible label"
+          name="password"
+          startContent={<span>Start</span>}
+          type="password"
+        />
+        <button type="submit">Save</button>
+      </Form>,
+    );
+    const input = screen.getByLabelText('Secret');
+    expect(input).toHaveAttribute('type', 'password');
+    expect(input).toHaveClass('slot-input');
+    expect(input.closest('[data-slot="base"]')).toHaveClass(
+      'slot-base',
+      'mt-4',
+    );
+    expect(input.closest('[data-slot="input-wrapper"]')).toHaveClass(
+      'slot-wrapper',
+    );
+    expect(screen.getByRole('button', { name: 'clear input' })).toHaveClass(
+      'slot-clear',
+    );
+    expect(screen.getByText('Start')).toBeVisible();
+    expect(
+      screen.getByRole('button', { name: 'clear input' }),
+    ).toContainElement(screen.getByText('End'));
+    await userEvent.clear(input);
+    expect(screen.queryByText('End')).not.toBeInTheDocument();
+    await userEvent.type(input, 'edited');
+    await userEvent.click(screen.getByRole('button', { name: 'Save' }));
+    await waitFor(() => expect(submit).toHaveBeenCalled());
+    expect(submit.mock.calls[0][0]).toEqual({ password: 'edited' });
+  });
+
+  it('keeps disabled controls and clear actions inert', async () => {
+    const cleared = vi.fn();
+    render(
+      <Form initialValues={{ value: 'initial' }} onSubmit={() => {}}>
+        <Input
+          clearable
+          disabled
+          label="Value"
+          name="value"
+          onClear={cleared}
+        />
+      </Form>,
+    );
+    const input = screen.getByRole('textbox', { name: 'Value' });
+    const clear = screen.getByRole('button', { name: 'clear input' });
+    expect(input).toBeDisabled();
+    expect(clear).toBeDisabled();
+    await userEvent.type(input, 'ignored');
+    await userEvent.click(clear);
+    expect(input).toHaveValue('initial');
+    expect(cleared).not.toHaveBeenCalled();
+  });
+
+  it('focuses the editable control from wrapper padding and retains state selectors', async () => {
+    render(
+      <Form onSubmit={() => {}} validation={veto({ value: string() })}>
+        <Input label="Value" name="value" />
+      </Form>,
+    );
+    const input = screen.getByRole('textbox', { name: 'Value' });
+    const base = input.closest('[data-slot="base"]');
+    const wrapper = input.closest('[data-slot="input-wrapper"]');
+    expect(base).toHaveAttribute('data-required', 'true');
+    expect(base).toHaveAttribute('data-has-label', 'true');
+    expect(base).toHaveAttribute('data-filled', 'true');
+    await userEvent.click(wrapper as HTMLElement);
+    expect(input).toHaveFocus();
+    expect(base).toHaveAttribute('data-focus', 'true');
+    await userEvent.type(input, 'value');
+    expect(base).toHaveClass('is-filled');
+    expect(input).toHaveAttribute('data-filled', 'true');
   });
 });
