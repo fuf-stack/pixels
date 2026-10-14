@@ -42,6 +42,7 @@ describe('useInputValueTransform', () => {
       expect(result.current.toDisplayValue('0')).toBe(0);
       expect(result.current.toDisplayValue(-2.5)).toBe(-2.5);
     });
+
     it('should convert strings to numbers for number type display values', () => {
       const { result } = renderHook(() =>
         useInputValueTransform({ type: 'number' }),
