@@ -12,14 +12,15 @@ exports[`Story Snapshots > AllOptional 1`] = `
       novalidate=""
     >
       <div
+        aria-labelledby="uniform-«replaced-aria-id»-label"
         class="overflow-hidden rounded-small border bg-content1 transition-colors duration-150 motion-reduce:transition-none border-divider"
+        role="group"
       >
         <div
           aria-level="3"
           class="pointer-events-auto! static! z-auto! block! w-full! translate-x-0! translate-y-0! transform-none! rounded-t-small border-b p-3 font-semibold text-medium transition-colors duration-150 motion-reduce:transition-none border-divider text-foreground"
           data-slot="label"
-          for="react-aria-«replaced-aria-id»"
-          id="react-aria-«replaced-aria-id»"
+          id="uniform-«replaced-aria-id»-label"
           role="heading"
         >
           Your Hobbies
@@ -150,14 +151,16 @@ exports[`Story Snapshots > CrossFieldValidation 1`] = `
       novalidate=""
     >
       <div
+        aria-describedby="uniform-«replaced-aria-id»-error"
+        aria-labelledby="uniform-«replaced-aria-id»-label"
         class="overflow-hidden rounded-small border bg-content1 transition-colors duration-150 motion-reduce:transition-none border-divider"
+        role="group"
       >
         <div
           aria-level="3"
           class="pointer-events-auto! static! z-auto! block! w-full! translate-x-0! translate-y-0! transform-none! rounded-t-small border-b p-3 font-semibold text-medium transition-colors duration-150 motion-reduce:transition-none border-divider text-foreground"
           data-slot="label"
-          for="react-aria-«replaced-aria-id»"
-          id="react-aria-«replaced-aria-id»"
+          id="uniform-«replaced-aria-id»-label"
           role="heading"
         >
           Secret Identity Registration
@@ -351,12 +354,13 @@ exports[`Story Snapshots > CrossFieldValidation 1`] = `
           style="overflow: hidden;"
         >
           <div
-            class="group-data-[has-helper=true]:flex relative flex-col gap-1.5 p-0 border-t block px-3 pb-2 pt-1 transition-colors duration-150 motion-reduce:transition-none border-divider"
+            class="relative flex-col gap-1.5 p-0 border-t block px-3 pb-2 pt-1 transition-colors duration-150 motion-reduce:transition-none border-divider"
             data-slot="helper-wrapper"
           >
             <div
-              class="!text-foreground-500 text-tiny"
+              class="text-danger !text-foreground-500 text-tiny"
               data-slot="error-message"
+              id="uniform-«replaced-aria-id»-error"
             >
               <ul
                 aria-label="Validation errors of field identity"
@@ -407,14 +411,15 @@ exports[`Story Snapshots > Default 1`] = `
       novalidate=""
     >
       <div
+        aria-labelledby="uniform-«replaced-aria-id»-label"
         class="overflow-hidden rounded-small border bg-content1 transition-colors duration-150 motion-reduce:transition-none border-divider"
+        role="group"
       >
         <div
           aria-level="3"
           class="pointer-events-auto! static! z-auto! block! w-full! translate-x-0! translate-y-0! transform-none! rounded-t-small border-b p-3 font-semibold text-medium transition-colors duration-150 motion-reduce:transition-none border-divider text-foreground"
           data-slot="label"
-          for="react-aria-«replaced-aria-id»"
-          id="react-aria-«replaced-aria-id»"
+          id="uniform-«replaced-aria-id»-label"
           role="heading"
         >
           Pizza Delivery Address
@@ -636,14 +641,15 @@ exports[`Story Snapshots > EdgeCaseOptionalFieldTouched 1`] = `
         novalidate=""
       >
         <div
+          aria-labelledby="uniform-«replaced-aria-id»-label"
           class="overflow-hidden rounded-small border bg-content1 transition-colors duration-150 motion-reduce:transition-none border-divider"
+          role="group"
         >
           <div
             aria-level="3"
             class="pointer-events-auto! static! z-auto! block! w-full! translate-x-0! translate-y-0! transform-none! rounded-t-small border-b p-3 font-semibold text-medium transition-colors duration-150 motion-reduce:transition-none border-divider text-foreground"
             data-slot="label"
-            for="react-aria-«replaced-aria-id»"
-            id="react-aria-«replaced-aria-id»"
+            id="uniform-«replaced-aria-id»-label"
             role="heading"
           >
             User Profile
@@ -842,14 +848,16 @@ exports[`Story Snapshots > ErrorStylingBehavior 1`] = `
         </div>
       </div>
       <div
+        aria-describedby="uniform-«replaced-aria-id»-error"
+        aria-labelledby="uniform-«replaced-aria-id»-label"
         class="overflow-hidden rounded-small border bg-content1 transition-colors duration-150 motion-reduce:transition-none border-danger-200"
+        role="group"
       >
         <div
           aria-level="3"
           class="pointer-events-auto! static! z-auto! block! w-full! translate-x-0! translate-y-0! transform-none! rounded-t-small border-b p-3 font-semibold text-medium transition-colors duration-150 motion-reduce:transition-none border-danger-200 text-danger"
           data-slot="label"
-          for="react-aria-«replaced-aria-id»"
-          id="react-aria-«replaced-aria-id»"
+          id="uniform-«replaced-aria-id»-label"
           role="heading"
         >
           Backup Contacts
@@ -964,13 +972,13 @@ exports[`Story Snapshots > ErrorStylingBehavior 1`] = `
           style="overflow: hidden;"
         >
           <div
-            class="group-data-[has-helper=true]:flex relative flex-col gap-1.5 p-0 border-t block px-3 pb-2 pt-1 transition-colors duration-150 motion-reduce:transition-none border-danger-200"
+            class="relative flex-col gap-1.5 p-0 border-t block px-3 pb-2 pt-1 transition-colors duration-150 motion-reduce:transition-none border-danger-200"
             data-slot="helper-wrapper"
           >
             <div
-              class="!text-danger text-tiny"
+              class="text-danger !text-danger text-tiny"
               data-slot="error-message"
-              id="react-aria-«replaced-aria-id»"
+              id="uniform-«replaced-aria-id»-error"
             >
               <ul
                 aria-label="Validation errors of field contacts"
@@ -1021,14 +1029,16 @@ exports[`Story Snapshots > ObjectLevelError 1`] = `
       novalidate=""
     >
       <div
+        aria-describedby="uniform-«replaced-aria-id»-error"
+        aria-labelledby="uniform-«replaced-aria-id»-label"
         class="overflow-hidden rounded-small border bg-content1 transition-colors duration-150 motion-reduce:transition-none border-danger-200"
+        role="group"
       >
         <div
           aria-level="3"
           class="pointer-events-auto! static! z-auto! block! w-full! translate-x-0! translate-y-0! transform-none! rounded-t-small border-b p-3 font-semibold text-medium transition-colors duration-150 motion-reduce:transition-none border-danger-200 text-danger"
           data-slot="label"
-          for="react-aria-«replaced-aria-id»"
-          id="react-aria-«replaced-aria-id»"
+          id="uniform-«replaced-aria-id»-label"
           role="heading"
         >
           Build Your Taco
@@ -1244,13 +1254,13 @@ exports[`Story Snapshots > ObjectLevelError 1`] = `
           style="overflow: hidden;"
         >
           <div
-            class="group-data-[has-helper=true]:flex relative flex-col gap-1.5 p-0 border-t block px-3 pb-2 pt-1 transition-colors duration-150 motion-reduce:transition-none border-danger-200"
+            class="relative flex-col gap-1.5 p-0 border-t block px-3 pb-2 pt-1 transition-colors duration-150 motion-reduce:transition-none border-danger-200"
             data-slot="helper-wrapper"
           >
             <div
-              class="!text-danger text-tiny"
+              class="text-danger !text-danger text-tiny"
               data-slot="error-message"
-              id="react-aria-«replaced-aria-id»"
+              id="uniform-«replaced-aria-id»-error"
             >
               <ul
                 aria-label="Validation errors of field taco"
@@ -1303,14 +1313,15 @@ exports[`Story Snapshots > Required 1`] = `
       novalidate=""
     >
       <div
+        aria-labelledby="uniform-«replaced-aria-id»-label"
         class="overflow-hidden rounded-small border bg-content1 transition-colors duration-150 motion-reduce:transition-none border-divider"
+        role="group"
       >
         <div
           aria-level="3"
           class="pointer-events-auto! static! z-auto! block! w-full! translate-x-0! translate-y-0! transform-none! rounded-t-small border-b p-3 font-semibold text-medium transition-colors duration-150 motion-reduce:transition-none border-divider text-foreground"
           data-slot="label"
-          for="react-aria-«replaced-aria-id»"
-          id="react-aria-«replaced-aria-id»"
+          id="uniform-«replaced-aria-id»-label"
           role="heading"
         >
           Space Mission Crew
@@ -1455,14 +1466,15 @@ exports[`Story Snapshots > WithInitialValues 1`] = `
       novalidate=""
     >
       <div
+        aria-labelledby="uniform-«replaced-aria-id»-label"
         class="overflow-hidden rounded-small border bg-content1 transition-colors duration-150 motion-reduce:transition-none border-divider"
+        role="group"
       >
         <div
           aria-level="3"
           class="pointer-events-auto! static! z-auto! block! w-full! translate-x-0! translate-y-0! transform-none! rounded-t-small border-b p-3 font-semibold text-medium transition-colors duration-150 motion-reduce:transition-none border-divider text-foreground"
           data-slot="label"
-          for="react-aria-«replaced-aria-id»"
-          id="react-aria-«replaced-aria-id»"
+          id="uniform-«replaced-aria-id»-label"
           role="heading"
         >
           Saved Delivery Address

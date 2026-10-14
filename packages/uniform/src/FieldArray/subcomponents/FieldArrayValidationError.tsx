@@ -3,9 +3,9 @@ import {
   motion,
   useReducedMotion,
 } from '@fuf-stack/pixel-motion';
-import { cn } from '@fuf-stack/pixel-utils';
+import { useStyling } from '@fuf-stack/pixels/StylingProvider';
 
-import { useUniformField } from '../../hooks/useUniformField';
+import useUniformFieldState from '../../hooks/useUniformField/useUniformFieldState';
 import FieldValidationError from '../../partials/FieldValidationError/FieldValidationError';
 
 export interface FieldArrayValidationErrorProps {
@@ -26,15 +26,11 @@ export interface FieldArrayValidationErrorProps {
 const FieldArrayValidationError = ({
   name,
 }: FieldArrayValidationErrorProps) => {
-  const {
-    error,
-    getErrorMessageProps,
-    getHelperWrapperProps,
-    invalid,
-    testId,
-  } = useUniformField({
+  const { error, ids, invalid, testId } = useUniformFieldState({
     name,
   });
+
+  const { cn } = useStyling();
 
   // disable all animation if user prefers reduced motion
   const disableAnimation = useReducedMotion();
@@ -56,14 +52,18 @@ const FieldArrayValidationError = ({
           transition={{ duration: 0.4, ease: 'circOut' }}
         >
           <div
-            {...getHelperWrapperProps()}
+            data-slot="helper-wrapper"
             className={cn(
-              getHelperWrapperProps()?.className,
+              'relative flex-col gap-1.5',
               // force helper to be visible and add padding (pt-1 to compensate for inner content's top padding)
               'block px-3 pb-2 pt-1',
             )}
           >
-            <div {...getErrorMessageProps()}>
+            <div
+              id={ids.error}
+              data-slot="error-message"
+              className="text-danger text-tiny"
+            >
               <FieldValidationError
                 // @ts-expect-error - error._errors exists but not typed
                 error={error._errors}

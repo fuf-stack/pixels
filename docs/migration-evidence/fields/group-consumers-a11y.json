@@ -1,0 +1,138 @@
+[
+  {
+    "theme": "light",
+    "story": "uniform-fieldarray--default",
+    "violations": []
+  },
+  {
+    "theme": "light",
+    "story": "uniform-fieldarray--required",
+    "violations": []
+  },
+  {
+    "theme": "light",
+    "story": "uniform-fieldarray--invalid",
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "targets": [
+          ["#_r_1_"],
+          ["#uniform-_r_5_-label"],
+          ["#uniform-_r_5_"],
+          [
+            "ul[data-testid=\"arrayfield_0_name_error\"] > li:nth-child(1) > .px-1.pt-1"
+          ],
+          ["li:nth-child(2) > .px-1.pt-1"],
+          ["ul[data-testid=\"arrayfield_error\"] > li > .px-1.pt-1"]
+        ]
+      }
+    ]
+  },
+  {
+    "theme": "light",
+    "story": "uniform-fieldcard--default",
+    "violations": []
+  },
+  {
+    "theme": "light",
+    "story": "uniform-fieldcard--required",
+    "violations": []
+  },
+  {
+    "theme": "light",
+    "story": "uniform-fieldcard--object-level-error",
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "targets": [
+          ["#uniform-_r_0_-label"],
+          ["#uniform-_r_d_-label"],
+          ["#uniform-_r_d_"],
+          ["ul[data-testid=\"taco_salsa_error\"] > li > .px-1.pt-1"],
+          ["ul[data-testid=\"taco_error\"] > li > .px-1.pt-1"]
+        ]
+      }
+    ]
+  },
+  {
+    "theme": "light",
+    "story": "uniform-fieldcard--error-styling-behavior",
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "targets": [["#uniform-_r_6_-label"], [".px-1"]]
+      }
+    ]
+  },
+  {
+    "theme": "dark",
+    "story": "uniform-fieldarray--default",
+    "violations": []
+  },
+  {
+    "theme": "dark",
+    "story": "uniform-fieldarray--required",
+    "violations": []
+  },
+  {
+    "theme": "dark",
+    "story": "uniform-fieldarray--invalid",
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "targets": [
+          ["#_r_1_"],
+          ["#uniform-_r_5_-label"],
+          ["#uniform-_r_5_"],
+          [
+            "ul[data-testid=\"arrayfield_0_name_error\"] > li:nth-child(1) > .px-1.pt-1"
+          ],
+          ["li:nth-child(2) > .px-1.pt-1"],
+          ["ul[data-testid=\"arrayfield_error\"] > li > .px-1.pt-1"]
+        ]
+      }
+    ]
+  },
+  {
+    "theme": "dark",
+    "story": "uniform-fieldcard--default",
+    "violations": []
+  },
+  {
+    "theme": "dark",
+    "story": "uniform-fieldcard--required",
+    "violations": []
+  },
+  {
+    "theme": "dark",
+    "story": "uniform-fieldcard--object-level-error",
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "targets": [
+          ["#uniform-_r_0_-label"],
+          ["#uniform-_r_d_-label"],
+          ["#uniform-_r_d_"],
+          ["ul[data-testid=\"taco_salsa_error\"] > li > .px-1.pt-1"],
+          ["ul[data-testid=\"taco_error\"] > li > .px-1.pt-1"]
+        ]
+      }
+    ]
+  },
+  {
+    "theme": "dark",
+    "story": "uniform-fieldcard--error-styling-behavior",
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "targets": [["#uniform-_r_6_-label"], [".px-1"]]
+      }
+    ]
+  }
+]

@@ -12,17 +12,24 @@ exports[`Story Snapshots > AllFeatures 1`] = `
       novalidate=""
     >
       <div
+        aria-labelledby="«replaced-aria-id»"
         class="overflow-hidden rounded-small border border-divider bg-content1 divide-y divide-divider"
+        role="group"
       >
         <div
           aria-level="3"
-          class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block after:content-['*'] after:text-danger after:ms-0.5 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] max-w-full text-ellipsis overflow-hidden pointer-events-auto! static! z-auto! block! w-full! translate-x-0! translate-y-0! transform-none! rounded-t-small p-3 font-semibold text-medium text-foreground!"
+          class="block max-w-full overflow-hidden text-ellipsis subpixel-antialiased pointer-events-auto! static! z-auto! block! w-full! translate-x-0! translate-y-0! transform-none! rounded-t-small p-3 font-semibold text-medium text-foreground!"
           data-slot="label"
-          for="react-aria-«replaced-aria-id»"
-          id="react-aria-«replaced-aria-id»"
+          id="«replaced-aria-id»"
           role="heading"
         >
           All Features
+          <span
+            aria-hidden="true"
+            class="ms-0.5 text-danger"
+          >
+            *
+          </span>
         </div>
         <div
           class="overflow-hidden"
@@ -412,14 +419,15 @@ exports[`Story Snapshots > CustomTestId 1`] = `
       novalidate=""
     >
       <div
+        aria-labelledby="«replaced-aria-id»"
         class="overflow-hidden rounded-small border border-divider bg-content1 divide-y divide-divider"
+        role="group"
       >
         <div
           aria-level="3"
-          class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] max-w-full text-ellipsis overflow-hidden pointer-events-auto! static! z-auto! block! w-full! translate-x-0! translate-y-0! transform-none! rounded-t-small p-3 font-semibold text-medium text-foreground!"
+          class="block max-w-full overflow-hidden text-ellipsis subpixel-antialiased pointer-events-auto! static! z-auto! block! w-full! translate-x-0! translate-y-0! transform-none! rounded-t-small p-3 font-semibold text-medium text-foreground!"
           data-slot="label"
-          for="react-aria-«replaced-aria-id»"
-          id="react-aria-«replaced-aria-id»"
+          id="«replaced-aria-id»"
           role="heading"
         >
           Custom Test ID Array
@@ -600,17 +608,24 @@ exports[`Story Snapshots > Default 1`] = `
       novalidate=""
     >
       <div
+        aria-labelledby="«replaced-aria-id»"
         class="overflow-hidden rounded-small border border-divider bg-content1 divide-y divide-divider"
+        role="group"
       >
         <div
           aria-level="3"
-          class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block after:content-['*'] after:text-danger after:ms-0.5 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] max-w-full text-ellipsis overflow-hidden pointer-events-auto! static! z-auto! block! w-full! translate-x-0! translate-y-0! transform-none! rounded-t-small p-3 font-semibold text-medium text-foreground!"
+          class="block max-w-full overflow-hidden text-ellipsis subpixel-antialiased pointer-events-auto! static! z-auto! block! w-full! translate-x-0! translate-y-0! transform-none! rounded-t-small p-3 font-semibold text-medium text-foreground!"
           data-slot="label"
-          for="react-aria-«replaced-aria-id»"
-          id="react-aria-«replaced-aria-id»"
+          id="«replaced-aria-id»"
           role="heading"
         >
           Array Field
+          <span
+            aria-hidden="true"
+            class="ms-0.5 text-danger"
+          >
+            *
+          </span>
         </div>
         <button
           class="group tap-highlight-transparent transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center box-border appearance-none select-none whitespace-nowrap subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu cursor-pointer outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-3 min-w-16 h-8 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] !transition-none data-[pressed=true]:scale-100 bg-transparent text-default-foreground data-[hover=true]:bg-default/40 w-full justify-start rounded-b-small rounded-t-none font-semibold !h-[48px] !min-h-0 outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-focus"
@@ -660,14 +675,15 @@ exports[`Story Snapshots > Duplicate 1`] = `
       novalidate=""
     >
       <div
+        aria-labelledby="«replaced-aria-id»"
         class="overflow-hidden rounded-small border border-divider bg-content1 divide-y divide-divider"
+        role="group"
       >
         <div
           aria-level="3"
-          class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] max-w-full text-ellipsis overflow-hidden pointer-events-auto! static! z-auto! block! w-full! translate-x-0! translate-y-0! transform-none! rounded-t-small p-3 font-semibold text-medium text-foreground!"
+          class="block max-w-full overflow-hidden text-ellipsis subpixel-antialiased pointer-events-auto! static! z-auto! block! w-full! translate-x-0! translate-y-0! transform-none! rounded-t-small p-3 font-semibold text-medium text-foreground!"
           data-slot="label"
-          for="react-aria-«replaced-aria-id»"
-          id="react-aria-«replaced-aria-id»"
+          id="«replaced-aria-id»"
           role="heading"
         >
           Duplicate Elements
@@ -991,14 +1007,15 @@ exports[`Story Snapshots > DuplicateAndInsertAfter 1`] = `
       novalidate=""
     >
       <div
+        aria-labelledby="«replaced-aria-id»"
         class="overflow-hidden rounded-small border border-divider bg-content1 divide-y divide-divider"
+        role="group"
       >
         <div
           aria-level="3"
-          class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] max-w-full text-ellipsis overflow-hidden pointer-events-auto! static! z-auto! block! w-full! translate-x-0! translate-y-0! transform-none! rounded-t-small p-3 font-semibold text-medium text-foreground!"
+          class="block max-w-full overflow-hidden text-ellipsis subpixel-antialiased pointer-events-auto! static! z-auto! block! w-full! translate-x-0! translate-y-0! transform-none! rounded-t-small p-3 font-semibold text-medium text-foreground!"
           data-slot="label"
-          for="react-aria-«replaced-aria-id»"
-          id="react-aria-«replaced-aria-id»"
+          id="«replaced-aria-id»"
           role="heading"
         >
           All Actions Available
@@ -1342,17 +1359,24 @@ exports[`Story Snapshots > EdgeCaseFlatArrayValidationClears 1`] = `
         novalidate=""
       >
         <div
+          aria-labelledby="«replaced-aria-id»"
           class="overflow-hidden rounded-small border border-divider bg-content1 divide-y divide-divider"
+          role="group"
         >
           <div
             aria-level="3"
-            class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block after:content-['*'] after:text-danger after:ms-0.5 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] max-w-full text-ellipsis overflow-hidden pointer-events-auto! static! z-auto! block! w-full! translate-x-0! translate-y-0! transform-none! rounded-t-small p-3 font-semibold text-medium text-foreground!"
+            class="block max-w-full overflow-hidden text-ellipsis subpixel-antialiased pointer-events-auto! static! z-auto! block! w-full! translate-x-0! translate-y-0! transform-none! rounded-t-small p-3 font-semibold text-medium text-foreground!"
             data-slot="label"
-            for="react-aria-«replaced-aria-id»"
-            id="react-aria-«replaced-aria-id»"
+            id="«replaced-aria-id»"
             role="heading"
           >
             Tags (type to clear error)
+            <span
+              aria-hidden="true"
+              class="ms-0.5 text-danger"
+            >
+              *
+            </span>
           </div>
           <div
             class="overflow-hidden"
@@ -1879,17 +1903,24 @@ exports[`Story Snapshots > EdgeCaseTopLevelStringNotInArray 1`] = `
             </div>
           </div>
           <div
+            aria-labelledby="«replaced-aria-id»"
             class="overflow-hidden rounded-small border border-divider bg-content1 divide-y divide-divider"
+            role="group"
           >
             <div
               aria-level="3"
-              class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block after:content-['*'] after:text-danger after:ms-0.5 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] max-w-full text-ellipsis overflow-hidden pointer-events-auto! static! z-auto! block! w-full! translate-x-0! translate-y-0! transform-none! rounded-t-small p-3 font-semibold text-medium text-foreground!"
+              class="block max-w-full overflow-hidden text-ellipsis subpixel-antialiased pointer-events-auto! static! z-auto! block! w-full! translate-x-0! translate-y-0! transform-none! rounded-t-small p-3 font-semibold text-medium text-foreground!"
               data-slot="label"
-              for="react-aria-«replaced-aria-id»"
-              id="react-aria-«replaced-aria-id»"
+              id="«replaced-aria-id»"
               role="heading"
             >
               Unique Array Values
+              <span
+                aria-hidden="true"
+                class="ms-0.5 text-danger"
+              >
+                *
+              </span>
             </div>
             <div
               class="overflow-hidden"
@@ -2272,17 +2303,24 @@ exports[`Story Snapshots > FlatArray 1`] = `
       novalidate=""
     >
       <div
+        aria-labelledby="«replaced-aria-id»"
         class="overflow-hidden rounded-small border border-divider bg-content1 divide-y divide-divider"
+        role="group"
       >
         <div
           aria-level="3"
-          class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block after:content-['*'] after:text-danger after:ms-0.5 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] max-w-full text-ellipsis overflow-hidden pointer-events-auto! static! z-auto! block! w-full! translate-x-0! translate-y-0! transform-none! rounded-t-small p-3 font-semibold text-medium text-foreground!"
+          class="block max-w-full overflow-hidden text-ellipsis subpixel-antialiased pointer-events-auto! static! z-auto! block! w-full! translate-x-0! translate-y-0! transform-none! rounded-t-small p-3 font-semibold text-medium text-foreground!"
           data-slot="label"
-          for="react-aria-«replaced-aria-id»"
-          id="react-aria-«replaced-aria-id»"
+          id="«replaced-aria-id»"
           role="heading"
         >
           Flat Array Field
+          <span
+            aria-hidden="true"
+            class="ms-0.5 text-danger"
+          >
+            *
+          </span>
         </div>
         <button
           class="group tap-highlight-transparent transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center box-border appearance-none select-none whitespace-nowrap subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu cursor-pointer outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-3 min-w-16 h-8 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] !transition-none data-[pressed=true]:scale-100 bg-transparent text-default-foreground data-[hover=true]:bg-default/40 w-full justify-start rounded-b-small rounded-t-none font-semibold !h-[48px] !min-h-0 outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-focus"
@@ -2332,17 +2370,24 @@ exports[`Story Snapshots > FlatLastElementNotRemovable 1`] = `
       novalidate=""
     >
       <div
+        aria-labelledby="«replaced-aria-id»"
         class="overflow-hidden rounded-small border border-divider bg-content1 divide-y divide-divider"
+        role="group"
       >
         <div
           aria-level="3"
-          class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block after:content-['*'] after:text-danger after:ms-0.5 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] max-w-full text-ellipsis overflow-hidden pointer-events-auto! static! z-auto! block! w-full! translate-x-0! translate-y-0! transform-none! rounded-t-small p-3 font-semibold text-medium text-foreground!"
+          class="block max-w-full overflow-hidden text-ellipsis subpixel-antialiased pointer-events-auto! static! z-auto! block! w-full! translate-x-0! translate-y-0! transform-none! rounded-t-small p-3 font-semibold text-medium text-foreground!"
           data-slot="label"
-          for="react-aria-«replaced-aria-id»"
-          id="react-aria-«replaced-aria-id»"
+          id="«replaced-aria-id»"
           role="heading"
         >
           Flat Last Element Not Removable
+          <span
+            aria-hidden="true"
+            class="ms-0.5 text-danger"
+          >
+            *
+          </span>
         </div>
         <div
           class="overflow-hidden"
@@ -2469,14 +2514,15 @@ exports[`Story Snapshots > InsertAfter 1`] = `
       novalidate=""
     >
       <div
+        aria-labelledby="«replaced-aria-id»"
         class="overflow-hidden rounded-small border border-divider bg-content1 divide-y divide-divider"
+        role="group"
       >
         <div
           aria-level="3"
-          class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] max-w-full text-ellipsis overflow-hidden pointer-events-auto! static! z-auto! block! w-full! translate-x-0! translate-y-0! transform-none! rounded-t-small p-3 font-semibold text-medium text-foreground!"
+          class="block max-w-full overflow-hidden text-ellipsis subpixel-antialiased pointer-events-auto! static! z-auto! block! w-full! translate-x-0! translate-y-0! transform-none! rounded-t-small p-3 font-semibold text-medium text-foreground!"
           data-slot="label"
-          for="react-aria-«replaced-aria-id»"
-          id="react-aria-«replaced-aria-id»"
+          id="«replaced-aria-id»"
           role="heading"
         >
           Insert After Example
@@ -2714,17 +2760,24 @@ exports[`Story Snapshots > Invalid 1`] = `
       novalidate=""
     >
       <div
+        aria-labelledby="«replaced-aria-id»"
         class="overflow-hidden rounded-small border border-divider bg-content1 divide-y divide-divider"
+        role="group"
       >
         <div
           aria-level="3"
-          class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block !text-danger after:content-['*'] after:text-danger after:ms-0.5 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] max-w-full text-ellipsis overflow-hidden pointer-events-auto! static! z-auto! block! w-full! translate-x-0! translate-y-0! transform-none! rounded-t-small p-3 font-semibold text-medium"
+          class="block max-w-full overflow-hidden text-ellipsis subpixel-antialiased text-danger! pointer-events-auto! static! z-auto! block! w-full! translate-x-0! translate-y-0! transform-none! rounded-t-small p-3 font-semibold text-medium"
           data-slot="label"
-          for="react-aria-«replaced-aria-id»"
-          id="react-aria-«replaced-aria-id»"
+          id="«replaced-aria-id»"
           role="heading"
         >
           Invalid Array
+          <span
+            aria-hidden="true"
+            class="ms-0.5 text-danger"
+          >
+            *
+          </span>
         </div>
         <div
           class="overflow-hidden"
@@ -3172,13 +3225,13 @@ exports[`Story Snapshots > Invalid 1`] = `
           style="overflow: hidden;"
         >
           <div
-            class="group-data-[has-helper=true]:flex relative flex-col gap-1.5 p-0 block px-3 pb-2 pt-1"
+            class="relative flex-col gap-1.5 block px-3 pb-2 pt-1"
             data-slot="helper-wrapper"
           >
             <div
-              class="text-tiny text-danger"
+              class="text-danger text-tiny"
               data-slot="error-message"
-              id="react-aria-«replaced-aria-id»"
+              id="uniform-«replaced-aria-id»-error"
             >
               <ul
                 aria-label="Validation errors of field arrayfield"
@@ -3254,17 +3307,24 @@ exports[`Story Snapshots > LastElementNotRemovable 1`] = `
       novalidate=""
     >
       <div
+        aria-labelledby="«replaced-aria-id»"
         class="overflow-hidden rounded-small border border-divider bg-content1 divide-y divide-divider"
+        role="group"
       >
         <div
           aria-level="3"
-          class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block after:content-['*'] after:text-danger after:ms-0.5 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] max-w-full text-ellipsis overflow-hidden pointer-events-auto! static! z-auto! block! w-full! translate-x-0! translate-y-0! transform-none! rounded-t-small p-3 font-semibold text-medium text-foreground!"
+          class="block max-w-full overflow-hidden text-ellipsis subpixel-antialiased pointer-events-auto! static! z-auto! block! w-full! translate-x-0! translate-y-0! transform-none! rounded-t-small p-3 font-semibold text-medium text-foreground!"
           data-slot="label"
-          for="react-aria-«replaced-aria-id»"
-          id="react-aria-«replaced-aria-id»"
+          id="«replaced-aria-id»"
           role="heading"
         >
           Last Element Not Removable
+          <span
+            aria-hidden="true"
+            class="ms-0.5 text-danger"
+          >
+            *
+          </span>
         </div>
         <div
           class="overflow-hidden"
@@ -3391,17 +3451,24 @@ exports[`Story Snapshots > Required 1`] = `
       novalidate=""
     >
       <div
+        aria-labelledby="«replaced-aria-id»"
         class="overflow-hidden rounded-small border border-divider bg-content1 divide-y divide-divider"
+        role="group"
       >
         <div
           aria-level="3"
-          class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block after:content-['*'] after:text-danger after:ms-0.5 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] max-w-full text-ellipsis overflow-hidden pointer-events-auto! static! z-auto! block! w-full! translate-x-0! translate-y-0! transform-none! rounded-t-small p-3 font-semibold text-medium text-foreground!"
+          class="block max-w-full overflow-hidden text-ellipsis subpixel-antialiased pointer-events-auto! static! z-auto! block! w-full! translate-x-0! translate-y-0! transform-none! rounded-t-small p-3 font-semibold text-medium text-foreground!"
           data-slot="label"
-          for="react-aria-«replaced-aria-id»"
-          id="react-aria-«replaced-aria-id»"
+          id="«replaced-aria-id»"
           role="heading"
         >
           Required Array
+          <span
+            aria-hidden="true"
+            class="ms-0.5 text-danger"
+          >
+            *
+          </span>
         </div>
         <div
           class="overflow-hidden"
@@ -3542,14 +3609,15 @@ exports[`Story Snapshots > Sortable 1`] = `
       novalidate=""
     >
       <div
+        aria-labelledby="«replaced-aria-id»"
         class="overflow-hidden rounded-small border border-divider bg-content1 divide-y divide-divider"
+        role="group"
       >
         <div
           aria-level="3"
-          class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] max-w-full text-ellipsis overflow-hidden pointer-events-auto! static! z-auto! block! w-full! translate-x-0! translate-y-0! transform-none! rounded-t-small p-3 font-semibold text-medium text-foreground!"
+          class="block max-w-full overflow-hidden text-ellipsis subpixel-antialiased pointer-events-auto! static! z-auto! block! w-full! translate-x-0! translate-y-0! transform-none! rounded-t-small p-3 font-semibold text-medium text-foreground!"
           data-slot="label"
-          for="react-aria-«replaced-aria-id»"
-          id="react-aria-«replaced-aria-id»"
+          id="«replaced-aria-id»"
           role="heading"
         >
           Sortable Elements
@@ -3812,14 +3880,15 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
       novalidate=""
     >
       <div
+        aria-labelledby="«replaced-aria-id»"
         class="overflow-hidden rounded-small border border-divider bg-content1 divide-y divide-divider"
+        role="group"
       >
         <div
           aria-level="3"
-          class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] max-w-full text-ellipsis overflow-hidden pointer-events-auto! static! z-auto! block! w-full! translate-x-0! translate-y-0! transform-none! rounded-t-small p-3 font-semibold text-medium text-foreground!"
+          class="block max-w-full overflow-hidden text-ellipsis subpixel-antialiased pointer-events-auto! static! z-auto! block! w-full! translate-x-0! translate-y-0! transform-none! rounded-t-small p-3 font-semibold text-medium text-foreground!"
           data-slot="label"
-          for="react-aria-«replaced-aria-id»"
-          id="react-aria-«replaced-aria-id»"
+          id="«replaced-aria-id»"
           role="heading"
         >
           People
@@ -4033,7 +4102,9 @@ exports[`Story Snapshots > WithoutLabels 1`] = `
       novalidate=""
     >
       <div
+        aria-label="arrayField"
         class="overflow-hidden rounded-small border border-divider bg-content1 divide-y divide-divider"
+        role="group"
       >
         <button
           class="group tap-highlight-transparent transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center box-border appearance-none select-none whitespace-nowrap subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu cursor-pointer outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-3 min-w-16 h-8 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] !transition-none data-[pressed=true]:scale-100 bg-transparent text-default-foreground data-[hover=true]:bg-default/40 w-full justify-start rounded-b-small rounded-t-none font-semibold !h-[48px] !min-h-0 outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-focus"

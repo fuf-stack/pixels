@@ -98,3 +98,19 @@ disabled state and thumb callback props.
 `switch-production-a11y.json` covers eight states in each theme. It reports
 light-mode invalid-state contrast; all other audited states have no findings.
 No assistive-technology review is claimed.
+
+## Group consumers
+
+Paired `consumer-before`/`consumer-after` captures cover FieldArray default,
+required and invalid states, and FieldCard default, required, object errors and
+error styling behavior in both themes. All 14 heading comparisons match font
+size, line height, weight, dimensions, padding, foreground and background.
+Markup intentionally adds named group roles and owned heading/error IDs.
+Required markers use hidden spans rather than generated pseudo-element content.
+
+`group-consumers-a11y.json` audits the group subtrees, including their child
+controls. Invalid array and object-error card stories report error-text contrast
+in both themes; default/required stories have no findings. These remain release
+review items. Existing array mutation/reset and card touched/error stories are
+retained, with new checks for named groups, child submission and configured
+heading font-size merging.

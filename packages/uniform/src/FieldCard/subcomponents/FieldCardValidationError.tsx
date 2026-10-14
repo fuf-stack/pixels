@@ -5,9 +5,9 @@ import {
   motion,
   useReducedMotion,
 } from '@fuf-stack/pixel-motion';
-import { cn } from '@fuf-stack/pixel-utils';
+import { useStyling } from '@fuf-stack/pixels/StylingProvider';
 
-import { useUniformField } from '../../hooks/useUniformField';
+import useUniformFieldState from '../../hooks/useUniformField/useUniformFieldState';
 import FieldValidationError from '../../partials/FieldValidationError/FieldValidationError';
 
 export interface FieldCardValidationErrorProps {
@@ -17,6 +17,8 @@ export interface FieldCardValidationErrorProps {
   error?: FieldError[] | undefined;
   /** CSS class name for the error text (controls color based on invalid state) */
   errorTextClassName?: string;
+  /** Optional error association ID supplied by the owning group. */
+  errorId?: string;
   /** Field name */
   name: string;
 }
@@ -35,12 +37,14 @@ const FieldCardValidationError = ({
   className = undefined,
   error = undefined,
   errorTextClassName = undefined,
+  errorId = undefined,
   name,
 }: FieldCardValidationErrorProps) => {
-  const { getErrorMessageProps, getHelperWrapperProps, testId } =
-    useUniformField({
-      name,
-    });
+  const { ids, testId } = useUniformFieldState({
+    name,
+  });
+
+  const { cn } = useStyling();
 
   // disable all animation if user prefers reduced motion
   const disableAnimation = useReducedMotion();
@@ -63,15 +67,13 @@ const FieldCardValidationError = ({
           transition={{ duration: 0.4, ease: 'circOut' }}
         >
           <div
-            {...getHelperWrapperProps()}
-            className={cn(getHelperWrapperProps()?.className, className)}
+            data-slot="helper-wrapper"
+            className={cn('relative flex flex-col gap-1.5 p-0', className)}
           >
             <div
-              {...getErrorMessageProps()}
-              className={cn(
-                getErrorMessageProps()?.className,
-                errorTextClassName,
-              )}
+              data-slot="error-message"
+              id={errorId ?? ids.error}
+              className={cn('text-danger text-tiny', errorTextClassName)}
             >
               <FieldValidationError
                 // @ts-expect-error - error._errors exists but not typed

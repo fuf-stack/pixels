@@ -1,10 +1,13 @@
 import type { FieldArrayElementMethods } from './subcomponents/FieldArrayElement';
 import type { FieldArrayProps } from './types';
 
-import { cn, tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
+import { useId } from 'react';
+
+import { tv } from '@fuf-stack/pixel-utils';
+import { useStyling } from '@fuf-stack/pixels/StylingProvider';
 
 import { flatArrayKey } from '../helpers';
-import { useUniformFieldArray } from '../hooks/useUniformFieldArray';
+import useUniformFieldArrayState from '../hooks/useUniformFieldArray/useUniformFieldArrayState';
 import ElementAppendButton from './subcomponents/ElementAppendButton';
 import FieldArrayElement from './subcomponents/FieldArrayElement';
 import FieldArrayLabel from './subcomponents/FieldArrayLabel';
@@ -130,7 +133,7 @@ const FieldArray = ({
     elementInitialValue,
     getValues,
     testId,
-  } = useUniformFieldArray({
+  } = useUniformFieldArrayState({
     name,
     flat,
     elementInitialValue: _elementInitialValue,
@@ -139,14 +142,28 @@ const FieldArray = ({
   });
 
   // className from slots
-  const variants = fieldArrayVariants({ hasLabel: !!uniformFieldProps.label });
-  const className = variantsToClassNames(variants, _className, 'base');
+  const labelId = useId();
+  const styling = useStyling();
+  const { cn } = styling;
+  const className = styling.variantsToClassNames(
+    styling.resolve(fieldArrayVariants, {
+      hasLabel: !!uniformFieldProps.label,
+    }),
+    _className,
+    'base',
+  );
 
   return (
-    <div className={className.base}>
+    <div
+      className={className.base}
+      role="group"
+      aria-labelledby={uniformFieldProps.label ? labelId : undefined}
+      aria-label={!uniformFieldProps.label ? name : undefined}
+    >
       {/* field array label */}
       <FieldArrayLabel
         className={className.label}
+        id={labelId}
         label={uniformFieldProps.label}
         name={name}
       />

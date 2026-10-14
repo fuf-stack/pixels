@@ -1,11 +1,12 @@
 import type { TVClassName } from '@fuf-stack/pixel-utils';
 import type { ReactNode } from 'react';
 
-import { tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
+import { tv } from '@fuf-stack/pixel-utils';
 import { useDebounce } from '@fuf-stack/pixels';
+import { useStyling } from '@fuf-stack/pixels/StylingProvider';
 
 import { checkFieldIsRequired, useFormContext } from '../hooks/useFormContext';
-import { useUniformField } from '../hooks/useUniformField';
+import useUniformFieldState from '../hooks/useUniformField/useUniformFieldState';
 import FieldCardValidationError from './subcomponents/FieldCardValidationError';
 
 /**
@@ -205,7 +206,7 @@ const FieldCard = ({
   name,
   ...uniformFieldProps
 }: FieldCardProps) => {
-  const { error, getLabelProps, label } = useUniformField({
+  const { error, ids, ariaLabel, label } = useUniformFieldState({
     name,
     ...uniformFieldProps,
   });
@@ -286,24 +287,33 @@ const FieldCard = ({
   const showInvalid = useDebounce(rawShowInvalid, 200);
 
   // className from slots
-  const variants = fieldCardVariants({ invalid: showInvalid });
-  const className = variantsToClassNames(variants, _className, 'base');
+  const styling = useStyling();
+  const className = styling.variantsToClassNames(
+    styling.resolve(fieldCardVariants, { invalid: showInvalid }),
+    _className,
+    'base',
+  );
 
   return (
-    <div className={className.base}>
+    <div
+      className={className.base}
+      role="group"
+      aria-label={!label ? ariaLabel : undefined}
+      aria-labelledby={label ? ids.label : undefined}
+      aria-describedby={hasObjectErrors ? ids.error : undefined}
+    >
       {/* card header with label */}
       {label ? (
         <div
-          {...getLabelProps()}
+          id={ids.label}
+          data-slot="label"
           aria-level={3}
-          // Override getLabelProps className to use our own invalid styling based on hasErrors,
-          // not HeroUI's which is based on any child field being invalid
+          // Preserve the existing child-touched/submitted styling policy.
           className={className.label}
           role="heading"
         >
           {label}
-          {/* Manual asterisk: getLabelProps uses schema-required for the object itself,
-              but FieldCard needs asterisk based on whether any CHILD field is required */}
+          {/* Required when any registered child field is required. */}
           {isRequired ? (
             <span aria-hidden="true" className="ml-0.5 text-danger">
               *
@@ -319,6 +329,7 @@ const FieldCard = ({
       <FieldCardValidationError
         className={className.errorFooter}
         error={error}
+        errorId={ids.error}
         errorTextClassName={className.errorText}
         name={name}
       />

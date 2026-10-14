@@ -1,14 +1,16 @@
 import type { ReactNode } from 'react';
 
-import { cn } from '@fuf-stack/pixel-utils';
+import { useStyling } from '@fuf-stack/pixels/StylingProvider';
 
-import { useUniformField } from '../../hooks/useUniformField';
+import useUniformFieldState from '../../hooks/useUniformField/useUniformFieldState';
 
 export interface FieldArrayLabelProps {
   /** CSS class name */
   className?: string;
   /** Label content */
   label: ReactNode;
+  /** Optional heading ID supplied by the owning group. */
+  id?: string;
   /** Field name */
   name: string;
 }
@@ -17,17 +19,20 @@ export interface FieldArrayLabelProps {
  * Renders the label for a FieldArray component.
  *
  * This component handles displaying the array label with proper accessibility
- * attributes using the label props from useUniformField.
+ * attributes using owned heading markup and field state.
  */
 const FieldArrayLabel = ({
   className = undefined,
+  id = undefined,
   label: _label,
   name,
 }: FieldArrayLabelProps) => {
-  const { error, getLabelProps, invalid, label } = useUniformField({
+  const { error, ids, invalid, label, required } = useUniformFieldState({
     name,
     label: _label,
   });
+
+  const { cn } = useStyling();
 
   // when no label is provided, don't render anything
   if (!_label) {
@@ -39,15 +44,26 @@ const FieldArrayLabel = ({
 
   return (
     <div
-      {...getLabelProps()}
+      id={id ?? ids.label}
+      data-slot="label"
       aria-level={3}
-      className={cn(getLabelProps()?.className, className, {
-        // when there are no array level errors, the label should have foreground color
-        'text-foreground!': !hasErrors,
-      })}
+      className={cn(
+        'block max-w-full overflow-hidden text-ellipsis subpixel-antialiased text-small',
+        hasErrors ? 'text-danger!' : undefined,
+        className,
+        {
+          // when there are no array level errors, the label should have foreground color
+          'text-foreground!': !hasErrors,
+        },
+      )}
       role="heading"
     >
       {label}
+      {required ? (
+        <span aria-hidden className="ms-0.5 text-danger">
+          *
+        </span>
+      ) : null}
     </div>
   );
 };

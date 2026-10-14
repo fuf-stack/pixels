@@ -266,3 +266,23 @@ Final `pnpm check` passed all six gates with 1,498 unit tests (12 skipped), 441
 browser stories and seven packed consumers. The audit records light-mode
 invalid-state contrast; all other audited states have no findings. The remaining
 Uniform field families and group consumers still need their production slices.
+
+## Owned group consumers (2026-10-15)
+
+FieldArray and FieldCard now render their own headings and error footers using
+configured styling. Their groups reference visible heading IDs; FieldCard also
+associates its object-level footer. Required markers are hidden from accessible
+names. Child registration, object/array error visibility, touched/submitted
+styling, reset normalization and array operations retain their existing behavior.
+The public array hook retains legacy getters while the production component uses
+a private state path; both share the same array methods and effects.
+
+Fourteen light/dark heading measurements match the captured baseline. Browser
+stories check configured heading font merging; regression tests check group
+names and child submission without invoking the legacy presentation hook.
+The group audits record error-text contrast findings in both themes. Pixels
+buttons, menus and drag controls used by arrays remain in the later Pixels phase.
+
+Final `pnpm check` passed all six gates: 1,500 unit tests (12 skipped), 442 browser
+stories and seven packed consumers. Thirty-one group/consumer snapshots were
+reviewed and updated for the intentional DOM association changes.
