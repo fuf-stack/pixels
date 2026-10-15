@@ -6,8 +6,8 @@ import type { FieldArrayElementMethods } from './FieldArrayElement';
 import { FaCopy, FaTimes } from 'react-icons/fa';
 import { VscInsert } from 'react-icons/vsc';
 
-import { cn } from '@fuf-stack/pixel-utils';
 import { Menu } from '@fuf-stack/pixels';
+import { useStyling } from '@fuf-stack/pixels/StylingProvider';
 
 export interface ElementActionsMenuProps {
   /** CSS class name */
@@ -35,6 +35,7 @@ const ElementActionsMenu = ({
   methods,
   testId = undefined,
 }: ElementActionsMenuProps) => {
+  const { cn } = useStyling();
   const handleAction = (key: Key) => {
     switch (key) {
       case 'remove':

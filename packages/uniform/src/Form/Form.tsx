@@ -5,7 +5,8 @@ import type { FieldValues, SubmitHandler } from 'react-hook-form';
 import type { DebugModeSettings } from './subcomponents/FormContext';
 import type { FormDebugViewerProps } from './subcomponents/FormDebugViewer';
 
-import { slugify, tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
+import { slugify, tv } from '@fuf-stack/pixel-utils';
+import { useStyling } from '@fuf-stack/pixels/StylingProvider';
 
 import FormProvider from './subcomponents/FormContext';
 import FormDebugViewer from './subcomponents/FormDebugViewer';
@@ -76,8 +77,12 @@ const Form = ({
   validationTrigger = 'all',
 }: FormProps) => {
   // classNames from slots
-  const variants = formVariants();
-  const classNames = variantsToClassNames(variants, className, 'base');
+  const styling = useStyling();
+  const classNames = styling.variantsToClassNames(
+    styling.resolve(formVariants),
+    className,
+    'base',
+  );
   const debugViewerClassNames: FormDebugViewerProps['className'] = {
     base: classNames.debugViewer,
     copyButtonToggle: classNames.debugViewerCopyButtonToggle,

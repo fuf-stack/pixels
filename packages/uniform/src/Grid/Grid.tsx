@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 
-import { cn } from '@fuf-stack/pixel-utils';
+import { useStyling } from '@fuf-stack/pixels/StylingProvider';
 
 export interface GridProps {
   /** child components */
@@ -19,6 +19,7 @@ const Grid = ({
   className = undefined,
   testId = undefined,
 }: GridProps) => {
+  const { cn } = useStyling();
   return (
     <div className={cn('grid gap-6', className)} data-testid={testId}>
       {children}

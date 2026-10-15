@@ -4,6 +4,9 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { act, render, screen } from '@testing-library/react';
 
+import { createStyling } from '@fuf-stack/pixel-utils';
+import { StylingProvider } from '@fuf-stack/pixels/StylingProvider';
+
 import FormDebugViewer from './FormDebugViewer';
 
 const { mockUseFormContext } = vi.hoisted(() => ({
@@ -33,13 +36,15 @@ vi.mock('@fuf-stack/pixels/Button', () => ({
 vi.mock('@fuf-stack/pixels/Card', () => ({
   Card: ({
     children,
+    className,
     header,
   }: {
     children?: React.ReactNode;
+    className?: { base?: string; header?: string };
     header?: React.ReactNode;
   }) => (
-    <section>
-      <header>{header}</header>
+    <section className={className?.base} data-testid="debug-card">
+      <header className={className?.header}>{header}</header>
       <div>{children}</div>
     </section>
   ),
@@ -54,6 +59,35 @@ vi.mock('@fuf-stack/pixels/Json', () => ({
 describe('FormDebugViewer', () => {
   beforeEach(() => {
     vi.clearAllMocks();
+  });
+
+  it('preserves configured typography and semantic colors at the debug-card boundary', () => {
+    mockUseFormContext.mockReturnValue({
+      debugMode: 'debug',
+      formState: {
+        isSubmitSuccessful: false,
+        isSubmitting: false,
+        isValid: true,
+        submitCount: 0,
+      },
+      getValues: () => ({ username: 'john' }),
+      setDebugMode: vi.fn(),
+      subscribe: vi.fn(() => vi.fn()),
+      validation: { errors: undefined },
+    });
+    const styling = createStyling({
+      extend: { classGroups: { 'font-size': [{ text: ['body'] }] } },
+    });
+    render(
+      <StylingProvider styling={styling}>
+        <FormDebugViewer
+          className={{ header: ['text-small', 'text-body text-danger'] }}
+        />
+      </StylingProvider>,
+    );
+    const header = screen.getByTestId('debug-card').querySelector('header');
+    expect(header).toHaveClass('text-body', 'text-danger');
+    expect(header).not.toHaveClass('text-small');
   });
 
   it('does not subscribe while debug card is hidden', () => {

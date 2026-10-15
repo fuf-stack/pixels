@@ -1,0 +1,49 @@
+[
+  {
+    "theme": "light",
+    "story": "uniform-form-composition--default-layout",
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "targets": [[".outline-solid"]]
+      }
+    ]
+  },
+  {
+    "theme": "light",
+    "story": "uniform-form-composition--configured-form-and-array",
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "targets": [
+          ["div[data-testid=\"composition_grid\"] > p"],
+          [".outline-solid"]
+        ]
+      }
+    ]
+  },
+  {
+    "theme": "dark",
+    "story": "uniform-form-composition--default-layout",
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "targets": [[".outline-solid"]]
+      }
+    ]
+  },
+  {
+    "theme": "dark",
+    "story": "uniform-form-composition--configured-form-and-array",
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "targets": [[".outline-solid"]]
+      }
+    ]
+  }
+]

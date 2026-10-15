@@ -4,7 +4,7 @@ import { FaGripVertical } from 'react-icons/fa';
 
 import { useSortable } from '@dnd-kit/sortable';
 
-import { cn } from '@fuf-stack/pixel-utils';
+import { useStyling } from '@fuf-stack/pixels/StylingProvider';
 
 interface SortDragHandleProps {
   /** Optional CSS class name */
@@ -24,6 +24,7 @@ const SortDragHandle = ({
   id,
   testId = undefined,
 }: SortDragHandleProps) => {
+  const { cn } = useStyling();
   // Get dnd-kit sortable attributes and listeners
   const { attributes, listeners } = useSortable({ id });
 
@@ -33,6 +34,7 @@ const SortDragHandle = ({
       data-testid={testId}
       {...attributes}
       {...listeners}
+      aria-label="Reorder item"
     >
       <FaGripVertical />
     </div>

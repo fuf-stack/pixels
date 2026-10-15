@@ -8,7 +8,7 @@ import { useSortable } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
 
 import { AnimatePresence, motion } from '@fuf-stack/pixel-motion';
-import { cn } from '@fuf-stack/pixel-utils';
+import { useStyling } from '@fuf-stack/pixels/StylingProvider';
 
 import Grid from '../../Grid';
 import ElementActionsMenu from './ElementActionsMenu';
@@ -82,6 +82,7 @@ const FieldArrayElement = ({
   sortable = false,
   testId = undefined,
 }: FieldArrayElementProps) => {
+  const { cn } = useStyling();
   // Apply transform styles when sortable is enabled for smooth drag animations
   // transform: handles the item's position during drag
   // transition: controls the animation timing when dropping

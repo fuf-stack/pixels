@@ -3,8 +3,8 @@ import type { ClassValue } from '@fuf-stack/pixel-utils';
 import { FaTimes } from 'react-icons/fa';
 
 import { motion } from '@fuf-stack/pixel-motion';
-import { cn } from '@fuf-stack/pixel-utils';
 import { Button } from '@fuf-stack/pixels';
+import { useStyling } from '@fuf-stack/pixels/StylingProvider';
 
 interface ElementRemoveButtonProps {
   /** CSS class name */
@@ -23,6 +23,7 @@ const ElementRemoveButton = ({
   onClick,
   testId = undefined,
 }: ElementRemoveButtonProps) => {
+  const { cn } = useStyling();
   const button = (
     <Button
       ariaLabel="remove element"
