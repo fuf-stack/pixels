@@ -70,4 +70,10 @@ export type VariantProps = TVProps<typeof inputVariants>;
 /** Class name overrides for the public Input styling slots. */
 export type ClassName = TVClassName<typeof inputVariants>;
 
+/** Resolved class names for every Input styling slot. */
+export type InputClasses = Record<
+  keyof ReturnType<typeof inputStateVariants>,
+  string
+>;
+
 export default inputVariants;

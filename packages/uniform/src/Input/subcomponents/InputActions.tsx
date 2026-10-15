@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import type { InputClasses } from './InputControl.types';
+import type { InputClasses } from '../inputVariants';
 
 import { Button } from 'react-aria-components';
 

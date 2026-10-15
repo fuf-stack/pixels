@@ -1,4 +1,4 @@
-import type { InputControlProps } from './InputControl.types';
+import type { InputControlProps } from './InputControl';
 
 import { describe, expect, it, vi } from 'vitest';
 

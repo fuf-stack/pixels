@@ -1,5 +1,6 @@
 import type { HTMLAttributes } from 'react';
-import type { InputClasses, InputControlProps } from './InputControl.types';
+import type { InputClasses } from '../inputVariants';
+import type { InputControlProps } from './InputControl';
 
 import { Input as AriaInput, Group } from 'react-aria-components';
 

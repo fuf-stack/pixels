@@ -238,6 +238,84 @@ exports[`Story Snapshots > Clearable 1`] = `
 </div>
 `;
 
+exports[`Story Snapshots > ConsumerFontSize 1`] = `
+<div>
+  <div
+    class="flex w-full flex-row justify-between gap-6"
+  >
+    <form
+      class="grow min-w-60"
+      data-form-is-valid="true"
+      data-testid=""
+      novalidate=""
+    >
+      <style>
+        .text-body { font-size: 18px; }
+      </style>
+      <div
+        class="group relative flex w-full flex-col"
+        data-filled="true"
+        data-filled-within="true"
+        data-has-elements="true"
+        data-has-helper="true"
+        data-has-label="true"
+        data-rac=""
+        data-slot="base"
+      >
+        <label
+          class="block cursor-default pb-1 text-foreground text-small group-data-[invalid=true]:text-danger"
+          data-slot="label"
+          for="uniform-«replaced-aria-id»"
+          id="uniform-«replaced-aria-id»-label"
+        >
+          Custom font size
+        </label>
+        <div
+          class="shadow-xs relative inline-flex h-10 min-h-10 w-full cursor-text items-center rounded-small border-medium border-default-200 bg-content1 px-3 text-foreground transition-colors data-[hover=true]:border-default-400 group-data-[disabled=true]:pointer-events-none group-data-[focus=true]:border-focus group-data-[invalid=true]:border-danger group-data-[focus=true]:data-[hover=true]:border-default-foreground motion-reduce:transition-none"
+          data-rac=""
+          data-slot="input-wrapper"
+          role="presentation"
+        >
+          <div
+            class="inline-flex h-full w-full items-center gap-0"
+            data-slot="inner-wrapper"
+          >
+            <input
+              aria-labelledby="uniform-«replaced-aria-id»-label"
+              autocomplete="off"
+              class="w-full min-w-0 bg-transparent bg-clip-text font-normal outline-none placeholder:text-foreground-500 autofill:bg-transparent data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden text-body text-danger"
+              data-rac=""
+              data-slot="input"
+              data-testid="inputfield"
+              id="uniform-«replaced-aria-id»"
+              name="inputField"
+              placeholder=" "
+              tabindex="0"
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="mt-4 flex justify-end"
+      >
+        <button
+          aria-label="Submit form"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
+          data-react-aria-pressable="true"
+          data-testid="form_submit_button"
+          tabindex="0"
+          type="submit"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
 exports[`Story Snapshots > CustomStyles 1`] = `
 <div>
   <div
@@ -460,6 +538,132 @@ exports[`Story Snapshots > Disabled 1`] = `
         <button
           aria-label="Submit form"
           class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
+          data-react-aria-pressable="true"
+          data-testid="form_submit_button"
+          tabindex="0"
+          type="submit"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`Story Snapshots > HelpAndRequired 1`] = `
+<div>
+  <div
+    class="flex w-full flex-row justify-between gap-6"
+  >
+    <form
+      class="grow min-w-60"
+      data-form-is-valid="false"
+      data-testid=""
+      novalidate=""
+    >
+      <div
+        class="group relative flex w-full flex-col"
+        data-filled="true"
+        data-filled-within="true"
+        data-has-elements="true"
+        data-has-helper="true"
+        data-has-label="true"
+        data-hover="true"
+        data-invalid="true"
+        data-rac=""
+        data-required="true"
+        data-slot="base"
+      >
+        <label
+          class="block cursor-default pb-1 text-small group-data-[invalid=true]:text-danger text-danger"
+          data-slot="label"
+          for="uniform-«replaced-aria-id»"
+          id="uniform-«replaced-aria-id»-label"
+        >
+          Input Field
+          <span
+            aria-hidden="true"
+            class="ml-0.5 text-danger"
+          >
+            *
+          </span>
+        </label>
+        <div
+          class="shadow-xs relative inline-flex h-10 min-h-10 w-full cursor-text items-center rounded-small border-medium bg-content1 px-3 text-foreground transition-colors group-data-[disabled=true]:pointer-events-none group-data-[invalid=true]:border-danger motion-reduce:transition-none border-danger data-[hover=true]:border-danger group-data-[focus=true]:border-danger group-data-[focus=true]:data-[hover=true]:border-danger"
+          data-hover="true"
+          data-hovered="true"
+          data-invalid="true"
+          data-rac=""
+          data-slot="input-wrapper"
+          role="presentation"
+        >
+          <div
+            class="inline-flex h-full w-full items-center gap-0"
+            data-slot="inner-wrapper"
+          >
+            <input
+              aria-describedby="uniform-«replaced-aria-id»-description uniform-«replaced-aria-id»-error"
+              aria-invalid="true"
+              aria-labelledby="uniform-«replaced-aria-id»-label"
+              aria-required="true"
+              autocomplete="off"
+              class="w-full min-w-0 bg-transparent bg-clip-text font-normal outline-none text-small placeholder:text-foreground-500 autofill:bg-transparent data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden text-danger"
+              data-hovered="true"
+              data-invalid="true"
+              data-rac=""
+              data-slot="input"
+              data-testid="inputfield"
+              id="uniform-«replaced-aria-id»"
+              name="inputField"
+              placeholder=" "
+              tabindex="0"
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+        <div
+          class="relative flex flex-col p-0"
+          data-slot="helper-wrapper"
+        >
+          <div
+            class="text-foreground-500 text-tiny"
+            data-slot="description"
+            id="uniform-«replaced-aria-id»-description"
+          >
+            Enter a value.
+          </div>
+          <div
+            class="text-danger text-tiny"
+            data-slot="error-message"
+            id="uniform-«replaced-aria-id»-error"
+          >
+            <ul
+              aria-label="Validation errors of field inputfield"
+              data-testid="inputfield_error"
+            >
+              <li
+                style="overflow: hidden;"
+              >
+                <div
+                  class="px-1 pt-1"
+                >
+                  Field is required
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div
+        class="mt-4 flex justify-end"
+      >
+        <button
+          aria-label="Submit form"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
+          data-focus="true"
+          data-focus-visible="true"
           data-react-aria-pressable="true"
           data-testid="form_submit_button"
           tabindex="0"

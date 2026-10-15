@@ -10,7 +10,6 @@ import Form from '../Form';
 import { useFormContext } from '../hooks/useFormContext';
 import Input from './Input';
 import * as stories from './Input.stories';
-import * as edgeCaseStories from './InputEdgeCases.stories';
 
 const Reset = () => {
   const { reset } = useFormContext();
@@ -23,7 +22,6 @@ const Reset = () => {
 
 describe('Story Snapshots', () => {
   storySnapshots(stories);
-  storySnapshots(edgeCaseStories);
 });
 
 describe('Production React Aria input', () => {

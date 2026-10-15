@@ -100,13 +100,21 @@ fields or read form context. Public and private styling recipes remain in
 handlers keep ref assignment, focus and value adaptation above the JSX. The shared `FieldControlProps` and `FieldIds` types in
 `partials/FieldLayout/FieldLayout.types.ts` describe control associations for both
 field state and presentation. Private prop declarations include documentation;
-inherited props retain the documentation from `InputProps`. Each subcomponent has
+inherited props retain the documentation from `InputProps`. Each component owns
+its prop interface in its component file; shared styling types live with the
+variants. Each subcomponent has
 a descriptive JSDoc header explaining its responsibility and, where applicable,
 linking to the React Aria components or hooks it wraps.
 
 This is an internal restructuring: public props/exports/slots, rendered DOM,
 value formats, validation timing, focus and reset behavior remain unchanged.
 The private presentation can also be exercised without a Uniform Form.
+
+Input stories live in one `Input.stories.tsx`, with dashed section banners for
+base setup, normal stories, composition and edge cases, in that order. Storybook
+uses one Input sidebar group; edge-case names carry an explicit prefix and retain
+their scenario descriptions. Snapshot and behavior tests share `Input.test.tsx`
+with separate describe blocks.
 
 ## Owned Select integration
 
