@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.27.1](https://github.com/fuf-stack/pixels/compare/uniform-v1.27.0...uniform-v1.27.1) (2026-10-15)
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @fuf-stack/pixel-utils bumped to 1.4.1
+    * @fuf-stack/pixels bumped to 1.14.1
+
 ## [1.27.0](https://github.com/fuf-stack/pixels/compare/uniform-v1.26.1...uniform-v1.27.0) (2026-10-14)
 
 
