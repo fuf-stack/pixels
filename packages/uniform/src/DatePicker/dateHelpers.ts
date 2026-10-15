@@ -1,5 +1,8 @@
-import type { DatePicker as HeroDatePicker } from '@heroui/date-picker';
-import type { ComponentProps } from 'react';
+import type {
+  CalendarDate,
+  CalendarDateTime,
+  ZonedDateTime,
+} from '@internationalized/date';
 
 import {
   getLocalTimeZone,
@@ -11,8 +14,9 @@ import {
   parseZonedDateTime,
 } from '@internationalized/date';
 
-/** Value type accepted by the HeroUI DatePicker */
-export type DatePickerValue = ComponentProps<typeof HeroDatePicker>['value'];
+/** Supported calendar values, including an empty date picker. */
+export type DatePickerValue =
+  CalendarDate | CalendarDateTime | ZonedDateTime | null | undefined;
 
 /** Cast unknown input to the DatePicker value union type. */
 const asDatePickerValue = (value: unknown): DatePickerValue => {

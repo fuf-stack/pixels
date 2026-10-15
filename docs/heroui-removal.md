@@ -1,6 +1,6 @@
 # HeroUI removal: implementation inventory
 
-Status: owned styling/tokens, Input/TextArea/Select/Switch/SwitchBox, array/card groups, radio families, Checkboxes, Slider and Time migrated; DatePicker and final theme removal pending.
+Status: owned styling/tokens, Input/TextArea/Select/Switch/SwitchBox, array/card groups, radio families, all Uniform production fields migrated; internal consumer styling and final theme removal pending.
 This is a staged breaking migration. It is not ready for a HeroUI-free release.
 The only agreed breaking changes are consumer theme setup and removal of
 `uniform/hooks/useInput`; other exported props, recipes, slots, and storage
@@ -410,3 +410,34 @@ Uniform consumer styling are the next slices.
 Final `pnpm check` passed all six gates: 1,536 unit tests (one skipped), 466 browser
 stories and seven packed consumers. The all-field-renderers example snapshot
 was updated for the owned Time markup.
+
+## Owned DatePicker (2026-10-15)
+
+DatePicker now owns its segmented field, calendar popup, navigation, day cells
+and time footer using React Aria. All public styling slots remain available and
+merge through the configured styling instance. UTC string conversion, date
+object output, timezone interpretation, 12/24-hour cycles, min/max calendar
+limits and disabled submission omission are retained. Date/time fields explicitly
+preserve the previous leading-zero formatting. The shared segment defaults are
+private to Uniform; public recipe exports remain unchanged.
+
+Help and schema errors associate with editable segments; invalid submission
+focuses the first segment. Partial and completed edits clear on explicit reset.
+Tests cover UTC keyboard edits, date-object output, reset, required errors,
+disabled fields, calendar limits and selection, popup focus return, keyboard
+navigation and time-footer changes. Date-time selection keeps the popup open for time editing; date-only selection
+closes it. The time footer retains its supplied time limits. All 24 light/dark field comparisons and eight
+calendar dimensions match their baselines. The 36-state field/popup accessibility
+audit records contrast findings in invalid/custom-color fields and the light
+time footer; other audited states have no findings.
+
+Unused direct HeroUI date-input/date-picker dependencies and their orphaned
+calendar entries are removed, with frozen-lockfile installation verified.
+Production fields no longer invoke the public legacy presentation adapter.
+Public adapter exports remain for compatibility; external Markdown editor work
+is deferred. Internal Uniform consumer styling is next; Pixels/application and
+final theme removal are outside this phase.
+
+Final `pnpm check` passed all six gates: 1,542 unit tests (one skipped), 470 browser
+stories and seven packed consumers. Existing DatePicker/Time and all-field
+consumer snapshots were updated for the owned markup and retained formatting.

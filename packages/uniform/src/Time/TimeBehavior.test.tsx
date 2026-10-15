@@ -71,6 +71,7 @@ describe('Owned time field', () => {
     );
     const hour = screen.getByRole('spinbutton', { name: /hour, Hour/i });
     expect(hour).toHaveAttribute('aria-valuenow', '0');
+    expect(hour).toHaveTextContent('00');
     const objectHour = screen.getByRole('spinbutton', {
       name: /hour, Object/i,
     });

@@ -1,4 +1,5 @@
 import type { CheckboxesProps } from '@fuf-stack/uniform/Checkboxes';
+import type { DatePickerProps } from '@fuf-stack/uniform/DatePicker';
 import type { InputProps } from '@fuf-stack/uniform/Input';
 import type { RadioBoxesProps } from '@fuf-stack/uniform/RadioBoxes';
 import type { RadiosProps } from '@fuf-stack/uniform/Radios';
@@ -28,8 +29,12 @@ export const inputProps: InputProps = {
     clearButton: 'text-danger',
   },
   transform: {
-    toDisplayValue: (value) => String(value ?? ''),
-    toFormValue: (value) => Number(value),
+    toDisplayValue: (value) => {
+      return String(value ?? '');
+    },
+    toFormValue: (value) => {
+      return Number(value);
+    },
   },
   onClear: () => {},
 };
@@ -100,7 +105,11 @@ export const radiosProps: RadiosProps = {
   description: 'Pick one.',
   options: [{ value: 0, meta: { example: true } }],
   className: { itemLabel: 'text-option' },
-  children: (items): OptionNode => items.map(({ radio }): OptionNode => radio),
+  children: (items): OptionNode => {
+    return items.map(({ radio }): OptionNode => {
+      return radio;
+    });
+  },
 };
 export const radioBoxesProps: RadioBoxesProps = {
   name: 'choice',
@@ -123,8 +132,11 @@ export const checkboxesProps: CheckboxesProps = {
   description: 'Choose one.',
   options: [{ value: 'first', labelSubline: 'First option', meta: { id: 1 } }],
   className: { optionLabel: 'text-option', errorMessage: 'text-tiny' },
-  children: (items): OptionNode =>
-    items.map(({ checkbox }): OptionNode => checkbox),
+  children: (items): OptionNode => {
+    return items.map(({ checkbox }): OptionNode => {
+      return checkbox;
+    });
+  },
 };
 
 export const sliderProps: SliderProps = {
@@ -143,8 +155,12 @@ export const sliderProps: SliderProps = {
     errorMessage: 'text-tiny',
   },
   transform: {
-    toDisplayValue: (value) => Number(value) * 100,
-    toFormValue: (value) => value / 100,
+    toDisplayValue: (value) => {
+      return Number(value) * 100;
+    },
+    toFormValue: (value) => {
+      return value / 100;
+    },
   },
 };
 
@@ -158,5 +174,20 @@ export const timeProps: TimeProps = {
     input: 'text-body',
     segment: 'text-danger',
     helperWrapper: 'p-0',
+  },
+};
+
+export const datePickerProps: DatePickerProps = {
+  name: 'appointment',
+  description: 'Choose a date.',
+  withTime: true,
+  valueType: 'dateValue',
+  timeZone: 'UTC',
+  minValue: '2026-01-01',
+  maxValue: '2026-12-31',
+  className: {
+    calendar: 'w-72',
+    timeInput: 'gap-4',
+    selectorIcon: 'text-danger',
   },
 };
