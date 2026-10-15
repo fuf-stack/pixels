@@ -165,3 +165,22 @@ states. Contrast findings affect light invalid states, line-through/sublabel/
 custom-layout stories in both themes and the keyboard/error fixture in both
 themes. Other audited states have no findings. No assistive-technology review is
 claimed.
+
+## Production Slider rollout
+
+`slider-production-before.json` / `slider-production-after.json` and paired
+screenshots cover twelve stories per theme, including all sizes, custom ranges,
+fractional values, step dots, fill offsets, addons and transforms. All 24
+comparisons match control dimensions, fonts, colors and radii. The unlabeled
+slider retains its compact track-only layout.
+
+Owned composition replaces the ghost range with one registered editable input.
+The wrapper focus API and single Tab stop remain covered. Existing Chromium
+regressions retain pointer-coordinate dragging, release, subsequent movement and
+submission assertions; their input selectors now use the actual field name.
+New checks cover zero/fractional values, reset, required help/error association,
+disabled omission, explicit zero selection and configured styling.
+
+`slider-production-a11y.json` audits 28 states and reports light invalid/disabled
+text contrast. Other audited states have no findings. No assistive-technology
+review is claimed.

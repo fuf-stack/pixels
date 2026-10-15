@@ -35,7 +35,7 @@ export const EdgeCaseRequiredSubmitFocus: Story = {
     await userEvent.click(canvas.getByRole('button', { name: /submit/i }));
     const input = canvas
       .getByTestId('sliderfield')
-      .querySelector('input[name="sliderField_slider"]');
+      .querySelector('input[name="sliderField"]');
     await waitFor(() => {
       expect(canvas.getByTestId('sliderfield_error')).toHaveTextContent(
         'Field is required',
@@ -86,9 +86,7 @@ export const EdgeCaseFocusByTestId: Story = {
     onSubmit.mockClear();
     const wrapper = canvas.getByTestId('volume_control');
     wrapper.focus();
-    const activeInput = wrapper.querySelector(
-      'input[name="sliderField_slider"]',
-    );
+    const activeInput = wrapper.querySelector('input[name="sliderField"]');
     await expect(activeInput).toHaveFocus();
     await userEvent.keyboard('{ArrowUp}');
     await expect(activeInput).toHaveValue('21');
@@ -98,7 +96,7 @@ export const EdgeCaseFocusByTestId: Story = {
     await expect(otherField).toHaveFocus();
     await userEvent.tab({ shift: true });
     await expect(activeInput).toHaveFocus();
-    // The wrapper and RHF input must not add an extra Tab stop.
+    // The wrapper must not add a stop beside the single registered input.
     await expect(wrapper).toHaveAttribute('tabindex', '-1');
 
     // Programmatic RHF focus follows the same path as wrapper focus.
@@ -133,7 +131,7 @@ export const EdgeCaseDisabledFocusByTestId: Story = {
     await expect(otherField).toHaveFocus();
     await expect(wrapper).not.toHaveAttribute('tabindex');
     await expect(
-      wrapper.querySelector('input[name="sliderField_slider"]'),
+      wrapper.querySelector('input[name="sliderField"]'),
     ).toBeDisabled();
   },
 };

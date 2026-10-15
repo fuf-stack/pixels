@@ -1,6 +1,6 @@
 # HeroUI removal: implementation inventory
 
-Status: owned styling/tokens, Input/TextArea/Select/Switch/SwitchBox, array/card groups, radio families and Checkboxes migrated; remaining fields and final theme removal pending.
+Status: owned styling/tokens, Input/TextArea/Select/Switch/SwitchBox, array/card groups, radio families, Checkboxes and Slider migrated; remaining fields and final theme removal pending.
 This is a staged breaking migration. It is not ready for a HeroUI-free release.
 The only agreed breaking changes are consumer theme setup and removal of
 `uniform/hooks/useInput`; other exported props, recipes, slots, and storage
@@ -363,3 +363,25 @@ clearing, disabled omission, keyboard operation and actual error focus.
 Final `pnpm check` passed all six gates: 1,528 unit tests (one skipped), 462 browser
 stories and seven packed consumers. The DataTable filter modal and checkbox
 consumer assertions pass unchanged, including ReactNode option names.
+
+## Owned Slider (2026-10-15)
+
+Slider now renders an owned React Aria control with one registered range input.
+The input keeps the field's actual name and handles keyboard/pointer changes,
+reset, disabled state and error focus. Programmatic focus through the field's
+test-ID wrapper remains supported without adding a keyboard stop. Numeric
+transforms, fractional steps, fill offsets, step dots, addons and public slots
+remain available. Completing an explicit interaction at zero commits that value;
+merely tabbing through an empty required slider still leaves it empty.
+
+All 24 light/dark comparisons match baseline dimensions, typography and colors,
+including all sizes, transforms, step dots and addons. Browser checks retain the
+real-coordinate drag/release/submission regression and verify configured label
+and thumb sizing. The 28-state audit records light invalid/disabled contrast;
+other audited states have no findings. The unused direct `@heroui/slider`
+dependency is removed. Time, DatePicker and remaining Uniform consumer styling
+remain pending in this phase.
+
+Final `pnpm check` passed all six gates: 1,531 unit tests (one skipped), 464 browser
+stories and seven packed consumers. Existing drag/release and focus assertions
+remain enabled.

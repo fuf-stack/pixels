@@ -4,6 +4,7 @@ import type { RadioBoxesProps } from '@fuf-stack/uniform/RadioBoxes';
 import type { RadiosProps } from '@fuf-stack/uniform/Radios';
 import type { RadioTabsProps } from '@fuf-stack/uniform/RadioTabs';
 import type { SelectProps } from '@fuf-stack/uniform/Select';
+import type { SliderProps } from '@fuf-stack/uniform/Slider';
 import type { SwitchProps } from '@fuf-stack/uniform/Switch';
 import type { SwitchBoxProps } from '@fuf-stack/uniform/SwitchBox';
 import type { TextAreaProps } from '@fuf-stack/uniform/TextArea';
@@ -123,4 +124,25 @@ export const checkboxesProps: CheckboxesProps = {
   className: { optionLabel: 'text-option', errorMessage: 'text-tiny' },
   children: (items): OptionNode =>
     items.map(({ checkbox }): OptionNode => checkbox),
+};
+
+export const sliderProps: SliderProps = {
+  name: 'amount',
+  description: 'Choose an amount.',
+  minValue: -10,
+  maxValue: 10,
+  step: 0.5,
+  fillOffset: 0,
+  size: 'lg',
+  showSteps: true,
+  className: {
+    label: 'text-field',
+    thumb: 'h-8 w-8',
+    filler: 'bg-secondary',
+    errorMessage: 'text-tiny',
+  },
+  transform: {
+    toDisplayValue: (value) => Number(value) * 100,
+    toFormValue: (value) => value / 100,
+  },
 };

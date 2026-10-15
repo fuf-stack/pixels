@@ -777,90 +777,91 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                     data-testid="sliderfield"
                     tabindex="-1"
                   >
-                    <div
-                      style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+                    <span
+                      class="sr-only"
+                      id="uniform-«replaced-aria-id»-required"
                     >
-                      <input
-                        aria-label="Slider Field"
-                        max="100"
-                        min="0"
-                        name="sliderField"
-                        step="1"
-                        tabindex="-1"
-                        type="range"
-                        value="0"
-                      />
-                    </div>
+                      Required selection.
+                    </span>
                     <div
-                      aria-label="Slider Field"
-                      aria-labelledby="react-aria-«replaced-aria-id» react-aria-«replaced-aria-id»"
-                      class="flex flex-col w-full gap-1"
+                      aria-labelledby="uniform-«replaced-aria-id»-label"
+                      class="flex w-full flex-col gap-1"
                       data-hover="false"
                       data-orientation="horizontal"
+                      data-rac=""
                       data-slot="base"
-                      id="react-aria-«replaced-aria-id»"
+                      id="uniform-«replaced-aria-id»"
                       role="group"
                     >
                       <div
-                        class="w-full flex justify-between items-center mb-1"
+                        class="mb-1 flex w-full items-center justify-between"
                         data-slot="labelWrapper"
                       >
                         <label
-                          class="cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
+                          class="cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger"
                           data-slot="label"
-                          id="react-aria-«replaced-aria-id»"
+                          id="uniform-«replaced-aria-id»-label"
                         >
                           Slider Field
+                          <span
+                            aria-hidden="true"
+                            class="ml-0.5 text-danger"
+                          >
+                            *
+                          </span>
                         </label>
                         <output
                           aria-live="off"
                           class="text-small"
+                          data-orientation="horizontal"
+                          data-rac=""
                           data-slot="value"
-                          for="react-aria-«replaced-aria-id»-0"
+                          for="uniform-«replaced-aria-id»-label-0"
                         >
                           0
                         </output>
                       </div>
                       <div
-                        class="relative flex gap-2 items-center"
+                        class="relative flex items-center gap-2"
                         data-slot="track-wrapper"
                       >
                         <div
-                          class="flex w-full relative rounded-full bg-default-300/50 border-x-transparent h-3 my-[calc((theme(spacing.6)-theme(spacing.3))/2)] border-x-[calc(theme(spacing.6)/2)] data-[fill-start=true]:border-s-primary data-[fill-end=true]:border-e-primary"
+                          class="relative my-1.5 flex h-3 w-full rounded-full border-x-[12px] border-x-transparent bg-default-300/50 data-[fill-end=true]:border-e-primary data-[fill-start=true]:border-s-primary"
                           data-fill-end="false"
                           data-fill-start="false"
+                          data-orientation="horizontal"
+                          data-rac=""
                           data-slot="track"
                           data-thumb-hidden="false"
                           data-vertical="false"
                           style="position: relative; touch-action: none;"
                         >
                           <div
-                            class="h-full absolute bg-primary"
+                            class="absolute h-full bg-primary"
+                            data-orientation="horizontal"
+                            data-rac=""
                             data-slot="filler"
-                            style="left: 0%; width: 0%;"
+                            style="position: absolute; inset-inline-start: 0%; width: 0%; height: 100%;"
                           />
                           <div
-                            aria-label="Slider thumb 1"
-                            class="flex justify-center items-center before:absolute before:w-11 before:h-11 before:rounded-full after:shadow-small after:bg-background data-[focused=true]:z-10 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 w-6 h-6 after:w-5 after:h-5 rounded-full after:rounded-full bg-primary top-1/2 cursor-grab data-[dragging=true]:cursor-grabbing ring-transparent border-0 after:transition-all motion-reduce:after:transition-none data-[dragging=true]:after:scale-80 shadow-small group-data-[invalid=true]:data-[focused=true]:outline-2 group-data-[invalid=true]:data-[focused=true]:outline-focus group-data-[invalid=true]:data-[focused=true]:outline-offset-2"
-                            data-react-aria-pressable="true"
+                            class="group-data-[invalid=true]:data-[focused=true]:outline-2 group-data-[invalid=true]:data-[focused=true]:outline-focus group-data-[invalid=true]:data-[focused=true]:outline-offset-2 outline-solid top-1/2 flex h-6 w-6 cursor-grab items-center justify-center rounded-full border-0 bg-primary shadow-small outline-transparent ring-transparent before:absolute before:h-11 before:w-11 before:rounded-full before:content-[''] after:h-5 after:w-5 after:rounded-full after:bg-background after:shadow-small after:transition-all after:content-[''] data-[focus-visible=true]:z-10 data-[focused=true]:z-10 data-[dragging=true]:cursor-grabbing data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus data-[dragging=true]:after:scale-80 motion-reduce:after:transition-none"
+                            data-rac=""
                             data-slot="thumb"
-                            index="0"
-                            orientation="horizontal"
                             style="position: absolute; left: 0%; transform: translate(-50%, -50%); touch-action: none;"
                           >
                             <div
                               style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
                             >
                               <input
-                                aria-describedby=""
+                                aria-describedby="uniform-«replaced-aria-id»-required"
                                 aria-details=""
-                                aria-labelledby="react-aria-«replaced-aria-id»"
+                                aria-labelledby="uniform-«replaced-aria-id»-label"
                                 aria-orientation="horizontal"
                                 aria-valuetext="0"
                                 id="react-aria-«replaced-aria-id»-0"
                                 max="100"
                                 min="0"
-                                name="sliderField_slider"
+                                name="sliderField"
                                 step="1"
                                 tabindex="0"
                                 type="range"

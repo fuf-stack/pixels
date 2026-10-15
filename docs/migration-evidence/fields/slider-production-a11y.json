@@ -1,0 +1,154 @@
+[
+  {
+    "theme": "light",
+    "story": "uniform-slider--default",
+    "violations": []
+  },
+  {
+    "theme": "light",
+    "story": "uniform-slider--required",
+    "violations": []
+  },
+  {
+    "theme": "light",
+    "story": "uniform-slider--invalid",
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "targets": [["#uniform-_r_0_-label"], [".px-1"]]
+      }
+    ]
+  },
+  {
+    "theme": "light",
+    "story": "uniform-slider--with-label",
+    "violations": []
+  },
+  {
+    "theme": "light",
+    "story": "uniform-slider--with-initial-value",
+    "violations": []
+  },
+  {
+    "theme": "light",
+    "story": "uniform-slider--all-sizes",
+    "violations": []
+  },
+  {
+    "theme": "light",
+    "story": "uniform-slider--custom-range",
+    "violations": []
+  },
+  {
+    "theme": "light",
+    "story": "uniform-slider--with-step",
+    "violations": []
+  },
+  {
+    "theme": "light",
+    "story": "uniform-slider--disabled",
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "targets": [["#uniform-_r_0_-label"], ["output"]]
+      }
+    ]
+  },
+  {
+    "theme": "light",
+    "story": "uniform-slider--with-start-and-end-content",
+    "violations": []
+  },
+  {
+    "theme": "light",
+    "story": "uniform-slider--with-steps",
+    "violations": []
+  },
+  {
+    "theme": "light",
+    "story": "uniform-slider--with-value-transform",
+    "violations": []
+  },
+  {
+    "theme": "light",
+    "story": "uniform-slider-composition--help-and-required",
+    "violations": []
+  },
+  {
+    "theme": "light",
+    "story": "uniform-slider-composition--consumer-label-font",
+    "violations": []
+  },
+  {
+    "theme": "dark",
+    "story": "uniform-slider--default",
+    "violations": []
+  },
+  {
+    "theme": "dark",
+    "story": "uniform-slider--required",
+    "violations": []
+  },
+  {
+    "theme": "dark",
+    "story": "uniform-slider--invalid",
+    "violations": []
+  },
+  {
+    "theme": "dark",
+    "story": "uniform-slider--with-label",
+    "violations": []
+  },
+  {
+    "theme": "dark",
+    "story": "uniform-slider--with-initial-value",
+    "violations": []
+  },
+  {
+    "theme": "dark",
+    "story": "uniform-slider--all-sizes",
+    "violations": []
+  },
+  {
+    "theme": "dark",
+    "story": "uniform-slider--custom-range",
+    "violations": []
+  },
+  {
+    "theme": "dark",
+    "story": "uniform-slider--with-step",
+    "violations": []
+  },
+  {
+    "theme": "dark",
+    "story": "uniform-slider--disabled",
+    "violations": []
+  },
+  {
+    "theme": "dark",
+    "story": "uniform-slider--with-start-and-end-content",
+    "violations": []
+  },
+  {
+    "theme": "dark",
+    "story": "uniform-slider--with-steps",
+    "violations": []
+  },
+  {
+    "theme": "dark",
+    "story": "uniform-slider--with-value-transform",
+    "violations": []
+  },
+  {
+    "theme": "dark",
+    "story": "uniform-slider-composition--help-and-required",
+    "violations": []
+  },
+  {
+    "theme": "dark",
+    "story": "uniform-slider-composition--consumer-label-font",
+    "violations": []
+  }
+]
