@@ -1,6 +1,6 @@
 # HeroUI removal: implementation inventory
 
-Status: owned styling/tokens, Input/TextArea/Select/Switch/SwitchBox, array/card groups, radio families, Checkboxes and Slider migrated; remaining fields and final theme removal pending.
+Status: owned styling/tokens, Input/TextArea/Select/Switch/SwitchBox, array/card groups, radio families, Checkboxes, Slider and Time migrated; DatePicker and final theme removal pending.
 This is a staged breaking migration. It is not ready for a HeroUI-free release.
 The only agreed breaking changes are consumer theme setup and removal of
 `uniform/hooks/useInput`; other exported props, recipes, slots, and storage
@@ -385,3 +385,28 @@ remain pending in this phase.
 Final `pnpm check` passed all six gates: 1,531 unit tests (one skipped), 464 browser
 stories and seven packed consumers. Existing drag/release and focus assertions
 remain enabled.
+
+## Owned Time (2026-10-15)
+
+Time now owns its label, segmented input, helper and error presentation using
+React Aria. Its public slots merge through the configured styling instance.
+UTC minute strings, timezone conversion, 12/24-hour formatting, hour granularity,
+numeric midnight and date/time object values retain their storage contracts.
+The editable segments receive help, required and error associations; invalid
+submission focuses the first enabled segment. RHF remains responsible for
+validation and disabled-field submission omission.
+
+Controlled empty values clear completed edits on reset. The explicit form-reset
+signal also clears partial edits whose stored value is still empty, without
+remounting the control. Behavior tests cover keyboard changes, initial/reset
+values, both storage formats, numeric zero, disabled submission and error focus.
+Browser stories cover configured segment typography and accessible help/errors.
+All 22 light/dark layout, typography and color comparisons match the baseline.
+The 26-state accessibility audit records contrast findings in invalid and
+custom-color stories; other audited states have no findings. Invalid submission
+now visibly focuses the first editable segment. DatePicker and remaining
+Uniform consumer styling are the next slices.
+
+Final `pnpm check` passed all six gates: 1,536 unit tests (one skipped), 466 browser
+stories and seven packed consumers. The all-field-renderers example snapshot
+was updated for the owned Time markup.

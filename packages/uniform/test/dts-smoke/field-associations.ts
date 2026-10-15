@@ -8,6 +8,7 @@ import type { SliderProps } from '@fuf-stack/uniform/Slider';
 import type { SwitchProps } from '@fuf-stack/uniform/Switch';
 import type { SwitchBoxProps } from '@fuf-stack/uniform/SwitchBox';
 import type { TextAreaProps } from '@fuf-stack/uniform/TextArea';
+import type { TimeProps } from '@fuf-stack/uniform/Time';
 
 import { useUniformField } from '@fuf-stack/uniform/hooks/useUniformField';
 
@@ -144,5 +145,18 @@ export const sliderProps: SliderProps = {
   transform: {
     toDisplayValue: (value) => Number(value) * 100,
     toFormValue: (value) => value / 100,
+  },
+};
+
+export const timeProps: TimeProps = {
+  name: 'appointment',
+  description: 'Use UTC.',
+  timeZone: 'UTC',
+  hourAsNumber: true,
+  hourCycle: 24,
+  className: {
+    input: 'text-body',
+    segment: 'text-danger',
+    helperWrapper: 'p-0',
   },
 };

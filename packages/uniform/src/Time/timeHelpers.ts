@@ -1,5 +1,8 @@
-import type { TimeInput as HeroTimeInput } from '@heroui/date-input';
-import type { ComponentProps } from 'react';
+import type {
+  CalendarDateTime,
+  Time,
+  ZonedDateTime,
+} from '@internationalized/date';
 
 import {
   getLocalTimeZone,
@@ -9,8 +12,9 @@ import {
   parseZonedDateTime,
 } from '@internationalized/date';
 
-/** Value type accepted by HeroUI TimeInput */
-export type TimeValue = ComponentProps<typeof HeroTimeInput>['value'];
+/** Supported segmented time values, including an empty field. */
+export type TimeValue =
+  Time | CalendarDateTime | ZonedDateTime | null | undefined;
 
 /** Cast unknown input to the TimeInput value union type. */
 const asTimeValue = (value: unknown): TimeValue => {
@@ -83,7 +87,7 @@ const tryParse = (parser: () => unknown): TimeValue => {
 };
 
 /**
- * Parse a form value into a HeroUI TimeInput compatible `TimeValue`.
+ * Parse a form value into a segmented time field compatible `TimeValue`.
  *
  * Supports existing `TimeValue` objects, native `Date` instances, plain time
  * strings (`HH:mm[:ss]`), absolute ISO date-time strings, zoned date-time
