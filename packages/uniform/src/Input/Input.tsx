@@ -1,7 +1,6 @@
-import type { TVClassName, TVProps } from '@fuf-stack/pixel-utils';
 import type { ReactNode } from 'react';
 import type { InputValueTransform } from '../hooks/useInputValueTransform';
-import type inputVariants from './inputVariants';
+import type { ClassName, VariantProps } from './inputVariants';
 
 import { useRef } from 'react';
 
@@ -10,9 +9,6 @@ import useUniformFieldState from '../hooks/useUniformFieldState/useUniformFieldS
 import InputControl from './subcomponents/InputControl';
 
 export { default as inputVariants } from './inputVariants';
-
-type VariantProps = TVProps<typeof inputVariants>;
-type ClassName = TVClassName<typeof inputVariants>;
 
 export interface InputProps extends VariantProps {
   /** Custom aria-label for accessibility. If not provided, falls back to field name when no visible label exists */
@@ -102,13 +98,28 @@ const Input = ({
       onBlur: field.onBlur,
     });
 
+  // Share the native input with registration and local focus handling.
+  const setControlRef = (node: HTMLInputElement | null) => {
+    controlRef.current = node;
+    ref(node);
+  };
+
+  const focusControl = () => {
+    controlRef.current?.focus();
+  };
+
+  // Adapt display edits to the debounced binding's event contract.
+  const changeValue = (next: string) => {
+    onChange({ target: { value: next } });
+  };
+
   // Cancel queued edits before resetting, so they cannot restore the old value.
   const clear = () => {
     cancelPendingChange('');
     resetField(name, { defaultValue: null });
 
     onClear?.();
-    controlRef.current?.focus();
+    focusControl();
   };
 
   return (
@@ -121,21 +132,14 @@ const Input = ({
       endContent={endContent}
       errorMessage={errorMessage}
       ids={ids}
-      inputRef={(node) => {
-        controlRef.current = node;
-        ref(node);
-      }}
+      inputRef={setControlRef}
       invalid={invalid}
       label={label}
       name={name}
       onBlur={onBlur}
       onClear={clear}
-      onFocusControl={() => {
-        controlRef.current?.focus();
-      }}
-      onValueChange={(next) => {
-        onChange({ target: { value: next } });
-      }}
+      onFocusControl={focusControl}
+      onValueChange={changeValue}
       placeholder={placeholder}
       required={required}
       size={size}

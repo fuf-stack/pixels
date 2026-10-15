@@ -96,7 +96,8 @@ and preserves its root state selectors. `InputContent` owns the shared editable
 layout and addons; `InputActions` contains clear and stepper controls. These
 components receive values, associations, refs and callbacks, and do not register
 fields or read form context. Public and private styling recipes remain in
-`inputVariants.ts`. The shared `FieldControlProps` and `FieldIds` types in
+`inputVariants.ts`, alongside their `VariantProps` and `ClassName` types. Named
+handlers keep ref assignment, focus and value adaptation above the JSX. The shared `FieldControlProps` and `FieldIds` types in
 `partials/FieldLayout/FieldLayout.types.ts` describe control associations for both
 field state and presentation. Private prop declarations include documentation;
 inherited props retain the documentation from `InputProps`.

@@ -1,3 +1,5 @@
+import type { TVClassName, TVProps } from '@fuf-stack/pixel-utils';
+
 import { tv } from '@fuf-stack/pixel-utils';
 
 /** Owned defaults for the existing public input slots. */
@@ -61,5 +63,11 @@ export const inputStateVariants = tv({
     },
   },
 });
+
+/** Variant options accepted by the public Input recipe. */
+export type VariantProps = TVProps<typeof inputVariants>;
+
+/** Class name overrides for the public Input styling slots. */
+export type ClassName = TVClassName<typeof inputVariants>;
 
 export default inputVariants;
