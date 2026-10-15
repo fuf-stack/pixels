@@ -1,6 +1,6 @@
 # HeroUI removal: implementation inventory
 
-Status: owned styling/tokens, Input/TextArea/Select/Switch/SwitchBox, array/card groups and radio families migrated; remaining fields and final theme removal pending.
+Status: owned styling/tokens, Input/TextArea/Select/Switch/SwitchBox, array/card groups, radio families and Checkboxes migrated; remaining fields and final theme removal pending.
 This is a staged breaking migration. It is not ready for a HeroUI-free release.
 The only agreed breaking changes are consumer theme setup and removal of
 `uniform/hooks/useInput`; other exported props, recipes, slots, and storage
@@ -339,3 +339,27 @@ outside this phase.
 Final `pnpm check` passed all six gates: 1,523 unit tests (one skipped), 460 browser
 stories and seven packed consumers. The DataTable filter consumer snapshot was
 updated for the owned radio markup; no application implementation was migrated.
+
+## Owned Checkboxes (2026-10-15)
+
+Checkboxes now uses React Aria with owned group, option, icon and error markup.
+Array values, optional clearing, scalar/object transforms, custom option
+rendering/metadata, per-option and group disabled behavior, colors and
+line-through styling are retained. Group and option descriptions associate with
+the actual inputs; invalid submission focuses the first enabled checkbox.
+Requiredness belongs to the selection group, is described accessibly and does
+not impose native required validation on every option. RHF remains authoritative.
+Existing slots now merge through the configured styling instance, including the
+error-message slot. The direct `@heroui/checkbox` dependency is removed; the
+Pixels table still retains that package transitively.
+
+All 24 light/dark group/option geometry and typography comparisons match the
+baseline, including sublines, line-through, custom layouts and transform stories.
+The 28-state audit records invalid/sublabel/line-through contrast findings;
+other audited states have no findings. Existing behavior assertions remain,
+with added checks for native names, array/scalar submission, reset, optional
+clearing, disabled omission, keyboard operation and actual error focus.
+
+Final `pnpm check` passed all six gates: 1,528 unit tests (one skipped), 462 browser
+stories and seven packed consumers. The DataTable filter modal and checkbox
+consumer assertions pass unchanged, including ReactNode option names.

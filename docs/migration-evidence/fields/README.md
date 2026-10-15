@@ -147,3 +147,21 @@ previously excluded RadioTabs stories to run again. No Pixels source was changed
 `radio-family-production-a11y.json` audits 22 states. It reports light invalid
 contrast for each family and keyboard/error tab-story contrast in both themes;
 other audited states have no findings. No assistive-technology review is claimed.
+
+## Production Checkboxes rollout
+
+`checkbox-production-before.json` / `checkbox-production-after.json` and paired
+screenshots cover twelve stories in both themes: default, required, invalid,
+initial values, line-through, danger color, sublabels, custom option layouts,
+whole-group/option disabled states and scalar/object transforms. All 24 root and
+option geometry/typography comparisons match. Native input names and values,
+custom option descriptors and disabled submission omission retain their behavior.
+Owned label/error associations and group-required descriptions replace the
+legacy presentation getters; native per-option required flags are removed.
+
+Browser stories verify keyboard/error focus, required/help/error descriptions
+and configured option typography. `checkbox-production-a11y.json` audits 28
+states. Contrast findings affect light invalid states, line-through/sublabel/
+custom-layout stories in both themes and the keyboard/error fixture in both
+themes. Other audited states have no findings. No assistive-technology review is
+claimed.

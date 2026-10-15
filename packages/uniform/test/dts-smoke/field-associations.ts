@@ -1,3 +1,4 @@
+import type { CheckboxesProps } from '@fuf-stack/uniform/Checkboxes';
 import type { InputProps } from '@fuf-stack/uniform/Input';
 import type { RadioBoxesProps } from '@fuf-stack/uniform/RadioBoxes';
 import type { RadiosProps } from '@fuf-stack/uniform/Radios';
@@ -111,4 +112,15 @@ export const radioTabsProps: RadioTabsProps = {
   options: [{ value: false, content: 'No' }],
   variant: 'underlined',
   className: { tabContent: 'text-option' },
+};
+
+export const checkboxesProps: CheckboxesProps = {
+  name: 'choices',
+  color: 'info',
+  lineThrough: true,
+  description: 'Choose one.',
+  options: [{ value: 'first', labelSubline: 'First option', meta: { id: 1 } }],
+  className: { optionLabel: 'text-option', errorMessage: 'text-tiny' },
+  children: (items): OptionNode =>
+    items.map(({ checkbox }): OptionNode => checkbox),
 };
