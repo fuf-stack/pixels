@@ -498,3 +498,31 @@ Final `pnpm check` passed all six gates: 1,534 unit tests (one skipped), 472 bro
 stories and seven packed consumers. The unit-count change is exactly the nine
 obsolete third-party re-export tests; field/array behavior coverage remains.
 The packed Uniform independence guard passed against its actual tarball.
+
+## Input composition refactor (2026-10-15)
+
+Input is now split into a form-binding component and independent presentation.
+`Input.tsx` owns field registration, transforms, debounced edits, reset/clear and
+native-ref forwarding. Public props are declared in `Input.tsx` and remain
+exported from the same module/entry point. The existing dedicated
+`inputVariants.ts` remains the sole owner of the public and private recipes.
+
+Private components live in `Input/subcomponents/`. `InputControl` owns visual state and styling composition, `InputField`
+encapsulates the React Aria text/number engines and root selectors, `InputContent`
+contains the shared editable layout/addons, and `InputActions` contains clear and
+stepper controls. They receive values, associations and callbacks without
+registering fields or reading form context. Shared `FieldControlProps` and
+`FieldIds` types keep control associations consistent between field state and
+presentation. Prop declarations are documented, and binding/interaction blocks
+are separated with whitespace and purpose comments. No new public entry points
+are added.
+
+All 24 existing Input tests pass without snapshot updates, as do all 18 existing
+browser stories. Two added standalone tests verify that text editing, actual
+input refs, clearing, controlled value updates and number-stepper context work
+without a Uniform Form. This refactor intentionally changes no rendering, slots,
+API, value formats, validation timing, reset or focus behavior.
+
+Final `pnpm check` passed all six gates: 1,536 unit tests (one skipped), 472 browser
+stories and seven packed consumers. Input snapshots, styling recipes, package
+exports and peer/dependency ranges are unchanged.

@@ -84,6 +84,27 @@ associated with the actual textarea; consumer styling instances apply before
 merging its slot classes. Both field renderers keep RHF/Veto validation
 authoritative and use `aria-required` without competing native validation.
 
+## Input composition
+
+`Input.tsx` owns registration, value transforms, debounced edits, reset/clear
+behavior and the editable ref. It keeps its public prop definition alongside the component,
+exported through the existing Input entry point.
+
+Private components live in `Input/subcomponents/`. `InputControl` owns focus/hover styling and composes the label, editable
+content and help/errors. `InputField` selects the React Aria text/number engine
+and preserves its root state selectors. `InputContent` owns the shared editable
+layout and addons; `InputActions` contains clear and stepper controls. These
+components receive values, associations, refs and callbacks, and do not register
+fields or read form context. Public and private styling recipes remain in
+`inputVariants.ts`. The shared `FieldControlProps` and `FieldIds` types in
+`partials/FieldLayout/FieldLayout.types.ts` describe control associations for both
+field state and presentation. Private prop declarations include documentation;
+inherited props retain the documentation from `InputProps`.
+
+This is an internal restructuring: public props/exports/slots, rendered DOM,
+value formats, validation timing, focus and reset behavior remain unchanged.
+The private presentation can also be exercised without a Uniform Form.
+
 ## Owned Select integration
 
 `Select` keeps React Select as its interaction engine and now uses the shared

@@ -1,7 +1,5 @@
 import type { ReactNode } from 'react';
-import type useUniformFieldState from '../../hooks/useUniformFieldState/useUniformFieldState';
-
-type FieldState = ReturnType<typeof useUniformFieldState>;
+import type { FieldIds } from './FieldLayout.types';
 
 /** Local presentation only. Registration and error timing remain in the shared hook. */
 export const FieldLabel = ({
@@ -10,7 +8,7 @@ export const FieldLabel = ({
   required,
   className = undefined,
 }: {
-  ids: FieldState['ids'];
+  ids: FieldIds;
   label: ReactNode;
   required: boolean;
   className?: string;
@@ -42,7 +40,7 @@ export const FieldHints = ({
   errorMessage,
   classes,
 }: {
-  ids: FieldState['ids'];
+  ids: FieldIds;
   description?: ReactNode;
   invalid: boolean;
   errorMessage: ReactNode;

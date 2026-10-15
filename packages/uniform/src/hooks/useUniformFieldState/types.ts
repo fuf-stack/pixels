@@ -1,6 +1,9 @@
 import type { ReactNode } from 'react';
-import type React from 'react';
 import type { FieldError, FieldValues, Path } from 'react-hook-form';
+import type {
+  FieldControlProps,
+  FieldIds,
+} from '../../partials/FieldLayout/FieldLayout.types';
 import type { useController } from '../useController/useController';
 import type { useFormContext } from '../useFormContext/useFormContext';
 import type { InputValueTransform } from '../useInputValueTransform/useInputValueTransform';
@@ -50,22 +53,9 @@ export interface UniformFieldState<
   /** RHF controller field with transformed value/onChange (use this for simple components) */
   field: ReturnType<typeof useController<TFieldValues>>['field'];
   /** Owned association props for custom/migrated editable controls. RHF owns validation. */
-  getControlProps: () => Pick<
-    React.HTMLAttributes<HTMLElement>,
-    | 'id'
-    | 'aria-label'
-    | 'aria-labelledby'
-    | 'aria-describedby'
-    | 'aria-invalid'
-    | 'aria-required'
-  >;
+  getControlProps: () => FieldControlProps;
   /** Stable IDs for the control and its local label/help/error elements. */
-  ids: {
-    control: string;
-    label: string;
-    description: string;
-    error: string;
-  };
+  ids: FieldIds;
   /** Access current form values (converted to validation-friendly format) */
   getValues: ReturnType<typeof useFormContext<TFieldValues>>['getValues'];
   /** Whether the field should show invalid state (debounced for smooth animations). True when field is invalid AND (dirty OR touched OR submitted) */

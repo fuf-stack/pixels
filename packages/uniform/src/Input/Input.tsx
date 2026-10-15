@@ -3,22 +3,11 @@ import type { ReactNode } from 'react';
 import type { InputValueTransform } from '../hooks/useInputValueTransform';
 import type inputVariants from './inputVariants';
 
-import { useRef, useState } from 'react';
-import {
-  Input as AriaInput,
-  Button,
-  Group,
-  NumberField,
-  TextField,
-} from 'react-aria-components';
-import { useFocusRing } from 'react-aria/useFocusRing';
-
-import { useStyling } from '@fuf-stack/pixels/StylingProvider';
+import { useRef } from 'react';
 
 import { useInputValueDebounce } from '../hooks/useInputValueDebounce';
 import useUniformFieldState from '../hooks/useUniformFieldState/useUniformFieldState';
-import { FieldHints, FieldLabel } from '../partials/FieldLayout/FieldLayout';
-import { inputStateVariants } from './inputVariants';
+import InputControl from './subcomponents/InputControl';
 
 export { default as inputVariants } from './inputVariants';
 
@@ -60,25 +49,7 @@ export interface InputProps extends VariantProps {
   type?: 'number' | 'password';
 }
 
-const Chevron = ({ up = false }: { up?: boolean }) => {
-  return (
-    <svg
-      aria-hidden
-      fill="none"
-      height="1em"
-      stroke="currentColor"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth="1.5"
-      viewBox="0 0 24 24"
-      width="1em"
-    >
-      <path d={up ? 'm18 15-6-6-6 6' : 'm6 9 6 6 6-6'} />
-    </svg>
-  );
-};
-
-/** Form input with owned presentation and React Aria interactions. */
+/** Bind one Uniform field to the independent input presentation. */
 const Input = ({
   className = undefined,
   clearable = false,
@@ -92,8 +63,14 @@ const Input = ({
   placeholder = ' ',
   ...uniformProps
 }: InputProps) => {
+  // Use the placeholder as the accessible name when no visible label is provided.
+  const ariaLabel =
+    uniformProps.ariaLabel ??
+    (!uniformProps.label && placeholder.trim() ? placeholder : undefined);
+
+  // Register the field and resolve its label, hints and validation state.
   const {
-    field: { value: fieldValue, onChange: fieldOnChange, onBlur: fieldOnBlur },
+    field,
     disabled,
     invalid,
     required,
@@ -109,210 +86,64 @@ const Input = ({
     name,
     type,
     ...uniformProps,
-    ariaLabel:
-      uniformProps.ariaLabel ??
-      (!uniformProps.label && placeholder.trim() ? placeholder : undefined),
+    ariaLabel,
   });
-  const styling = useStyling();
+
+  // Keep the native input available for focus after clearing or wrapper clicks.
   const controlRef = useRef<HTMLInputElement>(null);
-  const {
-    focusProps,
-    isFocused: focused,
-    isFocusVisible,
-  } = useFocusRing({
-    within: true,
-    isTextInput: true,
-  });
-  const [hovered, setHovered] = useState(false);
+
+  // Update the displayed value immediately; debounce writes to form state.
   const { value, onChange, onBlur, cancelPendingChange } =
     useInputValueDebounce({
       name,
       debounceDelay,
-      value: fieldValue,
-      onChange: fieldOnChange,
-      onBlur: fieldOnBlur,
+      value: field.value,
+      onChange: field.onChange,
+      onBlur: field.onBlur,
     });
-  const classes = styling.variantsToClassNames(
-    styling.resolve(inputStateVariants, {
-      size,
-      disabled,
-      invalid,
-      number: type === 'number',
-      clearable,
-      filled: value !== '' && value != null,
-    }),
-    className,
-    'base',
-  );
-  const hasValue = value !== '' && value !== null && value !== undefined;
+
+  // Cancel queued edits before resetting, so they cannot restore the old value.
   const clear = () => {
     cancelPendingChange('');
     resetField(name, { defaultValue: null });
+
     onClear?.();
     controlRef.current?.focus();
   };
-  const controlProps = getControlProps();
-  const rootProps = {
-    ...controlProps,
-    name,
-    className: classes.base,
-    'data-slot': 'base',
-    'data-focus': focused || undefined,
-    'data-focus-visible': isFocusVisible || undefined,
-    'data-hover': hovered || undefined,
-    'data-filled': hasValue || !!placeholder || !!startContent || undefined,
-    'data-filled-within':
-      hasValue || focused || !!placeholder || !!startContent || undefined,
-    'data-focus-within': focused || undefined,
-    'data-required': required || undefined,
-    'data-has-label': !!label || undefined,
-    'data-has-helper': true,
-    'data-has-elements': true,
-    'data-has-value': hasValue || !placeholder || undefined,
-    'data-disabled': disabled ? true : undefined,
-    'data-invalid': invalid || undefined,
-    isDisabled: disabled,
-    isInvalid: invalid,
-    isRequired: required,
-    validationBehavior: 'aria' as const,
-    onBlur: () => {
-      onBlur();
-    },
-  };
-  const content = (
-    <>
-      <FieldLabel
-        className={classes.label}
-        ids={ids}
-        label={label}
-        required={required}
-      />
-      <Group
-        {...focusProps}
-        className={classes.inputWrapper}
-        data-focus={focused || undefined}
-        data-hover={hovered || undefined}
-        data-slot="input-wrapper"
-        onClick={(event) => {
-          if (!disabled && event.currentTarget === event.target) {
-            controlRef.current?.focus();
-          }
-        }}
-        onHoverEnd={() => {
-          setHovered(false);
-        }}
-        onHoverStart={() => {
-          setHovered(true);
-        }}
-      >
-        <div className={classes.innerWrapper} data-slot="inner-wrapper">
-          {startContent}
-          <AriaInput
-            ref={(node) => {
-              controlRef.current = node;
-              ref(node);
-            }}
-            {...controlProps}
-            autoComplete="off"
-            className={classes.input}
-            data-filled={hasValue || undefined}
-            data-has-end-content={
-              !!endContent || (clearable && hasValue) || undefined
-            }
-            data-has-start-content={!!startContent || undefined}
-            data-slot="input"
-            data-testid={testId}
-            onChange={type === 'number' ? onChange : undefined}
-            onKeyDown={(e) => {
-              if (e.key === 'Escape' && clearable && hasValue) {
-                e.preventDefault();
-                clear();
-              }
-            }}
-            placeholder={placeholder}
-          />
-          {clearable && hasValue ? (
-            <Button
-              aria-label="clear input"
-              className={classes.clearButton}
-              data-slot="clear-button"
-              isDisabled={disabled}
-              onPress={clear}
-              preventFocusOnPress
-              slot={null}
-            >
-              {type !== 'number' && endContent ? (
-                endContent
-              ) : (
-                <svg aria-hidden height="1em" viewBox="0 0 24 24" width="1em">
-                  <path
-                    d="M12 2a10 10 0 1010 10A10.016 10.016 0 0012 2zm3.36 12.3a.754.754 0 010 1.06.748.748 0 01-1.06 0l-2.3-2.3-2.3 2.3a.748.748 0 01-1.06 0 .754.754 0 010-1.06l2.3-2.3-2.3-2.3A.75.75 0 019.7 8.64l2.3 2.3 2.3-2.3a.75.75 0 011.06 1.06l-2.3 2.3z"
-                    fill="currentColor"
-                  />
-                </svg>
-              )}
-            </Button>
-          ) : null}
-          {!clearable || type === 'number' ? endContent : null}
-          {type === 'number' ? (
-            <div className={classes.stepper} data-slot="stepper-wrapper">
-              <Button
-                className={classes.stepperButton}
-                data-slot="increase-button"
-                slot="increment"
-                tabIndex={-1}
-              >
-                <Chevron up />
-              </Button>
-              <Button
-                className={classes.stepperButton}
-                data-slot="decrease-button"
-                slot="decrement"
-                tabIndex={-1}
-              >
-                <Chevron />
-              </Button>
-            </div>
-          ) : null}
-        </div>
-      </Group>
-      <FieldHints
-        classes={classes}
-        description={description}
-        errorMessage={errorMessage}
-        ids={ids}
-        invalid={invalid}
-      />
-    </>
-  );
-  if (type === 'number') {
-    const numericValue = value !== '' && value != null ? Number(value) : NaN;
-    return (
-      <NumberField
-        {...rootProps}
-        formatOptions={{ useGrouping: false }}
-        onChange={(next) => {
-          onChange({
-            target: { value: Number.isNaN(next) ? '' : String(next) },
-          });
-        }}
-        value={numericValue}
-      >
-        {content}
-      </NumberField>
-    );
-  }
+
   return (
-    <TextField
-      {...rootProps}
-      onChange={(next) => {
+    <InputControl
+      className={className}
+      clearable={clearable}
+      controlProps={getControlProps()}
+      description={description}
+      disabled={disabled}
+      endContent={endContent}
+      errorMessage={errorMessage}
+      ids={ids}
+      inputRef={(node) => {
+        controlRef.current = node;
+        ref(node);
+      }}
+      invalid={invalid}
+      label={label}
+      name={name}
+      onBlur={onBlur}
+      onClear={clear}
+      onFocusControl={() => {
+        controlRef.current?.focus();
+      }}
+      onValueChange={(next) => {
         onChange({ target: { value: next } });
       }}
-      type={type ?? 'text'}
-      value={String(value ?? '')}
-    >
-      {content}
-    </TextField>
+      placeholder={placeholder}
+      required={required}
+      size={size}
+      startContent={startContent}
+      testId={testId}
+      type={type}
+      value={value}
+    />
   );
 };
 
