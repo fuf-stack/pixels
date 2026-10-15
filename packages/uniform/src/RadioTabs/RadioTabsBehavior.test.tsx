@@ -9,11 +9,6 @@ import Form from '../Form';
 import { useFormContext } from '../hooks/useFormContext';
 import RadioTabs from './RadioTabs';
 
-vi.mock('../hooks/useInput/useInput', () => ({
-  useInput: () => {
-    throw new Error('Legacy presentation hook invoked');
-  },
-}));
 const options = [
   { label: 'Zero', value: 0, content: 'Zero panel' },
   { label: 'Disabled', value: 1, disabled: true },

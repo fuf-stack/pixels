@@ -2,7 +2,7 @@ import type { ReactNode } from 'react';
 
 import { useStyling } from '@fuf-stack/pixels/StylingProvider';
 
-import useUniformFieldState from '../../hooks/useUniformField/useUniformFieldState';
+import useUniformFieldState from '../../hooks/useUniformFieldState/useUniformFieldState';
 
 export interface FieldArrayLabelProps {
   /** CSS class name */

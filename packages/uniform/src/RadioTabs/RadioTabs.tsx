@@ -9,7 +9,7 @@ import { slugify } from '@fuf-stack/pixel-utils';
 import { useStyling } from '@fuf-stack/pixels/StylingProvider';
 
 import { createOptionValueConverter } from '../helpers';
-import useUniformFieldState from '../hooks/useUniformField/useUniformFieldState';
+import useUniformFieldState from '../hooks/useUniformFieldState/useUniformFieldState';
 import { FieldHints } from '../partials/FieldLayout/FieldLayout';
 import OwnedTabs, { radioTabsStateVariants } from './OwnedTabs';
 

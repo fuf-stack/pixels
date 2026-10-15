@@ -8,7 +8,7 @@ import { Checkbox, CheckboxGroup, Label } from 'react-aria-components';
 import { slugify, tv } from '@fuf-stack/pixel-utils';
 import { useStyling } from '@fuf-stack/pixels/StylingProvider';
 
-import useUniformFieldState from '../hooks/useUniformField/useUniformFieldState';
+import useUniformFieldState from '../hooks/useUniformFieldState/useUniformFieldState';
 import { FieldHints } from '../partials/FieldLayout/FieldLayout';
 
 const colorClasses = {

@@ -8,12 +8,6 @@ import Form from '../Form';
 import Input from '../Input';
 import FieldCard from './FieldCard';
 
-vi.mock('../hooks/useInput/useInput', () => ({
-  useInput: () => {
-    throw new Error('Legacy presentation hook invoked');
-  },
-}));
-
 describe('Owned field group presentation', () => {
   it('names card groups with their visible heading and preserves child registration', async () => {
     const submit = vi.fn();

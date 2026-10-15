@@ -7,7 +7,7 @@ import { tv } from '@fuf-stack/pixel-utils';
 import { useStyling } from '@fuf-stack/pixels/StylingProvider';
 
 import { flatArrayKey } from '../helpers';
-import useUniformFieldArrayState from '../hooks/useUniformFieldArray/useUniformFieldArrayState';
+import useUniformFieldArrayState from '../hooks/useUniformFieldArrayState/useUniformFieldArrayState';
 import ElementAppendButton from './subcomponents/ElementAppendButton';
 import FieldArrayElement from './subcomponents/FieldArrayElement';
 import FieldArrayLabel from './subcomponents/FieldArrayLabel';

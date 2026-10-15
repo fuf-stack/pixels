@@ -5,7 +5,7 @@ import {
 } from '@fuf-stack/pixel-motion';
 import { useStyling } from '@fuf-stack/pixels/StylingProvider';
 
-import useUniformFieldState from '../../hooks/useUniformField/useUniformFieldState';
+import useUniformFieldState from '../../hooks/useUniformFieldState/useUniformFieldState';
 import FieldValidationError from '../../partials/FieldValidationError/FieldValidationError';
 
 export interface FieldArrayValidationErrorProps {

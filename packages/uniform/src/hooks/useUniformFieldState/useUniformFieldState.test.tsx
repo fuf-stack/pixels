@@ -4,7 +4,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { render, renderHook, screen } from '@testing-library/react';
 
-import { useUniformField } from './useUniformField';
+import useUniformFieldState from './useUniformFieldState';
 
 // ------- Mocks -------
 interface MockGetFieldStateReturn {
@@ -69,12 +69,12 @@ vi.mock('../../partials/FieldValidationError', () => {
   };
 });
 
-describe('useUniformField', () => {
+describe('useUniformFieldState', () => {
   describe('owned control associations', () => {
     it('keeps IDs stable through rerenders and distinct for repeated field names', () => {
       const { result, rerender } = renderHook(() => [
-        useUniformField({ name: 'field', label: 'First' }),
-        useUniformField({ name: 'field', label: 'Second' }),
+        useUniformFieldState({ name: 'field', label: 'First' }),
+        useUniformFieldState({ name: 'field', label: 'Second' }),
       ]);
       const firstIds = result.current[0].ids;
       expect(firstIds.control).not.toBe(result.current[1].ids.control);
@@ -89,7 +89,7 @@ describe('useUniformField', () => {
         testId: 'field',
       }));
       const { result } = renderHook(() =>
-        useUniformField({
+        useUniformFieldState({
           name: 'field',
           label: 'Editor',
           description: 'Markdown supported',
@@ -123,7 +123,7 @@ describe('useUniformField', () => {
       };
       mockContext.getFieldState = vi.fn(() => state);
       const { result, rerender } = renderHook(() =>
-        useUniformField({
+        useUniformFieldState({
           name: 'field',
           description: 'Help',
         }),
@@ -141,12 +141,12 @@ describe('useUniformField', () => {
 
     it('keeps explicit aria-label precedence and the field-name fallback', () => {
       const { result } = renderHook(() => [
-        useUniformField({
+        useUniformFieldState({
           name: 'field',
           label: 'Visible',
           ariaLabel: 'Custom',
         }),
-        useUniformField({ name: 'field' }),
+        useUniformFieldState({ name: 'field' }),
       ]);
       expect(result.current[0].getControlProps()).toMatchObject({
         'aria-label': 'Custom',
@@ -201,7 +201,7 @@ describe('useUniformField', () => {
       mockContext.getFieldState = vi.fn(() => fieldState);
 
       const { result, rerender } = renderHook(() =>
-        useUniformField({ name: 'f' }),
+        useUniformFieldState({ name: 'f' }),
       );
 
       // Initially valid
@@ -242,7 +242,7 @@ describe('useUniformField', () => {
         mockContext.getFieldState = vi.fn(() => fieldState);
 
         const { result, rerender } = renderHook(() =>
-          useUniformField({ name: 'f' }),
+          useUniformFieldState({ name: 'f' }),
         );
 
         // Initially valid
@@ -287,7 +287,7 @@ describe('useUniformField', () => {
         mockContext.getFieldState = vi.fn(() => fieldState);
 
         const { result, rerender } = renderHook(() =>
-          useUniformField({ name: 'f' }),
+          useUniformFieldState({ name: 'f' }),
         );
 
         // Change to invalid
@@ -328,7 +328,7 @@ describe('useUniformField', () => {
 
   it('returns core field data and handlers', () => {
     const { result } = renderHook(() =>
-      useUniformField({ name: 'myField', testId: 'custom' }),
+      useUniformFieldState({ name: 'myField', testId: 'custom' }),
     );
 
     expect(result.current.testId).toBe('myField-tid');
@@ -343,7 +343,9 @@ describe('useUniformField', () => {
   it('provides defaultValue from form values', () => {
     mockContext.getValues = vi.fn(() => ({ myField: 'abc' }));
 
-    const { result } = renderHook(() => useUniformField({ name: 'myField' }));
+    const { result } = renderHook(() =>
+      useUniformFieldState({ name: 'myField' }),
+    );
     expect(result.current.defaultValue).toBe('abc');
   });
 
@@ -356,7 +358,9 @@ describe('useUniformField', () => {
       testId: `${name}-tid`,
     }));
 
-    const { result } = renderHook(() => useUniformField({ name: 'field' }));
+    const { result } = renderHook(() =>
+      useUniformFieldState({ name: 'field' }),
+    );
     expect(result.current.errorMessage).not.toBeNull();
   });
 
@@ -380,7 +384,9 @@ describe('useUniformField', () => {
       testId: `${name}-tid`,
     }));
 
-    const { result } = renderHook(() => useUniformField({ name: 'field' }));
+    const { result } = renderHook(() =>
+      useUniformFieldState({ name: 'field' }),
+    );
     expect(result.current.error).toEqual({
       0: [indexedError],
       _errors: [arrayLevelError],
@@ -408,7 +414,7 @@ describe('useUniformField', () => {
     }));
 
     const { result } = renderHook(() =>
-      useUniformField({ isArrayValue: true, name: 'field' }),
+      useUniformFieldState({ isArrayValue: true, name: 'field' }),
     );
     expect(result.current.error).toEqual([indexedError, arrayLevelError]);
   });
@@ -424,7 +430,7 @@ describe('useUniformField', () => {
       testId: 'f-tid',
     }));
 
-    const { result } = renderHook(() => useUniformField({ name: 'f' }));
+    const { result } = renderHook(() => useUniformFieldState({ name: 'f' }));
 
     // Should return the invalid state (debounced or not, behavior is tested in snapshots)
     expect(typeof result.current.invalid).toBe('boolean');
@@ -432,14 +438,14 @@ describe('useUniformField', () => {
 
   it('computes label with provided label only', () => {
     const { result } = renderHook(() =>
-      useUniformField({ name: 'f', label: 'Label' }),
+      useUniformFieldState({ name: 'f', label: 'Label' }),
     );
     expect(result.current.label).not.toBeNull();
   });
 
   it('computes label with copy button in debug-testids mode', () => {
     mockContext.debugMode = 'debug-testids';
-    const { result } = renderHook(() => useUniformField({ name: 'f' }));
+    const { result } = renderHook(() => useUniformFieldState({ name: 'f' }));
     expect(result.current.label).not.toBeNull();
 
     // Render the label node to assert the mocked copy button
@@ -448,40 +454,45 @@ describe('useUniformField', () => {
   });
 
   it('omits label when not provided and not in debug mode', () => {
-    const { result } = renderHook(() => useUniformField({ name: 'f' }));
+    const { result } = renderHook(() => useUniformFieldState({ name: 'f' }));
     expect(result.current.label).toBeNull();
   });
 
   describe('ariaLabel behavior', () => {
     it('uses custom ariaLabel when provided', () => {
       const { result } = renderHook(() =>
-        useUniformField({ name: 'myField', ariaLabel: 'Custom Label' }),
+        useUniformFieldState({ name: 'myField', ariaLabel: 'Custom Label' }),
       );
       expect(result.current.ariaLabel).toBe('Custom Label');
     });
 
     it('falls back to field name when no label exists', () => {
-      const { result } = renderHook(() => useUniformField({ name: 'myField' }));
+      const { result } = renderHook(() =>
+        useUniformFieldState({ name: 'myField' }),
+      );
       expect(result.current.ariaLabel).toBe('myField');
     });
 
     it('uses label text when label is a string', () => {
       const { result } = renderHook(() =>
-        useUniformField({ name: 'myField', label: 'Visible Label' }),
+        useUniformFieldState({ name: 'myField', label: 'Visible Label' }),
       );
       expect(result.current.ariaLabel).toBe('Visible Label');
     });
 
     it('falls back to name when label is a React component', () => {
       const { result } = renderHook(() =>
-        useUniformField({ name: 'myField', label: <span>Component</span> }),
+        useUniformFieldState({
+          name: 'myField',
+          label: <span>Component</span>,
+        }),
       );
       expect(result.current.ariaLabel).toBe('myField');
     });
 
     it('prefers custom ariaLabel over label text', () => {
       const { result } = renderHook(() =>
-        useUniformField({
+        useUniformFieldState({
           name: 'myField',
           label: 'Visible Label',
           ariaLabel: 'Override Label',
@@ -492,21 +503,21 @@ describe('useUniformField', () => {
 
     it('falls back to name when label is false', () => {
       const { result } = renderHook(() =>
-        useUniformField({ name: 'myField', label: false }),
+        useUniformFieldState({ name: 'myField', label: false }),
       );
       expect(result.current.ariaLabel).toBe('myField');
     });
 
     it('falls back to name when label is null', () => {
       const { result } = renderHook(() =>
-        useUniformField({ name: 'myField', label: null }),
+        useUniformFieldState({ name: 'myField', label: null }),
       );
       expect(result.current.ariaLabel).toBe('myField');
     });
 
     it('falls back to name when label is a number', () => {
       const { result } = renderHook(() =>
-        useUniformField({ name: 'myField', label: 123 }),
+        useUniformFieldState({ name: 'myField', label: 123 }),
       );
       expect(result.current.ariaLabel).toBe('myField');
     });
@@ -525,7 +536,7 @@ describe('useUniformField', () => {
       // Field value is empty (null)
       mockField = { ...mockField, value: null };
 
-      const { result } = renderHook(() => useUniformField({ name: 'f' }));
+      const { result } = renderHook(() => useUniformFieldState({ name: 'f' }));
 
       // Field has errors but empty, not touched, and no submit attempt -> should not show
       expect(result.current.invalid).toBe(false);
@@ -545,7 +556,7 @@ describe('useUniformField', () => {
       // Field has an initial value, but the user has not changed it.
       mockField = { ...mockField, value: 'ab' };
 
-      const { result } = renderHook(() => useUniformField({ name: 'f' }));
+      const { result } = renderHook(() => useUniformFieldState({ name: 'f' }));
 
       // Invalid initial values stay quiet until the user edits, blurs, or submits.
       expect(result.current.invalid).toBe(false);
@@ -565,7 +576,7 @@ describe('useUniformField', () => {
       // Field has a user-entered value.
       mockField = { ...mockField, value: 'ab' };
 
-      const { result } = renderHook(() => useUniformField({ name: 'f' }));
+      const { result } = renderHook(() => useUniformFieldState({ name: 'f' }));
 
       // Dirty field with value -> should show error (format errors while typing)
       expect(result.current.invalid).toBe(true);
@@ -584,7 +595,7 @@ describe('useUniformField', () => {
       // Field value is empty
       mockField = { ...mockField, value: '' };
 
-      const { result } = renderHook(() => useUniformField({ name: 'f' }));
+      const { result } = renderHook(() => useUniformFieldState({ name: 'f' }));
 
       // Field is invalid and touched -> should show error
       expect(result.current.invalid).toBe(true);
@@ -603,7 +614,7 @@ describe('useUniformField', () => {
       // Field value is empty
       mockField = { ...mockField, value: null };
 
-      const { result } = renderHook(() => useUniformField({ name: 'f' }));
+      const { result } = renderHook(() => useUniformFieldState({ name: 'f' }));
 
       // Empty, not touched, but form submitted -> should show errors
       expect(result.current.invalid).toBe(true);
@@ -622,7 +633,7 @@ describe('useUniformField', () => {
       // Field value is empty
       mockField = { ...mockField, value: '' };
 
-      const { result } = renderHook(() => useUniformField({ name: 'f' }));
+      const { result } = renderHook(() => useUniformFieldState({ name: 'f' }));
 
       // Field is invalid but empty/not touched/not submitted -> should NOT show error
       expect(result.current.invalid).toBe(false);
@@ -639,7 +650,7 @@ describe('useUniformField', () => {
       }));
       mockFormState.submitCount = 0;
 
-      const { result } = renderHook(() => useUniformField({ name: 'f' }));
+      const { result } = renderHook(() => useUniformFieldState({ name: 'f' }));
 
       // Valid field -> should not show invalid
       expect(result.current.invalid).toBe(false);
@@ -662,7 +673,7 @@ describe('useUniformField', () => {
         value: { __FLAT__: null },
       };
 
-      const { result } = renderHook(() => useUniformField({ name: 'f' }));
+      const { result } = renderHook(() => useUniformFieldState({ name: 'f' }));
 
       // Flat wrapper with empty value, not touched, not submitted -> should NOT show error
       expect(result.current.invalid).toBe(false);
@@ -684,7 +695,7 @@ describe('useUniformField', () => {
         value: { __FLAT__: 'ab' },
       };
 
-      const { result } = renderHook(() => useUniformField({ name: 'f' }));
+      const { result } = renderHook(() => useUniformFieldState({ name: 'f' }));
 
       // Invalid initial flat values stay quiet until user interaction.
       expect(result.current.invalid).toBe(false);
@@ -706,7 +717,7 @@ describe('useUniformField', () => {
         value: { __FLAT__: 'ab' },
       };
 
-      const { result } = renderHook(() => useUniformField({ name: 'f' }));
+      const { result } = renderHook(() => useUniformFieldState({ name: 'f' }));
 
       // Dirty flat wrapper with value -> should show error.
       expect(result.current.invalid).toBe(true);
@@ -724,7 +735,7 @@ describe('useUniformField', () => {
       // Field value is empty array
       mockField = { ...mockField, value: [] };
 
-      const { result } = renderHook(() => useUniformField({ name: 'f' }));
+      const { result } = renderHook(() => useUniformFieldState({ name: 'f' }));
 
       // Empty array, not touched, not submitted -> should NOT show error
       expect(result.current.invalid).toBe(false);
@@ -745,7 +756,7 @@ describe('useUniformField', () => {
         value: { a: null, b: '' },
       };
 
-      const { result } = renderHook(() => useUniformField({ name: 'f' }));
+      const { result } = renderHook(() => useUniformFieldState({ name: 'f' }));
 
       // Object with all empty values, not touched, not submitted -> should NOT show error
       expect(result.current.invalid).toBe(false);

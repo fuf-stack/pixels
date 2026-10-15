@@ -9,15 +9,6 @@ import Form from '../Form';
 import { useFormContext } from '../hooks/useFormContext';
 import TextArea from './TextArea';
 
-vi.mock('@heroui/input', () => ({
-  Textarea: () => {
-    throw new Error('Legacy textarea rendered');
-  },
-  useInput: () => {
-    throw new Error('Legacy presentation hook invoked');
-  },
-}));
-
 const Reset = () => {
   const { reset } = useFormContext();
   return (

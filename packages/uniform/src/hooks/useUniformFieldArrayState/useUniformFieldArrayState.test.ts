@@ -2,7 +2,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { act, renderHook } from '@testing-library/react';
 
-import { useUniformFieldArray } from './useUniformFieldArray';
+import useUniformFieldArrayState from './useUniformFieldArrayState';
 
 // Mock dependencies
 const mockTrigger = vi.fn();
@@ -44,8 +44,8 @@ vi.mock('../useFormContext/useFormContext', () => ({
   })),
 }));
 
-vi.mock('../useUniformField/useUniformField', () => ({
-  useUniformField: vi.fn((params) => ({
+vi.mock('../useUniformFieldState/useUniformFieldState', () => ({
+  default: vi.fn((params) => ({
     control: { _formControl: true },
     error: undefined,
     getValues: vi.fn(),
@@ -61,7 +61,7 @@ vi.mock('@fuf-stack/pixel-motion', () => ({
   useReducedMotion: vi.fn(() => mockPrefersReducedMotion),
 }));
 
-describe('useUniformFieldArray', () => {
+describe('useUniformFieldArrayState', () => {
   beforeEach(() => {
     vi.clearAllMocks();
     vi.useFakeTimers();
@@ -83,7 +83,7 @@ describe('useUniformFieldArray', () => {
   describe('Basic functionality', () => {
     it('should return all required field array methods and state', () => {
       const { result } = renderHook(() =>
-        useUniformFieldArray({
+        useUniformFieldArrayState({
           name: 'testArray',
         }),
       );
@@ -99,7 +99,7 @@ describe('useUniformFieldArray', () => {
 
     it('should return uniform field state', () => {
       const { result } = renderHook(() =>
-        useUniformFieldArray({
+        useUniformFieldArrayState({
           name: 'testArray',
         }),
       );
@@ -115,7 +115,7 @@ describe('useUniformFieldArray', () => {
   describe('Animation control', () => {
     it('should start with animations disabled when initialization is needed', () => {
       const { result } = renderHook(() =>
-        useUniformFieldArray({
+        useUniformFieldArrayState({
           name: 'testArray',
           lastElementNotRemovable: true,
         }),
@@ -126,7 +126,7 @@ describe('useUniformFieldArray', () => {
 
     it('should enable animations after initialization when motion is not reduced', async () => {
       const { result } = renderHook(() =>
-        useUniformFieldArray({
+        useUniformFieldArrayState({
           name: 'testArray',
           lastElementNotRemovable: true,
         }),
@@ -148,7 +148,7 @@ describe('useUniformFieldArray', () => {
       mockPrefersReducedMotion = true;
 
       const { result } = renderHook(() =>
-        useUniformFieldArray({
+        useUniformFieldArrayState({
           name: 'testArray',
           lastElementNotRemovable: true,
         }),
@@ -167,7 +167,7 @@ describe('useUniformFieldArray', () => {
 
     it('should update animation state when motion preference changes after initialization', async () => {
       const { result, rerender } = renderHook(() =>
-        useUniformFieldArray({
+        useUniformFieldArrayState({
           name: 'testArray',
           lastElementNotRemovable: true,
         }),
@@ -197,7 +197,7 @@ describe('useUniformFieldArray', () => {
       mockFields = [];
 
       renderHook(() =>
-        useUniformFieldArray({
+        useUniformFieldArrayState({
           name: 'testArray',
           lastElementNotRemovable: true,
         }),
@@ -213,7 +213,7 @@ describe('useUniformFieldArray', () => {
       mockFields = [{ id: '1', value: 'existing' }];
 
       renderHook(() =>
-        useUniformFieldArray({
+        useUniformFieldArrayState({
           name: 'testArray',
           lastElementNotRemovable: true,
         }),
@@ -226,7 +226,7 @@ describe('useUniformFieldArray', () => {
       mockFields = [];
 
       renderHook(() =>
-        useUniformFieldArray({
+        useUniformFieldArrayState({
           name: 'testArray',
           lastElementNotRemovable: false,
         }),
@@ -239,7 +239,7 @@ describe('useUniformFieldArray', () => {
       mockFields = [];
 
       renderHook(() =>
-        useUniformFieldArray({
+        useUniformFieldArrayState({
           name: 'testArray',
           lastElementNotRemovable: true,
           elementInitialValue: { customField: 'value' },
@@ -260,7 +260,7 @@ describe('useUniformFieldArray', () => {
   describe('Flat array support', () => {
     it('should prepare elementInitialValue with flatArrayKey for flat arrays', () => {
       const { result } = renderHook(() =>
-        useUniformFieldArray({
+        useUniformFieldArrayState({
           name: 'testArray',
           flat: true,
           elementInitialValue: 'test value',
@@ -274,7 +274,7 @@ describe('useUniformFieldArray', () => {
 
     it('should prepare elementInitialValue without flatArrayKey for object arrays', () => {
       const { result } = renderHook(() =>
-        useUniformFieldArray({
+        useUniformFieldArrayState({
           name: 'testArray',
           flat: false,
           elementInitialValue: { name: 'test' },
@@ -286,7 +286,7 @@ describe('useUniformFieldArray', () => {
 
     it('should use null as default for flat arrays', () => {
       const { result } = renderHook(() =>
-        useUniformFieldArray({
+        useUniformFieldArrayState({
           name: 'testArray',
           flat: true,
         }),
@@ -299,7 +299,7 @@ describe('useUniformFieldArray', () => {
 
     it('should use empty object as default for object arrays', () => {
       const { result } = renderHook(() =>
-        useUniformFieldArray({
+        useUniformFieldArrayState({
           name: 'testArray',
           flat: false,
         }),
@@ -314,7 +314,7 @@ describe('useUniformFieldArray', () => {
       mockFields = [];
 
       renderHook(() =>
-        useUniformFieldArray({
+        useUniformFieldArrayState({
           name: 'testArray',
           lastElementNotRemovable: true,
         }),
@@ -336,7 +336,7 @@ describe('useUniformFieldArray', () => {
       mockFields = [{ id: '1' }];
 
       const { rerender } = renderHook(() =>
-        useUniformFieldArray({
+        useUniformFieldArrayState({
           name: 'testArray',
         }),
       );
@@ -362,7 +362,7 @@ describe('useUniformFieldArray', () => {
       mockFields = [];
 
       const { rerender } = renderHook(() =>
-        useUniformFieldArray({
+        useUniformFieldArrayState({
           name: 'testArray',
           lastElementNotRemovable: true,
         }),
@@ -398,7 +398,7 @@ describe('useUniformFieldArray', () => {
       mockCurrentArrayValue = [null, null];
 
       renderHook(() =>
-        useUniformFieldArray({
+        useUniformFieldArrayState({
           name: 'testArray',
           flat: true,
           lastElementNotRemovable: true,
@@ -419,7 +419,7 @@ describe('useUniformFieldArray', () => {
       mockCurrentArrayValue = undefined;
 
       renderHook(() =>
-        useUniformFieldArray({
+        useUniformFieldArrayState({
           name: 'testArray',
           flat: true,
           lastElementNotRemovable: true,
@@ -436,7 +436,7 @@ describe('useUniformFieldArray', () => {
       mockCurrentArrayValue = [null, null];
 
       const { result } = renderHook(() =>
-        useUniformFieldArray({
+        useUniformFieldArrayState({
           name: 'testArray',
           flat: true,
           lastElementNotRemovable: true,
@@ -462,7 +462,7 @@ describe('useUniformFieldArray', () => {
       mockCurrentArrayValue = [null, null];
 
       const { rerender } = renderHook(() =>
-        useUniformFieldArray({
+        useUniformFieldArrayState({
           name: 'testArray',
           flat: true,
           lastElementNotRemovable: true,
@@ -480,7 +480,7 @@ describe('useUniformFieldArray', () => {
       mockCurrentArrayValue = [null];
 
       renderHook(() =>
-        useUniformFieldArray({
+        useUniformFieldArrayState({
           name: 'testArray',
           flat: true,
           lastElementNotRemovable: true,
@@ -497,7 +497,7 @@ describe('useUniformFieldArray', () => {
       mockCurrentArrayValue = [{ name: 'a' }, { name: 'b' }];
 
       renderHook(() =>
-        useUniformFieldArray({
+        useUniformFieldArrayState({
           name: 'testArray',
           lastElementNotRemovable: true,
         }),
@@ -513,7 +513,7 @@ describe('useUniformFieldArray', () => {
       mockCurrentArrayValue = [null, null];
 
       renderHook(() =>
-        useUniformFieldArray({
+        useUniformFieldArrayState({
           name: 'testArray',
           flat: true,
           lastElementNotRemovable: false,
@@ -530,7 +530,7 @@ describe('useUniformFieldArray', () => {
       mockCurrentArrayValue = undefined;
 
       renderHook(() =>
-        useUniformFieldArray({
+        useUniformFieldArrayState({
           name: 'testArray',
           flat: true,
           lastElementNotRemovable: false,
@@ -547,7 +547,7 @@ describe('useUniformFieldArray', () => {
       mockCurrentArrayValue = [];
 
       renderHook(() =>
-        useUniformFieldArray({
+        useUniformFieldArrayState({
           name: 'testArray',
           flat: true,
           lastElementNotRemovable: false,
@@ -565,7 +565,7 @@ describe('useUniformFieldArray', () => {
       mockFields = [];
 
       const { rerender } = renderHook(() =>
-        useUniformFieldArray({
+        useUniformFieldArrayState({
           name: 'testArray',
           lastElementNotRemovable: true,
         }),
@@ -606,7 +606,7 @@ describe('useUniformFieldArray', () => {
       mockFields = [];
 
       const { rerender } = renderHook(() =>
-        useUniformFieldArray({
+        useUniformFieldArrayState({
           name: 'testArray',
           lastElementNotRemovable: true,
         }),
@@ -650,7 +650,7 @@ describe('useUniformFieldArray', () => {
       mockFields = [];
       const { rerender } = renderHook(
         ({ lastElementNotRemovable }) =>
-          useUniformFieldArray({
+          useUniformFieldArrayState({
             name: 'testArray',
             lastElementNotRemovable,
           }),
@@ -693,7 +693,7 @@ describe('useUniformFieldArray', () => {
       mockFields = [];
 
       const { result, rerender } = renderHook(() =>
-        useUniformFieldArray({
+        useUniformFieldArrayState({
           name: 'testArray',
           lastElementNotRemovable: true,
         }),
@@ -737,7 +737,7 @@ describe('useUniformFieldArray', () => {
       mockFields = [];
 
       const { rerender } = renderHook(() =>
-        useUniformFieldArray({
+        useUniformFieldArrayState({
           name: 'testArray',
           lastElementNotRemovable: true,
         }),
@@ -798,7 +798,7 @@ describe('useUniformFieldArray', () => {
       mockFields = [{ id: '1' }];
 
       const { rerender } = renderHook(() =>
-        useUniformFieldArray({
+        useUniformFieldArrayState({
           name: 'testArray',
           lastElementNotRemovable: false,
         }),
@@ -826,10 +826,10 @@ describe('useUniformFieldArray', () => {
     });
   });
 
-  describe('Integration with useUniformField', () => {
+  describe('Integration with private field state', () => {
     it('should pass through label prop', () => {
       const { result } = renderHook(() =>
-        useUniformFieldArray({
+        useUniformFieldArrayState({
           name: 'testArray',
           label: 'Test Label',
         }),
@@ -840,7 +840,7 @@ describe('useUniformFieldArray', () => {
 
     it('should pass through disabled prop', () => {
       const { result } = renderHook(() =>
-        useUniformFieldArray({
+        useUniformFieldArrayState({
           name: 'testArray',
           disabled: true,
         }),
@@ -851,7 +851,7 @@ describe('useUniformFieldArray', () => {
 
     it('should pass through testId prop', () => {
       const { result } = renderHook(() =>
-        useUniformFieldArray({
+        useUniformFieldArrayState({
           name: 'testArray',
           testId: 'custom-test-id',
         }),
@@ -865,7 +865,7 @@ describe('useUniformFieldArray', () => {
     it('should memoize elementInitialValue to avoid unnecessary recalculations', () => {
       const { result, rerender } = renderHook(
         ({ initialValue }) =>
-          useUniformFieldArray({
+          useUniformFieldArrayState({
             name: 'testArray',
             flat: true,
             elementInitialValue: initialValue,
@@ -887,7 +887,7 @@ describe('useUniformFieldArray', () => {
     it('should update elementInitialValue when dependencies change', () => {
       const { result, rerender } = renderHook(
         ({ initialValue }) =>
-          useUniformFieldArray({
+          useUniformFieldArrayState({
             name: 'testArray',
             flat: true,
             elementInitialValue: initialValue,

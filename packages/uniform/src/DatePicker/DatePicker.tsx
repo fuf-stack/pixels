@@ -27,7 +27,7 @@ import {
 import { tv } from '@fuf-stack/pixel-utils';
 import { useStyling } from '@fuf-stack/pixels/StylingProvider';
 
-import useUniformFieldState from '../hooks/useUniformField/useUniformFieldState';
+import useUniformFieldState from '../hooks/useUniformFieldState/useUniformFieldState';
 import { useWatchFormReset } from '../hooks/useWatchFormReset';
 import { FieldHints } from '../partials/FieldLayout/FieldLayout';
 import segmentedFieldSlots from '../partials/SegmentedField/segmentedFieldSlots';

@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import type useUniformFieldState from '../../hooks/useUniformField/useUniformFieldState';
+import type useUniformFieldState from '../../hooks/useUniformFieldState/useUniformFieldState';
 
 type FieldState = ReturnType<typeof useUniformFieldState>;
 

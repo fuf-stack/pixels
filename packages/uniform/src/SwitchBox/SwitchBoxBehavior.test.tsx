@@ -9,12 +9,6 @@ import Form from '../Form';
 import { useFormContext } from '../hooks/useFormContext';
 import SwitchBox from './SwitchBox';
 
-vi.mock('../hooks/useInput/useInput', () => ({
-  useInput: () => {
-    throw new Error('Legacy presentation hook invoked');
-  },
-}));
-
 const Reset = () => {
   const { reset } = useFormContext();
   return (

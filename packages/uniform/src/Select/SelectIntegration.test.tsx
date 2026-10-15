@@ -8,11 +8,6 @@ import { array, number, veto } from '@fuf-stack/veto';
 import Form from '../Form';
 import Select from './Select';
 
-vi.mock('../hooks/useInput/useInput', () => ({
-  useInput: () => {
-    throw new Error('Legacy presentation hook invoked');
-  },
-}));
 
 const options = [
   { value: 0, label: 'Zero' },

@@ -11,7 +11,8 @@ import type { SwitchBoxProps } from '@fuf-stack/uniform/SwitchBox';
 import type { TextAreaProps } from '@fuf-stack/uniform/TextArea';
 import type { TimeProps } from '@fuf-stack/uniform/Time';
 
-import { useUniformField } from '@fuf-stack/uniform/hooks/useUniformField';
+import { useController } from '@fuf-stack/uniform/hooks/useController';
+import { useFormContext } from '@fuf-stack/uniform/hooks/useFormContext';
 
 type OptionNode = ReturnType<NonNullable<RadiosProps['children']>>;
 
@@ -87,17 +88,14 @@ export const switchProps: SwitchProps = {
 export const switchBoxProps: SwitchBoxProps = { ...switchProps, icon: null };
 
 export default function useEditorField() {
-  const field = useUniformField<{ editor: string }>({
+  const { control } = useFormContext<{ editor: string }>();
+  const { field } = useController<{ editor: string }>({
+    control,
     name: 'editor',
-    label: 'Editor',
-    description: 'Markdown supported',
   });
-  const id: string = field.ids.control;
-  const ariaRequired: boolean | 'true' | 'false' | undefined =
-    field.getControlProps()['aria-required'];
-  // @ts-expect-error field-name inference must remain constrained
-  useUniformField<{ editor: string }>({ name: 'missing' });
-  return { id, ariaRequired };
+  // @ts-expect-error Field-name inference remains constrained on the supported low-level API.
+  useController<{ editor: string }>({ control, name: 'missing' });
+  return field;
 }
 
 export const radiosProps: RadiosProps = {

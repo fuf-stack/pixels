@@ -9,12 +9,6 @@ import Form from '../Form';
 import { useFormContext } from '../hooks/useFormContext';
 import DatePicker from './DatePicker';
 
-vi.mock('../hooks/useInput/useInput', () => ({
-  useInput: () => {
-    throw new Error('Legacy presentation hook invoked');
-  },
-}));
-
 const Reset = ({ empty = false }: { empty?: boolean }) => {
   const { reset } = useFormContext();
   return (

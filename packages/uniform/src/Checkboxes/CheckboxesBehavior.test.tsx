@@ -9,11 +9,6 @@ import Form from '../Form';
 import { useFormContext } from '../hooks/useFormContext';
 import Checkboxes from './Checkboxes';
 
-vi.mock('../hooks/useInput/useInput', () => ({
-  useInput: () => {
-    throw new Error('Legacy presentation hook invoked');
-  },
-}));
 const options = [
   { label: 'First', value: 'first', meta: { order: 1 } },
   { label: 'Disabled', value: 'disabled', disabled: true },

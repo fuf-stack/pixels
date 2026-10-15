@@ -42,7 +42,7 @@ export interface UseInputValueDebounceReturn<TValue = unknown> {
  * - **Immediate value updates**: UI stays responsive during debouncing
  * - **Blur flushing**: Immediately applies pending changes on blur
  *
- * **Note:** Value transformations should be handled at the `useUniformField` level,
+ * **Note:** Value transformations should be handled at the private field-state level,
  * not in this hook. This hook only handles debouncing timing.
  *
  * @param options Configuration for debounced value handling

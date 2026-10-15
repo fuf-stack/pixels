@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 import type { ArrayPath, FieldValues, Path } from 'react-hook-form';
-import type { UseUniformFieldReturn } from '../useUniformField';
+import type { UniformFieldState } from '../useUniformFieldState/types';
 
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { useFieldArray as useRHFFieldArray } from 'react-hook-form';
@@ -9,7 +9,7 @@ import { useReducedMotion } from '@fuf-stack/pixel-motion';
 
 import { flatArrayKey, isValueEmpty } from '../../helpers';
 import { useFormContext } from '../useFormContext';
-import useUniformFieldState from '../useUniformField/useUniformFieldState';
+import useUniformFieldState from '../useUniformFieldState/useUniformFieldState';
 import { useWatchFormReset } from '../useWatchFormReset';
 
 export interface UseUniformFieldArrayProps<
@@ -54,10 +54,7 @@ export const useUniformFieldArrayMethods = <
     elementInitialValue: _elementInitialValue = null,
     lastElementNotRemovable = false,
   }: UseUniformFieldArrayProps<TFieldValues>,
-  uniformField: Omit<
-    UseUniformFieldReturn<TFieldValues>,
-    'getLabelProps' | 'getHelperWrapperProps' | 'getErrorMessageProps'
-  >,
+  uniformField: UniformFieldState<TFieldValues>,
 ) => {
   const { control } = uniformField;
 

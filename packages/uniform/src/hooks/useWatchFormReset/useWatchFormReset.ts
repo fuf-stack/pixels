@@ -10,7 +10,7 @@ export interface UseWatchFormResetOptions {
    * is emitted by the wrapped `reset()` method in `useFormContext`.
    *
    * Current primary use case:
-   * - `useUniformFieldArray` listens for reset events to normalize stale
+   * - `useUniformFieldArrayState` listens for reset events to normalize stale
    *   placeholder rows left by RHF after reset when array defaults are missing.
    */
   onReset: () => void;
@@ -29,7 +29,7 @@ export interface UseWatchFormResetOptions {
  *   reset-only logic safely.
  *
  * Current usage:
- * - `useUniformFieldArray` uses this hook to handle resets when no default
+ * - `useUniformFieldArrayState` uses this hook to handle resets when no default
  *   array value was provided. In that case, RHF can leave stale empty
  *   placeholder rows. It normalizes only on reset and does not collapse rows
  *   during normal editing.

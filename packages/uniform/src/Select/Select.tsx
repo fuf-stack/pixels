@@ -11,7 +11,7 @@ import { useStyling } from '@fuf-stack/pixels/StylingProvider';
 
 import { createOptionValueConverter, isValueEmpty } from '../helpers';
 import { useFormContext } from '../hooks/useFormContext';
-import useUniformFieldState from '../hooks/useUniformField/useUniformFieldState';
+import useUniformFieldState from '../hooks/useUniformFieldState/useUniformFieldState';
 import { FieldHints, FieldLabel } from '../partials/FieldLayout/FieldLayout';
 import {
   ClearIndicatorComponent,

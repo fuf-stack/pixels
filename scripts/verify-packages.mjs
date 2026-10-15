@@ -157,6 +157,58 @@ function inspectTarball({ manifest }, tarball) {
     run('tar', ['-xOf', tarball, 'package/package.json'], root).stdout,
   );
 
+  if (manifest.name === '@fuf-stack/uniform') {
+    const heroDependencies = [
+      'dependencies',
+      'peerDependencies',
+      'optionalDependencies',
+      'devDependencies',
+    ]
+      .flatMap((section) => {
+        return Object.keys(packedManifest[section] ?? {});
+      })
+      .filter((name) => {
+        return name.startsWith('@heroui/');
+      });
+    if (heroDependencies.length) {
+      throw new Error(
+        `Uniform must not declare HeroUI dependencies: ${heroDependencies.join(', ')}`,
+      );
+    }
+    const removedHooks = [
+      './hooks/useInput',
+      './hooks/useUniformField',
+      './hooks/useUniformFieldArray',
+      './hooks/useUniformFieldState',
+      './hooks/useUniformFieldArrayState',
+    ];
+    if (
+      removedHooks.some((subpath) => {
+        return subpath in packedManifest.exports;
+      })
+    ) {
+      throw new Error(
+        'Uniform must not export removed legacy hooks or private field state.',
+      );
+    }
+    const publishedCode = entries.filter((entry) => {
+      return /\.(?:mjs|d\.mts)$/.test(entry);
+    });
+    const content = run(
+      'tar',
+      ['-xOf', tarball, ...publishedCode],
+      root,
+    ).stdout;
+    if (content.includes('@heroui/')) {
+      throw new Error(
+        'Uniform runtime and declaration files must not reference HeroUI.',
+      );
+    }
+    console.log(
+      'Verified Uniform has no direct HeroUI dependencies, runtime/type references or legacy hook exports.',
+    );
+  }
+
   if (/workspace:/.test(JSON.stringify(packedManifest))) {
     throw new Error(
       `${manifest.name}: tarball still contains a workspace: range`,
@@ -353,6 +405,8 @@ function run(command, args, cwd, extraEnvironment = {}) {
   const result = spawnSync(command, args, {
     cwd,
     encoding: 'utf8',
+    // Packed runtime/declaration inspection can exceed the default 1 MiB.
+    maxBuffer: 16 * 1024 * 1024,
     env: { ...process.env, ...extraEnvironment },
     stdio: ['ignore', 'pipe', 'pipe'],
   });

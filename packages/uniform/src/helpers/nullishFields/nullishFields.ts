@@ -13,7 +13,7 @@ const zeroString = '__ZERO__';
 /**
  * Checks if a value is considered "empty" for validation display purposes.
  *
- * Used by useUniformField to determine when to show validation errors.
+ * Used by private field state to determine when to show validation errors.
  * Empty values don't trigger immediate error display (user must interact first).
  *
  * Handles:

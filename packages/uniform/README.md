@@ -1,54 +1,42 @@
 # uniform
 
-## Custom controls and accessible field associations
+## Breaking change: legacy field hooks removed
 
-`useUniformField` owns registration, value transformations, refs, and RHF/Veto
-validation timing. Its `ids` and `getControlProps()` support custom editors and
-migrated controls without parsing generated `aria-labelledby` strings:
+The following package exports are removed:
 
-```tsx
-const {
-  field,
-  ids,
-  label,
-  description,
-  errorMessage,
-  invalid,
-  getControlProps,
-} = useUniformField({
-  name: 'editor',
-  label: 'Editor',
-  description: 'Markdown supported',
-});
+- `@fuf-stack/uniform/hooks/useInput`
+- `@fuf-stack/uniform/hooks/useUniformField`
+- `@fuf-stack/uniform/hooks/useUniformFieldArray`
 
-return (
-  <>
-    <label id={ids.label} htmlFor={ids.control}>
-      {label}
-    </label>
-    <textarea {...field} {...getControlProps()} />
-    <div id={ids.description}>{description}</div>
-    {invalid ? <div id={ids.error}>{errorMessage}</div> : null}
-  </>
-);
-```
+Their associated public types and presentation getters (`getLabelProps`,
+`getHelperWrapperProps`, `getErrorMessageProps`) are removed too. The field and
+array state used by Uniform components is now private implementation code.
+Do not import it through source or distribution paths.
 
-Apply association attributes and the returned focus ref to the actual editable
-element. CodeMirror integrations should use its content-attribute extension for
-these attributes and route the RHF ref to the editor's focus method. The helper
-uses `aria-required`, leaving native `required` validation disabled so RHF/Veto
-remains authoritative. It describes visible errors only after the existing
-dirty/touched/submitted visibility rules allow them. Explicit `ariaLabel` takes
-precedence over a visible label; otherwise unlabeled controls use the field name.
+For custom controls, use the existing public
+`@fuf-stack/uniform/hooks/useController` and
+`@fuf-stack/uniform/hooks/useFormContext` APIs for registration and form state.
+Own the label, description and error markup, create stable IDs with React's
+`useId`, and apply accessible associations and the registered ref to the actual
+editable element. For CodeMirror, use editor content attributes and route the
+ref to its focus method. The Markdown editor's old `useInput` import must be
+replaced before adopting this breaking release; its external source is not
+part of this repository.
 
-IDs remain stable through rerenders and distinct for repeated names within the
-React tree. Server/client rendering must use the same tree; independent SSR
-roots should supply React's usual matching `identifierPrefix` values.
+Use `FieldArray` for rendered arrays. Advanced consumers can pair React Hook
+Form's `useFieldArray` with the control returned by public `useFormContext` and
+own their presentation and initialization/reset rules. Public
+`useInputValueTransform` and `useInputValueDebounce` remain available.
 
-The existing presentation getters remain available during HeroUI coexistence.
-When using the owned association helper, use the explicit `ids` on local label,
-description, and error elements as above. Do not combine its associations with
-the legacy getters' generated IDs. See [the migration inventory](../../docs/heroui-removal.md).
+RadioBoxes retains its existing component props and options. Its internal option
+contract no longer inherits unused HeroUI props/types. All production field
+rendering, form values, validation timing, reset behavior and public styling
+slots remain unchanged by this removal.
+
+Uniform now declares no direct HeroUI dependencies and its published runtime
+and declarations contain no HeroUI references. Other workspace dependencies still retain
+HeroUI internally; removing those transitive dependencies belongs to the remaining
+Pixels/foundation migration. See [the migration inventory](../../docs/heroui-removal.md).
 
 ## Numeric empty values
 

@@ -5,10 +5,7 @@ import type { useController } from '../useController/useController';
 import type { useFormContext } from '../useFormContext/useFormContext';
 import type { InputValueTransform } from '../useInputValueTransform/useInputValueTransform';
 
-import { useInput } from '../useInput/useInput';
-import useUniformFieldState from './useUniformFieldState';
-
-export interface UseUniformFieldParams<
+export interface UseUniformFieldStateParams<
   TFieldValues extends FieldValues = FieldValues,
   TDisplay = unknown,
 > {
@@ -32,7 +29,7 @@ export interface UseUniformFieldParams<
   type?: 'text' | 'number' | 'password';
 }
 
-export interface UseUniformFieldReturn<
+export interface UniformFieldState<
   TFieldValues extends FieldValues = FieldValues,
 > {
   /** Computed aria-label fallback (field name) when no visible label exists. Components can override based on their accessibility needs (e.g., if placeholder provides sufficient context) */
@@ -52,12 +49,6 @@ export interface UseUniformFieldReturn<
   errorMessage: ReactNode | null;
   /** RHF controller field with transformed value/onChange (use this for simple components) */
   field: ReturnType<typeof useController<TFieldValues>>['field'];
-  /** Helper to spread standardized error message props to underlying components */
-  getErrorMessageProps: ReturnType<typeof useInput>['getErrorMessageProps'];
-  /** Helper to spread standardized helper wrapper props (for spacing/animation) */
-  getHelperWrapperProps: ReturnType<typeof useInput>['getHelperWrapperProps'];
-  /** Helper to spread standardized label props to underlying components */
-  getLabelProps: ReturnType<typeof useInput>['getLabelProps'];
   /** Owned association props for custom/migrated editable controls. RHF owns validation. */
   getControlProps: () => Pick<
     React.HTMLAttributes<HTMLElement>,
@@ -94,29 +85,3 @@ export interface UseUniformFieldReturn<
   /** Generated HTML data-testid for the field */
   testId: string;
 }
-
-/** Shared field state with the legacy presentation adapter during migration. */
-export const useUniformField = <
-  TFieldValues extends FieldValues = FieldValues,
-  TDisplay = unknown,
->(
-  params: UseUniformFieldParams<TFieldValues, TDisplay>,
-): UseUniformFieldReturn<TFieldValues> => {
-  const field = useUniformFieldState<TFieldValues, TDisplay>(params);
-  const { getLabelProps, getHelperWrapperProps, getErrorMessageProps } =
-    useInput({
-      ref: field.ref,
-      classNames: { helperWrapper: 'p-0' },
-      errorMessage: JSON.stringify(field.error),
-      isInvalid: field.invalid,
-      isRequired: field.required,
-      label: params.label,
-      labelPlacement: 'outside',
-    });
-  return {
-    ...field,
-    getLabelProps,
-    getHelperWrapperProps,
-    getErrorMessageProps,
-  };
-};

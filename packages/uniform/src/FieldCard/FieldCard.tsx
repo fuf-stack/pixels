@@ -6,7 +6,7 @@ import { useDebounce } from '@fuf-stack/pixels';
 import { useStyling } from '@fuf-stack/pixels/StylingProvider';
 
 import { checkFieldIsRequired, useFormContext } from '../hooks/useFormContext';
-import useUniformFieldState from '../hooks/useUniformField/useUniformFieldState';
+import useUniformFieldState from '../hooks/useUniformFieldState/useUniformFieldState';
 import FieldCardValidationError from './subcomponents/FieldCardValidationError';
 
 /**

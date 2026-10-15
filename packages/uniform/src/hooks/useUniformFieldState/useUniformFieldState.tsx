@@ -1,9 +1,6 @@
 import type { ReactNode } from 'react';
 import type { FieldValues } from 'react-hook-form';
-import type {
-  UseUniformFieldParams,
-  UseUniformFieldReturn,
-} from './useUniformField';
+import type { UniformFieldState, UseUniformFieldStateParams } from './types';
 
 import React from 'react';
 
@@ -43,17 +40,14 @@ import { useInputValueTransform } from '../useInputValueTransform/useInputValueT
  * - Access to form utilities: `control`, `getValues`, `resetField`
  * - Owned control IDs and accessible association props for local field composition
  *
- * The public hook adds a legacy presentation adapter for unmigrated renderers.
+ * Private implementation shared by owned Uniform fields.
  */
 const useUniformFieldState = <
   TFieldValues extends FieldValues = FieldValues,
   TDisplay = unknown,
 >(
-  params: UseUniformFieldParams<TFieldValues, TDisplay>,
-): Omit<
-  UseUniformFieldReturn<TFieldValues>,
-  'getLabelProps' | 'getErrorMessageProps' | 'getHelperWrapperProps'
-> => {
+  params: UseUniformFieldStateParams<TFieldValues, TDisplay>,
+): UniformFieldState<TFieldValues> => {
   const {
     name,
     ariaLabel: customAriaLabel,

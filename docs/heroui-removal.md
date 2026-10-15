@@ -1,10 +1,13 @@
 # HeroUI removal: implementation inventory
 
-Status: owned styling/tokens, all Uniform production fields and internal styling consumers migrated; final HeroUI/theme removal remains pending.
+Status: owned styling/tokens, all Uniform production fields and internal styling consumers migrated; legacy hook exports and direct HeroUI dependencies removed. Pixels/application migration and final theme removal remain pending.
 This is a staged breaking migration. It is not ready for a HeroUI-free release.
-The only agreed breaking changes are consumer theme setup and removal of
-`uniform/hooks/useInput`; other exported props, recipes, slots, and storage
-contracts must remain compatible.
+The agreed breaking changes include consumer theme setup and removal of
+`uniform/hooks/useInput`, `uniform/hooks/useUniformField` and
+`uniform/hooks/useUniformFieldArray`, including their public compatibility types
+and getters. The user confirmed that consumers do not use the latter two hooks
+and authorized removal of the known Markdown editor hook dependency. Production
+component props, recipes, slots and storage contracts remain compatible.
 
 ## Implemented foundation
 
@@ -67,7 +70,7 @@ must accompany each renderer migration, with before/after browser evidence.
 | uniform/FieldCard       | [FieldCardProps](../packages/uniform/src/FieldCard/FieldCard.tsx)                        | fieldCardVariants        | base, label, content, errorFooter, errorText                                                                                                                                                                                                                                                                                                                                                                                                   | —                     | 3           |
 | uniform/Form            | [FormProps](../packages/uniform/src/Form/Form.tsx)                                       | formVariants             | base, debugViewer, debugViewerCopyButtonToggle, debugViewerHeader, debugViewerJson, debugViewerTriggerButton, form                                                                                                                                                                                                                                                                                                                             | —                     | 1           |
 | uniform/Input           | [InputProps](../packages/uniform/src/Input/Input.tsx)                                    | inputVariants            | base, clearButton, input, inputWrapper                                                                                                                                                                                                                                                                                                                                                                                                         | —                     | 3           |
-| uniform/RadioBoxes      | [RadioBoxesProps](../packages/uniform/src/RadioBoxes/RadioBoxes.tsx)                     | radioBoxesVariants       | base, boxBase, boxControl, boxDescription, boxLabel, boxLabelWrapper, label, wrapper                                                                                                                                                                                                                                                                                                                                                           | radio (type only)     | 2           |
+| uniform/RadioBoxes      | [RadioBoxesProps](../packages/uniform/src/RadioBoxes/RadioBoxes.tsx)                     | radioBoxesVariants       | base, boxBase, boxControl, boxDescription, boxLabel, boxLabelWrapper, label, wrapper                                                                                                                                                                                                                                                                                                                                                           | —                     | 2           |
 | uniform/RadioTabs       | [RadioTabsProps](../packages/uniform/src/RadioTabs/RadioTabs.tsx)                        | radioTabsVariants        | base, cursor, label, tab, tabBase, tabContent, tabList, tabPanel, tabWrapper, wrapper                                                                                                                                                                                                                                                                                                                                                          | —                     | 3           |
 | uniform/Radios          | [RadiosProps](../packages/uniform/src/Radios/Radios.tsx)                                 | radiosVariants           | base, errorMessage, itemBase, itemControl, itemDescription, itemLabel, itemLabelWrapper, itemWrapper, label, wrapper                                                                                                                                                                                                                                                                                                                           | —                     | 2           |
 | uniform/Select          | [SelectProps](../packages/uniform/src/Select/Select.tsx)                                 | selectVariants           | base, clearIndicator, control, control_focused, crossIcon, downChevron, dropdownIndicator, group, groupHeading, indicatorsContainer, indicatorSeparator, input, label, loadingIndicator, loadingMessage, menu, menuList, menuPortal, multiValue, multiValueContainer, multiValueLabel, multiValueRemove, noOptionsMessage, option, option_disabled, option_focused, option_selected, placeholder, selectContainer, singleValue, valueContainer | —                     | 3           |
@@ -86,9 +89,9 @@ Additional coupling:
   semantic tokens are already packaged separately.
 - Pixels Toast uses Sonner already; retain its behavior and test interoperability
   with replacement overlays. Existing Megapixels Base UI implementations stay.
-- `RadioBoxes/RadioBox.tsx` retains a type-only HeroUI option contract.
-  Switch thumb and date/time value contracts now use structural owned types.
-  Public legacy field adapters retain the HeroUI-backed `useInput` export.
+- Uniform has no direct HeroUI dependencies or published HeroUI runtime/type
+  references. Radio options, switch thumbs and date/time values use owned
+  contracts. Legacy hook exports have been removed as an explicit breaking change.
 - Atelier and Megapixels consume Pixels primitives and semantic utilities, even
   where they have no direct HeroUI imports. Audit published declarations and
   packed consumers as well as source imports.
@@ -99,8 +102,8 @@ The private `useUniformFieldState` core owns RHF registration, transformed
 values, required-schema state, stable control IDs, test IDs, the debug label
 button, error flattening and invalid visibility. Existing debounce, reduced-motion
 and serialization behavior is retained. All production fields consume this core.
-The public `useUniformField` adapter still adds legacy HeroUI-backed presentation
-getters for compatibility; production fields no longer call that adapter.
+Public legacy adapters and their presentation getters have now been removed.
+The state implementations and their behavioral coverage remain private.
 
 `FieldValidationError` renders the public error list and uses Pixel Motion for
 entry/exit animations, with reduced-motion support. Reuse it locally in Uniform;
@@ -128,8 +131,8 @@ migrated, with per-slice tests and evidence below. Pixels/application renderer
 mappings and checks remain pending.
 
 The production React Aria text/number Input consumes a shared field-state core
-without calling the legacy presentation hook. The public `useUniformField`
-adapter retains its existing getters during coexistence. Production input tests cover
+without calling legacy presentation hooks. Private shared state supports all
+production fields; the former public adapters are removed. Production input tests cover
 registration, resets, blur/submission flushing, pending-edit cancellation on
 clear, focus restoration, decimal/zero/empty numbers, stepper updates, labels,
 required markers, errors and consumer font-size merging. The form's existing
@@ -147,9 +150,10 @@ own presentation only and are not public entry points.
    dependencies migrate. Keep existing Megapixels Base UI implementations.
 4. Remove unused HeroUI dependencies, plugin/scanning, theme exports and inherited
    recipes once all runtime and public declaration consumers are ready.
-5. Remove `uniform/hooks/useInput` only with migration documentation and verified
-   external Markdown editor migration. That project remains explicitly deferred
-   at the user's request and is a prerequisite for final adapter removal.
+5. Uniform's legacy hook exports are removed with migration guidance. The user
+   confirmed no external use of the two Uniform field hooks. The known Markdown
+   editor must replace its old `useInput` import when adopting the breaking
+   release; its source remains outside this repository.
 6. Run the full check, packed declarations/export/dependency audit, visual and
    keyboard/accessibility review. Release foundations before Pixels, then Uniform
    and consumers; Release Please owns versions and changelogs.
@@ -464,3 +468,33 @@ remain deferred.
 Final `pnpm check` passed all six gates: 1,543 unit tests (one skipped), 472 browser
 stories and seven packed consumers. The only existing snapshot changes in this
 slice add the accessible drag-handle name.
+
+## Breaking Uniform dependency removal (2026-10-15)
+
+The user explicitly authorized deleting the three public legacy hooks after
+confirming that consumers do not directly use `useUniformField` or
+`useUniformFieldArray`; the only known `useInput` consumer is the external
+Markdown editor. Their exports, compatibility wrappers and presentation getter
+types are deleted. Internal field/array state is private and retains its existing
+registration, transform, validation, array initialization and reset coverage.
+The custom-control browser fixture now tests private state rather than a removed
+public API. Nine tests of the deleted third-party `useInput` re-export are removed;
+all Uniform-owned behavior tests are retained.
+
+RadioBox's option contract now declares only owned supported props, eliminating
+its HeroUI type dependency. All direct `@heroui/*`, `framer-motion` and
+`@react-aria/visually-hidden` entries are removed from Uniform. Animation continues
+through `pixel-motion`. Frozen-lockfile installation is verified. Packed-package
+verification rejects direct HeroUI dependencies, runtime/declaration references,
+and reintroduced legacy or private hook exports.
+
+This is an intentional breaking API removal and must be released accordingly.
+Versions/changelogs remain owned by Release Please. Migration guidance is in the
+[Uniform README](../packages/uniform/README.md). Pixels still brings HeroUI
+transitively; its runtime, application consumers and final theme/plugin cleanup
+are separate remaining work. No external Markdown editor source was changed.
+
+Final `pnpm check` passed all six gates: 1,534 unit tests (one skipped), 472 browser
+stories and seven packed consumers. The unit-count change is exactly the nine
+obsolete third-party re-export tests; field/array behavior coverage remains.
+The packed Uniform independence guard passed against its actual tarball.

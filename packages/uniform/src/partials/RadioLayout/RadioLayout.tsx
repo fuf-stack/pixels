@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import type useUniformFieldState from '../../hooks/useUniformField/useUniformFieldState';
+import type useUniformFieldState from '../../hooks/useUniformFieldState/useUniformFieldState';
 
 import { createContext, useContext, useId } from 'react';
 import { Label, Radio, RadioGroup } from 'react-aria-components';

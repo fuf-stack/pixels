@@ -1,5 +1,4 @@
 import type { TVClassName } from '@fuf-stack/pixel-utils';
-import type { RadioProps as HeroRadioProps } from '@heroui/radio';
 import type { ReactNode } from 'react';
 
 import { tv } from '@fuf-stack/pixel-utils';
@@ -35,7 +34,19 @@ export const radioBoxVariants = tv({
 
 type ClassName = TVClassName<typeof radioBoxVariants>;
 
-export interface RadioBoxProps extends Omit<HeroRadioProps, 'className'> {
+export interface RadioBoxProps {
+  /** Option label. */
+  children?: ReactNode;
+  /** Option description. */
+  description?: ReactNode;
+  /** Whether the option is disabled. */
+  isDisabled?: boolean;
+  /** String value managed by the containing radio group. */
+  value: string;
+  /** HTML test ID for the option. */
+  'data-testid'?: string;
+  /** Slot classes passed by RadioBoxes. */
+  classNames?: ClassName;
   /** CSS class name */
   className?: ClassName;
   /** icon for the option */
@@ -73,11 +84,11 @@ export const RadioBox = ({
         labelWrapper: styling.cn(defaults.labelWrapper(), classes.labelWrapper),
         label: styling.cn(defaults.label(), classes.label),
       }}
-      disabled={isDisabled}
-      invalid={isInvalid}
       description={description}
+      disabled={isDisabled}
       icon={icon}
-      testId={(props as { 'data-testid'?: string })['data-testid']}
+      invalid={isInvalid}
+      testId={props['data-testid']}
       value={value}
     >
       {children}

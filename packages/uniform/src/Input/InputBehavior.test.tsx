@@ -9,19 +9,6 @@ import Form from '../Form';
 import { useFormContext } from '../hooks/useFormContext';
 import Input from './Input';
 
-// A migrated field must not invoke the legacy renderer or presentation hook.
-vi.mock('@heroui/input', () => ({
-  Input: () => {
-    throw new Error('Legacy input rendered');
-  },
-  Textarea: () => {
-    throw new Error('Legacy textarea rendered');
-  },
-  useInput: () => {
-    throw new Error('Legacy presentation hook invoked');
-  },
-}));
-
 const Reset = () => {
   const { reset } = useFormContext();
   return (

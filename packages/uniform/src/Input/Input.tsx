@@ -16,7 +16,7 @@ import { useFocusRing } from 'react-aria/useFocusRing';
 import { useStyling } from '@fuf-stack/pixels/StylingProvider';
 
 import { useInputValueDebounce } from '../hooks/useInputValueDebounce';
-import useUniformFieldState from '../hooks/useUniformField/useUniformFieldState';
+import useUniformFieldState from '../hooks/useUniformFieldState/useUniformFieldState';
 import { FieldHints, FieldLabel } from '../partials/FieldLayout/FieldLayout';
 import { inputStateVariants } from './inputVariants';
 

@@ -6,7 +6,7 @@ import { string, veto } from '@fuf-stack/veto';
 
 import Form from '../../Form';
 import SubmitButton from '../../SubmitButton';
-import { useUniformField } from './useUniformField';
+import useUniformFieldState from './useUniformFieldState';
 
 const CustomEditor = () => {
   const {
@@ -17,7 +17,7 @@ const CustomEditor = () => {
     errorMessage,
     invalid,
     getControlProps,
-  } = useUniformField({
+  } = useUniformFieldState({
     name: 'editor',
     label: 'Editor',
     description: 'Enter at least three characters.',
@@ -59,7 +59,7 @@ const Example = () => {
 };
 
 const meta: Meta<typeof Example> = {
-  title: 'uniform/hooks/useUniformField',
+  title: 'uniform/internal/Field state',
   component: Example,
 };
 export default meta;
