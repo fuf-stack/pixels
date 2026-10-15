@@ -34,7 +34,17 @@ type InputContentProps = Pick<
   onHoverChange: (hovered: boolean) => void;
 };
 
-/** Shared editable layout, addons and actions; no form state or registration. */
+/**
+ * Editable input layout built from React Aria Group and Input.
+ *
+ * Arranges addons, clear actions and number steppers around the native input,
+ * forwards its ref and accessibility attributes, and reports wrapper interactions.
+ * The surrounding InputField supplies the TextField or NumberField context.
+ *
+ * @see https://react-aria.adobe.com/Group
+ * @see https://react-aria.adobe.com/TextField (Input composition)
+ * @see https://react-aria.adobe.com/NumberField (Input and stepper composition)
+ */
 const InputContent = ({
   clearable = false,
   controlProps,

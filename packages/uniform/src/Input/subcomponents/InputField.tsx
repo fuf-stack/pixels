@@ -32,7 +32,16 @@ type InputFieldProps = Pick<
   isFocusVisible: boolean;
 };
 
-/** Keep text/number engine differences and root state selectors in one place. */
+/**
+ * React Aria field root for text, password and number inputs.
+ *
+ * Provides TextField or NumberField context to the editable content and actions,
+ * forwards validation/accessibility state, and adapts numeric values to the
+ * binding's string display values. Preserves Uniform's root styling selectors.
+ *
+ * @see https://react-aria.adobe.com/TextField
+ * @see https://react-aria.adobe.com/NumberField
+ */
 const InputField = ({
   controlProps,
   disabled,
@@ -57,7 +66,6 @@ const InputField = ({
   const rootProps = {
     ...controlProps,
     name,
-    /** CSS class applied to the action button. */
     className: classes.base,
     'data-slot': 'base',
     'data-focus': focused || undefined,

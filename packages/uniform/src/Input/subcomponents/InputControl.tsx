@@ -10,7 +10,17 @@ import { inputStateVariants } from '../inputVariants';
 import InputContent from './InputContent';
 import InputField from './InputField';
 
-/** Own visual state and compose the shared layout beneath the appropriate Aria field. */
+/**
+ * Composes the Input presentation without registering a form field.
+ *
+ * Tracks focus with React Aria useFocusRing, resolves slot styling, and arranges
+ * the label, editable content and hints beneath InputField's Aria field root.
+ * Values, validation state and callbacks are supplied by the Input binding.
+ *
+ * @see https://react-aria.adobe.com/useFocusRing
+ * @see https://react-aria.adobe.com/TextField
+ * @see https://react-aria.adobe.com/NumberField
+ */
 const InputControl = (props: InputControlProps) => {
   const {
     value,

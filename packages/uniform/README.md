@@ -100,7 +100,9 @@ fields or read form context. Public and private styling recipes remain in
 handlers keep ref assignment, focus and value adaptation above the JSX. The shared `FieldControlProps` and `FieldIds` types in
 `partials/FieldLayout/FieldLayout.types.ts` describe control associations for both
 field state and presentation. Private prop declarations include documentation;
-inherited props retain the documentation from `InputProps`.
+inherited props retain the documentation from `InputProps`. Each subcomponent has
+a descriptive JSDoc header explaining its responsibility and, where applicable,
+linking to the React Aria components or hooks it wraps.
 
 This is an internal restructuring: public props/exports/slots, rendered DOM,
 value formats, validation timing, focus and reset behavior remain unchanged.

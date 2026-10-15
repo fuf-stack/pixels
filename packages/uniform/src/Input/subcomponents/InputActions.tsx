@@ -3,6 +3,7 @@ import type { InputClasses } from './InputControl.types';
 
 import { Button } from 'react-aria-components';
 
+/** Decorative direction indicator for the number stepper buttons. */
 const Chevron = ({
   up = false,
 }: {
@@ -26,13 +27,22 @@ const Chevron = ({
   );
 };
 
+/**
+ * React Aria Button that invokes the supplied clear action without taking focus.
+ *
+ * Uses slot=null to opt out of NumberField's increment/decrement button context.
+ * Renders custom end content when supplied, otherwise the default clear icon.
+ *
+ * @see https://react-aria.adobe.com/Button
+ * @see https://react-aria.adobe.com/NumberField
+ */
 export const InputClearButton = ({
   children = undefined,
   className,
   disabled = undefined,
   onClear,
 }: {
-  /** Content rendered inside the field. */
+  /** Optional replacement for the default clear icon. */
   children?: ReactNode;
   /** CSS class applied to the action button. */
   className: string;
@@ -63,6 +73,15 @@ export const InputClearButton = ({
   );
 };
 
+/**
+ * Increment and decrement React Aria Buttons for the surrounding NumberField.
+ *
+ * Named slots connect each button to NumberField's value and disabled state.
+ * Keeps the controls outside the tab order so keyboard editing stays in the input.
+ *
+ * @see https://react-aria.adobe.com/NumberField
+ * @see https://react-aria.adobe.com/Button
+ */
 export const InputStepper = ({
   classes,
 }: {
