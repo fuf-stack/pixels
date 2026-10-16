@@ -1,5 +1,211 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`Story Snapshots > ConsumerSegmentFont 1`] = `
+<div>
+  <div
+    class="flex w-full flex-row justify-between gap-6"
+  >
+    <form
+      class="grow min-w-60"
+      data-form-is-valid="true"
+      data-testid=""
+      novalidate=""
+    >
+      <style>
+        .text-body { font-size: 18px; }
+      </style>
+      <div
+        class="group flex w-full flex-col gap-y-1.5 pb-5"
+        data-rac=""
+        data-slot="base"
+      >
+        <span
+          class="block w-full text-foreground subpixel-antialiased text-small cursor-default"
+          data-slot="label"
+          id="uniform-«replaced-aria-id»-label"
+        >
+          Custom time
+        </span>
+        <div
+          class="shadow-xs relative inline-flex h-10 min-h-10 w-full cursor-text flex-row items-center gap-3 rounded-small border-2 border-default-200 px-3 transition-colors duration-150 hover:border-default-400 focus-within:hover:border-default-foreground motion-reduce:transition-none bg-content1 focus-within:border-focus"
+          data-slot="input-wrapper"
+        >
+          <div
+            class="flex h-6 w-full items-center gap-x-2 text-default-400"
+            data-slot="inner-wrapper"
+          >
+            <div
+              aria-labelledby="uniform-«replaced-aria-id»-label"
+              class="flex h-full w-full gap-x-0.5 font-normal text-body"
+              data-rac=""
+              data-react-aria-pressable="true"
+              data-slot="input"
+              data-testid="timefield"
+              id="uniform-«replaced-aria-id»"
+              role="group"
+              style="unicode-bidi: isolate;"
+            >
+              <span
+                aria-hidden="true"
+                class="outline-solid focus:shadow-xs group my-auto box-content inline-block rounded-md px-0.5 text-start tabular-nums outline-transparent transition-colors first:-ml-0.5 focus:bg-default-400/50 data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:focus:text-default-foreground motion-reduce:transition-none [&:not(:first-child)]:-ml-1 text-danger"
+                data-rac=""
+                data-slot="segment"
+                data-type="literal"
+              >
+                ⁦
+              </span>
+              <span
+                aria-label="hour, "
+                aria-labelledby="react-aria-«replaced-aria-id» uniform-«replaced-aria-id»-label"
+                aria-valuemax="12"
+                aria-valuemin="1"
+                aria-valuetext="Empty"
+                autocorrect="off"
+                class="outline-solid focus:shadow-xs group my-auto box-content inline-block rounded-md px-0.5 text-start tabular-nums outline-transparent transition-colors first:-ml-0.5 focus:bg-default-400/50 data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:focus:text-default-foreground motion-reduce:transition-none [&:not(:first-child)]:-ml-1 text-danger"
+                contenteditable="true"
+                data-editable="true"
+                data-placeholder="true"
+                data-rac=""
+                data-slot="segment"
+                data-type="hour"
+                enterkeyhint="next"
+                id="react-aria-«replaced-aria-id»"
+                inputmode="numeric"
+                role="spinbutton"
+                spellcheck="false"
+                style="caret-color: transparent;"
+                tabindex="0"
+              >
+                ––
+              </span>
+              <span
+                aria-hidden="true"
+                class="outline-solid focus:shadow-xs group my-auto box-content inline-block rounded-md px-0.5 text-start tabular-nums outline-transparent transition-colors first:-ml-0.5 focus:bg-default-400/50 data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:focus:text-default-foreground motion-reduce:transition-none [&:not(:first-child)]:-ml-1 text-danger"
+                data-rac=""
+                data-slot="segment"
+                data-type="literal"
+              >
+                :
+              </span>
+              <span
+                aria-label="minute, "
+                aria-labelledby="react-aria-«replaced-aria-id» uniform-«replaced-aria-id»-label"
+                aria-valuemax="59"
+                aria-valuemin="0"
+                aria-valuetext="Empty"
+                autocorrect="off"
+                class="outline-solid focus:shadow-xs group my-auto box-content inline-block rounded-md px-0.5 text-start tabular-nums outline-transparent transition-colors first:-ml-0.5 focus:bg-default-400/50 data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:focus:text-default-foreground motion-reduce:transition-none [&:not(:first-child)]:-ml-1 text-danger"
+                contenteditable="true"
+                data-editable="true"
+                data-placeholder="true"
+                data-rac=""
+                data-slot="segment"
+                data-type="minute"
+                enterkeyhint="next"
+                id="react-aria-«replaced-aria-id»"
+                inputmode="numeric"
+                role="spinbutton"
+                spellcheck="false"
+                style="caret-color: transparent;"
+                tabindex="0"
+              >
+                ––
+              </span>
+              <span
+                aria-hidden="true"
+                class="outline-solid focus:shadow-xs group my-auto box-content inline-block rounded-md px-0.5 text-start tabular-nums outline-transparent transition-colors first:-ml-0.5 focus:bg-default-400/50 data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:focus:text-default-foreground motion-reduce:transition-none [&:not(:first-child)]:-ml-1 text-danger"
+                data-rac=""
+                data-slot="segment"
+                data-type="literal"
+              >
+                ⁩
+              </span>
+              <span
+                aria-hidden="true"
+                class="outline-solid focus:shadow-xs group my-auto box-content inline-block rounded-md px-0.5 text-start tabular-nums outline-transparent transition-colors first:-ml-0.5 focus:bg-default-400/50 data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:focus:text-default-foreground motion-reduce:transition-none [&:not(:first-child)]:-ml-1 text-danger"
+                data-rac=""
+                data-slot="segment"
+                data-type="literal"
+              >
+                 
+              </span>
+              <span
+                aria-label="AM/PM, "
+                aria-labelledby="react-aria-«replaced-aria-id» uniform-«replaced-aria-id»-label"
+                aria-valuemax="1"
+                aria-valuemin="0"
+                aria-valuetext="Empty"
+                autocorrect="off"
+                class="outline-solid focus:shadow-xs group my-auto box-content inline-block rounded-md px-0.5 text-start tabular-nums outline-transparent transition-colors first:-ml-0.5 focus:bg-default-400/50 data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:focus:text-default-foreground motion-reduce:transition-none [&:not(:first-child)]:-ml-1 text-danger"
+                contenteditable="true"
+                data-editable="true"
+                data-placeholder="true"
+                data-rac=""
+                data-slot="segment"
+                data-type="dayPeriod"
+                enterkeyhint="next"
+                id="react-aria-«replaced-aria-id»"
+                role="spinbutton"
+                spellcheck="false"
+                style="caret-color: transparent;"
+                tabindex="0"
+              >
+                AM
+              </span>
+              <span
+                aria-hidden="true"
+                class="outline-solid focus:shadow-xs group my-auto box-content inline-block rounded-md px-0.5 text-start tabular-nums outline-transparent transition-colors first:-ml-0.5 focus:bg-default-400/50 data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:focus:text-default-foreground motion-reduce:transition-none [&:not(:first-child)]:-ml-1 text-danger"
+                data-rac=""
+                data-slot="segment"
+                data-type="literal"
+              >
+                 
+              </span>
+              <span
+                aria-label="time zone, "
+                aria-labelledby="react-aria-«replaced-aria-id» uniform-«replaced-aria-id»-label"
+                aria-readonly="true"
+                class="outline-solid focus:shadow-xs group my-auto box-content inline-block rounded-md px-0.5 text-start tabular-nums outline-transparent transition-colors first:-ml-0.5 focus:bg-default-400/50 data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:focus:text-default-foreground motion-reduce:transition-none [&:not(:first-child)]:-ml-1 text-danger"
+                data-rac=""
+                data-slot="segment"
+                data-type="timeZoneName"
+                id="react-aria-«replaced-aria-id»"
+                role="textbox"
+                style="caret-color: transparent;"
+                tabindex="0"
+              >
+                UTC
+              </span>
+            </div>
+            <input
+              class=""
+              data-rac=""
+              name="timeField"
+              type="hidden"
+              value=""
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="mt-4 flex justify-end"
+      >
+        <button
+          aria-label="Submit form"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
+          data-react-aria-pressable="true"
+          data-testid="form_submit_button"
+          tabindex="0"
+          type="submit"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
 exports[`Story Snapshots > Default 1`] = `
 <div>
   <div
@@ -397,6 +603,275 @@ exports[`Story Snapshots > Disabled 1`] = `
         <button
           aria-label="Submit form"
           class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
+          data-react-aria-pressable="true"
+          data-testid="form_submit_button"
+          tabindex="0"
+          type="submit"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`Story Snapshots > HelpAndRequired 1`] = `
+<div>
+  <div
+    class="flex w-full flex-row justify-between gap-6"
+  >
+    <form
+      class="grow min-w-60"
+      data-form-is-valid="false"
+      data-testid=""
+      novalidate=""
+    >
+      <div
+        class="group flex w-full flex-col gap-y-1.5 pb-5"
+        data-invalid="true"
+        data-rac=""
+        data-required="true"
+        data-slot="base"
+      >
+        <span
+          class="block w-full subpixel-antialiased text-small cursor-default text-danger"
+          data-slot="label"
+          id="uniform-«replaced-aria-id»-label"
+        >
+          Required time
+          <span
+            aria-hidden="true"
+            class="ml-0.5 text-danger"
+          >
+            *
+          </span>
+        </span>
+        <div
+          class="shadow-xs relative inline-flex h-10 min-h-10 w-full cursor-text flex-row items-center gap-3 rounded-small border-2 px-3 transition-colors duration-150 motion-reduce:transition-none bg-content1 border-danger focus-within:border-danger hover:border-danger focus-within:hover:border-danger"
+          data-slot="input-wrapper"
+        >
+          <div
+            class="flex h-6 w-full items-center gap-x-2 text-danger"
+            data-slot="inner-wrapper"
+          >
+            <div
+              aria-describedby="uniform-«replaced-aria-id»-description uniform-«replaced-aria-id»-error"
+              aria-labelledby="uniform-«replaced-aria-id»-label"
+              class="flex h-full w-full gap-x-0.5 font-normal text-small"
+              data-focus-within="true"
+              data-invalid="true"
+              data-rac=""
+              data-react-aria-pressable="true"
+              data-slot="input"
+              data-testid="timefield"
+              id="uniform-«replaced-aria-id»"
+              role="group"
+              style="unicode-bidi: isolate;"
+            >
+              <span
+                aria-hidden="true"
+                class="outline-solid focus:shadow-xs group my-auto box-content inline-block rounded-md px-0.5 text-start tabular-nums outline-transparent transition-colors first:-ml-0.5 motion-reduce:transition-none [&:not(:first-child)]:-ml-1 text-danger-300 focus:bg-danger-400/50 data-[editable=true]:data-[placeholder=true]:text-danger data-[editable=true]:text-danger data-[editable=true]:focus:text-danger dark:focus:bg-danger-400/20"
+                data-invalid="true"
+                data-rac=""
+                data-slot="segment"
+                data-type="literal"
+              >
+                ⁦
+              </span>
+              <span
+                aria-describedby="uniform-«replaced-aria-id»-description uniform-«replaced-aria-id»-error"
+                aria-invalid="true"
+                aria-label="hour, "
+                aria-labelledby="react-aria-«replaced-aria-id» uniform-«replaced-aria-id»-label"
+                aria-required="true"
+                aria-valuemax="12"
+                aria-valuemin="1"
+                aria-valuetext="Empty"
+                autocorrect="off"
+                class="outline-solid focus:shadow-xs group my-auto box-content inline-block rounded-md px-0.5 text-start tabular-nums outline-transparent transition-colors first:-ml-0.5 motion-reduce:transition-none [&:not(:first-child)]:-ml-1 text-danger-300 focus:bg-danger-400/50 data-[editable=true]:data-[placeholder=true]:text-danger data-[editable=true]:text-danger data-[editable=true]:focus:text-danger dark:focus:bg-danger-400/20"
+                contenteditable="true"
+                data-editable="true"
+                data-focused="true"
+                data-invalid="true"
+                data-placeholder="true"
+                data-rac=""
+                data-slot="segment"
+                data-type="hour"
+                enterkeyhint="next"
+                id="react-aria-«replaced-aria-id»"
+                inputmode="numeric"
+                role="spinbutton"
+                spellcheck="false"
+                style="caret-color: transparent;"
+                tabindex="0"
+              >
+                ––
+              </span>
+              <span
+                aria-hidden="true"
+                class="outline-solid focus:shadow-xs group my-auto box-content inline-block rounded-md px-0.5 text-start tabular-nums outline-transparent transition-colors first:-ml-0.5 motion-reduce:transition-none [&:not(:first-child)]:-ml-1 text-danger-300 focus:bg-danger-400/50 data-[editable=true]:data-[placeholder=true]:text-danger data-[editable=true]:text-danger data-[editable=true]:focus:text-danger dark:focus:bg-danger-400/20"
+                data-invalid="true"
+                data-rac=""
+                data-slot="segment"
+                data-type="literal"
+              >
+                :
+              </span>
+              <span
+                aria-describedby="uniform-«replaced-aria-id»-description uniform-«replaced-aria-id»-error"
+                aria-invalid="true"
+                aria-label="minute, "
+                aria-labelledby="react-aria-«replaced-aria-id» uniform-«replaced-aria-id»-label"
+                aria-required="true"
+                aria-valuemax="59"
+                aria-valuemin="0"
+                aria-valuetext="Empty"
+                autocorrect="off"
+                class="outline-solid focus:shadow-xs group my-auto box-content inline-block rounded-md px-0.5 text-start tabular-nums outline-transparent transition-colors first:-ml-0.5 motion-reduce:transition-none [&:not(:first-child)]:-ml-1 text-danger-300 focus:bg-danger-400/50 data-[editable=true]:data-[placeholder=true]:text-danger data-[editable=true]:text-danger data-[editable=true]:focus:text-danger dark:focus:bg-danger-400/20"
+                contenteditable="true"
+                data-editable="true"
+                data-invalid="true"
+                data-placeholder="true"
+                data-rac=""
+                data-slot="segment"
+                data-type="minute"
+                enterkeyhint="next"
+                id="react-aria-«replaced-aria-id»"
+                inputmode="numeric"
+                role="spinbutton"
+                spellcheck="false"
+                style="caret-color: transparent;"
+                tabindex="0"
+              >
+                ––
+              </span>
+              <span
+                aria-hidden="true"
+                class="outline-solid focus:shadow-xs group my-auto box-content inline-block rounded-md px-0.5 text-start tabular-nums outline-transparent transition-colors first:-ml-0.5 motion-reduce:transition-none [&:not(:first-child)]:-ml-1 text-danger-300 focus:bg-danger-400/50 data-[editable=true]:data-[placeholder=true]:text-danger data-[editable=true]:text-danger data-[editable=true]:focus:text-danger dark:focus:bg-danger-400/20"
+                data-invalid="true"
+                data-rac=""
+                data-slot="segment"
+                data-type="literal"
+              >
+                ⁩
+              </span>
+              <span
+                aria-hidden="true"
+                class="outline-solid focus:shadow-xs group my-auto box-content inline-block rounded-md px-0.5 text-start tabular-nums outline-transparent transition-colors first:-ml-0.5 motion-reduce:transition-none [&:not(:first-child)]:-ml-1 text-danger-300 focus:bg-danger-400/50 data-[editable=true]:data-[placeholder=true]:text-danger data-[editable=true]:text-danger data-[editable=true]:focus:text-danger dark:focus:bg-danger-400/20"
+                data-invalid="true"
+                data-rac=""
+                data-slot="segment"
+                data-type="literal"
+              >
+                 
+              </span>
+              <span
+                aria-describedby="uniform-«replaced-aria-id»-description uniform-«replaced-aria-id»-error"
+                aria-invalid="true"
+                aria-label="AM/PM, "
+                aria-labelledby="react-aria-«replaced-aria-id» uniform-«replaced-aria-id»-label"
+                aria-required="true"
+                aria-valuemax="1"
+                aria-valuemin="0"
+                aria-valuetext="Empty"
+                autocorrect="off"
+                class="outline-solid focus:shadow-xs group my-auto box-content inline-block rounded-md px-0.5 text-start tabular-nums outline-transparent transition-colors first:-ml-0.5 motion-reduce:transition-none [&:not(:first-child)]:-ml-1 text-danger-300 focus:bg-danger-400/50 data-[editable=true]:data-[placeholder=true]:text-danger data-[editable=true]:text-danger data-[editable=true]:focus:text-danger dark:focus:bg-danger-400/20"
+                contenteditable="true"
+                data-editable="true"
+                data-invalid="true"
+                data-placeholder="true"
+                data-rac=""
+                data-slot="segment"
+                data-type="dayPeriod"
+                enterkeyhint="next"
+                id="react-aria-«replaced-aria-id»"
+                role="spinbutton"
+                spellcheck="false"
+                style="caret-color: transparent;"
+                tabindex="0"
+              >
+                AM
+              </span>
+              <span
+                aria-hidden="true"
+                class="outline-solid focus:shadow-xs group my-auto box-content inline-block rounded-md px-0.5 text-start tabular-nums outline-transparent transition-colors first:-ml-0.5 motion-reduce:transition-none [&:not(:first-child)]:-ml-1 text-danger-300 focus:bg-danger-400/50 data-[editable=true]:data-[placeholder=true]:text-danger data-[editable=true]:text-danger data-[editable=true]:focus:text-danger dark:focus:bg-danger-400/20"
+                data-invalid="true"
+                data-rac=""
+                data-slot="segment"
+                data-type="literal"
+              >
+                 
+              </span>
+              <span
+                aria-describedby="uniform-«replaced-aria-id»-description uniform-«replaced-aria-id»-error"
+                aria-invalid="true"
+                aria-label="time zone, "
+                aria-labelledby="react-aria-«replaced-aria-id» uniform-«replaced-aria-id»-label"
+                aria-readonly="true"
+                aria-required="true"
+                class="outline-solid focus:shadow-xs group my-auto box-content inline-block rounded-md px-0.5 text-start tabular-nums outline-transparent transition-colors first:-ml-0.5 motion-reduce:transition-none [&:not(:first-child)]:-ml-1 text-danger-300 focus:bg-danger-400/50 data-[editable=true]:data-[placeholder=true]:text-danger data-[editable=true]:text-danger data-[editable=true]:focus:text-danger dark:focus:bg-danger-400/20"
+                data-invalid="true"
+                data-rac=""
+                data-slot="segment"
+                data-type="timeZoneName"
+                id="react-aria-«replaced-aria-id»"
+                role="textbox"
+                style="caret-color: transparent;"
+                tabindex="0"
+              >
+                UTC
+              </span>
+            </div>
+            <input
+              class=""
+              data-rac=""
+              name="timeField"
+              type="hidden"
+              value=""
+            />
+          </div>
+          <div
+            class="absolute start-0 top-[calc(100%_+_2px)] flex flex-col gap-1.5 p-0"
+            data-slot="helper-wrapper"
+          >
+            <div
+              class="text-foreground-500 text-tiny"
+              data-slot="description"
+              id="uniform-«replaced-aria-id»-description"
+            >
+              Use UTC.
+            </div>
+            <div
+              class="text-danger text-tiny"
+              data-slot="error-message"
+              id="uniform-«replaced-aria-id»-error"
+            >
+              <ul
+                aria-label="Validation errors of field timefield"
+                data-testid="timefield_error"
+              >
+                <li
+                  style="overflow: hidden;"
+                >
+                  <div
+                    class="px-1 pt-1"
+                  >
+                    Field is required
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="mt-4 flex justify-end"
+      >
+        <button
+          aria-label="Submit form"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
+          data-hover="true"
           data-react-aria-pressable="true"
           data-testid="form_submit_button"
           tabindex="0"

@@ -25,3 +25,9 @@ by DatePicker. Override individual slots through `className`, including `label`,
 `description` and `errorMessage`. See the [styling guide](../../../../docs/styling.md).
 
 [Props](Time.tsx) · [Stories](Time.stories.tsx)
+
+## Composition
+
+`Time` owns registration and conversion between stored values and segmented time values.
+`TimeControl` owns the React Aria engine, focus routing, styling and messages.
+`TimeReset` clears partial segment edits when the form resets.

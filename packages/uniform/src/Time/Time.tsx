@@ -2,28 +2,15 @@ import type { ReactNode } from 'react';
 import type { TimeValue } from './timeHelpers';
 import type { ClassName, VariantProps } from './timeVariants';
 
-import { useContext } from 'react';
-import {
-  DateInput,
-  DateSegment,
-  Label,
-  TimeField,
-  TimeFieldStateContext,
-} from 'react-aria-components';
-
-import { useStyling } from '@fuf-stack/pixels/StylingProvider';
-
 import useUniformField from '../hooks/useUniformField/useUniformField';
-import { useWatchFormReset } from '../hooks/useWatchFormReset';
-import FieldDescription from '../partials/FieldDescription/FieldDescription';
-import FieldLabel from '../partials/FieldLabel/FieldLabel';
+import TimeControl from './subcomponents/TimeControl';
+import TimeReset from './subcomponents/TimeReset';
 import {
   getTimeFieldPlaceholderValue,
   parseTimeValue,
   resolveTimeFieldTimeZone,
   timeValueToString,
 } from './timeHelpers';
-import { timeStateVariants } from './timeVariants';
 
 export { timeVariants } from './timeVariants';
 
@@ -59,24 +46,9 @@ export interface TimeProps extends VariantProps {
   valueType?: 'string' | 'timeValue';
 }
 
-/** Partial edits do not change the controlled null value, so reset them explicitly. */
-const ResetEmptySegments = () => {
-  const state = useContext(TimeFieldStateContext);
-  useWatchFormReset({
-    onReset: () => {
-      if (state?.value == null) {
-        state?.setValue(null);
-      }
-    },
-  });
-  return null;
-};
-
-/**
- * Segmented time field with owned presentation and React Aria keyboard behavior.
- */
+/** Form input field for a time of day */
 const Time = ({
-  className: _className = undefined,
+  className = undefined,
   granularity = 'minute',
   hideTimeZone = false,
   hourAsNumber = false,
@@ -93,25 +65,21 @@ const Time = ({
     errorMessage,
     getControlProps,
     ids,
-    field: { onBlur, onChange, ref, value },
+    field,
     invalid,
     label,
     required,
     testId,
   } = useUniformField({ name, ...uniformFieldProps });
 
-  // classNames from slots
-  const styling = useStyling();
-  const variants = styling.resolve(timeStateVariants, { disabled, invalid });
-  const classNames = styling.variantsToClassNames(variants, _className, 'base');
   const resolvedTimeZone = resolveTimeFieldTimeZone(timeZone);
   const effectiveGranularity = hourAsNumber ? 'hour' : granularity;
 
   // `hourAsNumber` stores 0-23; convert this into a parseable UTC time for display.
   const normalizedFieldValue =
-    hourAsNumber && typeof value === 'number'
-      ? `${String(Math.max(0, Math.min(23, value))).padStart(2, '0')}:00Z`
-      : value;
+    hourAsNumber && typeof field.value === 'number'
+      ? `${String(Math.max(0, Math.min(23, field.value))).padStart(2, '0')}:00Z`
+      : field.value;
 
   // Normalize incoming form values for the segmented control.
   const parsedValue = parseTimeValue(normalizedFieldValue, timeZone);
@@ -120,7 +88,7 @@ const Time = ({
   // Normalize TimeInput output into the configured storage format.
   const handleChange = (nextValue: TimeValue) => {
     if (nextValue == null) {
-      onChange(null);
+      field.onChange(null);
       return;
     }
 
@@ -132,118 +100,52 @@ const Time = ({
       );
 
       if (!serializedValue) {
-        onChange(null);
+        field.onChange(null);
         return;
       }
 
       const [hoursSegment] = serializedValue.split(':');
       const parsedHours = Number(hoursSegment);
-      onChange(Number.isNaN(parsedHours) ? null : parsedHours);
+      field.onChange(Number.isNaN(parsedHours) ? null : parsedHours);
       return;
     }
 
     if (valueType === 'timeValue') {
-      onChange(nextValue);
+      field.onChange(nextValue);
       return;
     }
 
-    onChange(
+    field.onChange(
       timeValueToString(nextValue, resolvedTimeZone, effectiveGranularity) ??
         String(nextValue),
     );
   };
 
   return (
-    <TimeField
-      {...getControlProps()}
-      ref={(element) => {
-        ref(
-          element
-            ? {
-                focus: () => {
-                  element
-                    .querySelector<HTMLElement>(
-                      '[role="spinbutton"]:not([aria-disabled="true"])',
-                    )
-                    ?.focus();
-                },
-              }
-            : null,
-        );
-      }}
-      aria-label={
-        uniformFieldProps.ariaLabel ?? (label ? undefined : ariaLabel)
-      }
-      aria-labelledby={undefined}
-      aria-required={undefined}
-      className={classNames.base}
-      data-slot="base"
+    <TimeControl
+      ariaLabel={uniformFieldProps.ariaLabel ?? (label ? undefined : ariaLabel)}
+      className={className}
+      controlProps={getControlProps()}
+      description={description}
+      disabled={disabled}
+      errorMessage={errorMessage}
       granularity={effectiveGranularity}
       hideTimeZone={hideTimeZone}
       hourCycle={hourCycle}
-      isDisabled={disabled}
-      isInvalid={invalid}
-      isRequired={required}
+      ids={ids}
+      inputRef={field.ref}
+      invalid={invalid}
+      label={label}
       name={name}
-      onBlur={onBlur}
-      onChange={handleChange}
-      placeholderValue={placeholderValue ?? undefined}
-      shouldForceLeadingZeros
-      validationBehavior="aria"
-      value={parsedValue ?? null}
+      onBlur={field.onBlur}
+      onValueChange={handleChange}
+      placeholderValue={placeholderValue}
+      required={required}
+      testId={testId}
+      value={parsedValue}
     >
-      <ResetEmptySegments />
-      {label ? (
-        <FieldLabel
-          as={Label}
-          className={classNames.label}
-          id={ids.label}
-          required={required}
-        >
-          {label}
-        </FieldLabel>
-      ) : null}
-      <div className={classNames.inputWrapper} data-slot="input-wrapper">
-        <div className={classNames.innerWrapper} data-slot="inner-wrapper">
-          <DateInput
-            className={classNames.input}
-            data-slot="input"
-            data-testid={testId}
-          >
-            {(segment) => {
-              return (
-                <DateSegment
-                  className={classNames.segment}
-                  data-editable={segment.isEditable || undefined}
-                  data-slot="segment"
-                  data-type={segment.type}
-                  segment={segment}
-                />
-              );
-            }}
-          </DateInput>
-        </div>
-        {description || invalid ? (
-          <div className={classNames.helperWrapper} data-slot="helper-wrapper">
-            <FieldDescription
-              className={classNames.description}
-              id={ids.description}
-            >
-              {description}
-            </FieldDescription>
-            {invalid ? (
-              <div
-                className={classNames.errorMessage}
-                data-slot="error-message"
-                id={ids.error}
-              >
-                {errorMessage}
-              </div>
-            ) : null}
-          </div>
-        ) : null}
-      </div>
-    </TimeField>
+      <TimeReset />
+    </TimeControl>
   );
 };
 
