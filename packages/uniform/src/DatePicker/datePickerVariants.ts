@@ -102,3 +102,9 @@ export const datePickerStateVariants = tv({
     disabled: { true: { base: 'pointer-events-none opacity-disabled' } },
   },
 });
+
+/** Resolved class names for the date input and calendar slots */
+export type DatePickerClassNames = Record<
+  keyof ReturnType<typeof datePickerStateVariants>,
+  string
+>;

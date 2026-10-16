@@ -27,3 +27,10 @@ then adds calendar styling. Override individual slots through `className`, inclu
 `label`, `description` and `errorMessage`. See the [styling guide](../../../../docs/styling.md).
 
 [Props](DatePicker.tsx) · [Stories](DatePicker.stories.tsx)
+
+## Composition
+
+`DatePicker` owns form binding and date serialization. `DatePickerControl` owns
+the segmented input and field messages, while `DatePickerCalendar` owns popup
+navigation and the optional time editor. `DatePickerReset` clears partial edits
+when the form resets.
