@@ -28,3 +28,9 @@ import RadioTabs from '@fuf-stack/uniform/RadioTabs';
   `helperWrapper` slots in `className`, using the same recipe as the tabs.
 
 [Props](RadioTabs.tsx) · [Stories](RadioTabs.stories.tsx)
+
+## Composition
+
+`RadioTabs` owns registration and option value conversion. `RadioTabsControl`
+owns field layout and form-focus routing. `RadioTabsList` owns the tab engine,
+selection indicator geometry and optional panels.

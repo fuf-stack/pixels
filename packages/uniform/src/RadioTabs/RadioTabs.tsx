@@ -1,67 +1,54 @@
-import type { TVClassName, TVProps } from '@fuf-stack/pixel-utils';
 import type { TabsProps } from '@fuf-stack/pixels';
 import type { ReactElement, ReactNode } from 'react';
-import type radioTabsVariants from './radioTabsVariants';
-
-import { useFocusWithin } from 'react-aria/useFocusWithin';
-
-import { slugify } from '@fuf-stack/pixel-utils';
-import { useStyling } from '@fuf-stack/pixels/StylingProvider';
+import type { ClassName, VariantProps } from './radioTabsVariants';
 
 import { createOptionValueConverter } from '../helpers';
 import useUniformField from '../hooks/useUniformField/useUniformField';
-import FieldDescription from '../partials/FieldDescription/FieldDescription';
-import FieldLabel from '../partials/FieldLabel/FieldLabel';
-import OwnedTabs, { radioTabsStateVariants } from './OwnedTabs';
+import RadioTabsControl from './subcomponents/RadioTabsControl';
 
 export { default as radioTabsVariants } from './radioTabsVariants';
-
-type VariantProps = TVProps<typeof radioTabsVariants>;
-type ClassName = TVClassName<typeof radioTabsVariants>;
 
 export interface RadioTabOption {
   /** Optional content inside of the tab */
   content?: ReactNode;
-  /** disables the option */
+  /** Disables the field */
   disabled?: boolean;
-  /** option label */
+  /** Field label */
   label?: ReactNode;
   /** option icon */
   icon?: ReactNode;
-  /** HTML data-testid attribute of the option */
+  /** HTML data-testid attribute for e2e tests */
   testId?: string;
   /** option value */
   value: string | number | boolean;
 }
 
 export interface RadioTabsProps extends Omit<VariantProps, 'hasContent'> {
-  /** Custom aria-label for accessibility. If not provided, falls back to field name when no visible label exists */
+  /** Custom accessible name */
   ariaLabel?: string;
   /** CSS class name */
   className?: ClassName;
-  /** Determines if the Buttons are disabled or not. */
+  /** Disables the field */
   disabled?: boolean;
   /** Whether tabs should take up full container width */
   fullWidth?: boolean;
-  /** Optional help text associated with this selection group. */
+  /** Help text associated with the field */
   description?: ReactNode;
-  /** determines orientation of the Buttons. */
+  /** Arranges options horizontally */
   inline?: boolean;
-  /** Label displayed next to the RadioButton. */
+  /** Field label */
   label?: ReactNode;
-  /** Name the RadioButtons are registered at in HTML forms (react-hook-form). */
+  /** Field name */
   name: string;
-  /** Radio button configuration. */
+  /** Available options */
   options: RadioTabOption[];
-  /** Id to grab element in internal tests. */
+  /** HTML data-testid attribute for e2e tests */
   testId?: string;
   /** How the RadioTabs should look like. */
   variant?: TabsProps['variant'];
 }
 
-/**
- * Owned selection-field composition with React Aria tabs
- */
+/** Form selection field displayed as tabs with optional panels */
 const RadioTabs = ({
   className = undefined,
   fullWidth = false,
@@ -71,143 +58,49 @@ const RadioTabs = ({
   variant = undefined,
   ...uniformFieldProps
 }: RadioTabsProps): ReactElement => {
-  const field = useUniformField({ name, ...uniformFieldProps });
   const {
+    field,
+    ariaLabel,
     disabled,
+    description,
+    errorMessage,
+    getControlProps,
+    ids,
     invalid,
     label,
+    ref,
     required,
     testId,
-    ids,
-    field: { value },
-    onChange,
-  } = field;
-  const { focusWithinProps } = useFocusWithin({ onBlurWithin: field.onBlur });
-
-  // Create converter to preserve number types for option values
+  } = useUniformField({ ...uniformFieldProps, name });
   const { convertToOriginalType } = createOptionValueConverter(options);
 
-  // check if any option has content
-  // eslint-disable-next-line @typescript-eslint/no-misused-promises, @typescript-eslint/promise-function-async
-  const hasContent = options.some((option) => {
-    return option.content;
-  });
-
-  // classNames from slots
-  const styling = useStyling();
-  const variants = styling.resolve(radioTabsStateVariants, {
-    fullWidth,
-    hasContent,
-    isInvalid: invalid,
-    appearance: variant ?? 'solid',
-  });
-  const classNames = styling.variantsToClassNames(variants, className, 'base');
-
-  const associations = field.getControlProps();
-  const describedBy =
-    [
-      associations['aria-describedby'],
-      required ? `${ids.control}-required` : undefined,
-    ]
-      .filter(Boolean)
-      .join(' ') || undefined;
+  // restore the selected option's original value type
+  const handleChange = (key: string) => {
+    field.onChange(convertToOriginalType(key));
+  };
 
   return (
-    <div
-      {...associations}
-      {...focusWithinProps}
-      ref={(node) => {
-        field.ref(
-          node
-            ? {
-                focus: () => {
-                  const tab =
-                    node.querySelector<HTMLElement>(
-                      '[role="tab"][aria-selected="true"]:not([disabled]):not([aria-disabled="true"])',
-                    ) ??
-                    node.querySelector<HTMLElement>(
-                      '[role="tab"]:not([disabled]):not([aria-disabled="true"])',
-                    );
-                  tab?.focus();
-                },
-              }
-            : null,
-        );
-      }}
-      aria-describedby={describedBy}
-      aria-required={undefined}
-      className={classNames.base}
-      data-invalid={invalid}
-      data-required={required}
-      data-testid={testId}
-      role="group"
-    >
-      {label ? (
-        <FieldLabel
-          as="div"
-          className={classNames.label}
-          id={ids.label}
-          required={required}
-        >
-          {label}
-        </FieldLabel>
-      ) : null}
-      {required ? (
-        <span className="sr-only" id={`${ids.control}-required`}>
-          Required selection.
-        </span>
-      ) : null}
-      <div
-        className={styling.cn(
-          'flex flex-col flex-wrap gap-2',
-          inline ? 'flex-row' : undefined,
-          classNames.wrapper,
-        )}
-        data-slot="wrapper"
-      >
-        <OwnedTabs
-          classes={classNames}
-          describedBy={describedBy}
-          disabled={disabled}
-          label={
-            uniformFieldProps.ariaLabel ??
-            (typeof uniformFieldProps.label === 'string'
-              ? uniformFieldProps.label
-              : name)
-          }
-          onChange={(key) => {
-            onChange(convertToOriginalType(key));
-          }}
-          options={options}
-          selectedKey={value != null ? String(value) : ''}
-          testId={(optionValue, explicit) => {
-            return slugify(`${testId}_option_${explicit ?? optionValue}`, {
-              replaceDots: true,
-            });
-          }}
-          variant={variant}
-        />
-      </div>
-      {field.description || invalid ? (
-        <div className={classNames.helperWrapper} data-slot="helper-wrapper">
-          <FieldDescription
-            className={classNames.description}
-            id={ids.description}
-          >
-            {field.description}
-          </FieldDescription>
-          {invalid ? (
-            <div
-              className={classNames.errorMessage}
-              data-slot="error-message"
-              id={ids.error}
-            >
-              {field.errorMessage}
-            </div>
-          ) : null}
-        </div>
-      ) : null}
-    </div>
+    <RadioTabsControl
+      ariaLabel={ariaLabel}
+      className={className}
+      controlProps={getControlProps()}
+      description={description}
+      disabled={disabled}
+      errorMessage={errorMessage}
+      fullWidth={fullWidth}
+      ids={ids}
+      inline={inline}
+      inputRef={ref}
+      invalid={invalid}
+      label={label}
+      onBlur={field.onBlur}
+      onValueChange={handleChange}
+      options={options}
+      required={required}
+      testId={testId}
+      value={field.value}
+      variant={variant}
+    />
   );
 };
 
