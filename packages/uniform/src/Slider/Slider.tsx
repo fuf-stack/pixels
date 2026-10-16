@@ -2,7 +2,6 @@ import type { ReactNode } from 'react';
 import type { InputValueTransform } from '../hooks/useInputValueTransform';
 import type { ClassName } from './sliderVariants';
 
-import { isValueEmpty } from '../helpers';
 import useUniformField from '../hooks/useUniformField/useUniformField';
 import SliderControl from './subcomponents/SliderControl';
 
@@ -13,18 +12,16 @@ export interface SliderProps {
   ariaLabel?: string;
   /** CSS class name */
   className?: ClassName;
+  /** Help text associated with the field */
+  description?: ReactNode;
   /** Disables the field */
   disabled?: boolean;
   /** Content to display at the end of the slider */
   endContent?: ReactNode;
-  /** Help text associated with the field */
-  description?: ReactNode;
   /** The offset from where the fill should start */
   fillOffset?: number;
   /** Field label */
   label?: string;
-  /** Field name */
-  name: string;
   /**
    * The maximum value of the slider
    * @default 100
@@ -35,6 +32,8 @@ export interface SliderProps {
    * @default 0
    */
   minValue?: number;
+  /** Field name */
+  name: string;
   /**
    * Whether to show step dots on the slider
    * @default false
@@ -69,54 +68,28 @@ const Slider = ({
   step = 1,
   ...uniformFieldProps
 }: SliderProps) => {
-  const {
-    field,
-    disabled,
-    description,
-    errorMessage,
-    getControlProps,
-    getValues,
-    ids,
-    invalid,
-    label,
-    ref,
-    required,
-    testId,
-  } = useUniformField({ ...uniformFieldProps, name });
+  const { field, getValues } = useUniformField({
+    ...uniformFieldProps,
+    name,
+  });
 
-  // commit an untouched empty field when a completed interaction keeps its displayed value
-  const handleChangeEnd = (nextValue: number) => {
-    if (isValueEmpty(getValues(name))) {
-      field.onChange(nextValue);
-    }
+  const getCurrentValue = (): unknown => {
+    return getValues(name);
   };
 
   return (
     <SliderControl
       className={className}
-      controlProps={getControlProps()}
-      description={description}
-      disabled={disabled}
       endContent={endContent}
-      errorMessage={errorMessage}
+      field={field}
       fillOffset={fillOffset}
-      ids={ids}
-      inputRef={ref}
-      invalid={invalid}
-      label={label}
+      getCurrentValue={getCurrentValue}
       maxValue={maxValue}
       minValue={minValue}
-      name={name}
-      onBlur={field.onBlur}
-      onValueChange={field.onChange}
-      onValueCommit={handleChangeEnd}
-      required={required}
       showSteps={showSteps}
       size={size}
       startContent={startContent}
       step={step}
-      testId={testId}
-      value={field.value}
     />
   );
 };

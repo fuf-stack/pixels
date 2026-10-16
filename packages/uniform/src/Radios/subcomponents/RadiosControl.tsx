@@ -1,4 +1,4 @@
-import type { FieldPresentationProps } from '../../partials/types';
+import type { UniformField } from '../../hooks/useUniformField/types';
 import type { RadiosProps } from '../Radios';
 
 import { Label } from 'react-aria-components';
@@ -6,31 +6,20 @@ import { Label } from 'react-aria-components';
 import { slugify } from '@fuf-stack/pixel-utils';
 import { useStyling } from '@fuf-stack/pixels/StylingProvider';
 
+import { createOptionValueConverter } from '../../helpers';
+import { getFieldControlProps } from '../../helpers/fieldProps/fieldProps';
 import FieldLayout from '../../partials/FieldLayout/FieldLayout';
 import RadioGroupField from '../../partials/RadioGroupField/RadioGroupField';
 import { radiosVariants } from '../radiosVariants';
 import RadioControl from './RadioControl';
 import radioControlVariants from './radioControlVariants';
 
-interface RadiosControlProps
-  extends
-    Pick<
-      RadiosProps,
-      | 'children'
-      | 'className'
-      | 'description'
-      | 'disabled'
-      | 'inline'
-      | 'label'
-      | 'name'
-      | 'options'
-      | 'testId'
-    >,
-    FieldPresentationProps<unknown, string> {
-  /** Connects form focus requests to an enabled radio option */
-  inputRef: (control: Pick<HTMLElement, 'focus'> | null) => void;
-  /** HTML data-testid attribute for e2e tests */
-  testId: string;
+interface RadiosControlProps extends Pick<
+  RadiosProps,
+  'children' | 'className' | 'inline' | 'options'
+> {
+  /** Bound field values, interactions and metadata */
+  field: UniformField<unknown, string | number | boolean>;
 }
 
 /**
@@ -39,26 +28,34 @@ interface RadiosControlProps
  * @see https://react-aria.adobe.com/RadioGroup
  */
 const RadiosControl = ({
+  field,
   children,
   className,
-  controlProps,
-  description,
-  disabled,
-  errorMessage,
-  ids,
   inline = false,
-  inputRef,
-  invalid,
-  label,
-  name,
-  onBlur,
-  onValueChange,
   options,
-  required,
-  testId,
-  value,
 }: RadiosControlProps) => {
+  const {
+    description,
+    disabled,
+    errorMessage,
+    ids,
+    ref: inputRef,
+    invalid,
+    label,
+    name,
+    onBlur,
+    onChange: onValueChange,
+    required,
+    testId,
+    value,
+  } = field;
+
+  // associate the editable control with its label and messages
+  const controlProps = getFieldControlProps(field);
+
   const styling = useStyling();
+
+  const { convertToOriginalType } = createOptionValueConverter(options);
 
   // classNames from slots
   const variants = styling.resolve(radiosVariants);
@@ -108,6 +105,11 @@ const RadiosControl = ({
     };
   });
 
+  // restore the selected option's original value type
+  const handleChange = (nextValue: string) => {
+    onValueChange(convertToOriginalType(nextValue));
+  };
+
   return (
     <RadioGroupField
       className={classNames.base}
@@ -118,7 +120,7 @@ const RadiosControl = ({
       invalid={invalid}
       name={name}
       onBlur={onBlur}
-      onChange={onValueChange}
+      onChange={handleChange}
       required={required}
       testId={testId}
       value={value}

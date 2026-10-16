@@ -32,6 +32,19 @@ component body.
 Separate top-level declarations with blank lines too, including a recipe, each
 exported type and the final default export. Keep a declaration’s docstring attached
 to it. See the [variant export example](#types-live-with-their-owner).
+Always leave a blank line between a props interface and the component docstring:
+
+```tsx
+interface FieldArrayProps {
+  /** Field name */
+  name: string;
+}
+
+/** Form field group for adding, removing and reordering array entries */
+const FieldArray = ({ name }: FieldArrayProps) => {
+  // ...
+};
+```
 
 Comments are optional. Add a short one for timing, a constraint or a surprising
 choice. Skip comments that repeat the function name or narrate obvious code.
@@ -55,10 +68,19 @@ return (
   <InputControl
     onClear={onClear}
     onReset={clear}
-    onValueChange={onChange}
-    value={value}
+    field={{ ...field, onBlur, onChange, value }}
   />
 );
+```
+
+Separate value normalization from the binding hook with a blank line. Explain a
+fallback or interpretation, rather than restating the expression:
+
+```tsx
+const { field } = useUniformField(options);
+
+// treat non-array form values as an empty selection
+const value = Array.isArray(field.value) ? (field.value as string[]) : [];
 ```
 
 For example, keep the slider value, step markers and fill geometry separate.
@@ -88,7 +110,7 @@ Put forwarded props first, followed by explicit overrides in alphabetical order.
 Spread order controls precedence, so preserve intentional overrides when reordering.
 
 ```tsx
-const fieldState = useUniformField({
+const { field } = useUniformField({
   ...uniformProps,
   ariaLabel,
   name,
@@ -105,7 +127,7 @@ const InputControl = (props: InputControlProps) => {
   const styling = useStyling();
   const { focusProps, isFocused } = useFocusRing({ within: true });
 
-  const { className, value, ...fieldProps } = props;
+  const { className, field } = props;
 
   // ...
 };
@@ -133,10 +155,35 @@ const InputClearButton = ({ className, onClear }: InputClearButtonProps) => {
 };
 ```
 
+Sort declared props and `Pick` keys alphabetically. Keep documented properties
+adjacent, without blank lines between them. Separate the whole interface from the
+component docstring with one blank line.
+
+```tsx
+interface DatePickerControlProps {
+  /** Reset bridge rendered inside the date engine */
+  children: ReactNode;
+  /** Bound field values, interactions and metadata */
+  field: UniformField<unknown, DatePickerValue>;
+}
+```
+
 Private components belong in a `subcomponents/` folder under their owner. Give
 each an identifiable job, especially around React Aria composition. The main
 component should read as an orchestration of those jobs, rather than containing
 every field engine, addon, icon and action inline.
+
+Component-local hooks belong in the owning component's `hooks/` folder, with
+focused tests beside them. Keep hooks shared across field families in `src/hooks/`.
+Test the hook's decisions and timing, while component tests cover the rendered result.
+
+```text
+FieldCard/
+  FieldCard.tsx
+  hooks/
+    useFieldCardValidation.ts
+    useFieldCardValidation.test.ts
+```
 
 Reuse between related components does not change ownership. Keep a family-specific
 subcomponent under its primary owner, with its recipes and tests beside it, and
@@ -188,17 +235,17 @@ Input/
     InputStepper.tsx              # Number increment and decrement controls
 ```
 
-Shared pure functions belong in `helpers/<helper>/<helper>.ts`, with colocated
-tests. Keep `partials/` for React presentation shared across field families and
+Shared pure functions belong in `helpers/<responsibility>/<responsibility>.ts`,
+with colocated tests. Related functions can share one module with named exports. Keep `partials/` for React presentation shared across field families and
 its supporting contracts.
 For example:
 
 ```text
 src/
   helpers/
-    getFieldDataAttributes/
-      getFieldDataAttributes.ts
-      getFieldDataAttributes.test.tsx  # DOM contract and state combinations
+    fieldProps/
+      fieldProps.ts              # Control associations and styling attributes
+      fieldProps.test.tsx        # DOM contracts and state combinations
   partials/
     FieldLayout/
     types.ts
@@ -222,12 +269,105 @@ invokes it, notifies the consumer through `onClear` and restores input focus. Pa
 value callback directly when it already accepts the expected value, rather than
 adding a handler just to construct an event.
 
+Keep UI value adapters in the control that owns the engine. For example, a
+radio control converts React Aria string keys back to the option's original type,
+so the binding passes `field` directly. Interaction handlers belong in the control that owns the interaction. If they
+need current form state, pass a narrow read-only accessor from the binding rather
+than moving form context into the control. For example, Select receives
+`getIsTouched` and Slider receives `getCurrentValue`.
+
+Do not introduce a component-local hook solely to hide a small handler. Extract
+hooks when they own substantial reusable or stateful logic.
+
+```tsx
+const { field, getValues } = useUniformField({ ...uniformFieldProps, name });
+const getCurrentValue = (): unknown => getValues(name);
+
+return <SliderControl field={field} getCurrentValue={getCurrentValue} />;
+```
+
+Substantial form coordination belongs in its owning hook: `useUniformFieldArray`
+binds row operations, and FieldCard's local validation hook resolves child state.
+Display preparation belongs in controls; storage conversion uses the existing
+field transform mechanism, configured by the binding. Resolve configuration such
+as value transforms in a separate named variable before passing it to a hook.
+Avoid nesting configuration factories inside hook options, keep the two steps
+in separate blocks.
+
+```tsx
+const transform = createDatePickerValueTransform({
+  timeZone,
+  valueType,
+  withTime,
+});
+
+const { field } = useUniformField({
+  ...uniformFieldProps,
+  name,
+  transform,
+});
+
+return (
+  <DatePickerControl field={field} timeZone={timeZone} withTime={withTime} />
+);
+```
+
+```tsx
+// RadioBoxes.tsx
+<RadioBoxesControl field={field} options={options} />;
+
+// RadioBoxesControl.tsx
+const { convertToOriginalType } = createOptionValueConverter(options);
+
+// restore the selected option's original value type
+const handleChange = (nextValue: string) => {
+  field.onChange(convertToOriginalType(nextValue));
+};
+```
+
+Keep bound field data together as `field`, using the same name in the hook and
+control props. Define the hook's field object before its return, with a short
+comment and explicit properties. Do not spread the underlying controller into
+this contract. Keep form operations (`control`, `getValues`, `resetField`) and
+provider configuration (`debugMode`) outside it.
+
+```tsx
+// collect the bound field without exposing controller internals
+const field = {
+  // other explicitly declared field properties
+  customAriaLabel,
+  name: controllerField.name,
+  onBlur,
+  onChange: transformedOnChange,
+  ref,
+  value: transformedValue,
+};
+
+return { control, debugMode, field, getValues, resetField };
+```
+
+Derive element attributes where they are applied. Keep related helpers in
+`helpers/fieldProps/fieldProps.ts`, using named exports and colocated tests.
+`getFieldControlProps(field)` creates ID and ARIA associations, while
+`getFieldDataAttributes(field)` creates styling flags. Their targets may differ.
+The binding hook returns metadata, not precomputed DOM props.
+
+```tsx
+const controlProps = getFieldControlProps(field);
+const dataAttributes = getFieldDataAttributes(field);
+```
+
+Pass `field` to a control, never spread the whole bundle onto a DOM element.
+Bindings may override their own bundle for debouncing or value conversion.
+See [Uniform field composition](./uniform/field-composition.md#bound-field-contract)
+and the [helpers guide](../packages/uniform/src/helpers/README.md).
+
 Keep shared accessibility fallback rules in the field binding hook. Components
 pass their label, accessible-name override and placeholder without resolving a
 second naming policy locally:
 
 ```tsx
-const field = useUniformField({
+const { field } = useUniformField({
   ...uniformProps,
   name,
   placeholder,
@@ -321,7 +461,7 @@ field-specific state such as checked or expanded belongs to its renderer:
 
 ```tsx
 <div
-  {...getFieldDataAttributes({ disabled, invalid, required })}
+  {...getFieldDataAttributes(field)}
   data-focus={focused || undefined}
   data-slot="base"
 >
@@ -576,6 +716,22 @@ descriptions and feature lists.
 const Input = ({ name, ...props }: InputProps) => {
   // ...
 };
+```
+
+For hooks with non-obvious policy, explain what they derive, why the owning
+component needs that logic, and the important visibility or timing rules. Keep
+this rationale in the header rather than narrating each statement below.
+
+```tsx
+/**
+ * Derives the card's required and invalid states from its nested fields
+ *
+ * A card groups independently registered inputs, so its own field state does
+ * not tell us whether a child is required or which child errors are visible
+ *
+ * Child errors become visible after that child is touched or the form is submitted
+ * Debounces invalid-state changes to prevent flickering during validation updates
+ */
 ```
 
 Subcomponent headers describe their local responsibility and required context.

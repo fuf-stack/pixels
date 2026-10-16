@@ -3,7 +3,6 @@ import type { Props } from 'react-select';
 import type { InputValueTransform } from '../hooks/useInputValueTransform';
 import type { ClassName } from './selectVariants';
 
-import { createOptionValueConverter } from '../helpers';
 import { useFormContext } from '../hooks/useFormContext';
 import useUniformField from '../hooks/useUniformField/useUniformField';
 import SelectControl from './subcomponents/SelectControl';
@@ -28,15 +27,16 @@ export interface SelectProps {
   /** Custom accessible name */
   ariaLabel?: string;
   /** CSS class name */
-  className?: ClassName; // string;
-  /** Help text associated with the field */
-  description?: ReactNode;
+  className?: ClassName;
   /** Determine if the  */
   clearable?: boolean;
-  /** Disables the field */
-  disabled?: boolean;
   /** Force menu open for debugging or visual testing. */
   debugMenuOpen?: boolean;
+  // string;
+  /** Help text associated with the field */
+  description?: ReactNode;
+  /** Disables the field */
+  disabled?: boolean;
   /** Filter Select Options */
   filterOption?:
     undefined | ((option?: SelectOption, inputValue?: string) => boolean);
@@ -50,12 +50,12 @@ export interface SelectProps {
   multiSelect?: boolean;
   /** Field name */
   name: string;
-  /** Placeholder text */
-  placeholder?: string;
   /** Handle change events on the input */
   onInputChange?: Props['onInputChange'];
   /** Available options */
   options: SelectOption[];
+  /** Placeholder text */
+  placeholder?: string;
   /** Render custom content when no options match the current search input. */
   renderEmptyOptions?: Props['noOptionsMessage'];
   /** Format the label of the option */
@@ -93,78 +93,33 @@ const Select = ({
   ...uniformFieldProps
 }: SelectProps) => {
   const { getFieldState } = useFormContext();
-  const {
-    field,
-    description,
-    disabled,
-    errorMessage,
-    getControlProps,
-    ids,
-    invalid,
-    label,
-    ref,
-    required,
-    testId,
-  } = useUniformField({
+  const { field } = useUniformField({
     ...uniformFieldProps,
     isArrayValue: multiSelect,
     name,
   });
 
-  const { convertToOriginalType } = createOptionValueConverter(options);
-
-  // convert selected options back to their stored value types
-  const handleChange = (option: unknown) => {
-    if (multiSelect) {
-      field.onChange(
-        (option as SelectOption[])?.map((_option) => {
-          return convertToOriginalType(_option.value);
-        }),
-      );
-    } else {
-      const newValue = (option as SelectOption)?.value;
-      // Pass null explicitly when clearing (not undefined)
-      field.onChange(newValue != null ? convertToOriginalType(newValue) : null);
-    }
-
-    const { isTouched: currentIsTouched } = getFieldState(name, testId);
-    if (!currentIsTouched) {
-      // mark touched after the new value commits, so validation sees the selection
-      queueMicrotask(() => {
-        field.onBlur();
-      });
-    }
+  const getIsTouched = () => {
+    return getFieldState(name, field.testId).isTouched;
   };
 
   return (
     <SelectControl
       className={className}
       clearable={clearable}
-      controlProps={getControlProps()}
       debugMenuOpen={debugMenuOpen}
-      description={description}
-      disabled={disabled}
-      errorMessage={errorMessage}
+      field={field}
       filterOption={filterOption}
-      ids={ids}
-      inputRef={ref}
+      getIsTouched={getIsTouched}
       inputValue={inputValue}
-      invalid={invalid}
-      label={label}
       loading={loading}
       multiSelect={multiSelect}
-      name={name}
-      onBlur={field.onBlur}
       onInputChange={onInputChange}
-      onValueChange={handleChange}
       options={options}
       placeholder={placeholder}
       renderEmptyOptions={renderEmptyOptions}
       renderOptionLabel={renderOptionLabel}
-      required={required}
       selectedOptionFallback={selectedOptionFallback}
-      testId={testId}
-      value={field.value}
     />
   );
 };

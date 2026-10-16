@@ -1,5 +1,4 @@
-import type { ReactNode, Ref } from 'react';
-import type { FieldControlProps, FieldIds } from '../../partials/types';
+import type { UniformField } from '../../hooks/useUniformField/types';
 import type { InputProps } from '../Input';
 
 import { useFocusRing } from 'react-aria/useFocusRing';
@@ -17,38 +16,17 @@ export interface InputControlProps extends Pick<
   InputProps,
   | 'className'
   | 'clearable'
-  | 'description'
-  | 'disabled'
   | 'endContent'
-  | 'label'
-  | 'name'
   | 'onClear'
   | 'placeholder'
   | 'size'
   | 'startContent'
-  | 'testId'
   | 'type'
 > {
-  /** Connects the native control to its label and hints */
-  controlProps: FieldControlProps;
-  /** Rendered validation messages */
-  errorMessage: ReactNode;
-  /** Associates the control, label, description and validation message through stable IDs */
-  ids: FieldIds;
-  /** Ref forwarded to the native editable input */
-  inputRef: Ref<HTMLInputElement>;
-  /** Shows invalid styling on the control */
-  invalid: boolean;
-  /** Callback invoked when focus leaves the field */
-  onBlur: () => void;
+  /** Bound field values, interactions and metadata */
+  field: UniformField<unknown, string>;
   /** Callback that clears pending edits and resets the bound value */
   onReset: () => void;
-  /** Callback invoked with the next display value when the input changes */
-  onValueChange: (value: string) => void;
-  /** Marks the label and control as required */
-  required: boolean;
-  /** Sets the display value, nullish values render as an empty input */
-  value: unknown;
 }
 
 /**
@@ -63,10 +41,10 @@ export interface InputControlProps extends Pick<
  * @see https://react-aria.adobe.com/NumberField
  */
 const InputControl = (props: InputControlProps) => {
-  const { inputRef } = props;
+  const { field } = props;
 
   const styling = useStyling();
-  const controlRef = useObjectRef(inputRef);
+  const controlRef = useObjectRef<HTMLInputElement>(field.ref);
   const {
     focusProps,
     isFocused: focused,
@@ -76,22 +54,18 @@ const InputControl = (props: InputControlProps) => {
     isTextInput: true,
   });
 
+  const { size, type, clearable, className, onClear, onReset } = props;
+
   const {
     value,
-    size,
     disabled,
     invalid,
-    type,
-    clearable,
-    className,
     label,
     required,
     ids,
     description,
     errorMessage,
-    onClear,
-    onReset,
-  } = props;
+  } = field;
 
   // treat empty and nullish values as cleared, preserve numeric zero
   const hasValue = value !== '' && value != null;

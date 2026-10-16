@@ -1,6 +1,12 @@
 import type { ReactNode } from 'react';
-import type { ArrayPath, FieldValues, Path } from 'react-hook-form';
+import type {
+  FieldArray as ArrayElement,
+  ArrayPath,
+  FieldValues,
+  Path,
+} from 'react-hook-form';
 import type { UniformFieldState } from '../useUniformField/types';
+import type { FieldArrayElementMethods, FieldArrayItem } from './types';
 
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { useFieldArray as useRHFFieldArray } from 'react-hook-form';
@@ -233,13 +239,71 @@ export const useUniformFieldArrayMethods = <
     [needsInitialize],
   );
 
+  const { testId } = uniformField.field;
+
+  // bind row identification and operations for the renderer
+  const items: FieldArrayItem[] = fields.map((row, index) => {
+    const elementName = flat
+      ? `${name}.${index}.${flatArrayKey}`
+      : `${name}.${index}`;
+    const elementTestId = `${testId}_${index}`;
+
+    const methods: FieldArrayElementMethods = {
+      append: () => {
+        append(elementInitialValue as ArrayElement<TFieldValues>);
+      },
+      duplicate: () => {
+        const values = getValues(name as Path<TFieldValues>);
+        const currentValue = (values as unknown as unknown[])[index];
+
+        insert(
+          index + 1,
+          (flat
+            ? { [flatArrayKey]: currentValue }
+            : currentValue) as ArrayElement<TFieldValues>,
+        );
+      },
+      insert: () => {
+        insert(index + 1, elementInitialValue as ArrayElement<TFieldValues>);
+      },
+      remove: () => {
+        remove(index);
+      },
+    };
+
+    return {
+      id: row.id,
+      renderProps: {
+        index,
+        length: fields.length,
+        methods,
+        name: elementName,
+        testId: elementTestId,
+      },
+    };
+  });
+
+  // append an element using the configured initial value
+  const appendItem = () => {
+    append(elementInitialValue as ArrayElement<TFieldValues>);
+  };
+
+  // validate the array after its row order changes
+  const moveItem = (from: number, to: number) => {
+    move(from, to);
+    trigger(name as Path<TFieldValues>);
+  };
+
   return {
     // Field array methods and state
     fields,
     append,
+    appendItem,
+    items,
     remove,
     insert,
     move,
+    moveItem,
     disableAnimation,
     elementInitialValue,
     // Uniform field state and utilities (spread all)

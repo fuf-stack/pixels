@@ -57,19 +57,7 @@ const Input = ({
   placeholder = ' ',
   ...uniformProps
 }: InputProps) => {
-  const {
-    field,
-    disabled,
-    invalid,
-    required,
-    label,
-    description,
-    errorMessage,
-    ids,
-    ref,
-    testId,
-    getControlProps,
-  } = useUniformField({
+  const { field } = useUniformField({
     ...uniformProps,
     name,
     placeholder,
@@ -90,27 +78,14 @@ const Input = ({
     <InputControl
       className={className}
       clearable={clearable}
-      controlProps={getControlProps()}
-      description={description}
-      disabled={disabled}
       endContent={endContent}
-      errorMessage={errorMessage}
-      ids={ids}
-      inputRef={ref}
-      invalid={invalid}
-      label={label}
-      name={name}
-      onBlur={onBlur}
+      field={{ ...field, onBlur, onChange, value }}
       onClear={onClear}
       onReset={clear}
-      onValueChange={onChange}
       placeholder={placeholder}
-      required={required}
       size={size}
       startContent={startContent}
-      testId={testId}
       type={type}
-      value={value}
     />
   );
 };

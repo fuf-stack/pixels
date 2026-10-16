@@ -129,6 +129,8 @@ export type ClassName = TVClassName<typeof checkboxesVariants>;
 export const checkboxOptionVariants = tv({
   extend: checkboxColorVariants,
   slots: {
+    /** Option field context without an additional layout box */
+    field: 'contents',
     /** Container for the option label and optional subline */
     label:
       'relative select-none text-foreground transition-colors-opacity text-medium before:transition-width motion-reduce:transition-none',

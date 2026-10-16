@@ -2,6 +2,8 @@ import type { TVClassName } from '@fuf-stack/pixel-utils';
 
 import { tv } from '@fuf-stack/pixel-utils';
 
+import radioControlVariants from '../../Radios/subcomponents/radioControlVariants';
+
 export const radioBoxVariants = tv({
   slots: {
     /** Container for the field control and supporting text */
@@ -13,16 +15,20 @@ export const radioBoxVariants = tv({
       // hover and selection feedback
       'hover:bg-content2 data-[selected=true]:border-focus',
     ],
-    /** Control slot */
-    control: '',
+    /** Dot marking the selected option */
+    control: radioControlVariants.slots.control,
     /** Supporting text for the field */
     description: 'text-foreground opacity-70 text-small',
+    /** Option state boundary without an additional layout box */
+    field: radioControlVariants.slots.field,
     /** Decorative icon beside the option text */
     icon: '',
     /** Visible field label */
-    label: '',
-    /** Labelwrapper slot */
-    labelWrapper: 'grow',
+    label: radioControlVariants.slots.label,
+    /** Container grouping the option label and description */
+    labelWrapper: [radioControlVariants.slots.labelWrapper, 'grow'],
+    /** Circular outline around the selection indicator */
+    wrapper: radioControlVariants.slots.wrapper,
   },
   variants: {
     isDisabled: {
@@ -33,6 +39,9 @@ export const radioBoxVariants = tv({
     isInvalid: {
       true: {
         base: '!border-danger',
+        control: radioControlVariants.variants.invalid.true.control,
+        label: radioControlVariants.variants.invalid.true.label,
+        wrapper: radioControlVariants.variants.invalid.true.wrapper,
       },
     },
   },

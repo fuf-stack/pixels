@@ -28,6 +28,7 @@ by DatePicker. Override individual slots through `className`, including `label`,
 
 ## Composition
 
-`Time` owns registration and conversion between stored values and segmented time values.
-`TimeControl` owns the React Aria engine, focus routing, styling and messages.
+`Time` owns registration and storage conversion through the field transform mechanism.
+`TimeControl` prepares displayed segments, placeholders and effective granularity,
+and owns the React Aria engine, focus routing, styling and messages.
 `TimeReset` clears partial segment edits when the form resets.

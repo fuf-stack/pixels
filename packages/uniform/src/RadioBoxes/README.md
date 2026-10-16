@@ -27,7 +27,8 @@ import RadioBoxes from '@fuf-stack/uniform/RadioBoxes';
 
 ## Internal composition
 
-The binding keeps form registration and option value conversion. Shared
+The binding keeps form registration, while the control converts option keys to
+their original value types. Shared
 `RadioGroupField` owns the React Aria engine and routes form focus requests to
 the selected enabled option, or the first enabled option. `FieldLayout` uses
 React Aria `Label` for group naming and arranges the options and supporting
@@ -39,6 +40,6 @@ messages. `RadioControl` owns each option's label, description and indicator.
 
 ## Composition
 
-`RadioBoxes` owns field registration and option value conversion.
-`RadioBoxesControl` owns group layout, option rendering and styling. The shared
+`RadioBoxes` owns field registration. `RadioBoxesControl` owns option value
+conversion, group layout, option rendering and styling. The shared
 radio engine routes focus and preserves group and option descriptions.

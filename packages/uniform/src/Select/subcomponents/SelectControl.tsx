@@ -1,14 +1,16 @@
-import type { Ref } from 'react';
-import type { SelectInstance } from 'react-select';
-import type { FieldPresentationProps } from '../../partials/types';
-import type { SelectProps } from '../Select';
+import type { UniformField } from '../../hooks/useUniformField/types';
+import type { SelectOption as SelectOptionData, SelectProps } from '../Select';
 
 import { useState } from 'react';
 import ReactSelect from 'react-select';
 
 import { useStyling } from '@fuf-stack/pixels/StylingProvider';
 
-import getFieldDataAttributes from '../../helpers/getFieldDataAttributes/getFieldDataAttributes';
+import { createOptionValueConverter } from '../../helpers';
+import {
+  getFieldControlProps,
+  getFieldDataAttributes,
+} from '../../helpers/fieldProps/fieldProps';
 import FieldLayout from '../../partials/FieldLayout/FieldLayout';
 import getSelectClassNames from '../helpers/getSelectClassNames';
 import resolveSelectValue from '../helpers/resolveSelectValue';
@@ -34,14 +36,14 @@ const selectComponents = {
   Option: SelectOption,
 };
 
-interface SelectControlProps
-  extends
-    Omit<SelectProps, 'ariaLabel' | 'transform' | 'testId'>,
-    FieldPresentationProps {
-  /** Ref forwarded to React Select's editable control */
-  inputRef: Ref<SelectInstance>;
-  /** HTML data-testid attribute for e2e tests */
-  testId: string;
+interface SelectControlProps extends Omit<
+  SelectProps,
+  keyof UniformField | 'transform'
+> {
+  /** Bound field values, interactions and metadata */
+  field: UniformField;
+  /** Reads the current touched state after a selection commits */
+  getIsTouched: () => boolean;
 }
 
 /**
@@ -50,36 +52,45 @@ interface SelectControlProps
  * @see https://react-select.com/components
  */
 const SelectControl = ({
+  field,
   className,
   clearable,
-  controlProps,
   debugMenuOpen,
-  description,
-  disabled,
-  errorMessage,
   filterOption,
-  ids,
-  inputRef,
+  getIsTouched,
   inputValue,
-  invalid,
-  label,
   loading,
   multiSelect = false,
-  name,
-  onBlur,
-  onValueChange,
   onInputChange,
   options,
   placeholder,
   renderEmptyOptions,
   renderOptionLabel,
-  required,
   selectedOptionFallback,
-  testId,
-  value,
 }: SelectControlProps) => {
+  const {
+    description,
+    disabled,
+    errorMessage,
+    ids,
+    ref: inputRef,
+    invalid,
+    label,
+    name,
+    onBlur,
+    onChange: onValueChange,
+    required,
+    testId,
+    value,
+  } = field;
+
+  // associate the editable control with its label and messages
+  const controlProps = getFieldControlProps(field);
+
   const styling = useStyling();
   const [isFocused, setIsFocused] = useState(false);
+
+  const { convertToOriginalType } = createOptionValueConverter(options);
 
   // classNames from slots
   const variants = styling.resolve(selectVariants, { disabled, invalid });
@@ -107,6 +118,31 @@ const SelectControl = ({
     selectedOptionFallback,
   );
 
+  // convert React Select options into the original value types
+  const handleChange = (option: unknown) => {
+    if (multiSelect) {
+      onValueChange(
+        (option as SelectOptionData[])?.map((selectedOption) => {
+          return convertToOriginalType(selectedOption.value);
+        }),
+      );
+    } else {
+      const nextValue = (option as SelectOptionData)?.value;
+
+      // an empty single selection is stored as null
+      onValueChange(
+        nextValue != null ? convertToOriginalType(nextValue) : null,
+      );
+    }
+
+    // defer the first touched update so validation reads the committed selection
+    if (!getIsTouched()) {
+      queueMicrotask(() => {
+        onBlur();
+      });
+    }
+  };
+
   // update focus state and notify the field on blur
   const handleBlur = () => {
     setIsFocused(false);
@@ -120,7 +156,7 @@ const SelectControl = ({
 
   return (
     <div
-      {...getFieldDataAttributes({ disabled, invalid, required })}
+      {...getFieldDataAttributes(field)}
       className={classNames.base}
       data-slot="base"
       data-testid={`${testId}_wrapper`}
@@ -136,7 +172,7 @@ const SelectControl = ({
       >
         <SelectControlContext.Provider value={controlProps}>
           <SelectSlotContext.Provider value={classNames}>
-            <ReactSelect
+            <ReactSelect<unknown, boolean>
               ref={inputRef}
               aria-errormessage=""
               aria-invalid={invalid}
@@ -163,7 +199,7 @@ const SelectControl = ({
               name={name}
               noOptionsMessage={renderEmptyOptions}
               onBlur={handleBlur}
-              onChange={onValueChange}
+              onChange={handleChange}
               onFocus={handleFocus}
               onInputChange={onInputChange}
               options={reactSelectOptions}

@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import type { FieldControlProps, FieldIds } from '../../partials/types';
+import type { UniformField } from '../../hooks/useUniformField/types';
 import type { DatePickerValue } from '../dateHelpers';
 import type { DatePickerProps } from '../DatePicker';
 
@@ -15,50 +15,31 @@ import {
 
 import { useStyling } from '@fuf-stack/pixels/StylingProvider';
 
+import { getFieldControlProps } from '../../helpers/fieldProps/fieldProps';
 import FieldDescription from '../../partials/FieldDescription/FieldDescription';
 import FieldLabel from '../../partials/FieldLabel/FieldLabel';
+import {
+  getDatePickerPlaceholderValue,
+  parseDateValue,
+  resolveDatePickerTimeZone,
+} from '../dateHelpers';
 import { datePickerVariants } from '../datePickerVariants';
 import DatePickerCalendar from './DatePickerCalendar';
 
 interface DatePickerControlProps extends Pick<
   DatePickerProps,
-  | 'ariaLabel'
   | 'className'
-  | 'description'
-  | 'disabled'
   | 'hideTimeZone'
   | 'hourCycle'
-  | 'label'
-  | 'name'
-  | 'testId'
+  | 'maxValue'
+  | 'minValue'
+  | 'timeZone'
   | 'withTime'
 > {
   /** Reset bridge rendered inside the date engine */
   children: ReactNode;
-  /** Attributes associating the segments with field messages */
-  controlProps: FieldControlProps;
-  /** Rendered validation messages */
-  errorMessage: ReactNode;
-  /** IDs shared with the field label and messages */
-  ids: FieldIds;
-  /** Connects form focus requests to the first editable segment */
-  inputRef: (control: Pick<HTMLElement, 'focus'> | null) => void;
-  /** Shows validation failure */
-  invalid: boolean;
-  /** Latest selectable date and time */
-  maxValue: DatePickerValue;
-  /** Earliest selectable date and time */
-  minValue: DatePickerValue;
-  /** Callback when focus leaves the field */
-  onBlur: () => void;
-  /** Callback with the edited date value */
-  onValueChange: (value: DatePickerValue) => void;
-  /** Date and zone used when editing an empty field */
-  placeholderValue: DatePickerValue;
-  /** Marks the field as required */
-  required: boolean;
-  /** Parsed date value */
-  value: DatePickerValue;
+  /** Bound field values, interactions and metadata */
+  field: UniformField<unknown, DatePickerValue>;
 }
 
 /**
@@ -67,30 +48,45 @@ interface DatePickerControlProps extends Pick<
  * @see https://react-aria.adobe.com/DatePicker
  */
 const DatePickerControl = ({
+  field,
   children,
   className,
-  controlProps,
-  description,
-  disabled,
-  errorMessage,
   hideTimeZone,
   hourCycle,
-  ids,
-  inputRef,
-  invalid,
-  label,
   maxValue,
   minValue,
-  name,
-  onBlur,
-  onValueChange,
-  placeholderValue,
-  required,
-  testId,
-  value,
-  withTime,
+  timeZone,
+  withTime = false,
 }: DatePickerControlProps) => {
   const styling = useStyling();
+
+  const {
+    description,
+    disabled,
+    errorMessage,
+    ids,
+    ref: inputRef,
+    invalid,
+    label,
+    name,
+    onBlur,
+    onChange: onValueChange,
+    required,
+    testId,
+  } = field;
+
+  // associate the editable control with its label and messages
+  const controlProps = getFieldControlProps(field);
+
+  const resolvedTimeZone = resolveDatePickerTimeZone(withTime, timeZone);
+  const displayTimeZone = withTime ? resolvedTimeZone : timeZone;
+
+  // parse stored values and boundaries for the date engine
+  const value = parseDateValue(field.value, displayTimeZone);
+  const parsedMinValue = parseDateValue(minValue, displayTimeZone);
+  const parsedMaxValue = parseDateValue(maxValue, displayTimeZone);
+
+  const placeholderValue = getDatePickerPlaceholderValue(withTime, timeZone);
 
   // classNames from slots
   const variants = styling.resolve(datePickerVariants, {
@@ -131,8 +127,8 @@ const DatePickerControl = ({
       isDisabled={disabled}
       isInvalid={invalid}
       isRequired={required}
-      maxValue={maxValue ?? undefined}
-      minValue={minValue ?? undefined}
+      maxValue={parsedMaxValue ?? undefined}
+      minValue={parsedMinValue ?? undefined}
       name={name}
       onBlur={onBlur}
       onChange={onValueChange}
@@ -233,8 +229,8 @@ const DatePickerControl = ({
               className={classNames}
               hideTimeZone={hideTimeZone}
               hourCycle={hourCycle}
-              maxValue={maxValue}
-              minValue={minValue}
+              maxValue={parsedMaxValue}
+              minValue={parsedMinValue}
               placeholderValue={placeholderValue}
               state={state}
               withTime={withTime}

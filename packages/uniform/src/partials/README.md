@@ -35,11 +35,13 @@ Use `FieldLayout` for the usual arrangement. Fields with a different structure
 compose the label, description and error partials directly. `FieldLayout` owns
 the helper wrapper and validation visibility for its arrangement, without another
 component between the layout and the description/error partials. The field engine retains its root
-and context, and the binding owns IDs and control associations. `useUniformField`
-returns a rendered `errorMessage` using `FieldValidationError`. The layout places
+and context. The binding supplies IDs and metadata, and renderers derive control
+associations through `getFieldControlProps`. `useUniformField`
+returns a rendered `field.errorMessage` using `FieldValidationError`. The layout places
 that node inside its styled error association wrapper, without another shared
 error component.
 
 Pure field helpers live under `helpers/`, including
-[getFieldDataAttributes](../helpers/getFieldDataAttributes/getFieldDataAttributes.ts).
+[fieldProps](../helpers/fieldProps/fieldProps.ts). See the
+[helpers guide](../helpers/README.md) for attribute ownership.
 The partials use shared presentation contracts from `types.ts`.

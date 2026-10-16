@@ -163,6 +163,25 @@ inputWrapper: [
 ],
 ```
 
+When a component reuses only part of another recipe, reference those slot
+and variant definitions in its own `tv` recipe. Resolve and merge the resulting
+recipe once, rather than calling individual slot functions and `cn` inside JSX.
+Use `extend` when all of the other recipe's defaults belong on the component.
+
+```ts
+const radioBoxVariants = tv({
+  slots: {
+    base: 'rounded-lg border-2 p-4',
+    control: radioControlVariants.slots.control,
+    labelWrapper: [radioControlVariants.slots.labelWrapper, 'grow'],
+  },
+});
+```
+
+A small mapping between differently named slots can stay directly on a child's
+`className` prop, for example `{ base: classNames.boxBase }`. It only forwards
+resolved classes, without composing styles in JSX.
+
 ### 2) Derive the public prop types from the variants
 
 The variant definition is the single source of truth. Derive and export both
@@ -203,7 +222,9 @@ export interface AlertProps extends Omit<VariantProps, 'hasTitleAndChildren'> {
 into a `{ slot: 'classes' }` object and merges the caller's `className`:
 
 - a **string/array** `className` is applied to the `baseSlot` (3rd arg),
-- a **record** `className` is merged slot-by-slot.
+- a **record** `className` is merged slot-by-slot, with `undefined` overrides
+  preserving the slot defaults. Conditional overrides such as
+  `{ label: hasSubline ? undefined : classNames.label }` are supported.
 
 Keep these two calls in their own block with `// classNames from slots` above them.
 Use `variants` for the resolved slots and `classNames` for their merged strings,
@@ -482,15 +503,18 @@ package-wide aggregate. An app that renders pixels components through
 
 ## Field state attributes
 
-Uniform's private [getFieldDataAttributes helper](../packages/uniform/src/helpers/getFieldDataAttributes/getFieldDataAttributes.ts) maps disabled, invalid and
+Uniform's private [getFieldDataAttributes helper](../packages/uniform/src/helpers/fieldProps/fieldProps.ts) maps disabled, invalid and
 required state to `data-disabled`, `data-invalid` and `data-required`. Inactive
 flags are omitted. Input, TextArea and Select use it on their field roots.
+It shares the `fieldProps` module with `getFieldControlProps`, which derives
+accessibility associations for the editable control or group. Call each helper
+where its attributes belong, see the [helpers guide](../packages/uniform/src/helpers/README.md).
 Interaction attributes remain with the control, and `data-slot` identifies the
 rendered element. Other field-specific state remains local to its renderer.
 
 ```tsx
 <div
-  {...getFieldDataAttributes({ disabled, invalid, required })}
+  {...getFieldDataAttributes(field)}
   data-focus={focused || undefined}
   data-slot="base"
 />

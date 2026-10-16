@@ -2,8 +2,6 @@ import type { InputControlProps } from './InputControl';
 
 import { describe, expect, it, vi } from 'vitest';
 
-import { createRef } from 'react';
-
 import { render, screen } from '@testing-library/react';
 import { userEvent } from 'storybook/test';
 
@@ -12,25 +10,34 @@ import InputControl from './InputControl';
 
 const bindings = () =>
   ({
-    controlProps: { id: 'standalone', 'aria-labelledby': 'standalone-label' },
-    errorMessage: null,
-    ids: {
-      control: 'standalone',
-      label: 'standalone-label',
-      description: 'standalone-description',
-      error: 'standalone-error',
+    field: {
+      ariaLabel: 'Standalone',
+      defaultValue: 'ready',
+      description: undefined,
+      disabled: false,
+      error: undefined,
+      customAriaLabel: undefined,
+      hasLabel: true,
+      hasErrors: false,
+      errorMessage: null,
+      ids: {
+        control: 'standalone',
+        label: 'standalone-label',
+        description: 'standalone-description',
+        error: 'standalone-error',
+      },
+      ref: vi.fn(),
+      invalid: false,
+      label: 'Standalone',
+      name: 'standalone',
+      onBlur: vi.fn(),
+      onChange: vi.fn(),
+      required: false,
+      testId: 'standalone',
+      value: 'ready',
     },
-    inputRef: createRef<HTMLInputElement>(),
-    invalid: false,
-    label: 'Standalone',
-    name: 'standalone',
-    onBlur: vi.fn(),
     onClear: vi.fn(),
     onReset: vi.fn(),
-    onValueChange: vi.fn(),
-    required: false,
-    testId: 'standalone',
-    value: 'ready',
   }) satisfies InputControlProps;
 
 describe('Input presentation without form context', () => {
@@ -44,21 +51,21 @@ describe('Input presentation without form context', () => {
       const { container } = render(
         <InputControl
           {...props}
-          controlProps={{
-            ...props.controlProps,
-            'aria-describedby': `${props.ids.description} ${props.ids.error}`,
+          field={{
+            ...props.field,
+            hasErrors: true,
+            description: 'Help text',
+            errorMessage: (
+              <FieldValidationError
+                error={[{ type: 'custom', message: 'Invalid value' }]}
+                testId="standalone"
+              />
+            ),
+            invalid: true,
+            required: true,
+            value: type === 'number' ? 0 : 'ready',
           }}
-          description="Help text"
-          errorMessage={
-            <FieldValidationError
-              error={[{ type: 'custom', message: 'Invalid value' }]}
-              testId="standalone"
-            />
-          }
-          invalid
-          required
           type={type}
-          value={type === 'number' ? 0 : 'ready'}
         />,
       );
       const input = screen.getByTestId('standalone');
@@ -80,9 +87,9 @@ describe('Input presentation without form context', () => {
       expect(hints?.parentElement).toBe(root);
       expect(input).toHaveAccessibleName('Standalone');
       expect(input).toHaveAccessibleDescription('Help text Invalid value');
-      expect(props.inputRef.current).toBe(input);
+      expect(props.field.ref).toHaveBeenCalledWith(input);
 
-      Object.values(props.ids).forEach((id) => {
+      Object.values(props.field.ids).forEach((id) => {
         expect(container.querySelectorAll(`[id="${id}"]`)).toHaveLength(1);
       });
 
@@ -98,8 +105,11 @@ describe('Input presentation without form context', () => {
       const { container } = render(
         <InputControl
           {...bindings()}
+          field={{
+            ...bindings().field,
+            value: type === 'number' ? 0 : 'ready',
+          }}
           type={type}
-          value={type === 'number' ? 0 : 'ready'}
         />,
       );
       const wrapper = container.querySelector(
@@ -120,7 +130,12 @@ describe('Input presentation without form context', () => {
   );
 
   it('does not hover a disabled input group', async () => {
-    const { container } = render(<InputControl {...bindings()} disabled />);
+    const { container } = render(
+      <InputControl
+        {...bindings()}
+        field={{ ...bindings().field, disabled: true }}
+      />,
+    );
     const wrapper = container.querySelector(
       '[data-slot="input-wrapper"]',
     ) as HTMLElement;
@@ -134,7 +149,15 @@ describe('Input presentation without form context', () => {
   it('updates common state attributes without introducing content flags', () => {
     const props = bindings();
     const { container, rerender } = render(
-      <InputControl {...props} disabled invalid required />,
+      <InputControl
+        {...props}
+        field={{
+          ...props.field,
+          disabled: true,
+          invalid: true,
+          required: true,
+        }}
+      />,
     );
     const root = container.querySelector('[data-slot="base"]');
 
@@ -145,9 +168,12 @@ describe('Input presentation without form context', () => {
     rerender(
       <InputControl
         {...props}
-        disabled={false}
-        invalid={false}
-        required={false}
+        field={{
+          ...props.field,
+          disabled: false,
+          invalid: false,
+          required: false,
+        }}
       />,
     );
 
@@ -161,9 +187,9 @@ describe('Input presentation without form context', () => {
     const props = bindings();
     const { rerender } = render(<InputControl {...props} clearable />);
     const input = screen.getByRole('textbox', { name: 'Standalone' });
-    expect(props.inputRef.current).toBe(input);
+    expect(props.field.ref).toHaveBeenCalledWith(input);
     await userEvent.type(input, '!');
-    expect(props.onValueChange).toHaveBeenLastCalledWith('ready!');
+    expect(props.field.onChange).toHaveBeenLastCalledWith('ready!');
     await userEvent.click(screen.getByRole('button', { name: 'clear input' }));
     expect(props.onReset).toHaveBeenCalledTimes(1);
     expect(props.onClear).toHaveBeenCalledTimes(1);
@@ -178,7 +204,13 @@ describe('Input presentation without form context', () => {
       input.closest('[data-slot="input-wrapper"]') as HTMLElement,
     );
     expect(input).toHaveFocus();
-    rerender(<InputControl {...props} clearable value="" />);
+    rerender(
+      <InputControl
+        {...props}
+        clearable
+        field={{ ...props.field, value: '' }}
+      />,
+    );
     expect(screen.getByRole('textbox', { name: 'Standalone' })).toBe(input);
     expect(input).toHaveValue('');
     expect(
@@ -201,7 +233,10 @@ describe('Input presentation without form context', () => {
   it('forwards callback refs and releases them when the input unmounts', () => {
     const inputRef = vi.fn();
     const { unmount } = render(
-      <InputControl {...bindings()} inputRef={inputRef} />,
+      <InputControl
+        {...bindings()}
+        field={{ ...bindings().field, ref: inputRef }}
+      />,
     );
     const input = screen.getByRole('textbox', { name: 'Standalone' });
 
@@ -215,10 +250,15 @@ describe('Input presentation without form context', () => {
   it('connects extracted number steppers to their Aria context and preserves zero and empty displays', async () => {
     const props = bindings();
     const { rerender } = render(
-      <InputControl {...props} clearable type="number" value={0} />,
+      <InputControl
+        {...props}
+        clearable
+        field={{ ...props.field, value: 0 }}
+        type="number"
+      />,
     );
     const input = screen.getByTestId('standalone');
-    expect(props.inputRef.current).toBe(input);
+    expect(props.field.ref).toHaveBeenCalledWith(input);
     expect(input).toHaveValue('0');
     expect(input.closest('[data-slot="base"]')).toHaveAttribute(
       'data-filled',
@@ -231,8 +271,15 @@ describe('Input presentation without form context', () => {
       '-1',
     );
     await userEvent.click(increment);
-    expect(props.onValueChange).toHaveBeenLastCalledWith('1');
-    rerender(<InputControl {...props} clearable type="number" value={null} />);
+    expect(props.field.onChange).toHaveBeenLastCalledWith('1');
+    rerender(
+      <InputControl
+        {...props}
+        clearable
+        field={{ ...props.field, value: null }}
+        type="number"
+      />,
+    );
     expect(screen.getByTestId('standalone')).toBe(input);
     expect(input).toHaveValue('');
     expect(input.closest('[data-slot="base"]')).not.toHaveAttribute(

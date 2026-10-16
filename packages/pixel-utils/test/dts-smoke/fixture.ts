@@ -1,7 +1,11 @@
 import type { TVClassName, TVProps } from '@fuf-stack/pixel-utils';
 import type { StylingProviderProps } from '@fuf-stack/pixels/StylingProvider';
 
-import { createStyling, tv } from '@fuf-stack/pixel-utils';
+import {
+  createStyling,
+  tv,
+  variantsToClassNames,
+} from '@fuf-stack/pixel-utils';
 
 const styling = createStyling({
   extend: {
@@ -25,6 +29,18 @@ const base: string = styling.variantsToClassNames(
   classes,
   'base',
 ).base;
+const conditionalClasses = {
+  base: 'p-4',
+  input: undefined as string | undefined,
+};
+const conditionalInput: string = styling.variantsToClassNames(
+  resolved,
+  conditionalClasses,
+).input;
+const standaloneInput: string = variantsToClassNames(
+  resolved,
+  conditionalClasses,
+).input;
 const provider: StylingProviderProps = { children: null, styling };
 
 // @ts-expect-error unsupported variant must remain rejected
@@ -34,4 +50,12 @@ const unknownSlot: TVClassName<typeof recipe> = { missing: 'p-2' };
 
 const extended = styling.tv({ extend: recipe, slots: { label: 'text-sm' } });
 const label: string = styling.resolve(extended, { size: 'lg' }).label();
-export { input, base, provider, unknownSlot, label };
+export {
+  input,
+  base,
+  provider,
+  unknownSlot,
+  label,
+  conditionalInput,
+  standaloneInput,
+};

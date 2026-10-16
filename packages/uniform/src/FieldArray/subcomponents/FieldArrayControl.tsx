@@ -1,5 +1,5 @@
-import type { FieldError } from 'react-hook-form';
-import type { FieldIds } from '../../partials/types';
+import type { UniformField } from '../../hooks/useUniformField/types';
+import type { FieldArrayItem } from '../../hooks/useUniformFieldArray/types';
 import type { FieldArrayProps } from '../FieldArray';
 
 import { useId } from 'react';
@@ -13,12 +13,7 @@ import FieldArrayLabel from './FieldArrayLabel';
 import FieldArrayValidationError from './FieldArrayValidationError';
 import SortContext from './SortContext';
 
-export interface FieldArrayItem {
-  /** Stable row ID supplied by React Hook Form */
-  id: string;
-  /** Bound row name, operations and child render arguments */
-  renderProps: Parameters<FieldArrayProps['children']>[0];
-}
+export type { FieldArrayItem } from '../../hooks/useUniformFieldArray/types';
 
 interface FieldArrayControlProps extends Pick<
   FieldArrayProps,
@@ -28,56 +23,45 @@ interface FieldArrayControlProps extends Pick<
   | 'duplicate'
   | 'elementMarginBottom'
   | 'insertAfter'
-  | 'label'
   | 'lastElementNotRemovable'
-  | 'name'
   | 'sortable'
 > {
   /** Disables animation during array initialization */
   disableAnimation: boolean;
-  /** Array-level validation errors */
-  error: FieldError[] | undefined;
+  /** Bound field values, interactions and metadata */
+  field: UniformField;
   /** Stable row IDs used by the sorting engine */
   fields: Record<'id', string>[];
-  /** IDs shared with the validation footer */
-  ids: FieldIds;
-  /** Shows array-level validation failure */
-  invalid: boolean;
   /** Bound rows to arrange in the list */
   items: FieldArrayItem[];
   /** Callback when the append button is activated */
   onAppend: () => void;
   /** Callback when sorting moves a row */
   onMove: (from: number, to: number) => void;
-  /** Marks the array label as required */
-  required: boolean;
-  /** HTML data-testid attribute for e2e tests */
-  testId: string;
 }
 
 /** Array group presentation with row controls, sorting and validation messages */
 const FieldArrayControl = ({
+  field,
   appendButtonText,
   children,
   className,
   disableAnimation,
   duplicate,
   elementMarginBottom,
-  error,
   fields,
-  ids,
-  invalid,
   items,
   insertAfter,
-  label,
   lastElementNotRemovable,
-  name,
   onAppend,
   onMove,
-  required,
   sortable = false,
-  testId,
 }: FieldArrayControlProps) => {
+  const { error, ids, invalid, name, required, testId } = field;
+
+  // keep the array heading hidden when only debug label content exists
+  const label = field.hasLabel ? field.label : undefined;
+
   const styling = useStyling();
   const labelId = useId();
 

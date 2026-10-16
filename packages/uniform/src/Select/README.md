@@ -29,6 +29,7 @@ import Select from '@fuf-stack/uniform/Select';
 
 ## Composition
 
-`Select` owns registration, option value conversion and touched-state timing.
-`SelectControl` owns focus styling, React Select composition, fallback option
-resolution and `FieldLayout`. Engine adapters live under `subcomponents/`.
+`Select` registers the field and supplies a current touched-state accessor.
+`SelectControl` owns selection and deferred touched updates, option conversion,
+focus styling, fallback option resolution and `FieldLayout`. Engine adapters
+live under `subcomponents/`.

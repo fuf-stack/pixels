@@ -22,6 +22,7 @@ import Slider from '@fuf-stack/uniform/Slider';
 
 ## Composition
 
-`Slider` owns registration, transforms and empty-value commits. `SliderControl`
-owns range presentation and focus routing. `SliderTrackControl` owns the fill,
-step markers and native range input inside the React Aria slider engine.
+`Slider` registers the field, configures transforms and supplies a current-value
+accessor. `SliderControl` owns range presentation, focus routing and empty-value
+commits at interaction completion. `SliderTrackControl` owns the fill, step markers
+and native range input inside the React Aria slider engine.

@@ -30,5 +30,11 @@ import Form from '@fuf-stack/uniform/Form';
 ## Composition
 
 `Checkboxes` owns array-value registration and transforms. `CheckboxesControl`
-owns group composition and focus routing, while `CheckboxControl` renders each
-option and its selection indicator. Recipes live in `checkboxesVariants.ts`.
+normalizes non-array values to an empty selection and owns group composition and focus routing, while `CheckboxControl` renders each
+option engine and accessible associations. `CheckboxIndicator` owns the animated
+checkmark, and `CheckboxLabel` owns the option text and supporting line. Recipes
+live in `checkboxesVariants.ts`.
+
+Each option uses React Aria `CheckboxField` for selection and input associations,
+and `CheckboxButton` for its clickable label and interaction states. The field
+wrapper uses `display: contents` to preserve option layout and existing styling slots.

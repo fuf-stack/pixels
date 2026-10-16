@@ -1,26 +1,20 @@
-import type { ChangeEvent, KeyboardEvent, MouseEvent } from 'react';
+import type { ChangeEvent, KeyboardEvent, MouseEvent, Ref } from 'react';
 import type { FocusRingAria } from 'react-aria/useFocusRing';
 import type { InputClassNames } from '../inputVariants';
 import type { InputControlProps } from './InputControl';
 
 import { Input as AriaInput, Group } from 'react-aria-components';
 
+import { getFieldControlProps } from '../../helpers/fieldProps/fieldProps';
 import InputClearButton from './InputClearButton';
 import InputStepper from './InputStepper';
 
 type InputWrapperProps = Pick<
   InputControlProps,
-  | 'clearable'
-  | 'controlProps'
-  | 'disabled'
-  | 'endContent'
-  | 'inputRef'
-  | 'onValueChange'
-  | 'placeholder'
-  | 'startContent'
-  | 'testId'
-  | 'type'
+  'field' | 'clearable' | 'endContent' | 'placeholder' | 'startContent' | 'type'
 > & {
+  /** Ref to the editable input */
+  inputRef: Ref<HTMLInputElement>;
   /** CSS class name */
   className: InputClassNames;
   /** Shows focus styling while focus is within the control */
@@ -47,23 +41,25 @@ type InputWrapperProps = Pick<
  * @see https://react-aria.adobe.com/NumberField (Input and stepper composition)
  */
 const InputWrapper = ({
+  field,
   clearable = false,
-  controlProps,
-  disabled,
   endContent,
   inputRef,
   onClear,
   onFocusControl,
-  onValueChange,
   placeholder,
   startContent,
-  testId,
   type,
   className,
   focused,
   focusProps,
   hasValue,
 }: InputWrapperProps) => {
+  const { disabled, onChange: onValueChange, testId } = field;
+
+  // associate the editable control with its label and messages
+  const controlProps = getFieldControlProps(field);
+
   // focus the input when its wrapper padding is clicked
   const handleWrapperClick = (event: MouseEvent<HTMLElement>) => {
     if (!disabled && event.currentTarget === event.target) {

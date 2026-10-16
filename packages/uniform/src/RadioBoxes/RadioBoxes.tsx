@@ -1,7 +1,6 @@
 import type { ReactNode } from 'react';
 import type { ClassName, VariantProps } from './radioBoxesVariants';
 
-import { createOptionValueConverter } from '../helpers';
 import useUniformField from '../hooks/useUniformField/useUniformField';
 import RadioBoxesControl from './subcomponents/RadioBoxesControl';
 
@@ -27,10 +26,10 @@ export interface RadioBoxesProps extends VariantProps {
   ariaLabel?: string;
   /** CSS class name */
   className?: ClassName;
-  /** Disables the field */
-  disabled?: boolean;
   /** Help text associated with the field */
   description?: ReactNode;
+  /** Disables the field */
+  disabled?: boolean;
   /** Arranges options horizontally */
   inline?: boolean;
   /** Field label */
@@ -51,46 +50,14 @@ const RadioBoxes = ({
   options,
   ...uniformFieldProps
 }: RadioBoxesProps) => {
-  const {
-    field,
-    disabled,
-    invalid,
-    testId,
-    required,
-    label,
-    description,
-    errorMessage,
-    ids,
-    ref,
-    getControlProps,
-  } = useUniformField({ ...uniformFieldProps, name });
-
-  const { convertToOriginalType } = createOptionValueConverter(options);
-
-  // restore the option's original value type before updating the form
-  const handleChange = (nextValue: string) => {
-    field.onChange(convertToOriginalType(nextValue));
-  };
+  const { field } = useUniformField({ ...uniformFieldProps, name });
 
   return (
     <RadioBoxesControl
       className={className}
-      controlProps={getControlProps()}
-      description={description}
-      disabled={disabled}
-      errorMessage={errorMessage}
-      ids={ids}
+      field={field}
       inline={inline}
-      inputRef={ref}
-      invalid={invalid}
-      label={label}
-      name={name}
-      onBlur={field.onBlur}
-      onValueChange={handleChange}
       options={options}
-      required={required}
-      testId={testId}
-      value={field.value}
     />
   );
 };

@@ -47,10 +47,10 @@ export interface CheckboxesProps {
   className?: ClassName;
   /** Color scheme of the checkboxes */
   color?: VariantProps['color'];
-  /** Disables the field */
-  disabled?: boolean;
   /** Help text associated with the field */
   description?: ReactNode;
+  /** Disables the field */
+  disabled?: boolean;
   /** Arranges options horizontally */
   inline?: boolean;
   /** Field label */
@@ -78,42 +78,20 @@ const Checkboxes = ({
   options,
   ...uniformFieldProps
 }: CheckboxesProps) => {
-  const {
-    field,
-    disabled,
-    description,
-    errorMessage,
-    getControlProps,
-    ids,
-    invalid,
-    label,
-    ref,
-    required,
-    testId,
-  } = useUniformField({ ...uniformFieldProps, isArrayValue: true, name });
-  const value = Array.isArray(field.value) ? (field.value as string[]) : [];
+  const { field } = useUniformField({
+    ...uniformFieldProps,
+    isArrayValue: true,
+    name,
+  });
 
   return (
     <CheckboxesControl
       className={className}
       color={color}
-      controlProps={getControlProps()}
-      description={description}
-      disabled={disabled}
-      errorMessage={errorMessage}
-      ids={ids}
+      field={field}
       inline={inline}
-      inputRef={ref}
-      invalid={invalid}
-      label={label}
       lineThrough={lineThrough}
-      name={name}
-      onBlur={field.onBlur}
-      onValueChange={field.onChange}
       options={options}
-      required={required}
-      testId={testId}
-      value={value}
     >
       {children}
     </CheckboxesControl>

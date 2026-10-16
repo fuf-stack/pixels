@@ -1,5 +1,4 @@
-import type { Ref } from 'react';
-import type { FieldPresentationProps } from '../../partials/types';
+import type { UniformField } from '../../hooks/useUniformField/types';
 import type { SwitchProps } from '../Switch';
 
 import { mergeProps } from 'react-aria/mergeProps';
@@ -12,31 +11,19 @@ import { useToggleState } from 'react-stately/useToggleState';
 
 import { useStyling } from '@fuf-stack/pixels/StylingProvider';
 
+import { getFieldControlProps } from '../../helpers/fieldProps/fieldProps';
 import FieldDescription from '../../partials/FieldDescription/FieldDescription';
 import FieldLabel from '../../partials/FieldLabel/FieldLabel';
 import { switchVariants } from '../switchVariants';
 import SwitchIcon from './SwitchIcon';
 import SwitchThumb from './SwitchThumb';
 
-interface SwitchControlProps
-  extends
-    Pick<
-      SwitchProps,
-      | 'className'
-      | 'description'
-      | 'disabled'
-      | 'label'
-      | 'name'
-      | 'size'
-      | 'thumbIcon'
-      | 'endContent'
-      | 'startContent'
-    >,
-    FieldPresentationProps<unknown, boolean> {
-  /** Ref forwarded to the native switch input */
-  inputRef: Ref<HTMLInputElement>;
-  /** HTML data-testid attribute for e2e tests */
-  testId: string;
+interface SwitchControlProps extends Pick<
+  SwitchProps,
+  'className' | 'endContent' | 'size' | 'startContent' | 'thumbIcon'
+> {
+  /** Bound field values, interactions and metadata */
+  field: UniformField<unknown, boolean>;
 }
 
 /**
@@ -45,28 +32,34 @@ interface SwitchControlProps
  * @see https://react-aria.adobe.com/useSwitch
  */
 const SwitchControl = ({
+  field,
   className,
-  controlProps,
-  description,
-  disabled,
-  errorMessage,
-  ids,
-  inputRef,
-  invalid,
-  label,
-  name,
-  onBlur,
-  onValueChange,
-  required,
   size,
-  testId,
   thumbIcon,
-  value,
   endContent,
   startContent,
 }: SwitchControlProps) => {
+  const {
+    description,
+    disabled,
+    errorMessage,
+    ids,
+    ref: inputRef,
+    invalid,
+    label,
+    name,
+    onBlur,
+    onChange: onValueChange,
+    required,
+    testId,
+    value,
+  } = field;
+
+  // associate the editable control with its label and messages
+  const controlProps = getFieldControlProps(field);
+
   const styling = useStyling();
-  const controlRef = useObjectRef(inputRef);
+  const controlRef = useObjectRef<HTMLInputElement>(inputRef);
   const state = useToggleState({
     isSelected: !!value,
     onChange: onValueChange,

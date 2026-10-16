@@ -57,6 +57,25 @@ mkdirSync(tarballDirectory);
 mkdirSync(fixtureDirectory);
 
 try {
+  // compile against installed workspace dependencies to catch split date class identities
+  run(
+    path.join(root, 'node_modules/.bin/tsc'),
+    [
+      '--ignoreConfig',
+      '--noEmit',
+      '--strict',
+      '--skipLibCheck',
+      '--target',
+      'ES2022',
+      '--module',
+      'ESNext',
+      '--moduleResolution',
+      'Bundler',
+      'packages/uniform/test/dts-smoke/date-values.ts',
+    ],
+    root,
+  );
+
   const tarballs = new Map();
 
   for (const packageInfo of packages) {

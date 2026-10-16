@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import type { FieldControlProps, FieldIds } from '../../partials/types';
+import type { UniformField } from '../../hooks/useUniformField/types';
 import type { TimeProps } from '../Time';
 import type { TimeValue } from '../timeHelpers';
 
@@ -12,45 +12,25 @@ import {
 
 import { useStyling } from '@fuf-stack/pixels/StylingProvider';
 
+import { getFieldControlProps } from '../../helpers/fieldProps/fieldProps';
 import FieldDescription from '../../partials/FieldDescription/FieldDescription';
 import FieldLabel from '../../partials/FieldLabel/FieldLabel';
+import { getTimeFieldPlaceholderValue, parseTimeValue } from '../timeHelpers';
 import { timeVariants } from '../timeVariants';
 
 interface TimeControlProps extends Pick<
   TimeProps,
-  | 'ariaLabel'
   | 'className'
-  | 'description'
-  | 'disabled'
   | 'granularity'
   | 'hideTimeZone'
+  | 'hourAsNumber'
   | 'hourCycle'
-  | 'label'
-  | 'name'
-  | 'testId'
+  | 'timeZone'
 > {
   /** Reset bridge rendered inside the time engine */
   children: ReactNode;
-  /** Attributes associating the segments with field messages */
-  controlProps: FieldControlProps;
-  /** Rendered validation messages */
-  errorMessage: ReactNode;
-  /** IDs shared with the field label and messages */
-  ids: FieldIds;
-  /** Connects form focus requests to the first editable segment */
-  inputRef: (control: Pick<HTMLElement, 'focus'> | null) => void;
-  /** Shows validation failure */
-  invalid: boolean;
-  /** Callback when focus leaves the field */
-  onBlur: () => void;
-  /** Callback with the edited segmented value */
-  onValueChange: (value: TimeValue) => void;
-  /** Date and zone used when editing an empty field */
-  placeholderValue: TimeValue;
-  /** Marks the field as required */
-  required: boolean;
-  /** Parsed time value */
-  value: TimeValue;
+  /** Bound field values, interactions and metadata */
+  field: UniformField<unknown, TimeValue>;
 }
 
 /**
@@ -59,28 +39,45 @@ interface TimeControlProps extends Pick<
  * @see https://react-aria.adobe.com/TimeField
  */
 const TimeControl = ({
+  field,
   children,
   className,
-  controlProps,
-  description,
-  disabled,
-  errorMessage,
   granularity,
   hideTimeZone,
+  hourAsNumber,
   hourCycle,
-  ids,
-  inputRef,
-  invalid,
-  label,
-  name,
-  onBlur,
-  onValueChange,
-  placeholderValue,
-  required,
-  testId,
-  value,
+  timeZone,
 }: TimeControlProps) => {
   const styling = useStyling();
+
+  const {
+    description,
+    disabled,
+    errorMessage,
+    ids,
+    ref: inputRef,
+    invalid,
+    label,
+    name,
+    onBlur,
+    onChange: onValueChange,
+    required,
+    testId,
+  } = field;
+
+  // associate the editable control with its label and messages
+  const controlProps = getFieldControlProps(field);
+
+  const effectiveGranularity = hourAsNumber ? 'hour' : granularity;
+
+  // numeric hours represent UTC, including midnight as zero
+  const normalizedValue =
+    hourAsNumber && typeof field.value === 'number'
+      ? `${String(Math.max(0, Math.min(23, field.value))).padStart(2, '0')}:00Z`
+      : field.value;
+  const value = parseTimeValue(normalizedValue, timeZone);
+
+  const placeholderValue = getTimeFieldPlaceholderValue(timeZone);
 
   // classNames from slots
   const variants = styling.resolve(timeVariants, { disabled, invalid });
@@ -111,7 +108,7 @@ const TimeControl = ({
       aria-label={controlProps['aria-label']}
       className={classNames.base}
       data-slot="base"
-      granularity={granularity}
+      granularity={effectiveGranularity}
       hideTimeZone={hideTimeZone}
       hourCycle={hourCycle}
       id={controlProps.id}

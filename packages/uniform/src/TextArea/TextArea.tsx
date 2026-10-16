@@ -38,19 +38,7 @@ const TextArea = ({
   placeholder = ' ',
   ...uniformProps
 }: TextAreaProps) => {
-  const {
-    field,
-    ref,
-    disabled,
-    invalid,
-    required,
-    label,
-    description,
-    errorMessage,
-    ids,
-    testId,
-    getControlProps,
-  } = useUniformField({
+  const { field } = useUniformField({
     ...uniformProps,
     name,
     placeholder,
@@ -68,21 +56,8 @@ const TextArea = ({
   return (
     <TextAreaControl
       className={className}
-      controlProps={getControlProps()}
-      description={description}
-      disabled={disabled}
-      errorMessage={errorMessage}
-      ids={ids}
-      inputRef={ref}
-      invalid={invalid}
-      label={label}
-      name={name}
-      onBlur={onBlur}
-      onValueChange={onChange}
+      field={{ ...field, onBlur, onChange, value }}
       placeholder={placeholder}
-      required={required}
-      testId={testId}
-      value={value}
     />
   );
 };

@@ -10,6 +10,7 @@ import {
 } from '@internationalized/date';
 
 import {
+  createTimeValueTransform,
   getTimeFieldPlaceholderValue,
   parseTimeValue,
   resolveTimeFieldTimeZone,
@@ -175,5 +176,37 @@ describe('getTimeFieldPlaceholderValue', () => {
         `1970-01-01T00:00:00[${getLocalTimeZone()}]`,
       ).toString(),
     );
+  });
+});
+
+describe('time storage transform', () => {
+  it('stores UTC minutes while leaving display parsing to the control', () => {
+    const transform = createTimeValueTransform({ timeZone: 'Europe/Berlin' });
+    const edited = parseZonedDateTime('2025-07-01T14:30[Europe/Berlin]');
+
+    expect(transform.toDisplayValue('12:30Z')).toBe('12:30Z');
+    expect(transform.toFormValue(edited)).toBe('12:30Z');
+    expect(transform.toFormValue(null)).toBeNull();
+  });
+
+  it('preserves numeric midnight and gives hour mode precedence over object storage', () => {
+    const transform = createTimeValueTransform({
+      hourAsNumber: true,
+      timeZone: 'UTC',
+      valueType: 'timeValue',
+    });
+
+    expect(transform.toDisplayValue(0)).toBe(0);
+    expect(transform.toFormValue(parseTime('00:00'))).toBe(0);
+    expect(transform.toFormValue(parseTime('23:45'))).toBe(23);
+    expect(transform.toFormValue(null)).toBeNull();
+  });
+
+  it('preserves time object identity in timeValue mode', () => {
+    const transform = createTimeValueTransform({ valueType: 'timeValue' });
+    const time = parseTime('10:15');
+
+    expect(transform.toFormValue(time)).toBe(time);
+    expect(transform.toDisplayValue(time)).toBe(time);
   });
 });

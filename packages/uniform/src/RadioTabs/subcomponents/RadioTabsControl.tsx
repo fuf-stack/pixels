@@ -1,4 +1,4 @@
-import type { FieldPresentationProps } from '../../partials/types';
+import type { UniformField } from '../../hooks/useUniformField/types';
 import type { RadioTabsProps } from '../RadioTabs';
 
 import { useFocusWithin } from 'react-aria/useFocusWithin';
@@ -6,31 +6,19 @@ import { useFocusWithin } from 'react-aria/useFocusWithin';
 import { slugify } from '@fuf-stack/pixel-utils';
 import { useStyling } from '@fuf-stack/pixels/StylingProvider';
 
+import { createOptionValueConverter } from '../../helpers';
+import { getFieldControlProps } from '../../helpers/fieldProps/fieldProps';
 import FieldDescription from '../../partials/FieldDescription/FieldDescription';
 import FieldLabel from '../../partials/FieldLabel/FieldLabel';
 import { radioTabsVariants } from '../radioTabsVariants';
 import RadioTabsList from './RadioTabsList';
 
-interface RadioTabsControlProps
-  extends
-    Pick<
-      RadioTabsProps,
-      | 'className'
-      | 'description'
-      | 'disabled'
-      | 'fullWidth'
-      | 'inline'
-      | 'label'
-      | 'options'
-      | 'variant'
-    >,
-    FieldPresentationProps<unknown, string> {
-  /** Custom accessible name */
-  ariaLabel: string;
-  /** Connects form focus requests to an enabled tab */
-  inputRef: (control: Pick<HTMLElement, 'focus'> | null) => void;
-  /** HTML data-testid attribute for e2e tests */
-  testId: string;
+interface RadioTabsControlProps extends Pick<
+  RadioTabsProps,
+  'className' | 'fullWidth' | 'inline' | 'options' | 'variant'
+> {
+  /** Bound field values, interactions and metadata */
+  field: UniformField<unknown, string | number | boolean>;
 }
 
 /**
@@ -39,26 +27,32 @@ interface RadioTabsControlProps
  * @see https://react-aria.adobe.com/Tabs
  */
 const RadioTabsControl = ({
-  ariaLabel,
+  field,
   className,
-  controlProps,
-  description,
-  disabled,
-  errorMessage,
   fullWidth,
-  ids,
   inline,
-  inputRef,
-  invalid,
-  label,
-  onBlur,
-  onValueChange,
   options,
-  required,
-  testId,
-  value,
   variant,
 }: RadioTabsControlProps) => {
+  const {
+    ariaLabel,
+    description,
+    disabled,
+    errorMessage,
+    ids,
+    ref: inputRef,
+    invalid,
+    label,
+    onBlur,
+    onChange: onValueChange,
+    required,
+    testId,
+    value,
+  } = field;
+
+  // associate the editable control with its label and messages
+  const controlProps = getFieldControlProps(field);
+
   const styling = useStyling();
   const { focusWithinProps } = useFocusWithin({ onBlurWithin: onBlur });
 
@@ -67,6 +61,8 @@ const RadioTabsControl = ({
   const hasContent = options.some((option) => {
     return option.content;
   });
+
+  const { convertToOriginalType } = createOptionValueConverter(options);
 
   // classNames from slots
   const variants = styling.resolve(radioTabsVariants, {
@@ -86,6 +82,11 @@ const RadioTabsControl = ({
     ]
       .filter(Boolean)
       .join(' ') || undefined;
+
+  // restore the selected option's original value type
+  const handleChange = (nextValue: string) => {
+    onValueChange(convertToOriginalType(nextValue));
+  };
 
   // route form focus to the selected enabled tab, otherwise the first enabled tab
   const handleControlRef = (node: HTMLDivElement | null) => {
@@ -157,7 +158,7 @@ const RadioTabsControl = ({
           describedBy={describedBy}
           disabled={disabled}
           label={ariaLabel}
-          onChange={onValueChange}
+          onChange={handleChange}
           options={options}
           selectedKey={value != null ? String(value) : ''}
           testId={getOptionTestId}

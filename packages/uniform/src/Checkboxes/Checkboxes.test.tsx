@@ -83,6 +83,36 @@ const Reset = () => {
 };
 
 describe('Owned checkbox selection group', () => {
+  it('keeps label clicks, keyboard focus and styling on the checkbox button', async () => {
+    render(
+      <Form onSubmit={vi.fn()}>
+        <Checkboxes
+          name="choice"
+          options={[
+            { label: 'First', labelSubline: 'Supporting text', value: 'first' },
+          ]}
+        />
+      </Form>,
+    );
+
+    const input = screen.getByRole('checkbox', {
+      name: 'First Supporting text',
+    });
+    const button = screen.getByTestId('choice_option_first');
+    expect(button.tagName).toBe('LABEL');
+    expect(button).toHaveAttribute('for', input.id);
+    expect(button.parentElement).toHaveClass('contents');
+
+    await userEvent.click(screen.getByText('Supporting text'));
+    expect(input).toBeChecked();
+    expect(input).toHaveFocus();
+    expect(button).toHaveAttribute('data-selected', 'true');
+
+    await userEvent.keyboard(' ');
+    expect(input).not.toBeChecked();
+    expect(button).not.toHaveAttribute('data-selected');
+  });
+
   it('preserves array values, custom descriptors, option changes and resets', async () => {
     const submit = vi.fn();
     const { container } = render(

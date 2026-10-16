@@ -3,6 +3,8 @@ import type {
   CalendarDateTime,
   ZonedDateTime,
 } from '@internationalized/date';
+import type { InputValueTransform } from '../hooks/useInputValueTransform';
+import type { DatePickerProps } from './DatePicker';
 
 import {
   getLocalTimeZone,
@@ -178,4 +180,41 @@ export const dateValueToUtcIsoString = (
   }
 
   return null;
+};
+
+/** Converts edited dates to the configured form storage format */
+export const createDatePickerValueTransform = ({
+  timeZone,
+  valueType,
+  withTime,
+}: Pick<
+  DatePickerProps,
+  'timeZone' | 'valueType' | 'withTime'
+>): InputValueTransform => {
+  const resolvedTimeZone = resolveDatePickerTimeZone(
+    withTime ?? false,
+    timeZone,
+  );
+
+  return {
+    toDisplayValue: (value) => {
+      return value ?? '';
+    },
+    toFormValue: (value) => {
+      const nextValue = value as DatePickerValue;
+      if (nextValue == null) {
+        return null;
+      }
+
+      if (valueType === 'dateValue') {
+        return nextValue;
+      }
+
+      // string storage remains UTC regardless of the display timezone
+      return (
+        dateValueToUtcIsoString(nextValue, resolvedTimeZone ?? 'UTC') ??
+        String(nextValue)
+      );
+    },
+  };
 };

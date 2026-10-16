@@ -1,5 +1,6 @@
 import type { Variants as MotionVariants } from '@fuf-stack/pixel-motion';
 import type { ClassValue } from '@fuf-stack/pixel-utils';
+import type { FieldArrayElementMethods } from '../../hooks/useUniformFieldArray/types';
 import type { FieldArrayFeatures } from '../types';
 
 import { useState } from 'react';
@@ -15,16 +16,7 @@ import ElementActionsMenu from './ElementActionsMenu';
 import ElementRemoveButton from './ElementRemoveButton';
 import SortDragHandle from './SortDragHandle';
 
-export interface FieldArrayElementMethods {
-  /** Add new element at end */
-  append: () => void;
-  /** Clone current element */
-  duplicate: () => void;
-  /** Add new element after current */
-  insert: () => void;
-  /** Remove current element */
-  remove: () => void;
-}
+export type { FieldArrayElementMethods } from '../../hooks/useUniformFieldArray/types';
 
 interface FieldArrayElementProps extends FieldArrayFeatures {
   /** Form elements to render inside array element */

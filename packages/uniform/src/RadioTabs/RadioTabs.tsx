@@ -2,7 +2,6 @@ import type { TabsProps } from '@fuf-stack/pixels';
 import type { ReactElement, ReactNode } from 'react';
 import type { ClassName, VariantProps } from './radioTabsVariants';
 
-import { createOptionValueConverter } from '../helpers';
 import useUniformField from '../hooks/useUniformField/useUniformField';
 import RadioTabsControl from './subcomponents/RadioTabsControl';
 
@@ -31,12 +30,12 @@ export interface RadioTabsProps extends Omit<
   ariaLabel?: string;
   /** CSS class name */
   className?: ClassName;
+  /** Help text associated with the field */
+  description?: ReactNode;
   /** Disables the field */
   disabled?: boolean;
   /** Whether tabs should take up full container width */
   fullWidth?: boolean;
-  /** Help text associated with the field */
-  description?: ReactNode;
   /** Arranges options horizontally */
   inline?: boolean;
   /** Field label */
@@ -61,47 +60,15 @@ const RadioTabs = ({
   variant = undefined,
   ...uniformFieldProps
 }: RadioTabsProps): ReactElement => {
-  const {
-    field,
-    ariaLabel,
-    disabled,
-    description,
-    errorMessage,
-    getControlProps,
-    ids,
-    invalid,
-    label,
-    ref,
-    required,
-    testId,
-  } = useUniformField({ ...uniformFieldProps, name });
-  const { convertToOriginalType } = createOptionValueConverter(options);
-
-  // restore the selected option's original value type
-  const handleChange = (key: string) => {
-    field.onChange(convertToOriginalType(key));
-  };
+  const { field } = useUniformField({ ...uniformFieldProps, name });
 
   return (
     <RadioTabsControl
-      ariaLabel={ariaLabel}
       className={className}
-      controlProps={getControlProps()}
-      description={description}
-      disabled={disabled}
-      errorMessage={errorMessage}
+      field={field}
       fullWidth={fullWidth}
-      ids={ids}
       inline={inline}
-      inputRef={ref}
-      invalid={invalid}
-      label={label}
-      onBlur={field.onBlur}
-      onValueChange={handleChange}
       options={options}
-      required={required}
-      testId={testId}
-      value={field.value}
       variant={variant}
     />
   );

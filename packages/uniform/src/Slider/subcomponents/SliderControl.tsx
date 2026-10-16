@@ -1,5 +1,5 @@
 import type { FocusEvent } from 'react';
-import type { FieldPresentationProps } from '../../partials/types';
+import type { UniformField } from '../../hooks/useUniformField/types';
 import type { SliderProps } from '../Slider';
 
 import { useMemo } from 'react';
@@ -12,23 +12,21 @@ import { useHover } from 'react-aria/useHover';
 
 import { useStyling } from '@fuf-stack/pixels/StylingProvider';
 
+import { isValueEmpty } from '../../helpers';
+import { getFieldControlProps } from '../../helpers/fieldProps/fieldProps';
 import FieldDescription from '../../partials/FieldDescription/FieldDescription';
 import FieldLabel from '../../partials/FieldLabel/FieldLabel';
 import { sliderVariants } from '../sliderVariants';
 import SliderTrackControl from './SliderTrackControl';
 
-interface SliderControlProps
-  extends
-    Omit<SliderProps, 'ariaLabel' | 'label' | 'transform' | 'testId'>,
-    FieldPresentationProps<unknown, number> {
-  /** Field label */
-  label?: React.ReactNode;
-  /** Ref forwarded to the native range input */
-  inputRef: (control: HTMLInputElement | null) => void;
-  /** Callback when a drag or keyboard interaction finishes */
-  onValueCommit: (value: number) => void;
-  /** HTML data-testid attribute for e2e tests */
-  testId: string;
+interface SliderControlProps extends Omit<
+  SliderProps,
+  keyof UniformField | 'transform'
+> {
+  /** Bound field values, interactions and metadata */
+  field: UniformField<unknown, number>;
+  /** Reads the stored value at interaction completion */
+  getCurrentValue: () => unknown;
 }
 
 /**
@@ -37,31 +35,37 @@ interface SliderControlProps
  * @see https://react-aria.adobe.com/Slider
  */
 const SliderControl = ({
+  field,
   className,
-  controlProps,
-  description,
-  disabled,
   endContent,
-  errorMessage,
   fillOffset,
-  ids,
-  inputRef,
-  invalid,
-  label = undefined,
   maxValue = 100,
   minValue = 0,
-  name,
-  onBlur,
-  onValueChange,
-  onValueCommit,
-  required,
+  getCurrentValue,
   showSteps,
   size,
   startContent,
   step = 1,
-  testId,
-  value: displayValue,
 }: SliderControlProps) => {
+  const {
+    value: displayValue,
+    description,
+    disabled,
+    errorMessage,
+    ids,
+    ref: inputRef,
+    invalid,
+    label = undefined,
+    name,
+    onBlur,
+    onChange: onValueChange,
+    required,
+    testId,
+  } = field;
+
+  // associate the editable control with its label and messages
+  const controlProps = getFieldControlProps(field);
+
   const styling = useStyling();
   const { hoverProps, isHovered } = useHover({ isDisabled: disabled });
 
@@ -107,6 +111,13 @@ const SliderControl = ({
   const variants = styling.resolve(sliderVariants, { size, disabled, invalid });
   const classNames = styling.variantsToClassNames(variants, className, 'base');
 
+  // an empty field may finish at the displayed minimum without emitting a change
+  const handleValueCommit = (nextValue: number) => {
+    if (isValueEmpty(getCurrentValue())) {
+      onValueChange(nextValue);
+    }
+  };
+
   // route wrapper focus to the editable thumb
   const handleFocus = (event: FocusEvent<HTMLDivElement>) => {
     if (event.target === event.currentTarget && !disabled) {
@@ -141,7 +152,7 @@ const SliderControl = ({
         maxValue={maxValue}
         minValue={minValue}
         onChange={onValueChange}
-        onChangeEnd={onValueCommit}
+        onChangeEnd={handleValueCommit}
         step={step}
         value={value}
       >

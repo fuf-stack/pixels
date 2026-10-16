@@ -30,7 +30,8 @@ then adds calendar styling. Override individual slots through `className`, inclu
 
 ## Composition
 
-`DatePicker` owns form binding and date serialization. `DatePickerControl` owns
-the segmented input and field messages, while `DatePickerCalendar` owns popup
+`DatePicker` configures form binding and the storage transform. `DatePickerControl`
+parses displayed values and boundaries, prepares placeholders and owns the segmented
+input and field messages, while `DatePickerCalendar` owns popup
 navigation and the optional time editor. `DatePickerReset` clears partial edits
 when the form resets.

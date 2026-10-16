@@ -3,6 +3,8 @@ import type {
   Time,
   ZonedDateTime,
 } from '@internationalized/date';
+import type { InputValueTransform } from '../hooks/useInputValueTransform';
+import type { TimeProps } from './Time';
 
 import {
   getLocalTimeZone,
@@ -249,4 +251,55 @@ export const timeValueToString = (
   }
 
   return null;
+};
+
+/** Converts edited times to UTC strings, numeric hours or time objects */
+export const createTimeValueTransform = ({
+  granularity = 'minute',
+  hourAsNumber,
+  timeZone,
+  valueType,
+}: Pick<
+  TimeProps,
+  'granularity' | 'hourAsNumber' | 'timeZone' | 'valueType'
+>): InputValueTransform => {
+  const resolvedTimeZone = resolveTimeFieldTimeZone(timeZone);
+  const effectiveGranularity = hourAsNumber ? 'hour' : granularity;
+
+  return {
+    toDisplayValue: (value) => {
+      return value ?? '';
+    },
+    toFormValue: (value) => {
+      const nextValue = value as TimeValue;
+      if (nextValue == null) {
+        return null;
+      }
+
+      if (hourAsNumber) {
+        const serializedValue = timeValueToString(
+          nextValue,
+          resolvedTimeZone,
+          'hour',
+        );
+        if (!serializedValue) {
+          return null;
+        }
+
+        const [hoursSegment] = serializedValue.split(':');
+        const hours = Number(hoursSegment);
+
+        return Number.isNaN(hours) ? null : hours;
+      }
+
+      if (valueType === 'timeValue') {
+        return nextValue;
+      }
+
+      return (
+        timeValueToString(nextValue, resolvedTimeZone, effectiveGranularity) ??
+        String(nextValue)
+      );
+    },
+  };
 };

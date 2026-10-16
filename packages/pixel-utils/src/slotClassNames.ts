@@ -49,7 +49,7 @@ type TVRecord = Record<string, TVFunction>;
  */
 const variantsToClassNames = <T extends TVRecord>(
   variants: T,
-  className?: ClassValue | Record<string, ClassValue>,
+  className?: ClassValue | Record<string, ClassValue | undefined>,
   baseSlot?: keyof T,
 ): Record<keyof T, string> => {
   const classNames =

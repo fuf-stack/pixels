@@ -113,7 +113,7 @@ authoritative and use `aria-required` without competing native validation.
 ## Field state selectors
 
 Input, TextArea and Select share a private
-[getFieldDataAttributes helper](../../packages/uniform/src/helpers/getFieldDataAttributes/getFieldDataAttributes.ts) for `data-disabled`,
+[getFieldDataAttributes helper](../../packages/uniform/src/helpers/fieldProps/fieldProps.ts) for `data-disabled`,
 `data-invalid` and `data-required`, with inactive flags omitted. Focus and hover
 remain owned by each control. Input and TextArea use `data-filled` only when a
 value is present, including numeric zero, without counting placeholder text.

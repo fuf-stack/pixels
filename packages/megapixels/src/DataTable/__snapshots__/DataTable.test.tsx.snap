@@ -6784,63 +6784,69 @@ exports[`Story Snapshots > UniformCheckboxField 1`] = `
                       class="p-3 align-middle text-foreground"
                       data-slot="td"
                     >
-                      <label
-                        class="group relative -m-2 inline-flex max-w-fit cursor-pointer select-none items-center justify-start p-2 tap-highlight-transparent data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-disabled"
-                        data-invalid="false"
+                      <div
+                        class="contents"
                         data-rac=""
-                        data-react-aria-pressable="true"
                         data-selected="true"
-                        data-testid="selectedorderids_option_0"
-                        for="«replaced-aria-id»"
                       >
-                        <span
-                          style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+                        <label
+                          class="group relative -m-2 inline-flex max-w-fit cursor-pointer select-none items-center justify-start p-2 tap-highlight-transparent data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-disabled"
+                          data-invalid="false"
+                          data-rac=""
+                          data-react-aria-pressable="true"
+                          data-selected="true"
+                          data-testid="selectedorderids_option_0"
+                          for="«replaced-aria-id»"
                         >
-                          <input
-                            aria-label="Anna Kowalski"
-                            aria-labelledby="«replaced-aria-id»-label"
-                            checked=""
-                            data-react-aria-pressable="true"
-                            id="«replaced-aria-id»"
-                            name="selectedOrderIds"
-                            tabindex="0"
-                            type="checkbox"
-                            value="0"
-                          />
-                        </span>
-                        <span
-                          aria-hidden="true"
-                          class="text-primary-foreground after:bg-primary after:text-primary-foreground relative me-2 inline-flex h-5 w-5 shrink-0 items-center justify-center overflow-hidden rounded-[calc(var(--pixel-radius-medium)*0.6)] transition-transform before:absolute before:inset-0 before:box-border before:rounded-[inherit] before:border-2 before:border-solid before:border-default before:transition-colors before:content-[''] after:absolute after:inset-0 after:origin-center after:scale-50 after:rounded-[inherit] after:opacity-0 after:duration-200 after:ease-linear after:content-[''] after:transition-transform-opacity group-data-[pressed=true]:scale-95 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[hover=true]:before:bg-default-100 group-data-[selected=true]:after:scale-100 group-data-[selected=true]:after:opacity-100 motion-reduce:transition-none"
-                          data-slot="wrapper"
-                        >
-                          <svg
-                            aria-hidden="true"
-                            class="pointer-events-none z-10 h-3 w-4 opacity-0 transition-opacity group-data-[selected=true]:opacity-100 motion-reduce:transition-none"
-                            data-slot="icon"
-                            fill="none"
-                            role="presentation"
-                            stroke="currentColor"
-                            stroke-dasharray="22"
-                            stroke-dashoffset="44"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            viewBox="0 0 17 18"
+                          <span
+                            style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
                           >
-                            <polyline
-                              class="transition-[stroke-dashoffset] delay-200 duration-250 ease-linear motion-reduce:transition-none"
-                              points="1 9 7 14 15 4"
+                            <input
+                              aria-label="Anna Kowalski"
+                              aria-labelledby="«replaced-aria-id»-label"
+                              checked=""
+                              data-react-aria-pressable="true"
+                              id="«replaced-aria-id»"
+                              name="selectedOrderIds"
+                              tabindex="0"
+                              type="checkbox"
+                              value="0"
                             />
-                          </svg>
-                        </span>
-                        <span
-                          class="relative select-none text-foreground transition-colors-opacity text-medium before:transition-width motion-reduce:transition-none"
-                          data-slot="label"
-                          id="«replaced-aria-id»-label"
-                        >
-                          Anna Kowalski
-                        </span>
-                      </label>
+                          </span>
+                          <span
+                            aria-hidden="true"
+                            class="text-primary-foreground after:bg-primary after:text-primary-foreground relative me-2 inline-flex h-5 w-5 shrink-0 items-center justify-center overflow-hidden rounded-[calc(var(--pixel-radius-medium)*0.6)] transition-transform before:absolute before:inset-0 before:box-border before:rounded-[inherit] before:border-2 before:border-solid before:border-default before:transition-colors before:content-[''] after:absolute after:inset-0 after:origin-center after:scale-50 after:rounded-[inherit] after:opacity-0 after:duration-200 after:ease-linear after:content-[''] after:transition-transform-opacity group-data-[pressed=true]:scale-95 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[hover=true]:before:bg-default-100 group-data-[selected=true]:after:scale-100 group-data-[selected=true]:after:opacity-100 motion-reduce:transition-none"
+                            data-slot="wrapper"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              class="pointer-events-none z-10 h-3 w-4 opacity-0 transition-opacity group-data-[selected=true]:opacity-100 motion-reduce:transition-none"
+                              data-slot="icon"
+                              fill="none"
+                              role="presentation"
+                              stroke="currentColor"
+                              stroke-dasharray="22"
+                              stroke-dashoffset="44"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              viewBox="0 0 17 18"
+                            >
+                              <polyline
+                                class="transition-[stroke-dashoffset] delay-200 duration-250 ease-linear motion-reduce:transition-none"
+                                points="1 9 7 14 15 4"
+                              />
+                            </svg>
+                          </span>
+                          <span
+                            class="relative select-none text-foreground transition-colors-opacity text-medium before:transition-width motion-reduce:transition-none"
+                            data-slot="label"
+                            id="«replaced-aria-id»-label"
+                          >
+                            Anna Kowalski
+                          </span>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="p-3 align-middle text-foreground"
@@ -6889,63 +6895,69 @@ exports[`Story Snapshots > UniformCheckboxField 1`] = `
                       class="p-3 align-middle text-foreground"
                       data-slot="td"
                     >
-                      <label
-                        class="group relative -m-2 inline-flex max-w-fit cursor-pointer select-none items-center justify-start p-2 tap-highlight-transparent data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-disabled"
-                        data-invalid="false"
+                      <div
+                        class="contents"
                         data-rac=""
-                        data-react-aria-pressable="true"
                         data-selected="true"
-                        data-testid="selectedorderids_option_1"
-                        for="«replaced-aria-id»"
                       >
-                        <span
-                          style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+                        <label
+                          class="group relative -m-2 inline-flex max-w-fit cursor-pointer select-none items-center justify-start p-2 tap-highlight-transparent data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-disabled"
+                          data-invalid="false"
+                          data-rac=""
+                          data-react-aria-pressable="true"
+                          data-selected="true"
+                          data-testid="selectedorderids_option_1"
+                          for="«replaced-aria-id»"
                         >
-                          <input
-                            aria-label="Milo Jensen"
-                            aria-labelledby="«replaced-aria-id»-label"
-                            checked=""
-                            data-react-aria-pressable="true"
-                            id="«replaced-aria-id»"
-                            name="selectedOrderIds"
-                            tabindex="0"
-                            type="checkbox"
-                            value="1"
-                          />
-                        </span>
-                        <span
-                          aria-hidden="true"
-                          class="text-primary-foreground after:bg-primary after:text-primary-foreground relative me-2 inline-flex h-5 w-5 shrink-0 items-center justify-center overflow-hidden rounded-[calc(var(--pixel-radius-medium)*0.6)] transition-transform before:absolute before:inset-0 before:box-border before:rounded-[inherit] before:border-2 before:border-solid before:border-default before:transition-colors before:content-[''] after:absolute after:inset-0 after:origin-center after:scale-50 after:rounded-[inherit] after:opacity-0 after:duration-200 after:ease-linear after:content-[''] after:transition-transform-opacity group-data-[pressed=true]:scale-95 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[hover=true]:before:bg-default-100 group-data-[selected=true]:after:scale-100 group-data-[selected=true]:after:opacity-100 motion-reduce:transition-none"
-                          data-slot="wrapper"
-                        >
-                          <svg
-                            aria-hidden="true"
-                            class="pointer-events-none z-10 h-3 w-4 opacity-0 transition-opacity group-data-[selected=true]:opacity-100 motion-reduce:transition-none"
-                            data-slot="icon"
-                            fill="none"
-                            role="presentation"
-                            stroke="currentColor"
-                            stroke-dasharray="22"
-                            stroke-dashoffset="44"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            viewBox="0 0 17 18"
+                          <span
+                            style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
                           >
-                            <polyline
-                              class="transition-[stroke-dashoffset] delay-200 duration-250 ease-linear motion-reduce:transition-none"
-                              points="1 9 7 14 15 4"
+                            <input
+                              aria-label="Milo Jensen"
+                              aria-labelledby="«replaced-aria-id»-label"
+                              checked=""
+                              data-react-aria-pressable="true"
+                              id="«replaced-aria-id»"
+                              name="selectedOrderIds"
+                              tabindex="0"
+                              type="checkbox"
+                              value="1"
                             />
-                          </svg>
-                        </span>
-                        <span
-                          class="relative select-none text-foreground transition-colors-opacity text-medium before:transition-width motion-reduce:transition-none"
-                          data-slot="label"
-                          id="«replaced-aria-id»-label"
-                        >
-                          Milo Jensen
-                        </span>
-                      </label>
+                          </span>
+                          <span
+                            aria-hidden="true"
+                            class="text-primary-foreground after:bg-primary after:text-primary-foreground relative me-2 inline-flex h-5 w-5 shrink-0 items-center justify-center overflow-hidden rounded-[calc(var(--pixel-radius-medium)*0.6)] transition-transform before:absolute before:inset-0 before:box-border before:rounded-[inherit] before:border-2 before:border-solid before:border-default before:transition-colors before:content-[''] after:absolute after:inset-0 after:origin-center after:scale-50 after:rounded-[inherit] after:opacity-0 after:duration-200 after:ease-linear after:content-[''] after:transition-transform-opacity group-data-[pressed=true]:scale-95 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[hover=true]:before:bg-default-100 group-data-[selected=true]:after:scale-100 group-data-[selected=true]:after:opacity-100 motion-reduce:transition-none"
+                            data-slot="wrapper"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              class="pointer-events-none z-10 h-3 w-4 opacity-0 transition-opacity group-data-[selected=true]:opacity-100 motion-reduce:transition-none"
+                              data-slot="icon"
+                              fill="none"
+                              role="presentation"
+                              stroke="currentColor"
+                              stroke-dasharray="22"
+                              stroke-dashoffset="44"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              viewBox="0 0 17 18"
+                            >
+                              <polyline
+                                class="transition-[stroke-dashoffset] delay-200 duration-250 ease-linear motion-reduce:transition-none"
+                                points="1 9 7 14 15 4"
+                              />
+                            </svg>
+                          </span>
+                          <span
+                            class="relative select-none text-foreground transition-colors-opacity text-medium before:transition-width motion-reduce:transition-none"
+                            data-slot="label"
+                            id="«replaced-aria-id»-label"
+                          >
+                            Milo Jensen
+                          </span>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="p-3 align-middle text-foreground"

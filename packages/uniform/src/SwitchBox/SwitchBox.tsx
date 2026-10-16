@@ -40,40 +40,19 @@ const SwitchBox = ({
   thumbIcon = undefined,
   ...uniformFieldProps
 }: SwitchBoxProps) => {
-  const {
-    field,
-    disabled,
-    description: fieldDescription,
-    errorMessage,
-    getControlProps,
-    ids,
-    invalid,
-    label,
-    ref,
-    required,
-    testId,
-  } = useUniformField({ ...uniformFieldProps, description, name });
+  const { field } = useUniformField({
+    ...uniformFieldProps,
+    description,
+    name,
+  });
 
   return (
     <SwitchBoxControl
       className={className}
-      controlProps={getControlProps()}
-      description={fieldDescription}
-      disabled={disabled}
-      errorMessage={errorMessage}
+      field={field}
       icon={icon}
-      ids={ids}
-      inputRef={ref}
-      invalid={invalid}
-      label={label}
-      name={name}
-      onBlur={field.onBlur}
-      onValueChange={field.onChange}
-      required={required}
       size={size}
-      testId={testId}
       thumbIcon={thumbIcon}
-      value={field.value}
     />
   );
 };

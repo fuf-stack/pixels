@@ -61,6 +61,41 @@ const Reset = ({ empty = false }: { empty?: boolean }) => {
 };
 
 describe('Owned date picker', () => {
+  it('shares the local timezone override with React Aria native inputs', () => {
+    setLocalTimeZone('UTC');
+
+    try {
+      const { container } = render(
+        <Form
+          initialValues={{ value: '2026-05-30T10:15:00.000Z' }}
+          onSubmit={vi.fn()}
+        >
+          <DatePicker
+            label="Appointment"
+            name="value"
+            timeZone="America/New_York"
+            withTime
+          />
+        </Form>,
+      );
+
+      expect(screen.getByRole('spinbutton', { name: /hour/i })).toHaveAttribute(
+        'aria-valuenow',
+        '6',
+      );
+
+      const nativeInputs = container.querySelectorAll<HTMLInputElement>(
+        'input[type="datetime-local"]',
+      );
+      expect(nativeInputs.length).toBeGreaterThan(0);
+      nativeInputs.forEach((input) => {
+        expect(input).toHaveAttribute('value', '2026-05-30T10:15:00');
+      });
+    } finally {
+      resetLocalTimeZone();
+    }
+  });
+
   it('edits local time while retaining UTC serialization and reset', async () => {
     const submit = vi.fn();
     render(

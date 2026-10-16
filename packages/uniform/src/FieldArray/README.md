@@ -30,7 +30,8 @@ import Input from '@fuf-stack/uniform/Input';
 
 ## Composition
 
-`FieldArray` owns array registration, initialization and row operations.
+`FieldArray` connects `useUniformFieldArray` to its control. The hook owns array
+registration, initialization and bound row operations.
 `FieldArrayControl` owns the group layout, sorting, row presentation and append
 button. Its label and error footer use the existing binding data rather than
 registering the array again.

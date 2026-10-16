@@ -1,6 +1,4 @@
-import type { ReactNode } from 'react';
-import type { FieldError } from 'react-hook-form';
-import type { FieldIds } from '../../partials/types';
+import type { UniformField } from '../../hooks/useUniformField/types';
 import type { FieldCardProps } from '../FieldCard';
 
 import { useStyling } from '@fuf-stack/pixels/StylingProvider';
@@ -13,34 +11,18 @@ interface FieldCardControlProps extends Pick<
   FieldCardProps,
   'children' | 'className'
 > {
-  /** Custom accessible name */
-  ariaLabel: string | undefined;
-  /** Object-level validation errors */
-  error: FieldError[] | undefined;
-  /** IDs shared with the heading and error footer */
-  ids: FieldIds;
-  /** Shows invalid border and heading styling */
-  invalid: boolean;
-  /** Field label */
-  label: ReactNode;
-  /** Marks the heading when a registered child is required */
-  required: boolean;
-  /** HTML data-testid attribute for e2e tests */
-  testId: string;
+  /** Bound field values, interactions and metadata */
+  field: UniformField;
 }
 
 /** Card presentation with an accessible heading, content and animated error footer */
 const FieldCardControl = ({
-  ariaLabel,
+  field,
   children,
   className,
-  error,
-  ids,
-  invalid,
-  label,
-  required,
-  testId,
 }: FieldCardControlProps) => {
+  const { ariaLabel, error, ids, invalid, label, required, testId } = field;
+
   const styling = useStyling();
 
   // @ts-expect-error - object-level errors include an _errors property

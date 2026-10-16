@@ -1,16 +1,10 @@
 import type { ReactNode } from 'react';
-import type { TimeValue } from './timeHelpers';
 import type { ClassName } from './timeVariants';
 
 import useUniformField from '../hooks/useUniformField/useUniformField';
 import TimeControl from './subcomponents/TimeControl';
 import TimeReset from './subcomponents/TimeReset';
-import {
-  getTimeFieldPlaceholderValue,
-  parseTimeValue,
-  resolveTimeFieldTimeZone,
-  timeValueToString,
-} from './timeHelpers';
+import { createTimeValueTransform } from './timeHelpers';
 
 export { timeVariants } from './timeVariants';
 
@@ -58,89 +52,28 @@ const Time = ({
   valueType = 'string',
   ...uniformFieldProps
 }: TimeProps) => {
-  const {
-    disabled,
-    description,
-    errorMessage,
-    getControlProps,
-    ids,
-    field,
-    invalid,
-    label,
-    required,
-    testId,
-  } = useUniformField({ name, ...uniformFieldProps });
+  const transform = createTimeValueTransform({
+    granularity,
+    hourAsNumber,
+    timeZone,
+    valueType,
+  });
 
-  const resolvedTimeZone = resolveTimeFieldTimeZone(timeZone);
-  const effectiveGranularity = hourAsNumber ? 'hour' : granularity;
-
-  // `hourAsNumber` stores 0-23; convert this into a parseable UTC time for display.
-  const normalizedFieldValue =
-    hourAsNumber && typeof field.value === 'number'
-      ? `${String(Math.max(0, Math.min(23, field.value))).padStart(2, '0')}:00Z`
-      : field.value;
-
-  // Normalize incoming form values for the segmented control.
-  const parsedValue = parseTimeValue(normalizedFieldValue, timeZone);
-  const placeholderValue = getTimeFieldPlaceholderValue(timeZone);
-
-  // Normalize TimeInput output into the configured storage format.
-  const handleChange = (nextValue: TimeValue) => {
-    if (nextValue == null) {
-      field.onChange(null);
-      return;
-    }
-
-    if (hourAsNumber) {
-      const serializedValue = timeValueToString(
-        nextValue,
-        resolvedTimeZone,
-        'hour',
-      );
-
-      if (!serializedValue) {
-        field.onChange(null);
-        return;
-      }
-
-      const [hoursSegment] = serializedValue.split(':');
-      const parsedHours = Number(hoursSegment);
-      field.onChange(Number.isNaN(parsedHours) ? null : parsedHours);
-      return;
-    }
-
-    if (valueType === 'timeValue') {
-      field.onChange(nextValue);
-      return;
-    }
-
-    field.onChange(
-      timeValueToString(nextValue, resolvedTimeZone, effectiveGranularity) ??
-        String(nextValue),
-    );
-  };
+  const { field } = useUniformField({
+    ...uniformFieldProps,
+    name,
+    transform,
+  });
 
   return (
     <TimeControl
       className={className}
-      controlProps={getControlProps()}
-      description={description}
-      disabled={disabled}
-      errorMessage={errorMessage}
-      granularity={effectiveGranularity}
+      field={field}
+      granularity={granularity}
       hideTimeZone={hideTimeZone}
+      hourAsNumber={hourAsNumber}
       hourCycle={hourCycle}
-      ids={ids}
-      inputRef={field.ref}
-      invalid={invalid}
-      label={label}
-      name={name}
-      onBlur={field.onBlur}
-      onValueChange={handleChange}
-      placeholderValue={placeholderValue}
-      required={required}
-      testId={testId}
-      value={parsedValue}
+      timeZone={timeZone}
     >
       <TimeReset />
     </TimeControl>

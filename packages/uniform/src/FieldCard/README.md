@@ -25,6 +25,8 @@ import Input from '@fuf-stack/uniform/Input';
 
 ## Composition
 
-`FieldCard` owns child-validation visibility and required-state rules.
+`FieldCard` connects its field binding to the local
+[`useFieldCardValidation`](hooks/useFieldCardValidation.ts) hook,
+which owns child-validation visibility and required-state rules.
 `FieldCardControl` owns the card, heading, content layout and error footer. The
 footer receives validation data and IDs without registering another field.

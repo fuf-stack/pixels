@@ -4,20 +4,12 @@ import type { InputControlProps } from './InputControl';
 
 import { NumberField, TextField } from 'react-aria-components';
 
-import getFieldDataAttributes from '../../helpers/getFieldDataAttributes/getFieldDataAttributes';
+import {
+  getFieldControlProps,
+  getFieldDataAttributes,
+} from '../../helpers/fieldProps/fieldProps';
 
-type InputFieldProps = Pick<
-  InputControlProps,
-  | 'controlProps'
-  | 'disabled'
-  | 'invalid'
-  | 'name'
-  | 'onBlur'
-  | 'onValueChange'
-  | 'required'
-  | 'type'
-  | 'value'
-> & {
+type InputFieldProps = Pick<InputControlProps, 'field' | 'type'> & {
   /** Renders content inside the field */
   children: ReactNode;
   /** CSS class name */
@@ -41,26 +33,28 @@ type InputFieldProps = Pick<
  * @see https://react-aria.adobe.com/NumberField
  */
 const InputField = ({
-  controlProps,
-  disabled,
-  invalid,
-  name,
-  onBlur,
-  onValueChange,
-  required,
+  field,
   type,
-  value,
   children,
   className,
   focused,
   hasValue,
   isFocusVisible,
 }: InputFieldProps) => {
-  const dataAttributes = getFieldDataAttributes({
+  const {
     disabled,
     invalid,
+    name,
+    onBlur,
+    onChange: onValueChange,
     required,
-  });
+    value,
+  } = field;
+
+  // associate the editable control with its label and messages
+  const controlProps = getFieldControlProps(field);
+
+  const dataAttributes = getFieldDataAttributes(field);
 
   // shared root props for the text and number field engines
   const rootProps = {

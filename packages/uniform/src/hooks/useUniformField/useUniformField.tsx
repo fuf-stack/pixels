@@ -13,41 +13,14 @@ import { useController } from '../useController/useController';
 import { useFormContext } from '../useFormContext/useFormContext';
 import { useInputValueTransform } from '../useInputValueTransform/useInputValueTransform';
 
-/**
- * Combines frequently used form field logic into a single hook.
- *
- * Provides:
- * - Enhanced form context (validation-aware state, `testId`, value transforms)
- * - Controller field with nullish conversion handling
- * - Value transformation via `transform` prop:
- *   • Allows disentangled display and form values (e.g., string ↔ object, boolean ↔ array)
- *   • Automatically applies `toDisplayValue` to field value for components
- *   • Automatically applies `toFormValue` to display value when onChange is called
- *   • Works with `type` prop for automatic number/string conversion
- *   • Examples: storing objects while displaying strings, storing booleans as arrays, enriching values with metadata
- * - Debounced `invalid` state with smart timing:
- *   • `true` (field becomes invalid): applies immediately so errors show right away
- *   • `false` (field becomes valid): delayed 200ms to allow smooth exit animations
- *   • Respects `prefers-reduced-motion` by skipping delays when user prefers reduced motion
- * - Smart `invalid` visibility (via `showInvalid`):
- *   • Shows errors when field is dirty OR touched OR form has been submitted
- *   • Prevents showing errors on pristine/untouched fields for better UX
- *   • Works well for all field types (text inputs, checkboxes, radios, arrays)
- * - Rendered validation messages for field presentation
- * - Computed `label` node which appends a `FieldCopyTestIdButton` in
- *   `debug-testids` mode
- * - `defaultValue` for uncontrolled defaults and all usual field handlers
- * - Access to form utilities: `control`, `getValues`, `resetField`
- * - Owned control IDs and accessible association props for local field composition
- *
- * Private implementation shared by owned Uniform fields.
- */
+/** Binds a field's value, validation, label and accessible associations */
 const useUniformField = <
   TFieldValues extends FieldValues = FieldValues,
   TDisplay = unknown,
 >(
   params: UseUniformFieldParams<TFieldValues, TDisplay>,
-): UniformFieldState<TFieldValues> => {
+): UniformFieldState<TFieldValues, TDisplay> => {
+  // field configuration
   const {
     name,
     ariaLabel: customAriaLabel,
@@ -60,6 +33,8 @@ const useUniformField = <
     type,
     transform,
   } = params;
+
+  // stable associations between the control, label and messages
   const associationId = React.useId();
   const ids = {
     control: `uniform-${associationId}`,
@@ -68,6 +43,7 @@ const useUniformField = <
     error: `uniform-${associationId}-error`,
   };
 
+  // form operations and submission state
   const {
     control,
     debugMode,
@@ -77,6 +53,7 @@ const useUniformField = <
     resetField,
   } = useFormContext<TFieldValues>();
 
+  // validation and interaction state
   const {
     error: rawError,
     invalid: rawInvalid,
@@ -86,30 +63,30 @@ const useUniformField = <
     testId,
   } = getFieldState(name, explicitTestId);
 
-  const { field } = useController<TFieldValues>({
+  // register the field and connect its value and callbacks
+  const { field: controllerField } = useController<TFieldValues>({
     control,
     disabled,
     name,
   });
+
   const {
     onChange: fieldOnChange,
     value: fieldValue,
     disabled: isDisabled,
     onBlur,
     ref,
-  } = field;
+  } = controllerField;
 
-  // Get transform utilities (but don't apply them automatically)
-  // Components can choose how to use them (directly or via useInputValueDebounce)
+  // convert between stored form values and displayed values
   const { toDisplayValue, toFormValue } = useInputValueTransform<TDisplay>({
     type,
     transform,
   });
 
-  // For components without special needs: apply transform to value and onChange
   const transformedValue = toDisplayValue(fieldValue);
   const transformedOnChange = (eventOrValue: TDisplay | React.ChangeEvent) => {
-    // Extract value from event or use value directly
+    // accept native events as well as direct values
     const displayValue =
       (eventOrValue as React.ChangeEvent<HTMLInputElement>)?.target?.value ??
       eventOrValue;
@@ -121,42 +98,15 @@ const useUniformField = <
     name as string
   ];
 
-  /**
-   * Determine when to show the invalid state to the user.
-   *
-   * Show errors when the field is invalid AND any of these conditions are met:
-   *   - Field has a user-entered value (show validation errors like format/length while typing)
-   *   - Field is touched (focused and blurred) - good for text inputs
-   *   - Form has been submitted - shows all errors after submit attempt
-   *
-   * Note: `hasValue` is gated by `isDirty` so invalid initial values do not
-   * show errors just because resolver-backed validation state is available.
-   * Newly added empty array elements can be dirty, but stay hidden until blur
-   * because they do not have a value yet.
-   *
-   * This prevents showing errors on pristine/untouched/empty fields for better UX.
-   * Examples:
-   *   - Text input: User loads form with empty required field → no error shown yet
-   *   - Text input: User types invalid content → error shows immediately (has value)
-   *   - Text input: User focuses and blurs without typing → error shows (via isTouched)
-   *   - Checkbox/radio: User selects option → error shows immediately (has value)
-   *   - Field array: User adds element → no error yet; after blur → error shows
-   *   - Any field: User submits form → all errors show (via submitCount)
-   *
-   * The entire condition is debounced to prevent flickering and allow smooth animations.
-   */
-
-  // isValueEmpty handles marker strings, flat array wrappers, empty arrays, and empty objects
+  // show errors after editing a nonempty value, blur or submission
   const hasValue = !isValueEmpty(fieldValue);
   const showInvalid =
     rawInvalid && ((isDirty && hasValue) || isTouched || submitCount > 0);
-  // Debounce to prevent flickering during rapid state changes
+
+  // allow validation messages to finish their exit animation
   const invalid = useDebounce(showInvalid, 200);
 
-  // Build a label node that:
-  // - shows the provided label (unless explicitly set to false)
-  // - appends a copy-to-clipboard button for the test id in `debug-testids` mode
-  // Consumers can pass this directly to component `label` props
+  // include the test ID action when debugging fields
   const showTestIdCopyButton = debugMode === 'debug-testids';
   const labelNode: ReactNode | null =
     !!label || showTestIdCopyButton ? (
@@ -168,9 +118,7 @@ const useUniformField = <
       </>
     ) : null;
 
-  // Array-like fields can receive nested RHF error objects (index keys, _errors).
-  // Opt-in flattening keeps backward compatibility for components that rely on
-  // object-shaped errors (e.g. FieldCard/FieldArray).
+  // preserve nested errors for groups, flatten messages for rendering
   const error = isArrayValue ? flattenFieldErrors(rawError) : rawError;
   const normalizedError = flattenFieldErrors(rawError);
   const errorMessage = (
@@ -183,48 +131,35 @@ const useUniformField = <
     customAriaLabel ??
     (label && typeof label === 'string' ? label : fallbackLabel);
 
-  const getControlProps = () => {
-    return {
-      id: ids.control,
-      'aria-label': customAriaLabel ?? (!label ? ariaLabel : undefined),
-      'aria-labelledby': !customAriaLabel && label ? ids.label : undefined,
-      'aria-describedby':
-        [
-          description ? ids.description : undefined,
-          invalid && normalizedError.length ? ids.error : undefined,
-        ]
-          .filter(Boolean)
-          .join(' ') || undefined,
-      'aria-invalid': invalid || undefined,
-      'aria-required': required || undefined,
-    };
+  // collect the bound field without exposing controller internals
+  const field = {
+    ariaLabel,
+    customAriaLabel,
+    defaultValue,
+    description,
+    disabled: isDisabled,
+    error,
+    errorMessage,
+    hasErrors: normalizedError.length > 0,
+    hasLabel: !!label,
+    ids,
+    invalid,
+    label: labelNode,
+    name: controllerField.name,
+    onBlur,
+    onChange: transformedOnChange,
+    ref,
+    required,
+    testId,
+    value: transformedValue,
   };
 
   return {
-    ariaLabel,
     control,
     debugMode,
-    defaultValue,
-    disabled: isDisabled,
-    description,
-    error,
-    errorMessage,
-    field: {
-      ...field,
-      value: transformedValue as typeof field.value,
-      onChange: transformedOnChange as typeof field.onChange,
-    },
-    getControlProps,
-    ids,
+    field,
     getValues,
-    invalid,
-    label: labelNode,
-    onBlur,
-    onChange: transformedOnChange as typeof field.onChange,
-    ref,
-    required,
     resetField,
-    testId,
   };
 };
 

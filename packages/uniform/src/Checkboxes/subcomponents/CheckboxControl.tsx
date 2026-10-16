@@ -1,13 +1,15 @@
-import type { CheckboxProps } from 'react-aria-components';
+import type { CheckboxButtonProps } from 'react-aria-components';
 import type { CheckboxesProps, CheckboxOption } from '../Checkboxes';
 import type { CheckboxClassNames } from '../checkboxesVariants';
 
 import { useId } from 'react';
-import { Checkbox } from 'react-aria-components';
+import { CheckboxButton, CheckboxField } from 'react-aria-components';
 
 import { useStyling } from '@fuf-stack/pixels/StylingProvider';
 
 import { checkboxOptionVariants } from '../checkboxesVariants';
+import CheckboxIndicator from './CheckboxIndicator';
+import CheckboxLabel from './CheckboxLabel';
 
 interface CheckboxControlProps {
   /** CSS class name */
@@ -57,7 +59,10 @@ const CheckboxControl = ({
   });
 
   // preserve option interaction selectors on the clickable label
-  const renderOption: NonNullable<CheckboxProps['render']> = (props, state) => {
+  const renderOption: NonNullable<CheckboxButtonProps['render']> = (
+    props,
+    state,
+  ) => {
     return (
       <label
         {...props}
@@ -72,80 +77,52 @@ const CheckboxControl = ({
   };
 
   return (
-    <Checkbox
+    <CheckboxField
       aria-describedby={describedBy}
       aria-invalid={invalid || undefined}
       aria-label={
         typeof option.label === 'string' ? option.label : option.value
       }
       aria-labelledby={hasLabel ? labelledBy : undefined}
-      className={classNames.optionBase}
-      data-testid={testId}
+      className={optionClassNames.field}
       id={id}
       isDisabled={disabled}
       isRequired={false}
-      render={renderOption}
       validationBehavior="aria"
       value={option.value}
     >
-      {({ isSelected }) => {
-        return (
-          <>
-            <span
-              aria-hidden
-              className={optionClassNames.wrapper}
-              data-slot="wrapper"
-            >
-              <svg
-                aria-hidden
-                className={classNames.optionIcon}
-                data-slot="icon"
-                fill="none"
-                role="presentation"
-                stroke="currentColor"
-                strokeDasharray={22}
-                strokeDashoffset={isSelected ? 44 : 66}
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                viewBox="0 0 17 18"
-              >
-                <polyline
-                  className="transition-[stroke-dashoffset] delay-200 duration-250 ease-linear motion-reduce:transition-none"
-                  points="1 9 7 14 15 4"
+      <CheckboxButton
+        className={classNames.optionBase}
+        data-testid={testId}
+        render={renderOption}
+      >
+        {({ isSelected }) => {
+          return (
+            <>
+              <CheckboxIndicator
+                className={{
+                  icon: classNames.optionIcon,
+                  wrapper: optionClassNames.wrapper,
+                }}
+                selected={isSelected}
+              />
+              {hasLabel ? (
+                <CheckboxLabel
+                  className={{
+                    base: optionClassNames.label,
+                    label: classNames.optionLabel,
+                    subline: classNames.optionLabelSubline,
+                  }}
+                  id={id}
+                  label={option.label}
+                  labelSubline={option.labelSubline}
                 />
-              </svg>
-            </span>
-            {hasLabel ? (
-              <span
-                className={optionClassNames.label}
-                data-slot="label"
-                id={`${id}-label`}
-              >
-                {hasSubline ? (
-                  <div className="flex grow flex-col items-start">
-                    <span
-                      className={classNames.optionLabel}
-                      id={`${id}-label-text`}
-                    >
-                      {option.label}
-                    </span>
-                    <span
-                      className={classNames.optionLabelSubline}
-                      id={`${id}-subline`}
-                    >
-                      {option.labelSubline}
-                    </span>
-                  </div>
-                ) : (
-                  option.label
-                )}
-              </span>
-            ) : null}
-          </>
-        );
-      }}
-    </Checkbox>
+              ) : null}
+            </>
+          );
+        }}
+      </CheckboxButton>
+    </CheckboxField>
   );
 };
 

@@ -1,5 +1,5 @@
-import type { ComponentProps, MouseEvent, Ref } from 'react';
-import type { FieldControlProps, FieldIds } from '../../partials/types';
+import type { ComponentProps, MouseEvent } from 'react';
+import type { UniformField } from '../../hooks/useUniformField/types';
 import type { TextAreaProps } from '../TextArea';
 
 import { useState } from 'react';
@@ -11,38 +11,19 @@ import TextareaAutosize from 'react-textarea-autosize';
 
 import { useStyling } from '@fuf-stack/pixels/StylingProvider';
 
-import getFieldDataAttributes from '../../helpers/getFieldDataAttributes/getFieldDataAttributes';
+import {
+  getFieldControlProps,
+  getFieldDataAttributes,
+} from '../../helpers/fieldProps/fieldProps';
 import FieldLayout from '../../partials/FieldLayout/FieldLayout';
 import { textAreaVariants } from '../textAreaVariants';
 
 interface TextAreaControlProps extends Pick<
   TextAreaProps,
-  | 'className'
-  | 'description'
-  | 'disabled'
-  | 'label'
-  | 'name'
-  | 'placeholder'
-  | 'testId'
+  'className' | 'placeholder'
 > {
-  /** Attributes associating the input with its label and messages */
-  controlProps: FieldControlProps;
-  /** Rendered validation messages */
-  errorMessage: React.ReactNode;
-  /** IDs shared with the field layout */
-  ids: FieldIds;
-  /** Ref forwarded to the editable textarea */
-  inputRef: Ref<HTMLTextAreaElement>;
-  /** Shows validation failure */
-  invalid: boolean;
-  /** Callback when focus leaves the field */
-  onBlur: () => void;
-  /** Callback with the edited text */
-  onValueChange: (value: string) => void;
-  /** Marks the field as required */
-  required: boolean;
-  /** Current display value */
-  value: unknown;
+  /** Bound field values, interactions and metadata */
+  field: UniformField<unknown, string>;
 }
 
 /**
@@ -52,25 +33,31 @@ interface TextAreaControlProps extends Pick<
  * @see https://react-aria.adobe.com/Group
  */
 const TextAreaControl = ({
+  field,
   className,
-  controlProps,
-  description,
-  disabled,
-  errorMessage,
-  ids,
-  inputRef,
-  invalid,
-  label,
-  name,
-  onBlur,
-  onValueChange,
   placeholder,
-  required,
-  testId,
-  value,
 }: TextAreaControlProps) => {
+  const {
+    description,
+    disabled,
+    errorMessage,
+    ids,
+    ref: inputRef,
+    invalid,
+    label,
+    name,
+    onBlur,
+    onChange: onValueChange,
+    required,
+    testId,
+    value,
+  } = field;
+
+  // associate the editable control with its label and messages
+  const controlProps = getFieldControlProps(field);
+
   const styling = useStyling();
-  const controlRef = useObjectRef(inputRef);
+  const controlRef = useObjectRef<HTMLTextAreaElement>(inputRef);
   const { focusProps, isFocused, isFocusVisible } = useFocusRing({
     within: true,
     isTextInput: true,
@@ -130,7 +117,7 @@ const TextAreaControl = ({
   return (
     <div
       {...focusProps}
-      {...getFieldDataAttributes({ disabled, invalid, required })}
+      {...getFieldDataAttributes(field)}
       className={classNames.base}
       data-filled={hasValue || undefined}
       data-focus={isFocused || undefined}

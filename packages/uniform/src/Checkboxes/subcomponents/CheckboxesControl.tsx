@@ -1,5 +1,5 @@
 import type { CheckboxGroupProps } from 'react-aria-components';
-import type { FieldPresentationProps } from '../../partials/types';
+import type { UniformField } from '../../hooks/useUniformField/types';
 import type { CheckboxesProps } from '../Checkboxes';
 
 import { CheckboxGroup, Label } from 'react-aria-components';
@@ -7,31 +7,18 @@ import { CheckboxGroup, Label } from 'react-aria-components';
 import { slugify } from '@fuf-stack/pixel-utils';
 import { useStyling } from '@fuf-stack/pixels/StylingProvider';
 
+import { getFieldControlProps } from '../../helpers/fieldProps/fieldProps';
 import FieldDescription from '../../partials/FieldDescription/FieldDescription';
 import FieldLabel from '../../partials/FieldLabel/FieldLabel';
 import { checkboxesVariants } from '../checkboxesVariants';
 import CheckboxControl from './CheckboxControl';
 
-interface CheckboxesControlProps
-  extends
-    Pick<
-      CheckboxesProps,
-      | 'children'
-      | 'className'
-      | 'color'
-      | 'description'
-      | 'disabled'
-      | 'inline'
-      | 'label'
-      | 'lineThrough'
-      | 'name'
-      | 'options'
-    >,
-    FieldPresentationProps<string[]> {
-  /** Connects form focus requests to an enabled checkbox */
-  inputRef: (control: Pick<HTMLElement, 'focus'> | null) => void;
-  /** HTML data-testid attribute for e2e tests */
-  testId: string;
+interface CheckboxesControlProps extends Pick<
+  CheckboxesProps,
+  'children' | 'className' | 'color' | 'inline' | 'lineThrough' | 'options'
+> {
+  /** Bound field values, interactions and metadata */
+  field: UniformField<unknown, string[]>;
 }
 
 /**
@@ -40,28 +27,36 @@ interface CheckboxesControlProps
  * @see https://react-aria.adobe.com/CheckboxGroup
  */
 const CheckboxesControl = ({
+  field,
   children,
   className,
   color = 'primary',
-  controlProps,
-  description,
-  disabled,
-  errorMessage,
-  ids,
   inline = false,
-  inputRef,
-  invalid,
-  label,
   lineThrough,
-  name,
-  onBlur,
-  onValueChange,
   options,
-  required,
-  testId,
-  value,
 }: CheckboxesControlProps) => {
+  const {
+    description,
+    disabled,
+    errorMessage,
+    ids,
+    ref: inputRef,
+    invalid,
+    label,
+    name,
+    onBlur,
+    onChange: onValueChange,
+    required,
+    testId,
+  } = field;
+
+  // associate the editable control with its label and messages
+  const controlProps = getFieldControlProps(field);
+
   const styling = useStyling();
+
+  // treat non-array form values as an empty selection
+  const value = Array.isArray(field.value) ? field.value : [];
 
   // classNames from slots
   const variants = styling.resolve(checkboxesVariants, {

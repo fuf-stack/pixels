@@ -1,11 +1,7 @@
 import type { CSSProperties, ReactNode } from 'react';
 import type { ClassName, VariantProps } from './fieldArrayVariants';
-import type { FieldArrayItem } from './subcomponents/FieldArrayControl';
-import type { FieldArrayElementMethods } from './subcomponents/FieldArrayElement';
 import type { FieldArrayChildrenRenderFn, FieldArrayFeatures } from './types';
 
-import { flatArrayKey } from '../helpers';
-import { useFormContext } from '../hooks/useFormContext';
 import useUniformFieldArray from '../hooks/useUniformFieldArray/useUniformFieldArray';
 import FieldArrayControl from './subcomponents/FieldArrayControl';
 
@@ -36,6 +32,7 @@ export interface FieldArrayProps extends FieldArrayFeatures, VariantProps {
   /** HTML data-testid attribute for e2e tests */
   testId?: string;
 }
+
 /** Form field group for adding, removing and reordering array entries */
 const FieldArray = ({
   appendButtonText = 'Add Element',
@@ -51,77 +48,14 @@ const FieldArray = ({
   sortable = false,
   ...uniformFieldProps
 }: FieldArrayProps) => {
-  const { trigger } = useFormContext();
-  const {
-    fields,
-    append,
-    remove,
-    insert,
-    move,
-    disableAnimation,
-    elementInitialValue,
-    getValues,
-    testId,
-    label,
-    required,
-    invalid,
-    error,
-    ids,
-  } = useUniformFieldArray({
-    name,
-    flat,
-    elementInitialValue: _elementInitialValue,
-    lastElementNotRemovable,
-    ...uniformFieldProps,
-  });
-
-  // bind row operations here, presentation only arranges the resulting controls
-  const items: FieldArrayItem[] = fields.map((field, index) => {
-    const elementName = flat
-      ? `${name}.${index}.${flatArrayKey}`
-      : `${name}.${index}`;
-    const elementTestId = `${testId}_${index}`;
-    const methods: FieldArrayElementMethods = {
-      append: () => {
-        append(elementInitialValue);
-      },
-      duplicate: () => {
-        const values = getValues(name);
-        const currentValue = (values as unknown[])[index];
-        insert(
-          index + 1,
-          flat ? { [flatArrayKey]: currentValue } : currentValue,
-        );
-      },
-      insert: () => {
-        insert(index + 1, elementInitialValue);
-      },
-      remove: () => {
-        remove(index);
-      },
-    };
-    return {
-      id: field.id,
-      renderProps: {
-        index,
-        length: fields.length,
-        methods,
-        name: elementName,
-        testId: elementTestId,
-      },
-    };
-  });
-
-  // append an element using the configured initial value
-  const handleAppend = () => {
-    append(elementInitialValue);
-  };
-
-  // validate the array after its row order changes
-  const handleMove = (from: number, to: number) => {
-    move(from, to);
-    trigger(name);
-  };
+  const { field, fields, appendItem, items, moveItem, disableAnimation } =
+    useUniformFieldArray({
+      name,
+      flat,
+      elementInitialValue: _elementInitialValue,
+      lastElementNotRemovable,
+      ...uniformFieldProps,
+    });
 
   return (
     <FieldArrayControl
@@ -130,20 +64,14 @@ const FieldArray = ({
       disableAnimation={disableAnimation}
       duplicate={duplicate}
       elementMarginBottom={elementMarginBottom}
-      error={error}
+      field={field}
       fields={fields}
-      ids={ids}
       insertAfter={insertAfter}
-      invalid={invalid}
       items={items}
-      label={uniformFieldProps.label ? label : undefined}
       lastElementNotRemovable={lastElementNotRemovable}
-      name={name}
-      onAppend={handleAppend}
-      onMove={handleMove}
-      required={required}
+      onAppend={appendItem}
+      onMove={moveItem}
       sortable={sortable}
-      testId={testId}
     >
       {children}
     </FieldArrayControl>

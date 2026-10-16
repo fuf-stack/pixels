@@ -11,6 +11,7 @@ import {
 } from '@internationalized/date';
 
 import {
+  createDatePickerValueTransform,
   dateValueToUtcIsoString,
   getDatePickerPlaceholderValue,
   parseDateValue,
@@ -175,5 +176,31 @@ describe('getDatePickerPlaceholderValue', () => {
     const expectedTime = now(localTimeZone).toDate(localTimeZone).getTime();
 
     expect(Math.abs((placeholderTime ?? 0) - expectedTime)).toBeLessThan(1000);
+  });
+});
+
+describe('date storage transform', () => {
+  it('preserves raw display values and stores edited dates as UTC', () => {
+    const transform = createDatePickerValueTransform({
+      withTime: true,
+      timeZone: 'Europe/Berlin',
+    });
+    const edited = parseZonedDateTime('2025-07-01T14:30[Europe/Berlin]');
+
+    expect(transform.toDisplayValue('2025-07-01T12:30:00.000Z')).toBe(
+      '2025-07-01T12:30:00.000Z',
+    );
+    expect(transform.toFormValue(edited)).toBe('2025-07-01T12:30:00.000Z');
+    expect(transform.toFormValue(null)).toBeNull();
+  });
+
+  it('preserves date object identity in dateValue mode', () => {
+    const transform = createDatePickerValueTransform({
+      valueType: 'dateValue',
+    });
+    const date = parseDate('2025-07-01');
+
+    expect(transform.toFormValue(date)).toBe(date);
+    expect(transform.toDisplayValue(date)).toBe(date);
   });
 });

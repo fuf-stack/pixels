@@ -4,7 +4,6 @@ import type { ClassName } from './radioBoxVariants';
 import { useStyling } from '@fuf-stack/pixels/StylingProvider';
 
 import RadioControl from '../../Radios/subcomponents/RadioControl';
-import radioControlVariants from '../../Radios/subcomponents/radioControlVariants';
 import { radioBoxVariants } from './radioBoxVariants';
 
 export interface RadioBoxProps {
@@ -54,22 +53,9 @@ export const RadioBox = ({
     'base',
   );
 
-  const defaults = styling.resolve(radioControlVariants, {
-    invalid: isInvalid,
-  });
   return (
     <RadioControl
-      className={{
-        ...classNames,
-        field: defaults.field(),
-        wrapper: defaults.wrapper(),
-        control: styling.cn(defaults.control(), classNames.control),
-        labelWrapper: styling.cn(
-          defaults.labelWrapper(),
-          classNames.labelWrapper,
-        ),
-        label: styling.cn(defaults.label(), classNames.label),
-      }}
+      className={classNames}
       description={description}
       disabled={isDisabled}
       icon={icon}

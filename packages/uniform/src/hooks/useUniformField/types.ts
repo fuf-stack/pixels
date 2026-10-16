@@ -1,7 +1,6 @@
 import type { ReactNode } from 'react';
 import type { FieldError, FieldValues, Path } from 'react-hook-form';
-import type { FieldControlProps, FieldIds } from '../../partials/types';
-import type { useController } from '../useController/useController';
+import type { FieldIds } from '../../partials/types';
 import type { useFormContext } from '../useFormContext/useFormContext';
 import type { InputValueTransform } from '../useInputValueTransform/useInputValueTransform';
 
@@ -31,46 +30,60 @@ export interface UseUniformFieldParams<
   type?: 'text' | 'number' | 'password';
 }
 
+/** Values, interactions and metadata for one bound Uniform field */
+export interface UniformField<TValue = unknown, TChange = TValue> {
+  /** Accessible name */
+  ariaLabel: string;
+  /** Explicit accessible-name override */
+  customAriaLabel: string | undefined;
+  /** Current form value for uncontrolled defaults */
+  defaultValue: unknown;
+  /** Help text associated with the field */
+  description: ReactNode | undefined;
+  /** Disables the field */
+  disabled: boolean | undefined;
+  /** Validation errors, flattened when array value handling is enabled */
+  error: FieldError[] | undefined;
+  /** Rendered validation messages */
+  errorMessage: ReactNode;
+  /** Whether validation messages contain errors */
+  hasErrors: boolean;
+  /** Whether a label was supplied, excluding debug content */
+  hasLabel: boolean;
+  /** IDs shared by the control, label and messages */
+  ids: FieldIds;
+  /** Shows validation failure */
+  invalid: boolean;
+  /** Field label */
+  label: ReactNode;
+  /** Field name */
+  name: string;
+  /** Callback when focus leaves the field */
+  onBlur: () => void;
+  /** Callback with the edited display value */
+  onChange: (value: TChange) => void;
+  /** Connects form focus requests to the editable control */
+  ref: (control: Pick<HTMLElement, 'focus'> | null) => void;
+  /** Marks the field as required */
+  required: boolean;
+  /** HTML data-testid attribute for e2e tests */
+  testId: string;
+  /** Current display value */
+  value: TValue;
+}
+
 export interface UniformFieldState<
   TFieldValues extends FieldValues = FieldValues,
+  TDisplay = unknown,
 > {
-  /** Accessible name from the explicit override, string label, placeholder or field name */
-  ariaLabel: string;
-  /** react-hook-form control instance for advanced integrations */
+  /** Form control for advanced integrations */
   control: ReturnType<typeof useFormContext<TFieldValues>>['control'];
-  /** Debug mode from Uniform provider */
+  /** Debug mode from the Uniform provider */
   debugMode: ReturnType<typeof useFormContext<TFieldValues>>['debugMode'];
-  /** Current value used to initialize uncontrolled components */
-  defaultValue: unknown;
-  /** Whether the field is currently disabled (from RHF) */
-  disabled: boolean | undefined;
-  description: ReactNode | undefined;
-  /** Validation errors from form state; flattened only when `isArrayValue` is enabled */
-  error: FieldError[] | undefined;
-  /** Rendered validation messages, visibility is controlled by the field */
-  errorMessage: ReactNode;
-  /** RHF controller field with transformed value/onChange (use this for simple components) */
-  field: ReturnType<typeof useController<TFieldValues>>['field'];
-  /** Owned association props for custom/migrated editable controls. RHF owns validation. */
-  getControlProps: () => FieldControlProps;
-  /** Stable IDs for the control and its local label/help/error elements. */
-  ids: FieldIds;
-  /** Access current form values (converted to validation-friendly format) */
+  /** Bound field values, interactions and metadata */
+  field: UniformField<TDisplay, TDisplay | React.ChangeEvent>;
+  /** Reads current form values */
   getValues: ReturnType<typeof useFormContext<TFieldValues>>['getValues'];
-  /** Whether the field should show invalid state (debounced for smooth animations). True when field is invalid AND (dirty OR touched OR submitted) */
-  invalid: boolean;
-  /** Computed label node including optional test id copy button */
-  label: ReactNode | null;
-  /** onBlur handler from controller */
-  onBlur: ReturnType<typeof useController<TFieldValues>>['field']['onBlur'];
-  /** onChange handler from controller (with transform applied) */
-  onChange: ReturnType<typeof useController<TFieldValues>>['field']['onChange'];
-  /** Ref to forward to underlying control */
-  ref: ReturnType<typeof useController<TFieldValues>>['field']['ref'];
-  /** Whether the field is required according to validation schema */
-  required: boolean;
-  /** Reset a specific field in the form */
+  /** Resets a field in the form */
   resetField: ReturnType<typeof useFormContext<TFieldValues>>['resetField'];
-  /** Generated HTML data-testid for the field */
-  testId: string;
 }
