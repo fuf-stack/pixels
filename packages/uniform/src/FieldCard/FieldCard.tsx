@@ -1,213 +1,46 @@
-import type { TVClassName } from '@fuf-stack/pixel-utils';
 import type { ReactNode } from 'react';
+import type { ClassName } from './fieldCardVariants';
 
-import { tv } from '@fuf-stack/pixel-utils';
 import { useDebounce } from '@fuf-stack/pixels';
-import { useStyling } from '@fuf-stack/pixels/StylingProvider';
 
 import { checkFieldIsRequired, useFormContext } from '../hooks/useFormContext';
 import useUniformField from '../hooks/useUniformField/useUniformField';
-import FieldLabel from '../partials/FieldLabel/FieldLabel';
-import FieldCardValidationError from './subcomponents/FieldCardValidationError';
+import {
+  getNestedValue,
+  hasAnyChildErrors,
+  hasAnyChildTouched,
+  hasVisibleChildErrors,
+} from './fieldCardValidation';
+import FieldCardControl from './subcomponents/FieldCardControl';
 
-/**
- * Recursively checks if any child field has an error (regardless of touched state).
- * Returns true if at least one child has an error.
- */
-export const hasAnyChildErrors = (
-  errors: Record<string, unknown> | undefined,
-): boolean => {
-  if (!errors) {
-    return false;
-  }
-
-  return Object.keys(errors)
-    .filter((key) => {
-      return key !== '_errors';
-    })
-    .some((key) => {
-      const errorValue = errors[key];
-      if (errorValue === undefined) {
-        return false;
-      }
-      // If errorValue is an array, it's a leaf field error
-      if (Array.isArray(errorValue)) {
-        return true;
-      }
-      // Recursively check nested objects
-      if (typeof errorValue === 'object' && errorValue !== null) {
-        return hasAnyChildErrors(errorValue as Record<string, unknown>);
-      }
-      return false;
-    });
-};
-
-/**
- * Recursively checks if any child field is touched.
- * Returns true if at least one child is touched.
- */
-export const hasAnyChildTouched = (
-  touched: Record<string, unknown> | undefined,
-): boolean => {
-  if (!touched) {
-    return false;
-  }
-
-  return Object.keys(touched)
-    .filter((key) => {
-      return key !== '_errors';
-    })
-    .some((key) => {
-      const touchedValue = touched[key];
-      if (touchedValue === undefined) {
-        return false;
-      }
-      // If touchedValue is truthy (boolean true), field is touched
-      if (touchedValue === true) {
-        return true;
-      }
-      // Recursively check nested objects
-      if (typeof touchedValue === 'object' && touchedValue !== null) {
-        return hasAnyChildTouched(touchedValue as Record<string, unknown>);
-      }
-      return false;
-    });
-};
-
-/**
- * Recursively checks if any child field with an error is also touched.
- * Returns true if at least one touched child has an error.
- */
-export const hasVisibleChildErrors = (
-  errors: Record<string, unknown> | undefined,
-  touched: Record<string, unknown> | undefined,
-): boolean => {
-  if (!errors || !touched) {
-    return false;
-  }
-
-  return Object.keys(errors)
-    .filter((key) => {
-      // Skip object-level errors (_errors) - those are handled separately
-      return key !== '_errors';
-    })
-    .some((key) => {
-      const errorValue = errors[key];
-      const touchedValue = touched[key];
-
-      // If this key doesn't exist in both errors and touched, skip
-      if (errorValue === undefined || touchedValue === undefined) {
-        return false;
-      }
-
-      // If errorValue is an array, it's a leaf field error
-      if (Array.isArray(errorValue)) {
-        // touchedValue being truthy means the field is touched
-        return !!touchedValue;
-      }
-
-      // Recursively check nested objects
-      if (typeof errorValue === 'object' && errorValue !== null) {
-        return hasVisibleChildErrors(
-          errorValue as Record<string, unknown>,
-          touchedValue as Record<string, unknown>,
-        );
-      }
-
-      return false;
-    });
-};
-
-export const fieldCardVariants = tv({
-  slots: {
-    /** base class for the field card wrapper */
-    base: [
-      // base styles
-      'overflow-hidden rounded-small border bg-content1',
-      // animate border color change, respect reduced motion
-      'transition-colors duration-150 motion-reduce:transition-none',
-    ],
-    /** class for the label/header */
-    label: [
-      // override HeroUI label positioning and display
-      'pointer-events-auto! static! z-auto! block! w-full!',
-      // reset any transforms or translations
-      'translate-x-0! translate-y-0! transform-none!',
-      // card header styling - use text-medium (16px) for proper header size
-      'rounded-t-small border-b p-3 font-semibold text-medium',
-      // animate border and text color change, respect reduced motion
-      'transition-colors duration-150 motion-reduce:transition-none',
-    ],
-    /** class for the content */
-    content: [
-      // same as p-3 of Card component
-      'p-3',
-      // default grid for form components (see Grid component)
-      'grid gap-4',
-    ],
-    /** class for the error footer wrapper */
-    errorFooter: [
-      'border-t',
-      // force helper to be visible and add padding (pt-1 to compensate for inner content's top padding)
-      'block px-3 pb-2 pt-1',
-      // animate border color change, respect reduced motion
-      'transition-colors duration-150 motion-reduce:transition-none',
-    ],
-    /** class for the error text (empty base, color controlled by variant) */
-    errorText: [],
-  },
-  variants: {
-    invalid: {
-      true: {
-        base: 'border-danger-200',
-        label: 'border-danger-200 text-danger',
-        errorFooter: 'border-danger-200',
-        errorText: '!text-danger text-tiny',
-      },
-      false: {
-        base: 'border-divider',
-        label: 'border-divider text-foreground',
-        errorFooter: 'border-divider',
-        errorText: '!text-foreground-500 text-tiny',
-      },
-    },
-  },
-  defaultVariants: {
-    invalid: false,
-  },
-});
-
-type ClassName = TVClassName<typeof fieldCardVariants>;
+export { fieldCardVariants } from './fieldCardVariants';
+export {
+  hasAnyChildErrors,
+  hasAnyChildTouched,
+  hasVisibleChildErrors,
+} from './fieldCardValidation';
 
 export interface FieldCardProps {
   /** Content to render inside the card */
   children: ReactNode;
   /** CSS class name */
   className?: ClassName;
-  /** Label content for the card header */
+  /** Field label */
   label: ReactNode;
-  /** Field name for validation */
+  /** Field name */
   name: string;
-  /** HTML data-testid attribute used in e2e tests */
+  /** HTML data-testid attribute for e2e tests */
   testId?: string;
 }
 
-/**
- * FieldCard component - A card-styled container with label header and error footer
- *
- * Displays form field content in a card layout with:
- * - Label/title in the header
- * - Content in the body
- * - Validation errors in the footer
- * - Danger outline when validation errors exist
- */
+/** Form field group displayed as a card with a heading and validation footer */
 const FieldCard = ({
   children,
   className: _className = undefined,
   name,
   ...uniformFieldProps
 }: FieldCardProps) => {
-  const { error, ids, ariaLabel, label } = useUniformField({
+  const { error, ids, ariaLabel, label, testId } = useUniformField({
     name,
     ...uniformFieldProps,
   });
@@ -241,26 +74,6 @@ const FieldCard = ({
     : false;
 
   // Get touched state for this field's children by traversing the path
-  const getNestedValue = (
-    obj: Record<string, unknown> | undefined,
-    path: string,
-  ): Record<string, unknown> | undefined => {
-    if (!obj) {
-      return undefined;
-    }
-    const keys = path.split('.');
-    let current: unknown = obj;
-    keys.every((key) => {
-      if (current && typeof current === 'object') {
-        current = (current as Record<string, unknown>)[key];
-        return true;
-      }
-      current = undefined;
-      return false;
-    });
-    return current as Record<string, unknown> | undefined;
-  };
-
   const fieldTouched = getNestedValue(touchedFields, name);
 
   // Check for object-level errors (_errors)
@@ -287,49 +100,19 @@ const FieldCard = ({
   // Debounce to prevent flickering during rapid state changes
   const showInvalid = useDebounce(rawShowInvalid, 200);
 
-  // className from slots
-  const styling = useStyling();
-  const className = styling.variantsToClassNames(
-    styling.resolve(fieldCardVariants, { invalid: showInvalid }),
-    _className,
-    'base',
-  );
-
   return (
-    <div
-      className={className.base}
-      role="group"
-      aria-label={!label ? ariaLabel : undefined}
-      aria-labelledby={label ? ids.label : undefined}
-      aria-describedby={hasObjectErrors ? ids.error : undefined}
+    <FieldCardControl
+      ariaLabel={ariaLabel}
+      className={_className}
+      error={error}
+      ids={ids}
+      invalid={showInvalid}
+      label={label}
+      required={isRequired}
+      testId={testId}
     >
-      {/* card header with label */}
-      {label ? (
-        <FieldLabel
-          as="div"
-          id={ids.label}
-          aria-level={3}
-          // Preserve the existing child-touched/submitted styling policy.
-          className={className.label}
-          role="heading"
-          required={isRequired}
-        >
-          {label}
-        </FieldLabel>
-      ) : null}
-
-      {/* card content */}
-      <div className={className.content}>{children}</div>
-
-      {/* card footer with validation errors - always show _errors, but danger styling controlled by showInvalid */}
-      <FieldCardValidationError
-        className={className.errorFooter}
-        error={error}
-        errorId={ids.error}
-        errorTextClassName={className.errorText}
-        name={name}
-      />
-    </div>
+      {children}
+    </FieldCardControl>
   );
 };
 

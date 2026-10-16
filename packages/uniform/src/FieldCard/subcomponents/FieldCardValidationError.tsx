@@ -7,7 +7,6 @@ import {
 } from '@fuf-stack/pixel-motion';
 import { useStyling } from '@fuf-stack/pixels/StylingProvider';
 
-import useUniformField from '../../hooks/useUniformField/useUniformField';
 import FieldValidationError from '../../partials/FieldValidationError/FieldValidationError';
 import fieldCardValidationErrorVariants from './fieldCardValidationErrorVariants';
 
@@ -19,9 +18,9 @@ export interface FieldCardValidationErrorProps {
   /** CSS class name for the error text (controls color based on invalid state) */
   errorTextClassName?: string;
   /** Optional error association ID supplied by the owning group. */
-  errorId?: string;
-  /** Field name */
-  name: string;
+  errorId: string;
+  /** HTML data-testid attribute for e2e tests */
+  testId: string;
 }
 
 /**
@@ -38,13 +37,9 @@ const FieldCardValidationError = ({
   className = undefined,
   error = undefined,
   errorTextClassName = undefined,
-  errorId = undefined,
-  name,
+  errorId,
+  testId,
 }: FieldCardValidationErrorProps) => {
-  const { ids, testId } = useUniformField({
-    name,
-  });
-
   const styling = useStyling();
 
   // classNames from slots
@@ -58,8 +53,9 @@ const FieldCardValidationError = ({
   const disableAnimation = useReducedMotion();
 
   // Always show object-level errors (_errors) when they exist
-  // @ts-expect-error - error._errors exists but not typed
-  const hasErrors = !!error?._errors;
+  const objectErrors = (error as unknown as { _errors?: FieldError[] })
+    ?._errors;
+  const hasErrors = !!objectErrors;
 
   return (
     <AnimatePresence initial={!disableAnimation}>
@@ -76,11 +72,9 @@ const FieldCardValidationError = ({
         >
           <div className={classNames.helperWrapper} data-slot="helper-wrapper">
             <FieldValidationError
-              id={errorId ?? ids.error}
               className={{ wrapper: classNames.errorMessage }}
-
-              // @ts-expect-error - error._errors exists but not typed
-              error={error._errors}
+              error={objectErrors}
+              id={errorId}
               testId={testId}
             />
           </div>

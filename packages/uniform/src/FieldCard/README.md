@@ -22,3 +22,9 @@ import Input from '@fuf-stack/uniform/Input';
 - The card shows group validation feedback and reflects visible child errors.
 
 [Props](FieldCard.tsx) · [Stories](FieldCard.stories.tsx)
+
+## Composition
+
+`FieldCard` owns child-validation visibility and required-state rules.
+`FieldCardControl` owns the card, heading, content layout and error footer. The
+footer receives validation data and IDs without registering another field.
