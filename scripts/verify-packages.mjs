@@ -188,7 +188,7 @@ function inspectTarball({ manifest }, tarball) {
       })
     ) {
       throw new Error(
-        'Uniform must not export removed legacy hooks or private field state.',
+        'Uniform must not export removed legacy hooks or private field binding hooks.',
       );
     }
     const publishedCode = entries.filter((entry) => {

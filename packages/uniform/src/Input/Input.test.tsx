@@ -188,6 +188,69 @@ describe('Production React Aria input', () => {
     expect(submit.mock.calls[0][0]).toEqual({ password: 'edited' });
   });
 
+  it('applies consumer classes to labels, hints, validation messages and number steppers', async () => {
+    render(
+      <Form
+        initialValues={{ amount: 0 }}
+        onSubmit={() => {}}
+        validation={veto({ amount: number().min(1, 'Choose at least one') })}
+      >
+        <Input
+          className={{
+            description: 'custom-description',
+            errorMessage: 'custom-error text-small',
+            helperWrapper: 'custom-hints',
+            innerWrapper: 'custom-inner',
+            label: 'custom-label',
+            stepper: 'custom-stepper',
+            stepperButton: 'custom-stepper-button',
+          }}
+          clearable
+          description="Number of items"
+          label="Amount"
+          name="amount"
+          type="number"
+        />
+        <button type="submit">Save</button>
+      </Form>,
+    );
+    const input = screen.getByTestId('amount');
+    const root = input.closest('[data-slot="base"]');
+
+    expect(screen.getByText('Amount')).toHaveClass('custom-label');
+    expect(screen.getByText('Number of items')).toHaveClass(
+      'custom-description',
+    );
+    expect(root?.querySelector('[data-slot="inner-wrapper"]')).toHaveClass(
+      'custom-inner',
+    );
+    expect(root?.querySelector('[data-slot="helper-wrapper"]')).toHaveClass(
+      'custom-hints',
+    );
+    expect(root?.querySelector('[data-slot="stepper-wrapper"]')).toHaveClass(
+      'custom-stepper',
+    );
+    expect(
+      screen.getByRole('button', { name: /increase|increment/i }),
+    ).toHaveClass('custom-stepper-button');
+    expect(
+      screen.getByRole('button', { name: /decrease|decrement/i }),
+    ).toHaveClass('custom-stepper-button');
+
+    await userEvent.click(screen.getByRole('button', { name: 'Save' }));
+    await waitFor(() => expect(input).toHaveAttribute('aria-invalid', 'true'));
+
+    expect(root?.querySelector('[data-slot="error-message"]')).toHaveClass(
+      'custom-error',
+      'text-small',
+    );
+    expect(screen.getByText('Choose at least one')).toBeVisible();
+    expect(input).toHaveFocus();
+    expect(input).toHaveAccessibleDescription(
+      'Number of items Choose at least one',
+    );
+  });
+
   it('keeps disabled controls and clear actions inert', async () => {
     const cleared = vi.fn();
     render(
@@ -221,12 +284,18 @@ describe('Production React Aria input', () => {
     const base = input.closest('[data-slot="base"]');
     const wrapper = input.closest('[data-slot="input-wrapper"]');
     expect(base).toHaveAttribute('data-required', 'true');
-    expect(base).toHaveAttribute('data-has-label', 'true');
-    expect(base).toHaveAttribute('data-filled', 'true');
+    expect(base).not.toHaveAttribute('data-filled');
+    expect(base).not.toHaveAttribute('data-has-label');
+    expect(base).not.toHaveAttribute('data-has-helper');
+    expect(base).not.toHaveAttribute('data-has-elements');
+    expect(base).not.toHaveAttribute('data-has-value');
+    expect(base).not.toHaveAttribute('data-filled-within');
+    expect(base).not.toHaveAttribute('data-focus-within');
     await userEvent.click(wrapper as HTMLElement);
     expect(input).toHaveFocus();
     expect(base).toHaveAttribute('data-focus', 'true');
     await userEvent.type(input, 'value');
+    expect(base).toHaveAttribute('data-filled', 'true');
     expect(base).toHaveClass('is-filled');
     expect(input).toHaveAttribute('data-filled', 'true');
   });

@@ -6,6 +6,49 @@ variants/slots pattern (the default), and how to ship a raw CSS file on the rare
 occasion a component needs one. The same conventions apply to every package that
 ships UI components.
 
+For component layout, prop ownership, documentation and readability, see the
+[code style guide](./code-style.md). This document owns the styling-specific
+rules and examples; keep the two guides consistent when conventions change.
+
+## Recipe file ownership
+
+Keep a component's recipes in a dedicated `<component>Variants.ts` file, such as
+[`inputVariants.ts`](../packages/uniform/src/Input/inputVariants.ts). Define and
+export `VariantProps`, `ClassName` and resolved slot types beside the recipes they
+describe. Keep the component's main prop interface in its own `.tsx` file;
+subcomponents own their prop interfaces in the same way. See
+[type ownership](./code-style.md#types-live-with-their-owner) for concrete examples.
+
+Older wrappers may still inline recipes and aliases. Follow the dedicated-file
+structure for new components and focused refactors without changing public
+exports merely to reorganize implementation files.
+
+Keep shared recipes with a component that owns them, and import them directly
+from related components. A separate shared styling folder is unnecessary for
+reuse between two fields. Compose through `tv`, instead of spreading plain class
+maps or interpolating slot strings:
+
+```ts
+// DatePicker/datePickerVariants.ts
+import { timeVariants } from '../Time/timeVariants';
+
+// Time/timeVariants.ts
+export const timeVariants = tv({
+  slots: {
+    /** Bordered surface around the editable segments */
+    inputWrapper: 'rounded-small border-2 border-default-200',
+  },
+});
+
+export const datePickerVariants = tv({
+  extend: timeVariants,
+  slots: {
+    /** Button opening the calendar popup */
+    selectorButton: '',
+  },
+});
+```
+
 ## TL;DR
 
 - Style components with **Tailwind variants + slots** via `tv()` from
@@ -28,20 +71,35 @@ resolved classes onto the underlying element(s) (often a HeroUI component).
 
 ### 1) Define slots and variants with `tv()`
 
+Give each slot definition a short JSDoc description of its role or contents,
+without a trailing full stop. Explain what it wraps, displays or controls rather
+than merely repeating the component and slot names. For example, use
+`/** Supporting message below the title */` instead of `/** Alert description */`.
+Describe the element, not its current CSS classes. Variant overrides reuse the
+slot's description and do not need to repeat it.
+
 ```tsx
 import type { TVClassName, TVProps } from '@fuf-stack/pixel-utils';
 
-import { tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
+// alertVariants.ts
+import { tv } from '@fuf-stack/pixel-utils';
 
 export const alertVariants = tv({
   // slots = the stylable parts of the component
   slots: {
+    /** Outer container for the icon, message and actions */
     base: 'min-w-72 gap-3',
+    /** Button for dismissing the alert */
     closeButton: '',
+    /** Supporting message below the title */
     description: '',
+    /** Icon indicating the message type */
     icon: '',
+    /** Container around the message icon */
     iconWrapper: '',
+    /** Container grouping the title and supporting message */
     mainWrapper: 'ms-0 items-stretch gap-1.5',
+    /** Heading above the supporting message */
     title: '',
   },
   // variants = the style axes callers (or internal logic) can toggle
@@ -64,8 +122,13 @@ export const alertVariants = tv({
 
 ### 2) Derive the public prop types from the variants
 
-The variant definition is the single source of truth. Derive both the variant
-props and the `className` type from it, so they never drift:
+The variant definition is the single source of truth. Derive and export both
+aliases from `alertVariants.ts`, so they stay with the recipe and never drift:
+
+For a small component-local recipe, keep the recipe and derived aliases directly
+in the component file instead. A dedicated variants file is useful when styling
+is substantial or shared. See the
+[colocated recipe example](./code-style.md#types-live-with-their-owner).
 
 ```tsx
 // union of the variant options (e.g. `{ variant?: 'info' | 'danger' | ... }`)
@@ -74,10 +137,17 @@ export type VariantProps = TVProps<typeof alertVariants>;
 // either a single class value or a per-slot record:
 //   className="..."                       -> applied to the base slot
 //   className={{ base: '...', title: '' }} -> applied per slot
-type ClassName = TVClassName<typeof alertVariants>;
+export type ClassName = TVClassName<typeof alertVariants>;
+```
+
+Import those types into the component file; keep its main prop definition there:
+
+```tsx
+// Alert.tsx
+import type { ClassName, VariantProps } from './alertVariants';
 
 export interface AlertProps extends Omit<VariantProps, 'hasTitleAndChildren'> {
-  /** CSS class name (string for base slot, or a per-slot record) */
+  /** CSS class name */
   className?: ClassName;
   variant?: VariantProps['variant'];
   // ...
@@ -92,14 +162,41 @@ into a `{ slot: 'classes' }` object and merges the caller's `className`:
 - a **string/array** `className` is applied to the `baseSlot` (3rd arg),
 - a **record** `className` is merged slot-by-slot.
 
+Keep these two calls in their own block with `// classNames from slots` above them.
+Use `variants` for the resolved slots and `classNames` for their merged strings,
+including when resolving through `useStyling()`. Keep them as separate assignments,
+do not inline `resolve(...)` inside `variantsToClassNames(...)`.
+
+Compose slot classes through Tailwind Variants, not standalone class maps or
+literal slot overrides passed to partials. Put defaults in the owning recipe and
+pass its resolved `classNames` to shared presentation:
+
+```tsx
+const radioTabsVariants = tv({
+  slots: {
+    /** Supporting text below the selection */
+    description: 'text-foreground-400 text-tiny',
+    /** Container for validation messages */
+    errorMessage: 'text-danger text-tiny',
+  },
+});
+
+// after resolving and merging the recipe
+<FieldLayout className={classNames} /* ... */ />;
+```
+
+The shared [FieldLayout](../packages/uniform/src/partials/FieldLayout/README.md)
+also receives resolved slot classes. Its fragment adds no element for a `base`
+slot: keep `classNames.base` on the field engine's root, and pass the same map to
+`<FieldLayout className={classNames} /* ... */ />` for its label, description and
+validation messages. The layout renders their helper wrapper directly.
+
 ```tsx
 const Alert = ({ className, variant = 'info', ...props }: AlertProps) => {
-  // 1. resolve slot classes for the active variants
+  // classNames from slots
   const variants = alertVariants({ variant });
-  // 2. merge caller className; string className lands on the `base` slot
   const classNames = variantsToClassNames(variants, className, 'base');
 
-  // 3. hand the per-slot classNames to the underlying element(s)
   return <HeroAlert classNames={classNames} /* ... */ />;
 };
 ```
@@ -114,6 +211,16 @@ import { cn } from '@fuf-stack/pixel-utils';
 ```
 
 ### Conventions
+
+- Expose slots for the styled parts consumers need to customize, including
+  labels, descriptions, validation messages and actions. Define them in the
+  public recipe so `TVClassName` accepts them. Private state recipes should
+  extend those slots rather than hiding them from the public type. See the
+  [Input slot example](../packages/uniform/src/Input/README.md#styling).
+
+- Use `className` for our component styling props, including private components
+  receiving resolved slot maps. Keep a resolved map's type separate from the
+  consumer override type. See the [code style examples](./code-style.md#types-live-with-their-owner).
 
 - Keep slot keys stable and descriptive; empty string (`''`) is a valid default.
 - Put shared/base classes in the slot default; put axis-specific overrides under
@@ -142,10 +249,14 @@ const recipe = tv({ slots: { input: 'text-sm text-danger' } });
 
 function Control() {
   const helpers = useStyling();
-  const classes = helpers.variantsToClassNames(helpers.resolve(recipe), {
+
+  // classNames from slots
+  const variants = helpers.resolve(recipe);
+  const classNames = helpers.variantsToClassNames(variants, {
     input: 'text-body',
   });
-  return <input aria-label="Example" className={classes.input} />;
+
+  return <input aria-label="Example" className={classNames.input} />;
 }
 
 <StylingProvider styling={styling}>
@@ -289,3 +400,30 @@ package-wide aggregate. An app that renders pixels components through
 - The ESM build strips the component's `import './Json.styles.css'` to a
   `/* empty css */` marker after extraction, so importing the component in Node
   never pulls a raw `.css`.
+
+## Field state attributes
+
+Uniform's private [getFieldDataAttributes helper](../packages/uniform/src/helpers/getFieldDataAttributes/getFieldDataAttributes.ts) maps disabled, invalid and
+required state to `data-disabled`, `data-invalid` and `data-required`. Inactive
+flags are omitted. Input, TextArea and Select use it on their field roots.
+Interaction attributes remain with the control, and `data-slot` identifies the
+rendered element. Other field-specific state remains local to its renderer.
+
+```tsx
+<div
+  {...getFieldDataAttributes({ disabled, invalid, required })}
+  data-focus={focused || undefined}
+  data-slot="base"
+/>
+```
+
+Use selectors such as `group-data-[invalid=true]:text-danger` in the owning
+Tailwind Variants recipe. `data-filled` reflects an actual value, including zero,
+without counting the placeholder. Avoid speculative flags for content presence,
+see the [component ownership rules](./code-style.md#component-files-and-responsibility).
+
+For interaction state that React Aria already exposes, use its attribute directly.
+Input's Group owns hover on `inputWrapper`, whose recipe uses
+`data-[hovered=true]:border-default-400`. Do not mirror that state in a parent or
+add a second hover attribute for styling. See the
+[interaction ownership example](./code-style.md#component-files-and-responsibility).

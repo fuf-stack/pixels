@@ -46,6 +46,50 @@ export const Default: Story = {
   },
 };
 
+export const CustomStyling: Story = {
+  args: {
+    ...Default.args,
+    className: {
+      description: 'text-primary text-small',
+      errorMessage: 'font-semibold',
+      helperWrapper: 'flex flex-col gap-2',
+    },
+    description: 'Choose an available option',
+    label: 'Choice',
+  },
+  parameters: {
+    formProps: {
+      validation: veto({ radioTabsField: string() }),
+    },
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const description = canvas.getByText('Choose an available option');
+
+    await expect(description).toHaveClass('text-primary', 'text-small');
+    await expect(description).not.toHaveClass(
+      'text-foreground-400',
+      'text-tiny',
+    );
+    await expect(description.parentElement).toHaveClass(
+      'flex',
+      'flex-col',
+      'gap-2',
+    );
+
+    await userEvent.click(canvas.getByTestId('form_submit_button'));
+
+    const error = await canvas.findByTestId('radiotabsfield_error');
+
+    await expect(error.parentElement).toHaveClass('font-semibold');
+    await expect(
+      canvas.getByRole('group', { name: 'Choice' }),
+    ).toHaveAccessibleDescription(
+      `Choose an available option ${error.textContent} Required selection.`,
+    );
+  },
+};
+
 export const NumberValues: Story = {
   args: {
     name: 'radioTabsField',

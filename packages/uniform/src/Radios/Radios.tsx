@@ -1,18 +1,21 @@
 import type { TVClassName, TVProps } from '@fuf-stack/pixel-utils';
 import type { ReactElement, ReactNode } from 'react';
 
+import { Label } from 'react-aria-components';
+
 import { slugify, tv } from '@fuf-stack/pixel-utils';
 import { useStyling } from '@fuf-stack/pixels/StylingProvider';
 
 import { createOptionValueConverter } from '../helpers';
-import useUniformFieldState from '../hooks/useUniformFieldState/useUniformFieldState';
-import {
-  RadioControl,
-  radioControlVariants,
-  RadioLayout,
-} from '../partials/RadioLayout/RadioLayout';
+import useUniformField from '../hooks/useUniformField/useUniformField';
+import FieldLayout from '../partials/FieldLayout/FieldLayout';
+import RadioGroupField from '../partials/RadioGroupField/RadioGroupField';
+import radioGroupFieldVariants from '../partials/RadioGroupField/radioGroupFieldVariants';
+import RadioControl from './subcomponents/RadioControl';
+import radioControlVariants from './subcomponents/radioControlVariants';
 
 export const radiosVariants = tv({
+  extend: radioGroupFieldVariants,
   slots: {
     base: [
       // Needs group for group-data condition.
@@ -106,7 +109,7 @@ const Radios = ({
   options,
   ...uniformFieldProps
 }: RadiosProps): ReactElement => {
-  const field = useUniformFieldState({ name, ...uniformFieldProps });
+  const field = useUniformField({ ...uniformFieldProps, name });
   const {
     disabled,
     invalid,
@@ -119,24 +122,17 @@ const Radios = ({
 
   // classNames from slots
   const styling = useStyling();
-  const classNames = styling.variantsToClassNames(
-    styling.resolve(radiosVariants),
-    className,
-    'base',
-  );
-  const defaults = styling.resolve(radioControlVariants, { invalid });
-
-  const itemClassNames = {
-    base: styling.cn(defaults.base(), classNames.itemBase),
-    control: styling.cn(defaults.control(), classNames.itemControl),
-    description: styling.cn(defaults.description(), classNames.itemDescription),
-    label: styling.cn(defaults.label(), classNames.itemLabel),
-    labelWrapper: styling.cn(
-      defaults.labelWrapper(),
-      classNames.itemLabelWrapper,
-    ),
-    wrapper: styling.cn(defaults.wrapper(), classNames.itemWrapper),
-  };
+  const variants = styling.resolve(radiosVariants);
+  const classNames = styling.variantsToClassNames(variants, className, 'base');
+  const optionVariants = styling.resolve(radioControlVariants, { invalid });
+  const itemClassNames = styling.variantsToClassNames(optionVariants, {
+    base: classNames.itemBase,
+    control: classNames.itemControl,
+    description: classNames.itemDescription,
+    label: classNames.itemLabel,
+    labelWrapper: classNames.itemLabelWrapper,
+    wrapper: classNames.itemWrapper,
+  });
 
   const selectedValue = value != null ? String(value) : '';
 
@@ -151,10 +147,10 @@ const Radios = ({
     const radio = (
       <RadioControl
         key={optionValue}
-        classes={itemClassNames}
-        testId={optionTestId}
+        className={itemClassNames}
         disabled={optionIsDisabled}
         invalid={invalid}
+        testId={optionTestId}
         value={optionValue}
       >
         {option.label ?? option.value}
@@ -172,20 +168,50 @@ const Radios = ({
     };
   });
 
+  // restore the option's original value type before updating the form
+  const handleChange = (nextValue: string) => {
+    field.onChange(convertToOriginalType(nextValue));
+  };
+
   return (
-    <RadioLayout
-      classes={classNames}
-      field={field}
+    <RadioGroupField
+      className={classNames.base}
+      controlProps={field.getControlProps()}
+      disabled={disabled}
       inline={inline}
-      onChange={(newValue) => field.onChange(convertToOriginalType(newValue))}
+      inputRef={field.ref}
+      invalid={invalid}
+      name={name}
+      onBlur={field.onBlur}
+      onChange={handleChange}
+      required={field.required}
+      testId={testId}
+      value={value}
     >
-      {/* Child render function can fully control list layout; fallback keeps default rendering. */}
-      {children
-        ? children(renderedOptions)
-        : renderedOptions.map(({ radio }) => {
-            return radio;
-          })}
-    </RadioLayout>
+      <FieldLayout
+        className={classNames}
+        description={field.description}
+        errorMessage={field.errorMessage}
+        ids={field.ids}
+        invalid={invalid}
+        label={field.label}
+        labelAs={Label}
+        required={field.required}
+      >
+        <div
+          className={classNames.wrapper}
+          data-orientation={inline ? 'horizontal' : 'vertical'}
+          data-slot="wrapper"
+        >
+          {/* Child render function can fully control list layout; fallback keeps default rendering. */}
+          {children
+            ? children(renderedOptions)
+            : renderedOptions.map(({ radio }) => {
+                return radio;
+              })}
+        </div>
+      </FieldLayout>
+    </RadioGroupField>
   );
 };
 

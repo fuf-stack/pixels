@@ -7149,50 +7149,55 @@ exports[`Story Snapshots > UniformRadioField 1`] = `
                       class="p-3 align-middle text-foreground"
                       data-slot="td"
                     >
-                      <label
-                        class="group relative -m-2 inline-flex max-w-fit cursor-pointer select-none items-center justify-start p-2 tap-highlight-transparent data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-disabled"
+                      <div
+                        class="contents"
                         data-rac=""
-                        data-react-aria-pressable="true"
-                        data-slot="base"
-                        data-testid="primaryorderid_option_0"
-                        for="«replaced-aria-id»-control"
                       >
-                        <span
-                          style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
-                        >
-                          <input
-                            aria-labelledby="«replaced-aria-id»-label"
-                            data-react-aria-pressable="true"
-                            id="«replaced-aria-id»-control"
-                            name="primaryOrderId"
-                            tabindex="-1"
-                            type="radio"
-                            value="0"
-                          />
-                        </span>
-                        <span
-                          aria-hidden="true"
-                          class="relative box-border inline-flex h-5 w-5 shrink-0 items-center justify-center overflow-hidden rounded-full border-2 border-solid border-default transition-transform-colors group-data-[pressed=true]:scale-95 group-data-[invalid=true]:border-danger group-data-[invalid=true]:group-data-[selected=true]:border-danger group-data-[selected=true]:border-primary group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background motion-reduce:transition-none group-data-[invalid=true]:border-danger! [&:not(group-data-[invalid="true"]):not(group-data-[selected="false"])]:border-focus"
-                          data-slot="wrapper"
+                        <label
+                          class="group relative -m-2 inline-flex max-w-fit cursor-pointer select-none items-center justify-start p-2 tap-highlight-transparent data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-disabled"
+                          data-rac=""
+                          data-react-aria-pressable="true"
+                          data-slot="base"
+                          data-testid="primaryorderid_option_0"
+                          for="«replaced-aria-id»-control"
                         >
                           <span
-                            class="z-10 h-2 w-2 origin-center scale-0 rounded-full text-primary-foreground opacity-0 transition-transform-opacity group-data-[selected=true]:scale-100 group-data-[invalid=true]:text-danger-foreground group-data-[selected=true]:opacity-100 motion-reduce:transition-none bg-focus group-data-[invalid=true]:bg-danger"
-                            data-slot="control"
-                          />
-                        </span>
-                        <div
-                          class="ms-2 flex flex-col ml-2"
-                          data-slot="label-wrapper"
-                        >
-                          <span
-                            class="relative select-none text-foreground transition-colors motion-reduce:transition-none text-sm"
-                            data-slot="label"
-                            id="«replaced-aria-id»-label"
+                            style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
                           >
-                            Anna Kowalski
+                            <input
+                              aria-labelledby="«replaced-aria-id»-label"
+                              data-react-aria-pressable="true"
+                              id="«replaced-aria-id»-control"
+                              name="primaryOrderId"
+                              tabindex="-1"
+                              type="radio"
+                              value="0"
+                            />
                           </span>
-                        </div>
-                      </label>
+                          <span
+                            aria-hidden="true"
+                            class="relative box-border inline-flex h-5 w-5 shrink-0 items-center justify-center overflow-hidden rounded-full border-2 border-solid border-default transition-transform-colors group-data-[pressed=true]:scale-95 group-data-[invalid=true]:border-danger group-data-[invalid=true]:group-data-[selected=true]:border-danger group-data-[selected=true]:border-primary group-data-[hover-unselected=true]:bg-default-100 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background motion-reduce:transition-none group-data-[invalid=true]:border-danger! [&:not(group-data-[invalid="true"]):not(group-data-[selected="false"])]:border-focus"
+                            data-slot="wrapper"
+                          >
+                            <span
+                              class="z-10 h-2 w-2 origin-center scale-0 rounded-full text-primary-foreground opacity-0 transition-transform-opacity group-data-[selected=true]:scale-100 group-data-[invalid=true]:text-danger-foreground group-data-[selected=true]:opacity-100 motion-reduce:transition-none bg-focus group-data-[invalid=true]:bg-danger"
+                              data-slot="control"
+                            />
+                          </span>
+                          <div
+                            class="ms-2 flex flex-col ml-2"
+                            data-slot="label-wrapper"
+                          >
+                            <span
+                              class="relative select-none text-foreground transition-colors motion-reduce:transition-none text-sm"
+                              data-slot="label"
+                              id="«replaced-aria-id»-label"
+                            >
+                              Anna Kowalski
+                            </span>
+                          </div>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="p-3 align-middle text-foreground"
@@ -7241,52 +7246,58 @@ exports[`Story Snapshots > UniformRadioField 1`] = `
                       class="p-3 align-middle text-foreground"
                       data-slot="td"
                     >
-                      <label
-                        class="group relative -m-2 inline-flex max-w-fit cursor-pointer select-none items-center justify-start p-2 tap-highlight-transparent data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-disabled"
+                      <div
+                        class="contents"
                         data-rac=""
-                        data-react-aria-pressable="true"
                         data-selected="true"
-                        data-slot="base"
-                        data-testid="primaryorderid_option_1"
-                        for="«replaced-aria-id»-control"
                       >
-                        <span
-                          style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
-                        >
-                          <input
-                            aria-labelledby="«replaced-aria-id»-label"
-                            checked=""
-                            data-react-aria-pressable="true"
-                            id="«replaced-aria-id»-control"
-                            name="primaryOrderId"
-                            tabindex="0"
-                            type="radio"
-                            value="1"
-                          />
-                        </span>
-                        <span
-                          aria-hidden="true"
-                          class="relative box-border inline-flex h-5 w-5 shrink-0 items-center justify-center overflow-hidden rounded-full border-2 border-solid border-default transition-transform-colors group-data-[pressed=true]:scale-95 group-data-[invalid=true]:border-danger group-data-[invalid=true]:group-data-[selected=true]:border-danger group-data-[selected=true]:border-primary group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background motion-reduce:transition-none group-data-[invalid=true]:border-danger! [&:not(group-data-[invalid="true"]):not(group-data-[selected="false"])]:border-focus"
-                          data-slot="wrapper"
+                        <label
+                          class="group relative -m-2 inline-flex max-w-fit cursor-pointer select-none items-center justify-start p-2 tap-highlight-transparent data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-disabled"
+                          data-rac=""
+                          data-react-aria-pressable="true"
+                          data-selected="true"
+                          data-slot="base"
+                          data-testid="primaryorderid_option_1"
+                          for="«replaced-aria-id»-control"
                         >
                           <span
-                            class="z-10 h-2 w-2 origin-center scale-0 rounded-full text-primary-foreground opacity-0 transition-transform-opacity group-data-[selected=true]:scale-100 group-data-[invalid=true]:text-danger-foreground group-data-[selected=true]:opacity-100 motion-reduce:transition-none bg-focus group-data-[invalid=true]:bg-danger"
-                            data-slot="control"
-                          />
-                        </span>
-                        <div
-                          class="ms-2 flex flex-col ml-2"
-                          data-slot="label-wrapper"
-                        >
-                          <span
-                            class="relative select-none text-foreground transition-colors motion-reduce:transition-none text-sm"
-                            data-slot="label"
-                            id="«replaced-aria-id»-label"
+                            style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
                           >
-                            Milo Jensen
+                            <input
+                              aria-labelledby="«replaced-aria-id»-label"
+                              checked=""
+                              data-react-aria-pressable="true"
+                              id="«replaced-aria-id»-control"
+                              name="primaryOrderId"
+                              tabindex="0"
+                              type="radio"
+                              value="1"
+                            />
                           </span>
-                        </div>
-                      </label>
+                          <span
+                            aria-hidden="true"
+                            class="relative box-border inline-flex h-5 w-5 shrink-0 items-center justify-center overflow-hidden rounded-full border-2 border-solid border-default transition-transform-colors group-data-[pressed=true]:scale-95 group-data-[invalid=true]:border-danger group-data-[invalid=true]:group-data-[selected=true]:border-danger group-data-[selected=true]:border-primary group-data-[hover-unselected=true]:bg-default-100 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background motion-reduce:transition-none group-data-[invalid=true]:border-danger! [&:not(group-data-[invalid="true"]):not(group-data-[selected="false"])]:border-focus"
+                            data-slot="wrapper"
+                          >
+                            <span
+                              class="z-10 h-2 w-2 origin-center scale-0 rounded-full text-primary-foreground opacity-0 transition-transform-opacity group-data-[selected=true]:scale-100 group-data-[invalid=true]:text-danger-foreground group-data-[selected=true]:opacity-100 motion-reduce:transition-none bg-focus group-data-[invalid=true]:bg-danger"
+                              data-slot="control"
+                            />
+                          </span>
+                          <div
+                            class="ms-2 flex flex-col ml-2"
+                            data-slot="label-wrapper"
+                          >
+                            <span
+                              class="relative select-none text-foreground transition-colors motion-reduce:transition-none text-sm"
+                              data-slot="label"
+                              id="«replaced-aria-id»-label"
+                            >
+                              Milo Jensen
+                            </span>
+                          </div>
+                        </label>
+                      </div>
                     </td>
                     <td
                       class="p-3 align-middle text-foreground"

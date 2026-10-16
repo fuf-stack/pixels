@@ -6,7 +6,8 @@ import { useDebounce } from '@fuf-stack/pixels';
 import { useStyling } from '@fuf-stack/pixels/StylingProvider';
 
 import { checkFieldIsRequired, useFormContext } from '../hooks/useFormContext';
-import useUniformFieldState from '../hooks/useUniformFieldState/useUniformFieldState';
+import useUniformField from '../hooks/useUniformField/useUniformField';
+import FieldLabel from '../partials/FieldLabel/FieldLabel';
 import FieldCardValidationError from './subcomponents/FieldCardValidationError';
 
 /**
@@ -206,7 +207,7 @@ const FieldCard = ({
   name,
   ...uniformFieldProps
 }: FieldCardProps) => {
-  const { error, ids, ariaLabel, label } = useUniformFieldState({
+  const { error, ids, ariaLabel, label } = useUniformField({
     name,
     ...uniformFieldProps,
   });
@@ -304,22 +305,17 @@ const FieldCard = ({
     >
       {/* card header with label */}
       {label ? (
-        <div
+        <FieldLabel
+          as="div"
           id={ids.label}
-          data-slot="label"
           aria-level={3}
           // Preserve the existing child-touched/submitted styling policy.
           className={className.label}
           role="heading"
+          required={isRequired}
         >
           {label}
-          {/* Required when any registered child field is required. */}
-          {isRequired ? (
-            <span aria-hidden="true" className="ml-0.5 text-danger">
-              *
-            </span>
-          ) : null}
-        </div>
+        </FieldLabel>
       ) : null}
 
       {/* card content */}

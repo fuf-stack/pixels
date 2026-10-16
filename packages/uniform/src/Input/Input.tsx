@@ -2,50 +2,48 @@ import type { ReactNode } from 'react';
 import type { InputValueTransform } from '../hooks/useInputValueTransform';
 import type { ClassName, VariantProps } from './inputVariants';
 
-import { useRef } from 'react';
-
 import { useInputValueDebounce } from '../hooks/useInputValueDebounce';
-import useUniformFieldState from '../hooks/useUniformFieldState/useUniformFieldState';
+import useUniformField from '../hooks/useUniformField/useUniformField';
 import InputControl from './subcomponents/InputControl';
 
 export { default as inputVariants } from './inputVariants';
 
 export interface InputProps extends VariantProps {
-  /** Custom aria-label for accessibility. If not provided, falls back to field name when no visible label exists */
+  /** Custom accessible name */
   ariaLabel?: string;
   /** CSS class name */
   className?: ClassName;
-  /** shows clear button when input has value */
+  /** Shows a clear button when the input has a value */
   clearable?: boolean;
-  /** debounce delay in milliseconds for form state updates (default: 300ms) */
+  /** Delay in milliseconds before updating form state (default: 300) */
   debounceDelay?: number;
-  /** Help text associated with the editable control. */
+  /** Help text associated with the input */
   description?: ReactNode;
-  /** input field is disabled */
+  /** Disables the input */
   disabled?: boolean;
-  /** added content to the end of the input Field. */
+  /** Content at the end of the input */
   endContent?: ReactNode;
-  /** form field label */
+  /** Field label */
   label?: ReactNode;
-  /** form field name */
+  /** Field name */
   name: string;
-  /** callback that is fired when the value is cleared */
+  /** Callback when the input value is cleared */
   onClear?: () => void;
-  /** form field placeholder */
+  /** Placeholder text */
   placeholder?: string;
-  /** size of the input */
+  /** Input size */
   size?: 'sm' | 'md' | 'lg';
-  /** content added to the start of the input field */
+  /** Content at the start of the input */
   startContent?: ReactNode;
-  /** HTML data-testid attribute used in e2e tests */
+  /** HTML data-testid attribute for e2e tests */
   testId?: string;
-  /** allows disentangled display and form values for a field */
+  /** Conversion between display and form values */
   transform?: InputValueTransform<string>;
-  /** input type */
+  /** Input type */
   type?: 'number' | 'password';
 }
 
-/** Bind one Uniform field to the independent input presentation. */
+/** Form input field for text, passwords or numbers */
 const Input = ({
   className = undefined,
   clearable = false,
@@ -59,12 +57,6 @@ const Input = ({
   placeholder = ' ',
   ...uniformProps
 }: InputProps) => {
-  // Use the placeholder as the accessible name when no visible label is provided.
-  const ariaLabel =
-    uniformProps.ariaLabel ??
-    (!uniformProps.label && placeholder.trim() ? placeholder : undefined);
-
-  // Register the field and resolve its label, hints and validation state.
   const {
     field,
     disabled,
@@ -75,52 +67,24 @@ const Input = ({
     errorMessage,
     ids,
     ref,
-    resetField,
     testId,
     getControlProps,
-  } = useUniformFieldState({
-    name,
-    type,
+  } = useUniformField({
     ...uniformProps,
-    ariaLabel,
+    name,
+    placeholder,
+    type,
   });
 
-  // Keep the native input available for focus after clearing or wrapper clicks.
-  const controlRef = useRef<HTMLInputElement>(null);
-
-  // Update the displayed value immediately; debounce writes to form state.
-  const { value, onChange, onBlur, cancelPendingChange } =
-    useInputValueDebounce({
-      name,
-      debounceDelay,
-      value: field.value,
-      onChange: field.onChange,
-      onBlur: field.onBlur,
-    });
-
-  // Share the native input with registration and local focus handling.
-  const setControlRef = (node: HTMLInputElement | null) => {
-    controlRef.current = node;
-    ref(node);
-  };
-
-  const focusControl = () => {
-    controlRef.current?.focus();
-  };
-
-  // Adapt display edits to the debounced binding's event contract.
-  const changeValue = (next: string) => {
-    onChange({ target: { value: next } });
-  };
-
-  // Cancel queued edits before resetting, so they cannot restore the old value.
-  const clear = () => {
-    cancelPendingChange('');
-    resetField(name, { defaultValue: null });
-
-    onClear?.();
-    focusControl();
-  };
+  // debounce form updates, flush pending edits on blur
+  const { value, onChange, onBlur, clear } = useInputValueDebounce({
+    name,
+    debounceDelay,
+    emptyValue: '',
+    value: field.value,
+    onChange: field.onChange,
+    onBlur: field.onBlur,
+  });
 
   return (
     <InputControl
@@ -132,14 +96,14 @@ const Input = ({
       endContent={endContent}
       errorMessage={errorMessage}
       ids={ids}
-      inputRef={setControlRef}
+      inputRef={ref}
       invalid={invalid}
       label={label}
       name={name}
       onBlur={onBlur}
-      onClear={clear}
-      onFocusControl={focusControl}
-      onValueChange={changeValue}
+      onClear={onClear}
+      onReset={clear}
+      onValueChange={onChange}
       placeholder={placeholder}
       required={required}
       size={size}

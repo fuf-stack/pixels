@@ -17,14 +17,14 @@ exports[`Story Snapshots > Default 1`] = `
         data-slot="base"
       >
         <span
-          class="cursor-default block w-full text-foreground subpixel-antialiased text-small"
+          class="block w-full text-foreground subpixel-antialiased text-small cursor-default"
           data-slot="label"
           id="uniform-«replaced-aria-id»-label"
         >
           Time
         </span>
         <div
-          class="bg-content1 focus-within:border-focus shadow-xs relative inline-flex h-10 min-h-10 w-full cursor-text flex-row items-center gap-3 rounded-small border-2 border-default-200 px-3 transition-colors duration-150 hover:border-default-400 focus-within:hover:border-default-foreground motion-reduce:transition-none"
+          class="shadow-xs relative inline-flex h-10 min-h-10 w-full cursor-text flex-row items-center gap-3 rounded-small border-2 border-default-200 px-3 transition-colors duration-150 hover:border-default-400 focus-within:hover:border-default-foreground motion-reduce:transition-none bg-content1 focus-within:border-focus"
           data-slot="input-wrapper"
         >
           <div
@@ -221,14 +221,14 @@ exports[`Story Snapshots > Disabled 1`] = `
         data-slot="base"
       >
         <span
-          class="cursor-default block w-full text-foreground subpixel-antialiased text-small"
+          class="block w-full text-foreground subpixel-antialiased text-small cursor-default"
           data-slot="label"
           id="uniform-«replaced-aria-id»-label"
         >
           Disabled time
         </span>
         <div
-          class="bg-content1 focus-within:border-focus shadow-xs relative inline-flex h-10 min-h-10 w-full cursor-text flex-row items-center gap-3 rounded-small border-2 border-default-200 px-3 transition-colors duration-150 hover:border-default-400 focus-within:hover:border-default-foreground motion-reduce:transition-none"
+          class="shadow-xs relative inline-flex h-10 min-h-10 w-full cursor-text flex-row items-center gap-3 rounded-small border-2 border-default-200 px-3 transition-colors duration-150 hover:border-default-400 focus-within:hover:border-default-foreground motion-reduce:transition-none bg-content1 focus-within:border-focus"
           data-slot="input-wrapper"
         >
           <div
@@ -428,14 +428,14 @@ exports[`Story Snapshots > HideTimeZone 1`] = `
           data-slot="base"
         >
           <span
-            class="cursor-default block w-full text-foreground subpixel-antialiased text-small"
+            class="block w-full text-foreground subpixel-antialiased text-small cursor-default"
             data-slot="label"
             id="uniform-«replaced-aria-id»-label"
           >
             Time (timezone hidden)
           </span>
           <div
-            class="bg-content1 focus-within:border-focus shadow-xs relative inline-flex h-10 min-h-10 w-full cursor-text flex-row items-center gap-3 rounded-small border-2 border-default-200 px-3 transition-colors duration-150 hover:border-default-400 focus-within:hover:border-default-foreground motion-reduce:transition-none"
+            class="shadow-xs relative inline-flex h-10 min-h-10 w-full cursor-text flex-row items-center gap-3 rounded-small border-2 border-default-200 px-3 transition-colors duration-150 hover:border-default-400 focus-within:hover:border-default-foreground motion-reduce:transition-none bg-content1 focus-within:border-focus"
             data-slot="input-wrapper"
           >
             <div
@@ -617,14 +617,14 @@ exports[`Story Snapshots > HourAsNumber 1`] = `
           data-slot="base"
         >
           <span
-            class="cursor-default block w-full text-foreground subpixel-antialiased text-small"
+            class="block w-full text-foreground subpixel-antialiased text-small cursor-default"
             data-slot="label"
             id="uniform-«replaced-aria-id»-label"
           >
             Time (stored as hour number)
           </span>
           <div
-            class="bg-content1 focus-within:border-focus shadow-xs relative inline-flex h-10 min-h-10 w-full cursor-text flex-row items-center gap-3 rounded-small border-2 border-default-200 px-3 transition-colors duration-150 hover:border-default-400 focus-within:hover:border-default-foreground motion-reduce:transition-none"
+            class="shadow-xs relative inline-flex h-10 min-h-10 w-full cursor-text flex-row items-center gap-3 rounded-small border-2 border-default-200 px-3 transition-colors duration-150 hover:border-default-400 focus-within:hover:border-default-foreground motion-reduce:transition-none bg-content1 focus-within:border-focus"
             data-slot="input-wrapper"
           >
             <div
@@ -796,14 +796,14 @@ exports[`Story Snapshots > HourGranularity 1`] = `
         data-slot="base"
       >
         <span
-          class="cursor-default block w-full text-foreground subpixel-antialiased text-small"
+          class="block w-full text-foreground subpixel-antialiased text-small cursor-default"
           data-slot="label"
           id="uniform-«replaced-aria-id»-label"
         >
           Time (hour granularity)
         </span>
         <div
-          class="bg-content1 focus-within:border-focus shadow-xs relative inline-flex h-10 min-h-10 w-full cursor-text flex-row items-center gap-3 rounded-small border-2 border-default-200 px-3 transition-colors duration-150 hover:border-default-400 focus-within:hover:border-default-foreground motion-reduce:transition-none"
+          class="shadow-xs relative inline-flex h-10 min-h-10 w-full cursor-text flex-row items-center gap-3 rounded-small border-2 border-default-200 px-3 transition-colors duration-150 hover:border-default-400 focus-within:hover:border-default-foreground motion-reduce:transition-none bg-content1 focus-within:border-focus"
           data-slot="input-wrapper"
         >
           <div
@@ -968,14 +968,14 @@ exports[`Story Snapshots > Invalid 1`] = `
           data-slot="base"
         >
           <span
-            class="cursor-default block w-full subpixel-antialiased text-small text-danger"
+            class="block w-full subpixel-antialiased text-small cursor-default text-danger"
             data-slot="label"
             id="uniform-«replaced-aria-id»-label"
           >
             Invalid time
           </span>
           <div
-            class="bg-content1 shadow-xs relative inline-flex h-10 min-h-10 w-full cursor-text flex-row items-center gap-3 rounded-small border-2 px-3 transition-colors duration-150 motion-reduce:transition-none border-danger focus-within:border-danger hover:border-danger focus-within:hover:border-danger"
+            class="shadow-xs relative inline-flex h-10 min-h-10 w-full cursor-text flex-row items-center gap-3 rounded-small border-2 px-3 transition-colors duration-150 motion-reduce:transition-none bg-content1 border-danger focus-within:border-danger hover:border-danger focus-within:hover:border-danger"
             data-slot="input-wrapper"
           >
             <div
@@ -1155,7 +1155,7 @@ exports[`Story Snapshots > Invalid 1`] = `
               />
             </div>
             <div
-              class="p-0 absolute start-0 top-[calc(100%_+_2px)] flex flex-col gap-1.5"
+              class="absolute start-0 top-[calc(100%_+_2px)] flex flex-col gap-1.5 p-0"
               data-slot="helper-wrapper"
             >
               <div
@@ -1226,7 +1226,7 @@ exports[`Story Snapshots > Required 1`] = `
         data-slot="base"
       >
         <span
-          class="cursor-default block w-full text-foreground subpixel-antialiased text-small"
+          class="block w-full text-foreground subpixel-antialiased text-small cursor-default"
           data-slot="label"
           id="uniform-«replaced-aria-id»-label"
         >
@@ -1239,7 +1239,7 @@ exports[`Story Snapshots > Required 1`] = `
           </span>
         </span>
         <div
-          class="bg-content1 focus-within:border-focus shadow-xs relative inline-flex h-10 min-h-10 w-full cursor-text flex-row items-center gap-3 rounded-small border-2 border-default-200 px-3 transition-colors duration-150 hover:border-default-400 focus-within:hover:border-default-foreground motion-reduce:transition-none"
+          class="shadow-xs relative inline-flex h-10 min-h-10 w-full cursor-text flex-row items-center gap-3 rounded-small border-2 border-default-200 px-3 transition-colors duration-150 hover:border-default-400 focus-within:hover:border-default-foreground motion-reduce:transition-none bg-content1 focus-within:border-focus"
           data-slot="input-wrapper"
         >
           <div
@@ -1439,14 +1439,14 @@ exports[`Story Snapshots > TwelveHourCycle 1`] = `
         data-slot="base"
       >
         <span
-          class="cursor-default block w-full text-foreground subpixel-antialiased text-small"
+          class="block w-full text-foreground subpixel-antialiased text-small cursor-default"
           data-slot="label"
           id="uniform-«replaced-aria-id»-label"
         >
           Time (12-hour cycle)
         </span>
         <div
-          class="bg-content1 focus-within:border-focus shadow-xs relative inline-flex h-10 min-h-10 w-full cursor-text flex-row items-center gap-3 rounded-small border-2 border-default-200 px-3 transition-colors duration-150 hover:border-default-400 focus-within:hover:border-default-foreground motion-reduce:transition-none"
+          class="shadow-xs relative inline-flex h-10 min-h-10 w-full cursor-text flex-row items-center gap-3 rounded-small border-2 border-default-200 px-3 transition-colors duration-150 hover:border-default-400 focus-within:hover:border-default-foreground motion-reduce:transition-none bg-content1 focus-within:border-focus"
           data-slot="input-wrapper"
         >
           <div
@@ -1643,14 +1643,14 @@ exports[`Story Snapshots > WithCustomTimeZone 1`] = `
           data-slot="base"
         >
           <span
-            class="cursor-default block w-full text-foreground subpixel-antialiased text-small"
+            class="block w-full text-foreground subpixel-antialiased text-small cursor-default"
             data-slot="label"
             id="uniform-«replaced-aria-id»-label"
           >
             Time (New York)
           </span>
           <div
-            class="bg-content1 focus-within:border-focus shadow-xs relative inline-flex h-10 min-h-10 w-full cursor-text flex-row items-center gap-3 rounded-small border-2 border-default-200 px-3 transition-colors duration-150 hover:border-default-400 focus-within:hover:border-default-foreground motion-reduce:transition-none"
+            class="shadow-xs relative inline-flex h-10 min-h-10 w-full cursor-text flex-row items-center gap-3 rounded-small border-2 border-default-200 px-3 transition-colors duration-150 hover:border-default-400 focus-within:hover:border-default-foreground motion-reduce:transition-none bg-content1 focus-within:border-focus"
             data-slot="input-wrapper"
           >
             <div
@@ -1856,14 +1856,14 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
           data-slot="base"
         >
           <span
-            class="cursor-default block w-full text-foreground subpixel-antialiased text-small"
+            class="block w-full text-foreground subpixel-antialiased text-small cursor-default"
             data-slot="label"
             id="uniform-«replaced-aria-id»-label"
           >
             With initial value
           </span>
           <div
-            class="bg-content1 focus-within:border-focus shadow-xs relative inline-flex h-10 min-h-10 w-full cursor-text flex-row items-center gap-3 rounded-small border-2 border-default-200 px-3 transition-colors duration-150 hover:border-default-400 focus-within:hover:border-default-foreground motion-reduce:transition-none"
+            class="shadow-xs relative inline-flex h-10 min-h-10 w-full cursor-text flex-row items-center gap-3 rounded-small border-2 border-default-200 px-3 transition-colors duration-150 hover:border-default-400 focus-within:hover:border-default-foreground motion-reduce:transition-none bg-content1 focus-within:border-focus"
             data-slot="input-wrapper"
           >
             <div
@@ -2069,14 +2069,14 @@ exports[`Story Snapshots > WithUtcTimeZone 1`] = `
           data-slot="base"
         >
           <span
-            class="cursor-default block w-full text-foreground subpixel-antialiased text-small"
+            class="block w-full text-foreground subpixel-antialiased text-small cursor-default"
             data-slot="label"
             id="uniform-«replaced-aria-id»-label"
           >
             Time (UTC)
           </span>
           <div
-            class="bg-content1 focus-within:border-focus shadow-xs relative inline-flex h-10 min-h-10 w-full cursor-text flex-row items-center gap-3 rounded-small border-2 border-default-200 px-3 transition-colors duration-150 hover:border-default-400 focus-within:hover:border-default-foreground motion-reduce:transition-none"
+            class="shadow-xs relative inline-flex h-10 min-h-10 w-full cursor-text flex-row items-center gap-3 rounded-small border-2 border-default-200 px-3 transition-colors duration-150 hover:border-default-400 focus-within:hover:border-default-foreground motion-reduce:transition-none bg-content1 focus-within:border-focus"
             data-slot="input-wrapper"
           >
             <div

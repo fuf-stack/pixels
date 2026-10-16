@@ -14,15 +14,10 @@ exports[`Story Snapshots > Default 1`] = `
       >
         <div
           class="group relative flex w-full flex-col"
-          data-filled="true"
-          data-filled-within="true"
-          data-has-elements="true"
-          data-has-helper="true"
           data-slot="base"
         >
           <div
             class="shadow-xs relative inline-flex w-full cursor-text items-start rounded-medium border-medium border-default-200 bg-content1 px-3 py-2 text-foreground transition-colors data-[hover=true]:border-default-400 group-data-[focus=true]:border-focus group-data-[focus=true]:data-[hover=true]:border-default-foreground motion-reduce:transition-none"
-            data-has-multiple-rows="true"
             data-rac=""
             data-slot="input-wrapper"
             role="presentation"
@@ -85,11 +80,6 @@ exports[`Story Snapshots > Disabled 1`] = `
         <div
           class="group relative flex w-full flex-col pointer-events-none opacity-disabled"
           data-disabled="true"
-          data-filled="true"
-          data-filled-within="true"
-          data-has-elements="true"
-          data-has-helper="true"
-          data-has-label="true"
           data-slot="base"
         >
           <label
@@ -103,7 +93,6 @@ exports[`Story Snapshots > Disabled 1`] = `
           <div
             class="shadow-xs relative inline-flex w-full cursor-text items-start rounded-medium border-medium border-default-200 bg-content1 px-3 py-2 text-foreground transition-colors data-[hover=true]:border-default-400 group-data-[focus=true]:border-focus group-data-[focus=true]:data-[hover=true]:border-default-foreground motion-reduce:transition-none"
             data-disabled="true"
-            data-has-multiple-rows="true"
             data-rac=""
             data-slot="input-wrapper"
             role="presentation"
@@ -166,11 +155,6 @@ exports[`Story Snapshots > Invalid 1`] = `
         <div
           class="group relative flex w-full flex-col is-filled"
           data-filled="true"
-          data-filled-within="true"
-          data-has-elements="true"
-          data-has-helper="true"
-          data-has-label="true"
-          data-has-value="true"
           data-hover="true"
           data-invalid="true"
           data-required="true"
@@ -192,7 +176,6 @@ exports[`Story Snapshots > Invalid 1`] = `
           </label>
           <div
             class="shadow-xs relative inline-flex w-full cursor-text items-start rounded-medium border-medium bg-content1 px-3 py-2 text-foreground transition-colors motion-reduce:transition-none is-filled border-danger data-[hover=true]:border-danger group-data-[focus=true]:border-danger group-data-[focus=true]:data-[hover=true]:border-danger"
-            data-has-multiple-rows="true"
             data-hover="true"
             data-hovered="true"
             data-rac=""
@@ -287,11 +270,6 @@ exports[`Story Snapshots > Required 1`] = `
       >
         <div
           class="group relative flex w-full flex-col"
-          data-filled="true"
-          data-filled-within="true"
-          data-has-elements="true"
-          data-has-helper="true"
-          data-has-label="true"
           data-required="true"
           data-slot="base"
         >
@@ -311,7 +289,6 @@ exports[`Story Snapshots > Required 1`] = `
           </label>
           <div
             class="shadow-xs relative inline-flex w-full cursor-text items-start rounded-medium border-medium border-default-200 bg-content1 px-3 py-2 text-foreground transition-colors data-[hover=true]:border-default-400 group-data-[focus=true]:border-focus group-data-[focus=true]:data-[hover=true]:border-default-foreground motion-reduce:transition-none"
-            data-has-multiple-rows="true"
             data-rac=""
             data-slot="input-wrapper"
             role="presentation"
@@ -375,15 +352,10 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
         <div
           class="group relative flex w-full flex-col is-filled"
           data-filled="true"
-          data-filled-within="true"
-          data-has-elements="true"
-          data-has-helper="true"
-          data-has-value="true"
           data-slot="base"
         >
           <div
             class="shadow-xs relative inline-flex w-full cursor-text items-start rounded-medium border-medium border-default-200 bg-content1 px-3 py-2 text-foreground transition-colors data-[hover=true]:border-default-400 group-data-[focus=true]:border-focus group-data-[focus=true]:data-[hover=true]:border-default-foreground motion-reduce:transition-none is-filled"
-            data-has-multiple-rows="true"
             data-rac=""
             data-slot="input-wrapper"
             role="presentation"

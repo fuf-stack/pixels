@@ -1,6 +1,6 @@
-import type { TVClassName, TVProps } from '@fuf-stack/pixel-utils';
 import type { ReactNode } from 'react';
 import type { DatePickerValue } from './dateHelpers';
+import type { ClassName, VariantProps } from './datePickerVariants';
 
 import { useContext } from 'react';
 import {
@@ -24,58 +24,21 @@ import {
   TimeField,
 } from 'react-aria-components';
 
-import { tv } from '@fuf-stack/pixel-utils';
 import { useStyling } from '@fuf-stack/pixels/StylingProvider';
 
-import useUniformFieldState from '../hooks/useUniformFieldState/useUniformFieldState';
+import useUniformField from '../hooks/useUniformField/useUniformField';
 import { useWatchFormReset } from '../hooks/useWatchFormReset';
-import { FieldHints } from '../partials/FieldLayout/FieldLayout';
-import segmentedFieldSlots from '../partials/SegmentedField/segmentedFieldSlots';
+import FieldDescription from '../partials/FieldDescription/FieldDescription';
+import FieldLabel from '../partials/FieldLabel/FieldLabel';
 import {
   dateValueToUtcIsoString,
   getDatePickerPlaceholderValue,
   parseDateValue,
   resolveDatePickerTimeZone,
 } from './dateHelpers';
+import { datePickerStateVariants } from './datePickerVariants';
 
-export const datePickerVariants = tv({
-  slots: {
-    /** wrapper around the whole date picker */
-    base: '',
-    /** helper wrapper for error/description */
-    helperWrapper: [
-      // set padding to 0 for error message exit animation
-      'p-0',
-    ],
-    /** the calendar element */
-    calendar: '',
-    /** the calendar's content element */
-    calendarContent: '',
-    /**
-     * inner wrapper (HeroUI inputWrapper slot)
-     *
-     * NOTE: Unlike HeroUI Input, the DatePicker does not expose a
-     * `data-focus` indicator on the group, so the focus border has to be
-     * driven by the native `focus-within` state of the segment inputs.
-     */
-    inputWrapper: 'bg-content1 focus-within:border-focus',
-    /** field label */
-    label: 'cursor-default',
-    /** the calendar popover element */
-    popoverContent: '',
-    /** selector button element */
-    selectorButton: '',
-    /** selector icon element */
-    selectorIcon: '',
-    /** the time-input component element */
-    timeInput: '',
-    /** the time-input component's label element */
-    timeInputLabel: '',
-  },
-});
-
-type VariantProps = TVProps<typeof datePickerVariants>;
-type ClassName = TVClassName<typeof datePickerVariants>;
+export { datePickerVariants } from './datePickerVariants';
 
 export interface DatePickerProps extends VariantProps {
   /** Custom aria-label for accessibility. If not provided, falls back to field name when no visible label exists */
@@ -121,50 +84,6 @@ export interface DatePickerProps extends VariantProps {
   /** value format stored in form state (`string` stores UTC ISO values) */
   valueType?: 'dateValue' | 'string';
 }
-
-const datePickerStateVariants = tv({
-  extend: datePickerVariants,
-  slots: {
-    ...segmentedFieldSlots,
-    label: `${segmentedFieldSlots.label} group-data-[invalid=true]:text-danger`,
-    inputWrapper: `${segmentedFieldSlots.inputWrapper} group-data-[invalid=true]:border-danger group-data-[invalid=true]:focus-within:border-danger group-data-[invalid=true]:hover:border-danger group-data-[invalid=true]:focus-within:hover:border-danger`,
-    segment: `${segmentedFieldSlots.segment} data-[invalid=true]:data-[editable=true]:data-[placeholder=true]:text-danger data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:text-danger-300 data-[invalid=true]:focus:bg-danger-400/50 data-[invalid=true]:data-[editable=true]:focus:text-danger dark:data-[invalid=true]:focus:bg-danger-400/20`,
-    innerWrapper:
-      'flex h-6 w-full items-center gap-x-2 text-default-400 group-data-[invalid=true]:text-danger',
-    input: 'flex h-full w-full gap-x-0.5 font-normal text-small',
-    selectorButton:
-      'outline-solid relative -mx-2 inline-flex h-8 min-h-8 w-8 min-w-8 shrink-0 items-center justify-center rounded-full text-inherit outline-transparent text-tiny hover:bg-default/40 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus',
-    selectorIcon: 'h-[18px] w-[18px]',
-    popoverContent:
-      'z-50 rounded-large bg-content1 shadow-medium outline-none text-small',
-    dialog: 'flex flex-col outline-none',
-    calendar:
-      'relative inline-block w-64 max-w-full overflow-hidden rounded-large bg-default-50 dark:bg-background',
-    calendarContent: 'w-full',
-    calendarHeader:
-      'flex items-center justify-between gap-2 bg-content1 px-4 py-2',
-    calendarTitle: 'flex-1 text-center font-medium text-default-500 text-small',
-    calendarButton:
-      'outline-solid flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-default-400 outline-transparent hover:bg-default/40 data-[disabled=true]:opacity-disabled data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus',
-    gridWrapper: 'relative flex h-auto max-w-full overflow-hidden pb-2',
-    grid: 'z-0 w-full border-collapse',
-    gridHeader:
-      'bg-content1 shadow-[0px_20px_20px_0px_rgb(0_0_0/0.05)] [&>tr]:flex [&>tr]:justify-center [&>tr]:px-4 [&>tr]:pb-2',
-    gridHeaderCell:
-      'flex w-8 items-center justify-center font-medium text-default-400 text-small',
-    gridBody:
-      '[&>tr:first-child]:mt-2 [&>tr>td]:px-0 [&>tr>td]:py-0.5 [&>tr]:flex [&>tr]:items-center [&>tr]:justify-center',
-    cell: 'outline-solid flex h-8 w-8 cursor-pointer select-none items-center justify-center rounded-full text-foreground outline-transparent transition-colors data-[focus-visible=true]:z-10 data-[disabled=true]:cursor-default data-[unavailable=true]:cursor-default data-[hovered=true]:bg-primary-50 data-[selected=true]:bg-primary data-[selected=true]:data-[hovered=true]:bg-primary data-[disabled=true]:text-default-300 data-[hovered=true]:text-primary-400 data-[selected=true]:data-[hovered=true]:text-primary-foreground data-[selected=true]:text-primary-foreground data-[unavailable=true]:text-default-300 data-[unavailable=true]:line-through data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus motion-reduce:transition-none',
-    timeInput:
-      'group flex w-full flex-row flex-wrap items-center gap-x-6 px-5 pb-4',
-    timeInputLabel: 'relative font-medium text-foreground text-tiny',
-    timeInputWrapper:
-      'shadow-xs relative inline-flex h-8 min-h-8 w-full flex-1 items-center rounded-small bg-default-100 px-2 hover:bg-default-200 focus-within:hover:bg-default-100',
-  },
-  variants: {
-    disabled: { true: { base: 'pointer-events-none opacity-disabled' } },
-  },
-});
 
 const ResetEmptyDateSegments = () => {
   const state = useContext(DateFieldStateContext);
@@ -226,15 +145,15 @@ const DatePicker = ({
     label,
     required,
     testId,
-  } = useUniformFieldState({ name, ...uniformFieldProps });
+  } = useUniformField({ name, ...uniformFieldProps });
 
   // classNames from slots
   const styling = useStyling();
-  const classNames = styling.variantsToClassNames(
-    styling.resolve(datePickerStateVariants, { disabled, invalid }),
-    _className,
-    'base',
-  );
+  const variants = styling.resolve(datePickerStateVariants, {
+    disabled,
+    invalid,
+  });
+  const classNames = styling.variantsToClassNames(variants, _className, 'base');
   const resolvedTimeZone = resolveDatePickerTimeZone(withTime, timeZone);
 
   // Normalize incoming form value into DateValue shape so the field can
@@ -323,18 +242,14 @@ const DatePicker = ({
         return (
           <>
             {label ? (
-              <Label
+              <FieldLabel
+                as={Label}
                 className={classNames.label}
-                data-slot="label"
                 id={ids.label}
+                required={required}
               >
                 {label}
-                {required ? (
-                  <span aria-hidden className="ml-0.5 text-danger">
-                    *
-                  </span>
-                ) : null}
-              </Label>
+              </FieldLabel>
             ) : null}
             <Group
               className={classNames.inputWrapper}
@@ -387,13 +302,28 @@ const DatePicker = ({
                   </svg>
                 </Button>
               </div>
-              <FieldHints
-                classes={classNames}
-                description={description}
-                errorMessage={errorMessage}
-                ids={ids}
-                invalid={invalid}
-              />
+              {description || invalid ? (
+                <div
+                  className={classNames.helperWrapper}
+                  data-slot="helper-wrapper"
+                >
+                  <FieldDescription
+                    className={classNames.description}
+                    id={ids.description}
+                  >
+                    {description}
+                  </FieldDescription>
+                  {invalid ? (
+                    <div
+                      className={classNames.errorMessage}
+                      data-slot="error-message"
+                      id={ids.error}
+                    >
+                      {errorMessage}
+                    </div>
+                  ) : null}
+                </div>
+              ) : null}
             </Group>
             <Popover
               className={classNames.popoverContent}

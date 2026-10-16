@@ -1,19 +1,16 @@
 import type { ReactNode, Ref } from 'react';
-import type {
-  FieldControlProps,
-  FieldIds,
-} from '../../partials/FieldLayout/FieldLayout.types';
+import type { FieldControlProps, FieldIds } from '../../partials/types';
 import type { InputProps } from '../Input';
 
-import { useState } from 'react';
 import { useFocusRing } from 'react-aria/useFocusRing';
+import { useObjectRef } from 'react-aria/useObjectRef';
 
 import { useStyling } from '@fuf-stack/pixels/StylingProvider';
 
-import { FieldHints, FieldLabel } from '../../partials/FieldLayout/FieldLayout';
+import FieldLayout from '../../partials/FieldLayout/FieldLayout';
 import { inputStateVariants } from '../inputVariants';
-import InputContent from './InputContent';
 import InputField from './InputField';
+import InputWrapper from './InputWrapper';
 
 /** Presentation receives values and callbacks; it never registers a form field. */
 export interface InputControlProps extends Pick<
@@ -25,41 +22,40 @@ export interface InputControlProps extends Pick<
   | 'endContent'
   | 'label'
   | 'name'
+  | 'onClear'
   | 'placeholder'
   | 'size'
   | 'startContent'
   | 'testId'
   | 'type'
 > {
-  /** Native attributes connecting the editable control to its label and hints. */
+  /** Connects the native control to its label and hints */
   controlProps: FieldControlProps;
-  /** Validation message rendered beneath an invalid control. */
+  /** Rendered validation messages */
   errorMessage: ReactNode;
-  /** Stable IDs for the control, label, description and validation message. */
+  /** Associates the control, label, description and validation message through stable IDs */
   ids: FieldIds;
-  /** Ref forwarded to the native editable input. */
+  /** Ref forwarded to the native editable input */
   inputRef: Ref<HTMLInputElement>;
-  /** Whether the control displays its invalid state. */
+  /** Shows invalid styling on the control */
   invalid: boolean;
-  /** Notify the binding when focus leaves the field. */
+  /** Callback invoked when focus leaves the field */
   onBlur: () => void;
-  /** Clear the bound value and restore focus to the input. */
-  onClear: () => void;
-  /** Focus the native input when its wrapper is clicked. */
-  onFocusControl: () => void;
-  /** Forward the next display value to the binding. */
+  /** Callback that clears pending edits and resets the bound value */
+  onReset: () => void;
+  /** Callback invoked with the next display value when the input changes */
   onValueChange: (value: string) => void;
-  /** Whether the label and control expose a required state. */
+  /** Marks the label and control as required */
   required: boolean;
-  /** Current display value; nullish values render as an empty input. */
+  /** Sets the display value, nullish values render as an empty input */
   value: unknown;
 }
 
 /**
  * Composes the Input presentation without registering a form field.
  *
- * Tracks focus with React Aria useFocusRing, resolves slot styling, and arranges
- * the label, editable content and hints beneath InputField's Aria field root.
+ * Owns the editable ref, focus restoration and interaction styling.
+ * Connects InputField's Aria field root, FieldLayout and the editable content.
  * Values, validation state and callbacks are supplied by the Input binding.
  *
  * @see https://react-aria.adobe.com/useFocusRing
@@ -67,6 +63,19 @@ export interface InputControlProps extends Pick<
  * @see https://react-aria.adobe.com/NumberField
  */
 const InputControl = (props: InputControlProps) => {
+  const { inputRef } = props;
+
+  const styling = useStyling();
+  const controlRef = useObjectRef(inputRef);
+  const {
+    focusProps,
+    isFocused: focused,
+    isFocusVisible,
+  } = useFocusRing({
+    within: true,
+    isTextInput: true,
+  });
+
   const {
     value,
     size,
@@ -80,66 +89,64 @@ const InputControl = (props: InputControlProps) => {
     ids,
     description,
     errorMessage,
+    onClear,
+    onReset,
   } = props;
 
-  // Track interaction state locally; form state comes from the binding.
-  const {
-    focusProps,
-    isFocused: focused,
-    isFocusVisible,
-  } = useFocusRing({
-    within: true,
-    isTextInput: true,
-  });
-  const [hovered, setHovered] = useState(false);
-
-  // Resolve slot styles from the current value and interaction state.
-  const styling = useStyling();
+  // treat empty and nullish values as cleared, preserve numeric zero
   const hasValue = value !== '' && value != null;
-  const classes = styling.variantsToClassNames(
-    styling.resolve(inputStateVariants, {
-      size,
-      disabled,
-      invalid,
-      number: type === 'number',
-      clearable,
-      filled: hasValue,
-    }),
-    className,
-    'base',
-  );
+
+  // classNames from slots
+  const variants = styling.resolve(inputStateVariants, {
+    clearable,
+    disabled,
+    filled: hasValue,
+    invalid,
+    number: type === 'number',
+    size,
+  });
+  const classNames = styling.variantsToClassNames(variants, className, 'base');
+
+  // focus the editable input
+  const handleFocus = () => {
+    controlRef.current?.focus();
+  };
+
+  // clear the value, notify the consumer and restore input focus
+  const handleClear = () => {
+    onReset();
+    onClear?.();
+    handleFocus();
+  };
 
   return (
     <InputField
       {...props}
-      classes={classes}
+      className={classNames}
       focused={focused}
       hasValue={hasValue}
-      hovered={hovered}
       isFocusVisible={isFocusVisible}
     >
-      <FieldLabel
-        className={classes.label}
-        ids={ids}
-        label={label}
-        required={required}
-      />
-      <InputContent
-        {...props}
-        classes={classes}
-        focusProps={focusProps}
-        focused={focused}
-        hasValue={hasValue}
-        hovered={hovered}
-        onHoverChange={setHovered}
-      />
-      <FieldHints
-        classes={classes}
+      <FieldLayout
+        className={classNames}
         description={description}
         errorMessage={errorMessage}
         ids={ids}
         invalid={invalid}
-      />
+        label={label}
+        required={required}
+      >
+        <InputWrapper
+          {...props}
+          className={classNames}
+          focusProps={focusProps}
+          focused={focused}
+          hasValue={hasValue}
+          inputRef={controlRef}
+          onClear={handleClear}
+          onFocusControl={handleFocus}
+        />
+      </FieldLayout>
     </InputField>
   );
 };

@@ -1,6 +1,6 @@
-import type { TVClassName, TVProps } from '@fuf-stack/pixel-utils';
 import type { ReactNode } from 'react';
 import type { TimeValue } from './timeHelpers';
+import type { ClassName, VariantProps } from './timeVariants';
 
 import { useContext } from 'react';
 import {
@@ -11,44 +11,21 @@ import {
   TimeFieldStateContext,
 } from 'react-aria-components';
 
-import { tv } from '@fuf-stack/pixel-utils';
 import { useStyling } from '@fuf-stack/pixels/StylingProvider';
 
-import useUniformFieldState from '../hooks/useUniformFieldState/useUniformFieldState';
+import useUniformField from '../hooks/useUniformField/useUniformField';
 import { useWatchFormReset } from '../hooks/useWatchFormReset';
-import { FieldHints } from '../partials/FieldLayout/FieldLayout';
-import segmentedFieldSlots from '../partials/SegmentedField/segmentedFieldSlots';
+import FieldDescription from '../partials/FieldDescription/FieldDescription';
+import FieldLabel from '../partials/FieldLabel/FieldLabel';
 import {
   getTimeFieldPlaceholderValue,
   parseTimeValue,
   resolveTimeFieldTimeZone,
   timeValueToString,
 } from './timeHelpers';
+import { timeStateVariants } from './timeVariants';
 
-export const timeVariants = tv({
-  slots: {
-    /** wrapper around the whole time input */
-    base: '',
-    /** helper wrapper for error/description */
-    helperWrapper: [
-      // set padding to 0 for error message exit animation
-      'p-0',
-    ],
-    /** the segmented input element */
-    input: '',
-    /** inner wrapper around segments and optional content */
-    innerWrapper: '',
-    /** outer input wrapper */
-    inputWrapper: 'bg-content1 focus-within:border-focus',
-    /** field label */
-    label: 'cursor-default',
-    /** individual segment */
-    segment: '',
-  },
-});
-
-type VariantProps = TVProps<typeof timeVariants>;
-type ClassName = TVClassName<typeof timeVariants>;
+export { timeVariants } from './timeVariants';
 
 export interface TimeProps extends VariantProps {
   /** Custom aria-label for accessibility. If not provided, falls back to field name when no visible label exists */
@@ -81,24 +58,6 @@ export interface TimeProps extends VariantProps {
   /** value format stored in form state (`string` stores UTC minute values, e.g. `10:15Z`) */
   valueType?: 'string' | 'timeValue';
 }
-
-const timeStateVariants = tv({
-  extend: timeVariants,
-  slots: segmentedFieldSlots,
-  variants: {
-    disabled: { true: { base: 'pointer-events-none opacity-disabled' } },
-    invalid: {
-      true: {
-        label: 'text-danger',
-        inputWrapper:
-          'border-danger focus-within:border-danger hover:border-danger focus-within:hover:border-danger',
-        innerWrapper: 'text-danger',
-        segment:
-          'text-danger-300 focus:bg-danger-400/50 data-[editable=true]:data-[placeholder=true]:text-danger data-[editable=true]:text-danger data-[editable=true]:focus:text-danger dark:focus:bg-danger-400/20',
-      },
-    },
-  },
-});
 
 /** Partial edits do not change the controlled null value, so reset them explicitly. */
 const ResetEmptySegments = () => {
@@ -139,15 +98,12 @@ const Time = ({
     label,
     required,
     testId,
-  } = useUniformFieldState({ name, ...uniformFieldProps });
+  } = useUniformField({ name, ...uniformFieldProps });
 
   // classNames from slots
   const styling = useStyling();
-  const classNames = styling.variantsToClassNames(
-    styling.resolve(timeStateVariants, { disabled, invalid }),
-    _className,
-    'base',
-  );
+  const variants = styling.resolve(timeStateVariants, { disabled, invalid });
+  const classNames = styling.variantsToClassNames(variants, _className, 'base');
   const resolvedTimeZone = resolveTimeFieldTimeZone(timeZone);
   const effectiveGranularity = hourAsNumber ? 'hour' : granularity;
 
@@ -238,14 +194,14 @@ const Time = ({
     >
       <ResetEmptySegments />
       {label ? (
-        <Label className={classNames.label} data-slot="label" id={ids.label}>
+        <FieldLabel
+          as={Label}
+          className={classNames.label}
+          id={ids.label}
+          required={required}
+        >
           {label}
-          {required ? (
-            <span aria-hidden className="ml-0.5 text-danger">
-              *
-            </span>
-          ) : null}
-        </Label>
+        </FieldLabel>
       ) : null}
       <div className={classNames.inputWrapper} data-slot="input-wrapper">
         <div className={classNames.innerWrapper} data-slot="inner-wrapper">
@@ -267,13 +223,25 @@ const Time = ({
             }}
           </DateInput>
         </div>
-        <FieldHints
-          classes={classNames}
-          description={description}
-          errorMessage={errorMessage}
-          ids={ids}
-          invalid={invalid}
-        />
+        {description || invalid ? (
+          <div className={classNames.helperWrapper} data-slot="helper-wrapper">
+            <FieldDescription
+              className={classNames.description}
+              id={ids.description}
+            >
+              {description}
+            </FieldDescription>
+            {invalid ? (
+              <div
+                className={classNames.errorMessage}
+                data-slot="error-message"
+                id={ids.error}
+              >
+                {errorMessage}
+              </div>
+            ) : null}
+          </div>
+        ) : null}
       </div>
     </TimeField>
   );

@@ -1,0 +1,24 @@
+# FieldCard
+
+A labeled card that groups nested fields and their validation feedback.
+
+## Usage
+
+```tsx
+import FieldCard from '@fuf-stack/uniform/FieldCard';
+import Form from '@fuf-stack/uniform/Form';
+import Input from '@fuf-stack/uniform/Input';
+
+<Form initialValues={{ contact: { email: '' } }} onSubmit={console.log}>
+  <FieldCard label="Contact" name="contact">
+    <Input label="Email" name="contact.email" />
+  </FieldCard>
+</Form>;
+```
+
+## Notes
+
+- Name child fields explicitly under the card’s path; the card does not prefix them automatically.
+- The card shows group validation feedback and reflects visible child errors.
+
+[Props](FieldCard.tsx) · [Stories](FieldCard.stories.tsx)

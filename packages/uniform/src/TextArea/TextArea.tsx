@@ -10,9 +10,10 @@ import TextareaAutosize from 'react-textarea-autosize';
 
 import { useStyling } from '@fuf-stack/pixels/StylingProvider';
 
+import getFieldDataAttributes from '../helpers/getFieldDataAttributes/getFieldDataAttributes';
 import { useInputValueDebounce } from '../hooks/useInputValueDebounce';
-import useUniformFieldState from '../hooks/useUniformFieldState/useUniformFieldState';
-import { FieldHints, FieldLabel } from '../partials/FieldLayout/FieldLayout';
+import useUniformField from '../hooks/useUniformField/useUniformField';
+import FieldLayout from '../partials/FieldLayout/FieldLayout';
 import { textAreaStateVariants } from './textAreaVariants';
 
 export { default as textAreaVariants } from './textAreaVariants';
@@ -63,12 +64,10 @@ const TextArea = ({
     ids,
     testId,
     getControlProps,
-  } = useUniformFieldState({
-    name,
+  } = useUniformField({
     ...uniformProps,
-    ariaLabel:
-      uniformProps.ariaLabel ??
-      (!uniformProps.label && placeholder.trim() ? placeholder : undefined),
+    name,
+    placeholder,
   });
   const controlRef = useRef<HTMLTextAreaElement>(null);
   const { focusProps, isFocused, isFocusVisible } = useFocusRing({
@@ -115,77 +114,65 @@ const TextArea = ({
   return (
     <div
       {...focusProps}
+      {...getFieldDataAttributes({ disabled, invalid, required })}
       className={classes.base}
-      data-disabled={disabled ? true : undefined}
-      data-filled={hasValue || !!placeholder || undefined}
-      data-filled-within={hasValue || isFocused || !!placeholder || undefined}
+      data-filled={hasValue || undefined}
       data-focus={isFocused || undefined}
       data-focus-visible={isFocusVisible || undefined}
-      data-focus-within={isFocused || undefined}
-      data-has-elements
-      data-has-helper
-      data-has-label={!!label || undefined}
-      data-has-value={hasValue || !placeholder || undefined}
       data-hover={hovered || undefined}
-      data-invalid={invalid || undefined}
-      data-required={required || undefined}
       data-slot="base"
     >
-      <FieldLabel
-        className={classes.label}
-        ids={ids}
-        label={label}
-        required={required}
-      />
-      <Group
-        className={classes.inputWrapper}
-        data-focus={isFocused || undefined}
-        data-has-multiple-rows
-        data-hover={hovered || undefined}
-        data-slot="input-wrapper"
-        isDisabled={disabled}
-        onClick={(event) => {
-          if (!disabled && event.target === event.currentTarget) {
-            controlRef.current?.focus();
-          }
-        }}
-        onHoverEnd={() => {
-          setHovered(false);
-        }}
-        onHoverStart={() => {
-          setHovered(true);
-        }}
-        role="presentation"
-      >
-        <div className={classes.innerWrapper} data-slot="inner-wrapper">
-          <TextareaAutosize
-            {...inputProps}
-            {...associations}
-            ref={(node) => {
-              controlRef.current = node;
-              ref(node);
-            }}
-            className={classes.input}
-            data-filled={hasValue || undefined}
-            data-hide-scroll={!limitReached || undefined}
-            data-slot="input"
-            data-testid={testId}
-            maxRows={8}
-            minRows={3}
-            onHeightChange={(height, { rowHeight }) => {
-              setLimitReached(height >= rowHeight * 8);
-            }}
-            placeholder={placeholder}
-          />
-        </div>
-      </Group>
-      <FieldHints
-        classes={classes}
+      <FieldLayout
+        className={classes}
         description={description}
         errorMessage={errorMessage}
         ids={ids}
         invalid={invalid}
-      />
+        label={label}
+        required={required}
+      >
+        <Group
+          className={classes.inputWrapper}
+          data-focus={isFocused || undefined}
+          data-hover={hovered || undefined}
+          data-slot="input-wrapper"
+          isDisabled={disabled}
+          onClick={(event) => {
+            if (!disabled && event.target === event.currentTarget) {
+              controlRef.current?.focus();
+            }
+          }}
+          onHoverEnd={() => {
+            setHovered(false);
+          }}
+          onHoverStart={() => {
+            setHovered(true);
+          }}
+          role="presentation"
+        >
+          <div className={classes.innerWrapper} data-slot="inner-wrapper">
+            <TextareaAutosize
+              {...inputProps}
+              {...associations}
+              ref={(node) => {
+                controlRef.current = node;
+                ref(node);
+              }}
+              className={classes.input}
+              data-filled={hasValue || undefined}
+              data-hide-scroll={!limitReached || undefined}
+              data-slot="input"
+              data-testid={testId}
+              maxRows={8}
+              minRows={3}
+              onHeightChange={(height, { rowHeight }) => {
+                setLimitReached(height >= rowHeight * 8);
+              }}
+              placeholder={placeholder}
+            />
+          </div>
+        </Group>
+      </FieldLayout>
     </div>
   );
 };

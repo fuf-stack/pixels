@@ -5,8 +5,9 @@ import {
 } from '@fuf-stack/pixel-motion';
 import { useStyling } from '@fuf-stack/pixels/StylingProvider';
 
-import useUniformFieldState from '../../hooks/useUniformFieldState/useUniformFieldState';
+import useUniformField from '../../hooks/useUniformField/useUniformField';
 import FieldValidationError from '../../partials/FieldValidationError/FieldValidationError';
+import fieldArrayValidationErrorVariants from './fieldArrayValidationErrorVariants';
 
 export interface FieldArrayValidationErrorProps {
   /** Field name */
@@ -26,11 +27,15 @@ export interface FieldArrayValidationErrorProps {
 const FieldArrayValidationError = ({
   name,
 }: FieldArrayValidationErrorProps) => {
-  const { error, ids, invalid, testId } = useUniformFieldState({
+  const { error, ids, invalid, testId } = useUniformField({
     name,
   });
 
-  const { cn } = useStyling();
+  const styling = useStyling();
+
+  // classNames from slots
+  const variants = styling.resolve(fieldArrayValidationErrorVariants);
+  const classNames = styling.variantsToClassNames(variants);
 
   // disable all animation if user prefers reduced motion
   const disableAnimation = useReducedMotion();
@@ -51,25 +56,14 @@ const FieldArrayValidationError = ({
           style={{ overflow: 'hidden' }}
           transition={{ duration: 0.4, ease: 'circOut' }}
         >
-          <div
-            data-slot="helper-wrapper"
-            className={cn(
-              'relative flex-col gap-1.5',
-              // force helper to be visible and add padding (pt-1 to compensate for inner content's top padding)
-              'block px-3 pb-2 pt-1',
-            )}
-          >
-            <div
+          <div className={classNames.helperWrapper} data-slot="helper-wrapper">
+            <FieldValidationError
+              className={{ wrapper: classNames.errorMessage }}
+              // @ts-expect-error - error._errors exists but not typed
+              error={error._errors}
               id={ids.error}
-              data-slot="error-message"
-              className="text-danger text-tiny"
-            >
-              <FieldValidationError
-                // @ts-expect-error - error._errors exists but not typed
-                error={error._errors}
-                testId={testId}
-              />
-            </div>
+              testId={testId}
+            />
           </div>
         </motion.div>
       ) : null}

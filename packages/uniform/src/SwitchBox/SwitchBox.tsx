@@ -13,14 +13,19 @@ import { useToggleState } from 'react-stately/useToggleState';
 import { tv } from '@fuf-stack/pixel-utils';
 import { useStyling } from '@fuf-stack/pixels/StylingProvider';
 
-import useUniformFieldState from '../hooks/useUniformFieldState/useUniformFieldState';
-import { FieldHints } from '../partials/FieldLayout/FieldLayout';
+import useUniformField from '../hooks/useUniformField/useUniformField';
+import FieldDescription from '../partials/FieldDescription/FieldDescription';
+import FieldLabel from '../partials/FieldLabel/FieldLabel';
 import { switchVariants } from '../Switch/Switch';
 
 export const switchBoxVariants = tv({
   slots: {
     box: 'group inline-flex w-full cursor-pointer items-center justify-between rounded-lg border-2 border-default hover:bg-content2 data-[selected=true]:border-focus',
     description: 'text-foreground opacity-70',
+    /** Container for validation messages */
+    errorMessage: 'text-danger text-tiny',
+    /** Container below the switch for validation messages */
+    helperWrapper: 'relative ml-0 block p-0',
     icon: '',
     label: 'font-medium text-foreground',
     wrapper: '',
@@ -110,7 +115,7 @@ const SwitchBox = ({
     ids,
     testId,
     getControlProps,
-  } = useUniformFieldState({ name, description, ...uniformFieldProps });
+  } = useUniformField({ name, description, ...uniformFieldProps });
   const inputRef = useRef<HTMLInputElement>(null);
   const associations = getControlProps();
   const state = useToggleState({ isSelected: !!value, onChange });
@@ -181,10 +186,10 @@ const SwitchBox = ({
         data-focus={isFocused || undefined}
         data-focus-visible={isFocusVisible || undefined}
         data-hover={isHovered || undefined}
-        data-pressed={isPressed || undefined}
-        data-selected={state.isSelected || undefined}
         data-invalid={invalid}
+        data-pressed={isPressed || undefined}
         data-required={required}
+        data-selected={state.isSelected || undefined}
         data-testid={testId}
         htmlFor={ids.control}
       >
@@ -202,32 +207,38 @@ const SwitchBox = ({
         {icon ? <div className={classes.icon}>{icon}</div> : null}
         <div className="grow">
           {label ? (
-            <div className={classes.label} data-slot="label" id={ids.label}>
+            <FieldLabel
+              as="div"
+              className={classes.label}
+              id={ids.label}
+              required={required}
+            >
               {label}
-              {required ? (
-                <span aria-hidden className="ml-0.5 text-danger">
-                  *
-                </span>
-              ) : null}
-            </div>
+            </FieldLabel>
           ) : null}
           {description ? (
-            <div className={classes.description} id={ids.description}>
+            <FieldDescription
+              className={classes.description}
+              data-slot={undefined}
+              id={ids.description}
+            >
               {description}
-            </div>
+            </FieldDescription>
           ) : null}
         </div>
         {icon ? thumb : null}
       </label>
-      <FieldHints
-        classes={{
-          helperWrapper: 'relative ml-0 block p-0',
-          errorMessage: 'text-danger text-tiny',
-        }}
-        errorMessage={errorMessage}
-        ids={ids}
-        invalid={invalid}
-      />
+      {invalid ? (
+        <div className={classes.helperWrapper} data-slot="helper-wrapper">
+          <div
+            className={classes.errorMessage}
+            data-slot="error-message"
+            id={ids.error}
+          >
+            {errorMessage}
+          </div>
+        </div>
+      ) : null}
     </>
   );
 };

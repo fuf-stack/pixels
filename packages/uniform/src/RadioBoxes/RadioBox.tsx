@@ -4,10 +4,8 @@ import type { ReactNode } from 'react';
 import { tv } from '@fuf-stack/pixel-utils';
 import { useStyling } from '@fuf-stack/pixels/StylingProvider';
 
-import {
-  RadioControl,
-  radioControlVariants,
-} from '../partials/RadioLayout/RadioLayout';
+import RadioControl from '../Radios/subcomponents/RadioControl';
+import radioControlVariants from '../Radios/subcomponents/radioControlVariants';
 
 export const radioBoxVariants = tv({
   slots: {
@@ -77,8 +75,9 @@ export const RadioBox = ({
   });
   return (
     <RadioControl
-      classes={{
+      className={{
         ...classes,
+        field: defaults.field(),
         wrapper: defaults.wrapper(),
         control: styling.cn(defaults.control(), classes.control),
         labelWrapper: styling.cn(defaults.labelWrapper(), classes.labelWrapper),

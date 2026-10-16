@@ -3,6 +3,15 @@
 Pixels is a pnpm monorepo of independently released TypeScript packages. Keep
 changes focused and read the nearest `AGENTS.md` before editing a package.
 
+## Code style
+
+Read `docs/code-style.md` before component changes. It records readability,
+component/type ownership, documentation, test and story conventions that lint
+cannot fully enforce. Follow `docs/styling.md` for styling implementation details.
+When the maintainer gives additional agreed code-style feedback, update the
+relevant guide rule and its concrete example in the same change, and reconcile
+cross-referenced documentation. Preserve the user's current review/commit flow.
+
 ## Architecture
 
 - Foundations: `pixel-utils`, `pixel-motion`, and the independent validation

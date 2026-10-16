@@ -9,8 +9,9 @@ import { slugify } from '@fuf-stack/pixel-utils';
 import { useStyling } from '@fuf-stack/pixels/StylingProvider';
 
 import { createOptionValueConverter } from '../helpers';
-import useUniformFieldState from '../hooks/useUniformFieldState/useUniformFieldState';
-import { FieldHints } from '../partials/FieldLayout/FieldLayout';
+import useUniformField from '../hooks/useUniformField/useUniformField';
+import FieldDescription from '../partials/FieldDescription/FieldDescription';
+import FieldLabel from '../partials/FieldLabel/FieldLabel';
 import OwnedTabs, { radioTabsStateVariants } from './OwnedTabs';
 
 export { default as radioTabsVariants } from './radioTabsVariants';
@@ -70,7 +71,7 @@ const RadioTabs = ({
   variant = undefined,
   ...uniformFieldProps
 }: RadioTabsProps): ReactElement => {
-  const field = useUniformFieldState({ name, ...uniformFieldProps });
+  const field = useUniformField({ name, ...uniformFieldProps });
   const {
     disabled,
     invalid,
@@ -94,16 +95,14 @@ const RadioTabs = ({
 
   // classNames from slots
   const styling = useStyling();
-  const classNames = styling.variantsToClassNames(
-    styling.resolve(radioTabsStateVariants, {
-      fullWidth,
-      hasContent,
-      isInvalid: invalid,
-      appearance: variant ?? 'solid',
-    }),
-    className,
-    'base',
-  );
+  const variants = styling.resolve(radioTabsStateVariants, {
+    fullWidth,
+    hasContent,
+    isInvalid: invalid,
+    appearance: variant ?? 'solid',
+  });
+  const classNames = styling.variantsToClassNames(variants, className, 'base');
+
   const associations = field.getControlProps();
   const describedBy =
     [
@@ -117,7 +116,7 @@ const RadioTabs = ({
     <div
       {...associations}
       {...focusWithinProps}
-      ref={(node) =>
+      ref={(node) => {
         field.ref(
           node
             ? {
@@ -133,10 +132,10 @@ const RadioTabs = ({
                 },
               }
             : null,
-        )
-      }
-      aria-required={undefined}
+        );
+      }}
       aria-describedby={describedBy}
+      aria-required={undefined}
       className={classNames.base}
       data-invalid={invalid}
       data-required={required}
@@ -144,14 +143,14 @@ const RadioTabs = ({
       role="group"
     >
       {label ? (
-        <div className={classNames.label} data-slot="label" id={ids.label}>
+        <FieldLabel
+          as="div"
+          className={classNames.label}
+          id={ids.label}
+          required={required}
+        >
           {label}
-          {required ? (
-            <span aria-hidden className="ml-0.5 text-danger">
-              *
-            </span>
-          ) : null}
-        </div>
+        </FieldLabel>
       ) : null}
       {required ? (
         <span className="sr-only" id={`${ids.control}-required`}>
@@ -168,6 +167,7 @@ const RadioTabs = ({
       >
         <OwnedTabs
           classes={classNames}
+          describedBy={describedBy}
           disabled={disabled}
           label={
             uniformFieldProps.ariaLabel ??
@@ -175,28 +175,38 @@ const RadioTabs = ({
               ? uniformFieldProps.label
               : name)
           }
-          onChange={(key) => onChange(convertToOriginalType(key))}
+          onChange={(key) => {
+            onChange(convertToOriginalType(key));
+          }}
           options={options}
           selectedKey={value != null ? String(value) : ''}
-          testId={(optionValue, explicit) =>
-            slugify(`${testId}_option_${explicit ?? optionValue}`, {
+          testId={(optionValue, explicit) => {
+            return slugify(`${testId}_option_${explicit ?? optionValue}`, {
               replaceDots: true,
-            })
-          }
+            });
+          }}
           variant={variant}
-          describedBy={describedBy}
         />
       </div>
-      <FieldHints
-        classes={{
-          description: 'text-tiny text-foreground-400',
-          errorMessage: 'text-tiny text-danger',
-        }}
-        description={field.description}
-        errorMessage={field.errorMessage}
-        ids={ids}
-        invalid={invalid}
-      />
+      {field.description || invalid ? (
+        <div className={classNames.helperWrapper} data-slot="helper-wrapper">
+          <FieldDescription
+            className={classNames.description}
+            id={ids.description}
+          >
+            {field.description}
+          </FieldDescription>
+          {invalid ? (
+            <div
+              className={classNames.errorMessage}
+              data-slot="error-message"
+              id={ids.error}
+            >
+              {field.errorMessage}
+            </div>
+          ) : null}
+        </div>
+      ) : null}
     </div>
   );
 };

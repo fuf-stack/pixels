@@ -69,7 +69,7 @@ must accompany each renderer migration, with before/after browser evidence.
 | uniform/FieldArray      | [inferred/re-exported](../packages/uniform/src/FieldArray/FieldArray.tsx)                | fieldArrayVariants       | base, actionsMenuButton, appendButton, elementFieldsGrid, label, list, listWrapper, listItem, listItemInner, removeButton, sortDragHandle                                                                                                                                                                                                                                                                                                      | —                     | 2           |
 | uniform/FieldCard       | [FieldCardProps](../packages/uniform/src/FieldCard/FieldCard.tsx)                        | fieldCardVariants        | base, label, content, errorFooter, errorText                                                                                                                                                                                                                                                                                                                                                                                                   | —                     | 3           |
 | uniform/Form            | [FormProps](../packages/uniform/src/Form/Form.tsx)                                       | formVariants             | base, debugViewer, debugViewerCopyButtonToggle, debugViewerHeader, debugViewerJson, debugViewerTriggerButton, form                                                                                                                                                                                                                                                                                                                             | —                     | 1           |
-| uniform/Input           | [InputProps](../packages/uniform/src/Input/Input.tsx)                                    | inputVariants            | base, clearButton, input, inputWrapper                                                                                                                                                                                                                                                                                                                                                                                                         | —                     | 3           |
+| uniform/Input           | [InputProps](../packages/uniform/src/Input/Input.tsx)                                    | inputVariants            | base, clearButton, description, errorMessage, helperWrapper, innerWrapper, input, inputWrapper, label, stepper, stepperButton                                                                                                                                                                                                                                                                                                                  | —                     | 3           |
 | uniform/RadioBoxes      | [RadioBoxesProps](../packages/uniform/src/RadioBoxes/RadioBoxes.tsx)                     | radioBoxesVariants       | base, boxBase, boxControl, boxDescription, boxLabel, boxLabelWrapper, label, wrapper                                                                                                                                                                                                                                                                                                                                                           | —                     | 2           |
 | uniform/RadioTabs       | [RadioTabsProps](../packages/uniform/src/RadioTabs/RadioTabs.tsx)                        | radioTabsVariants        | base, cursor, label, tab, tabBase, tabContent, tabList, tabPanel, tabWrapper, wrapper                                                                                                                                                                                                                                                                                                                                                          | —                     | 3           |
 | uniform/Radios          | [RadiosProps](../packages/uniform/src/Radios/Radios.tsx)                                 | radiosVariants           | base, errorMessage, itemBase, itemControl, itemDescription, itemLabel, itemLabelWrapper, itemWrapper, label, wrapper                                                                                                                                                                                                                                                                                                                           | —                     | 2           |
@@ -98,20 +98,22 @@ Additional coupling:
 
 ## Field composition audit and migration gates
 
-The private `useUniformFieldState` core owns RHF registration, transformed
+The private `useUniformField` core owns RHF registration, transformed
 values, required-schema state, stable control IDs, test IDs, the debug label
 button, error flattening and invalid visibility. Existing debounce, reduced-motion
 and serialization behavior is retained. All production fields consume this core.
 Public legacy adapters and their presentation getters have now been removed.
 The state implementations and their behavioral coverage remain private.
 
-`FieldValidationError` renders the public error list and uses Pixel Motion for
-entry/exit animations, with reduced-motion support. Reuse it locally in Uniform;
-do not introduce another form-state owner or export public composition helpers.
-It currently lacks an explicit DOM association ID. Establish stable control,
-label, description, and error IDs once in the field hook, then pass them to the
-actual editable element and React Aria contexts. Keep native validation from
-competing with RHF/Veto.
+`useUniformField` normalizes errors internally and returns a rendered
+`errorMessage` using `FieldValidationError`. The raw/group `error` behavior remains
+unchanged. `FieldValidationError` owns the message list, Pixel Motion entry/exit
+animations and reduced-motion support. Field presentation owns visibility and the
+styled wrapper associated with the control. Direct uses can supply `id` to
+`FieldValidationError` for its optional association wrapper. Establish
+stable control, label, description and error IDs once in the field hook, then
+pass them to presentation, the editable element and React Aria contexts. Keep
+native validation from competing with RHF/Veto.
 
 | Slice                                   | Existing contract to preserve                                                                                                                | Verification gate                                                                                                              |
 | --------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
@@ -490,7 +492,7 @@ and reintroduced legacy or private hook exports.
 
 This is an intentional breaking API removal and must be released accordingly.
 Versions/changelogs remain owned by Release Please. Migration guidance is in the
-[Uniform README](../packages/uniform/README.md). Pixels still brings HeroUI
+[Uniform migration guide](./uniform/migration.md). Pixels still brings HeroUI
 transitively; its runtime, application consumers and final theme/plugin cleanup
 are separate remaining work. No external Markdown editor source was changed.
 
@@ -508,9 +510,8 @@ exported from the same module/entry point. The existing dedicated
 `inputVariants.ts` remains the sole owner of the public and private recipes.
 
 Private components live in `Input/subcomponents/`. `InputControl` owns visual state and styling composition, `InputField`
-encapsulates the React Aria text/number engines and root selectors, `InputContent`
-contains the shared editable layout/addons, and `InputActions` contains clear and
-stepper controls. They receive values, associations and callbacks without
+encapsulates the React Aria text/number engines and root selectors, `InputWrapper`
+contains the shared editable layout/addons, and `InputClearButton` and `InputStepper` each own their control. They receive values, associations and callbacks without
 registering fields or reading form context. Shared `FieldControlProps` and
 `FieldIds` types keep control associations consistent between field state and
 presentation. Prop declarations are documented, and binding/interaction blocks
@@ -526,3 +527,13 @@ API, value formats, validation timing, reset or focus behavior.
 Final `pnpm check` passed all six gates: 1,536 unit tests (one skipped), 472 browser
 stories and seven packed consumers. Input snapshots, styling recipes, package
 exports and peer/dependency ranges are unchanged.
+
+### Shared radio composition
+
+Radios and RadioBoxes now compose a private `RadioGroupField`, `FieldLayout` and
+`RadioControl` instead of RadioLayout. The group engine accepts explicit values,
+state and callbacks, routes form focus to an enabled option and shares supporting
+message IDs. The layout uses React Aria Label to preserve radiogroup naming.
+Group defaults and option styling have their own variant recipes, with option
+hover styling driven by React Aria render state. Public entry points, numeric
+value conversion, disabled behavior and existing styling slots are retained.

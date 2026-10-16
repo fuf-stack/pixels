@@ -1,6 +1,7 @@
 import type { CheckboxesProps } from '@fuf-stack/uniform/Checkboxes';
 import type { DatePickerProps } from '@fuf-stack/uniform/DatePicker';
 import type { InputProps } from '@fuf-stack/uniform/Input';
+import type { FieldValidationErrorProps } from '@fuf-stack/uniform/partials/FieldValidationError';
 import type { RadioBoxesProps } from '@fuf-stack/uniform/RadioBoxes';
 import type { RadiosProps } from '@fuf-stack/uniform/Radios';
 import type { RadioTabsProps } from '@fuf-stack/uniform/RadioTabs';
@@ -16,6 +17,24 @@ import { useFormContext } from '@fuf-stack/uniform/hooks/useFormContext';
 
 type OptionNode = ReturnType<NonNullable<RadiosProps['children']>>;
 
+export const standaloneValidation: FieldValidationErrorProps = {
+  className: 'font-semibold',
+  error: [{ type: 'required', message: 'Required' }],
+  testId: 'email',
+};
+
+export const associatedValidation: FieldValidationErrorProps = {
+  error: [{ type: 'required', message: 'Required' }],
+  id: 'email-error',
+  testId: 'email',
+  className: {
+    base: 'list-disc',
+    item: 'font-semibold',
+    message: 'px-0',
+    wrapper: 'text-danger',
+  },
+};
+
 // Exercise the existing input contract against the packed declarations.
 export const inputProps: InputProps = {
   name: 'amount',
@@ -28,6 +47,13 @@ export const inputProps: InputProps = {
     inputWrapper: 'border-danger',
     input: 'text-body text-danger',
     clearButton: 'text-danger',
+    innerWrapper: 'gap-2',
+    label: 'font-semibold',
+    helperWrapper: 'mt-2',
+    description: 'text-small',
+    errorMessage: 'rounded bg-danger-50 p-2',
+    stepper: 'gap-1',
+    stepperButton: 'text-primary',
   },
   transform: {
     toDisplayValue: (value) => {
@@ -85,7 +111,11 @@ export const switchProps: SwitchProps = {
   },
 };
 
-export const switchBoxProps: SwitchBoxProps = { ...switchProps, icon: null };
+export const switchBoxProps: SwitchBoxProps = {
+  ...switchProps,
+  icon: null,
+  className: { errorMessage: 'font-semibold', helperWrapper: 'mt-2' },
+};
 
 export default function useEditorField() {
   const { control } = useFormContext<{ editor: string }>();
@@ -120,7 +150,12 @@ export const radioTabsProps: RadioTabsProps = {
   description: 'Pick one.',
   options: [{ value: false, content: 'No' }],
   variant: 'underlined',
-  className: { tabContent: 'text-option' },
+  className: {
+    tabContent: 'text-option',
+    description: 'text-small',
+    errorMessage: 'font-semibold',
+    helperWrapper: 'gap-2',
+  },
 };
 
 export const checkboxesProps: CheckboxesProps = {

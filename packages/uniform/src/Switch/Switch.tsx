@@ -12,8 +12,9 @@ import { useToggleState } from 'react-stately/useToggleState';
 import { tv } from '@fuf-stack/pixel-utils';
 import { useStyling } from '@fuf-stack/pixels/StylingProvider';
 
-import useUniformFieldState from '../hooks/useUniformFieldState/useUniformFieldState';
-import { FieldHints } from '../partials/FieldLayout/FieldLayout';
+import useUniformField from '../hooks/useUniformField/useUniformField';
+import FieldDescription from '../partials/FieldDescription/FieldDescription';
+import FieldLabel from '../partials/FieldLabel/FieldLabel';
 
 export interface SwitchThumbIconProps {
   width: string;
@@ -120,7 +121,7 @@ const Switch = ({
     ids,
     testId,
     getControlProps,
-  } = useUniformFieldState({ name, ...uniformProps });
+  } = useUniformField({ name, ...uniformProps });
   const controlRef = useRef<HTMLInputElement>(null);
   const associations = getControlProps();
   const state = useToggleState({ isSelected: !!value, onChange });
@@ -210,23 +211,35 @@ const Switch = ({
           {endContent ? renderIcon(endContent, classes.endContent) : null}
         </span>
         {label ? (
-          <span className={classes.label} data-slot="label" id={ids.label}>
+          <FieldLabel
+            as="span"
+            className={classes.label}
+            id={ids.label}
+            required={required}
+          >
             {label}
-            {required ? (
-              <span aria-hidden className="ml-0.5 text-danger">
-                *
-              </span>
-            ) : null}
-          </span>
+          </FieldLabel>
         ) : null}
       </label>
-      <FieldHints
-        classes={classes}
-        description={description}
-        errorMessage={errorMessage}
-        ids={ids}
-        invalid={invalid}
-      />
+      {description || invalid ? (
+        <div className={classes.helperWrapper} data-slot="helper-wrapper">
+          <FieldDescription
+            className={classes.description}
+            id={ids.description}
+          >
+            {description}
+          </FieldDescription>
+          {invalid ? (
+            <div
+              className={classes.errorMessage}
+              data-slot="error-message"
+              id={ids.error}
+            >
+              {errorMessage}
+            </div>
+          ) : null}
+        </div>
+      ) : null}
     </div>
   );
 };

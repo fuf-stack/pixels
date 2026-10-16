@@ -1,0 +1,21 @@
+# Slider
+
+A slider for choosing a single numeric value.
+
+## Usage
+
+```tsx
+import Form from '@fuf-stack/uniform/Form';
+import Slider from '@fuf-stack/uniform/Slider';
+
+<Form initialValues={{ volume: 50 }} onSubmit={console.log}>
+  <Slider label="Volume" name="volume" minValue={0} maxValue={100} step={5} />
+</Form>;
+```
+
+## Notes
+
+- Stores one number; minimum, maximum and step describe the displayed range.
+- `transform` converts between stored and displayed values when their units differ.
+
+[Props](Slider.tsx) · [Stories](Slider.stories.tsx)

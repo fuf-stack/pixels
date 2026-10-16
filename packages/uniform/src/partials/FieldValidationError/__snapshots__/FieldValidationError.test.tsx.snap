@@ -1,10 +1,90 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`Story Snapshots > CustomStyling 1`] = `
+<div>
+  <div
+    class="flex flex-col gap-1"
+  >
+    <label
+      for="email"
+    >
+      Email
+      <input
+        aria-describedby="email-error"
+        aria-invalid="true"
+        id="email"
+      />
+    </label>
+    <div
+      class="rounded-small bg-danger-50 p-2 text-danger"
+      data-slot="error-message"
+      id="email-error"
+    >
+      <ul
+        aria-label="Validation errors of field email"
+        class="list-disc ps-5"
+        data-testid="email_error"
+      >
+        <li
+          class="font-semibold"
+          style="overflow: hidden;"
+        >
+          <div
+            class="pt-1 px-0"
+          >
+            Email is required
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Story Snapshots > Default 1`] = `
+<div>
+  <div
+    class="flex flex-col gap-1"
+  >
+    <label
+      for="email"
+    >
+      Email
+      <input
+        aria-describedby="email-error"
+        aria-invalid="true"
+        id="email"
+      />
+    </label>
+    <div
+      class="text-danger text-small"
+      data-slot="error-message"
+      id="email-error"
+    >
+      <ul
+        aria-label="Validation errors of field email"
+        data-testid="email_error"
+      >
+        <li
+          style="overflow: hidden;"
+        >
+          <div
+            class="px-1 pt-1"
+          >
+            Email is required
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Story Snapshots > MultipleErrors 1`] = `
 <div>
   <ul
-    aria-label="Validation errors of field undefined"
-    data-testid="undefined_error"
+    aria-label="Validation errors of field email"
+    data-testid="email_error"
   >
     <li
       style="overflow: hidden;"
@@ -31,8 +111,8 @@ exports[`Story Snapshots > MultipleErrors 1`] = `
 exports[`Story Snapshots > SingleError 1`] = `
 <div>
   <ul
-    aria-label="Validation errors of field undefined"
-    data-testid="undefined_error"
+    aria-label="Validation errors of field email"
+    data-testid="email_error"
   >
     <li
       style="overflow: hidden;"

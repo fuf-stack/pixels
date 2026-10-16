@@ -8,8 +8,9 @@ import { Checkbox, CheckboxGroup, Label } from 'react-aria-components';
 import { slugify, tv } from '@fuf-stack/pixel-utils';
 import { useStyling } from '@fuf-stack/pixels/StylingProvider';
 
-import useUniformFieldState from '../hooks/useUniformFieldState/useUniformFieldState';
-import { FieldHints } from '../partials/FieldLayout/FieldLayout';
+import useUniformField from '../hooks/useUniformField/useUniformField';
+import FieldDescription from '../partials/FieldDescription/FieldDescription';
+import FieldLabel from '../partials/FieldLabel/FieldLabel';
 
 const colorClasses = {
   default:
@@ -182,20 +183,15 @@ const CheckboxControl = ({
   );
   return (
     <Checkbox
-      id={id}
+      aria-describedby={describedBy}
+      aria-invalid={invalid || undefined}
       aria-label={
         typeof option.label === 'string' ? option.label : option.value
       }
-      aria-describedby={describedBy}
       aria-labelledby={hasLabel ? labelledBy : undefined}
-      aria-invalid={invalid || undefined}
       className={classes.optionBase}
       data-testid={testId}
-      isDisabled={disabled}
-      // The requirement belongs to the selection group, not every option.
-      isRequired={false}
-      validationBehavior="aria"
-      value={option.value}
+      id={id}
       render={(props, state) => (
         <label
           {...props}
@@ -207,55 +203,69 @@ const CheckboxControl = ({
           {props.children}
         </label>
       )}
+      validationBehavior="aria"
+      value={option.value}
+      isDisabled={disabled}
+      // The requirement belongs to the selection group, not every option.
+      isRequired={false}
     >
-      {({ isSelected }) => (
-        <>
-          <span
-            aria-hidden
-            className={cn(colorClasses[color], classes.optionWrapper)}
-            data-slot="wrapper"
-          >
-            <svg
+      {({ isSelected }) => {
+        return (
+          <>
+            <span
               aria-hidden
-              className={classes.optionIcon}
-              fill="none"
-              role="presentation"
-              stroke="currentColor"
-              strokeDasharray={22}
-              strokeDashoffset={isSelected ? 44 : 66}
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              viewBox="0 0 17 18"
-              data-slot="icon"
+              className={cn(colorClasses[color], classes.optionWrapper)}
+              data-slot="wrapper"
             >
-              <polyline
-                className="transition-[stroke-dashoffset] delay-200 duration-250 ease-linear motion-reduce:transition-none"
-                points="1 9 7 14 15 4"
-              />
-            </svg>
-          </span>
-          {hasLabel ? (
-            <span className={labelClasses} data-slot="label" id={`${id}-label`}>
-              {hasSubline ? (
-                <div className="flex grow flex-col items-start">
-                  <span className={classes.optionLabel} id={`${id}-label-text`}>
-                    {option.label}
-                  </span>
-                  <span
-                    className={classes.optionLabelSubline}
-                    id={`${id}-subline`}
-                  >
-                    {option.labelSubline}
-                  </span>
-                </div>
-              ) : (
-                option.label
-              )}
+              <svg
+                aria-hidden
+                className={classes.optionIcon}
+                data-slot="icon"
+                fill="none"
+                role="presentation"
+                stroke="currentColor"
+                strokeDasharray={22}
+                strokeDashoffset={isSelected ? 44 : 66}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                viewBox="0 0 17 18"
+              >
+                <polyline
+                  className="transition-[stroke-dashoffset] delay-200 duration-250 ease-linear motion-reduce:transition-none"
+                  points="1 9 7 14 15 4"
+                />
+              </svg>
             </span>
-          ) : null}
-        </>
-      )}
+            {hasLabel ? (
+              <span
+                className={labelClasses}
+                data-slot="label"
+                id={`${id}-label`}
+              >
+                {hasSubline ? (
+                  <div className="flex grow flex-col items-start">
+                    <span
+                      className={classes.optionLabel}
+                      id={`${id}-label-text`}
+                    >
+                      {option.label}
+                    </span>
+                    <span
+                      className={classes.optionLabelSubline}
+                      id={`${id}-subline`}
+                    >
+                      {option.labelSubline}
+                    </span>
+                  </div>
+                ) : (
+                  option.label
+                )}
+              </span>
+            ) : null}
+          </>
+        );
+      }}
     </Checkbox>
   );
 };
@@ -271,7 +281,7 @@ const Checkboxes = ({
   options,
   ...uniformFieldProps
 }: CheckboxesProps) => {
-  const field = useUniformFieldState({
+  const field = useUniformField({
     name,
     isArrayValue: true,
     ...uniformFieldProps,
@@ -322,10 +332,7 @@ const Checkboxes = ({
   return (
     <CheckboxGroup
       {...associations}
-      aria-labelledby={undefined}
-      aria-required={undefined}
-      aria-describedby={describedBy}
-      ref={(node) =>
+      ref={(node) => {
         field.ref(
           node
             ? {
@@ -335,39 +342,44 @@ const Checkboxes = ({
                     ?.focus(),
               }
             : null,
-        )
-      }
+        );
+      }}
+      aria-describedby={describedBy}
+      aria-labelledby={undefined}
+      aria-required={undefined}
       className={classes.base}
-      data-testid={testId}
       data-slot="base"
+      data-testid={testId}
       isDisabled={disabled}
       isInvalid={invalid}
       isRequired={required}
       name={name}
       onBlur={field.onBlur}
       onChange={field.onChange}
+      render={(props) => {
+        return (
+          <div
+            {...props}
+            aria-invalid={invalid || undefined}
+            data-invalid={invalid}
+            data-required={required}
+          >
+            {props.children}
+          </div>
+        );
+      }}
       validationBehavior="aria"
       value={value}
-      render={(props) => (
-        <div
-          {...props}
-          aria-invalid={invalid || undefined}
-          data-invalid={invalid}
-          data-required={required}
-        >
-          {props.children}
-        </div>
-      )}
     >
       {label ? (
-        <Label className={classes.label} data-slot="label" id={ids.label}>
+        <FieldLabel
+          as={Label}
+          className={classes.label}
+          id={ids.label}
+          required={required}
+        >
           {label}
-          {required ? (
-            <span aria-hidden className="ml-0.5 text-danger">
-              *
-            </span>
-          ) : null}
-        </Label>
+        </FieldLabel>
       ) : null}
       {required ? (
         <span className="sr-only" id={`${ids.control}-required`}>
@@ -381,15 +393,29 @@ const Checkboxes = ({
       >
         {children
           ? children(renderedOptions ?? [])
-          : renderedOptions?.map(({ checkbox }) => checkbox)}
+          : renderedOptions?.map(({ checkbox }) => {
+              return checkbox;
+            })}
       </div>
-      <FieldHints
-        classes={classes}
-        description={field.description}
-        errorMessage={field.errorMessage}
-        ids={ids}
-        invalid={invalid}
-      />
+      {field.description || invalid ? (
+        <div className={classes.helperWrapper} data-slot="helper-wrapper">
+          <FieldDescription
+            className={classes.description}
+            id={ids.description}
+          >
+            {field.description}
+          </FieldDescription>
+          {invalid ? (
+            <div
+              className={classes.errorMessage}
+              data-slot="error-message"
+              id={ids.error}
+            >
+              {field.errorMessage}
+            </div>
+          ) : null}
+        </div>
+      ) : null}
     </CheckboxGroup>
   );
 };

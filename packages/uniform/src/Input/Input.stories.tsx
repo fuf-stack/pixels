@@ -94,6 +94,16 @@ export const Default: Story = {
   args: {
     name: 'inputField',
   },
+  play: async ({ canvasElement }) => {
+    const input = within(canvasElement).getByRole('textbox');
+    const wrapper = input.closest('[data-slot="input-wrapper"]') as HTMLElement;
+
+    await userEvent.hover(wrapper);
+    await expect(wrapper).toHaveAttribute('data-hovered', 'true');
+    await expect(wrapper).not.toHaveAttribute('data-hover');
+    await userEvent.unhover(wrapper);
+    await expect(wrapper).not.toHaveAttribute('data-hovered');
+  },
 };
 
 export const WithLabel: Story = {
@@ -283,11 +293,11 @@ export const CustomStyles: Story = {
             // background gradient (stronger in light mode)
             'bg-gradient-to-r from-fuchsia-100 via-rose-100 to-amber-100 dark:from-fuchsia-900 dark:via-rose-900 dark:to-amber-900',
             // background hover gradient
-            'data-[hover=true]:bg-gradient-to-r data-[hover=true]:from-emerald-50 data-[hover=true]:via-teal-50 data-[hover=true]:to-lime-50 dark:data-[hover=true]:from-emerald-900 dark:data-[hover=true]:via-teal-900 dark:data-[hover=true]:to-lime-900',
+            'data-[hovered=true]:bg-gradient-to-r data-[hovered=true]:from-emerald-50 data-[hovered=true]:via-teal-50 data-[hovered=true]:to-lime-50 dark:data-[hovered=true]:from-emerald-900 dark:data-[hovered=true]:via-teal-900 dark:data-[hovered=true]:to-lime-900',
             // border styles
             'border-2 border-fuchsia-400',
             // border hover styles (greenish)
-            'data-[hover=true]:border-emerald-400',
+            'data-[hovered=true]:border-emerald-400',
             // border focus styles
             'group-data-[focus=true]:border-amber-400',
             // text color
@@ -399,6 +409,68 @@ export const ConsumerFontSize: Story = {
     await expect(input).toHaveClass('text-body', 'text-danger');
     await expect(input).not.toHaveClass('text-small');
     await expect(getComputedStyle(input).fontSize).toBe('18px');
+  },
+};
+
+export const CustomStyling: Story = {
+  parameters: {
+    formProps: {
+      initialValues: { amount: 0 },
+      validation: veto({ amount: number().min(1, 'Choose at least one') }),
+    },
+  },
+  args: {
+    className: {
+      base: 'max-w-sm',
+      clearButton: 'text-primary',
+      description: 'text-small',
+      errorMessage: 'rounded-small bg-danger-50 p-2 text-danger-700 text-small',
+      helperWrapper: 'gap-1 pt-2',
+      innerWrapper: 'gap-2',
+      input: 'font-semibold',
+      inputWrapper: 'border-primary',
+      label: 'font-semibold',
+      stepper: 'gap-1',
+      stepperButton: 'text-primary',
+    },
+    clearable: true,
+    description: 'Number of items',
+    label: 'Amount',
+    name: 'amount',
+    type: 'number',
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const input = canvas.getByTestId('amount');
+
+    await userEvent.click(canvas.getByRole('button', { name: 'Submit form' }));
+    await waitFor(async () => {
+      await expect(input).toHaveAttribute('aria-invalid', 'true');
+    });
+
+    const root = input.closest('[data-slot="base"]');
+    await expect(root?.querySelector('[data-slot="label"]')).toHaveClass(
+      'font-semibold',
+    );
+    await expect(root?.querySelector('[data-slot="description"]')).toHaveClass(
+      'text-small',
+    );
+    await expect(
+      root?.querySelector('[data-slot="error-message"]'),
+    ).toHaveClass('bg-danger-50', 'p-2', 'text-small');
+    await expect(
+      root?.querySelector('[data-slot="stepper-wrapper"]'),
+    ).toHaveClass('gap-1');
+    await expect(
+      canvas.getByRole('button', { name: /increase|increment/i }),
+    ).toHaveClass('text-primary');
+    await expect(
+      canvas.getByRole('button', { name: /decrease|decrement/i }),
+    ).toHaveClass('text-primary');
+    await expect(input).toHaveFocus();
+    await expect(input).toHaveAccessibleDescription(
+      'Number of items Choose at least one',
+    );
   },
 };
 

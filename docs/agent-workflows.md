@@ -2,7 +2,9 @@
 
 These workflows are deliberately command-led. Read the root and nearest package
 `AGENTS.md`, make the smallest coherent change, and record the commands and
-manual checks in the pull request.
+manual checks in the pull request. Read [the code style guide](./code-style.md)
+for component structure, readability, type ownership and concrete examples;
+[component styling](./styling.md) owns the Tailwind Variants and CSS details.
 
 ## Public API review
 
@@ -28,33 +30,32 @@ important loading/error/empty states. Run the package's focused Vitest command,
 `pnpm test:storybook`, and then `pnpm check`. Attach before/after evidence for
 visual changes.
 
-## Storybook edge cases
+## Storybook stories and edge cases
 
-Keep normal usage and variant examples in `<Component>.stories.tsx`. Put edge
-cases and focused regression scenarios in a sibling
-`<Component>EdgeCases.stories.tsx`, following the Slider examples. Give that file
-the title `<existing component title>/Edge Cases` so Storybook groups these
-scenarios under the component rather than mixing them into its regular examples.
-Use short story names without repeating "Edge Case" in the sidebar.
+Keep a component's normal usage, composition and edge-case stories in one
+`<Component>.stories.tsx`. Follow the dashed section banners and concrete example
+in [the code style guide](./code-style.md#one-story-file-ordered-sections): base
+setup first, normal stories next, then composition and edge cases. Default is the
+first normal story. Keep scenario fixtures and helpers in the setup section.
 
-Reuse the component's default story metadata (including decorators and args)
-and append `@repo/storybook-config/edge-case-decorator` to its decorators. Each
-edge-case story must set `parameters.edgeCaseDescription` to a short explanation
-of the trigger and expected behavior. The shared decorator renders this in a
-"What this checks" box above the example. Keep the outer layout unconstrained;
-only the explanation box should have a fixed width, so form debug panels and
-portals still have room.
+Use one metadata title for the component. A standard CSF file has one sidebar
+title, so use clear names such as `Edge Cases: Nullish Number` for edge cases
+rather than separate files or custom indexing. Existing split files can be
+consolidated when the component is being restructured; this does not require an
+unrelated repository-wide migration.
 
-Move scenario-only fixtures and helpers with their stories. Preserve their
-`play` functions, assertions, setup, and cleanup. Update the component's snapshot
-test to call `storySnapshots` for both story modules, retaining any documented
-environment-specific exclusions. Browser Storybook tests discover both files
-automatically. Keep export names when moving existing stories to preserve
-snapshot keys; the new title changes their Storybook URLs, so update any links.
+Each edge-case story sets `parameters.edgeCaseDescription` to explain its trigger
+and expected behavior. Use `@repo/storybook-config/edge-case-decorator` for the
+"What this checks" box. Keep it outside the form and keep the outer layout
+unconstrained; only the explanation box should have a fixed width, so form debug
+panels and portals still have room. Input's main story file demonstrates a
+conditional metadata decorator that applies the explanation only to edge cases.
 
-Ordinary disabled, empty, loading, and error variants can remain with the normal
-examples. Separate stories that exercise unusual combinations, boundary
-conditions, or a specific regression.
+Preserve `play` functions, assertions, setup, cleanup and export names when
+moving stories. Check the decorator order and existing snapshots, and update
+story links when consolidation changes their URLs. The component's snapshot
+test imports the consolidated module once; browser tests discover the stories
+automatically. Keep documented environment-specific exclusions explicit.
 
 ## Dependency upgrade
 

@@ -7,7 +7,7 @@ import { tv } from '@fuf-stack/pixel-utils';
 import { useStyling } from '@fuf-stack/pixels/StylingProvider';
 
 import { flatArrayKey } from '../helpers';
-import useUniformFieldArrayState from '../hooks/useUniformFieldArrayState/useUniformFieldArrayState';
+import useUniformFieldArray from '../hooks/useUniformFieldArray/useUniformFieldArray';
 import ElementAppendButton from './subcomponents/ElementAppendButton';
 import FieldArrayElement from './subcomponents/FieldArrayElement';
 import FieldArrayLabel from './subcomponents/FieldArrayLabel';
@@ -133,7 +133,7 @@ const FieldArray = ({
     elementInitialValue,
     getValues,
     testId,
-  } = useUniformFieldArrayState({
+  } = useUniformFieldArray({
     name,
     flat,
     elementInitialValue: _elementInitialValue,

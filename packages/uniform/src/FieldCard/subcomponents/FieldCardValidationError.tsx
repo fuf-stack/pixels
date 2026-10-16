@@ -7,11 +7,12 @@ import {
 } from '@fuf-stack/pixel-motion';
 import { useStyling } from '@fuf-stack/pixels/StylingProvider';
 
-import useUniformFieldState from '../../hooks/useUniformFieldState/useUniformFieldState';
+import useUniformField from '../../hooks/useUniformField/useUniformField';
 import FieldValidationError from '../../partials/FieldValidationError/FieldValidationError';
+import fieldCardValidationErrorVariants from './fieldCardValidationErrorVariants';
 
 export interface FieldCardValidationErrorProps {
-  /** CSS class name for the error footer wrapper */
+  /** CSS class name */
   className?: string;
   /** Error object from parent FieldCard (passed directly to avoid duplicate hook calls) */
   error?: FieldError[] | undefined;
@@ -40,11 +41,18 @@ const FieldCardValidationError = ({
   errorId = undefined,
   name,
 }: FieldCardValidationErrorProps) => {
-  const { ids, testId } = useUniformFieldState({
+  const { ids, testId } = useUniformField({
     name,
   });
 
-  const { cn } = useStyling();
+  const styling = useStyling();
+
+  // classNames from slots
+  const variants = styling.resolve(fieldCardValidationErrorVariants);
+  const classNames = styling.variantsToClassNames(variants, {
+    errorMessage: errorTextClassName,
+    helperWrapper: className,
+  });
 
   // disable all animation if user prefers reduced motion
   const disableAnimation = useReducedMotion();
@@ -66,21 +74,15 @@ const FieldCardValidationError = ({
           style={{ overflow: 'hidden' }}
           transition={{ duration: 0.4, ease: 'circOut' }}
         >
-          <div
-            data-slot="helper-wrapper"
-            className={cn('relative flex flex-col gap-1.5 p-0', className)}
-          >
-            <div
-              data-slot="error-message"
+          <div className={classNames.helperWrapper} data-slot="helper-wrapper">
+            <FieldValidationError
               id={errorId ?? ids.error}
-              className={cn('text-danger text-tiny', errorTextClassName)}
-            >
-              <FieldValidationError
-                // @ts-expect-error - error._errors exists but not typed
-                error={error._errors}
-                testId={testId}
-              />
-            </div>
+              className={{ wrapper: classNames.errorMessage }}
+
+              // @ts-expect-error - error._errors exists but not typed
+              error={error._errors}
+              testId={testId}
+            />
           </div>
         </motion.div>
       ) : null}

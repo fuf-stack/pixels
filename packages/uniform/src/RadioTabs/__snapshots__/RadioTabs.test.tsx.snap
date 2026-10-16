@@ -128,6 +128,198 @@ exports[`Story Snapshots > BooleanValuesWithConditionalField 1`] = `
 </div>
 `;
 
+exports[`Story Snapshots > CustomStyling 1`] = `
+<div>
+  <div
+    class="flex w-full flex-row justify-between gap-6"
+  >
+    <form
+      class="grow min-w-60"
+      data-form-is-valid="false"
+      data-testid=""
+      novalidate=""
+    >
+      <div
+        aria-describedby="uniform-«replaced-aria-id»-description uniform-«replaced-aria-id»-error uniform-«replaced-aria-id»-required"
+        aria-invalid="true"
+        aria-labelledby="uniform-«replaced-aria-id»-label"
+        class="group flex w-full flex-col gap-y-1.5 relative"
+        data-invalid="true"
+        data-required="true"
+        data-testid="radiotabsfield"
+        id="uniform-«replaced-aria-id»"
+        role="group"
+      >
+        <div
+          class="mb-2 inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger relative"
+          data-slot="label"
+          id="uniform-«replaced-aria-id»-label"
+        >
+          Choice
+          <span
+            aria-hidden="true"
+            class="ml-0.5 text-danger"
+          >
+            *
+          </span>
+        </div>
+        <span
+          class="sr-only"
+          id="uniform-«replaced-aria-id»-required"
+        >
+          Required selection.
+        </span>
+        <div
+          class="flex flex-col flex-wrap gap-2"
+          data-slot="wrapper"
+        >
+          <template />
+          <div
+            class="rounded-medium border-2 !border-danger"
+            data-focused="true"
+            data-orientation="horizontal"
+            data-placement="top"
+            data-rac=""
+            data-slot="tabWrapper"
+            data-vertical="horizontal"
+          >
+            <div
+              class="inline-flex w-full"
+              data-slot="base"
+            >
+              <div
+                aria-label="Choice"
+                aria-orientation="horizontal"
+                class="relative flex h-fit w-full flex-nowrap items-center gap-2 overflow-x-auto rounded-medium bg-default-100 p-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+                data-collection="react-aria-«replaced-aria-id»"
+                data-orientation="horizontal"
+                data-rac=""
+                data-slot="tabList"
+                id="react-aria-«replaced-aria-id»"
+                role="tablist"
+              >
+                <div
+                  aria-describedby="uniform-«replaced-aria-id»-description uniform-«replaced-aria-id»-error uniform-«replaced-aria-id»-required"
+                  aria-selected="false"
+                  class="outline-solid group relative z-0 flex h-8 w-full cursor-pointer items-center justify-center rounded-small px-3 py-1 outline-transparent transition-opacity text-small data-[focus-visible=true]:z-10 data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus motion-reduce:transition-none"
+                  data-collection="react-aria-«replaced-aria-id»"
+                  data-focus="true"
+                  data-focused="true"
+                  data-key="option_1"
+                  data-rac=""
+                  data-react-aria-pressable="true"
+                  data-slot="tab"
+                  data-testid="radiotabsfield_option_option_1"
+                  id="react-aria-«replaced-aria-id»-tab-option_1"
+                  role="tab"
+                  tabindex="0"
+                >
+                  <span
+                    class="relative z-10 whitespace-nowrap text-foreground transition-colors group-data-[selected=true]:text-default-foreground motion-reduce:transition-none"
+                    data-slot="tabContent"
+                  >
+                    Option 1
+                  </span>
+                </div>
+                <div
+                  aria-describedby="uniform-«replaced-aria-id»-description uniform-«replaced-aria-id»-error uniform-«replaced-aria-id»-required"
+                  aria-selected="false"
+                  class="outline-solid group relative z-0 flex h-8 w-full cursor-pointer items-center justify-center rounded-small px-3 py-1 outline-transparent transition-opacity text-small data-[focus-visible=true]:z-10 data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus motion-reduce:transition-none"
+                  data-collection="react-aria-«replaced-aria-id»"
+                  data-key="option_2"
+                  data-rac=""
+                  data-react-aria-pressable="true"
+                  data-slot="tab"
+                  data-testid="radiotabsfield_option_option_2"
+                  id="react-aria-«replaced-aria-id»-tab-option_2"
+                  role="tab"
+                  tabindex="-1"
+                >
+                  <span
+                    class="relative z-10 whitespace-nowrap text-foreground transition-colors group-data-[selected=true]:text-default-foreground motion-reduce:transition-none"
+                    data-slot="tabContent"
+                  >
+                    Option 2
+                  </span>
+                </div>
+                <div
+                  aria-describedby="uniform-«replaced-aria-id»-description uniform-«replaced-aria-id»-error uniform-«replaced-aria-id»-required"
+                  aria-selected="false"
+                  class="outline-solid group relative z-0 flex h-8 w-full cursor-pointer items-center justify-center rounded-small px-3 py-1 outline-transparent transition-opacity text-small data-[focus-visible=true]:z-10 data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus motion-reduce:transition-none"
+                  data-collection="react-aria-«replaced-aria-id»"
+                  data-key="option_3"
+                  data-rac=""
+                  data-react-aria-pressable="true"
+                  data-slot="tab"
+                  data-testid="radiotabsfield_option_option_3"
+                  id="react-aria-«replaced-aria-id»-tab-option_3"
+                  role="tab"
+                  tabindex="-1"
+                >
+                  <span
+                    class="relative z-10 whitespace-nowrap text-foreground transition-colors group-data-[selected=true]:text-default-foreground motion-reduce:transition-none"
+                    data-slot="tabContent"
+                  >
+                    Option 3
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="flex flex-col gap-2"
+          data-slot="helper-wrapper"
+        >
+          <div
+            class="text-primary text-small"
+            data-slot="description"
+            id="uniform-«replaced-aria-id»-description"
+          >
+            Choose an available option
+          </div>
+          <div
+            class="text-danger text-tiny font-semibold"
+            data-slot="error-message"
+            id="uniform-«replaced-aria-id»-error"
+          >
+            <ul
+              aria-label="Validation errors of field radiotabsfield"
+              data-testid="radiotabsfield_error"
+            >
+              <li
+                style="overflow: hidden;"
+              >
+                <div
+                  class="px-1 pt-1"
+                >
+                  Field is required
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div
+        class="mt-4 flex justify-end"
+      >
+        <button
+          aria-label="Submit form"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
+          data-hover="true"
+          data-react-aria-pressable="true"
+          data-testid="form_submit_button"
+          tabindex="0"
+          type="submit"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
 exports[`Story Snapshots > Default 1`] = `
 <div>
   <div
@@ -826,7 +1018,7 @@ exports[`Story Snapshots > Invalid 1`] = `
           data-slot="helper-wrapper"
         >
           <div
-            class="text-tiny text-danger"
+            class="text-danger text-tiny"
             data-slot="error-message"
             id="uniform-«replaced-aria-id»-error"
           >
@@ -1032,7 +1224,7 @@ exports[`Story Snapshots > InvalidWithContent 1`] = `
           data-slot="helper-wrapper"
         >
           <div
-            class="text-tiny text-danger"
+            class="text-danger text-tiny"
             data-slot="error-message"
             id="uniform-«replaced-aria-id»-error"
           >

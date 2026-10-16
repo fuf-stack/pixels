@@ -2,7 +2,8 @@ import type { ReactNode } from 'react';
 
 import { useStyling } from '@fuf-stack/pixels/StylingProvider';
 
-import useUniformFieldState from '../../hooks/useUniformFieldState/useUniformFieldState';
+import useUniformField from '../../hooks/useUniformField/useUniformField';
+import FieldLabel from '../../partials/FieldLabel/FieldLabel';
 
 export interface FieldArrayLabelProps {
   /** CSS class name */
@@ -27,7 +28,7 @@ const FieldArrayLabel = ({
   label: _label,
   name,
 }: FieldArrayLabelProps) => {
-  const { error, ids, invalid, label, required } = useUniformFieldState({
+  const { error, ids, invalid, label, required } = useUniformField({
     name,
     label: _label,
   });
@@ -43,9 +44,9 @@ const FieldArrayLabel = ({
   const hasErrors = invalid && error?._errors;
 
   return (
-    <div
+    <FieldLabel
+      as="div"
       id={id ?? ids.label}
-      data-slot="label"
       aria-level={3}
       className={cn(
         'block max-w-full overflow-hidden text-ellipsis subpixel-antialiased text-small',
@@ -57,14 +58,11 @@ const FieldArrayLabel = ({
         },
       )}
       role="heading"
+      required={required}
+      requiredClassName="ms-0.5 text-danger"
     >
       {label}
-      {required ? (
-        <span aria-hidden className="ms-0.5 text-danger">
-          *
-        </span>
-      ) : null}
-    </div>
+    </FieldLabel>
   );
 };
 

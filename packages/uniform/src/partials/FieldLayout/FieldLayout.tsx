@@ -1,78 +1,84 @@
-import type { ReactNode } from 'react';
-import type { FieldIds } from './FieldLayout.types';
+import type { ComponentProps, ReactNode } from 'react';
+import type { FieldIds } from '../types';
 
-/** Local presentation only. Registration and error timing remain in the shared hook. */
-export const FieldLabel = ({
-  ids,
-  label,
-  required,
-  className = undefined,
-}: {
-  ids: FieldIds;
-  label: ReactNode;
-  required: boolean;
-  className?: string;
-}) => {
-  if (!label) {
-    return null;
-  }
-  return (
-    <label
-      className={className}
-      data-slot="label"
-      htmlFor={ids.control}
-      id={ids.label}
-    >
-      {label}
-      {required ? (
-        <span aria-hidden className="ml-0.5 text-danger">
-          *
-        </span>
-      ) : null}
-    </label>
-  );
-};
+import FieldDescription from '../FieldDescription/FieldDescription';
+import FieldLabel from '../FieldLabel/FieldLabel';
 
-export const FieldHints = ({
-  ids,
-  description = undefined,
-  invalid,
-  errorMessage,
-  classes,
-}: {
-  ids: FieldIds;
+type ClassName = Partial<
+  Record<'description' | 'errorMessage' | 'helperWrapper' | 'label', string>
+>;
+
+interface FieldLayoutProps {
+  /** Editable field content */
+  children: ReactNode;
+  /** CSS class name */
+  className: ClassName;
+  /** Help text */
   description?: ReactNode;
-  invalid: boolean;
+  /** Rendered validation messages */
   errorMessage: ReactNode;
-  classes: {
-    description?: string;
-    helperWrapper?: string;
-    errorMessage?: string;
-  };
-}): ReactNode => {
-  if (!description && !invalid) {
-    return null;
-  }
+  /** IDs shared with the editable control */
+  ids: FieldIds;
+  /** Shows the validation message */
+  invalid: boolean;
+  /** Field label */
+  label?: ReactNode;
+  /** Label element, use React Aria Label inside group engines */
+  labelAs?: ComponentProps<typeof FieldLabel>['as'];
+  /** Shows the required indicator */
+  required?: boolean;
+}
+
+/**
+ * Default arrangement of a field label, editable content and supporting messages
+ *
+ * Renders a fragment inside the field root, which owns the base element and
+ * interaction context. Receives IDs, resolved classes and validation state
+ */
+const FieldLayout = ({
+  children,
+  className,
+  description = undefined,
+  errorMessage,
+  ids,
+  invalid,
+  label = undefined,
+  labelAs = 'label',
+  required = false,
+}: FieldLayoutProps) => {
   return (
-    <div className={classes.helperWrapper} data-slot="helper-wrapper">
-      {description ? (
-        <div
-          className={classes.description}
-          data-slot="description"
-          id={ids.description}
-        >
-          {description}
+    <>
+      <FieldLabel
+        as={labelAs}
+        className={className.label}
+        htmlFor={labelAs === 'label' ? ids.control : undefined}
+        id={ids.label}
+        required={required}
+      >
+        {label}
+      </FieldLabel>
+      {children}
+      {description || invalid ? (
+        <div className={className.helperWrapper} data-slot="helper-wrapper">
+          <FieldDescription
+            className={className.description}
+            id={ids.description}
+          >
+            {description}
+          </FieldDescription>
+          {invalid ? (
+            <div
+              className={className.errorMessage}
+              data-slot="error-message"
+              id={ids.error}
+            >
+              {errorMessage}
+            </div>
+          ) : null}
         </div>
       ) : null}
-      {invalid ? (
-        <div
-          className={classes.errorMessage}
-          data-slot="error-message"
-          id={ids.error}
-        >
-          {errorMessage}
-        </div>
-      ) : null}
-    </div>
+    </>
   );
 };
+
+export default FieldLayout;

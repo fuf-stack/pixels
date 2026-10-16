@@ -17,8 +17,9 @@ import { tv } from '@fuf-stack/pixel-utils';
 import { useStyling } from '@fuf-stack/pixels/StylingProvider';
 
 import { isValueEmpty } from '../helpers';
-import useUniformFieldState from '../hooks/useUniformFieldState/useUniformFieldState';
-import { FieldHints } from '../partials/FieldLayout/FieldLayout';
+import useUniformField from '../hooks/useUniformField/useUniformField';
+import FieldDescription from '../partials/FieldDescription/FieldDescription';
+import FieldLabel from '../partials/FieldLabel/FieldLabel';
 
 export const sliderVariants = tv({
   slots: {
@@ -172,7 +173,7 @@ const Slider = ({
   step = 1,
   ...uniformFieldProps
 }: SliderProps) => {
-  const field = useUniformFieldState({ name, ...uniformFieldProps });
+  const field = useUniformField({ name, ...uniformFieldProps });
   const { disabled, invalid, label, required, ids, testId, ref } = field;
   const inputRef = useMemo(() => {
     let current: HTMLInputElement | null = null;
@@ -219,11 +220,12 @@ const Slider = ({
       data-invalid={invalid}
       data-required={required}
       data-testid={testId}
-      tabIndex={disabled ? undefined : -1}
       onFocus={(event) => {
-        if (event.target === event.currentTarget && !disabled)
+        if (event.target === event.currentTarget && !disabled) {
           inputRef.current?.focus();
+        }
       }}
+      tabIndex={disabled ? undefined : -1}
     >
       {required ? (
         <span className="sr-only" id={`${ids.control}-required`}>
@@ -233,19 +235,21 @@ const Slider = ({
       <AriaSlider<number>
         {...associations}
         {...hoverProps}
+        aria-describedby={describedBy}
         aria-labelledby={undefined}
         aria-required={undefined}
-        aria-describedby={describedBy}
         className={classes.visualBase}
-        data-slot="base"
         data-hover={isHovered}
+        data-slot="base"
         isDisabled={disabled}
-        minValue={minValue}
         maxValue={maxValue}
+        minValue={minValue}
         name={name}
         onChange={field.onChange}
         onChangeEnd={(next) => {
-          if (isValueEmpty(field.getValues(name))) field.onChange(next);
+          if (isValueEmpty(field.getValues(name))) {
+            field.onChange(next);
+          }
         }}
         step={step}
         value={value}
@@ -253,14 +257,14 @@ const Slider = ({
         {label ? (
           <div className={classes.labelWrapper} data-slot="labelWrapper">
             {label ? (
-              <Label className={classes.label} data-slot="label" id={ids.label}>
+              <FieldLabel
+                as={Label}
+                className={classes.label}
+                id={ids.label}
+                required={required}
+              >
                 {label}
-                {required ? (
-                  <span aria-hidden className="ml-0.5 text-danger">
-                    *
-                  </span>
-                ) : null}
-              </Label>
+              </FieldLabel>
             ) : null}
             <SliderOutput className={classes.value} data-slot="value" />
           </div>
@@ -281,14 +285,14 @@ const Slider = ({
               return (
                 <div
                   {...props}
-                  data-thumb-hidden="false"
-                  data-vertical="false"
-                  data-fill-start={
-                    fillOffset === undefined ? end - start > 0 : start === 0
-                  }
                   data-fill-end={
                     fillOffset === undefined ? end - start === 1 : end === 1
                   }
+                  data-fill-start={
+                    fillOffset === undefined ? end - start > 0 : start === 0
+                  }
+                  data-thumb-hidden="false"
+                  data-vertical="false"
                 >
                   {props.children}
                 </div>
@@ -315,8 +319,8 @@ const Slider = ({
                         key={index}
                         aria-hidden
                         className={classes.step}
-                        data-slot="step"
                         data-in-range={point >= start && point <= end}
+                        data-slot="step"
                         style={{ insetInlineStart: `${point * 100}%` }}
                       />
                     );
@@ -325,9 +329,9 @@ const Slider = ({
                     className={classes.thumb}
                     data-slot="thumb"
                     inputRef={inputRef}
+                    isInvalid={invalid}
                     name={name}
                     onBlur={field.onBlur}
-                    isInvalid={invalid}
                   />
                 </>
               );
@@ -340,13 +344,25 @@ const Slider = ({
           ) : null}
         </div>
       </AriaSlider>
-      <FieldHints
-        classes={classes}
-        description={field.description}
-        errorMessage={field.errorMessage}
-        ids={ids}
-        invalid={invalid}
-      />
+      {field.description || invalid ? (
+        <div className={classes.helperWrapper} data-slot="helper-wrapper">
+          <FieldDescription
+            className={classes.description}
+            id={ids.description}
+          >
+            {field.description}
+          </FieldDescription>
+          {invalid ? (
+            <div
+              className={classes.errorMessage}
+              data-slot="error-message"
+              id={ids.error}
+            >
+              {field.errorMessage}
+            </div>
+          ) : null}
+        </div>
+      ) : null}
     </div>
   );
 };
