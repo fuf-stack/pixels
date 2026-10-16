@@ -56,12 +56,20 @@ export const checkboxesVariants = tv({
     /** Clickable checkbox option */
     optionBase: [
       '',
-      'group relative -m-2 inline-flex max-w-fit cursor-pointer select-none items-center justify-start p-2 tap-highlight-transparent data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-disabled',
+      // option layout and pointer behavior
+      'group relative -m-2 inline-flex max-w-fit cursor-pointer select-none items-center justify-start p-2 tap-highlight-transparent',
+      // disabled interaction and opacity
+      'data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-disabled',
     ],
     /** Checkmark inside the selection indicator */
     optionIcon: [
       '',
-      'pointer-events-none z-10 h-3 w-4 opacity-0 transition-opacity group-data-[selected=true]:opacity-100 motion-reduce:transition-none',
+      // checkmark dimensions and fade transition
+      'pointer-events-none z-10 h-3 w-4 opacity-0 transition-opacity',
+      // selected visibility
+      'group-data-[selected=true]:opacity-100',
+      // reduced motion
+      'motion-reduce:transition-none',
     ],
     /** Primary option text */
     optionLabel: '',
@@ -70,7 +78,20 @@ export const checkboxesVariants = tv({
     /** Outline and fill around the checkmark */
     optionWrapper: [
       '',
-      `relative me-2 inline-flex h-5 w-5 shrink-0 items-center justify-center overflow-hidden rounded-[calc(var(--pixel-radius-medium)*0.6)] transition-transform before:absolute before:inset-0 before:box-border before:rounded-[inherit] before:border-2 before:border-solid before:border-default before:transition-colors before:content-[''] after:absolute after:inset-0 after:origin-center after:scale-50 after:rounded-[inherit] after:opacity-0 after:duration-200 after:ease-linear after:content-[''] after:transition-transform-opacity group-data-[pressed=true]:scale-95 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[hover=true]:before:bg-default-100 group-data-[selected=true]:after:scale-100 group-data-[selected=true]:after:opacity-100 motion-reduce:transition-none`,
+      // checkbox dimensions and layout
+      'relative me-2 inline-flex h-5 w-5 shrink-0 items-center justify-center overflow-hidden rounded-[calc(var(--pixel-radius-medium)*0.6)] transition-transform',
+      // unselected border layer
+      "before:absolute before:inset-0 before:box-border before:rounded-[inherit] before:border-2 before:border-solid before:border-default before:transition-colors before:content-['']",
+      // animated selection layer
+      "after:absolute after:inset-0 after:origin-center after:scale-50 after:rounded-[inherit] after:opacity-0 after:duration-200 after:ease-linear after:content-[''] after:transition-transform-opacity",
+      // pressed scale
+      'group-data-[pressed=true]:scale-95',
+      // keyboard focus ring
+      'group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background',
+      // hover and selected states
+      'group-data-[hover=true]:before:bg-default-100 group-data-[selected=true]:after:scale-100 group-data-[selected=true]:after:opacity-100',
+      // reduced motion
+      'motion-reduce:transition-none',
     ],
     /** Container arranging the selectable content */
     wrapper: [
@@ -82,7 +103,12 @@ export const checkboxesVariants = tv({
     lineThrough: {
       true: {
         optionLabel: [
-          "inline-flex items-center justify-center before:absolute before:h-0.5 before:w-0 before:bg-foreground before:content-[''] group-data-[selected=true]:opacity-60 group-data-[selected=true]:before:w-full",
+          // label layout
+          'inline-flex items-center justify-center',
+          // strikethrough line
+          "before:absolute before:h-0.5 before:w-0 before:bg-foreground before:content-['']",
+          // selected strikethrough state
+          'group-data-[selected=true]:opacity-60 group-data-[selected=true]:before:w-full',
           'relative before:transition-all before:duration-200',
         ],
         optionLabelSubline: 'group-data-[selected=true]:opacity-60',

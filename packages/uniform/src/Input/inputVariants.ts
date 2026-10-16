@@ -8,8 +8,12 @@ export const inputVariants = tv({
     /** Container grouping the label, control and hints */
     base: 'group relative flex w-full flex-col',
     /** Button for clearing the current value */
-    clearButton:
-      'absolute end-3 z-10 -m-2 cursor-pointer rounded-full p-2 opacity-70 outline-none text-large hover:opacity-100 focus-visible:outline-2 focus-visible:outline-focus',
+    clearButton: [
+      // clear button placement and appearance
+      'absolute end-3 z-10 -m-2 cursor-pointer rounded-full p-2 opacity-70 outline-none text-large',
+      // hover and keyboard focus
+      'hover:opacity-100 focus-visible:outline-2 focus-visible:outline-focus',
+    ],
     /** Supporting text below the input */
     description: 'text-foreground-500 text-tiny',
     /** Container for validation messages */
@@ -19,19 +23,41 @@ export const inputVariants = tv({
     /** Row containing the input, addons and actions */
     innerWrapper: 'inline-flex h-full w-full items-center gap-0',
     /** Native input for text or numeric entry */
-    input:
-      'w-full min-w-0 bg-transparent bg-clip-text font-normal text-inherit outline-none text-small placeholder:text-foreground-500 autofill:bg-transparent data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden',
+    input: [
+      // editable text and transparent surface
+      'w-full min-w-0 bg-transparent bg-clip-text font-normal text-inherit outline-none text-small',
+      // placeholder and autofill
+      'placeholder:text-foreground-500 autofill:bg-transparent',
+      // spacing around surrounding content
+      'data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5',
+      // browser-specific input appearance
+      'dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden',
+    ],
     /** Bordered container around the editable area */
-    inputWrapper:
-      'shadow-xs relative inline-flex h-10 min-h-10 w-full cursor-text items-center rounded-small border-medium border-default-200 bg-content1 px-3 text-foreground transition-colors data-[hovered=true]:border-default-400 group-data-[disabled=true]:pointer-events-none group-data-[focus=true]:border-focus group-data-[invalid=true]:border-danger group-data-[focus=true]:data-[hovered=true]:border-default-foreground motion-reduce:transition-none',
+    inputWrapper: [
+      // input frame and layout
+      'shadow-xs relative inline-flex h-10 min-h-10 w-full cursor-text items-center',
+      // bordered surface and text
+      'rounded-small border-medium border-default-200 bg-content1 px-3 text-foreground',
+      // interaction transitions
+      'transition-colors',
+      // hover, disabled and validation states
+      'data-[hovered=true]:border-default-400 group-data-[disabled=true]:pointer-events-none group-data-[focus=true]:border-focus group-data-[invalid=true]:border-danger group-data-[focus=true]:data-[hovered=true]:border-default-foreground',
+      // reduced motion
+      'motion-reduce:transition-none',
+    ],
     /** Label above the input */
     label:
       'block cursor-default pb-1 text-foreground text-small group-data-[invalid=true]:text-danger',
     /** Container grouping increment and decrement buttons */
     stepper: 'flex h-full flex-col justify-center ps-1',
     /** Buttons for increasing or decreasing the numeric value */
-    stepperButton:
-      'flex h-3 w-3 items-center justify-center text-default-foreground outline-none hover:opacity-hover focus-visible:outline-2 focus-visible:outline-focus',
+    stepperButton: [
+      // stepper button dimensions and appearance
+      'flex h-3 w-3 items-center justify-center text-default-foreground outline-none',
+      // hover and keyboard focus
+      'hover:opacity-hover focus-visible:outline-2 focus-visible:outline-focus',
+    ],
   },
   variants: {
     filled: {

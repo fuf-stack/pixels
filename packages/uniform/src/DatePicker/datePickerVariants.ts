@@ -15,8 +15,14 @@ export const datePickerVariants = tv({
       'relative inline-block w-64 max-w-full overflow-hidden rounded-large bg-default-50 dark:bg-background',
     ],
     /** Previous or next month button */
-    calendarButton:
-      'outline-solid flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-default-400 outline-transparent hover:bg-default/40 data-[disabled=true]:opacity-disabled data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus',
+    calendarButton: [
+      // navigation button layout and appearance
+      'outline-solid flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-default-400 outline-transparent',
+      // hover and disabled states
+      'hover:bg-default/40 data-[disabled=true]:opacity-disabled',
+      // keyboard focus outline
+      'data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus',
+    ],
     /** Calendar grid and navigation area */
     calendarContent: ['', 'w-full'],
     /** Row containing month navigation */
@@ -25,7 +31,20 @@ export const datePickerVariants = tv({
     /** Currently displayed month and year */
     calendarTitle: 'flex-1 text-center font-medium text-default-500 text-small',
     /** Selectable date with interaction states */
-    cell: 'outline-solid flex h-8 w-8 cursor-pointer select-none items-center justify-center rounded-full text-foreground outline-transparent transition-colors data-[focus-visible=true]:z-10 data-[disabled=true]:cursor-default data-[unavailable=true]:cursor-default data-[hovered=true]:bg-primary-50 data-[selected=true]:bg-primary data-[selected=true]:data-[hovered=true]:bg-primary data-[disabled=true]:text-default-300 data-[hovered=true]:text-primary-400 data-[selected=true]:data-[hovered=true]:text-primary-foreground data-[selected=true]:text-primary-foreground data-[unavailable=true]:text-default-300 data-[unavailable=true]:line-through data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus motion-reduce:transition-none',
+    cell: [
+      // day cell layout and appearance
+      'outline-solid flex h-8 w-8 cursor-pointer select-none items-center justify-center rounded-full text-foreground outline-transparent transition-colors',
+      // focus stacking and unavailable cursors
+      'data-[focus-visible=true]:z-10 data-[disabled=true]:cursor-default data-[unavailable=true]:cursor-default',
+      // hover and selection backgrounds
+      'data-[hovered=true]:bg-primary-50 data-[selected=true]:bg-primary data-[selected=true]:data-[hovered=true]:bg-primary',
+      // day text states
+      'data-[disabled=true]:text-default-300 data-[hovered=true]:text-primary-400 data-[selected=true]:data-[hovered=true]:text-primary-foreground data-[selected=true]:text-primary-foreground data-[unavailable=true]:text-default-300 data-[unavailable=true]:line-through',
+      // keyboard focus outline
+      'data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus',
+      // reduced motion
+      'motion-reduce:transition-none',
+    ],
     /** Keyboard focus boundary inside the popup */
     dialog: 'flex flex-col outline-none',
     /** Table of selectable dates */
@@ -66,7 +85,12 @@ export const datePickerVariants = tv({
     /** Button opening the calendar popup */
     selectorButton: [
       '',
-      'outline-solid relative -mx-2 inline-flex h-8 min-h-8 w-8 min-w-8 shrink-0 items-center justify-center rounded-full text-inherit outline-transparent text-tiny hover:bg-default/40 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus',
+      // calendar trigger layout and appearance
+      'outline-solid relative -mx-2 inline-flex h-8 min-h-8 w-8 min-w-8 shrink-0 items-center justify-center rounded-full text-inherit outline-transparent text-tiny',
+      // hover background
+      'hover:bg-default/40',
+      // keyboard focus outline
+      'data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus',
     ],
     /** Icon inside the calendar toggle */
     selectorIcon: ['', 'h-[18px] w-[18px]'],
@@ -78,8 +102,12 @@ export const datePickerVariants = tv({
     /** Label beside the calendar time input */
     timeInputLabel: ['', 'relative font-medium text-foreground text-tiny'],
     /** Surface around the calendar time segments */
-    timeInputWrapper:
-      'shadow-xs relative inline-flex h-8 min-h-8 w-full flex-1 items-center rounded-small bg-default-100 px-2 hover:bg-default-200 focus-within:hover:bg-default-100',
+    timeInputWrapper: [
+      // time input frame and surface
+      'shadow-xs relative inline-flex h-8 min-h-8 w-full flex-1 items-center rounded-small bg-default-100 px-2',
+      // hover and focus backgrounds
+      'hover:bg-default-200 focus-within:hover:bg-default-100',
+    ],
   },
   variants: {
     disabled: { true: { base: 'pointer-events-none opacity-disabled' } },

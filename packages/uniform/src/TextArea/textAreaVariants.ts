@@ -18,11 +18,31 @@ export const textAreaVariants = tv({
     /** Container around the autosizing textarea */
     innerWrapper: 'inline-flex w-full items-start',
     /** Editable multiline text */
-    input:
-      'w-full min-w-0 resize-none bg-transparent bg-clip-text font-normal text-inherit outline-none duration-100 transition-height text-small placeholder:text-foreground-500 autofill:bg-transparent data-[hide-scroll=true]:[scrollbar-width:none] motion-reduce:transition-none dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] data-[hide-scroll=true]:[&::-webkit-scrollbar]:hidden',
+    input: [
+      // editable text and transparent surface
+      'w-full min-w-0 resize-none bg-transparent bg-clip-text font-normal text-inherit outline-none',
+      // autosize transition
+      'duration-100 transition-height text-small',
+      // placeholder and autofill
+      'placeholder:text-foreground-500 autofill:bg-transparent',
+      // scrollbar visibility and reduced motion
+      'data-[hide-scroll=true]:[scrollbar-width:none] motion-reduce:transition-none',
+      // browser-specific textarea appearance
+      'dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] data-[hide-scroll=true]:[&::-webkit-scrollbar]:hidden',
+    ],
     /** Bordered surface around the textarea */
-    inputWrapper:
-      'shadow-xs relative inline-flex w-full cursor-text items-start rounded-medium border-medium border-default-200 bg-content1 px-3 py-2 text-foreground transition-colors data-[hover=true]:border-default-400 group-data-[focus=true]:border-focus group-data-[focus=true]:data-[hover=true]:border-default-foreground motion-reduce:transition-none',
+    inputWrapper: [
+      // textarea frame and layout
+      'shadow-xs relative inline-flex w-full cursor-text items-start',
+      // bordered surface and text
+      'rounded-medium border-medium border-default-200 bg-content1 px-3 py-2 text-foreground',
+      // interaction transitions
+      'transition-colors',
+      // hover and focus borders
+      'data-[hover=true]:border-default-400 group-data-[focus=true]:border-focus group-data-[focus=true]:data-[hover=true]:border-default-foreground',
+      // reduced motion
+      'motion-reduce:transition-none',
+    ],
     /** Label above the textarea */
     label: 'block pb-1.5 text-foreground text-small',
   },

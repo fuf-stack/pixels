@@ -9,8 +9,14 @@ export const switchVariants = tv({
     /** Supporting text for the field */
     description: 'text-foreground-500 text-tiny',
     /** Content at the end of the control */
-    endContent:
-      'absolute end-1.5 z-0 text-default-600 opacity-100 transition-transform-opacity text-small group-data-[selected=true]:translate-x-3 group-data-[selected=true]:opacity-0 motion-reduce:transition-none',
+    endContent: [
+      // end icon position and fade transition
+      'absolute end-1.5 z-0 text-default-600 opacity-100 transition-transform-opacity text-small',
+      // move and hide the selected end icon
+      'group-data-[selected=true]:translate-x-3 group-data-[selected=true]:opacity-0',
+      // reduced motion
+      'motion-reduce:transition-none',
+    ],
     /** Container for validation messages */
     errorMessage: 'text-danger text-tiny',
     /** Container for help text and validation messages */
@@ -21,16 +27,36 @@ export const switchVariants = tv({
     /** Container grouping the toggle and field messages */
     outerWrapper: 'place-content-center',
     /** Content at the start of the control */
-    startContent:
-      'absolute start-1.5 z-0 scale-50 text-current opacity-0 transition-transform-opacity text-small group-data-[selected=true]:scale-100 group-data-[selected=true]:opacity-100 motion-reduce:transition-none',
+    startContent: [
+      // start icon position and fade transition
+      'absolute start-1.5 z-0 scale-50 text-current opacity-0 transition-transform-opacity text-small',
+      // reveal the selected start icon
+      'group-data-[selected=true]:scale-100 group-data-[selected=true]:opacity-100',
+      // reduced motion
+      'motion-reduce:transition-none',
+    ],
     /** Movable indicator showing the current value */
-    thumb:
-      'pointer-events-none z-10 flex h-5 w-5 origin-right items-center justify-center rounded-full bg-white shadow-small transition-all text-small group-data-[selected=true]:group-data-[pressed=true]:ms-4 group-data-[selected=true]:ms-5 group-data-[pressed=true]:w-6 motion-reduce:transition-none',
+    thumb: [
+      // thumb layout and surface
+      'pointer-events-none z-10 flex h-5 w-5 origin-right items-center justify-center rounded-full bg-white shadow-small transition-all text-small',
+      // selected position and pressed width
+      'group-data-[selected=true]:group-data-[pressed=true]:ms-4 group-data-[selected=true]:ms-5 group-data-[pressed=true]:w-6',
+      // reduced motion
+      'motion-reduce:transition-none',
+    ],
     /** Content inside the toggle thumb */
     thumbIcon: 'text-black',
     /** Container arranging the selectable content */
-    wrapper:
-      'relative inline-flex h-7 w-12 shrink-0 items-center justify-start overflow-hidden rounded-full bg-default-200 px-1 transition-background group-data-[selected=true]:bg-primary group-data-[selected=true]:text-primary-foreground group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background motion-reduce:transition-none',
+    wrapper: [
+      // switch track layout and surface
+      'relative inline-flex h-7 w-12 shrink-0 items-center justify-start overflow-hidden rounded-full bg-default-200 px-1 transition-background',
+      // selected track colors
+      'group-data-[selected=true]:bg-primary group-data-[selected=true]:text-primary-foreground',
+      // keyboard focus ring
+      'group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background',
+      // reduced motion
+      'motion-reduce:transition-none',
+    ],
   },
   variants: {
     size: {

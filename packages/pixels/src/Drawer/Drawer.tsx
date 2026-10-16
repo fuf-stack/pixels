@@ -15,13 +15,13 @@ import { tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 // drawer variants
 export const drawerVariants = tv({
   slots: {
-    wrapper: '',
-    base: '',
     backdrop: '',
-    header: '',
+    base: '',
     body: '',
-    footer: '',
     closeButton: '',
+    footer: '',
+    header: '',
+    wrapper: '',
   },
 });
 

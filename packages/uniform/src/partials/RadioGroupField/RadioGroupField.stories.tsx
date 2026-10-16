@@ -30,10 +30,10 @@ const storyVariants = tv({
   slots: {
     /** Group label, options and supporting messages */
     base: 'group flex w-72 flex-col gap-2',
-    /** Options arranged in the requested direction */
-    wrapper: 'flex flex-col gap-2 data-[orientation=horizontal]:flex-row',
     /** Validation messages below the options */
     errorMessage: 'text-danger text-tiny',
+    /** Options arranged in the requested direction */
+    wrapper: 'flex flex-col gap-2 data-[orientation=horizontal]:flex-row',
   },
 });
 const variants = storyVariants();

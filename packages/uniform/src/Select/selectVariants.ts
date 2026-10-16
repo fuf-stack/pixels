@@ -16,8 +16,14 @@ export const selectVariants = tv({
     ],
     clearIndicator:
       'rounded-md p-1 text-foreground-500 hover:cursor-pointer hover:bg-default-200 hover:text-foreground-800',
-    control:
-      'duration-150! min-h-10 rounded-lg border-2 border-default-200 bg-content1 transition-background hover:border-default-400 group-data-[invalid=true]:border-danger group-data-[invalid=true]:hover:border-danger motion-reduce:transition-none',
+    control: [
+      // control surface and transition
+      'duration-150! min-h-10 rounded-lg border-2 border-default-200 bg-content1 transition-background',
+      // hover and validation borders
+      'hover:border-default-400 group-data-[invalid=true]:border-danger group-data-[invalid=true]:hover:border-danger',
+      // reduced motion
+      'motion-reduce:transition-none',
+    ],
     control_focused: 'border-focus',
     crossIcon: '',
     description: 'text-foreground-500 text-tiny',
@@ -28,13 +34,17 @@ export const selectVariants = tv({
     group: '',
     groupHeading: 'mb-1 ml-3 mt-2 text-sm text-foreground-500',
     helperWrapper: 'relative flex flex-col gap-1.5 p-0',
-    indicatorsContainer: 'gap-1 p-1',
     indicatorSeparator: 'bg-default-300',
+    indicatorsContainer: 'gap-1 p-1',
     input: 'py-0.5 pl-1',
     // see HeroUI styles for group-data condition,
     // e.g.: https://github.com/heroui-inc/heroui/blob/main/packages/core/theme/src/components/select.ts
-    label:
-      'pointer-events-auto inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger',
+    label: [
+      // label interaction and typography
+      'pointer-events-auto inline-flex cursor-default text-sm text-foreground subpixel-antialiased',
+      // validation color
+      'group-data-[invalid=true]:!text-danger',
+    ],
     loadingIndicator: '',
     loadingMessage: 'rounded-sm p-2 text-foreground-500',
     menu: 'mt-2 rounded-xl border border-default-200 bg-content1 p-1 shadow-lg',
@@ -45,8 +55,12 @@ export const selectVariants = tv({
     multiValue: 'h-6 items-center gap-1.5 rounded bg-default-100 pl-2 pr-1',
     multiValueContainer: '',
     multiValueLabel: 'py-0 leading-5',
-    multiValueRemove:
-      'flex h-5 w-5 items-center justify-center rounded text-default-500 hover:cursor-pointer hover:border-default-300 hover:text-default-800',
+    multiValueRemove: [
+      // remove button layout and appearance
+      'flex h-5 w-5 items-center justify-center rounded text-default-500',
+      // hover feedback
+      'hover:cursor-pointer hover:border-default-300 hover:text-default-800',
+    ],
     noOptionsMessage: 'rounded-sm p-2 text-foreground-500',
     option: 'rounded px-3 py-2 hover:cursor-pointer',
     option_disabled:

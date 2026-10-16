@@ -17,7 +17,12 @@ export const radioTabsVariants = tv({
     /** Highlight behind the selected tab */
     cursor: [
       '',
-      'pointer-events-none absolute z-0 rounded-small bg-background shadow-small transition-[left,top,width,height] duration-250 ease-out motion-reduce:transition-none dark:bg-default',
+      // selection indicator surface
+      'pointer-events-none absolute z-0 rounded-small bg-background shadow-small',
+      // animate indicator position and size
+      'transition-[left,top,width,height] duration-250 ease-out motion-reduce:transition-none',
+      // dark theme surface
+      'dark:bg-default',
     ],
     /** Supporting text below the selection */
     description: 'text-foreground-400 text-tiny',
@@ -33,19 +38,34 @@ export const radioTabsVariants = tv({
     /** Selectable tab button */
     tab: [
       '',
-      'outline-solid group relative z-0 flex h-8 w-full cursor-pointer items-center justify-center rounded-small px-3 py-1 outline-transparent transition-opacity text-small data-[focus-visible=true]:z-10 data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus motion-reduce:transition-none',
+      // tab dimensions and appearance
+      'outline-solid group relative z-0 flex h-8 w-full cursor-pointer items-center justify-center rounded-small px-3 py-1 outline-transparent transition-opacity text-small',
+      // focus stacking and disabled state
+      'data-[focus-visible=true]:z-10 data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30',
+      // keyboard focus outline
+      'data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus',
+      // reduced motion
+      'motion-reduce:transition-none',
     ],
     /** Container around the tab list */
     tabBase: ['', 'inline-flex w-full'],
     /** Text and icons inside a tab */
     tabContent: [
       '',
-      'relative z-10 whitespace-nowrap text-foreground transition-colors group-data-[selected=true]:text-default-foreground motion-reduce:transition-none',
+      // tab text and color transition
+      'relative z-10 whitespace-nowrap text-foreground transition-colors',
+      // selected text
+      'group-data-[selected=true]:text-default-foreground',
+      // reduced motion
+      'motion-reduce:transition-none',
     ],
     /** Row of selectable tabs */
     tabList: [
       '',
-      'relative flex h-fit w-full flex-nowrap items-center gap-2 overflow-x-auto rounded-medium bg-default-100 p-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden',
+      // tab row layout and surface
+      'relative flex h-fit w-full flex-nowrap items-center gap-2 overflow-x-auto rounded-medium bg-default-100 p-1',
+      // hide the horizontal scrollbar
+      '[scrollbar-width:none] [&::-webkit-scrollbar]:hidden',
     ],
     /** Content associated with the selected tab */
     tabPanel: [

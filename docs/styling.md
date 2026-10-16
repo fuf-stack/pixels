@@ -137,6 +137,32 @@ export const alertVariants = tv({
 });
 ```
 
+### Group long class lists by purpose
+
+Split long slot class lists into arrays of strings. Keep related utilities together,
+for example control layout, border and background, typography, focus feedback or
+pseudo-element layers. Add short lowercase comments describing each group's role.
+Keep short, obvious slot styles as single strings, and avoid a comment per utility.
+Use the same grouping for substantial overrides inside variants and compound variants.
+
+Preserve the original class order when splitting a list, including state selectors,
+conflicting utilities and browser-specific rules. Do not sort the classes as part of
+this cleanup. Keep slot keys alphabetical in defaults and all overrides, without
+reordering variant axes or compound variant entries, which can affect precedence.
+
+```ts
+inputWrapper: [
+  // control dimensions and layout
+  'relative inline-flex h-10 w-full items-center gap-3',
+  // bordered surface
+  'rounded-small border-2 border-default-200 bg-content1 px-3',
+  // hover and focus borders
+  'hover:border-default-400 focus-within:border-focus',
+  // reduced motion
+  'transition-colors motion-reduce:transition-none',
+],
+```
+
 ### 2) Derive the public prop types from the variants
 
 The variant definition is the single source of truth. Derive and export both

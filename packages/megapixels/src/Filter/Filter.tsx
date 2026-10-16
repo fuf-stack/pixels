@@ -21,20 +21,20 @@ const debug = createDebug('megapixels:Filter');
 // filter styling variants
 export const filterVariants = tv({
   slots: {
-    // outer wrapper
-    base: 'flex flex-auto flex-col',
+    // active filter label
+    activeFilterLabel: 'h-8 cursor-pointer rounded-md dark:text-foreground',
     // add filter menu trigger button
     addFilterMenuButton: '',
     // add filter menu item
     addFilterMenuItem: '',
-    // active filter label
-    activeFilterLabel: 'h-8 cursor-pointer rounded-md dark:text-foreground',
+    // outer wrapper
+    base: 'flex flex-auto flex-col',
     // filter modal body
     filterModalBody: '',
-    // filter modal header
-    filterModalHeader: 'flex items-center gap-3 text-default-700',
     // filter modal footer
     filterModalFooter: 'justify-between',
+    // filter modal header
+    filterModalHeader: 'flex items-center gap-3 text-default-700',
     // form element
     form: 'mb-3 flex flex-wrap gap-3',
     // search input field

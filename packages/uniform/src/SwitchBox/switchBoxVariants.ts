@@ -5,7 +5,12 @@ import { tv } from '@fuf-stack/pixel-utils';
 export const switchBoxVariants = tv({
   slots: {
     /** Selectable box containing the toggle and text */
-    box: 'group inline-flex w-full cursor-pointer items-center justify-between rounded-lg border-2 border-default hover:bg-content2 data-[selected=true]:border-focus',
+    box: [
+      // box layout and surface
+      'group inline-flex w-full cursor-pointer items-center justify-between rounded-lg border-2 border-default',
+      // hover and selection feedback
+      'hover:bg-content2 data-[selected=true]:border-focus',
+    ],
     /** Supporting text for the field */
     description: 'text-foreground opacity-70',
     /** Container for validation messages */

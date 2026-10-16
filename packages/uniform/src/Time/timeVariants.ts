@@ -22,7 +22,17 @@ export const segmentedInputVariants = tv({
     input: 'flex h-full w-full gap-x-0.5 font-normal text-small',
     /** Bordered surface around the editable segments */
     inputWrapper: [
-      'shadow-xs relative inline-flex h-10 min-h-10 w-full cursor-text flex-row items-center gap-3 rounded-small border-2 border-default-200 px-3 transition-colors duration-150 hover:border-default-400 focus-within:hover:border-default-foreground motion-reduce:transition-none',
+      // segmented control frame and layout
+      'shadow-xs relative inline-flex h-10 min-h-10 w-full cursor-text flex-row items-center gap-3',
+      // border and padding
+      'rounded-small border-2 border-default-200 px-3',
+      // color transitions
+      'transition-colors duration-150',
+      // hover and focus borders
+      'hover:border-default-400 focus-within:hover:border-default-foreground',
+      // reduced motion
+      'motion-reduce:transition-none',
+      // surface color and focused border
       'bg-content1 focus-within:border-focus',
     ],
     /** Label above the segmented input */
@@ -31,8 +41,22 @@ export const segmentedInputVariants = tv({
       'cursor-default',
     ],
     /** Individual editable value or separator */
-    segment:
-      'outline-solid focus:shadow-xs group my-auto box-content inline-block rounded-md px-0.5 text-start tabular-nums text-foreground-500 outline-transparent transition-colors first:-ml-0.5 focus:bg-default-400/50 data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:focus:text-default-foreground motion-reduce:transition-none [&:not(:first-child)]:-ml-1',
+    segment: [
+      // segment focus outline and shadow
+      'outline-solid focus:shadow-xs',
+      // segment spacing and typography
+      'group my-auto box-content inline-block rounded-md px-0.5 text-start tabular-nums text-foreground-500 outline-transparent',
+      // color transition
+      'transition-colors',
+      // first segment alignment and focus background
+      'first:-ml-0.5 focus:bg-default-400/50',
+      // editable values and empty placeholders
+      'data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:focus:text-default-foreground',
+      // reduced motion
+      'motion-reduce:transition-none',
+      // spacing between subsequent segments
+      '[&:not(:first-child)]:-ml-1',
+    ],
   },
 });
 
@@ -49,8 +73,14 @@ export const timeVariants = tv({
         inputWrapper:
           'border-danger focus-within:border-danger hover:border-danger focus-within:hover:border-danger',
         label: 'text-danger',
-        segment:
-          'text-danger-300 focus:bg-danger-400/50 data-[editable=true]:data-[placeholder=true]:text-danger data-[editable=true]:text-danger data-[editable=true]:focus:text-danger dark:focus:bg-danger-400/20',
+        segment: [
+          // invalid text and focus background
+          'text-danger-300 focus:bg-danger-400/50',
+          // editable values and empty placeholders
+          'data-[editable=true]:data-[placeholder=true]:text-danger data-[editable=true]:text-danger data-[editable=true]:focus:text-danger',
+          // dark theme focus background
+          'dark:focus:bg-danger-400/20',
+        ],
       },
     },
   },

@@ -25,18 +25,37 @@ export const sliderVariants = tv({
     startContent: '',
     step: [
       '',
-      'absolute top-1/2 h-1.5 w-1.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-default-300/50 data-[in-range=true]:bg-background/50 rtl:translate-x-1/2',
+      // marker positioning
+      'absolute top-1/2 h-1.5 w-1.5 -translate-x-1/2 -translate-y-1/2',
+      // marker surface
+      'rounded-full bg-default-300/50',
+      // selected range and RTL positioning
+      'data-[in-range=true]:bg-background/50 rtl:translate-x-1/2',
     ],
     // Mouse submission can focus an invalid thumb without keyboard focus-visible.
     thumb: [
       'group-data-[invalid=true]:data-[focused=true]:outline-2',
       'group-data-[invalid=true]:data-[focused=true]:outline-focus',
       'group-data-[invalid=true]:data-[focused=true]:outline-offset-2',
-      "outline-solid top-1/2 flex h-6 w-6 cursor-grab items-center justify-center rounded-full border-0 bg-primary shadow-small outline-transparent ring-transparent before:absolute before:h-11 before:w-11 before:rounded-full before:content-[''] after:h-5 after:w-5 after:rounded-full after:bg-background after:shadow-small after:transition-all after:content-[''] data-[focus-visible=true]:z-10 data-[focused=true]:z-10 data-[dragging=true]:cursor-grabbing data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus data-[dragging=true]:after:scale-80 motion-reduce:after:transition-none",
+      // thumb layout and surface
+      'outline-solid top-1/2 flex h-6 w-6 cursor-grab items-center justify-center rounded-full border-0 bg-primary shadow-small outline-transparent ring-transparent',
+      // expanded pointer target
+      "before:absolute before:h-11 before:w-11 before:rounded-full before:content-['']",
+      // inner thumb surface
+      "after:h-5 after:w-5 after:rounded-full after:bg-background after:shadow-small after:transition-all after:content-['']",
+      // focus and drag stacking
+      'data-[focus-visible=true]:z-10 data-[focused=true]:z-10 data-[dragging=true]:cursor-grabbing',
+      // keyboard focus outline
+      'data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus',
+      // pressed thumb and reduced motion
+      'data-[dragging=true]:after:scale-80 motion-reduce:after:transition-none',
     ],
     track: [
       '',
-      'relative my-1.5 flex h-3 w-full rounded-full border-x-[12px] border-x-transparent bg-default-300/50 data-[fill-end=true]:border-e-primary data-[fill-start=true]:border-s-primary',
+      // track geometry and surface
+      'relative my-1.5 flex h-3 w-full rounded-full border-x-[12px] border-x-transparent bg-default-300/50',
+      // fill colors at the track ends
+      'data-[fill-end=true]:border-e-primary data-[fill-start=true]:border-s-primary',
     ],
     trackWrapper: ['', 'relative flex items-center gap-2'],
     value: ['', 'text-small'],

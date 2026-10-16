@@ -356,6 +356,10 @@ const inputVariants = tv({
 });
 ```
 
+Group long slot class lists into commented arrays by purpose, preserving class
+order and keeping short styles simple. See the
+[class grouping example](./styling.md#group-long-class-lists-by-purpose).
+
 Keep slot keys alphabetical, including slot overrides within variants. Use one
 recipe for a field's defaults and state variants. Split recipes only for distinct
 rendered controls or actual shared defaults, such as segmented input styling used

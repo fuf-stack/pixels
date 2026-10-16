@@ -17,17 +17,17 @@ import { slugify, tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
 export const tableVariants = tv({
   slots: {
     base: '',
-    wrapper: '',
-    table: '',
-    thead: '',
-    tbody: '',
-    tr: '',
-    th: 'bg-content2',
-    td: '',
-    tfoot: '',
-    sortIcon: '',
     emptyWrapper: '',
     loadingWrapper: '',
+    sortIcon: '',
+    table: '',
+    tbody: '',
+    td: '',
+    tfoot: '',
+    th: 'bg-content2',
+    thead: '',
+    tr: '',
+    wrapper: '',
   },
   variants: {
     separation: {
@@ -41,13 +41,13 @@ export const tableVariants = tv({
         tr: 'rounded-lg border-b data-[last=true]:border-none [&:first-child:not([data-first="true"])]:border-none',
       },
       'striped-divider-x': {
-        tr: 'divide-x',
-        th: 'border-divider',
         td: 'border-divider first:rounded-s-lg last:rounded-e-lg group-data-[odd=true]:bg-content2',
+        th: 'border-divider',
+        tr: 'divide-x',
       },
       striped: {
-        tr: '',
         td: 'first:rounded-s-lg last:rounded-e-lg group-data-[odd=true]:bg-content2',
+        tr: '',
       },
       none: {},
     },

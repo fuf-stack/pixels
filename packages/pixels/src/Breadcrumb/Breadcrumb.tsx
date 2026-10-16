@@ -17,13 +17,14 @@ export const breadcrumbVariants = tv({
     /** li > span slot */
     item: '',
     /** li  slot */
-    itemBase: '', // base for item slot
+    itemBase: '',
+    // base for item slot
     /** ol slot */
     list: '',
-    /** separator slot */
-    separator: '',
     /** nav slot, breadcrumb base slot in heroui */
     nav: '',
+    /** separator slot */
+    separator: '',
   },
 });
 
@@ -48,12 +49,7 @@ export interface BreadcrumbProps extends VariantProps {
   className?: ClassName;
   /** color of the active BreadcrumbItem */
   color?:
-    | 'foreground'
-    | 'primary'
-    | 'secondary'
-    | 'success'
-    | 'warning'
-    | 'danger';
+    'foreground' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
   /** Disables the breadcrumb animation */
   disableAnimation?: boolean;
   /** hides the separator between items */
