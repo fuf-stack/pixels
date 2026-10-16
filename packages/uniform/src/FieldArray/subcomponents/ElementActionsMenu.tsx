@@ -36,6 +36,8 @@ const ElementActionsMenu = ({
   testId = undefined,
 }: ElementActionsMenuProps) => {
   const { cn } = useStyling();
+
+  // dispatch the selected row action
   const handleAction = (key: Key) => {
     switch (key) {
       case 'remove':
@@ -52,7 +54,7 @@ const ElementActionsMenu = ({
     }
   };
 
-  // Build menu items based on available actions
+  // include the enabled row actions
   const menuItems: MenuItem[] = [];
 
   if (duplicate) {

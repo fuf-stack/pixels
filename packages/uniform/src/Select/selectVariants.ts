@@ -64,11 +64,11 @@ export const selectVariants = tv({
     invalid: { true: { selectedValue: 'text-danger!' } },
   },
 });
-export type VariantProps = Omit<
-  TVProps<typeof selectVariants>,
-  'disabled' | 'invalid'
->;
+
+export type VariantProps = TVProps<typeof selectVariants>;
+
 export type ClassName = TVClassName<typeof selectVariants>;
+
 export type SelectClassNames = Record<
   keyof ReturnType<typeof selectVariants>,
   string

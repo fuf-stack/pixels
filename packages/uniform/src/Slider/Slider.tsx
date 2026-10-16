@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 import type { InputValueTransform } from '../hooks/useInputValueTransform';
-import type { ClassName, VariantProps } from './sliderVariants';
+import type { ClassName } from './sliderVariants';
 
 import { isValueEmpty } from '../helpers';
 import useUniformField from '../hooks/useUniformField/useUniformField';
@@ -8,7 +8,7 @@ import SliderControl from './subcomponents/SliderControl';
 
 export { sliderVariants } from './sliderVariants';
 
-export interface SliderProps extends VariantProps {
+export interface SliderProps {
   /** Custom accessible name */
   ariaLabel?: string;
   /** CSS class name */

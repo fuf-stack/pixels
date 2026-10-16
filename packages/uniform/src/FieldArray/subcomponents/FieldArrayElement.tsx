@@ -83,10 +83,11 @@ const FieldArrayElement = ({
   testId = undefined,
 }: FieldArrayElementProps) => {
   const { cn } = useStyling();
-  // Apply transform styles when sortable is enabled for smooth drag animations
-  // transform: handles the item's position during drag
-  // transition: controls the animation timing when dropping
   const { setNodeRef, transform, transition, isDragging } = useSortable({ id });
+  // keep the row mounted until its exit animation finishes
+  const [isVisible, setIsVisible] = useState(true);
+
+  // apply drag positioning only when sorting is enabled
   const sortingStyle = sortable
     ? {
         transform: CSS.Translate.toString(transform),
@@ -95,10 +96,7 @@ const FieldArrayElement = ({
       }
     : undefined;
 
-  // Local visibility to allow exit animation before removing from RHF state
-  const [isVisible, setIsVisible] = useState(true);
-
-  // Motion variants for the list item
+  // animate row insertion and removal
   const listItemMotionVariants: MotionVariants = {
     hidden: { opacity: 0, height: 0, marginBottom: 0 },
     visible: {
@@ -129,7 +127,6 @@ const FieldArrayElement = ({
     }
   };
 
-  // Height animation handled on <motion.li> using overflow hidden
   return (
     <AnimatePresence
       mode="wait"

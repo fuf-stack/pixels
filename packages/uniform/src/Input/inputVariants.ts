@@ -68,16 +68,17 @@ export const inputVariants = tv({
     },
   },
 });
-/** Variant options accepted by the public Input recipe. */
-export type VariantProps = Omit<
-  TVProps<typeof inputVariants>,
-  'filled' | 'number' | 'clearable' | 'size' | 'disabled' | 'invalid'
->;
+
+/** Variant options for the input styling slots */
+export type VariantProps = TVProps<typeof inputVariants>;
+
 /** Class name overrides for the public Input styling slots. */
 export type ClassName = TVClassName<typeof inputVariants>;
+
 /** Resolved class names for every Input styling slot. */
 export type InputClassNames = Record<
   keyof ReturnType<typeof inputVariants>,
   string
 >;
+
 export default inputVariants;

@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import type { ClassName, VariantProps } from './textAreaVariants';
+import type { ClassName } from './textAreaVariants';
 
 import { useInputValueDebounce } from '../hooks/useInputValueDebounce';
 import useUniformField from '../hooks/useUniformField/useUniformField';
@@ -7,7 +7,7 @@ import TextAreaControl from './subcomponents/TextAreaControl';
 
 export { default as textAreaVariants } from './textAreaVariants';
 
-export interface TextAreaProps extends VariantProps {
+export interface TextAreaProps {
   /** Custom aria-label for accessibility. If not provided, falls back to field name when no visible label exists */
   ariaLabel?: string;
   /** Child components. The content of the textarea. */

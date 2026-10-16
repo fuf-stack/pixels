@@ -65,15 +65,15 @@ const SwitchControl = ({
   endContent,
   startContent,
 }: SwitchControlProps) => {
+  const styling = useStyling();
   const controlRef = useObjectRef(inputRef);
-  const associations = controlProps;
   const state = useToggleState({
     isSelected: !!value,
     onChange: onValueChange,
   });
   const { inputProps, labelProps, isPressed } = useSwitch(
     {
-      ...associations,
+      ...controlProps,
       name,
       children: label,
       isDisabled: disabled,
@@ -87,7 +87,7 @@ const SwitchControl = ({
   );
   const { focusProps, isFocused, isFocusVisible } = useFocusRing();
   const { hoverProps, isHovered } = useHover({ isDisabled: disabled });
-  const styling = useStyling();
+
   // classNames from slots
   const variants = styling.resolve(switchVariants, { size, disabled });
   const classNames = styling.variantsToClassNames(
@@ -115,7 +115,7 @@ const SwitchControl = ({
       >
         <VisuallyHidden elementType="span">
           <input
-            {...mergeProps(inputProps, focusProps, associations)}
+            {...mergeProps(inputProps, focusProps, controlProps)}
             ref={controlRef}
             data-slot="input"
           />

@@ -24,6 +24,7 @@ const ElementRemoveButton = ({
   testId = undefined,
 }: ElementRemoveButtonProps) => {
   const { cn } = useStyling();
+
   const button = (
     <Button
       ariaLabel="remove element"

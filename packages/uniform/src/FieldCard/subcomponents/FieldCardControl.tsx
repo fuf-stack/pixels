@@ -41,11 +41,12 @@ const FieldCardControl = ({
   required,
   testId,
 }: FieldCardControlProps) => {
+  const styling = useStyling();
+
   // @ts-expect-error - object-level errors include an _errors property
   const hasObjectErrors = !!error?._errors;
 
-  // className from slots
-  const styling = useStyling();
+  // classNames from slots
   const variants = styling.resolve(fieldCardVariants, { invalid });
   const classNames = styling.variantsToClassNames(variants, className, 'base');
 

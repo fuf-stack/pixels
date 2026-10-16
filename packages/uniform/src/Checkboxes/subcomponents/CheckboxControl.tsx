@@ -42,11 +42,13 @@ const CheckboxControl = ({
 }: CheckboxControlProps) => {
   const id = useId();
   const styling = useStyling();
+
   const hasSubline = !!option.labelSubline;
   const hasLabel = !!option.label || hasSubline;
   const labelledBy = hasSubline
     ? `${id}-label-text ${id}-subline`
     : `${id}-label`;
+
   // classNames from slots
   const variants = styling.resolve(checkboxOptionVariants, { color, invalid });
   const optionClassNames = styling.variantsToClassNames(variants, {

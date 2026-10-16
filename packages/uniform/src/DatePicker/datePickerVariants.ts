@@ -85,8 +85,11 @@ export const datePickerVariants = tv({
     disabled: { true: { base: 'pointer-events-none opacity-disabled' } },
   },
 });
-export type VariantProps = Omit<TVProps<typeof datePickerVariants>, 'disabled'>;
+
+export type VariantProps = TVProps<typeof datePickerVariants>;
+
 export type ClassName = TVClassName<typeof datePickerVariants>;
+
 /** Resolved class names for the date input and calendar slots */
 export type DatePickerClassNames = Record<
   keyof ReturnType<typeof datePickerVariants>,

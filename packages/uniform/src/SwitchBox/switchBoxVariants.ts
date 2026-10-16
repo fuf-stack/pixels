@@ -57,4 +57,5 @@ export const switchBoxVariants = tv({
     size: 'md',
   },
 });
+
 export type ClassName = TVClassName<typeof switchBoxVariants>;

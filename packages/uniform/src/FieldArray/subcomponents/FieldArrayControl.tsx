@@ -78,13 +78,15 @@ const FieldArrayControl = ({
   sortable = false,
   testId,
 }: FieldArrayControlProps) => {
+  const styling = useStyling();
+  const labelId = useId();
+
   // @ts-expect-error - object-level errors include an _errors property
   const hasArrayErrors = !!(invalid && error?._errors);
 
-  // classNames from slots
-  const labelId = useId();
-  const styling = useStyling();
   const { cn } = styling;
+
+  // classNames from slots
   const variants = styling.resolve(fieldArrayVariants, { hasLabel: !!label });
   const classNames = styling.variantsToClassNames(variants, className, 'base');
 

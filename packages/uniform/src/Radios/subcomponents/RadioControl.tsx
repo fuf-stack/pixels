@@ -51,6 +51,7 @@ const RadioControl = ({
     [groupDescription, description ? `${id}-description` : undefined]
       .filter(Boolean)
       .join(' ') || undefined;
+
   const control = (
     <span aria-hidden className={classNames.wrapper} data-slot="wrapper">
       <span className={classNames.control} data-slot="control" />

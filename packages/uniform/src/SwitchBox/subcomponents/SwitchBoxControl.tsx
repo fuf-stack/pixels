@@ -62,15 +62,15 @@ const SwitchBoxControl = ({
   value,
   icon,
 }: SwitchBoxControlProps) => {
+  const styling = useStyling();
   const controlRef = useObjectRef(inputRef);
-  const associations = controlProps;
   const state = useToggleState({
     isSelected: !!value,
     onChange: onValueChange,
   });
   const { inputProps, labelProps, isPressed } = useSwitch(
     {
-      ...associations,
+      ...controlProps,
       name,
       children: label,
       isDisabled: disabled,
@@ -84,7 +84,7 @@ const SwitchBoxControl = ({
   );
   const { focusProps, isFocused, isFocusVisible } = useFocusRing();
   const { hoverProps, isHovered } = useHover({ isDisabled: disabled });
-  const styling = useStyling();
+
   // classNames from slots
   const variants = styling.resolve(switchBoxVariants, {
     isDisabled: disabled,
@@ -133,7 +133,7 @@ const SwitchBoxControl = ({
       >
         <VisuallyHidden elementType="span">
           <input
-            {...mergeProps(inputProps, focusProps, associations)}
+            {...mergeProps(inputProps, focusProps, controlProps)}
             ref={controlRef}
             data-slot="input"
           />

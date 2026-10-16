@@ -10,6 +10,7 @@ import { useWatchFormReset } from '../../hooks/useWatchFormReset';
  */
 const TimeReset = () => {
   const state = useContext(TimeFieldStateContext);
+
   useWatchFormReset({
     onReset: () => {
       if (state?.value == null) {
@@ -17,6 +18,7 @@ const TimeReset = () => {
       }
     },
   });
+
   return null;
 };
 

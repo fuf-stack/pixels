@@ -58,10 +58,12 @@ const RadiosControl = ({
   testId,
   value,
 }: RadiosControlProps) => {
-  // classNames from slots
   const styling = useStyling();
+
+  // classNames from slots
   const variants = styling.resolve(radiosVariants);
   const classNames = styling.variantsToClassNames(variants, className, 'base');
+
   const optionVariants = styling.resolve(radioControlVariants, { invalid });
   const itemClassNames = styling.variantsToClassNames(optionVariants, {
     base: classNames.itemBase,
@@ -74,7 +76,7 @@ const RadiosControl = ({
 
   const selectedValue = value != null ? String(value) : '';
 
-  // Build option descriptors once so default and custom layouts share the same radio nodes/state.
+  // share option elements between default and custom layouts
   const renderedOptions = options.map((option) => {
     const optionTestId = slugify(
       `${testId}_option_${option.testId ?? option.value}`,

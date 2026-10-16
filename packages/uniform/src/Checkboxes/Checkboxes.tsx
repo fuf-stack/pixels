@@ -38,7 +38,7 @@ interface ChildRenderOption {
   };
 }
 
-export interface CheckboxesProps extends VariantProps {
+export interface CheckboxesProps {
   /** Custom accessible name */
   ariaLabel?: string;
   /** Optional child render function for custom full-list layout rendering. */
@@ -61,7 +61,6 @@ export interface CheckboxesProps extends VariantProps {
   name: string;
   /** Available options */
   options: CheckboxOption[];
-
   /** HTML data-testid attribute for e2e tests */
   testId?: string;
   /** allows disentangled display and form values for a field */

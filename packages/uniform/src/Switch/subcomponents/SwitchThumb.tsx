@@ -1,16 +1,35 @@
-import type { SwitchProps } from '../Switch';
+import type { ReactNode } from 'react';
 
 import SwitchIcon from './SwitchIcon';
 
-interface SwitchThumbProps extends Pick<SwitchProps, 'thumbIcon'> {
+export interface SwitchThumbIconProps {
+  /** Icon width */
+  width: string;
+  /** Icon height */
+  height: string;
+  /** Selected state as a string */
+  'data-checked': string;
+  /** Current toggle state */
+  isSelected: boolean;
+  /** CSS class name */
+  className: string;
+}
+
+interface SwitchThumbProps {
   /** CSS class name */
   className: string;
   /** Current toggle state supplied to the icon callback */
   selected: boolean;
+  /** Content or render callback inside the toggle thumb */
+  thumbIcon?: ReactNode | ((props: SwitchThumbIconProps) => ReactNode);
 }
 
 /** Thumb icon content, including the consumer's selection-aware render callback */
-const SwitchThumb = ({ className, selected, thumbIcon }: SwitchThumbProps) => {
+const SwitchThumb = ({
+  className,
+  selected,
+  thumbIcon = undefined,
+}: SwitchThumbProps) => {
   return (
     <>
       {typeof thumbIcon === 'function' ? (

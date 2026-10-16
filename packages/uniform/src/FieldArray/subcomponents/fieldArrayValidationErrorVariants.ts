@@ -8,4 +8,5 @@ const fieldArrayValidationErrorVariants = tv({
     helperWrapper: ['relative flex-col gap-1.5', 'block px-3 pb-2 pt-1'],
   },
 });
+
 export default fieldArrayValidationErrorVariants;

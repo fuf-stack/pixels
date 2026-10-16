@@ -21,7 +21,17 @@ not complete component implementations.
 ## Readability before compactness
 
 Use blank lines to separate setup, state, handlers and rendering. Keep related
-statements together, and leave a blank line before the return.
+statements together, and leave a blank line before the return. Group by intention,
+not just statement kind: accessible associations, normalized values, step markers
+and fill geometry are separate blocks even though all are derived values. Keep
+hooks together at the top and styling resolution in its own block. Do not place
+an unrelated hook between styling and derived values. Apply this inside
+subcomponents, effects and render callbacks too, rather than only in the main
+component body.
+
+Separate top-level declarations with blank lines too, including a recipe, each
+exported type and the final default export. Keep a declaration’s docstring attached
+to it. See the [variant export example](#types-live-with-their-owner).
 
 Comments are optional. Add a short one for timing, a constraint or a surprising
 choice. Skip comments that repeat the function name or narrate obvious code.
@@ -49,6 +59,25 @@ return (
     value={value}
   />
 );
+```
+
+For example, keep the slider value, step markers and fill geometry separate.
+Related calculations stay together without a comment on every block:
+
+```tsx
+const rawValue = displayValue != null ? Number(displayValue) : minValue;
+const value = Math.min(maxValue, Math.max(minValue, rawValue));
+
+const stepCount = showSteps
+  ? Math.max(0, Math.floor((maxValue - minValue) / (step > 0 ? step : 1)) + 1)
+  : 0;
+
+const offset = fillOffset ?? minValue;
+const offsetPercent =
+  maxValue === minValue
+    ? 0
+    : (Math.min(maxValue, Math.max(minValue, offset)) - minValue) /
+      (maxValue - minValue);
 ```
 
 Keep a related object such as `field` intact when nested destructuring and aliases
@@ -330,7 +359,9 @@ const inputVariants = tv({
 Keep slot keys alphabetical, including slot overrides within variants. Use one
 recipe for a field's defaults and state variants. Split recipes only for distinct
 rendered controls or actual shared defaults, such as segmented input styling used
-by both Time and DatePicker. Private state axes do not become component props:
+by both Time and DatePicker. `VariantProps` describes every recipe variant without
+filtering. Extend it only when the component intentionally exposes those variants.
+Otherwise define component props explicitly, keeping derived state private:
 
 ```ts
 export const textAreaVariants = tv({
@@ -347,13 +378,25 @@ export const textAreaVariants = tv({
   },
 });
 
-export type VariantProps = Omit<TVProps<typeof textAreaVariants>, 'invalid'>;
+export type VariantProps = TVProps<typeof textAreaVariants>;
+```
+
+```tsx
+// TextArea.tsx
+export interface TextAreaProps {
+  /** Disables the field */
+  disabled?: boolean;
+  /** Field name */
+  name: string;
+}
 ```
 
 ## Types live with their owner
 
 Component props belong beside their implementation. Recipe-derived types belong
 with their recipe, including `VariantProps`, `ClassName` and resolved slot types.
+Export the main recipe through the component index and describe the elements or
+states it styles, as shown in [recipe file ownership](./styling.md#recipe-file-ownership).
 See [styling type derivation](./styling.md#2-derive-the-public-prop-types-from-the-variants).
 
 Small component-local recipes can stay in the component file, with their derived
@@ -426,14 +469,17 @@ const InputControl = ({ className, ...props }: InputControlProps) => {
 ```ts
 // inputVariants.ts
 export type VariantProps = TVProps<typeof inputVariants>;
+
 export type ClassName = TVClassName<typeof inputVariants>;
+
+export default inputVariants;
 ```
 
 ```tsx
 // Input.tsx
-import type { ClassName, VariantProps } from './inputVariants';
+import type { ClassName } from './inputVariants';
 
-export interface InputProps extends VariantProps {
+export interface InputProps {
   /** CSS class name */
   className?: ClassName;
   /** Field name */
@@ -479,7 +525,7 @@ including `/** CSS class name */` and `/** Field name */`. Inherited props retai
 their original documentation. Styling details belong in [styling.md](./styling.md).
 
 ```tsx
-export interface InputProps extends VariantProps {
+export interface InputProps {
   /** CSS class name */
   className?: ClassName;
   /** Field name */

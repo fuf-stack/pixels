@@ -96,13 +96,14 @@ export const radioTabsVariants = tv({
     },
   },
 });
-export type VariantProps = Omit<
-  TVProps<typeof radioTabsVariants>,
-  'appearance'
->;
+
+export type VariantProps = TVProps<typeof radioTabsVariants>;
+
 export type ClassName = TVClassName<typeof radioTabsVariants>;
+
 export type RadioTabsClassNames = Record<
   keyof ReturnType<typeof radioTabsVariants>,
   string
 >;
+
 export default radioTabsVariants;

@@ -62,11 +62,14 @@ const CheckboxesControl = ({
   value,
 }: CheckboxesControlProps) => {
   const styling = useStyling();
+
+  // classNames from slots
   const variants = styling.resolve(checkboxesVariants, {
     lineThrough,
     invalid,
   });
   const classNames = styling.variantsToClassNames(variants, className, 'base');
+
   const associations = controlProps;
   const describedBy =
     [
@@ -75,8 +78,10 @@ const CheckboxesControl = ({
     ]
       .filter(Boolean)
       .join(' ') || undefined;
+
   const renderedOptions = options?.map((option) => {
     const optionDisabled = !!disabled || !!option.disabled;
+
     return {
       option,
       state: {
@@ -100,6 +105,7 @@ const CheckboxesControl = ({
       ),
     };
   });
+
   // route form focus to the first enabled checkbox
   const handleControlRef = (node: HTMLDivElement | null) => {
     inputRef(

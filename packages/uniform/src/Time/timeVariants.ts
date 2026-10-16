@@ -35,10 +35,9 @@ export const segmentedInputVariants = tv({
       'outline-solid focus:shadow-xs group my-auto box-content inline-block rounded-md px-0.5 text-start tabular-nums text-foreground-500 outline-transparent transition-colors first:-ml-0.5 focus:bg-default-400/50 data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:focus:text-default-foreground motion-reduce:transition-none [&:not(:first-child)]:-ml-1',
   },
 });
-export type VariantProps = Omit<
-  TVProps<typeof timeVariants>,
-  'disabled' | 'invalid'
->;
+
+export type VariantProps = TVProps<typeof timeVariants>;
+
 export type ClassName = TVClassName<typeof timeVariants>;
 export const timeVariants = tv({
   extend: segmentedInputVariants,

@@ -41,6 +41,7 @@ const FieldCardValidationError = ({
   testId,
 }: FieldCardValidationErrorProps) => {
   const styling = useStyling();
+  const disableAnimation = useReducedMotion();
 
   // classNames from slots
   const variants = styling.resolve(fieldCardValidationErrorVariants);
@@ -49,10 +50,7 @@ const FieldCardValidationError = ({
     helperWrapper: className,
   });
 
-  // disable all animation if user prefers reduced motion
-  const disableAnimation = useReducedMotion();
-
-  // Always show object-level errors (_errors) when they exist
+  // show object-level errors whenever they exist
   const objectErrors = (error as unknown as { _errors?: FieldError[] })
     ?._errors;
   const hasErrors = !!objectErrors;

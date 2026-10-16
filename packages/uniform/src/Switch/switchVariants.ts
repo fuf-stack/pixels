@@ -53,8 +53,7 @@ export const switchVariants = tv({
     disabled: { true: { base: 'pointer-events-none opacity-disabled' } },
   },
 });
-export type VariantProps = Omit<
-  TVProps<typeof switchVariants>,
-  'size' | 'disabled'
->;
+
+export type VariantProps = TVProps<typeof switchVariants>;
+
 export type ClassName = TVClassName<typeof switchVariants>;

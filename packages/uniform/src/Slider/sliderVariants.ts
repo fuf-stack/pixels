@@ -77,11 +77,11 @@ export const sliderVariants = tv({
     },
   ],
 });
-export type VariantProps = Omit<
-  TVProps<typeof sliderVariants>,
-  'size' | 'disabled' | 'invalid'
->;
+
+export type VariantProps = TVProps<typeof sliderVariants>;
+
 export type ClassName = TVClassName<typeof sliderVariants>;
+
 export type SliderClassNames = Record<
   keyof ReturnType<typeof sliderVariants>,
   string

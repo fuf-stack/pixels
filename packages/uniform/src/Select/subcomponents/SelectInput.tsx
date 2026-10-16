@@ -8,10 +8,12 @@ type SelectInputProps = Parameters<typeof components.Input>[0];
 
 /** Mirrors the select test id onto the underlying react-select input element. */
 const SelectInput = (props: SelectInputProps) => {
+  const associations = useContext(SelectControlContext);
+
   // @ts-expect-error data-testid is not a default prop
   // eslint-disable-next-line react/destructuring-assignment
   const testId = `${props.selectProps['data-testid']}`;
-  const associations = useContext(SelectControlContext);
+
   const { 'aria-describedby': engineDescription } = props;
   const describedBy =
     [engineDescription, associations['aria-describedby']]

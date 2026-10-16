@@ -69,6 +69,7 @@ const TextAreaControl = ({
   testId,
   value,
 }: TextAreaControlProps) => {
+  const styling = useStyling();
   const controlRef = useObjectRef(inputRef);
   const { focusProps, isFocused, isFocusVisible } = useFocusRing({
     within: true,
@@ -76,11 +77,9 @@ const TextAreaControl = ({
   });
   const [hovered, setHovered] = useState(false);
   const [limitReached, setLimitReached] = useState(false);
-  const hasValue = value !== '' && value != null;
-  const associations = controlProps;
   const { inputProps } = useTextField(
     {
-      ...associations,
+      ...controlProps,
       inputElementType: 'textarea',
       name,
       value: String(value ?? ''),
@@ -93,7 +92,10 @@ const TextAreaControl = ({
     },
     controlRef,
   );
-  const styling = useStyling();
+
+  // zero counts as a filled value
+  const hasValue = value !== '' && value != null;
+
   // classNames from slots
   const variants = styling.resolve(textAreaVariants, {
     disabled,
@@ -113,6 +115,7 @@ const TextAreaControl = ({
   const handleHoverStart = () => {
     setHovered(true);
   };
+
   const handleHoverEnd = () => {
     setHovered(false);
   };
@@ -158,7 +161,7 @@ const TextAreaControl = ({
           <div className={classNames.innerWrapper} data-slot="inner-wrapper">
             <TextareaAutosize
               {...inputProps}
-              {...associations}
+              {...controlProps}
               ref={controlRef}
               className={classNames.input}
               data-filled={hasValue || undefined}

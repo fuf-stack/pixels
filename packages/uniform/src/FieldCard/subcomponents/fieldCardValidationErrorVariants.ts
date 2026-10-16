@@ -8,4 +8,5 @@ const fieldCardValidationErrorVariants = tv({
     helperWrapper: 'relative flex flex-col gap-1.5 p-0',
   },
 });
+
 export default fieldCardValidationErrorVariants;

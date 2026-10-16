@@ -39,13 +39,11 @@ const FieldArrayValidationError = ({
   testId,
 }: FieldArrayValidationErrorProps) => {
   const styling = useStyling();
+  const disableAnimation = useReducedMotion();
 
   // classNames from slots
   const variants = styling.resolve(fieldArrayValidationErrorVariants);
   const classNames = styling.variantsToClassNames(variants);
-
-  // disable all animation if user prefers reduced motion
-  const disableAnimation = useReducedMotion();
 
   const objectErrors = (error as unknown as { _errors?: FieldError[] })
     ?._errors;

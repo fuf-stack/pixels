@@ -59,6 +59,7 @@ const RadioTabsControl = ({
   value,
   variant,
 }: RadioTabsControlProps) => {
+  const styling = useStyling();
   const { focusWithinProps } = useFocusWithin({ onBlurWithin: onBlur });
 
   // check if any option has content
@@ -68,7 +69,6 @@ const RadioTabsControl = ({
   });
 
   // classNames from slots
-  const styling = useStyling();
   const variants = styling.resolve(radioTabsVariants, {
     fullWidth,
     hasContent,

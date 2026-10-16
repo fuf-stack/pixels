@@ -53,6 +53,7 @@ export const RadioBox = ({
     _classNames ?? className,
     'base',
   );
+
   const defaults = styling.resolve(radioControlVariants, {
     invalid: isInvalid,
   });

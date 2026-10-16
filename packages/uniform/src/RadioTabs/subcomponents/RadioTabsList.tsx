@@ -49,18 +49,24 @@ const RadioTabsList = ({
     width: number;
     height: number;
   } | null>(null);
+
+  // keep the selection indicator aligned after layout changes
   useLayoutEffect(() => {
     if (!list) {
       return undefined;
     }
+
     const update = () => {
       const active = list.querySelector<HTMLElement>(
         '[role="tab"][aria-selected="true"]',
       );
+
       if (!active) {
         setCursor(null);
+
         return;
       }
+
       setCursor({
         left:
           active.offsetLeft +
@@ -76,16 +82,20 @@ const RadioTabsList = ({
         height: variant === 'underlined' ? 2 : active.offsetHeight,
       });
     };
+
     update();
+
     const observer = new ResizeObserver(update);
     observer.observe(list);
     list.querySelectorAll('[role="tab"]').forEach((tab) => {
       observer.observe(tab);
     });
+
     return () => {
       observer.disconnect();
     };
   }, [list, selectedKey, variant, options]);
+
   // forward tab keys as option string values
   const handleSelectionChange = (key: Key | null) => {
     if (key != null) {

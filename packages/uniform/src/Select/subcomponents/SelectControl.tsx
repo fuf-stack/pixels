@@ -84,6 +84,7 @@ const SelectControl = ({
   // classNames from slots
   const variants = styling.resolve(selectVariants, { disabled, invalid });
   const classNames = styling.variantsToClassNames(variants, className, 'base');
+
   const reactSelectClassNames = getSelectClassNames(
     classNames,
     styling.cn,
@@ -91,7 +92,7 @@ const SelectControl = ({
     invalid,
   );
 
-  // react-select expects `isDisabled`, while our option contract uses `disabled`.
+  // adapt option disabled state for react-select
   const reactSelectOptions = options.map((option) => {
     return {
       ...option,
@@ -106,13 +107,13 @@ const SelectControl = ({
     selectedOptionFallback,
   );
 
-  // Handle blur event
+  // update focus state and notify the field on blur
   const handleBlur = () => {
     setIsFocused(false);
     onBlur();
   };
 
-  // Handle focus event
+  // track focus for the control styles
   const handleFocus = () => {
     setIsFocused(true);
   };

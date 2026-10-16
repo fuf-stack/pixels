@@ -84,9 +84,10 @@ const InputField = ({
     onValueChange(Number.isNaN(next) ? '' : String(next));
   };
 
-  // NumberField uses NaN for an empty value and strings at the binding boundary.
+  // NumberField represents an empty value as NaN
   if (type === 'number') {
     const numericValue = value !== '' && value != null ? Number(value) : NaN;
+
     return (
       <NumberField
         {...rootProps}

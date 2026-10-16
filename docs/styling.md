@@ -49,6 +49,23 @@ export const datePickerVariants = tv({
 });
 ```
 
+Describe each recipe briefly by the elements or states it styles. Avoid migration
+history or vague ownership language such as “owned defaults for existing slots”.
+Export the component's main recipe from its `index.ts`, so consumers can reuse it
+through the component's public import path. Keep internal helper recipes private
+unless consumers need them.
+
+```ts
+// TextArea/textAreaVariants.ts
+/** Textarea slot styles with disabled, filled and invalid states */
+export const textAreaVariants = tv({
+  // slots and variants
+});
+
+// TextArea/index.ts
+export { textAreaVariants } from './textAreaVariants';
+```
+
 ## TL;DR
 
 - Style components with **Tailwind variants + slots** via `tv()` from
@@ -213,7 +230,9 @@ import { cn } from '@fuf-stack/pixel-utils';
 Keep slot keys alphabetical, including slot overrides within variants. Use one
 recipe for a field's defaults and state variants. Split recipes only for distinct
 rendered controls or actual shared defaults, such as segmented input styling used
-by both Time and DatePicker. Private state axes do not become component props:
+by both Time and DatePicker. `VariantProps` describes every recipe variant without
+filtering. Extend it only when the component intentionally exposes those variants.
+Otherwise define component props explicitly, keeping derived state private:
 
 ```ts
 export const textAreaVariants = tv({
@@ -230,15 +249,26 @@ export const textAreaVariants = tv({
   },
 });
 
-export type VariantProps = Omit<TVProps<typeof textAreaVariants>, 'invalid'>;
+export type VariantProps = TVProps<typeof textAreaVariants>;
+```
+
+```tsx
+// TextArea.tsx
+export interface TextAreaProps {
+  /** Disables the field */
+  disabled?: boolean;
+  /** Field name */
+  name: string;
+}
 ```
 
 ### Conventions
 
 - Expose slots for the styled parts consumers need to customize, including
   labels, descriptions, validation messages and actions. Define them in the
-  public recipe so `TVClassName` accepts them. Keep state variants in the same recipe and omit private state axes from the
-  component prop type. See the
+  public recipe so `TVClassName` accepts them. Keep state variants in the same
+  recipe and exclude private state axes from component props rather than from
+  the recipe’s `VariantProps`. See the
   [Input slot example](../packages/uniform/src/Input/README.md#styling).
 
 - Use `className` for our component styling props, including private components

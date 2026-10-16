@@ -1,25 +1,15 @@
 import type { ReactNode } from 'react';
-import type { ClassName, VariantProps } from './switchVariants';
+import type { SwitchThumbIconProps } from './subcomponents/SwitchThumb';
+import type { ClassName } from './switchVariants';
 
 import useUniformField from '../hooks/useUniformField/useUniformField';
 import SwitchControl from './subcomponents/SwitchControl';
 
+export type { SwitchThumbIconProps } from './subcomponents/SwitchThumb';
+
 export { switchVariants } from './switchVariants';
 
-export interface SwitchThumbIconProps {
-  /** Icon width */
-  width: string;
-  /** Icon height */
-  height: string;
-  /** Selected state as a string */
-  'data-checked': string;
-  /** Current toggle state */
-  isSelected: boolean;
-  /** CSS class name */
-  className: string;
-}
-
-export interface SwitchProps extends VariantProps {
+export interface SwitchProps {
   /** Custom accessible name */
   ariaLabel?: string;
   /** CSS class name */

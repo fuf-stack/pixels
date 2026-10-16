@@ -96,7 +96,9 @@ export const checkboxesVariants = tv({
     },
   },
 });
-export type VariantProps = Omit<TVProps<typeof checkboxesVariants>, 'invalid'>;
+
+export type VariantProps = TVProps<typeof checkboxesVariants>;
+
 export type ClassName = TVClassName<typeof checkboxesVariants>;
 export const checkboxOptionVariants = tv({
   extend: checkboxColorVariants,
@@ -107,6 +109,7 @@ export const checkboxOptionVariants = tv({
   },
   variants: { invalid: { true: { label: 'text-danger' } } },
 });
+
 /** Resolved checkbox group and option slot classes */
 export type CheckboxClassNames = Record<
   keyof ReturnType<typeof checkboxesVariants>,

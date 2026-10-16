@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 import type { DatePickerValue } from './dateHelpers';
-import type { ClassName, VariantProps } from './datePickerVariants';
+import type { ClassName } from './datePickerVariants';
 
 import useUniformField from '../hooks/useUniformField/useUniformField';
 import {
@@ -14,7 +14,7 @@ import DatePickerReset from './subcomponents/DatePickerReset';
 
 export { datePickerVariants } from './datePickerVariants';
 
-export interface DatePickerProps extends VariantProps {
+export interface DatePickerProps {
   /** Custom aria-label for accessibility. If not provided, falls back to field name when no visible label exists */
   ariaLabel?: string;
   /** CSS class name */

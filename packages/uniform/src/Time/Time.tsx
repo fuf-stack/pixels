@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 import type { TimeValue } from './timeHelpers';
-import type { ClassName, VariantProps } from './timeVariants';
+import type { ClassName } from './timeVariants';
 
 import useUniformField from '../hooks/useUniformField/useUniformField';
 import TimeControl from './subcomponents/TimeControl';
@@ -14,7 +14,7 @@ import {
 
 export { timeVariants } from './timeVariants';
 
-export interface TimeProps extends VariantProps {
+export interface TimeProps {
   /** Custom aria-label for accessibility. If not provided, falls back to field name when no visible label exists */
   ariaLabel?: string;
   /** CSS class name */

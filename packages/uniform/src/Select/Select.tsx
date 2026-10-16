@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react';
 import type { Props } from 'react-select';
 import type { InputValueTransform } from '../hooks/useInputValueTransform';
-import type { ClassName, VariantProps } from './selectVariants';
+import type { ClassName } from './selectVariants';
 
 import { createOptionValueConverter } from '../helpers';
 import { useFormContext } from '../hooks/useFormContext';
@@ -24,7 +24,7 @@ export interface SelectOption {
   value: string | number;
 }
 
-export interface SelectProps extends VariantProps {
+export interface SelectProps {
   /** Custom accessible name */
   ariaLabel?: string;
   /** CSS class name */

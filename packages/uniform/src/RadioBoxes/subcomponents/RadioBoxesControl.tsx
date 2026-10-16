@@ -56,10 +56,12 @@ const RadioBoxesControl = ({
   testId,
   value,
 }: RadioBoxesControlProps) => {
-  // classNames from slots
   const styling = useStyling();
+
+  // classNames from slots
   const variants = styling.resolve(radioBoxesVariants);
   const classNames = styling.variantsToClassNames(variants, className, 'base');
+
   const boxClassNames: RadioBoxProps['className'] = {
     base: classNames.boxBase,
     control: classNames.boxControl,

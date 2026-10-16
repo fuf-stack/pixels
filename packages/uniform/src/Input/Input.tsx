@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 import type { InputValueTransform } from '../hooks/useInputValueTransform';
-import type { ClassName, VariantProps } from './inputVariants';
+import type { ClassName } from './inputVariants';
 
 import { useInputValueDebounce } from '../hooks/useInputValueDebounce';
 import useUniformField from '../hooks/useUniformField/useUniformField';
@@ -8,7 +8,7 @@ import InputControl from './subcomponents/InputControl';
 
 export { default as inputVariants } from './inputVariants';
 
-export interface InputProps extends VariantProps {
+export interface InputProps {
   /** Custom accessible name */
   ariaLabel?: string;
   /** CSS class name */

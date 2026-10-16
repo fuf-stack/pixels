@@ -62,8 +62,13 @@ const SliderControl = ({
   testId,
   value: displayValue,
 }: SliderControlProps) => {
+  const styling = useStyling();
+  const { hoverProps, isHovered } = useHover({ isDisabled: disabled });
+
+  // forward the thumb ref while keeping it available for wrapper focus
   const controlRef = useMemo(() => {
     let current: HTMLInputElement | null = null;
+
     return {
       get current() {
         return current;
@@ -74,11 +79,7 @@ const SliderControl = ({
       },
     };
   }, [inputRef]);
-  const styling = useStyling();
-  // classNames from slots
-  const variants = styling.resolve(sliderVariants, { size, disabled, invalid });
-  const classNames = styling.variantsToClassNames(variants, className, 'base');
-  const { hoverProps, isHovered } = useHover({ isDisabled: disabled });
+
   const associations = controlProps;
   const describedBy =
     [
@@ -87,17 +88,25 @@ const SliderControl = ({
     ]
       .filter(Boolean)
       .join(' ') || undefined;
+
   const rawValue = displayValue != null ? Number(displayValue) : minValue;
   const value = Math.min(maxValue, Math.max(minValue, rawValue));
+
   const stepCount = showSteps
     ? Math.max(0, Math.floor((maxValue - minValue) / (step > 0 ? step : 1)) + 1)
     : 0;
+
   const offset = fillOffset ?? minValue;
   const offsetPercent =
     maxValue === minValue
       ? 0
       : (Math.min(maxValue, Math.max(minValue, offset)) - minValue) /
         (maxValue - minValue);
+
+  // classNames from slots
+  const variants = styling.resolve(sliderVariants, { size, disabled, invalid });
+  const classNames = styling.variantsToClassNames(variants, className, 'base');
+
   // route wrapper focus to the editable thumb
   const handleFocus = (event: FocusEvent<HTMLDivElement>) => {
     if (event.target === event.currentTarget && !disabled) {

@@ -2,7 +2,7 @@ import type { TVClassName, TVProps } from '@fuf-stack/pixel-utils';
 
 import { tv } from '@fuf-stack/pixel-utils';
 
-/** Owned defaults for the existing public textarea slots. */
+/** Textarea slot styles with disabled, filled and invalid states */
 export const textAreaVariants = tv({
   slots: {
     /** Container for the label, input and messages */
@@ -45,9 +45,9 @@ export const textAreaVariants = tv({
     },
   },
 });
-export type VariantProps = Omit<
-  TVProps<typeof textAreaVariants>,
-  'disabled' | 'filled' | 'invalid'
->;
+
+export type VariantProps = TVProps<typeof textAreaVariants>;
+
 export type ClassName = TVClassName<typeof textAreaVariants>;
+
 export default textAreaVariants;

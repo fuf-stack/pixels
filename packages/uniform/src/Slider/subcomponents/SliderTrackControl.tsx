@@ -51,6 +51,7 @@ const SliderTrackControl = ({
         const percent = state.getThumbPercent(0);
         const start = Math.min(offsetPercent, percent);
         const end = Math.max(offsetPercent, percent);
+
         return (
           <div
             {...props}
@@ -72,6 +73,7 @@ const SliderTrackControl = ({
         const percent = state.getThumbPercent(0);
         const start = Math.min(offsetPercent, percent);
         const end = Math.max(offsetPercent, percent);
+
         return (
           <>
             <SliderFill
@@ -81,6 +83,7 @@ const SliderTrackControl = ({
             />
             {Array.from({ length: stepCount }, (_, index) => {
               const point = state.getValuePercent(minValue + index * step);
+
               return (
                 <span
                   key={index}

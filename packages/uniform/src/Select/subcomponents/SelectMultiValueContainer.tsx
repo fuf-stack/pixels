@@ -11,9 +11,10 @@ type SelectMultiValueContainerProps = Parameters<
 >[0];
 
 const SelectMultiValueContainer = (props: SelectMultiValueContainerProps) => {
-  const { innerProps } = props;
   const slots = useContext(SelectSlotContext);
   const { cn } = useStyling();
+
+  const { innerProps } = props;
   return (
     <components.MultiValueContainer
       {...props}

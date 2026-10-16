@@ -23,7 +23,10 @@ export interface RadioTabOption {
   value: string | number | boolean;
 }
 
-export interface RadioTabsProps extends Omit<VariantProps, 'hasContent'> {
+export interface RadioTabsProps extends Omit<
+  VariantProps,
+  'appearance' | 'hasContent'
+> {
   /** Custom accessible name */
   ariaLabel?: string;
   /** CSS class name */

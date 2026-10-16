@@ -10,6 +10,7 @@ import { useWatchFormReset } from '../../hooks/useWatchFormReset';
  */
 const DatePickerReset = () => {
   const state = useContext(DateFieldStateContext);
+
   useWatchFormReset({
     onReset: () => {
       if (state?.value == null) {
@@ -17,6 +18,7 @@ const DatePickerReset = () => {
       }
     },
   });
+
   return null;
 };
 

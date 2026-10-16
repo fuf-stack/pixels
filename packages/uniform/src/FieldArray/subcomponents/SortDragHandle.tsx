@@ -25,7 +25,6 @@ const SortDragHandle = ({
   testId = undefined,
 }: SortDragHandleProps) => {
   const { cn } = useStyling();
-  // Get dnd-kit sortable attributes and listeners
   const { attributes, listeners } = useSortable({ id });
 
   return (

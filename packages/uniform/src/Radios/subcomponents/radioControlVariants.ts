@@ -36,8 +36,11 @@ const radioControlVariants = tv({
     },
   },
 });
+
 export type RadioControlClassNames = Partial<
   Record<keyof ReturnType<typeof radioControlVariants>, string>
 >;
+
 export type ClassName = TVClassName<typeof radioControlVariants>;
+
 export default radioControlVariants;
