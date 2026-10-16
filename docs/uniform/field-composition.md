@@ -29,7 +29,8 @@ notifies `onClear` and restores focus.
 [InputField](../../packages/uniform/src/Input/subcomponents/InputField.tsx)
 provides TextField or NumberField context. `InputWrapper` arranges the actual input,
 addons and controls. DOM refs and focus handling stay in presentation. Recipes
-and their derived types live in `inputVariants.ts`.
+and their derived types live in `inputVariants.ts`. Defaults and state variants
+share one recipe, with slots in alphabetical order.
 
 ## Layout and messages
 
@@ -87,3 +88,36 @@ while `partials/` holds presentation shared across field families. See the
 - [Code style](../code-style.md) covers component/type ownership, comments, tests and stories
 - [Styling](../styling.md) covers slots, variants, class merging and state attributes
 - [Input guide](../../packages/uniform/src/Input/README.md) documents usage and public styling slots
+
+## Other field renderers
+
+Each substantial renderer follows the same binding and presentation boundary.
+The binding keeps registration, transforms and form-update timing. Its control
+receives values, IDs, refs and callbacks through explicit props, without receiving
+the form context or the whole binding-hook result.
+
+| Renderer   | Presentation owner  | Additional responsibilities                                                |
+| ---------- | ------------------- | -------------------------------------------------------------------------- |
+| Checkboxes | `CheckboxesControl` | `CheckboxControl` owns each option                                         |
+| DatePicker | `DatePickerControl` | `DatePickerCalendar` owns the popup and time editor                        |
+| FieldArray | `FieldArrayControl` | The binding creates row operations, presentation arranges rows and sorting |
+| FieldCard  | `FieldCardControl`  | The binding retains child-validation visibility rules                      |
+| RadioBoxes | `RadioBoxesControl` | `RadioBox` reuses Radios' option control                                   |
+| Radios     | `RadiosControl`     | Custom option layouts receive the existing option descriptors              |
+| RadioTabs  | `RadioTabsControl`  | `RadioTabsList` owns tabs, panels and cursor geometry                      |
+| Select     | `SelectControl`     | Select adapters own individual React Select elements                       |
+| Slider     | `SliderControl`     | `SliderTrackControl` owns fill, markers and the editable thumb             |
+| Switch     | `SwitchControl`     | Thumb and icon rendering stay with Switch                                  |
+| SwitchBox  | `SwitchBoxControl`  | Track styling reuses Switch's recipe                                       |
+| TextArea   | `TextAreaControl`   | Autosizing and editable refs stay in presentation                          |
+| Time       | `TimeControl`       | Stored-value conversion stays in the binding                               |
+
+The segmented fields pass a small reset bridge as engine content. `TimeReset` and
+`DatePickerReset` subscribe to form resets inside the relevant React Aria context,
+so partial edits clear even when the committed value stays empty. The controls
+can render independently when that bridge is omitted.
+
+FieldCard and FieldArray labels and validation footers consume their owner's
+existing field data. They do not register the same field again. Specialized
+layouts retain their existing label and message arrangement. Simple wrappers
+such as SubmitButton do not gain an extra control layer.
