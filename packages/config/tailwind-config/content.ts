@@ -57,9 +57,9 @@ const content: Config['content'] = [
   'src/**/*.{js,ts,jsx,tsx}',
 
   // workspace component package paths
-  path.resolve(currentDirectory, '../../megapixels/src/**/*.tsx'),
-  path.resolve(currentDirectory, '../../pixels/src/**/*.tsx'),
-  path.resolve(currentDirectory, '../../uniform/src/**/*.tsx'),
+  path.resolve(currentDirectory, '../../megapixels/src/**/*.{ts,tsx}'),
+  path.resolve(currentDirectory, '../../pixels/src/**/*.{ts,tsx}'),
+  path.resolve(currentDirectory, '../../uniform/src/**/*.{ts,tsx}'),
 
   // heroui theme component paths
   ...HEROUI_THEME_USED_COMPONENT_PATHS,
