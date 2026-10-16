@@ -3,7 +3,11 @@ import { TimeFieldStateContext } from 'react-aria-components';
 
 import { useWatchFormReset } from '../../hooks/useWatchFormReset';
 
-/** Partial edits do not change the controlled null value, so reset them explicitly. */
+/**
+ * Clears partial segment edits when the form resets an empty field
+ *
+ * @see https://react-aria.adobe.com/TimeField
+ */
 const TimeReset = () => {
   const state = useContext(TimeFieldStateContext);
   useWatchFormReset({

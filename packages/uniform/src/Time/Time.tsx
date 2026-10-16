@@ -59,7 +59,6 @@ const Time = ({
   ...uniformFieldProps
 }: TimeProps) => {
   const {
-    ariaLabel,
     disabled,
     description,
     errorMessage,
@@ -123,7 +122,6 @@ const Time = ({
 
   return (
     <TimeControl
-      ariaLabel={uniformFieldProps.ariaLabel ?? (label ? undefined : ariaLabel)}
       className={className}
       controlProps={getControlProps()}
       description={description}

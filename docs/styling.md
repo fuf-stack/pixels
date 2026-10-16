@@ -30,10 +30,10 @@ maps or interpolating slot strings:
 
 ```ts
 // DatePicker/datePickerVariants.ts
-import { timeVariants } from '../Time/timeVariants';
+import { segmentedInputVariants } from '../Time/timeVariants';
 
 // Time/timeVariants.ts
-export const timeVariants = tv({
+export const segmentedInputVariants = tv({
   slots: {
     /** Bordered surface around the editable segments */
     inputWrapper: 'rounded-small border-2 border-default-200',
@@ -41,7 +41,7 @@ export const timeVariants = tv({
 });
 
 export const datePickerVariants = tv({
-  extend: timeVariants,
+  extend: segmentedInputVariants,
   slots: {
     /** Button opening the calendar popup */
     selectorButton: '',
@@ -210,12 +210,35 @@ import { cn } from '@fuf-stack/pixel-utils';
 <div className={cn('p-4 text-center', className)} />;
 ```
 
+Keep slot keys alphabetical, including slot overrides within variants. Use one
+recipe for a field's defaults and state variants. Split recipes only for distinct
+rendered controls or actual shared defaults, such as segmented input styling used
+by both Time and DatePicker. Private state axes do not become component props:
+
+```ts
+export const textAreaVariants = tv({
+  slots: {
+    /** Supporting text below the textarea */
+    description: 'text-foreground-500 text-tiny',
+    /** Validation message container */
+    errorMessage: 'text-danger text-tiny',
+    /** Editable multiline text */
+    input: 'w-full bg-transparent',
+  },
+  variants: {
+    invalid: { true: { input: 'text-danger' } },
+  },
+});
+
+export type VariantProps = Omit<TVProps<typeof textAreaVariants>, 'invalid'>;
+```
+
 ### Conventions
 
 - Expose slots for the styled parts consumers need to customize, including
   labels, descriptions, validation messages and actions. Define them in the
-  public recipe so `TVClassName` accepts them. Private state recipes should
-  extend those slots rather than hiding them from the public type. See the
+  public recipe so `TVClassName` accepts them. Keep state variants in the same recipe and omit private state axes from the
+  component prop type. See the
   [Input slot example](../packages/uniform/src/Input/README.md#styling).
 
 - Use `className` for our component styling props, including private components
@@ -427,3 +450,7 @@ Input's Group owns hover on `inputWrapper`, whose recipe uses
 `data-[hovered=true]:border-default-400`. Do not mirror that state in a parent or
 add a second hover attribute for styling. See the
 [interaction ownership example](./code-style.md#component-files-and-responsibility).
+
+Workspace Tailwind source globs include both `.ts` and `.tsx` files, so dedicated
+variants files contribute their utilities. Keep both extensions when adding
+another package to the shared source configuration.

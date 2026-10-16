@@ -80,12 +80,11 @@ const CheckboxControl = ({
       className={classNames.optionBase}
       data-testid={testId}
       id={id}
+      isDisabled={disabled}
+      isRequired={false}
       render={renderOption}
       validationBehavior="aria"
       value={option.value}
-      isDisabled={disabled}
-      // The requirement belongs to the selection group, not every option.
-      isRequired={false}
     >
       {({ isSelected }) => {
         return (

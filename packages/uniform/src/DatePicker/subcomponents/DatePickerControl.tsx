@@ -17,7 +17,7 @@ import { useStyling } from '@fuf-stack/pixels/StylingProvider';
 
 import FieldDescription from '../../partials/FieldDescription/FieldDescription';
 import FieldLabel from '../../partials/FieldLabel/FieldLabel';
-import { datePickerStateVariants } from '../datePickerVariants';
+import { datePickerVariants } from '../datePickerVariants';
 import DatePickerCalendar from './DatePickerCalendar';
 
 interface DatePickerControlProps extends Pick<
@@ -68,7 +68,6 @@ interface DatePickerControlProps extends Pick<
  */
 const DatePickerControl = ({
   children,
-  ariaLabel,
   className,
   controlProps,
   description,
@@ -94,7 +93,7 @@ const DatePickerControl = ({
   const styling = useStyling();
 
   // classNames from slots
-  const variants = styling.resolve(datePickerStateVariants, {
+  const variants = styling.resolve(datePickerVariants, {
     disabled,
     invalid,
   });
@@ -119,16 +118,16 @@ const DatePickerControl = ({
 
   return (
     <AriaDatePicker
-      {...controlProps}
       ref={handleControlRef}
-      aria-label={ariaLabel}
-      aria-labelledby={undefined}
-      aria-required={undefined}
+      aria-describedby={controlProps['aria-describedby']}
+      aria-invalid={controlProps['aria-invalid']}
+      aria-label={controlProps['aria-label']}
       className={classNames.base}
       data-slot="base"
       granularity={withTime ? 'minute' : 'day'}
       hideTimeZone={hideTimeZone}
       hourCycle={hourCycle}
+      id={controlProps.id}
       isDisabled={disabled}
       isInvalid={invalid}
       isRequired={required}

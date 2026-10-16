@@ -20,7 +20,7 @@ import Time from '@fuf-stack/uniform/Time';
 
 ## Styling
 
-[`timeVariants`](timeVariants.ts) owns the segmented input defaults, also reused
+[`segmentedInputVariants`](timeVariants.ts) owns the segmented input defaults, also reused
 by DatePicker. Override individual slots through `className`, including `label`,
 `description` and `errorMessage`. See the [styling guide](../../../../docs/styling.md).
 

@@ -14,10 +14,8 @@ import { useStyling } from '@fuf-stack/pixels/StylingProvider';
 
 import FieldDescription from '../../partials/FieldDescription/FieldDescription';
 import FieldLabel from '../../partials/FieldLabel/FieldLabel';
-import {
-  switchBoxTrackVariants,
-  switchBoxVariants,
-} from '../switchBoxVariants';
+import { switchVariants } from '../../Switch/switchVariants';
+import { switchBoxVariants } from '../switchBoxVariants';
 
 interface SwitchBoxControlProps
   extends
@@ -95,7 +93,7 @@ const SwitchBoxControl = ({
   });
   const classNames = styling.variantsToClassNames(variants, className, 'box');
 
-  const trackVariants = styling.resolve(switchBoxTrackVariants, { size });
+  const trackVariants = styling.resolve(switchVariants, { size });
   const trackClassNames = styling.variantsToClassNames(trackVariants, {
     wrapper: classNames.wrapper,
     thumb: classNames.thumb,

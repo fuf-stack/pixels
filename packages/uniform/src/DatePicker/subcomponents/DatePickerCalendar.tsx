@@ -1,3 +1,4 @@
+import type { ComponentProps } from 'react';
 import type { DatePickerRenderProps } from 'react-aria-components';
 import type { DatePickerValue } from '../dateHelpers';
 import type { DatePickerProps } from '../DatePicker';
@@ -54,6 +55,15 @@ const DatePickerCalendar = ({
   state,
   withTime,
 }: DatePickerCalendarProps) => {
+  // keep the calendar's date while editing its time
+  const handleTimeChange: NonNullable<
+    ComponentProps<typeof TimeField>['onChange']
+  > = (next) => {
+    if (next) {
+      state.setTimeValue(next);
+    }
+  };
+
   return (
     <Popover
       className={classNames.popoverContent}
@@ -125,11 +135,7 @@ const DatePickerCalendar = ({
               hourCycle={hourCycle}
               maxValue={maxValue && 'hour' in maxValue ? maxValue : undefined}
               minValue={minValue && 'hour' in minValue ? minValue : undefined}
-              onChange={(next) => {
-                if (next) {
-                  state.setTimeValue(next);
-                }
-              }}
+              onChange={handleTimeChange}
               placeholderValue={
                 placeholderValue && 'hour' in placeholderValue
                   ? placeholderValue

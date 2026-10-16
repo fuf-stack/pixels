@@ -14,7 +14,7 @@ import { useStyling } from '@fuf-stack/pixels/StylingProvider';
 
 import FieldDescription from '../../partials/FieldDescription/FieldDescription';
 import FieldLabel from '../../partials/FieldLabel/FieldLabel';
-import { timeStateVariants } from '../timeVariants';
+import { timeVariants } from '../timeVariants';
 
 interface TimeControlProps extends Pick<
   TimeProps,
@@ -60,7 +60,6 @@ interface TimeControlProps extends Pick<
  */
 const TimeControl = ({
   children,
-  ariaLabel,
   className,
   controlProps,
   description,
@@ -84,7 +83,7 @@ const TimeControl = ({
   const styling = useStyling();
 
   // classNames from slots
-  const variants = styling.resolve(timeStateVariants, { disabled, invalid });
+  const variants = styling.resolve(timeVariants, { disabled, invalid });
   const classNames = styling.variantsToClassNames(variants, className, 'base');
 
   // route form focus to the first enabled segment
@@ -106,16 +105,16 @@ const TimeControl = ({
 
   return (
     <TimeField
-      {...controlProps}
       ref={handleControlRef}
-      aria-label={ariaLabel}
-      aria-labelledby={undefined}
-      aria-required={undefined}
+      aria-describedby={controlProps['aria-describedby']}
+      aria-invalid={controlProps['aria-invalid']}
+      aria-label={controlProps['aria-label']}
       className={classNames.base}
       data-slot="base"
       granularity={granularity}
       hideTimeZone={hideTimeZone}
       hourCycle={hourCycle}
+      id={controlProps.id}
       isDisabled={disabled}
       isInvalid={invalid}
       isRequired={required}

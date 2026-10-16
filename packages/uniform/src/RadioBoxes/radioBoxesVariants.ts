@@ -16,8 +16,6 @@ export const radioBoxesVariants = tv({
       // Keep spacing between label/radio boxes consistent.
       'gap-y-1.5',
     ],
-    /** Container for validation messages */
-    errorMessage: 'text-danger text-tiny',
     /** Clickable option box */
     boxBase: '',
     /** Indicator marking the selected box */
@@ -28,6 +26,8 @@ export const radioBoxesVariants = tv({
     boxLabel: '',
     /** Container grouping option text */
     boxLabelWrapper: '',
+    /** Container for validation messages */
+    errorMessage: 'text-danger text-tiny',
     // see HeroUI styles for group-data condition,
     // e.g.: https://github.com/heroui-inc/heroui/blob/main/packages/core/theme/src/components/select.ts
     /** Visible field label */
@@ -38,6 +38,5 @@ export const radioBoxesVariants = tv({
       'flex flex-col flex-wrap gap-2 data-[orientation=horizontal]:flex-row',
   },
 });
-
 export type VariantProps = TVProps<typeof radioBoxesVariants>;
 export type ClassName = TVClassName<typeof radioBoxesVariants>;

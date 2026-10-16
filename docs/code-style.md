@@ -121,7 +121,8 @@ Radios/
     RadioControl.tsx
     radioControlVariants.ts
 RadioBoxes/
-  RadioBox.tsx                    # Imports Radios/subcomponents/RadioControl
+  subcomponents/
+    RadioBox.tsx                  # Imports Radios/subcomponents/RadioControl
 partials/
   FieldLayout/
   FieldLabel/
@@ -326,6 +327,29 @@ const inputVariants = tv({
 });
 ```
 
+Keep slot keys alphabetical, including slot overrides within variants. Use one
+recipe for a field's defaults and state variants. Split recipes only for distinct
+rendered controls or actual shared defaults, such as segmented input styling used
+by both Time and DatePicker. Private state axes do not become component props:
+
+```ts
+export const textAreaVariants = tv({
+  slots: {
+    /** Supporting text below the textarea */
+    description: 'text-foreground-500 text-tiny',
+    /** Validation message container */
+    errorMessage: 'text-danger text-tiny',
+    /** Editable multiline text */
+    input: 'w-full bg-transparent',
+  },
+  variants: {
+    invalid: { true: { input: 'text-danger' } },
+  },
+});
+
+export type VariantProps = Omit<TVProps<typeof textAreaVariants>, 'invalid'>;
+```
+
 ## Types live with their owner
 
 Component props belong beside their implementation. Recipe-derived types belong
@@ -337,7 +361,7 @@ types beside them. Do not create a separate variants file just for a few simple
 slots. Keep substantial or shared recipes in dedicated files, as Input does.
 When related components share a recipe, keep it in one component’s variants file
 and import it directly from the other. For example, DatePicker extends
-`timeVariants` from `Time/timeVariants.ts`. Do not create a separate shared styling
+`segmentedInputVariants` from `Time/timeVariants.ts`. Do not create a separate shared styling
 folder just for this reuse. Reserve `partials/` for shared presentation components.
 See the
 [shared recipe example](./styling.md#recipe-file-ownership).
@@ -392,7 +416,7 @@ const InputControl = ({ className, ...props }: InputControlProps) => {
   const styling = useStyling();
 
   // classNames from slots
-  const variants = styling.resolve(inputStateVariants);
+  const variants = styling.resolve(inputVariants);
   const classNames = styling.variantsToClassNames(variants, className, 'base');
 
   return <InputWrapper {...props} className={classNames} />;

@@ -35,7 +35,7 @@ export interface UniformFieldState<
   TFieldValues extends FieldValues = FieldValues,
 > {
   /** Accessible name from the explicit override, string label, placeholder or field name */
-  ariaLabel: string | undefined;
+  ariaLabel: string;
   /** react-hook-form control instance for advanced integrations */
   control: ReturnType<typeof useFormContext<TFieldValues>>['control'];
   /** Debug mode from Uniform provider */

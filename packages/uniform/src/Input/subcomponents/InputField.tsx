@@ -76,9 +76,12 @@ const InputField = ({
     isInvalid: invalid,
     isRequired: required,
     validationBehavior: 'aria' as const,
-    onBlur: () => {
-      onBlur();
-    },
+    onBlur,
+  };
+
+  // keep numeric edits as strings at the binding boundary
+  const handleNumberChange = (next: number) => {
+    onValueChange(Number.isNaN(next) ? '' : String(next));
   };
 
   // NumberField uses NaN for an empty value and strings at the binding boundary.
@@ -88,9 +91,7 @@ const InputField = ({
       <NumberField
         {...rootProps}
         formatOptions={{ useGrouping: false }}
-        onChange={(next) => {
-          onValueChange(Number.isNaN(next) ? '' : String(next));
-        }}
+        onChange={handleNumberChange}
         value={numericValue}
       >
         {children}

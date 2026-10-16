@@ -3,7 +3,11 @@ import { DateFieldStateContext } from 'react-aria-components';
 
 import { useWatchFormReset } from '../../hooks/useWatchFormReset';
 
-/** Clears partial segment edits when a form reset keeps the value empty */
+/**
+ * Clears partial segment edits when the form resets an empty field
+ *
+ * @see https://react-aria.adobe.com/DatePicker
+ */
 const DatePickerReset = () => {
   const state = useContext(DateFieldStateContext);
   useWatchFormReset({

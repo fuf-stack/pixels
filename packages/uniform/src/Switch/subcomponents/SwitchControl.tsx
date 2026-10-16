@@ -14,7 +14,7 @@ import { useStyling } from '@fuf-stack/pixels/StylingProvider';
 
 import FieldDescription from '../../partials/FieldDescription/FieldDescription';
 import FieldLabel from '../../partials/FieldLabel/FieldLabel';
-import { switchStateVariants } from '../switchVariants';
+import { switchVariants } from '../switchVariants';
 import SwitchIcon from './SwitchIcon';
 import SwitchThumb from './SwitchThumb';
 
@@ -89,7 +89,7 @@ const SwitchControl = ({
   const { hoverProps, isHovered } = useHover({ isDisabled: disabled });
   const styling = useStyling();
   // classNames from slots
-  const variants = styling.resolve(switchStateVariants, { size, disabled });
+  const variants = styling.resolve(switchVariants, { size, disabled });
   const classNames = styling.variantsToClassNames(
     variants,
     className,

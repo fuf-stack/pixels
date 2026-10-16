@@ -2,8 +2,6 @@ import type { TVClassName } from '@fuf-stack/pixel-utils';
 
 import { tv } from '@fuf-stack/pixel-utils';
 
-import { switchStateVariants } from '../Switch/switchVariants';
-
 export const switchBoxVariants = tv({
   slots: {
     /** Selectable box containing the toggle and text */
@@ -18,12 +16,12 @@ export const switchBoxVariants = tv({
     icon: '',
     /** Visible field label */
     label: 'font-medium text-foreground',
-    /** Container arranging the selectable content */
-    wrapper: '',
     /** Movable indicator showing the current value */
     thumb: '',
     /** Content inside the toggle thumb */
     thumbIcon: '',
+    /** Container arranging the selectable content */
+    wrapper: '',
   },
   variants: {
     isDisabled: {
@@ -38,20 +36,20 @@ export const switchBoxVariants = tv({
       },
     },
     size: {
-      sm: {
-        box: 'gap-2 p-3',
-        description: 'text-xs',
-        label: 'text-xs',
+      lg: {
+        box: 'gap-4 p-5',
+        description: 'text-small',
+        label: 'text-base',
       },
       md: {
         box: 'gap-4 p-4',
         description: 'text-small',
         label: 'text-sm',
       },
-      lg: {
-        box: 'gap-4 p-5',
-        description: 'text-small',
-        label: 'text-base',
+      sm: {
+        box: 'gap-2 p-3',
+        description: 'text-xs',
+        label: 'text-xs',
       },
     },
   },
@@ -59,9 +57,4 @@ export const switchBoxVariants = tv({
     size: 'md',
   },
 });
-
 export type ClassName = TVClassName<typeof switchBoxVariants>;
-
-export const switchBoxTrackVariants = tv({
-  extend: switchStateVariants,
-});

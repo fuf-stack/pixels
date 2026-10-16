@@ -73,7 +73,6 @@ const DatePicker = ({
   ...uniformFieldProps
 }: DatePickerProps) => {
   const {
-    ariaLabel,
     disabled,
     description,
     errorMessage,
@@ -130,7 +129,6 @@ const DatePicker = ({
 
   return (
     <DatePickerControl
-      ariaLabel={uniformFieldProps.ariaLabel ?? (label ? undefined : ariaLabel)}
       className={className}
       controlProps={getControlProps()}
       description={description}

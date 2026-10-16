@@ -30,5 +30,4 @@ export const radioBoxVariants = tv({
     },
   },
 });
-
 export type ClassName = TVClassName<typeof radioBoxVariants>;

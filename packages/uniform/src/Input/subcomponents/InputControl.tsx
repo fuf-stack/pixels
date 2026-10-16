@@ -8,7 +8,7 @@ import { useObjectRef } from 'react-aria/useObjectRef';
 import { useStyling } from '@fuf-stack/pixels/StylingProvider';
 
 import FieldLayout from '../../partials/FieldLayout/FieldLayout';
-import { inputStateVariants } from '../inputVariants';
+import { inputVariants } from '../inputVariants';
 import InputField from './InputField';
 import InputWrapper from './InputWrapper';
 
@@ -97,7 +97,7 @@ const InputControl = (props: InputControlProps) => {
   const hasValue = value !== '' && value != null;
 
   // classNames from slots
-  const variants = styling.resolve(inputStateVariants, {
+  const variants = styling.resolve(inputVariants, {
     clearable,
     disabled,
     filled: hasValue,

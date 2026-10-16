@@ -22,7 +22,7 @@ import Form from '@fuf-stack/uniform/Form';
 ## Styling
 
 [`datePickerVariants`](datePickerVariants.ts) extends
-[`timeVariants`](../Time/timeVariants.ts) for the shared segmented input defaults,
+[`segmentedInputVariants`](../Time/timeVariants.ts) for the shared segmented input defaults,
 then adds calendar styling. Override individual slots through `className`, including
 `label`, `description` and `errorMessage`. See the [styling guide](../../../../docs/styling.md).
 

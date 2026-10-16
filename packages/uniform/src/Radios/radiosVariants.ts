@@ -40,6 +40,5 @@ export const radiosVariants = tv({
       'flex flex-col flex-wrap gap-2 data-[orientation=horizontal]:flex-row',
   },
 });
-
 export type VariantProps = TVProps<typeof radiosVariants>;
 export type ClassName = TVClassName<typeof radiosVariants>;

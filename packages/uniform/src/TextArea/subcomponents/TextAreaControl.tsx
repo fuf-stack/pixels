@@ -13,7 +13,7 @@ import { useStyling } from '@fuf-stack/pixels/StylingProvider';
 
 import getFieldDataAttributes from '../../helpers/getFieldDataAttributes/getFieldDataAttributes';
 import FieldLayout from '../../partials/FieldLayout/FieldLayout';
-import { textAreaStateVariants } from '../textAreaVariants';
+import { textAreaVariants } from '../textAreaVariants';
 
 interface TextAreaControlProps extends Pick<
   TextAreaProps,
@@ -95,7 +95,7 @@ const TextAreaControl = ({
   );
   const styling = useStyling();
   // classNames from slots
-  const variants = styling.resolve(textAreaStateVariants, {
+  const variants = styling.resolve(textAreaVariants, {
     disabled,
     invalid,
     filled: hasValue,

@@ -7,10 +7,15 @@ import SwitchControl from './subcomponents/SwitchControl';
 export { switchVariants } from './switchVariants';
 
 export interface SwitchThumbIconProps {
+  /** Icon width */
   width: string;
+  /** Icon height */
   height: string;
+  /** Selected state as a string */
   'data-checked': string;
+  /** Current toggle state */
   isSelected: boolean;
+  /** CSS class name */
   className: string;
 }
 
@@ -29,7 +34,7 @@ export interface SwitchProps extends VariantProps {
   label?: ReactNode;
   /** Field name */
   name: string;
-  /* Size of the switch */
+  /** Control size */
   size?: 'sm' | 'md' | 'lg';
   /** Icon to be displayed at the start of the switch (when disabled) */
   startContent?: ReactNode;

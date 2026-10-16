@@ -9,7 +9,7 @@ import { useStyling } from '@fuf-stack/pixels/StylingProvider';
 
 import FieldDescription from '../../partials/FieldDescription/FieldDescription';
 import FieldLabel from '../../partials/FieldLabel/FieldLabel';
-import { checkboxStateVariants } from '../checkboxesVariants';
+import { checkboxesVariants } from '../checkboxesVariants';
 import CheckboxControl from './CheckboxControl';
 
 interface CheckboxesControlProps
@@ -62,7 +62,7 @@ const CheckboxesControl = ({
   value,
 }: CheckboxesControlProps) => {
   const styling = useStyling();
-  const variants = styling.resolve(checkboxStateVariants, {
+  const variants = styling.resolve(checkboxesVariants, {
     lineThrough,
     invalid,
   });
@@ -131,14 +131,14 @@ const CheckboxesControl = ({
 
   return (
     <CheckboxGroup
-      {...associations}
       ref={handleControlRef}
       aria-describedby={describedBy}
-      aria-labelledby={undefined}
-      aria-required={undefined}
+      aria-invalid={associations['aria-invalid']}
+      aria-label={associations['aria-label']}
       className={classNames.base}
       data-slot="base"
       data-testid={testId}
+      id={associations.id}
       isDisabled={disabled}
       isInvalid={invalid}
       isRequired={required}
