@@ -26,3 +26,9 @@ import Form from '@fuf-stack/uniform/Form';
 - Use `disabled` on an option to disable only that checkbox.
 
 [Props](Checkboxes.tsx) · [Stories](Checkboxes.stories.tsx)
+
+## Composition
+
+`Checkboxes` owns array-value registration and transforms. `CheckboxesControl`
+owns group composition and focus routing, while `CheckboxControl` renders each
+option and its selection indicator. Recipes live in `checkboxesVariants.ts`.

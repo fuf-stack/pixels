@@ -1,5 +1,118 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`Story Snapshots > ConsumerOptionFont 1`] = `
+<div>
+  <div
+    class="flex w-full flex-row justify-between gap-6"
+  >
+    <form
+      class="grow min-w-60"
+      data-form-is-valid="true"
+      data-testid=""
+      novalidate=""
+    >
+      <style>
+        .text-option { font-size: 18px; }
+      </style>
+      <div
+        aria-labelledby="uniform-«replaced-aria-id»-label"
+        class="group flex w-full flex-col gap-y-1.5 relative"
+        data-invalid="false"
+        data-rac=""
+        data-required="false"
+        data-slot="base"
+        data-testid="choice"
+        id="uniform-«replaced-aria-id»"
+        role="group"
+      >
+        <span
+          class="inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger relative"
+          data-slot="label"
+          id="uniform-«replaced-aria-id»-label"
+        >
+          Choice
+        </span>
+        <div
+          class="flex flex-col flex-wrap gap-2 data-[orientation=horizontal]:flex-row"
+          data-orientation="vertical"
+          data-slot="wrapper"
+        >
+          <label
+            class="group relative -m-2 inline-flex max-w-fit cursor-pointer select-none items-center justify-start p-2 tap-highlight-transparent data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-disabled"
+            data-invalid="false"
+            data-rac=""
+            data-react-aria-pressable="true"
+            data-testid="choice_option_first"
+            for="«replaced-aria-id»"
+          >
+            <span
+              style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+            >
+              <input
+                aria-label="First"
+                aria-labelledby="«replaced-aria-id»-label"
+                data-react-aria-pressable="true"
+                id="«replaced-aria-id»"
+                name="choice"
+                tabindex="0"
+                type="checkbox"
+                value="first"
+              />
+            </span>
+            <span
+              aria-hidden="true"
+              class="text-primary-foreground after:bg-primary after:text-primary-foreground relative me-2 inline-flex h-5 w-5 shrink-0 items-center justify-center overflow-hidden rounded-[calc(var(--pixel-radius-medium)*0.6)] transition-transform before:absolute before:inset-0 before:box-border before:rounded-[inherit] before:border-2 before:border-solid before:border-default before:transition-colors before:content-[''] after:absolute after:inset-0 after:origin-center after:scale-50 after:rounded-[inherit] after:opacity-0 after:duration-200 after:ease-linear after:content-[''] after:transition-transform-opacity group-data-[pressed=true]:scale-95 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[hover=true]:before:bg-default-100 group-data-[selected=true]:after:scale-100 group-data-[selected=true]:after:opacity-100 motion-reduce:transition-none"
+              data-slot="wrapper"
+            >
+              <svg
+                aria-hidden="true"
+                class="pointer-events-none z-10 h-3 w-4 opacity-0 transition-opacity group-data-[selected=true]:opacity-100 motion-reduce:transition-none"
+                data-slot="icon"
+                fill="none"
+                role="presentation"
+                stroke="currentColor"
+                stroke-dasharray="22"
+                stroke-dashoffset="66"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 17 18"
+              >
+                <polyline
+                  class="transition-[stroke-dashoffset] delay-200 duration-250 ease-linear motion-reduce:transition-none"
+                  points="1 9 7 14 15 4"
+                />
+              </svg>
+            </span>
+            <span
+              class="relative select-none text-foreground transition-colors-opacity before:transition-width motion-reduce:transition-none text-option"
+              data-slot="label"
+              id="«replaced-aria-id»-label"
+            >
+              First
+            </span>
+          </label>
+        </div>
+      </div>
+      <div
+        class="mt-4 flex justify-end"
+      >
+        <button
+          aria-label="Submit form"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
+          data-react-aria-pressable="true"
+          data-testid="form_submit_button"
+          tabindex="0"
+          type="submit"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
 exports[`Story Snapshots > CustomOptionsRendering 1`] = `
 <div>
   <div
@@ -1671,6 +1784,259 @@ exports[`Story Snapshots > Invalid 1`] = `
         <button
           aria-label="Submit form"
           class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
+          data-react-aria-pressable="true"
+          data-testid="form_submit_button"
+          tabindex="0"
+          type="submit"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`Story Snapshots > KeyboardAndRequired 1`] = `
+<div>
+  <div
+    class="flex w-full flex-row justify-between gap-6"
+  >
+    <form
+      class="grow min-w-60"
+      data-form-is-valid="true"
+      data-testid=""
+      novalidate=""
+    >
+      <div
+        aria-describedby="uniform-«replaced-aria-id»-description uniform-«replaced-aria-id»-required"
+        aria-labelledby="uniform-«replaced-aria-id»-label"
+        class="group flex w-full flex-col gap-y-1.5 relative"
+        data-invalid="false"
+        data-rac=""
+        data-required="true"
+        data-slot="base"
+        data-testid="checkboxfield"
+        id="uniform-«replaced-aria-id»"
+        role="group"
+      >
+        <span
+          class="inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger relative"
+          data-slot="label"
+          id="uniform-«replaced-aria-id»-label"
+        >
+          Checkbox Field
+          <span
+            aria-hidden="true"
+            class="ml-0.5 text-danger"
+          >
+            *
+          </span>
+        </span>
+        <span
+          class="sr-only"
+          id="uniform-«replaced-aria-id»-required"
+        >
+          Required selection.
+        </span>
+        <div
+          class="flex flex-col flex-wrap gap-2 data-[orientation=horizontal]:flex-row"
+          data-orientation="vertical"
+          data-slot="wrapper"
+        >
+          <label
+            class="group relative -m-2 inline-flex max-w-fit cursor-pointer select-none items-center justify-start p-2 tap-highlight-transparent data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-disabled"
+            data-focus="true"
+            data-focus-visible="true"
+            data-focused="true"
+            data-invalid="false"
+            data-rac=""
+            data-react-aria-pressable="true"
+            data-selected="true"
+            data-testid="checkboxfield_option_join_circus"
+            for="«replaced-aria-id»"
+          >
+            <span
+              style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+            >
+              <input
+                aria-describedby="uniform-«replaced-aria-id»-description uniform-«replaced-aria-id»-required"
+                aria-label="🎪 Join the circus"
+                aria-labelledby="«replaced-aria-id»-label"
+                data-react-aria-pressable="true"
+                id="«replaced-aria-id»"
+                name="checkboxField"
+                tabindex="0"
+                type="checkbox"
+                value="join-circus"
+              />
+            </span>
+            <span
+              aria-hidden="true"
+              class="text-primary-foreground after:bg-primary after:text-primary-foreground relative me-2 inline-flex h-5 w-5 shrink-0 items-center justify-center overflow-hidden rounded-[calc(var(--pixel-radius-medium)*0.6)] transition-transform before:absolute before:inset-0 before:box-border before:rounded-[inherit] before:border-2 before:border-solid before:border-default before:transition-colors before:content-[''] after:absolute after:inset-0 after:origin-center after:scale-50 after:rounded-[inherit] after:opacity-0 after:duration-200 after:ease-linear after:content-[''] after:transition-transform-opacity group-data-[pressed=true]:scale-95 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[hover=true]:before:bg-default-100 group-data-[selected=true]:after:scale-100 group-data-[selected=true]:after:opacity-100 motion-reduce:transition-none"
+              data-slot="wrapper"
+            >
+              <svg
+                aria-hidden="true"
+                class="pointer-events-none z-10 h-3 w-4 opacity-0 transition-opacity group-data-[selected=true]:opacity-100 motion-reduce:transition-none"
+                data-slot="icon"
+                fill="none"
+                role="presentation"
+                stroke="currentColor"
+                stroke-dasharray="22"
+                stroke-dashoffset="44"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 17 18"
+              >
+                <polyline
+                  class="transition-[stroke-dashoffset] delay-200 duration-250 ease-linear motion-reduce:transition-none"
+                  points="1 9 7 14 15 4"
+                />
+              </svg>
+            </span>
+            <span
+              class="relative select-none text-foreground transition-colors-opacity text-medium before:transition-width motion-reduce:transition-none"
+              data-slot="label"
+              id="«replaced-aria-id»-label"
+            >
+              🎪 Join the circus
+            </span>
+          </label>
+          <label
+            class="group relative -m-2 inline-flex max-w-fit cursor-pointer select-none items-center justify-start p-2 tap-highlight-transparent data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-disabled"
+            data-invalid="false"
+            data-rac=""
+            data-react-aria-pressable="true"
+            data-testid="checkboxfield_option_learn_magic"
+            for="«replaced-aria-id»"
+          >
+            <span
+              style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+            >
+              <input
+                aria-describedby="uniform-«replaced-aria-id»-description uniform-«replaced-aria-id»-required"
+                aria-label="🧙 Learn magic tricks"
+                aria-labelledby="«replaced-aria-id»-label"
+                data-react-aria-pressable="true"
+                id="«replaced-aria-id»"
+                name="checkboxField"
+                tabindex="0"
+                type="checkbox"
+                value="learn-magic"
+              />
+            </span>
+            <span
+              aria-hidden="true"
+              class="text-primary-foreground after:bg-primary after:text-primary-foreground relative me-2 inline-flex h-5 w-5 shrink-0 items-center justify-center overflow-hidden rounded-[calc(var(--pixel-radius-medium)*0.6)] transition-transform before:absolute before:inset-0 before:box-border before:rounded-[inherit] before:border-2 before:border-solid before:border-default before:transition-colors before:content-[''] after:absolute after:inset-0 after:origin-center after:scale-50 after:rounded-[inherit] after:opacity-0 after:duration-200 after:ease-linear after:content-[''] after:transition-transform-opacity group-data-[pressed=true]:scale-95 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[hover=true]:before:bg-default-100 group-data-[selected=true]:after:scale-100 group-data-[selected=true]:after:opacity-100 motion-reduce:transition-none"
+              data-slot="wrapper"
+            >
+              <svg
+                aria-hidden="true"
+                class="pointer-events-none z-10 h-3 w-4 opacity-0 transition-opacity group-data-[selected=true]:opacity-100 motion-reduce:transition-none"
+                data-slot="icon"
+                fill="none"
+                role="presentation"
+                stroke="currentColor"
+                stroke-dasharray="22"
+                stroke-dashoffset="66"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 17 18"
+              >
+                <polyline
+                  class="transition-[stroke-dashoffset] delay-200 duration-250 ease-linear motion-reduce:transition-none"
+                  points="1 9 7 14 15 4"
+                />
+              </svg>
+            </span>
+            <span
+              class="relative select-none text-foreground transition-colors-opacity text-medium before:transition-width motion-reduce:transition-none"
+              data-slot="label"
+              id="«replaced-aria-id»-label"
+            >
+              🧙 Learn magic tricks
+            </span>
+          </label>
+          <label
+            class="group relative -m-2 inline-flex max-w-fit cursor-pointer select-none items-center justify-start p-2 tap-highlight-transparent data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-disabled"
+            data-invalid="false"
+            data-rac=""
+            data-react-aria-pressable="true"
+            data-testid="checkboxfield_option_befriend_dragon"
+            for="«replaced-aria-id»"
+          >
+            <span
+              style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+            >
+              <input
+                aria-describedby="uniform-«replaced-aria-id»-description uniform-«replaced-aria-id»-required"
+                aria-label="🐉 Befriend a dragon"
+                aria-labelledby="«replaced-aria-id»-label"
+                data-react-aria-pressable="true"
+                id="«replaced-aria-id»"
+                name="checkboxField"
+                tabindex="0"
+                type="checkbox"
+                value="befriend-dragon"
+              />
+            </span>
+            <span
+              aria-hidden="true"
+              class="text-primary-foreground after:bg-primary after:text-primary-foreground relative me-2 inline-flex h-5 w-5 shrink-0 items-center justify-center overflow-hidden rounded-[calc(var(--pixel-radius-medium)*0.6)] transition-transform before:absolute before:inset-0 before:box-border before:rounded-[inherit] before:border-2 before:border-solid before:border-default before:transition-colors before:content-[''] after:absolute after:inset-0 after:origin-center after:scale-50 after:rounded-[inherit] after:opacity-0 after:duration-200 after:ease-linear after:content-[''] after:transition-transform-opacity group-data-[pressed=true]:scale-95 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[hover=true]:before:bg-default-100 group-data-[selected=true]:after:scale-100 group-data-[selected=true]:after:opacity-100 motion-reduce:transition-none"
+              data-slot="wrapper"
+            >
+              <svg
+                aria-hidden="true"
+                class="pointer-events-none z-10 h-3 w-4 opacity-0 transition-opacity group-data-[selected=true]:opacity-100 motion-reduce:transition-none"
+                data-slot="icon"
+                fill="none"
+                role="presentation"
+                stroke="currentColor"
+                stroke-dasharray="22"
+                stroke-dashoffset="66"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 17 18"
+              >
+                <polyline
+                  class="transition-[stroke-dashoffset] delay-200 duration-250 ease-linear motion-reduce:transition-none"
+                  points="1 9 7 14 15 4"
+                />
+              </svg>
+            </span>
+            <span
+              class="relative select-none text-foreground transition-colors-opacity text-medium before:transition-width motion-reduce:transition-none"
+              data-slot="label"
+              id="«replaced-aria-id»-label"
+            >
+              🐉 Befriend a dragon
+            </span>
+          </label>
+        </div>
+        <div
+          class="relative block p-0"
+          data-slot="helper-wrapper"
+        >
+          <div
+            class="text-foreground-400 text-small"
+            data-slot="description"
+            id="uniform-«replaced-aria-id»-description"
+          >
+            Choose at least one.
+          </div>
+        </div>
+      </div>
+      <div
+        class="mt-4 flex justify-end"
+      >
+        <button
+          aria-label="Submit form"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
+          data-hover="true"
           data-react-aria-pressable="true"
           data-testid="form_submit_button"
           tabindex="0"
