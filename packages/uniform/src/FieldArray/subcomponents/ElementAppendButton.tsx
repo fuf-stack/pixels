@@ -12,7 +12,7 @@ interface ElementAppendButtonProps {
   className?: ClassValue;
   /** click handler */
   onClick: () => void;
-  /** HTML data-testid attribute used in e2e tests */
+  /** HTML data-testid attribute for e2e tests */
   testId?: string;
 }
 

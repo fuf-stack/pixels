@@ -1,3 +1,6 @@
+import type { FieldError } from 'react-hook-form';
+import type { FieldIds } from '../../partials/types';
+
 import {
   AnimatePresence,
   motion,
@@ -5,13 +8,18 @@ import {
 } from '@fuf-stack/pixel-motion';
 import { useStyling } from '@fuf-stack/pixels/StylingProvider';
 
-import useUniformField from '../../hooks/useUniformField/useUniformField';
 import FieldValidationError from '../../partials/FieldValidationError/FieldValidationError';
 import fieldArrayValidationErrorVariants from './fieldArrayValidationErrorVariants';
 
 export interface FieldArrayValidationErrorProps {
-  /** Field name */
-  name: string;
+  /** Array-level validation errors */
+  error: FieldError[] | undefined;
+  /** IDs shared with the owning field */
+  ids: FieldIds;
+  /** Shows array-level validation failure */
+  invalid: boolean;
+  /** HTML data-testid attribute for e2e tests */
+  testId: string;
 }
 
 /**
@@ -25,12 +33,11 @@ export interface FieldArrayValidationErrorProps {
  * them in/out using Framer Motion when they appear or are resolved.
  */
 const FieldArrayValidationError = ({
-  name,
+  error,
+  ids,
+  invalid,
+  testId,
 }: FieldArrayValidationErrorProps) => {
-  const { error, ids, invalid, testId } = useUniformField({
-    name,
-  });
-
   const styling = useStyling();
 
   // classNames from slots
@@ -40,8 +47,9 @@ const FieldArrayValidationError = ({
   // disable all animation if user prefers reduced motion
   const disableAnimation = useReducedMotion();
 
-  // @ts-expect-error - error._errors exists but not typed
-  const hasErrors = invalid && error?._errors;
+  const objectErrors = (error as unknown as { _errors?: FieldError[] })
+    ?._errors;
+  const hasErrors = invalid && objectErrors;
 
   return (
     <AnimatePresence initial={!disableAnimation}>
@@ -59,8 +67,7 @@ const FieldArrayValidationError = ({
           <div className={classNames.helperWrapper} data-slot="helper-wrapper">
             <FieldValidationError
               className={{ wrapper: classNames.errorMessage }}
-              // @ts-expect-error - error._errors exists but not typed
-              error={error._errors}
+              error={objectErrors}
               id={ids.error}
               testId={testId}
             />

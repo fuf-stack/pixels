@@ -7,11 +7,11 @@ import { useSortable } from '@dnd-kit/sortable';
 import { useStyling } from '@fuf-stack/pixels/StylingProvider';
 
 interface SortDragHandleProps {
-  /** Optional CSS class name */
+  /** CSS class name */
   className?: ClassValue;
   /** Unique identifier for sortable item */
   id: string | number;
-  /** HTML data-testid attribute used in e2e tests */
+  /** HTML data-testid attribute for e2e tests */
   testId?: string;
 }
 

@@ -27,3 +27,10 @@ import Input from '@fuf-stack/uniform/Input';
 - `sortable`, `duplicate` and `insertAfter` enable additional row actions.
 
 [Props](types.ts) · [Stories](FieldArray.stories.tsx)
+
+## Composition
+
+`FieldArray` owns array registration, initialization and row operations.
+`FieldArrayControl` owns the group layout, sorting, row presentation and append
+button. Its label and error footer use the existing binding data rather than
+registering the array again.

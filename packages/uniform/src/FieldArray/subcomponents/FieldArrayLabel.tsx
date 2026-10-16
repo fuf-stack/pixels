@@ -2,18 +2,19 @@ import type { ReactNode } from 'react';
 
 import { useStyling } from '@fuf-stack/pixels/StylingProvider';
 
-import useUniformField from '../../hooks/useUniformField/useUniformField';
 import FieldLabel from '../../partials/FieldLabel/FieldLabel';
 
 export interface FieldArrayLabelProps {
   /** CSS class name */
   className?: string;
-  /** Label content */
+  /** Field label */
   label: ReactNode;
   /** Optional heading ID supplied by the owning group. */
   id?: string;
-  /** Field name */
-  name: string;
+  /** Shows an array-level validation failure */
+  invalid: boolean;
+  /** Marks the array as required */
+  required: boolean;
 }
 
 /**
@@ -25,29 +26,23 @@ export interface FieldArrayLabelProps {
 const FieldArrayLabel = ({
   className = undefined,
   id = undefined,
-  label: _label,
-  name,
+  label,
+  invalid,
+  required,
 }: FieldArrayLabelProps) => {
-  const { error, ids, invalid, label, required } = useUniformField({
-    name,
-    label: _label,
-  });
-
   const { cn } = useStyling();
 
   // when no label is provided, don't render anything
-  if (!_label) {
+  if (!label) {
     return null;
   }
 
-  // @ts-expect-error - error._errors exists but not typed
-  const hasErrors = invalid && error?._errors;
+  const hasErrors = invalid;
 
   return (
     <FieldLabel
-      as="div"
-      id={id ?? ids.label}
       aria-level={3}
+      as="div"
       className={cn(
         'block max-w-full overflow-hidden text-ellipsis subpixel-antialiased text-small',
         hasErrors ? 'text-danger!' : undefined,
@@ -57,9 +52,10 @@ const FieldArrayLabel = ({
           'text-foreground!': !hasErrors,
         },
       )}
-      role="heading"
+      id={id}
       required={required}
       requiredClassName="ms-0.5 text-danger"
+      role="heading"
     >
       {label}
     </FieldLabel>

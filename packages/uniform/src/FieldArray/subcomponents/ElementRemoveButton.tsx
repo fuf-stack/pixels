@@ -13,7 +13,7 @@ interface ElementRemoveButtonProps {
   disableAnimation?: boolean;
   /** click handler */
   onClick: () => void;
-  /** HTML data-testid attribute used in e2e tests */
+  /** HTML data-testid attribute for e2e tests */
   testId?: string;
 }
 

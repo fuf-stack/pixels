@@ -29,7 +29,7 @@ export interface FieldArrayElementMethods {
 interface FieldArrayElementProps extends FieldArrayFeatures {
   /** Form elements to render inside array element */
   children: React.ReactNode;
-  /** CSS class names for component parts */
+  /** CSS class name */
   className: {
     /** Class of wrapper grid inside the li that wraps the rendered element fields directly */
     elementFieldsGrid?: ClassValue;
@@ -58,7 +58,7 @@ interface FieldArrayElementProps extends FieldArrayFeatures {
   lastNotDeletable?: boolean;
   /** Field array operation methods */
   methods: FieldArrayElementMethods;
-  /** HTML data-testid of the element */
+  /** HTML data-testid attribute for e2e tests */
   testId?: string;
 }
 
@@ -120,14 +120,21 @@ const FieldArrayElement = ({
     },
   };
 
+  // let the exit animation finish before removing the registered row
+  const handleRemove = () => {
+    if (disableAnimation) {
+      methods.remove();
+    } else {
+      setIsVisible(false);
+    }
+  };
+
   // Height animation handled on <motion.li> using overflow hidden
   return (
     <AnimatePresence
       mode="wait"
       // remove from RHF state after exit animation
-      onExitComplete={() => {
-        methods.remove();
-      }}
+      onExitComplete={methods.remove}
     >
       {isVisible ? (
         <motion.li
@@ -169,13 +176,7 @@ const FieldArrayElement = ({
                 insertAfter={insertAfter}
                 methods={{
                   ...methods,
-                  remove: () => {
-                    if (disableAnimation) {
-                      methods.remove();
-                    } else {
-                      setIsVisible(false);
-                    }
-                  },
+                  remove: handleRemove,
                 }}
                 showRemove={!(lastNotDeletable && fields.length === 1)}
                 testId={`${testId}_actions_menu`}
@@ -189,13 +190,7 @@ const FieldArrayElement = ({
                       key="remove-button"
                       className={className.removeButton}
                       disableAnimation={disableAnimation}
-                      onClick={() => {
-                        if (disableAnimation) {
-                          methods.remove();
-                        } else {
-                          setIsVisible(false);
-                        }
-                      }}
+                      onClick={handleRemove}
                       testId={`${testId}_remove_button`}
                     />
                   )}
