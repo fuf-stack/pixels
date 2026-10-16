@@ -19,3 +19,9 @@ import Slider from '@fuf-stack/uniform/Slider';
 - `transform` converts between stored and displayed values when their units differ.
 
 [Props](Slider.tsx) · [Stories](Slider.stories.tsx)
+
+## Composition
+
+`Slider` owns registration, transforms and empty-value commits. `SliderControl`
+owns range presentation and focus routing. `SliderTrackControl` owns the fill,
+step markers and native range input inside the React Aria slider engine.
