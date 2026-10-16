@@ -1,88 +1,49 @@
-import type { TVClassName, TVProps } from '@fuf-stack/pixel-utils';
 import type { ReactNode } from 'react';
-//
-import type { RadioBoxProps } from './RadioBox';
-
-import { Label } from 'react-aria-components';
-
-import { slugify, tv } from '@fuf-stack/pixel-utils';
-import { useStyling } from '@fuf-stack/pixels/StylingProvider';
+import type { ClassName, VariantProps } from './radioBoxesVariants';
 
 import { createOptionValueConverter } from '../helpers';
 import useUniformField from '../hooks/useUniformField/useUniformField';
-import FieldLayout from '../partials/FieldLayout/FieldLayout';
-import RadioGroupField from '../partials/RadioGroupField/RadioGroupField';
-import radioGroupFieldVariants from '../partials/RadioGroupField/radioGroupFieldVariants';
-import { RadioBox } from './RadioBox';
+import RadioBoxesControl from './subcomponents/RadioBoxesControl';
 
-export const radioBoxesVariants = tv({
-  extend: radioGroupFieldVariants,
-  slots: {
-    base: [
-      // Needs group for group-data condition.
-      'group',
-      // Match shared field wrapper layout.
-      'flex w-full flex-col',
-      // Keep spacing between label/radio boxes consistent.
-      'gap-y-1.5',
-    ],
-    errorMessage: 'text-danger text-tiny',
-    boxBase: '',
-    boxControl: '',
-    boxDescription: '',
-    boxLabel: '',
-    boxLabelWrapper: '',
-    // see HeroUI styles for group-data condition,
-    // e.g.: https://github.com/heroui-inc/heroui/blob/main/packages/core/theme/src/components/select.ts
-    label:
-      'mb-2 inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger',
-    wrapper:
-      'flex flex-col flex-wrap gap-2 data-[orientation=horizontal]:flex-row',
-  },
-});
-
-type VariantProps = TVProps<typeof radioBoxesVariants>;
-type ClassName = TVClassName<typeof radioBoxesVariants>;
+export { radioBoxesVariants } from './radioBoxesVariants';
 
 export interface RadioBoxOption {
-  /** Description of the value. Works with variant radioBox. */
+  /** Help text associated with the field */
   description?: ReactNode;
-  /** disables the option */
+  /** Disables the field */
   disabled?: boolean;
-  /** option label */
+  /** Field label */
   label?: ReactNode;
   /** option icon */
   icon?: ReactNode;
-  /** HTML data-testid attribute of the option */
+  /** HTML data-testid attribute for e2e tests */
   testId?: string;
   /** option value */
   value: string | number;
 }
 
 export interface RadioBoxesProps extends VariantProps {
-  /** Custom aria-label for accessibility. If not provided, falls back to field name when no visible label exists */
+  /** Custom accessible name */
   ariaLabel?: string;
   /** CSS class name */
   className?: ClassName;
-  /** Determines if the Buttons are disabled or not. */
+  /** Disables the field */
   disabled?: boolean;
-  /** Optional help text associated with the radio group. */
+  /** Help text associated with the field */
   description?: ReactNode;
-  /** determines orientation of the Buttons. */
+  /** Arranges options horizontally */
   inline?: boolean;
-  /** Label displayed next to the RadioButton. */
+  /** Field label */
   label?: ReactNode;
-  /** Name the RadioButtons are registered at in HTML forms (react-hook-form). */
+  /** Field name */
   name: string;
-  /** Radio button configuration. */
+  /** Available options */
   options: RadioBoxOption[];
-  /** Id to grab element in internal tests. */
+  /** HTML data-testid attribute for e2e tests */
   testId?: string;
 }
 
-/**
- * Card-shaped radios with owned presentation and React Aria interactions
- */
+/** Form selection field for one option displayed as a box */
 const RadioBoxes = ({
   className = undefined,
   inline = false,
@@ -90,28 +51,21 @@ const RadioBoxes = ({
   options,
   ...uniformFieldProps
 }: RadioBoxesProps) => {
-  const field = useUniformField({ ...uniformFieldProps, name });
   const {
+    field,
     disabled,
     invalid,
     testId,
-    field: { value },
-  } = field;
+    required,
+    label,
+    description,
+    errorMessage,
+    ids,
+    ref,
+    getControlProps,
+  } = useUniformField({ ...uniformFieldProps, name });
 
-  // Create converter to preserve number types for option values
   const { convertToOriginalType } = createOptionValueConverter(options);
-
-  // classNames from slots
-  const styling = useStyling();
-  const variants = styling.resolve(radioBoxesVariants);
-  const classNames = styling.variantsToClassNames(variants, className, 'base');
-  const boxClassNames: RadioBoxProps['classNames'] = {
-    base: classNames.boxBase,
-    control: classNames.boxControl,
-    description: classNames.boxDescription,
-    label: classNames.boxLabel,
-    labelWrapper: classNames.boxLabelWrapper,
-  };
 
   // restore the option's original value type before updating the form
   const handleChange = (nextValue: string) => {
@@ -119,61 +73,25 @@ const RadioBoxes = ({
   };
 
   return (
-    <RadioGroupField
-      className={classNames.base}
-      controlProps={field.getControlProps()}
+    <RadioBoxesControl
+      className={className}
+      controlProps={getControlProps()}
+      description={description}
       disabled={disabled}
+      errorMessage={errorMessage}
+      ids={ids}
       inline={inline}
-      inputRef={field.ref}
+      inputRef={ref}
       invalid={invalid}
+      label={label}
       name={name}
       onBlur={field.onBlur}
-      onChange={handleChange}
-      required={field.required}
+      onValueChange={handleChange}
+      options={options}
+      required={required}
       testId={testId}
-      value={value}
-    >
-      <FieldLayout
-        className={classNames}
-        description={field.description}
-        errorMessage={field.errorMessage}
-        ids={field.ids}
-        invalid={invalid}
-        label={field.label}
-        labelAs={Label}
-        required={field.required}
-      >
-        <div
-          className={classNames.wrapper}
-          data-orientation={inline ? 'horizontal' : 'vertical'}
-          data-slot="wrapper"
-        >
-          {options.map((option) => {
-            if ('value' in option) {
-              const optionTestId = slugify(
-                `${testId}_option_${option.testId ?? option.value}`,
-                { replaceDots: true },
-              );
-              return (
-                <RadioBox
-                  key={String(option.value)}
-                  classNames={boxClassNames}
-                  data-testid={optionTestId}
-                  description={option.description}
-                  icon={option.icon}
-                  isDisabled={!!disabled || option.disabled}
-                  isInvalid={invalid}
-                  value={String(option.value)}
-                >
-                  {option.label ?? option.value}
-                </RadioBox>
-              );
-            }
-            return null;
-          })}
-        </div>
-      </FieldLayout>
-    </RadioGroupField>
+      value={field.value}
+    />
   );
 };
 

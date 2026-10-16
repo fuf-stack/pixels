@@ -5,11 +5,15 @@ import { FaFlask, FaPhone, FaRocket } from 'react-icons/fa';
 import { action } from 'storybook/actions';
 import { expect, userEvent, waitFor, within } from 'storybook/test';
 
-import { string, veto } from '@fuf-stack/veto';
+import { number, string, veto } from '@fuf-stack/veto';
 
 import Form from '../Form';
 import SubmitButton from '../SubmitButton';
 import RadioBoxes from './RadioBoxes';
+
+// -----------------------------------------------------------------------------
+// Story base setup
+// -----------------------------------------------------------------------------
 
 const meta: Meta<typeof RadioBoxes> = {
   title: 'uniform/RadioBoxes',
@@ -34,6 +38,10 @@ const meta: Meta<typeof RadioBoxes> = {
 
 export default meta;
 type Story = StoryObj<typeof RadioBoxes>;
+
+// -----------------------------------------------------------------------------
+// Normal stories
+// -----------------------------------------------------------------------------
 
 export const Default: Story = {
   args: {
@@ -280,5 +288,44 @@ export const WithIcons: Story = {
         value: 'support',
       },
     ],
+  },
+};
+
+// -----------------------------------------------------------------------------
+// Composition
+// -----------------------------------------------------------------------------
+
+export const KeyboardAndRequired: StoryObj<typeof RadioBoxes> = {
+  ...Required,
+  parameters: {
+    formProps: { validation: veto({ radioBoxesField: number() }) },
+  },
+  args: {
+    ...Required.args,
+    description: 'Choose with the arrow keys.',
+    options: [
+      { label: 'Zero', value: 0 },
+      { label: 'Disabled', value: 1, disabled: true },
+      { label: 'Two', value: 2 },
+    ],
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const group = canvas.getByRole('radiogroup');
+    await expect(group).toHaveAccessibleDescription(
+      'Choose with the arrow keys.',
+    );
+    await userEvent.click(canvas.getByTestId('form_submit_button'));
+    const zero = canvas.getByRole('radio', { name: 'Zero' });
+    await waitFor(async () => {
+      await expect(zero).toHaveFocus();
+    });
+    await userEvent.keyboard('{ArrowRight}');
+    await expect(canvas.getByRole('radio', { name: 'Two' })).toBeChecked();
+    await expect(
+      canvas.getByRole('radio', { name: 'Disabled' }),
+    ).not.toBeChecked();
+    await userEvent.keyboard('{ArrowLeft}');
+    await expect(zero).toBeChecked();
   },
 };

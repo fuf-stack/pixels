@@ -36,3 +36,9 @@ messages. `RadioControl` owns each option's label, description and indicator.
 [Shared engine](../partials/RadioGroupField/README.md) · [Option renderer](../Radios/subcomponents/README.md)
 
 [Props](RadioBoxes.tsx) · [Stories](RadioBoxes.stories.tsx)
+
+## Composition
+
+`RadioBoxes` owns field registration and option value conversion.
+`RadioBoxesControl` owns group layout, option rendering and styling. The shared
+radio engine routes focus and preserves group and option descriptions.

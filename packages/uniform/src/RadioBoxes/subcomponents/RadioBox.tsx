@@ -1,41 +1,16 @@
-import type { TVClassName } from '@fuf-stack/pixel-utils';
 import type { ReactNode } from 'react';
+import type { ClassName } from './radioBoxVariants';
 
-import { tv } from '@fuf-stack/pixel-utils';
 import { useStyling } from '@fuf-stack/pixels/StylingProvider';
 
-import RadioControl from '../Radios/subcomponents/RadioControl';
-import radioControlVariants from '../Radios/subcomponents/radioControlVariants';
-
-export const radioBoxVariants = tv({
-  slots: {
-    base: 'group inline-flex flex-auto cursor-pointer items-center justify-between gap-4 rounded-lg border-2 border-default p-4 hover:bg-content2 data-[selected=true]:border-focus',
-    control: '',
-    description: 'text-foreground opacity-70 text-small',
-    icon: '',
-    label: '',
-    labelWrapper: 'grow',
-  },
-  variants: {
-    isDisabled: {
-      true: {
-        base: 'pointer-events-none opacity-disabled',
-      },
-    },
-    isInvalid: {
-      true: {
-        base: '!border-danger',
-      },
-    },
-  },
-});
-
-type ClassName = TVClassName<typeof radioBoxVariants>;
+import RadioControl from '../../Radios/subcomponents/RadioControl';
+import radioControlVariants from '../../Radios/subcomponents/radioControlVariants';
+import { radioBoxVariants } from './radioBoxVariants';
 
 export interface RadioBoxProps {
   /** Option label. */
   children?: ReactNode;
-  /** Option description. */
+  /** Help text associated with the field */
   description?: ReactNode;
   /** Whether the option is disabled. */
   isDisabled?: boolean;
@@ -53,6 +28,11 @@ export interface RadioBoxProps {
   isInvalid?: boolean;
 }
 
+/**
+ * Selectable radio box with an icon, supporting text and selection indicator
+ *
+ * @see https://react-aria.adobe.com/RadioGroup
+ */
 export const RadioBox = ({
   className = undefined,
   classNames: _classNames = undefined,
@@ -65,8 +45,9 @@ export const RadioBox = ({
   ...props
 }: RadioBoxProps) => {
   const styling = useStyling();
+  const variants = styling.resolve(radioBoxVariants, { isDisabled, isInvalid });
   const classes = styling.variantsToClassNames(
-    styling.resolve(radioBoxVariants, { isDisabled, isInvalid }),
+    variants,
     _classNames ?? className,
     'base',
   );
