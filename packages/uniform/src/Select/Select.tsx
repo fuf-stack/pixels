@@ -1,128 +1,39 @@
-import type { TVClassName, TVProps } from '@fuf-stack/pixel-utils';
 import type { ReactNode } from 'react';
-import type { MultiValue, Props, SingleValue } from 'react-select';
+import type { Props } from 'react-select';
 import type { InputValueTransform } from '../hooks/useInputValueTransform';
+import type { ClassName, VariantProps } from './selectVariants';
 
-import { useState } from 'react';
-import ReactSelect from 'react-select';
-
-import { tv } from '@fuf-stack/pixel-utils';
-import { useStyling } from '@fuf-stack/pixels/StylingProvider';
-
-import { createOptionValueConverter, isValueEmpty } from '../helpers';
-import getFieldDataAttributes from '../helpers/getFieldDataAttributes/getFieldDataAttributes';
+import { createOptionValueConverter } from '../helpers';
 import { useFormContext } from '../hooks/useFormContext';
 import useUniformField from '../hooks/useUniformField/useUniformField';
-import FieldLayout from '../partials/FieldLayout/FieldLayout';
-import {
-  ClearIndicatorComponent,
-  ControlComponent,
-  DownChevronComponent,
-  DropdownIndicatorComponent,
-  InputComponent,
-  MultiValueContainerComponent,
-  MultiValueRemoveComponent,
-  OptionComponent,
-  SelectControlContext,
-  SelectSlotContext,
-} from './SelectComponents';
+import SelectControl from './subcomponents/SelectControl';
 
-export const selectVariants = tv({
-  slots: {
-    base: [
-      // Enables group-data selectors used by child slots.
-      'group',
-      // Make field wrappers align with other form controls.
-      'flex w-full flex-col',
-      // Keep label/control vertical rhythm consistent.
-      'gap-y-1.5',
-      // Preserve existing text flow for select content.
-      'leading-normal',
-    ],
-    clearIndicator:
-      'rounded-md p-1 text-foreground-500 hover:cursor-pointer hover:bg-default-200 hover:text-foreground-800',
-    control:
-      'duration-150! min-h-10 rounded-lg border-2 border-default-200 bg-content1 transition-background hover:border-default-400 group-data-[invalid=true]:border-danger group-data-[invalid=true]:hover:border-danger motion-reduce:transition-none',
-    control_focused: 'border-focus',
-    crossIcon: '',
-    downChevron: '',
-    dropdownIndicator:
-      'rounded-md p-1 text-foreground-500 hover:cursor-pointer hover:bg-default-200 hover:text-black',
-    group: '',
-    groupHeading: 'mb-1 ml-3 mt-2 text-sm text-foreground-500',
-    indicatorsContainer: 'gap-1 p-1',
-    indicatorSeparator: 'bg-default-300',
-    input: 'py-0.5 pl-1',
-    // see HeroUI styles for group-data condition,
-    // e.g.: https://github.com/heroui-inc/heroui/blob/main/packages/core/theme/src/components/select.ts
-    label:
-      'pointer-events-auto inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger',
-    loadingIndicator: '',
-    loadingMessage: 'rounded-sm p-2 text-foreground-500',
-    menu: 'mt-2 rounded-xl border border-default-200 bg-content1 p-1 shadow-lg',
-    menuList: '',
-    // ensure menu has same z-index as modal so it is visible when rendered in modal
-    // see: https://github.com/heroui-inc/heroui/blob/main/packages/core/theme/src/components/modal.ts (see z-50)
-    menuPortal: 'z-50!',
-    multiValue: 'h-6 items-center gap-1.5 rounded bg-default-100 pl-2 pr-1',
-    multiValueContainer: '',
-    multiValueLabel: 'py-0 leading-5',
-    multiValueRemove:
-      'flex h-5 w-5 items-center justify-center rounded text-default-500 hover:cursor-pointer hover:border-default-300 hover:text-default-800',
-    noOptionsMessage: 'rounded-sm p-2 text-foreground-500',
-    option: 'rounded px-3 py-2 hover:cursor-pointer',
-    option_disabled:
-      'cursor-not-allowed! hover:cursor-not-allowed! opacity-disabled',
-    option_focused: 'bg-default-100 active:bg-default-200',
-    option_selected: 'bg-default-300',
-    placeholder: 'ml-1 py-0.5 pl-1 text-sm text-foreground-500',
-    selectContainer: '',
-    singleValue: 'ml-1! leading-7!',
-    valueContainer: 'gap-1 p-1',
-  },
-});
-
-const selectStateVariants = tv({
-  extend: selectVariants,
-  slots: {
-    selectedValue: 'w-full truncate text-start font-normal text-small',
-    helperWrapper: 'relative flex flex-col gap-1.5 p-0',
-    description: 'text-foreground-500 text-tiny',
-    errorMessage: 'text-danger text-tiny',
-  },
-  variants: {
-    disabled: { true: { base: 'pointer-events-none opacity-disabled' } },
-    invalid: { true: { selectedValue: 'text-danger!' } },
-  },
-});
+export { selectVariants } from './selectVariants';
 
 export interface SelectOption {
-  /** set option to disabled state */
+  /** Disables the field */
   disabled?: boolean;
   /**
    * True when option was auto-generated because the value wasn't found in options.
    * Use in renderOptionLabel to render a component that fetches the real label.
    */
   isFallback?: boolean;
-  /** option label */
+  /** Field label */
   label?: ReactNode;
   /** option value */
   value: string | number;
 }
 
-type VariantProps = TVProps<typeof selectVariants>;
-type ClassName = TVClassName<typeof selectVariants>;
-
 export interface SelectProps extends VariantProps {
-  /** Custom aria-label for accessibility. If not provided, falls back to field name when no visible label exists */
+  /** Custom accessible name */
   ariaLabel?: string;
   /** CSS class name */
   className?: ClassName; // string;
-  /** Optional help text associated with the editable search input. */
+  /** Help text associated with the field */
   description?: ReactNode;
   /** Determine if the  */
   clearable?: boolean;
-  /** Set the select to disabled state. */
+  /** Disables the field */
   disabled?: boolean;
   /** Force menu open for debugging or visual testing. */
   debugMenuOpen?: boolean;
@@ -131,19 +42,19 @@ export interface SelectProps extends VariantProps {
     undefined | ((option?: SelectOption, inputValue?: string) => boolean);
   /** The value of the search input */
   inputValue?: string;
-  /** Label that should be associated with the select. */
+  /** Field label */
   label?: ReactNode;
   /** Set the select to a loading state. */
   loading?: boolean;
   /** switch between single and multi select mode. */
   multiSelect?: boolean;
-  /** The name for the Select component, used by react-hook-form */
+  /** Field name */
   name: string;
-  /** Placeholder that is displayed when nothing is selected */
+  /** Placeholder text */
   placeholder?: string;
   /** Handle change events on the input */
   onInputChange?: Props['onInputChange'];
-  /** The options for the Select component */
+  /** Available options */
   options: SelectOption[];
   /** Render custom content when no options match the current search input. */
   renderEmptyOptions?: Props['noOptionsMessage'];
@@ -157,13 +68,13 @@ export interface SelectProps extends VariantProps {
    * For multi-select: pass an array of option objects
    */
   selectedOptionFallback?: SelectOption | SelectOption[];
-  /** HTML data-testid attribute used in e2e tests */
+  /** HTML data-testid attribute for e2e tests */
   testId?: string;
   /** Allows disentangled display and form values for a field. */
   transform?: InputValueTransform;
 }
 
-/** React Select interaction engine with owned styling and Uniform associations. */
+/** Form selection field with searchable single or multiple options */
 const Select = ({
   className = undefined,
   clearable = true,
@@ -181,198 +92,31 @@ const Select = ({
   selectedOptionFallback = undefined,
   ...uniformFieldProps
 }: SelectProps) => {
+  const { getFieldState } = useFormContext();
   const {
-    ids,
+    field,
     description,
-    getControlProps,
     disabled,
     errorMessage,
-    field: { onBlur, onChange, ref, value },
+    getControlProps,
+    ids,
     invalid,
     label,
+    ref,
     required,
     testId,
   } = useUniformField({
-    // Multi-select values are arrays and can produce nested RHF error shapes.
+    ...uniformFieldProps,
     isArrayValue: multiSelect,
     name,
-    ...uniformFieldProps,
   });
 
-  // Get getFieldState to check isTouched in onChange callback
-  const { getFieldState } = useFormContext();
-
-  // Track if the select is focused
-  const [isFocused, setIsFocused] = useState(false);
-
-  // Create converter to preserve number types for option values
   const { convertToOriginalType } = createOptionValueConverter(options);
 
-  // classNames from slots
-  const styling = useStyling();
-  const { cn } = styling;
-  const classNames = styling.variantsToClassNames(
-    styling.resolve(selectStateVariants, { disabled, invalid }),
-    className,
-    'base',
-  );
-  const controlProps = getControlProps();
-
-  // React-select classNames configuration
-  const reactSelectClassNames = {
-    container: () => {
-      return classNames.selectContainer;
-    },
-    group: () => {
-      return classNames.group;
-    },
-    clearIndicator: () => {
-      return classNames.clearIndicator;
-    },
-    control: () => {
-      return cn(classNames.control, {
-        [classNames.control_focused]: isFocused && !invalid,
-      });
-    },
-    dropdownIndicator: () => {
-      return classNames.dropdownIndicator;
-    },
-    groupHeading: () => {
-      return classNames.groupHeading;
-    },
-    indicatorSeparator: () => {
-      return classNames.indicatorSeparator;
-    },
-    indicatorsContainer: () => {
-      return classNames.indicatorsContainer;
-    },
-    input: () => {
-      return classNames.input;
-    },
-    loadingIndicator: () => {
-      return classNames.loadingIndicator;
-    },
-    loadingMessage: () => {
-      return classNames.loadingMessage;
-    },
-    menu: () => {
-      return classNames.menu;
-    },
-    menuList: () => {
-      return classNames.menuList;
-    },
-    menuPortal: () => {
-      return classNames.menuPortal;
-    },
-    multiValue: () => {
-      return classNames.multiValue;
-    },
-    multiValueLabel: () => {
-      return cn(classNames.selectedValue, classNames.multiValueLabel);
-    },
-    multiValueRemove: () => {
-      return classNames.multiValueRemove;
-    },
-    noOptionsMessage: () => {
-      return classNames.noOptionsMessage;
-    },
-    option: ({
-      isDisabled: optionIsDisabled,
-      isFocused: optionIsFocused,
-      isSelected: optionIsSelected,
-    }: {
-      isDisabled: boolean;
-      isFocused: boolean;
-      isSelected: boolean;
-    }) => {
-      return cn(classNames.option, {
-        [classNames.option_disabled]: optionIsDisabled,
-        [classNames.option_focused]: optionIsFocused,
-        [classNames.option_selected]: optionIsSelected,
-      });
-    },
-    placeholder: () => {
-      return classNames.placeholder;
-    },
-    singleValue: () => {
-      return cn(classNames.selectedValue, classNames.singleValue);
-    },
-    valueContainer: () => {
-      return classNames.valueContainer;
-    },
-  };
-
-  // react-select expects `isDisabled`, while our option contract uses `disabled`.
-  const reactSelectOptions = options.map((option) => {
-    return {
-      ...option,
-      isDisabled: option.disabled,
-    };
-  });
-
-  // Compute selected option(s) for react-select
-  //
-  // Priority for finding options:
-  // 1. Look in current options list
-  // 2. Use selectedOptionFallback prop (for async selects with pre-fetched data)
-  // 3. Create fallback with value as label
-  //
-  // Handles edge cases:
-  // - Compares as strings to support both string and number values
-  // - Returns null for empty single-select (required by react-select to clear)
-  // - Creates fallback options when value exists but isn't in options list
-  //   (common with async selects where options change after selection)
-  const reactSelectValue = (() => {
-    // Helper to find option by value
-    const findOption = (v: string | number): SelectOption => {
-      // First, look in options list
-      const inOptions = options.find((option) => {
-        return String(option.value) === String(v);
-      });
-      if (inOptions) {
-        return inOptions;
-      }
-
-      // Second, look in selectedOptionFallback prop (for async selects)
-      if (selectedOptionFallback) {
-        if (Array.isArray(selectedOptionFallback)) {
-          const inSelected = selectedOptionFallback.find((option) => {
-            return String(option.value) === String(v);
-          });
-          if (inSelected) {
-            return inSelected;
-          }
-        } else if (String(selectedOptionFallback.value) === String(v)) {
-          return selectedOptionFallback;
-        }
-      }
-
-      // Fallback: create option with value as label, marked as fallback
-      return { isFallback: true, label: String(v), value: v };
-    };
-
+  // convert selected options back to their stored value types
+  const handleChange = (option: unknown) => {
     if (multiSelect) {
-      if (!Array.isArray(value) || isValueEmpty(value)) {
-        return [];
-      }
-      return value.map((v) => {
-        return findOption(v);
-      });
-    }
-
-    // Single select - use isValueEmpty to handle marker strings (__NULL__, etc.)
-    if (isValueEmpty(value)) {
-      return null;
-    }
-    return findOption(value);
-  })();
-
-  // Handle selection change
-  const handleChange = (
-    option: MultiValue<SelectOption> | SingleValue<SelectOption>,
-  ) => {
-    if (multiSelect) {
-      onChange(
+      field.onChange(
         (option as SelectOption[])?.map((_option) => {
           return convertToOriginalType(_option.value);
         }),
@@ -380,102 +124,48 @@ const Select = ({
     } else {
       const newValue = (option as SelectOption)?.value;
       // Pass null explicitly when clearing (not undefined)
-      onChange(newValue != null ? convertToOriginalType(newValue) : null);
+      field.onChange(newValue != null ? convertToOriginalType(newValue) : null);
     }
 
-    // Mark field as touched immediately when a selection is made if not already touched
-    // This ensures validation errors show right away (isTouched becomes true)
-    // For Select components, selecting an option is a complete user action
-    // (unlike text inputs where typing is ongoing), so we mark as touched immediately
     const { isTouched: currentIsTouched } = getFieldState(name, testId);
     if (!currentIsTouched) {
-      // Defer blur/touched notification until after the onChange value commit.
-      // This prevents "one render cycle behind" validation states where blur
-      // validation runs against the previous value.
+      // mark touched after the new value commits, so validation sees the selection
       queueMicrotask(() => {
-        onBlur();
+        field.onBlur();
       });
     }
   };
 
-  // Handle blur event
-  const handleBlur = () => {
-    setIsFocused(false);
-    onBlur();
-  };
-
-  // Handle focus event
-  const handleFocus = () => {
-    setIsFocused(true);
-  };
-
   return (
-    <div
-      {...getFieldDataAttributes({ disabled, invalid, required })}
-      className={cn(classNames.base)}
-      data-slot="base"
-      data-testid={`${testId}_wrapper`}
-    >
-      <FieldLayout
-        className={classNames}
-        description={description}
-        errorMessage={errorMessage}
-        ids={ids}
-        invalid={invalid}
-        label={label}
-        required={required}
-      >
-        <SelectControlContext.Provider value={controlProps}>
-          <SelectSlotContext.Provider value={classNames}>
-            <ReactSelect
-              ref={ref}
-              aria-errormessage=""
-              aria-invalid={invalid}
-              aria-label={controlProps['aria-label']}
-              aria-labelledby={controlProps['aria-labelledby']}
-              classNames={reactSelectClassNames}
-              data-testid={testId}
-              components={{
-                Control: ControlComponent,
-                ClearIndicator: ClearIndicatorComponent,
-                MultiValueRemove: MultiValueRemoveComponent,
-                DownChevron: DownChevronComponent,
-                MultiValueContainer: MultiValueContainerComponent,
-                DropdownIndicator: DropdownIndicatorComponent,
-                Input: InputComponent,
-                Option: OptionComponent,
-              }}
-              // Does not affect the testId of the select, but is needed to pass it to sub-components
-              filterOption={filterOption}
-              formatOptionLabel={renderOptionLabel}
-              inputId={ids.control}
-              inputValue={inputValue}
-              instanceId={ids.control}
-              isClearable={clearable}
-              isDisabled={disabled}
-              isLoading={loading}
-              isMulti={multiSelect}
-              menuIsOpen={debugMenuOpen ? true : undefined}
-              // set menuPosition to fixed so that menu can be rendered
-              // inside Card / Modal components, menuShouldBlockScroll
-              // prevents container scroll when menu is open
-              menuPosition="fixed"
-              menuShouldBlockScroll
-              name={name}
-              noOptionsMessage={renderEmptyOptions}
-              onBlur={handleBlur}
-              onChange={handleChange}
-              onFocus={handleFocus}
-              onInputChange={onInputChange}
-              options={reactSelectOptions}
-              placeholder={placeholder}
-              unstyled
-              value={reactSelectValue}
-            />
-          </SelectSlotContext.Provider>
-        </SelectControlContext.Provider>
-      </FieldLayout>
-    </div>
+    <SelectControl
+      className={className}
+      clearable={clearable}
+      controlProps={getControlProps()}
+      debugMenuOpen={debugMenuOpen}
+      description={description}
+      disabled={disabled}
+      errorMessage={errorMessage}
+      filterOption={filterOption}
+      ids={ids}
+      inputRef={ref}
+      inputValue={inputValue}
+      invalid={invalid}
+      label={label}
+      loading={loading}
+      multiSelect={multiSelect}
+      name={name}
+      onBlur={field.onBlur}
+      onInputChange={onInputChange}
+      onValueChange={handleChange}
+      options={options}
+      placeholder={placeholder}
+      renderEmptyOptions={renderEmptyOptions}
+      renderOptionLabel={renderOptionLabel}
+      required={required}
+      selectedOptionFallback={selectedOptionFallback}
+      testId={testId}
+      value={field.value}
+    />
   );
 };
 

@@ -26,3 +26,9 @@ import Select from '@fuf-stack/uniform/Select';
 - Use `selectedOptionFallback` when a selected value may be absent from the current option list, such as during asynchronous search.
 
 [Props](Select.tsx) · [Stories](Select.stories.tsx)
+
+## Composition
+
+`Select` owns registration, option value conversion and touched-state timing.
+`SelectControl` owns focus styling, React Select composition, fallback option
+resolution and `FieldLayout`. Engine adapters live under `subcomponents/`.
