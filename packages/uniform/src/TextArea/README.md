@@ -19,3 +19,9 @@ import TextArea from '@fuf-stack/uniform/TextArea';
 - Uses the same 300 ms default debounce and blur flushing as Input.
 
 [Props](TextArea.tsx) · [Stories](TextArea.stories.tsx)
+
+## Composition
+
+`TextArea` binds and debounces form values. `TextAreaControl` owns the editable ref,
+autosizing, interaction state and `FieldLayout`. Labels, descriptions and validation
+messages are exposed as styling slots alongside the input surface.

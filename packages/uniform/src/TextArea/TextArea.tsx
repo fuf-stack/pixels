@@ -1,25 +1,11 @@
-import type { TVClassName, TVProps } from '@fuf-stack/pixel-utils';
 import type { ReactNode } from 'react';
-import type textAreaVariants from './textAreaVariants';
+import type { ClassName, VariantProps } from './textAreaVariants';
 
-import { useRef, useState } from 'react';
-import { Group } from 'react-aria-components';
-import { useFocusRing } from 'react-aria/useFocusRing';
-import { useTextField } from 'react-aria/useTextField';
-import TextareaAutosize from 'react-textarea-autosize';
-
-import { useStyling } from '@fuf-stack/pixels/StylingProvider';
-
-import getFieldDataAttributes from '../helpers/getFieldDataAttributes/getFieldDataAttributes';
 import { useInputValueDebounce } from '../hooks/useInputValueDebounce';
 import useUniformField from '../hooks/useUniformField/useUniformField';
-import FieldLayout from '../partials/FieldLayout/FieldLayout';
-import { textAreaStateVariants } from './textAreaVariants';
+import TextAreaControl from './subcomponents/TextAreaControl';
 
 export { default as textAreaVariants } from './textAreaVariants';
-
-type VariantProps = TVProps<typeof textAreaVariants>;
-type ClassName = TVClassName<typeof textAreaVariants>;
 
 export interface TextAreaProps extends VariantProps {
   /** Custom aria-label for accessibility. If not provided, falls back to field name when no visible label exists */
@@ -44,7 +30,7 @@ export interface TextAreaProps extends VariantProps {
   testId?: string;
 }
 
-/** Owned multiline field with React Aria behavior and three-to-eight-row autosizing. */
+/** Form input field for multiline text */
 const TextArea = ({
   className = undefined,
   debounceDelay = 300,
@@ -53,7 +39,7 @@ const TextArea = ({
   ...uniformProps
 }: TextAreaProps) => {
   const {
-    field: { value: fieldValue, onChange: fieldOnChange, onBlur: fieldOnBlur },
+    field,
     ref,
     disabled,
     invalid,
@@ -69,111 +55,35 @@ const TextArea = ({
     name,
     placeholder,
   });
-  const controlRef = useRef<HTMLTextAreaElement>(null);
-  const { focusProps, isFocused, isFocusVisible } = useFocusRing({
-    within: true,
-    isTextInput: true,
-  });
-  const [hovered, setHovered] = useState(false);
-  const [limitReached, setLimitReached] = useState(false);
+
+  // debounce form updates, flush pending edits on blur
   const { value, onChange, onBlur } = useInputValueDebounce({
     name,
     debounceDelay,
-    value: fieldValue,
-    onChange: fieldOnChange,
-    onBlur: fieldOnBlur,
+    value: field.value,
+    onChange: field.onChange,
+    onBlur: field.onBlur,
   });
-  const hasValue = value !== '' && value != null;
-  const associations = getControlProps();
-  const { inputProps } = useTextField(
-    {
-      ...associations,
-      inputElementType: 'textarea',
-      name,
-      value: String(value ?? ''),
-      onChange,
-      onBlur,
-      isDisabled: disabled,
-      isInvalid: invalid,
-      isRequired: required,
-      validationBehavior: 'aria',
-    },
-    controlRef,
-  );
-  const styling = useStyling();
-  const classes = styling.variantsToClassNames(
-    styling.resolve(textAreaStateVariants, {
-      disabled,
-      invalid,
-      filled: hasValue,
-    }),
-    className,
-    'base',
-  );
 
   return (
-    <div
-      {...focusProps}
-      {...getFieldDataAttributes({ disabled, invalid, required })}
-      className={classes.base}
-      data-filled={hasValue || undefined}
-      data-focus={isFocused || undefined}
-      data-focus-visible={isFocusVisible || undefined}
-      data-hover={hovered || undefined}
-      data-slot="base"
-    >
-      <FieldLayout
-        className={classes}
-        description={description}
-        errorMessage={errorMessage}
-        ids={ids}
-        invalid={invalid}
-        label={label}
-        required={required}
-      >
-        <Group
-          className={classes.inputWrapper}
-          data-focus={isFocused || undefined}
-          data-hover={hovered || undefined}
-          data-slot="input-wrapper"
-          isDisabled={disabled}
-          onClick={(event) => {
-            if (!disabled && event.target === event.currentTarget) {
-              controlRef.current?.focus();
-            }
-          }}
-          onHoverEnd={() => {
-            setHovered(false);
-          }}
-          onHoverStart={() => {
-            setHovered(true);
-          }}
-          role="presentation"
-        >
-          <div className={classes.innerWrapper} data-slot="inner-wrapper">
-            <TextareaAutosize
-              {...inputProps}
-              {...associations}
-              ref={(node) => {
-                controlRef.current = node;
-                ref(node);
-              }}
-              className={classes.input}
-              data-filled={hasValue || undefined}
-              data-hide-scroll={!limitReached || undefined}
-              data-slot="input"
-              data-testid={testId}
-              maxRows={8}
-              minRows={3}
-              onHeightChange={(height, { rowHeight }) => {
-                setLimitReached(height >= rowHeight * 8);
-              }}
-              placeholder={placeholder}
-            />
-          </div>
-        </Group>
-      </FieldLayout>
-    </div>
+    <TextAreaControl
+      className={className}
+      controlProps={getControlProps()}
+      description={description}
+      disabled={disabled}
+      errorMessage={errorMessage}
+      ids={ids}
+      inputRef={ref}
+      invalid={invalid}
+      label={label}
+      name={name}
+      onBlur={onBlur}
+      onValueChange={onChange}
+      placeholder={placeholder}
+      required={required}
+      testId={testId}
+      value={value}
+    />
   );
 };
 
