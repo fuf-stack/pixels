@@ -12,15 +12,15 @@ interface RadioControlProps {
   children: ReactNode;
   /** CSS class name */
   className: RadioControlClassNames;
-  /** Supporting text for this option */
+  /** Help text associated with the field */
   description?: ReactNode;
-  /** Disables the option */
+  /** Disables the field */
   disabled?: boolean;
   /** Decorative option icon */
   icon?: ReactNode;
   /** Marks visible validation failure */
   invalid: boolean;
-  /** HTML data-testid attribute */
+  /** HTML data-testid attribute for e2e tests */
   testId?: string;
   /** String value managed by the containing group */
   value: string;
