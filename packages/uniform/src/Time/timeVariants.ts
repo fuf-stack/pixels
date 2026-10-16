@@ -60,9 +60,6 @@ export const segmentedInputVariants = tv({
   },
 });
 
-export type VariantProps = TVProps<typeof timeVariants>;
-
-export type ClassName = TVClassName<typeof timeVariants>;
 export const timeVariants = tv({
   extend: segmentedInputVariants,
   variants: {
@@ -85,3 +82,13 @@ export const timeVariants = tv({
     },
   },
 });
+
+export type VariantProps = TVProps<typeof timeVariants>;
+
+export type ClassName = TVClassName<typeof timeVariants>;
+
+/** Resolved class names for the segmented time slots */
+export type TimeClassNames = Record<
+  keyof ReturnType<typeof timeVariants>,
+  string
+>;

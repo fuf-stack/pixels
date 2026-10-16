@@ -37,8 +37,6 @@ export const selectVariants = tv({
     indicatorSeparator: 'bg-default-300',
     indicatorsContainer: 'gap-1 p-1',
     input: 'py-0.5 pl-1',
-    // see HeroUI styles for group-data condition,
-    // e.g.: https://github.com/heroui-inc/heroui/blob/main/packages/core/theme/src/components/select.ts
     label: [
       // label interaction and typography
       'pointer-events-auto inline-flex cursor-default text-sm text-foreground subpixel-antialiased',
@@ -50,7 +48,6 @@ export const selectVariants = tv({
     menu: 'mt-2 rounded-xl border border-default-200 bg-content1 p-1 shadow-lg',
     menuList: '',
     // ensure menu has same z-index as modal so it is visible when rendered in modal
-    // see: https://github.com/heroui-inc/heroui/blob/main/packages/core/theme/src/components/modal.ts (see z-50)
     menuPortal: 'z-50!',
     multiValue: 'h-6 items-center gap-1.5 rounded bg-default-100 pl-2 pr-1',
     multiValueContainer: '',

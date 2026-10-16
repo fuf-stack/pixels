@@ -32,3 +32,6 @@ slots in `className`.
 `SwitchBox` owns form registration and boolean values. `SwitchBoxControl` owns
 the native input ref, React Aria interactions, styling and message placement.
 Recipes and their derived types live in `switchBoxVariants.ts`.
+
+`SwitchBoxTrack` owns the visual track and selection-aware thumb icon, preserving its
+placement before or after the label according to the optional icon.

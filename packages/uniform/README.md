@@ -29,8 +29,6 @@ to props and stories. Field components are used inside [Form](./src/Form/README.
 - [DatePicker](./src/DatePicker/README.md)
 - [FieldArray](./src/FieldArray/README.md)
 - [FieldCard](./src/FieldCard/README.md)
-- [FieldCopyTestIdButton](./src/partials/FieldCopyTestIdButton/README.md)
-- [FieldValidationError](./src/partials/FieldValidationError/README.md)
 - [Form](./src/Form/README.md)
 - [Grid](./src/Grid/README.md)
 - [Input](./src/Input/README.md)

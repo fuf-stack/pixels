@@ -59,8 +59,8 @@ its row operations.
 ```text
 Input                         Form binding, transforms and debounce
   InputControl                Editable ref, focus, interactions and slot styling
-    InputField                React Aria engine, root element and state selectors
-      FieldLayout             Label, supplied control and supporting messages
+    FieldLayout               Label, supplied control and supporting messages
+      InputField (baseAs)     React Aria engine, root element and state selectors
         FieldLabel            Label and required indicator
         InputWrapper          Bordered Group, editable input and surrounding controls
           InputClearButton    Clear action
@@ -83,22 +83,40 @@ share one recipe, with slots in alphabetical order.
 
 ## Layout and messages
 
-[FieldLayout](../../packages/uniform/src/partials/FieldLayout/README.md) renders a
-fragment inside the field engine, which retains its root element and `base` slot.
-The layout uses existing field IDs and resolved slot classes, without adding a
-wrapper around the whole field:
+[FieldLayout](../../packages/uniform/src/partials/FieldLayout/README.md) owns the
+base `div` and its `className.base` by default. RadioTabs, TextArea and Select pass
+root attributes, interaction handlers and refs through `baseProps`:
 
 ```tsx
-<InputField {...fieldProps}>
-  <FieldLayout {...layoutProps}>
-    <InputWrapper {...wrapperProps} />
-  </FieldLayout>
-</InputField>
+<FieldLayout
+  {...layoutProps}
+  baseProps={{ ...focusWithinProps, ref: handleControlRef, role: 'group' }}
+  className={classNames}
+>
+  <RadioTabsList {...tabProps} />
+</FieldLayout>
 ```
 
-Input, TextArea, Select, Radios and RadioBoxes use this arrangement. Specialized
-fields can compose the [individual partials](../../packages/uniform/src/partials/README.md)
-directly.
+Input, Checkboxes, Radios and RadioBoxes select their React Aria engine with
+`baseAs`. `FieldLayout` passes `baseProps`, `className.base` and the composed
+children to it, keeping the engine context without adding another DOM wrapper:
+
+```tsx
+<FieldLayout
+  {...layoutProps}
+  // provide the text or number field engine
+  baseAs={InputField}
+  baseProps={fieldProps}
+  className={classNames}
+>
+  <InputWrapper {...contentProps} />
+</FieldLayout>
+```
+
+`baseProps` is typed for `baseAs` and does not accept `className`, replacement
+children or raw HTML. Switch and specialized
+layouts continue composing the [individual partials](../../packages/uniform/src/partials/README.md)
+to preserve their distinct label and control arrangements.
 
 The private `useUniformField` hook returns a rendered `field.errorMessage` using
 `FieldValidationError`. That component owns the message list and animation.
@@ -115,11 +133,14 @@ explicit values, associations and callbacks, handles selection and disabled stat
 and routes focus to an enabled option. Layout composition stays with the field:
 
 ```tsx
-<RadioGroupField {...groupProps}>
-  <FieldLayout {...layoutProps} labelAs={Label}>
-    {options}
-  </FieldLayout>
-</RadioGroupField>
+<FieldLayout
+  {...layoutProps}
+  baseAs={RadioGroupField}
+  baseProps={groupProps}
+  labelAs={Label}
+>
+  {options}
+</FieldLayout>
 ```
 
 Here `Label` comes from React Aria, preserving group naming without assigning a
@@ -134,7 +155,7 @@ while `partials/` holds presentation shared across field families. See the
 
 UI engine value adapters stay in the controls. RadioBoxes, Radios and RadioTabs
 convert string keys back to their option value types before calling `field.onChange`.
-SelectControl converts option objects into stored values and defers the first touched
+SelectCombobox converts option objects into stored values and defers the first touched
 update until after the selection commits. SliderControl commits its displayed
 value at interaction completion when the stored field is still empty. Their
 bindings use `useUniformField` and pass narrow `getIsTouched` or `getCurrentValue`
@@ -161,18 +182,18 @@ operations or the whole binding-hook result.
 | Renderer   | Presentation owner  | Additional responsibilities                                                 |
 | ---------- | ------------------- | --------------------------------------------------------------------------- |
 | Checkboxes | `CheckboxesControl` | `CheckboxControl` owns each option                                          |
-| DatePicker | `DatePickerControl` | `DatePickerCalendar` owns the popup and time editor                         |
+| DatePicker | `DatePickerControl` | `DatePickerInput` owns segments, `DatePickerCalendar` owns the popup        |
 | FieldArray | `FieldArrayControl` | The array hook binds row operations, presentation arranges rows and sorting |
 | FieldCard  | `FieldCardControl`  | A card-local hook resolves child-validation visibility and required state   |
 | RadioBoxes | `RadioBoxesControl` | `RadioBox` reuses Radios' option control                                    |
 | Radios     | `RadiosControl`     | Custom option layouts receive the existing option descriptors               |
 | RadioTabs  | `RadioTabsControl`  | `RadioTabsList` owns tabs, panels and cursor geometry                       |
-| Select     | `SelectControl`     | Select adapters own individual React Select elements                        |
+| Select     | `SelectControl`     | `SelectCombobox` owns engine configuration and option conversion            |
 | Slider     | `SliderControl`     | `SliderTrackControl` owns fill, markers and the editable thumb              |
-| Switch     | `SwitchControl`     | Thumb and icon rendering stay with Switch                                   |
-| SwitchBox  | `SwitchBoxControl`  | Track styling reuses Switch's recipe                                        |
-| TextArea   | `TextAreaControl`   | Autosizing and editable refs stay in presentation                           |
-| Time       | `TimeControl`       | The control prepares segments, the binding configures storage transforms    |
+| Switch     | `SwitchControl`     | `SwitchTrack` owns thumb and icon rendering                                 |
+| SwitchBox  | `SwitchBoxControl`  | `SwitchBoxTrack` owns the track, reusing Switch's recipe                    |
+| TextArea   | `TextAreaControl`   | `TextAreaInput` owns autosizing, editable refs and wrapper focus            |
+| Time       | `TimeControl`       | `TimeInput` renders segments, the control prepares displayed values         |
 
 DatePicker and Time configure their storage transforms through `useUniformField`.
 Their controls parse incoming display values, prepare placeholders and resolve
@@ -205,3 +226,24 @@ resolutions aligned in the lockfile rather than casting field props.
 
 Package verification compiles `test/dts-smoke/date-values.ts` against Uniform's
 installed dependencies to catch this mismatch.
+
+## Control composition
+
+Split a control when an editable surface, option or visual track owns a distinct
+job. Keep the engine context outside children that consume it, and preserve the
+existing DOM arrangement. For example:
+
+```text
+TextAreaControl       Field layout and root interaction styles
+  FieldLayout         Label and supporting messages
+    TextAreaInput     Editable ref, text binding, autosizing and wrapper focus
+
+SelectControl         Field layout and slot resolution
+  FieldLayout
+    SelectCombobox    Option conversion, focus, menu configuration and touched timing
+```
+
+Time follows DatePicker’s input-surface split. Slider keeps geometry and markers
+in `SliderTrackControl`, while RadioTabs delegates individual option rendering
+to `RadioTab`. Smaller controls keep their existing composition. These are private
+components under each field’s `subcomponents/`, not new public entry points.

@@ -54,7 +54,7 @@ const tryParse = (parser: () => unknown): DatePickerValue => {
 };
 
 /**
- * Parse a form value into a HeroUI DatePicker compatible `DateValue`.
+ * Parse a form value into a segmented date control’s `DateValue`
  *
  * Accepts existing `DateValue` objects, native `Date` instances, and ISO-like
  * strings (date, date-time, zoned, and absolute). Returns `null` when the value

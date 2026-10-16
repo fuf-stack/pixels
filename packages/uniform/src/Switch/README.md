@@ -25,3 +25,5 @@ import Switch from '@fuf-stack/uniform/Switch';
 `Switch` owns form registration and boolean values. `SwitchControl` owns
 the native input ref, React Aria interactions, styling and message placement.
 Recipes and their derived types live in `switchVariants.ts`.
+
+`SwitchTrack` owns the visual track, thumb and surrounding icons.

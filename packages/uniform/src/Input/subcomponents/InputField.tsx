@@ -1,5 +1,4 @@
 import type { ReactNode } from 'react';
-import type { InputClassNames } from '../inputVariants';
 import type { InputControlProps } from './InputControl';
 
 import { NumberField, TextField } from 'react-aria-components';
@@ -13,7 +12,7 @@ type InputFieldProps = Pick<InputControlProps, 'field' | 'type'> & {
   /** Renders content inside the field */
   children: ReactNode;
   /** CSS class name */
-  className: InputClassNames;
+  className?: string;
   /** Shows focus styling while focus is within the control */
   focused: boolean;
   /** Marks the input as filled when the display value is nonempty */
@@ -36,7 +35,7 @@ const InputField = ({
   field,
   type,
   children,
-  className,
+  className = undefined,
   focused,
   hasValue,
   isFocusVisible,
@@ -61,7 +60,7 @@ const InputField = ({
     ...controlProps,
     ...dataAttributes,
     name,
-    className: className.base,
+    className,
     'data-slot': 'base',
     'data-focus': focused || undefined,
     'data-focus-visible': isFocusVisible || undefined,

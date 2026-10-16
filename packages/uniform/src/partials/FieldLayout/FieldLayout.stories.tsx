@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import type { ComponentProps } from 'react';
+import type { ComponentProps, KeyboardEvent } from 'react';
 
 import {
   Button,
@@ -51,7 +51,7 @@ const getControlProps = ({
   invalid,
   label,
   required,
-}: ComponentProps<typeof FieldLayout>) => {
+}: ComponentProps<typeof FieldLayout<'div'>>) => {
   return {
     id: ids.control,
     'aria-label': label ? undefined : 'Email',
@@ -68,7 +68,7 @@ const getControlProps = ({
   };
 };
 
-const meta: Meta<typeof FieldLayout> = {
+const meta: Meta<typeof FieldLayout<'div'>> = {
   title: 'uniform/partials/FieldLayout',
   component: FieldLayout,
   args: {
@@ -91,17 +91,15 @@ const meta: Meta<typeof FieldLayout> = {
   },
   render: (args) => {
     return (
-      <div className={classNames.base}>
-        <FieldLayout {...args}>
-          <input {...getControlProps(args)} className={classNames.control} />
-        </FieldLayout>
-      </div>
+      <FieldLayout {...args}>
+        <input {...getControlProps(args)} className={classNames.control} />
+      </FieldLayout>
     );
   },
 };
 
 export default meta;
-type Story = StoryObj<typeof FieldLayout>;
+type Story = StoryObj<typeof FieldLayout<'div'>>;
 
 // -----------------------------------------------------------------------------
 // Normal stories
@@ -169,6 +167,42 @@ export const WithoutLabel: Story = {
   },
 };
 
+export const BaseInteractions: Story = {
+  render: (args) => {
+    // route keyboard entry from the group to its editable control
+    const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
+      if (event.key === 'Enter' && event.target === event.currentTarget) {
+        event.currentTarget.querySelector('input')?.focus();
+      }
+    };
+
+    return (
+      <FieldLayout
+        {...args}
+        baseProps={{
+          'aria-labelledby': args.ids.label,
+          onKeyDown: handleKeyDown,
+          role: 'group',
+          tabIndex: 0,
+        }}
+      >
+        <input {...getControlProps(args)} className={classNames.control} />
+      </FieldLayout>
+    );
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const group = canvas.getByRole('group', { name: 'Email' });
+
+    group.focus();
+    await userEvent.keyboard('{Enter}');
+
+    await expect(canvas.getByRole('textbox', { name: 'Email' })).toHaveFocus();
+    await expect(group).toHaveClass('w-72');
+    await expect(group).toHaveAttribute('data-slot', 'base');
+  },
+};
+
 // -----------------------------------------------------------------------------
 // Composition stories
 // -----------------------------------------------------------------------------
@@ -176,18 +210,19 @@ export const WithoutLabel: Story = {
 export const InTextField: Story = {
   render: (args) => {
     return (
-      <TextField
-        {...getControlProps(args)}
-        className={classNames.base}
-        defaultValue="name@example.com"
-        isInvalid={args.invalid}
-        isRequired={args.required}
-        validationBehavior="aria"
+      <FieldLayout<typeof TextField>
+        {...args}
+        baseAs={TextField}
+        baseProps={{
+          ...getControlProps(args),
+          defaultValue: 'name@example.com',
+          isInvalid: args.invalid,
+          isRequired: args.required,
+          validationBehavior: 'aria',
+        }}
       >
-        <FieldLayout {...args}>
-          <Input className={classNames.control} />
-        </FieldLayout>
-      </TextField>
+        <Input className={classNames.control} />
+      </FieldLayout>
     );
   },
   play: async ({ canvasElement }) => {
@@ -207,34 +242,35 @@ export const InNumberField: Story = {
   args: { label: 'Amount', description: 'Number of seats' },
   render: (args) => {
     return (
-      <NumberField
-        {...getControlProps(args)}
-        className={classNames.base}
-        defaultValue={0}
-        isInvalid={args.invalid}
-        isRequired={args.required}
-        validationBehavior="aria"
+      <FieldLayout<typeof NumberField>
+        {...args}
+        baseAs={NumberField}
+        baseProps={{
+          ...getControlProps(args),
+          defaultValue: 0,
+          isInvalid: args.invalid,
+          isRequired: args.required,
+          validationBehavior: 'aria',
+        }}
       >
-        <FieldLayout {...args}>
-          <div className="flex items-center gap-2">
-            <Button
-              aria-label="Decrease"
-              className={classNames.stepperButton}
-              slot="decrement"
-            >
-              −
-            </Button>
-            <Input className={classNames.control} />
-            <Button
-              aria-label="Increase"
-              className={classNames.stepperButton}
-              slot="increment"
-            >
-              +
-            </Button>
-          </div>
-        </FieldLayout>
-      </NumberField>
+        <div className="flex items-center gap-2">
+          <Button
+            aria-label="Decrease"
+            className={classNames.stepperButton}
+            slot="decrement"
+          >
+            −
+          </Button>
+          <Input className={classNames.control} />
+          <Button
+            aria-label="Increase"
+            className={classNames.stepperButton}
+            slot="increment"
+          >
+            +
+          </Button>
+        </div>
+      </FieldLayout>
     );
   },
   play: async ({ canvasElement }) => {
@@ -256,23 +292,26 @@ export const InNumberField: Story = {
 
 export const InRadioGroup: Story = {
   args: {
+    className: { ...classNames, base: undefined },
     label: 'Delivery',
     labelAs: Label,
     description: 'Choose a delivery method',
   },
   render: (args) => {
     return (
-      <RadioGroup
-        id={args.ids.control}
-        isInvalid={args.invalid}
-        isRequired={args.required}
-        validationBehavior="aria"
+      <FieldLayout<typeof RadioGroup>
+        {...args}
+        baseAs={RadioGroup}
+        baseProps={{
+          id: args.ids.control,
+          isInvalid: args.invalid,
+          isRequired: args.required,
+          validationBehavior: 'aria',
+        }}
       >
-        <FieldLayout {...args}>
-          <Radio value="email">Email</Radio>
-          <Radio value="post">Post</Radio>
-        </FieldLayout>
-      </RadioGroup>
+        <Radio value="email">Email</Radio>
+        <Radio value="post">Post</Radio>
+      </FieldLayout>
     );
   },
   play: async ({ canvasElement }) => {

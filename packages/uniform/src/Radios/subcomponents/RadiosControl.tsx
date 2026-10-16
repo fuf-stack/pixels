@@ -111,44 +111,43 @@ const RadiosControl = ({
   };
 
   return (
-    <RadioGroupField
-      className={classNames.base}
-      controlProps={controlProps}
-      disabled={disabled}
-      inline={inline}
-      inputRef={inputRef}
+    <FieldLayout
+      baseAs={RadioGroupField}
+      baseProps={{
+        controlProps,
+        disabled,
+        inline,
+        inputRef,
+        invalid,
+        name,
+        onBlur,
+        onChange: handleChange,
+        required,
+        testId,
+        value,
+      }}
+      className={classNames}
+      description={description}
+      errorMessage={errorMessage}
+      ids={ids}
       invalid={invalid}
-      name={name}
-      onBlur={onBlur}
-      onChange={handleChange}
+      label={label}
+      labelAs={Label}
       required={required}
-      testId={testId}
-      value={value}
     >
-      <FieldLayout
-        className={classNames}
-        description={description}
-        errorMessage={errorMessage}
-        ids={ids}
-        invalid={invalid}
-        label={label}
-        labelAs={Label}
-        required={required}
+      <div
+        className={classNames.wrapper}
+        data-orientation={inline ? 'horizontal' : 'vertical'}
+        data-slot="wrapper"
       >
-        <div
-          className={classNames.wrapper}
-          data-orientation={inline ? 'horizontal' : 'vertical'}
-          data-slot="wrapper"
-        >
-          {/* Child render function can fully control list layout; fallback keeps default rendering. */}
-          {children
-            ? children(renderedOptions)
-            : renderedOptions.map(({ radio }) => {
-                return radio;
-              })}
-        </div>
-      </FieldLayout>
-    </RadioGroupField>
+        {/* Child render function can fully control list layout; fallback keeps default rendering. */}
+        {children
+          ? children(renderedOptions)
+          : renderedOptions.map(({ radio }) => {
+              return radio;
+            })}
+      </div>
+    </FieldLayout>
   );
 };
 

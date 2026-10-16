@@ -3,11 +3,14 @@
 Private React Aria radio-group engine shared by Radios and RadioBoxes.
 
 ```tsx
-<RadioGroupField {...groupProps}>
-  <FieldLayout {...layoutProps} labelAs={Label}>
-    {options}
-  </FieldLayout>
-</RadioGroupField>
+<FieldLayout
+  {...layoutProps}
+  baseAs={RadioGroupField}
+  baseProps={groupProps}
+  labelAs={Label}
+>
+  {options}
+</FieldLayout>
 ```
 
 - Receives values, validation state, control associations and callbacks, without

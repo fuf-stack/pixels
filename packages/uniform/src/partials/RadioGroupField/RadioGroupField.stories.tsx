@@ -54,64 +54,61 @@ const Example = ({
     .join(' ');
 
   return (
-    <RadioGroupField
-      {...props}
-      className={className ?? classNames.base}
-      controlProps={{ ...controlProps, 'aria-describedby': describedBy }}
-      disabled={disabled}
-      onChange={setValue}
-      value={value}
+    <FieldLayout
+      baseAs={RadioGroupField}
+      baseProps={{
+        ...props,
+        controlProps: { ...controlProps, 'aria-describedby': describedBy },
+        disabled,
+        onChange: setValue,
+        value,
+      }}
+      className={{ ...classNames, base: className ?? classNames.base }}
+      description="Choose a delivery method"
+      errorMessage={
+        <FieldValidationError
+          error={[{ type: 'required', message: 'Choose an available method' }]}
+          testId="delivery"
+        />
+      }
+      ids={ids}
+      invalid={invalid}
+      label={controlProps['aria-label'] ? undefined : 'Delivery'}
+      labelAs={Label}
+      required={required}
     >
-      <FieldLayout
-        className={classNames}
-        description="Choose a delivery method"
-        errorMessage={
-          <FieldValidationError
-            error={[
-              { type: 'required', message: 'Choose an available method' },
-            ]}
-            testId="delivery"
-          />
-        }
-        ids={ids}
-        invalid={invalid}
-        label={controlProps['aria-label'] ? undefined : 'Delivery'}
-        labelAs={Label}
-        required={required}
+      <div
+        className={classNames.wrapper}
+        data-orientation={inline ? 'horizontal' : 'vertical'}
+        data-slot="wrapper"
       >
-        <div
-          className={classNames.wrapper}
-          data-orientation={inline ? 'horizontal' : 'vertical'}
-          data-slot="wrapper"
+        <RadioControl
+          className={optionClassNames}
+          disabled={disabled}
+          invalid={invalid}
+          value="email"
         >
-          <RadioControl
-            className={optionClassNames}
-            disabled={disabled}
-            invalid={invalid}
-            value="email"
-          >
-            Email
-          </RadioControl>
-          <RadioControl
-            className={optionClassNames}
-            description="Currently unavailable"
-            disabled
-            invalid={invalid}
-            value="sms"
-          >
-            Text message
-          </RadioControl>
-          <RadioControl
-            className={optionClassNames}
-            disabled={disabled}
-            invalid={invalid}
-            value="post"
-          >
-            Post
-          </RadioControl>
-        </div>
-      </FieldLayout>
-    </RadioGroupField>
+          Email
+        </RadioControl>
+        <RadioControl
+          className={optionClassNames}
+          description="Currently unavailable"
+          disabled
+          invalid={invalid}
+          value="sms"
+        >
+          Text message
+        </RadioControl>
+        <RadioControl
+          className={optionClassNames}
+          disabled={disabled}
+          invalid={invalid}
+          value="post"
+        >
+          Post
+        </RadioControl>
+      </div>
+    </FieldLayout>
   );
 };
 

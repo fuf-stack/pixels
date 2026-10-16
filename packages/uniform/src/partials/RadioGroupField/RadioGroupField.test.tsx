@@ -1,3 +1,5 @@
+import type { ComponentProps } from 'react';
+
 import { describe, expect, it, vi } from 'vitest';
 
 import { Label } from 'react-aria-components';
@@ -34,32 +36,44 @@ const bindings = () => ({
   testId: 'delivery',
   value: 'post',
 });
-const content = (invalid = false) => (
-  <FieldLayout
-    className={{}}
-    description="Choose a method"
-    errorMessage="Unavailable"
-    ids={ids}
-    invalid={invalid}
-    label="Delivery"
-    labelAs={Label}
-  >
-    <RadioControl
-      className={classNames}
-      description="Sent to your inbox"
+const renderField = (
+  props: Omit<ComponentProps<typeof RadioGroupField>, 'children'>,
+) => {
+  const { invalid } = props;
+  return (
+    <FieldLayout
+      baseAs={RadioGroupField}
+      baseProps={props}
+      className={{}}
+      description="Choose a method"
+      errorMessage="Unavailable"
+      ids={ids}
       invalid={invalid}
-      value="email"
+      label="Delivery"
+      labelAs={Label}
     >
-      Email
-    </RadioControl>
-    <RadioControl className={classNames} disabled invalid={invalid} value="sms">
-      Text message
-    </RadioControl>
-    <RadioControl className={classNames} invalid={invalid} value="post">
-      Post
-    </RadioControl>
-  </FieldLayout>
-);
+      <RadioControl
+        className={classNames}
+        description="Sent to your inbox"
+        invalid={invalid}
+        value="email"
+      >
+        Email
+      </RadioControl>
+      <RadioControl
+        className={classNames}
+        disabled
+        invalid={invalid}
+        value="sms"
+      >
+        Text message
+      </RadioControl>
+      <RadioControl className={classNames} invalid={invalid} value="post">
+        Post
+      </RadioControl>
+    </FieldLayout>
+  );
+};
 
 // -----------------------------------------------------------------------------
 // Story snapshots
@@ -72,9 +86,7 @@ describe('Story Snapshots', () => {
 describe('Radio group engine without form context', () => {
   it('routes the binding ref to the selected enabled option and releases it on unmount', () => {
     const props = bindings();
-    const { unmount } = render(
-      <RadioGroupField {...props}>{content()}</RadioGroupField>,
-    );
+    const { unmount } = render(renderField(props));
 
     act(() => {
       props.inputRef.mock.lastCall?.[0]?.focus();
@@ -91,11 +103,7 @@ describe('Radio group engine without form context', () => {
     'focuses the first enabled option when selection %s cannot receive focus',
     (value) => {
       const props = bindings();
-      render(
-        <RadioGroupField {...props} value={value}>
-          {content()}
-        </RadioGroupField>,
-      );
+      render(renderField({ ...props, value }));
 
       act(() => {
         props.inputRef.mock.lastCall?.[0]?.focus();
@@ -107,21 +115,18 @@ describe('Radio group engine without form context', () => {
 
   it('keeps group and option descriptions associated as errors become visible', () => {
     const props = bindings();
-    const renderGroup = (invalid: boolean) => (
-      <RadioGroupField
-        {...props}
-        controlProps={{
+    const renderGroup = (invalid: boolean) =>
+      renderField({
+        ...props,
+        controlProps: {
           id: ids.control,
           'aria-describedby': invalid
             ? `${ids.description} ${ids.error}`
             : ids.description,
-        }}
-        invalid={invalid}
-        required
-      >
-        {content(invalid)}
-      </RadioGroupField>
-    );
+        },
+        invalid,
+        required: true,
+      });
     const { rerender } = render(renderGroup(false));
     const group = screen.getByRole('radiogroup', { name: 'Delivery' });
     const radio = screen.getByRole('radio', { name: 'Email' });
@@ -147,11 +152,7 @@ describe('Radio group engine without form context', () => {
 
   it('reports string selections and supports keyboard navigation past disabled options', async () => {
     const props = bindings();
-    render(
-      <RadioGroupField {...props} value="email">
-        {content()}
-      </RadioGroupField>,
-    );
+    render(renderField({ ...props, value: 'email' }));
     const radio = screen.getByRole('radio', { name: 'Email' });
 
     act(() => {
@@ -167,7 +168,7 @@ describe('Radio group engine without form context', () => {
     const props = bindings();
     render(
       <>
-        <RadioGroupField {...props}>{content()}</RadioGroupField>
+        {renderField(props)}
         <button type="button">Outside</button>
       </>,
     );
@@ -180,11 +181,7 @@ describe('Radio group engine without form context', () => {
 
   it('disables every option and leaves focus alone when no option is enabled', () => {
     const props = bindings();
-    render(
-      <RadioGroupField {...props} disabled>
-        {content()}
-      </RadioGroupField>,
-    );
+    render(renderField({ ...props, disabled: true }));
 
     act(() => {
       props.inputRef.mock.lastCall?.[0]?.focus();

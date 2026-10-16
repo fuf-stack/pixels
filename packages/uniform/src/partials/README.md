@@ -6,8 +6,8 @@ Each partial has colocated stories and tests for its presentation and semantics.
 Shared control associations and IDs live in `types.ts`.
 
 - [FieldLayout](./FieldLayout/README.md) provides the default label → children →
-  supporting messages arrangement as a fragment inside the field engine, without
-  adding a DOM wrapper. Input, TextArea, Select, Radios and RadioBoxes use it
+  supporting messages arrangement, owning the base element by default. Fields
+  with an engine-owned root select it with `baseAs` and configure it with `baseProps`
 - `FieldLabel` renders the label and required indicator. Use its native label
   with `htmlFor`, React Aria `Label` for field context, or a `span`/`div` when
   the field already owns the label or group heading

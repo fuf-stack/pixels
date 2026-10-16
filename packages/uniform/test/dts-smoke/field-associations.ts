@@ -12,6 +12,8 @@ import type { SwitchBoxProps } from '@fuf-stack/uniform/SwitchBox';
 import type { TextAreaProps } from '@fuf-stack/uniform/TextArea';
 import type { TimeProps } from '@fuf-stack/uniform/Time';
 
+import { createStyling } from '@fuf-stack/pixel-utils';
+import { datePickerVariants } from '@fuf-stack/uniform/DatePicker';
 import { useController } from '@fuf-stack/uniform/hooks/useController';
 import { useFormContext } from '@fuf-stack/uniform/hooks/useFormContext';
 
@@ -224,3 +226,8 @@ export const datePickerProps: DatePickerProps = {
     selectorIcon: 'text-danger',
   },
 };
+
+// date invalid state is supplied by React Aria, only disabled is a recipe variant
+export const datePickerSlots = createStyling().resolve(datePickerVariants, {
+  disabled: true,
+});

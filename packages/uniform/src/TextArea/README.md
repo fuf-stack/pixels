@@ -22,9 +22,10 @@ import TextArea from '@fuf-stack/uniform/TextArea';
 
 ## Composition
 
-`TextArea` binds and debounces form values. `TextAreaControl` owns the editable ref,
-autosizing, interaction state and `FieldLayout`. Labels, descriptions and validation
-messages are exposed as styling slots alongside the input surface.
+`TextArea` binds and debounces form values. `TextAreaControl` owns field layout
+and root interaction styling. `TextAreaInput` owns the editable ref, React Aria
+text binding, wrapper focus and autosizing. Labels, descriptions and validation
+messages remain exposed as styling slots alongside the input surface.
 
 Import `textAreaVariants` from `@fuf-stack/uniform/TextArea` to reuse or extend
 the slot styles.

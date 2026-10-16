@@ -65,67 +65,66 @@ const RadioBoxesControl = ({
   };
 
   return (
-    <RadioGroupField
-      className={classNames.base}
-      controlProps={controlProps}
-      disabled={disabled}
-      inline={inline}
-      inputRef={inputRef}
+    <FieldLayout
+      baseAs={RadioGroupField}
+      baseProps={{
+        controlProps,
+        disabled,
+        inline,
+        inputRef,
+        invalid,
+        name,
+        onBlur,
+        onChange: handleChange,
+        required,
+        testId,
+        value,
+      }}
+      className={classNames}
+      description={description}
+      errorMessage={errorMessage}
+      ids={ids}
       invalid={invalid}
-      name={name}
-      onBlur={onBlur}
-      onChange={handleChange}
+      label={label}
+      labelAs={Label}
       required={required}
-      testId={testId}
-      value={value}
     >
-      <FieldLayout
-        className={classNames}
-        description={description}
-        errorMessage={errorMessage}
-        ids={ids}
-        invalid={invalid}
-        label={label}
-        labelAs={Label}
-        required={required}
+      <div
+        className={classNames.wrapper}
+        data-orientation={inline ? 'horizontal' : 'vertical'}
+        data-slot="wrapper"
       >
-        <div
-          className={classNames.wrapper}
-          data-orientation={inline ? 'horizontal' : 'vertical'}
-          data-slot="wrapper"
-        >
-          {options.map((option) => {
-            if ('value' in option) {
-              const optionTestId = slugify(
-                `${testId}_option_${option.testId ?? option.value}`,
-                { replaceDots: true },
-              );
-              return (
-                <RadioBox
-                  key={String(option.value)}
-                  className={{
-                    base: classNames.boxBase,
-                    control: classNames.boxControl,
-                    description: classNames.boxDescription,
-                    label: classNames.boxLabel,
-                    labelWrapper: classNames.boxLabelWrapper,
-                  }}
-                  data-testid={optionTestId}
-                  description={option.description}
-                  icon={option.icon}
-                  isDisabled={!!disabled || option.disabled}
-                  isInvalid={invalid}
-                  value={String(option.value)}
-                >
-                  {option.label ?? option.value}
-                </RadioBox>
-              );
-            }
-            return null;
-          })}
-        </div>
-      </FieldLayout>
-    </RadioGroupField>
+        {options.map((option) => {
+          if ('value' in option) {
+            const optionTestId = slugify(
+              `${testId}_option_${option.testId ?? option.value}`,
+              { replaceDots: true },
+            );
+            return (
+              <RadioBox
+                key={String(option.value)}
+                className={{
+                  base: classNames.boxBase,
+                  control: classNames.boxControl,
+                  description: classNames.boxDescription,
+                  label: classNames.boxLabel,
+                  labelWrapper: classNames.boxLabelWrapper,
+                }}
+                data-testid={optionTestId}
+                description={option.description}
+                icon={option.icon}
+                isDisabled={!!disabled || option.disabled}
+                isInvalid={invalid}
+                value={String(option.value)}
+              >
+                {option.label ?? option.value}
+              </RadioBox>
+            );
+          }
+          return null;
+        })}
+      </div>
+    </FieldLayout>
   );
 };
 

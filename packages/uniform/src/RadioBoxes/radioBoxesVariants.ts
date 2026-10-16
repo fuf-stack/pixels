@@ -28,8 +28,6 @@ export const radioBoxesVariants = tv({
     boxLabelWrapper: '',
     /** Container for validation messages */
     errorMessage: 'text-danger text-tiny',
-    // see HeroUI styles for group-data condition,
-    // e.g.: https://github.com/heroui-inc/heroui/blob/main/packages/core/theme/src/components/select.ts
     /** Visible field label */
     label:
       'mb-2 inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger',

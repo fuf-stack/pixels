@@ -31,7 +31,6 @@ export const radiosVariants = tv({
     /** Outline around the selection indicator */
     itemWrapper:
       'group-data-[invalid=true]:border-danger! [&:not(group-data-[invalid="true"]):not(group-data-[selected="false"])]:border-focus',
-    // e.g.: https://github.com/heroui-inc/heroui/blob/main/packages/core/theme/src/components/select.ts
     /** Visible field label */
     label:
       'mb-2 inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger',

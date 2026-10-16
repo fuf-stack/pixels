@@ -70,8 +70,8 @@ Labels and hints use Uniform's private [shared field partials](../partials/READM
 ```text
 Input                         Field binding, IDs, transforms and debounce
   InputControl                Editable ref, focus, interaction state and slot styling
-    InputField                React Aria engine, base element and context
-      FieldLayout             Label, supplied children and messages, no DOM wrapper
+    FieldLayout               Label, supplied children and messages
+      InputField (baseAs)      React Aria engine, base element and context
         FieldLabel            Label and required indicator
         InputWrapper          Bordered Group, editable input and surrounding controls
           InputClearButton    Clear action
@@ -83,7 +83,7 @@ Input                         Field binding, IDs, transforms and debounce
 ```
 
 [FieldLayout](../partials/FieldLayout/README.md) reuses the existing IDs and slot
-classes. `Input` passes the debounce hook’s `clear` operation as `onReset`.
+classes, and renders `InputField` as its base via `baseAs`. `Input` passes the debounce hook’s `clear` operation as `onReset`.
 `InputControl` invokes it, notifies the consumer through `onClear` and restores
 focus. The hook cancels pending edits and resets the form value to `null`, with
 `emptyValue: ''` keeping the display empty immediately.

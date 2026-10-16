@@ -16,6 +16,7 @@ import FieldDescription from '../../partials/FieldDescription/FieldDescription';
 import FieldLabel from '../../partials/FieldLabel/FieldLabel';
 import { switchVariants } from '../../Switch/switchVariants';
 import { switchBoxVariants } from '../switchBoxVariants';
+import SwitchBoxTrack from './SwitchBoxTrack';
 
 interface SwitchBoxControlProps extends Pick<
   SwitchBoxProps,
@@ -94,22 +95,6 @@ const SwitchBoxControl = ({
     thumbIcon: classNames.thumbIcon,
   });
 
-  const thumb = (
-    <span aria-hidden className={trackClassNames.wrapper} data-slot="wrapper">
-      <span className={trackClassNames.thumb} data-slot="thumb">
-        {typeof thumbIcon === 'function'
-          ? thumbIcon({
-              isSelected: state.isSelected,
-              className: trackClassNames.thumbIcon,
-              width: '1em',
-              height: '1em',
-              'data-checked': String(state.isSelected),
-            })
-          : thumbIcon}
-      </span>
-    </span>
-  );
-
   return (
     <>
       <label
@@ -125,6 +110,7 @@ const SwitchBoxControl = ({
         data-testid={testId}
         htmlFor={ids.control}
       >
+        {/* native toggle for keyboard and assistive technology */}
         <VisuallyHidden elementType="span">
           <input
             {...mergeProps(inputProps, focusProps, controlProps)}
@@ -132,8 +118,16 @@ const SwitchBoxControl = ({
             data-slot="input"
           />
         </VisuallyHidden>
-        {!icon ? thumb : null}
+        {!icon ? (
+          <SwitchBoxTrack
+            className={trackClassNames}
+            selected={state.isSelected}
+            thumbIcon={thumbIcon}
+          />
+        ) : null}
         {icon ? <div className={classNames.icon}>{icon}</div> : null}
+
+        {/* label and supporting text */}
         <div className="grow">
           {label ? (
             <FieldLabel
@@ -155,8 +149,16 @@ const SwitchBoxControl = ({
             </FieldDescription>
           ) : null}
         </div>
-        {icon ? thumb : null}
+        {icon ? (
+          <SwitchBoxTrack
+            className={trackClassNames}
+            selected={state.isSelected}
+            thumbIcon={thumbIcon}
+          />
+        ) : null}
       </label>
+
+      {/* validation messages below the box */}
       {invalid ? (
         <div className={classNames.helperWrapper} data-slot="helper-wrapper">
           <div

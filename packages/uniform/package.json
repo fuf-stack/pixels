@@ -54,7 +54,8 @@
   "scripts": {
     "build": "tsdown",
     "prepack": "pnpm build",
-    "test": "vitest ./src"
+    "test": "vitest ./src",
+    "test:types": "tsc --project test/typecheck/tsconfig.json"
   },
   "peerDependencies": {
     "react": ">=18",

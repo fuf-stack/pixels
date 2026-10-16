@@ -2,6 +2,8 @@
 
 Compatibility changes from the HeroUI removal and field composition refactor.
 For current component ownership, see [field composition](./field-composition.md).
+See the [completion review](./migration-review.md) for verification and remaining
+shared-theme limitations.
 The [migration inventory](../heroui-removal.md) tracks remaining workspace work.
 
 ## Breaking change: legacy field hooks removed

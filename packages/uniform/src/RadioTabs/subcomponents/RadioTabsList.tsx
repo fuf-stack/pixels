@@ -3,7 +3,9 @@ import type { RadioTabsProps } from '../RadioTabs';
 import type { RadioTabsClassNames } from '../radioTabsVariants';
 
 import { useLayoutEffect, useState } from 'react';
-import { Tab, TabList, TabPanel, Tabs } from 'react-aria-components';
+import { TabList, TabPanel, Tabs } from 'react-aria-components';
+
+import RadioTab from './RadioTab';
 
 interface RadioTabsListProps {
   /** CSS class name */
@@ -146,44 +148,14 @@ const RadioTabsList = ({
         >
           {options.map((option) => {
             return (
-              <Tab
+              <RadioTab
                 key={String(option.value)}
-                aria-describedby={describedBy}
-                aria-label={
-                  option.label == null && typeof option.value === 'boolean'
-                    ? String(option.value)
-                    : undefined
-                }
-                className={classNames.tab}
-                data-key={String(option.value)}
-                data-slot="tab"
-                data-testid={testId(option.value, option.testId)}
-                id={String(option.value)}
-                isDisabled={!!disabled || !!option.disabled}
-                render={(props, state) => {
-                  return (
-                    <div
-                      {...props}
-                      aria-controls={
-                        option.content != null
-                          ? props['aria-controls']
-                          : undefined
-                      }
-                      data-focus={state.isFocused || undefined}
-                      data-hover={state.isHovered || undefined}
-                      data-hover-unselected={
-                        (state.isHovered && !state.isSelected) || undefined
-                      }
-                    >
-                      {props.children}
-                    </div>
-                  );
-                }}
-              >
-                <span className={classNames.tabContent} data-slot="tabContent">
-                  {option.label ?? option.value}
-                </span>
-              </Tab>
+                className={classNames}
+                describedBy={describedBy}
+                disabled={disabled}
+                option={option}
+                testId={testId(option.value, option.testId)}
+              />
             );
           })}
         </TabList>

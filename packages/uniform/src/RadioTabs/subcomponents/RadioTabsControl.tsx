@@ -8,8 +8,7 @@ import { useStyling } from '@fuf-stack/pixels/StylingProvider';
 
 import { createOptionValueConverter } from '../../helpers';
 import { getFieldControlProps } from '../../helpers/fieldProps/fieldProps';
-import FieldDescription from '../../partials/FieldDescription/FieldDescription';
-import FieldLabel from '../../partials/FieldLabel/FieldLabel';
+import FieldLayout from '../../partials/FieldLayout/FieldLayout';
 import { radioTabsVariants } from '../radioTabsVariants';
 import RadioTabsList from './RadioTabsList';
 
@@ -119,32 +118,33 @@ const RadioTabsControl = ({
   };
 
   return (
-    <div
-      {...associations}
-      {...focusWithinProps}
-      ref={handleControlRef}
-      aria-describedby={describedBy}
-      className={classNames.base}
-      data-invalid={invalid}
-      data-required={required}
-      data-testid={testId}
-      role="group"
+    <FieldLayout
+      baseProps={{
+        ...associations,
+        ...focusWithinProps,
+        ref: handleControlRef,
+        'aria-describedby': describedBy,
+        'data-invalid': invalid,
+        'data-required': required,
+        'data-testid': testId,
+        role: 'group',
+      }}
+      className={classNames}
+      description={description}
+      errorMessage={errorMessage}
+      ids={ids}
+      invalid={invalid}
+      label={label}
+      labelAs="div"
+      required={required}
     >
-      {label ? (
-        <FieldLabel
-          as="div"
-          className={classNames.label}
-          id={ids.label}
-          required={required}
-        >
-          {label}
-        </FieldLabel>
-      ) : null}
       {required ? (
         <span className="sr-only" id={`${ids.control}-required`}>
           Required selection.
         </span>
       ) : null}
+
+      {/* selectable tabs */}
       <div
         className={styling.cn(
           'flex flex-col flex-wrap gap-2',
@@ -165,26 +165,7 @@ const RadioTabsControl = ({
           variant={variant}
         />
       </div>
-      {description || invalid ? (
-        <div className={classNames.helperWrapper} data-slot="helper-wrapper">
-          <FieldDescription
-            className={classNames.description}
-            id={ids.description}
-          >
-            {description}
-          </FieldDescription>
-          {invalid ? (
-            <div
-              className={classNames.errorMessage}
-              data-slot="error-message"
-              id={ids.error}
-            >
-              {errorMessage}
-            </div>
-          ) : null}
-        </div>
-      ) : null}
-    </div>
+    </FieldLayout>
   );
 };
 

@@ -70,4 +70,10 @@ export type VariantProps = TVProps<typeof textAreaVariants>;
 
 export type ClassName = TVClassName<typeof textAreaVariants>;
 
+/** Resolved class names for the multiline input slots */
+export type TextAreaClassNames = Record<
+  keyof ReturnType<typeof textAreaVariants>,
+  string
+>;
+
 export default textAreaVariants;

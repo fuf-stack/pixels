@@ -57,7 +57,7 @@ const FieldCardControl = ({
       {/* card content */}
       <div className={classNames.content}>{children}</div>
 
-      {/* card footer with validation errors - always show _errors, but danger styling controlled by showInvalid */}
+      {/* card footer with object-level validation messages */}
       <FieldCardValidationError
         className={classNames.errorFooter}
         error={error}

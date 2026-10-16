@@ -91,13 +91,10 @@ const FieldArrayControl = ({
       />
 
       {fields.length ? (
-        /* list wrapper */
+        /* sortable rows */
         <div className={cn(classNames.listWrapper)}>
-          {/* sortable context */}
           <SortContext fields={fields} move={onMove} sortable={sortable}>
-            {/* list container */}
             <ul className={classNames.list} data-testid={testId}>
-              {/* fields / list elements  */}
               {items.map(({ id, renderProps }) => {
                 return (
                   <FieldArrayElement

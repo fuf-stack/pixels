@@ -96,17 +96,6 @@ const SliderControl = ({
   const rawValue = displayValue != null ? Number(displayValue) : minValue;
   const value = Math.min(maxValue, Math.max(minValue, rawValue));
 
-  const stepCount = showSteps
-    ? Math.max(0, Math.floor((maxValue - minValue) / (step > 0 ? step : 1)) + 1)
-    : 0;
-
-  const offset = fillOffset ?? minValue;
-  const offsetPercent =
-    maxValue === minValue
-      ? 0
-      : (Math.min(maxValue, Math.max(minValue, offset)) - minValue) /
-        (maxValue - minValue);
-
   // classNames from slots
   const variants = styling.resolve(sliderVariants, { size, disabled, invalid });
   const classNames = styling.variantsToClassNames(variants, className, 'base');
@@ -156,6 +145,7 @@ const SliderControl = ({
         step={step}
         value={value}
       >
+        {/* label and current value */}
         {label ? (
           <div className={classNames.labelWrapper} data-slot="labelWrapper">
             {label ? (
@@ -171,31 +161,25 @@ const SliderControl = ({
             <SliderOutput className={classNames.value} data-slot="value" />
           </div>
         ) : null}
-        <div className={classNames.trackWrapper} data-slot="track-wrapper">
-          {startContent ? (
-            <div className={classNames.startContent} data-slot="startContent">
-              {startContent}
-            </div>
-          ) : null}
-          <SliderTrackControl
-            className={classNames}
-            fillOffset={fillOffset}
-            inputRef={controlRef}
-            invalid={invalid}
-            minValue={minValue}
-            name={name}
-            offsetPercent={offsetPercent}
-            onBlur={onBlur}
-            step={step}
-            stepCount={stepCount}
-          />
-          {endContent ? (
-            <div className={classNames.endContent} data-slot="endContent">
-              {endContent}
-            </div>
-          ) : null}
-        </div>
+
+        {/* slider track and surrounding content */}
+        <SliderTrackControl
+          className={classNames}
+          endContent={endContent}
+          fillOffset={fillOffset}
+          inputRef={controlRef}
+          invalid={invalid}
+          maxValue={maxValue}
+          minValue={minValue}
+          name={name}
+          onBlur={onBlur}
+          showSteps={showSteps}
+          startContent={startContent}
+          step={step}
+        />
       </AriaSlider>
+
+      {/* help text and validation messages */}
       {description || invalid ? (
         <div className={classNames.helperWrapper} data-slot="helper-wrapper">
           <FieldDescription

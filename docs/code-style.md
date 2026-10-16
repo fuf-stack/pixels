@@ -52,6 +52,25 @@ Whitespace is often enough. Write explanatory `//` comments in lowercase, withou
 a trailing full stop. Use a comma rather than a semicolon between related phrases.
 Section banners and proper names keep their normal capitalization.
 
+In composed JSX, add short section comments where they help readers locate the
+main parts of the layout. Separate sections with blank lines. Name the purpose
+of a section, not every wrapper or child. Put shared label/content/message markers
+in `FieldLayout`, rather than repeating them in every control that uses it.
+Simple compositions do not need section comments.
+
+```tsx
+<Card>
+  {/* card header with label */}
+  <FieldLabel>{label}</FieldLabel>
+
+  {/* card content */}
+  <div className={classNames.content}>{children}</div>
+
+  {/* card footer with validation messages */}
+  <FieldCardValidationError error={error} />
+</Card>
+```
+
 ```tsx
 const { field } = useUniformField(options);
 
@@ -399,15 +418,37 @@ Shared presentation receives state and IDs from the field, without registering
 another field or imposing a wrapper on every layout.
 
 Use [FieldLayout](../packages/uniform/src/partials/FieldLayout/README.md) for the
-default label → control → supporting messages arrangement. It renders a fragment inside the
-field engine, which keeps the root element, `base` slot and React Aria context:
+default label → control → supporting messages arrangement. By default it owns the
+outer `div` and applies `className.base`. Pass root attributes, interactions and
+refs through `baseProps`, never a second `className` or replacement children:
 
 ```tsx
-<InputField {...fieldProps}>
-  <FieldLayout {...layoutProps}>
-    <InputWrapper {...contentProps} />
-  </FieldLayout>
-</InputField>
+<FieldLayout
+  {...layoutProps}
+  baseProps={{ ...focusWithinProps, ref: handleControlRef, role: 'group' }}
+  className={classNames}
+>
+  <RadioTabsList {...tabProps} />
+</FieldLayout>
+```
+
+Use `baseAs` to choose a field engine for the base slot and `baseProps` to
+configure it. Infer the configuration from the selected component, including its
+callbacks and ref. Require `baseProps` when that component has required props,
+keep it optional for the default `div`. Keep `FieldLayout` outermost in the composition, and add a short
+comment explaining a custom base’s role. The engine still wraps the label,
+control and messages in the rendered tree:
+
+```tsx
+<FieldLayout
+  {...layoutProps}
+  // provide the text or number field engine
+  baseAs={InputField}
+  baseProps={fieldProps}
+  className={classNames}
+>
+  <InputWrapper {...contentProps} />
+</FieldLayout>
 ```
 
 A shared field engine should receive explicit values, state, associations and
@@ -415,11 +456,14 @@ callbacks, rather than the whole binding hook result. Keep layout composition
 outside the engine. For example, Radios and RadioBoxes share:
 
 ```tsx
-<RadioGroupField {...groupProps}>
-  <FieldLayout {...layoutProps} labelAs={Label}>
-    {options}
-  </FieldLayout>
-</RadioGroupField>
+<FieldLayout
+  {...layoutProps}
+  baseAs={RadioGroupField}
+  baseProps={groupProps}
+  labelAs={Label}
+>
+  {options}
+</FieldLayout>
 ```
 
 Here `Label` is React Aria's group label, so the layout does not add a native

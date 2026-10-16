@@ -1,9 +1,49 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`Story Snapshots > BaseInteractions 1`] = `
+<div>
+  <div
+    aria-labelledby="email-label"
+    class="flex w-72 flex-col gap-1"
+    data-slot="base"
+    role="group"
+    tabindex="0"
+  >
+    <label
+      class="font-medium text-small"
+      data-slot="label"
+      for="email"
+      id="email-label"
+    >
+      Email
+    </label>
+    <input
+      aria-describedby="email-description"
+      aria-labelledby="email-label"
+      class="rounded-small border border-default-300 bg-transparent px-3 py-2"
+      id="email"
+    />
+    <div
+      class="flex flex-col gap-1"
+      data-slot="helper-wrapper"
+    >
+      <div
+        class="text-foreground-500 text-small"
+        data-slot="description"
+        id="email-description"
+      >
+        Use your work email
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Story Snapshots > Default 1`] = `
 <div>
   <div
     class="flex w-72 flex-col gap-1"
+    data-slot="base"
   >
     <label
       class="font-medium text-small"
@@ -39,6 +79,7 @@ exports[`Story Snapshots > ErrorOnly 1`] = `
 <div>
   <div
     class="flex w-72 flex-col gap-1"
+    data-slot="base"
   >
     <label
       class="font-medium text-small"
@@ -109,6 +150,7 @@ exports[`Story Snapshots > InNumberField 1`] = `
     <div
       class="flex w-72 flex-col gap-1"
       data-rac=""
+      data-slot="base"
     >
       <label
         class="font-medium text-small"
@@ -190,6 +232,7 @@ exports[`Story Snapshots > InRadioGroup 1`] = `
     class="react-aria-RadioGroup"
     data-orientation="vertical"
     data-rac=""
+    data-slot="base"
     id="email"
     role="radiogroup"
   >
@@ -260,6 +303,7 @@ exports[`Story Snapshots > InTextField 1`] = `
   <div
     class="flex w-72 flex-col gap-1"
     data-rac=""
+    data-slot="base"
   >
     <label
       class="font-medium text-small"
@@ -301,6 +345,7 @@ exports[`Story Snapshots > Invalid 1`] = `
 <div>
   <div
     class="flex w-72 flex-col gap-1"
+    data-slot="base"
   >
     <label
       class="font-medium text-small"
@@ -357,6 +402,7 @@ exports[`Story Snapshots > Required 1`] = `
 <div>
   <div
     class="flex w-72 flex-col gap-1"
+    data-slot="base"
   >
     <label
       class="font-medium text-small"
@@ -399,6 +445,7 @@ exports[`Story Snapshots > WithoutLabel 1`] = `
 <div>
   <div
     class="flex w-72 flex-col gap-1"
+    data-slot="base"
   >
     <input
       aria-describedby="email-description"

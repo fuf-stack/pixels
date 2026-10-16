@@ -30,7 +30,7 @@ export const fieldCardVariants = tv({
     errorText: [],
     /** class for the label/header */
     label: [
-      // override HeroUI label positioning and display
+      // keep the label in normal flow at full width
       'pointer-events-auto! static! z-auto! block! w-full!',
       // reset any transforms or translations
       'translate-x-0! translate-y-0! transform-none!',

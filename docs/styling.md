@@ -250,10 +250,11 @@ const radioTabsVariants = tv({
 ```
 
 The shared [FieldLayout](../packages/uniform/src/partials/FieldLayout/README.md)
-also receives resolved slot classes. Its fragment adds no element for a `base`
-slot: keep `classNames.base` on the field engine's root, and pass the same map to
-`<FieldLayout className={classNames} /* ... */ />` for its label, description and
-validation messages. The layout renders their helper wrapper directly.
+receives resolved slot classes and applies `className.base` to its default outer
+`div`. Supply attributes, interactions and refs via `baseProps`; styling stays in
+`className`. Use `baseAs` to select a field engine instead of the default `div`.
+The layout passes `className.base` and `baseProps` to that engine, with the label,
+control and supporting messages as its children. See the [layout examples](./code-style.md#component-files-and-responsibility).
 
 ```tsx
 const Alert = ({ className, variant = 'info', ...props }: AlertProps) => {
@@ -378,14 +379,12 @@ HeroUI wrapper output. Use the instance’s `cn` together with its recipes for
 migrated components and application code. Unifying the legacy export is gated
 on the component/visual migration.
 
-This is the first migration slice. Existing HeroUI wrappers do not yet consume
-this context and HeroUI performs its own merges. The provider currently supports
-application components using `useStyling`; it does not make custom merge rules
-work across all existing Pixels/Uniform components yet. Tailwind must generate
-`text-body` independently (for example via a `--text-body` theme token).
-The owned token stylesheet is available; renderer and final theme migration
-remain pending. Track remaining work in
-[the migration inventory](./heroui-removal.md).
+Uniform-owned renderers and internal styling consumers use this context. Pixels
+components that still wrap HeroUI retain their existing merge behavior, including
+when rendered inside Uniform. Tailwind must generate `text-body` independently
+(for example via a `--text-body` theme token). The owned token stylesheet is
+available; the remaining Pixels/application and final theme migration is tracked
+in [the migration inventory](./heroui-removal.md).
 
 ## Owned semantic tokens (migration)
 

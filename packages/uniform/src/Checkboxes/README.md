@@ -38,3 +38,7 @@ live in `checkboxesVariants.ts`.
 Each option uses React Aria `CheckboxField` for selection and input associations,
 and `CheckboxButton` for its clickable label and interaction states. The field
 wrapper uses `display: contents` to preserve option layout and existing styling slots.
+
+`CheckboxesControl` uses `FieldLayout` with `baseAs={CheckboxGroup}` for the
+group root, label and supporting messages.
+Option rendering and custom children remain inside the checkbox group.

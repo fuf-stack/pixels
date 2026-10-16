@@ -94,34 +94,35 @@ const InputControl = (props: InputControlProps) => {
   };
 
   return (
-    <InputField
-      {...props}
+    <FieldLayout
+      // provide the text or number field engine
+      baseAs={InputField}
+      baseProps={{
+        field,
+        focused,
+        hasValue,
+        isFocusVisible,
+        type,
+      }}
       className={classNames}
-      focused={focused}
-      hasValue={hasValue}
-      isFocusVisible={isFocusVisible}
+      description={description}
+      errorMessage={errorMessage}
+      ids={ids}
+      invalid={invalid}
+      label={label}
+      required={required}
     >
-      <FieldLayout
+      <InputWrapper
+        {...props}
         className={classNames}
-        description={description}
-        errorMessage={errorMessage}
-        ids={ids}
-        invalid={invalid}
-        label={label}
-        required={required}
-      >
-        <InputWrapper
-          {...props}
-          className={classNames}
-          focusProps={focusProps}
-          focused={focused}
-          hasValue={hasValue}
-          inputRef={controlRef}
-          onClear={handleClear}
-          onFocusControl={handleFocus}
-        />
-      </FieldLayout>
-    </InputField>
+        focusProps={focusProps}
+        focused={focused}
+        hasValue={hasValue}
+        inputRef={controlRef}
+        onClear={handleClear}
+        onFocusControl={handleFocus}
+      />
+    </FieldLayout>
   );
 };
 

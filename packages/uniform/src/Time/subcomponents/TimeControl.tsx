@@ -3,20 +3,15 @@ import type { UniformField } from '../../hooks/useUniformField/types';
 import type { TimeProps } from '../Time';
 import type { TimeValue } from '../timeHelpers';
 
-import {
-  DateInput,
-  DateSegment,
-  Label,
-  TimeField,
-} from 'react-aria-components';
+import { Label, TimeField } from 'react-aria-components';
 
 import { useStyling } from '@fuf-stack/pixels/StylingProvider';
 
 import { getFieldControlProps } from '../../helpers/fieldProps/fieldProps';
-import FieldDescription from '../../partials/FieldDescription/FieldDescription';
 import FieldLabel from '../../partials/FieldLabel/FieldLabel';
 import { getTimeFieldPlaceholderValue, parseTimeValue } from '../timeHelpers';
 import { timeVariants } from '../timeVariants';
+import TimeInput from './TimeInput';
 
 interface TimeControlProps extends Pick<
   TimeProps,
@@ -51,9 +46,7 @@ const TimeControl = ({
   const styling = useStyling();
 
   const {
-    description,
     disabled,
-    errorMessage,
     ids,
     ref: inputRef,
     invalid,
@@ -62,7 +55,6 @@ const TimeControl = ({
     onBlur,
     onChange: onValueChange,
     required,
-    testId,
   } = field;
 
   // associate the editable control with its label and messages
@@ -124,6 +116,8 @@ const TimeControl = ({
       value={value ?? null}
     >
       {children}
+
+      {/* field label */}
       {label ? (
         <FieldLabel
           as={Label}
@@ -134,46 +128,9 @@ const TimeControl = ({
           {label}
         </FieldLabel>
       ) : null}
-      <div className={classNames.inputWrapper} data-slot="input-wrapper">
-        <div className={classNames.innerWrapper} data-slot="inner-wrapper">
-          <DateInput
-            className={classNames.input}
-            data-slot="input"
-            data-testid={testId}
-          >
-            {(segment) => {
-              return (
-                <DateSegment
-                  className={classNames.segment}
-                  data-editable={segment.isEditable || undefined}
-                  data-slot="segment"
-                  data-type={segment.type}
-                  segment={segment}
-                />
-              );
-            }}
-          </DateInput>
-        </div>
-        {description || invalid ? (
-          <div className={classNames.helperWrapper} data-slot="helper-wrapper">
-            <FieldDescription
-              className={classNames.description}
-              id={ids.description}
-            >
-              {description}
-            </FieldDescription>
-            {invalid ? (
-              <div
-                className={classNames.errorMessage}
-                data-slot="error-message"
-                id={ids.error}
-              >
-                {errorMessage}
-              </div>
-            ) : null}
-          </div>
-        ) : null}
-      </div>
+
+      {/* editable time segments */}
+      <TimeInput className={classNames} field={field} />
     </TimeField>
   );
 };

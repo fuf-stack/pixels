@@ -32,5 +32,6 @@ import RadioTabs from '@fuf-stack/uniform/RadioTabs';
 ## Composition
 
 `RadioTabs` owns registration. `RadioTabsControl` owns option value conversion,
-field layout and form-focus routing. `RadioTabsList` owns the tab engine,
-selection indicator geometry and optional panels.
+form-focus routing and `FieldLayout`. `RadioTabsList` owns the tab engine,
+selection indicator geometry and optional panels. `RadioTab` owns each option’s
+label, panel association and interaction attributes.

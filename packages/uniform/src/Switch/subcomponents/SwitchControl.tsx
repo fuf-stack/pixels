@@ -15,8 +15,7 @@ import { getFieldControlProps } from '../../helpers/fieldProps/fieldProps';
 import FieldDescription from '../../partials/FieldDescription/FieldDescription';
 import FieldLabel from '../../partials/FieldLabel/FieldLabel';
 import { switchVariants } from '../switchVariants';
-import SwitchIcon from './SwitchIcon';
-import SwitchThumb from './SwitchThumb';
+import SwitchTrack from './SwitchTrack';
 
 interface SwitchControlProps extends Pick<
   SwitchProps,
@@ -106,6 +105,7 @@ const SwitchControl = ({
         data-testid={testId}
         htmlFor={ids.control}
       >
+        {/* native toggle for keyboard and assistive technology */}
         <VisuallyHidden elementType="span">
           <input
             {...mergeProps(inputProps, focusProps, controlProps)}
@@ -113,25 +113,15 @@ const SwitchControl = ({
             data-slot="input"
           />
         </VisuallyHidden>
-        <span aria-hidden className={classNames.wrapper} data-slot="wrapper">
-          {startContent ? (
-            <SwitchIcon className={classNames.startContent}>
-              {startContent}
-            </SwitchIcon>
-          ) : null}
-          <span className={classNames.thumb} data-slot="thumb">
-            <SwitchThumb
-              className={classNames.thumbIcon}
-              selected={state.isSelected}
-              thumbIcon={thumbIcon}
-            />
-          </span>
-          {endContent ? (
-            <SwitchIcon className={classNames.endContent}>
-              {endContent}
-            </SwitchIcon>
-          ) : null}
-        </span>
+
+        {/* toggle track and thumb */}
+        <SwitchTrack
+          className={classNames}
+          endContent={endContent}
+          selected={state.isSelected}
+          startContent={startContent}
+          thumbIcon={thumbIcon}
+        />
         {label ? (
           <FieldLabel
             as="span"
@@ -143,6 +133,8 @@ const SwitchControl = ({
           </FieldLabel>
         ) : null}
       </label>
+
+      {/* help text and validation messages */}
       {description || invalid ? (
         <div className={classNames.helperWrapper} data-slot="helper-wrapper">
           <FieldDescription

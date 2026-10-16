@@ -2,6 +2,10 @@
 
 Status: owned styling/tokens, all Uniform production fields and internal styling consumers migrated; legacy hook exports and direct HeroUI dependencies removed. Pixels/application migration and final theme removal remain pending.
 This is a staged breaking migration. It is not ready for a HeroUI-free release.
+Uniform’s final cleanup and verification are recorded in the
+[completion review](./uniform/migration-review.md). The dated sections below are
+historical implementation notes; use that review and the current Uniform guides
+for its final structure and remaining release constraints.
 The agreed breaking changes include consumer theme setup and removal of
 `uniform/hooks/useInput`, `uniform/hooks/useUniformField` and
 `uniform/hooks/useUniformFieldArray`, including their public compatibility types

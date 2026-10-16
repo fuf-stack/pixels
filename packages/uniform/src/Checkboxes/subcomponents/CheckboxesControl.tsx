@@ -8,8 +8,7 @@ import { slugify } from '@fuf-stack/pixel-utils';
 import { useStyling } from '@fuf-stack/pixels/StylingProvider';
 
 import { getFieldControlProps } from '../../helpers/fieldProps/fieldProps';
-import FieldDescription from '../../partials/FieldDescription/FieldDescription';
-import FieldLabel from '../../partials/FieldLabel/FieldLabel';
+import FieldLayout from '../../partials/FieldLayout/FieldLayout';
 import { checkboxesVariants } from '../checkboxesVariants';
 import CheckboxControl from './CheckboxControl';
 
@@ -131,35 +130,34 @@ const CheckboxesControl = ({
   };
 
   return (
-    <CheckboxGroup
-      ref={handleControlRef}
-      aria-describedby={describedBy}
-      aria-invalid={associations['aria-invalid']}
-      aria-label={associations['aria-label']}
-      className={classNames.base}
-      data-slot="base"
-      data-testid={testId}
-      id={associations.id}
-      isDisabled={disabled}
-      isInvalid={invalid}
-      isRequired={required}
-      name={name}
-      onBlur={onBlur}
-      onChange={onValueChange}
-      render={renderGroup}
-      validationBehavior="aria"
-      value={value}
+    <FieldLayout
+      baseAs={CheckboxGroup}
+      baseProps={{
+        ref: handleControlRef,
+        'aria-describedby': describedBy,
+        'aria-label': associations['aria-label'],
+        'data-slot': 'base',
+        'data-testid': testId,
+        id: associations.id,
+        isDisabled: disabled,
+        isInvalid: invalid,
+        isRequired: required,
+        name,
+        onBlur,
+        onChange: onValueChange,
+        render: renderGroup,
+        validationBehavior: 'aria',
+        value,
+      }}
+      className={classNames}
+      description={description}
+      errorMessage={errorMessage}
+      ids={ids}
+      invalid={invalid}
+      label={label}
+      labelAs={Label}
+      required={required}
     >
-      {label ? (
-        <FieldLabel
-          as={Label}
-          className={classNames.label}
-          id={ids.label}
-          required={required}
-        >
-          {label}
-        </FieldLabel>
-      ) : null}
       {required ? (
         <span className="sr-only" id={`${ids.control}-required`}>
           Required selection.
@@ -176,26 +174,7 @@ const CheckboxesControl = ({
               return checkbox;
             })}
       </div>
-      {description || invalid ? (
-        <div className={classNames.helperWrapper} data-slot="helper-wrapper">
-          <FieldDescription
-            className={classNames.description}
-            id={ids.description}
-          >
-            {description}
-          </FieldDescription>
-          {invalid ? (
-            <div
-              className={classNames.errorMessage}
-              data-slot="error-message"
-              id={ids.error}
-            >
-              {errorMessage}
-            </div>
-          ) : null}
-        </div>
-      ) : null}
-    </CheckboxGroup>
+    </FieldLayout>
   );
 };
 
