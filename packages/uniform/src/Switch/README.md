@@ -19,3 +19,9 @@ import Switch from '@fuf-stack/uniform/Switch';
 - Use `thumbIcon`, `startContent` and `endContent` for additional visual cues.
 
 [Props](Switch.tsx) · [Stories](Switch.stories.tsx)
+
+## Composition
+
+`Switch` owns form registration and boolean values. `SwitchControl` owns
+the native input ref, React Aria interactions, styling and message placement.
+Recipes and their derived types live in `switchVariants.ts`.

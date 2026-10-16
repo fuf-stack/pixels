@@ -438,6 +438,105 @@ exports[`Story Snapshots > Invalid 1`] = `
 </div>
 `;
 
+exports[`Story Snapshots > KeyboardAndRequired 1`] = `
+<div>
+  <div
+    class="flex w-full flex-row justify-between gap-6"
+  >
+    <form
+      class="grow min-w-60"
+      data-form-is-valid="true"
+      data-testid=""
+      novalidate=""
+    >
+      <div
+        class="place-content-center"
+        data-slot="outer-wrapper"
+      >
+        <label
+          class="group relative inline-flex max-w-fit cursor-pointer touch-none select-none items-center justify-start tap-highlight-transparent"
+          data-invalid="false"
+          data-react-aria-pressable="true"
+          data-required="true"
+          data-slot="base"
+          data-testid="switchfield"
+          for="uniform-«replaced-aria-id»"
+        >
+          <span
+            style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+          >
+            <input
+              aria-describedby="uniform-«replaced-aria-id»-description"
+              aria-labelledby="uniform-«replaced-aria-id»-label"
+              aria-required="true"
+              data-react-aria-pressable="true"
+              data-slot="input"
+              id="uniform-«replaced-aria-id»"
+              name="switchField"
+              role="switch"
+              tabindex="0"
+              type="checkbox"
+            />
+          </span>
+          <span
+            aria-hidden="true"
+            class="relative inline-flex h-7 w-12 shrink-0 items-center justify-start overflow-hidden rounded-full bg-default-200 px-1 transition-background group-data-[selected=true]:bg-primary group-data-[selected=true]:text-primary-foreground group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background motion-reduce:transition-none"
+            data-slot="wrapper"
+          >
+            <span
+              class="pointer-events-none z-10 flex h-5 w-5 origin-right items-center justify-center rounded-full bg-white shadow-small transition-all text-small group-data-[selected=true]:group-data-[pressed=true]:ms-4 group-data-[selected=true]:ms-5 group-data-[pressed=true]:w-6 motion-reduce:transition-none"
+              data-slot="thumb"
+            />
+          </span>
+          <span
+            class="group-data-[invalid=true]:text-danger! relative ms-2 select-none text-sm text-foreground subpixel-antialiased"
+            data-slot="label"
+            id="uniform-«replaced-aria-id»-label"
+          >
+            🚀 Deploy on Friday
+            <span
+              aria-hidden="true"
+              class="ml-0.5 text-danger"
+            >
+              *
+            </span>
+          </span>
+        </label>
+        <div
+          class="relative ml-0 block p-0"
+          data-slot="helper-wrapper"
+        >
+          <div
+            class="text-foreground-500 text-tiny"
+            data-slot="description"
+            id="uniform-«replaced-aria-id»-description"
+          >
+            Toggle with Space.
+          </div>
+        </div>
+      </div>
+      <div
+        class="mt-4 flex justify-end"
+      >
+        <button
+          aria-label="Submit form"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
+          data-focus="true"
+          data-focus-visible="true"
+          data-hover="true"
+          data-react-aria-pressable="true"
+          data-testid="form_submit_button"
+          tabindex="0"
+          type="submit"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
 exports[`Story Snapshots > Required 1`] = `
 <div>
   <div

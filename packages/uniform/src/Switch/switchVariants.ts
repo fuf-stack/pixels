@@ -1,0 +1,63 @@
+import type { TVClassName, TVProps } from '@fuf-stack/pixel-utils';
+
+import { tv } from '@fuf-stack/pixel-utils';
+
+export const switchVariants = tv({
+  slots: {
+    /** Container for the field control and supporting text */
+    base: 'group relative inline-flex max-w-fit cursor-pointer touch-none select-none items-center justify-start tap-highlight-transparent',
+    /** Container arranging the selectable content */
+    wrapper:
+      'relative inline-flex h-7 w-12 shrink-0 items-center justify-start overflow-hidden rounded-full bg-default-200 px-1 transition-background group-data-[selected=true]:bg-primary group-data-[selected=true]:text-primary-foreground group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background motion-reduce:transition-none',
+    /** Movable indicator showing the current value */
+    thumb:
+      'pointer-events-none z-10 flex h-5 w-5 origin-right items-center justify-center rounded-full bg-white shadow-small transition-all text-small group-data-[selected=true]:group-data-[pressed=true]:ms-4 group-data-[selected=true]:ms-5 group-data-[pressed=true]:w-6 motion-reduce:transition-none',
+    /** Visible field label */
+    label:
+      'group-data-[invalid=true]:text-danger! relative ms-2 select-none text-sm text-foreground subpixel-antialiased',
+    /** Container grouping the toggle and field messages */
+    outerWrapper: 'place-content-center',
+    /** Content at the start of the control */
+    startContent:
+      'absolute start-1.5 z-0 scale-50 text-current opacity-0 transition-transform-opacity text-small group-data-[selected=true]:scale-100 group-data-[selected=true]:opacity-100 motion-reduce:transition-none',
+    /** Content at the end of the control */
+    endContent:
+      'absolute end-1.5 z-0 text-default-600 opacity-100 transition-transform-opacity text-small group-data-[selected=true]:translate-x-3 group-data-[selected=true]:opacity-0 motion-reduce:transition-none',
+    /** Content inside the toggle thumb */
+    thumbIcon: 'text-black',
+    /** Container for validation messages */
+    errorMessage: 'text-danger text-tiny',
+
+    /** Container for help text and validation messages */
+    helperWrapper: 'relative ml-0 block p-0',
+    /** Supporting text for the field */
+    description: 'text-foreground-500 text-tiny',
+  },
+});
+
+export const switchStateVariants = tv({
+  extend: switchVariants,
+  variants: {
+    size: {
+      sm: {
+        wrapper: 'h-6 w-10',
+        thumb:
+          'h-4 w-4 text-tiny group-data-[selected=true]:group-data-[pressed=true]:ms-3 group-data-[selected=true]:ms-4 group-data-[pressed=true]:w-5',
+        startContent: 'text-tiny',
+        endContent: 'text-tiny',
+      },
+      md: {},
+      lg: {
+        wrapper: 'h-8 w-14',
+        thumb:
+          'h-6 w-6 text-medium group-data-[selected=true]:group-data-[pressed=true]:ms-5 group-data-[selected=true]:ms-6 group-data-[pressed=true]:w-7',
+        startContent: 'text-medium',
+        endContent: 'text-medium',
+      },
+    },
+    disabled: { true: { base: 'pointer-events-none opacity-disabled' } },
+  },
+});
+
+export type VariantProps = TVProps<typeof switchVariants>;
+export type ClassName = TVClassName<typeof switchVariants>;

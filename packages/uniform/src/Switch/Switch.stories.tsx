@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-// Import icons for the stories
 import { FaEnvelope, FaFlask, FaPhone, FaRocket } from 'react-icons/fa';
 
 import { action } from 'storybook/actions';
@@ -11,6 +10,12 @@ import { boolean, veto } from '@fuf-stack/veto';
 import Form from '../Form';
 import SubmitButton from '../SubmitButton';
 import Switch from './Switch';
+
+// Import icons for the stories
+
+// -----------------------------------------------------------------------------
+// Story base setup
+// -----------------------------------------------------------------------------
 
 const meta: Meta<typeof Switch> = {
   title: 'uniform/Switch',
@@ -35,6 +40,10 @@ const meta: Meta<typeof Switch> = {
 
 export default meta;
 type Story = StoryObj<typeof Switch>;
+
+// -----------------------------------------------------------------------------
+// Normal stories
+// -----------------------------------------------------------------------------
 
 export const Default: Story = {
   args: {
@@ -137,5 +146,31 @@ export const AllSizes: Story = {
         <Switch label="🏢 Enterprise Monolith" name="largeSwitch" size="lg" />
       </div>
     );
+  },
+};
+
+// -----------------------------------------------------------------------------
+// Composition
+// -----------------------------------------------------------------------------
+
+export const KeyboardAndRequired: Story = {
+  ...Required,
+  args: { ...Required.args, description: 'Toggle with Space.' },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const input = canvas.getByRole('switch', { name: '🚀 Deploy on Friday' });
+    await expect(input).toHaveAttribute('aria-required', 'true');
+    await expect(input).not.toHaveAttribute('required');
+    await expect(input).toHaveAccessibleDescription('Toggle with Space.');
+    await userEvent.click(canvas.getByTestId('form_submit_button'));
+    await waitFor(async () => {
+      await expect(input).toHaveFocus();
+      await expect(input).toHaveAttribute('aria-invalid', 'true');
+    });
+    await userEvent.keyboard(' ');
+    await expect(input).toBeChecked();
+    await userEvent.keyboard(' ');
+    await expect(input).not.toBeChecked();
+    await userEvent.tab();
   },
 };
