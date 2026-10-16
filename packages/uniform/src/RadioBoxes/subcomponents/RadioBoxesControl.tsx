@@ -60,7 +60,7 @@ const RadioBoxesControl = ({
   const styling = useStyling();
   const variants = styling.resolve(radioBoxesVariants);
   const classNames = styling.variantsToClassNames(variants, className, 'base');
-  const boxClassNames: RadioBoxProps['classNames'] = {
+  const boxClassNames: RadioBoxProps['className'] = {
     base: classNames.boxBase,
     control: classNames.boxControl,
     description: classNames.boxDescription,
@@ -107,7 +107,7 @@ const RadioBoxesControl = ({
               return (
                 <RadioBox
                   key={String(option.value)}
-                  classNames={boxClassNames}
+                  className={boxClassNames}
                   data-testid={optionTestId}
                   description={option.description}
                   icon={option.icon}

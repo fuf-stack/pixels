@@ -18,7 +18,7 @@ export interface RadioBoxProps {
   value: string;
   /** HTML test ID for the option. */
   'data-testid'?: string;
-  /** Slot classes passed by RadioBoxes. */
+  /** Legacy alias for className */
   classNames?: ClassName;
   /** CSS class name */
   className?: ClassName;
@@ -45,8 +45,10 @@ export const RadioBox = ({
   ...props
 }: RadioBoxProps) => {
   const styling = useStyling();
+
+  // classNames from slots
   const variants = styling.resolve(radioBoxVariants, { isDisabled, isInvalid });
-  const classes = styling.variantsToClassNames(
+  const classNames = styling.variantsToClassNames(
     variants,
     _classNames ?? className,
     'base',
@@ -57,12 +59,15 @@ export const RadioBox = ({
   return (
     <RadioControl
       className={{
-        ...classes,
+        ...classNames,
         field: defaults.field(),
         wrapper: defaults.wrapper(),
-        control: styling.cn(defaults.control(), classes.control),
-        labelWrapper: styling.cn(defaults.labelWrapper(), classes.labelWrapper),
-        label: styling.cn(defaults.label(), classes.label),
+        control: styling.cn(defaults.control(), classNames.control),
+        labelWrapper: styling.cn(
+          defaults.labelWrapper(),
+          classNames.labelWrapper,
+        ),
+        label: styling.cn(defaults.label(), classNames.label),
       }}
       description={description}
       disabled={isDisabled}
