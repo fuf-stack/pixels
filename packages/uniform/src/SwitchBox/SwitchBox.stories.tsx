@@ -11,6 +11,10 @@ import Form from '../Form';
 import SubmitButton from '../SubmitButton';
 import SwitchBox from './SwitchBox';
 
+// -----------------------------------------------------------------------------
+// Story base setup
+// -----------------------------------------------------------------------------
+
 const meta: Meta<typeof SwitchBox> = {
   title: 'uniform/SwitchBox',
   component: SwitchBox,
@@ -34,6 +38,10 @@ const meta: Meta<typeof SwitchBox> = {
 
 export default meta;
 type Story = StoryObj<typeof meta>;
+
+// -----------------------------------------------------------------------------
+// Normal stories
+// -----------------------------------------------------------------------------
 
 export const Default: Story = {
   args: {
@@ -162,5 +170,31 @@ export const AllSizes: Story = {
         />
       </div>
     );
+  },
+};
+
+// -----------------------------------------------------------------------------
+// Composition
+// -----------------------------------------------------------------------------
+
+export const KeyboardAndRequired: Story = {
+  ...Required,
+  args: { ...Required.args, description: 'Toggle with Space.' },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const input = canvas.getByRole('switch', { name: 'Accept terms' });
+    await expect(input).toHaveAttribute('aria-required', 'true');
+    await expect(input).not.toHaveAttribute('required');
+    await expect(input).toHaveAccessibleDescription('Toggle with Space.');
+    await userEvent.click(canvas.getByTestId('form_submit_button'));
+    await waitFor(async () => {
+      await expect(input).toHaveFocus();
+      await expect(input).toHaveAttribute('aria-invalid', 'true');
+    });
+    await userEvent.keyboard(' ');
+    await expect(input).toBeChecked();
+    await userEvent.keyboard(' ');
+    await expect(input).not.toBeChecked();
+    await userEvent.tab();
   },
 };

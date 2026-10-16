@@ -1,0 +1,67 @@
+import type { TVClassName } from '@fuf-stack/pixel-utils';
+
+import { tv } from '@fuf-stack/pixel-utils';
+
+import { switchStateVariants } from '../Switch/switchVariants';
+
+export const switchBoxVariants = tv({
+  slots: {
+    /** Selectable box containing the toggle and text */
+    box: 'group inline-flex w-full cursor-pointer items-center justify-between rounded-lg border-2 border-default hover:bg-content2 data-[selected=true]:border-focus',
+    /** Supporting text for the field */
+    description: 'text-foreground opacity-70',
+    /** Container for validation messages */
+    errorMessage: 'text-danger text-tiny',
+    /** Container below the switch for validation messages */
+    helperWrapper: 'relative ml-0 block p-0',
+    /** Decorative icon beside the option text */
+    icon: '',
+    /** Visible field label */
+    label: 'font-medium text-foreground',
+    /** Container arranging the selectable content */
+    wrapper: '',
+    /** Movable indicator showing the current value */
+    thumb: '',
+    /** Content inside the toggle thumb */
+    thumbIcon: '',
+  },
+  variants: {
+    isDisabled: {
+      true: {
+        box: 'pointer-events-none opacity-disabled',
+      },
+    },
+    isInvalid: {
+      true: {
+        box: '!border-danger',
+        label: '!text-danger',
+      },
+    },
+    size: {
+      sm: {
+        box: 'gap-2 p-3',
+        description: 'text-xs',
+        label: 'text-xs',
+      },
+      md: {
+        box: 'gap-4 p-4',
+        description: 'text-small',
+        label: 'text-sm',
+      },
+      lg: {
+        box: 'gap-4 p-5',
+        description: 'text-small',
+        label: 'text-base',
+      },
+    },
+  },
+  defaultVariants: {
+    size: 'md',
+  },
+});
+
+export type ClassName = TVClassName<typeof switchBoxVariants>;
+
+export const switchBoxTrackVariants = tv({
+  extend: switchStateVariants,
+});

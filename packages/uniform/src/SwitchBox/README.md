@@ -26,3 +26,9 @@ Validation messages can be styled through the `errorMessage` and `helperWrapper`
 slots in `className`.
 
 [Props](SwitchBox.tsx) · [Stories](SwitchBox.stories.tsx)
+
+## Composition
+
+`SwitchBox` owns form registration and boolean values. `SwitchBoxControl` owns
+the native input ref, React Aria interactions, styling and message placement.
+Recipes and their derived types live in `switchBoxVariants.ts`.
