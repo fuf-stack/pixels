@@ -1,84 +1,92 @@
 import type { JSX } from 'react';
 import type { AvatarProps } from '../Avatar/Avatar';
 
-import { AvatarGroup as HeroAvatarGroup } from '@heroui/avatar';
-
 import { Avatar } from '../Avatar';
 import AvatarGroupContext from '../Avatar/subcomponents/AvatarGroupContext';
+import { useStyling } from '../StylingProvider';
+import { avatarGroupVariants } from './avatarGroupVariants';
+import AvatarGroupCount from './subcomponents/AvatarGroupCount';
 
 export interface AvatarGroupProps {
-  /* Display a border ring around the Avatar */
-  bordered?: boolean;
-  /* Roundness of the border around the Avatar */
-  rounded?: 'none' | 'sm' | 'md' | 'lg' | 'full';
-  /** CSS class name */
-  className?: string;
-  /* Disables the Avatar */
-  disabled?: boolean;
-  /* Size of the Avatar */
-  size?: 'sm' | 'md' | 'lg';
-  /* Maximum number of avatars to display before +X is displayed */
-  max?: number;
-  /* Array of avatarProps */
+  /** Optional wrapper around each visible avatar */
+  avatarWrapper?: JSX.ElementType;
+  /** Avatars and props forwarded to their optional wrappers */
   avatars?: (Omit<AvatarProps, 'size' | 'rounded' | 'bordered'> & {
-    /* Custom wrapperProps for each avatarWrapper */
+    /** Props for this avatar's wrapper */
     wrapperProps?: Record<string, unknown>;
   })[];
-  /* Custom wrapper for each avatar */
-  avatarWrapper?: JSX.ElementType;
+  /** Border ring around each avatar */
+  bordered?: boolean;
+  /** CSS class name */
+  className?: string;
+  /** Disabled appearance and hover state for every avatar */
+  disabled?: boolean;
+  /** Maximum visible avatars, zero displays all entries */
+  max?: number;
+  /** Corner roundness of each avatar */
+  rounded?: 'none' | 'sm' | 'md' | 'lg' | 'full';
+  /** Avatar size */
+  size?: 'sm' | 'md' | 'lg';
 }
 
-/**
- * AvatarGroup component based on [HeroUI AvatarGroup](https://www.heroui.com//docs/components/avatar)
- */
+/** Overlapping profile images with a count of entries beyond the visible limit */
 const AvatarGroup = ({
+  avatarWrapper: AvatarWrapper = undefined,
+  avatars = [],
   bordered = false,
-  rounded = 'full',
   className = '',
   disabled = false,
-  size = 'md',
-  avatars = [],
   max = 3,
-  avatarWrapper: AvatarWrapper = undefined,
+  rounded = 'full',
+  size = 'md',
 }: AvatarGroupProps) => {
+  const styling = useStyling();
+
+  // classNames from slots
+  const variants = styling.resolve(avatarGroupVariants);
+  const classNames = styling.variantsToClassNames(variants, className, 'base');
+
+  // zero retains the existing unlimited mode
+  const visibleAvatars = max ? avatars.slice(0, max) : avatars;
+  const remainingCount = max ? avatars.length - max : 0;
+
   return (
-    <AvatarGroupContext value>
-      <HeroAvatarGroup
-        className={className}
-        isBordered={bordered}
-        isDisabled={disabled}
-        max={max}
-        radius={rounded}
-        size={size}
-      >
-        {avatars?.map((avatar, index) => {
-          const avatarKey = avatar.src
-            ? `${avatar.src}-${index}`
-            : `avatar-${index}`;
-          const { wrapperProps, ...avatarProps } = avatar;
-          return AvatarWrapper ? (
-            <AvatarWrapper key={avatarKey} {...wrapperProps}>
-              <Avatar
-                {...avatarProps}
-                bordered={bordered}
-                disabled={disabled || avatar?.disabled}
-                rounded={rounded}
-                size={size}
-              />
-            </AvatarWrapper>
-          ) : (
+    <div className={classNames.base} data-slot="base" role="group">
+      <AvatarGroupContext value>
+        {visibleAvatars.map(({ wrapperProps, ...avatarProps }, index) => {
+          const key = `${avatarProps.src || 'avatar'}-${index}`;
+          const avatar = (
             <Avatar
-              key={avatarKey}
+              key={key}
               {...avatarProps}
               bordered={bordered}
-              disabled={disabled || avatar?.disabled}
+              disabled={disabled || avatarProps.disabled}
               rounded={rounded}
               size={size}
             />
           );
+
+          return AvatarWrapper ? (
+            <AvatarWrapper key={key} {...wrapperProps}>
+              {avatar}
+            </AvatarWrapper>
+          ) : (
+            avatar
+          );
         })}
-      </HeroAvatarGroup>
-    </AvatarGroupContext>
+
+        {remainingCount > 0 ? (
+          <AvatarGroupCount
+            bordered={bordered}
+            className={classNames.count}
+            count={remainingCount}
+            disabled={disabled}
+            rounded={rounded}
+            size={size}
+          />
+        ) : null}
+      </AvatarGroupContext>
+    </div>
   );
 };
 

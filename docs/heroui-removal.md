@@ -78,7 +78,8 @@ See [Pixels migration notes](./pixels/migration.md#drawer).
 ## Pixels Avatar
 
 Avatar now owns image loading and fallback rendering with owned slot recipes.
-Its group overlap remains compatible while AvatarGroup is migrated next.
+AvatarGroup now owns overlap, wrappers and its accessible overflow indicator.
+The direct `@heroui/avatar` dependency is removed.
 See [Pixels migration notes](./pixels/migration.md#avatar).
 
 ## Implemented foundation

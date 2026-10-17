@@ -3,11 +3,12 @@
 exports[`Story Snapshots > AllDisabled 1`] = `
 <div>
   <div
-    class="flex items-center justify-center h-auto w-max"
+    class="flex h-auto w-max items-center justify-center [&>:first-child]:ms-0 [&>:not(:first-child)]:-ms-2 [&>:last-child]:hover:-translate-x-0"
+    data-slot="base"
     role="group"
   >
     <span
-      class="relative z-0 box-border flex items-center justify-center overflow-hidden bg-default align-middle text-default-foreground outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus opacity-disabled transition-transform motion-reduce:transition-none data-[hover=true]:-translate-x-3 rtl:data-[hover=true]:translate-x-3 data-[focus-visible=true]:-translate-x-3 rtl:data-[focus-visible=true]:translate-x-3 rounded-full h-10 w-10 text-tiny ms-0"
+      class="relative z-0 box-border flex items-center justify-center overflow-hidden bg-default align-middle text-default-foreground outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus opacity-disabled -ms-2 transition-transform motion-reduce:transition-none data-[hover=true]:-translate-x-3 rtl:data-[hover=true]:translate-x-3 data-[focus-visible=true]:-translate-x-3 rtl:data-[focus-visible=true]:translate-x-3 rounded-full h-10 w-10 text-tiny"
       data-slot="base"
       tabindex="-1"
     >
@@ -19,7 +20,7 @@ exports[`Story Snapshots > AllDisabled 1`] = `
       />
     </span>
     <span
-      class="relative z-0 box-border flex items-center justify-center overflow-hidden bg-default align-middle text-default-foreground outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus opacity-disabled transition-transform motion-reduce:transition-none data-[hover=true]:-translate-x-3 rtl:data-[hover=true]:translate-x-3 data-[focus-visible=true]:-translate-x-3 rtl:data-[focus-visible=true]:translate-x-3 rounded-full h-10 w-10 text-tiny -ms-2"
+      class="relative z-0 box-border flex items-center justify-center overflow-hidden bg-default align-middle text-default-foreground outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus opacity-disabled -ms-2 transition-transform motion-reduce:transition-none data-[hover=true]:-translate-x-3 rtl:data-[hover=true]:translate-x-3 data-[focus-visible=true]:-translate-x-3 rtl:data-[focus-visible=true]:translate-x-3 rounded-full h-10 w-10 text-tiny"
       data-slot="base"
       tabindex="-1"
     >
@@ -31,7 +32,7 @@ exports[`Story Snapshots > AllDisabled 1`] = `
       />
     </span>
     <span
-      class="relative z-0 box-border flex items-center justify-center overflow-hidden bg-default align-middle text-default-foreground outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus opacity-disabled transition-transform motion-reduce:transition-none data-[hover=true]:-translate-x-3 rtl:data-[hover=true]:translate-x-3 data-[focus-visible=true]:-translate-x-3 rtl:data-[focus-visible=true]:translate-x-3 rounded-full h-10 w-10 text-tiny -ms-2"
+      class="relative z-0 box-border flex items-center justify-center overflow-hidden bg-default align-middle text-default-foreground outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus opacity-disabled -ms-2 transition-transform motion-reduce:transition-none data-[hover=true]:-translate-x-3 rtl:data-[hover=true]:translate-x-3 data-[focus-visible=true]:-translate-x-3 rtl:data-[focus-visible=true]:translate-x-3 rounded-full h-10 w-10 text-tiny"
       data-slot="base"
       tabindex="-1"
     >
@@ -43,12 +44,14 @@ exports[`Story Snapshots > AllDisabled 1`] = `
       />
     </span>
     <span
-      class="flex relative justify-center items-center box-border overflow-hidden align-middle z-0 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 w-10 h-10 text-tiny bg-default text-default-foreground rounded-full opacity-disabled -ms-2 data-[hover=true]:-translate-x-3 rtl:data-[hover=true]:translate-x-3 transition-transform data-[focus-visible=true]:-translate-x-3 rtl:data-[focus-visible=true]:translate-x-3 hover:-translate-x-0"
+      class="relative z-0 box-border flex items-center justify-center overflow-hidden bg-default align-middle text-default-foreground outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus opacity-disabled -ms-2 transition-transform motion-reduce:transition-none data-[hover=true]:-translate-x-3 rtl:data-[hover=true]:translate-x-3 data-[focus-visible=true]:-translate-x-3 rtl:data-[focus-visible=true]:translate-x-3 rounded-full h-10 w-10 text-tiny hover:-translate-x-0"
+      data-slot="count"
       tabindex="-1"
     >
       <span
         aria-label="+1"
-        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-normal text-center text-inherit"
+        class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center font-normal text-inherit"
+        data-slot="name"
         role="img"
       >
         +
@@ -61,11 +64,12 @@ exports[`Story Snapshots > AllDisabled 1`] = `
 exports[`Story Snapshots > Bordered 1`] = `
 <div>
   <div
-    class="flex items-center justify-center h-auto w-max"
+    class="flex h-auto w-max items-center justify-center [&>:first-child]:ms-0 [&>:not(:first-child)]:-ms-2 [&>:last-child]:hover:-translate-x-0"
+    data-slot="base"
     role="group"
   >
     <span
-      class="relative z-0 box-border flex items-center justify-center overflow-hidden bg-default align-middle text-default-foreground outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus dark:ring-offset-background-dark ring-2 ring-default ring-offset-2 ring-offset-background transition-transform motion-reduce:transition-none data-[hover=true]:-translate-x-3 rtl:data-[hover=true]:translate-x-3 data-[focus-visible=true]:-translate-x-3 rtl:data-[focus-visible=true]:translate-x-3 rounded-full h-10 w-10 text-tiny ms-0"
+      class="relative z-0 box-border flex items-center justify-center overflow-hidden bg-default align-middle text-default-foreground outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus dark:ring-offset-background-dark ring-2 ring-default ring-offset-2 ring-offset-background -ms-2 transition-transform motion-reduce:transition-none data-[hover=true]:-translate-x-3 rtl:data-[hover=true]:translate-x-3 data-[focus-visible=true]:-translate-x-3 rtl:data-[focus-visible=true]:translate-x-3 rounded-full h-10 w-10 text-tiny"
       data-slot="base"
       tabindex="-1"
     >
@@ -77,7 +81,7 @@ exports[`Story Snapshots > Bordered 1`] = `
       />
     </span>
     <span
-      class="relative z-0 box-border flex items-center justify-center overflow-hidden bg-default align-middle text-default-foreground outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus dark:ring-offset-background-dark ring-2 ring-default ring-offset-2 ring-offset-background transition-transform motion-reduce:transition-none data-[hover=true]:-translate-x-3 rtl:data-[hover=true]:translate-x-3 data-[focus-visible=true]:-translate-x-3 rtl:data-[focus-visible=true]:translate-x-3 rounded-full h-10 w-10 text-tiny -ms-2"
+      class="relative z-0 box-border flex items-center justify-center overflow-hidden bg-default align-middle text-default-foreground outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus dark:ring-offset-background-dark ring-2 ring-default ring-offset-2 ring-offset-background -ms-2 transition-transform motion-reduce:transition-none data-[hover=true]:-translate-x-3 rtl:data-[hover=true]:translate-x-3 data-[focus-visible=true]:-translate-x-3 rtl:data-[focus-visible=true]:translate-x-3 rounded-full h-10 w-10 text-tiny"
       data-slot="base"
       tabindex="-1"
     >
@@ -89,7 +93,7 @@ exports[`Story Snapshots > Bordered 1`] = `
       />
     </span>
     <span
-      class="relative z-0 box-border flex items-center justify-center overflow-hidden bg-default align-middle text-default-foreground outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus dark:ring-offset-background-dark ring-2 ring-default ring-offset-2 ring-offset-background transition-transform motion-reduce:transition-none data-[hover=true]:-translate-x-3 rtl:data-[hover=true]:translate-x-3 data-[focus-visible=true]:-translate-x-3 rtl:data-[focus-visible=true]:translate-x-3 rounded-full h-10 w-10 text-tiny -ms-2"
+      class="relative z-0 box-border flex items-center justify-center overflow-hidden bg-default align-middle text-default-foreground outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus dark:ring-offset-background-dark ring-2 ring-default ring-offset-2 ring-offset-background -ms-2 transition-transform motion-reduce:transition-none data-[hover=true]:-translate-x-3 rtl:data-[hover=true]:translate-x-3 data-[focus-visible=true]:-translate-x-3 rtl:data-[focus-visible=true]:translate-x-3 rounded-full h-10 w-10 text-tiny"
       data-slot="base"
       tabindex="-1"
     >
@@ -101,12 +105,14 @@ exports[`Story Snapshots > Bordered 1`] = `
       />
     </span>
     <span
-      class="flex relative justify-center items-center box-border overflow-hidden align-middle z-0 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 w-10 h-10 text-tiny bg-default text-default-foreground rounded-full ring-2 ring-offset-2 ring-offset-background dark:ring-offset-background-dark -ms-2 data-[hover=true]:-translate-x-3 rtl:data-[hover=true]:translate-x-3 transition-transform data-[focus-visible=true]:-translate-x-3 rtl:data-[focus-visible=true]:translate-x-3 ring-default hover:-translate-x-0"
+      class="relative z-0 box-border flex items-center justify-center overflow-hidden bg-default align-middle text-default-foreground outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus dark:ring-offset-background-dark ring-2 ring-default ring-offset-2 ring-offset-background -ms-2 transition-transform motion-reduce:transition-none data-[hover=true]:-translate-x-3 rtl:data-[hover=true]:translate-x-3 data-[focus-visible=true]:-translate-x-3 rtl:data-[focus-visible=true]:translate-x-3 rounded-full h-10 w-10 text-tiny hover:-translate-x-0"
+      data-slot="count"
       tabindex="-1"
     >
       <span
         aria-label="+1"
-        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-normal text-center text-inherit"
+        class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center font-normal text-inherit"
+        data-slot="name"
         role="img"
       >
         +
@@ -119,11 +125,12 @@ exports[`Story Snapshots > Bordered 1`] = `
 exports[`Story Snapshots > Default 1`] = `
 <div>
   <div
-    class="flex items-center justify-center h-auto w-max"
+    class="flex h-auto w-max items-center justify-center [&>:first-child]:ms-0 [&>:not(:first-child)]:-ms-2 [&>:last-child]:hover:-translate-x-0"
+    data-slot="base"
     role="group"
   >
     <span
-      class="relative z-0 box-border flex items-center justify-center overflow-hidden bg-default align-middle text-default-foreground outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus transition-transform motion-reduce:transition-none data-[hover=true]:-translate-x-3 rtl:data-[hover=true]:translate-x-3 data-[focus-visible=true]:-translate-x-3 rtl:data-[focus-visible=true]:translate-x-3 rounded-full h-10 w-10 text-tiny ms-0"
+      class="relative z-0 box-border flex items-center justify-center overflow-hidden bg-default align-middle text-default-foreground outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus -ms-2 transition-transform motion-reduce:transition-none data-[hover=true]:-translate-x-3 rtl:data-[hover=true]:translate-x-3 data-[focus-visible=true]:-translate-x-3 rtl:data-[focus-visible=true]:translate-x-3 rounded-full h-10 w-10 text-tiny"
       data-slot="base"
       tabindex="-1"
     >
@@ -152,7 +159,7 @@ exports[`Story Snapshots > Default 1`] = `
       </span>
     </span>
     <span
-      class="relative z-0 box-border flex items-center justify-center overflow-hidden bg-default align-middle text-default-foreground outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus transition-transform motion-reduce:transition-none data-[hover=true]:-translate-x-3 rtl:data-[hover=true]:translate-x-3 data-[focus-visible=true]:-translate-x-3 rtl:data-[focus-visible=true]:translate-x-3 rounded-full h-10 w-10 text-tiny -ms-2"
+      class="relative z-0 box-border flex items-center justify-center overflow-hidden bg-default align-middle text-default-foreground outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus -ms-2 transition-transform motion-reduce:transition-none data-[hover=true]:-translate-x-3 rtl:data-[hover=true]:translate-x-3 data-[focus-visible=true]:-translate-x-3 rtl:data-[focus-visible=true]:translate-x-3 rounded-full h-10 w-10 text-tiny"
       data-slot="base"
       tabindex="-1"
     >
@@ -181,7 +188,7 @@ exports[`Story Snapshots > Default 1`] = `
       </span>
     </span>
     <span
-      class="relative z-0 box-border flex items-center justify-center overflow-hidden bg-default align-middle text-default-foreground outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus transition-transform motion-reduce:transition-none data-[hover=true]:-translate-x-3 rtl:data-[hover=true]:translate-x-3 data-[focus-visible=true]:-translate-x-3 rtl:data-[focus-visible=true]:translate-x-3 rounded-full h-10 w-10 text-tiny -ms-2"
+      class="relative z-0 box-border flex items-center justify-center overflow-hidden bg-default align-middle text-default-foreground outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus -ms-2 transition-transform motion-reduce:transition-none data-[hover=true]:-translate-x-3 rtl:data-[hover=true]:translate-x-3 data-[focus-visible=true]:-translate-x-3 rtl:data-[focus-visible=true]:translate-x-3 rounded-full h-10 w-10 text-tiny"
       data-slot="base"
       tabindex="-1"
     >
@@ -210,12 +217,14 @@ exports[`Story Snapshots > Default 1`] = `
       </span>
     </span>
     <span
-      class="flex relative justify-center items-center box-border overflow-hidden align-middle z-0 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 w-10 h-10 text-tiny bg-default text-default-foreground rounded-full -ms-2 data-[hover=true]:-translate-x-3 rtl:data-[hover=true]:translate-x-3 transition-transform data-[focus-visible=true]:-translate-x-3 rtl:data-[focus-visible=true]:translate-x-3 hover:-translate-x-0"
+      class="relative z-0 box-border flex items-center justify-center overflow-hidden bg-default align-middle text-default-foreground outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus -ms-2 transition-transform motion-reduce:transition-none data-[hover=true]:-translate-x-3 rtl:data-[hover=true]:translate-x-3 data-[focus-visible=true]:-translate-x-3 rtl:data-[focus-visible=true]:translate-x-3 rounded-full h-10 w-10 text-tiny hover:-translate-x-0"
+      data-slot="count"
       tabindex="-1"
     >
       <span
         aria-label="+1"
-        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-normal text-center text-inherit"
+        class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center font-normal text-inherit"
+        data-slot="name"
         role="img"
       >
         +
@@ -225,14 +234,25 @@ exports[`Story Snapshots > Default 1`] = `
 </div>
 `;
 
+exports[`Story Snapshots > Empty 1`] = `
+<div>
+  <div
+    class="flex h-auto w-max items-center justify-center [&>:first-child]:ms-0 [&>:not(:first-child)]:-ms-2 [&>:last-child]:hover:-translate-x-0"
+    data-slot="base"
+    role="group"
+  />
+</div>
+`;
+
 exports[`Story Snapshots > Fallback 1`] = `
 <div>
   <div
-    class="flex items-center justify-center h-auto w-max"
+    class="flex h-auto w-max items-center justify-center [&>:first-child]:ms-0 [&>:not(:first-child)]:-ms-2 [&>:last-child]:hover:-translate-x-0"
+    data-slot="base"
     role="group"
   >
     <span
-      class="relative z-0 box-border flex items-center justify-center overflow-hidden bg-default align-middle text-default-foreground outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus transition-transform motion-reduce:transition-none data-[hover=true]:-translate-x-3 rtl:data-[hover=true]:translate-x-3 data-[focus-visible=true]:-translate-x-3 rtl:data-[focus-visible=true]:translate-x-3 rounded-full h-10 w-10 text-tiny ms-0"
+      class="relative z-0 box-border flex items-center justify-center overflow-hidden bg-default align-middle text-default-foreground outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus -ms-2 transition-transform motion-reduce:transition-none data-[hover=true]:-translate-x-3 rtl:data-[hover=true]:translate-x-3 data-[focus-visible=true]:-translate-x-3 rtl:data-[focus-visible=true]:translate-x-3 rounded-full h-10 w-10 text-tiny"
       data-slot="base"
       tabindex="-1"
     >
@@ -246,7 +266,7 @@ exports[`Story Snapshots > Fallback 1`] = `
       </div>
     </span>
     <span
-      class="relative z-0 box-border flex items-center justify-center overflow-hidden bg-default align-middle text-default-foreground outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus transition-transform motion-reduce:transition-none data-[hover=true]:-translate-x-3 rtl:data-[hover=true]:translate-x-3 data-[focus-visible=true]:-translate-x-3 rtl:data-[focus-visible=true]:translate-x-3 rounded-full h-10 w-10 text-tiny -ms-2"
+      class="relative z-0 box-border flex items-center justify-center overflow-hidden bg-default align-middle text-default-foreground outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus -ms-2 transition-transform motion-reduce:transition-none data-[hover=true]:-translate-x-3 rtl:data-[hover=true]:translate-x-3 data-[focus-visible=true]:-translate-x-3 rtl:data-[focus-visible=true]:translate-x-3 rounded-full h-10 w-10 text-tiny"
       data-slot="base"
       tabindex="-1"
     >
@@ -258,7 +278,7 @@ exports[`Story Snapshots > Fallback 1`] = `
       />
     </span>
     <span
-      class="relative z-0 box-border flex items-center justify-center overflow-hidden bg-default align-middle text-default-foreground outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus transition-transform motion-reduce:transition-none data-[hover=true]:-translate-x-3 rtl:data-[hover=true]:translate-x-3 data-[focus-visible=true]:-translate-x-3 rtl:data-[focus-visible=true]:translate-x-3 rounded-full h-10 w-10 text-tiny -ms-2"
+      class="relative z-0 box-border flex items-center justify-center overflow-hidden bg-default align-middle text-default-foreground outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus -ms-2 transition-transform motion-reduce:transition-none data-[hover=true]:-translate-x-3 rtl:data-[hover=true]:translate-x-3 data-[focus-visible=true]:-translate-x-3 rtl:data-[focus-visible=true]:translate-x-3 rounded-full h-10 w-10 text-tiny"
       data-slot="base"
       tabindex="-1"
     >
@@ -272,12 +292,14 @@ exports[`Story Snapshots > Fallback 1`] = `
       </div>
     </span>
     <span
-      class="flex relative justify-center items-center box-border overflow-hidden align-middle z-0 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 w-10 h-10 text-tiny bg-default text-default-foreground rounded-full -ms-2 data-[hover=true]:-translate-x-3 rtl:data-[hover=true]:translate-x-3 transition-transform data-[focus-visible=true]:-translate-x-3 rtl:data-[focus-visible=true]:translate-x-3 hover:-translate-x-0"
+      class="relative z-0 box-border flex items-center justify-center overflow-hidden bg-default align-middle text-default-foreground outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus -ms-2 transition-transform motion-reduce:transition-none data-[hover=true]:-translate-x-3 rtl:data-[hover=true]:translate-x-3 data-[focus-visible=true]:-translate-x-3 rtl:data-[focus-visible=true]:translate-x-3 rounded-full h-10 w-10 text-tiny hover:-translate-x-0"
+      data-slot="count"
       tabindex="-1"
     >
       <span
         aria-label="+1"
-        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-normal text-center text-inherit"
+        class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center font-normal text-inherit"
+        data-slot="name"
         role="img"
       >
         +
@@ -287,14 +309,64 @@ exports[`Story Snapshots > Fallback 1`] = `
 </div>
 `;
 
+exports[`Story Snapshots > KeyboardNavigation 1`] = `
+<div>
+  <div
+    class="flex h-auto w-max items-center justify-center [&>:first-child]:ms-0 [&>:not(:first-child)]:-ms-2 [&>:last-child]:hover:-translate-x-0"
+    data-slot="base"
+    role="group"
+  >
+    <button
+      aria-label="Open Jane"
+      type="button"
+    >
+      <span
+        class="relative z-0 box-border flex items-center justify-center overflow-hidden bg-default align-middle text-default-foreground outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus -ms-2 transition-transform motion-reduce:transition-none data-[hover=true]:-translate-x-3 rtl:data-[hover=true]:translate-x-3 data-[focus-visible=true]:-translate-x-3 rtl:data-[focus-visible=true]:translate-x-3 rounded-full h-10 w-10 text-tiny"
+        data-slot="base"
+        tabindex="-1"
+      >
+        <div
+          aria-label="avatar"
+          class="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center"
+          data-slot="fallback"
+          role="img"
+        >
+          J
+        </div>
+      </span>
+    </button>
+    <button
+      aria-label="Open Alex"
+      type="button"
+    >
+      <span
+        class="relative z-0 box-border flex items-center justify-center overflow-hidden bg-default align-middle text-default-foreground outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus -ms-2 transition-transform motion-reduce:transition-none data-[hover=true]:-translate-x-3 rtl:data-[hover=true]:translate-x-3 data-[focus-visible=true]:-translate-x-3 rtl:data-[focus-visible=true]:translate-x-3 rounded-full h-10 w-10 text-tiny"
+        data-slot="base"
+        tabindex="-1"
+      >
+        <div
+          aria-label="avatar"
+          class="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center"
+          data-slot="fallback"
+          role="img"
+        >
+          A
+        </div>
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
 exports[`Story Snapshots > OneDisabled 1`] = `
 <div>
   <div
-    class="flex items-center justify-center h-auto w-max"
+    class="flex h-auto w-max items-center justify-center [&>:first-child]:ms-0 [&>:not(:first-child)]:-ms-2 [&>:last-child]:hover:-translate-x-0"
+    data-slot="base"
     role="group"
   >
     <span
-      class="relative z-0 box-border flex items-center justify-center overflow-hidden bg-default align-middle text-default-foreground outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus transition-transform motion-reduce:transition-none data-[hover=true]:-translate-x-3 rtl:data-[hover=true]:translate-x-3 data-[focus-visible=true]:-translate-x-3 rtl:data-[focus-visible=true]:translate-x-3 rounded-full h-10 w-10 text-tiny ms-0"
+      class="relative z-0 box-border flex items-center justify-center overflow-hidden bg-default align-middle text-default-foreground outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus -ms-2 transition-transform motion-reduce:transition-none data-[hover=true]:-translate-x-3 rtl:data-[hover=true]:translate-x-3 data-[focus-visible=true]:-translate-x-3 rtl:data-[focus-visible=true]:translate-x-3 rounded-full h-10 w-10 text-tiny"
       data-slot="base"
       tabindex="-1"
     >
@@ -306,7 +378,7 @@ exports[`Story Snapshots > OneDisabled 1`] = `
       />
     </span>
     <span
-      class="relative z-0 box-border flex items-center justify-center overflow-hidden bg-default align-middle text-default-foreground outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus opacity-disabled transition-transform motion-reduce:transition-none data-[hover=true]:-translate-x-3 rtl:data-[hover=true]:translate-x-3 data-[focus-visible=true]:-translate-x-3 rtl:data-[focus-visible=true]:translate-x-3 rounded-full h-10 w-10 text-tiny -ms-2"
+      class="relative z-0 box-border flex items-center justify-center overflow-hidden bg-default align-middle text-default-foreground outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus opacity-disabled -ms-2 transition-transform motion-reduce:transition-none data-[hover=true]:-translate-x-3 rtl:data-[hover=true]:translate-x-3 data-[focus-visible=true]:-translate-x-3 rtl:data-[focus-visible=true]:translate-x-3 rounded-full h-10 w-10 text-tiny"
       data-slot="base"
       tabindex="-1"
     >
@@ -318,7 +390,7 @@ exports[`Story Snapshots > OneDisabled 1`] = `
       />
     </span>
     <span
-      class="relative z-0 box-border flex items-center justify-center overflow-hidden bg-default align-middle text-default-foreground outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus transition-transform motion-reduce:transition-none data-[hover=true]:-translate-x-3 rtl:data-[hover=true]:translate-x-3 data-[focus-visible=true]:-translate-x-3 rtl:data-[focus-visible=true]:translate-x-3 rounded-full h-10 w-10 text-tiny -ms-2"
+      class="relative z-0 box-border flex items-center justify-center overflow-hidden bg-default align-middle text-default-foreground outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus -ms-2 transition-transform motion-reduce:transition-none data-[hover=true]:-translate-x-3 rtl:data-[hover=true]:translate-x-3 data-[focus-visible=true]:-translate-x-3 rtl:data-[focus-visible=true]:translate-x-3 rounded-full h-10 w-10 text-tiny"
       data-slot="base"
       tabindex="-1"
     >
@@ -330,16 +402,99 @@ exports[`Story Snapshots > OneDisabled 1`] = `
       />
     </span>
     <span
-      class="flex relative justify-center items-center box-border overflow-hidden align-middle z-0 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 w-10 h-10 text-tiny bg-default text-default-foreground rounded-full -ms-2 data-[hover=true]:-translate-x-3 rtl:data-[hover=true]:translate-x-3 transition-transform data-[focus-visible=true]:-translate-x-3 rtl:data-[focus-visible=true]:translate-x-3 hover:-translate-x-0"
+      class="relative z-0 box-border flex items-center justify-center overflow-hidden bg-default align-middle text-default-foreground outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus -ms-2 transition-transform motion-reduce:transition-none data-[hover=true]:-translate-x-3 rtl:data-[hover=true]:translate-x-3 data-[focus-visible=true]:-translate-x-3 rtl:data-[focus-visible=true]:translate-x-3 rounded-full h-10 w-10 text-tiny hover:-translate-x-0"
+      data-slot="count"
       tabindex="-1"
     >
       <span
         aria-label="+1"
-        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-normal text-center text-inherit"
+        class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center font-normal text-inherit"
+        data-slot="name"
         role="img"
       >
         +
       </span>
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Story Snapshots > Unlimited 1`] = `
+<div>
+  <div
+    class="flex h-auto w-max items-center justify-center [&>:first-child]:ms-0 [&>:not(:first-child)]:-ms-2 [&>:last-child]:hover:-translate-x-0"
+    data-slot="base"
+    role="group"
+  >
+    <span
+      class="relative z-0 box-border flex items-center justify-center overflow-hidden bg-default align-middle text-default-foreground outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus -ms-2 transition-transform motion-reduce:transition-none data-[hover=true]:-translate-x-3 rtl:data-[hover=true]:translate-x-3 data-[focus-visible=true]:-translate-x-3 rtl:data-[focus-visible=true]:translate-x-3 rounded-full h-10 w-10 text-tiny"
+      data-slot="base"
+      tabindex="-1"
+    >
+      <div
+        aria-label="avatar"
+        class="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center"
+        data-slot="fallback"
+        role="img"
+      >
+        A
+      </div>
+    </span>
+    <span
+      class="relative z-0 box-border flex items-center justify-center overflow-hidden bg-default align-middle text-default-foreground outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus -ms-2 transition-transform motion-reduce:transition-none data-[hover=true]:-translate-x-3 rtl:data-[hover=true]:translate-x-3 data-[focus-visible=true]:-translate-x-3 rtl:data-[focus-visible=true]:translate-x-3 rounded-full h-10 w-10 text-tiny"
+      data-slot="base"
+      tabindex="-1"
+    >
+      <div
+        aria-label="avatar"
+        class="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center"
+        data-slot="fallback"
+        role="img"
+      >
+        B
+      </div>
+    </span>
+    <span
+      class="relative z-0 box-border flex items-center justify-center overflow-hidden bg-default align-middle text-default-foreground outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus -ms-2 transition-transform motion-reduce:transition-none data-[hover=true]:-translate-x-3 rtl:data-[hover=true]:translate-x-3 data-[focus-visible=true]:-translate-x-3 rtl:data-[focus-visible=true]:translate-x-3 rounded-full h-10 w-10 text-tiny"
+      data-slot="base"
+      tabindex="-1"
+    >
+      <div
+        aria-label="avatar"
+        class="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center"
+        data-slot="fallback"
+        role="img"
+      >
+        C
+      </div>
+    </span>
+    <span
+      class="relative z-0 box-border flex items-center justify-center overflow-hidden bg-default align-middle text-default-foreground outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus -ms-2 transition-transform motion-reduce:transition-none data-[hover=true]:-translate-x-3 rtl:data-[hover=true]:translate-x-3 data-[focus-visible=true]:-translate-x-3 rtl:data-[focus-visible=true]:translate-x-3 rounded-full h-10 w-10 text-tiny"
+      data-slot="base"
+      tabindex="-1"
+    >
+      <div
+        aria-label="avatar"
+        class="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center"
+        data-slot="fallback"
+        role="img"
+      >
+        D
+      </div>
+    </span>
+    <span
+      class="relative z-0 box-border flex items-center justify-center overflow-hidden bg-default align-middle text-default-foreground outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus -ms-2 transition-transform motion-reduce:transition-none data-[hover=true]:-translate-x-3 rtl:data-[hover=true]:translate-x-3 data-[focus-visible=true]:-translate-x-3 rtl:data-[focus-visible=true]:translate-x-3 rounded-full h-10 w-10 text-tiny"
+      data-slot="base"
+      tabindex="-1"
+    >
+      <div
+        aria-label="avatar"
+        class="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center"
+        data-slot="fallback"
+        role="img"
+      >
+        E
+      </div>
     </span>
   </div>
 </div>
@@ -348,11 +503,12 @@ exports[`Story Snapshots > OneDisabled 1`] = `
 exports[`Story Snapshots > WithImage 1`] = `
 <div>
   <div
-    class="flex items-center justify-center h-auto w-max"
+    class="flex h-auto w-max items-center justify-center [&>:first-child]:ms-0 [&>:not(:first-child)]:-ms-2 [&>:last-child]:hover:-translate-x-0"
+    data-slot="base"
     role="group"
   >
     <span
-      class="relative z-0 box-border flex items-center justify-center overflow-hidden bg-default align-middle text-default-foreground outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus transition-transform motion-reduce:transition-none data-[hover=true]:-translate-x-3 rtl:data-[hover=true]:translate-x-3 data-[focus-visible=true]:-translate-x-3 rtl:data-[focus-visible=true]:translate-x-3 rounded-full h-10 w-10 text-tiny ms-0"
+      class="relative z-0 box-border flex items-center justify-center overflow-hidden bg-default align-middle text-default-foreground outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus -ms-2 transition-transform motion-reduce:transition-none data-[hover=true]:-translate-x-3 rtl:data-[hover=true]:translate-x-3 data-[focus-visible=true]:-translate-x-3 rtl:data-[focus-visible=true]:translate-x-3 rounded-full h-10 w-10 text-tiny"
       data-slot="base"
       tabindex="-1"
     >
@@ -364,7 +520,7 @@ exports[`Story Snapshots > WithImage 1`] = `
       />
     </span>
     <span
-      class="relative z-0 box-border flex items-center justify-center overflow-hidden bg-default align-middle text-default-foreground outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus transition-transform motion-reduce:transition-none data-[hover=true]:-translate-x-3 rtl:data-[hover=true]:translate-x-3 data-[focus-visible=true]:-translate-x-3 rtl:data-[focus-visible=true]:translate-x-3 rounded-full h-10 w-10 text-tiny -ms-2"
+      class="relative z-0 box-border flex items-center justify-center overflow-hidden bg-default align-middle text-default-foreground outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus -ms-2 transition-transform motion-reduce:transition-none data-[hover=true]:-translate-x-3 rtl:data-[hover=true]:translate-x-3 data-[focus-visible=true]:-translate-x-3 rtl:data-[focus-visible=true]:translate-x-3 rounded-full h-10 w-10 text-tiny"
       data-slot="base"
       tabindex="-1"
     >
@@ -376,7 +532,7 @@ exports[`Story Snapshots > WithImage 1`] = `
       />
     </span>
     <span
-      class="relative z-0 box-border flex items-center justify-center overflow-hidden bg-default align-middle text-default-foreground outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus transition-transform motion-reduce:transition-none data-[hover=true]:-translate-x-3 rtl:data-[hover=true]:translate-x-3 data-[focus-visible=true]:-translate-x-3 rtl:data-[focus-visible=true]:translate-x-3 rounded-full h-10 w-10 text-tiny -ms-2"
+      class="relative z-0 box-border flex items-center justify-center overflow-hidden bg-default align-middle text-default-foreground outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus -ms-2 transition-transform motion-reduce:transition-none data-[hover=true]:-translate-x-3 rtl:data-[hover=true]:translate-x-3 data-[focus-visible=true]:-translate-x-3 rtl:data-[focus-visible=true]:translate-x-3 rounded-full h-10 w-10 text-tiny"
       data-slot="base"
       tabindex="-1"
     >
@@ -388,12 +544,14 @@ exports[`Story Snapshots > WithImage 1`] = `
       />
     </span>
     <span
-      class="flex relative justify-center items-center box-border overflow-hidden align-middle z-0 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 w-10 h-10 text-tiny bg-default text-default-foreground rounded-full -ms-2 data-[hover=true]:-translate-x-3 rtl:data-[hover=true]:translate-x-3 transition-transform data-[focus-visible=true]:-translate-x-3 rtl:data-[focus-visible=true]:translate-x-3 hover:-translate-x-0"
+      class="relative z-0 box-border flex items-center justify-center overflow-hidden bg-default align-middle text-default-foreground outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus -ms-2 transition-transform motion-reduce:transition-none data-[hover=true]:-translate-x-3 rtl:data-[hover=true]:translate-x-3 data-[focus-visible=true]:-translate-x-3 rtl:data-[focus-visible=true]:translate-x-3 rounded-full h-10 w-10 text-tiny hover:-translate-x-0"
+      data-slot="count"
       tabindex="-1"
     >
       <span
         aria-label="+1"
-        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-normal text-center text-inherit"
+        class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center font-normal text-inherit"
+        data-slot="name"
         role="img"
       >
         +
@@ -406,12 +564,11 @@ exports[`Story Snapshots > WithImage 1`] = `
 exports[`Story Snapshots > WithWrapper 1`] = `
 <div>
   <div
-    class="flex items-center justify-center h-auto w-max"
+    class="flex h-auto w-max items-center justify-center [&>:first-child]:ms-0 [&>:not(:first-child)]:-ms-2 [&>:last-child]:hover:-translate-x-0"
+    data-slot="base"
     role="group"
   >
-    <button
-      class="ms-0"
-    >
+    <button>
       <span
         class="relative z-0 box-border flex items-center justify-center overflow-hidden bg-default align-middle text-default-foreground outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus dark:ring-offset-background-dark ring-2 ring-default ring-offset-2 ring-offset-background -ms-2 transition-transform motion-reduce:transition-none data-[hover=true]:-translate-x-3 rtl:data-[hover=true]:translate-x-3 data-[focus-visible=true]:-translate-x-3 rtl:data-[focus-visible=true]:translate-x-3 rounded-full h-10 w-10 text-tiny"
         data-slot="base"
@@ -425,9 +582,7 @@ exports[`Story Snapshots > WithWrapper 1`] = `
         />
       </span>
     </button>
-    <button
-      class="-ms-2"
-    >
+    <button>
       <span
         class="relative z-0 box-border flex items-center justify-center overflow-hidden bg-default align-middle text-default-foreground outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus dark:ring-offset-background-dark ring-2 ring-default ring-offset-2 ring-offset-background -ms-2 transition-transform motion-reduce:transition-none data-[hover=true]:-translate-x-3 rtl:data-[hover=true]:translate-x-3 data-[focus-visible=true]:-translate-x-3 rtl:data-[focus-visible=true]:translate-x-3 rounded-full h-10 w-10 text-tiny"
         data-slot="base"
@@ -441,9 +596,7 @@ exports[`Story Snapshots > WithWrapper 1`] = `
         />
       </span>
     </button>
-    <button
-      class="-ms-2"
-    >
+    <button>
       <span
         class="relative z-0 box-border flex items-center justify-center overflow-hidden bg-default align-middle text-default-foreground outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus dark:ring-offset-background-dark ring-2 ring-default ring-offset-2 ring-offset-background -ms-2 transition-transform motion-reduce:transition-none data-[hover=true]:-translate-x-3 rtl:data-[hover=true]:translate-x-3 data-[focus-visible=true]:-translate-x-3 rtl:data-[focus-visible=true]:translate-x-3 rounded-full h-10 w-10 text-tiny"
         data-slot="base"
@@ -458,12 +611,14 @@ exports[`Story Snapshots > WithWrapper 1`] = `
       </span>
     </button>
     <span
-      class="flex relative justify-center items-center box-border overflow-hidden align-middle z-0 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 w-10 h-10 text-tiny bg-default text-default-foreground rounded-full ring-2 ring-offset-2 ring-offset-background dark:ring-offset-background-dark -ms-2 data-[hover=true]:-translate-x-3 rtl:data-[hover=true]:translate-x-3 transition-transform data-[focus-visible=true]:-translate-x-3 rtl:data-[focus-visible=true]:translate-x-3 ring-default hover:-translate-x-0"
+      class="relative z-0 box-border flex items-center justify-center overflow-hidden bg-default align-middle text-default-foreground outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus dark:ring-offset-background-dark ring-2 ring-default ring-offset-2 ring-offset-background -ms-2 transition-transform motion-reduce:transition-none data-[hover=true]:-translate-x-3 rtl:data-[hover=true]:translate-x-3 data-[focus-visible=true]:-translate-x-3 rtl:data-[focus-visible=true]:translate-x-3 rounded-full h-10 w-10 text-tiny hover:-translate-x-0"
+      data-slot="count"
       tabindex="-1"
     >
       <span
         aria-label="+1"
-        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-normal text-center text-inherit"
+        class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center font-normal text-inherit"
+        data-slot="name"
         role="img"
       >
         +

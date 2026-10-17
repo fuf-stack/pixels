@@ -183,7 +183,19 @@ image. Border, radius, size, disabled appearance and existing slots remain
 available through the styling context. Presentational avatars remain outside
 the tab order, while enclosing interactive wrappers keep their own semantics.
 
-AvatarGroup temporarily supplies owned group membership alongside its existing
-engine, preserving overlap and hover styling until the group migration.
+AvatarGroup supplies owned group membership for overlap and hover styling.
 
 [Avatar usage](../../packages/pixels/src/Avatar/README.md)
+
+## AvatarGroup
+
+AvatarGroup now owns the overlapping row, optional wrappers and overflow indicator.
+The existing `max={0}` unlimited mode, per-avatar disabled state, group sizing and
+wrapper callbacks remain supported. The compact visible plus retains its full
+`+N` accessible name. Custom avatar slots now survive grouping instead of being
+overwritten by the previous engine's child cloning.
+
+The shared avatar dependency is removed. Both Avatar and AvatarGroup have no
+HeroUI runtime or type imports.
+
+[AvatarGroup usage](../../packages/pixels/src/AvatarGroup/README.md)

@@ -6,6 +6,10 @@ import AvatarGroup from '../AvatarGroup';
 
 import avatar from '../../Avatar/sample_image/avatar.png'; // https://pixabay.com/vectors/avatar-icon-placeholder-profile-3814049/
 
+// -----------------------------------------------------------------------------
+// Story base setup
+// -----------------------------------------------------------------------------
+
 const meta: Meta<typeof AvatarGroup> = {
   title: 'pixels/AvatarGroup',
   component: AvatarGroup,
@@ -13,6 +17,10 @@ const meta: Meta<typeof AvatarGroup> = {
 
 export default meta;
 type Story = StoryObj<typeof AvatarGroup>;
+
+// -----------------------------------------------------------------------------
+// Normal stories
+// -----------------------------------------------------------------------------
 
 export const Default: Story = {
   args: {
