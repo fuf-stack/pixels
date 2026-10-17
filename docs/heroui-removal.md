@@ -75,6 +75,12 @@ recipe. Custom close elements, Element portals and existing styling slots remain
 supported. The direct `@heroui/drawer` dependency is removed.
 See [Pixels migration notes](./pixels/migration.md#drawer).
 
+## Pixels Avatar
+
+Avatar now owns image loading and fallback rendering with owned slot recipes.
+Its group overlap remains compatible while AvatarGroup is migrated next.
+See [Pixels migration notes](./pixels/migration.md#avatar).
+
 ## Implemented foundation
 
 - `TVProps` uses direct Tailwind Variants types.

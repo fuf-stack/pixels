@@ -174,3 +174,16 @@ HeroUI runtime or type imports. `pnpm check` now runs Pixels' direct TypeScript
 check over component source, tests and stories as well as its declaration build.
 
 [Drawer usage](../../packages/pixels/src/Drawer/README.md)
+
+## Avatar
+
+Avatar now owns image loading, its placeholder and fallback presentation. A new
+source resets loading without allowing a previous request to reveal the next
+image. Border, radius, size, disabled appearance and existing slots remain
+available through the styling context. Presentational avatars remain outside
+the tab order, while enclosing interactive wrappers keep their own semantics.
+
+AvatarGroup temporarily supplies owned group membership alongside its existing
+engine, preserving overlap and hover styling until the group migration.
+
+[Avatar usage](../../packages/pixels/src/Avatar/README.md)

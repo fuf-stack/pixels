@@ -4,6 +4,7 @@ import type { AvatarProps } from '../Avatar/Avatar';
 import { AvatarGroup as HeroAvatarGroup } from '@heroui/avatar';
 
 import { Avatar } from '../Avatar';
+import AvatarGroupContext from '../Avatar/subcomponents/AvatarGroupContext';
 
 export interface AvatarGroupProps {
   /* Display a border ring around the Avatar */
@@ -41,41 +42,43 @@ const AvatarGroup = ({
   avatarWrapper: AvatarWrapper = undefined,
 }: AvatarGroupProps) => {
   return (
-    <HeroAvatarGroup
-      className={className}
-      isBordered={bordered}
-      isDisabled={disabled}
-      max={max}
-      radius={rounded}
-      size={size}
-    >
-      {avatars?.map((avatar, index) => {
-        const avatarKey = avatar.src
-          ? `${avatar.src}-${index}`
-          : `avatar-${index}`;
-        const { wrapperProps, ...avatarProps } = avatar;
-        return AvatarWrapper ? (
-          <AvatarWrapper key={avatarKey} {...wrapperProps}>
+    <AvatarGroupContext value>
+      <HeroAvatarGroup
+        className={className}
+        isBordered={bordered}
+        isDisabled={disabled}
+        max={max}
+        radius={rounded}
+        size={size}
+      >
+        {avatars?.map((avatar, index) => {
+          const avatarKey = avatar.src
+            ? `${avatar.src}-${index}`
+            : `avatar-${index}`;
+          const { wrapperProps, ...avatarProps } = avatar;
+          return AvatarWrapper ? (
+            <AvatarWrapper key={avatarKey} {...wrapperProps}>
+              <Avatar
+                {...avatarProps}
+                bordered={bordered}
+                disabled={disabled || avatar?.disabled}
+                rounded={rounded}
+                size={size}
+              />
+            </AvatarWrapper>
+          ) : (
             <Avatar
+              key={avatarKey}
               {...avatarProps}
               bordered={bordered}
               disabled={disabled || avatar?.disabled}
               rounded={rounded}
               size={size}
             />
-          </AvatarWrapper>
-        ) : (
-          <Avatar
-            key={avatarKey}
-            {...avatarProps}
-            bordered={bordered}
-            disabled={disabled || avatar?.disabled}
-            rounded={rounded}
-            size={size}
-          />
-        );
-      })}
-    </HeroAvatarGroup>
+          );
+        })}
+      </HeroAvatarGroup>
+    </AvatarGroupContext>
   );
 };
 

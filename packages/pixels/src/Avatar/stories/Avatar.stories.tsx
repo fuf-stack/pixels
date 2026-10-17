@@ -8,6 +8,10 @@ import Avatar from '../Avatar';
 
 import avatar from '../sample_image/avatar.png'; // https://pixabay.com/vectors/avatar-icon-placeholder-profile-3814049/
 
+// -----------------------------------------------------------------------------
+// Story base setup
+// -----------------------------------------------------------------------------
+
 const meta: Meta<typeof Avatar> = {
   title: 'pixels/Avatar',
   component: Avatar,
@@ -15,6 +19,10 @@ const meta: Meta<typeof Avatar> = {
 
 export default meta;
 type Story = StoryObj<typeof Avatar>;
+
+// -----------------------------------------------------------------------------
+// Normal stories
+// -----------------------------------------------------------------------------
 
 export const Default: Story = {
   args: {},
@@ -152,5 +160,16 @@ export const WithMenu: Story = {
         <Avatar {...args} />
       </Menu>
     );
+  },
+};
+
+export const CustomStyling: Story = {
+  args: {
+    className: {
+      base: 'h-16 w-16 bg-primary text-primary-foreground',
+      fallback: 'text-large',
+    },
+    fallback: 'JD',
+    src: '',
   },
 };
