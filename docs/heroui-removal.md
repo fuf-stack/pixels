@@ -95,6 +95,12 @@ filter consumer keeps edit and close actions separate. The direct `@heroui/chip`
 dependency and Label's HeroUI theme import are removed.
 See [Pixels migration notes](./pixels/migration.md#label).
 
+## Pixels Accordion
+
+Accordion now owns expansion, heading associations and animated panels with
+React Aria trigger interactions. The direct `@heroui/accordion` dependency is
+removed. See [Pixels migration notes](./pixels/migration.md#accordion).
+
 ## Implemented foundation
 
 - `TVProps` uses direct Tailwind Variants types.

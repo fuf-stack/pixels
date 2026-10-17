@@ -1,24 +1,20 @@
-import type { Meta, StoryObj } from '@storybook/react-vite';
 import type { AccordionProps } from '../Accordion';
+import type { Story } from './Accordion.storySetup';
 
 import Accordion from '../Accordion';
+import { accordionItems, meta as sharedMeta } from './Accordion.storySetup';
 
-const meta: Meta<typeof Accordion> = {
-  title: 'pixels/Accordion',
-  component: Accordion,
-  args: {
-    className: 'w-96',
-  },
-};
+// -----------------------------------------------------------------------------
+// Story base setup
+// -----------------------------------------------------------------------------
+
+const meta: typeof sharedMeta = { ...sharedMeta, title: 'pixels/Accordion' };
 
 export default meta;
-type Story = StoryObj<typeof Accordion>;
 
-const accordionItems = [
-  { title: '1.', children: <div>First item</div> },
-  { title: '2.', children: <div>Second item</div> },
-  { title: '3.', children: <div>Third item</div> },
-];
+// -----------------------------------------------------------------------------
+// Normal stories
+// -----------------------------------------------------------------------------
 
 export const Default: Story = {
   args: {
@@ -65,23 +61,6 @@ export const OnlySingleSelection: Story = {
   },
 };
 
-export const AllDisabled: Story = {
-  args: {
-    disabled: true,
-    accordionItems,
-  },
-};
-export const SomeDisabled: Story = {
-  args: {
-    disabledKeys: ['1'],
-    accordionItems: [
-      { title: '1.', children: <div>First item</div>, disabled: true },
-      { title: '2.', children: <div>Second item</div> },
-      { title: '3.', children: <div>Third item</div> },
-    ],
-  },
-};
-
 export const DefaultOpen: Story = {
   args: {
     defaultSelectedKeys: ['1'],
@@ -96,7 +75,7 @@ export const IndicatorLeft: Story = {
   },
 };
 
-export const CustomStyles: Story = {
+export const CustomStyling: Story = {
   args: {
     accordionItems,
     className: {

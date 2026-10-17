@@ -240,3 +240,22 @@ states retain the existing palette contrast findings, with no new violations.
 The direct `@heroui/chip` dependency and Label's HeroUI theme import are removed.
 
 [Label usage](../../packages/pixels/src/Label/README.md)
+
+## Accordion
+
+Accordion now owns selection, heading associations, keyboard navigation and
+animated panel presentation, using React Aria buttons. Single/multiple and
+controlled/uncontrolled expansion, required selection and all four treatments
+remain supported. String and numeric index keys resolve consistently. Panel
+content unmounts after closing, and reduced motion skips height animation.
+
+The exposed `hideIndicator` option is now honored, fixing its previous omission.
+`dividerProps` remains accepted with owned types, while the existing group-slot
+borders continue to render dividers. The direct `@heroui/accordion` dependency
+is removed.
+
+The 26 captured light/dark states retain their dimensions, colors and typography.
+Accessibility findings match the baseline, including the existing dark custom-style
+contrast finding. Keyboard stories exercise disabled-item skipping and expansion.
+
+[Accordion usage](../../packages/pixels/src/Accordion/README.md)
