@@ -20,6 +20,13 @@ Their public component imports and existing group precedence are preserved.
 See [Pixels migration notes](./pixels/migration.md) for composition and remaining
 HeroUI consumers. The original inventory below records the pre-migration source.
 
+## Pixels Popover
+
+Popover now uses React Aria dialog components and overlay hooks with owned slot
+styles. Pixels no longer declares `@heroui/popover` directly. The shared
+ScrollShadow and Menu migrations remain separate. See the
+[Popover migration notes](./pixels/migration.md#popover).
+
 ## Implemented foundation
 
 - `TVProps` uses direct Tailwind Variants types.

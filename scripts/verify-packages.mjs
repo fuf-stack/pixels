@@ -349,6 +349,13 @@ function installAndTestConsumer(tarballs) {
     ),
   );
   writeFileSync(
+    path.join(fixtureDirectory, 'popover.ts'),
+    readFileSync(
+      path.join(root, 'packages/pixels/test/dts-smoke/popover.ts'),
+      'utf8',
+    ),
+  );
+  writeFileSync(
     path.join(fixtureDirectory, 'tsconfig.json'),
     `${JSON.stringify(
       {
@@ -369,6 +376,7 @@ function installAndTestConsumer(tarballs) {
           'styling.ts',
           'field-associations.ts',
           'buttons.ts',
+          'popover.ts',
         ],
       },
       null,

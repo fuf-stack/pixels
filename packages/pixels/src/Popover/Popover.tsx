@@ -1,78 +1,65 @@
-import type { TVClassName, TVProps } from '@fuf-stack/pixel-utils';
-import type { ButtonProps } from '@heroui/button';
-import type { PopoverProps as HeroPopoverProps } from '@heroui/popover';
 import type { ReactNode } from 'react';
+import type { ButtonProps } from '../Button';
+import type { ClassName } from './popoverVariants';
 
-import { Button } from '@heroui/button';
-import {
-  Popover as HeroPopover,
-  PopoverContent as HeroPopoverContent,
-  PopoverTrigger as HeroPopoverTrigger,
-} from '@heroui/popover';
+import { DialogTrigger } from 'react-aria-components';
 
-import { tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
+import { useStyling } from '../StylingProvider';
+import { popoverVariants } from './popoverVariants';
+import PopoverOverlay from './subcomponents/PopoverOverlay';
+import PopoverTrigger from './subcomponents/PopoverTrigger';
 
-import ScrollShadow from '../ScrollShadow/ScrollShadow';
+export { popoverVariants } from './popoverVariants';
 
-// popover styling variants
-export const popoverVariants = tv({
-  slots: {
-    body: 'w-full px-4 py-2',
-    content: 'flex max-h-[80vh] flex-col p-0',
-    divider: 'm-0 w-full border-divider p-0',
-    footer: 'w-full px-4 py-2',
-    footerWrapper: 'w-full',
-    header: 'w-full px-4 pb-1 pt-2 font-semibold',
-    headerWrapper: 'w-full',
-    trigger: '',
-  },
-});
-
-type VariantProps = TVProps<typeof popoverVariants>;
-type ClassName = TVClassName<typeof popoverVariants>;
-
-export interface PopoverProps extends VariantProps {
-  /** child components */
+export interface PopoverProps {
+  /** Trigger content */
   children?: ReactNode;
   /** CSS class name */
   className?: ClassName;
-  /** content of the popover */
+  /** Popover content */
   content: ReactNode;
-  /** HTML data-testid attribute used in e2e tests */
+  /** HTML data-testid attribute for the dialog */
   contentTestId?: string;
-  /** popover footer */
+  /** Content below the scrollable body */
   footer?: ReactNode;
   /** Popover title */
   header?: ReactNode;
-  /** use as controlled component  */
+  /** Controlled visibility and callback when it changes */
   openControlled?: { open: boolean; setOpen: (open: boolean) => void };
-  /** placement of the popover relative to its trigger reference */
-  placement?: HeroPopoverProps['placement'];
-  /** The container element in which the overlay portal will be placed. */
-  portalContainer?: HeroPopoverProps['portalContainer'];
-  /** Whether to block scrolling outside the popover */
+  /** Position relative to the trigger, flips when space is limited */
+  placement?:
+    | 'top'
+    | 'top-start'
+    | 'top-end'
+    | 'bottom'
+    | 'bottom-start'
+    | 'bottom-end'
+    | 'left'
+    | 'left-start'
+    | 'left-end'
+    | 'right'
+    | 'right-start'
+    | 'right-end';
+  /** Container for the overlay portal, defaults to document.body */
+  portalContainer?: Element;
+  /** Prevents page scrolling while the popover is open */
   shouldBlockScroll?: boolean;
-  /** HTML data-testid attribute used in e2e tests */
+  /** HTML data-testid attribute for the trigger */
   testId?: string;
-  /** When defined a Button will be rendered as trigger (with provided props) instead of unstyled html button */
+  /** Renders a styled button instead of a plain trigger */
   triggerButtonProps?: Pick<
     ButtonProps,
-    | 'aria-label'
-    | 'className'
-    | 'color'
-    | 'disableAnimation'
-    | 'disabled'
-    | 'size'
-    | 'variant'
-  >;
+    'className' | 'color' | 'disableAnimation' | 'disabled' | 'size' | 'variant'
+  > & {
+    /** Accessible name for the trigger */
+    'aria-label'?: string;
+  };
 }
 
-/**
- * Popover component based on [HeroUI Card](https://www.heroui.com//docs/components/popover)
- */
+/** Anchored popup for supporting information or related actions */
 const Popover = ({
   children = null,
-  className: _className = undefined,
+  className = undefined,
   content,
   contentTestId = undefined,
   footer = undefined,
@@ -80,56 +67,44 @@ const Popover = ({
   openControlled = undefined,
   placement = 'top',
   portalContainer = undefined,
-  shouldBlockScroll = undefined,
+  shouldBlockScroll = false,
   testId = undefined,
   triggerButtonProps = undefined,
 }: PopoverProps) => {
-  // className from slots
-  const variants = popoverVariants();
-  const className = variantsToClassNames(variants, _className, 'trigger');
+  const styling = useStyling();
+
+  // classNames from slots
+  const variants = styling.resolve(popoverVariants);
+  const classNames = styling.variantsToClassNames(
+    variants,
+    className,
+    'trigger',
+  );
 
   return (
-    <HeroPopover
-      classNames={className}
-      placement={placement}
-      portalContainer={portalContainer}
-      radius="sm"
-      shouldBlockScroll={shouldBlockScroll}
-      showArrow
-      {...(openControlled
-        ? { isOpen: openControlled.open, onOpenChange: openControlled.setOpen }
-        : {})}
+    <DialogTrigger
+      isOpen={openControlled?.open}
+      onOpenChange={openControlled?.setOpen}
     >
-      <HeroPopoverTrigger data-testid={testId}>
-        {/* NOTE: type and aria properties are injected by HeroPopoverTrigger */}
-        {triggerButtonProps ? (
-          // TODO: currently we have to use @heroui/button because
-          // passing ref does not work (even with forwardRef in Button)
+      <PopoverTrigger
+        className={classNames.trigger}
+        testId={testId}
+        triggerButtonProps={triggerButtonProps}
+      >
+        {children}
+      </PopoverTrigger>
 
-          <Button className={className.trigger} {...triggerButtonProps}>
-            {children}
-          </Button>
-        ) : (
-          //  eslint-disable-next-line react/button-has-type
-          <button className={className.trigger}>{children}</button>
-        )}
-      </HeroPopoverTrigger>
-      <HeroPopoverContent data-testid={contentTestId}>
-        {header ? (
-          <div className={className.headerWrapper}>
-            <div className={className.header}>{header}</div>
-            <hr className={className.divider} />
-          </div>
-        ) : null}
-        <ScrollShadow className={className.body}>{content}</ScrollShadow>
-        {footer ? (
-          <div className={className.footerWrapper}>
-            <hr className={className.divider} />
-            <div className={className.footer}>{footer}</div>
-          </div>
-        ) : null}
-      </HeroPopoverContent>
-    </HeroPopover>
+      <PopoverOverlay
+        className={classNames}
+        content={content}
+        contentTestId={contentTestId}
+        footer={footer}
+        header={header}
+        placement={placement}
+        portalContainer={portalContainer}
+        shouldBlockScroll={shouldBlockScroll}
+      />
+    </DialogTrigger>
   );
 };
 

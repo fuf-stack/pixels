@@ -33,8 +33,33 @@ spinner respect reduced motion.
 
 ### Remaining scope
 
-Menu and Popover still import `@heroui/button`, so Pixels must retain that direct
+Menu still imports `@heroui/button`, so Pixels must retain that direct
 dependency. Other Pixels components and the shared theme still need migration.
 Button and ButtonGroup no longer import HeroUI runtime components or types.
 
 [Button](../../packages/pixels/src/Button/README.md) · [ButtonGroup](../../packages/pixels/src/ButtonGroup/README.md) · [Styling](../styling.md) · [Migration inventory](../heroui-removal.md)
+
+## Popover
+
+Popover uses React Aria DialogTrigger and Dialog, with the overlay and positioning
+hooks for non-modal dismissal. A small overlay component owns positioning,
+portalling, animation and focus restoration. The trigger and section layout live
+in their own subcomponents, all slot defaults live in `popoverVariants.ts`.
+
+Using the hooks preserves outside-press dismissal, independent scroll blocking
+and the existing `Element` portal contract without a deprecated portal prop.
+Overlay isolates the trigger's press context from buttons inside the dialog.
+Header content now labels the dialog, with the trigger as the fallback name.
+Entry and exit use the existing scale/fade timing and respect reduced motion.
+
+The existing placement names, controlled-state object, trigger button props and
+styling slots remain supported. The `base` and `overlay` slots additionally expose
+the arrow surface and animated wrapper. Styled triggers preserve their previous
+success and warning foregrounds while reusing Pixels Button.
+
+Pixels no longer declares `@heroui/popover` directly. Other HeroUI components may
+still bring it in transitively. Popover's scrollable body continues to use the
+existing ScrollShadow component, whose own HeroUI migration is separate.
+`@heroui/button` remains for Menu.
+
+[Popover usage and slots](../../packages/pixels/src/Popover/README.md)
