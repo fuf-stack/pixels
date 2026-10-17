@@ -2043,16 +2043,19 @@ exports[`Story Snapshots > NoResultsCustomRenderer 1`] = `
                   class="rounded-sm p-2 text-foreground-500 css-1qvxrka"
                 >
                   <div
-                    class="flex flex-grow flex-row w-full items-center py-3 px-4 border-small rounded-medium text-warning-700 dark:text-warning border-warning-300 dark:border-warning-100 min-w-72 gap-3 bg-warning-50 dark:bg-warning-50"
+                    class="flex w-full min-w-72 flex-grow flex-row items-center gap-3 px-4 py-3 rounded-medium border-small border-warning-300 bg-warning-50 text-warning-700 dark:border-warning-100 dark:bg-warning-50 dark:text-warning"
                     data-has-description="true"
+                    data-slot="base"
                     data-visible="true"
                     role="alert"
                   >
                     <div
-                      class="flex-none relative w-9 h-9 rounded-full grid place-items-center bg-warning-50 dark:bg-warning-100 border-warning-100 shadow-small border-1"
+                      class="relative h-9 w-9 flex-none place-items-center rounded-full border-1 shadow-small grid border-warning-100 bg-warning-50 dark:bg-warning-100"
+                      data-slot="iconWrapper"
                     >
                       <svg
-                        class="fill-current w-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+                        class="absolute left-1/2 top-1/2 w-6 -translate-x-1/2 -translate-y-1/2 fill-current"
+                        data-slot="icon"
                         fill="none"
                         height="24"
                         viewBox="0 0 24 24"
@@ -2068,10 +2071,12 @@ exports[`Story Snapshots > NoResultsCustomRenderer 1`] = `
                       </svg>
                     </div>
                     <div
-                      class="h-full flex-grow min-h-10 flex flex-col box-border text-inherit justify-center ms-0 items-stretch gap-1.5"
+                      class="ms-0 box-border flex h-full min-h-10 flex-grow flex-col items-stretch justify-center gap-1.5 text-inherit"
+                      data-slot="mainWrapper"
                     >
                       <div
-                        class="pl-[1px] text-small font-normal text-foreground"
+                        class="pl-[1px] font-normal text-foreground text-small"
+                        data-slot="description"
                       >
                         There is nothing to select here
                       </div>

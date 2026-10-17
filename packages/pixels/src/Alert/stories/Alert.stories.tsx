@@ -10,6 +10,10 @@ import { cn } from '@fuf-stack/pixel-utils';
 import { Button } from '../../Button';
 import Alert from '../Alert';
 
+// -----------------------------------------------------------------------------
+// Story base setup
+// -----------------------------------------------------------------------------
+
 const meta: Meta<typeof Alert> = {
   title: 'pixels/Alert',
   component: Alert,
@@ -31,6 +35,10 @@ const backgrounds = [
 
 export default meta;
 type Story = StoryObj<typeof Alert>;
+
+// -----------------------------------------------------------------------------
+// Normal stories
+// -----------------------------------------------------------------------------
 
 export const AllVariants: Story = {
   render: (args) => {
@@ -81,10 +89,6 @@ export const Closable: Story = {
     closable: true,
     onClose: action('closed'),
   },
-};
-
-export const Empty: Story = {
-  args: {},
 };
 
 export const WithCustomIcon: Story = {
@@ -152,5 +156,13 @@ export const VariantsOnBackgrounds: Story = {
   args: {
     title: "Something's Up",
     children: 'A message of varying importance has been detected.',
+  },
+};
+
+export const CustomStyling: Story = {
+  args: {
+    children: 'Message with custom slot styling',
+    className: { base: 'max-w-lg', icon: 'w-7', title: 'text-medium' },
+    title: 'Custom alert',
   },
 };

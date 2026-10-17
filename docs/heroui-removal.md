@@ -101,6 +101,12 @@ Accordion now owns expansion, heading associations and animated panels with
 React Aria trigger interactions. The direct `@heroui/accordion` dependency is
 removed. See [Pixels migration notes](./pixels/migration.md#accordion).
 
+## Pixels Alert
+
+Alert now owns its message layout, icons, palette and native close action.
+The direct `@heroui/alert` dependency and Alert's HeroUI theme import are removed.
+See [Pixels migration notes](./pixels/migration.md#alert).
+
 ## Implemented foundation
 
 - `TVProps` uses direct Tailwind Variants types.

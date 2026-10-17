@@ -259,3 +259,20 @@ Accessibility findings match the baseline, including the existing dark custom-st
 contrast finding. Keyboard stories exercise disabled-item skipping and expansion.
 
 [Accordion usage](../../packages/pixels/src/Accordion/README.md)
+
+## Alert
+
+Alert now owns its status icons, message layout, palette and dismissal state.
+Both `closable` and the existing `onClose`-only behavior show a native React Aria
+close action. Dismissal hides the message, calls the owner once and does not
+submit enclosing forms. Titles, multiline descriptions, numeric zero, trailing
+content and existing styling slots remain supported. The `icon` slot now reaches
+the actual icon instead of being ignored by the previous wrapper.
+
+All 16 captured light/dark screenshots match the baseline. Accessibility findings
+are unchanged, including existing contrast findings in the trailing-content and
+background showcases. Keyboard dismissal is exercised in an interaction story.
+
+The direct `@heroui/alert` dependency and Alert's HeroUI theme import are removed.
+
+[Alert usage](../../packages/pixels/src/Alert/README.md)
