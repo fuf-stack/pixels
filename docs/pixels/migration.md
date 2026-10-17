@@ -86,6 +86,24 @@ Reduced motion and `disableAnimation` show a static activity segment.
 The percentage, completion color, formatter and public styling slots remain
 supported. Rich formatter content renders visually while ARIA receives the numeric
 percentage, rather than serializing a React element into an attribute.
-`@heroui/progress` remains temporarily for ProgressCircular.
+Pixels no longer declares `@heroui/progress`, both progress components now own their rendering.
 
 [Progress usage](../../packages/pixels/src/Progress/README.md)
+
+## ProgressCircular
+
+ProgressCircular uses the same React Aria range semantics as Progress. Its ring
+subcomponent owns SVG geometry and size-dependent stroke widths, with the existing
+five sizes, rounded caps and track appearance. The main component chooses normal,
+completed or error content, and the owned recipe exposes a `statusIcon` slot in
+addition to the existing slots.
+
+Errors take precedence over completion. Rich values and status icons no longer
+become serialized objects in ARIA attributes, errors announce "Error" and normal
+progress keeps a plain value description. Initial rendering and disabled/reduced
+motion remain static, subsequent value changes retain the half-second transition.
+
+Both Progress components now have no HeroUI imports or types. Pixels' direct
+`@heroui/progress` dependency is removed.
+
+[ProgressCircular usage](../../packages/pixels/src/ProgressCircular/README.md)

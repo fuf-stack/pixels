@@ -35,8 +35,15 @@ rendering inside Popover. See [Pixels migration notes](./pixels/migration.md#scr
 ## Pixels Progress
 
 Linear Progress now uses React Aria semantics, owned slot styles and activity
-animation. The shared `@heroui/progress` dependency remains for ProgressCircular.
+animation. ProgressCircular now owns its rendering too, removing the direct
+`@heroui/progress` dependency.
 See [Pixels migration notes](./pixels/migration.md#progress).
+
+## Pixels ProgressCircular
+
+ProgressCircular owns its SVG ring, value and status icon styling, with React Aria
+range semantics. Both progress components now have no HeroUI imports or types.
+See [Pixels migration notes](./pixels/migration.md#progresscircular).
 
 ## Implemented foundation
 
