@@ -310,3 +310,20 @@ remain operable.
 The direct `@heroui/card` and now-unused `@heroui/divider` dependencies are removed.
 
 [Card usage](../../packages/pixels/src/Card/README.md)
+
+## SearchInput
+
+SearchInput now owns its input surface and styling using React Aria TextField
+and Button. Its local initial-value behavior, size options, test IDs and existing
+slots remain supported. Explicit clearing reports `null`, ordinary deletion
+reports an empty string. Clearing restores focus and does not submit forms.
+The placeholder names the control, with `Search` as the fallback for an empty
+placeholder, fixing the previous blank accessible name.
+
+All 12 captured light/dark screenshots match the baseline. Accessibility audits
+confirm the previous blank-name findings are resolved, with no new violations.
+
+The direct `@heroui/input` dependency is removed. Existing `inputVariants` imports
+remain valid and the recipe is now also exported from the component entry point.
+
+[SearchInput usage](../../packages/pixels/src/SearchInput/README.md)

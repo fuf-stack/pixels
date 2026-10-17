@@ -120,6 +120,12 @@ unused `@heroui/divider` dependencies are removed. The remaining Pixels componen
 migrations are SearchInput, Table and Tabs, followed by shared theme and dependency
 cleanup. See the [Pixels migration notes](./pixels/migration.md#card).
 
+## Pixels SearchInput
+
+SearchInput owns its editable surface, clear action and recipes. Its direct
+`@heroui/input` dependency is removed. See the
+[Pixels migration notes](./pixels/migration.md#searchinput).
+
 ## Implemented foundation
 
 - `TVProps` uses direct Tailwind Variants types.

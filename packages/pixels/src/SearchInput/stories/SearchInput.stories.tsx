@@ -5,6 +5,10 @@ import { expect, userEvent, within } from 'storybook/test';
 
 import SearchInput from '../SearchInput';
 
+// -----------------------------------------------------------------------------
+// Story base setup
+// -----------------------------------------------------------------------------
+
 const onChange = action('onChange');
 
 const meta: Meta<typeof SearchInput> = {
@@ -17,7 +21,12 @@ const meta: Meta<typeof SearchInput> = {
 };
 
 export default meta;
+
 type Story = StoryObj<typeof SearchInput>;
+
+// -----------------------------------------------------------------------------
+// Normal stories
+// -----------------------------------------------------------------------------
 
 export const Default: Story = {
   args: {},
@@ -53,32 +62,29 @@ export const Clearable: Story = {
   },
 };
 
-export const Disabled: Story = {
-  args: {
-    disabled: true,
-  },
-};
-
 const renderAllSizes = () => {
-  return ['sm', 'md', 'lg'].map((size) => {
-    return (
-      <SearchInput
-        key={size}
-        className="mt-4"
-        placeholder={size}
-        // @ts-expect-error this is ok
-        size={size}
-      />
-    );
-  });
+  return (
+    <>
+      {(['sm', 'md', 'lg'] as const).map((size) => {
+        return (
+          <SearchInput
+            key={size}
+            className="mt-4"
+            onChange={onChange}
+            placeholder={size}
+            size={size}
+          />
+        );
+      })}
+    </>
+  );
 };
 
 export const AllSizes: Story = {
-  // @ts-expect-error this is ok
   render: renderAllSizes,
 };
 
-export const CustomStyles: Story = {
+export const CustomStyling: Story = {
   parameters: {
     formProps: { initialValues: { partySearch: 'Something fun!' } },
   },
