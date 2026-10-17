@@ -1,4 +1,5 @@
-import Tabs, { tabsVariants } from './Tabs';
+import Tabs from './Tabs';
+import { tabsVariants } from './tabsVariants';
 
 export type { TabsProps, TabProps } from './Tabs';
 

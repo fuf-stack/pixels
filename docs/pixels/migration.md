@@ -327,3 +327,20 @@ The direct `@heroui/input` dependency is removed. Existing `inputVariants` impor
 remain valid and the recipe is now also exported from the component entry point.
 
 [SearchInput usage](../../packages/pixels/src/SearchInput/README.md)
+
+## Tabs
+
+Tabs now uses the React Aria tabs engine with owned list, control, cursor and panel
+styles. Controlled/default selection, numeric keys, both disabled-item APIs,
+placement, sizes and the seven existing slots remain supported. Inactive panels
+unmount by default, retained panels remain inert while hidden. The selection
+indicator uses React Aria's shared-element transition with reduced-motion support.
+
+The 16 captured light/dark states retain their layout, colors and typography.
+Accessibility findings match the baseline, including existing contrast findings
+in the dark radius, size and treatment showcases.
+
+The direct `@heroui/tabs` dependency is removed. Tabs without an explicit label
+use `Tabs` as the accessible list name.
+
+[Tabs usage](../../packages/pixels/src/Tabs/README.md)

@@ -1,23 +1,19 @@
-import type { Meta, StoryObj } from '@storybook/react-vite';
+import type { Story } from './Tabs.storySetup';
 
 import Tabs from '../Tabs';
+import { meta as sharedMeta } from './Tabs.storySetup';
 
-const meta: Meta<typeof Tabs> = {
-  title: 'Pixels/Tabs',
-  component: Tabs,
-  decorators: [
-    (Story) => {
-      return (
-        <div className="w-[600px]">
-          <Story />
-        </div>
-      );
-    },
-  ],
-};
+// -----------------------------------------------------------------------------
+// Story base setup
+// -----------------------------------------------------------------------------
+
+const meta: typeof sharedMeta = { ...sharedMeta, title: 'pixels/Tabs' };
 
 export default meta;
-type Story = StoryObj<typeof Tabs>;
+
+// -----------------------------------------------------------------------------
+// Normal stories
+// -----------------------------------------------------------------------------
 
 export const Default: Story = {
   args: {
@@ -77,37 +73,6 @@ export const WithIcons: Story = {
           </div>
         ),
         content: 'Sorry, all fish pictures are currently underwater.',
-      },
-    ],
-  },
-};
-
-export const DisabledTabs: Story = {
-  args: {
-    ariaLabel: 'Tabs with disabled items',
-    tabs: [
-      {
-        key: 'monday',
-        label: 'Monday',
-        content:
-          'The day everyone pretends their weekend emails got lost in spam.',
-      },
-      {
-        key: 'weekend',
-        label: 'Weekend',
-        content: 'Error 404: Weekend not found',
-        disabled: true,
-      },
-      {
-        key: 'meeting',
-        label: 'Meeting',
-        content: 'This could have been an email',
-      },
-      {
-        key: 'vacation',
-        label: 'Vacation',
-        content: 'Nice try! Get back to work!',
-        disabled: true,
       },
     ],
   },
@@ -542,5 +507,16 @@ export const Variants: Story = {
         </div>
       </div>
     );
+  },
+};
+
+export const CustomStyling: Story = {
+  args: {
+    ariaLabel: 'Styled tabs',
+    tabs: [
+      { key: 'one', label: 'One', content: 'First section' },
+      { key: 'two', label: 'Two', content: 'Second section' },
+    ],
+    className: { cursor: 'bg-success', panel: 'p-4', tabContent: 'text-lg' },
   },
 };

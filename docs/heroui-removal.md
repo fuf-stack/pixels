@@ -126,6 +126,12 @@ SearchInput owns its editable surface, clear action and recipes. Its direct
 `@heroui/input` dependency is removed. See the
 [Pixels migration notes](./pixels/migration.md#searchinput).
 
+## Pixels Tabs
+
+Tabs owns its recipes and composes React Aria tab controls, panels and selection
+indicators. Its direct `@heroui/tabs` dependency is removed. See the
+[Pixels migration notes](./pixels/migration.md#tabs).
+
 ## Implemented foundation
 
 - `TVProps` uses direct Tailwind Variants types.
