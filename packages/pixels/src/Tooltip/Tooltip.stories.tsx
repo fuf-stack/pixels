@@ -1,19 +1,43 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import type { TooltipPlacement, TooltipProps } from './Tooltip';
+import type { TooltipPlacement } from './Tooltip';
+
+import { UNSAFE_PortalProvider as PortalProvider } from 'react-aria';
 
 import { expect, waitFor, within } from 'storybook/test';
 
-import Tooltip, { tooltipVariants as heroTooltipVariants } from './Tooltip';
+import Tooltip, { tooltipVariants } from './Tooltip';
+
+// -----------------------------------------------------------------------------
+// Story setup
+// -----------------------------------------------------------------------------
 
 const meta: Meta<typeof Tooltip> = {
   title: 'pixels/Tooltip',
   component: Tooltip,
+  // keep portals inside the canvas so each story owns its cleanup
+  decorators: [
+    (Story, { canvasElement }) => {
+      return (
+        <PortalProvider
+          getContainer={() => {
+            return canvasElement;
+          }}
+        >
+          <Story />
+        </PortalProvider>
+      );
+    },
+  ],
 };
 
 export default meta;
 type Story = StoryObj<typeof Tooltip>;
 
-const sizes = Object.keys(heroTooltipVariants.variants.size);
+const sizes = Object.keys(tooltipVariants.variants.size);
+
+// -----------------------------------------------------------------------------
+// Normal stories
+// -----------------------------------------------------------------------------
 
 export const Default: Story = {
   args: {
@@ -96,7 +120,7 @@ export const Sizes: Story = {
       <div className="flex flex-col gap-4">
         {sizes.map((size) => {
           return (
-            <Tooltip key={size} size={size as TooltipProps['size']} {...args}>
+            <Tooltip key={size} size={size} {...args}>
               {size}
             </Tooltip>
           );
@@ -128,5 +152,33 @@ export const DefaultOpen: Story = {
     await new Promise((resolve) => {
       setTimeout(resolve, 500);
     });
+  },
+};
+
+// -----------------------------------------------------------------------------
+// Composition
+// -----------------------------------------------------------------------------
+
+export const CustomStyling: Story = {
+  args: {
+    children: 'Hover for details',
+    content: 'Supporting information',
+    className: {
+      content: 'bg-secondary text-secondary-foreground',
+      base: 'before:bg-secondary',
+      body: 'px-6 py-3',
+    },
+  },
+};
+
+// -----------------------------------------------------------------------------
+// Edge cases
+// -----------------------------------------------------------------------------
+
+export const KeyboardFocus: Story = {
+  args: {
+    children: <button type="button">More information</button>,
+    content: 'Keyboard-accessible details',
+    closeDelay: 0,
   },
 };

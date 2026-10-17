@@ -45,6 +45,13 @@ ProgressCircular owns its SVG ring, value and status icon styling, with React Ar
 range semantics. Both progress components now have no HeroUI imports or types.
 See [Pixels migration notes](./pixels/migration.md#progresscircular).
 
+## Pixels Tooltip
+
+Tooltip now uses React Aria trigger and overlay behavior with owned surface styles.
+The span wrapper, placement names, delays and section slots remain supported.
+The direct `@heroui/tooltip` dependency is removed.
+See [Pixels migration notes](./pixels/migration.md#tooltip).
+
 ## Implemented foundation
 
 - `TVProps` uses direct Tailwind Variants types.

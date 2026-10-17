@@ -1,113 +1,60 @@
-import type { TVClassName, TVProps } from '@fuf-stack/pixel-utils';
-import type { TooltipPlacement as HeroTooltipPlacement } from '@heroui/tooltip';
 import type { ReactNode } from 'react';
+import type { ClassName, VariantProps } from './tooltipVariants';
 
-import { Tooltip as HeroTooltip } from '@heroui/tooltip';
+import { TooltipTrigger } from 'react-aria-components';
 
-import { tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
+import { useStyling } from '../StylingProvider';
+import TooltipOverlay from './subcomponents/TooltipOverlay';
+import TooltipTriggerElement from './subcomponents/TooltipTriggerElement';
+import { tooltipVariants } from './tooltipVariants';
 
-import ScrollShadow from '../ScrollShadow/ScrollShadow';
+export { tooltipVariants } from './tooltipVariants';
 
-// tooltip variants
-export const tooltipVariants = tv({
-  slots: {
-    base: '',
-    body: 'w-full px-4 py-2',
-    content: 'flex max-h-[80vh] flex-col p-0',
-    divider: 'm-0 w-full border-divider p-0',
-    footer: 'w-full px-4 py-2',
-    footerWrapper: 'w-full',
-    header: 'w-full px-4 pb-1 pt-2 font-semibold',
-    headerWrapper: 'w-full',
-    trigger: 'cursor-pointer',
-  },
-  variants: {
-    size: {
-      xs: {
-        // base: 'max-w-xs',
-        body: 'max-w-xs',
-        footer: 'max-w-xs',
-        header: 'max-w-xs',
-      },
-      sm: {
-        // base: 'max-w-sm',
-        body: 'max-w-sm',
-        footer: 'max-w-sm',
-        header: 'max-w-sm',
-      },
-      md: {
-        // base: 'max-w-md',
-        body: 'max-w-md',
-        footer: 'max-w-md',
-        header: 'max-w-md',
-      },
-      lg: {
-        // base: 'max-w-lg',
-        body: 'max-w-lg',
-        footer: 'max-w-lg',
-        header: 'max-w-lg',
-      },
-      xl: {
-        // base: 'max-w-xl',
-        body: 'max-w-xl',
-        footer: 'max-w-xl',
-        header: 'max-w-xl',
-      },
-      '2xl': {
-        // base: 'max-w-2xl',
-        body: 'max-w-2xl',
-        footer: 'max-w-2xl',
-        header: 'max-w-2xl',
-      },
-      '3xl': {
-        // base: 'max-w-3xl',
-        body: 'max-w-3xl',
-        footer: 'max-w-3xl',
-        header: 'max-w-3xl',
-      },
-      full: { base: '' },
-    },
-  },
-});
+export type TooltipPlacement =
+  | 'top'
+  | 'bottom'
+  | 'left'
+  | 'right'
+  | 'top-start'
+  | 'top-end'
+  | 'bottom-start'
+  | 'bottom-end'
+  | 'left-start'
+  | 'left-end'
+  | 'right-start'
+  | 'right-end';
 
-type VariantProps = TVProps<typeof tooltipVariants>;
-type ClassName = TVClassName<typeof tooltipVariants>;
-
-export type TooltipPlacement = HeroTooltipPlacement;
-
-export interface TooltipProps extends VariantProps {
-  /** trigger child components */
+export interface TooltipProps {
+  /** Content that opens the tooltip on hover or focus */
   children: ReactNode;
   /** CSS class name */
   className?: ClassName;
-  /** delay in milliseconds before the tooltip opens. */
+  /** Delay in milliseconds before closing the tooltip */
   closeDelay?: number;
-  /** placement padding in px */
+  /** Minimum space from the viewport edge in pixels */
   containerPadding?: number;
-  /** content displayed in the tooltip */
+  /** Tooltip body content */
   content: ReactNode;
-  /** open overlay initially when uncontrolled */
+  /** Opens the tooltip initially */
   defaultOpen?: boolean;
-  /** delay in milliseconds before the tooltip opens. */
+  /** Delay in milliseconds before opening the tooltip */
   delay?: number;
-  /** tooltip footer */
+  /** Content below the tooltip body */
   footer?: ReactNode;
-  /** tooltip header */
+  /** Title above the tooltip body */
   header?: ReactNode;
-  /** handler that is called when the overlay's open state changes */
+  /** Callback when visibility changes */
   onOpenChange?: (isOpen: boolean) => void;
-  /** placement if the tooltip */
+  /** Position relative to the trigger */
   placement?: TooltipPlacement;
-  /** size of the tooltip */
+  /** Maximum width of each content section */
   size?: VariantProps['size'];
 }
 
-/**
- * Tooltip component based on [HeroUI Tooltip](https://www.heroui.com//docs/components/tooltip)
- */
+/** Supporting information shown beside a trigger on hover or focus */
 const Tooltip = ({
   children,
-  className: _className = undefined,
+  className = undefined,
   closeDelay = 500,
   containerPadding = 0,
   content,
@@ -119,44 +66,31 @@ const Tooltip = ({
   placement = 'top',
   size = 'full',
 }: TooltipProps) => {
+  const styling = useStyling();
+
   // classNames from slots
-  const variants = tooltipVariants({ size });
-  const classNames = variantsToClassNames(variants, _className, 'base');
+  const variants = styling.resolve(tooltipVariants, { size });
+  const classNames = styling.variantsToClassNames(variants, className, 'base');
 
   return (
-    <HeroTooltip
-      classNames={classNames}
+    <TooltipTrigger
       closeDelay={closeDelay}
-      containerPadding={containerPadding}
-      content={
-        <div>
-          {header ? (
-            <div className={classNames.headerWrapper}>
-              <div className={classNames.header}>{header}</div>
-              <hr className={classNames.divider} />
-            </div>
-          ) : null}
-          <ScrollShadow className={classNames.body}>{content}</ScrollShadow>
-          {footer ? (
-            <div className={classNames.footerWrapper}>
-              <hr className={classNames.divider} />
-              <div className={classNames.footer}>{footer}</div>
-            </div>
-          ) : null}
-        </div>
-      }
       defaultOpen={defaultOpen}
       delay={delay}
-      onClick={(e) => {
-        e.preventDefault();
-      }}
       onOpenChange={onOpenChange}
-      placement={placement}
-      shouldFlip
-      showArrow
     >
-      <span className={classNames.trigger}>{children}</span>
-    </HeroTooltip>
+      <TooltipTriggerElement className={classNames.trigger}>
+        {children}
+      </TooltipTriggerElement>
+      <TooltipOverlay
+        className={classNames}
+        containerPadding={containerPadding}
+        content={content}
+        footer={footer}
+        header={header}
+        placement={placement}
+      />
+    </TooltipTrigger>
   );
 };
 

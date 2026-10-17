@@ -107,3 +107,13 @@ Both Progress components now have no HeroUI imports or types. Pixels' direct
 `@heroui/progress` dependency is removed.
 
 [ProgressCircular usage](../../packages/pixels/src/ProgressCircular/README.md)
+
+## Tooltip
+
+Tooltip uses React Aria trigger and tooltip behavior, with a span preserving its
+existing trigger wrapper. Focusable children support keyboard focus, Escape and
+blur. The owned recipe extends Popover's arrow geometry while preserving Tooltip's
+medium radius, small shadow, section widths and existing slots. Entry and exit
+feedback respect reduced motion. Pixels no longer declares `@heroui/tooltip`.
+
+[Tooltip usage](../../packages/pixels/src/Tooltip/README.md)
