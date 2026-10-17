@@ -23,7 +23,7 @@ export interface NotificationHostProps {
  */
 const NotificationHost = ({ width = 600 }: NotificationHostProps) => {
   // Stacking layers (see notification.tsx for the modal side):
-  //   1. normal app-level modal — HeroUI default z-50
+  //   1. normal app-level modal — Pixels default z-50
   //   2. notification / Toaster  — z-60 (this), so notifications appear ABOVE
   //      a normal modal that is already open
   //   3. modal opened FROM a notification — z-70 (set in notification.tsx),

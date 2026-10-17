@@ -12,17 +12,9 @@ import Modal, { modalVariants } from '../Modal';
 import ModalHost from '../ModalHost';
 import { modal } from '../modalStore';
 import { longContent, shortContent } from '../storyData';
+import { meta as sharedMeta } from './Modal.storySetup';
 
-const meta: Meta<typeof Modal> = {
-  title: 'pixels/Modal',
-  component: Modal,
-  argTypes: {
-    size: {
-      control: { type: 'radio' },
-      options: Object.keys(modalVariants.variants.size),
-    },
-  },
-};
+const meta: Meta<typeof Modal> = { ...sharedMeta, title: 'pixels/Modal' };
 
 export default meta;
 type Story = StoryObj<ModalProps>;

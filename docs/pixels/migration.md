@@ -132,3 +132,26 @@ Styled triggers reuse Pixels Button with independent group defaults. Pixels no
 longer declares `@heroui/button` or `@heroui/dropdown` directly.
 
 [Menu usage](../../packages/pixels/src/Menu/README.md)
+
+## Modal
+
+Modal uses React Aria's dialog and modal overlay hooks with owned surface styles.
+The visibility bridge retains closing content for exit feedback, while the dialog
+engine owns focus containment, Escape, outside presses and page scroll locking.
+Heading, body, footer and close control remain separate presentation components.
+
+The controlled `isOpen`/`onClose` contract, imperative `modal` store, Element portal
+container, sizes and existing styling slots remain supported. Body IDs are now
+unique and point to the rendered body, fixing the previous description association.
+Dialogs without a header receive a fallback accessible name. Reduced motion and
+`disableAnimation` skip feedback. The eight captured light/dark states retain
+their original dialog geometry.
+
+Pixels no longer declares `@heroui/modal` directly. Drawer still brings it in
+transitively until its migration is complete.
+
+Stacking tests open the next dialog above an already mounted one. Mounting
+multiple initially open dialogs in the same render retains the previous engine’s
+screen-reader visibility limitation, verified against the legacy Drawer engine.
+
+[Modal usage](../../packages/pixels/src/Modal/README.md)

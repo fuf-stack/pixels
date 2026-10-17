@@ -614,109 +614,109 @@ exports[`Story Snapshots > StackingOverModal 1`] = `
   />
   <div
     aria-hidden="true"
-    tabindex="-1"
+    class="fixed inset-0 z-50 h-screen w-screen bg-overlay/50 backdrop-opacity-disabled"
+    data-slot="backdrop"
+    style="opacity: 1;"
+  />
+  <div
+    aria-hidden="true"
+    class="fixed inset-0 z-50 flex h-dvh w-screen items-center justify-center overflow-x-auto"
+    data-slot="wrapper"
   >
-    <div
-      aria-hidden="true"
-      class="z-50 bg-overlay/50 backdrop-opacity-disabled w-screen h-screen fixed inset-0"
-    />
-    <div
-      class="flex w-screen fixed inset-0 z-50 overflow-x-auto justify-center h-(--visual-viewport-height) items-center sm:items-center"
-      data-slot="wrapper"
-      style="--visual-viewport-height: 768px;"
+    <section
+      aria-describedby="modal_body-«replaced-aria-id»"
+      aria-labelledby="react-aria-«replaced-aria-id»"
+      aria-modal="true"
+      class="relative z-50 box-border flex w-full flex-col mx-1 my-1 rounded-large bg-content1 shadow-small sm:mx-6 sm:my-16 outline-solid max-h-[calc(100%_-_8rem)] outline-transparent max-w-md"
+      data-dismissable="true"
+      data-open="true"
+      data-placement="center"
+      data-testid="modal"
+      role="dialog"
+      style="opacity: 1; transform: none;"
+      tabindex="-1"
     >
-      <section
-        aria-describedby="«replaced-aria-id»"
-        aria-labelledby="«replaced-aria-id»"
-        aria-modal="true"
-        class="flex flex-col relative z-50 w-full box-border bg-content1 outline-solid outline-transparent mx-1 my-1 sm:mx-6 sm:my-16 rounded-large shadow-small max-h-[calc(100%_-_8rem)] max-w-md"
-        data-dismissable="true"
-        data-open="true"
-        data-placement="center"
-        data-testid="modal"
-        id="«replaced-aria-id»"
-        role="dialog"
-        tabindex="-1"
+      <div
+        style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+      >
+        <button
+          aria-label="Dismiss"
+          id="react-aria-«replaced-aria-id»"
+          style="width: 1px; height: 1px;"
+          tabindex="-1"
+        />
+      </div>
+      <button
+        aria-label="Close"
+        class="absolute end-1 top-1 select-none appearance-none rounded-full p-2 text-foreground-500 outline-solid outline-transparent tap-highlight-transparent hover:bg-default-100 active:bg-default-200 data-[focus-visible]:z-10 data-[focus-visible]:outline-2 data-[focus-visible]:outline-offset-2 data-[focus-visible]:outline-focus"
+        data-rac=""
+        data-react-aria-pressable="true"
+        id="react-aria-«replaced-aria-id»"
+        tabindex="0"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          class="fill-current"
+          fill="none"
+          focusable="false"
+          height="1em"
+          role="presentation"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          width="1em"
+        >
+          <path
+            d="M18 6L6 18M6 6l12 12"
+          />
+        </svg>
+      </button>
+      <header
+        class="flex flex-initial border-b border-b-divider px-6 py-4 font-semibold text-large"
+        data-slot="header"
+        id="react-aria-«replaced-aria-id»"
+      >
+        Normal modal
+      </header>
+      <div
+        class="flex flex-1 flex-col gap-3 overflow-y-auto px-6 py-4"
+        data-slot="body"
+        id="modal_body-«replaced-aria-id»"
       >
         <div
-          style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+          class="space-y-3"
         >
+          <p>
+            I am a normal modal (z-50).
+          </p>
           <button
-            aria-label="Dismiss"
+            class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
+            data-focus="true"
+            data-focused="true"
+            data-rac=""
+            data-react-aria-pressable="true"
             id="react-aria-«replaced-aria-id»"
-            style="width: 1px; height: 1px;"
-            tabindex="-1"
-          />
+            tabindex="0"
+            type="button"
+          >
+            Show notification
+          </button>
         </div>
+      </div>
+      <div
+        style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+      >
         <button
-          aria-label="Close"
-          class="absolute appearance-none select-none top-1 end-1 p-2 text-foreground-500 rounded-full hover:bg-default-100 active:bg-default-200 tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2"
-          data-react-aria-pressable="true"
-          role="button"
-          tabindex="0"
-          type="button"
-        >
-          <svg
-            aria-hidden="true"
-            class="fill-current"
-            fill="none"
-            focusable="false"
-            height="1em"
-            role="presentation"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            viewBox="0 0 24 24"
-            width="1em"
-          >
-            <path
-              d="M18 6L6 18M6 6l12 12"
-            />
-          </svg>
-        </button>
-        <header
-          class="flex py-4 px-6 flex-initial text-large font-semibold border-b border-b-divider"
-          id="«replaced-aria-id»"
-        >
-          Normal modal
-        </header>
-        <div
-          class="flex flex-1 flex-col gap-3 px-6 overflow-y-auto py-4"
-          id="modal_body"
-        >
-          <div
-            class="space-y-3"
-          >
-            <p>
-              I am a normal modal (z-50).
-            </p>
-            <button
-              class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
-              data-focus="true"
-              data-focused="true"
-              data-rac=""
-              data-react-aria-pressable="true"
-              id="react-aria-«replaced-aria-id»"
-              tabindex="0"
-              type="button"
-            >
-              Show notification
-            </button>
-          </div>
-        </div>
-        <div
-          style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
-        >
-          <button
-            aria-label="Dismiss"
-            id="react-aria-«replaced-aria-id»"
-            style="width: 1px; height: 1px;"
-            tabindex="-1"
-          />
-        </div>
-      </section>
-    </div>
+          aria-label="Dismiss"
+          id="react-aria-«replaced-aria-id»"
+          style="width: 1px; height: 1px;"
+          tabindex="-1"
+        />
+      </div>
+    </section>
   </div>
   <span
     aria-hidden="true"
@@ -729,93 +729,93 @@ exports[`Story Snapshots > StackingOverModal 1`] = `
     hidden=""
   />
   <div
-    tabindex="-1"
+    aria-hidden="true"
+    class="fixed inset-0 h-screen w-screen bg-overlay/50 backdrop-opacity-disabled z-[70]"
+    data-slot="backdrop"
+    style="opacity: 1;"
+  />
+  <div
+    class="fixed inset-0 flex h-dvh w-screen items-center justify-center overflow-x-auto z-[70]"
+    data-slot="wrapper"
   >
-    <div
-      aria-hidden="true"
-      class="bg-overlay/50 backdrop-opacity-disabled w-screen h-screen fixed inset-0 z-[70]"
-    />
-    <div
-      class="flex w-screen fixed inset-0 overflow-x-auto justify-center h-(--visual-viewport-height) items-center sm:items-center z-[70]"
-      data-slot="wrapper"
-      style="--visual-viewport-height: 768px;"
+    <section
+      aria-describedby="modal_body-«replaced-aria-id»"
+      aria-labelledby="react-aria-«replaced-aria-id»"
+      aria-modal="true"
+      class="relative z-50 box-border flex w-full flex-col mx-1 my-1 rounded-large bg-content1 shadow-small sm:mx-6 sm:my-16 outline-solid max-h-[calc(100%_-_8rem)] outline-transparent max-w-md"
+      data-dismissable="true"
+      data-open="true"
+      data-placement="center"
+      data-testid="modal"
+      role="dialog"
+      style="opacity: 1; transform: none;"
+      tabindex="-1"
     >
-      <section
-        aria-describedby="«replaced-aria-id»"
-        aria-labelledby="«replaced-aria-id»"
-        aria-modal="true"
-        class="flex flex-col relative z-50 w-full box-border bg-content1 outline-solid outline-transparent mx-1 my-1 sm:mx-6 sm:my-16 rounded-large shadow-small max-h-[calc(100%_-_8rem)] max-w-md"
-        data-dismissable="true"
-        data-open="true"
-        data-placement="center"
-        data-testid="modal"
-        id="«replaced-aria-id»"
-        role="dialog"
-        tabindex="-1"
+      <div
+        style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
       >
-        <div
-          style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
-        >
-          <button
-            aria-label="Dismiss"
-            id="react-aria-«replaced-aria-id»"
-            style="width: 1px; height: 1px;"
-            tabindex="-1"
-          />
-        </div>
         <button
-          aria-label="Close"
-          class="absolute appearance-none select-none top-1 end-1 p-2 text-foreground-500 rounded-full hover:bg-default-100 active:bg-default-200 tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2"
-          data-react-aria-pressable="true"
-          role="button"
-          tabindex="0"
-          type="button"
+          aria-label="Dismiss"
+          id="react-aria-«replaced-aria-id»"
+          style="width: 1px; height: 1px;"
+          tabindex="-1"
+        />
+      </div>
+      <button
+        aria-label="Close"
+        class="absolute end-1 top-1 select-none appearance-none rounded-full p-2 text-foreground-500 outline-solid outline-transparent tap-highlight-transparent hover:bg-default-100 active:bg-default-200 data-[focus-visible]:z-10 data-[focus-visible]:outline-2 data-[focus-visible]:outline-offset-2 data-[focus-visible]:outline-focus"
+        data-rac=""
+        data-react-aria-pressable="true"
+        id="react-aria-«replaced-aria-id»"
+        tabindex="0"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          class="fill-current"
+          fill="none"
+          focusable="false"
+          height="1em"
+          role="presentation"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          width="1em"
         >
-          <svg
-            aria-hidden="true"
-            class="fill-current"
-            fill="none"
-            focusable="false"
-            height="1em"
-            role="presentation"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            viewBox="0 0 24 24"
-            width="1em"
-          >
-            <path
-              d="M18 6L6 18M6 6l12 12"
-            />
-          </svg>
-        </button>
-        <header
-          class="flex py-4 px-6 flex-initial text-large font-semibold border-b border-b-divider"
-          id="«replaced-aria-id»"
-        >
-          Modal from notification
-        </header>
-        <div
-          class="flex flex-1 flex-col gap-3 px-6 overflow-y-auto py-4"
-          id="modal_body"
-        >
-          <p>
-            I am a modal opened from a notification (z-70).
-          </p>
-        </div>
-        <div
-          style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
-        >
-          <button
-            aria-label="Dismiss"
-            id="react-aria-«replaced-aria-id»"
-            style="width: 1px; height: 1px;"
-            tabindex="-1"
+          <path
+            d="M18 6L6 18M6 6l12 12"
           />
-        </div>
-      </section>
-    </div>
+        </svg>
+      </button>
+      <header
+        class="flex flex-initial border-b border-b-divider px-6 py-4 font-semibold text-large"
+        data-slot="header"
+        id="react-aria-«replaced-aria-id»"
+      >
+        Modal from notification
+      </header>
+      <div
+        class="flex flex-1 flex-col gap-3 overflow-y-auto px-6 py-4"
+        data-slot="body"
+        id="modal_body-«replaced-aria-id»"
+      >
+        <p>
+          I am a modal opened from a notification (z-70).
+        </p>
+      </div>
+      <div
+        style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+      >
+        <button
+          aria-label="Dismiss"
+          id="react-aria-«replaced-aria-id»"
+          style="width: 1px; height: 1px;"
+          tabindex="-1"
+        />
+      </div>
+    </section>
   </div>
   <span
     aria-hidden="true"
@@ -1614,81 +1614,82 @@ exports[`Story Snapshots > WithErrorModal 1`] = `
     hidden=""
   />
   <div
-    tabindex="-1"
+    aria-hidden="true"
+    class="fixed inset-0 h-screen w-screen bg-overlay/50 backdrop-opacity-disabled z-[70]"
+    data-slot="backdrop"
+    style="opacity: 1;"
+  />
+  <div
+    class="fixed inset-0 flex h-dvh w-screen items-center justify-center overflow-x-auto z-[70]"
+    data-slot="wrapper"
   >
-    <div
-      aria-hidden="true"
-      class="bg-overlay/50 backdrop-opacity-disabled w-screen h-screen fixed inset-0 z-[70]"
-    />
-    <div
-      class="flex w-screen fixed inset-0 overflow-x-auto justify-center h-(--visual-viewport-height) items-center sm:items-center z-[70]"
-      data-slot="wrapper"
-      style="--visual-viewport-height: 768px;"
+    <section
+      aria-describedby="modal_body-«replaced-aria-id»"
+      aria-labelledby="react-aria-«replaced-aria-id»"
+      aria-modal="true"
+      class="relative z-50 box-border flex w-full flex-col mx-1 my-1 rounded-large bg-content1 shadow-small sm:mx-6 sm:my-16 outline-solid max-h-[calc(100%_-_8rem)] outline-transparent max-w-md"
+      data-dismissable="true"
+      data-open="true"
+      data-placement="center"
+      data-testid="modal"
+      role="dialog"
+      style="opacity: 1; transform: none;"
+      tabindex="-1"
     >
-      <section
-        aria-describedby="«replaced-aria-id»"
-        aria-labelledby="«replaced-aria-id»"
-        aria-modal="true"
-        class="flex flex-col relative z-50 w-full box-border bg-content1 outline-solid outline-transparent mx-1 my-1 sm:mx-6 sm:my-16 rounded-large shadow-small max-h-[calc(100%_-_8rem)] max-w-md"
-        data-dismissable="true"
-        data-open="true"
-        data-placement="center"
-        data-testid="modal"
-        id="«replaced-aria-id»"
-        role="dialog"
-        tabindex="-1"
+      <div
+        style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
       >
-        <div
-          style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
-        >
-          <button
-            aria-label="Dismiss"
-            id="react-aria-«replaced-aria-id»"
-            style="width: 1px; height: 1px;"
-            tabindex="-1"
-          />
-        </div>
         <button
-          aria-label="Close"
-          class="absolute appearance-none select-none top-1 end-1 p-2 text-foreground-500 rounded-full hover:bg-default-100 active:bg-default-200 tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2"
-          data-react-aria-pressable="true"
-          role="button"
-          tabindex="0"
-          type="button"
+          aria-label="Dismiss"
+          id="react-aria-«replaced-aria-id»"
+          style="width: 1px; height: 1px;"
+          tabindex="-1"
+        />
+      </div>
+      <button
+        aria-label="Close"
+        class="absolute end-1 top-1 select-none appearance-none rounded-full p-2 text-foreground-500 outline-solid outline-transparent tap-highlight-transparent hover:bg-default-100 active:bg-default-200 data-[focus-visible]:z-10 data-[focus-visible]:outline-2 data-[focus-visible]:outline-offset-2 data-[focus-visible]:outline-focus"
+        data-rac=""
+        data-react-aria-pressable="true"
+        id="react-aria-«replaced-aria-id»"
+        tabindex="0"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          class="fill-current"
+          fill="none"
+          focusable="false"
+          height="1em"
+          role="presentation"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          width="1em"
         >
-          <svg
-            aria-hidden="true"
-            class="fill-current"
-            fill="none"
-            focusable="false"
-            height="1em"
-            role="presentation"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            viewBox="0 0 24 24"
-            width="1em"
-          >
-            <path
-              d="M18 6L6 18M6 6l12 12"
-            />
-          </svg>
-        </button>
-        <header
-          class="flex py-4 px-6 flex-initial text-large font-semibold border-b border-b-divider"
-          id="«replaced-aria-id»"
+          <path
+            d="M18 6L6 18M6 6l12 12"
+          />
+        </svg>
+      </button>
+      <header
+        class="flex flex-initial border-b border-b-divider px-6 py-4 font-semibold text-large"
+        data-slot="header"
+        id="react-aria-«replaced-aria-id»"
+      >
+        Request error details
+      </header>
+      <div
+        class="flex flex-1 flex-col gap-3 overflow-y-auto px-6 py-4"
+        data-slot="body"
+        id="modal_body-«replaced-aria-id»"
+      >
+        <pre
+          class="whitespace-pre-wrap text-xs"
         >
-          Request error details
-        </header>
-        <div
-          class="flex flex-1 flex-col gap-3 px-6 overflow-y-auto py-4"
-          id="modal_body"
-        >
-          <pre
-            class="whitespace-pre-wrap text-xs"
-          >
-            [PIZZA-TRACKER] Pineapple paradox detected.
+          [PIZZA-TRACKER] Pineapple paradox detected.
 
 ToppingConflictError: Cannot apply "ADD_PINEAPPLE" and "REMOVE_PINEAPPLE" in the same transaction.
     at reconcileToppingVotes (/path/to/toppings.js:132:69)
@@ -1697,20 +1698,19 @@ ToppingConflictError: Cannot apply "ADD_PINEAPPLE" and "REMOVE_PINEAPPLE" in the
     at preheatOven (/path/to/oven.js:28:9)
     at bakeOrder (/path/to/kitchen.js:201:18)
     at handler (/path/to/server.js:335:28)
-          </pre>
-        </div>
-        <div
-          style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
-        >
-          <button
-            aria-label="Dismiss"
-            id="react-aria-«replaced-aria-id»"
-            style="width: 1px; height: 1px;"
-            tabindex="-1"
-          />
-        </div>
-      </section>
-    </div>
+        </pre>
+      </div>
+      <div
+        style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+      >
+        <button
+          aria-label="Dismiss"
+          id="react-aria-«replaced-aria-id»"
+          style="width: 1px; height: 1px;"
+          tabindex="-1"
+        />
+      </div>
+    </section>
   </div>
   <span
     aria-hidden="true"
@@ -1855,154 +1855,154 @@ exports[`Story Snapshots > WithLargeMoreContentModal 1`] = `
     hidden=""
   />
   <div
-    tabindex="-1"
+    aria-hidden="true"
+    class="fixed inset-0 h-screen w-screen bg-overlay/50 backdrop-opacity-disabled z-[70]"
+    data-slot="backdrop"
+    style="opacity: 1;"
+  />
+  <div
+    class="fixed inset-0 flex h-dvh w-screen items-center justify-center overflow-x-auto z-[70]"
+    data-slot="wrapper"
   >
-    <div
-      aria-hidden="true"
-      class="bg-overlay/50 backdrop-opacity-disabled w-screen h-screen fixed inset-0 z-[70]"
-    />
-    <div
-      class="flex w-screen fixed inset-0 overflow-x-auto justify-center h-(--visual-viewport-height) items-center sm:items-center z-[70]"
-      data-slot="wrapper"
-      style="--visual-viewport-height: 768px;"
+    <section
+      aria-describedby="modal_body-«replaced-aria-id»"
+      aria-labelledby="react-aria-«replaced-aria-id»"
+      aria-modal="true"
+      class="relative z-50 box-border flex w-full flex-col mx-1 my-1 rounded-large bg-content1 shadow-small sm:mx-6 sm:my-16 outline-solid max-h-[calc(100%_-_8rem)] outline-transparent max-w-5xl"
+      data-dismissable="true"
+      data-open="true"
+      data-placement="center"
+      data-testid="modal"
+      role="dialog"
+      style="opacity: 1; transform: none;"
+      tabindex="-1"
     >
-      <section
-        aria-describedby="«replaced-aria-id»"
-        aria-labelledby="«replaced-aria-id»"
-        aria-modal="true"
-        class="flex flex-col relative z-50 w-full box-border bg-content1 outline-solid outline-transparent mx-1 my-1 sm:mx-6 sm:my-16 rounded-large shadow-small max-h-[calc(100%_-_8rem)] max-w-5xl"
-        data-dismissable="true"
-        data-open="true"
-        data-placement="center"
-        data-testid="modal"
-        id="«replaced-aria-id»"
-        role="dialog"
-        tabindex="-1"
+      <div
+        style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+      >
+        <button
+          aria-label="Dismiss"
+          id="react-aria-«replaced-aria-id»"
+          style="width: 1px; height: 1px;"
+          tabindex="-1"
+        />
+      </div>
+      <button
+        aria-label="Close"
+        class="absolute end-1 top-1 select-none appearance-none rounded-full p-2 text-foreground-500 outline-solid outline-transparent tap-highlight-transparent hover:bg-default-100 active:bg-default-200 data-[focus-visible]:z-10 data-[focus-visible]:outline-2 data-[focus-visible]:outline-offset-2 data-[focus-visible]:outline-focus"
+        data-rac=""
+        data-react-aria-pressable="true"
+        id="react-aria-«replaced-aria-id»"
+        tabindex="0"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          class="fill-current"
+          fill="none"
+          focusable="false"
+          height="1em"
+          role="presentation"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          width="1em"
+        >
+          <path
+            d="M18 6L6 18M6 6l12 12"
+          />
+        </svg>
+      </button>
+      <header
+        class="flex flex-initial border-b border-b-divider px-6 py-4 font-semibold text-large"
+        data-slot="header"
+        id="react-aria-«replaced-aria-id»"
+      >
+        Daily report
+      </header>
+      <div
+        class="flex flex-1 flex-col gap-3 overflow-y-auto px-6 py-4"
+        data-slot="body"
+        id="modal_body-«replaced-aria-id»"
       >
         <div
-          style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+          class="space-y-2"
         >
-          <button
-            aria-label="Dismiss"
-            id="react-aria-«replaced-aria-id»"
-            style="width: 1px; height: 1px;"
-            tabindex="-1"
-          />
+          <p>
+            Line 1: report content goes here. The modal opens in xl size so longer reports are easier to read.
+          </p>
+          <p>
+            Line 2: report content goes here. The modal opens in xl size so longer reports are easier to read.
+          </p>
+          <p>
+            Line 3: report content goes here. The modal opens in xl size so longer reports are easier to read.
+          </p>
+          <p>
+            Line 4: report content goes here. The modal opens in xl size so longer reports are easier to read.
+          </p>
+          <p>
+            Line 5: report content goes here. The modal opens in xl size so longer reports are easier to read.
+          </p>
+          <p>
+            Line 6: report content goes here. The modal opens in xl size so longer reports are easier to read.
+          </p>
+          <p>
+            Line 7: report content goes here. The modal opens in xl size so longer reports are easier to read.
+          </p>
+          <p>
+            Line 8: report content goes here. The modal opens in xl size so longer reports are easier to read.
+          </p>
+          <p>
+            Line 9: report content goes here. The modal opens in xl size so longer reports are easier to read.
+          </p>
+          <p>
+            Line 10: report content goes here. The modal opens in xl size so longer reports are easier to read.
+          </p>
+          <p>
+            Line 11: report content goes here. The modal opens in xl size so longer reports are easier to read.
+          </p>
+          <p>
+            Line 12: report content goes here. The modal opens in xl size so longer reports are easier to read.
+          </p>
+          <p>
+            Line 13: report content goes here. The modal opens in xl size so longer reports are easier to read.
+          </p>
+          <p>
+            Line 14: report content goes here. The modal opens in xl size so longer reports are easier to read.
+          </p>
+          <p>
+            Line 15: report content goes here. The modal opens in xl size so longer reports are easier to read.
+          </p>
+          <p>
+            Line 16: report content goes here. The modal opens in xl size so longer reports are easier to read.
+          </p>
+          <p>
+            Line 17: report content goes here. The modal opens in xl size so longer reports are easier to read.
+          </p>
+          <p>
+            Line 18: report content goes here. The modal opens in xl size so longer reports are easier to read.
+          </p>
+          <p>
+            Line 19: report content goes here. The modal opens in xl size so longer reports are easier to read.
+          </p>
+          <p>
+            Line 20: report content goes here. The modal opens in xl size so longer reports are easier to read.
+          </p>
         </div>
+      </div>
+      <div
+        style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+      >
         <button
-          aria-label="Close"
-          class="absolute appearance-none select-none top-1 end-1 p-2 text-foreground-500 rounded-full hover:bg-default-100 active:bg-default-200 tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2"
-          data-react-aria-pressable="true"
-          role="button"
-          tabindex="0"
-          type="button"
-        >
-          <svg
-            aria-hidden="true"
-            class="fill-current"
-            fill="none"
-            focusable="false"
-            height="1em"
-            role="presentation"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            viewBox="0 0 24 24"
-            width="1em"
-          >
-            <path
-              d="M18 6L6 18M6 6l12 12"
-            />
-          </svg>
-        </button>
-        <header
-          class="flex py-4 px-6 flex-initial text-large font-semibold border-b border-b-divider"
-          id="«replaced-aria-id»"
-        >
-          Daily report
-        </header>
-        <div
-          class="flex flex-1 flex-col gap-3 px-6 overflow-y-auto py-4"
-          id="modal_body"
-        >
-          <div
-            class="space-y-2"
-          >
-            <p>
-              Line 1: report content goes here. The modal opens in xl size so longer reports are easier to read.
-            </p>
-            <p>
-              Line 2: report content goes here. The modal opens in xl size so longer reports are easier to read.
-            </p>
-            <p>
-              Line 3: report content goes here. The modal opens in xl size so longer reports are easier to read.
-            </p>
-            <p>
-              Line 4: report content goes here. The modal opens in xl size so longer reports are easier to read.
-            </p>
-            <p>
-              Line 5: report content goes here. The modal opens in xl size so longer reports are easier to read.
-            </p>
-            <p>
-              Line 6: report content goes here. The modal opens in xl size so longer reports are easier to read.
-            </p>
-            <p>
-              Line 7: report content goes here. The modal opens in xl size so longer reports are easier to read.
-            </p>
-            <p>
-              Line 8: report content goes here. The modal opens in xl size so longer reports are easier to read.
-            </p>
-            <p>
-              Line 9: report content goes here. The modal opens in xl size so longer reports are easier to read.
-            </p>
-            <p>
-              Line 10: report content goes here. The modal opens in xl size so longer reports are easier to read.
-            </p>
-            <p>
-              Line 11: report content goes here. The modal opens in xl size so longer reports are easier to read.
-            </p>
-            <p>
-              Line 12: report content goes here. The modal opens in xl size so longer reports are easier to read.
-            </p>
-            <p>
-              Line 13: report content goes here. The modal opens in xl size so longer reports are easier to read.
-            </p>
-            <p>
-              Line 14: report content goes here. The modal opens in xl size so longer reports are easier to read.
-            </p>
-            <p>
-              Line 15: report content goes here. The modal opens in xl size so longer reports are easier to read.
-            </p>
-            <p>
-              Line 16: report content goes here. The modal opens in xl size so longer reports are easier to read.
-            </p>
-            <p>
-              Line 17: report content goes here. The modal opens in xl size so longer reports are easier to read.
-            </p>
-            <p>
-              Line 18: report content goes here. The modal opens in xl size so longer reports are easier to read.
-            </p>
-            <p>
-              Line 19: report content goes here. The modal opens in xl size so longer reports are easier to read.
-            </p>
-            <p>
-              Line 20: report content goes here. The modal opens in xl size so longer reports are easier to read.
-            </p>
-          </div>
-        </div>
-        <div
-          style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
-        >
-          <button
-            aria-label="Dismiss"
-            id="react-aria-«replaced-aria-id»"
-            style="width: 1px; height: 1px;"
-            tabindex="-1"
-          />
-        </div>
-      </section>
-    </div>
+          aria-label="Dismiss"
+          id="react-aria-«replaced-aria-id»"
+          style="width: 1px; height: 1px;"
+          tabindex="-1"
+        />
+      </div>
+    </section>
   </div>
   <span
     aria-hidden="true"

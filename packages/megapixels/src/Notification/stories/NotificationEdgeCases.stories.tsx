@@ -25,7 +25,7 @@ type Story = StoryObj<typeof NotificationHost>;
  * Notifications and modals stack in **both** directions, depending on which one
  * was opened from the other:
  *
- * - **Notification above a modal:** a **normal modal** sits at the HeroUI
+ * - **Notification above a modal:** a **normal modal** sits at the Pixels
  *   default `z-50`, while the Toaster sits at `z-60`, so a notification raised
  *   while the modal is open appears **on top of** it (left button).
  * - **Notification below a modal:** a modal opened *from* a notification is
