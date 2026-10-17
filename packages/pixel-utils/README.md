@@ -8,7 +8,7 @@ Import `@fuf-stack/pixel-utils/tokens.css` after Tailwind in your global CSS ent
 It provides owned semantic tokens and utilities in light/dark themes, including
 `bg-content1`, `text-danger`, `text-small`, `border-small` and `rounded-small`.
 Override `--pixel-*` variables in theme scopes. See [styling](../../docs/styling.md)
-for source detection and transitional HeroUI setup. CSS is marked side-effectful
+for source detection and theme customization. CSS is marked side-effectful
 and is never imported through the JavaScript entry.
 
 ## Exports
@@ -87,8 +87,7 @@ const classes = variantsToClassNames(
 
 `tv` includes the same prose merge rules as `cn`. Owned recipes additionally
 classify existing semantic sizes, radii, borders, shadows and transitions.
-The legacy standalone `cn` keeps its previous semantic classification during
-HeroUI coexistence; use instance helpers for new or migrated components. Recipes use the unmerged
+The legacy standalone `cn` keeps its previous semantic classification for compatibility; use instance helpers for semantic utility classes. Recipes use the unmerged
 Tailwind Variants engine, then resolve conflicts with an isolated instance.
 Compound variants and recipe extension retain their classes until final merging.
 
@@ -109,7 +108,7 @@ styling.cn('text-sm text-danger', 'text-body');
 // => 'text-danger text-body'
 
 // Resolve an existing module-level recipe before merging slot overrides.
-const input = tv({ slots: { input: 'text-sm text-danger' } });
+const input = tv({ slots: { input: 'text-danger text-sm' } });
 styling.variantsToClassNames(styling.resolve(input), { input: 'text-body' });
 // => { base: undefined, input: 'text-danger text-body' }
 ```
@@ -118,7 +117,7 @@ Use `styling.tv` for application recipes. Use `styling.resolve` only with recipe
 created by pixel-utils: classes discarded inside a third-party recipe cannot be
 recovered. Define the corresponding utility in Tailwind separately; merge
 configuration does not generate CSS. See [styling](../../docs/styling.md) for
-React context usage and current migration limits.
+React context usage and source detection.
 
 ### `slugify(string, options?)`
 
@@ -135,6 +134,18 @@ slugify('a.b.c', { replaceDots: true }); // => 'a_b_c'
 
 Returns `true` when running inside Vitest or when `NODE_ENV` is `test`. Safe for both Node.js and browser environments.
 
-### `heroui`
+## Migration from the HeroUI plugin
 
-Re-export of the `heroui` Tailwind plugin from `@heroui/theme`.
+The `heroui` JavaScript export is removed as a breaking change. Replace the
+Tailwind plugin with the token stylesheet and scan the built component packages:
+
+```css
+@import 'tailwindcss';
+@import '@fuf-stack/pixel-utils/tokens.css';
+@source '../node_modules/@fuf-stack/pixels/dist';
+@source '../node_modules/@fuf-stack/uniform/dist';
+```
+
+Paths are relative to the stylesheet. Add Megapixels when used. Replace custom
+`--heroui-*` variables with the corresponding `--pixel-*` variables. The default
+palette and semantic utilities remain available without a plugin.

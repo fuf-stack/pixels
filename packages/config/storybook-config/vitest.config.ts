@@ -17,8 +17,6 @@ export default defineConfig({
   // Do not share optimizer metadata with an open Storybook development server.
   cacheDir: path.join(storybookRoot, 'node_modules/.vite-browser-tests'),
   optimizeDeps: {
-    // HeroUI's transitional theme loads this CJS dependency after the entry scan.
-    include: ['color2k'],
     // Discover all story dependencies before executing browser tests, including
     // renderer prototypes that introduce a new interaction foundation.
     entries: ['atelier', 'megapixels', 'pixels', 'uniform'].map((name) => {

@@ -1,7 +1,9 @@
 # HeroUI removal: implementation inventory
 
-Status: owned styling/tokens, all Uniform production fields and internal styling consumers migrated; legacy hook exports and direct HeroUI dependencies removed. Pixels/application migration and final theme removal remain pending.
-This is a staged breaking migration. It is not ready for a HeroUI-free release.
+Status: complete in this repository. Uniform, Pixels and workspace consumers use
+owned rendering, tokens and configured styling. HeroUI dependencies, the public
+plugin re-export and workspace plugin/source scanning are removed. This remains
+an intentionally breaking release for consumers that used the old plugin or hooks.
 Uniform’s final cleanup and verification are recorded in the
 [completion review](./uniform/migration-review.md). The dated sections below are
 historical implementation notes; use that review and the current Uniform guides
@@ -136,7 +138,7 @@ indicators. Its direct `@heroui/tabs` dependency is removed. See the
 Table owns native grid rendering and virtual row windows, with React Aria hooks
 for keyboard navigation and associations. Its direct `@heroui/table` dependency
 is removed. Pixels components now have no HeroUI runtime/type imports. Shared
-theme, plugin/source configuration and unused dependency cleanup remain separate.
+theme, plugin/source configuration and unused dependency cleanup are complete.
 See the [Pixels migration notes](./pixels/migration.md#table).
 
 ## Implemented foundation
@@ -215,10 +217,9 @@ must accompany each renderer migration, with before/after browser evidence.
 
 Additional coupling:
 
-- `pixel-utils/src/theme.ts`, its declaration bundling configuration, and
-  `@repo/tailwind-config/{plugins,content}.ts` retain the HeroUI theme/plugin and
-  source scanning while Pixels/application renderers still use HeroUI. Owned
-  semantic tokens are already packaged separately.
+- The old pixel-utils `heroui` export, declaration bundling rules, Tailwind
+  plugin and HeroUI source globs are removed. `tokens.css` supplies the semantic
+  theme in both workspace previews and packaged consumers.
 - Pixels Toast uses Sonner already; retain its behavior and test interoperability
   with replacement overlays. Existing Megapixels Base UI implementations stay.
 - Uniform has no direct HeroUI dependencies or published HeroUI runtime/type
@@ -273,7 +274,7 @@ required markers, errors and consumer font-size merging. The form's existing
 empty-field serialization remains unchanged. Local label and hint components
 own presentation only and are not public entry points.
 
-## Remaining sequence and release prerequisites
+## Completed sequence and release prerequisites
 
 1. Uniform's production-field, React Select and internal consumer scope is
    complete. Preserve its committed behavior, visual evidence and packed API
@@ -281,10 +282,10 @@ own presentation only and are not public entry points.
 2. Pixels component rendering is migrated to owned tokens and configured styling.
    Preserve overlay interoperability, public slots, refs, keyboard behavior and
    visual fixtures during the remaining integration cleanup.
-3. Audit Atelier, Megapixels and other application consumers after their Pixels
-   dependencies migrate. Keep existing Megapixels Base UI implementations.
-4. Remove unused HeroUI dependencies, plugin/scanning, theme exports and inherited
-   recipes once all runtime and public declaration consumers are ready.
+3. Atelier and Megapixels retain their existing implementations and are checked
+   against the migrated Pixels dependencies.
+4. Unused HeroUI dependencies, plugin/scanning, theme exports and inherited
+   recipes are removed, including published runtime and declaration references.
 5. Uniform's legacy hook exports are removed with migration guidance. The user
    confirmed no external use of the two Uniform field hooks. The known Markdown
    editor must replace its old `useInput` import when adopting the breaking
@@ -625,9 +626,8 @@ and reintroduced legacy or private hook exports.
 
 This is an intentional breaking API removal and must be released accordingly.
 Versions/changelogs remain owned by Release Please. Migration guidance is in the
-[Uniform migration guide](./uniform/migration.md). Pixels still brings HeroUI
-transitively; its runtime, application consumers and final theme/plugin cleanup
-are separate remaining work. No external Markdown editor source was changed.
+[Uniform migration guide](./uniform/migration.md). Pixels no longer brings HeroUI transitively. Its runtime, application consumers and final theme/plugin cleanup
+are complete, as recorded in the final repository cleanup below. No external Markdown editor source was changed.
 
 Final `pnpm check` passed all six gates: 1,534 unit tests (one skipped), 472 browser
 stories and seven packed consumers. The unit-count change is exactly the nine
@@ -670,3 +670,20 @@ message IDs. The layout uses React Aria Label to preserve radiogroup naming.
 Group defaults and option styling have their own variant recipes, with option
 hover styling driven by React Aria render state. Public entry points, numeric
 value conversion, disabled behavior and existing styling slots are retained.
+
+## Final repository cleanup
+
+The final shared-theme migration removes all remaining direct HeroUI dependencies
+and prunes the lockfile. Pixels also drops its unused direct Framer Motion edge;
+Pixel Motion retains the animation dependency it uses. Atelier and Megapixels
+keep their existing implementations and consume the migrated primitives.
+
+The public `heroui` export is removed. Consumer migration uses the token CSS
+import and built-package sources in the [styling guide](./styling.md#semantic-tokens).
+No replacement JavaScript plugin is needed. Preserve historical sections above
+as the implementation record; their pending notes describe the stage at the time.
+
+Package verification now rejects HeroUI dependencies and runtime/declaration
+references across every published package, and rejects the removed plugin export.
+The known external Markdown editor remains outside the repository and must adopt
+the previously documented breaking hook migration when upgrading.

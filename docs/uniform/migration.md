@@ -44,9 +44,9 @@ rendering, form values, validation timing, reset behavior and public styling
 slots remain unchanged by this removal.
 
 Uniform now declares no direct HeroUI dependencies and its published runtime
-and declarations contain no HeroUI references. Other workspace dependencies still retain
-HeroUI internally; removing those transitive dependencies belongs to the remaining
-Pixels/foundation migration. See [the migration inventory](../heroui-removal.md).
+and declarations contain no HeroUI references. The Pixels/foundation cleanup is also complete, so
+HeroUI is no longer brought in transitively. Consumers must adopt the token CSS
+setup in the [styling guide](../styling.md#semantic-tokens). See [the migration inventory](../heroui-removal.md).
 
 ## Numeric empty values
 

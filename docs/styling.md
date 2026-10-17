@@ -36,7 +36,7 @@ import { segmentedInputVariants } from '../Time/timeVariants';
 export const segmentedInputVariants = tv({
   slots: {
     /** Bordered surface around the editable segments */
-    inputWrapper: 'rounded-small border-2 border-default-200',
+    inputWrapper: 'rounded-small border-default-200 border-2',
   },
 });
 
@@ -84,7 +84,7 @@ export { textAreaVariants } from './textAreaVariants';
 Components are styled with [tailwind-variants](https://www.tailwind-variants.org/)
 re-exported as `tv` from `@fuf-stack/pixel-utils`. A component defines named
 **slots** (the stylable parts) and **variants** (the style axes), then maps the
-resolved classes onto the underlying element(s) (often a HeroUI component).
+resolved classes onto the underlying element(s) (native elements or React Aria components).
 
 ### 1) Define slots and variants with `tv()`
 
@@ -262,7 +262,7 @@ const Alert = ({ className, variant = 'info', ...props }: AlertProps) => {
   const variants = alertVariants({ variant });
   const classNames = variantsToClassNames(variants, className, 'base');
 
-  return <HeroAlert classNames={classNames} /* ... */ />;
+  return <div className={classNames.base} /* ... */ />;
 };
 ```
 
@@ -327,8 +327,7 @@ export interface TextAreaProps {
 - Put shared/base classes in the slot default; put axis-specific overrides under
   `variants`.
 - Prefer deriving prop types (`TVProps` / `TVClassName`) over hand-written unions.
-- When wrapping HeroUI, map the resolved `classNames` onto its `classNames` prop
-  and translate our prop names to HeroUI's where they differ.
+- Pass resolved slot classes to the elements or subcomponents that own them.
 
 ## Isolated consumer class merging
 
@@ -346,7 +345,7 @@ import { StylingProvider, useStyling } from '@fuf-stack/pixels/StylingProvider';
 const styling = createStyling({
   extend: { classGroups: { 'font-size': [{ text: ['body'] }] } },
 });
-const recipe = tv({ slots: { input: 'text-sm text-danger' } });
+const recipe = tv({ slots: { input: 'text-danger text-sm' } });
 
 function Control() {
   const helpers = useStyling();
@@ -373,20 +372,13 @@ existing meaning. For module-level recipes, call `resolve` before slot functions
 are evaluated; applying a custom merge after default resolution cannot recover
 discarded classes.
 
-The legacy standalone `cn` export keeps its previous merge rules during
-coexistence: changing its classification of `text-medium` would change existing
-HeroUI wrapper output. Use the instance’s `cn` together with its recipes for
-migrated components and application code. Unifying the legacy export is gated
-on the component/visual migration.
+The standalone `cn` export retains its historical merge behavior for compatibility.
+Use `defaultStyling.cn` or an instance’s `cn` for semantic utilities such as
+`text-medium`. All workspace component recipes resolve through their styling
+instance. Tailwind must generate custom classes such as `text-body` separately,
+for example through a `--text-body` theme token.
 
-Uniform-owned renderers and internal styling consumers use this context. Pixels
-components that still wrap HeroUI retain their existing merge behavior, including
-when rendered inside Uniform. Tailwind must generate `text-body` independently
-(for example via a `--text-body` theme token). The owned token stylesheet is
-available; the remaining Pixels/application and final theme migration is tracked
-in [the migration inventory](./heroui-removal.md).
-
-## Owned semantic tokens (migration)
+## Semantic tokens
 
 The public stylesheet `@fuf-stack/pixel-utils/tokens.css` preserves the default
 semantic color palettes, layout sizes, radii, shadows, opacity and transition
@@ -417,9 +409,12 @@ including nested theme scopes. Theme overrides can target those same scopes.
 Configure merge rules separately when a custom utility such as `text-body`
 needs to conflict with a built-in utility; token generation alone is insufficient.
 
-During coexistence, existing HeroUI wrappers still require their original
-plugin/source configuration. Use the owned tokens for migrated components;
-do not remove HeroUI configuration until all remaining wrappers migrate.
+The HeroUI plugin and its source scanning are removed. The old `heroui` export
+from pixel-utils is removed as a breaking change. Consumers must replace plugin
+setup with the CSS import and built-package sources above, and replace custom
+`--heroui-*` overrides with their `--pixel-*` equivalents. The workspace uses
+this same token stylesheet, without a separate component theme plugin.
+
 The stylesheet is shipped unchanged in `dist`, explicitly exported and marked
 side-effectful. Packed-consumer verification compiles it without HeroUI tooling
 and scans built component files for utility classes.

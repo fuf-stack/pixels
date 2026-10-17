@@ -31,11 +31,10 @@ React Aria adds its own DOM IDs and state attributes. Existing `data-hover`,
 `data-loading` styling hooks remain available. Ripple feedback and the loading
 spinner respect reduced motion.
 
-### Remaining scope
+### Migration status
 
-All Pixels component renderers now use owned code and styling. Shared dependency,
-theme and plugin/source-configuration cleanup remains, followed by downstream
-consumer verification. No Pixels component imports HeroUI runtime components or
+All Pixels component renderers now use owned code and styling. Shared HeroUI dependencies, plugin exports and source scanning are removed.
+Workspace consumers and published packages are verified with owned tokens. No Pixels component imports HeroUI runtime components or
 types.
 
 [Button](../../packages/pixels/src/Button/README.md) · [ButtonGroup](../../packages/pixels/src/ButtonGroup/README.md) · [Styling](../styling.md) · [Migration inventory](../heroui-removal.md)
@@ -365,3 +364,25 @@ findings. Browser stories exercise cell navigation, bounded virtual scrolling,
 end-to-end row/cell keyboard jumps and return to the column headings.
 
 [Table usage](../../packages/pixels/src/Table/README.md)
+
+## Final theme and dependency cleanup
+
+Pixels no longer declares HeroUI or an unused direct Framer Motion dependency.
+Pixel Motion still owns its actual animation dependency. The shared Tailwind
+configuration scans workspace source only, and pixel-utils no longer exports
+`heroui` or bundles its types. The lockfile is pruned of HeroUI packages.
+
+This completes the repository migration. The setup change is intentionally
+breaking: applications must import `@fuf-stack/pixel-utils/tokens.css` after
+Tailwind and scan the built packages they use. Replace custom `--heroui-*`
+overrides with `--pixel-*` variables. See the [styling setup](../styling.md#semantic-tokens)
+and [pixel-utils migration](../../packages/pixel-utils/README.md#migration-from-the-heroui-plugin).
+
+All published tarballs are checked for HeroUI dependencies, runtime imports,
+declaration references and CSS variables. Application and Uniform stories run
+against the same plugin-free setup as Pixels.
+
+Before/after captures for 24 representative Pixels and Uniform light/dark states
+are byte-identical, including a fresh Storybook process without the plugin.
+Accessibility violation types and affected-element counts are unchanged, with
+only existing contrast findings in these states.

@@ -1,7 +1,7 @@
 import type { StylingConfig } from './styling';
 
 // Owned merge rules for semantic utilities already used by the workspace.
-// These classify utilities; the transitional theme still generates their CSS.
+// These classify utilities; tokens.css generates their CSS.
 const sizes = ['small', 'medium', 'large'];
 
 const semanticMergeConfig: StylingConfig = {

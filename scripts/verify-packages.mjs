@@ -1,5 +1,3 @@
-/* eslint-disable n/no-sync */
-
 import { spawnSync } from 'node:child_process';
 import {
   mkdirSync,
@@ -36,17 +34,25 @@ const root = path.resolve(import.meta.dirname, '..');
 const packageDirectories = readdirSync(path.join(root, 'packages'), {
   withFileTypes: true,
 })
-  .filter((entry) => entry.isDirectory() && entry.name !== 'config')
-  .map((entry) => path.join(root, 'packages', entry.name));
+  .filter((entry) => {
+    return entry.isDirectory() && entry.name !== 'config';
+  })
+  .map((entry) => {
+    return path.join(root, 'packages', entry.name);
+  });
 
 const packages = packageDirectories
-  .map((directory) => ({
-    directory,
-    manifest: JSON.parse(
-      readFileSync(path.join(directory, 'package.json'), 'utf8'),
-    ),
-  }))
-  .filter(({ manifest }) => !manifest.private);
+  .map((directory) => {
+    return {
+      directory,
+      manifest: JSON.parse(
+        readFileSync(path.join(directory, 'package.json'), 'utf8'),
+      ),
+    };
+  })
+  .filter(({ manifest }) => {
+    return !manifest.private;
+  });
 
 const temporaryDirectory = mkdtempSync(
   path.join(os.tmpdir(), 'pixels-packages-'),
@@ -151,8 +157,9 @@ async function verifyTokenConsumer() {
     '--pixel-color-content1: #FFFFFF',
     '--pixel-color-content1: #18181b',
   ]) {
-    if (!css.toLowerCase().includes(expected.toLowerCase()))
+    if (!css.toLowerCase().includes(expected.toLowerCase())) {
       throw new Error(`Token consumer missing ${expected}`);
+    }
   }
   console.log(
     'Verified owned token CSS and built-package Tailwind source discovery.',
@@ -176,24 +183,45 @@ function inspectTarball({ manifest }, tarball) {
     run('tar', ['-xOf', tarball, 'package/package.json'], root).stdout,
   );
 
+  const heroDependencies = [
+    'dependencies',
+    'peerDependencies',
+    'optionalDependencies',
+    'devDependencies',
+    'inlinedDependencies',
+  ]
+    .flatMap((section) => {
+      return Object.keys(packedManifest[section] ?? {});
+    })
+    .filter((name) => {
+      return name.startsWith('@heroui/');
+    });
+  if (heroDependencies.length) {
+    throw new Error(
+      `${manifest.name} must not declare HeroUI dependencies: ${heroDependencies.join(', ')}`,
+    );
+  }
+
+  const publishedCode = entries.filter((entry) => {
+    return /\.(?:mjs|d\.mts|css)$/.test(entry);
+  });
+  const content = run('tar', ['-xOf', tarball, ...publishedCode], root).stdout;
+  if (content.includes('@heroui/') || content.includes('--heroui-')) {
+    throw new Error(
+      `${manifest.name} runtime, declarations and styles must not reference HeroUI.`,
+    );
+  }
+
+  if (
+    manifest.name === '@fuf-stack/pixel-utils' &&
+    /\bheroui\b/.test(content)
+  ) {
+    throw new Error(
+      'pixel-utils must not expose the removed heroui plugin export.',
+    );
+  }
+
   if (manifest.name === '@fuf-stack/uniform') {
-    const heroDependencies = [
-      'dependencies',
-      'peerDependencies',
-      'optionalDependencies',
-      'devDependencies',
-    ]
-      .flatMap((section) => {
-        return Object.keys(packedManifest[section] ?? {});
-      })
-      .filter((name) => {
-        return name.startsWith('@heroui/');
-      });
-    if (heroDependencies.length) {
-      throw new Error(
-        `Uniform must not declare HeroUI dependencies: ${heroDependencies.join(', ')}`,
-      );
-    }
     const removedHooks = [
       './hooks/useInput',
       './hooks/useUniformField',
@@ -210,19 +238,6 @@ function inspectTarball({ manifest }, tarball) {
         'Uniform must not export removed legacy hooks or private field binding hooks.',
       );
     }
-    const publishedCode = entries.filter((entry) => {
-      return /\.(?:mjs|d\.mts)$/.test(entry);
-    });
-    const content = run(
-      'tar',
-      ['-xOf', tarball, ...publishedCode],
-      root,
-    ).stdout;
-    if (content.includes('@heroui/')) {
-      throw new Error(
-        'Uniform runtime and declaration files must not reference HeroUI.',
-      );
-    }
     console.log(
       'Verified Uniform has no direct HeroUI dependencies, runtime/type references or legacy hook exports.',
     );
@@ -233,7 +248,11 @@ function inspectTarball({ manifest }, tarball) {
       `${manifest.name}: tarball still contains a workspace: range`,
     );
   }
-  if (entries.some((entry) => /^package\/(src|test|coverage)\//.test(entry))) {
+  if (
+    entries.some((entry) => {
+      return /^package\/(src|test|coverage)\//.test(entry);
+    })
+  ) {
     throw new Error(
       `${manifest.name}: tarball contains source, tests, or coverage`,
     );
@@ -250,7 +269,9 @@ function inspectTarball({ manifest }, tarball) {
     }
 
     const runtimeTarget = runtimeExportTarget(conditions);
-    if (!runtimeTarget || !/\.[cm]?js$/.test(runtimeTarget)) continue;
+    if (!runtimeTarget || !/\.[cm]?js$/.test(runtimeTarget)) {
+      continue;
+    }
     const explicitTypes = typeExportTarget(conditions);
     const inferredTypes = runtimeTarget
       .replace(/\.mjs$/, '.d.mts')
@@ -273,7 +294,9 @@ function inspectTarball({ manifest }, tarball) {
  */
 function installAndTestConsumer(tarballs) {
   const dependencies = Object.fromEntries(
-    [...tarballs].map(([name, tarball]) => [name, `file:${tarball}`]),
+    [...tarballs].map(([name, tarball]) => {
+      return [name, `file:${tarball}`];
+    }),
   );
   writeFileSync(
     path.join(fixtureDirectory, 'package.json'),
@@ -296,10 +319,9 @@ function installAndTestConsumer(tarballs) {
   writeFileSync(
     path.join(fixtureDirectory, 'pnpm-workspace.yaml'),
     `overrides:\n${Object.entries(dependencies)
-      .map(
-        ([name, tarball]) =>
-          `  ${JSON.stringify(name)}: ${JSON.stringify(tarball)}`,
-      )
+      .map(([name, tarball]) => {
+        return `  ${JSON.stringify(name)}: ${JSON.stringify(tarball)}`;
+      })
       .join('\n')}\n`,
   );
 
@@ -307,8 +329,9 @@ function installAndTestConsumer(tarballs) {
   for (const { manifest } of packages) {
     for (const [subpath, conditions] of exportEntries(manifest.exports)) {
       const target = runtimeExportTarget(conditions);
-      if (!target || target.endsWith('.css') || subpath === './package.json')
+      if (!target || target.endsWith('.css') || subpath === './package.json') {
         continue;
+      }
       imports.push(
         subpath === '.'
           ? manifest.name
@@ -320,10 +343,9 @@ function installAndTestConsumer(tarballs) {
   writeFileSync(
     path.join(fixtureDirectory, 'consumer.ts'),
     `${imports
-      .map(
-        (specifier, index) =>
-          `import * as publicApi${index} from '${specifier}';\nvoid publicApi${index};`,
-      )
+      .map((specifier, index) => {
+        return `import * as publicApi${index} from '${specifier}';\nvoid publicApi${index};`;
+      })
       .join('\n')}\n`,
   );
   // Exercise styling generics against packed declarations, not workspace source.
@@ -399,9 +421,14 @@ function installAndTestConsumer(tarballs) {
 
 /** Normalize `exports` shorthand and condition maps into `[subpath, value]`. */
 function exportEntries(exportsField) {
-  if (typeof exportsField === 'string' || !exportsField)
+  if (typeof exportsField === 'string' || !exportsField) {
     return [['.', exportsField]];
-  if (!Object.keys(exportsField).some((key) => key.startsWith('.'))) {
+  }
+  if (
+    !Object.keys(exportsField).some((key) => {
+      return key.startsWith('.');
+    })
+  ) {
     return [['.', exportsField]];
   }
   return Object.entries(exportsField);
@@ -409,25 +436,37 @@ function exportEntries(exportsField) {
 
 /** Recursively collect every file target from an exports condition value. */
 function exportTargets(value) {
-  if (typeof value === 'string') return [value];
-  if (!value || typeof value !== 'object') return [];
+  if (typeof value === 'string') {
+    return [value];
+  }
+  if (!value || typeof value !== 'object') {
+    return [];
+  }
   return [...new Set(Object.values(value).flatMap(exportTargets))];
 }
 
 /** Select the runtime target using the same preferred conditions as ESM tests. */
 function runtimeExportTarget(value) {
-  if (typeof value === 'string') return value;
-  if (!value || typeof value !== 'object') return undefined;
+  if (typeof value === 'string') {
+    return value;
+  }
+  if (!value || typeof value !== 'object') {
+    return undefined;
+  }
   for (const condition of ['import', 'default', 'require']) {
     const target = runtimeExportTarget(value[condition]);
-    if (target) return target;
+    if (target) {
+      return target;
+    }
   }
   return undefined;
 }
 
 /** Return an explicit `types` condition when the export declares one. */
 function typeExportTarget(value) {
-  if (!value || typeof value !== 'object') return undefined;
+  if (!value || typeof value !== 'object') {
+    return undefined;
+  }
   return typeof value.types === 'string'
     ? value.types
     : typeExportTarget(value.types);
