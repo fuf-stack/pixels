@@ -276,3 +276,20 @@ background showcases. Keyboard dismissal is exercised in an interaction story.
 The direct `@heroui/alert` dependency and Alert's HeroUI theme import are removed.
 
 [Alert usage](../../packages/pixels/src/Alert/README.md)
+
+## Breadcrumb
+
+Breadcrumb now owns its navigation landmark, item rendering, collapse policy and
+styling, with React Aria hooks for associations and focus. Public content-only
+items, disabled behavior, treatments, sizes and separators remain supported.
+The current page stays outside tab navigation. Long paths keep the first and
+last two items, with the same collapse threshold as before.
+
+The collapsed indicator now has an accessible name and correctly receives the
+public `ellipsis` styling slot, previously mapped to `separator` by the wrapper.
+All 12 captured light/dark screenshots match the baseline. The collapsed-item
+name fixes the previous accessibility finding, existing contrast findings are
+unchanged. A keyboard story verifies Tab skips disabled items and the current page.
+The direct `@heroui/breadcrumbs` dependency is removed.
+
+[Breadcrumb usage](../../packages/pixels/src/Breadcrumb/README.md)

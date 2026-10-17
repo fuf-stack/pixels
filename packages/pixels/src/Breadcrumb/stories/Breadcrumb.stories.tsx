@@ -3,12 +3,17 @@ import type { BreadcrumbProps } from '../Breadcrumb';
 
 import Breadcrumb from '../Breadcrumb';
 
+// -----------------------------------------------------------------------------
+// Story base setup
+// -----------------------------------------------------------------------------
+
 const meta: Meta<typeof Breadcrumb> = {
   title: 'pixels/Breadcrumb',
   component: Breadcrumb,
 };
 
 export default meta;
+
 type Story = StoryObj<typeof Breadcrumb>;
 
 const breadcrumbItems = [
@@ -28,6 +33,10 @@ const breadcrumbItems = [
     children: 'Song',
   },
 ];
+
+// -----------------------------------------------------------------------------
+// Normal stories
+// -----------------------------------------------------------------------------
 
 export const Default: Story = {
   args: {
@@ -121,5 +130,13 @@ export const AllUnderlines: Story = {
         })}
       </>
     );
+  },
+};
+
+export const CustomStyling: Story = {
+  args: {
+    breadcrumbItems,
+    maxItems: 3,
+    className: { ellipsis: 'text-danger', item: 'text-base', nav: 'p-4' },
   },
 };

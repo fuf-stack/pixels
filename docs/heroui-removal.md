@@ -107,6 +107,12 @@ Alert now owns its message layout, icons, palette and native close action.
 The direct `@heroui/alert` dependency and Alert's HeroUI theme import are removed.
 See [Pixels migration notes](./pixels/migration.md#alert).
 
+## Pixels Breadcrumb
+
+Breadcrumb uses owned recipes and React Aria hooks for its landmark and item
+associations. The direct `@heroui/breadcrumbs` dependency is removed. See the
+[Pixels migration notes](./pixels/migration.md#breadcrumb).
+
 ## Implemented foundation
 
 - `TVProps` uses direct Tailwind Variants types.
@@ -130,9 +136,11 @@ Recipes retain raw metadata for extension. `resolve(recipe, props)` evaluates
 pixel-utils recipes using the consuming instance before slot classes merge.
 It cannot recover classes already discarded by an external HeroUI recipe.
 
-## Source inventory
+## Initial source inventory
 
-The table records explicitly declared slots, not inherited HeroUI slots. The
+This table records the migration baseline, including the original HeroUI imports
+and story counts. Completed migrations are tracked above. It records explicitly
+declared slots, not inherited HeroUI slots. The
 linked source is authoritative for public props, defaults, variants and callbacks;
 all component export paths in each package manifest must stay stable. A zero
 story count means no same-directory story, not necessarily no consumer coverage.

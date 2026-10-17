@@ -14,7 +14,7 @@ exports[`Story Snapshots > AllSizes 1`] = `
       data-slot="base"
     >
       <ol
-        class="flex flex-wrap list-none rounded-none"
+        class="flex list-none flex-wrap rounded-none"
         data-slot="list"
       >
         <li
@@ -22,7 +22,7 @@ exports[`Story Snapshots > AllSizes 1`] = `
           data-slot="base"
         >
           <span
-            class="flex gap-1 items-center cursor-pointer whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-foreground/50 text-tiny hover:underline hover:opacity-hover active:opacity-disabled transition-opacity"
+            class="flex cursor-pointer items-center gap-1 whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus hover:opacity-hover active:opacity-disabled text-foreground/50 transition-opacity motion-reduce:transition-none text-tiny hover:underline"
             data-react-aria-pressable="true"
             data-slot="item"
             role="link"
@@ -38,9 +38,7 @@ exports[`Story Snapshots > AllSizes 1`] = `
             <svg
               aria-hidden="true"
               fill="none"
-              focusable="false"
               height="1em"
-              role="presentation"
               stroke="currentColor"
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -59,7 +57,7 @@ exports[`Story Snapshots > AllSizes 1`] = `
           data-slot="base"
         >
           <span
-            class="flex gap-1 items-center cursor-pointer whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-foreground/50 text-tiny hover:underline hover:opacity-hover active:opacity-disabled transition-opacity"
+            class="flex cursor-pointer items-center gap-1 whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus hover:opacity-hover active:opacity-disabled text-foreground/50 transition-opacity motion-reduce:transition-none text-tiny hover:underline"
             data-react-aria-pressable="true"
             data-slot="item"
             role="link"
@@ -75,9 +73,7 @@ exports[`Story Snapshots > AllSizes 1`] = `
             <svg
               aria-hidden="true"
               fill="none"
-              focusable="false"
               height="1em"
-              role="presentation"
               stroke="currentColor"
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -96,7 +92,7 @@ exports[`Story Snapshots > AllSizes 1`] = `
           data-slot="base"
         >
           <span
-            class="flex gap-1 items-center cursor-pointer whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-foreground/50 text-tiny hover:underline hover:opacity-hover active:opacity-disabled transition-opacity"
+            class="flex cursor-pointer items-center gap-1 whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus hover:opacity-hover active:opacity-disabled text-foreground/50 transition-opacity motion-reduce:transition-none text-tiny hover:underline"
             data-react-aria-pressable="true"
             data-slot="item"
             role="link"
@@ -112,9 +108,7 @@ exports[`Story Snapshots > AllSizes 1`] = `
             <svg
               aria-hidden="true"
               fill="none"
-              focusable="false"
               height="1em"
-              role="presentation"
               stroke="currentColor"
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -133,7 +127,7 @@ exports[`Story Snapshots > AllSizes 1`] = `
           data-slot="base"
         >
           <span
-            class="flex gap-1 items-center cursor-pointer whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-foreground/50 text-tiny hover:underline hover:opacity-hover active:opacity-disabled transition-opacity"
+            class="flex cursor-pointer items-center gap-1 whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus hover:opacity-hover active:opacity-disabled text-foreground/50 transition-opacity motion-reduce:transition-none text-tiny hover:underline"
             data-react-aria-pressable="true"
             data-slot="item"
             role="link"
@@ -149,9 +143,7 @@ exports[`Story Snapshots > AllSizes 1`] = `
             <svg
               aria-hidden="true"
               fill="none"
-              focusable="false"
               height="1em"
-              role="presentation"
               stroke="currentColor"
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -166,13 +158,13 @@ exports[`Story Snapshots > AllSizes 1`] = `
           </span>
         </li>
         <li
-          class="flex items-center"
+          class="flex items-center underline-offset-4"
           data-slot="base"
         >
           <span
             aria-current="page"
             aria-disabled="true"
-            class="flex gap-1 items-center whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny no-underline cursor-default transition-opacity text-foreground"
+            class="flex items-center gap-1 whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus hover:opacity-hover transition-opacity motion-reduce:transition-none text-tiny cursor-default no-underline hover:no-underline hover:opacity-100 focus:no-underline active:no-underline active:opacity-100 text-foreground"
             data-current="true"
             data-react-aria-pressable="true"
             data-slot="item"
@@ -196,7 +188,7 @@ exports[`Story Snapshots > AllSizes 1`] = `
       data-slot="base"
     >
       <ol
-        class="flex flex-wrap list-none rounded-none"
+        class="flex list-none flex-wrap rounded-none"
         data-slot="list"
       >
         <li
@@ -204,7 +196,7 @@ exports[`Story Snapshots > AllSizes 1`] = `
           data-slot="base"
         >
           <span
-            class="flex gap-1 items-center cursor-pointer whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-foreground/50 text-small hover:underline hover:opacity-hover active:opacity-disabled transition-opacity"
+            class="flex cursor-pointer items-center gap-1 whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus hover:opacity-hover active:opacity-disabled text-foreground/50 transition-opacity motion-reduce:transition-none text-small hover:underline"
             data-react-aria-pressable="true"
             data-slot="item"
             role="link"
@@ -220,9 +212,7 @@ exports[`Story Snapshots > AllSizes 1`] = `
             <svg
               aria-hidden="true"
               fill="none"
-              focusable="false"
               height="1em"
-              role="presentation"
               stroke="currentColor"
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -241,7 +231,7 @@ exports[`Story Snapshots > AllSizes 1`] = `
           data-slot="base"
         >
           <span
-            class="flex gap-1 items-center cursor-pointer whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-foreground/50 text-small hover:underline hover:opacity-hover active:opacity-disabled transition-opacity"
+            class="flex cursor-pointer items-center gap-1 whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus hover:opacity-hover active:opacity-disabled text-foreground/50 transition-opacity motion-reduce:transition-none text-small hover:underline"
             data-react-aria-pressable="true"
             data-slot="item"
             role="link"
@@ -257,9 +247,7 @@ exports[`Story Snapshots > AllSizes 1`] = `
             <svg
               aria-hidden="true"
               fill="none"
-              focusable="false"
               height="1em"
-              role="presentation"
               stroke="currentColor"
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -278,7 +266,7 @@ exports[`Story Snapshots > AllSizes 1`] = `
           data-slot="base"
         >
           <span
-            class="flex gap-1 items-center cursor-pointer whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-foreground/50 text-small hover:underline hover:opacity-hover active:opacity-disabled transition-opacity"
+            class="flex cursor-pointer items-center gap-1 whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus hover:opacity-hover active:opacity-disabled text-foreground/50 transition-opacity motion-reduce:transition-none text-small hover:underline"
             data-react-aria-pressable="true"
             data-slot="item"
             role="link"
@@ -294,9 +282,7 @@ exports[`Story Snapshots > AllSizes 1`] = `
             <svg
               aria-hidden="true"
               fill="none"
-              focusable="false"
               height="1em"
-              role="presentation"
               stroke="currentColor"
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -315,7 +301,7 @@ exports[`Story Snapshots > AllSizes 1`] = `
           data-slot="base"
         >
           <span
-            class="flex gap-1 items-center cursor-pointer whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-foreground/50 text-small hover:underline hover:opacity-hover active:opacity-disabled transition-opacity"
+            class="flex cursor-pointer items-center gap-1 whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus hover:opacity-hover active:opacity-disabled text-foreground/50 transition-opacity motion-reduce:transition-none text-small hover:underline"
             data-react-aria-pressable="true"
             data-slot="item"
             role="link"
@@ -331,9 +317,7 @@ exports[`Story Snapshots > AllSizes 1`] = `
             <svg
               aria-hidden="true"
               fill="none"
-              focusable="false"
               height="1em"
-              role="presentation"
               stroke="currentColor"
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -348,13 +332,13 @@ exports[`Story Snapshots > AllSizes 1`] = `
           </span>
         </li>
         <li
-          class="flex items-center"
+          class="flex items-center underline-offset-4"
           data-slot="base"
         >
           <span
             aria-current="page"
             aria-disabled="true"
-            class="flex gap-1 items-center whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small no-underline cursor-default transition-opacity text-foreground"
+            class="flex items-center gap-1 whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus hover:opacity-hover transition-opacity motion-reduce:transition-none text-small cursor-default no-underline hover:no-underline hover:opacity-100 focus:no-underline active:no-underline active:opacity-100 text-foreground"
             data-current="true"
             data-react-aria-pressable="true"
             data-slot="item"
@@ -378,7 +362,7 @@ exports[`Story Snapshots > AllSizes 1`] = `
       data-slot="base"
     >
       <ol
-        class="flex flex-wrap list-none rounded-none"
+        class="flex list-none flex-wrap rounded-none"
         data-slot="list"
       >
         <li
@@ -386,7 +370,7 @@ exports[`Story Snapshots > AllSizes 1`] = `
           data-slot="base"
         >
           <span
-            class="flex gap-1 items-center cursor-pointer whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-foreground/50 text-medium hover:underline hover:opacity-hover active:opacity-disabled transition-opacity"
+            class="flex cursor-pointer items-center gap-1 whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus hover:opacity-hover active:opacity-disabled text-foreground/50 transition-opacity motion-reduce:transition-none text-medium hover:underline"
             data-react-aria-pressable="true"
             data-slot="item"
             role="link"
@@ -402,9 +386,7 @@ exports[`Story Snapshots > AllSizes 1`] = `
             <svg
               aria-hidden="true"
               fill="none"
-              focusable="false"
               height="1em"
-              role="presentation"
               stroke="currentColor"
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -423,7 +405,7 @@ exports[`Story Snapshots > AllSizes 1`] = `
           data-slot="base"
         >
           <span
-            class="flex gap-1 items-center cursor-pointer whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-foreground/50 text-medium hover:underline hover:opacity-hover active:opacity-disabled transition-opacity"
+            class="flex cursor-pointer items-center gap-1 whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus hover:opacity-hover active:opacity-disabled text-foreground/50 transition-opacity motion-reduce:transition-none text-medium hover:underline"
             data-react-aria-pressable="true"
             data-slot="item"
             role="link"
@@ -439,9 +421,7 @@ exports[`Story Snapshots > AllSizes 1`] = `
             <svg
               aria-hidden="true"
               fill="none"
-              focusable="false"
               height="1em"
-              role="presentation"
               stroke="currentColor"
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -460,7 +440,7 @@ exports[`Story Snapshots > AllSizes 1`] = `
           data-slot="base"
         >
           <span
-            class="flex gap-1 items-center cursor-pointer whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-foreground/50 text-medium hover:underline hover:opacity-hover active:opacity-disabled transition-opacity"
+            class="flex cursor-pointer items-center gap-1 whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus hover:opacity-hover active:opacity-disabled text-foreground/50 transition-opacity motion-reduce:transition-none text-medium hover:underline"
             data-react-aria-pressable="true"
             data-slot="item"
             role="link"
@@ -476,9 +456,7 @@ exports[`Story Snapshots > AllSizes 1`] = `
             <svg
               aria-hidden="true"
               fill="none"
-              focusable="false"
               height="1em"
-              role="presentation"
               stroke="currentColor"
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -497,7 +475,7 @@ exports[`Story Snapshots > AllSizes 1`] = `
           data-slot="base"
         >
           <span
-            class="flex gap-1 items-center cursor-pointer whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-foreground/50 text-medium hover:underline hover:opacity-hover active:opacity-disabled transition-opacity"
+            class="flex cursor-pointer items-center gap-1 whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus hover:opacity-hover active:opacity-disabled text-foreground/50 transition-opacity motion-reduce:transition-none text-medium hover:underline"
             data-react-aria-pressable="true"
             data-slot="item"
             role="link"
@@ -513,9 +491,7 @@ exports[`Story Snapshots > AllSizes 1`] = `
             <svg
               aria-hidden="true"
               fill="none"
-              focusable="false"
               height="1em"
-              role="presentation"
               stroke="currentColor"
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -530,13 +506,13 @@ exports[`Story Snapshots > AllSizes 1`] = `
           </span>
         </li>
         <li
-          class="flex items-center"
+          class="flex items-center underline-offset-4"
           data-slot="base"
         >
           <span
             aria-current="page"
             aria-disabled="true"
-            class="flex gap-1 items-center whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-medium no-underline cursor-default transition-opacity text-foreground"
+            class="flex items-center gap-1 whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus hover:opacity-hover transition-opacity motion-reduce:transition-none text-medium cursor-default no-underline hover:no-underline hover:opacity-100 focus:no-underline active:no-underline active:opacity-100 text-foreground"
             data-current="true"
             data-react-aria-pressable="true"
             data-slot="item"
@@ -565,7 +541,7 @@ exports[`Story Snapshots > AllUnderlines 1`] = `
       data-slot="base"
     >
       <ol
-        class="flex flex-wrap list-none rounded-none"
+        class="flex list-none flex-wrap rounded-none"
         data-slot="list"
       >
         <li
@@ -573,7 +549,7 @@ exports[`Story Snapshots > AllUnderlines 1`] = `
           data-slot="base"
         >
           <span
-            class="flex gap-1 items-center cursor-pointer whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-foreground/50 text-small hover:opacity-hover active:opacity-disabled transition-opacity no-underline"
+            class="flex cursor-pointer items-center gap-1 whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus hover:opacity-hover active:opacity-disabled text-foreground/50 transition-opacity motion-reduce:transition-none text-small no-underline"
             data-react-aria-pressable="true"
             data-slot="item"
             role="link"
@@ -589,9 +565,7 @@ exports[`Story Snapshots > AllUnderlines 1`] = `
             <svg
               aria-hidden="true"
               fill="none"
-              focusable="false"
               height="1em"
-              role="presentation"
               stroke="currentColor"
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -610,7 +584,7 @@ exports[`Story Snapshots > AllUnderlines 1`] = `
           data-slot="base"
         >
           <span
-            class="flex gap-1 items-center cursor-pointer whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-foreground/50 text-small hover:opacity-hover active:opacity-disabled transition-opacity no-underline"
+            class="flex cursor-pointer items-center gap-1 whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus hover:opacity-hover active:opacity-disabled text-foreground/50 transition-opacity motion-reduce:transition-none text-small no-underline"
             data-react-aria-pressable="true"
             data-slot="item"
             role="link"
@@ -626,9 +600,7 @@ exports[`Story Snapshots > AllUnderlines 1`] = `
             <svg
               aria-hidden="true"
               fill="none"
-              focusable="false"
               height="1em"
-              role="presentation"
               stroke="currentColor"
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -647,7 +619,7 @@ exports[`Story Snapshots > AllUnderlines 1`] = `
           data-slot="base"
         >
           <span
-            class="flex gap-1 items-center cursor-pointer whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-foreground/50 text-small hover:opacity-hover active:opacity-disabled transition-opacity no-underline"
+            class="flex cursor-pointer items-center gap-1 whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus hover:opacity-hover active:opacity-disabled text-foreground/50 transition-opacity motion-reduce:transition-none text-small no-underline"
             data-react-aria-pressable="true"
             data-slot="item"
             role="link"
@@ -663,9 +635,7 @@ exports[`Story Snapshots > AllUnderlines 1`] = `
             <svg
               aria-hidden="true"
               fill="none"
-              focusable="false"
               height="1em"
-              role="presentation"
               stroke="currentColor"
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -684,7 +654,7 @@ exports[`Story Snapshots > AllUnderlines 1`] = `
           data-slot="base"
         >
           <span
-            class="flex gap-1 items-center cursor-pointer whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-foreground/50 text-small hover:opacity-hover active:opacity-disabled transition-opacity no-underline"
+            class="flex cursor-pointer items-center gap-1 whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus hover:opacity-hover active:opacity-disabled text-foreground/50 transition-opacity motion-reduce:transition-none text-small no-underline"
             data-react-aria-pressable="true"
             data-slot="item"
             role="link"
@@ -700,9 +670,7 @@ exports[`Story Snapshots > AllUnderlines 1`] = `
             <svg
               aria-hidden="true"
               fill="none"
-              focusable="false"
               height="1em"
-              role="presentation"
               stroke="currentColor"
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -723,7 +691,7 @@ exports[`Story Snapshots > AllUnderlines 1`] = `
           <span
             aria-current="page"
             aria-disabled="true"
-            class="flex gap-1 items-center whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small no-underline cursor-default transition-opacity text-foreground"
+            class="flex items-center gap-1 whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus hover:opacity-hover transition-opacity motion-reduce:transition-none text-small cursor-default no-underline hover:no-underline hover:opacity-100 focus:no-underline active:no-underline active:opacity-100 text-foreground"
             data-current="true"
             data-react-aria-pressable="true"
             data-slot="item"
@@ -747,7 +715,7 @@ exports[`Story Snapshots > AllUnderlines 1`] = `
       data-slot="base"
     >
       <ol
-        class="flex flex-wrap list-none rounded-none"
+        class="flex list-none flex-wrap rounded-none"
         data-slot="list"
       >
         <li
@@ -755,7 +723,7 @@ exports[`Story Snapshots > AllUnderlines 1`] = `
           data-slot="base"
         >
           <span
-            class="flex gap-1 items-center cursor-pointer whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-foreground/50 text-small active:underline hover:opacity-hover active:opacity-disabled transition-opacity"
+            class="flex cursor-pointer items-center gap-1 whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus hover:opacity-hover active:opacity-disabled text-foreground/50 transition-opacity motion-reduce:transition-none text-small active:underline"
             data-react-aria-pressable="true"
             data-slot="item"
             role="link"
@@ -771,9 +739,7 @@ exports[`Story Snapshots > AllUnderlines 1`] = `
             <svg
               aria-hidden="true"
               fill="none"
-              focusable="false"
               height="1em"
-              role="presentation"
               stroke="currentColor"
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -792,7 +758,7 @@ exports[`Story Snapshots > AllUnderlines 1`] = `
           data-slot="base"
         >
           <span
-            class="flex gap-1 items-center cursor-pointer whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-foreground/50 text-small active:underline hover:opacity-hover active:opacity-disabled transition-opacity"
+            class="flex cursor-pointer items-center gap-1 whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus hover:opacity-hover active:opacity-disabled text-foreground/50 transition-opacity motion-reduce:transition-none text-small active:underline"
             data-react-aria-pressable="true"
             data-slot="item"
             role="link"
@@ -808,9 +774,7 @@ exports[`Story Snapshots > AllUnderlines 1`] = `
             <svg
               aria-hidden="true"
               fill="none"
-              focusable="false"
               height="1em"
-              role="presentation"
               stroke="currentColor"
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -829,7 +793,7 @@ exports[`Story Snapshots > AllUnderlines 1`] = `
           data-slot="base"
         >
           <span
-            class="flex gap-1 items-center cursor-pointer whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-foreground/50 text-small active:underline hover:opacity-hover active:opacity-disabled transition-opacity"
+            class="flex cursor-pointer items-center gap-1 whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus hover:opacity-hover active:opacity-disabled text-foreground/50 transition-opacity motion-reduce:transition-none text-small active:underline"
             data-react-aria-pressable="true"
             data-slot="item"
             role="link"
@@ -845,9 +809,7 @@ exports[`Story Snapshots > AllUnderlines 1`] = `
             <svg
               aria-hidden="true"
               fill="none"
-              focusable="false"
               height="1em"
-              role="presentation"
               stroke="currentColor"
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -866,7 +828,7 @@ exports[`Story Snapshots > AllUnderlines 1`] = `
           data-slot="base"
         >
           <span
-            class="flex gap-1 items-center cursor-pointer whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-foreground/50 text-small active:underline hover:opacity-hover active:opacity-disabled transition-opacity"
+            class="flex cursor-pointer items-center gap-1 whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus hover:opacity-hover active:opacity-disabled text-foreground/50 transition-opacity motion-reduce:transition-none text-small active:underline"
             data-react-aria-pressable="true"
             data-slot="item"
             role="link"
@@ -882,9 +844,7 @@ exports[`Story Snapshots > AllUnderlines 1`] = `
             <svg
               aria-hidden="true"
               fill="none"
-              focusable="false"
               height="1em"
-              role="presentation"
               stroke="currentColor"
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -899,13 +859,13 @@ exports[`Story Snapshots > AllUnderlines 1`] = `
           </span>
         </li>
         <li
-          class="flex items-center"
+          class="flex items-center underline-offset-4"
           data-slot="base"
         >
           <span
             aria-current="page"
             aria-disabled="true"
-            class="flex gap-1 items-center whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small no-underline cursor-default transition-opacity text-foreground"
+            class="flex items-center gap-1 whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus hover:opacity-hover transition-opacity motion-reduce:transition-none text-small cursor-default no-underline hover:no-underline hover:opacity-100 focus:no-underline active:no-underline active:opacity-100 text-foreground"
             data-current="true"
             data-react-aria-pressable="true"
             data-slot="item"
@@ -929,7 +889,7 @@ exports[`Story Snapshots > AllUnderlines 1`] = `
       data-slot="base"
     >
       <ol
-        class="flex flex-wrap list-none rounded-none"
+        class="flex list-none flex-wrap rounded-none"
         data-slot="list"
       >
         <li
@@ -937,7 +897,7 @@ exports[`Story Snapshots > AllUnderlines 1`] = `
           data-slot="base"
         >
           <span
-            class="flex gap-1 items-center cursor-pointer whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-foreground/50 text-small hover:underline hover:opacity-hover active:opacity-disabled transition-opacity"
+            class="flex cursor-pointer items-center gap-1 whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus hover:opacity-hover active:opacity-disabled text-foreground/50 transition-opacity motion-reduce:transition-none text-small hover:underline"
             data-react-aria-pressable="true"
             data-slot="item"
             role="link"
@@ -953,9 +913,7 @@ exports[`Story Snapshots > AllUnderlines 1`] = `
             <svg
               aria-hidden="true"
               fill="none"
-              focusable="false"
               height="1em"
-              role="presentation"
               stroke="currentColor"
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -974,7 +932,7 @@ exports[`Story Snapshots > AllUnderlines 1`] = `
           data-slot="base"
         >
           <span
-            class="flex gap-1 items-center cursor-pointer whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-foreground/50 text-small hover:underline hover:opacity-hover active:opacity-disabled transition-opacity"
+            class="flex cursor-pointer items-center gap-1 whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus hover:opacity-hover active:opacity-disabled text-foreground/50 transition-opacity motion-reduce:transition-none text-small hover:underline"
             data-react-aria-pressable="true"
             data-slot="item"
             role="link"
@@ -990,9 +948,7 @@ exports[`Story Snapshots > AllUnderlines 1`] = `
             <svg
               aria-hidden="true"
               fill="none"
-              focusable="false"
               height="1em"
-              role="presentation"
               stroke="currentColor"
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -1011,7 +967,7 @@ exports[`Story Snapshots > AllUnderlines 1`] = `
           data-slot="base"
         >
           <span
-            class="flex gap-1 items-center cursor-pointer whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-foreground/50 text-small hover:underline hover:opacity-hover active:opacity-disabled transition-opacity"
+            class="flex cursor-pointer items-center gap-1 whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus hover:opacity-hover active:opacity-disabled text-foreground/50 transition-opacity motion-reduce:transition-none text-small hover:underline"
             data-react-aria-pressable="true"
             data-slot="item"
             role="link"
@@ -1027,9 +983,7 @@ exports[`Story Snapshots > AllUnderlines 1`] = `
             <svg
               aria-hidden="true"
               fill="none"
-              focusable="false"
               height="1em"
-              role="presentation"
               stroke="currentColor"
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -1048,7 +1002,7 @@ exports[`Story Snapshots > AllUnderlines 1`] = `
           data-slot="base"
         >
           <span
-            class="flex gap-1 items-center cursor-pointer whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-foreground/50 text-small hover:underline hover:opacity-hover active:opacity-disabled transition-opacity"
+            class="flex cursor-pointer items-center gap-1 whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus hover:opacity-hover active:opacity-disabled text-foreground/50 transition-opacity motion-reduce:transition-none text-small hover:underline"
             data-react-aria-pressable="true"
             data-slot="item"
             role="link"
@@ -1064,9 +1018,7 @@ exports[`Story Snapshots > AllUnderlines 1`] = `
             <svg
               aria-hidden="true"
               fill="none"
-              focusable="false"
               height="1em"
-              role="presentation"
               stroke="currentColor"
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -1081,13 +1033,13 @@ exports[`Story Snapshots > AllUnderlines 1`] = `
           </span>
         </li>
         <li
-          class="flex items-center"
+          class="flex items-center underline-offset-4"
           data-slot="base"
         >
           <span
             aria-current="page"
             aria-disabled="true"
-            class="flex gap-1 items-center whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small no-underline cursor-default transition-opacity text-foreground"
+            class="flex items-center gap-1 whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus hover:opacity-hover transition-opacity motion-reduce:transition-none text-small cursor-default no-underline hover:no-underline hover:opacity-100 focus:no-underline active:no-underline active:opacity-100 text-foreground"
             data-current="true"
             data-react-aria-pressable="true"
             data-slot="item"
@@ -1111,7 +1063,7 @@ exports[`Story Snapshots > AllUnderlines 1`] = `
       data-slot="base"
     >
       <ol
-        class="flex flex-wrap list-none rounded-none"
+        class="flex list-none flex-wrap rounded-none"
         data-slot="list"
       >
         <li
@@ -1119,7 +1071,7 @@ exports[`Story Snapshots > AllUnderlines 1`] = `
           data-slot="base"
         >
           <span
-            class="flex gap-1 items-center cursor-pointer whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-foreground/50 text-small focus:underline hover:opacity-hover active:opacity-disabled transition-opacity"
+            class="flex cursor-pointer items-center gap-1 whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus hover:opacity-hover active:opacity-disabled text-foreground/50 transition-opacity motion-reduce:transition-none text-small focus:underline"
             data-react-aria-pressable="true"
             data-slot="item"
             role="link"
@@ -1135,9 +1087,7 @@ exports[`Story Snapshots > AllUnderlines 1`] = `
             <svg
               aria-hidden="true"
               fill="none"
-              focusable="false"
               height="1em"
-              role="presentation"
               stroke="currentColor"
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -1156,7 +1106,7 @@ exports[`Story Snapshots > AllUnderlines 1`] = `
           data-slot="base"
         >
           <span
-            class="flex gap-1 items-center cursor-pointer whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-foreground/50 text-small focus:underline hover:opacity-hover active:opacity-disabled transition-opacity"
+            class="flex cursor-pointer items-center gap-1 whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus hover:opacity-hover active:opacity-disabled text-foreground/50 transition-opacity motion-reduce:transition-none text-small focus:underline"
             data-react-aria-pressable="true"
             data-slot="item"
             role="link"
@@ -1172,9 +1122,7 @@ exports[`Story Snapshots > AllUnderlines 1`] = `
             <svg
               aria-hidden="true"
               fill="none"
-              focusable="false"
               height="1em"
-              role="presentation"
               stroke="currentColor"
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -1193,7 +1141,7 @@ exports[`Story Snapshots > AllUnderlines 1`] = `
           data-slot="base"
         >
           <span
-            class="flex gap-1 items-center cursor-pointer whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-foreground/50 text-small focus:underline hover:opacity-hover active:opacity-disabled transition-opacity"
+            class="flex cursor-pointer items-center gap-1 whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus hover:opacity-hover active:opacity-disabled text-foreground/50 transition-opacity motion-reduce:transition-none text-small focus:underline"
             data-react-aria-pressable="true"
             data-slot="item"
             role="link"
@@ -1209,9 +1157,7 @@ exports[`Story Snapshots > AllUnderlines 1`] = `
             <svg
               aria-hidden="true"
               fill="none"
-              focusable="false"
               height="1em"
-              role="presentation"
               stroke="currentColor"
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -1230,7 +1176,7 @@ exports[`Story Snapshots > AllUnderlines 1`] = `
           data-slot="base"
         >
           <span
-            class="flex gap-1 items-center cursor-pointer whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-foreground/50 text-small focus:underline hover:opacity-hover active:opacity-disabled transition-opacity"
+            class="flex cursor-pointer items-center gap-1 whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus hover:opacity-hover active:opacity-disabled text-foreground/50 transition-opacity motion-reduce:transition-none text-small focus:underline"
             data-react-aria-pressable="true"
             data-slot="item"
             role="link"
@@ -1246,9 +1192,7 @@ exports[`Story Snapshots > AllUnderlines 1`] = `
             <svg
               aria-hidden="true"
               fill="none"
-              focusable="false"
               height="1em"
-              role="presentation"
               stroke="currentColor"
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -1263,13 +1207,13 @@ exports[`Story Snapshots > AllUnderlines 1`] = `
           </span>
         </li>
         <li
-          class="flex items-center"
+          class="flex items-center underline-offset-4"
           data-slot="base"
         >
           <span
             aria-current="page"
             aria-disabled="true"
-            class="flex gap-1 items-center whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small no-underline cursor-default transition-opacity text-foreground"
+            class="flex items-center gap-1 whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus hover:opacity-hover transition-opacity motion-reduce:transition-none text-small cursor-default no-underline hover:no-underline hover:opacity-100 focus:no-underline active:no-underline active:opacity-100 text-foreground"
             data-current="true"
             data-react-aria-pressable="true"
             data-slot="item"
@@ -1293,7 +1237,7 @@ exports[`Story Snapshots > AllUnderlines 1`] = `
       data-slot="base"
     >
       <ol
-        class="flex flex-wrap list-none rounded-none"
+        class="flex list-none flex-wrap rounded-none"
         data-slot="list"
       >
         <li
@@ -1301,7 +1245,7 @@ exports[`Story Snapshots > AllUnderlines 1`] = `
           data-slot="base"
         >
           <span
-            class="flex gap-1 items-center cursor-pointer whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-foreground/50 text-small underline hover:opacity-hover active:opacity-disabled transition-opacity"
+            class="flex cursor-pointer items-center gap-1 whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus hover:opacity-hover active:opacity-disabled text-foreground/50 transition-opacity motion-reduce:transition-none text-small underline"
             data-react-aria-pressable="true"
             data-slot="item"
             role="link"
@@ -1317,9 +1261,7 @@ exports[`Story Snapshots > AllUnderlines 1`] = `
             <svg
               aria-hidden="true"
               fill="none"
-              focusable="false"
               height="1em"
-              role="presentation"
               stroke="currentColor"
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -1338,7 +1280,7 @@ exports[`Story Snapshots > AllUnderlines 1`] = `
           data-slot="base"
         >
           <span
-            class="flex gap-1 items-center cursor-pointer whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-foreground/50 text-small underline hover:opacity-hover active:opacity-disabled transition-opacity"
+            class="flex cursor-pointer items-center gap-1 whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus hover:opacity-hover active:opacity-disabled text-foreground/50 transition-opacity motion-reduce:transition-none text-small underline"
             data-react-aria-pressable="true"
             data-slot="item"
             role="link"
@@ -1354,9 +1296,7 @@ exports[`Story Snapshots > AllUnderlines 1`] = `
             <svg
               aria-hidden="true"
               fill="none"
-              focusable="false"
               height="1em"
-              role="presentation"
               stroke="currentColor"
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -1375,7 +1315,7 @@ exports[`Story Snapshots > AllUnderlines 1`] = `
           data-slot="base"
         >
           <span
-            class="flex gap-1 items-center cursor-pointer whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-foreground/50 text-small underline hover:opacity-hover active:opacity-disabled transition-opacity"
+            class="flex cursor-pointer items-center gap-1 whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus hover:opacity-hover active:opacity-disabled text-foreground/50 transition-opacity motion-reduce:transition-none text-small underline"
             data-react-aria-pressable="true"
             data-slot="item"
             role="link"
@@ -1391,9 +1331,7 @@ exports[`Story Snapshots > AllUnderlines 1`] = `
             <svg
               aria-hidden="true"
               fill="none"
-              focusable="false"
               height="1em"
-              role="presentation"
               stroke="currentColor"
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -1412,7 +1350,7 @@ exports[`Story Snapshots > AllUnderlines 1`] = `
           data-slot="base"
         >
           <span
-            class="flex gap-1 items-center cursor-pointer whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-foreground/50 text-small underline hover:opacity-hover active:opacity-disabled transition-opacity"
+            class="flex cursor-pointer items-center gap-1 whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus hover:opacity-hover active:opacity-disabled text-foreground/50 transition-opacity motion-reduce:transition-none text-small underline"
             data-react-aria-pressable="true"
             data-slot="item"
             role="link"
@@ -1428,9 +1366,7 @@ exports[`Story Snapshots > AllUnderlines 1`] = `
             <svg
               aria-hidden="true"
               fill="none"
-              focusable="false"
               height="1em"
-              role="presentation"
               stroke="currentColor"
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -1445,13 +1381,13 @@ exports[`Story Snapshots > AllUnderlines 1`] = `
           </span>
         </li>
         <li
-          class="flex items-center"
+          class="flex items-center underline-offset-4"
           data-slot="base"
         >
           <span
             aria-current="page"
             aria-disabled="true"
-            class="flex gap-1 items-center whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small no-underline cursor-default transition-opacity text-foreground"
+            class="flex items-center gap-1 whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus hover:opacity-hover transition-opacity motion-reduce:transition-none text-small cursor-default no-underline hover:no-underline hover:opacity-100 focus:no-underline active:no-underline active:opacity-100 text-foreground"
             data-current="true"
             data-react-aria-pressable="true"
             data-slot="item"
@@ -1481,7 +1417,7 @@ exports[`Story Snapshots > AllVariants 1`] = `
       data-slot="base"
     >
       <ol
-        class="flex flex-wrap list-none rounded-none bg-default-100 max-w-fit px-2.5 py-1.5"
+        class="flex list-none flex-wrap rounded-none max-w-fit bg-default-100 px-2.5 py-1.5"
         data-slot="list"
       >
         <li
@@ -1489,7 +1425,7 @@ exports[`Story Snapshots > AllVariants 1`] = `
           data-slot="base"
         >
           <span
-            class="flex gap-1 items-center cursor-pointer whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-foreground/50 text-small hover:underline hover:opacity-hover active:opacity-disabled transition-opacity"
+            class="flex cursor-pointer items-center gap-1 whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus hover:opacity-hover active:opacity-disabled text-foreground/50 transition-opacity motion-reduce:transition-none text-small hover:underline"
             data-react-aria-pressable="true"
             data-slot="item"
             role="link"
@@ -1505,9 +1441,7 @@ exports[`Story Snapshots > AllVariants 1`] = `
             <svg
               aria-hidden="true"
               fill="none"
-              focusable="false"
               height="1em"
-              role="presentation"
               stroke="currentColor"
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -1526,7 +1460,7 @@ exports[`Story Snapshots > AllVariants 1`] = `
           data-slot="base"
         >
           <span
-            class="flex gap-1 items-center cursor-pointer whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-foreground/50 text-small hover:underline hover:opacity-hover active:opacity-disabled transition-opacity"
+            class="flex cursor-pointer items-center gap-1 whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus hover:opacity-hover active:opacity-disabled text-foreground/50 transition-opacity motion-reduce:transition-none text-small hover:underline"
             data-react-aria-pressable="true"
             data-slot="item"
             role="link"
@@ -1542,9 +1476,7 @@ exports[`Story Snapshots > AllVariants 1`] = `
             <svg
               aria-hidden="true"
               fill="none"
-              focusable="false"
               height="1em"
-              role="presentation"
               stroke="currentColor"
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -1563,7 +1495,7 @@ exports[`Story Snapshots > AllVariants 1`] = `
           data-slot="base"
         >
           <span
-            class="flex gap-1 items-center cursor-pointer whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-foreground/50 text-small hover:underline hover:opacity-hover active:opacity-disabled transition-opacity"
+            class="flex cursor-pointer items-center gap-1 whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus hover:opacity-hover active:opacity-disabled text-foreground/50 transition-opacity motion-reduce:transition-none text-small hover:underline"
             data-react-aria-pressable="true"
             data-slot="item"
             role="link"
@@ -1579,9 +1511,7 @@ exports[`Story Snapshots > AllVariants 1`] = `
             <svg
               aria-hidden="true"
               fill="none"
-              focusable="false"
               height="1em"
-              role="presentation"
               stroke="currentColor"
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -1600,7 +1530,7 @@ exports[`Story Snapshots > AllVariants 1`] = `
           data-slot="base"
         >
           <span
-            class="flex gap-1 items-center cursor-pointer whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-foreground/50 text-small hover:underline hover:opacity-hover active:opacity-disabled transition-opacity"
+            class="flex cursor-pointer items-center gap-1 whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus hover:opacity-hover active:opacity-disabled text-foreground/50 transition-opacity motion-reduce:transition-none text-small hover:underline"
             data-react-aria-pressable="true"
             data-slot="item"
             role="link"
@@ -1616,9 +1546,7 @@ exports[`Story Snapshots > AllVariants 1`] = `
             <svg
               aria-hidden="true"
               fill="none"
-              focusable="false"
               height="1em"
-              role="presentation"
               stroke="currentColor"
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -1633,13 +1561,13 @@ exports[`Story Snapshots > AllVariants 1`] = `
           </span>
         </li>
         <li
-          class="flex items-center"
+          class="flex items-center underline-offset-4"
           data-slot="base"
         >
           <span
             aria-current="page"
             aria-disabled="true"
-            class="flex gap-1 items-center whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small no-underline cursor-default transition-opacity text-foreground"
+            class="flex items-center gap-1 whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus hover:opacity-hover transition-opacity motion-reduce:transition-none text-small cursor-default no-underline hover:no-underline hover:opacity-100 focus:no-underline active:no-underline active:opacity-100 text-foreground"
             data-current="true"
             data-react-aria-pressable="true"
             data-slot="item"
@@ -1664,7 +1592,7 @@ exports[`Story Snapshots > AllVariants 1`] = `
       data-slot="base"
     >
       <ol
-        class="flex flex-wrap list-none rounded-none border-medium border-default-200 shadow-xs max-w-fit px-2.5 py-1.5"
+        class="flex list-none flex-wrap rounded-none shadow-xs max-w-fit border-medium border-default-200 px-2.5 py-1.5"
         data-slot="list"
       >
         <li
@@ -1672,7 +1600,7 @@ exports[`Story Snapshots > AllVariants 1`] = `
           data-slot="base"
         >
           <span
-            class="flex gap-1 items-center cursor-pointer whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-foreground/50 text-small hover:underline hover:opacity-hover active:opacity-disabled transition-opacity"
+            class="flex cursor-pointer items-center gap-1 whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus hover:opacity-hover active:opacity-disabled text-foreground/50 transition-opacity motion-reduce:transition-none text-small hover:underline"
             data-react-aria-pressable="true"
             data-slot="item"
             role="link"
@@ -1688,9 +1616,7 @@ exports[`Story Snapshots > AllVariants 1`] = `
             <svg
               aria-hidden="true"
               fill="none"
-              focusable="false"
               height="1em"
-              role="presentation"
               stroke="currentColor"
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -1709,7 +1635,7 @@ exports[`Story Snapshots > AllVariants 1`] = `
           data-slot="base"
         >
           <span
-            class="flex gap-1 items-center cursor-pointer whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-foreground/50 text-small hover:underline hover:opacity-hover active:opacity-disabled transition-opacity"
+            class="flex cursor-pointer items-center gap-1 whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus hover:opacity-hover active:opacity-disabled text-foreground/50 transition-opacity motion-reduce:transition-none text-small hover:underline"
             data-react-aria-pressable="true"
             data-slot="item"
             role="link"
@@ -1725,9 +1651,7 @@ exports[`Story Snapshots > AllVariants 1`] = `
             <svg
               aria-hidden="true"
               fill="none"
-              focusable="false"
               height="1em"
-              role="presentation"
               stroke="currentColor"
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -1746,7 +1670,7 @@ exports[`Story Snapshots > AllVariants 1`] = `
           data-slot="base"
         >
           <span
-            class="flex gap-1 items-center cursor-pointer whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-foreground/50 text-small hover:underline hover:opacity-hover active:opacity-disabled transition-opacity"
+            class="flex cursor-pointer items-center gap-1 whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus hover:opacity-hover active:opacity-disabled text-foreground/50 transition-opacity motion-reduce:transition-none text-small hover:underline"
             data-react-aria-pressable="true"
             data-slot="item"
             role="link"
@@ -1762,9 +1686,7 @@ exports[`Story Snapshots > AllVariants 1`] = `
             <svg
               aria-hidden="true"
               fill="none"
-              focusable="false"
               height="1em"
-              role="presentation"
               stroke="currentColor"
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -1783,7 +1705,7 @@ exports[`Story Snapshots > AllVariants 1`] = `
           data-slot="base"
         >
           <span
-            class="flex gap-1 items-center cursor-pointer whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-foreground/50 text-small hover:underline hover:opacity-hover active:opacity-disabled transition-opacity"
+            class="flex cursor-pointer items-center gap-1 whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus hover:opacity-hover active:opacity-disabled text-foreground/50 transition-opacity motion-reduce:transition-none text-small hover:underline"
             data-react-aria-pressable="true"
             data-slot="item"
             role="link"
@@ -1799,9 +1721,7 @@ exports[`Story Snapshots > AllVariants 1`] = `
             <svg
               aria-hidden="true"
               fill="none"
-              focusable="false"
               height="1em"
-              role="presentation"
               stroke="currentColor"
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -1816,13 +1736,13 @@ exports[`Story Snapshots > AllVariants 1`] = `
           </span>
         </li>
         <li
-          class="flex items-center"
+          class="flex items-center underline-offset-4"
           data-slot="base"
         >
           <span
             aria-current="page"
             aria-disabled="true"
-            class="flex gap-1 items-center whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small no-underline cursor-default transition-opacity text-foreground"
+            class="flex items-center gap-1 whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus hover:opacity-hover transition-opacity motion-reduce:transition-none text-small cursor-default no-underline hover:no-underline hover:opacity-100 focus:no-underline active:no-underline active:opacity-100 text-foreground"
             data-current="true"
             data-react-aria-pressable="true"
             data-slot="item"
@@ -1847,7 +1767,7 @@ exports[`Story Snapshots > AllVariants 1`] = `
       data-slot="base"
     >
       <ol
-        class="flex flex-wrap list-none rounded-none"
+        class="flex list-none flex-wrap rounded-none"
         data-slot="list"
       >
         <li
@@ -1855,7 +1775,7 @@ exports[`Story Snapshots > AllVariants 1`] = `
           data-slot="base"
         >
           <span
-            class="flex gap-1 items-center cursor-pointer whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-foreground/50 text-small hover:underline hover:opacity-hover active:opacity-disabled transition-opacity"
+            class="flex cursor-pointer items-center gap-1 whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus hover:opacity-hover active:opacity-disabled text-foreground/50 transition-opacity motion-reduce:transition-none text-small hover:underline"
             data-react-aria-pressable="true"
             data-slot="item"
             role="link"
@@ -1871,9 +1791,7 @@ exports[`Story Snapshots > AllVariants 1`] = `
             <svg
               aria-hidden="true"
               fill="none"
-              focusable="false"
               height="1em"
-              role="presentation"
               stroke="currentColor"
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -1892,7 +1810,7 @@ exports[`Story Snapshots > AllVariants 1`] = `
           data-slot="base"
         >
           <span
-            class="flex gap-1 items-center cursor-pointer whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-foreground/50 text-small hover:underline hover:opacity-hover active:opacity-disabled transition-opacity"
+            class="flex cursor-pointer items-center gap-1 whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus hover:opacity-hover active:opacity-disabled text-foreground/50 transition-opacity motion-reduce:transition-none text-small hover:underline"
             data-react-aria-pressable="true"
             data-slot="item"
             role="link"
@@ -1908,9 +1826,7 @@ exports[`Story Snapshots > AllVariants 1`] = `
             <svg
               aria-hidden="true"
               fill="none"
-              focusable="false"
               height="1em"
-              role="presentation"
               stroke="currentColor"
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -1929,7 +1845,7 @@ exports[`Story Snapshots > AllVariants 1`] = `
           data-slot="base"
         >
           <span
-            class="flex gap-1 items-center cursor-pointer whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-foreground/50 text-small hover:underline hover:opacity-hover active:opacity-disabled transition-opacity"
+            class="flex cursor-pointer items-center gap-1 whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus hover:opacity-hover active:opacity-disabled text-foreground/50 transition-opacity motion-reduce:transition-none text-small hover:underline"
             data-react-aria-pressable="true"
             data-slot="item"
             role="link"
@@ -1945,9 +1861,7 @@ exports[`Story Snapshots > AllVariants 1`] = `
             <svg
               aria-hidden="true"
               fill="none"
-              focusable="false"
               height="1em"
-              role="presentation"
               stroke="currentColor"
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -1966,7 +1880,7 @@ exports[`Story Snapshots > AllVariants 1`] = `
           data-slot="base"
         >
           <span
-            class="flex gap-1 items-center cursor-pointer whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-foreground/50 text-small hover:underline hover:opacity-hover active:opacity-disabled transition-opacity"
+            class="flex cursor-pointer items-center gap-1 whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus hover:opacity-hover active:opacity-disabled text-foreground/50 transition-opacity motion-reduce:transition-none text-small hover:underline"
             data-react-aria-pressable="true"
             data-slot="item"
             role="link"
@@ -1982,9 +1896,7 @@ exports[`Story Snapshots > AllVariants 1`] = `
             <svg
               aria-hidden="true"
               fill="none"
-              focusable="false"
               height="1em"
-              role="presentation"
               stroke="currentColor"
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -1999,13 +1911,13 @@ exports[`Story Snapshots > AllVariants 1`] = `
           </span>
         </li>
         <li
-          class="flex items-center"
+          class="flex items-center underline-offset-4"
           data-slot="base"
         >
           <span
             aria-current="page"
             aria-disabled="true"
-            class="flex gap-1 items-center whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small no-underline cursor-default transition-opacity text-foreground"
+            class="flex items-center gap-1 whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus hover:opacity-hover transition-opacity motion-reduce:transition-none text-small cursor-default no-underline hover:no-underline hover:opacity-100 focus:no-underline active:no-underline active:opacity-100 text-foreground"
             data-current="true"
             data-react-aria-pressable="true"
             data-slot="item"
@@ -2020,14 +1932,15 @@ exports[`Story Snapshots > AllVariants 1`] = `
 </div>
 `;
 
-exports[`Story Snapshots > Default 1`] = `
+exports[`Story Snapshots > CustomStyling 1`] = `
 <div>
   <nav
     aria-label="Breadcrumbs"
+    class="p-4"
     data-slot="base"
   >
     <ol
-      class="flex flex-wrap list-none rounded-none"
+      class="flex list-none flex-wrap rounded-none"
       data-slot="list"
     >
       <li
@@ -2035,7 +1948,7 @@ exports[`Story Snapshots > Default 1`] = `
         data-slot="base"
       >
         <span
-          class="flex gap-1 items-center cursor-pointer whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-foreground/50 text-small hover:underline hover:opacity-hover active:opacity-disabled transition-opacity"
+          class="flex cursor-pointer items-center gap-1 whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus hover:opacity-hover active:opacity-disabled text-foreground/50 transition-opacity motion-reduce:transition-none hover:underline text-base"
           data-react-aria-pressable="true"
           data-slot="item"
           role="link"
@@ -2051,9 +1964,7 @@ exports[`Story Snapshots > Default 1`] = `
           <svg
             aria-hidden="true"
             fill="none"
-            focusable="false"
             height="1em"
-            role="presentation"
             stroke="currentColor"
             stroke-linecap="round"
             stroke-linejoin="round"
@@ -2072,13 +1983,45 @@ exports[`Story Snapshots > Default 1`] = `
         data-slot="base"
       >
         <span
-          class="flex gap-1 items-center cursor-pointer whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-foreground/50 text-small hover:underline hover:opacity-hover active:opacity-disabled transition-opacity"
+          aria-label="Collapsed breadcrumbs"
+          class="flex cursor-pointer items-center gap-1 whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus hover:opacity-hover active:opacity-disabled text-foreground/50 transition-opacity motion-reduce:transition-none hover:underline text-base"
           data-react-aria-pressable="true"
           data-slot="item"
           role="link"
           tabindex="0"
         >
-          Music
+          <svg
+            aria-hidden="true"
+            class="text-medium text-danger"
+            data-slot="ellipsis"
+            fill="none"
+            height="1em"
+            shape-rendering="geometricPrecision"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="1.5"
+            viewBox="0 0 24 24"
+            width="1em"
+          >
+            <circle
+              cx="12"
+              cy="12"
+              fill="currentColor"
+              r="1"
+            />
+            <circle
+              cx="19"
+              cy="12"
+              fill="currentColor"
+              r="1"
+            />
+            <circle
+              cx="5"
+              cy="12"
+              fill="currentColor"
+              r="1"
+            />
+          </svg>
         </span>
         <span
           aria-hidden="true"
@@ -2088,9 +2031,7 @@ exports[`Story Snapshots > Default 1`] = `
           <svg
             aria-hidden="true"
             fill="none"
-            focusable="false"
             height="1em"
-            role="presentation"
             stroke="currentColor"
             stroke-linecap="round"
             stroke-linejoin="round"
@@ -2109,44 +2050,7 @@ exports[`Story Snapshots > Default 1`] = `
         data-slot="base"
       >
         <span
-          class="flex gap-1 items-center cursor-pointer whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-foreground/50 text-small hover:underline hover:opacity-hover active:opacity-disabled transition-opacity"
-          data-react-aria-pressable="true"
-          data-slot="item"
-          role="link"
-          tabindex="0"
-        >
-          Artist
-        </span>
-        <span
-          aria-hidden="true"
-          class="px-1 rtl:rotate-180 text-foreground/50"
-          data-slot="separator"
-        >
-          <svg
-            aria-hidden="true"
-            fill="none"
-            focusable="false"
-            height="1em"
-            role="presentation"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="1.5"
-            viewBox="0 0 24 24"
-            width="1em"
-          >
-            <path
-              d="m9 18 6-6-6-6"
-            />
-          </svg>
-        </span>
-      </li>
-      <li
-        class="flex items-center underline-offset-4"
-        data-slot="base"
-      >
-        <span
-          class="flex gap-1 items-center cursor-pointer whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-foreground/50 text-small hover:underline hover:opacity-hover active:opacity-disabled transition-opacity"
+          class="flex cursor-pointer items-center gap-1 whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus hover:opacity-hover active:opacity-disabled text-foreground/50 transition-opacity motion-reduce:transition-none hover:underline text-base"
           data-react-aria-pressable="true"
           data-slot="item"
           role="link"
@@ -2162,9 +2066,7 @@ exports[`Story Snapshots > Default 1`] = `
           <svg
             aria-hidden="true"
             fill="none"
-            focusable="false"
             height="1em"
-            role="presentation"
             stroke="currentColor"
             stroke-linecap="round"
             stroke-linejoin="round"
@@ -2179,13 +2081,13 @@ exports[`Story Snapshots > Default 1`] = `
         </span>
       </li>
       <li
-        class="flex items-center"
+        class="flex items-center underline-offset-4"
         data-slot="base"
       >
         <span
           aria-current="page"
           aria-disabled="true"
-          class="flex gap-1 items-center whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small no-underline cursor-default transition-opacity text-foreground"
+          class="flex items-center gap-1 whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus hover:opacity-hover transition-opacity motion-reduce:transition-none cursor-default no-underline hover:no-underline hover:opacity-100 focus:no-underline active:no-underline active:opacity-100 text-foreground text-base"
           data-current="true"
           data-react-aria-pressable="true"
           data-slot="item"
@@ -2199,14 +2101,14 @@ exports[`Story Snapshots > Default 1`] = `
 </div>
 `;
 
-exports[`Story Snapshots > WithMaxItems 1`] = `
+exports[`Story Snapshots > Default 1`] = `
 <div>
   <nav
     aria-label="Breadcrumbs"
     data-slot="base"
   >
     <ol
-      class="flex flex-wrap list-none rounded-none"
+      class="flex list-none flex-wrap rounded-none"
       data-slot="list"
     >
       <li
@@ -2214,7 +2116,7 @@ exports[`Story Snapshots > WithMaxItems 1`] = `
         data-slot="base"
       >
         <span
-          class="flex gap-1 items-center cursor-pointer whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-foreground/50 text-small hover:underline hover:opacity-hover active:opacity-disabled transition-opacity"
+          class="flex cursor-pointer items-center gap-1 whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus hover:opacity-hover active:opacity-disabled text-foreground/50 transition-opacity motion-reduce:transition-none text-small hover:underline"
           data-react-aria-pressable="true"
           data-slot="item"
           role="link"
@@ -2230,9 +2132,7 @@ exports[`Story Snapshots > WithMaxItems 1`] = `
           <svg
             aria-hidden="true"
             fill="none"
-            focusable="false"
             height="1em"
-            role="presentation"
             stroke="currentColor"
             stroke-linecap="round"
             stroke-linejoin="round"
@@ -2251,7 +2151,463 @@ exports[`Story Snapshots > WithMaxItems 1`] = `
         data-slot="base"
       >
         <span
-          class="flex gap-1 items-center cursor-pointer whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-foreground/50 text-small hover:underline hover:opacity-hover active:opacity-disabled transition-opacity"
+          class="flex cursor-pointer items-center gap-1 whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus hover:opacity-hover active:opacity-disabled text-foreground/50 transition-opacity motion-reduce:transition-none text-small hover:underline"
+          data-react-aria-pressable="true"
+          data-slot="item"
+          role="link"
+          tabindex="0"
+        >
+          Music
+        </span>
+        <span
+          aria-hidden="true"
+          class="px-1 rtl:rotate-180 text-foreground/50"
+          data-slot="separator"
+        >
+          <svg
+            aria-hidden="true"
+            fill="none"
+            height="1em"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="1.5"
+            viewBox="0 0 24 24"
+            width="1em"
+          >
+            <path
+              d="m9 18 6-6-6-6"
+            />
+          </svg>
+        </span>
+      </li>
+      <li
+        class="flex items-center underline-offset-4"
+        data-slot="base"
+      >
+        <span
+          class="flex cursor-pointer items-center gap-1 whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus hover:opacity-hover active:opacity-disabled text-foreground/50 transition-opacity motion-reduce:transition-none text-small hover:underline"
+          data-react-aria-pressable="true"
+          data-slot="item"
+          role="link"
+          tabindex="0"
+        >
+          Artist
+        </span>
+        <span
+          aria-hidden="true"
+          class="px-1 rtl:rotate-180 text-foreground/50"
+          data-slot="separator"
+        >
+          <svg
+            aria-hidden="true"
+            fill="none"
+            height="1em"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="1.5"
+            viewBox="0 0 24 24"
+            width="1em"
+          >
+            <path
+              d="m9 18 6-6-6-6"
+            />
+          </svg>
+        </span>
+      </li>
+      <li
+        class="flex items-center underline-offset-4"
+        data-slot="base"
+      >
+        <span
+          class="flex cursor-pointer items-center gap-1 whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus hover:opacity-hover active:opacity-disabled text-foreground/50 transition-opacity motion-reduce:transition-none text-small hover:underline"
+          data-react-aria-pressable="true"
+          data-slot="item"
+          role="link"
+          tabindex="0"
+        >
+          Album
+        </span>
+        <span
+          aria-hidden="true"
+          class="px-1 rtl:rotate-180 text-foreground/50"
+          data-slot="separator"
+        >
+          <svg
+            aria-hidden="true"
+            fill="none"
+            height="1em"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="1.5"
+            viewBox="0 0 24 24"
+            width="1em"
+          >
+            <path
+              d="m9 18 6-6-6-6"
+            />
+          </svg>
+        </span>
+      </li>
+      <li
+        class="flex items-center underline-offset-4"
+        data-slot="base"
+      >
+        <span
+          aria-current="page"
+          aria-disabled="true"
+          class="flex items-center gap-1 whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus hover:opacity-hover transition-opacity motion-reduce:transition-none text-small cursor-default no-underline hover:no-underline hover:opacity-100 focus:no-underline active:no-underline active:opacity-100 text-foreground"
+          data-current="true"
+          data-react-aria-pressable="true"
+          data-slot="item"
+          role="link"
+        >
+          Song
+        </span>
+      </li>
+    </ol>
+  </nav>
+</div>
+`;
+
+exports[`Story Snapshots > Disabled 1`] = `
+<div>
+  <nav
+    aria-label="Breadcrumbs"
+    data-slot="base"
+  >
+    <ol
+      class="flex list-none flex-wrap rounded-none"
+      data-slot="list"
+    >
+      <li
+        class="flex items-center underline-offset-4"
+        data-slot="base"
+      >
+        <span
+          aria-disabled="true"
+          class="flex cursor-pointer items-center gap-1 whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus hover:opacity-hover active:opacity-disabled text-foreground/50 pointer-events-none opacity-disabled transition-opacity motion-reduce:transition-none text-small hover:underline"
+          data-disabled="true"
+          data-react-aria-pressable="true"
+          data-slot="item"
+          role="link"
+        >
+          Home
+        </span>
+        <span
+          aria-hidden="true"
+          class="px-1 rtl:rotate-180 text-foreground/50 opacity-disabled"
+          data-disabled="true"
+          data-slot="separator"
+        >
+          <svg
+            aria-hidden="true"
+            fill="none"
+            height="1em"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="1.5"
+            viewBox="0 0 24 24"
+            width="1em"
+          >
+            <path
+              d="m9 18 6-6-6-6"
+            />
+          </svg>
+        </span>
+      </li>
+      <li
+        class="flex items-center underline-offset-4"
+        data-slot="base"
+      >
+        <span
+          aria-current="page"
+          aria-disabled="true"
+          class="flex items-center gap-1 whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus hover:opacity-hover pointer-events-none opacity-disabled transition-opacity motion-reduce:transition-none text-small cursor-default no-underline hover:no-underline hover:opacity-100 focus:no-underline active:no-underline active:opacity-100 text-foreground"
+          data-current="true"
+          data-disabled="true"
+          data-react-aria-pressable="true"
+          data-slot="item"
+          role="link"
+        >
+          Current
+        </span>
+      </li>
+    </ol>
+  </nav>
+</div>
+`;
+
+exports[`Story Snapshots > Empty 1`] = `
+<div>
+  <nav
+    aria-label="Breadcrumbs"
+    data-slot="base"
+  >
+    <ol
+      class="flex list-none flex-wrap rounded-none"
+      data-slot="list"
+    />
+  </nav>
+</div>
+`;
+
+exports[`Story Snapshots > KeyboardNavigation 1`] = `
+<div>
+  <nav
+    aria-label="Breadcrumbs"
+    data-slot="base"
+  >
+    <ol
+      class="flex list-none flex-wrap rounded-none"
+      data-slot="list"
+    >
+      <li
+        class="flex items-center underline-offset-4"
+        data-slot="base"
+      >
+        <span
+          class="flex cursor-pointer items-center gap-1 whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus hover:opacity-hover active:opacity-disabled text-foreground/50 transition-opacity motion-reduce:transition-none text-small hover:underline"
+          data-react-aria-pressable="true"
+          data-slot="item"
+          role="link"
+          tabindex="0"
+        >
+          Home
+        </span>
+        <span
+          aria-hidden="true"
+          class="px-1 rtl:rotate-180 text-foreground/50"
+          data-slot="separator"
+        >
+          <svg
+            aria-hidden="true"
+            fill="none"
+            height="1em"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="1.5"
+            viewBox="0 0 24 24"
+            width="1em"
+          >
+            <path
+              d="m9 18 6-6-6-6"
+            />
+          </svg>
+        </span>
+      </li>
+      <li
+        class="flex items-center underline-offset-4"
+        data-slot="base"
+      >
+        <span
+          aria-disabled="true"
+          class="flex cursor-pointer items-center gap-1 whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus hover:opacity-hover active:opacity-disabled text-foreground/50 pointer-events-none opacity-disabled transition-opacity motion-reduce:transition-none text-small hover:underline"
+          data-disabled="true"
+          data-react-aria-pressable="true"
+          data-slot="item"
+          role="link"
+        >
+          Unavailable
+        </span>
+        <span
+          aria-hidden="true"
+          class="px-1 rtl:rotate-180 text-foreground/50 opacity-disabled"
+          data-disabled="true"
+          data-slot="separator"
+        >
+          <svg
+            aria-hidden="true"
+            fill="none"
+            height="1em"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="1.5"
+            viewBox="0 0 24 24"
+            width="1em"
+          >
+            <path
+              d="m9 18 6-6-6-6"
+            />
+          </svg>
+        </span>
+      </li>
+      <li
+        class="flex items-center underline-offset-4"
+        data-slot="base"
+      >
+        <span
+          class="flex cursor-pointer items-center gap-1 whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus hover:opacity-hover active:opacity-disabled text-foreground/50 transition-opacity motion-reduce:transition-none text-small hover:underline"
+          data-react-aria-pressable="true"
+          data-slot="item"
+          role="link"
+          tabindex="0"
+        >
+          Parent
+        </span>
+        <span
+          aria-hidden="true"
+          class="px-1 rtl:rotate-180 text-foreground/50"
+          data-slot="separator"
+        >
+          <svg
+            aria-hidden="true"
+            fill="none"
+            height="1em"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="1.5"
+            viewBox="0 0 24 24"
+            width="1em"
+          >
+            <path
+              d="m9 18 6-6-6-6"
+            />
+          </svg>
+        </span>
+      </li>
+      <li
+        class="flex items-center underline-offset-4"
+        data-slot="base"
+      >
+        <span
+          aria-current="page"
+          aria-disabled="true"
+          class="flex items-center gap-1 whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus hover:opacity-hover transition-opacity motion-reduce:transition-none text-small cursor-default no-underline hover:no-underline hover:opacity-100 focus:no-underline active:no-underline active:opacity-100 text-foreground"
+          data-current="true"
+          data-react-aria-pressable="true"
+          data-slot="item"
+          role="link"
+        >
+          Current
+        </span>
+      </li>
+    </ol>
+  </nav>
+  <button
+    type="button"
+  >
+    After breadcrumb
+  </button>
+</div>
+`;
+
+exports[`Story Snapshots > RichContent 1`] = `
+<div>
+  <nav
+    aria-label="Breadcrumbs"
+    data-slot="base"
+  >
+    <ol
+      class="flex list-none flex-wrap rounded-none"
+      data-slot="list"
+    >
+      <li
+        class="flex items-center underline-offset-4"
+        data-slot="base"
+      >
+        <span
+          class="flex cursor-pointer items-center gap-1 whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus hover:opacity-hover active:opacity-disabled text-foreground/50 transition-opacity motion-reduce:transition-none text-small hover:underline"
+          data-react-aria-pressable="true"
+          data-slot="item"
+          role="link"
+          tabindex="0"
+        >
+          <span
+            aria-hidden="true"
+          >
+            ⌂
+          </span>
+          Home
+        </span>
+        <span
+          aria-hidden="true"
+          class="px-1 rtl:rotate-180 text-foreground/50"
+          data-slot="separator"
+        />
+      </li>
+      <li
+        class="flex items-center underline-offset-4"
+        data-slot="base"
+      >
+        <span
+          aria-current="page"
+          aria-disabled="true"
+          class="flex items-center gap-1 whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus hover:opacity-hover transition-opacity motion-reduce:transition-none text-small cursor-default no-underline hover:no-underline hover:opacity-100 focus:no-underline active:no-underline active:opacity-100 text-foreground"
+          data-current="true"
+          data-react-aria-pressable="true"
+          data-slot="item"
+          role="link"
+        >
+          Current
+          <span>
+            (3)
+          </span>
+        </span>
+      </li>
+    </ol>
+  </nav>
+</div>
+`;
+
+exports[`Story Snapshots > WithMaxItems 1`] = `
+<div>
+  <nav
+    aria-label="Breadcrumbs"
+    data-slot="base"
+  >
+    <ol
+      class="flex list-none flex-wrap rounded-none"
+      data-slot="list"
+    >
+      <li
+        class="flex items-center underline-offset-4"
+        data-slot="base"
+      >
+        <span
+          class="flex cursor-pointer items-center gap-1 whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus hover:opacity-hover active:opacity-disabled text-foreground/50 transition-opacity motion-reduce:transition-none text-small hover:underline"
+          data-react-aria-pressable="true"
+          data-slot="item"
+          role="link"
+          tabindex="0"
+        >
+          Home
+        </span>
+        <span
+          aria-hidden="true"
+          class="px-1 rtl:rotate-180 text-foreground/50"
+          data-slot="separator"
+        >
+          <svg
+            aria-hidden="true"
+            fill="none"
+            height="1em"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="1.5"
+            viewBox="0 0 24 24"
+            width="1em"
+          >
+            <path
+              d="m9 18 6-6-6-6"
+            />
+          </svg>
+        </span>
+      </li>
+      <li
+        class="flex items-center underline-offset-4"
+        data-slot="base"
+      >
+        <span
+          aria-label="Collapsed breadcrumbs"
+          class="flex cursor-pointer items-center gap-1 whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus hover:opacity-hover active:opacity-disabled text-foreground/50 transition-opacity motion-reduce:transition-none text-small hover:underline"
           data-react-aria-pressable="true"
           data-slot="item"
           role="link"
@@ -2298,9 +2654,7 @@ exports[`Story Snapshots > WithMaxItems 1`] = `
           <svg
             aria-hidden="true"
             fill="none"
-            focusable="false"
             height="1em"
-            role="presentation"
             stroke="currentColor"
             stroke-linecap="round"
             stroke-linejoin="round"
@@ -2319,7 +2673,7 @@ exports[`Story Snapshots > WithMaxItems 1`] = `
         data-slot="base"
       >
         <span
-          class="flex gap-1 items-center cursor-pointer whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-foreground/50 text-small hover:underline hover:opacity-hover active:opacity-disabled transition-opacity"
+          class="flex cursor-pointer items-center gap-1 whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus hover:opacity-hover active:opacity-disabled text-foreground/50 transition-opacity motion-reduce:transition-none text-small hover:underline"
           data-react-aria-pressable="true"
           data-slot="item"
           role="link"
@@ -2335,9 +2689,7 @@ exports[`Story Snapshots > WithMaxItems 1`] = `
           <svg
             aria-hidden="true"
             fill="none"
-            focusable="false"
             height="1em"
-            role="presentation"
             stroke="currentColor"
             stroke-linecap="round"
             stroke-linejoin="round"
@@ -2352,13 +2704,13 @@ exports[`Story Snapshots > WithMaxItems 1`] = `
         </span>
       </li>
       <li
-        class="flex items-center"
+        class="flex items-center underline-offset-4"
         data-slot="base"
       >
         <span
           aria-current="page"
           aria-disabled="true"
-          class="flex gap-1 items-center whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small no-underline cursor-default transition-opacity text-foreground"
+          class="flex items-center gap-1 whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus hover:opacity-hover transition-opacity motion-reduce:transition-none text-small cursor-default no-underline hover:no-underline hover:opacity-100 focus:no-underline active:no-underline active:opacity-100 text-foreground"
           data-current="true"
           data-react-aria-pressable="true"
           data-slot="item"
@@ -2379,7 +2731,7 @@ exports[`Story Snapshots > WithSeparator 1`] = `
     data-slot="base"
   >
     <ol
-      class="flex flex-wrap list-none rounded-none"
+      class="flex list-none flex-wrap rounded-none"
       data-slot="list"
     >
       <li
@@ -2387,7 +2739,7 @@ exports[`Story Snapshots > WithSeparator 1`] = `
         data-slot="base"
       >
         <span
-          class="flex gap-1 items-center cursor-pointer whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-foreground/50 text-small hover:underline hover:opacity-hover active:opacity-disabled transition-opacity"
+          class="flex cursor-pointer items-center gap-1 whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus hover:opacity-hover active:opacity-disabled text-foreground/50 transition-opacity motion-reduce:transition-none text-small hover:underline"
           data-react-aria-pressable="true"
           data-slot="item"
           role="link"
@@ -2408,7 +2760,7 @@ exports[`Story Snapshots > WithSeparator 1`] = `
         data-slot="base"
       >
         <span
-          class="flex gap-1 items-center cursor-pointer whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-foreground/50 text-small hover:underline hover:opacity-hover active:opacity-disabled transition-opacity"
+          class="flex cursor-pointer items-center gap-1 whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus hover:opacity-hover active:opacity-disabled text-foreground/50 transition-opacity motion-reduce:transition-none text-small hover:underline"
           data-react-aria-pressable="true"
           data-slot="item"
           role="link"
@@ -2429,7 +2781,7 @@ exports[`Story Snapshots > WithSeparator 1`] = `
         data-slot="base"
       >
         <span
-          class="flex gap-1 items-center cursor-pointer whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-foreground/50 text-small hover:underline hover:opacity-hover active:opacity-disabled transition-opacity"
+          class="flex cursor-pointer items-center gap-1 whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus hover:opacity-hover active:opacity-disabled text-foreground/50 transition-opacity motion-reduce:transition-none text-small hover:underline"
           data-react-aria-pressable="true"
           data-slot="item"
           role="link"
@@ -2450,7 +2802,7 @@ exports[`Story Snapshots > WithSeparator 1`] = `
         data-slot="base"
       >
         <span
-          class="flex gap-1 items-center cursor-pointer whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-foreground/50 text-small hover:underline hover:opacity-hover active:opacity-disabled transition-opacity"
+          class="flex cursor-pointer items-center gap-1 whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus hover:opacity-hover active:opacity-disabled text-foreground/50 transition-opacity motion-reduce:transition-none text-small hover:underline"
           data-react-aria-pressable="true"
           data-slot="item"
           role="link"
@@ -2467,13 +2819,13 @@ exports[`Story Snapshots > WithSeparator 1`] = `
         </span>
       </li>
       <li
-        class="flex items-center"
+        class="flex items-center underline-offset-4"
         data-slot="base"
       >
         <span
           aria-current="page"
           aria-disabled="true"
-          class="flex gap-1 items-center whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small no-underline cursor-default transition-opacity text-foreground"
+          class="flex items-center gap-1 whitespace-nowrap tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus hover:opacity-hover transition-opacity motion-reduce:transition-none text-small cursor-default no-underline hover:no-underline hover:opacity-100 focus:no-underline active:no-underline active:opacity-100 text-foreground"
           data-current="true"
           data-react-aria-pressable="true"
           data-slot="item"
