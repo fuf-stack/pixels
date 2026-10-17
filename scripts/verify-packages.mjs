@@ -103,11 +103,72 @@ try {
 
   installAndTestConsumer(tarballs);
   await verifyTokenConsumer();
+  await verifyWorkspaceTailwind();
   console.log(
     `Verified declarations, tarballs, and clean installation for ${packages.length} published packages.`,
   );
 } finally {
   rmSync(temporaryDirectory, { recursive: true, force: true });
+}
+
+/** Compile the workspace CSS entry and check recipe discovery without legacy config. */
+async function verifyWorkspaceTailwind() {
+  const dependencies = [];
+  const compiler = await compile(
+    '@import "@repo/tailwind-config/tailwind.css";',
+    {
+      base: root,
+      onDependency: (file) => {
+        dependencies.push(file);
+      },
+    },
+  );
+  const scanner = new Scanner({ sources: compiler.sources });
+  const css = compiler.build(scanner.scan());
+
+  // source discovery must reach package components and standalone recipe files
+  for (const source of [
+    'atelier/src/AtelierFrame/AtelierFrame.tsx',
+    'megapixels/src/DataTable/DataTable.tsx',
+    'pixels/src/Button/Button.tsx',
+    'pixels/src/Button/buttonVariants.ts',
+    'uniform/src/Input/Input.tsx',
+    'uniform/src/Input/inputVariants.ts',
+  ]) {
+    const expected = path.join(root, 'packages', source);
+    if (!scanner.files.includes(expected)) {
+      throw new Error(`Workspace Tailwind sources missed ${source}`);
+    }
+  }
+  if (
+    scanner.files.some(
+      (file) => file.endsWith('.snap') || file.includes('/dist/'),
+    )
+  ) {
+    throw new Error(
+      'Workspace Tailwind must not scan snapshots or generated output.',
+    );
+  }
+  if (dependencies.some((file) => /tailwind\.config\.[cm]?[jt]s$/.test(file))) {
+    throw new Error('Workspace Tailwind must not load a legacy config.');
+  }
+  for (const expected of [
+    '.bg-content1',
+    '.text-info',
+    'color: var(--pixel-color-info)',
+    '.rounded-small',
+    '.dark\\:autofill',
+  ]) {
+    if (!css.includes(expected)) {
+      throw new Error(`Workspace Tailwind CSS missing ${expected}`);
+    }
+  }
+  if (css.includes('--theme-info')) {
+    throw new Error('Workspace theme must use the shared semantic palette.');
+  }
+  console.log(
+    'Verified CSS-first Tailwind 4 workspace compilation and source discovery.',
+  );
 }
 
 /** Verify token imports and built-package source discovery without HeroUI's plugin. */

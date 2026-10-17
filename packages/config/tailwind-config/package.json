@@ -3,9 +3,11 @@
   "description": "shared tailwind config",
   "private": true,
   "type": "module",
-  "main": "./tailwind.config.ts",
   "devDependencies": {
     "tailwindcss": "4.3.3",
     "@fuf-stack/pixel-utils": "workspace:*"
+  },
+  "exports": {
+    "./tailwind.css": "./tailwind.css"
   }
 }

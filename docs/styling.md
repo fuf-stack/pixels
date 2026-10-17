@@ -10,6 +10,33 @@ For component layout, prop ownership, documentation and readability, see the
 [code style guide](./code-style.md). This document owns the styling-specific
 rules and examples; keep the two guides consistent when conventions change.
 
+## Tailwind CSS 4 setup
+
+The workspace uses CSS-first configuration in
+[`tailwind.css`](../packages/config/tailwind-config/tailwind.css). There is no
+JavaScript/TypeScript Tailwind config or `@config` compatibility layer. The Vite
+plugin compiles this stylesheet for Storybook and browser tests. Prettier uses
+this same entry through `tailwindStylesheet` to recognize semantic utilities.
+
+```css
+@import 'tailwindcss' source(none);
+@import '@fuf-stack/pixel-utils/tokens.css';
+
+@source '../../pixels/src/**/*.{js,ts,jsx,tsx}';
+```
+
+The shared entry explicitly registers Atelier, Megapixels, Pixels and Uniform.
+Sources are relative to that stylesheet, so builds work from any package's
+working directory. Include `.ts` recipes as well as `.tsx` components when
+adding a package. Snapshots, generated output and dependencies are not scanned.
+`source(none)` disables implicit discovery, add new workspace sources explicitly.
+
+Semantic colors, sizes, utilities and the class/data-attribute dark variant
+live in `pixel-utils/src/tokens.css`, using `@theme`, `@utility` and
+`@custom-variant`. Do not duplicate their defaults in the workspace entry.
+Applications outside this repository use the [published token setup](#semantic-tokens)
+and register the built packages they consume.
+
 ## Recipe file ownership
 
 Keep a component's recipes in a dedicated `<component>Variants.ts` file, such as
@@ -36,7 +63,7 @@ import { segmentedInputVariants } from '../Time/timeVariants';
 export const segmentedInputVariants = tv({
   slots: {
     /** Bordered surface around the editable segments */
-    inputWrapper: 'rounded-small border-default-200 border-2',
+    inputWrapper: 'rounded-small border-2 border-default-200',
   },
 });
 
@@ -239,9 +266,9 @@ pass its resolved `classNames` to shared presentation:
 const radioTabsVariants = tv({
   slots: {
     /** Supporting text below the selection */
-    description: 'text-foreground-400 text-tiny',
+    description: 'text-tiny text-foreground-400',
     /** Container for validation messages */
-    errorMessage: 'text-danger text-tiny',
+    errorMessage: 'text-tiny text-danger',
   },
 });
 
@@ -286,9 +313,9 @@ Otherwise define component props explicitly, keeping derived state private:
 export const textAreaVariants = tv({
   slots: {
     /** Supporting text below the textarea */
-    description: 'text-foreground-500 text-tiny',
+    description: 'text-tiny text-foreground-500',
     /** Validation message container */
-    errorMessage: 'text-danger text-tiny',
+    errorMessage: 'text-tiny text-danger',
     /** Editable multiline text */
     input: 'w-full bg-transparent',
   },
@@ -345,7 +372,7 @@ import { StylingProvider, useStyling } from '@fuf-stack/pixels/StylingProvider';
 const styling = createStyling({
   extend: { classGroups: { 'font-size': [{ text: ['body'] }] } },
 });
-const recipe = tv({ slots: { input: 'text-danger text-sm' } });
+const recipe = tv({ slots: { input: 'text-sm text-danger' } });
 
 function Control() {
   const helpers = useStyling();
