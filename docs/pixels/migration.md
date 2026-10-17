@@ -58,8 +58,20 @@ the arrow surface and animated wrapper. Styled triggers preserve their previous
 success and warning foregrounds while reusing Pixels Button.
 
 Pixels no longer declares `@heroui/popover` directly. Other HeroUI components may
-still bring it in transitively. Popover's scrollable body continues to use the
-existing ScrollShadow component, whose own HeroUI migration is separate.
+still bring it in transitively. Popover's scrollable body uses the owned ScrollShadow component.
 `@heroui/button` remains for Menu.
 
 [Popover usage and slots](../../packages/pixels/src/Popover/README.md)
+
+## ScrollShadow
+
+ScrollShadow uses a native scroll container and owned mask styles. Its local hook
+updates the existing edge attributes on scroll, content changes and resize, without
+adding a wrapper around children. Horizontal RTL scrolling uses physical left and
+right edges. Explicit visibility modes remain independent of overflow.
+
+The native ref, inline styles, shadow size and visibility API remain supported.
+Pixels no longer declares `@heroui/scroll-shadow` directly, though other HeroUI
+components can still depend on it transitively.
+
+[ScrollShadow usage](../../packages/pixels/src/ScrollShadow/README.md)

@@ -1,6 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
+import { expect, fireEvent, waitFor, within } from 'storybook/test';
+
 import ScrollShadow from './ScrollShadow';
+
+// -----------------------------------------------------------------------------
+// Story setup
+// -----------------------------------------------------------------------------
 
 const meta: Meta<typeof ScrollShadow> = {
   title: 'pixels/ScrollShadow',
@@ -111,6 +117,10 @@ const HorizontalContent = () => {
   );
 };
 
+// -----------------------------------------------------------------------------
+// Normal stories
+// -----------------------------------------------------------------------------
+
 export const Vertical: Story = {
   args: {
     className: 'w-[300px] h-[400px]',
@@ -172,4 +182,37 @@ export const MaxHeightViaStyle: Story = {
     style: { maxHeight: 260 },
     children: <VerticalContent />,
   },
+};
+
+// -----------------------------------------------------------------------------
+// Edge cases
+// -----------------------------------------------------------------------------
+
+export const ScrollEdges: Story = {
+  ...Vertical,
+  args: { ...Vertical.args, testId: 'scroll-edges' },
+  play: async ({ canvasElement }) => {
+    const surface = within(canvasElement).getByTestId('scroll-edges');
+    // layout measurements are unavailable in DOM-only snapshots
+    if (!surface.clientHeight) {
+      return;
+    }
+
+    await waitFor(async () => {
+      await expect(surface).toHaveAttribute('data-bottom-scroll', 'true');
+    });
+
+    surface.scrollTop = 100;
+    fireEvent.scroll(surface);
+    await expect(surface).toHaveAttribute('data-top-bottom-scroll', 'true');
+
+    surface.scrollTop = surface.scrollHeight;
+    fireEvent.scroll(surface);
+    await expect(surface).toHaveAttribute('data-bottom-scroll', 'false');
+    await expect(surface).toHaveAttribute('data-top-scroll', 'true');
+  },
+};
+
+export const NoOverflow: Story = {
+  args: { className: 'h-32 w-64', children: 'All content is visible' },
 };

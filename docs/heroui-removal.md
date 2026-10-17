@@ -555,3 +555,9 @@ message IDs. The layout uses React Aria Label to preserve radiogroup naming.
 Group defaults and option styling have their own variant recipes, with option
 hover styling driven by React Aria render state. Public entry points, numeric
 value conversion, disabled behavior and existing styling slots are retained.
+
+### Pixels ScrollShadow
+
+ScrollShadow now owns its native scroll container, edge measurement and mask
+recipe. Its direct HeroUI dependency is removed, including the remaining HeroUI
+rendering inside Popover. See [Pixels migration notes](./pixels/migration.md#scrollshadow).
