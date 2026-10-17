@@ -2,7 +2,7 @@ import { describe } from 'vitest';
 
 import storySnapshots from '@repo/storybook-config/story-snapshots';
 
-import * as stories from './SearchInput.stories';
+import * as stories from './stories/SearchInput.stories';
 
 describe('Story Snapshots', () => {
   storySnapshots(stories);

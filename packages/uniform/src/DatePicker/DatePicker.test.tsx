@@ -10,7 +10,7 @@ import { string, veto } from '@fuf-stack/veto';
 import Form from '../Form';
 import { useFormContext } from '../hooks/useFormContext';
 import DatePicker from './DatePicker';
-import * as stories from './DatePicker.stories';
+import * as stories from './stories/DatePicker.stories';
 
 describe('Story Snapshots', () => {
   // Force a deterministic local timezone so snapshot output is stable

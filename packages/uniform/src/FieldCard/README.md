@@ -21,7 +21,7 @@ import Input from '@fuf-stack/uniform/Input';
 - Name child fields explicitly under the card’s path; the card does not prefix them automatically.
 - The card shows group validation feedback and reflects visible child errors.
 
-[Props](FieldCard.tsx) · [Stories](FieldCard.stories.tsx)
+[Props](FieldCard.tsx) · [Stories](stories/FieldCard.stories.tsx)
 
 ## Composition
 

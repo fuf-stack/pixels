@@ -4,7 +4,7 @@ import storySnapshots from '@repo/storybook-config/story-snapshots';
 import { render } from '@testing-library/react';
 
 import Card from './Card';
-import * as stories from './Card.stories';
+import * as stories from './stories/Card.stories';
 
 describe('Story Snapshots', () => {
   storySnapshots(stories);

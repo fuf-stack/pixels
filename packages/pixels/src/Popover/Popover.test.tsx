@@ -13,10 +13,14 @@ import { Button } from '../Button';
 import { ButtonGroup } from '../ButtonGroup';
 import { StylingProvider } from '../StylingProvider';
 import Popover from './Popover';
-import * as stories from './Popover.stories';
+import * as edgeCaseStories from './stories/Popover.edge-cases.stories';
+import * as interactionStories from './stories/Popover.interactions.stories';
+import * as stories from './stories/Popover.stories';
 
 describe('Story Snapshots', () => {
   storySnapshots(stories);
+  storySnapshots(interactionStories);
+  storySnapshots(edgeCaseStories);
 });
 
 describe('Popover interactions', () => {

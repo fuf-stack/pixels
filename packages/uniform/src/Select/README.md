@@ -25,7 +25,7 @@ import Select from '@fuf-stack/uniform/Select';
 - Stores option values, rather than option objects. `multiSelect` stores an array of values.
 - Use `selectedOptionFallback` when a selected value may be absent from the current option list, such as during asynchronous search.
 
-[Props](Select.tsx) · [Stories](Select.stories.tsx)
+[Props](Select.tsx) · [Stories](stories/Select.stories.tsx)
 
 ## Composition
 

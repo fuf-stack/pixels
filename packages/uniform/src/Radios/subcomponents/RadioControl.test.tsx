@@ -9,8 +9,8 @@ import { userEvent } from 'storybook/test';
 import { variantsToClassNames } from '@fuf-stack/pixel-utils';
 
 import RadioControl from './RadioControl';
-import * as stories from './RadioControl.stories';
 import radioControlVariants from './radioControlVariants';
+import * as stories from './stories/RadioControl.stories';
 
 const variants = radioControlVariants();
 const classNames = variantsToClassNames(variants);

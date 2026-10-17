@@ -7,7 +7,7 @@ import { render, screen } from '@testing-library/react';
 import { userEvent } from 'storybook/test';
 
 import FieldLabel from './FieldLabel';
-import * as stories from './FieldLabel.stories';
+import * as stories from './stories/FieldLabel.stories';
 
 describe('Story Snapshots', () => {
   storySnapshots(stories);

@@ -9,11 +9,13 @@ import {
   waitFor,
 } from '@testing-library/react';
 
+import * as interactionStories from './stories/Tooltip.interactions.stories';
+import * as stories from './stories/Tooltip.stories';
 import Tooltip from './Tooltip';
-import * as stories from './Tooltip.stories';
 
 describe('Story Snapshots', () => {
   storySnapshots(stories);
+  storySnapshots(interactionStories);
 });
 
 describe('Tooltip behavior', () => {

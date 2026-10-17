@@ -4,7 +4,7 @@ import storySnapshots from '@repo/storybook-config/story-snapshots';
 import { fireEvent, render, waitFor, within } from '@testing-library/react';
 
 import Filter, { filters as f } from '.';
-import * as stories from './Filter.stories';
+import * as stories from './stories/Filter.stories';
 
 describe('Story Snapshots', () => {
   storySnapshots(stories);

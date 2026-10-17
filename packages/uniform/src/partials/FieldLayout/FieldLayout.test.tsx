@@ -10,7 +10,7 @@ import { fireEvent, render, screen } from '@testing-library/react';
 
 import FieldValidationError from '../FieldValidationError';
 import FieldLayout from './FieldLayout';
-import * as stories from './FieldLayout.stories';
+import * as stories from './stories/FieldLayout.stories';
 
 const ids = {
   control: 'email',

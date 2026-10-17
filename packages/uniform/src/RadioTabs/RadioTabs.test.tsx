@@ -9,7 +9,7 @@ import { number, veto } from '@fuf-stack/veto';
 import Form from '../Form';
 import { useFormContext } from '../hooks/useFormContext';
 import RadioTabs from './RadioTabs';
-import * as stories from './RadioTabs.stories';
+import * as stories from './stories/RadioTabs.stories';
 
 describe('Story Snapshots', () => {
   // keep existing unit snapshot scenarios, composition interactions also run in Chromium

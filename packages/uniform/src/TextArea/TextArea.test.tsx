@@ -8,8 +8,8 @@ import { string, veto } from '@fuf-stack/veto';
 
 import Form from '../Form';
 import { useFormContext } from '../hooks/useFormContext';
+import * as stories from './stories/TextArea.stories';
 import TextArea from './TextArea';
-import * as stories from './TextArea.stories';
 
 describe('Story Snapshots', () => {
   // autosizing geometry is verified by the browser story, jsdom only renders it

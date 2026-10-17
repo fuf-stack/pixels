@@ -15,4 +15,4 @@ Progress bar showing how much of a task is complete.
 Style `base`, `indicator`, `label`, `labelWrapper`, `track` and `value` through
 `className` or extend the exported `progressVariants` recipe.
 
-[Props](./Progress.tsx) · [Stories](./Progress.stories.tsx) · [Styling](../../../../docs/styling.md) · [React Aria ProgressBar](https://react-aria.adobe.com/ProgressBar)
+[Props](./Progress.tsx) · [Stories](./stories/Progress.stories.tsx) · [Styling](../../../../docs/styling.md) · [React Aria ProgressBar](https://react-aria.adobe.com/ProgressBar)

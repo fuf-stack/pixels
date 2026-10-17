@@ -1,0 +1,135 @@
+import type { Story } from './Tooltip.storySetup';
+
+import { expect, waitFor, within } from 'storybook/test';
+
+import Tooltip from '../Tooltip';
+import {
+  meta as sharedMeta,
+  sizes,
+  tooltipPlacementOptions,
+} from './Tooltip.storySetup';
+
+// -----------------------------------------------------------------------------
+// Story base setup
+// -----------------------------------------------------------------------------
+
+const meta: typeof sharedMeta = { ...sharedMeta, title: 'pixels/Tooltip' };
+
+export default meta;
+
+// -----------------------------------------------------------------------------
+// Normal and composition stories
+// -----------------------------------------------------------------------------
+
+export const Default: Story = {
+  args: {
+    content: 'tooltip content',
+    children: 'hover me',
+  },
+};
+
+export const Delay: Story = {
+  args: {
+    content: 'I took 1 second',
+    children: '1000 ms delay',
+    delay: 1000,
+  },
+};
+
+export const CloseDelay: Story = {
+  args: {
+    content: 'I will go in 3s',
+    children: '3000 ms close delay',
+    closeDelay: 3000,
+  },
+};
+
+export const AllPlacements: Story = {
+  render: (args) => {
+    return (
+      <>
+        {tooltipPlacementOptions.map((placement) => {
+          return (
+            <div key={placement} className="mb-6">
+              <Tooltip placement={placement} {...args}>
+                {placement}
+              </Tooltip>
+            </div>
+          );
+        })}
+      </>
+    );
+  },
+  args: {
+    content: 'tooltip content',
+  },
+};
+
+export const TooltipInTooltip: Story = {
+  args: {
+    content: (
+      <Tooltip content="2nd tooltip content">
+        hover for 2nd tooltip content
+      </Tooltip>
+    ),
+    children: 'hover me',
+  },
+};
+
+export const Sizes: Story = {
+  args: {
+    content:
+      'tooltip content. this can be very long. Or not. Depending on what you want. Just make sure to test it! To test it, we need a longer text. So I will just keep on writing more words. adjuifgoreiaidofgreougdnfigerigahrisuiasoghureiidfgjjuirghuidsghuegijuifghreugdjagvioeruhgidugdfsihguirghreuigjaiuhgfuidofhgidhgsuihagiuohegiofdpsjguoeriirgidosfhguihoeg',
+    children: 'hover me',
+  },
+  render: (args) => {
+    return (
+      <div className="flex flex-col gap-4">
+        {sizes.map((size) => {
+          return (
+            <Tooltip key={size} size={size} {...args}>
+              {size}
+            </Tooltip>
+          );
+        })}
+      </div>
+    );
+  },
+};
+
+export const DefaultOpen: Story = {
+  args: {
+    content: 'tooltip content',
+    footer: 'footer',
+    header: 'header',
+    children: 'hover me',
+    defaultOpen: true,
+  },
+  play: async ({ canvasElement }) => {
+    const body = within(canvasElement?.parentElement as HTMLElement);
+
+    // Wait for tooltip to appear
+    await waitFor(async () => {
+      const tooltipContent = body.getByText('tooltip content');
+      expect(tooltipContent).toBeInTheDocument();
+      expect(tooltipContent).toBeVisible();
+    });
+
+    // Wait for animation to complete
+    await new Promise((resolve) => {
+      setTimeout(resolve, 500);
+    });
+  },
+};
+
+export const CustomStyling: Story = {
+  args: {
+    children: 'Hover for details',
+    content: 'Supporting information',
+    className: {
+      content: 'bg-secondary text-secondary-foreground',
+      base: 'before:bg-secondary',
+      body: 'px-6 py-3',
+    },
+  },
+};

@@ -6,10 +6,14 @@ import storySnapshots from '@repo/storybook-config/story-snapshots';
 import { render } from '@testing-library/react';
 
 import ScrollShadow from './ScrollShadow';
-import * as stories from './ScrollShadow.stories';
+import * as edgeCaseStories from './stories/ScrollShadow.edge-cases.stories';
+import * as interactionStories from './stories/ScrollShadow.interactions.stories';
+import * as stories from './stories/ScrollShadow.stories';
 
 describe('Story Snapshots', () => {
   storySnapshots(stories);
+  storySnapshots(interactionStories);
+  storySnapshots(edgeCaseStories);
 });
 
 describe('Coverage', () => {

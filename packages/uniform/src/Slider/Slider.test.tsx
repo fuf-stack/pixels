@@ -9,16 +9,8 @@ import { number, veto } from '@fuf-stack/veto';
 import Form from '../Form';
 import { useFormContext } from '../hooks/useFormContext';
 import Slider from './Slider';
-import * as stories from './Slider.stories';
-
-const edgeCaseStories = {
-  default: stories.default,
-  EdgeCaseRequiredSubmitFocus: stories.EdgeCaseRequiredSubmitFocus,
-  EdgeCaseFocusByTestId: stories.EdgeCaseFocusByTestId,
-  EdgeCaseDisabledFocusByTestId: stories.EdgeCaseDisabledFocusByTestId,
-  EdgeCaseDragThenSubmit: stories.EdgeCaseDragThenSubmit,
-  EdgeCaseRequiredTouchedViaTab: stories.EdgeCaseRequiredTouchedViaTab,
-};
+import * as edgeCaseStories from './stories/Slider.edge-cases.stories';
+import * as stories from './stories/Slider.stories';
 
 describe('Story Snapshots', () => {
   // keep existing unit snapshot scenarios, composition interactions also run in Chromium

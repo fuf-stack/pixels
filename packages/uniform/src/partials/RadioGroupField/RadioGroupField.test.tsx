@@ -14,7 +14,7 @@ import RadioControl from '../../Radios/subcomponents/RadioControl';
 import radioControlVariants from '../../Radios/subcomponents/radioControlVariants';
 import FieldLayout from '../FieldLayout/FieldLayout';
 import RadioGroupField from './RadioGroupField';
-import * as stories from './RadioGroupField.stories';
+import * as stories from './stories/RadioGroupField.stories';
 
 const ids = {
   control: 'delivery',

@@ -90,4 +90,4 @@ focus. The hook cancels pending edits and resets the form value to `null`, with
 Display changes pass directly to the debounce hook, which accepts raw values.
 The rendered elements and control associations stay the same.
 
-[Props](Input.tsx) · [Stories](Input.stories.tsx)
+[Props](Input.tsx) · [Stories](stories/Input.stories.tsx)

@@ -32,29 +32,26 @@ visual changes.
 
 ## Storybook stories and edge cases
 
-Keep a component's normal usage, composition and edge-case stories in one
-`<Component>.stories.tsx`. Follow the dashed section banners and concrete example
-in [the code style guide](./code-style.md#one-story-file-ordered-sections): base
-setup first, normal stories next, then composition and edge cases. Default is the
-first normal story. Keep scenario fixtures and helpers in the setup section.
-
-Use one metadata title for the component. A standard CSF file has one sidebar
-title, so use clear names such as `Edge Cases: Nullish Number` for edge cases
-rather than separate files or custom indexing. Existing split files can be
-consolidated when the component is being restructured; this does not require an
-unrelated repository-wide migration.
+Keep every story file in its owner's `stories/` folder. Normal usage and
+composition live in `<Component>.stories.tsx`, with separate
+`<Component>.interactions.stories.tsx` and `<Component>.edge-cases.stories.tsx`
+when those scenarios exist. Use the corresponding titles `<package>/<Component>`,
+`<package>/<Component>/Interactions` and `<package>/<Component>/Edge Cases`.
+See [the code style guide](./code-style.md#story-folders-and-sidebar-groups) for
+shared setup, ordering and concrete examples. Interaction stories must perform
+and assert the named interaction through `play`.
 
 Each edge-case story sets `parameters.edgeCaseDescription` to explain its trigger
 and expected behavior. Use `@repo/storybook-config/edge-case-decorator` for the
 "What this checks" box. Keep it outside the form and keep the outer layout
 unconstrained; only the explanation box should have a fixed width, so form debug
-panels and portals still have room. Input's main story file demonstrates a
+panels and portals still have room. Input's shared story setup demonstrates a
 conditional metadata decorator that applies the explanation only to edge cases.
 
 Preserve `play` functions, assertions, setup, cleanup and export names when
 moving stories. Check the decorator order and existing snapshots, and update
 story links when consolidation changes their URLs. The component's snapshot
-test imports the consolidated module once; browser tests discover the stories
+test imports every group separately; browser tests discover the stories
 automatically. Keep documented environment-specific exclusions explicit.
 
 ## Dependency upgrade

@@ -9,7 +9,8 @@ import { number, string, veto } from '@fuf-stack/veto';
 import Form from '../Form';
 import { useFormContext } from '../hooks/useFormContext';
 import Input from './Input';
-import * as stories from './Input.stories';
+import * as edgeCaseStories from './stories/Input.edge-cases.stories';
+import * as stories from './stories/Input.stories';
 
 const Reset = () => {
   const { reset } = useFormContext();
@@ -22,6 +23,7 @@ const Reset = () => {
 
 describe('Story Snapshots', () => {
   storySnapshots(stories);
+  storySnapshots(edgeCaseStories);
 });
 
 describe('Production React Aria input', () => {

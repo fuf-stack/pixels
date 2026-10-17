@@ -7,7 +7,7 @@ import { render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import DataTable from './DataTable';
-import * as stories from './DataTable.stories';
+import * as stories from './stories/DataTable.stories';
 
 describe('Story Snapshots', () => {
   storySnapshots(stories);

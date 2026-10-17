@@ -9,7 +9,7 @@ import { render, screen } from '@testing-library/react';
 
 import { Button } from '../Button';
 import ButtonGroup from './ButtonGroup';
-import * as stories from './ButtonGroup.stories';
+import * as stories from './stories/ButtonGroup.stories';
 
 describe('Story Snapshots', () => {
   storySnapshots(stories);

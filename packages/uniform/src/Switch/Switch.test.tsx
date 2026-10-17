@@ -8,8 +8,8 @@ import { boolean, veto } from '@fuf-stack/veto';
 
 import Form from '../Form';
 import { useFormContext } from '../hooks/useFormContext';
+import * as stories from './stories/Switch.stories';
 import Switch from './Switch';
-import * as stories from './Switch.stories';
 
 describe('Story Snapshots', () => {
   storySnapshots(stories);

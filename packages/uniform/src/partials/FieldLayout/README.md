@@ -44,7 +44,7 @@ Define custom base components outside render to preserve their identity and focu
 Radio and checkbox groups also pass React Aria `Label` as `labelAs`. Native labels use `htmlFor={ids.control}` by default.
 Fields with a different arrangement, such as Switch, compose individual partials.
 
-[Props](./FieldLayout.tsx) · [Stories](./FieldLayout.stories.tsx) · [Composition guide](../../../../../docs/uniform/field-composition.md)
+[Props](./FieldLayout.tsx) · [Stories](./stories/FieldLayout.stories.tsx) · [Composition guide](../../../../../docs/uniform/field-composition.md)
 
 Compile-time contract checks run with `pnpm --filter @fuf-stack/uniform test:types`
 and as part of `pnpm check`.

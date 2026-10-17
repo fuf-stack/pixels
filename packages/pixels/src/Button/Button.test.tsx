@@ -14,10 +14,12 @@ import { createStyling } from '@fuf-stack/pixel-utils';
 
 import { StylingProvider } from '../StylingProvider';
 import Button from './Button';
-import * as stories from './Button.stories';
+import * as interactionStories from './stories/Button.interactions.stories';
+import * as stories from './stories/Button.stories';
 
 describe('Story Snapshots', () => {
   storySnapshots(stories);
+  storySnapshots(interactionStories);
 });
 
 describe('Button interactions', () => {

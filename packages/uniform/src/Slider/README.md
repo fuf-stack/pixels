@@ -18,7 +18,7 @@ import Slider from '@fuf-stack/uniform/Slider';
 - Stores one number; minimum, maximum and step describe the displayed range.
 - `transform` converts between stored and displayed values when their units differ.
 
-[Props](Slider.tsx) · [Stories](Slider.stories.tsx)
+[Props](Slider.tsx) · [Stories](stories/Slider.stories.tsx)
 
 ## Composition
 

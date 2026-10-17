@@ -18,7 +18,7 @@ import TextArea from '@fuf-stack/uniform/TextArea';
 - Grows from three to eight rows as content changes.
 - Uses the same 300 ms default debounce and blur flushing as Input.
 
-[Props](TextArea.tsx) · [Stories](TextArea.stories.tsx)
+[Props](TextArea.tsx) · [Stories](stories/TextArea.stories.tsx)
 
 ## Composition
 

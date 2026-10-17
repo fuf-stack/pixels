@@ -24,7 +24,7 @@ import Time from '@fuf-stack/uniform/Time';
 by DatePicker. Override individual slots through `className`, including `label`,
 `description` and `errorMessage`. See the [styling guide](../../../../docs/styling.md).
 
-[Props](Time.tsx) · [Stories](Time.stories.tsx)
+[Props](Time.tsx) · [Stories](stories/Time.stories.tsx)
 
 ## Composition
 

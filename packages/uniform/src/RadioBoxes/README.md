@@ -36,7 +36,7 @@ messages. `RadioControl` owns each option's label, description and indicator.
 
 [Shared engine](../partials/RadioGroupField/README.md) · [Option renderer](../Radios/subcomponents/README.md)
 
-[Props](RadioBoxes.tsx) · [Stories](RadioBoxes.stories.tsx)
+[Props](RadioBoxes.tsx) · [Stories](stories/RadioBoxes.stories.tsx)
 
 ## Composition
 

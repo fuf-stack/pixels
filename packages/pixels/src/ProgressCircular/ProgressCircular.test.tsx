@@ -7,7 +7,9 @@ import { createStyling } from '@fuf-stack/pixel-utils';
 
 import { StylingProvider } from '../StylingProvider';
 import ProgressCircular from './ProgressCircular';
-import * as stories from './ProgressCircular.stories';
+import * as edgeCaseStories from './stories/ProgressCircular.edge-cases.stories';
+import * as interactionStories from './stories/ProgressCircular.interactions.stories';
+import * as stories from './stories/ProgressCircular.stories';
 
 describe('<ProgressCircular /> spec', () => {
   test('renders correctly', () => {
@@ -25,6 +27,8 @@ describe('<ProgressCircular /> spec', () => {
 
 describe('Story Snapshots', () => {
   storySnapshots(stories);
+  storySnapshots(interactionStories);
+  storySnapshots(edgeCaseStories);
 });
 
 describe('ProgressCircular behavior', () => {

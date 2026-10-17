@@ -21,4 +21,4 @@ import Popover from '@fuf-stack/pixels/Popover';
 `divider`, `footer`, `footerWrapper`, `header`, `headerWrapper`, `overlay` and
 `trigger`. `base` includes the arrow, `content` is the rounded panel.
 
-[Props](./Popover.tsx) · [Stories](./Popover.stories.tsx) · [Styling](../../../../docs/styling.md) · [React Aria Popover](https://react-aria.adobe.com/Popover)
+[Props](./Popover.tsx) · [Stories](./stories/Popover.stories.tsx) · [Styling](../../../../docs/styling.md) · [React Aria Popover](https://react-aria.adobe.com/Popover)

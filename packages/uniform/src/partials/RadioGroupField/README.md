@@ -27,4 +27,4 @@ Private React Aria radio-group engine shared by Radios and RadioBoxes.
 Import `Label` from `react-aria-components` for `labelAs`. React Aria owns the
 radiogroup's label association, individual option names remain independent.
 
-[Props](./RadioGroupField.tsx) · [Stories](./RadioGroupField.stories.tsx) · [React Aria RadioGroup](https://react-aria.adobe.com/RadioGroup)
+[Props](./RadioGroupField.tsx) · [Stories](./stories/RadioGroupField.stories.tsx) · [React Aria RadioGroup](https://react-aria.adobe.com/RadioGroup)

@@ -1,0 +1,19 @@
+import type { Meta, StoryObj } from '@storybook/react-vite';
+
+import DataTable from '../DataTable';
+
+const meta = {
+  title: 'DataTable/DataTable.default',
+  component: DataTable,
+} satisfies Meta<typeof DataTable>;
+
+export default meta;
+
+type Story = StoryObj<typeof meta>;
+
+export const Default: Story = {
+  args: {
+    columns: [],
+    data: [],
+  },
+};

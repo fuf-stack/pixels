@@ -18,14 +18,8 @@ import {
 
 import Form from '../Form';
 import Select from './Select';
-import * as stories from './Select.stories';
-
-const edgeCaseStories = {
-  default: stories.default,
-  EdgeCaseMenuIsVisibleInCard: stories.EdgeCaseMenuIsVisibleInCard,
-  EdgeCaseMenuIsVisibleInModal: stories.EdgeCaseMenuIsVisibleInModal,
-  EdgeCaseFetchFallbackOutside: stories.EdgeCaseFetchFallbackOutside,
-};
+import * as edgeCaseStories from './stories/Select.edge-cases.stories';
+import * as stories from './stories/Select.stories';
 
 // EdgeCaseFetchFallbackOutside causes DOM errors in snapshot tests due to
 // react-select + React 19 incompatibility when rendering values not in options.

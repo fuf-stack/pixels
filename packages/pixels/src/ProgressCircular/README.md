@@ -17,4 +17,4 @@ Style the ring and value through `className`. Existing slots remain available,
 with `statusIcon` additionally exposing the completion/error symbol. The exported
 `progressCircularVariants` recipe uses the consumer's styling instance.
 
-[Props](./ProgressCircular.tsx) · [Stories](./ProgressCircular.stories.tsx) · [Styling](../../../../docs/styling.md) · [React Aria ProgressBar](https://react-aria.adobe.com/ProgressBar)
+[Props](./ProgressCircular.tsx) · [Stories](./stories/ProgressCircular.stories.tsx) · [Styling](../../../../docs/styling.md) · [React Aria ProgressBar](https://react-aria.adobe.com/ProgressBar)

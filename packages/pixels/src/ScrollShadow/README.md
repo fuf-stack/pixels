@@ -17,4 +17,4 @@ Scrollable content with fading edges that indicate more content.
 The exported `scrollShadowVariants` recipe and `className` use the active styling
 instance. No additional content wrapper is inserted.
 
-[Props](./ScrollShadow.tsx) · [Stories](./ScrollShadow.stories.tsx) · [Styling](../../../../docs/styling.md)
+[Props](./ScrollShadow.tsx) · [Stories](./stories/ScrollShadow.stories.tsx) · [Styling](../../../../docs/styling.md)

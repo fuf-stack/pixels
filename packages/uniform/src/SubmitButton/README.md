@@ -19,4 +19,4 @@ import SubmitButton from '@fuf-stack/uniform/SubmitButton';
 - Outside the form, set `remoteFormId` on both Form and SubmitButton to associate them.
 - Pass `loading` explicitly when a submission should show a loading state.
 
-[Props](SubmitButton.tsx) · [Stories](SubmitButton.stories.tsx)
+[Props](SubmitButton.tsx) · [Stories](stories/SubmitButton.stories.tsx)

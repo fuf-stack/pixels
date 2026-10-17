@@ -69,4 +69,11 @@ export default [
       'no-use-before-define': 'off',
     },
   },
+  {
+    files: ['**/stories/*.storySetup.tsx'],
+    rules: {
+      // shared story fixtures use the same development dependencies as CSF files
+      'import-x/no-extraneous-dependencies': 'off',
+    },
+  },
 ];

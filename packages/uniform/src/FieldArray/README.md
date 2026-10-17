@@ -26,7 +26,7 @@ import Input from '@fuf-stack/uniform/Input';
 - `flat` supports arrays of primitive values. In that mode, pass the supplied `name` directly to the input.
 - `sortable`, `duplicate` and `insertAfter` enable additional row actions.
 
-[Props](types.ts) · [Stories](FieldArray.stories.tsx)
+[Props](types.ts) · [Stories](stories/FieldArray.stories.tsx)
 
 ## Composition
 

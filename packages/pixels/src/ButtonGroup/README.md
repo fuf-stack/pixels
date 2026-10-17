@@ -20,4 +20,4 @@ import ButtonGroup from '@fuf-stack/pixels/ButtonGroup';
 - Existing Pixels Button defaults retain precedence over group defaults, set `disabled`, `color`, `size` and `variant` on each Button for predictable results
 - `className` styles the group, `buttonGroupVariants` exposes its layout recipe
 
-[Props](./ButtonGroup.tsx) · [Stories](./ButtonGroup.stories.tsx) · [Migration details](../../../../docs/pixels/migration.md)
+[Props](./ButtonGroup.tsx) · [Stories](./stories/ButtonGroup.stories.tsx) · [Migration details](../../../../docs/pixels/migration.md)

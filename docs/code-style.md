@@ -242,7 +242,10 @@ Input/
   README.md                       # Purpose, usage and useful behavior notes
   Input.tsx                       # InputProps and form binding
   inputVariants.ts                # Recipes and styling-derived types
-  Input.stories.tsx               # Setup, normal stories, composition, edge cases
+  stories/                        # Story setup and sidebar groups
+    Input.stories.tsx             # Normal usage and composition
+    Input.interactions.stories.tsx # Interaction scenarios with play assertions
+    Input.edge-cases.stories.tsx  # Boundary and failure scenarios
   Input.test.tsx                  # Snapshot and behavior describe blocks
   index.ts                        # Existing intentional public entry point
   subcomponents/
@@ -883,40 +886,75 @@ describe('Number display values', () => {
 Test behavior rather than implementation details. For native ref identity, use
 `expect(ref.current).toBe(input)` instead of a deep matcher over the DOM tree.
 
-## One story file, ordered sections
+## Story folders and sidebar groups
+
+Put all stories in a `stories/` folder under their owning component, hook or
+example directory. Keep the component's tests beside the implementation, and
+import every story group into its snapshot test so moving a story preserves its
+coverage. Shared story-only metadata, decorators and fixtures belong in
+`<Component>.storySetup.tsx` inside that folder when multiple groups need them.
+
+Use separate CSF files for real sidebar groups. Standard Storybook gives each
+file one title, section comments and slashes in story names do not create folders.
+Keep normal usage and composition together, and add other files only when there
+are scenarios to put in them:
+
+```text
+Tooltip/
+  Tooltip.tsx
+  Tooltip.test.tsx
+  stories/
+    Tooltip.storySetup.tsx
+    Tooltip.stories.tsx               # pixels/Tooltip
+    Tooltip.interactions.stories.tsx  # pixels/Tooltip/Interactions
+    Tooltip.edge-cases.stories.tsx    # pixels/Tooltip/Edge Cases, when needed
+```
+
+Each story file declares its title as a literal so Storybook can index it:
+
+```tsx
+import { meta as sharedMeta } from './Tooltip.storySetup';
+
+const meta: typeof sharedMeta = {
+  ...sharedMeta,
+  title: 'pixels/Tooltip/Interactions',
+};
+
+export default meta;
+```
+
+Keep setup first, followed by stories, with short dashed section banners where
+useful. Default comes first among normal stories. Interaction stories must execute
+the interaction and assert its result, a static example named `KeyboardFocus`
+is not a keyboard test. Normal and edge-case stories can also have `play`
+assertions, classify scenarios by their purpose rather than just the presence of
+`play`.
+
+```tsx
+export const KeyboardFocus: Story = {
+  args: {
+    children: <button type="button">More information</button>,
+    content: 'Keyboard-accessible details',
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const trigger = canvas.getByRole('button', { name: 'More information' });
+
+    await userEvent.tab();
+    await expect(trigger).toHaveFocus();
+
+    const tooltip = await canvas.findByRole('tooltip');
+    await expect(trigger).toHaveAttribute('aria-describedby', tooltip.id);
+  },
+};
+```
 
 Group hook stories under `<package>/hooks/<hookName>`, including private hooks.
-The sidebar describes the code's role, not its export visibility.
+The sidebar describes the code's role, not its export visibility:
 
 ```tsx
 title: 'uniform/hooks/useUniformField',
 ```
-
-Keep stories in `<Component>.stories.tsx`, ordered with dashed section banners.
-Put metadata, decorators and shared fixtures in setup. Default comes first among
-normal stories; composition and edge cases follow.
-
-```tsx
-// -----------------------------------------------------------------------------
-// Story base setup
-// -----------------------------------------------------------------------------
-
-// -----------------------------------------------------------------------------
-// Normal stories
-// -----------------------------------------------------------------------------
-
-// -----------------------------------------------------------------------------
-// Composition stories
-// -----------------------------------------------------------------------------
-
-// -----------------------------------------------------------------------------
-// Edge cases
-// -----------------------------------------------------------------------------
-```
-
-Use sections instead of separate `InputComposition.stories.tsx` or
-`InputEdgeCases.stories.tsx` files. One standard CSF file has one sidebar title;
-use names such as `Edge Cases: Nullish Number` for edge-case stories.
 
 Preserve `play` assertions, scenario descriptions and decorator order when moving
 stories. See [the story workflow](./agent-workflows.md#storybook-stories-and-edge-cases)
@@ -964,7 +1002,7 @@ import Input from '@fuf-stack/uniform/Input';
 
 - Edits update the display immediately, form updates are debounced by default
 
-[Props](./Input.tsx) · [Stories](./Input.stories.tsx)
+[Props](./Input.tsx) · [Stories](./stories/Input.stories.tsx)
 ````
 
 Add sections as useful information appears, such as a tricky composition or value

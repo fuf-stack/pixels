@@ -6,7 +6,7 @@ import storySnapshots from '@repo/storybook-config/story-snapshots';
 import { render, screen, waitFor } from '@testing-library/react';
 
 import FieldValidationError from './FieldValidationError';
-import * as stories from './FieldValidationError.stories';
+import * as stories from './stories/FieldValidationError.stories';
 
 describe('Story Snapshots', () => {
   storySnapshots(stories);

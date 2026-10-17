@@ -4,7 +4,7 @@ import storySnapshots from '@repo/storybook-config/story-snapshots';
 import { render, screen } from '@testing-library/react';
 
 import Modal from './Modal';
-import * as stories from './Modal.stories';
+import * as stories from './stories/Modal.stories';
 
 describe('Story Snapshots', () => {
   storySnapshots(stories);

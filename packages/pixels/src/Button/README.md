@@ -17,4 +17,4 @@ import Button from '@fuf-stack/pixels/Button';
 - The forwarded ref points to the native button, `form` can associate it with an external form
 - `className` and the exported `buttonVariants` recipe use the current [styling instance](../../../../docs/styling.md), the recipe continues to return a single class string
 
-[Props](./Button.tsx) · [Stories](./Button.stories.tsx) · [ButtonGroup](../ButtonGroup/README.md) · [React Aria Button](https://react-aria.adobe.com/Button)
+[Props](./Button.tsx) · [Stories](./stories/Button.stories.tsx) · [ButtonGroup](../ButtonGroup/README.md) · [React Aria Button](https://react-aria.adobe.com/Button)

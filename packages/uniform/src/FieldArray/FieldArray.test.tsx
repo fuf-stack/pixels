@@ -2,13 +2,8 @@ import { describe } from 'vitest';
 
 import storySnapshots from '@repo/storybook-config/story-snapshots';
 
-import * as stories from './FieldArray.stories';
-
-const edgeCaseStories = {
-  default: stories.default,
-  EdgeCaseFlatArrayValidationClears: stories.EdgeCaseFlatArrayValidationClears,
-  EdgeCaseTopLevelStringNotInArray: stories.EdgeCaseTopLevelStringNotInArray,
-};
+import * as edgeCaseStories from './stories/FieldArray.edge-cases.stories';
+import * as stories from './stories/FieldArray.stories';
 
 describe('Story Snapshots', () => {
   // keep existing unit snapshot scenarios, composition interactions also run in Chromium

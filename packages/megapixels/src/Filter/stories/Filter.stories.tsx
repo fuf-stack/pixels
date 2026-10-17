@@ -1,0 +1,372 @@
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import type { FiltersConfiguration } from '../filters/types';
+
+import {
+  FaCheckCircle,
+  FaClock,
+  FaGhost,
+  FaMagic,
+  FaPizzaSlice,
+  FaSmile,
+  FaTimesCircle,
+} from 'react-icons/fa';
+
+import { action } from 'storybook/actions';
+import { useArgs } from 'storybook/preview-api';
+import { expect, userEvent, waitFor, within } from 'storybook/test';
+
+import Filter, { filters as f } from '..';
+
+// Animations are disabled in the test environment so snapshots are stable.
+const isTestEnv = process.env.NODE_ENV === 'test';
+
+const meta: Meta<typeof Filter> = {
+  title: 'Megapixels/Filter',
+  component: Filter,
+  args: {
+    className: 'w-full',
+  },
+  render: (args) => {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const [{ values }, updateArgs] = useArgs();
+    return (
+      <Filter
+        {...args}
+        onChange={(next) => {
+          action('onChange')(next);
+          updateArgs({ values: next });
+        }}
+        values={values ?? {}}
+      />
+    );
+  },
+};
+
+export default meta;
+type Story = StoryObj<typeof Filter>;
+
+const filters: FiltersConfiguration = [
+  f.boolean({
+    name: 'magical',
+    icon: <FaMagic />,
+    config: { text: 'Magical', textPrefix: 'is', textNoWord: 'not' },
+  }),
+  f.checkboxes({
+    name: 'mood',
+    icon: <FaSmile />,
+    config: {
+      text: 'Mood',
+      options: ['😊', '😴', '🤓', '🤖'].map((mood) => {
+        return { label: mood, value: mood };
+      }),
+    },
+  }),
+  f.checkboxes({
+    name: 'snacks',
+    icon: <FaPizzaSlice />,
+    config: {
+      text: 'Snacks',
+      options: ['🍕', '🍪', '🍫', '🍿'].map((snack) => {
+        return { label: snack, value: snack };
+      }),
+    },
+  }),
+  f.boolean({
+    name: 'haunted',
+    icon: <FaGhost />,
+    config: { text: 'Haunted', textPrefix: 'is', textNoWord: 'not' },
+  }),
+];
+
+export const FiltersOnly: Story = {
+  args: {
+    config: { filters },
+  },
+};
+
+export const WithSearch: Story = {
+  args: {
+    config: { filters, search: { placeholder: 'Search something fun…' } },
+  },
+};
+
+export const WithInitialValue: Story = {
+  args: {
+    config: { filters, search: { placeholder: 'Search something fun…' } },
+    values: {
+      search: 'tonight',
+      filter: {
+        magical: true,
+        mood: ['😊'],
+        snacks: ['🍪', '🍫'],
+      },
+    },
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const input = canvas.getByTestId('search');
+    await expect(input).toContainHTML('tonight');
+    await new Promise((resolve) => {
+      requestAnimationFrame(() => {
+        setTimeout(resolve, 0);
+      });
+    });
+  },
+};
+
+export const AddFilterInteraction: Story = {
+  args: {
+    config: { filters },
+  },
+  render: (args, { canvasElement }) => {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const [{ values }, updateArgs] = useArgs();
+    return (
+      <Filter
+        {...args}
+        // Disable animations and portal into the story root so the play's
+        // menu/modal interactions produce deterministic snapshots.
+        disableAnimation={isTestEnv}
+        onChange={(next) => {
+          action('onChange')(next);
+          updateArgs({ values: next });
+        }}
+        portalContainer={canvasElement}
+        values={values ?? {}}
+      />
+    );
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    // Open the add-filter menu and add the "Mood" filter.
+    await userEvent.click(canvas.getByTestId('add_filter_button'));
+    await userEvent.click(
+      await canvas.findByRole('menuitem', { name: /Mood/ }),
+    );
+
+    // Pick a mood option in the modal and apply the filter.
+    await userEvent.click(await canvas.findByRole('checkbox', { name: '😊' }));
+    await userEvent.click(canvas.getByTestId('apply_filter_button'));
+
+    // The modal closes and the active "Mood" filter chip is shown.
+    await waitFor(async () => {
+      return expect(canvas.queryByRole('dialog')).not.toBeInTheDocument();
+    });
+    await expect(canvas.getByText('😊')).toBeInTheDocument();
+  },
+};
+
+export const WithCustomStyles: Story = {
+  args: {
+    config: {
+      filters,
+      search: { placeholder: 'Search with party vibes…' },
+    },
+    values: {
+      search: 'party',
+      filter: {
+        magical: true,
+        mood: ['🤖'],
+        snacks: ['🍕', '🍿'],
+      },
+    },
+  },
+  render: (args) => {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const [{ values }, updateArgs] = useArgs();
+    return (
+      <Filter
+        {...args}
+        className={{
+          // outer gradient border wrapper
+          base: [
+            'rounded-2xl',
+            // gradient frame + subtle shadow
+            'bg-gradient-to-r from-fuchsia-400 via-rose-300 to-amber-300 p-[2px] shadow-[0_8px_30px_rgb(0,0,0,0.05)]',
+            // dark variant
+            'dark:bg-gradient-to-br dark:from-fuchsia-500 dark:via-purple-500 dark:to-amber-400/70 dark:shadow-[0_0_40px_2px_rgba(217,70,239,0.15)]',
+          ],
+          // inner container (layout area)
+          form: [
+            'items-center rounded-2xl p-4',
+            // light background gradient + subtle ring
+            'bg-gradient-to-r from-rose-100 via-fuchsia-100 to-amber-100 ring-1 ring-rose-300/40',
+            // dark variant
+            'dark:bg-gradient-to-br dark:from-[#2a0a4a] dark:via-[#12183e] dark:to-[#0a1024] dark:ring-fuchsia-400/30',
+          ],
+          // search button
+          searchShowButton: [
+            'rounded-full text-white shadow-lg transition-transform',
+            'bg-gradient-to-br from-fuchsia-500 to-indigo-500 hover:scale-105 active:scale-95',
+            'dark:from-fuchsia-500 dark:to-purple-600',
+            // focus ring
+            'data-[focus-visible=true]:outline-amber-400',
+          ],
+          searchInputWrapper: [
+            // rounded corners and inner spacing
+            'rounded-2xl px-4',
+            // animate color changes
+            'transition-colors duration-500',
+            // stronger light gradient / dark gradient
+            'bg-gradient-to-r from-fuchsia-100 via-rose-100 to-amber-100 dark:from-fuchsia-900 dark:via-rose-900 dark:to-amber-900',
+            // border colors: base → hover (amber) → focus (amber)
+            'border-2 border-fuchsia-400 data-[hovered=true]:border-amber-400 group-data-[focus=true]:border-amber-400',
+            // input text color
+            'text-fuchsia-700 dark:text-fuchsia-300',
+          ],
+          // input placeholder color only
+          searchInput: [
+            'placeholder:text-fuchsia-400/70',
+            'dark:placeholder:text-fuchsia-500/60',
+          ],
+          // submit button next to input
+          searchSubmitButton: [
+            'rounded-full text-white shadow-lg transition-transform',
+            'bg-gradient-to-br from-fuchsia-500 to-indigo-500 hover:scale-105 active:scale-95',
+            'dark:from-fuchsia-500 dark:to-purple-600',
+            // focus ring
+            'data-[focus-visible=true]:outline-amber-400',
+          ],
+          // add filter menu trigger
+          addFilterMenuButton: [
+            'rounded-full leading-none',
+            'border-2 border-rose-300/60 bg-rose-50/60 text-rose-700 hover:bg-rose-100/70',
+            'dark:border-fuchsia-500/40 dark:bg-fuchsia-500/10 dark:text-fuchsia-200 dark:hover:bg-fuchsia-500/20',
+            // focus ring
+            'data-[focus-visible=true]:outline-amber-400',
+          ],
+          // add filter menu items
+          addFilterMenuItem: [
+            'text-rose-700 hover:bg-rose-100/60',
+            'dark:text-fuchsia-200 dark:hover:bg-fuchsia-500/10',
+          ],
+          // active filter chips
+          activeFilterLabel: [
+            'rounded-full border text-amber-900 shadow transition hover:shadow-md',
+            'border-amber-400/30 bg-amber-200/85',
+            'dark:bg-amber-400/20 dark:text-amber-200',
+          ],
+          // modal header/footer/body
+          filterModalHeader: [
+            'rounded-t-xl text-fuchsia-700',
+            'bg-gradient-to-r from-fuchsia-50 to-purple-50',
+            'dark:from-fuchsia-500/10 dark:to-purple-500/10 dark:text-fuchsia-300',
+          ],
+          filterModalFooter: [
+            'rounded-b-xl',
+            'bg-gradient-to-r from-rose-50 to-amber-50',
+            'dark:from-fuchsia-500/10 dark:to-amber-500/10',
+          ],
+          filterModalBody: [
+            'bg-white/70 backdrop-blur-xl',
+            'dark:bg-slate-900/50',
+          ],
+        }}
+        onChange={(next) => {
+          action('onChange')(next);
+          updateArgs({ values: next });
+        }}
+        values={values ?? {}}
+      />
+    );
+  },
+};
+
+export const CheckboxesWithReactNodeLabels: Story = {
+  args: {
+    config: {
+      filters: [
+        f.checkboxes({
+          name: 'status',
+          icon: <FaCheckCircle />,
+          config: {
+            text: 'Status',
+            options: [
+              {
+                value: 'active',
+                label: (mode) => {
+                  return mode === 'display' ? (
+                    <span className="text-success">✓</span>
+                  ) : (
+                    <span className="flex items-center gap-2">
+                      <FaCheckCircle className="text-success" />
+                      Active
+                    </span>
+                  );
+                },
+              },
+              {
+                value: 'pending',
+                label: (mode) => {
+                  return mode === 'display' ? (
+                    <span className="text-warning">⏳</span>
+                  ) : (
+                    <span className="flex items-center gap-2">
+                      <FaClock className="text-warning" />
+                      Pending
+                    </span>
+                  );
+                },
+              },
+              {
+                value: 'inactive',
+                label: (mode) => {
+                  return mode === 'display' ? (
+                    <span className="text-danger">✗</span>
+                  ) : (
+                    <span className="flex items-center gap-2">
+                      <FaTimesCircle className="text-danger" />
+                      Inactive
+                    </span>
+                  );
+                },
+              },
+            ],
+          },
+        }),
+        f.checkboxes({
+          name: 'tags',
+          icon: <FaSmile />,
+          config: {
+            text: 'Tags',
+            options: [
+              {
+                value: 'urgent',
+                label: (
+                  <span className="rounded bg-danger-100 px-2 py-0.5 text-xs font-semibold text-danger-700">
+                    Urgent
+                  </span>
+                ),
+              },
+              {
+                value: 'featured',
+                label: (
+                  <span className="rounded bg-primary-100 px-2 py-0.5 text-xs font-semibold text-primary-700">
+                    Featured
+                  </span>
+                ),
+              },
+              {
+                value: 'draft',
+                label: (
+                  <span className="rounded bg-default-100 px-2 py-0.5 text-xs font-semibold text-default-700">
+                    Draft
+                  </span>
+                ),
+              },
+            ],
+          },
+        }),
+      ],
+      search: { placeholder: 'Search items…' },
+    },
+    values: {
+      search: '',
+      filter: {
+        status: ['active', 'pending'],
+        tags: ['urgent'],
+      },
+    },
+  },
+};

@@ -11,8 +11,8 @@ let mutated: () => void;
 const disconnect = vi.fn();
 const observe = vi.fn();
 
-const createObserver = (onCreate: (callback: () => void) => void) => {
-  return class {
+const createObserver = (onCreate: (callback: () => void) => void) =>
+  class {
     constructor(callback: () => void) {
       onCreate(callback);
     }
@@ -21,7 +21,6 @@ const createObserver = (onCreate: (callback: () => void) => void) => {
 
     disconnect = disconnect;
   };
-};
 
 beforeEach(() => {
   vi.stubGlobal(

@@ -26,4 +26,4 @@ import { string, veto } from '@fuf-stack/veto';
 - `onSubmit` receives validated, normalized values. Use `validationTrigger` to change validation timing.
 - Use `debug={{ disable: true }}` to hide the development debug viewer.
 
-[Props](Form.tsx) · [Examples](../Form/FormComposition.stories.tsx)
+[Props](Form.tsx) · [Examples](stories/FormComposition.stories.tsx)

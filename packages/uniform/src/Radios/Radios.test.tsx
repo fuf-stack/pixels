@@ -9,7 +9,7 @@ import { number, veto } from '@fuf-stack/veto';
 import Form from '../Form';
 import { useFormContext } from '../hooks/useFormContext';
 import Radios from './Radios';
-import * as stories from './Radios.stories';
+import * as stories from './stories/Radios.stories';
 
 describe('Story Snapshots', () => {
   storySnapshots(stories);

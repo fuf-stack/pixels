@@ -48,4 +48,4 @@ needed. The `base`, `item`, `message` and `wrapper` slots style the list, animat
 entries, padded message content and association wrapper respectively. The
 wrapper is rendered only when `id` is supplied. Neither mode adds a live region.
 
-[Props](FieldValidationError.tsx) · [Stories](FieldValidationError.stories.tsx)
+[Props](FieldValidationError.tsx) · [Stories](stories/FieldValidationError.stories.tsx)

@@ -4,7 +4,7 @@ import storySnapshots from '@repo/storybook-config/story-snapshots';
 import { render } from '@testing-library/react';
 
 import Accordion from './Accordion';
-import * as stories from './Accordion.stories';
+import * as stories from './stories/Accordion.stories';
 
 describe('Story Snapshots', () => {
   storySnapshots(stories);

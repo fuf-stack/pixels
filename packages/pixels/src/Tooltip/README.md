@@ -17,4 +17,4 @@ Existing placement names and styling slots remain supported. The owned recipe
 shares arrow geometry with Popover and resolves through the styling provider.
 Animations respect reduced motion.
 
-[Props](./Tooltip.tsx) · [Stories](./Tooltip.stories.tsx) · [React Aria Tooltip](https://react-aria.adobe.com/Tooltip)
+[Props](./Tooltip.tsx) · [Stories](./stories/Tooltip.stories.tsx) · [React Aria Tooltip](https://react-aria.adobe.com/Tooltip)

@@ -25,7 +25,7 @@ import Form from '@fuf-stack/uniform/Form';
 - Stores an array of selected string values.
 - Use `disabled` on an option to disable only that checkbox.
 
-[Props](Checkboxes.tsx) · [Stories](Checkboxes.stories.tsx)
+[Props](Checkboxes.tsx) · [Stories](stories/Checkboxes.stories.tsx)
 
 ## Composition
 

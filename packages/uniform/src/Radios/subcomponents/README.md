@@ -19,4 +19,4 @@ Uses React Aria `RadioField` for option state and `RadioButton` for the clickabl
 label. The field wrapper uses the `field` slot with `display: contents`, preserving
 the option layout. Hover presentation uses React Aria's render state through recipe selectors.
 
-[Props](./RadioControl.tsx) · [Stories](./RadioControl.stories.tsx) · [React Aria RadioGroup](https://react-aria.adobe.com/RadioGroup)
+[Props](./RadioControl.tsx) · [Stories](./stories/RadioControl.stories.tsx) · [React Aria RadioGroup](https://react-aria.adobe.com/RadioGroup)

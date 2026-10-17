@@ -22,4 +22,4 @@ import Input from '@fuf-stack/uniform/Input';
 - Uses a CSS grid with `gap-6`; add column utilities through `className`.
 - Provides layout only. The inputs still need a surrounding Form.
 
-[Props](./Grid.tsx) · [Stories](./Grid.stories.tsx) · [Form composition](../Form/FormComposition.stories.tsx)
+[Props](./Grid.tsx) · [Stories](./stories/Grid.stories.tsx) · [Form composition](../Form/stories/FormComposition.stories.tsx)

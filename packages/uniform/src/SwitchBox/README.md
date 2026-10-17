@@ -25,7 +25,7 @@ import SwitchBox from '@fuf-stack/uniform/SwitchBox';
 Validation messages can be styled through the `errorMessage` and `helperWrapper`
 slots in `className`.
 
-[Props](SwitchBox.tsx) · [Stories](SwitchBox.stories.tsx)
+[Props](SwitchBox.tsx) · [Stories](stories/SwitchBox.stories.tsx)
 
 ## Composition
 

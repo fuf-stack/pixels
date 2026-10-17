@@ -4,7 +4,7 @@ import storySnapshots from '@repo/storybook-config/story-snapshots';
 import { fireEvent, render } from '@testing-library/react';
 
 import Json from './Json';
-import * as stories from './Json.stories';
+import * as stories from './stories/Json.stories';
 
 describe('Story Snapshots', () => {
   storySnapshots(stories);

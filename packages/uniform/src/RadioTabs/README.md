@@ -27,7 +27,7 @@ import RadioTabs from '@fuf-stack/uniform/RadioTabs';
 - Style help text and validation through the `description`, `errorMessage` and
   `helperWrapper` slots in `className`, using the same recipe as the tabs.
 
-[Props](RadioTabs.tsx) · [Stories](RadioTabs.stories.tsx)
+[Props](RadioTabs.tsx) · [Stories](stories/RadioTabs.stories.tsx)
 
 ## Composition
 

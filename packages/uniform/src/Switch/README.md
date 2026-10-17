@@ -18,7 +18,7 @@ import Switch from '@fuf-stack/uniform/Switch';
 - Stores a boolean value.
 - Use `thumbIcon`, `startContent` and `endContent` for additional visual cues.
 
-[Props](Switch.tsx) · [Stories](Switch.stories.tsx)
+[Props](Switch.tsx) · [Stories](stories/Switch.stories.tsx)
 
 ## Composition
 

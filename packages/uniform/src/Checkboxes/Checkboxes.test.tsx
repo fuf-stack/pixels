@@ -12,7 +12,7 @@ import { array, object, refineObject, string, veto } from '@fuf-stack/veto';
 import Form from '../Form';
 import { useFormContext } from '../hooks/useFormContext';
 import Checkboxes from './Checkboxes';
-import * as stories from './Checkboxes.stories';
+import * as stories from './stories/Checkboxes.stories';
 
 describe('Story Snapshots', () => {
   storySnapshots(stories);

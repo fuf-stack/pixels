@@ -12,12 +12,8 @@ import FieldCard, {
   hasAnyChildTouched,
   hasVisibleChildErrors,
 } from './FieldCard';
-import * as stories from './FieldCard.stories';
-
-const edgeCaseStories = {
-  default: stories.default,
-  EdgeCaseOptionalFieldTouched: stories.EdgeCaseOptionalFieldTouched,
-};
+import * as edgeCaseStories from './stories/FieldCard.edge-cases.stories';
+import * as stories from './stories/FieldCard.stories';
 
 describe('Story Snapshots', () => {
   // keep existing unit snapshot scenarios, composition interactions also run in Chromium

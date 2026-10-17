@@ -7,10 +7,14 @@ import { createStyling } from '@fuf-stack/pixel-utils';
 
 import { StylingProvider } from '../StylingProvider';
 import Progress from './Progress';
-import * as stories from './Progress.stories';
+import * as edgeCaseStories from './stories/Progress.edge-cases.stories';
+import * as interactionStories from './stories/Progress.interactions.stories';
+import * as stories from './stories/Progress.stories';
 
 describe('Story Snapshots', () => {
   storySnapshots(stories);
+  storySnapshots(interactionStories);
+  storySnapshots(edgeCaseStories);
 });
 
 describe('Progress behavior', () => {

@@ -27,7 +27,7 @@ then adds calendar styling. The recipe accepts `disabled`; invalid styling follo
 React Aria’s `data-invalid` attributes rather than a recipe variant. Override individual slots through `className`, including
 `label`, `description` and `errorMessage`. See the [styling guide](../../../../docs/styling.md).
 
-[Props](DatePicker.tsx) · [Stories](DatePicker.stories.tsx)
+[Props](DatePicker.tsx) · [Stories](stories/DatePicker.stories.tsx)
 
 ## Composition
 
