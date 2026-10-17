@@ -82,6 +82,12 @@ AvatarGroup now owns overlap, wrappers and its accessible overflow indicator.
 The direct `@heroui/avatar` dependency is removed.
 See [Pixels migration notes](./pixels/migration.md#avatar).
 
+## Pixels Badge
+
+Badge now owns its positioning, content sizing and slot styles. Its direct
+`@heroui/badge` dependency is removed.
+See [Pixels migration notes](./pixels/migration.md#badge).
+
 ## Implemented foundation
 
 - `TVProps` uses direct Tailwind Variants types.

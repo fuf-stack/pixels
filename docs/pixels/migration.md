@@ -199,3 +199,21 @@ The shared avatar dependency is removed. Both Avatar and AvatarGroup have no
 HeroUI runtime or type imports.
 
 [AvatarGroup usage](../../packages/pixels/src/AvatarGroup/README.md)
+
+## Badge
+
+Badge now owns its positioning container and indicator recipe. Undefined content
+still returns children directly; zero, empty-string dots, single-character circles,
+rich content, outlines and all four placements retain their behavior. Interactive
+children retain their native keyboard handling. The size showcase now uses the
+valid `md` value instead of its previous trailing-space typo.
+
+The direct `@heroui/badge` dependency is removed.
+
+[Badge usage](../../packages/pixels/src/Badge/README.md)
+
+The light/dark comparison retains Avatar's 16 captured states and AvatarGroup's
+geometry and colors across 14 states. Their WCAG audits found no violations in
+those states. Badge retains its ten other captured states exactly; the two size
+showcases reflect the corrected story argument. Its all-colors contrast findings
+match the legacy baseline, with no new findings in the 12 audited states.

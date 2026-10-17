@@ -4,6 +4,10 @@ import type { BadgeProps } from '../Badge';
 import { Avatar } from '../../Avatar';
 import Badge from '../Badge';
 
+// -----------------------------------------------------------------------------
+// Story base setup
+// -----------------------------------------------------------------------------
+
 const meta: Meta<typeof Badge> = {
   title: 'pixels/Badge',
   component: Badge,
@@ -14,6 +18,10 @@ type Story = StoryObj<typeof Badge>;
 
 const children = <Avatar src="" />;
 const content = 42;
+
+// -----------------------------------------------------------------------------
+// Normal stories
+// -----------------------------------------------------------------------------
 
 export const Default: Story = {
   args: {
@@ -48,30 +56,6 @@ export const NoOutline: Story = {
           <dt>without outline</dt>
           <dd>
             <Badge {...args} noOutline />
-          </dd>
-        </div>
-      </dl>
-    );
-  },
-};
-
-export const NoContent: Story = {
-  args: {
-    children,
-  },
-  render: (args: BadgeProps) => {
-    return (
-      <dl>
-        <div className="gap-4 pb-8 sm:grid sm:grid-cols-2">
-          <dt>with content</dt>
-          <dd>
-            <Badge {...args} content="42" />
-          </dd>
-        </div>
-        <div className="gap-4 pb-8 sm:grid sm:grid-cols-2">
-          <dt>without content</dt>
-          <dd>
-            <Badge {...args} />
           </dd>
         </div>
       </dl>
@@ -121,7 +105,7 @@ export const AllSizes: Story = {
   render: (args: BadgeProps) => {
     return (
       <dl>
-        {['sm', 'md ', 'lg'].map((size) => {
+        {['sm', 'md', 'lg'].map((size) => {
           return (
             <div key={size} className="gap-4 pb-8 sm:grid sm:grid-cols-2">
               <dt>{size}</dt>
@@ -164,5 +148,13 @@ export const AllPlacements: Story = {
         )}
       </dl>
     );
+  },
+};
+
+export const CustomStyling: Story = {
+  args: {
+    children,
+    className: { badge: 'bg-danger text-danger-foreground', base: 'm-4' },
+    content: 'New',
   },
 };
