@@ -113,6 +113,13 @@ Breadcrumb uses owned recipes and React Aria hooks for its landmark and item
 associations. The direct `@heroui/breadcrumbs` dependency is removed. See the
 [Pixels migration notes](./pixels/migration.md#breadcrumb).
 
+## Pixels Card
+
+Card renders owned surfaces and section dividers. Its direct `@heroui/card` and
+unused `@heroui/divider` dependencies are removed. The remaining Pixels component
+migrations are SearchInput, Table and Tabs, followed by shared theme and dependency
+cleanup. See the [Pixels migration notes](./pixels/migration.md#card).
+
 ## Implemented foundation
 
 - `TVProps` uses direct Tailwind Variants types.

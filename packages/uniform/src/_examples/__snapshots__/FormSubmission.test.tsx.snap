@@ -194,20 +194,22 @@ exports[`Story Snapshots > FormSubmission 1`] = `
         </button>
       </div>
       <div
-        class="flex flex-col relative overflow-hidden h-auto text-foreground box-border bg-content1 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 shadow-none rounded-small w-full transition-transform-background motion-reduce:transition-none border border-divider mt-6"
+        class="relative box-border flex h-auto w-full flex-col overflow-hidden rounded-small border border-divider bg-content1 text-foreground shadow-none outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus transition-transform-background motion-reduce:transition-none mt-6"
+        data-slot="base"
         tabindex="-1"
       >
         <div
-          class="flex p-3 w-full justify-start items-center shrink-0 overflow-inherit color-inherit subpixel-antialiased rounded-t-small z-auto text-base font-semibold"
+          class="color-inherit overflow-inherit z-auto flex w-full shrink-0 items-center justify-start rounded-t-small p-3 text-base font-semibold subpixel-antialiased"
+          data-slot="header"
         >
           Form State
         </div>
         <hr
-          class="shrink-0 bg-divider border-none w-full h-divider my-0 border-divider"
-          role="separator"
+          class="my-0 h-divider w-full shrink-0 border-none border-divider bg-divider"
         />
         <div
-          class="relative flex w-full p-3 flex-auto flex-col place-content-inherit align-items-inherit h-auto break-words text-left overflow-y-auto subpixel-antialiased"
+          class="relative flex h-auto w-full flex-auto flex-col p-3 place-content-inherit align-items-inherit overflow-y-auto break-words text-left subpixel-antialiased"
+          data-slot="body"
         >
           <dl
             class="grid grid-cols-[auto_1fr] gap-x-6 gap-y-1 text-small"
@@ -396,20 +398,22 @@ exports[`Story Snapshots > LongRunningSubmit 1`] = `
         </button>
       </div>
       <div
-        class="flex flex-col relative overflow-hidden h-auto text-foreground box-border bg-content1 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 shadow-none rounded-small w-full transition-transform-background motion-reduce:transition-none border border-divider mt-6"
+        class="relative box-border flex h-auto w-full flex-col overflow-hidden rounded-small border border-divider bg-content1 text-foreground shadow-none outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus transition-transform-background motion-reduce:transition-none mt-6"
+        data-slot="base"
         tabindex="-1"
       >
         <div
-          class="flex p-3 w-full justify-start items-center shrink-0 overflow-inherit color-inherit subpixel-antialiased rounded-t-small z-auto text-base font-semibold"
+          class="color-inherit overflow-inherit z-auto flex w-full shrink-0 items-center justify-start rounded-t-small p-3 text-base font-semibold subpixel-antialiased"
+          data-slot="header"
         >
           Form State
         </div>
         <hr
-          class="shrink-0 bg-divider border-none w-full h-divider my-0 border-divider"
-          role="separator"
+          class="my-0 h-divider w-full shrink-0 border-none border-divider bg-divider"
         />
         <div
-          class="relative flex w-full p-3 flex-auto flex-col place-content-inherit align-items-inherit h-auto break-words text-left overflow-y-auto subpixel-antialiased"
+          class="relative flex h-auto w-full flex-auto flex-col p-3 place-content-inherit align-items-inherit overflow-y-auto break-words text-left subpixel-antialiased"
+          data-slot="body"
         >
           <dl
             class="grid grid-cols-[auto_1fr] gap-x-6 gap-y-1 text-small"
@@ -643,20 +647,22 @@ exports[`Story Snapshots > RemoteFormSubmission 1`] = `
         </div>
       </div>
       <div
-        class="flex flex-col relative overflow-hidden h-auto text-foreground box-border bg-content1 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 shadow-none rounded-small w-full transition-transform-background motion-reduce:transition-none border border-divider mt-6"
+        class="relative box-border flex h-auto w-full flex-col overflow-hidden rounded-small border border-divider bg-content1 text-foreground shadow-none outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus transition-transform-background motion-reduce:transition-none mt-6"
+        data-slot="base"
         tabindex="-1"
       >
         <div
-          class="flex p-3 w-full justify-start items-center shrink-0 overflow-inherit color-inherit subpixel-antialiased rounded-t-small z-auto text-base font-semibold"
+          class="color-inherit overflow-inherit z-auto flex w-full shrink-0 items-center justify-start rounded-t-small p-3 text-base font-semibold subpixel-antialiased"
+          data-slot="header"
         >
           Form State
         </div>
         <hr
-          class="shrink-0 bg-divider border-none w-full h-divider my-0 border-divider"
-          role="separator"
+          class="my-0 h-divider w-full shrink-0 border-none border-divider bg-divider"
         />
         <div
-          class="relative flex w-full p-3 flex-auto flex-col place-content-inherit align-items-inherit h-auto break-words text-left overflow-y-auto subpixel-antialiased"
+          class="relative flex h-auto w-full flex-auto flex-col p-3 place-content-inherit align-items-inherit overflow-y-auto break-words text-left subpixel-antialiased"
+          data-slot="body"
         >
           <dl
             class="grid grid-cols-[auto_1fr] gap-x-6 gap-y-1 text-small"
@@ -926,20 +932,22 @@ exports[`Story Snapshots > SubmitWithEnter 1`] = `
         </button>
       </div>
       <div
-        class="flex flex-col relative overflow-hidden h-auto text-foreground box-border bg-content1 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 shadow-none rounded-small w-full transition-transform-background motion-reduce:transition-none border border-divider mt-6"
+        class="relative box-border flex h-auto w-full flex-col overflow-hidden rounded-small border border-divider bg-content1 text-foreground shadow-none outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus transition-transform-background motion-reduce:transition-none mt-6"
+        data-slot="base"
         tabindex="-1"
       >
         <div
-          class="flex p-3 w-full justify-start items-center shrink-0 overflow-inherit color-inherit subpixel-antialiased rounded-t-small z-auto text-base font-semibold"
+          class="color-inherit overflow-inherit z-auto flex w-full shrink-0 items-center justify-start rounded-t-small p-3 text-base font-semibold subpixel-antialiased"
+          data-slot="header"
         >
           Form State
         </div>
         <hr
-          class="shrink-0 bg-divider border-none w-full h-divider my-0 border-divider"
-          role="separator"
+          class="my-0 h-divider w-full shrink-0 border-none border-divider bg-divider"
         />
         <div
-          class="relative flex w-full p-3 flex-auto flex-col place-content-inherit align-items-inherit h-auto break-words text-left overflow-y-auto subpixel-antialiased"
+          class="relative flex h-auto w-full flex-auto flex-col p-3 place-content-inherit align-items-inherit overflow-y-auto break-words text-left subpixel-antialiased"
+          data-slot="body"
         >
           <dl
             class="grid grid-cols-[auto_1fr] gap-x-6 gap-y-1 text-small"

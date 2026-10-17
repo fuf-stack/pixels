@@ -293,3 +293,20 @@ unchanged. A keyboard story verifies Tab skips disabled items and the current pa
 The direct `@heroui/breadcrumbs` dependency is removed.
 
 [Breadcrumb usage](../../packages/pixels/src/Breadcrumb/README.md)
+
+## Card
+
+Card now renders its own content surface, header, body, footer and native dividing
+rules. Existing props, section test IDs, forwarded div refs and all five styling
+slots remain supported. The outer surface accepts programmatic focus without
+adding a tab stop, while contained controls keep their own keyboard interactions.
+No additional wrapper or presentation-only subcomponent is introduced.
+
+All six captured light/dark screenshots match the baseline. Accessibility audits
+retain the existing custom-styling contrast finding, with no new violations.
+The keyboard story verifies the surface adds no tab stop and contained actions
+remain operable.
+
+The direct `@heroui/card` and now-unused `@heroui/divider` dependencies are removed.
+
+[Card usage](../../packages/pixels/src/Card/README.md)

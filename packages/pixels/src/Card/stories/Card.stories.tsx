@@ -2,13 +2,22 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import Card from '../Card';
 
+// -----------------------------------------------------------------------------
+// Story base setup
+// -----------------------------------------------------------------------------
+
 const meta: Meta<typeof Card> = {
   title: 'pixels/Card',
   component: Card,
 };
 
 export default meta;
+
 type Story = StoryObj<typeof Card>;
+
+// -----------------------------------------------------------------------------
+// Normal stories
+// -----------------------------------------------------------------------------
 
 export const Default: Story = {
   args: {
@@ -38,7 +47,7 @@ export const FooterAndHeader: Story = {
   },
 };
 
-export const CustomSlotStyles: Story = {
+export const CustomStyling: Story = {
   args: {
     footer: 'Footer',
     header: 'Header',
