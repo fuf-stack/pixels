@@ -12,7 +12,7 @@
     "lint:debug": "eslint --debug ./packages",
     "test": "FORCE_COLOR=1 vitest run --coverage $VITEST_EXTRA_OPTS",
     "test:storybook": "vitest run --config packages/config/storybook-config/vitest.config.ts --project=storybook --maxWorkers=4",
-    "typecheck": "pnpm --filter @fuf-stack/uniform test:types && pnpm build",
+    "typecheck": "pnpm --filter @fuf-stack/pixels test:types && pnpm --filter @fuf-stack/uniform test:types && pnpm build",
     "turbo": "TURBO_TELEMETRY_DISABLED=1 FORCE_COLOR=1 turbo --cache-dir ./.turbo-cache --color",
     "verify:packages": "node scripts/verify-packages.mjs"
   },

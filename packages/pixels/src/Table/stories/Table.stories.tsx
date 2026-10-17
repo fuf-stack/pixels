@@ -61,14 +61,16 @@ export const AllSeparators: Story = {
   render: (args) => {
     return (
       <div>
-        {[
-          'none',
-          'divider-x',
-          'divider-y',
-          'divider',
-          'striped',
-          'striped-divider-x',
-        ].map((s) => {
+        {(
+          [
+            'none',
+            'divider-x',
+            'divider-y',
+            'divider',
+            'striped',
+            'striped-divider-x',
+          ] as const
+        ).map((s) => {
           return (
             <div key={s} className="mb-4">
               <span className="text-lg font-bold">{s}</span>

@@ -159,8 +159,9 @@ exports[`Story Snapshots > CustomStyles 1`] = `
     style="opacity: 1;"
   />
   <div
-    class="fixed inset-0 z-50 flex h-dvh w-screen items-center justify-center overflow-x-auto"
+    class="h-(--visual-viewport-height) fixed inset-0 z-50 w-screen overflow-x-auto flex items-center justify-center"
     data-slot="wrapper"
+    style="--visual-viewport-height: 768px;"
   >
     <section
       aria-describedby="modal_body-«replaced-aria-id»"
@@ -187,7 +188,7 @@ exports[`Story Snapshots > CustomStyles 1`] = `
       </div>
       <button
         aria-label="Close"
-        class="absolute end-1 top-1 select-none appearance-none rounded-full p-2 text-foreground-500 outline-solid outline-transparent tap-highlight-transparent data-[focus-visible]:z-10 data-[focus-visible]:outline-2 data-[focus-visible]:outline-offset-2 data-[focus-visible]:outline-focus hover:bg-white/5 active:bg-white/10"
+        class="absolute end-1 top-1 select-none appearance-none rounded-full p-2 text-foreground-500 tap-highlight-transparent outline-solid outline-transparent data-[focus-visible]:z-10 data-[focus-visible]:outline-2 data-[focus-visible]:outline-offset-2 data-[focus-visible]:outline-focus hover:bg-white/5 active:bg-white/10"
         data-rac=""
         data-react-aria-pressable="true"
         id="react-aria-«replaced-aria-id»"
@@ -275,8 +276,9 @@ exports[`Story Snapshots > Default 1`] = `
     style="opacity: 1;"
   />
   <div
-    class="fixed inset-0 z-50 flex h-dvh w-screen items-center justify-center overflow-x-auto"
+    class="h-(--visual-viewport-height) fixed inset-0 z-50 w-screen overflow-x-auto flex items-center justify-center"
     data-slot="wrapper"
+    style="--visual-viewport-height: 768px;"
   >
     <section
       aria-describedby="modal_body-«replaced-aria-id»"
@@ -303,7 +305,7 @@ exports[`Story Snapshots > Default 1`] = `
       </div>
       <button
         aria-label="Close"
-        class="absolute end-1 top-1 select-none appearance-none rounded-full p-2 text-foreground-500 outline-solid outline-transparent tap-highlight-transparent hover:bg-default-100 active:bg-default-200 data-[focus-visible]:z-10 data-[focus-visible]:outline-2 data-[focus-visible]:outline-offset-2 data-[focus-visible]:outline-focus"
+        class="absolute end-1 top-1 select-none appearance-none rounded-full p-2 text-foreground-500 tap-highlight-transparent hover:bg-default-100 active:bg-default-200 outline-solid outline-transparent data-[focus-visible]:z-10 data-[focus-visible]:outline-2 data-[focus-visible]:outline-offset-2 data-[focus-visible]:outline-focus"
         data-rac=""
         data-react-aria-pressable="true"
         id="react-aria-«replaced-aria-id»"
@@ -392,8 +394,9 @@ exports[`Story Snapshots > MultipleModalsInHost 1`] = `
   />
   <div
     aria-hidden="true"
-    class="fixed inset-0 z-50 flex h-dvh w-screen items-center justify-center overflow-x-auto"
+    class="h-(--visual-viewport-height) fixed inset-0 z-50 w-screen overflow-x-auto flex items-center justify-center"
     data-slot="wrapper"
+    style="--visual-viewport-height: 768px;"
   >
     <section
       aria-describedby="modal_body-«replaced-aria-id»"
@@ -420,7 +423,7 @@ exports[`Story Snapshots > MultipleModalsInHost 1`] = `
       </div>
       <button
         aria-label="Close"
-        class="absolute end-1 top-1 select-none appearance-none rounded-full p-2 text-foreground-500 outline-solid outline-transparent tap-highlight-transparent hover:bg-default-100 active:bg-default-200 data-[focus-visible]:z-10 data-[focus-visible]:outline-2 data-[focus-visible]:outline-offset-2 data-[focus-visible]:outline-focus"
+        class="absolute end-1 top-1 select-none appearance-none rounded-full p-2 text-foreground-500 tap-highlight-transparent hover:bg-default-100 active:bg-default-200 outline-solid outline-transparent data-[focus-visible]:z-10 data-[focus-visible]:outline-2 data-[focus-visible]:outline-offset-2 data-[focus-visible]:outline-focus"
         data-rac=""
         data-react-aria-pressable="true"
         id="react-aria-«replaced-aria-id»"
@@ -505,8 +508,9 @@ exports[`Story Snapshots > MultipleModalsInHost 1`] = `
   />
   <div
     aria-hidden="true"
-    class="fixed inset-0 z-50 flex h-dvh w-screen items-center justify-center overflow-x-auto"
+    class="h-(--visual-viewport-height) fixed inset-0 z-50 w-screen overflow-x-auto flex items-center justify-center"
     data-slot="wrapper"
+    style="--visual-viewport-height: 768px;"
   >
     <section
       aria-describedby="modal_body-«replaced-aria-id»"
@@ -533,7 +537,7 @@ exports[`Story Snapshots > MultipleModalsInHost 1`] = `
       </div>
       <button
         aria-label="Close"
-        class="absolute end-1 top-1 select-none appearance-none rounded-full p-2 text-foreground-500 outline-solid outline-transparent tap-highlight-transparent hover:bg-default-100 active:bg-default-200 data-[focus-visible]:z-10 data-[focus-visible]:outline-2 data-[focus-visible]:outline-offset-2 data-[focus-visible]:outline-focus"
+        class="absolute end-1 top-1 select-none appearance-none rounded-full p-2 text-foreground-500 tap-highlight-transparent hover:bg-default-100 active:bg-default-200 outline-solid outline-transparent data-[focus-visible]:z-10 data-[focus-visible]:outline-2 data-[focus-visible]:outline-offset-2 data-[focus-visible]:outline-focus"
         data-rac=""
         data-react-aria-pressable="true"
         id="react-aria-«replaced-aria-id»"
@@ -618,8 +622,9 @@ exports[`Story Snapshots > MultipleModalsInHost 1`] = `
   />
   <div
     aria-hidden="true"
-    class="fixed inset-0 z-50 flex h-dvh w-screen items-center justify-center overflow-x-auto"
+    class="h-(--visual-viewport-height) fixed inset-0 z-50 w-screen overflow-x-auto flex items-center justify-center"
     data-slot="wrapper"
+    style="--visual-viewport-height: 768px;"
   >
     <section
       aria-describedby="modal_body-«replaced-aria-id»"
@@ -646,7 +651,7 @@ exports[`Story Snapshots > MultipleModalsInHost 1`] = `
       </div>
       <button
         aria-label="Close"
-        class="absolute end-1 top-1 select-none appearance-none rounded-full p-2 text-foreground-500 outline-solid outline-transparent tap-highlight-transparent hover:bg-default-100 active:bg-default-200 data-[focus-visible]:z-10 data-[focus-visible]:outline-2 data-[focus-visible]:outline-offset-2 data-[focus-visible]:outline-focus"
+        class="absolute end-1 top-1 select-none appearance-none rounded-full p-2 text-foreground-500 tap-highlight-transparent hover:bg-default-100 active:bg-default-200 outline-solid outline-transparent data-[focus-visible]:z-10 data-[focus-visible]:outline-2 data-[focus-visible]:outline-offset-2 data-[focus-visible]:outline-focus"
         data-rac=""
         data-react-aria-pressable="true"
         id="react-aria-«replaced-aria-id»"
@@ -749,8 +754,9 @@ exports[`Story Snapshots > ScrollLongContent 1`] = `
     style="opacity: 1;"
   />
   <div
-    class="fixed inset-0 z-50 flex h-dvh w-screen items-center justify-center overflow-x-auto"
+    class="h-(--visual-viewport-height) fixed inset-0 z-50 w-screen overflow-x-auto flex items-center justify-center"
     data-slot="wrapper"
+    style="--visual-viewport-height: 768px;"
   >
     <section
       aria-describedby="modal_body-«replaced-aria-id»"
@@ -777,7 +783,7 @@ exports[`Story Snapshots > ScrollLongContent 1`] = `
       </div>
       <button
         aria-label="Close"
-        class="absolute end-1 top-1 select-none appearance-none rounded-full p-2 text-foreground-500 outline-solid outline-transparent tap-highlight-transparent hover:bg-default-100 active:bg-default-200 data-[focus-visible]:z-10 data-[focus-visible]:outline-2 data-[focus-visible]:outline-offset-2 data-[focus-visible]:outline-focus"
+        class="absolute end-1 top-1 select-none appearance-none rounded-full p-2 text-foreground-500 tap-highlight-transparent hover:bg-default-100 active:bg-default-200 outline-solid outline-transparent data-[focus-visible]:z-10 data-[focus-visible]:outline-2 data-[focus-visible]:outline-offset-2 data-[focus-visible]:outline-focus"
         data-rac=""
         data-react-aria-pressable="true"
         id="react-aria-«replaced-aria-id»"
@@ -957,8 +963,9 @@ exports[`Story Snapshots > WithHeader 1`] = `
     style="opacity: 1;"
   />
   <div
-    class="fixed inset-0 z-50 flex h-dvh w-screen items-center justify-center overflow-x-auto"
+    class="h-(--visual-viewport-height) fixed inset-0 z-50 w-screen overflow-x-auto flex items-center justify-center"
     data-slot="wrapper"
+    style="--visual-viewport-height: 768px;"
   >
     <section
       aria-describedby="modal_body-«replaced-aria-id»"
@@ -985,7 +992,7 @@ exports[`Story Snapshots > WithHeader 1`] = `
       </div>
       <button
         aria-label="Close"
-        class="absolute end-1 top-1 select-none appearance-none rounded-full p-2 text-foreground-500 outline-solid outline-transparent tap-highlight-transparent hover:bg-default-100 active:bg-default-200 data-[focus-visible]:z-10 data-[focus-visible]:outline-2 data-[focus-visible]:outline-offset-2 data-[focus-visible]:outline-focus"
+        class="absolute end-1 top-1 select-none appearance-none rounded-full p-2 text-foreground-500 tap-highlight-transparent hover:bg-default-100 active:bg-default-200 outline-solid outline-transparent data-[focus-visible]:z-10 data-[focus-visible]:outline-2 data-[focus-visible]:outline-offset-2 data-[focus-visible]:outline-focus"
         data-rac=""
         data-react-aria-pressable="true"
         id="react-aria-«replaced-aria-id»"
@@ -1075,8 +1082,9 @@ exports[`Story Snapshots > WithHeaderAndFooter 1`] = `
     style="opacity: 1;"
   />
   <div
-    class="fixed inset-0 z-50 flex h-dvh w-screen items-center justify-center overflow-x-auto"
+    class="h-(--visual-viewport-height) fixed inset-0 z-50 w-screen overflow-x-auto flex items-center justify-center"
     data-slot="wrapper"
+    style="--visual-viewport-height: 768px;"
   >
     <section
       aria-describedby="modal_body-«replaced-aria-id»"
@@ -1103,7 +1111,7 @@ exports[`Story Snapshots > WithHeaderAndFooter 1`] = `
       </div>
       <button
         aria-label="Close"
-        class="absolute end-1 top-1 select-none appearance-none rounded-full p-2 text-foreground-500 outline-solid outline-transparent tap-highlight-transparent hover:bg-default-100 active:bg-default-200 data-[focus-visible]:z-10 data-[focus-visible]:outline-2 data-[focus-visible]:outline-offset-2 data-[focus-visible]:outline-focus"
+        class="absolute end-1 top-1 select-none appearance-none rounded-full p-2 text-foreground-500 tap-highlight-transparent hover:bg-default-100 active:bg-default-200 outline-solid outline-transparent data-[focus-visible]:z-10 data-[focus-visible]:outline-2 data-[focus-visible]:outline-offset-2 data-[focus-visible]:outline-focus"
         data-rac=""
         data-react-aria-pressable="true"
         id="react-aria-«replaced-aria-id»"
@@ -1207,8 +1215,9 @@ exports[`Story Snapshots > WithModalHost 1`] = `
     style="opacity: 1;"
   />
   <div
-    class="fixed inset-0 z-50 flex h-dvh w-screen items-center justify-center overflow-x-auto"
+    class="h-(--visual-viewport-height) fixed inset-0 z-50 w-screen overflow-x-auto flex items-center justify-center"
     data-slot="wrapper"
+    style="--visual-viewport-height: 768px;"
   >
     <section
       aria-describedby="modal_body-«replaced-aria-id»"
@@ -1235,7 +1244,7 @@ exports[`Story Snapshots > WithModalHost 1`] = `
       </div>
       <button
         aria-label="Close"
-        class="absolute end-1 top-1 select-none appearance-none rounded-full p-2 text-foreground-500 outline-solid outline-transparent tap-highlight-transparent hover:bg-default-100 active:bg-default-200 data-[focus-visible]:z-10 data-[focus-visible]:outline-2 data-[focus-visible]:outline-offset-2 data-[focus-visible]:outline-focus"
+        class="absolute end-1 top-1 select-none appearance-none rounded-full p-2 text-foreground-500 tap-highlight-transparent hover:bg-default-100 active:bg-default-200 outline-solid outline-transparent data-[focus-visible]:z-10 data-[focus-visible]:outline-2 data-[focus-visible]:outline-offset-2 data-[focus-visible]:outline-focus"
         data-rac=""
         data-react-aria-pressable="true"
         id="react-aria-«replaced-aria-id»"
@@ -1325,8 +1334,9 @@ exports[`Story Snapshots > WithScrollShadow 1`] = `
     style="opacity: 1;"
   />
   <div
-    class="fixed inset-0 z-50 flex h-dvh w-screen items-center justify-center overflow-x-auto"
+    class="h-(--visual-viewport-height) fixed inset-0 z-50 w-screen overflow-x-auto flex items-center justify-center"
     data-slot="wrapper"
+    style="--visual-viewport-height: 768px;"
   >
     <section
       aria-describedby="modal_body-«replaced-aria-id»"
@@ -1353,7 +1363,7 @@ exports[`Story Snapshots > WithScrollShadow 1`] = `
       </div>
       <button
         aria-label="Close"
-        class="absolute end-1 top-1 select-none appearance-none rounded-full p-2 text-foreground-500 outline-solid outline-transparent tap-highlight-transparent hover:bg-default-100 active:bg-default-200 data-[focus-visible]:z-10 data-[focus-visible]:outline-2 data-[focus-visible]:outline-offset-2 data-[focus-visible]:outline-focus"
+        class="absolute end-1 top-1 select-none appearance-none rounded-full p-2 text-foreground-500 tap-highlight-transparent hover:bg-default-100 active:bg-default-200 outline-solid outline-transparent data-[focus-visible]:z-10 data-[focus-visible]:outline-2 data-[focus-visible]:outline-offset-2 data-[focus-visible]:outline-focus"
         data-rac=""
         data-react-aria-pressable="true"
         id="react-aria-«replaced-aria-id»"

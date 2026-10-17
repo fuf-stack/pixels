@@ -15,18 +15,26 @@ describe('Story Snapshots', () => {
 
 describe('Coverage', () => {
   test('should render with no children', () => {
-    const { container } = render(<Modal />);
+    const { container } = render(<Modal isOpen={false} onClose={() => {}} />);
     expect(container.firstChild).toMatchSnapshot();
   });
 
   test('Should have correct testIds', () => {
-    const { container } = render(<Modal testId="modal1" />);
+    const { container } = render(
+      <Modal isOpen={false} onClose={() => {}} testId="modal1" />,
+    );
     expect(container.firstChild).toMatchSnapshot();
   });
 
   test('should render with only header', () => {
     const { container } = render(
-      <Modal footer="id" header={<div>test</div>} testId="testId" />,
+      <Modal
+        footer="id"
+        header={<div>test</div>}
+        isOpen={false}
+        onClose={() => {}}
+        testId="testId"
+      />,
     );
     expect(container.firstChild).toMatchSnapshot();
   });
@@ -85,6 +93,22 @@ describe('Coverage', () => {
 });
 
 describe('Modal interactions', () => {
+  test('requests closing when its backdrop is pressed', async () => {
+    const onClose = vi.fn();
+    render(
+      <Modal isOpen onClose={onClose}>
+        Details
+      </Modal>,
+    );
+    const wrapper = screen.getByRole('dialog').closest('[data-slot="wrapper"]');
+    if (!wrapper) {
+      throw new Error('Missing modal wrapper');
+    }
+
+    await userEvent.click(wrapper);
+    expect(onClose).toHaveBeenCalledTimes(1);
+  });
+
   test('uses its header and unique body IDs for accessible associations', () => {
     render(
       <Modal header="Edit profile" isOpen onClose={() => {}}>
@@ -107,9 +131,7 @@ describe('Modal interactions', () => {
         Details
       </Modal>,
     );
-    await userEvent.click(
-      screen.getByRole('button', { name: 'Close', exact: true }),
-    );
+    await userEvent.click(screen.getByRole('button', { name: 'Close' }));
     expect(onClose).toHaveBeenCalledTimes(1);
     expect(screen.getByRole('dialog')).toBeInTheDocument();
     await userEvent.keyboard('{Escape}');

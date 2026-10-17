@@ -15,45 +15,12 @@ import {
   drawerRadii,
   drawerSizes,
 } from '../Drawer';
+import { meta as sharedMeta, Template } from './Drawer.storySetup';
 
-const meta: Meta<typeof Drawer> = {
-  title: 'pixels/Drawer',
-  component: Drawer,
-};
+const meta: Meta<typeof Drawer> = { ...sharedMeta, title: 'pixels/Drawer' };
 
 export default meta;
 type Story = StoryObj<DrawerProps>;
-
-const Template: Story['render'] = (args, { canvasElement }) => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const onClick = () => {
-    setIsOpen(true);
-  };
-  const onClose = () => {
-    setIsOpen(false);
-  };
-
-  const isTestEnv = process.env.NODE_ENV === 'test';
-
-  return (
-    <>
-      <Button
-        disableAnimation={isTestEnv}
-        onClick={onClick}
-        testId="drawer_trigger"
-      >
-        Reveal the Secrets!
-      </Button>
-      <Drawer
-        {...args}
-        isOpen={isOpen}
-        onClose={onClose}
-        portalContainer={canvasElement}
-      />
-    </>
-  );
-};
 
 export const Default: Story = {
   render: Template,
@@ -469,5 +436,15 @@ export const DrawerWithTabs: Story = {
         ]}
       />
     ),
+  },
+};
+
+export const CustomCloseButton: Story = {
+  render: Template,
+  args: {
+    children: 'A custom close control keeps its own content',
+    closeButton: <button type="button">Done</button>,
+    header: 'Custom close action',
+    isOpen: true,
   },
 };

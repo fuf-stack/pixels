@@ -54,8 +54,14 @@ const TooltipSurface = ({
   const ref = useRef<HTMLDivElement>(null);
   const fallbackRef = useRef<HTMLSpanElement>(null);
   const reducedMotion = useReducedMotion();
+
+  // TooltipTrigger provides the association ID through its context
+  const tooltipId =
+    context && 'id' in context && typeof context.id === 'string'
+      ? context.id
+      : undefined;
   const { tooltipProps } = useTooltip(
-    { id: context?.id, isOpen: state?.isOpen },
+    { id: tooltipId, isOpen: state?.isOpen },
     state ?? undefined,
   );
   const { overlayProps, placement: side } = useOverlayPosition({

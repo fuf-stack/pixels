@@ -33,6 +33,7 @@ const ModalOverlay = ({
   // notify the owner, controlled visibility remains authoritative
   const handleOpenChange = (open: boolean) => {
     onOpenChange?.(open);
+
     if (!open) {
       onClose?.();
     }
@@ -42,12 +43,18 @@ const ModalOverlay = ({
     isOpen,
     onOpenChange: handleOpenChange,
   });
-  const staticContent = disableAnimation || !!reducedMotion;
-  const content = state.isOpen ? (
-    <ModalSurface {...props} disableAnimation={staticContent} state={state} />
+
+  const disableMotion = disableAnimation || !!reducedMotion;
+
+  const surface = state.isOpen ? (
+    <ModalSurface {...props} disableAnimation={disableMotion} state={state} />
   ) : null;
 
-  return staticContent ? content : <AnimatePresence>{content}</AnimatePresence>;
+  if (disableMotion) {
+    return surface;
+  }
+
+  return <AnimatePresence>{surface}</AnimatePresence>;
 };
 
 export default ModalOverlay;

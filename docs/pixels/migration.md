@@ -147,11 +147,30 @@ Dialogs without a header receive a fallback accessible name. Reduced motion and
 `disableAnimation` skip feedback. The eight captured light/dark states retain
 their original dialog geometry.
 
-Pixels no longer declares `@heroui/modal` directly. Drawer still brings it in
-transitively until its migration is complete.
+Pixels no longer declares `@heroui/modal` directly or brings it in through Drawer.
 
 Stacking tests open the next dialog above an already mounted one. Mounting
 multiple initially open dialogs in the same render retains the previous engine’s
 screen-reader visibility limitation, verified against the legacy Drawer engine.
 
 [Modal usage](../../packages/pixels/src/Modal/README.md)
+
+## Drawer
+
+Drawer reuses Modal's dialog engine, sections and close control, with its own
+edge placement, size, radius and backdrop recipe. Its controlled callbacks,
+custom close button, Element portal and existing slots remain supported.
+Disabling backdrop dismissal still leaves Escape available.
+
+The shared engine keeps focus inside when pressing a nondismissible backdrop.
+Its local viewport hook preserves visual-viewport sizing for mobile keyboards,
+with window sizing as the fallback. Custom close elements retain their content
+and handlers without nesting buttons. The `DefaultOpen` story now honors its
+initial open state, and keyboard and dismissal scenarios live under their own
+sidebar folders.
+
+Pixels no longer declares `@heroui/drawer` directly. Modal and Drawer have no
+HeroUI runtime or type imports. `pnpm check` now runs Pixels' direct TypeScript
+check over component source, tests and stories as well as its declaration build.
+
+[Drawer usage](../../packages/pixels/src/Drawer/README.md)

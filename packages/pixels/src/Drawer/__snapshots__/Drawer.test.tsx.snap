@@ -291,6 +291,104 @@ exports[`Story Snapshots > Content 1`] = `
 </div>
 `;
 
+exports[`Story Snapshots > CustomCloseButton 1`] = `
+<div>
+  <span
+    aria-hidden="true"
+    data-focus-scope-start="true"
+    hidden=""
+  />
+  <div
+    aria-hidden="true"
+    class="fixed inset-0 z-50 h-screen w-screen backdrop-opacity-disabled bg-overlay/50 backdrop-opacity-disabled"
+    data-slot="backdrop"
+    style="opacity: 1;"
+  />
+  <div
+    class="h-(--visual-viewport-height) fixed inset-0 z-50 w-screen overflow-x-auto flex items-center justify-center"
+    data-slot="wrapper"
+    style="--visual-viewport-height: 768px;"
+  >
+    <section
+      aria-describedby="drawer_body-«replaced-aria-id»"
+      aria-labelledby="react-aria-«replaced-aria-id»"
+      aria-modal="true"
+      class="z-50 box-border flex w-full flex-col bg-content1 shadow-small outline-solid outline-transparent absolute m-0 overflow-y-auto sm:m-0 rounded-large max-w-md inset-y-0 right-0 max-h-[none] rounded-r-none"
+      data-dismissable="true"
+      data-open="true"
+      data-placement="right"
+      data-testid="drawer"
+      role="dialog"
+      style="transform: none;"
+      tabindex="-1"
+    >
+      <div
+        style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+      >
+        <button
+          aria-label="Dismiss"
+          id="react-aria-«replaced-aria-id»"
+          style="width: 1px; height: 1px;"
+          tabindex="-1"
+        />
+      </div>
+      <button
+        aria-label="Close"
+        class="absolute end-1 top-1 select-none appearance-none rounded-full p-2 text-foreground-500 tap-highlight-transparent hover:bg-default-100 active:bg-default-200 outline-solid outline-transparent data-[focus-visible]:z-10 data-[focus-visible]:outline-2 data-[focus-visible]:outline-offset-2 data-[focus-visible]:outline-focus"
+        data-rac=""
+        data-react-aria-pressable="true"
+        id="react-aria-«replaced-aria-id»"
+        tabindex="0"
+        type="button"
+      >
+        Done
+      </button>
+      <header
+        class="flex flex-initial border-b-divider px-6 py-4 font-semibold text-large border-b-0"
+        data-slot="header"
+        id="react-aria-«replaced-aria-id»"
+      >
+        Custom close action
+      </header>
+      <div
+        class="flex flex-1 flex-col gap-3 overflow-y-auto px-6 py-2"
+        data-slot="body"
+        id="drawer_body-«replaced-aria-id»"
+      >
+        A custom close control keeps its own content
+      </div>
+      <div
+        style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+      >
+        <button
+          aria-label="Dismiss"
+          id="react-aria-«replaced-aria-id»"
+          style="width: 1px; height: 1px;"
+          tabindex="-1"
+        />
+      </div>
+    </section>
+  </div>
+  <span
+    aria-hidden="true"
+    data-focus-scope-end="true"
+    hidden=""
+  />
+  <button
+    aria-hidden="true"
+    class="group tap-highlight-transparent transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] !transition-none data-[pressed=true]:scale-100 bg-default text-default-foreground data-[hover=true]:opacity-hover"
+    data-rac=""
+    data-react-aria-pressable="true"
+    data-testid="drawer_trigger"
+    id="react-aria-«replaced-aria-id»"
+    tabindex="0"
+    type="button"
+  >
+    Reveal the Secrets!
+  </button>
+</div>
+`;
+
 exports[`Story Snapshots > CustomWidth 1`] = `
 <div>
   <button
@@ -325,7 +423,112 @@ exports[`Story Snapshots > Default 1`] = `
 
 exports[`Story Snapshots > DefaultOpen 1`] = `
 <div>
+  <span
+    aria-hidden="true"
+    data-focus-scope-start="true"
+    hidden=""
+  />
+  <div
+    aria-hidden="true"
+    class="fixed inset-0 z-50 h-screen w-screen backdrop-opacity-disabled bg-overlay/50 backdrop-opacity-disabled"
+    data-slot="backdrop"
+    style="opacity: 1;"
+  />
+  <div
+    class="h-(--visual-viewport-height) fixed inset-0 z-50 w-screen overflow-x-auto flex items-center justify-center"
+    data-slot="wrapper"
+    style="--visual-viewport-height: 768px;"
+  >
+    <section
+      aria-describedby="drawer_body-«replaced-aria-id»"
+      aria-labelledby="react-aria-«replaced-aria-id»"
+      aria-modal="true"
+      class="z-50 box-border flex w-full flex-col bg-content1 shadow-small outline-solid outline-transparent absolute m-0 overflow-y-auto sm:m-0 rounded-large max-w-md inset-y-0 right-0 max-h-[none] rounded-r-none"
+      data-dismissable="true"
+      data-open="true"
+      data-placement="right"
+      data-testid="drawer"
+      role="dialog"
+      style="transform: none;"
+      tabindex="-1"
+    >
+      <div
+        style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+      >
+        <button
+          aria-label="Dismiss"
+          id="react-aria-«replaced-aria-id»"
+          style="width: 1px; height: 1px;"
+          tabindex="-1"
+        />
+      </div>
+      <button
+        aria-label="Close"
+        class="absolute end-1 top-1 select-none appearance-none rounded-full p-2 text-foreground-500 tap-highlight-transparent hover:bg-default-100 active:bg-default-200 outline-solid outline-transparent data-[focus-visible]:z-10 data-[focus-visible]:outline-2 data-[focus-visible]:outline-offset-2 data-[focus-visible]:outline-focus"
+        data-rac=""
+        data-react-aria-pressable="true"
+        id="react-aria-«replaced-aria-id»"
+        tabindex="0"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          class="fill-current"
+          fill="none"
+          focusable="false"
+          height="1em"
+          role="presentation"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          width="1em"
+        >
+          <path
+            d="M18 6L6 18M6 6l12 12"
+          />
+        </svg>
+      </button>
+      <header
+        class="flex flex-initial border-b-divider px-6 py-4 font-semibold text-large border-b-0"
+        data-slot="header"
+        id="react-aria-«replaced-aria-id»"
+      >
+        The Drawer That Doesn't Need an Introduction (or a click)
+      </header>
+      <div
+        class="flex flex-1 flex-col gap-3 overflow-y-auto px-6 py-2"
+        data-slot="body"
+        id="drawer_body-«replaced-aria-id»"
+      >
+        Just chillin', being opened by default. Nothing to see here.
+      </div>
+      <footer
+        class="flex flex-row justify-end gap-2 border-t-divider px-6 py-4 border-t-0"
+        data-slot="footer"
+      >
+        The end! (but actually the beginning, since you didn't have to do anything)
+      </footer>
+      <div
+        style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+      >
+        <button
+          aria-label="Dismiss"
+          id="react-aria-«replaced-aria-id»"
+          style="width: 1px; height: 1px;"
+          tabindex="-1"
+        />
+      </div>
+    </section>
+  </div>
+  <span
+    aria-hidden="true"
+    data-focus-scope-end="true"
+    hidden=""
+  />
   <button
+    aria-hidden="true"
     class="group tap-highlight-transparent transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] !transition-none data-[pressed=true]:scale-100 bg-default text-default-foreground data-[hover=true]:opacity-hover"
     data-rac=""
     data-react-aria-pressable="true"
@@ -384,5 +587,70 @@ exports[`Story Snapshots > Header 1`] = `
   >
     Reveal the Secrets!
   </button>
+</div>
+`;
+
+exports[`Story Snapshots > KeyboardDismissal 1`] = `
+<div>
+  <div
+    class="flex gap-4"
+  >
+    <button
+      data-testid="keyboard-start"
+      type="button"
+    >
+      Start keyboard example
+    </button>
+    <button
+      class="group tap-highlight-transparent transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] !transition-none data-[pressed=true]:scale-100 bg-default text-default-foreground data-[hover=true]:opacity-hover"
+      data-focus="true"
+      data-focus-visible="true"
+      data-focused="true"
+      data-rac=""
+      data-react-aria-pressable="true"
+      data-testid="drawer_trigger"
+      id="react-aria-«replaced-aria-id»"
+      tabindex="0"
+      type="button"
+    >
+      Reveal the Secrets!
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Story Snapshots > WithoutPointerDismissal 1`] = `
+<div>
+  <div
+    class="flex flex-col gap-6"
+  >
+    <aside
+      aria-label="What this checks"
+      class="w-80 max-w-full rounded-lg border border-default-200 bg-default-100 p-3 text-sm text-foreground"
+    >
+      <p
+        class="mb-1 font-semibold"
+      >
+        What this checks
+      </p>
+      <p>
+        Disabling backdrop dismissal and hiding the close button still leaves Escape available to dismiss the drawer.
+      </p>
+    </aside>
+    <button
+      class="group tap-highlight-transparent transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] !transition-none data-[pressed=true]:scale-100 bg-default text-default-foreground data-[hover=true]:opacity-hover"
+      data-focus="true"
+      data-focus-visible="true"
+      data-focused="true"
+      data-rac=""
+      data-react-aria-pressable="true"
+      data-testid="drawer_trigger"
+      id="react-aria-«replaced-aria-id»"
+      tabindex="0"
+      type="button"
+    >
+      Reveal the Secrets!
+    </button>
+  </div>
 </div>
 `;

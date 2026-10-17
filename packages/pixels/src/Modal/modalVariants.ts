@@ -6,8 +6,12 @@ import { tv } from '@fuf-stack/pixel-utils';
 export const modalVariants = tv({
   slots: {
     /** Dimmed surface behind the dialog */
-    backdrop:
-      'fixed inset-0 z-50 h-screen w-screen bg-overlay/50 backdrop-opacity-disabled',
+    backdrop: [
+      // cover the viewport
+      'fixed inset-0 z-50 h-screen w-screen',
+      // dim the page behind the dialog
+      'bg-overlay/50 backdrop-opacity-disabled',
+    ],
     /** Rounded dialog containing the content sections */
     base: [
       'relative z-50 box-border flex w-full flex-col',
@@ -19,9 +23,14 @@ export const modalVariants = tv({
     body: 'flex flex-1 flex-col gap-3 overflow-y-auto px-6 py-4',
     /** Button dismissing the dialog */
     closeButton: [
-      'absolute end-1 top-1 select-none appearance-none rounded-full p-2 text-foreground-500',
-      'outline-solid outline-transparent tap-highlight-transparent hover:bg-default-100 active:bg-default-200',
-      'data-[focus-visible]:z-10 data-[focus-visible]:outline-2 data-[focus-visible]:outline-offset-2 data-[focus-visible]:outline-focus',
+      // position and hit area
+      'absolute end-1 top-1 select-none appearance-none rounded-full p-2',
+      // pointer feedback
+      'text-foreground-500 tap-highlight-transparent hover:bg-default-100 active:bg-default-200',
+      // keyboard focus ring
+      'outline-solid outline-transparent',
+      'data-[focus-visible]:z-10 data-[focus-visible]:outline-2',
+      'data-[focus-visible]:outline-offset-2 data-[focus-visible]:outline-focus',
     ],
     /** Actions below the dialog body */
     footer:
@@ -30,8 +39,12 @@ export const modalVariants = tv({
     header:
       'flex flex-initial border-b border-b-divider px-6 py-4 font-semibold text-large',
     /** Viewport container centering the dialog */
-    wrapper:
-      'fixed inset-0 z-50 flex h-dvh w-screen items-center justify-center overflow-x-auto',
+    wrapper: [
+      // use the visible viewport when a mobile keyboard is open
+      'h-(--visual-viewport-height) fixed inset-0 z-50 w-screen overflow-x-auto',
+      // center the dialog surface
+      'flex items-center justify-center',
+    ],
   },
   variants: {
     size: {

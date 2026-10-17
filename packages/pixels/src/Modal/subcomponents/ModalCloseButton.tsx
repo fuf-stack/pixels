@@ -1,6 +1,8 @@
-import type { ReactNode } from 'react';
+import type { HTMLAttributes, ReactNode } from 'react';
+import type { ButtonProps } from 'react-aria-components';
 
-import { isValidElement } from 'react';
+import { cloneElement, isValidElement } from 'react';
+import { mergeProps } from 'react-aria';
 import { Button } from 'react-aria-components';
 
 interface ModalCloseButtonProps {
@@ -22,12 +24,24 @@ const ModalCloseButton = ({
   closeButton = undefined,
   onClose,
 }: ModalCloseButtonProps) => {
+  // preserve the custom element, its content and its own event handlers
+  const renderCustomButton: ButtonProps['render'] = (props) => {
+    if (!isValidElement<HTMLAttributes<HTMLElement>>(closeButton)) {
+      return <button {...props} type="button" />;
+    }
+
+    return cloneElement(closeButton, {
+      ...mergeProps(closeButton.props, props),
+      children: closeButton.props.children ?? props.children,
+    });
+  };
+
   return (
     <Button
       aria-label="Close"
       className={className}
       onPress={onClose}
-      render={isValidElement(closeButton) ? closeButton : undefined}
+      render={isValidElement(closeButton) ? renderCustomButton : undefined}
     >
       {isValidElement(closeButton) ? undefined : (
         <svg

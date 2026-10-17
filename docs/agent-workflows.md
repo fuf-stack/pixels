@@ -30,6 +30,10 @@ important loading/error/empty states. Run the package's focused Vitest command,
 `pnpm test:storybook`, and then `pnpm check`. Attach before/after evidence for
 visual changes.
 
+Pixels' `test:types` runs TypeScript directly over its source, tests and stories.
+It is part of `pnpm check`, declaration generation alone does not verify every
+internal implementation and story contract.
+
 ## Storybook stories and edge cases
 
 Keep every story file in its owner's `stories/` folder. Normal usage and

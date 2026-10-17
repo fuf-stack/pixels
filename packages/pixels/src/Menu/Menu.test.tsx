@@ -21,12 +21,12 @@ describe('Story Snapshots', () => {
 
 describe('Coverage', () => {
   test('renders Menu items correctly', () => {
-    const { container, getByText } = render(
+    const { getByText } = render(
       <Menu items={[{ label: 'testItem', key: 'testitem' }]} />,
     );
 
     // Click the button
-    fireEvent.click(container.firstChild);
+    fireEvent.click(screen.getByRole('button'));
 
     // Check if the error is shown
     const items = getByText('testItem');
@@ -34,7 +34,7 @@ describe('Coverage', () => {
   });
 
   test('renders Menu items of item correctly', () => {
-    const { container, getByText } = render(
+    const { getByText } = render(
       <Menu
         items={[
           { label: 'firstItem', key: 'firstitem' },
@@ -48,7 +48,7 @@ describe('Coverage', () => {
     );
 
     // Click the button
-    fireEvent.click(container.firstChild);
+    fireEvent.click(screen.getByRole('button'));
 
     const firstItem = getByText('firstItem');
     expect(firstItem).toBeInTheDocument();
@@ -64,14 +64,14 @@ describe('Coverage', () => {
     const portal = document.createElement('div');
     document.body.appendChild(portal);
 
-    const { container } = render(
+    render(
       <Menu
         items={[{ label: 'portaled item', key: 'portaled' }]}
         portalContainer={portal}
       />,
     );
 
-    fireEvent.click(container.firstChild as ChildNode);
+    fireEvent.click(screen.getByRole('button'));
 
     // The menu item should be rendered inside the provided portal container.
     expect(within(portal).getByText('portaled item')).toBeInTheDocument();
@@ -80,7 +80,7 @@ describe('Coverage', () => {
   });
 
   test('forwards textValue for non-plain-text labels', () => {
-    const { container, getByRole } = render(
+    const { getByRole } = render(
       <Menu
         items={[
           {
@@ -93,7 +93,7 @@ describe('Coverage', () => {
     );
 
     // Open the menu
-    fireEvent.click(container.firstChild);
+    fireEvent.click(screen.getByRole('button'));
 
     // textValue becomes the item's accessible name for type-to-select
     const item = getByRole('menuitem', { name: 'Rich label' });

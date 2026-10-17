@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react';
+import type { ComponentProps, ReactNode } from 'react';
 
 import { isValidElement } from 'react';
 import { Focusable } from 'react-aria-components';
@@ -24,7 +24,9 @@ const TooltipTriggerElement = ({
   if (isValidElement(children)) {
     return (
       <span className={className}>
-        <Focusable>{children}</Focusable>
+        <Focusable>
+          {children as ComponentProps<typeof Focusable>['children']}
+        </Focusable>
       </span>
     );
   }

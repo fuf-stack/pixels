@@ -12,6 +12,7 @@ describe('Story Snapshots', () => {
 
 describe('Coverage', () => {
   test('renders Json component error without data', () => {
+    // @ts-expect-error verify the runtime fallback when JavaScript omits the required value
     const { getByText } = render(<Json />);
 
     // Find the "Show Details" button
