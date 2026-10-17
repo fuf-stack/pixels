@@ -533,3 +533,11 @@ add a second hover attribute for styling. See the
 Workspace Tailwind source globs include both `.ts` and `.tsx` files, so dedicated
 variants files contribute their utilities. Keep both extensions when adding
 another package to the shared source configuration.
+
+## Pixels buttons
+
+Button and ButtonGroup use owned recipes through `useStyling()`. Their recipes
+return a single class string, preserving existing `className` and recipe-extension
+usage. Use `styling.resolve(buttonVariants, props)` when resolving a recipe with
+consumer merge rules. See [Button](../packages/pixels/src/Button/README.md) and
+[Pixels migration notes](./pixels/migration.md) for group precedence.

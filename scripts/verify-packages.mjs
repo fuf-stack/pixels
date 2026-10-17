@@ -342,6 +342,13 @@ function installAndTestConsumer(tarballs) {
     ),
   );
   writeFileSync(
+    path.join(fixtureDirectory, 'buttons.ts'),
+    readFileSync(
+      path.join(root, 'packages/pixels/test/dts-smoke/buttons.ts'),
+      'utf8',
+    ),
+  );
+  writeFileSync(
     path.join(fixtureDirectory, 'tsconfig.json'),
     `${JSON.stringify(
       {
@@ -357,7 +364,12 @@ function installAndTestConsumer(tarballs) {
           strict: true,
           target: 'ES2022',
         },
-        files: ['consumer.ts', 'styling.ts', 'field-associations.ts'],
+        files: [
+          'consumer.ts',
+          'styling.ts',
+          'field-associations.ts',
+          'buttons.ts',
+        ],
       },
       null,
       2,

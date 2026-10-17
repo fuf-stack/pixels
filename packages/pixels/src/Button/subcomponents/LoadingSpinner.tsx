@@ -1,11 +1,9 @@
-/**
- * svg loading spinner for button
- * @see https://www.heroui.com//docs/components/button#loading
- * */
+/** Loading indicator shown before the button content */
 const LoadingSpinner = () => {
   return (
     <svg
-      className="h-5 w-5 animate-spin text-current"
+      aria-hidden
+      className="h-5 w-5 animate-spin text-current motion-reduce:animate-none"
       fill="none"
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"

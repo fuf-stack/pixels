@@ -13,6 +13,13 @@ and getters. The user confirmed that consumers do not use the latter two hooks
 and authorized removal of the known Markdown editor hook dependency. Production
 component props, recipes, slots and storage contracts remain compatible.
 
+## Pixels Button and ButtonGroup
+
+Button and ButtonGroup now use React Aria interaction handling and owned recipes.
+Their public component imports and existing group precedence are preserved.
+See [Pixels migration notes](./pixels/migration.md) for composition and remaining
+HeroUI consumers. The original inventory below records the pre-migration source.
+
 ## Implemented foundation
 
 - `TVProps` uses direct Tailwind Variants types.

@@ -1,14 +1,19 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import type { ButtonProps } from './Button';
 
 import { useRef, useState } from 'react';
 import { FaEnvelope } from 'react-icons/fa';
 
 import { action } from 'storybook/actions';
-import { expect, userEvent, within } from 'storybook/test';
+import { expect, fn, userEvent, waitFor, within } from 'storybook/test';
 
 import { tv } from '@fuf-stack/pixel-utils';
 
 import Button, { buttonVariants } from './Button';
+
+// -----------------------------------------------------------------------------
+// Story base setup
+// -----------------------------------------------------------------------------
 
 const meta: Meta<typeof Button> = {
   title: 'pixels/Button',
@@ -27,12 +32,22 @@ const meta: Meta<typeof Button> = {
 export default meta;
 type Story = StoryObj<typeof Button>;
 
-const colors = [...Object.keys(buttonVariants.variants.color)];
-const variants = [...Object.keys(buttonVariants.variants.variant)];
-const sizes = [...Object.keys(buttonVariants.variants.size)];
+const colors = Object.keys(buttonVariants.variants.color) as NonNullable<
+  ButtonProps['color']
+>[];
+const variants = Object.keys(buttonVariants.variants.variant) as NonNullable<
+  ButtonProps['variant']
+>[];
+const sizes = Object.keys(buttonVariants.variants.size) as NonNullable<
+  ButtonProps['size']
+>[];
+
+// -----------------------------------------------------------------------------
+// Normal stories
+// -----------------------------------------------------------------------------
 
 export const Default: Story = {
-  args: {},
+  args: { children: 'Button' },
 };
 
 export const Basic: Story = {
@@ -51,11 +66,11 @@ export const Disabled: Story = {
 
 export const IconOnly: Story = {
   args: {
+    ariaLabel: 'Email',
     icon: <FaEnvelope />,
     children: undefined,
     color: 'danger',
     size: 'sm',
-    // variant: 'light',
   },
 };
 
@@ -100,7 +115,7 @@ export const AllRadius: Story = {
   render: (args) => {
     return (
       <>
-        {['sm', 'md', 'lg', 'none', 'full'].map((radius) => {
+        {(['sm', 'md', 'lg', 'none', 'full'] as const).map((radius) => {
           return (
             <div key={radius} style={{ marginTop: '10px' }}>
               <Button radius={radius} {...args}>
@@ -149,6 +164,10 @@ export const AllVariants: Story = {
     );
   },
 };
+
+// -----------------------------------------------------------------------------
+// Composition stories
+// -----------------------------------------------------------------------------
 
 const buttonVariantsExtended = tv({
   extend: buttonVariants,
@@ -261,5 +280,40 @@ export const WithRef: Story = {
     const targetButton = canvas.getByTestId('focus-target');
     await expect(targetButton).toHaveFocus();
     await userEvent.click(targetButton);
+  },
+};
+
+// -----------------------------------------------------------------------------
+// Interaction stories
+// -----------------------------------------------------------------------------
+
+export const KeyboardActivation: Story = {
+  args: { children: 'Activate', onClick: fn() },
+  play: async ({ args, canvasElement }) => {
+    const canvas = within(canvasElement);
+    const button = canvas.getByRole('button', { name: 'Activate' });
+    button.focus();
+
+    await userEvent.keyboard('{Enter}');
+    await userEvent.keyboard(' ');
+    await expect(args.onClick).toHaveBeenCalledTimes(2);
+    await expect(button).toHaveFocus();
+    await expect(button).toHaveAttribute('data-focus-visible', 'true');
+  },
+};
+
+export const RippleCleanup: Story = {
+  args: { children: 'Ripple', ripple: true },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await userEvent.click(canvas.getByRole('button', { name: 'Ripple' }));
+    await expect(
+      canvasElement.querySelector('[data-slot="ripple"]'),
+    ).toBeInTheDocument();
+    await waitFor(() => {
+      expect(
+        canvasElement.querySelector('[data-slot="ripple"]'),
+      ).not.toBeInTheDocument();
+    });
   },
 };
