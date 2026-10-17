@@ -33,8 +33,8 @@ spinner respect reduced motion.
 
 ### Remaining scope
 
-Menu still imports `@heroui/button`, so Pixels must retain that direct
-dependency. Other Pixels components and the shared theme still need migration.
+Other Pixels components and the shared theme still need migration. Pixels Button
+and the Menu trigger both use owned recipes now.
 Button and ButtonGroup no longer import HeroUI runtime components or types.
 
 [Button](../../packages/pixels/src/Button/README.md) · [ButtonGroup](../../packages/pixels/src/ButtonGroup/README.md) · [Styling](../styling.md) · [Migration inventory](../heroui-removal.md)
@@ -59,7 +59,7 @@ success and warning foregrounds while reusing Pixels Button.
 
 Pixels no longer declares `@heroui/popover` directly. Other HeroUI components may
 still bring it in transitively. Popover's scrollable body uses the owned ScrollShadow component.
-`@heroui/button` remains for Menu.
+Menu now uses Pixels Button, so its former HeroUI button dependency is removed.
 
 [Popover usage and slots](../../packages/pixels/src/Popover/README.md)
 
@@ -117,3 +117,18 @@ medium radius, small shadow, section widths and existing slots. Entry and exit
 feedback respect reduced motion. Pixels no longer declares `@heroui/tooltip`.
 
 [Tooltip usage](../../packages/pixels/src/Tooltip/README.md)
+
+## Menu
+
+Menu uses React Aria's menu trigger and action collection, with overlay and positioning hooks
+for positioning, scroll blocking and dismissal. The popup remains non-modal, so
+outside controls can receive the interaction that dismisses it. The public Overlay portal
+keeps the Element container contract. Trigger, collection and popup responsibilities
+live in separate subcomponents, with owned recipes and explicit styling slots.
+
+Sections remain labelled groups rather than nested submenus. Disabled options,
+textValue typeahead, global key callbacks and item press events remain supported.
+Styled triggers reuse Pixels Button with independent group defaults. Pixels no
+longer declares `@heroui/button` or `@heroui/dropdown` directly.
+
+[Menu usage](../../packages/pixels/src/Menu/README.md)

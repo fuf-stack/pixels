@@ -23,7 +23,7 @@ HeroUI consumers. The original inventory below records the pre-migration source.
 ## Pixels Popover
 
 Popover now uses React Aria dialog components and overlay hooks with owned slot
-styles. Pixels no longer declares `@heroui/popover` directly. Its scrollable body also uses the owned ScrollShadow implementation. Menu remains a separate migration. See the
+styles. Pixels no longer declares `@heroui/popover` directly. Its scrollable body also uses the owned ScrollShadow implementation. Menu also uses owned trigger and overlay rendering. See the
 [Popover migration notes](./pixels/migration.md#popover).
 
 ## Pixels ScrollShadow
@@ -51,6 +51,14 @@ Tooltip now uses React Aria trigger and overlay behavior with owned surface styl
 The span wrapper, placement names, delays and section slots remain supported.
 The direct `@heroui/tooltip` dependency is removed.
 See [Pixels migration notes](./pixels/migration.md#tooltip).
+
+## Pixels Menu
+
+Menu now uses React Aria action collections and the popover hook, with owned
+trigger and option styling. Grouped actions, disabled options, press callbacks,
+typeahead and Element portals remain supported. Direct `@heroui/button` and
+`@heroui/dropdown` dependencies are removed.
+See [Pixels migration notes](./pixels/migration.md#menu).
 
 ## Implemented foundation
 

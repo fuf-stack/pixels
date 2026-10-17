@@ -387,7 +387,8 @@ exports[`Story Snapshots > WithMenu 1`] = `
   <button
     aria-expanded="false"
     aria-haspopup="true"
-    class="aria-expanded:scale-[0.97] aria-expanded:opacity-70 subpixel-antialiased z-auto h-10 rounded-full"
+    class="z-auto subpixel-antialiased aria-expanded:!scale-[0.97] aria-expanded:!opacity-70 h-10 rounded-full"
+    data-rac=""
     data-react-aria-pressable="true"
     data-slot="trigger"
     id="react-aria-«replaced-aria-id»"
