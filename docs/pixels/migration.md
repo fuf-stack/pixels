@@ -33,8 +33,9 @@ spinner respect reduced motion.
 
 ### Remaining scope
 
-Other Pixels components and the shared theme still need migration. Pixels Button
-and the Menu trigger both use owned recipes now.
+Accordion, Alert, Breadcrumb, Card, SearchInput, Table and Tabs still need
+migration, followed by shared dependency and theme cleanup. Pixels Button and
+the Menu trigger both use owned recipes now.
 Button and ButtonGroup no longer import HeroUI runtime components or types.
 
 [Button](../../packages/pixels/src/Button/README.md) · [ButtonGroup](../../packages/pixels/src/ButtonGroup/README.md) · [Styling](../styling.md) · [Migration inventory](../heroui-removal.md)
@@ -190,8 +191,9 @@ AvatarGroup supplies owned group membership for overlap and hover styling.
 ## AvatarGroup
 
 AvatarGroup now owns the overlapping row, optional wrappers and overflow indicator.
-The existing `max={0}` unlimited mode, per-avatar disabled state, group sizing and
-wrapper callbacks remain supported. The compact visible plus retains its full
+The `max={0}` unlimited mode, per-avatar disabled state, group sizing and
+wrapper callbacks remain supported. Unlimited mode now omits the redundant
+overflow indicator previously shown even when every avatar was visible. The compact visible plus retains its full
 `+N` accessible name. Custom avatar slots now survive grouping instead of being
 overwritten by the previous engine's child cloning.
 
@@ -217,3 +219,24 @@ geometry and colors across 14 states. Their WCAG audits found no violations in
 those states. Badge retains its ten other captured states exactly; the two size
 showcases reflect the corrected story argument. Its all-colors contrast findings
 match the legacy baseline, with no new findings in the 12 audited states.
+
+## Label
+
+Label now owns its content, status dot, palette and treatment recipes. Public
+props, callbacks and existing slots remain supported, with an additional
+`endContent` slot for trailing element styling. The close action uses React Aria's
+native Button, retaining the existing `close chip` name and press event callback.
+The caller still owns removal, and closing never submits an enclosing form.
+
+The active-filter consumer now places its edit and close actions alongside each
+other instead of nesting a close control inside an edit button. Its browser
+regression covers opening with Enter, dismissal with Escape and removal without
+reopening the editor. Consumers should likewise keep removable labels outside
+other buttons.
+
+All 18 captured standard light/dark states and 12 palette/treatment matrix
+screenshots match the legacy appearance. Accessibility audits of the standard
+states retain the existing palette contrast findings, with no new violations.
+The direct `@heroui/chip` dependency and Label's HeroUI theme import are removed.
+
+[Label usage](../../packages/pixels/src/Label/README.md)

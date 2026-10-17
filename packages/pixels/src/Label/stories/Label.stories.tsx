@@ -7,6 +7,10 @@ import { action } from 'storybook/actions';
 
 import Label from '../Label';
 
+// -----------------------------------------------------------------------------
+// Story base setup
+// -----------------------------------------------------------------------------
+
 const meta: Meta<typeof Label> = {
   title: 'pixels/Label',
   component: Label,
@@ -14,6 +18,10 @@ const meta: Meta<typeof Label> = {
 
 export default meta;
 type Story = StoryObj<typeof Label>;
+
+// -----------------------------------------------------------------------------
+// Normal stories
+// -----------------------------------------------------------------------------
 
 export const Default: Story = {
   args: {
@@ -132,5 +140,17 @@ export const AllVariants: Story = {
         )}
       </>
     );
+  },
+};
+
+export const CustomStyling: Story = {
+  args: {
+    children: 'Custom label',
+    className: {
+      base: 'h-10',
+      closeButton: 'text-danger',
+      content: 'text-large',
+    },
+    onClose: action('onClose'),
   },
 };

@@ -6,10 +6,12 @@ exports[`Story Snapshots > AllColors 1`] = `
     style="margin-top: 10px;"
   >
     <div
-      class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-7 text-small rounded-full bg-default text-default-foreground"
+      class="relative box-border inline-flex min-w-min max-w-fit items-center justify-between whitespace-nowrap rounded-full h-7 px-1 text-small bg-default text-default-foreground"
+      data-slot="base"
     >
       <span
-        class="flex-1 text-inherit font-normal px-2 flex items-center gap-2"
+        class="flex-1 font-normal text-inherit flex items-center gap-2 px-2"
+        data-slot="content"
       >
         default
       </span>
@@ -19,10 +21,12 @@ exports[`Story Snapshots > AllColors 1`] = `
     style="margin-top: 10px;"
   >
     <div
-      class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-7 text-small rounded-full bg-primary text-primary-foreground"
+      class="relative box-border inline-flex min-w-min max-w-fit items-center justify-between whitespace-nowrap rounded-full h-7 px-1 text-small bg-primary text-primary-foreground"
+      data-slot="base"
     >
       <span
-        class="flex-1 text-inherit font-normal px-2 flex items-center gap-2"
+        class="flex-1 font-normal text-inherit flex items-center gap-2 px-2"
+        data-slot="content"
       >
         primary
       </span>
@@ -32,10 +36,12 @@ exports[`Story Snapshots > AllColors 1`] = `
     style="margin-top: 10px;"
   >
     <div
-      class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-7 text-small rounded-full bg-secondary text-secondary-foreground"
+      class="relative box-border inline-flex min-w-min max-w-fit items-center justify-between whitespace-nowrap rounded-full h-7 px-1 text-small bg-secondary text-secondary-foreground"
+      data-slot="base"
     >
       <span
-        class="flex-1 text-inherit font-normal px-2 flex items-center gap-2"
+        class="flex-1 font-normal text-inherit flex items-center gap-2 px-2"
+        data-slot="content"
       >
         secondary
       </span>
@@ -45,10 +51,12 @@ exports[`Story Snapshots > AllColors 1`] = `
     style="margin-top: 10px;"
   >
     <div
-      class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-7 text-small rounded-full bg-info text-info-foreground"
+      class="relative box-border inline-flex min-w-min max-w-fit items-center justify-between whitespace-nowrap rounded-full h-7 px-1 text-small bg-info text-info-foreground"
+      data-slot="base"
     >
       <span
-        class="flex-1 text-inherit font-normal px-2 flex items-center gap-2"
+        class="flex-1 font-normal text-inherit flex items-center gap-2 px-2"
+        data-slot="content"
       >
         info
       </span>
@@ -58,10 +66,12 @@ exports[`Story Snapshots > AllColors 1`] = `
     style="margin-top: 10px;"
   >
     <div
-      class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-7 text-small rounded-full bg-success text-success-foreground"
+      class="relative box-border inline-flex min-w-min max-w-fit items-center justify-between whitespace-nowrap rounded-full h-7 px-1 text-small bg-success text-success-foreground"
+      data-slot="base"
     >
       <span
-        class="flex-1 text-inherit font-normal px-2 flex items-center gap-2"
+        class="flex-1 font-normal text-inherit flex items-center gap-2 px-2"
+        data-slot="content"
       >
         success
       </span>
@@ -71,10 +81,12 @@ exports[`Story Snapshots > AllColors 1`] = `
     style="margin-top: 10px;"
   >
     <div
-      class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-7 text-small rounded-full bg-warning text-warning-foreground"
+      class="relative box-border inline-flex min-w-min max-w-fit items-center justify-between whitespace-nowrap rounded-full h-7 px-1 text-small bg-warning text-warning-foreground"
+      data-slot="base"
     >
       <span
-        class="flex-1 text-inherit font-normal px-2 flex items-center gap-2"
+        class="flex-1 font-normal text-inherit flex items-center gap-2 px-2"
+        data-slot="content"
       >
         warning
       </span>
@@ -84,10 +96,12 @@ exports[`Story Snapshots > AllColors 1`] = `
     style="margin-top: 10px;"
   >
     <div
-      class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-7 text-small rounded-full bg-danger text-danger-foreground"
+      class="relative box-border inline-flex min-w-min max-w-fit items-center justify-between whitespace-nowrap rounded-full h-7 px-1 text-small bg-danger text-danger-foreground"
+      data-slot="base"
     >
       <span
-        class="flex-1 text-inherit font-normal px-2 flex items-center gap-2"
+        class="flex-1 font-normal text-inherit flex items-center gap-2 px-2"
+        data-slot="content"
       >
         danger
       </span>
@@ -102,10 +116,12 @@ exports[`Story Snapshots > AllRadius 1`] = `
     style="margin-top: 10px;"
   >
     <div
-      class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-7 text-small rounded-none bg-default text-default-foreground"
+      class="relative box-border inline-flex min-w-min max-w-fit items-center justify-between whitespace-nowrap rounded-none h-7 px-1 text-small bg-default text-default-foreground"
+      data-slot="base"
     >
       <span
-        class="flex-1 text-inherit font-normal px-2 flex items-center gap-2"
+        class="flex-1 font-normal text-inherit flex items-center gap-2 px-2"
+        data-slot="content"
       >
         none
       </span>
@@ -115,10 +131,12 @@ exports[`Story Snapshots > AllRadius 1`] = `
     style="margin-top: 10px;"
   >
     <div
-      class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-7 text-small rounded-small bg-default text-default-foreground"
+      class="relative box-border inline-flex min-w-min max-w-fit items-center justify-between whitespace-nowrap rounded-small h-7 px-1 text-small bg-default text-default-foreground"
+      data-slot="base"
     >
       <span
-        class="flex-1 text-inherit font-normal px-2 flex items-center gap-2"
+        class="flex-1 font-normal text-inherit flex items-center gap-2 px-2"
+        data-slot="content"
       >
         sm
       </span>
@@ -128,10 +146,12 @@ exports[`Story Snapshots > AllRadius 1`] = `
     style="margin-top: 10px;"
   >
     <div
-      class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-7 text-small rounded-medium bg-default text-default-foreground"
+      class="relative box-border inline-flex min-w-min max-w-fit items-center justify-between whitespace-nowrap rounded-medium h-7 px-1 text-small bg-default text-default-foreground"
+      data-slot="base"
     >
       <span
-        class="flex-1 text-inherit font-normal px-2 flex items-center gap-2"
+        class="flex-1 font-normal text-inherit flex items-center gap-2 px-2"
+        data-slot="content"
       >
         md
       </span>
@@ -141,10 +161,12 @@ exports[`Story Snapshots > AllRadius 1`] = `
     style="margin-top: 10px;"
   >
     <div
-      class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-7 text-small rounded-large bg-default text-default-foreground"
+      class="relative box-border inline-flex min-w-min max-w-fit items-center justify-between whitespace-nowrap rounded-large h-7 px-1 text-small bg-default text-default-foreground"
+      data-slot="base"
     >
       <span
-        class="flex-1 text-inherit font-normal px-2 flex items-center gap-2"
+        class="flex-1 font-normal text-inherit flex items-center gap-2 px-2"
+        data-slot="content"
       >
         lg
       </span>
@@ -154,10 +176,12 @@ exports[`Story Snapshots > AllRadius 1`] = `
     style="margin-top: 10px;"
   >
     <div
-      class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-7 text-small rounded-full bg-default text-default-foreground"
+      class="relative box-border inline-flex min-w-min max-w-fit items-center justify-between whitespace-nowrap rounded-full h-7 px-1 text-small bg-default text-default-foreground"
+      data-slot="base"
     >
       <span
-        class="flex-1 text-inherit font-normal px-2 flex items-center gap-2"
+        class="flex-1 font-normal text-inherit flex items-center gap-2 px-2"
+        data-slot="content"
       >
         full
       </span>
@@ -172,10 +196,12 @@ exports[`Story Snapshots > AllSizes 1`] = `
     style="margin-top: 10px;"
   >
     <div
-      class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-6 text-tiny rounded-full bg-default text-default-foreground"
+      class="relative box-border inline-flex min-w-min max-w-fit items-center justify-between whitespace-nowrap rounded-full h-6 px-1 text-tiny bg-default text-default-foreground"
+      data-slot="base"
     >
       <span
-        class="flex-1 text-inherit font-normal px-1 flex items-center gap-2"
+        class="flex-1 font-normal text-inherit flex items-center gap-2 px-1"
+        data-slot="content"
       >
         sm
       </span>
@@ -185,10 +211,12 @@ exports[`Story Snapshots > AllSizes 1`] = `
     style="margin-top: 10px;"
   >
     <div
-      class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-7 text-small rounded-full bg-default text-default-foreground"
+      class="relative box-border inline-flex min-w-min max-w-fit items-center justify-between whitespace-nowrap rounded-full h-7 px-1 text-small bg-default text-default-foreground"
+      data-slot="base"
     >
       <span
-        class="flex-1 text-inherit font-normal px-2 flex items-center gap-2"
+        class="flex-1 font-normal text-inherit flex items-center gap-2 px-2"
+        data-slot="content"
       >
         md
       </span>
@@ -198,10 +226,12 @@ exports[`Story Snapshots > AllSizes 1`] = `
     style="margin-top: 10px;"
   >
     <div
-      class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-2 h-8 text-medium rounded-full bg-default text-default-foreground"
+      class="relative box-border inline-flex min-w-min max-w-fit items-center justify-between whitespace-nowrap rounded-full h-8 px-2 text-medium bg-default text-default-foreground"
+      data-slot="base"
     >
       <span
-        class="flex-1 text-inherit font-normal px-2 flex items-center gap-2"
+        class="flex-1 font-normal text-inherit flex items-center gap-2 px-2"
+        data-slot="content"
       >
         lg
       </span>
@@ -216,10 +246,12 @@ exports[`Story Snapshots > AllVariants 1`] = `
     style="margin-top: 10px;"
   >
     <div
-      class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-7 text-small rounded-full bg-success text-success-foreground"
+      class="relative box-border inline-flex min-w-min max-w-fit items-center justify-between whitespace-nowrap rounded-full h-7 px-1 text-small bg-success text-success-foreground"
+      data-slot="base"
     >
       <span
-        class="flex-1 text-inherit font-normal px-2 flex items-center gap-2"
+        class="flex-1 font-normal text-inherit flex items-center gap-2 px-2"
+        data-slot="content"
       >
         solid
       </span>
@@ -229,10 +261,12 @@ exports[`Story Snapshots > AllVariants 1`] = `
     style="margin-top: 10px;"
   >
     <div
-      class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-7 text-small rounded-full border-medium bg-transparent border-success text-success"
+      class="relative box-border inline-flex min-w-min max-w-fit items-center justify-between whitespace-nowrap rounded-full h-7 px-1 text-small border-medium border-success bg-transparent text-success"
+      data-slot="base"
     >
       <span
-        class="flex-1 text-inherit font-normal px-2 flex items-center gap-2"
+        class="flex-1 font-normal text-inherit flex items-center gap-2 px-2"
+        data-slot="content"
       >
         bordered
       </span>
@@ -242,10 +276,12 @@ exports[`Story Snapshots > AllVariants 1`] = `
     style="margin-top: 10px;"
   >
     <div
-      class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-7 text-small rounded-full bg-transparent text-success"
+      class="relative box-border inline-flex min-w-min max-w-fit items-center justify-between whitespace-nowrap rounded-full h-7 px-1 text-small bg-transparent text-success"
+      data-slot="base"
     >
       <span
-        class="flex-1 text-inherit font-normal px-2 flex items-center gap-2"
+        class="flex-1 font-normal text-inherit flex items-center gap-2 px-2"
+        data-slot="content"
       >
         light
       </span>
@@ -255,10 +291,12 @@ exports[`Story Snapshots > AllVariants 1`] = `
     style="margin-top: 10px;"
   >
     <div
-      class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-7 text-small rounded-full bg-success/20 text-success-700 dark:text-success"
+      class="relative box-border inline-flex min-w-min max-w-fit items-center justify-between whitespace-nowrap rounded-full h-7 px-1 text-small bg-success/20 text-success-700 dark:text-success"
+      data-slot="base"
     >
       <span
-        class="flex-1 text-inherit font-normal px-2 flex items-center gap-2"
+        class="flex-1 font-normal text-inherit flex items-center gap-2 px-2"
+        data-slot="content"
       >
         flat
       </span>
@@ -268,10 +306,12 @@ exports[`Story Snapshots > AllVariants 1`] = `
     style="margin-top: 10px;"
   >
     <div
-      class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-7 text-small rounded-full border-medium border-default bg-default-100 text-success"
+      class="relative box-border inline-flex min-w-min max-w-fit items-center justify-between whitespace-nowrap rounded-full h-7 px-1 text-small border-medium border-default bg-default-100 text-success"
+      data-slot="base"
     >
       <span
-        class="flex-1 text-inherit font-normal px-2 flex items-center gap-2"
+        class="flex-1 font-normal text-inherit flex items-center gap-2 px-2"
+        data-slot="content"
       >
         faded
       </span>
@@ -281,13 +321,16 @@ exports[`Story Snapshots > AllVariants 1`] = `
     style="margin-top: 10px;"
   >
     <div
-      class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-7 text-small rounded-full border-medium border-default text-foreground bg-transparent"
+      class="relative box-border inline-flex min-w-min max-w-fit items-center justify-between whitespace-nowrap rounded-full h-7 px-1 text-small border-medium border-default bg-transparent text-foreground"
+      data-slot="base"
     >
       <span
-        class="w-2 h-2 ml-1 rounded-full bg-success"
+        class="ml-1 h-2 w-2 rounded-full bg-success"
+        data-slot="dot"
       />
       <span
-        class="flex-1 text-inherit font-normal px-2 flex items-center gap-2"
+        class="flex-1 font-normal text-inherit flex items-center gap-2 px-2"
+        data-slot="content"
       >
         dot
       </span>
@@ -296,13 +339,54 @@ exports[`Story Snapshots > AllVariants 1`] = `
 </div>
 `;
 
+exports[`Story Snapshots > CustomStyling 1`] = `
+<div>
+  <div
+    class="relative box-border inline-flex min-w-min max-w-fit items-center justify-between whitespace-nowrap rounded-full px-1 text-small bg-default text-default-foreground h-10"
+    data-slot="base"
+  >
+    <span
+      class="flex-1 font-normal text-inherit flex items-center gap-2 px-2 pr-1 text-large"
+      data-slot="content"
+    >
+      Custom label
+    </span>
+    <button
+      aria-label="close chip"
+      class="z-10 cursor-pointer select-none appearance-none tap-highlight-transparent opacity-70 transition-opacity hover:opacity-100 active:opacity-disabled motion-reduce:transition-none outline-solid outline-transparent data-[focus-visible=true]:rounded-full data-[focus-visible=true]:ring-1 data-[focus-visible=true]:ring-focus data-[focus-visible=true]:ring-offset-2 data-[focus-visible=true]:ring-offset-background text-large text-danger"
+      data-rac=""
+      data-react-aria-pressable="true"
+      data-slot="close-button"
+      id="react-aria-«replaced-aria-id»"
+      tabindex="0"
+      type="button"
+    >
+      <svg
+        aria-hidden="true"
+        fill="none"
+        height="1em"
+        viewBox="0 0 24 24"
+        width="1em"
+      >
+        <path
+          d="M12 2a10 10 0 1010 10A10.016 10.016 0 0012 2zm3.36 12.3a.754.754 0 010 1.06.748.748 0 01-1.06 0l-2.3-2.3-2.3 2.3a.748.748 0 01-1.06 0 .754.754 0 010-1.06l2.3-2.3-2.3-2.3A.75.75 0 019.7 8.64l2.3 2.3 2.3-2.3a.75.75 0 011.06 1.06l-2.3 2.3z"
+          fill="currentColor"
+        />
+      </svg>
+    </button>
+  </div>
+</div>
+`;
+
 exports[`Story Snapshots > Default 1`] = `
 <div>
   <div
-    class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-7 text-small rounded-full bg-default text-default-foreground"
+    class="relative box-border inline-flex min-w-min max-w-fit items-center justify-between whitespace-nowrap rounded-full h-7 px-1 text-small bg-default text-default-foreground"
+    data-slot="base"
   >
     <span
-      class="flex-1 text-inherit font-normal px-2 flex items-center gap-2"
+      class="flex-1 font-normal text-inherit flex items-center gap-2 px-2"
+      data-slot="content"
     >
       Some Label
     </span>
@@ -313,10 +397,12 @@ exports[`Story Snapshots > Default 1`] = `
 exports[`Story Snapshots > EndContent 1`] = `
 <div>
   <div
-    class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-7 text-small rounded-full pr-2 bg-default text-default-foreground"
+    class="relative box-border inline-flex min-w-min max-w-fit items-center justify-between whitespace-nowrap rounded-full h-7 px-1 text-small bg-default text-default-foreground pr-2"
+    data-slot="base"
   >
     <span
-      class="flex-1 text-inherit font-normal px-2 flex items-center gap-2 pr-1"
+      class="flex-1 font-normal text-inherit flex items-center gap-2 px-2 pr-1"
+      data-slot="content"
     >
       Some Label
     </span>
@@ -332,12 +418,16 @@ exports[`Story Snapshots > EndContent 1`] = `
 exports[`Story Snapshots > IconAndContent 1`] = `
 <div>
   <div
-    class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-7 text-small rounded-full bg-default text-default-foreground"
+    class="relative box-border inline-flex min-w-min max-w-fit items-center justify-between whitespace-nowrap rounded-full h-7 px-1 text-small bg-default text-default-foreground"
+    data-slot="base"
   >
     <span
-      class="flex-1 text-inherit font-normal px-2 flex items-center gap-2"
+      class="flex-1 font-normal text-inherit flex items-center gap-2 px-2"
+      data-slot="content"
     >
-      <span>
+      <span
+        data-slot="icon"
+      >
         <span
           data-testid="icon-FaRocket"
         >
@@ -353,12 +443,16 @@ exports[`Story Snapshots > IconAndContent 1`] = `
 exports[`Story Snapshots > IconOnly 1`] = `
 <div>
   <div
-    class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-7 text-small rounded-full bg-default text-default-foreground"
+    class="relative box-border inline-flex min-w-min max-w-fit items-center justify-between whitespace-nowrap rounded-full h-7 px-1 text-small bg-default text-default-foreground"
+    data-slot="base"
   >
     <span
-      class="flex-1 text-inherit font-normal px-1"
+      class="flex-1 font-normal text-inherit px-1"
+      data-slot="content"
     >
-      <span>
+      <span
+        data-slot="icon"
+      >
         <span
           data-testid="icon-FaRocket"
         >
@@ -370,28 +464,34 @@ exports[`Story Snapshots > IconOnly 1`] = `
 </div>
 `;
 
-exports[`Story Snapshots > WithCloseButton 1`] = `
+exports[`Story Snapshots > KeyboardDismissal 1`] = `
 <div>
   <div
-    class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-7 text-small rounded-full bg-default text-default-foreground"
+    class="relative box-border inline-flex min-w-min max-w-fit items-center justify-between whitespace-nowrap rounded-full h-7 px-1 text-small bg-default text-default-foreground"
+    data-slot="base"
   >
     <span
-      class="flex-1 text-inherit font-normal px-2 pr-1 flex items-center gap-2"
+      class="flex-1 font-normal text-inherit flex items-center gap-2 px-2 pr-1"
+      data-slot="content"
     >
-      Some Label
+      Removable label
     </span>
-    <span
+    <button
       aria-label="close chip"
-      class="z-10 appearance-none outline-solid outline-transparent select-none transition-opacity opacity-70 hover:opacity-100 cursor-pointer active:opacity-disabled tap-highlight-transparent text-large"
+      class="z-10 cursor-pointer select-none appearance-none tap-highlight-transparent opacity-70 transition-opacity hover:opacity-100 active:opacity-disabled motion-reduce:transition-none outline-solid outline-transparent data-[focus-visible=true]:rounded-full data-[focus-visible=true]:ring-1 data-[focus-visible=true]:ring-focus data-[focus-visible=true]:ring-offset-2 data-[focus-visible=true]:ring-offset-background text-large"
+      data-focus-visible="true"
+      data-focused="true"
+      data-rac=""
       data-react-aria-pressable="true"
-      role="button"
+      data-slot="close-button"
+      id="react-aria-«replaced-aria-id»"
       tabindex="0"
+      type="button"
     >
       <svg
         aria-hidden="true"
-        focusable="false"
+        fill="none"
         height="1em"
-        role="presentation"
         viewBox="0 0 24 24"
         width="1em"
       >
@@ -400,7 +500,46 @@ exports[`Story Snapshots > WithCloseButton 1`] = `
           fill="currentColor"
         />
       </svg>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Story Snapshots > WithCloseButton 1`] = `
+<div>
+  <div
+    class="relative box-border inline-flex min-w-min max-w-fit items-center justify-between whitespace-nowrap rounded-full h-7 px-1 text-small bg-default text-default-foreground"
+    data-slot="base"
+  >
+    <span
+      class="flex-1 font-normal text-inherit flex items-center gap-2 px-2 pr-1"
+      data-slot="content"
+    >
+      Some Label
     </span>
+    <button
+      aria-label="close chip"
+      class="z-10 cursor-pointer select-none appearance-none tap-highlight-transparent opacity-70 transition-opacity hover:opacity-100 active:opacity-disabled motion-reduce:transition-none outline-solid outline-transparent data-[focus-visible=true]:rounded-full data-[focus-visible=true]:ring-1 data-[focus-visible=true]:ring-focus data-[focus-visible=true]:ring-offset-2 data-[focus-visible=true]:ring-offset-background text-large"
+      data-rac=""
+      data-react-aria-pressable="true"
+      data-slot="close-button"
+      id="react-aria-«replaced-aria-id»"
+      tabindex="0"
+      type="button"
+    >
+      <svg
+        aria-hidden="true"
+        fill="none"
+        height="1em"
+        viewBox="0 0 24 24"
+        width="1em"
+      >
+        <path
+          d="M12 2a10 10 0 1010 10A10.016 10.016 0 0012 2zm3.36 12.3a.754.754 0 010 1.06.748.748 0 01-1.06 0l-2.3-2.3-2.3 2.3a.748.748 0 01-1.06 0 .754.754 0 010-1.06l2.3-2.3-2.3-2.3A.75.75 0 019.7 8.64l2.3 2.3 2.3-2.3a.75.75 0 011.06 1.06l-2.3 2.3z"
+          fill="currentColor"
+        />
+      </svg>
+    </button>
   </div>
 </div>
 `;

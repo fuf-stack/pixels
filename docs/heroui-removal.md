@@ -88,6 +88,13 @@ Badge now owns its positioning, content sizing and slot styles. Its direct
 `@heroui/badge` dependency is removed.
 See [Pixels migration notes](./pixels/migration.md#badge).
 
+## Pixels Label
+
+Label now owns its recipes and uses a native React Aria close button. The active
+filter consumer keeps edit and close actions separate. The direct `@heroui/chip`
+dependency and Label's HeroUI theme import are removed.
+See [Pixels migration notes](./pixels/migration.md#label).
+
 ## Implemented foundation
 
 - `TVProps` uses direct Tailwind Variants types.

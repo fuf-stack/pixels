@@ -1,19 +1,22 @@
+import { tv } from '@fuf-stack/pixel-utils';
 import { Label } from '@fuf-stack/pixels/Label';
+import { useStyling } from '@fuf-stack/pixels/StylingProvider';
 
 import { useFilters } from './FiltersContext';
 
-/**
- * ActiveFilters
- *
- * Shows the list of currently applied filters as clickable chips that open
- * the edit modal. Each chip can be removed via its close action.
- */
+/** Layout of the edit action inside an active filter label */
+const activeFilterTriggerVariants = tv({
+  base: 'flex items-center gap-2',
+});
+
 interface ActiveFiltersProps {
-  /** CSS class name to apply to each label */
+  /** CSS class name */
   className?: string;
 }
 
+/** Active filter labels with separate edit and removal actions */
 const ActiveFilters = ({ className = undefined }: ActiveFiltersProps) => {
+  const styling = useStyling();
   const {
     activeFilters,
     getFilterValueByName,
@@ -22,6 +25,10 @@ const ActiveFilters = ({ className = undefined }: ActiveFiltersProps) => {
     removeFilter,
     showFilterModal,
   } = useFilters();
+
+  // className for the edit action
+  const triggerClassName = styling.resolve(activeFilterTriggerVariants);
+
   return (
     <>
       {activeFilters.map((name) => {
@@ -31,27 +38,34 @@ const ActiveFilters = ({ className = undefined }: ActiveFiltersProps) => {
         // get the display component from the instance
         const DisplayComponent = instance.components.Display;
 
+        // open this filter for editing
+        const handleOpen = () => {
+          showFilterModal(name);
+        };
+
+        // remove this filter without opening its editor
+        const handleRemove = () => {
+          removeFilter(name);
+        };
+
         return (
-          <button
+          <Label
             key={name}
-            aria-label={`Open ${name} filter`}
-            onClick={() => {
-              showFilterModal(name);
-            }}
-            type="button"
+            className={className}
+            color={hasError(name) ? 'danger' : 'primary'}
+            onClose={handleRemove}
+            variant="flat"
           >
-            <Label
-              className={className}
-              color={hasError(name) ? 'danger' : 'primary'}
-              onClose={() => {
-                removeFilter(name);
-              }}
-              variant="flat"
+            <button
+              aria-label={`Open ${name} filter`}
+              className={triggerClassName}
+              onClick={handleOpen}
+              type="button"
             >
               {instance.icon}
               <DisplayComponent config={instance.config} value={value} />
-            </Label>
-          </button>
+            </button>
+          </Label>
         );
       })}
     </>
