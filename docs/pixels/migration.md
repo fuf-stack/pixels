@@ -33,10 +33,10 @@ spinner respect reduced motion.
 
 ### Remaining scope
 
-Accordion, Alert, Breadcrumb, Card, SearchInput, Table and Tabs still need
-migration, followed by shared dependency and theme cleanup. Pixels Button and
-the Menu trigger both use owned recipes now.
-Button and ButtonGroup no longer import HeroUI runtime components or types.
+All Pixels component renderers now use owned code and styling. Shared dependency,
+theme and plugin/source-configuration cleanup remains, followed by downstream
+consumer verification. No Pixels component imports HeroUI runtime components or
+types.
 
 [Button](../../packages/pixels/src/Button/README.md) · [ButtonGroup](../../packages/pixels/src/ButtonGroup/README.md) · [Styling](../styling.md) · [Migration inventory](../heroui-removal.md)
 
@@ -344,3 +344,24 @@ The direct `@heroui/tabs` dependency is removed. Tabs without an explicit label
 use `Tabs` as the accessible list name.
 
 [Tabs usage](../../packages/pixels/src/Tabs/README.md)
+
+## Table
+
+Table now owns its native table markup, recipes and optional scrolling surface.
+React Aria hooks provide grid, column, row and cell associations and keyboard
+navigation. The full collection remains registered during virtualization while
+only a bounded row window and the focused row are mounted. Native spacer rows
+preserve content-based column sizing and remain hidden from assistive technology.
+Virtual defaults stay at 600 pixels for the surface and 40 pixels per data row.
+
+Existing columns, row values, separation treatments, wrapper/header options,
+loading/empty content and slots remain supported. Loading now also marks the grid
+busy and announces its content. Selection and sorting remain outside the public
+API. The direct `@heroui/table` dependency is removed.
+
+All 14 captured light/dark screenshots match the baseline exactly. Accessibility
+findings are unchanged, including the existing light-mode heading contrast
+findings. Browser stories exercise cell navigation, bounded virtual scrolling,
+end-to-end row/cell keyboard jumps and return to the column headings.
+
+[Table usage](../../packages/pixels/src/Table/README.md)

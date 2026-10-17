@@ -116,9 +116,8 @@ associations. The direct `@heroui/breadcrumbs` dependency is removed. See the
 ## Pixels Card
 
 Card renders owned surfaces and section dividers. Its direct `@heroui/card` and
-unused `@heroui/divider` dependencies are removed. The remaining Pixels component
-migrations are SearchInput, Table and Tabs, followed by shared theme and dependency
-cleanup. See the [Pixels migration notes](./pixels/migration.md#card).
+unused `@heroui/divider` dependencies are removed. See the
+[Pixels migration notes](./pixels/migration.md#card).
 
 ## Pixels SearchInput
 
@@ -131,6 +130,14 @@ SearchInput owns its editable surface, clear action and recipes. Its direct
 Tabs owns its recipes and composes React Aria tab controls, panels and selection
 indicators. Its direct `@heroui/tabs` dependency is removed. See the
 [Pixels migration notes](./pixels/migration.md#tabs).
+
+## Pixels Table
+
+Table owns native grid rendering and virtual row windows, with React Aria hooks
+for keyboard navigation and associations. Its direct `@heroui/table` dependency
+is removed. Pixels components now have no HeroUI runtime/type imports. Shared
+theme, plugin/source configuration and unused dependency cleanup remain separate.
+See the [Pixels migration notes](./pixels/migration.md#table).
 
 ## Implemented foundation
 
@@ -271,8 +278,9 @@ own presentation only and are not public entry points.
 1. Uniform's production-field, React Select and internal consumer scope is
    complete. Preserve its committed behavior, visual evidence and packed API
    fixtures while migrating the lower-level consumers.
-2. Migrate Pixels primitives using owned tokens and configured styling; audit
-   overlay interoperability, public slots, refs, keyboard behavior and visuals.
+2. Pixels component rendering is migrated to owned tokens and configured styling.
+   Preserve overlay interoperability, public slots, refs, keyboard behavior and
+   visual fixtures during the remaining integration cleanup.
 3. Audit Atelier, Megapixels and other application consumers after their Pixels
    dependencies migrate. Keep existing Megapixels Base UI implementations.
 4. Remove unused HeroUI dependencies, plugin/scanning, theme exports and inherited

@@ -2,12 +2,17 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import Table from '../Table';
 
+// -----------------------------------------------------------------------------
+// Story base setup
+// -----------------------------------------------------------------------------
+
 const meta: Meta<typeof Table> = {
   title: 'pixels/Table',
   component: Table,
 };
 
 export default meta;
+
 type Story = StoryObj<typeof Table>;
 
 const columns = [
@@ -51,6 +56,10 @@ const rows = [
     status: 'Vacation',
   },
 ];
+
+// -----------------------------------------------------------------------------
+// Normal stories
+// -----------------------------------------------------------------------------
 
 export const Default: Story = {
   args: { columns, rows, ariaLabel: 'Employee information table' },
@@ -96,26 +105,13 @@ export const WithWrapper: Story = {
   },
 };
 
-export const Loading: Story = {
-  args: { columns, rows, loading: true, ariaLabel: 'Loading employee data' },
-};
-
 export const StickyHeader: Story = {
-  // TODO: currently broken due to behavior of table without wrapper!?
   args: {
     columns,
     rows,
     stickyHeader: true,
     className: 'h-32 bg-red-200',
     ariaLabel: 'Employee table with sticky header',
-  },
-};
-
-export const EmptyContent: Story = {
-  args: {
-    columns,
-    emptyContent: 'No data available',
-    ariaLabel: 'Empty employee table',
   },
 };
 
@@ -162,5 +158,24 @@ export const Virtualized: Story = {
         <Table {...args} rows={rows2} />
       </div>
     );
+  },
+};
+
+export const CustomStyling: Story = {
+  args: {
+    columns,
+    rows,
+    ariaLabel: 'Styled employees',
+    className: { th: 'text-primary', td: 'text-base', wrapper: 'bg-content2' },
+    hasWrapper: true,
+  },
+};
+
+export const HiddenHeader: Story = {
+  args: {
+    columns,
+    rows,
+    hideHeader: true,
+    ariaLabel: 'Employees without visible headings',
   },
 };

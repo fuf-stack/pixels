@@ -1,5 +1,6 @@
 /* eslint-disable import-x/no-extraneous-dependencies */
 import '@testing-library/jest-dom/vitest';
+import './test/setupKeyboardEvent';
 
 import { beforeEach, vi } from 'vitest';
 
