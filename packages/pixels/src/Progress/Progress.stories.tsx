@@ -1,7 +1,16 @@
-import type { ProgressProps } from '@heroui/progress';
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import type { ProgressProps } from './Progress';
 
+import { useState } from 'react';
+
+import { expect, userEvent, within } from 'storybook/test';
+
+import { Button } from '../Button';
 import Progress, { progressVariants } from './Progress';
+
+// -----------------------------------------------------------------------------
+// Story setup
+// -----------------------------------------------------------------------------
 
 // Determine SSR/test environment. In those cases we disable animations in
 // stories to avoid timers outliving the test lifecycle, while keeping the
@@ -30,6 +39,10 @@ const meta: Meta<typeof Progress> = {
 
 export default meta;
 type Story = StoryObj<typeof Progress>;
+
+// -----------------------------------------------------------------------------
+// Normal stories
+// -----------------------------------------------------------------------------
 
 export const Default: Story = {
   args: {
@@ -167,3 +180,71 @@ export const DisableFinishedState: Story = {
 };
 
 export const WithoutPercentProp: Story = {};
+
+// -----------------------------------------------------------------------------
+// Composition
+// -----------------------------------------------------------------------------
+
+export const CustomStyling: Story = {
+  args: {
+    label: 'Uploading files',
+    percent: 42,
+    showValueLabel: true,
+    className: {
+      indicator: 'bg-secondary',
+      label: 'font-semibold',
+      track: 'h-2',
+      value: 'text-secondary',
+    },
+  },
+};
+
+const UpdatingExample = () => {
+  const [percent, setPercent] = useState(25);
+
+  const handleAdvance = () => {
+    setPercent((value) => {
+      return Math.min(100, value + 25);
+    });
+  };
+
+  return (
+    <div className="flex flex-col gap-4">
+      <Progress label="Upload" percent={percent} showValueLabel />
+      <Button onClick={handleAdvance}>Advance</Button>
+    </div>
+  );
+};
+
+export const UpdatingProgress: Story = {
+  render: () => {
+    return <UpdatingExample />;
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await userEvent.click(canvas.getByRole('button', { name: 'Advance' }));
+    await expect(canvas.getByRole('progressbar')).toHaveAttribute(
+      'aria-valuenow',
+      '50',
+    );
+    await expect(canvas.getByText('50%')).toBeVisible();
+  },
+};
+
+// -----------------------------------------------------------------------------
+// Edge cases
+// -----------------------------------------------------------------------------
+
+export const RichValue: Story = {
+  args: {
+    percent: 42,
+    showValueLabel: true,
+    format: (percent) => {
+      return <strong>{percent} files</strong>;
+    },
+  },
+};
+
+export const StaticIndeterminate: Story = {
+  args: { percent: 0, indeterminate: true, disableAnimation: true },
+};

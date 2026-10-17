@@ -15,25 +15,30 @@ exports[`Story Snapshots > AllColors 1`] = `
         aria-valuemin="0"
         aria-valuenow="42"
         aria-valuetext="42%"
-        class="flex flex-col gap-2 w-full"
+        class="flex w-full flex-col gap-2"
+        data-slot="base"
         id="react-aria-«replaced-aria-id»"
         role="progressbar"
       >
         <div
           class="flex justify-between"
+          data-slot="labelWrapper"
         >
           <span
             class="text-medium"
+            data-slot="label"
             id="react-aria-«replaced-aria-id»"
           >
             danger
           </span>
         </div>
         <div
-          class="z-0 relative bg-default-300/50 overflow-hidden rtl:rotate-180 h-3 rounded-full"
+          class="relative z-0 overflow-hidden rounded-full bg-default-300/50 rtl:rotate-180 h-3"
+          data-slot="track"
         >
           <div
-            class="h-full rounded-full !transition-none motion-reduce:transition-none bg-danger"
+            class="h-full rounded-full transition-transform !duration-500 motion-reduce:transition-none bg-danger !transition-none"
+            data-slot="indicator"
             style="transform: translateX(-58%);"
           />
         </div>
@@ -49,25 +54,30 @@ exports[`Story Snapshots > AllColors 1`] = `
         aria-valuemin="0"
         aria-valuenow="42"
         aria-valuetext="42%"
-        class="flex flex-col gap-2 w-full"
+        class="flex w-full flex-col gap-2"
+        data-slot="base"
         id="react-aria-«replaced-aria-id»"
         role="progressbar"
       >
         <div
           class="flex justify-between"
+          data-slot="labelWrapper"
         >
           <span
             class="text-medium"
+            data-slot="label"
             id="react-aria-«replaced-aria-id»"
           >
             default
           </span>
         </div>
         <div
-          class="z-0 relative bg-default-300/50 overflow-hidden rtl:rotate-180 h-3 rounded-full"
+          class="relative z-0 overflow-hidden rounded-full bg-default-300/50 rtl:rotate-180 h-3"
+          data-slot="track"
         >
           <div
-            class="h-full rounded-full !transition-none motion-reduce:transition-none bg-default-400"
+            class="h-full rounded-full transition-transform !duration-500 motion-reduce:transition-none bg-default-400 !transition-none"
+            data-slot="indicator"
             style="transform: translateX(-58%);"
           />
         </div>
@@ -83,25 +93,30 @@ exports[`Story Snapshots > AllColors 1`] = `
         aria-valuemin="0"
         aria-valuenow="42"
         aria-valuetext="42%"
-        class="flex flex-col gap-2 w-full"
+        class="flex w-full flex-col gap-2"
+        data-slot="base"
         id="react-aria-«replaced-aria-id»"
         role="progressbar"
       >
         <div
           class="flex justify-between"
+          data-slot="labelWrapper"
         >
           <span
             class="text-medium"
+            data-slot="label"
             id="react-aria-«replaced-aria-id»"
           >
             info
           </span>
         </div>
         <div
-          class="z-0 relative bg-default-300/50 overflow-hidden rtl:rotate-180 h-3 rounded-full"
+          class="relative z-0 overflow-hidden rounded-full bg-default-300/50 rtl:rotate-180 h-3"
+          data-slot="track"
         >
           <div
-            class="h-full rounded-full !transition-none motion-reduce:transition-none bg-info"
+            class="h-full rounded-full transition-transform !duration-500 motion-reduce:transition-none bg-info !transition-none"
+            data-slot="indicator"
             style="transform: translateX(-58%);"
           />
         </div>
@@ -117,25 +132,30 @@ exports[`Story Snapshots > AllColors 1`] = `
         aria-valuemin="0"
         aria-valuenow="42"
         aria-valuetext="42%"
-        class="flex flex-col gap-2 w-full"
+        class="flex w-full flex-col gap-2"
+        data-slot="base"
         id="react-aria-«replaced-aria-id»"
         role="progressbar"
       >
         <div
           class="flex justify-between"
+          data-slot="labelWrapper"
         >
           <span
             class="text-medium"
+            data-slot="label"
             id="react-aria-«replaced-aria-id»"
           >
             primary
           </span>
         </div>
         <div
-          class="z-0 relative bg-default-300/50 overflow-hidden rtl:rotate-180 h-3 rounded-full"
+          class="relative z-0 overflow-hidden rounded-full bg-default-300/50 rtl:rotate-180 h-3"
+          data-slot="track"
         >
           <div
-            class="h-full rounded-full !transition-none motion-reduce:transition-none bg-primary"
+            class="h-full rounded-full transition-transform !duration-500 motion-reduce:transition-none bg-primary !transition-none"
+            data-slot="indicator"
             style="transform: translateX(-58%);"
           />
         </div>
@@ -151,25 +171,30 @@ exports[`Story Snapshots > AllColors 1`] = `
         aria-valuemin="0"
         aria-valuenow="42"
         aria-valuetext="42%"
-        class="flex flex-col gap-2 w-full"
+        class="flex w-full flex-col gap-2"
+        data-slot="base"
         id="react-aria-«replaced-aria-id»"
         role="progressbar"
       >
         <div
           class="flex justify-between"
+          data-slot="labelWrapper"
         >
           <span
             class="text-medium"
+            data-slot="label"
             id="react-aria-«replaced-aria-id»"
           >
             secondary
           </span>
         </div>
         <div
-          class="z-0 relative bg-default-300/50 overflow-hidden rtl:rotate-180 h-3 rounded-full"
+          class="relative z-0 overflow-hidden rounded-full bg-default-300/50 rtl:rotate-180 h-3"
+          data-slot="track"
         >
           <div
-            class="h-full rounded-full !transition-none motion-reduce:transition-none bg-secondary"
+            class="h-full rounded-full transition-transform !duration-500 motion-reduce:transition-none bg-secondary !transition-none"
+            data-slot="indicator"
             style="transform: translateX(-58%);"
           />
         </div>
@@ -185,25 +210,30 @@ exports[`Story Snapshots > AllColors 1`] = `
         aria-valuemin="0"
         aria-valuenow="42"
         aria-valuetext="42%"
-        class="flex flex-col gap-2 w-full"
+        class="flex w-full flex-col gap-2"
+        data-slot="base"
         id="react-aria-«replaced-aria-id»"
         role="progressbar"
       >
         <div
           class="flex justify-between"
+          data-slot="labelWrapper"
         >
           <span
             class="text-medium"
+            data-slot="label"
             id="react-aria-«replaced-aria-id»"
           >
             success
           </span>
         </div>
         <div
-          class="z-0 relative bg-default-300/50 overflow-hidden rtl:rotate-180 h-3 rounded-full"
+          class="relative z-0 overflow-hidden rounded-full bg-default-300/50 rtl:rotate-180 h-3"
+          data-slot="track"
         >
           <div
-            class="h-full rounded-full !transition-none motion-reduce:transition-none bg-success"
+            class="h-full rounded-full transition-transform !duration-500 motion-reduce:transition-none bg-success !transition-none"
+            data-slot="indicator"
             style="transform: translateX(-58%);"
           />
         </div>
@@ -219,25 +249,30 @@ exports[`Story Snapshots > AllColors 1`] = `
         aria-valuemin="0"
         aria-valuenow="42"
         aria-valuetext="42%"
-        class="flex flex-col gap-2 w-full"
+        class="flex w-full flex-col gap-2"
+        data-slot="base"
         id="react-aria-«replaced-aria-id»"
         role="progressbar"
       >
         <div
           class="flex justify-between"
+          data-slot="labelWrapper"
         >
           <span
             class="text-medium"
+            data-slot="label"
             id="react-aria-«replaced-aria-id»"
           >
             warning
           </span>
         </div>
         <div
-          class="z-0 relative bg-default-300/50 overflow-hidden rtl:rotate-180 h-3 rounded-full"
+          class="relative z-0 overflow-hidden rounded-full bg-default-300/50 rtl:rotate-180 h-3"
+          data-slot="track"
         >
           <div
-            class="h-full rounded-full !transition-none motion-reduce:transition-none bg-warning"
+            class="h-full rounded-full transition-transform !duration-500 motion-reduce:transition-none bg-warning !transition-none"
+            data-slot="indicator"
             style="transform: translateX(-58%);"
           />
         </div>
@@ -262,25 +297,30 @@ exports[`Story Snapshots > AllSizes 1`] = `
         aria-valuemin="0"
         aria-valuenow="42"
         aria-valuetext="42%"
-        class="flex flex-col gap-2 w-full"
+        class="flex w-full flex-col gap-2"
+        data-slot="base"
         id="react-aria-«replaced-aria-id»"
         role="progressbar"
       >
         <div
           class="flex justify-between"
+          data-slot="labelWrapper"
         >
           <span
             class="text-small"
+            data-slot="label"
             id="react-aria-«replaced-aria-id»"
           >
             sm
           </span>
         </div>
         <div
-          class="z-0 relative bg-default-300/50 overflow-hidden rtl:rotate-180 h-1 rounded-full"
+          class="relative z-0 overflow-hidden rounded-full bg-default-300/50 rtl:rotate-180 h-1"
+          data-slot="track"
         >
           <div
-            class="h-full rounded-full !transition-none motion-reduce:transition-none bg-info"
+            class="h-full rounded-full transition-transform !duration-500 motion-reduce:transition-none bg-info !transition-none"
+            data-slot="indicator"
             style="transform: translateX(-58%);"
           />
         </div>
@@ -296,25 +336,30 @@ exports[`Story Snapshots > AllSizes 1`] = `
         aria-valuemin="0"
         aria-valuenow="42"
         aria-valuetext="42%"
-        class="flex flex-col gap-2 w-full"
+        class="flex w-full flex-col gap-2"
+        data-slot="base"
         id="react-aria-«replaced-aria-id»"
         role="progressbar"
       >
         <div
           class="flex justify-between"
+          data-slot="labelWrapper"
         >
           <span
             class="text-medium"
+            data-slot="label"
             id="react-aria-«replaced-aria-id»"
           >
             md
           </span>
         </div>
         <div
-          class="z-0 relative bg-default-300/50 overflow-hidden rtl:rotate-180 h-3 rounded-full"
+          class="relative z-0 overflow-hidden rounded-full bg-default-300/50 rtl:rotate-180 h-3"
+          data-slot="track"
         >
           <div
-            class="h-full rounded-full !transition-none motion-reduce:transition-none bg-info"
+            class="h-full rounded-full transition-transform !duration-500 motion-reduce:transition-none bg-info !transition-none"
+            data-slot="indicator"
             style="transform: translateX(-58%);"
           />
         </div>
@@ -330,28 +375,83 @@ exports[`Story Snapshots > AllSizes 1`] = `
         aria-valuemin="0"
         aria-valuenow="42"
         aria-valuetext="42%"
-        class="flex flex-col gap-2 w-full"
+        class="flex w-full flex-col gap-2"
+        data-slot="base"
         id="react-aria-«replaced-aria-id»"
         role="progressbar"
       >
         <div
           class="flex justify-between"
+          data-slot="labelWrapper"
         >
           <span
             class="text-large"
+            data-slot="label"
             id="react-aria-«replaced-aria-id»"
           >
             lg
           </span>
         </div>
         <div
-          class="z-0 relative bg-default-300/50 overflow-hidden rtl:rotate-180 h-5 rounded-full"
+          class="relative z-0 overflow-hidden rounded-full bg-default-300/50 rtl:rotate-180 h-5"
+          data-slot="track"
         >
           <div
-            class="h-full rounded-full !transition-none motion-reduce:transition-none bg-info"
+            class="h-full rounded-full transition-transform !duration-500 motion-reduce:transition-none bg-info !transition-none"
+            data-slot="indicator"
             style="transform: translateX(-58%);"
           />
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Story Snapshots > CustomStyling 1`] = `
+<div>
+  <div
+    style="width: 300px;"
+  >
+    <div
+      aria-label="progress"
+      aria-labelledby="react-aria-«replaced-aria-id» react-aria-«replaced-aria-id»"
+      aria-valuemax="100"
+      aria-valuemin="0"
+      aria-valuenow="42"
+      aria-valuetext="42%"
+      class="flex w-full flex-col gap-2"
+      data-slot="base"
+      id="react-aria-«replaced-aria-id»"
+      role="progressbar"
+    >
+      <div
+        class="flex justify-between"
+        data-slot="labelWrapper"
+      >
+        <span
+          class="text-medium font-semibold"
+          data-slot="label"
+          id="react-aria-«replaced-aria-id»"
+        >
+          Uploading files
+        </span>
+        <span
+          class="text-medium text-secondary"
+          data-slot="value"
+        >
+          42%
+        </span>
+      </div>
+      <div
+        class="relative z-0 overflow-hidden rounded-full bg-default-300/50 rtl:rotate-180 h-2"
+        data-slot="track"
+      >
+        <div
+          class="h-full rounded-full transition-transform !duration-500 motion-reduce:transition-none !transition-none bg-secondary"
+          data-slot="indicator"
+          style="transform: translateX(-58%);"
+        />
       </div>
     </div>
   </div>
@@ -369,15 +469,18 @@ exports[`Story Snapshots > Default 1`] = `
       aria-valuemin="0"
       aria-valuenow="42"
       aria-valuetext="42%"
-      class="flex flex-col gap-2 w-full"
+      class="flex w-full flex-col gap-2"
+      data-slot="base"
       id="react-aria-«replaced-aria-id»"
       role="progressbar"
     >
       <div
-        class="z-0 relative bg-default-300/50 overflow-hidden rtl:rotate-180 h-3 rounded-full"
+        class="relative z-0 overflow-hidden rounded-full bg-default-300/50 rtl:rotate-180 h-3"
+        data-slot="track"
       >
         <div
-          class="h-full rounded-full !transition-none motion-reduce:transition-none bg-info"
+          class="h-full rounded-full transition-transform !duration-500 motion-reduce:transition-none bg-info !transition-none"
+          data-slot="indicator"
           style="transform: translateX(-58%);"
         />
       </div>
@@ -397,24 +500,29 @@ exports[`Story Snapshots > DisableFinishedState 1`] = `
       aria-valuemin="0"
       aria-valuenow="100"
       aria-valuetext="101%"
-      class="flex flex-col gap-2 w-full"
+      class="flex w-full flex-col gap-2"
+      data-slot="base"
       id="react-aria-«replaced-aria-id»"
       role="progressbar"
     >
       <div
         class="flex justify-between"
+        data-slot="labelWrapper"
       >
         <span
           class="text-medium"
+          data-slot="value"
         >
           101%
         </span>
       </div>
       <div
-        class="z-0 relative bg-default-300/50 overflow-hidden rtl:rotate-180 h-3 rounded-full"
+        class="relative z-0 overflow-hidden rounded-full bg-default-300/50 rtl:rotate-180 h-3"
+        data-slot="track"
       >
         <div
-          class="h-full rounded-full !transition-none motion-reduce:transition-none bg-info"
+          class="h-full rounded-full transition-transform !duration-500 motion-reduce:transition-none bg-info !transition-none"
+          data-slot="indicator"
           style="transform: translateX(-0%);"
         />
       </div>
@@ -434,15 +542,18 @@ exports[`Story Snapshots > Finished 1`] = `
       aria-valuemin="0"
       aria-valuenow="100"
       aria-valuetext="100%"
-      class="flex flex-col gap-2 w-full"
+      class="flex w-full flex-col gap-2"
+      data-slot="base"
       id="react-aria-«replaced-aria-id»"
       role="progressbar"
     >
       <div
-        class="z-0 relative bg-default-300/50 overflow-hidden rtl:rotate-180 h-3 rounded-full"
+        class="relative z-0 overflow-hidden rounded-full bg-default-300/50 rtl:rotate-180 h-3"
+        data-slot="track"
       >
         <div
-          class="h-full rounded-full !transition-none motion-reduce:transition-none bg-success"
+          class="h-full rounded-full transition-transform !duration-500 motion-reduce:transition-none bg-success !transition-none"
+          data-slot="indicator"
           style="transform: translateX(-0%);"
         />
       </div>
@@ -460,17 +571,65 @@ exports[`Story Snapshots > Indeterminate 1`] = `
       aria-label="progress"
       aria-valuemax="100"
       aria-valuemin="0"
-      class="flex flex-col gap-2 w-full"
+      class="flex w-full flex-col gap-2"
       data-indeterminate="true"
+      data-slot="base"
       id="react-aria-«replaced-aria-id»"
       role="progressbar"
     >
       <div
-        class="z-0 relative bg-default-300/50 overflow-hidden rtl:rotate-180 h-3 rounded-full"
+        class="relative z-0 overflow-hidden rounded-full bg-default-300/50 rtl:rotate-180 h-3"
+        data-slot="track"
       >
         <div
-          class="h-full rounded-full absolute w-full origin-left animate-indeterminate-bar bg-info"
-          style="transform: translateX(-100%);"
+          class="h-full rounded-full transition-transform !duration-500 motion-reduce:transition-none bg-info !transition-none absolute w-full origin-left"
+          data-slot="indicator"
+          style="transform: translateX(25%) scaleX(0.5);"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Story Snapshots > RichValue 1`] = `
+<div>
+  <div
+    style="width: 300px;"
+  >
+    <div
+      aria-label="progress"
+      aria-valuemax="100"
+      aria-valuemin="0"
+      aria-valuenow="42"
+      aria-valuetext="42%"
+      class="flex w-full flex-col gap-2"
+      data-slot="base"
+      id="react-aria-«replaced-aria-id»"
+      role="progressbar"
+    >
+      <div
+        class="flex justify-between"
+        data-slot="labelWrapper"
+      >
+        <span
+          class="text-medium"
+          data-slot="value"
+        >
+          <strong>
+            42
+             files
+          </strong>
+        </span>
+      </div>
+      <div
+        class="relative z-0 overflow-hidden rounded-full bg-default-300/50 rtl:rotate-180 h-3"
+        data-slot="track"
+      >
+        <div
+          class="h-full rounded-full transition-transform !duration-500 motion-reduce:transition-none bg-info !transition-none"
+          data-slot="indicator"
+          style="transform: translateX(-58%);"
         />
       </div>
     </div>
@@ -489,24 +648,29 @@ exports[`Story Snapshots > ShowValueLabel 1`] = `
       aria-valuemin="0"
       aria-valuenow="42"
       aria-valuetext="42%"
-      class="flex flex-col gap-2 w-full"
+      class="flex w-full flex-col gap-2"
+      data-slot="base"
       id="react-aria-«replaced-aria-id»"
       role="progressbar"
     >
       <div
         class="flex justify-between"
+        data-slot="labelWrapper"
       >
         <span
           class="text-medium"
+          data-slot="value"
         >
           42%
         </span>
       </div>
       <div
-        class="z-0 relative bg-default-300/50 overflow-hidden rtl:rotate-180 h-3 rounded-full"
+        class="relative z-0 overflow-hidden rounded-full bg-default-300/50 rtl:rotate-180 h-3"
+        data-slot="track"
       >
         <div
-          class="h-full rounded-full !transition-none motion-reduce:transition-none bg-info"
+          class="h-full rounded-full transition-transform !duration-500 motion-reduce:transition-none bg-info !transition-none"
+          data-slot="indicator"
           style="transform: translateX(-58%);"
         />
       </div>
@@ -529,24 +693,29 @@ exports[`Story Snapshots > SomePercentages 1`] = `
         aria-valuemin="0"
         aria-valuenow="0"
         aria-valuetext="0%"
-        class="flex flex-col gap-2 w-full"
+        class="flex w-full flex-col gap-2"
+        data-slot="base"
         id="react-aria-«replaced-aria-id»"
         role="progressbar"
       >
         <div
           class="flex justify-between"
+          data-slot="labelWrapper"
         >
           <span
             class="text-medium"
+            data-slot="value"
           >
             0%
           </span>
         </div>
         <div
-          class="z-0 relative bg-default-300/50 overflow-hidden rtl:rotate-180 h-3 rounded-full"
+          class="relative z-0 overflow-hidden rounded-full bg-default-300/50 rtl:rotate-180 h-3"
+          data-slot="track"
         >
           <div
-            class="h-full rounded-full !transition-none motion-reduce:transition-none bg-info"
+            class="h-full rounded-full transition-transform !duration-500 motion-reduce:transition-none bg-info !transition-none"
+            data-slot="indicator"
             style="transform: translateX(-100%);"
           />
         </div>
@@ -561,24 +730,29 @@ exports[`Story Snapshots > SomePercentages 1`] = `
         aria-valuemin="0"
         aria-valuenow="10"
         aria-valuetext="10%"
-        class="flex flex-col gap-2 w-full"
+        class="flex w-full flex-col gap-2"
+        data-slot="base"
         id="react-aria-«replaced-aria-id»"
         role="progressbar"
       >
         <div
           class="flex justify-between"
+          data-slot="labelWrapper"
         >
           <span
             class="text-medium"
+            data-slot="value"
           >
             10%
           </span>
         </div>
         <div
-          class="z-0 relative bg-default-300/50 overflow-hidden rtl:rotate-180 h-3 rounded-full"
+          class="relative z-0 overflow-hidden rounded-full bg-default-300/50 rtl:rotate-180 h-3"
+          data-slot="track"
         >
           <div
-            class="h-full rounded-full !transition-none motion-reduce:transition-none bg-info"
+            class="h-full rounded-full transition-transform !duration-500 motion-reduce:transition-none bg-info !transition-none"
+            data-slot="indicator"
             style="transform: translateX(-90%);"
           />
         </div>
@@ -593,24 +767,29 @@ exports[`Story Snapshots > SomePercentages 1`] = `
         aria-valuemin="0"
         aria-valuenow="20"
         aria-valuetext="20%"
-        class="flex flex-col gap-2 w-full"
+        class="flex w-full flex-col gap-2"
+        data-slot="base"
         id="react-aria-«replaced-aria-id»"
         role="progressbar"
       >
         <div
           class="flex justify-between"
+          data-slot="labelWrapper"
         >
           <span
             class="text-medium"
+            data-slot="value"
           >
             20%
           </span>
         </div>
         <div
-          class="z-0 relative bg-default-300/50 overflow-hidden rtl:rotate-180 h-3 rounded-full"
+          class="relative z-0 overflow-hidden rounded-full bg-default-300/50 rtl:rotate-180 h-3"
+          data-slot="track"
         >
           <div
-            class="h-full rounded-full !transition-none motion-reduce:transition-none bg-info"
+            class="h-full rounded-full transition-transform !duration-500 motion-reduce:transition-none bg-info !transition-none"
+            data-slot="indicator"
             style="transform: translateX(-80%);"
           />
         </div>
@@ -625,24 +804,29 @@ exports[`Story Snapshots > SomePercentages 1`] = `
         aria-valuemin="0"
         aria-valuenow="30"
         aria-valuetext="30%"
-        class="flex flex-col gap-2 w-full"
+        class="flex w-full flex-col gap-2"
+        data-slot="base"
         id="react-aria-«replaced-aria-id»"
         role="progressbar"
       >
         <div
           class="flex justify-between"
+          data-slot="labelWrapper"
         >
           <span
             class="text-medium"
+            data-slot="value"
           >
             30%
           </span>
         </div>
         <div
-          class="z-0 relative bg-default-300/50 overflow-hidden rtl:rotate-180 h-3 rounded-full"
+          class="relative z-0 overflow-hidden rounded-full bg-default-300/50 rtl:rotate-180 h-3"
+          data-slot="track"
         >
           <div
-            class="h-full rounded-full !transition-none motion-reduce:transition-none bg-info"
+            class="h-full rounded-full transition-transform !duration-500 motion-reduce:transition-none bg-info !transition-none"
+            data-slot="indicator"
             style="transform: translateX(-70%);"
           />
         </div>
@@ -657,24 +841,29 @@ exports[`Story Snapshots > SomePercentages 1`] = `
         aria-valuemin="0"
         aria-valuenow="40"
         aria-valuetext="40%"
-        class="flex flex-col gap-2 w-full"
+        class="flex w-full flex-col gap-2"
+        data-slot="base"
         id="react-aria-«replaced-aria-id»"
         role="progressbar"
       >
         <div
           class="flex justify-between"
+          data-slot="labelWrapper"
         >
           <span
             class="text-medium"
+            data-slot="value"
           >
             40%
           </span>
         </div>
         <div
-          class="z-0 relative bg-default-300/50 overflow-hidden rtl:rotate-180 h-3 rounded-full"
+          class="relative z-0 overflow-hidden rounded-full bg-default-300/50 rtl:rotate-180 h-3"
+          data-slot="track"
         >
           <div
-            class="h-full rounded-full !transition-none motion-reduce:transition-none bg-info"
+            class="h-full rounded-full transition-transform !duration-500 motion-reduce:transition-none bg-info !transition-none"
+            data-slot="indicator"
             style="transform: translateX(-60%);"
           />
         </div>
@@ -689,24 +878,29 @@ exports[`Story Snapshots > SomePercentages 1`] = `
         aria-valuemin="0"
         aria-valuenow="50"
         aria-valuetext="50%"
-        class="flex flex-col gap-2 w-full"
+        class="flex w-full flex-col gap-2"
+        data-slot="base"
         id="react-aria-«replaced-aria-id»"
         role="progressbar"
       >
         <div
           class="flex justify-between"
+          data-slot="labelWrapper"
         >
           <span
             class="text-medium"
+            data-slot="value"
           >
             50%
           </span>
         </div>
         <div
-          class="z-0 relative bg-default-300/50 overflow-hidden rtl:rotate-180 h-3 rounded-full"
+          class="relative z-0 overflow-hidden rounded-full bg-default-300/50 rtl:rotate-180 h-3"
+          data-slot="track"
         >
           <div
-            class="h-full rounded-full !transition-none motion-reduce:transition-none bg-info"
+            class="h-full rounded-full transition-transform !duration-500 motion-reduce:transition-none bg-info !transition-none"
+            data-slot="indicator"
             style="transform: translateX(-50%);"
           />
         </div>
@@ -721,24 +915,29 @@ exports[`Story Snapshots > SomePercentages 1`] = `
         aria-valuemin="0"
         aria-valuenow="60"
         aria-valuetext="60%"
-        class="flex flex-col gap-2 w-full"
+        class="flex w-full flex-col gap-2"
+        data-slot="base"
         id="react-aria-«replaced-aria-id»"
         role="progressbar"
       >
         <div
           class="flex justify-between"
+          data-slot="labelWrapper"
         >
           <span
             class="text-medium"
+            data-slot="value"
           >
             60%
           </span>
         </div>
         <div
-          class="z-0 relative bg-default-300/50 overflow-hidden rtl:rotate-180 h-3 rounded-full"
+          class="relative z-0 overflow-hidden rounded-full bg-default-300/50 rtl:rotate-180 h-3"
+          data-slot="track"
         >
           <div
-            class="h-full rounded-full !transition-none motion-reduce:transition-none bg-info"
+            class="h-full rounded-full transition-transform !duration-500 motion-reduce:transition-none bg-info !transition-none"
+            data-slot="indicator"
             style="transform: translateX(-40%);"
           />
         </div>
@@ -753,24 +952,29 @@ exports[`Story Snapshots > SomePercentages 1`] = `
         aria-valuemin="0"
         aria-valuenow="70"
         aria-valuetext="70%"
-        class="flex flex-col gap-2 w-full"
+        class="flex w-full flex-col gap-2"
+        data-slot="base"
         id="react-aria-«replaced-aria-id»"
         role="progressbar"
       >
         <div
           class="flex justify-between"
+          data-slot="labelWrapper"
         >
           <span
             class="text-medium"
+            data-slot="value"
           >
             70%
           </span>
         </div>
         <div
-          class="z-0 relative bg-default-300/50 overflow-hidden rtl:rotate-180 h-3 rounded-full"
+          class="relative z-0 overflow-hidden rounded-full bg-default-300/50 rtl:rotate-180 h-3"
+          data-slot="track"
         >
           <div
-            class="h-full rounded-full !transition-none motion-reduce:transition-none bg-info"
+            class="h-full rounded-full transition-transform !duration-500 motion-reduce:transition-none bg-info !transition-none"
+            data-slot="indicator"
             style="transform: translateX(-30%);"
           />
         </div>
@@ -785,24 +989,29 @@ exports[`Story Snapshots > SomePercentages 1`] = `
         aria-valuemin="0"
         aria-valuenow="80"
         aria-valuetext="80%"
-        class="flex flex-col gap-2 w-full"
+        class="flex w-full flex-col gap-2"
+        data-slot="base"
         id="react-aria-«replaced-aria-id»"
         role="progressbar"
       >
         <div
           class="flex justify-between"
+          data-slot="labelWrapper"
         >
           <span
             class="text-medium"
+            data-slot="value"
           >
             80%
           </span>
         </div>
         <div
-          class="z-0 relative bg-default-300/50 overflow-hidden rtl:rotate-180 h-3 rounded-full"
+          class="relative z-0 overflow-hidden rounded-full bg-default-300/50 rtl:rotate-180 h-3"
+          data-slot="track"
         >
           <div
-            class="h-full rounded-full !transition-none motion-reduce:transition-none bg-info"
+            class="h-full rounded-full transition-transform !duration-500 motion-reduce:transition-none bg-info !transition-none"
+            data-slot="indicator"
             style="transform: translateX(-20%);"
           />
         </div>
@@ -817,24 +1026,29 @@ exports[`Story Snapshots > SomePercentages 1`] = `
         aria-valuemin="0"
         aria-valuenow="90"
         aria-valuetext="90%"
-        class="flex flex-col gap-2 w-full"
+        class="flex w-full flex-col gap-2"
+        data-slot="base"
         id="react-aria-«replaced-aria-id»"
         role="progressbar"
       >
         <div
           class="flex justify-between"
+          data-slot="labelWrapper"
         >
           <span
             class="text-medium"
+            data-slot="value"
           >
             90%
           </span>
         </div>
         <div
-          class="z-0 relative bg-default-300/50 overflow-hidden rtl:rotate-180 h-3 rounded-full"
+          class="relative z-0 overflow-hidden rounded-full bg-default-300/50 rtl:rotate-180 h-3"
+          data-slot="track"
         >
           <div
-            class="h-full rounded-full !transition-none motion-reduce:transition-none bg-info"
+            class="h-full rounded-full transition-transform !duration-500 motion-reduce:transition-none bg-info !transition-none"
+            data-slot="indicator"
             style="transform: translateX(-10%);"
           />
         </div>
@@ -849,24 +1063,29 @@ exports[`Story Snapshots > SomePercentages 1`] = `
         aria-valuemin="0"
         aria-valuenow="100"
         aria-valuetext="100%"
-        class="flex flex-col gap-2 w-full"
+        class="flex w-full flex-col gap-2"
+        data-slot="base"
         id="react-aria-«replaced-aria-id»"
         role="progressbar"
       >
         <div
           class="flex justify-between"
+          data-slot="labelWrapper"
         >
           <span
             class="text-medium"
+            data-slot="value"
           >
             100%
           </span>
         </div>
         <div
-          class="z-0 relative bg-default-300/50 overflow-hidden rtl:rotate-180 h-3 rounded-full"
+          class="relative z-0 overflow-hidden rounded-full bg-default-300/50 rtl:rotate-180 h-3"
+          data-slot="track"
         >
           <div
-            class="h-full rounded-full !transition-none motion-reduce:transition-none bg-success"
+            class="h-full rounded-full transition-transform !duration-500 motion-reduce:transition-none bg-success !transition-none"
+            data-slot="indicator"
             style="transform: translateX(-0%);"
           />
         </div>
@@ -881,28 +1100,131 @@ exports[`Story Snapshots > SomePercentages 1`] = `
         aria-valuemin="0"
         aria-valuenow="100"
         aria-valuetext="150%"
-        class="flex flex-col gap-2 w-full"
+        class="flex w-full flex-col gap-2"
+        data-slot="base"
         id="react-aria-«replaced-aria-id»"
         role="progressbar"
       >
         <div
           class="flex justify-between"
+          data-slot="labelWrapper"
         >
           <span
             class="text-medium"
+            data-slot="value"
           >
             150%
           </span>
         </div>
         <div
-          class="z-0 relative bg-default-300/50 overflow-hidden rtl:rotate-180 h-3 rounded-full"
+          class="relative z-0 overflow-hidden rounded-full bg-default-300/50 rtl:rotate-180 h-3"
+          data-slot="track"
         >
           <div
-            class="h-full rounded-full !transition-none motion-reduce:transition-none bg-success"
+            class="h-full rounded-full transition-transform !duration-500 motion-reduce:transition-none bg-success !transition-none"
+            data-slot="indicator"
             style="transform: translateX(-0%);"
           />
         </div>
       </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Story Snapshots > StaticIndeterminate 1`] = `
+<div>
+  <div
+    style="width: 300px;"
+  >
+    <div
+      aria-label="progress"
+      aria-valuemax="100"
+      aria-valuemin="0"
+      class="flex w-full flex-col gap-2"
+      data-indeterminate="true"
+      data-slot="base"
+      id="react-aria-«replaced-aria-id»"
+      role="progressbar"
+    >
+      <div
+        class="relative z-0 overflow-hidden rounded-full bg-default-300/50 rtl:rotate-180 h-3"
+        data-slot="track"
+      >
+        <div
+          class="h-full rounded-full transition-transform !duration-500 motion-reduce:transition-none bg-info !transition-none absolute w-full origin-left"
+          data-slot="indicator"
+          style="transform: translateX(25%) scaleX(0.5);"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Story Snapshots > UpdatingProgress 1`] = `
+<div>
+  <div
+    style="width: 300px;"
+  >
+    <div
+      class="flex flex-col gap-4"
+    >
+      <div
+        aria-label="progress"
+        aria-labelledby="react-aria-«replaced-aria-id» react-aria-«replaced-aria-id»"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="50"
+        aria-valuetext="50%"
+        class="flex w-full flex-col gap-2"
+        data-slot="base"
+        id="react-aria-«replaced-aria-id»"
+        role="progressbar"
+      >
+        <div
+          class="flex justify-between"
+          data-slot="labelWrapper"
+        >
+          <span
+            class="text-medium"
+            data-slot="label"
+            id="react-aria-«replaced-aria-id»"
+          >
+            Upload
+          </span>
+          <span
+            class="text-medium"
+            data-slot="value"
+          >
+            50%
+          </span>
+        </div>
+        <div
+          class="relative z-0 overflow-hidden rounded-full bg-default-300/50 rtl:rotate-180 h-3"
+          data-slot="track"
+        >
+          <div
+            class="h-full rounded-full transition-transform !duration-500 motion-reduce:transition-none bg-info"
+            data-slot="indicator"
+            style="transform: translateX(-50%);"
+          />
+        </div>
+      </div>
+      <button
+        class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
+        data-focus="true"
+        data-focused="true"
+        data-hover="true"
+        data-hovered="true"
+        data-rac=""
+        data-react-aria-pressable="true"
+        id="react-aria-«replaced-aria-id»"
+        tabindex="0"
+        type="button"
+      >
+        Advance
+      </button>
     </div>
   </div>
 </div>
@@ -920,25 +1242,30 @@ exports[`Story Snapshots > WithLabel 1`] = `
       aria-valuemin="0"
       aria-valuenow="42"
       aria-valuetext="42%"
-      class="flex flex-col gap-2 w-full"
+      class="flex w-full flex-col gap-2"
+      data-slot="base"
       id="react-aria-«replaced-aria-id»"
       role="progressbar"
     >
       <div
         class="flex justify-between"
+        data-slot="labelWrapper"
       >
         <span
           class="text-medium"
+          data-slot="label"
           id="react-aria-«replaced-aria-id»"
         >
           Some Label
         </span>
       </div>
       <div
-        class="z-0 relative bg-default-300/50 overflow-hidden rtl:rotate-180 h-3 rounded-full"
+        class="relative z-0 overflow-hidden rounded-full bg-default-300/50 rtl:rotate-180 h-3"
+        data-slot="track"
       >
         <div
-          class="h-full rounded-full !transition-none motion-reduce:transition-none bg-info"
+          class="h-full rounded-full transition-transform !duration-500 motion-reduce:transition-none bg-info !transition-none"
+          data-slot="indicator"
           style="transform: translateX(-58%);"
         />
       </div>
@@ -959,30 +1286,36 @@ exports[`Story Snapshots > WithLabelAndValueLabel 1`] = `
       aria-valuemin="0"
       aria-valuenow="42"
       aria-valuetext="42%"
-      class="flex flex-col gap-2 w-full"
+      class="flex w-full flex-col gap-2"
+      data-slot="base"
       id="react-aria-«replaced-aria-id»"
       role="progressbar"
     >
       <div
         class="flex justify-between"
+        data-slot="labelWrapper"
       >
         <span
           class="text-medium"
+          data-slot="label"
           id="react-aria-«replaced-aria-id»"
         >
           Some Label
         </span>
         <span
           class="text-medium"
+          data-slot="value"
         >
           42%
         </span>
       </div>
       <div
-        class="z-0 relative bg-default-300/50 overflow-hidden rtl:rotate-180 h-3 rounded-full"
+        class="relative z-0 overflow-hidden rounded-full bg-default-300/50 rtl:rotate-180 h-3"
+        data-slot="track"
       >
         <div
-          class="h-full rounded-full !transition-none motion-reduce:transition-none bg-info"
+          class="h-full rounded-full transition-transform !duration-500 motion-reduce:transition-none bg-info !transition-none"
+          data-slot="indicator"
           style="transform: translateX(-58%);"
         />
       </div>
@@ -1002,15 +1335,18 @@ exports[`Story Snapshots > WithoutPercentProp 1`] = `
       aria-valuemin="0"
       aria-valuenow="0"
       aria-valuetext="0%"
-      class="flex flex-col gap-2 w-full"
+      class="flex w-full flex-col gap-2"
+      data-slot="base"
       id="react-aria-«replaced-aria-id»"
       role="progressbar"
     >
       <div
-        class="z-0 relative bg-default-300/50 overflow-hidden rtl:rotate-180 h-3 rounded-full"
+        class="relative z-0 overflow-hidden rounded-full bg-default-300/50 rtl:rotate-180 h-3"
+        data-slot="track"
       >
         <div
-          class="h-full rounded-full !transition-none motion-reduce:transition-none bg-info"
+          class="h-full rounded-full transition-transform !duration-500 motion-reduce:transition-none bg-info !transition-none"
+          data-slot="indicator"
           style="transform: translateX(-100%);"
         />
       </div>

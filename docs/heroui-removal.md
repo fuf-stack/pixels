@@ -23,9 +23,20 @@ HeroUI consumers. The original inventory below records the pre-migration source.
 ## Pixels Popover
 
 Popover now uses React Aria dialog components and overlay hooks with owned slot
-styles. Pixels no longer declares `@heroui/popover` directly. The shared
-ScrollShadow and Menu migrations remain separate. See the
+styles. Pixels no longer declares `@heroui/popover` directly. Its scrollable body also uses the owned ScrollShadow implementation. Menu remains a separate migration. See the
 [Popover migration notes](./pixels/migration.md#popover).
+
+## Pixels ScrollShadow
+
+ScrollShadow now owns its native scroll container, edge measurement and mask
+recipe. Its direct HeroUI dependency is removed, including the remaining HeroUI
+rendering inside Popover. See [Pixels migration notes](./pixels/migration.md#scrollshadow).
+
+## Pixels Progress
+
+Linear Progress now uses React Aria semantics, owned slot styles and activity
+animation. The shared `@heroui/progress` dependency remains for ProgressCircular.
+See [Pixels migration notes](./pixels/migration.md#progress).
 
 ## Implemented foundation
 
@@ -555,9 +566,3 @@ message IDs. The layout uses React Aria Label to preserve radiogroup naming.
 Group defaults and option styling have their own variant recipes, with option
 hover styling driven by React Aria render state. Public entry points, numeric
 value conversion, disabled behavior and existing styling slots are retained.
-
-### Pixels ScrollShadow
-
-ScrollShadow now owns its native scroll container, edge measurement and mask
-recipe. Its direct HeroUI dependency is removed, including the remaining HeroUI
-rendering inside Popover. See [Pixels migration notes](./pixels/migration.md#scrollshadow).

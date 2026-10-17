@@ -75,3 +75,17 @@ Pixels no longer declares `@heroui/scroll-shadow` directly, though other HeroUI
 components can still depend on it transitively.
 
 [ScrollShadow usage](../../packages/pixels/src/ScrollShadow/README.md)
+
+## Progress
+
+Progress uses React Aria's progress-bar semantics and owned track, label and
+indicator recipes. The activity indicator owns its repeating motion, while normal
+value updates retain the half-second transition and skip the initial animation.
+Reduced motion and `disableAnimation` show a static activity segment.
+
+The percentage, completion color, formatter and public styling slots remain
+supported. Rich formatter content renders visually while ARIA receives the numeric
+percentage, rather than serializing a React element into an attribute.
+`@heroui/progress` remains temporarily for ProgressCircular.
+
+[Progress usage](../../packages/pixels/src/Progress/README.md)
