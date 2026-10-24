@@ -113,12 +113,12 @@ load the trusted workflow revision; only the read-only build job loads branch co
 
 ## SonarQube coverage
 
-The unit-test CI command selects projects to exclude Storybook. With Vitest 5,
-coverage include globs are relative to the selected package roots, so this
-command also sets `--coverage.include='src/**/*.{js,jsx,ts,tsx}'`. The shared
-workspace preset uses workspace-relative globs for unfiltered test runs.
-Using those globs with `--project` produces an empty report even when all
-tests pass.
+The unit-test CI command selects projects to exclude Storybook and sets
+`--coverage.include='**/src/**/*.{js,jsx,ts,tsx}'`. Vitest 5 matches coverage paths
+relative to the first matching project root. With both package projects and the
+root-level `ci-scripts` project selected, the glob must match both `src/...` and
+`packages/.../src/...`. A package-only glob can produce file records without
+measured lines even when all tests pass.
 
 CI verifies that `coverage/lcov.info` contains source records and measured
 lines before uploading it and again after downloading it for SonarQube. An
