@@ -94,8 +94,22 @@ published declarations can change.
 When a Renovate pull request fails only because committed Vitest snapshots are
 out of date, comment `/autofix-snapshots` on the pull request or add the
 `autofix:snapshots` label. The snapshot autofix workflow runs the test suite in
-update mode, refuses to commit non-snapshot changes, verifies the updated suite,
-pushes the snapshot commit to the Renovate branch, and dispatches CI for it.
+update mode on an immutable head SHA with a read-only token and no persisted Git
+credentials. A separate job runs only trusted workflow code and treats the build
+artifact as untrusted data. It accepts updates only to existing regular
+`__snapshots__/*.snap` files containing only Vitest snapshot data assignments
+(without JavaScript interpolation or extra code), verifies the branch still
+points to the tested SHA,
+creates a commit through the GitHub API, and dispatches CI. Inline snapshots in
+test source, new snapshot files, and other changes require manual review. If the
+branch moves, request a fresh run. Manual requests must dispatch the workflow
+from the default branch and specify a `renovate/` branch.
+
+The trusted artifact gate tests run automatically with `pnpm test`. For a
+focused run, use `pnpm exec vitest run --project=ci-scripts`.
+The workflow delegates branch resolution, test retries, artifact collection and
+validated writes to `scripts/ci-snapshot-autofix.mjs`. The resolver and writer
+load the trusted workflow revision; only the read-only build job loads branch code.
 
 ## SonarQube coverage
 

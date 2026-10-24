@@ -7,19 +7,23 @@
   extends: [
     'config:recommended',
     'helpers:pinGitHubActionDigests',
-    'default:automergeDigest',
-    'default:automergeMinor',
-    'default:combinePatchMinorReleases',
-    'default:dependencyDashboard',
-    'default:docker',
-    'default:enableVulnerabilityAlerts',
-    'default:maintainLockFilesWeekly',
-    'default:prHourlyLimit4',
+    ':automergeDigest',
+    ':automergeMinor',
+    ':combinePatchMinorReleases',
+    ':dependencyDashboard',
+    ':docker',
+    ':enableVulnerabilityAlertsWithLabel(renovate | alert)',
+    ':maintainLockFilesWeekly',
+    ':prHourlyLimit4',
   ],
   ignorePaths: ['/node_modules/'],
   // Wait 14 days to match pnpm, except for @fuf-stack packages below.
   // see: https://docs.renovatebot.com/configuration-options/#minimumreleaseage
   minimumReleaseAge: '14 days',
+  // Exclude releases until the age requirement passes, then create PRs
+  // immediately rather than waiting for branch checks.
+  internalChecksFilter: 'strict',
+  prCreation: 'immediate',
   // see: https://docs.renovatebot.com/configuration-options/#prconcurrentlimit
   prConcurrentLimit: 20,
   // only rebase merge requests when they become conflicted
