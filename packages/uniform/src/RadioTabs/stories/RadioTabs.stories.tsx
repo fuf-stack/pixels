@@ -127,8 +127,8 @@ export const WithContent: Story = {
 };
 
 interface PizzaFormData {
-  wantsPizza?: boolean;
   toppings?: string;
+  wantsPizza?: boolean;
 }
 
 export const BooleanValuesWithConditionalField: Story = {

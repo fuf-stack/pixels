@@ -1,3 +1,4 @@
+import type { ComponentPropsWithRef } from 'react';
 import type { RadioTabOption } from '../RadioTabs';
 import type { RadioTabsClassNames } from '../radioTabsVariants';
 
@@ -43,9 +44,12 @@ const RadioTab = ({
       id={String(option.value)}
       isDisabled={!!disabled || !!option.disabled}
       render={(props, state) => {
+        // options expose no href, React Aria always uses div attributes here
+        const divProps = props as ComponentPropsWithRef<'div'>;
+
         return (
           <div
-            {...props}
+            {...divProps}
             aria-controls={
               option.content != null ? props['aria-controls'] : undefined
             }

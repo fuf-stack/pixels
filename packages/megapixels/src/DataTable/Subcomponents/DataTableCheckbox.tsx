@@ -12,12 +12,12 @@ export interface DataTableCheckboxProps {
   ariaLabel: string;
   /** Controlled checked state. */
   checked: boolean;
+  /** Icon shown for checked state; pass `false` to hide. */
+  checkedIcon?: ReactNode | false;
   /** Optional class names for root and indicator nodes. */
   className?: CheckboxClassName;
   /** Enables mixed visual state for parent/select-all behavior. */
   indeterminate?: boolean;
-  /** Icon shown for checked state; pass `false` to hide. */
-  checkedIcon?: ReactNode | false;
   /** Icon shown for indeterminate state; pass `false` to hide. */
   indeterminateIcon?: ReactNode | false;
   /** Emits normalized boolean checked values. */

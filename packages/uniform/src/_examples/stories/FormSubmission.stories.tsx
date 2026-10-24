@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
+import { useState } from 'react';
+
 import { action } from 'storybook/actions';
 import { expect, userEvent, waitFor, within } from 'storybook/test';
 
@@ -61,6 +63,121 @@ const FormStateReadout = () => {
       </dl>
     </Card>
   );
+};
+
+const disabledFieldValidation = veto({
+  accountCode: string()
+    .min(3, 'Account code needs at least 3 characters')
+    .optional(),
+  name: string(),
+});
+const requiredDisabledFieldValidation = veto({
+  accountCode: string().min(3, 'Account code needs at least 3 characters'),
+  name: string(),
+});
+
+const DisabledFieldsExample = ({
+  requireAccountCode = false,
+}: {
+  requireAccountCode?: boolean;
+}) => {
+  const [disabled, setDisabled] = useState(true);
+  const [submitted, setSubmitted] = useState<Record<string, unknown> | null>(
+    null,
+  );
+  const validation = requireAccountCode
+    ? requiredDisabledFieldValidation
+    : disabledFieldValidation;
+
+  return (
+    <Form
+      initialValues={{ accountCode: 'ab', name: 'Ada' }}
+      onSubmit={(data) => {
+        setSubmitted(data);
+      }}
+      validation={validation}
+      validationTrigger="onSubmit"
+    >
+      <Input disabled={disabled} label="Account code" name="accountCode" />
+      <Input label="Name" name="name" />
+      <button
+        onClick={() => {
+          setDisabled(!disabled);
+        }}
+        type="button"
+      >
+        {disabled ? 'Enable field' : 'Disable field'}
+      </button>
+      <SubmitButton>Submit</SubmitButton>
+      <pre data-testid="submitted_values">{JSON.stringify(submitted)}</pre>
+      <FormStateReadout />
+    </Form>
+  );
+};
+
+/** Disabled values are omitted; the optional schema permits submission. */
+export const DisabledFields: Story = {
+  render: () => {
+    return <DisabledFieldsExample />;
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const input = canvas.getByRole('textbox', { name: /Account code/ });
+    expect(input).toBeDisabled();
+    await userEvent.click(canvas.getByRole('button', { name: 'Submit form' }));
+    await waitFor(async () => {
+      return expect(canvas.getByTestId('submitted_values')).toHaveTextContent(
+        '{"name":"Ada"}',
+      );
+    });
+
+    await userEvent.click(canvas.getByRole('button', { name: 'Enable field' }));
+    expect(input).toBeEnabled();
+    expect(input).toHaveValue('ab');
+    await userEvent.click(canvas.getByRole('button', { name: 'Submit form' }));
+    await waitFor(async () => {
+      return expect(
+        canvas.getByText('Account code needs at least 3 characters'),
+      ).toBeVisible();
+    });
+    await userEvent.type(input, 'c');
+    await userEvent.tab();
+    await userEvent.click(canvas.getByRole('button', { name: 'Submit form' }));
+    await waitFor(async () => {
+      return expect(canvas.getByTestId('submitted_values')).toHaveTextContent(
+        '{"accountCode":"abc","name":"Ada"}',
+      );
+    });
+  },
+};
+
+/** Disabling a field does not relax a schema that requires its value. */
+export const RequiredDisabledField: Story = {
+  render: () => {
+    return <DisabledFieldsExample requireAccountCode />;
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await userEvent.click(canvas.getByRole('button', { name: 'Submit form' }));
+    await waitFor(async () => {
+      await expect(canvas.getByText('Field is required')).toBeVisible();
+    });
+    await expect(canvas.getByTestId('submitted_values')).toHaveTextContent(
+      'null',
+    );
+
+    await userEvent.click(canvas.getByRole('button', { name: 'Enable field' }));
+    const input = canvas.getByRole('textbox', { name: /Account code/ });
+    await expect(input).toHaveValue('ab');
+    await userEvent.type(input, 'c');
+    await userEvent.tab();
+    await userEvent.click(canvas.getByRole('button', { name: 'Submit form' }));
+    await waitFor(async () => {
+      await expect(canvas.getByTestId('submitted_values')).toHaveTextContent(
+        '{"accountCode":"abc","name":"Ada"}',
+      );
+    });
+  },
 };
 
 /**

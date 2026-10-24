@@ -36,10 +36,10 @@ interface DataTableVirtualBodyRowsProps<TData> {
   rows: Row<TData>[];
   /** Scroll container consumed by the shared virtualizer hook. */
   scrollElementRef?: RefObject<HTMLDivElement | null>;
-  /** Enables virtualized row/cell sizing behavior. */
-  virtualized: boolean;
   /** Virtualizer options (maxHeight, estimate, dynamic sizing, overscan). */
   virtualization?: DataTableVirtualizationFeature;
+  /** Enables virtualized row/cell sizing behavior. */
+  virtualized: boolean;
   /** Current visible column count for full-width helper rows. */
   visibleColumnCount: number;
 }

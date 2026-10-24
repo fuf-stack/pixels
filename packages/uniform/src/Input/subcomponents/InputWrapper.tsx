@@ -7,11 +7,18 @@ import { Input as AriaInput, Group } from 'react-aria-components';
 
 import { getFieldControlProps } from '../../helpers/fieldProps/fieldProps';
 import InputClearButton from './InputClearButton';
+import InputPasswordToggle from './InputPasswordToggle';
 import InputStepper from './InputStepper';
 
 type InputWrapperProps = Pick<
   InputControlProps,
-  'field' | 'clearable' | 'endContent' | 'placeholder' | 'startContent' | 'type'
+  | 'field'
+  | 'clearable'
+  | 'endContent'
+  | 'hidePasswordToggle'
+  | 'placeholder'
+  | 'startContent'
+  | 'type'
 > & {
   /** Ref to the editable input */
   inputRef: Ref<HTMLInputElement>;
@@ -25,6 +32,10 @@ type InputWrapperProps = Pick<
   hasValue: boolean;
   /** Callback when the clear button or Escape key clears the input */
   onClear: () => void;
+  /** Callback invoked to reveal or mask the password */
+  onTogglePassword: () => void;
+  /** Shows the password without changing the registered field type */
+  passwordVisible: boolean;
   /** Callback invoked to focus the input after a wrapper click */
   onFocusControl: () => void;
 };
@@ -44,9 +55,12 @@ const InputWrapper = ({
   field,
   clearable = false,
   endContent,
+  hidePasswordToggle,
   inputRef,
   onClear,
   onFocusControl,
+  onTogglePassword,
+  passwordVisible,
   placeholder,
   startContent,
   type,
@@ -74,7 +88,7 @@ const InputWrapper = ({
 
   // clear a populated input when Escape is pressed
   const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
-    if (event.key === 'Escape' && clearable && hasValue) {
+    if (event.key === 'Escape' && clearable && hasValue && !disabled) {
       event.preventDefault();
       onClear();
     }
@@ -107,16 +121,31 @@ const InputWrapper = ({
           onKeyDown={handleKeyDown}
           placeholder={placeholder}
         />
+        {type === 'password' ? endContent : null}
         {clearable && hasValue ? (
           <InputClearButton
             className={className.clearButton}
             disabled={disabled}
             onClear={onClear}
           >
-            {type !== 'number' && endContent ? endContent : undefined}
+            {type !== 'number' && type !== 'password' && endContent
+              ? endContent
+              : undefined}
           </InputClearButton>
         ) : null}
-        {!clearable || type === 'number' ? endContent : null}
+        {type !== 'password' && (!clearable || type === 'number')
+          ? endContent
+          : null}
+        {type === 'password' && !hidePasswordToggle ? (
+          <InputPasswordToggle
+            className={className.passwordToggle}
+            controlId={field.ids.control}
+            disabled={disabled}
+            onToggle={onTogglePassword}
+            testId={testId}
+            visible={passwordVisible}
+          />
+        ) : null}
         {type === 'number' ? <InputStepper className={className} /> : null}
       </div>
     </Group>

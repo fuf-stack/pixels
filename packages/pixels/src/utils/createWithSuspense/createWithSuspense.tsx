@@ -8,9 +8,9 @@ interface ErrorBoundaryProps {
   children: ReactNode;
   fallback: (error: Error, errorInfo: ErrorInfo) => ReactNode;
   // eslint-disable-next-line react/require-default-props
-  shouldAnimate?: boolean;
-  // eslint-disable-next-line react/require-default-props
   onError?: (error: Error, errorInfo: ErrorInfo) => void;
+  // eslint-disable-next-line react/require-default-props
+  shouldAnimate?: boolean;
 }
 
 interface ErrorBoundaryState {
@@ -96,14 +96,6 @@ export interface CreateWithSuspenseConfig {
 
 export interface WithSuspenseOptions {
   /**
-   * Override the default fallback for this specific component
-   */
-  fallback?: ReactNode;
-  /**
-   * Override the error boundary for this specific component
-   */
-  errorFallback?: (error: Error, errorInfo: ErrorInfo) => ReactNode;
-  /**
    * Disable height animation for this specific component
    */
   disableAnimation?: boolean;
@@ -111,6 +103,14 @@ export interface WithSuspenseOptions {
    * Disable error boundary for this specific component
    */
   disableErrorBoundary?: boolean;
+  /**
+   * Override the error boundary for this specific component
+   */
+  errorFallback?: (error: Error, errorInfo: ErrorInfo) => ReactNode;
+  /**
+   * Override the default fallback for this specific component
+   */
+  fallback?: ReactNode;
 }
 
 /**

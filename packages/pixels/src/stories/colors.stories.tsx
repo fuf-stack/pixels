@@ -116,8 +116,8 @@ interface ColorsItem {
 }
 
 interface SwatchColors {
-  title: string;
   items: ColorsItem[];
+  title: string;
 }
 
 interface SwatchSetProps {

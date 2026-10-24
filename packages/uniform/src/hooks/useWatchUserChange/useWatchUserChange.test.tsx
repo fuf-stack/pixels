@@ -6,9 +6,9 @@ import { useWatchUserChange } from './useWatchUserChange';
 
 // Mock useFormContext
 interface MockFormContextReturn {
-  setValue: ReturnType<typeof vi.fn>;
-  resetField: ReturnType<typeof vi.fn>;
   reset: ReturnType<typeof vi.fn>;
+  resetField: ReturnType<typeof vi.fn>;
+  setValue: ReturnType<typeof vi.fn>;
   userChange: {
     subscribe: ReturnType<typeof vi.fn>;
     notify: ReturnType<typeof vi.fn>;
@@ -21,13 +21,13 @@ vi.mock('../useFormContext/useFormContext', () => ({
 }));
 
 interface FormData {
-  country?: string;
-  city?: string;
   address?: string;
-  paymentMethod?: string;
-  installments?: number;
-  category?: string;
   brand?: string;
+  category?: string;
+  city?: string;
+  country?: string;
+  installments?: number;
+  paymentMethod?: string;
   productId?: string;
 }
 

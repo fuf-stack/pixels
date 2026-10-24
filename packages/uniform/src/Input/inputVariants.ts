@@ -10,14 +10,14 @@ export const inputVariants = tv({
     /** Button for clearing the current value */
     clearButton: [
       // clear button placement and appearance
-      'absolute end-3 z-10 -m-2 cursor-pointer rounded-full p-2 opacity-70 outline-none text-large',
+      'absolute end-3 z-10 -m-2 cursor-pointer rounded-full p-2 text-large opacity-70 outline-none',
       // hover and keyboard focus
       'hover:opacity-100 focus-visible:outline-2 focus-visible:outline-focus',
     ],
     /** Supporting text below the input */
-    description: 'text-foreground-500 text-tiny',
+    description: 'text-tiny text-foreground-500',
     /** Container for validation messages */
-    errorMessage: 'text-danger text-tiny',
+    errorMessage: 'text-tiny text-danger',
     /** Container for help text and validation messages */
     helperWrapper: 'relative flex flex-col p-0',
     /** Row containing the input, addons and actions */
@@ -25,7 +25,7 @@ export const inputVariants = tv({
     /** Native input for text or numeric entry */
     input: [
       // editable text and transparent surface
-      'w-full min-w-0 bg-transparent bg-clip-text font-normal text-inherit outline-none text-small',
+      'w-full min-w-0 bg-transparent bg-clip-text text-small font-normal text-inherit outline-none',
       // placeholder and autofill
       'placeholder:text-foreground-500 autofill:bg-transparent',
       // spacing around surrounding content
@@ -36,19 +36,22 @@ export const inputVariants = tv({
     /** Bordered container around the editable area */
     inputWrapper: [
       // input frame and layout
-      'shadow-xs relative inline-flex h-10 min-h-10 w-full cursor-text items-center',
+      'relative inline-flex h-10 min-h-10 w-full cursor-text items-center shadow-xs',
       // bordered surface and text
       'rounded-small border-medium border-default-200 bg-content1 px-3 text-foreground',
       // interaction transitions
       'transition-colors',
       // hover, disabled and validation states
-      'data-[hovered=true]:border-default-400 group-data-[disabled=true]:pointer-events-none group-data-[focus=true]:border-focus group-data-[invalid=true]:border-danger group-data-[focus=true]:data-[hovered=true]:border-default-foreground',
+      'group-data-[disabled=true]:pointer-events-none group-data-[focus=true]:border-focus group-data-[invalid=true]:border-danger data-[hovered=true]:border-default-400 group-data-[focus=true]:data-[hovered=true]:border-default-foreground',
       // reduced motion
       'motion-reduce:transition-none',
     ],
     /** Label above the input */
     label:
-      'block cursor-default pb-1 text-foreground text-small group-data-[invalid=true]:text-danger',
+      'block cursor-default pb-1 text-small text-foreground group-data-[invalid=true]:text-danger',
+    /** Button for revealing or masking a password */
+    passwordToggle:
+      'shrink-0 rounded-sm p-1 text-default-400 outline-none focus-visible:ring-2 focus-visible:ring-focus',
     /** Container grouping increment and decrement buttons */
     stepper: 'flex h-full flex-col justify-center ps-1',
     /** Buttons for increasing or decreasing the numeric value */
@@ -68,6 +71,9 @@ export const inputVariants = tv({
       },
     },
     number: { true: { clearButton: 'relative' } },
+    password: {
+      true: { clearButton: 'relative end-auto m-0 p-1', innerWrapper: 'gap-2' },
+    },
     clearable: { true: { input: 'pe-6' } },
     size: {
       lg: {
@@ -88,7 +94,7 @@ export const inputVariants = tv({
       true: {
         input: 'text-danger',
         inputWrapper:
-          'border-danger data-[hovered=true]:border-danger group-data-[focus=true]:border-danger group-data-[focus=true]:data-[hovered=true]:border-danger',
+          'border-danger group-data-[focus=true]:border-danger data-[hovered=true]:border-danger group-data-[focus=true]:data-[hovered=true]:border-danger',
         label: 'text-danger',
       },
     },

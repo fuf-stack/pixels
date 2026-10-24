@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.14.1](https://github.com/fuf-stack/pixels/compare/pixels-v1.14.0...pixels-v1.14.1) (2026-10-19)
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @fuf-stack/pixel-utils bumped to 1.4.1
+
 ## [1.14.0](https://github.com/fuf-stack/pixels/compare/pixels-v1.13.2...pixels-v1.14.0) (2026-10-14)
 
 

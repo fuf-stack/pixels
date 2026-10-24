@@ -9,22 +9,22 @@ import { radioBoxVariants } from './radioBoxVariants';
 export interface RadioBoxProps {
   /** Option label. */
   children?: ReactNode;
-  /** Help text associated with the field */
-  description?: ReactNode;
-  /** Whether the option is disabled. */
-  isDisabled?: boolean;
-  /** String value managed by the containing radio group. */
-  value: string;
-  /** HTML test ID for the option. */
-  'data-testid'?: string;
-  /** Legacy alias for className */
-  classNames?: ClassName;
   /** CSS class name */
   className?: ClassName;
+  /** Legacy alias for className */
+  classNames?: ClassName;
+  /** HTML test ID for the option. */
+  'data-testid'?: string;
+  /** Help text associated with the field */
+  description?: ReactNode;
   /** icon for the option */
   icon?: ReactNode;
+  /** Whether the option is disabled. */
+  isDisabled?: boolean;
   /** whether the radio is invalid */
   isInvalid?: boolean;
+  /** String value managed by the containing radio group. */
+  value: string;
 }
 
 /**

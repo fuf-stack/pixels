@@ -1,6 +1,6 @@
 {
   "name": "@fuf-stack/uniform",
-  "version": "1.27.0",
+  "version": "1.28.0",
   "description": "fuf react form library",
   "author": "Fröhlich ∧ Frei",
   "homepage": "https://github.com/fuf-stack/pixels#readme",
@@ -55,7 +55,7 @@
     "build": "tsdown",
     "prepack": "pnpm build",
     "test": "vitest ./src",
-    "test:types": "tsc --project test/typecheck/tsconfig.json"
+    "test:types": "tsc --project tsconfig.build.json --noEmit && tsc --project test/typecheck/tsconfig.json"
   },
   "peerDependencies": {
     "react": ">=18",
@@ -82,9 +82,9 @@
   },
   "devDependencies": {
     "@types/debug": "4.1.13",
-    "@types/react": "19.2.18",
-    "@types/react-dom": "19.2.7",
-    "react": "19.2.8",
-    "react-dom": "19.2.8"
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "react": "19.3.0",
+    "react-dom": "19.3.0"
   }
 }

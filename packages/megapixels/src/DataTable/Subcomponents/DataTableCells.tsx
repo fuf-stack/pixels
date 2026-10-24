@@ -30,10 +30,10 @@ export interface DataTableClassNames {
   expansionCell?: string;
   /** Inner wrapper for expansion control content. */
   expansionCellContent?: string;
-  /** Load-more / retry cell class in virtual mode. */
-  loadingMoreCell?: string;
   /** Initial loading-state cell class. */
   loadingCell?: string;
+  /** Load-more / retry cell class in virtual mode. */
+  loadingMoreCell?: string;
   /** Wrapper for non-sortable header content. */
   nonSortableHeaderContent?: string;
   /** Placeholder cell class for total-count virtual mode. */

@@ -11,20 +11,20 @@ import { z } from 'zod';
  * signature.
  */
 export interface SerializedSchema {
-  type?: string | string[];
+  [key: string]: unknown;
+  additionalProperties?: boolean | SerializedSchema;
+  allOf?: SerializedSchema[];
+  anyOf?: SerializedSchema[];
+  const?: unknown;
+  default?: unknown;
+  description?: string;
+  enum?: unknown[];
+  format?: string;
+  items?: SerializedSchema | SerializedSchema[];
+  oneOf?: SerializedSchema[];
   properties?: Record<string, SerializedSchema>;
   required?: string[];
-  items?: SerializedSchema | SerializedSchema[];
-  additionalProperties?: boolean | SerializedSchema;
-  oneOf?: SerializedSchema[];
-  anyOf?: SerializedSchema[];
-  allOf?: SerializedSchema[];
-  enum?: unknown[];
-  const?: unknown;
-  format?: string;
-  description?: string;
-  default?: unknown;
-  [key: string]: unknown;
+  type?: string | string[];
 }
 
 /**
@@ -34,10 +34,10 @@ export interface SerializedSchema {
  * used by consumers like uniform's `checkFieldIsRequired`.
  */
 export interface SerializedSchemaPathType extends SerializedSchema {
-  /** This path may be absent from an object (`required` does not include it). */
-  isOptional?: boolean;
   /** This path may be null (direct `null` type or union including `null`). */
   isNullable?: boolean;
+  /** This path may be absent from an object (`required` does not include it). */
+  isOptional?: boolean;
 }
 
 /**
@@ -76,9 +76,9 @@ export type CheckSerializedSchemaPathCheckFunction = (
  * Matched schema node plus optional/nullable flags recovered from Zod wrappers.
  */
 interface ZodPathMatch {
-  schema: VetoTypeAny;
   isNullable: boolean;
   isOptional: boolean;
+  schema: VetoTypeAny;
 }
 
 /**

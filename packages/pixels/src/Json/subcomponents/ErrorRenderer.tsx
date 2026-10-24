@@ -3,14 +3,14 @@ import { FaChevronDown, FaChevronUp, FaTimesCircle } from 'react-icons/fa';
 import { Button } from '../../Button';
 
 interface ErrorRendererProps {
-  /** The error that occurred during JSON parsing or processing */
-  error: unknown;
   /** The original data that caused the error */
   data: string | object;
-  /** Controls whether detailed error information is visible */
-  showDetails: boolean;
+  /** The error that occurred during JSON parsing or processing */
+  error: unknown;
   /** Callback function to toggle the visibility of error details */
   onToggleDetails: () => void;
+  /** Controls whether detailed error information is visible */
+  showDetails: boolean;
 }
 
 /**

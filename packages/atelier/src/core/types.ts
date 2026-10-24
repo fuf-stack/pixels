@@ -13,10 +13,10 @@ export type AtelierAuthStatus =
  * Minimal user shape consumed by navigation and shell presentation.
  */
 export interface AtelierUser {
-  /** Stable user id from the consumer auth backend. */
-  id: string;
   /** Optional email shown in user areas. */
   email?: string;
+  /** Stable user id from the consumer auth backend. */
+  id: string;
   /** Optional display name shown in user areas. */
   name?: string;
   /** Optional role list used for navigation-level authorization. */

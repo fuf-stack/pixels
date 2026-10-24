@@ -85,15 +85,15 @@ interface DepBundledConfigOptions extends UserConfig {
    */
   bundledDeps: BundleMatcher[];
   /**
-   * Optional overrides for pass 1 (runtime JS pass).
-   * `dts` is always forced to `false` for this pass.
-   */
-  firstPassConfig?: UserConfig;
-  /**
    * Optional overrides for pass 2 (declaration pass).
    * Safe defaults are applied when omitted.
    */
   dtsPassConfig?: UserConfig;
+  /**
+   * Optional overrides for pass 1 (runtime JS pass).
+   * `dts` is always forced to `false` for this pass.
+   */
+  firstPassConfig?: UserConfig;
 }
 
 /**

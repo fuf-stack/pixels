@@ -135,12 +135,26 @@ export interface DataTableSearchField {
 }
 
 export interface DataTableIcons {
+  /** Icons used by column visibility controls. */
+  columnVisibility?: {
+    /** Icon shown in the column visibility trigger; pass `false` to hide. */
+    trigger?: ReactNode | false;
+    /** Icon for visible columns in the menu; pass `false` to hide. */
+    visible?: ReactNode | false;
+  };
   /** Icons used by expandable row controls. */
   expandableRows?: {
     /** Icon for collapsed rows; pass `false` to hide. */
     collapsed?: ReactNode | false;
     /** Icon for expanded rows; pass `false` to hide. */
     expanded?: ReactNode | false;
+  };
+  /** Icons used by row-selection checkboxes. */
+  selection?: {
+    /** Icon for checked state; pass `false` to hide. */
+    checked?: ReactNode | false;
+    /** Icon for indeterminate state; pass `false` to hide. */
+    indeterminate?: ReactNode | false;
   };
   /** Icons used for sorting indicators. */
   sort?: {
@@ -150,20 +164,6 @@ export interface DataTableIcons {
     desc?: ReactNode | false;
     /** Icon for sortable-but-unsorted state; pass `false` to hide. */
     unsorted?: ReactNode | false;
-  };
-  /** Icons used by row-selection checkboxes. */
-  selection?: {
-    /** Icon for checked state; pass `false` to hide. */
-    checked?: ReactNode | false;
-    /** Icon for indeterminate state; pass `false` to hide. */
-    indeterminate?: ReactNode | false;
-  };
-  /** Icons used by column visibility controls. */
-  columnVisibility?: {
-    /** Icon shown in the column visibility trigger; pass `false` to hide. */
-    trigger?: ReactNode | false;
-    /** Icon for visible columns in the menu; pass `false` to hide. */
-    visible?: ReactNode | false;
   };
 }
 
@@ -219,12 +219,12 @@ export interface InfiniteScrollPageInfo {
 export interface DataTableInfiniteScrollFeature {
   /** True while the parent is fetching the next page. */
   isFetchingNextPage?: boolean;
+  /** Custom loading-row content shown while next page is in flight. */
+  loadingMoreContent?: ReactNode;
   /** True when the most recent load-more request failed. */
   loadMoreError?: boolean;
   /** Prefetch threshold from the loaded tail (in virtual rows). */
   loadMoreThreshold?: number;
-  /** Custom loading-row content shown while next page is in flight. */
-  loadingMoreContent?: ReactNode;
   /** Callback used to request the next page from the parent. */
   onLoadMore: (args: { direction: 'forward'; cursor?: string | null }) => void;
   /** Server-side search callback for infinite mode. */

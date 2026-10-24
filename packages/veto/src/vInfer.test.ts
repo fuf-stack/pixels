@@ -105,9 +105,9 @@ it('correctly infers optional types', () => {
 
   // Using a more precise type definition
   interface Expected {
-    required: string;
-    optional?: string | undefined;
     nullish?: number | null | undefined;
+    optional?: string | undefined;
+    required: string;
   }
 
   // Bidirectional type checking to ensure exact match.

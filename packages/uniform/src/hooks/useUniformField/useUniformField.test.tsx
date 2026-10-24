@@ -28,8 +28,8 @@ interface MockUseFormContextReturn {
 }
 
 interface MockField {
-  name: string;
   disabled: boolean;
+  name: string;
   onBlur: () => void;
   onChange: (...args: unknown[]) => void;
   ref: () => void;

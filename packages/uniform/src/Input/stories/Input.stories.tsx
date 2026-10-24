@@ -1,6 +1,6 @@
 import type { Story, Superhero } from './Input.storySetup';
 
-import { FaEnvelope } from 'react-icons/fa';
+import { FaEnvelope, FaKey } from 'react-icons/fa';
 
 import { action } from 'storybook/actions';
 import { expect, userEvent, waitFor, within } from 'storybook/test';
@@ -141,7 +141,7 @@ export const WithSelect: Story = {
     startContent: <FaEnvelope />,
     endContent: (
       <select
-        className="border-0 bg-transparent text-default-400 outline-none text-small"
+        className="border-0 bg-transparent text-small text-default-400 outline-none"
         id="currency"
         name="currency"
       >
@@ -433,5 +433,76 @@ export const HelpAndRequired: Story = {
     await expect(input).toHaveAccessibleDescription(
       `Enter a value. ${error.textContent}`,
     );
+  },
+};
+
+export const PasswordVisibility: Story = {
+  args: {
+    name: 'password',
+    label: 'Password',
+    type: 'password',
+  },
+  parameters: { formProps: { initialValues: { password: 'Example_123' } } },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const input = canvas.getByTestId('password');
+    const toggle = canvas.getByRole('button', { name: 'Show password' });
+    await userEvent.click(input);
+    await userEvent.tab();
+    await expect(toggle).toHaveFocus();
+    await userEvent.keyboard(' ');
+    await expect(input).toHaveAttribute('type', 'text');
+    await expect(input).toHaveValue('Example_123');
+    await expect(toggle).toHaveAccessibleName('Hide password');
+    await userEvent.keyboard('{Enter}');
+    await expect(input).toHaveAttribute('type', 'password');
+  },
+};
+
+export const PasswordWithoutToggle: Story = {
+  args: {
+    name: 'password',
+    label: 'Password',
+    type: 'password',
+    hidePasswordToggle: true,
+  },
+};
+
+export const PasswordDisabled: Story = {
+  args: {
+    name: 'password',
+    label: 'Password',
+    type: 'password',
+    disabled: true,
+  },
+};
+
+export const PasswordClearable: Story = {
+  args: {
+    name: 'password',
+    label: 'Password',
+    type: 'password',
+    clearable: true,
+    endContent: <FaKey aria-hidden="true" />,
+  },
+  parameters: { formProps: { initialValues: { password: 'Example_123' } } },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await userEvent.click(
+      canvas.getByRole('button', { name: 'Show password' }),
+    );
+    await expect(canvas.getByTestId('password')).toHaveAttribute(
+      'type',
+      'text',
+    );
+    await userEvent.click(canvas.getByRole('button', { name: 'clear input' }));
+    await expect(canvas.getByTestId('password')).toHaveValue('');
+    await expect(canvas.getByTestId('password')).toHaveAttribute(
+      'type',
+      'password',
+    );
+    await expect(
+      canvas.getByRole('button', { name: 'Show password' }),
+    ).toBeVisible();
   },
 };

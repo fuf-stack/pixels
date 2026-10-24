@@ -8,7 +8,9 @@ import {
   getFieldDataAttributes,
 } from '../../helpers/fieldProps/fieldProps';
 
-type InputFieldProps = Pick<InputControlProps, 'field' | 'type'> & {
+type InputFieldProps = Pick<InputControlProps, 'field'> & {
+  /** Selects the native display type without changing form registration */
+  type?: 'text' | 'number' | 'password';
   /** Renders content inside the field */
   children: ReactNode;
   /** CSS class name */

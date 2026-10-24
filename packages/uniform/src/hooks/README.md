@@ -42,3 +42,6 @@ These hooks have public subpath exports. Consumers import from
 See [field composition](../../../../docs/uniform/field-composition.md) for the
 field contract and [code style](../../../../docs/code-style.md) for ownership and
 readability conventions.
+
+Sensitive fields register diagnostic redaction through the private binding.
+See [Uniform compared with React Hook Form](../../../../docs/uniform-vs-rhf.md).

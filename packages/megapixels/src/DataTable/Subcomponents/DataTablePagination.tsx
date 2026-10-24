@@ -6,9 +6,9 @@ import { Menu } from '@fuf-stack/pixels/Menu';
 interface PaginationClassNames {
   pageSizeLabel?: string;
   pageSizeSelect?: string;
+  pageSummary?: string;
   pagination?: string;
   paginationButton?: string;
-  pageSummary?: string;
   selectionSummary?: string;
 }
 

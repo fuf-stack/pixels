@@ -1,5 +1,3 @@
-import { defineConfig } from 'vitest/config';
-
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -10,7 +8,7 @@ import { playwright } from '@vitest/browser-playwright';
 const storybookRoot = path.dirname(fileURLToPath(import.meta.url));
 const configDirectory = path.resolve(storybookRoot, '.storybook');
 
-export default defineConfig({
+export default {
   root: storybookRoot,
   // Browser tests need the same utility compilation as the Storybook server.
   plugins: [tailwindcss()],
@@ -50,4 +48,4 @@ export default defineConfig({
       },
     ],
   },
-});
+};

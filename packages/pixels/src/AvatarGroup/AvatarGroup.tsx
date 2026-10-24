@@ -8,13 +8,13 @@ import { avatarGroupVariants } from './avatarGroupVariants';
 import AvatarGroupCount from './subcomponents/AvatarGroupCount';
 
 export interface AvatarGroupProps {
-  /** Optional wrapper around each visible avatar */
-  avatarWrapper?: JSX.ElementType;
   /** Avatars and props forwarded to their optional wrappers */
   avatars?: (Omit<AvatarProps, 'size' | 'rounded' | 'bordered'> & {
     /** Props for this avatar's wrapper */
     wrapperProps?: Record<string, unknown>;
   })[];
+  /** Optional wrapper around each visible avatar */
+  avatarWrapper?: JSX.ElementType;
   /** Border ring around each avatar */
   bordered?: boolean;
   /** CSS class name */

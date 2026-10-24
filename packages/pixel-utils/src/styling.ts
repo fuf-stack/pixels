@@ -19,13 +19,13 @@ export type StylingConfig = ConfigExtension<string, string>;
 
 export interface Styling {
   readonly cn: (...classes: ArgumentArray) => string;
-  readonly tv: TV;
-  readonly variantsToClassNames: typeof variantsToClassNames;
   /** Resolve a module-level pixel-utils recipe with this instance's merge rules. */
   readonly resolve: <T extends Recipe>(
     recipe: T,
     ...props: Parameters<T>
   ) => ReturnType<T>;
+  readonly tv: TV;
+  readonly variantsToClassNames: typeof variantsToClassNames;
 }
 
 // Configs contain validator functions, so structuredClone is unsuitable.

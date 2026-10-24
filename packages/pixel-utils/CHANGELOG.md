@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.1](https://github.com/fuf-stack/pixels/compare/pixel-utils-v1.4.0...pixel-utils-v1.4.1) (2026-10-19)
+
+
+### Bug Fixes
+
+* **deps:** update dependency tailwind-merge to v3.7.0 ([#1904](https://github.com/fuf-stack/pixels/issues/1904)) ([769a266](https://github.com/fuf-stack/pixels/commit/769a2667fe53a81799249e8d8507994f4f900ecd))
+
 ## [1.4.0](https://github.com/fuf-stack/pixels/compare/pixel-utils-v1.3.2...pixel-utils-v1.4.0) (2026-07-17)
 
 

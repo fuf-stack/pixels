@@ -12,16 +12,16 @@ const checks = [
   ['dependency boundaries', 'check:boundaries'],
   ['lint', 'lint'],
   ['type checking and builds', 'typecheck'],
-  ['unit tests', 'test'],
+  ['unit tests', 'test', '--project=!@repo/storybook-config*'],
   ['Storybook tests', 'test:storybook'],
   ['published package verification', 'verify:packages'],
 ];
 
 const failures = [];
 
-for (const [label, script] of checks) {
+for (const [label, script, ...args] of checks) {
   console.log(`\n=== ${label} ===`);
-  const result = spawnSync('pnpm', ['run', script], {
+  const result = spawnSync('pnpm', ['run', script, ...args], {
     stdio: 'inherit',
   });
 

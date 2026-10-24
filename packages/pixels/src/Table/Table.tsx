@@ -18,10 +18,10 @@ export interface TableColumnProps {
 }
 
 export interface TableRowProps {
-  /** Unique row key */
-  key: string | number;
   /** Cell content indexed by column key */
   [key: string | number]: ReactNode;
+  /** Unique row key */
+  key: string | number;
 }
 
 export interface TableProps extends VariantProps {

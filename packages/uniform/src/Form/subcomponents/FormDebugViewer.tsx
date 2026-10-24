@@ -12,6 +12,7 @@ import { Json } from '@fuf-stack/pixels/Json';
 import { useStyling } from '@fuf-stack/pixels/StylingProvider';
 
 import { useFormContext } from '../../hooks/useFormContext';
+import { redactDebugData, useSensitiveDebug } from './SensitiveFields';
 
 // form debug viewer styling variants
 export const formDebugViewerVariants = tv({
@@ -47,6 +48,9 @@ const FormDebugViewer = ({ className = undefined }: FormDebugViewerProps) => {
     validation: { errors },
     subscribe,
   } = useFormContext();
+
+  const { paths: sensitivePaths, ready: sensitiveFieldsReady } =
+    useSensitiveDebug();
 
   const showDebugButton = debugMode === 'off';
   const showDebugCard = debugMode === 'debug' || debugMode === 'debug-testids';
@@ -115,7 +119,7 @@ const FormDebugViewer = ({ className = undefined }: FormDebugViewerProps) => {
   }
 
   // do not show card
-  if (!showDebugCard) {
+  if (!showDebugCard || !sensitiveFieldsReady) {
     return null;
   }
 
@@ -150,8 +154,8 @@ const FormDebugViewer = ({ className = undefined }: FormDebugViewerProps) => {
       <Json
         className={classNames.json}
         value={{
-          values,
-          errors: errors ?? null,
+          values: redactDebugData(values, sensitivePaths),
+          errors: redactDebugData(errors ?? null, sensitivePaths),
           submit: {
             isValid,
             isSubmitting,

@@ -1,18 +1,8 @@
 export default {
-  // atelier
-  'packages/atelier/**/*.{js,ts,tsx}': ['vitest related --run', 'eslint'],
-  // megapixels
-  'packages/megapixels/**/*.{js,ts,tsx}': ['vitest related --run', 'eslint'],
-  // pixel-motion
-  'packages/pixel-motion/**/*.{js,ts,tsx}': ['eslint'],
-  // pixel-utils
-  'packages/pixel-utils/**/*.{js,ts,tsx}': ['eslint'],
-  // pixels
-  'packages/pixels/**/*.{js,ts,tsx}': ['vitest related --run', 'eslint'],
-  // uniform
-  'packages/uniform/**/*.{js,ts,tsx}': ['vitest related --run', 'eslint'],
-  // veto
-  'packages/veto/**/*.{js,ts,tsx}': ['vitest related --run', 'eslint'],
+  // Run related unit tests once for all staged runtime-package files.
+  // Storybook browser tests run separately through pnpm test:storybook.
+  'packages/{atelier,megapixels,pixel-motion,pixel-utils,pixels,uniform,veto}/**/*.{js,ts,tsx}':
+    ['vitest related --run --project=!@repo/storybook-config*', 'eslint'],
   // config packages
   'packages/config/**/*.{js,ts}': ['eslint'],
   // other filetypes

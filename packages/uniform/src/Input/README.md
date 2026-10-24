@@ -33,19 +33,20 @@ Use `className` for a base class or a partial map of slot overrides:
 />
 ```
 
-| Slot            | Target                               |
-| --------------- | ------------------------------------ |
-| `base`          | Whole field                          |
-| `clearButton`   | Clear action                         |
-| `description`   | Help text                            |
-| `errorMessage`  | Validation message wrapper           |
-| `helperWrapper` | Description and validation wrapper   |
-| `innerWrapper`  | Input, addons and actions            |
-| `input`         | Editable control                     |
-| `inputWrapper`  | Input border and background          |
-| `label`         | Field label                          |
-| `stepper`       | Number stepper wrapper               |
-| `stepperButton` | Both increment and decrement buttons |
+| Slot             | Target                               |
+| ---------------- | ------------------------------------ |
+| `base`           | Whole field                          |
+| `clearButton`    | Clear action                         |
+| `description`    | Help text                            |
+| `errorMessage`   | Validation message wrapper           |
+| `helperWrapper`  | Description and validation wrapper   |
+| `innerWrapper`   | Input, addons and actions            |
+| `input`          | Editable control                     |
+| `inputWrapper`   | Input border and background          |
+| `label`          | Field label                          |
+| `passwordToggle` | Password visibility action           |
+| `stepper`        | Number stepper wrapper               |
+| `stepperButton`  | Both increment and decrement buttons |
 
 Slots are available when their content is rendered. Steppers are shown only for
 number inputs. See [component styling](../../../../docs/styling.md) for class merging.
@@ -75,6 +76,7 @@ Input                         Field binding, IDs, transforms and debounce
         FieldLabel            Label and required indicator
         InputWrapper          Bordered Group, editable input and surrounding controls
           InputClearButton    Clear action
+          InputPasswordToggle Password visibility action
           InputStepper        Number increment and decrement controls
         helperWrapper         Rendered directly by FieldLayout when needed
           FieldDescription    Help text
@@ -91,3 +93,9 @@ Display changes pass directly to the debounce hook, which accepts raw values.
 The rendered elements and control associations stay the same.
 
 [Props](Input.tsx) · [Stories](stories/Input.stories.tsx)
+
+Password inputs include separate clear and visibility actions. `hidePasswordToggle`
+keeps them masked without the reveal button. Clearing, resetting, changing the
+field name or switching the input type restores masking. Declared password fields
+remain redacted in diagnostics while revealed; ordinary inputs can set `sensitive`.
+See [password fields](../../docs/password-fields.md) for diagnostic guarantees.

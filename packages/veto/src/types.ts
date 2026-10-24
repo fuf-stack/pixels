@@ -61,9 +61,9 @@ export type VetoSuccess<SchemaType> = SafeParseSuccess<SchemaType> & {
 };
 
 interface VetoFieldError {
+  [key: string]: unknown;
   code: string;
   message: string;
-  [key: string]: unknown;
 }
 
 export type VetoFormattedError = Record<string, VetoFieldError[]> & {
@@ -71,9 +71,9 @@ export type VetoFormattedError = Record<string, VetoFieldError[]> & {
 };
 
 export interface VetoError {
-  success: false;
   data: null;
   errors: VetoFormattedError;
+  success: false;
 }
 
 /**

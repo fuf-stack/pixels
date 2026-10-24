@@ -55,8 +55,8 @@ export const filterVariants = tv({
 type ClassName = TVClassName<typeof filterVariants>;
 
 export interface FilterValues {
-  search?: string;
   filter?: string | Record<string, unknown> | null;
+  search?: string;
 }
 
 export type FilterChildRenderFn = (values: {
@@ -86,8 +86,6 @@ export interface FilterProps {
   children?: FilterChildRenderFn;
   /** CSS class name */
   className?: ClassName;
-  /** Disables the add-filter menu and modal open/close animations */
-  disableAnimation?: boolean;
   /** Configuration of the filter */
   config: {
     /**
@@ -98,6 +96,8 @@ export interface FilterProps {
     /** Optional configuration for search field */
     search?: SearchConfiguration;
   };
+  /** Disables the add-filter menu and modal open/close animations */
+  disableAnimation?: boolean;
   /** ex-forms form instance name. Defaults to "filterComponentForm". */
   formName?: string;
   /** Controlled setter invoked on submit with the next canonical values */

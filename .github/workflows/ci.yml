@@ -41,12 +41,20 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
       - uses: ./.github/actions/setup-project
       - name: Run unit tests with coverage
-        run: pnpm test
+        # Nested project names begin with the config package, not "storybook".
+        # Match source paths relative to either a package or the root CI project.
+        run: pnpm test --project='!@repo/storybook-config*' --coverage.include='**/src/**/*.{js,jsx,ts,tsx}'
+      - name: Verify coverage report
+        run: |
+          test -s coverage/lcov.info
+          grep -q '^SF:' coverage/lcov.info
+          grep -q '^DA:' coverage/lcov.info
       - name: Upload coverage reports
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
         with:
           name: coverage-report
           path: coverage/
+          if-no-files-found: error
 
   storybook:
     name: Storybook tests
@@ -57,7 +65,9 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
       - uses: ./.github/actions/setup-project
       - name: Install Playwright browser
-        run: pnpm exec playwright install --with-deps chromium
+        # Use Storybook's Playwright version to install its matching Chromium
+        # binary and Linux system dependencies before running the browser tests.
+        run: pnpm --filter @repo/storybook-config exec playwright install --with-deps chromium
       - name: Run Storybook browser tests
         run: pnpm test:storybook
 
@@ -93,6 +103,12 @@ jobs:
         with:
           name: coverage-report
           path: coverage/
+
+      - name: Verify downloaded coverage report
+        run: |
+          test -s coverage/lcov.info
+          grep -q '^SF:' coverage/lcov.info
+          grep -q '^DA:' coverage/lcov.info
 
       # Upload coverage + project metadata to SonarQube.
       - name: Run SonarQube analysis

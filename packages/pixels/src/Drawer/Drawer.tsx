@@ -40,10 +40,10 @@ export interface DrawerProps {
   header?: ReactNode;
   /** Hides the visible close control */
   hideCloseButton?: boolean;
-  /** Controlled drawer visibility */
-  isOpen?: boolean;
   /** Allows dismissal by pressing the backdrop */
   isDismissable?: boolean;
+  /** Controlled drawer visibility */
+  isOpen?: boolean;
   /** Callback when closing is requested */
   onClose?: () => void;
   /** Callback when visibility changes */

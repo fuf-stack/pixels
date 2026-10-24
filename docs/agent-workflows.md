@@ -14,6 +14,12 @@ and new call sites and decide whether the change is internal, additive, or
 breaking. Run focused tests followed by `pnpm check`. A breaking change needs a
 migration document and explicit release sequencing.
 
+## Pre-commit checks
+
+`pnpm lint-staged` batches staged runtime-package files into one related unit-test
+run, followed by lint. Related tests exclude `@repo/storybook-config*`, matching
+CI's unit-test job and `pnpm check`'s unit stage. Browser stories run separately through `pnpm test:storybook`.
+
 ## Package release
 
 Release Please owns versions and changelogs. Review its proposed conventional
@@ -33,6 +39,10 @@ visual changes.
 Pixels' `test:types` runs TypeScript directly over its source, tests and stories.
 It is part of `pnpm check`, declaration generation alone does not verify every
 internal implementation and story contract.
+
+Run `pnpm test:storybook` from the root to delegate to the shared Storybook
+package's browser-test command. CI's unit job excludes `@repo/storybook-config*`,
+and its separate browser job installs Chromium and runs those stories.
 
 ## Storybook stories and edge cases
 

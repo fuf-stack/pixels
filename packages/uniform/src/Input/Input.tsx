@@ -23,6 +23,8 @@ export interface InputProps {
   disabled?: boolean;
   /** Content at the end of the input */
   endContent?: ReactNode;
+  /** Hides the password visibility toggle (default: false) */
+  hidePasswordToggle?: boolean;
   /** Field label */
   label?: ReactNode;
   /** Field name */
@@ -31,6 +33,8 @@ export interface InputProps {
   onClear?: () => void;
   /** Placeholder text */
   placeholder?: string;
+  /** Redacts diagnostic values, password fields are always redacted */
+  sensitive?: boolean;
   /** Input size */
   size?: 'sm' | 'md' | 'lg';
   /** Content at the start of the input */
@@ -52,12 +56,13 @@ const Input = ({
   startContent = undefined,
   size = 'md',
   type = undefined,
+  hidePasswordToggle = false,
   name,
   onClear = undefined,
   placeholder = ' ',
   ...uniformProps
 }: InputProps) => {
-  const { field } = useUniformField({
+  const { field, formReset } = useUniformField({
     ...uniformProps,
     name,
     placeholder,
@@ -76,6 +81,8 @@ const Input = ({
 
   return (
     <InputControl
+      key={`${name}-${type}-${hidePasswordToggle}`}
+      hidePasswordToggle={hidePasswordToggle}
       className={className}
       clearable={clearable}
       endContent={endContent}
@@ -85,6 +92,7 @@ const Input = ({
       placeholder={placeholder}
       size={size}
       startContent={startContent}
+      subscribeReset={formReset.subscribe}
       type={type}
     />
   );

@@ -11,8 +11,6 @@ import { useEffect, useRef } from 'react';
 import { useFormContext } from '../useFormContext/useFormContext';
 
 export interface UseWatchUserChangeOptions<TFieldValues extends FieldValues> {
-  /** Field name to watch for user changes */
-  watch: Path<TFieldValues>;
   /**
    * Callback when watched field is changed by user input.
    * Receives the new value and form helpers (setValue, resetField, reset).
@@ -25,6 +23,8 @@ export interface UseWatchUserChangeOptions<TFieldValues extends FieldValues> {
       reset: UseFormReset<TFieldValues>;
     },
   ) => void;
+  /** Field name to watch for user changes */
+  watch: Path<TFieldValues>;
 }
 
 /**

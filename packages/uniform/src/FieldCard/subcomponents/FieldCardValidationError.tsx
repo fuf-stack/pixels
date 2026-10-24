@@ -15,10 +15,10 @@ export interface FieldCardValidationErrorProps {
   className?: string;
   /** Error object from parent FieldCard (passed directly to avoid duplicate hook calls) */
   error?: FieldError[] | undefined;
-  /** CSS class name for the error text (controls color based on invalid state) */
-  errorTextClassName?: string;
   /** Optional error association ID supplied by the owning group. */
   errorId: string;
+  /** CSS class name for the error text (controls color based on invalid state) */
+  errorTextClassName?: string;
   /** HTML data-testid attribute for e2e tests */
   testId: string;
 }

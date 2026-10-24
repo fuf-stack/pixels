@@ -12,10 +12,10 @@ export interface RadioTabOption {
   content?: ReactNode;
   /** Disables the field */
   disabled?: boolean;
-  /** Field label */
-  label?: ReactNode;
   /** option icon */
   icon?: ReactNode;
+  /** Field label */
+  label?: ReactNode;
   /** HTML data-testid attribute for e2e tests */
   testId?: string;
   /** option value */

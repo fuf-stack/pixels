@@ -61,10 +61,12 @@ export interface AtelierFrameProps {
   currentPath?: string;
   /** Current resource data state passed to renderers. */
   dataState?: AtelierDataState;
-  /** Navigation callback triggered when an item is clicked. */
-  onNavigate?: (to: string) => void;
   /** Sidebar navigation tree. */
   navigation?: AtelierNavigation;
+  /** Navigation callback triggered when an item is clicked. */
+  onNavigate?: (to: string) => void;
+  /** Named renderer registry resolved by `rendererId`. */
+  rendererRegistry?: AtelierRendererRegistry;
   /** Resource payload forwarded to the active renderer. */
   resourceData?: unknown;
   /** Resource error forwarded to the active renderer. */
@@ -83,8 +85,6 @@ export interface AtelierFrameProps {
   userMenu?: ReactNode;
   /** Enables drawer-based navigation on small screens. */
   withMobileDrawer?: boolean;
-  /** Named renderer registry resolved by `rendererId`. */
-  rendererRegistry?: AtelierRendererRegistry;
 }
 
 const defaultResourceId = 'default';

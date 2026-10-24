@@ -7,12 +7,12 @@ import FieldLabel from '../../partials/FieldLabel/FieldLabel';
 export interface FieldArrayLabelProps {
   /** CSS class name */
   className?: string;
-  /** Field label */
-  label: ReactNode;
   /** Optional heading ID supplied by the owning group. */
   id?: string;
   /** Shows an array-level validation failure */
   invalid: boolean;
+  /** Field label */
+  label: ReactNode;
   /** Marks the array as required */
   required: boolean;
 }

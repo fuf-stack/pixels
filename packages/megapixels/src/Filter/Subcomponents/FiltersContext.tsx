@@ -22,10 +22,10 @@ interface FiltersContextValue {
   closeFilterModal: () => void;
   /** Build fully-qualified form field path for a filter name */
   getFilterFormFieldName: (name: string) => string;
-  /** Get current form value for a given filter name */
-  getFilterValueByName: (name: string) => unknown;
   /** Get filter instance by name */
   getFilterInstanceByName: (name: string) => FilterInstance<unknown, unknown>;
+  /** Get current form value for a given filter name */
+  getFilterValueByName: (name: string) => unknown;
   /** Validation helper for a specific filter field. */
   hasError: (name: string) => boolean;
   /** Name of the current filter that has its modal open */

@@ -8,18 +8,18 @@ import CheckboxesControl from './subcomponents/CheckboxesControl';
 export { checkboxesVariants } from './checkboxesVariants';
 
 export interface CheckboxOption {
+  /** Disables the field */
+  disabled?: boolean;
   /** Field label */
   label?: ReactNode;
   /** subline displayed below the label */
   labelSubline?: ReactNode;
   /** Arbitrary option metadata for custom render logic. */
   meta?: Record<string, unknown>;
-  /** option value */
-  value: string;
-  /** Disables the field */
-  disabled?: boolean;
   /** HTML data-testid attribute for e2e tests */
   testId?: string;
+  /** option value */
+  value: string;
 }
 
 interface ChildRenderOption {

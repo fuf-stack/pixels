@@ -50,8 +50,8 @@ type Story = StoryObj<typeof Form>;
 // ============================================================================
 
 interface InputFormData {
-  username?: string;
   bio?: string;
+  username?: string;
   volume?: number;
 }
 
@@ -222,8 +222,8 @@ export const InputsWithoutInitialValues: Story = {
 // ============================================================================
 
 interface SelectFormData {
-  planet?: string;
   flavors?: string[];
+  planet?: string;
 }
 
 /**
@@ -406,10 +406,10 @@ export const SelectWithoutInitialValues: Story = {
 // ============================================================================
 
 interface CheckboxSwitchFormData {
-  notifications?: string[];
   darkMode?: boolean;
-  newsletter?: boolean;
   enableFeature?: boolean;
+  newsletter?: boolean;
+  notifications?: string[];
 }
 
 /**
@@ -713,8 +713,8 @@ export const CheckboxesWithoutInitialValues: Story = {
 // ============================================================================
 
 interface RadioFormData {
-  radiosField?: string;
   radioBoxesField?: string;
+  radiosField?: string;
   radioTabsField?: string;
 }
 

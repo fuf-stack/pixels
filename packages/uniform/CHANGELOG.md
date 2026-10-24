@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.28.0](https://github.com/fuf-stack/pixels/compare/uniform-v1.27.0...uniform-v1.28.0) (2026-10-19)
+
+
+### Features
+
+* **uniform:** add password visibility and redact sensitive debug values ([f5d74db](https://github.com/fuf-stack/pixels/commit/f5d74dbfb739903db17b525710937b3e1975da14))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @fuf-stack/pixel-utils bumped to 1.4.1
+    * @fuf-stack/pixels bumped to 1.14.1
+
 ## [1.27.0](https://github.com/fuf-stack/pixels/compare/uniform-v1.26.1...uniform-v1.27.0) (2026-10-14)
 
 

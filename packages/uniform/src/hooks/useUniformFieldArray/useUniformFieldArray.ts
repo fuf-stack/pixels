@@ -21,20 +21,20 @@ import { useWatchFormReset } from '../useWatchFormReset';
 export interface UseUniformFieldArrayProps<
   TFieldValues extends FieldValues = FieldValues,
 > {
-  /** Field name for the array */
-  name: ArrayPath<TFieldValues>;
-  /** Whether this is a flat array (array of primitives) */
-  flat?: boolean;
-  /** Initial value for new array elements */
-  elementInitialValue?: unknown;
-  /** Whether the last element cannot be removed (always maintain at least one element) */
-  lastElementNotRemovable?: boolean;
   /** Disable the field */
   disabled?: boolean;
-  /** Optional explicit test id used to build stable test ids */
-  testId?: string;
+  /** Initial value for new array elements */
+  elementInitialValue?: unknown;
+  /** Whether this is a flat array (array of primitives) */
+  flat?: boolean;
   /** Optional label content */
   label?: ReactNode;
+  /** Whether the last element cannot be removed (always maintain at least one element) */
+  lastElementNotRemovable?: boolean;
+  /** Field name for the array */
+  name: ArrayPath<TFieldValues>;
+  /** Optional explicit test id used to build stable test ids */
+  testId?: string;
 }
 
 /**

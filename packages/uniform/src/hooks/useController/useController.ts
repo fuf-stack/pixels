@@ -21,8 +21,8 @@ export interface UseControllerReturn<TFieldValues extends object = object> {
     onChange: (...event: any[]) => void;
     value: string;
   };
-  formState: UseFormStateReturn<TFieldValues>;
   fieldState: ControllerFieldState;
+  formState: UseFormStateReturn<TFieldValues>;
 }
 
 /**

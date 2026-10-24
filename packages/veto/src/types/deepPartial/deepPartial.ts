@@ -102,12 +102,12 @@ interface SchemaWithOptions {
 }
 
 interface SchemaWithDiscriminator {
-  /** Discriminator key exposed by Zod discriminated unions. */
-  discriminator?: string;
   /** Internal fallback for Zod builds that only expose the discriminator there. */
   _def?: {
     discriminator?: string;
   };
+  /** Discriminator key exposed by Zod discriminated unions. */
+  discriminator?: string;
 }
 
 interface SchemaWithIntersectionSides {

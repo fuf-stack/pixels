@@ -68,8 +68,8 @@ vi.mock('react-hook-form', () => ({
 }));
 
 interface TestFormValues {
-  'test-field': string;
   email: string;
+  'test-field': string;
 }
 
 describe('useController', () => {

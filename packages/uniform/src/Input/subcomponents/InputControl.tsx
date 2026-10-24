@@ -1,6 +1,7 @@
 import type { UniformField } from '../../hooks/useUniformField/types';
 import type { InputProps } from '../Input';
 
+import { useEffect, useState } from 'react';
 import { useFocusRing } from 'react-aria/useFocusRing';
 import { useObjectRef } from 'react-aria/useObjectRef';
 
@@ -17,6 +18,7 @@ export interface InputControlProps extends Pick<
   | 'className'
   | 'clearable'
   | 'endContent'
+  | 'hidePasswordToggle'
   | 'onClear'
   | 'placeholder'
   | 'size'
@@ -27,6 +29,8 @@ export interface InputControlProps extends Pick<
   field: UniformField<unknown, string>;
   /** Callback that clears pending edits and resets the bound value */
   onReset: () => void;
+  /** Subscribes to reset notifications without accessing form context */
+  subscribeReset?: (listener: () => void) => () => void;
 }
 
 /**
@@ -41,9 +45,20 @@ export interface InputControlProps extends Pick<
  * @see https://react-aria.adobe.com/NumberField
  */
 const InputControl = (props: InputControlProps) => {
-  const { field } = props;
+  const { field, subscribeReset } = props;
 
   const styling = useStyling();
+  const [passwordVisible, setPasswordVisible] = useState(false);
+
+  // reset notifications keep presentation independent of form context
+  useEffect(() => {
+    const handleReset = () => {
+      setPasswordVisible(false);
+    };
+
+    return subscribeReset?.(handleReset);
+  }, [subscribeReset]);
+
   const controlRef = useObjectRef<HTMLInputElement>(field.ref);
   const {
     focusProps,
@@ -54,7 +69,20 @@ const InputControl = (props: InputControlProps) => {
     isTextInput: true,
   });
 
-  const { size, type, clearable, className, onClear, onReset } = props;
+  const {
+    size,
+    type,
+    clearable,
+    className,
+    hidePasswordToggle,
+    onClear,
+    onReset,
+  } = props;
+
+  const displayType =
+    type === 'password' && !hidePasswordToggle && passwordVisible
+      ? 'text'
+      : type;
 
   const {
     value,
@@ -77,6 +105,7 @@ const InputControl = (props: InputControlProps) => {
     filled: hasValue,
     invalid,
     number: type === 'number',
+    password: type === 'password',
     size,
   });
   const classNames = styling.variantsToClassNames(variants, className, 'base');
@@ -86,8 +115,16 @@ const InputControl = (props: InputControlProps) => {
     controlRef.current?.focus();
   };
 
+  // change only the display, the binding keeps its declared password type
+  const handleTogglePassword = () => {
+    setPasswordVisible((visible) => {
+      return !visible;
+    });
+  };
+
   // clear the value, notify the consumer and restore input focus
   const handleClear = () => {
+    setPasswordVisible(false);
     onReset();
     onClear?.();
     handleFocus();
@@ -102,7 +139,7 @@ const InputControl = (props: InputControlProps) => {
         focused,
         hasValue,
         isFocusVisible,
-        type,
+        type: displayType,
       }}
       className={classNames}
       description={description}
@@ -121,6 +158,8 @@ const InputControl = (props: InputControlProps) => {
         inputRef={controlRef}
         onClear={handleClear}
         onFocusControl={handleFocus}
+        onTogglePassword={handleTogglePassword}
+        passwordVisible={passwordVisible}
       />
     </FieldLayout>
   );

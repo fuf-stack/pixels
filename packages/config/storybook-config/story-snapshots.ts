@@ -40,7 +40,7 @@ const ensurePrefersReducedMotion = () => {
   if (typeof window === 'undefined') {
     return;
   }
-  const mockMatchMedia = (query: string) => {
+  const mockMatchMedia: typeof window.matchMedia = (query) => {
     const isReduced =
       query.includes('prefers-reduced-motion') && query.includes('reduce');
     return {
@@ -54,10 +54,10 @@ const ensurePrefersReducedMotion = () => {
       dispatchEvent: () => {
         return false;
       },
-    } as unknown as MediaQueryList;
+    };
   };
 
-  (window as any).matchMedia = mockMatchMedia;
+  window.matchMedia = mockMatchMedia;
 };
 
 const compose = (

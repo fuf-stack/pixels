@@ -8,10 +8,10 @@ export interface InputValueTransform<TDisplay = unknown> {
 }
 
 export interface UseInputValueTransformOptions<TDisplay = unknown> {
-  /** Input type for special number handling */
-  type?: 'text' | 'number' | 'password';
   /** Value transformation functions */
   transform?: InputValueTransform<TDisplay>;
+  /** Input type for special number handling */
+  type?: 'text' | 'number' | 'password';
 }
 
 export interface UseInputValueTransformReturn<TDisplay = unknown> {

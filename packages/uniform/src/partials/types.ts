@@ -15,10 +15,10 @@ export type FieldControlProps = Pick<
 export interface FieldIds {
   /** ID of the editable control */
   control: string;
-  /** ID of the visible label */
-  label: string;
   /** ID of the help text */
   description: string;
   /** ID of the validation message */
   error: string;
+  /** ID of the visible label */
+  label: string;
 }

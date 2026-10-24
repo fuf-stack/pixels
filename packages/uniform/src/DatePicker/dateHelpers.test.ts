@@ -161,8 +161,8 @@ describe('getDatePickerPlaceholderValue', () => {
     const placeholder = getDatePickerPlaceholderValue(true, 'UTC');
     expect(placeholder?.toString()).toContain('[UTC]');
 
-    const placeholderTime = placeholder?.toDate('UTC').getTime();
-    const expectedTime = now('UTC').toDate('UTC').getTime();
+    const placeholderTime = placeholder && 'timeZone' in placeholder ? placeholder.toDate().getTime() : undefined;
+    const expectedTime = now('UTC').toDate().getTime();
 
     expect(Math.abs((placeholderTime ?? 0) - expectedTime)).toBeLessThan(1000);
   });
@@ -172,8 +172,8 @@ describe('getDatePickerPlaceholderValue', () => {
     const placeholder = getDatePickerPlaceholderValue(true);
     expect(placeholder?.toString()).toContain(`[${localTimeZone}]`);
 
-    const placeholderTime = placeholder?.toDate(localTimeZone).getTime();
-    const expectedTime = now(localTimeZone).toDate(localTimeZone).getTime();
+    const placeholderTime = placeholder && 'timeZone' in placeholder ? placeholder.toDate().getTime() : undefined;
+    const expectedTime = now(localTimeZone).toDate().getTime();
 
     expect(Math.abs((placeholderTime ?? 0) - expectedTime)).toBeLessThan(1000);
   });

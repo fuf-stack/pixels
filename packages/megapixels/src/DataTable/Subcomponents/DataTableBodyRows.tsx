@@ -12,8 +12,8 @@ interface DataTableBodyRowsProps<TData> {
   classNames: DataTableClassNames;
   expandableRows?: DataTableExpandableRowsFeature<TData>;
   rows: Row<TData>[];
-  visibleColumnCount: number;
   virtualized?: boolean;
+  visibleColumnCount: number;
 }
 
 /**

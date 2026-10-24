@@ -45,8 +45,8 @@ export const meta: Meta<typeof Input> = {
 export type Story = StoryObj<typeof Input>;
 
 export interface Superhero {
-  name: string;
   emoji: string;
+  name: string;
   power: string;
 }
 

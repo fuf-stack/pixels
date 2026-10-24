@@ -9,10 +9,10 @@ export { radiosVariants } from './radiosVariants';
 export interface RadioOption {
   /** Disables the field */
   disabled?: boolean;
-  /** Field label */
-  label?: ReactNode;
   /** option icon */
   icon?: ReactNode;
+  /** Field label */
+  label?: ReactNode;
   /** Arbitrary option metadata for custom render logic. */
   meta?: Record<string, unknown>;
   /** HTML data-testid attribute for e2e tests */
@@ -22,10 +22,10 @@ export interface RadioOption {
 }
 
 export interface RadioRenderedOption {
-  /** Prebuilt radio element for custom option layouts */
-  radio: ReactNode;
   /** Option data as provided in `options` */
   option: RadioOption;
+  /** Prebuilt radio element for custom option layouts */
+  radio: ReactNode;
   /** Render-state flags for this option */
   state: {
     /** Whether this option is currently selected */

@@ -8,20 +8,22 @@ export interface UseUniformFieldParams<
   TFieldValues extends FieldValues = FieldValues,
   TDisplay = unknown,
 > {
-  /** Form field name */
-  name: Path<TFieldValues> & string;
   /** Custom accessible name, overrides the visible label and fallback names */
   ariaLabel?: string;
-  /** Disable the field */
-  disabled?: boolean;
   /** Optional help text, associated with the editable control. */
   description?: ReactNode;
+  /** Disable the field */
+  disabled?: boolean;
   /** Normalize nested RHF errors into a flat array for array-like fields */
   isArrayValue?: boolean;
   /** Optional label content */
   label?: ReactNode;
+  /** Form field name */
+  name: Path<TFieldValues> & string;
   /** Placeholder text used as the accessible name when no visible label exists */
   placeholder?: string;
+  /** Redacts the field value from Uniform diagnostics */
+  sensitive?: boolean;
   /** Optional explicit test id used to build stable test ids */
   testId?: string;
   /** Optional value transformation between form and display values */
@@ -82,6 +84,8 @@ export interface UniformFieldState<
   debugMode: ReturnType<typeof useFormContext<TFieldValues>>['debugMode'];
   /** Bound field values, interactions and metadata */
   field: UniformField<TDisplay, TDisplay | React.ChangeEvent>;
+  /** Programmatic reset notifications for presentation adapters */
+  formReset: ReturnType<typeof useFormContext<TFieldValues>>['formReset'];
   /** Reads current form values */
   getValues: ReturnType<typeof useFormContext<TFieldValues>>['getValues'];
   /** Resets a field in the form */

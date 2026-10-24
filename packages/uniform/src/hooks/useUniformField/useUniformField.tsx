@@ -6,6 +6,7 @@ import React from 'react';
 
 import { useDebounce } from '@fuf-stack/pixels';
 
+import { useSensitiveField } from '../../Form/subcomponents/SensitiveFields';
 import { flattenFieldErrors, isValueEmpty } from '../../helpers';
 import FieldCopyTestIdButton from '../../partials/FieldCopyTestIdButton';
 import FieldValidationError from '../../partials/FieldValidationError';
@@ -30,9 +31,13 @@ const useUniformField = <
     testId: explicitTestId,
     label,
     placeholder,
+    sensitive = false,
     type,
     transform,
   } = params;
+
+  // revealing a password never changes its diagnostic redaction
+  useSensitiveField(name, type === 'password' || sensitive);
 
   // stable associations between the control, label and messages
   const associationId = React.useId();
@@ -48,6 +53,7 @@ const useUniformField = <
     control,
     debugMode,
     formState: { submitCount },
+    formReset,
     getFieldState,
     getValues,
     resetField,
@@ -158,6 +164,7 @@ const useUniformField = <
     control,
     debugMode,
     field,
+    formReset,
     getValues,
     resetField,
   };

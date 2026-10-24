@@ -69,10 +69,10 @@ const blacklist = (options: BlacklistOptions) => {
 };
 
 interface NoConsecutiveCharactersOptions {
-  /** Custom error message function */
-  message?: (val: string) => string;
   /** Characters that cannot appear consecutively */
   characters: string[];
+  /** Custom error message function */
+  message?: (val: string) => string;
 }
 
 /** Refinement to prevent certain consecutive characters */

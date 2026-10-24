@@ -19,12 +19,12 @@ interface RadioGroupFieldProps {
   >;
   /** Disables every option */
   disabled?: boolean;
+  /** Arranges options horizontally */
+  inline: boolean;
   /** Connects form focus requests to the selected or first enabled option */
   inputRef: (control: Pick<HTMLElement, 'focus'> | null) => void;
   /** Marks visible validation failure */
   invalid: boolean;
-  /** Arranges options horizontally */
-  inline: boolean;
   /** Field name */
   name: string;
   /** Callback when focus leaves the group */

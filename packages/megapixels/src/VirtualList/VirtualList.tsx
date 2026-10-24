@@ -42,10 +42,10 @@ export interface VirtualListProps<TData> {
   infiniteScroll?: DataTableInfiniteScrollFeature;
   /** Content rendered in the load-more row while fetching. */
   loadingMoreContent?: ReactNode;
-  /** Fallback retry label when load-more has failed. */
-  retryContent?: ReactNode;
   /** Renderer for each loaded item. */
   renderItem: (item: TData, index: number) => ReactNode;
+  /** Fallback retry label when load-more has failed. */
+  retryContent?: ReactNode;
   /** Optional `data-testid` prefix. */
   testId?: string;
   /** Virtualizer viewport and measurement options. */

@@ -6,7 +6,13 @@ import type {
 import type { BaseSyntheticEvent, ReactNode } from 'react';
 import type { FieldValues, Path, SubmitHandler } from 'react-hook-form';
 
-import React, { useCallback, useMemo, useRef, useState } from 'react';
+import React, {
+  useCallback,
+  useLayoutEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 import { FormProvider as HookFormProvider, useForm } from 'react-hook-form';
 
 import createDebug from 'debug';
@@ -15,6 +21,10 @@ import { useLocalStorage } from '@fuf-stack/pixels';
 
 import { toFormFormat, toSubmitFormat } from '../../helpers';
 import { useExtendedValidation, useFormResolver } from './FormResolver';
+import {
+  createSensitiveFields,
+  SensitiveFieldsProvider,
+} from './SensitiveFields';
 
 const debug = createDebug('uniform:FormContext');
 
@@ -237,6 +247,7 @@ interface FormProviderProps {
  * FormProvider component provides:
  * - Veto validation schema context
  * - Resolver-backed validation error state
+ * - RHF control binding for disabled-value omission without changing schema rules
  * - Client validation schema management
  * - Submit handler with automatic data conversion and submission control with preventSubmit
  * - Form Debug Mode state
@@ -252,6 +263,10 @@ const FormProvider: React.FC<FormProviderProps> = ({
   validation: baseValidation = undefined,
   validationTrigger,
 }) => {
+  const sensitiveFields = useMemo(() => {
+    return createSensitiveFields();
+  }, []);
+
   // Form Debug mode state is handled in the form context
   const [debugMode, setDebugMode] = useLocalStorage<DebugMode>(
     debugModeSettings?.localStorageKey ?? DEBUG_MODE_LOCAL_STORAGE_KEY_DEFAULT,
@@ -263,7 +278,7 @@ const FormProvider: React.FC<FormProviderProps> = ({
     useExtendedValidation(baseValidation);
 
   // Create resolver from extended validation + reactive validation error state
-  const { resolver, validationErrors, validationErrorsHash } =
+  const { bindControl, resolver, validationErrors, validationErrorsHash } =
     useFormResolver(extendedValidation);
 
   // Initialize react hook form with the resolver
@@ -274,6 +289,12 @@ const FormProvider: React.FC<FormProviderProps> = ({
     mode: validationTrigger,
     resolver,
   });
+
+  // The resolver is created before useForm, so bind its control afterwards,
+  // before RHF's passive effects can trigger validation.
+  useLayoutEffect(() => {
+    return bindControl(methods.control);
+  }, [bindControl, methods.control]);
 
   // Get isValid from React Hook Form's formState
   const isValid = methods.formState?.isValid;
@@ -334,9 +355,9 @@ const FormProvider: React.FC<FormProviderProps> = ({
     debug('handleSubmit called', {
       preventSubmit,
       formStateIsValid: methods.formState.isValid,
-      validationErrors: methods.formState.errors,
+      validationErrors: sensitiveFields.redact(methods.formState.errors),
       validationTrigger,
-      formValues: methods.getValues(),
+      formValues: sensitiveFields.redact(methods.getValues()),
     });
 
     // only prevent submit when form state is valid, because otherwise
@@ -366,7 +387,11 @@ const FormProvider: React.FC<FormProviderProps> = ({
     // - Remove empty strings, nulls, empty arrays, and empty objects
     const wrappedOnSubmit = (data: FieldValues, event?: BaseSyntheticEvent) => {
       const submitData = toSubmitFormat(data) ?? {};
-      debug('onSubmit callback called', { submitData });
+      debug('onSubmit callback called', {
+        // Match sensitive paths before removing empty rows shifts array indices.
+        submitData:
+          toSubmitFormat(sensitiveFields.redact(data) as FieldValues) ?? {},
+      });
       return onSubmit(submitData, event);
     };
 
@@ -388,7 +413,7 @@ const FormProvider: React.FC<FormProviderProps> = ({
             previousValue: preventSubmit,
             newValue: prevent,
             formStateIsValid: methods.formState.isValid,
-            validationErrors: methods.formState.errors,
+            validationErrors: sensitiveFields.redact(methods.formState.errors),
           });
           setPreventSubmit(prevent);
         },
@@ -416,12 +441,14 @@ const FormProvider: React.FC<FormProviderProps> = ({
   );
 
   return (
-    <UniformContext.Provider value={contextValue}>
-      {/* Spread all hook form props into HookFormProvider */}
-      <HookFormProvider {...methods}>
-        {children({ handleSubmit, isValid })}
-      </HookFormProvider>
-    </UniformContext.Provider>
+    <SensitiveFieldsProvider registry={sensitiveFields}>
+      <UniformContext.Provider value={contextValue}>
+        {/* Spread all hook form props into HookFormProvider */}
+        <HookFormProvider {...methods}>
+          {children({ handleSubmit, isValid })}
+        </HookFormProvider>
+      </UniformContext.Provider>
+    </SensitiveFieldsProvider>
   );
 };
 

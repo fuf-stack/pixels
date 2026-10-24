@@ -16,10 +16,10 @@ export interface ElementActionsMenuProps {
   duplicate?: boolean;
   /** Whether insert after action is available */
   insertAfter?: boolean;
-  /** Whether to show remove button (false when last element is not deletable) */
-  showRemove?: boolean;
   /** Field array operation methods */
   methods: FieldArrayElementMethods;
+  /** Whether to show remove button (false when last element is not deletable) */
+  showRemove?: boolean;
   /** HTML data-testid attribute for e2e tests */
   testId?: string;
 }

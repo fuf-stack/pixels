@@ -38,6 +38,21 @@ request and update `scripts/check-dependency-boundaries.mjs` in the same change.
   then every consumer. Avoid convenience re-exports that reverse dependency
   direction.
 
+## Prop documentation
+
+- Describe what setting a prop does to the component with an active verb, for
+  example `Disables the input` or `Shows a clear button when the input has a value`.
+  Avoid state descriptions such as `Whether the input is disabled` and comments
+  that only repeat the prop name, such as `Input size`.
+- Describe callback props explicitly as callbacks and state their trigger, for
+  example `Callback invoked when the input value is cleared`.
+- Document the actual affected element and behavior. Check the implementation
+  rather than assuming that a prop affects a nearby action or child component.
+- Include useful defaults, units, and fallback behavior where relevant.
+- Use one JSDoc comment per prop, start with a capital letter, and omit trailing
+  periods in short prop descriptions.
+- Apply this convention when adding or updating public component prop comments.
+
 ## Verification and generated files
 
 - Install with `pnpm install --frozen-lockfile`; run `pnpm check` before review.

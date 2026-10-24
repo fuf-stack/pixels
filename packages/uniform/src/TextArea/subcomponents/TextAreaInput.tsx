@@ -72,6 +72,17 @@ const TextAreaInput = ({
     controlRef,
   );
 
+  // the autosizer accepts numeric heights, other ARIA styles remain unchanged
+  const inputStyle = inputProps.style
+    ? {
+        ...inputProps.style,
+        height:
+          typeof inputProps.style.height === 'number'
+            ? inputProps.style.height
+            : undefined,
+      }
+    : undefined;
+
   // focus the input when its wrapper padding is clicked
   const handleWrapperClick = (event: MouseEvent<HTMLElement>) => {
     if (!disabled && event.target === event.currentTarget) {
@@ -112,6 +123,7 @@ const TextAreaInput = ({
           {...inputProps}
           {...controlProps}
           ref={controlRef}
+          style={inputStyle}
           className={classNames.input}
           data-filled={hasValue || undefined}
           data-hide-scroll={!limitReached || undefined}

@@ -199,10 +199,10 @@ export interface UseDataTableControllerParams<TData, TValue> {
   enableExpandableRows: boolean;
   /** Enables TanStack pagination row model and state. */
   enablePagination: boolean;
-  /** Enables TanStack manual mode for server-driven filtering/sorting. */
-  enableServerMode?: boolean;
   /** Enables injected selection column and row selection state. */
   enableRowSelection: boolean;
+  /** Enables TanStack manual mode for server-driven filtering/sorting. */
+  enableServerMode?: boolean;
   /** Class names forwarded to the injected expansion button column. */
   expansionClassNames: ExpansionColumnClassNames;
   /** Icons used by injected expansion controls. */
@@ -211,12 +211,12 @@ export interface UseDataTableControllerParams<TData, TValue> {
   getSubRows?: (originalRow: TData, index: number) => TData[] | undefined;
   /** Enables expansion for rows without sub rows so they can show detail content. */
   hasExpandableRowContent: boolean;
+  /** Optional callback for sorting state updates. */
+  onSortingChange?: (sorting: SortingState) => void;
   /** Available pagination page sizes. First value is initial page size. */
   pageSizeOptions: number[];
   /** Icons used by injected selection controls. */
   selectionIcons?: SelectionColumnIcons;
-  /** Optional callback for sorting state updates. */
-  onSortingChange?: (sorting: SortingState) => void;
 }
 
 /** Builds the optional leading expansion column used by DataTable. */

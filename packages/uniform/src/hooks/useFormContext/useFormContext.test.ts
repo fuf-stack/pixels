@@ -202,9 +202,9 @@ describe('checkFieldIsRequired', () => {
       refineArray: refineArray(array(object({ name: string() })))({
         unique: {
           elementMessage: 'Contains duplicate places',
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-          mapFn: (val) => val?.place,
-          elementErrorPath: ['place'],
+
+          mapFn: (val) => val?.name,
+          elementErrorPath: ['name'],
         },
       }),
     });
@@ -516,7 +516,6 @@ describe('field state integration (errors, invalid, testId)', () => {
     mockGetFieldState.mockReturnValue({});
     // reset form state to default (not submitted)
     mockFormState = { isDirty: false, isSubmitted: false };
-    // @ts-expect-error not sure here
     mockUniformContextValue = {
       validation: {
         instance: null,

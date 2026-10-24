@@ -1,5 +1,207 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`Story Snapshots > DisabledFields 1`] = `
+<div>
+  <div
+    class="flex w-full flex-row justify-between gap-6"
+  >
+    <form
+      class="grow"
+      data-form-is-valid="true"
+      data-testid=""
+      novalidate=""
+    >
+      <div
+        class="group relative flex w-full flex-col is-filled"
+        data-filled="true"
+        data-rac=""
+        data-slot="base"
+      >
+        <label
+          class="block cursor-default pb-1 text-small text-foreground group-data-[invalid=true]:text-danger"
+          data-slot="label"
+          for="uniform-«replaced-aria-id»"
+          id="uniform-«replaced-aria-id»-label"
+        >
+          Account code
+        </label>
+        <div
+          class="relative inline-flex h-10 min-h-10 w-full cursor-text items-center shadow-xs rounded-small border-medium border-default-200 bg-content1 px-3 text-foreground transition-colors group-data-[disabled=true]:pointer-events-none group-data-[focus=true]:border-focus group-data-[invalid=true]:border-danger data-[hovered=true]:border-default-400 group-data-[focus=true]:data-[hovered=true]:border-default-foreground motion-reduce:transition-none is-filled"
+          data-rac=""
+          data-slot="input-wrapper"
+          role="presentation"
+        >
+          <div
+            class="inline-flex h-full w-full items-center gap-0"
+            data-slot="inner-wrapper"
+          >
+            <input
+              aria-labelledby="uniform-«replaced-aria-id»-label"
+              autocomplete="off"
+              class="w-full min-w-0 bg-transparent bg-clip-text text-small font-normal text-inherit outline-none placeholder:text-foreground-500 autofill:bg-transparent data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden is-filled"
+              data-filled="true"
+              data-rac=""
+              data-slot="input"
+              data-testid="accountcode"
+              id="uniform-«replaced-aria-id»"
+              name="accountCode"
+              placeholder=" "
+              tabindex="0"
+              type="text"
+              value="abc"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="group relative flex w-full flex-col is-filled"
+        data-filled="true"
+        data-rac=""
+        data-required="true"
+        data-slot="base"
+      >
+        <label
+          class="block cursor-default pb-1 text-small text-foreground group-data-[invalid=true]:text-danger"
+          data-slot="label"
+          for="uniform-«replaced-aria-id»"
+          id="uniform-«replaced-aria-id»-label"
+        >
+          Name
+          <span
+            aria-hidden="true"
+            class="ml-0.5 text-danger"
+          >
+            *
+          </span>
+        </label>
+        <div
+          class="relative inline-flex h-10 min-h-10 w-full cursor-text items-center shadow-xs rounded-small border-medium border-default-200 bg-content1 px-3 text-foreground transition-colors group-data-[disabled=true]:pointer-events-none group-data-[focus=true]:border-focus group-data-[invalid=true]:border-danger data-[hovered=true]:border-default-400 group-data-[focus=true]:data-[hovered=true]:border-default-foreground motion-reduce:transition-none is-filled"
+          data-rac=""
+          data-slot="input-wrapper"
+          role="presentation"
+        >
+          <div
+            class="inline-flex h-full w-full items-center gap-0"
+            data-slot="inner-wrapper"
+          >
+            <input
+              aria-labelledby="uniform-«replaced-aria-id»-label"
+              aria-required="true"
+              autocomplete="off"
+              class="w-full min-w-0 bg-transparent bg-clip-text text-small font-normal text-inherit outline-none placeholder:text-foreground-500 autofill:bg-transparent data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden is-filled"
+              data-filled="true"
+              data-rac=""
+              data-slot="input"
+              data-testid="name"
+              id="uniform-«replaced-aria-id»"
+              name="name"
+              placeholder=" "
+              tabindex="0"
+              type="text"
+              value="Ada"
+            />
+          </div>
+        </div>
+      </div>
+      <button
+        type="button"
+      >
+        Disable field
+      </button>
+      <button
+        aria-label="Submit form"
+        class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
+        data-focus="true"
+        data-focused="true"
+        data-hover="true"
+        data-hovered="true"
+        data-rac=""
+        data-react-aria-pressable="true"
+        data-testid="form_submit_button"
+        id="react-aria-«replaced-aria-id»"
+        tabindex="0"
+        type="submit"
+      >
+        Submit
+      </button>
+      <pre
+        data-testid="submitted_values"
+      >
+        {"accountCode":"abc","name":"Ada"}
+      </pre>
+      <div
+        class="relative box-border flex h-auto w-full flex-col overflow-hidden rounded-small border border-divider bg-content1 text-foreground shadow-none outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus transition-transform-background motion-reduce:transition-none mt-6"
+        data-slot="base"
+        tabindex="-1"
+      >
+        <div
+          class="color-inherit overflow-inherit z-auto flex w-full shrink-0 items-center justify-start rounded-t-small p-3 text-base font-semibold subpixel-antialiased"
+          data-slot="header"
+        >
+          Form State
+        </div>
+        <hr
+          class="my-0 h-divider w-full shrink-0 border-none border-divider bg-divider"
+        />
+        <div
+          class="relative flex h-auto w-full flex-auto flex-col p-3 place-content-inherit align-items-inherit overflow-y-auto break-words text-left subpixel-antialiased"
+          data-slot="body"
+        >
+          <dl
+            class="grid grid-cols-[auto_1fr] gap-x-6 gap-y-1 text-small"
+          >
+            <dt
+              class="text-default-500"
+            >
+              isValid
+            </dt>
+            <dd
+              class="text-right font-mono"
+              data-testid="state_is_valid"
+            >
+              true
+            </dd>
+            <dt
+              class="text-default-500"
+            >
+              isSubmitting
+            </dt>
+            <dd
+              class="text-right font-mono"
+              data-testid="state_is_submitting"
+            >
+              false
+            </dd>
+            <dt
+              class="text-default-500"
+            >
+              isSubmitSuccessful
+            </dt>
+            <dd
+              class="text-right font-mono"
+              data-testid="state_is_submit_successful"
+            >
+              true
+            </dd>
+            <dt
+              class="text-default-500"
+            >
+              submitCount
+            </dt>
+            <dd
+              class="text-right font-mono"
+              data-testid="state_submit_count"
+            >
+              3
+            </dd>
+          </dl>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
 exports[`Story Snapshots > FormSubmission 1`] = `
 <div>
   <div
@@ -37,7 +239,7 @@ exports[`Story Snapshots > FormSubmission 1`] = `
             </span>
           </label>
           <div
-            class="shadow-xs relative inline-flex h-10 min-h-10 w-full cursor-text items-center rounded-small border-medium bg-content1 px-3 text-foreground transition-colors group-data-[disabled=true]:pointer-events-none group-data-[invalid=true]:border-danger motion-reduce:transition-none border-danger data-[hovered=true]:border-danger group-data-[focus=true]:border-danger group-data-[focus=true]:data-[hovered=true]:border-danger"
+            class="relative inline-flex h-10 min-h-10 w-full cursor-text items-center shadow-xs rounded-small border-medium bg-content1 px-3 text-foreground transition-colors group-data-[disabled=true]:pointer-events-none group-data-[invalid=true]:border-danger motion-reduce:transition-none border-danger group-data-[focus=true]:border-danger data-[hovered=true]:border-danger group-data-[focus=true]:data-[hovered=true]:border-danger"
             data-focus="true"
             data-focus-within="true"
             data-invalid="true"
@@ -55,7 +257,7 @@ exports[`Story Snapshots > FormSubmission 1`] = `
                 aria-labelledby="uniform-«replaced-aria-id»-label"
                 aria-required="true"
                 autocomplete="off"
-                class="w-full min-w-0 bg-transparent bg-clip-text font-normal outline-none text-small placeholder:text-foreground-500 autofill:bg-transparent data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden text-danger"
+                class="w-full min-w-0 bg-transparent bg-clip-text text-small font-normal outline-none placeholder:text-foreground-500 autofill:bg-transparent data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden text-danger"
                 data-focused="true"
                 data-invalid="true"
                 data-rac=""
@@ -75,7 +277,7 @@ exports[`Story Snapshots > FormSubmission 1`] = `
             data-slot="helper-wrapper"
           >
             <div
-              class="text-danger text-tiny"
+              class="text-tiny text-danger"
               data-slot="error-message"
               id="uniform-«replaced-aria-id»-error"
             >
@@ -118,7 +320,7 @@ exports[`Story Snapshots > FormSubmission 1`] = `
             </span>
           </label>
           <div
-            class="shadow-xs relative inline-flex h-10 min-h-10 w-full cursor-text items-center rounded-small border-medium bg-content1 px-3 text-foreground transition-colors group-data-[disabled=true]:pointer-events-none group-data-[invalid=true]:border-danger motion-reduce:transition-none border-danger data-[hovered=true]:border-danger group-data-[focus=true]:border-danger group-data-[focus=true]:data-[hovered=true]:border-danger"
+            class="relative inline-flex h-10 min-h-10 w-full cursor-text items-center shadow-xs rounded-small border-medium bg-content1 px-3 text-foreground transition-colors group-data-[disabled=true]:pointer-events-none group-data-[invalid=true]:border-danger motion-reduce:transition-none border-danger group-data-[focus=true]:border-danger data-[hovered=true]:border-danger group-data-[focus=true]:data-[hovered=true]:border-danger"
             data-invalid="true"
             data-rac=""
             data-slot="input-wrapper"
@@ -134,7 +336,7 @@ exports[`Story Snapshots > FormSubmission 1`] = `
                 aria-labelledby="uniform-«replaced-aria-id»-label"
                 aria-required="true"
                 autocomplete="off"
-                class="w-full min-w-0 bg-transparent bg-clip-text font-normal outline-none text-small placeholder:text-foreground-500 autofill:bg-transparent data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden text-danger"
+                class="w-full min-w-0 bg-transparent bg-clip-text text-small font-normal outline-none placeholder:text-foreground-500 autofill:bg-transparent data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden text-danger"
                 data-invalid="true"
                 data-rac=""
                 data-slot="input"
@@ -153,7 +355,7 @@ exports[`Story Snapshots > FormSubmission 1`] = `
             data-slot="helper-wrapper"
           >
             <div
-              class="text-danger text-tiny"
+              class="text-tiny text-danger"
               data-slot="error-message"
               id="uniform-«replaced-aria-id»-error"
             >
@@ -288,7 +490,7 @@ exports[`Story Snapshots > LongRunningSubmit 1`] = `
           data-slot="base"
         >
           <label
-            class="block cursor-default pb-1 text-foreground text-small group-data-[invalid=true]:text-danger"
+            class="block cursor-default pb-1 text-small text-foreground group-data-[invalid=true]:text-danger"
             data-slot="label"
             for="uniform-«replaced-aria-id»"
             id="uniform-«replaced-aria-id»-label"
@@ -302,7 +504,7 @@ exports[`Story Snapshots > LongRunningSubmit 1`] = `
             </span>
           </label>
           <div
-            class="shadow-xs relative inline-flex h-10 min-h-10 w-full cursor-text items-center rounded-small border-medium border-default-200 bg-content1 px-3 text-foreground transition-colors data-[hovered=true]:border-default-400 group-data-[disabled=true]:pointer-events-none group-data-[focus=true]:border-focus group-data-[invalid=true]:border-danger group-data-[focus=true]:data-[hovered=true]:border-default-foreground motion-reduce:transition-none is-filled"
+            class="relative inline-flex h-10 min-h-10 w-full cursor-text items-center shadow-xs rounded-small border-medium border-default-200 bg-content1 px-3 text-foreground transition-colors group-data-[disabled=true]:pointer-events-none group-data-[focus=true]:border-focus group-data-[invalid=true]:border-danger data-[hovered=true]:border-default-400 group-data-[focus=true]:data-[hovered=true]:border-default-foreground motion-reduce:transition-none is-filled"
             data-rac=""
             data-slot="input-wrapper"
             role="presentation"
@@ -315,7 +517,7 @@ exports[`Story Snapshots > LongRunningSubmit 1`] = `
                 aria-labelledby="uniform-«replaced-aria-id»-label"
                 aria-required="true"
                 autocomplete="off"
-                class="w-full min-w-0 bg-transparent bg-clip-text font-normal text-inherit outline-none text-small placeholder:text-foreground-500 autofill:bg-transparent data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden is-filled"
+                class="w-full min-w-0 bg-transparent bg-clip-text text-small font-normal text-inherit outline-none placeholder:text-foreground-500 autofill:bg-transparent data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden is-filled"
                 data-filled="true"
                 data-rac=""
                 data-slot="input"
@@ -338,7 +540,7 @@ exports[`Story Snapshots > LongRunningSubmit 1`] = `
           data-slot="base"
         >
           <label
-            class="block cursor-default pb-1 text-foreground text-small group-data-[invalid=true]:text-danger"
+            class="block cursor-default pb-1 text-small text-foreground group-data-[invalid=true]:text-danger"
             data-slot="label"
             for="uniform-«replaced-aria-id»"
             id="uniform-«replaced-aria-id»-label"
@@ -352,7 +554,7 @@ exports[`Story Snapshots > LongRunningSubmit 1`] = `
             </span>
           </label>
           <div
-            class="shadow-xs relative inline-flex h-10 min-h-10 w-full cursor-text items-center rounded-small border-medium border-default-200 bg-content1 px-3 text-foreground transition-colors data-[hovered=true]:border-default-400 group-data-[disabled=true]:pointer-events-none group-data-[focus=true]:border-focus group-data-[invalid=true]:border-danger group-data-[focus=true]:data-[hovered=true]:border-default-foreground motion-reduce:transition-none is-filled"
+            class="relative inline-flex h-10 min-h-10 w-full cursor-text items-center shadow-xs rounded-small border-medium border-default-200 bg-content1 px-3 text-foreground transition-colors group-data-[disabled=true]:pointer-events-none group-data-[focus=true]:border-focus group-data-[invalid=true]:border-danger data-[hovered=true]:border-default-400 group-data-[focus=true]:data-[hovered=true]:border-default-foreground motion-reduce:transition-none is-filled"
             data-rac=""
             data-slot="input-wrapper"
             role="presentation"
@@ -365,7 +567,7 @@ exports[`Story Snapshots > LongRunningSubmit 1`] = `
                 aria-labelledby="uniform-«replaced-aria-id»-label"
                 aria-required="true"
                 autocomplete="off"
-                class="w-full min-w-0 bg-transparent bg-clip-text font-normal text-inherit outline-none text-small placeholder:text-foreground-500 autofill:bg-transparent data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden is-filled"
+                class="w-full min-w-0 bg-transparent bg-clip-text text-small font-normal text-inherit outline-none placeholder:text-foreground-500 autofill:bg-transparent data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden is-filled"
                 data-filled="true"
                 data-rac=""
                 data-slot="input"
@@ -508,7 +710,7 @@ exports[`Story Snapshots > RemoteFormSubmission 1`] = `
             </span>
           </label>
           <div
-            class="shadow-xs relative inline-flex h-10 min-h-10 w-full cursor-text items-center rounded-small border-medium bg-content1 px-3 text-foreground transition-colors group-data-[disabled=true]:pointer-events-none group-data-[invalid=true]:border-danger motion-reduce:transition-none border-danger data-[hovered=true]:border-danger group-data-[focus=true]:border-danger group-data-[focus=true]:data-[hovered=true]:border-danger"
+            class="relative inline-flex h-10 min-h-10 w-full cursor-text items-center shadow-xs rounded-small border-medium bg-content1 px-3 text-foreground transition-colors group-data-[disabled=true]:pointer-events-none group-data-[invalid=true]:border-danger motion-reduce:transition-none border-danger group-data-[focus=true]:border-danger data-[hovered=true]:border-danger group-data-[focus=true]:data-[hovered=true]:border-danger"
             data-focus="true"
             data-focus-within="true"
             data-invalid="true"
@@ -526,7 +728,7 @@ exports[`Story Snapshots > RemoteFormSubmission 1`] = `
                 aria-labelledby="uniform-«replaced-aria-id»-label"
                 aria-required="true"
                 autocomplete="off"
-                class="w-full min-w-0 bg-transparent bg-clip-text font-normal outline-none text-small placeholder:text-foreground-500 autofill:bg-transparent data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden text-danger"
+                class="w-full min-w-0 bg-transparent bg-clip-text text-small font-normal outline-none placeholder:text-foreground-500 autofill:bg-transparent data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden text-danger"
                 data-focused="true"
                 data-invalid="true"
                 data-rac=""
@@ -546,7 +748,7 @@ exports[`Story Snapshots > RemoteFormSubmission 1`] = `
             data-slot="helper-wrapper"
           >
             <div
-              class="text-danger text-tiny"
+              class="text-tiny text-danger"
               data-slot="error-message"
               id="uniform-«replaced-aria-id»-error"
             >
@@ -589,7 +791,7 @@ exports[`Story Snapshots > RemoteFormSubmission 1`] = `
             </span>
           </label>
           <div
-            class="shadow-xs relative inline-flex h-10 min-h-10 w-full cursor-text items-center rounded-small border-medium bg-content1 px-3 text-foreground transition-colors group-data-[disabled=true]:pointer-events-none group-data-[invalid=true]:border-danger motion-reduce:transition-none border-danger data-[hovered=true]:border-danger group-data-[focus=true]:border-danger group-data-[focus=true]:data-[hovered=true]:border-danger"
+            class="relative inline-flex h-10 min-h-10 w-full cursor-text items-center shadow-xs rounded-small border-medium bg-content1 px-3 text-foreground transition-colors group-data-[disabled=true]:pointer-events-none group-data-[invalid=true]:border-danger motion-reduce:transition-none border-danger group-data-[focus=true]:border-danger data-[hovered=true]:border-danger group-data-[focus=true]:data-[hovered=true]:border-danger"
             data-invalid="true"
             data-rac=""
             data-slot="input-wrapper"
@@ -605,7 +807,7 @@ exports[`Story Snapshots > RemoteFormSubmission 1`] = `
                 aria-labelledby="uniform-«replaced-aria-id»-label"
                 aria-required="true"
                 autocomplete="off"
-                class="w-full min-w-0 bg-transparent bg-clip-text font-normal outline-none text-small placeholder:text-foreground-500 autofill:bg-transparent data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden text-danger"
+                class="w-full min-w-0 bg-transparent bg-clip-text text-small font-normal outline-none placeholder:text-foreground-500 autofill:bg-transparent data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden text-danger"
                 data-invalid="true"
                 data-rac=""
                 data-slot="input"
@@ -624,7 +826,7 @@ exports[`Story Snapshots > RemoteFormSubmission 1`] = `
             data-slot="helper-wrapper"
           >
             <div
-              class="text-danger text-tiny"
+              class="text-tiny text-danger"
               data-slot="error-message"
               id="uniform-«replaced-aria-id»-error"
             >
@@ -738,6 +940,216 @@ exports[`Story Snapshots > RemoteFormSubmission 1`] = `
 </div>
 `;
 
+exports[`Story Snapshots > RequiredDisabledField 1`] = `
+<div>
+  <div
+    class="flex w-full flex-row justify-between gap-6"
+  >
+    <form
+      class="grow"
+      data-form-is-valid="true"
+      data-testid=""
+      novalidate=""
+    >
+      <div
+        class="group relative flex w-full flex-col is-filled"
+        data-filled="true"
+        data-rac=""
+        data-required="true"
+        data-slot="base"
+      >
+        <label
+          class="block cursor-default pb-1 text-small text-foreground group-data-[invalid=true]:text-danger"
+          data-slot="label"
+          for="uniform-«replaced-aria-id»"
+          id="uniform-«replaced-aria-id»-label"
+        >
+          Account code
+          <span
+            aria-hidden="true"
+            class="ml-0.5 text-danger"
+          >
+            *
+          </span>
+        </label>
+        <div
+          class="relative inline-flex h-10 min-h-10 w-full cursor-text items-center shadow-xs rounded-small border-medium border-default-200 bg-content1 px-3 text-foreground transition-colors group-data-[disabled=true]:pointer-events-none group-data-[focus=true]:border-focus group-data-[invalid=true]:border-danger data-[hovered=true]:border-default-400 group-data-[focus=true]:data-[hovered=true]:border-default-foreground motion-reduce:transition-none is-filled"
+          data-rac=""
+          data-slot="input-wrapper"
+          role="presentation"
+        >
+          <div
+            class="inline-flex h-full w-full items-center gap-0"
+            data-slot="inner-wrapper"
+          >
+            <input
+              aria-labelledby="uniform-«replaced-aria-id»-label"
+              aria-required="true"
+              autocomplete="off"
+              class="w-full min-w-0 bg-transparent bg-clip-text text-small font-normal text-inherit outline-none placeholder:text-foreground-500 autofill:bg-transparent data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden is-filled"
+              data-filled="true"
+              data-rac=""
+              data-slot="input"
+              data-testid="accountcode"
+              id="uniform-«replaced-aria-id»"
+              name="accountCode"
+              placeholder=" "
+              tabindex="0"
+              type="text"
+              value="abc"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="group relative flex w-full flex-col is-filled"
+        data-filled="true"
+        data-rac=""
+        data-required="true"
+        data-slot="base"
+      >
+        <label
+          class="block cursor-default pb-1 text-small text-foreground group-data-[invalid=true]:text-danger"
+          data-slot="label"
+          for="uniform-«replaced-aria-id»"
+          id="uniform-«replaced-aria-id»-label"
+        >
+          Name
+          <span
+            aria-hidden="true"
+            class="ml-0.5 text-danger"
+          >
+            *
+          </span>
+        </label>
+        <div
+          class="relative inline-flex h-10 min-h-10 w-full cursor-text items-center shadow-xs rounded-small border-medium border-default-200 bg-content1 px-3 text-foreground transition-colors group-data-[disabled=true]:pointer-events-none group-data-[focus=true]:border-focus group-data-[invalid=true]:border-danger data-[hovered=true]:border-default-400 group-data-[focus=true]:data-[hovered=true]:border-default-foreground motion-reduce:transition-none is-filled"
+          data-rac=""
+          data-slot="input-wrapper"
+          role="presentation"
+        >
+          <div
+            class="inline-flex h-full w-full items-center gap-0"
+            data-slot="inner-wrapper"
+          >
+            <input
+              aria-labelledby="uniform-«replaced-aria-id»-label"
+              aria-required="true"
+              autocomplete="off"
+              class="w-full min-w-0 bg-transparent bg-clip-text text-small font-normal text-inherit outline-none placeholder:text-foreground-500 autofill:bg-transparent data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden is-filled"
+              data-filled="true"
+              data-rac=""
+              data-slot="input"
+              data-testid="name"
+              id="uniform-«replaced-aria-id»"
+              name="name"
+              placeholder=" "
+              tabindex="0"
+              type="text"
+              value="Ada"
+            />
+          </div>
+        </div>
+      </div>
+      <button
+        type="button"
+      >
+        Disable field
+      </button>
+      <button
+        aria-label="Submit form"
+        class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
+        data-focus="true"
+        data-focused="true"
+        data-hover="true"
+        data-hovered="true"
+        data-rac=""
+        data-react-aria-pressable="true"
+        data-testid="form_submit_button"
+        id="react-aria-«replaced-aria-id»"
+        tabindex="0"
+        type="submit"
+      >
+        Submit
+      </button>
+      <pre
+        data-testid="submitted_values"
+      >
+        {"accountCode":"abc","name":"Ada"}
+      </pre>
+      <div
+        class="relative box-border flex h-auto w-full flex-col overflow-hidden rounded-small border border-divider bg-content1 text-foreground shadow-none outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus transition-transform-background motion-reduce:transition-none mt-6"
+        data-slot="base"
+        tabindex="-1"
+      >
+        <div
+          class="color-inherit overflow-inherit z-auto flex w-full shrink-0 items-center justify-start rounded-t-small p-3 text-base font-semibold subpixel-antialiased"
+          data-slot="header"
+        >
+          Form State
+        </div>
+        <hr
+          class="my-0 h-divider w-full shrink-0 border-none border-divider bg-divider"
+        />
+        <div
+          class="relative flex h-auto w-full flex-auto flex-col p-3 place-content-inherit align-items-inherit overflow-y-auto break-words text-left subpixel-antialiased"
+          data-slot="body"
+        >
+          <dl
+            class="grid grid-cols-[auto_1fr] gap-x-6 gap-y-1 text-small"
+          >
+            <dt
+              class="text-default-500"
+            >
+              isValid
+            </dt>
+            <dd
+              class="text-right font-mono"
+              data-testid="state_is_valid"
+            >
+              true
+            </dd>
+            <dt
+              class="text-default-500"
+            >
+              isSubmitting
+            </dt>
+            <dd
+              class="text-right font-mono"
+              data-testid="state_is_submitting"
+            >
+              false
+            </dd>
+            <dt
+              class="text-default-500"
+            >
+              isSubmitSuccessful
+            </dt>
+            <dd
+              class="text-right font-mono"
+              data-testid="state_is_submit_successful"
+            >
+              true
+            </dd>
+            <dt
+              class="text-default-500"
+            >
+              submitCount
+            </dt>
+            <dd
+              class="text-right font-mono"
+              data-testid="state_submit_count"
+            >
+              2
+            </dd>
+          </dl>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
 exports[`Story Snapshots > SubmitWithEnter 1`] = `
 <div>
   <div
@@ -775,7 +1187,7 @@ exports[`Story Snapshots > SubmitWithEnter 1`] = `
             </span>
           </label>
           <div
-            class="shadow-xs relative inline-flex h-10 min-h-10 w-full cursor-text items-center rounded-small border-medium bg-content1 px-3 text-foreground transition-colors group-data-[disabled=true]:pointer-events-none group-data-[invalid=true]:border-danger motion-reduce:transition-none border-danger data-[hovered=true]:border-danger group-data-[focus=true]:border-danger group-data-[focus=true]:data-[hovered=true]:border-danger"
+            class="relative inline-flex h-10 min-h-10 w-full cursor-text items-center shadow-xs rounded-small border-medium bg-content1 px-3 text-foreground transition-colors group-data-[disabled=true]:pointer-events-none group-data-[invalid=true]:border-danger motion-reduce:transition-none border-danger group-data-[focus=true]:border-danger data-[hovered=true]:border-danger group-data-[focus=true]:data-[hovered=true]:border-danger"
             data-focus="true"
             data-focus-within="true"
             data-hovered="true"
@@ -794,7 +1206,7 @@ exports[`Story Snapshots > SubmitWithEnter 1`] = `
                 aria-labelledby="uniform-«replaced-aria-id»-label"
                 aria-required="true"
                 autocomplete="off"
-                class="w-full min-w-0 bg-transparent bg-clip-text font-normal outline-none text-small placeholder:text-foreground-500 autofill:bg-transparent data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden text-danger"
+                class="w-full min-w-0 bg-transparent bg-clip-text text-small font-normal outline-none placeholder:text-foreground-500 autofill:bg-transparent data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden text-danger"
                 data-focused="true"
                 data-hovered="true"
                 data-invalid="true"
@@ -815,7 +1227,7 @@ exports[`Story Snapshots > SubmitWithEnter 1`] = `
             data-slot="helper-wrapper"
           >
             <div
-              class="text-danger text-tiny"
+              class="text-tiny text-danger"
               data-slot="error-message"
               id="uniform-«replaced-aria-id»-error"
             >
@@ -858,7 +1270,7 @@ exports[`Story Snapshots > SubmitWithEnter 1`] = `
             </span>
           </label>
           <div
-            class="shadow-xs relative inline-flex h-10 min-h-10 w-full cursor-text items-center rounded-small border-medium bg-content1 px-3 text-foreground transition-colors group-data-[disabled=true]:pointer-events-none group-data-[invalid=true]:border-danger motion-reduce:transition-none border-danger data-[hovered=true]:border-danger group-data-[focus=true]:border-danger group-data-[focus=true]:data-[hovered=true]:border-danger"
+            class="relative inline-flex h-10 min-h-10 w-full cursor-text items-center shadow-xs rounded-small border-medium bg-content1 px-3 text-foreground transition-colors group-data-[disabled=true]:pointer-events-none group-data-[invalid=true]:border-danger motion-reduce:transition-none border-danger group-data-[focus=true]:border-danger data-[hovered=true]:border-danger group-data-[focus=true]:data-[hovered=true]:border-danger"
             data-invalid="true"
             data-rac=""
             data-slot="input-wrapper"
@@ -874,7 +1286,7 @@ exports[`Story Snapshots > SubmitWithEnter 1`] = `
                 aria-labelledby="uniform-«replaced-aria-id»-label"
                 aria-required="true"
                 autocomplete="off"
-                class="w-full min-w-0 bg-transparent bg-clip-text font-normal outline-none text-small placeholder:text-foreground-500 autofill:bg-transparent data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden text-danger"
+                class="w-full min-w-0 bg-transparent bg-clip-text text-small font-normal outline-none placeholder:text-foreground-500 autofill:bg-transparent data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden text-danger"
                 data-invalid="true"
                 data-rac=""
                 data-slot="input"
@@ -893,7 +1305,7 @@ exports[`Story Snapshots > SubmitWithEnter 1`] = `
             data-slot="helper-wrapper"
           >
             <div
-              class="text-danger text-tiny"
+              class="text-tiny text-danger"
               data-slot="error-message"
               id="uniform-«replaced-aria-id»-error"
             >

@@ -22,10 +22,10 @@ export interface ToastRenderProps {
   icon?: ReactNode;
   /** The toast message */
   message: ReactNode;
-  /** The color/severity of the toast */
-  variant: AlertVariant;
   /** Title displayed above the toast message */
   title?: ReactNode;
+  /** The color/severity of the toast */
+  variant: AlertVariant;
 }
 
 /** Options passed to each toast method */

@@ -25,12 +25,12 @@ export interface DataTableViewOptionsProps<TData> {
   classNames: ViewOptionsClassNames;
   /** TanStack table instance used to enumerate/toggle columns. */
   table: Table<TData>;
+  /** Optional test id prefix used for the trigger. */
+  testId?: string;
   /** Icon shown in the trigger; pass `false` to hide. */
   triggerIcon?: ReactNode | false;
   /** Icon shown for visible columns; pass `false` to hide. */
   visibleIcon?: ReactNode | false;
-  /** Optional test id prefix used for the trigger. */
-  testId?: string;
 }
 
 /** Dropdown for toggling table column visibility. */

@@ -3,16 +3,16 @@ import type { ReactNode } from 'react';
 import SwitchIcon from './SwitchIcon';
 
 export interface SwitchThumbIconProps {
-  /** Icon width */
-  width: string;
-  /** Icon height */
-  height: string;
-  /** Selected state as a string */
-  'data-checked': string;
-  /** Current toggle state */
-  isSelected: boolean;
   /** CSS class name */
   className: string;
+  /** Selected state as a string */
+  'data-checked': string;
+  /** Icon height */
+  height: string;
+  /** Current toggle state */
+  isSelected: boolean;
+  /** Icon width */
+  width: string;
 }
 
 interface SwitchThumbProps {

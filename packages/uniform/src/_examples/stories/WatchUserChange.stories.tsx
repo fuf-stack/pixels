@@ -39,21 +39,21 @@ export default meta;
 type Story = StoryObj<typeof Form>;
 
 interface LocationFormData {
-  country?: string;
   city?: string;
+  country?: string;
   zipCode?: string;
 }
 
 interface AnimalFormData {
   animal?: string;
-  habitat?: string;
   favoriteSnack?: string;
+  habitat?: string;
 }
 
 interface UserFormData {
+  email?: string;
   firstName?: string;
   lastName?: string;
-  email?: string;
 }
 
 /**

@@ -10,9 +10,9 @@ import v from '../src';
 const NON_STRING_INPUTS = [true, 1, 1.1, [], {}];
 
 interface StringCommonTestOptions {
+  shouldAllow?: string[];
   shouldReject?: string[];
   shouldRejectMessageStart?: string;
-  shouldAllow?: string[];
 }
 
 export const stringCommon = (
