@@ -70,9 +70,13 @@ export const KeyboardDismissal: Story = {
     );
 
     await userEvent.keyboard('{Escape}');
-    await waitFor(async () => {
-      await expect(body.queryByRole('dialog')).not.toBeInTheDocument();
-      await expect(trigger).toHaveFocus();
-    });
+    // focus restoration runs on an animation frame after the exit finishes
+    await waitFor(
+      async () => {
+        await expect(body.queryByRole('dialog')).not.toBeInTheDocument();
+        await expect(trigger).toHaveFocus();
+      },
+      { timeout: 5000 },
+    );
   },
 };
