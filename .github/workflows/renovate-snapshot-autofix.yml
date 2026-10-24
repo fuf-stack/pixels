@@ -65,6 +65,8 @@ jobs:
 
   snapshots:
     name: Build and test without write credentials
+    # Branch code must not populate trusted caches, including on manual runs.
+    cache-mode: read
     needs: resolve
     runs-on: ubuntu-latest
     timeout-minutes: 20

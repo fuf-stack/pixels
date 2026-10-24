@@ -41,6 +41,7 @@ export const CompactedArrays: Story = {
           ],
         }}
         onSubmit={onSubmit}
+        validationTrigger="all"
       >
         {({ handleSubmit }) => {
           return (

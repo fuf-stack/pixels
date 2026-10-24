@@ -165,7 +165,11 @@ export function collectSnapshots({ workspace, outputDirectory }) {
  */
 export function buildSnapshots({ core }) {
   const test = (args = []) => {
-    const result = spawnSync('pnpm', ['test', ...args], { stdio: 'inherit' });
+    const result = spawnSync(
+      'pnpm',
+      ['test', '--project=!@repo/storybook-config*', ...args],
+      { stdio: 'inherit' },
+    );
 
     if (result.error) {
       throw result.error;

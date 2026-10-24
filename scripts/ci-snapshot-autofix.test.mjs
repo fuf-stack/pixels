@@ -338,7 +338,11 @@ test('build orchestration requires successful update and verification runs befor
       spawn.mock.calls.map(([, args]) => {
         return args;
       }),
-    ).toEqual([['test'], ['test', '-u'], ['test']]);
+    ).toEqual([
+      ['test', '--project=!@repo/storybook-config*'],
+      ['test', '--project=!@repo/storybook-config*', '-u'],
+      ['test', '--project=!@repo/storybook-config*'],
+    ]);
     expect(
       fs.existsSync(join(fixture.directory, 'snapshot-output/snapshots.json')),
     ).toBe(true);
