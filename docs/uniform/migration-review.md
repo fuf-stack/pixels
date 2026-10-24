@@ -35,6 +35,10 @@ this cleanup.
   twelve field renderers, each in light and dark themes. Only color-contrast
   violations were reported. This is not a screen-reader or cross-browser audit.
 
+The [verification summary](./migration-verification.md) consolidates the earlier
+field audits and outstanding accessibility findings. Raw migration images and
+JSON reports are no longer retained in the working tree.
+
 ## Remaining release and theme work
 
 The contrast findings are not resolved by the dependency migration. They include

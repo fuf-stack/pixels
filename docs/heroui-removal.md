@@ -259,11 +259,11 @@ native validation from competing with RHF/Veto.
 | Pixels overlays                         | Modal/drawer/popover/menu focus, portals, Escape, scroll locking, stacking and toast behavior                                                | Select/calendar inside overlays; restoration and keyboard/automated accessibility                                              |
 
 Committed story DOM snapshots and existing behavioral tests are the current
-source baseline. Representative field screenshots and computed-style baselines
-are now captured in [field evidence](./migration-evidence/fields/README.md).
-All Uniform production fields and their internal styling consumers are now
-migrated, with per-slice tests and evidence below. Pixels/application renderer
-mappings and checks remain pending.
+source baseline. The [verification summary](./uniform/migration-verification.md)
+retains the visual-review scope and unresolved accessibility findings after
+removal of one-time screenshots and JSON reports. All Uniform production fields,
+Pixels primitives and workspace consumers are migrated, with per-slice history
+below.
 
 The production React Aria text/number Input consumes a shared field-state core
 without calling legacy presentation hooks. Private shared state supports all
