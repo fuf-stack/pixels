@@ -27,6 +27,7 @@ exports[`Story Snapshots > CompactedArrays 1`] = `
       >
         <div
           class="group relative flex w-full flex-col is-filled"
+          data-component="input"
           data-filled="true"
           data-rac=""
           data-slot="base"
@@ -96,6 +97,7 @@ exports[`Story Snapshots > CompactedArrays 1`] = `
         </div>
         <div
           class="group relative flex w-full flex-col is-filled"
+          data-component="input"
           data-filled="true"
           data-rac=""
           data-slot="base"
@@ -139,6 +141,7 @@ exports[`Story Snapshots > CompactedArrays 1`] = `
         <button
           aria-label="Submit form"
           class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
+          data-component="submit-button"
           data-focus="true"
           data-focused="true"
           data-hover="true"
@@ -159,6 +162,7 @@ exports[`Story Snapshots > CompactedArrays 1`] = `
       >
         <div
           class="relative box-border flex h-auto w-full flex-col overflow-hidden rounded-small border border-divider bg-content1 text-foreground shadow-none outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus transition-transform-background motion-reduce:transition-none"
+          data-component="card"
           data-slot="base"
           tabindex="-1"
         >
@@ -173,6 +177,7 @@ exports[`Story Snapshots > CompactedArrays 1`] = `
             </span>
             <button
               class="group tap-highlight-transparent [&>svg]:max-w-[theme(spacing.8)] data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus gap-2 rounded-small text-tiny !gap-0 px-0 transition-transform-colors-opacity motion-reduce:transition-none bg-transparent text-danger data-[hover=true]:bg-danger/20 h-8 w-8 min-w-8"
+              data-component="button"
               data-rac=""
               data-react-aria-pressable="true"
               id="react-aria-«replaced-aria-id»"
@@ -195,6 +200,7 @@ exports[`Story Snapshots > CompactedArrays 1`] = `
           >
             <button
               class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-transparent text-default-foreground data-[hover=true]:bg-default/40 mb-4 ml-auto mr-auto"
+              data-component="button"
               data-rac=""
               data-react-aria-pressable="true"
               id="react-aria-«replaced-aria-id»"
@@ -211,6 +217,7 @@ exports[`Story Snapshots > CompactedArrays 1`] = `
             <div
               aria-label="JSON viewer"
               class=""
+              data-component="json"
               role="region"
             >
               <div
@@ -1101,6 +1108,7 @@ exports[`Story Snapshots > PasswordAndToken 1`] = `
   >
     <div
       class="relative box-border flex h-auto w-full flex-col overflow-hidden rounded-small border border-divider bg-content1 text-foreground shadow-none outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus transition-transform-background motion-reduce:transition-none max-w-3xl"
+      data-component="card"
       data-slot="base"
       tabindex="-1"
     >
@@ -1142,6 +1150,7 @@ exports[`Story Snapshots > PasswordAndToken 1`] = `
       >
         <div
           class="group relative flex w-full flex-col is-filled"
+          data-component="input"
           data-filled="true"
           data-rac=""
           data-slot="base"
@@ -1184,6 +1193,7 @@ exports[`Story Snapshots > PasswordAndToken 1`] = `
         </div>
         <div
           class="group relative flex w-full flex-col is-filled"
+          data-component="input"
           data-filled="true"
           data-rac=""
           data-slot="base"
@@ -1255,6 +1265,7 @@ exports[`Story Snapshots > PasswordAndToken 1`] = `
         </div>
         <div
           class="group relative flex w-full flex-col is-filled"
+          data-component="input"
           data-filled="true"
           data-rac=""
           data-slot="base"
@@ -1298,6 +1309,7 @@ exports[`Story Snapshots > PasswordAndToken 1`] = `
         <button
           aria-label="Submit form"
           class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
+          data-component="submit-button"
           data-rac=""
           data-react-aria-pressable="true"
           data-testid="form_submit_button"
@@ -1314,6 +1326,7 @@ exports[`Story Snapshots > PasswordAndToken 1`] = `
       >
         <div
           class="relative box-border flex h-auto w-full flex-col overflow-hidden rounded-small border border-divider bg-content1 text-foreground shadow-none outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus transition-transform-background motion-reduce:transition-none"
+          data-component="card"
           data-slot="base"
           tabindex="-1"
         >
@@ -1328,6 +1341,7 @@ exports[`Story Snapshots > PasswordAndToken 1`] = `
             </span>
             <button
               class="group tap-highlight-transparent [&>svg]:max-w-[theme(spacing.8)] data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus gap-2 rounded-small text-tiny !gap-0 px-0 transition-transform-colors-opacity motion-reduce:transition-none bg-transparent text-danger data-[hover=true]:bg-danger/20 h-8 w-8 min-w-8"
+              data-component="button"
               data-rac=""
               data-react-aria-pressable="true"
               id="react-aria-«replaced-aria-id»"
@@ -1350,6 +1364,7 @@ exports[`Story Snapshots > PasswordAndToken 1`] = `
           >
             <button
               class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-transparent text-default-foreground data-[hover=true]:bg-default/40 mb-4 ml-auto mr-auto"
+              data-component="button"
               data-rac=""
               data-react-aria-pressable="true"
               id="react-aria-«replaced-aria-id»"
@@ -1366,6 +1381,7 @@ exports[`Story Snapshots > PasswordAndToken 1`] = `
             <div
               aria-label="JSON viewer"
               class=""
+              data-component="json"
               role="region"
             >
               <div

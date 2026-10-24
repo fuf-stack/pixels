@@ -18,6 +18,30 @@ The current [Uniform Input](../packages/uniform/src/Input/Input.tsx) is a concre
 reference for the structure below. Examples here are intentionally small excerpts,
 not complete component implementations.
 
+## Component and slot markers
+
+Public UI components identify their outer DOM element with `data-component`,
+using the component name in lowercase kebab-case. Slots retain `data-slot`.
+Subcomponents do not add component markers unless independently public.
+When a component exposes a marker override, use a normal camelCase React prop,
+for example `<Button dataComponent="submit-button" />`, and map it to
+`data-component` on the DOM element. Follow the same `dataSlot`/`data-slot`
+pattern for slot overrides. Native DOM props in `baseProps` retain their HTML names.
+
+```tsx
+<div data-component="avatar-group" data-slot="base">
+  <span data-slot="count">+2</span>
+</div>
+```
+
+Put markers on existing elements, without adding wrappers. Shared renderers
+preserve the public owner's identity, for example `drawer` instead of `modal`
+and `submit-button` instead of `button`. Portaled overlays mark their outer
+surface wrapper. Fragment-based compositions mark their primary surface,
+providers and hosts without their own DOM root do not introduce one.
+
+See [styling](./styling.md#component-and-slot-markers) for selector examples.
+
 ## Readability before compactness
 
 Use blank lines to separate setup, state, handlers and rendering. Keep related
@@ -126,7 +150,17 @@ make the data flow harder to follow. `field.value` and `field.onChange` explain
 where the values come from without requiring the reader to remember aliases.
 
 Put forwarded props first, followed by explicit overrides in alphabetical order.
-Spread order controls precedence, so preserve intentional overrides when reordering.
+Apply this to prop objects too, including `baseProps`, shared root props and hook
+options. Keep spread order stable, and preserve intentional overrides when
+reordering because the last value wins.
+
+```tsx
+baseProps={{
+  ...getFieldDataAttributes(field),
+  'data-component': 'select',
+  'data-testid': `${testId}_wrapper`,
+}}
+```
 
 ```tsx
 const { field } = useUniformField({
@@ -558,9 +592,9 @@ Otherwise define component props explicitly, keeping derived state private:
 export const textAreaVariants = tv({
   slots: {
     /** Supporting text below the textarea */
-    description: 'text-foreground-500 text-tiny',
+    description: 'text-tiny text-foreground-500',
     /** Validation message container */
-    errorMessage: 'text-danger text-tiny',
+    errorMessage: 'text-tiny text-danger',
     /** Editable multiline text */
     input: 'w-full bg-transparent',
   },

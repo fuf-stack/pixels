@@ -7,6 +7,7 @@ exports[`Story Snapshots > CustomWidth 1`] = `
     aria-label="Notifications alt+T"
     aria-live="polite"
     aria-relevant="additions text"
+    data-component="toaster"
     data-react-aria-top-layer="true"
     tabindex="-1"
   >
@@ -58,6 +59,7 @@ exports[`Story Snapshots > CustomWidth 1`] = `
           >
             <div
               class="flex w-full min-w-72 flex-grow flex-row items-center gap-3 px-4 py-3 rounded-medium border-small border-info-200 bg-info-50 text-info-600 dark:border-info-100 dark:bg-info-50"
+              data-component="alert"
               data-has-description="true"
               data-has-title="true"
               data-slot="base"
@@ -107,6 +109,7 @@ exports[`Story Snapshots > CustomWidth 1`] = `
   </section>
   <button
     class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
+    data-component="button"
     data-focus="true"
     data-focused="true"
     data-hover="true"
@@ -129,6 +132,7 @@ exports[`Story Snapshots > Position 1`] = `
     aria-label="Notifications alt+T"
     aria-live="polite"
     aria-relevant="additions text"
+    data-component="toaster"
     data-react-aria-top-layer="true"
     tabindex="-1"
   >
@@ -171,6 +175,7 @@ exports[`Story Snapshots > Position 1`] = `
           >
             <div
               class="flex w-full min-w-72 flex-grow flex-row items-center gap-3 px-4 py-3 rounded-medium border-small border-info-200 bg-info-50 text-info-600 dark:border-info-100 dark:bg-info-50"
+              data-component="alert"
               data-has-description="true"
               data-slot="base"
               data-visible="true"
@@ -216,6 +221,7 @@ exports[`Story Snapshots > Position 1`] = `
   >
     <button
       class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
+      data-component="button"
       data-rac=""
       data-react-aria-pressable="true"
       id="react-aria-«replaced-aria-id»"
@@ -226,6 +232,7 @@ exports[`Story Snapshots > Position 1`] = `
     </button>
     <button
       class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-primary text-primary-foreground data-[hover=true]:opacity-hover"
+      data-component="button"
       data-focus="true"
       data-focused="true"
       data-hover="true"
@@ -240,6 +247,7 @@ exports[`Story Snapshots > Position 1`] = `
     </button>
     <button
       class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
+      data-component="button"
       data-rac=""
       data-react-aria-pressable="true"
       id="react-aria-«replaced-aria-id»"
@@ -250,6 +258,7 @@ exports[`Story Snapshots > Position 1`] = `
     </button>
     <button
       class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
+      data-component="button"
       data-rac=""
       data-react-aria-pressable="true"
       id="react-aria-«replaced-aria-id»"
@@ -260,6 +269,7 @@ exports[`Story Snapshots > Position 1`] = `
     </button>
     <button
       class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
+      data-component="button"
       data-rac=""
       data-react-aria-pressable="true"
       id="react-aria-«replaced-aria-id»"
@@ -270,6 +280,7 @@ exports[`Story Snapshots > Position 1`] = `
     </button>
     <button
       class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
+      data-component="button"
       data-rac=""
       data-react-aria-pressable="true"
       id="react-aria-«replaced-aria-id»"

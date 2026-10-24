@@ -19,6 +19,7 @@ const Toaster = ({ toastOptions, ...rest }: ToasterProps) => {
   const ref = useRef<HTMLElement>(null);
   useEffect(() => {
     ref.current?.setAttribute('data-react-aria-top-layer', 'true');
+    ref.current?.setAttribute('data-component', 'toaster');
   }, []);
 
   // Force each toast to take the configured Toaster `--width` so that toasts

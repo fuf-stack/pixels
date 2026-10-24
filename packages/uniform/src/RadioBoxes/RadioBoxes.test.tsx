@@ -92,3 +92,19 @@ describe('Owned radio boxes', () => {
     expect(zero).toBeChecked();
   });
 });
+
+describe('Component markers', () => {
+  it('preserves the public owner through the shared radio engine', () => {
+    render(
+      <Form onSubmit={() => {}}>
+        <RadioBoxes label="Choice" name="choice" options={options} />
+      </Form>,
+    );
+
+    expect(screen.getByRole('radiogroup')).toHaveAttribute(
+      'data-component',
+      'radio-boxes',
+    );
+    expect(screen.getByRole('radiogroup')).toHaveAttribute('data-slot', 'base');
+  });
+});

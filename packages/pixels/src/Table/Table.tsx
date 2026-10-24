@@ -97,6 +97,7 @@ const Table = ({
   return (
     <div
       className={classNames.base}
+      data-component="table"
       data-slot="base"
       data-testid={testId ? slugify(testId) : undefined}
     >

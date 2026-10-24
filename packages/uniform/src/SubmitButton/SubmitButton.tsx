@@ -60,6 +60,7 @@ const SubmitButton = ({
       ariaLabel={ariaLabel}
       className={cn(className)}
       color={color}
+      dataComponent="submit-button"
       // associate with a form rendered elsewhere via the native `form` attribute
       // (see remoteFormId prop) so the button can submit a form it is not a DOM
       // descendant of

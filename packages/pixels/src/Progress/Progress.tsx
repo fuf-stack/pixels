@@ -90,6 +90,7 @@ const Progress = ({
     <div
       {...progressBarProps}
       className={classNames.base}
+      data-component="progress"
       data-indeterminate={indeterminate || undefined}
       data-slot="base"
       data-testid={testId}

@@ -79,6 +79,7 @@ const FieldArrayControl = ({
       aria-label={!label ? name : undefined}
       aria-labelledby={label ? labelId : undefined}
       className={classNames.base}
+      data-component="field-array"
       role="group"
     >
       {/* field array label */}

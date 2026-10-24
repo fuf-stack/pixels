@@ -68,6 +68,7 @@ const ScrollShadow = forwardRef<HTMLDivElement, ScrollShadowProps>(
       <div
         ref={controlRef}
         className={variants}
+        data-component="scroll-shadow"
         data-orientation={orientation}
         data-slot={dataSlot}
         data-testid={testId}

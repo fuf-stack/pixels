@@ -86,7 +86,12 @@ const Breadcrumb = ({
     : items;
 
   return (
-    <nav {...navProps} className={classNames.nav} data-slot="base">
+    <nav
+      {...navProps}
+      className={classNames.nav}
+      data-component="breadcrumb"
+      data-slot="base"
+    >
       <ol className={classNames.list} data-slot="list">
         {visibleItems.map(({ collapsed, item, key }, index) => {
           return (

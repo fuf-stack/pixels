@@ -33,7 +33,7 @@ const TableHeaderCell = ({
 }: TableHeaderCellProps) => {
   const ref = useRef<HTMLTableCellElement>(null);
   const { columnHeaderProps } = useTableColumnHeader(
-    { node, isVirtualized: virtualized },
+    { isVirtualized: virtualized, node },
     state,
     ref,
   );

@@ -40,8 +40,8 @@ const SearchInputControl = ({
   const styling = useStyling();
   const inputRef = useRef<HTMLInputElement>(null);
   const { focusProps, isFocused } = useFocusRing({
-    within: true,
     isTextInput: true,
+    within: true,
   });
   const { hoverProps, isHovered } = useHover({ isDisabled: disabled });
 
@@ -82,6 +82,7 @@ const SearchInputControl = ({
     <TextField
       aria-label={placeholder?.trim() ? placeholder : 'Search'}
       className={classNames.base}
+      data-component="search-input"
       data-disabled={disabled || undefined}
       data-filled={hasValue || undefined}
       data-focus={isFocused || undefined}

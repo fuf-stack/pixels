@@ -38,6 +38,7 @@ const FieldCardControl = ({
       aria-label={!label ? ariaLabel : undefined}
       aria-labelledby={label ? ids.label : undefined}
       className={classNames.base}
+      data-component="field-card"
       role="group"
     >
       {/* card header with label */}

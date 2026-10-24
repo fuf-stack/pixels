@@ -66,13 +66,13 @@ const SwitchControl = ({
   const { inputProps, labelProps, isPressed } = useSwitch(
     {
       ...controlProps,
-      name,
       children: label,
       isDisabled: disabled,
       isInvalid: invalid,
       isRequired: required,
-      validationBehavior: 'aria',
+      name,
       onBlur,
+      validationBehavior: 'aria',
     },
     state,
     controlRef,
@@ -89,7 +89,11 @@ const SwitchControl = ({
   );
 
   return (
-    <div className={classNames.outerWrapper} data-slot="outer-wrapper">
+    <div
+      className={classNames.outerWrapper}
+      data-component="switch"
+      data-slot="outer-wrapper"
+    >
       <label
         {...mergeProps(labelProps, hoverProps)}
         className={classNames.base}

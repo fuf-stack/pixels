@@ -117,6 +117,7 @@ const SliderControl = ({
   return (
     <div
       className={classNames.base}
+      data-component="slider"
       data-invalid={invalid}
       data-required={required}
       data-testid={testId}

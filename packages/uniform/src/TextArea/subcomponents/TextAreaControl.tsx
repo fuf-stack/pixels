@@ -32,8 +32,8 @@ const TextAreaControl = ({
 }: TextAreaControlProps) => {
   const styling = useStyling();
   const { focusProps, isFocused, isFocusVisible } = useFocusRing({
-    within: true,
     isTextInput: true,
+    within: true,
   });
   const [hovered, setHovered] = useState(false);
 
@@ -64,6 +64,7 @@ const TextAreaControl = ({
       baseProps={{
         ...focusProps,
         ...getFieldDataAttributes(field),
+        'data-component': 'text-area',
         'data-filled': hasValue || undefined,
         'data-focus': isFocused || undefined,
         'data-focus-visible': isFocusVisible || undefined,

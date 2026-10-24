@@ -27,6 +27,7 @@ const FieldCopyTestIdButton = ({
   return (
     <Button
       className={cn(className, 'pointer-events-auto')}
+      dataComponent="field-copy-test-id-button"
       icon={<FaBullseye />}
       onClick={copyToClipboard}
       size="sm"

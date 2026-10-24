@@ -17,6 +17,7 @@ exports[`Story Snapshots > CustomStyling 1`] = `
     </label>
     <div
       class="rounded-small bg-danger-50 p-2 text-danger"
+      data-component="field-validation-error"
       data-slot="error-message"
       id="email-error"
     >
@@ -58,6 +59,7 @@ exports[`Story Snapshots > Default 1`] = `
     </label>
     <div
       class="text-danger text-small"
+      data-component="field-validation-error"
       data-slot="error-message"
       id="email-error"
     >
@@ -84,6 +86,7 @@ exports[`Story Snapshots > MultipleErrors 1`] = `
 <div>
   <ul
     aria-label="Validation errors of field email"
+    data-component="field-validation-error"
     data-testid="email_error"
   >
     <li
@@ -112,6 +115,7 @@ exports[`Story Snapshots > SingleError 1`] = `
 <div>
   <ul
     aria-label="Validation errors of field email"
+    data-component="field-validation-error"
     data-testid="email_error"
   >
     <li

@@ -50,11 +50,11 @@ const FieldArray = ({
 }: FieldArrayProps) => {
   const { field, fields, appendItem, items, moveItem, disableAnimation } =
     useUniformFieldArray({
-      name,
-      flat,
-      elementInitialValue: _elementInitialValue,
-      lastElementNotRemovable,
       ...uniformFieldProps,
+      elementInitialValue: _elementInitialValue,
+      flat,
+      lastElementNotRemovable,
+      name,
     });
 
   return (

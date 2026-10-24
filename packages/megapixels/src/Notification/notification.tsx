@@ -78,12 +78,12 @@ const show = (
 ) => {
   const idHolder: { id?: string | number } = {};
   const renderProps: NotificationRenderProps = {
-    modal: renderPropsModal,
     closeNotification: () => {
       if (idHolder.id !== undefined) {
         toast.close(idHolder.id);
       }
     },
+    modal: renderPropsModal,
   };
   const id = showToast(message, resolveOptions(options, renderProps));
   idHolder.id = id;

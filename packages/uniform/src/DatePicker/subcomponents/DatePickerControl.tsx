@@ -105,6 +105,7 @@ const DatePickerControl = ({
       aria-invalid={controlProps['aria-invalid']}
       aria-label={controlProps['aria-label']}
       className={classNames.base}
+      data-component="date-picker"
       data-slot="base"
       granularity={withTime ? 'minute' : 'day'}
       hideTimeZone={hideTimeZone}

@@ -472,3 +472,23 @@ describe('Password input visibility', () => {
     expect(onClear).toHaveBeenCalledOnce();
   });
 });
+
+describe('Component markers', () => {
+  it.each(['text', 'number'] as const)(
+    'marks the outer %s field engine',
+    (type) => {
+      const { container } = render(
+        <Form onSubmit={() => {}}>
+          <Input label="Value" name="value" type={type === 'text' ? undefined : type} />
+        </Form>,
+      );
+
+      const root = container.querySelector('[data-component="input"]');
+      expect(root).toHaveAttribute('data-slot', 'base');
+      expect(root).toContainElement(screen.getByLabelText('Value'));
+      expect(root?.closest('[data-component="form"]')).toBe(
+        container.firstElementChild,
+      );
+    },
+  );
+});

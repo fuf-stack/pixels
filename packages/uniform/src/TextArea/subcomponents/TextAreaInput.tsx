@@ -60,14 +60,14 @@ const TextAreaInput = ({
     {
       ...controlProps,
       inputElementType: 'textarea',
-      name,
-      value: String(value ?? ''),
-      onChange: onValueChange,
-      onBlur,
       isDisabled: disabled,
       isInvalid: invalid,
       isRequired: required,
+      name,
+      onBlur,
+      onChange: onValueChange,
       validationBehavior: 'aria',
+      value: String(value ?? ''),
     },
     controlRef,
   );

@@ -133,9 +133,9 @@ const CheckboxesControl = ({
     <FieldLayout
       baseAs={CheckboxGroup}
       baseProps={{
-        ref: handleControlRef,
         'aria-describedby': describedBy,
         'aria-label': associations['aria-label'],
+        'data-component': 'checkboxes',
         'data-slot': 'base',
         'data-testid': testId,
         id: associations.id,
@@ -145,6 +145,7 @@ const CheckboxesControl = ({
         name,
         onBlur,
         onChange: onValueChange,
+        ref: handleControlRef,
         render: renderGroup,
         validationBehavior: 'aria',
         value,

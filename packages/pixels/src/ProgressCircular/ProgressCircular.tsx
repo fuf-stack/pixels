@@ -90,7 +90,12 @@ const ProgressCircular = ({
   }
 
   return (
-    <div {...progressBarProps} className={classNames.base} data-slot="base">
+    <div
+      {...progressBarProps}
+      className={classNames.base}
+      data-component="progress-circular"
+      data-slot="base"
+    >
       <div className={classNames.svgWrapper} data-slot="svgWrapper">
         {/* track and completed arc */}
         <ProgressCircularRing

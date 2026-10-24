@@ -4,6 +4,7 @@ exports[`Story Snapshots > CustomStyling 1`] = `
 <div>
   <div
     class="relative box-border flex h-auto w-full flex-col overflow-hidden rounded-small border border-divider bg-content1 shadow-none outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus transition-transform-background motion-reduce:transition-none text-blue-400"
+    data-component="card"
     data-slot="base"
     tabindex="-1"
   >
@@ -43,6 +44,7 @@ exports[`Story Snapshots > Default 1`] = `
 <div>
   <div
     class="relative box-border flex h-auto w-full flex-col overflow-hidden rounded-small border border-divider bg-content1 text-foreground shadow-none outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus transition-transform-background motion-reduce:transition-none"
+    data-component="card"
     data-slot="base"
     tabindex="-1"
   >
@@ -64,6 +66,7 @@ exports[`Story Snapshots > Empty 1`] = `
 <div>
   <div
     class="relative box-border flex h-auto w-full flex-col overflow-hidden rounded-small border border-divider bg-content1 text-foreground shadow-none outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus transition-transform-background motion-reduce:transition-none"
+    data-component="card"
     data-slot="base"
     tabindex="-1"
   >
@@ -79,6 +82,7 @@ exports[`Story Snapshots > FooterAndHeader 1`] = `
 <div>
   <div
     class="relative box-border flex h-auto w-full flex-col overflow-hidden rounded-small border border-divider bg-content1 text-foreground shadow-none outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus transition-transform-background motion-reduce:transition-none"
+    data-component="card"
     data-slot="base"
     tabindex="-1"
   >
@@ -118,6 +122,7 @@ exports[`Story Snapshots > FooterOnly 1`] = `
 <div>
   <div
     class="relative box-border flex h-auto w-full flex-col overflow-hidden rounded-small border border-divider bg-content1 text-foreground shadow-none outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus transition-transform-background motion-reduce:transition-none"
+    data-component="card"
     data-slot="base"
     tabindex="-1"
   >
@@ -142,6 +147,7 @@ exports[`Story Snapshots > HeaderOnly 1`] = `
 <div>
   <div
     class="relative box-border flex h-auto w-full flex-col overflow-hidden rounded-small border border-divider bg-content1 text-foreground shadow-none outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus transition-transform-background motion-reduce:transition-none"
+    data-component="card"
     data-slot="base"
     tabindex="-1"
   >
@@ -171,6 +177,7 @@ exports[`Story Snapshots > KeyboardControls 1`] = `
   </button>
   <div
     class="relative box-border flex h-auto w-full flex-col overflow-hidden rounded-small border border-divider bg-content1 text-foreground shadow-none outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus transition-transform-background motion-reduce:transition-none"
+    data-component="card"
     data-slot="base"
     tabindex="-1"
   >
@@ -198,6 +205,7 @@ exports[`Story Snapshots > KeyboardControls 1`] = `
     >
       <button
         class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
+        data-component="button"
         data-rac=""
         data-react-aria-pressable="true"
         id="react-aria-«replaced-aria-id»"
@@ -220,6 +228,7 @@ exports[`Story Snapshots > Zero 1`] = `
 <div>
   <div
     class="relative box-border flex h-auto w-full flex-col overflow-hidden rounded-small border border-divider bg-content1 text-foreground shadow-none outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus transition-transform-background motion-reduce:transition-none"
+    data-component="card"
     data-slot="base"
     tabindex="-1"
   >

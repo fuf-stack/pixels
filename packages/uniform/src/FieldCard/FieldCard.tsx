@@ -33,8 +33,8 @@ const FieldCard = ({
   ...uniformFieldProps
 }: FieldCardProps) => {
   const { field } = useUniformField({
-    name,
     ...uniformFieldProps,
+    name,
   });
 
   const validation = useFieldCardValidation(field);

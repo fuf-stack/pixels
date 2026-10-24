@@ -86,8 +86,8 @@ const useUniformField = <
 
   // convert between stored form values and displayed values
   const { toDisplayValue, toFormValue } = useInputValueTransform<TDisplay>({
-    type,
     transform,
+    type,
   });
 
   const transformedValue = toDisplayValue(fieldValue);

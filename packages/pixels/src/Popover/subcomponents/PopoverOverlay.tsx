@@ -123,6 +123,7 @@ const PopoverOverlay = ({
           {...overlayProps}
           {...position.overlayProps}
           ref={overlayRef}
+          data-component="popover"
           data-slot="overlay"
         >
           <motion.div
@@ -131,7 +132,7 @@ const PopoverOverlay = ({
             data-placement={animationPlacement ?? undefined}
             exit={{ opacity: 0, scale: 0.96, transition: { duration: 0.15 } }}
             initial={reducedMotion ? false : { opacity: 0, scale: 0.8 }}
-            transition={{ type: 'spring', bounce: 0, duration: 0.3 }}
+            transition={{ bounce: 0, duration: 0.3, type: 'spring' }}
           >
             <PopoverContent
               {...props}

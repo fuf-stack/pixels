@@ -87,6 +87,7 @@ const TooltipSurface = ({
         {...overlayProps}
         ref={ref}
         className={classNames.overlay}
+        data-component="tooltip"
       >
         <motion.div
           animate={{ opacity: 1, scale: 1 }}
@@ -97,7 +98,7 @@ const TooltipSurface = ({
           data-slot="base"
           exit={{ opacity: 0, scale: 0.96, transition: { duration: 0.15 } }}
           initial={reducedMotion ? false : { opacity: 0, scale: 0.8 }}
-          transition={{ type: 'spring', bounce: 0, duration: 0.3 }}
+          transition={{ bounce: 0, duration: 0.3, type: 'spring' }}
         >
           <TooltipContent {...contentProps} className={classNames} />
         </motion.div>

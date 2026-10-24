@@ -40,7 +40,7 @@ const TableBodyRow = ({
 }: TableBodyRowProps) => {
   const ref = useRef<HTMLTableRowElement>(null);
   const { rowProps } = useTableRow(
-    { node, isVirtualized: virtualized },
+    { isVirtualized: virtualized, node },
     state,
     ref,
   );

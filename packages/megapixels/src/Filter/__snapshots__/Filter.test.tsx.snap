@@ -4,9 +4,11 @@ exports[`Story Snapshots > AddFilterInteraction 1`] = `
 <div>
   <div
     class="flex flex-auto flex-col"
+    data-component="filter"
   >
     <div
       class="flex w-full flex-row justify-between gap-6"
+      data-component="form"
     >
       <form
         class="grow mb-3 flex flex-wrap gap-3"
@@ -18,6 +20,7 @@ exports[`Story Snapshots > AddFilterInteraction 1`] = `
       >
         <div
           class="relative box-border inline-flex min-w-min max-w-fit items-center justify-between whitespace-nowrap px-1 text-small bg-primary/20 text-primary-600 h-8 cursor-pointer rounded-md dark:text-foreground"
+          data-component="label"
           data-slot="base"
         >
           <span
@@ -82,6 +85,7 @@ exports[`Story Snapshots > AddFilterInteraction 1`] = `
           aria-haspopup="true"
           aria-label="Add Filter"
           class="group tap-highlight-transparent data-[hover=true]:opacity-hover group tap-highlight-transparent data-[hover=true]:opacity-hover group relative box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus border-medium h-8 min-w-16 gap-2 rounded-small px-3 text-tiny [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none border-default bg-transparent text-foreground data-[hover=true]:opacity-hover z-auto subpixel-antialiased aria-expanded:!scale-[0.97] aria-expanded:!opacity-70"
+          data-component="button"
           data-rac=""
           data-react-aria-pressable="true"
           data-slot="trigger"
@@ -115,9 +119,11 @@ exports[`Story Snapshots > CheckboxesWithReactNodeLabels 1`] = `
 <div>
   <div
     class="flex flex-auto flex-col"
+    data-component="filter"
   >
     <div
       class="flex w-full flex-row justify-between gap-6"
+      data-component="form"
     >
       <form
         class="grow mb-3 flex flex-wrap gap-3"
@@ -133,6 +139,7 @@ exports[`Story Snapshots > CheckboxesWithReactNodeLabels 1`] = `
           <button
             aria-label="Show search input"
             class="group tap-highlight-transparent [&>svg]:max-w-[theme(spacing.8)] data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus border-medium gap-2 rounded-small text-tiny !gap-0 px-0 transition-transform-colors-opacity motion-reduce:transition-none border-default bg-transparent text-foreground h-8 w-8 min-w-8 data-[hover=true]:opacity-hover"
+            data-component="button"
             data-rac=""
             data-react-aria-pressable="true"
             data-testid="show_search_input_button"
@@ -157,6 +164,7 @@ exports[`Story Snapshots > CheckboxesWithReactNodeLabels 1`] = `
         </div>
         <div
           class="relative box-border inline-flex min-w-min max-w-fit items-center justify-between whitespace-nowrap px-1 text-small bg-primary/20 text-primary-600 h-8 cursor-pointer rounded-md dark:text-foreground"
+          data-component="label"
           data-slot="base"
         >
           <span
@@ -229,6 +237,7 @@ exports[`Story Snapshots > CheckboxesWithReactNodeLabels 1`] = `
         </div>
         <div
           class="relative box-border inline-flex min-w-min max-w-fit items-center justify-between whitespace-nowrap px-1 text-small bg-primary/20 text-primary-600 h-8 cursor-pointer rounded-md dark:text-foreground"
+          data-component="label"
           data-slot="base"
         >
           <span
@@ -297,6 +306,7 @@ exports[`Story Snapshots > CheckboxesWithReactNodeLabels 1`] = `
           aria-haspopup="true"
           aria-label="Add Filter"
           class="group tap-highlight-transparent data-[hover=true]:opacity-hover group tap-highlight-transparent pointer-events-none opacity-disabled data-[hover=true]:opacity-hover group relative box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus border-medium h-8 min-w-16 gap-2 rounded-small px-3 text-tiny [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none border-default bg-transparent text-foreground data-[hover=true]:opacity-hover z-auto subpixel-antialiased aria-expanded:!scale-[0.97] aria-expanded:!opacity-70"
+          data-component="button"
           data-disabled="true"
           data-rac=""
           data-react-aria-pressable="true"
@@ -331,9 +341,11 @@ exports[`Story Snapshots > EditAndRemove 1`] = `
 <div>
   <div
     class="flex flex-auto flex-col"
+    data-component="filter"
   >
     <div
       class="flex w-full flex-row justify-between gap-6"
+      data-component="form"
     >
       <form
         class="grow mb-3 flex flex-wrap gap-3"
@@ -348,6 +360,7 @@ exports[`Story Snapshots > EditAndRemove 1`] = `
           aria-haspopup="true"
           aria-label="Add Filter"
           class="group tap-highlight-transparent data-[hover=true]:opacity-hover group tap-highlight-transparent data-[hover=true]:opacity-hover group relative box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus border-medium h-8 min-w-16 gap-2 rounded-small px-3 text-tiny [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none border-default bg-transparent text-foreground data-[hover=true]:opacity-hover z-auto subpixel-antialiased aria-expanded:!scale-[0.97] aria-expanded:!opacity-70"
+          data-component="button"
           data-rac=""
           data-react-aria-pressable="true"
           data-slot="trigger"
@@ -381,9 +394,11 @@ exports[`Story Snapshots > FiltersOnly 1`] = `
 <div>
   <div
     class="flex flex-auto flex-col"
+    data-component="filter"
   >
     <div
       class="flex w-full flex-row justify-between gap-6"
+      data-component="form"
     >
       <form
         class="grow mb-3 flex flex-wrap gap-3"
@@ -398,6 +413,7 @@ exports[`Story Snapshots > FiltersOnly 1`] = `
           aria-haspopup="true"
           aria-label="Add Filter"
           class="group tap-highlight-transparent data-[hover=true]:opacity-hover group tap-highlight-transparent data-[hover=true]:opacity-hover group relative box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus border-medium h-8 min-w-16 gap-2 rounded-small px-3 text-tiny [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none border-default bg-transparent text-foreground data-[hover=true]:opacity-hover z-auto subpixel-antialiased aria-expanded:!scale-[0.97] aria-expanded:!opacity-70"
+          data-component="button"
           data-rac=""
           data-react-aria-pressable="true"
           data-slot="trigger"
@@ -431,9 +447,11 @@ exports[`Story Snapshots > WithCustomStyles 1`] = `
 <div>
   <div
     class="flex flex-auto flex-col rounded-2xl bg-gradient-to-r from-fuchsia-400 via-rose-300 to-amber-300 p-[2px] shadow-[0_8px_30px_rgb(0,0,0,0.05)] dark:bg-gradient-to-br dark:from-fuchsia-500 dark:via-purple-500 dark:to-amber-400/70 dark:shadow-[0_0_40px_2px_rgba(217,70,239,0.15)]"
+    data-component="filter"
   >
     <div
       class="flex w-full flex-row justify-between gap-6"
+      data-component="form"
     >
       <form
         class="grow mb-3 flex flex-wrap gap-3 items-center rounded-2xl p-4 bg-gradient-to-r from-rose-100 via-fuchsia-100 to-amber-100 ring-1 ring-rose-300/40 dark:bg-gradient-to-br dark:from-[#2a0a4a] dark:via-[#12183e] dark:to-[#0a1024] dark:ring-fuchsia-400/30"
@@ -452,6 +470,7 @@ exports[`Story Snapshots > WithCustomStyles 1`] = `
           >
             <div
               class="group relative flex w-full flex-col is-filled"
+              data-component="input"
               data-filled="true"
               data-rac=""
               data-slot="base"
@@ -510,6 +529,7 @@ exports[`Story Snapshots > WithCustomStyles 1`] = `
             <button
               aria-label="Submit search"
               class="group tap-highlight-transparent [&>svg]:max-w-[theme(spacing.8)] data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 gap-2 text-tiny !gap-0 px-0 motion-reduce:transition-none h-8 w-8 min-w-8 data-[hover=true]:opacity-hover rounded-full text-white shadow-lg transition-transform bg-gradient-to-br from-fuchsia-500 to-indigo-500 hover:scale-105 active:scale-95 dark:from-fuchsia-500 dark:to-purple-600 data-[focus-visible=true]:outline-amber-400"
+              data-component="submit-button"
               data-rac=""
               data-react-aria-pressable="true"
               data-testid="submit_search_button"
@@ -535,6 +555,7 @@ exports[`Story Snapshots > WithCustomStyles 1`] = `
         </div>
         <div
           class="relative box-border inline-flex min-w-min max-w-fit items-center justify-between whitespace-nowrap px-1 text-small h-8 cursor-pointer rounded-full border text-amber-900 shadow transition hover:shadow-md border-amber-400/30 bg-amber-200/85 dark:bg-amber-400/20 dark:text-amber-200"
+          data-component="label"
           data-slot="base"
         >
           <span
@@ -588,6 +609,7 @@ exports[`Story Snapshots > WithCustomStyles 1`] = `
         </div>
         <div
           class="relative box-border inline-flex min-w-min max-w-fit items-center justify-between whitespace-nowrap px-1 text-small h-8 cursor-pointer rounded-full border text-amber-900 shadow transition hover:shadow-md border-amber-400/30 bg-amber-200/85 dark:bg-amber-400/20 dark:text-amber-200"
+          data-component="label"
           data-slot="base"
         >
           <span
@@ -649,6 +671,7 @@ exports[`Story Snapshots > WithCustomStyles 1`] = `
         </div>
         <div
           class="relative box-border inline-flex min-w-min max-w-fit items-center justify-between whitespace-nowrap px-1 text-small h-8 cursor-pointer rounded-full border text-amber-900 shadow transition hover:shadow-md border-amber-400/30 bg-amber-200/85 dark:bg-amber-400/20 dark:text-amber-200"
+          data-component="label"
           data-slot="base"
         >
           <span
@@ -716,6 +739,7 @@ exports[`Story Snapshots > WithCustomStyles 1`] = `
           aria-haspopup="true"
           aria-label="Add Filter"
           class="group tap-highlight-transparent data-[hover=true]:opacity-hover group tap-highlight-transparent data-[hover=true]:opacity-hover group relative box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 h-8 min-w-16 gap-2 px-3 text-tiny [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover z-auto subpixel-antialiased aria-expanded:!scale-[0.97] aria-expanded:!opacity-70 rounded-full leading-none border-2 border-rose-300/60 bg-rose-50/60 text-rose-700 hover:bg-rose-100/70 dark:border-fuchsia-500/40 dark:bg-fuchsia-500/10 dark:text-fuchsia-200 dark:hover:bg-fuchsia-500/20 data-[focus-visible=true]:outline-amber-400"
+          data-component="button"
           data-rac=""
           data-react-aria-pressable="true"
           data-slot="trigger"
@@ -749,9 +773,11 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
 <div>
   <div
     class="flex flex-auto flex-col"
+    data-component="filter"
   >
     <div
       class="flex w-full flex-row justify-between gap-6"
+      data-component="form"
     >
       <form
         class="grow mb-3 flex flex-wrap gap-3"
@@ -770,6 +796,7 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
           >
             <div
               class="group relative flex w-full flex-col is-filled"
+              data-component="input"
               data-filled="true"
               data-rac=""
               data-slot="base"
@@ -828,6 +855,7 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
             <button
               aria-label="Submit search"
               class="group tap-highlight-transparent [&>svg]:max-w-[theme(spacing.8)] data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus gap-2 rounded-small text-tiny !gap-0 px-0 transition-transform-colors-opacity motion-reduce:transition-none bg-primary text-primary-foreground h-8 w-8 min-w-8 data-[hover=true]:opacity-hover"
+              data-component="submit-button"
               data-rac=""
               data-react-aria-pressable="true"
               data-testid="submit_search_button"
@@ -853,6 +881,7 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
         </div>
         <div
           class="relative box-border inline-flex min-w-min max-w-fit items-center justify-between whitespace-nowrap px-1 text-small bg-primary/20 text-primary-600 h-8 cursor-pointer rounded-md dark:text-foreground"
+          data-component="label"
           data-slot="base"
         >
           <span
@@ -906,6 +935,7 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
         </div>
         <div
           class="relative box-border inline-flex min-w-min max-w-fit items-center justify-between whitespace-nowrap px-1 text-small bg-primary/20 text-primary-600 h-8 cursor-pointer rounded-md dark:text-foreground"
+          data-component="label"
           data-slot="base"
         >
           <span
@@ -967,6 +997,7 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
         </div>
         <div
           class="relative box-border inline-flex min-w-min max-w-fit items-center justify-between whitespace-nowrap px-1 text-small bg-primary/20 text-primary-600 h-8 cursor-pointer rounded-md dark:text-foreground"
+          data-component="label"
           data-slot="base"
         >
           <span
@@ -1034,6 +1065,7 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
           aria-haspopup="true"
           aria-label="Add Filter"
           class="group tap-highlight-transparent data-[hover=true]:opacity-hover group tap-highlight-transparent data-[hover=true]:opacity-hover group relative box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus border-medium h-8 min-w-16 gap-2 rounded-small px-3 text-tiny [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none border-default bg-transparent text-foreground data-[hover=true]:opacity-hover z-auto subpixel-antialiased aria-expanded:!scale-[0.97] aria-expanded:!opacity-70"
+          data-component="button"
           data-rac=""
           data-react-aria-pressable="true"
           data-slot="trigger"
@@ -1067,9 +1099,11 @@ exports[`Story Snapshots > WithSearch 1`] = `
 <div>
   <div
     class="flex flex-auto flex-col"
+    data-component="filter"
   >
     <div
       class="flex w-full flex-row justify-between gap-6"
+      data-component="form"
     >
       <form
         class="grow mb-3 flex flex-wrap gap-3"
@@ -1085,6 +1119,7 @@ exports[`Story Snapshots > WithSearch 1`] = `
           <button
             aria-label="Show search input"
             class="group tap-highlight-transparent [&>svg]:max-w-[theme(spacing.8)] data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus border-medium gap-2 rounded-small text-tiny !gap-0 px-0 transition-transform-colors-opacity motion-reduce:transition-none border-default bg-transparent text-foreground h-8 w-8 min-w-8 data-[hover=true]:opacity-hover"
+            data-component="button"
             data-rac=""
             data-react-aria-pressable="true"
             data-testid="show_search_input_button"
@@ -1112,6 +1147,7 @@ exports[`Story Snapshots > WithSearch 1`] = `
           aria-haspopup="true"
           aria-label="Add Filter"
           class="group tap-highlight-transparent data-[hover=true]:opacity-hover group tap-highlight-transparent data-[hover=true]:opacity-hover group relative box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus border-medium h-8 min-w-16 gap-2 rounded-small px-3 text-tiny [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none border-default bg-transparent text-foreground data-[hover=true]:opacity-hover z-auto subpixel-antialiased aria-expanded:!scale-[0.97] aria-expanded:!opacity-70"
+          data-component="button"
           data-rac=""
           data-react-aria-pressable="true"
           data-slot="trigger"

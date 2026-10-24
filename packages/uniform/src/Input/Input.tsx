@@ -71,12 +71,12 @@ const Input = ({
 
   // debounce form updates, flush pending edits on blur
   const { value, onChange, onBlur, clear } = useInputValueDebounce({
-    name,
     debounceDelay,
     emptyValue: '',
-    value: field.value,
-    onChange: field.onChange,
+    name,
     onBlur: field.onBlur,
+    onChange: field.onChange,
+    value: field.value,
   });
 
   return (

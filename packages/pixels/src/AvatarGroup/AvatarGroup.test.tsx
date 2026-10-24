@@ -21,6 +21,11 @@ describe('Group behavior', () => {
   it('limits visible entries and announces the hidden count', () => {
     render(<AvatarGroup avatars={avatars} max={2} />);
 
+    expect(screen.getByRole('group')).toHaveAttribute(
+      'data-component',
+      'avatar-group',
+    );
+    expect(screen.getByRole('group')).toHaveAttribute('data-slot', 'base');
     expect(screen.getByText('A')).toBeInTheDocument();
     expect(screen.getByText('B')).toBeInTheDocument();
     expect(screen.queryByText('C')).not.toBeInTheDocument();

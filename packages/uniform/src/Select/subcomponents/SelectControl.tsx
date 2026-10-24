@@ -41,6 +41,7 @@ const SelectControl = ({ className, field, ...props }: SelectControlProps) => {
     <FieldLayout
       baseProps={{
         ...getFieldDataAttributes(field),
+        'data-component': 'select',
         'data-testid': `${testId}_wrapper`,
       }}
       className={classNames}

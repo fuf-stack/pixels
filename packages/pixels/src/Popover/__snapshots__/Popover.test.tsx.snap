@@ -39,6 +39,7 @@ exports[`Popover interactions > opens with the keyboard, names the dialog and re
     <div
       class="overflow-y-auto data-[top-scroll=true]:[mask-image:linear-gradient(0deg,#000_calc(100%_-_var(--scroll-shadow-size)),transparent)] data-[bottom-scroll=true]:[mask-image:linear-gradient(180deg,#000_calc(100%_-_var(--scroll-shadow-size)),transparent)] data-[top-bottom-scroll=true]:[mask-image:linear-gradient(#000,#000,transparent_0,#000_var(--scroll-shadow-size),#000_calc(100%_-_var(--scroll-shadow-size)),transparent)] w-full px-4 py-2"
       data-bottom-scroll="false"
+      data-component="scroll-shadow"
       data-orientation="vertical"
       data-slot="body"
       data-top-scroll="false"
@@ -194,6 +195,7 @@ exports[`Story Snapshots > DisabledTrigger 1`] = `
     aria-expanded="false"
     aria-haspopup="dialog"
     class="group tap-highlight-transparent data-[hover=true]:opacity-hover group tap-highlight-transparent data-[hover=true]:opacity-hover group relative box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small pointer-events-none opacity-disabled [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-primary text-primary-foreground data-[hover=true]:opacity-hover z-10 subpixel-antialiased aria-expanded:scale-[0.97] aria-expanded:opacity-70"
+    data-component="button"
     data-disabled="true"
     data-rac=""
     data-react-aria-pressable="true"
@@ -479,6 +481,7 @@ exports[`Story Snapshots > WithCustomTriggerButton 1`] = `
     aria-expanded="false"
     aria-haspopup="dialog"
     class="group tap-highlight-transparent data-[hover=true]:opacity-hover group tap-highlight-transparent data-[hover=true]:opacity-hover group relative box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success shadow-lg shadow-success/40 data-[hover=true]:opacity-hover text-success-foreground z-10 subpixel-antialiased aria-expanded:scale-[0.97] aria-expanded:opacity-70"
+    data-component="button"
     data-rac=""
     data-react-aria-pressable="true"
     data-slot="trigger"

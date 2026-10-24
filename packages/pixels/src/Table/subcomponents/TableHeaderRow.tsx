@@ -31,7 +31,7 @@ const TableHeaderRow = ({
 }: TableHeaderRowProps) => {
   const ref = useRef<HTMLTableRowElement>(null);
   const { rowProps } = useTableHeaderRow(
-    { node, isVirtualized: virtualized },
+    { isVirtualized: virtualized, node },
     state,
     ref,
   );

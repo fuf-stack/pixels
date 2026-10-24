@@ -377,8 +377,8 @@ const DataTable = <TData, TValue>({
     data,
     enableExpandableRows: resolvedEnableExpandableRows,
     enablePagination: resolvedEnablePagination,
-    enableServerMode: Boolean(resolvedInfiniteScroll),
     enableRowSelection: resolvedEnableRowSelection,
+    enableServerMode: Boolean(resolvedInfiniteScroll),
     expansionClassNames,
     expansionIcons: icons?.expandableRows,
     getSubRows: resolvedExpandableRows?.getSubRows,
@@ -544,7 +544,12 @@ const DataTable = <TData, TValue>({
   };
 
   return (
-    <div className={classNames.base} data-slot="base" data-testid={testId}>
+    <div
+      className={classNames.base}
+      data-component="data-table"
+      data-slot="base"
+      data-testid={testId}
+    >
       {/* Optional toolbar area for built-in search, custom content, and column visibility controls. */}
       {showToolbar ? (
         <div className={classNames.toolbar} data-slot="toolbar">

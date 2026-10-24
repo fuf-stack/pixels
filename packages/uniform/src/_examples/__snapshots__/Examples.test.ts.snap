@@ -11,6 +11,7 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
       >
         <div
           class="flex w-full flex-row justify-between gap-6"
+          data-component="form"
         >
           <form
             class="grow"
@@ -20,6 +21,7 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
           >
             <div
               class="relative box-border flex h-auto w-full flex-col overflow-hidden rounded-small border border-divider bg-content1 text-foreground shadow-none outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus transition-transform-background motion-reduce:transition-none"
+              data-component="card"
               data-slot="base"
               tabindex="-1"
             >
@@ -29,9 +31,11 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
               >
                 <div
                   class="grid gap-6 md:grid-cols-2"
+                  data-component="grid"
                 >
                   <div
                     class="group relative flex w-full flex-col"
+                    data-component="input"
                     data-rac=""
                     data-required="true"
                     data-slot="base"
@@ -80,6 +84,7 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                   </div>
                   <div
                     class="group relative flex w-full flex-col"
+                    data-component="input"
                     data-rac=""
                     data-required="true"
                     data-slot="base"
@@ -198,6 +203,7 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                   />
                   <div
                     class="group flex w-full flex-col gap-y-1.5 leading-normal"
+                    data-component="select"
                     data-required="true"
                     data-slot="base"
                     data-testid="selectfield_wrapper"
@@ -312,6 +318,7 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                   </div>
                   <div
                     class="group relative flex w-full flex-col"
+                    data-component="input"
                     data-rac=""
                     data-required="true"
                     data-slot="base"
@@ -387,6 +394,7 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                   </div>
                   <div
                     class="group flex w-full flex-col gap-y-1.5 pb-5"
+                    data-component="date-picker"
                     data-rac=""
                     data-required="true"
                     data-slot="base"
@@ -603,6 +611,7 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                   </div>
                   <div
                     class="group flex w-full flex-col gap-y-1.5 pb-5"
+                    data-component="time"
                     data-rac=""
                     data-required="true"
                     data-slot="base"
@@ -787,6 +796,7 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                   </div>
                   <div
                     class="group relative flex w-full flex-col md:col-span-2"
+                    data-component="text-area"
                     data-required="true"
                     data-slot="base"
                   >
@@ -831,6 +841,7 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                   </div>
                   <div
                     class="group flex w-full flex-col gap-y-1.5 md:col-span-2"
+                    data-component="slider"
                     data-invalid="false"
                     data-required="true"
                     data-testid="sliderfield"
@@ -934,6 +945,7 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                   </div>
                   <div
                     class="place-content-center"
+                    data-component="switch"
                     data-slot="outer-wrapper"
                   >
                     <label
@@ -987,6 +999,7 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                   </div>
                   <label
                     class="group inline-flex w-full cursor-pointer items-center justify-between rounded-lg border-2 border-default hover:bg-content2 data-[selected=true]:border-focus gap-4 p-4 md:col-span-2"
+                    data-component="switch-box"
                     data-invalid="false"
                     data-react-aria-pressable="true"
                     data-required="true"
@@ -1047,6 +1060,7 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                     aria-describedby="uniform-«replaced-aria-id»-required"
                     aria-labelledby="uniform-«replaced-aria-id»-label"
                     class="group flex w-full flex-col gap-y-1.5 relative"
+                    data-component="checkboxes"
                     data-invalid="false"
                     data-rac=""
                     data-required="true"
@@ -1269,6 +1283,7 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                     aria-orientation="horizontal"
                     aria-required="true"
                     class="relative group flex w-full flex-col gap-y-1.5"
+                    data-component="radios"
                     data-invalid="false"
                     data-orientation="horizontal"
                     data-rac=""
@@ -1456,6 +1471,7 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                     aria-orientation="vertical"
                     aria-required="true"
                     class="relative group flex w-full flex-col gap-y-1.5 md:col-span-2"
+                    data-component="radio-boxes"
                     data-invalid="false"
                     data-orientation="vertical"
                     data-rac=""
@@ -1642,6 +1658,7 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                     aria-describedby="uniform-«replaced-aria-id»-required"
                     aria-labelledby="uniform-«replaced-aria-id»-label"
                     class="group flex w-full flex-col gap-y-1.5 relative md:col-span-2"
+                    data-component="radio-tabs"
                     data-invalid="false"
                     data-required="true"
                     data-slot="base"
@@ -1768,6 +1785,7 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                     aria-describedby="uniform-«replaced-aria-id»-required"
                     aria-labelledby="uniform-«replaced-aria-id»-label"
                     class="group flex w-full flex-col gap-y-1.5 relative md:col-span-2"
+                    data-component="radio-tabs"
                     data-invalid="false"
                     data-required="true"
                     data-slot="base"
@@ -1893,6 +1911,7 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                   <div
                     aria-labelledby="«replaced-aria-id»"
                     class="overflow-hidden rounded-small border border-divider bg-content1 divide-y divide-divider md:col-span-2"
+                    data-component="field-array"
                     role="group"
                   >
                     <div
@@ -1912,6 +1931,7 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                     </div>
                     <button
                       class="group tap-highlight-transparent transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center select-none appearance-none whitespace-nowrap subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-8 min-w-16 gap-2 rounded-small px-3 text-tiny [&>svg]:max-w-[theme(spacing.8)] !transition-none data-[pressed=true]:scale-100 bg-transparent text-default-foreground data-[hover=true]:bg-default/40 w-full justify-start rounded-b-small rounded-t-none font-semibold !h-[48px] !min-h-0 outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-focus"
+                      data-component="button"
                       data-rac=""
                       data-react-aria-pressable="true"
                       data-testid="fieldarrayfield_append_button"
@@ -1932,6 +1952,7 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                   <div
                     aria-labelledby="«replaced-aria-id»"
                     class="overflow-hidden rounded-small border border-divider bg-content1 divide-y divide-divider md:col-span-2"
+                    data-component="field-array"
                     role="group"
                   >
                     <div
@@ -1966,10 +1987,12 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                           >
                             <div
                               class="grid gap-6 w-full grow p-3"
+                              data-component="grid"
                               data-testid="fieldarrayflatfield_0_element_fields_grid"
                             >
                               <div
                                 class="group relative flex w-full flex-col"
+                                data-component="input"
                                 data-rac=""
                                 data-required="true"
                                 data-slot="base"
@@ -2023,6 +2046,7 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                     </div>
                     <button
                       class="group tap-highlight-transparent transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center select-none appearance-none whitespace-nowrap subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-8 min-w-16 gap-2 rounded-small px-3 text-tiny [&>svg]:max-w-[theme(spacing.8)] !transition-none data-[pressed=true]:scale-100 bg-transparent text-default-foreground data-[hover=true]:bg-default/40 w-full justify-start rounded-b-small rounded-t-none font-semibold !h-[48px] !min-h-0 outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-focus"
+                      data-component="button"
                       data-rac=""
                       data-react-aria-pressable="true"
                       data-testid="fieldarrayflatfield_append_button"
@@ -2044,6 +2068,7 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                     aria-describedby="uniform-«replaced-aria-id»-error"
                     aria-labelledby="uniform-«replaced-aria-id»-label"
                     class="overflow-hidden rounded-small border bg-content1 transition-colors duration-150 motion-reduce:transition-none border-divider md:col-span-2"
+                    data-component="field-card"
                     role="group"
                   >
                     <div
@@ -2066,9 +2091,11 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                     >
                       <div
                         class="grid gap-6"
+                        data-component="grid"
                       >
                         <div
                           class="group relative flex w-full flex-col"
+                          data-component="input"
                           data-rac=""
                           data-required="true"
                           data-slot="base"
@@ -2117,6 +2144,7 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                         </div>
                         <div
                           class="group relative flex w-full flex-col"
+                          data-component="input"
                           data-rac=""
                           data-required="true"
                           data-slot="base"
@@ -2174,6 +2202,7 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                       >
                         <div
                           class="text-danger !text-foreground-500 text-tiny"
+                          data-component="field-validation-error"
                           data-slot="error-message"
                           id="uniform-«replaced-aria-id»-error"
                         >
@@ -2207,6 +2236,7 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                 <button
                   aria-label="Submit form"
                   class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
+                  data-component="submit-button"
                   data-rac=""
                   data-react-aria-pressable="true"
                   data-testid="form_submit_button"
@@ -2241,6 +2271,7 @@ exports[`Story Snapshots > DebugModeDisabled 1`] = `
     >
       <div
         class="flex w-full flex-row justify-between gap-6"
+        data-component="form"
       >
         <form
           class="grow"
@@ -2250,6 +2281,7 @@ exports[`Story Snapshots > DebugModeDisabled 1`] = `
         >
           <div
             class="relative box-border flex h-auto w-full flex-col overflow-hidden rounded-small border border-divider bg-content1 text-foreground shadow-none outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus transition-transform-background motion-reduce:transition-none"
+            data-component="card"
             data-slot="base"
             tabindex="-1"
           >
@@ -2259,6 +2291,7 @@ exports[`Story Snapshots > DebugModeDisabled 1`] = `
             >
               <div
                 class="group relative flex w-full flex-col"
+                data-component="input"
                 data-rac=""
                 data-required="true"
                 data-slot="base"
@@ -2316,6 +2349,7 @@ exports[`Story Snapshots > DebugModeDisabled 1`] = `
               <button
                 aria-label="Submit form"
                 class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
+                data-component="submit-button"
                 data-rac=""
                 data-react-aria-pressable="true"
                 data-testid="form_submit_button"
@@ -2347,6 +2381,7 @@ exports[`Story Snapshots > FormFieldsInModal 1`] = `
       >
         <button
           class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
+          data-component="button"
           data-rac=""
           data-react-aria-pressable="true"
           data-testid="modal_trigger"
@@ -2358,6 +2393,7 @@ exports[`Story Snapshots > FormFieldsInModal 1`] = `
         </button>
         <div
           class="flex w-full flex-row justify-between gap-6"
+          data-component="form"
         >
           <form
             class="grow"

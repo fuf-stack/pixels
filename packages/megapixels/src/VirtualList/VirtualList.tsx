@@ -23,7 +23,7 @@ export const virtualListVariants = tv({
     // Skeleton-like placeholder for unloaded rows in total-count mode.
     placeholderItem: 'box-border border-b border-divider bg-content1 px-3',
     // Scrollable viewport used as the virtualizer scroll element.
-    scrollContainer: 'w-full min-w-80 overflow-y-auto overflow-x-hidden',
+    scrollContainer: 'w-full min-w-80 overflow-x-hidden overflow-y-auto',
     // Visual frame around the masked scroll area (stays fully opaque).
     scrollFrame: 'rounded-md border border-divider bg-content1',
     // Optional styling slot for ScrollShadow wrapper behavior.
@@ -173,7 +173,12 @@ const VirtualList = <TData,>({
     });
 
   return (
-    <div className={classNames.base} data-slot="base" data-testid={testId}>
+    <div
+      className={classNames.base}
+      data-component="virtual-list"
+      data-slot="base"
+      data-testid={testId}
+    >
       <div className={classNames.scrollFrame} data-slot="scroll-frame">
         <ScrollShadow
           ref={scrollElementRef}

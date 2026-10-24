@@ -51,7 +51,12 @@ const AvatarGroup = ({
   const remainingCount = max ? avatars.length - max : 0;
 
   return (
-    <div className={classNames.base} data-slot="base" role="group">
+    <div
+      className={classNames.base}
+      data-component="avatar-group"
+      data-slot="base"
+      role="group"
+    >
       <AvatarGroupContext.Provider value>
         {visibleAvatars.map(({ wrapperProps, ...avatarProps }, index) => {
           const key = `${avatarProps.src || 'avatar'}-${index}`;

@@ -5,6 +5,7 @@ exports[`Story Snapshots > Autosizing 1`] = `
   <div>
     <div
       class="flex w-full flex-row justify-between gap-6"
+      data-component="form"
     >
       <form
         class="grow min-w-60"
@@ -14,6 +15,7 @@ exports[`Story Snapshots > Autosizing 1`] = `
       >
         <div
           class="group relative flex w-full flex-col"
+          data-component="text-area"
           data-slot="base"
         >
           <label
@@ -54,6 +56,7 @@ exports[`Story Snapshots > Autosizing 1`] = `
           <button
             aria-label="Submit form"
             class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
+            data-component="submit-button"
             data-rac=""
             data-react-aria-pressable="true"
             data-testid="form_submit_button"
@@ -80,6 +83,7 @@ exports[`Story Snapshots > ConsumerFontSize 1`] = `
   <div>
     <div
       class="flex w-full flex-row justify-between gap-6"
+      data-component="form"
     >
       <form
         class="grow min-w-60"
@@ -92,6 +96,7 @@ exports[`Story Snapshots > ConsumerFontSize 1`] = `
         </style>
         <div
           class="group relative flex w-full flex-col"
+          data-component="text-area"
           data-slot="base"
         >
           <label
@@ -132,6 +137,7 @@ exports[`Story Snapshots > ConsumerFontSize 1`] = `
           <button
             aria-label="Submit form"
             class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
+            data-component="submit-button"
             data-rac=""
             data-react-aria-pressable="true"
             data-testid="form_submit_button"
@@ -158,6 +164,7 @@ exports[`Story Snapshots > Default 1`] = `
   <div>
     <div
       class="flex w-full flex-row justify-between gap-6"
+      data-component="form"
     >
       <form
         class="grow min-w-60"
@@ -167,6 +174,7 @@ exports[`Story Snapshots > Default 1`] = `
       >
         <div
           class="group relative flex w-full flex-col"
+          data-component="text-area"
           data-slot="base"
         >
           <div
@@ -199,6 +207,7 @@ exports[`Story Snapshots > Default 1`] = `
           <button
             aria-label="Submit form"
             class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
+            data-component="submit-button"
             data-rac=""
             data-react-aria-pressable="true"
             data-testid="form_submit_button"
@@ -225,6 +234,7 @@ exports[`Story Snapshots > Disabled 1`] = `
   <div>
     <div
       class="flex w-full flex-row justify-between gap-6"
+      data-component="form"
     >
       <form
         class="grow min-w-60"
@@ -234,6 +244,7 @@ exports[`Story Snapshots > Disabled 1`] = `
       >
         <div
           class="group relative flex w-full flex-col pointer-events-none opacity-disabled"
+          data-component="text-area"
           data-disabled="true"
           data-slot="base"
         >
@@ -276,6 +287,7 @@ exports[`Story Snapshots > Disabled 1`] = `
           <button
             aria-label="Submit form"
             class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
+            data-component="submit-button"
             data-rac=""
             data-react-aria-pressable="true"
             data-testid="form_submit_button"
@@ -302,6 +314,7 @@ exports[`Story Snapshots > HelpAndRequired 1`] = `
   <div>
     <div
       class="flex w-full flex-row justify-between gap-6"
+      data-component="form"
     >
       <form
         class="grow min-w-60"
@@ -311,6 +324,7 @@ exports[`Story Snapshots > HelpAndRequired 1`] = `
       >
         <div
           class="group relative flex w-full flex-col"
+          data-component="text-area"
           data-hover="true"
           data-invalid="true"
           data-required="true"
@@ -376,6 +390,7 @@ exports[`Story Snapshots > HelpAndRequired 1`] = `
             >
               <ul
                 aria-label="Validation errors of field textareafield"
+                data-component="field-validation-error"
                 data-testid="textareafield_error"
               >
                 <li
@@ -397,6 +412,7 @@ exports[`Story Snapshots > HelpAndRequired 1`] = `
           <button
             aria-label="Submit form"
             class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
+            data-component="submit-button"
             data-focus="true"
             data-focus-visible="true"
             data-focused="true"
@@ -426,6 +442,7 @@ exports[`Story Snapshots > Invalid 1`] = `
   <div>
     <div
       class="flex w-full flex-row justify-between gap-6"
+      data-component="form"
     >
       <form
         class="grow min-w-60"
@@ -435,6 +452,7 @@ exports[`Story Snapshots > Invalid 1`] = `
       >
         <div
           class="group relative flex w-full flex-col is-filled"
+          data-component="text-area"
           data-filled="true"
           data-hover="true"
           data-invalid="true"
@@ -497,6 +515,7 @@ exports[`Story Snapshots > Invalid 1`] = `
             >
               <ul
                 aria-label="Validation errors of field textareafield"
+                data-component="field-validation-error"
                 data-testid="textareafield_error"
               >
                 <li
@@ -518,6 +537,7 @@ exports[`Story Snapshots > Invalid 1`] = `
           <button
             aria-label="Submit form"
             class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
+            data-component="submit-button"
             data-rac=""
             data-react-aria-pressable="true"
             data-testid="form_submit_button"
@@ -544,6 +564,7 @@ exports[`Story Snapshots > Required 1`] = `
   <div>
     <div
       class="flex w-full flex-row justify-between gap-6"
+      data-component="form"
     >
       <form
         class="grow min-w-60"
@@ -553,6 +574,7 @@ exports[`Story Snapshots > Required 1`] = `
       >
         <div
           class="group relative flex w-full flex-col"
+          data-component="text-area"
           data-required="true"
           data-slot="base"
         >
@@ -601,6 +623,7 @@ exports[`Story Snapshots > Required 1`] = `
           <button
             aria-label="Submit form"
             class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
+            data-component="submit-button"
             data-rac=""
             data-react-aria-pressable="true"
             data-testid="form_submit_button"
@@ -627,6 +650,7 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
   <div>
     <div
       class="flex w-full flex-row justify-between gap-6"
+      data-component="form"
     >
       <form
         class="grow min-w-60"
@@ -636,6 +660,7 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
       >
         <div
           class="group relative flex w-full flex-col is-filled"
+          data-component="text-area"
           data-filled="true"
           data-slot="base"
         >
@@ -672,6 +697,7 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
           <button
             aria-label="Submit form"
             class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
+            data-component="submit-button"
             data-rac=""
             data-react-aria-pressable="true"
             data-testid="form_submit_button"

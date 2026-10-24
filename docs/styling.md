@@ -563,3 +563,13 @@ return a single class string, preserving existing `className` and recipe-extensi
 usage. Use `styling.resolve(buttonVariants, props)` when resolving a recipe with
 consumer merge rules. See [Button](../packages/pixels/src/Button/README.md) and
 [Pixels migration notes](./pixels/migration.md) for group precedence.
+
+## Component and slot markers
+
+`data-component` identifies the public component on its outer DOM element using
+lowercase kebab-case. `data-slot` identifies elements within that component.
+For example, `[data-component="avatar-group"]` targets the group, while
+`[data-component="input"] [data-slot="input"]` targets its editable control.
+Use the documented `className` slots for styling overrides. Nested components
+retain their own markers, and portaled surfaces live outside their triggers.
+See the [code style convention](./code-style.md#component-and-slot-markers).

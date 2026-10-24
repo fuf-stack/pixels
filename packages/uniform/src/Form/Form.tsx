@@ -101,7 +101,7 @@ const Form = ({
     >
       {({ handleSubmit, isValid }) => {
         return (
-          <div className={classNames.base}>
+          <div className={classNames.base} data-component="form">
             <form
               className={classNames.form}
               data-form-is-valid={isValid}

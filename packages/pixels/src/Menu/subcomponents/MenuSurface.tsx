@@ -91,7 +91,12 @@ const MenuSurface = ({
   return (
     <Overlay disableFocusManagement portalContainer={portalContainer}>
       <FocusScope restoreFocus>
-        <div {...overlayProps} {...position.overlayProps} ref={ref}>
+        <div
+          {...overlayProps}
+          {...position.overlayProps}
+          ref={ref}
+          data-component="menu"
+        >
           <motion.div
             animate={{ opacity: 1, scale: 1 }}
             className={classNames.panel}
@@ -102,9 +107,9 @@ const MenuSurface = ({
             }}
             initial={disableAnimation ? false : { opacity: 0, scale: 0.8 }}
             transition={{
-              type: 'spring',
               bounce: 0,
               duration: disableAnimation ? 0 : 0.3,
+              type: 'spring',
             }}
           >
             <MenuOptions {...props} className={classNames} />

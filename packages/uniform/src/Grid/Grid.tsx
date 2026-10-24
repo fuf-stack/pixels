@@ -21,7 +21,11 @@ const Grid = ({
 }: GridProps) => {
   const { cn } = useStyling();
   return (
-    <div className={cn('grid gap-6', className)} data-testid={testId}>
+    <div
+      className={cn('grid gap-6', className)}
+      data-component="grid"
+      data-testid={testId}
+    >
       {children}
     </div>
   );

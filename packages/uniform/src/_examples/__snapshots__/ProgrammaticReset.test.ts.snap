@@ -4,6 +4,7 @@ exports[`Story Snapshots > CheckboxesWithInitialValues 1`] = `
 <div>
   <div
     class="flex w-full flex-row justify-between gap-6"
+    data-component="form"
   >
     <form
       class="grow min-w-lg"
@@ -13,6 +14,7 @@ exports[`Story Snapshots > CheckboxesWithInitialValues 1`] = `
     >
       <div
         class="relative box-border flex h-auto w-full flex-col overflow-hidden rounded-small border border-divider bg-content1 text-foreground shadow-none outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus transition-transform-background motion-reduce:transition-none"
+        data-component="card"
         data-slot="base"
         tabindex="-1"
       >
@@ -23,6 +25,7 @@ exports[`Story Snapshots > CheckboxesWithInitialValues 1`] = `
           <div
             aria-labelledby="uniform-«replaced-aria-id»-label"
             class="group flex w-full flex-col gap-y-1.5 relative"
+            data-component="checkboxes"
             data-invalid="false"
             data-rac=""
             data-required="false"
@@ -236,6 +239,7 @@ exports[`Story Snapshots > CheckboxesWithInitialValues 1`] = `
           >
             <div
               class="place-content-center"
+              data-component="switch"
               data-slot="outer-wrapper"
             >
               <label
@@ -284,6 +288,7 @@ exports[`Story Snapshots > CheckboxesWithInitialValues 1`] = `
             </div>
             <div
               class="place-content-center"
+              data-component="switch"
               data-slot="outer-wrapper"
             >
               <label
@@ -331,6 +336,7 @@ exports[`Story Snapshots > CheckboxesWithInitialValues 1`] = `
           </div>
           <label
             class="group inline-flex w-full cursor-pointer items-center justify-between rounded-lg border-2 border-default hover:bg-content2 data-[selected=true]:border-focus gap-4 p-4"
+            data-component="switch-box"
             data-invalid="false"
             data-react-aria-pressable="true"
             data-required="false"
@@ -392,6 +398,7 @@ exports[`Story Snapshots > CheckboxesWithInitialValues 1`] = `
         >
           <button
             class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-danger text-danger-foreground data-[hover=true]:opacity-hover w-full"
+            data-component="button"
             data-focus="true"
             data-focused="true"
             data-hover="true"
@@ -413,6 +420,7 @@ exports[`Story Snapshots > CheckboxesWithInitialValues 1`] = `
         <button
           aria-label="Submit form"
           class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
+          data-component="submit-button"
           data-rac=""
           data-react-aria-pressable="true"
           data-testid="form_submit_button"
@@ -432,6 +440,7 @@ exports[`Story Snapshots > CheckboxesWithoutInitialValues 1`] = `
 <div>
   <div
     class="flex w-full flex-row justify-between gap-6"
+    data-component="form"
   >
     <form
       class="grow min-w-lg"
@@ -441,6 +450,7 @@ exports[`Story Snapshots > CheckboxesWithoutInitialValues 1`] = `
     >
       <div
         class="relative box-border flex h-auto w-full flex-col overflow-hidden rounded-small border border-divider bg-content1 text-foreground shadow-none outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus transition-transform-background motion-reduce:transition-none"
+        data-component="card"
         data-slot="base"
         tabindex="-1"
       >
@@ -451,6 +461,7 @@ exports[`Story Snapshots > CheckboxesWithoutInitialValues 1`] = `
           <div
             aria-labelledby="uniform-«replaced-aria-id»-label"
             class="group flex w-full flex-col gap-y-1.5 relative"
+            data-component="checkboxes"
             data-invalid="false"
             data-rac=""
             data-required="false"
@@ -658,6 +669,7 @@ exports[`Story Snapshots > CheckboxesWithoutInitialValues 1`] = `
           >
             <div
               class="place-content-center"
+              data-component="switch"
               data-slot="outer-wrapper"
             >
               <label
@@ -704,6 +716,7 @@ exports[`Story Snapshots > CheckboxesWithoutInitialValues 1`] = `
             </div>
             <div
               class="place-content-center"
+              data-component="switch"
               data-slot="outer-wrapper"
             >
               <label
@@ -751,6 +764,7 @@ exports[`Story Snapshots > CheckboxesWithoutInitialValues 1`] = `
           </div>
           <label
             class="group inline-flex w-full cursor-pointer items-center justify-between rounded-lg border-2 border-default hover:bg-content2 data-[selected=true]:border-focus gap-4 p-4"
+            data-component="switch-box"
             data-invalid="false"
             data-react-aria-pressable="true"
             data-required="false"
@@ -810,6 +824,7 @@ exports[`Story Snapshots > CheckboxesWithoutInitialValues 1`] = `
         >
           <button
             class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-danger text-danger-foreground data-[hover=true]:opacity-hover w-full"
+            data-component="button"
             data-focus="true"
             data-focused="true"
             data-hover="true"
@@ -831,6 +846,7 @@ exports[`Story Snapshots > CheckboxesWithoutInitialValues 1`] = `
         <button
           aria-label="Submit form"
           class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
+          data-component="submit-button"
           data-rac=""
           data-react-aria-pressable="true"
           data-testid="form_submit_button"
@@ -850,6 +866,7 @@ exports[`Story Snapshots > FieldArrayFlatWithInitialValues 1`] = `
 <div>
   <div
     class="flex w-full flex-row justify-between gap-6"
+    data-component="form"
   >
     <form
       class="grow min-w-lg"
@@ -860,6 +877,7 @@ exports[`Story Snapshots > FieldArrayFlatWithInitialValues 1`] = `
       <div
         aria-labelledby="«replaced-aria-id»"
         class="overflow-hidden rounded-small border border-divider bg-content1 divide-y divide-divider mb-4"
+        data-component="field-array"
         role="group"
       >
         <div
@@ -888,10 +906,12 @@ exports[`Story Snapshots > FieldArrayFlatWithInitialValues 1`] = `
               >
                 <div
                   class="grid gap-6 w-full grow p-3"
+                  data-component="grid"
                   data-testid="toppings_0_element_fields_grid"
                 >
                   <div
                     class="group relative flex w-full flex-col is-filled"
+                    data-component="input"
                     data-filled="true"
                     data-rac=""
                     data-slot="base"
@@ -936,6 +956,7 @@ exports[`Story Snapshots > FieldArrayFlatWithInitialValues 1`] = `
                 <button
                   aria-label="remove element"
                   class="group tap-highlight-transparent [&>svg]:max-w-[theme(spacing.8)] data-[hover=true]:opacity-hover group relative z-0 box-border select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus gap-2 rounded-small text-tiny !gap-0 transition-transform-colors-opacity motion-reduce:transition-none bg-transparent text-danger data-[hover=true]:bg-danger/20 h-8 w-8 min-w-8 flex items-center justify-center !h-full !min-h-0 !rounded-none px-3 outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-focus"
+                  data-component="button"
                   data-rac=""
                   data-react-aria-pressable="true"
                   data-testid="toppings_0_remove_button"
@@ -955,6 +976,7 @@ exports[`Story Snapshots > FieldArrayFlatWithInitialValues 1`] = `
         </div>
         <button
           class="group tap-highlight-transparent transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center select-none appearance-none whitespace-nowrap subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-8 min-w-16 gap-2 rounded-small px-3 text-tiny [&>svg]:max-w-[theme(spacing.8)] !transition-none data-[pressed=true]:scale-100 bg-transparent text-default-foreground data-[hover=true]:bg-default/40 w-full justify-start rounded-b-small rounded-t-none font-semibold !h-[48px] !min-h-0 outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-focus"
+          data-component="button"
           data-rac=""
           data-react-aria-pressable="true"
           data-testid="toppings_append_button"
@@ -974,6 +996,7 @@ exports[`Story Snapshots > FieldArrayFlatWithInitialValues 1`] = `
       </div>
       <button
         class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-danger text-danger-foreground data-[hover=true]:opacity-hover w-full"
+        data-component="button"
         data-focus="true"
         data-focused="true"
         data-hover="true"
@@ -993,6 +1016,7 @@ exports[`Story Snapshots > FieldArrayFlatWithInitialValues 1`] = `
         <button
           aria-label="Submit form"
           class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
+          data-component="submit-button"
           data-rac=""
           data-react-aria-pressable="true"
           data-testid="form_submit_button"
@@ -1012,6 +1036,7 @@ exports[`Story Snapshots > FieldArrayFlatWithoutInitialValues 1`] = `
 <div>
   <div
     class="flex w-full flex-row justify-between gap-6"
+    data-component="form"
   >
     <form
       class="grow min-w-lg"
@@ -1022,6 +1047,7 @@ exports[`Story Snapshots > FieldArrayFlatWithoutInitialValues 1`] = `
       <div
         aria-labelledby="«replaced-aria-id»"
         class="overflow-hidden rounded-small border border-divider bg-content1 divide-y divide-divider mb-4"
+        data-component="field-array"
         role="group"
       >
         <div
@@ -1050,10 +1076,12 @@ exports[`Story Snapshots > FieldArrayFlatWithoutInitialValues 1`] = `
               >
                 <div
                   class="grid gap-6 w-full grow p-3"
+                  data-component="grid"
                   data-testid="toppings_0_element_fields_grid"
                 >
                   <div
                     class="group relative flex w-full flex-col"
+                    data-component="input"
                     data-rac=""
                     data-slot="base"
                   >
@@ -1099,6 +1127,7 @@ exports[`Story Snapshots > FieldArrayFlatWithoutInitialValues 1`] = `
         </div>
         <button
           class="group tap-highlight-transparent transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center select-none appearance-none whitespace-nowrap subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-8 min-w-16 gap-2 rounded-small px-3 text-tiny [&>svg]:max-w-[theme(spacing.8)] !transition-none data-[pressed=true]:scale-100 bg-transparent text-default-foreground data-[hover=true]:bg-default/40 w-full justify-start rounded-b-small rounded-t-none font-semibold !h-[48px] !min-h-0 outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-focus"
+          data-component="button"
           data-rac=""
           data-react-aria-pressable="true"
           data-testid="toppings_append_button"
@@ -1118,6 +1147,7 @@ exports[`Story Snapshots > FieldArrayFlatWithoutInitialValues 1`] = `
       </div>
       <button
         class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-danger text-danger-foreground data-[hover=true]:opacity-hover w-full"
+        data-component="button"
         data-focus="true"
         data-focused="true"
         data-hover="true"
@@ -1137,6 +1167,7 @@ exports[`Story Snapshots > FieldArrayFlatWithoutInitialValues 1`] = `
         <button
           aria-label="Submit form"
           class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
+          data-component="submit-button"
           data-rac=""
           data-react-aria-pressable="true"
           data-testid="form_submit_button"
@@ -1156,6 +1187,7 @@ exports[`Story Snapshots > FieldArrayWithInitialValues 1`] = `
 <div>
   <div
     class="flex w-full flex-row justify-between gap-6"
+    data-component="form"
   >
     <form
       class="grow min-w-lg"
@@ -1166,6 +1198,7 @@ exports[`Story Snapshots > FieldArrayWithInitialValues 1`] = `
       <div
         aria-labelledby="«replaced-aria-id»"
         class="overflow-hidden rounded-small border border-divider bg-content1 divide-y divide-divider mb-4"
+        data-component="field-array"
         role="group"
       >
         <div
@@ -1194,10 +1227,12 @@ exports[`Story Snapshots > FieldArrayWithInitialValues 1`] = `
               >
                 <div
                   class="grid gap-6 w-full grow p-3"
+                  data-component="grid"
                   data-testid="guests_0_element_fields_grid"
                 >
                   <div
                     class="group relative flex w-full flex-col is-filled"
+                    data-component="input"
                     data-filled="true"
                     data-rac=""
                     data-slot="base"
@@ -1242,6 +1277,7 @@ exports[`Story Snapshots > FieldArrayWithInitialValues 1`] = `
                 <button
                   aria-label="remove element"
                   class="group tap-highlight-transparent [&>svg]:max-w-[theme(spacing.8)] data-[hover=true]:opacity-hover group relative z-0 box-border select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus gap-2 rounded-small text-tiny !gap-0 transition-transform-colors-opacity motion-reduce:transition-none bg-transparent text-danger data-[hover=true]:bg-danger/20 h-8 w-8 min-w-8 flex items-center justify-center !h-full !min-h-0 !rounded-none px-3 outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-focus"
+                  data-component="button"
                   data-rac=""
                   data-react-aria-pressable="true"
                   data-testid="guests_0_remove_button"
@@ -1261,6 +1297,7 @@ exports[`Story Snapshots > FieldArrayWithInitialValues 1`] = `
         </div>
         <button
           class="group tap-highlight-transparent transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center select-none appearance-none whitespace-nowrap subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-8 min-w-16 gap-2 rounded-small px-3 text-tiny [&>svg]:max-w-[theme(spacing.8)] !transition-none data-[pressed=true]:scale-100 bg-transparent text-default-foreground data-[hover=true]:bg-default/40 w-full justify-start rounded-b-small rounded-t-none font-semibold !h-[48px] !min-h-0 outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-focus"
+          data-component="button"
           data-rac=""
           data-react-aria-pressable="true"
           data-testid="guests_append_button"
@@ -1280,6 +1317,7 @@ exports[`Story Snapshots > FieldArrayWithInitialValues 1`] = `
       </div>
       <button
         class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-danger text-danger-foreground data-[hover=true]:opacity-hover w-full"
+        data-component="button"
         data-focus="true"
         data-focused="true"
         data-hover="true"
@@ -1299,6 +1337,7 @@ exports[`Story Snapshots > FieldArrayWithInitialValues 1`] = `
         <button
           aria-label="Submit form"
           class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
+          data-component="submit-button"
           data-rac=""
           data-react-aria-pressable="true"
           data-testid="form_submit_button"
@@ -1318,6 +1357,7 @@ exports[`Story Snapshots > FieldArrayWithoutInitialValues 1`] = `
 <div>
   <div
     class="flex w-full flex-row justify-between gap-6"
+    data-component="form"
   >
     <form
       class="grow min-w-lg"
@@ -1328,6 +1368,7 @@ exports[`Story Snapshots > FieldArrayWithoutInitialValues 1`] = `
       <div
         aria-labelledby="«replaced-aria-id»"
         class="overflow-hidden rounded-small border border-divider bg-content1 divide-y divide-divider mb-4"
+        data-component="field-array"
         role="group"
       >
         <div
@@ -1356,10 +1397,12 @@ exports[`Story Snapshots > FieldArrayWithoutInitialValues 1`] = `
               >
                 <div
                   class="grid gap-6 w-full grow p-3"
+                  data-component="grid"
                   data-testid="guests_0_element_fields_grid"
                 >
                   <div
                     class="group relative flex w-full flex-col"
+                    data-component="input"
                     data-rac=""
                     data-slot="base"
                   >
@@ -1405,6 +1448,7 @@ exports[`Story Snapshots > FieldArrayWithoutInitialValues 1`] = `
         </div>
         <button
           class="group tap-highlight-transparent transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center select-none appearance-none whitespace-nowrap subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-8 min-w-16 gap-2 rounded-small px-3 text-tiny [&>svg]:max-w-[theme(spacing.8)] !transition-none data-[pressed=true]:scale-100 bg-transparent text-default-foreground data-[hover=true]:bg-default/40 w-full justify-start rounded-b-small rounded-t-none font-semibold !h-[48px] !min-h-0 outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-focus"
+          data-component="button"
           data-rac=""
           data-react-aria-pressable="true"
           data-testid="guests_append_button"
@@ -1424,6 +1468,7 @@ exports[`Story Snapshots > FieldArrayWithoutInitialValues 1`] = `
       </div>
       <button
         class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-danger text-danger-foreground data-[hover=true]:opacity-hover w-full"
+        data-component="button"
         data-focus="true"
         data-focused="true"
         data-hover="true"
@@ -1443,6 +1488,7 @@ exports[`Story Snapshots > FieldArrayWithoutInitialValues 1`] = `
         <button
           aria-label="Submit form"
           class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
+          data-component="submit-button"
           data-rac=""
           data-react-aria-pressable="true"
           data-testid="form_submit_button"
@@ -1463,6 +1509,7 @@ exports[`Story Snapshots > InputsWithInitialValues 1`] = `
   <div>
     <div
       class="flex w-full flex-row justify-between gap-6"
+      data-component="form"
     >
       <form
         class="grow min-w-lg"
@@ -1472,6 +1519,7 @@ exports[`Story Snapshots > InputsWithInitialValues 1`] = `
       >
         <div
           class="relative box-border flex h-auto w-full flex-col overflow-hidden rounded-small border border-divider bg-content1 text-foreground shadow-none outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus transition-transform-background motion-reduce:transition-none"
+          data-component="card"
           data-slot="base"
           tabindex="-1"
         >
@@ -1481,6 +1529,7 @@ exports[`Story Snapshots > InputsWithInitialValues 1`] = `
           >
             <div
               class="group relative flex w-full flex-col is-filled"
+              data-component="input"
               data-filled="true"
               data-rac=""
               data-slot="base"
@@ -1523,6 +1572,7 @@ exports[`Story Snapshots > InputsWithInitialValues 1`] = `
             </div>
             <div
               class="group relative flex w-full flex-col is-filled"
+              data-component="text-area"
               data-filled="true"
               data-slot="base"
             >
@@ -1563,6 +1613,7 @@ exports[`Story Snapshots > InputsWithInitialValues 1`] = `
             </div>
             <div
               class="group flex w-full flex-col gap-y-1.5"
+              data-component="slider"
               data-invalid="false"
               data-required="false"
               data-testid="volume"
@@ -1662,6 +1713,7 @@ exports[`Story Snapshots > InputsWithInitialValues 1`] = `
           >
             <button
               class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-danger text-danger-foreground data-[hover=true]:opacity-hover w-full"
+              data-component="button"
               data-focus="true"
               data-focused="true"
               data-hover="true"
@@ -1683,6 +1735,7 @@ exports[`Story Snapshots > InputsWithInitialValues 1`] = `
           <button
             aria-label="Submit form"
             class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
+            data-component="submit-button"
             data-rac=""
             data-react-aria-pressable="true"
             data-testid="form_submit_button"
@@ -1709,6 +1762,7 @@ exports[`Story Snapshots > InputsWithoutInitialValues 1`] = `
   <div>
     <div
       class="flex w-full flex-row justify-between gap-6"
+      data-component="form"
     >
       <form
         class="grow min-w-lg"
@@ -1718,6 +1772,7 @@ exports[`Story Snapshots > InputsWithoutInitialValues 1`] = `
       >
         <div
           class="relative box-border flex h-auto w-full flex-col overflow-hidden rounded-small border border-divider bg-content1 text-foreground shadow-none outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus transition-transform-background motion-reduce:transition-none"
+          data-component="card"
           data-slot="base"
           tabindex="-1"
         >
@@ -1727,6 +1782,7 @@ exports[`Story Snapshots > InputsWithoutInitialValues 1`] = `
           >
             <div
               class="group relative flex w-full flex-col"
+              data-component="input"
               data-rac=""
               data-slot="base"
             >
@@ -1767,6 +1823,7 @@ exports[`Story Snapshots > InputsWithoutInitialValues 1`] = `
             </div>
             <div
               class="group relative flex w-full flex-col"
+              data-component="text-area"
               data-slot="base"
             >
               <label
@@ -1803,6 +1860,7 @@ exports[`Story Snapshots > InputsWithoutInitialValues 1`] = `
             </div>
             <div
               class="group flex w-full flex-col gap-y-1.5"
+              data-component="slider"
               data-invalid="false"
               data-required="false"
               data-testid="volume"
@@ -1902,6 +1960,7 @@ exports[`Story Snapshots > InputsWithoutInitialValues 1`] = `
           >
             <button
               class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-danger text-danger-foreground data-[hover=true]:opacity-hover w-full"
+              data-component="button"
               data-focus="true"
               data-focused="true"
               data-hover="true"
@@ -1923,6 +1982,7 @@ exports[`Story Snapshots > InputsWithoutInitialValues 1`] = `
           <button
             aria-label="Submit form"
             class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
+            data-component="submit-button"
             data-rac=""
             data-react-aria-pressable="true"
             data-testid="form_submit_button"
@@ -1948,6 +2008,7 @@ exports[`Story Snapshots > RadiosWithInitialValues 1`] = `
 <div>
   <div
     class="flex w-full flex-row justify-between gap-6"
+    data-component="form"
   >
     <form
       class="grow min-w-lg"
@@ -1957,6 +2018,7 @@ exports[`Story Snapshots > RadiosWithInitialValues 1`] = `
     >
       <div
         class="relative box-border flex h-auto w-full flex-col overflow-hidden rounded-small border border-divider bg-content1 text-foreground shadow-none outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus transition-transform-background motion-reduce:transition-none"
+        data-component="card"
         data-slot="base"
         tabindex="-1"
       >
@@ -1968,6 +2030,7 @@ exports[`Story Snapshots > RadiosWithInitialValues 1`] = `
             aria-labelledby="uniform-«replaced-aria-id»-label"
             aria-orientation="horizontal"
             class="relative group flex w-full flex-col gap-y-1.5"
+            data-component="radios"
             data-invalid="false"
             data-orientation="horizontal"
             data-rac=""
@@ -2145,6 +2208,7 @@ exports[`Story Snapshots > RadiosWithInitialValues 1`] = `
             aria-labelledby="uniform-«replaced-aria-id»-label"
             aria-orientation="vertical"
             class="relative group flex w-full flex-col gap-y-1.5"
+            data-component="radio-boxes"
             data-invalid="false"
             data-orientation="vertical"
             data-rac=""
@@ -2345,6 +2409,7 @@ exports[`Story Snapshots > RadiosWithInitialValues 1`] = `
           <div
             aria-labelledby="uniform-«replaced-aria-id»-label"
             class="group flex w-full flex-col gap-y-1.5 relative"
+            data-component="radio-tabs"
             data-invalid="false"
             data-required="false"
             data-slot="base"
@@ -2471,6 +2536,7 @@ exports[`Story Snapshots > RadiosWithInitialValues 1`] = `
         >
           <button
             class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-danger text-danger-foreground data-[hover=true]:opacity-hover w-full"
+            data-component="button"
             data-focus="true"
             data-focused="true"
             data-hover="true"
@@ -2492,6 +2558,7 @@ exports[`Story Snapshots > RadiosWithInitialValues 1`] = `
         <button
           aria-label="Submit form"
           class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
+          data-component="submit-button"
           data-rac=""
           data-react-aria-pressable="true"
           data-testid="form_submit_button"
@@ -2511,6 +2578,7 @@ exports[`Story Snapshots > RadiosWithoutInitialValues 1`] = `
 <div>
   <div
     class="flex w-full flex-row justify-between gap-6"
+    data-component="form"
   >
     <form
       class="grow min-w-lg"
@@ -2520,6 +2588,7 @@ exports[`Story Snapshots > RadiosWithoutInitialValues 1`] = `
     >
       <div
         class="relative box-border flex h-auto w-full flex-col overflow-hidden rounded-small border border-divider bg-content1 text-foreground shadow-none outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus transition-transform-background motion-reduce:transition-none"
+        data-component="card"
         data-slot="base"
         tabindex="-1"
       >
@@ -2531,6 +2600,7 @@ exports[`Story Snapshots > RadiosWithoutInitialValues 1`] = `
             aria-labelledby="uniform-«replaced-aria-id»-label"
             aria-orientation="horizontal"
             class="relative group flex w-full flex-col gap-y-1.5"
+            data-component="radios"
             data-invalid="false"
             data-orientation="horizontal"
             data-rac=""
@@ -2705,6 +2775,7 @@ exports[`Story Snapshots > RadiosWithoutInitialValues 1`] = `
             aria-labelledby="uniform-«replaced-aria-id»-label"
             aria-orientation="vertical"
             class="relative group flex w-full flex-col gap-y-1.5"
+            data-component="radio-boxes"
             data-invalid="false"
             data-orientation="vertical"
             data-rac=""
@@ -2902,6 +2973,7 @@ exports[`Story Snapshots > RadiosWithoutInitialValues 1`] = `
           <div
             aria-labelledby="uniform-«replaced-aria-id»-label"
             class="group flex w-full flex-col gap-y-1.5 relative"
+            data-component="radio-tabs"
             data-invalid="false"
             data-required="false"
             data-slot="base"
@@ -3019,6 +3091,7 @@ exports[`Story Snapshots > RadiosWithoutInitialValues 1`] = `
         >
           <button
             class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-danger text-danger-foreground data-[hover=true]:opacity-hover w-full"
+            data-component="button"
             data-focus="true"
             data-focused="true"
             data-hover="true"
@@ -3040,6 +3113,7 @@ exports[`Story Snapshots > RadiosWithoutInitialValues 1`] = `
         <button
           aria-label="Submit form"
           class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
+          data-component="submit-button"
           data-rac=""
           data-react-aria-pressable="true"
           data-testid="form_submit_button"
@@ -3059,6 +3133,7 @@ exports[`Story Snapshots > SelectWithInitialValues 1`] = `
 <div>
   <div
     class="flex w-full flex-row justify-between gap-6"
+    data-component="form"
   >
     <form
       class="grow min-w-lg"
@@ -3068,6 +3143,7 @@ exports[`Story Snapshots > SelectWithInitialValues 1`] = `
     >
       <div
         class="relative box-border flex h-auto w-full flex-col overflow-hidden rounded-small border border-divider bg-content1 text-foreground shadow-none outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus transition-transform-background motion-reduce:transition-none"
+        data-component="card"
         data-slot="base"
         tabindex="-1"
       >
@@ -3077,6 +3153,7 @@ exports[`Story Snapshots > SelectWithInitialValues 1`] = `
         >
           <div
             class="group flex w-full flex-col gap-y-1.5 leading-normal"
+            data-component="select"
             data-slot="base"
             data-testid="planet_wrapper"
           >
@@ -3198,6 +3275,7 @@ exports[`Story Snapshots > SelectWithInitialValues 1`] = `
           </div>
           <div
             class="group flex w-full flex-col gap-y-1.5 leading-normal"
+            data-component="select"
             data-slot="base"
             data-testid="flavors_wrapper"
           >
@@ -3383,6 +3461,7 @@ exports[`Story Snapshots > SelectWithInitialValues 1`] = `
         >
           <button
             class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-danger text-danger-foreground data-[hover=true]:opacity-hover w-full"
+            data-component="button"
             data-focus="true"
             data-focused="true"
             data-hover="true"
@@ -3404,6 +3483,7 @@ exports[`Story Snapshots > SelectWithInitialValues 1`] = `
         <button
           aria-label="Submit form"
           class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
+          data-component="submit-button"
           data-rac=""
           data-react-aria-pressable="true"
           data-testid="form_submit_button"
@@ -3423,6 +3503,7 @@ exports[`Story Snapshots > SelectWithoutInitialValues 1`] = `
 <div>
   <div
     class="flex w-full flex-row justify-between gap-6"
+    data-component="form"
   >
     <form
       class="grow min-w-lg"
@@ -3432,6 +3513,7 @@ exports[`Story Snapshots > SelectWithoutInitialValues 1`] = `
     >
       <div
         class="relative box-border flex h-auto w-full flex-col overflow-hidden rounded-small border border-divider bg-content1 text-foreground shadow-none outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus transition-transform-background motion-reduce:transition-none"
+        data-component="card"
         data-slot="base"
         tabindex="-1"
       >
@@ -3441,6 +3523,7 @@ exports[`Story Snapshots > SelectWithoutInitialValues 1`] = `
         >
           <div
             class="group flex w-full flex-col gap-y-1.5 leading-normal"
+            data-component="select"
             data-slot="base"
             data-testid="planet_wrapper"
           >
@@ -3547,6 +3630,7 @@ exports[`Story Snapshots > SelectWithoutInitialValues 1`] = `
           </div>
           <div
             class="group flex w-full flex-col gap-y-1.5 leading-normal"
+            data-component="select"
             data-slot="base"
             data-testid="flavors_wrapper"
           >
@@ -3663,6 +3747,7 @@ exports[`Story Snapshots > SelectWithoutInitialValues 1`] = `
         >
           <button
             class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-danger text-danger-foreground data-[hover=true]:opacity-hover w-full"
+            data-component="button"
             data-focus="true"
             data-focused="true"
             data-hover="true"
@@ -3684,6 +3769,7 @@ exports[`Story Snapshots > SelectWithoutInitialValues 1`] = `
         <button
           aria-label="Submit form"
           class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
+          data-component="submit-button"
           data-rac=""
           data-react-aria-pressable="true"
           data-testid="form_submit_button"

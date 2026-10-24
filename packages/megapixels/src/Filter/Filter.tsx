@@ -156,7 +156,7 @@ const Filter = ({
   });
 
   return (
-    <div className={classNames.base}>
+    <div className={classNames.base} data-component="filter">
       {/*
         Uniform Form wrapper
         - initialValues derive from controlled props (with optional defaults)

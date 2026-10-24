@@ -32,6 +32,8 @@ export interface ModalSurfaceProps {
   className: ModalClassNames;
   /** Optional custom close button */
   closeButton?: ReactNode;
+  /** Identifies the public component owning the dialog */
+  dataComponent?: string;
   /** Disables opening and closing feedback */
   disableAnimation: boolean;
   /** Optional footer content */
@@ -65,6 +67,7 @@ const ModalSurface = ({
   children,
   className: classNames,
   closeButton = undefined,
+  dataComponent = 'modal',
   disableAnimation,
   footer = undefined,
   header = undefined,
@@ -140,6 +143,7 @@ const ModalSurface = ({
       <div
         {...underlayProps}
         className={classNames.wrapper}
+        data-component={dataComponent}
         data-slot="wrapper"
         onPointerDown={handleBackdropPointerDown}
         style={viewportStyle}

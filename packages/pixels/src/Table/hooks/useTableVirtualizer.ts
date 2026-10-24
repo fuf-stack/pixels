@@ -80,10 +80,10 @@ const useTableVirtualizer = ({
   stickyHeader,
 }: TableVirtualizerOptions): TableVirtualizerResult => {
   const [viewport, setViewport] = useState({
-    top: 0,
-    height: maxTableHeight - 32,
     headerHeight: 45,
+    height: maxTableHeight - 32,
     tableOffset: 0,
+    top: 0,
   });
   const nodes = useMemo(() => {
     return Array.from(state.collection.body.childNodes);

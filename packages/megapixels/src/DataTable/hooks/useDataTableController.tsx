@@ -432,8 +432,8 @@ export const useDataTableController = <TData, TValue>({
     getRowCanExpand: (row) => {
       return hasExpandableRowContent || row.subRows.length > 0;
     },
-    getSubRows,
     getSortedRowModel: enableServerMode ? undefined : getSortedRowModel(),
+    getSubRows,
     manualFiltering: enableServerMode,
     manualSorting: enableServerMode,
     onColumnFiltersChange: setColumnFilters,

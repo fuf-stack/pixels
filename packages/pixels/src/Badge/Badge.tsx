@@ -59,7 +59,7 @@ const Badge = ({
   }
 
   return (
-    <div className={classNames.base} data-slot="base">
+    <div className={classNames.base} data-component="badge" data-slot="base">
       {children}
       <span className={classNames.badge} data-slot="badge">
         {content}

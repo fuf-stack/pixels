@@ -88,7 +88,13 @@ const ButtonGroup = forwardRef<HTMLDivElement, ButtonGroupProps>(
 
     return (
       <ButtonGroupContext.Provider value={context}>
-        <Base role="group" {...props} ref={ref} className={groupClassName}>
+        <Base
+          role="group"
+          {...props}
+          ref={ref}
+          className={groupClassName}
+          data-component="button-group"
+        >
           {children}
         </Base>
       </ButtonGroupContext.Provider>

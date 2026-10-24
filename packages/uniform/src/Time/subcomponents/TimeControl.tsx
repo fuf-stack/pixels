@@ -99,6 +99,7 @@ const TimeControl = ({
       aria-invalid={controlProps['aria-invalid']}
       aria-label={controlProps['aria-label']}
       className={classNames.base}
+      data-component="time"
       data-slot="base"
       granularity={effectiveGranularity}
       hideTimeZone={hideTimeZone}

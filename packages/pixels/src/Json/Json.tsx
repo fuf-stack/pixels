@@ -115,14 +115,24 @@ const Json = ({
       : defaultError;
 
     return (
-      <div aria-label="JSON viewer" className={cn(className)} role="region">
+      <div
+        aria-label="JSON viewer"
+        className={cn(className)}
+        data-component="json"
+        role="region"
+      >
         {renderedError}
       </div>
     );
   }
 
   return (
-    <div aria-label="JSON viewer" className={cn(className)} role="region">
+    <div
+      aria-label="JSON viewer"
+      className={cn(className)}
+      data-component="json"
+      role="region"
+    >
       <div
         className="relative"
         style={{ maxHeight, overflowY: maxHeight ? 'auto' : undefined }}

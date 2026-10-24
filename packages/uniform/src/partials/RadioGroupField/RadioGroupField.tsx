@@ -17,6 +17,8 @@ interface RadioGroupFieldProps {
     FieldControlProps,
     'id' | 'aria-label' | 'aria-describedby'
   >;
+  /** Identifies the public component owning the radio group */
+  dataComponent?: string;
   /** Disables every option */
   disabled?: boolean;
   /** Arranges options horizontally */
@@ -51,6 +53,7 @@ const RadioGroupField = ({
   children,
   className = undefined,
   controlProps,
+  dataComponent = undefined,
   disabled = undefined,
   inputRef,
   invalid,
@@ -95,6 +98,7 @@ const RadioGroupField = ({
       aria-describedby={controlProps['aria-describedby']}
       aria-label={controlProps['aria-label']}
       className={className}
+      data-component={dataComponent}
       data-invalid={invalid}
       data-required={required}
       data-slot="base"

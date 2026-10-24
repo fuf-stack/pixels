@@ -56,6 +56,7 @@ const Avatar = ({
     <span
       {...hoverProps}
       className={classNames.base}
+      data-component="avatar"
       data-hover={isHovered || undefined}
       data-slot="base"
       tabIndex={-1}

@@ -24,6 +24,8 @@ export interface ButtonProps extends VariantProps {
   className?: string;
   /** Button color */
   color?: VariantProps['color'];
+  /** Identifies the public component owning the button element */
+  dataComponent?: string;
   /** HTML data-slot attribute */
   dataSlot?: string;
   /** Disables transitions and ripple feedback */
@@ -64,6 +66,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       children,
       className,
       color = 'default',
+      dataComponent = 'button',
       dataSlot,
       disableAnimation = false,
       disabled = false,
@@ -133,6 +136,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         ref={ref}
         aria-label={ariaLabel}
         className={resolvedClassName}
+        data-component={dataComponent}
         data-loading={loading || undefined}
         data-slot={dataSlot}
         data-testid={testId}

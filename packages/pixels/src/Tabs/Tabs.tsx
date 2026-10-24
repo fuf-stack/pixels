@@ -112,6 +112,7 @@ const Tabs = ({
   return (
     <AriaTabs
       className={classNames.tabWrapper}
+      data-component="tabs"
       data-placement={resolvedPlacement}
       data-slot="tabWrapper"
       data-vertical={orientation}

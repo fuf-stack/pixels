@@ -122,11 +122,12 @@ const RadioTabsControl = ({
       baseProps={{
         ...associations,
         ...focusWithinProps,
-        ref: handleControlRef,
         'aria-describedby': describedBy,
+        'data-component': 'radio-tabs',
         'data-invalid': invalid,
         'data-required': required,
         'data-testid': testId,
+        ref: handleControlRef,
         role: 'group',
       }}
       className={classNames}

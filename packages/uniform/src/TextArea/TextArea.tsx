@@ -46,11 +46,11 @@ const TextArea = ({
 
   // debounce form updates, flush pending edits on blur
   const { value, onChange, onBlur } = useInputValueDebounce({
-    name,
     debounceDelay,
-    value: field.value,
-    onChange: field.onChange,
+    name,
     onBlur: field.onBlur,
+    onChange: field.onChange,
+    value: field.value,
   });
 
   return (

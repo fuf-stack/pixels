@@ -69,6 +69,7 @@ const RadioBoxesControl = ({
       baseAs={RadioGroupField}
       baseProps={{
         controlProps,
+        dataComponent: 'radio-boxes',
         disabled,
         inline,
         inputRef,

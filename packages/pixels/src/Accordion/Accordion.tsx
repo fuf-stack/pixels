@@ -186,9 +186,9 @@ const Accordion = ({
   return (
     <div
       className={classNames.wrapper}
+      data-component="accordion"
       data-orientation="vertical"
       data-slot="wrapper"
-
       role="group"
     >
       {accordionItems.map((item, index) => {

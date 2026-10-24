@@ -66,13 +66,13 @@ const SwitchBoxControl = ({
   const { inputProps, labelProps, isPressed } = useSwitch(
     {
       ...controlProps,
-      name,
       children: label,
       isDisabled: disabled,
       isInvalid: invalid,
       isRequired: required,
-      validationBehavior: 'aria',
+      name,
       onBlur,
+      validationBehavior: 'aria',
     },
     state,
     controlRef,
@@ -100,6 +100,7 @@ const SwitchBoxControl = ({
       <label
         {...mergeProps(labelProps, hoverProps)}
         className={classNames.box}
+        data-component="switch-box"
         data-focus={isFocused || undefined}
         data-focus-visible={isFocusVisible || undefined}
         data-hover={isHovered || undefined}

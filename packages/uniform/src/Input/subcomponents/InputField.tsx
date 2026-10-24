@@ -61,17 +61,18 @@ const InputField = ({
   const rootProps = {
     ...controlProps,
     ...dataAttributes,
-    name,
     className,
-    'data-slot': 'base',
+    'data-component': 'input',
+    'data-filled': hasValue || undefined,
     'data-focus': focused || undefined,
     'data-focus-visible': isFocusVisible || undefined,
-    'data-filled': hasValue || undefined,
+    'data-slot': 'base',
     isDisabled: disabled,
     isInvalid: invalid,
     isRequired: required,
-    validationBehavior: 'aria' as const,
+    name,
     onBlur,
+    validationBehavior: 'aria' as const,
   };
 
   // keep numeric edits as strings at the binding boundary

@@ -62,7 +62,7 @@ const Label = ({
   const classNames = styling.variantsToClassNames(variants, className, 'base');
 
   return (
-    <div className={classNames.base} data-slot="base">
+    <div className={classNames.base} data-component="label" data-slot="base">
       {variant === 'dot' ? (
         <span className={classNames.dot} data-slot="dot" />
       ) : null}

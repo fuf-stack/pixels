@@ -23,7 +23,7 @@ interface TableCellProps {
 const TableCell = ({ className, node, state, virtualized }: TableCellProps) => {
   const ref = useRef<HTMLTableCellElement>(null);
   const { gridCellProps } = useTableCell(
-    { node, isVirtualized: virtualized },
+    { isVirtualized: virtualized, node },
     state,
     ref,
   );

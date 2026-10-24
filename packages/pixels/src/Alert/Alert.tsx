@@ -74,6 +74,7 @@ const Alert = ({
     <div
       className={classNames.base}
       data-closeable={closable || undefined}
+      data-component="alert"
       data-has-description={hasDescription || undefined}
       data-has-title={!!title || undefined}
       data-slot="base"

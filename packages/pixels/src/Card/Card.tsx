@@ -50,6 +50,7 @@ const Card = forwardRef<HTMLDivElement, CardProps>(
         {...focusProps}
         ref={ref}
         className={classNames.base}
+        data-component="card"
         data-focus={isFocused || undefined}
         data-focus-visible={isFocusVisible || undefined}
         data-slot="base"

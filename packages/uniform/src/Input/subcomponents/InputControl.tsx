@@ -65,8 +65,8 @@ const InputControl = (props: InputControlProps) => {
     isFocused: focused,
     isFocusVisible,
   } = useFocusRing({
-    within: true,
     isTextInput: true,
+    within: true,
   });
 
   const {

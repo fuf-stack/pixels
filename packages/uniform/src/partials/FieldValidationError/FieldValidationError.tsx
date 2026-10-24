@@ -59,6 +59,7 @@ const FieldValidationError = ({
     <ul
       aria-label={`Validation errors of field ${testId}`}
       className={classNames.base}
+      data-component={id === undefined ? 'field-validation-error' : undefined}
       data-testid={slugify(`${testId}_error`)}
     >
       <AnimatePresence initial={!disableAnimation}>
@@ -89,7 +90,12 @@ const FieldValidationError = ({
   }
 
   return (
-    <div className={classNames.wrapper} data-slot="error-message" id={id}>
+    <div
+      className={classNames.wrapper}
+      data-component="field-validation-error"
+      data-slot="error-message"
+      id={id}
+    >
       {errorList}
     </div>
   );

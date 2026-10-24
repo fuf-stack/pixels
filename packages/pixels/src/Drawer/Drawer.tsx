@@ -95,6 +95,7 @@ const Drawer = ({
       bodyIdPrefix="drawer_body"
       className={classNames}
       closeButton={closeButton}
+      dataComponent="drawer"
       footer={footer}
       header={header}
       hideCloseButton={hideCloseButton}
