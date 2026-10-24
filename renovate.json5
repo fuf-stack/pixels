@@ -5,8 +5,8 @@
   dependencyDashboardLabels: ['effort | ongoing', 'scope | dependencies'],
   dependencyDashboardOSVVulnerabilitySummary: 'all',
   extends: [
-    'config:recommended',
-    'helpers:pinGitHubActionDigests',
+    // Includes recommended defaults and GitHub Action SHA pinning.
+    'config:best-practices',
     ':automergeDigest',
     ':automergeMinor',
     ':combinePatchMinorReleases',
@@ -37,6 +37,14 @@
     nodeMaxMemory: 1024,
   },
   packageRules: [
+    // Preserve our 14-day npm delay and immediate PR creation over the
+    // shorter release age and branch-check defaults in best-practices.
+    {
+      matchManagers: ['npm'],
+      minimumReleaseAge: '14 days',
+      prCreation: 'immediate',
+    },
+
     // @dnd-kit monorepo
     {
       matchPackageNames: ['/^@dnd-kit/'],
