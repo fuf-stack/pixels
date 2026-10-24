@@ -57,7 +57,10 @@ export const KeyboardDismissal: Story = {
     const body = within(document.body);
     const trigger = canvas.getByRole('button', { name: 'Edit profile' });
 
-    await userEvent.click(trigger);
+    // establish the keyboard opener before the dialog captures its return target
+    trigger.focus();
+    await expect(trigger).toHaveFocus();
+    await userEvent.keyboard('{Enter}');
     const dialog = await body.findByRole('dialog', { name: 'Profile details' });
 
     await userEvent.tab();
