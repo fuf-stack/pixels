@@ -3,13 +3,14 @@ import type {
   VetoInstance,
   VetoTypeAny,
 } from '@fuf-stack/veto';
-import type { FieldValues } from 'react-hook-form';
+import type { Control, FieldValues } from 'react-hook-form';
 
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useMemo, useRef, useState } from 'react';
 
 import { and, veto } from '@fuf-stack/veto';
 
 import { toValidationFormat } from '../../helpers';
+import omitDisabledValues from '../../helpers/disabledFields/disabledFields';
 
 /**
  * Hook that manages client validation schemas state.
@@ -147,14 +148,32 @@ interface ValidationErrorsState {
  * Creates a React Hook Form resolver from an extended validation instance and
  * stores its latest formatted Veto errors as React state.
  *
+ * Bind the owning RHF control before validation runs. Each resolver call omits
+ * disabled values from normalized input and validated output while preserving
+ * stored form values. The schema stays unchanged, so required fields can still
+ * report missing-value errors and defaults cannot restore disabled output.
+ *
  * Keeping the resolver errors in state lets Uniform context consumers re-render
  * when validation output changes, while the hash prevents repeated validations
  * with equivalent errors from causing unnecessary updates.
  *
  * @param extendedValidation - Extended validation instance from useExtendedValidation
- * @returns Resolver function plus the latest validation errors and their hash
+ * @returns Resolver, validation error state, and a binder for the owning RHF control
  */
 export const useFormResolver = (extendedValidation?: VetoInstance) => {
+  const control = useRef<Control | null>(null);
+
+  // Resolver options only contain the triggered fields. Bind the complete RHF
+  // control so disabled siblings and registry changes after reset are visible.
+  const bindControl = useCallback((instance: Control) => {
+    control.current = instance;
+    return () => {
+      if (control.current === instance) {
+        control.current = null;
+      }
+    };
+  }, []);
+
   // Keep the latest resolver errors in React state so Uniform context consumers
   // re-render when validation output changes. The paired hash lets us skip the
   // state update when a resolver run returns equivalent errors.
@@ -196,18 +215,36 @@ export const useFormResolver = (extendedValidation?: VetoInstance) => {
 
     return async (values: FieldValues) => {
       const validationValues = toValidationFormat(values) ?? {};
-      const result = await extendedValidation.validateAsync(validationValues);
+
+      // RHF exposes no public complete disabled registry; this relies on its
+      // internal control structure and needs checking when upgrading RHF.
+      // Use one snapshot even if a field changes state during async validation.
+      const disabledFields = [...(control.current?._names.disabled ?? [])];
+
+      // Omit values, not schema rules: required disabled fields must still fail.
+      const validationInput = omitDisabledValues(
+        validationValues,
+        disabledFields,
+      );
+      const result = await extendedValidation.validateAsync(validationInput);
       updateValidationErrors(result.errors ?? undefined);
 
-      // Transform veto result to React Hook Form format
+      // Omit disabled values again because schema defaults or transforms may
+      // have added them back to the output.
+      const submissionValues = omitDisabledValues(
+        result.data ?? {},
+        disabledFields,
+      );
+
       return {
-        values: result.data ?? {},
         errors: result.errors ?? {},
+        values: submissionValues,
       };
     };
   }, [extendedValidation, updateValidationErrors]);
 
   return {
+    bindControl,
     resolver,
     validationErrors: validationErrorsState.errors,
     validationErrorsHash: validationErrorsState.hash,

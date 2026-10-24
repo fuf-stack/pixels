@@ -21,7 +21,7 @@ export interface UseUniformFieldParams<
 > {
   /** Custom aria-label for accessibility. If not provided, falls back to field name when no visible label exists */
   ariaLabel?: string;
-  /** Disable the field */
+  /** Disables the field and omits its value from validation data and submission */
   disabled?: boolean;
   /** Normalize nested RHF errors into a flat array for array-like fields */
   isArrayValue?: boolean;

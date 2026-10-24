@@ -6,7 +6,13 @@ import type {
 import type { BaseSyntheticEvent, ReactNode } from 'react';
 import type { FieldValues, Path, SubmitHandler } from 'react-hook-form';
 
-import React, { useCallback, useMemo, useRef, useState } from 'react';
+import React, {
+  useCallback,
+  useLayoutEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 import { FormProvider as HookFormProvider, useForm } from 'react-hook-form';
 
 import createDebug from 'debug';
@@ -241,6 +247,7 @@ interface FormProviderProps {
  * FormProvider component provides:
  * - Veto validation schema context
  * - Resolver-backed validation error state
+ * - RHF control binding for disabled-value omission without changing schema rules
  * - Client validation schema management
  * - Submit handler with automatic data conversion and submission control with preventSubmit
  * - Form Debug Mode state
@@ -271,7 +278,7 @@ const FormProvider: React.FC<FormProviderProps> = ({
     useExtendedValidation(baseValidation);
 
   // Create resolver from extended validation + reactive validation error state
-  const { resolver, validationErrors, validationErrorsHash } =
+  const { bindControl, resolver, validationErrors, validationErrorsHash } =
     useFormResolver(extendedValidation);
 
   // Initialize react hook form with the resolver
@@ -282,6 +289,12 @@ const FormProvider: React.FC<FormProviderProps> = ({
     mode: validationTrigger,
     resolver,
   });
+
+  // The resolver is created before useForm, so bind its control afterwards,
+  // before RHF's passive effects can trigger validation.
+  useLayoutEffect(() => {
+    return bindControl(methods.control);
+  }, [bindControl, methods.control]);
 
   // Get isValid from React Hook Form's formState
   const isValid = methods.formState?.isValid;
