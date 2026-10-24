@@ -38,6 +38,8 @@ export default {
         ],
         test: {
           name: 'storybook',
+          // focus assertions share the browser, run story files without competing pages
+          fileParallelism: false,
           browser: {
             enabled: true,
             headless: true,

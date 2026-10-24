@@ -43,6 +43,9 @@ internal implementation and story contract.
 Run `pnpm test:storybook` from the root to delegate to the shared Storybook
 package's browser-test command. CI's unit job excludes `@repo/storybook-config*`,
 and its separate browser job installs Chromium and runs those stories.
+Story files run serially so keyboard and focus-restoration assertions do not
+compete across browser pages. Keep these assertions enabled when changing
+browser concurrency.
 
 ## Storybook stories and edge cases
 
