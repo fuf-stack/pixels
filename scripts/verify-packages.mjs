@@ -365,7 +365,11 @@ function installAndTestConsumer(tarballs) {
       {
         private: true,
         type: 'module',
-        dependencies,
+        dependencies: {
+          ...dependencies,
+          react: '18.3.1',
+          'react-dom': '18.3.1',
+        },
         // Consumer build tooling; no HeroUI theme plugin/configuration is loaded.
         devDependencies: { tailwindcss: '4.3.3' },
       },
@@ -473,6 +477,28 @@ function installAndTestConsumer(tarballs) {
     fixtureDirectory,
     { PNPM_CONFIG_MINIMUM_RELEASE_AGE: '0' },
   );
+
+  // exercise the packed component with the oldest supported React major
+  writeFileSync(
+    path.join(fixtureDirectory, 'react18.mjs'),
+    `import assert from 'node:assert/strict';
+import React from 'react';
+import { renderToStaticMarkup } from 'react-dom/server';
+import { AvatarGroup } from '@fuf-stack/pixels/AvatarGroup';
+
+assert.match(React.version, /^18\\./);
+const markup = renderToStaticMarkup(React.createElement(AvatarGroup, {
+  avatars: [{ fallback: 'Alice', src: '' }, { fallback: 'Bob', src: '' }],
+  max: 1,
+}));
+assert.match(markup, /Alice/);
+assert.doesNotMatch(markup, /Bob/);
+assert.match(markup, /aria-label="\\+1"/);
+`,
+  );
+  run('node', ['react18.mjs'], fixtureDirectory);
+  console.log('Verified packed AvatarGroup rendering with React 18.');
+
   run(
     path.join(root, 'node_modules/.bin/tsc'),
     ['-p', 'tsconfig.json'],

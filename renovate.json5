@@ -57,12 +57,6 @@
       minimumReleaseAge: null,
     },
 
-    // @heroui monorepo
-    {
-      matchPackageNames: ['/^@heroui/'],
-      groupName: '@heroui monorepo',
-    },
-
     // framer-motion: weekly only (rate-limiting)
     {
       matchPackageNames: ['framer-motion'],

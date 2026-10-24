@@ -52,7 +52,7 @@ const AvatarGroup = ({
 
   return (
     <div className={classNames.base} data-slot="base" role="group">
-      <AvatarGroupContext value>
+      <AvatarGroupContext.Provider value>
         {visibleAvatars.map(({ wrapperProps, ...avatarProps }, index) => {
           const key = `${avatarProps.src || 'avatar'}-${index}`;
           const avatar = (
@@ -85,7 +85,7 @@ const AvatarGroup = ({
             size={size}
           />
         ) : null}
-      </AvatarGroupContext>
+      </AvatarGroupContext.Provider>
     </div>
   );
 };

@@ -11,7 +11,6 @@ const preview: Preview = {
     controls: { expanded: true },
     // configure dark mode
     // see: https://github.com/vuelessjs/storybook-dark-mode
-    // see: https://github.com/heroui-inc/heroui/blob/canary/packages/storybook/.storybook/preview.tsx
     darkMode: {
       classTarget: 'html',
       current: 'dark',

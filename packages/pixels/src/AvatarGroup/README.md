@@ -17,6 +17,11 @@ with each avatar's disabled appearance.
 Use `avatarWrapper` and each entry's `wrapperProps` for links or buttons. Supply
 an accessible name and native disabled behavior on those wrappers yourself.
 
+## Compatibility
+
+Supports React 18 and later. Package verification renders AvatarGroup with
+React 18 from the published tarball, including visible entries and overflow.
+
 ## Styling
 
 `className` styles the row. Each entry retains Avatar's slot overrides, see

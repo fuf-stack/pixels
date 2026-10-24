@@ -3,8 +3,9 @@
 Reviewed on 2026-10-16. Uniform's direct HeroUI migration is complete: its
 manifest, published JavaScript and declarations contain no HeroUI dependencies
 or references. Package verification checks this boundary on every full check.
-Pixels still introduces HeroUI transitively, so installing Uniform is not yet a
-HeroUI-free dependency tree.
+The later Pixels and foundation migrations also removed transitive HeroUI
+dependencies. Installing Uniform now produces a HeroUI-free dependency tree.
+See the [completed migration inventory](../heroui-removal.md).
 
 ## Final cleanup
 
