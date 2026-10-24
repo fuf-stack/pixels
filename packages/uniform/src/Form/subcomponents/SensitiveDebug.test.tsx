@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 
-import { string, veto } from '@fuf-stack/veto';
+import { array, jsonObject, string, veto } from '@fuf-stack/veto';
 
 import Input from '../../Input';
 import Form from '../Form';
@@ -102,6 +102,74 @@ describe('Sensitive debug data', () => {
     );
     expect(screen.getByTestId('apitoken')).not.toHaveAttribute('sensitive');
   });
+
+  it.each([false, true])(
+    'redacts original paths before compacting submitted arrays (validation: %s)',
+    async (withValidation) => {
+      const onSubmit = vi.fn();
+      const initialValues = {
+        accounts: [
+          {},
+          {
+            password: 'shifted-password-secret',
+            username: 'john',
+            tokens: [{}, { value: 'shifted-token-secret' }],
+          },
+        ],
+      };
+      render(
+        <Form
+          initialValues={initialValues}
+          onSubmit={onSubmit}
+          validation={
+            withValidation ? veto({ accounts: array(jsonObject()) }) : undefined
+          }
+        >
+          <Input name="accounts.1.password" type="password" />
+          <Input name="accounts.1.tokens.1.value" sensitive />
+          <FormDebugViewer />
+          <button type="submit">Submit</button>
+        </Form>,
+      );
+
+      fireEvent.click(screen.getByText('Submit'));
+      await waitFor(() => expect(onSubmit).toHaveBeenCalledOnce());
+      expect(onSubmit.mock.calls[0][0]).toEqual({
+        accounts: [
+          {
+            password: 'shifted-password-secret',
+            username: 'john',
+            tokens: [{ value: 'shifted-token-secret' }],
+          },
+        ],
+      });
+      expect(debugLog).toHaveBeenCalledWith('onSubmit callback called', {
+        submitData: {
+          accounts: [
+            {
+              password: '[REDACTED]',
+              username: 'john',
+              tokens: [{ value: '[REDACTED]' }],
+            },
+          ],
+        },
+      });
+      expect(JSON.stringify(debugLog.mock.calls)).not.toContain(
+        'shifted-password-secret',
+      );
+      expect(JSON.stringify(debugLog.mock.calls)).not.toContain(
+        'shifted-token-secret',
+      );
+      expect(JSON.stringify(jsonRenders.mock.calls)).not.toContain(
+        'shifted-password-secret',
+      );
+      expect(JSON.stringify(jsonRenders.mock.calls)).not.toContain(
+        'shifted-token-secret',
+      );
+      expect(initialValues.accounts).toHaveLength(2);
+      expect(initialValues.accounts[1]?.tokens).toHaveLength(2);
+    },
+  );
 
   it('retains redaction after a sensitive input is unmounted', () => {
     const Fields = () => {

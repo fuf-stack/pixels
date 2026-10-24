@@ -388,7 +388,9 @@ const FormProvider: React.FC<FormProviderProps> = ({
     const wrappedOnSubmit = (data: FieldValues, event?: BaseSyntheticEvent) => {
       const submitData = toSubmitFormat(data) ?? {};
       debug('onSubmit callback called', {
-        submitData: sensitiveFields.redact(submitData),
+        // Match sensitive paths before removing empty rows shifts array indices.
+        submitData:
+          toSubmitFormat(sensitiveFields.redact(data) as FieldValues) ?? {},
       });
       return onSubmit(submitData, event);
     };

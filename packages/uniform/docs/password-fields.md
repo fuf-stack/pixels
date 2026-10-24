@@ -32,6 +32,10 @@ shared hook registers the field path with the form. Nested paths and array items
 are supported. Sensitivity is retained for the form's lifetime, including when
 an input is unmounted but its value remains in form state.
 
+Submit diagnostics redact sensitive values before removing empty array rows.
+Passwords and tokens stay redacted when submission cleanup changes their array
+indices, including in nested arrays.
+
 Redaction changes diagnostic copies only. Form values, validation, and `onSubmit`
 receive the original values. Application callbacks that log submitted data must
 handle their own redaction.

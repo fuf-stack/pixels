@@ -42,8 +42,8 @@ jobs:
       - uses: ./.github/actions/setup-project
       - name: Run unit tests with coverage
         # Nested project names begin with the config package, not "storybook".
-        # Vitest 5 resolves coverage globs relative to each selected package.
-        run: pnpm test --project='!@repo/storybook-config*' --coverage.include='src/**/*.{js,jsx,ts,tsx}'
+        # Match source paths relative to either a package or the root CI project.
+        run: pnpm test --project='!@repo/storybook-config*' --coverage.include='**/src/**/*.{js,jsx,ts,tsx}'
       - name: Verify coverage report
         run: |
           test -s coverage/lcov.info

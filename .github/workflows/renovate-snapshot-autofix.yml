@@ -1,47 +1,38 @@
 # This workflow lets maintainers explicitly request snapshot autofixes on Renovate PRs.
-# It runs tests, updates snapshots only when failures are snapshot-related, and pushes
-# the snapshot commit back to the Renovate branch while blocking non-snapshot changes.
+# It tests updates and pushes external snapshot changes back to the Renovate branch.
+# Untrusted build/test code and repository write credentials run on separate runners.
 name: renovate-snapshot-autofix
 
 on:
-  # Request-driven mode on Renovate PRs.
-  # We include synchronize/reopened so reruns happen automatically after updates
-  # when the label is still present.
+  # Request-driven mode on Renovate PRs. Keep rerunning after updates/reopens
+  # while the opt-in label is present.
   pull_request_target:
-    types:
-      - labeled
-      - synchronize
-      - reopened
+    types: [labeled, synchronize, reopened]
   # Alternative request mode: comment `/autofix-snapshots` on a Renovate PR.
   issue_comment:
-    types:
-      - created
+    types: [created]
   # Fallback manual trigger from Actions UI for a specific branch.
   workflow_dispatch:
     inputs:
       branch:
-        description: 'Renovate branch to update snapshots for (e.g. renovate/pkg-1.x)'
+        description: 'Renovate branch to update external snapshots for'
         required: true
         type: string
 
-permissions:
-  # Needed to dispatch CI after the GITHUB_TOKEN-backed push. Such pushes do not
-  # emit another pull_request event themselves.
-  actions: write
-  # Needed to push snapshot updates back to the Renovate branch.
-  contents: write
-  # Needed to read PR metadata (label + head branch).
-  pull-requests: read
+# Grant each job only the permissions needed for its part of the workflow.
+permissions: {}
 
 jobs:
-  autofix-snapshots:
-    name: Autofix Snapshot Updates
+  resolve:
+    name: Resolve immutable Renovate head
     runs-on: ubuntu-latest
-    timeout-minutes: 20
-    # Run when:
-    # 1) a Renovate PR has the opt-in label,
-    # 2) a maintainer comments `/autofix-snapshots` on a PR, or
-    # 3) the workflow is manually dispatched.
+    timeout-minutes: 5
+    permissions:
+      contents: read
+      # Needed to resolve current PR metadata for label and comment requests.
+      pull-requests: read
+    # Run for an opted-in same-repository Renovate PR, an authorized comment,
+    # or a manual request. Resolve the head once so later jobs test the same SHA.
     if: >-
       ${{
         (github.event_name == 'pull_request_target' &&
@@ -54,113 +45,90 @@ jobs:
          contains(fromJSON('["OWNER", "MEMBER", "COLLABORATOR"]'), github.event.comment.author_association)) ||
         github.event_name == 'workflow_dispatch'
       }}
-
+    outputs:
+      branch: ${{ steps.head.outputs.branch }}
+      sha: ${{ steps.head.outputs.sha }}
     steps:
-      - name: Resolve PR head branch for issue comment trigger
-        id: pr-head
-        if: github.event_name == 'issue_comment'
-        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9
-        with:
-          script: |
-            const { owner, repo } = context.repo;
-            const issueNumber = context.payload.issue.number;
-            const { data: pr } = await github.rest.pulls.get({
-              owner,
-              repo,
-              pull_number: issueNumber,
-            });
-
-            if (!pr.head.ref.startsWith('renovate/')) {
-              core.setFailed(`PR head '${pr.head.ref}' is not a renovate branch.`);
-              return;
-            }
-            if (pr.head.repo.full_name !== `${owner}/${repo}`) {
-              core.setFailed(
-                `Refusing to push to external repo '${pr.head.repo.full_name}'.`,
-              );
-              return;
-            }
-
-            core.setOutput('ref', pr.head.ref);
-            core.setOutput('repository', pr.head.repo.full_name);
-
+      # Resolve requests using the trusted workflow revision, without Git auth.
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          fetch-depth: 0
-          # For label-triggered runs, check out the Renovate PR head branch.
-          # For issue comments, resolve PR head via API first.
-          # For manual runs, use the branch provided as workflow input.
-          ref: ${{ github.event_name == 'pull_request_target' && github.event.pull_request.head.ref || github.event_name == 'issue_comment' && steps.pr-head.outputs.ref || github.event.inputs.branch }}
-          # For Renovate PRs this can point to a fork; for manual runs use current repo.
-          repository: ${{ github.event_name == 'pull_request_target' && github.event.pull_request.head.repo.full_name || github.event_name == 'issue_comment' && steps.pr-head.outputs.repository || github.repository }}
-
-      - name: Setup project
-        uses: ./.github/actions/setup-project
-
-      - name: Run tests
-        id: test-run
-        shell: bash
-        run: |
-          set +e
-          pnpm test
-          test_exit=$?
-          set -e
-
-          if [ "$test_exit" -eq 0 ]; then
-            echo "status=passed" >> "$GITHUB_OUTPUT"
-            exit 0
-          fi
-
-          echo "status=failed" >> "$GITHUB_OUTPUT"
-
-      - name: Update snapshots
-        if: steps.test-run.outputs.status == 'failed'
-        run: pnpm test -u
-
-      - name: Ensure only snapshot files changed
-        if: steps.test-run.outputs.status == 'failed'
-        shell: bash
-        run: |
-          changed_files="$(git status --porcelain=v1 --untracked-files=all | cut -c4-)"
-          if [ -z "$changed_files" ]; then
-            echo "Tests failed, but updating snapshots produced no changes."
-            exit 1
-          fi
-
-          # Safety gate: only allow known snapshot file patterns.
-          non_snapshot_files="$(printf '%s\n' "$changed_files" | rg -v '(^|/)__snapshots__/|\.snap$|(\.|/)(test|spec)\.(ts|tsx|js|jsx|mjs|cjs)$' || true)"
-          if [ -n "$non_snapshot_files" ]; then
-            echo "Found non-snapshot changes after update:"
-            printf '%s\n' "$non_snapshot_files"
-            exit 1
-          fi
-
-      - name: Verify tests pass with updated snapshots
-        if: steps.test-run.outputs.status == 'failed'
-        run: pnpm test
-
-      - name: Commit and push snapshot updates
-        id: snapshot-commit
-        if: steps.test-run.outputs.status == 'failed'
-        shell: bash
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add -A
-          git commit -m "test: update snapshots"
-          git push
-          echo "pushed=true" >> "$GITHUB_OUTPUT"
-
-      - name: Run CI for the snapshot commit
-        if: steps.snapshot-commit.outputs.pushed == 'true'
+          ref: ${{ github.workflow_sha }}
+          persist-credentials: false
+      - id: head
         uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9
-        env:
-          HEAD_REF: ${{ github.event_name == 'pull_request_target' && github.event.pull_request.head.ref || github.event_name == 'issue_comment' && steps.pr-head.outputs.ref || github.event.inputs.branch }}
         with:
           script: |
-            await github.rest.actions.createWorkflowDispatch({
-              ...context.repo,
-              workflow_id: 'ci.yml',
-              ref: process.env.HEAD_REF,
-            });
+            const { pathToFileURL } = require('node:url');
+            const scriptUrl = pathToFileURL(`${process.env.GITHUB_WORKSPACE}/scripts/ci-snapshot-autofix.mjs`);
+            const { resolveHead } = await import(scriptUrl.href);
+            await resolveHead({ github, context, core });
+
+  snapshots:
+    name: Build and test without write credentials
+    # Branch code must not populate trusted caches, including on manual runs.
+    cache-mode: read
+    needs: resolve
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: read
+    outputs:
+      changed: ${{ steps.payload.outputs.changed }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          # Build the resolved PR/manual-request commit without retaining auth.
+          ref: ${{ needs.resolve.outputs.sha }}
+          persist-credentials: false
+      - name: Setup project
+        uses: ./.github/actions/setup-project
+      - name: Run tests and collect external snapshot updates
+        id: payload
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9
+        with:
+          script: |
+            const { pathToFileURL } = require('node:url');
+            const scriptUrl = pathToFileURL(`${process.env.GITHUB_WORKSPACE}/scripts/ci-snapshot-autofix.mjs`);
+            const { buildSnapshots } = await import(scriptUrl.href);
+            buildSnapshots({ core });
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
+        if: steps.payload.outputs.changed == 'true'
+        with:
+          name: snapshots-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/snapshot-output/snapshots.json
+          if-no-files-found: error
+          retention-days: 1
+
+  write:
+    name: Apply validated snapshot data
+    needs: [resolve, snapshots]
+    if: needs.snapshots.outputs.changed == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      # Needed to create the snapshot commit and update the Renovate branch.
+      contents: write
+      # GITHUB_TOKEN-backed commits do not emit another pull_request event;
+      # dispatch CI explicitly after the snapshot commit is accepted.
+      actions: write
+    steps:
+      # Never check out the Renovate head or install its dependencies here.
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: ${{ github.workflow_sha }}
+          persist-credentials: false
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8
+        with:
+          name: snapshots-${{ github.run_id }}-${{ github.run_attempt }}
+          path: snapshot-input
+      - name: Validate snapshots and create commit through GitHub API
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9
+        env:
+          HEAD_BRANCH: ${{ needs.resolve.outputs.branch }}
+          HEAD_SHA: ${{ needs.resolve.outputs.sha }}
+        with:
+          script: |
+            const { pathToFileURL } = require('node:url');
+            const scriptUrl = pathToFileURL(`${process.env.GITHUB_WORKSPACE}/scripts/ci-snapshot-autofix.mjs`);
+            const { run } = await import(scriptUrl.href);
+            await run({ github, context });

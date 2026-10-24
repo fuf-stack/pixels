@@ -42,6 +42,8 @@ export default [
             'packages/uniform/.storybook/preview.tsx',
             'scripts/check-dependency-boundaries.mjs',
             'scripts/check.mjs',
+            'scripts/ci-snapshot-autofix.mjs',
+            'scripts/ci-snapshot-autofix.test.mjs',
             'scripts/verify-packages.mjs',
           ],
           maximumDefaultProjectFileMatchCount_THIS_WILL_SLOW_DOWN_LINTING: 20,
