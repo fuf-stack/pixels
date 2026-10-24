@@ -74,6 +74,56 @@ Pinning `@lerna-lite/cli` in root `devDependencies` gives us:
 
 The workflow conditionally sets `--dist-tag next` on the `next` branch.
 
+The next config must set `"versioning": "prerelease"` as well as
+`"prerelease": true` and `"prerelease-type": "next"`. The strategy generates
+`-next` versions; the prerelease flag alone only marks GitHub releases.
+
+### Bootstrap or update next
+
+Run `node scripts/bootstrap-next-branch.mjs` from a clean repository root with
+Git and Node.js installed. It fetches origin, creates or resumes next (including a
+remote-only branch), and merges origin/main. Resolve any merge conflicts before
+rerunning it. It does not require checking out main, so main can remain open in
+another worktree.
+
+After merging next into main and completing the stable release, start a fresh
+cycle explicitly:
+
+```bash
+node scripts/bootstrap-next-branch.mjs --start-new-cycle
+```
+
+The Makefile shortcut is `make bootstrap-next ARGS=--start-new-cycle`.
+
+This mode merges current origin/main, resets `bootstrap-sha` to that main commit,
+and initializes every package at the next major stable version with `-next.0`.
+For example, stable `2.0.0` starts at `3.0.0-next.0`. It discards existing
+prerelease counters, including packages whose prerelease base is still ahead of
+stable. Use it only when starting a new cycle. Ordinary runs preserve the active
+cutoff and counters; rerunning either mode with unchanged state creates no commit.
+
+The script seeds missing packages at the next major version with `-next.0`.
+It preserves an existing `-next` version and its counter while its base version
+is ahead of stable. When stable catches up, it starts the next major cycle for
+that package. Release Please generates the actual release versions and
+changelogs; for a package with its own releasable commits, a `2.0.0-next.0`
+baseline produces `2.0.0-next.1`. The workspace plugin can also release
+consumers solely because a dependency changed. Those releases use the consumer's
+package.json version as their baseline, for example `1.14.1` becomes
+`1.14.2-next`; they still use the prerelease strategy and npm's next tag.
+
+The first bootstrap records `bootstrap-sha` to exclude earlier history.
+Release Please ignores this cutoff after the first release and then uses the
+latest release. Legacy `last-release-sha` settings are migrated without changing
+their original cutoff. Never leave `last-release-sha` set permanently: it
+overrides release discovery and can repeatedly include already released commits.
+
+Review the resulting commits and push with `git push -u origin next`.
+Bootstrapping does not push or publish. Run `pnpm test:release` to exercise the
+bootstrap against temporary Git repositories, including repeat runs, remote
+branch recovery, stable version advancement, legacy cutoff migration, and new
+cycles that exclude already released history.
+
 ## Permissions
 
 The release job requires:

@@ -52,6 +52,6 @@ test-dts: install
 
 # Bootstrap or update the 'next' prerelease branch
 # Creates .release-please-manifest-next.json with major version bumps
-# Re-run this when main catches up to next's major version
+# Start a fresh cycle after the stable release with ARGS=--start-new-cycle
 bootstrap-next:
-	sh ./scripts/bootstrap-next-branch.sh;
+	node ./scripts/bootstrap-next-branch.mjs $(ARGS);

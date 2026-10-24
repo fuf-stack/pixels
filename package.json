@@ -11,6 +11,7 @@
     "lint": "eslint ./packages",
     "lint:debug": "eslint --debug ./packages",
     "test": "FORCE_COLOR=1 vitest run --coverage $VITEST_EXTRA_OPTS",
+    "test:release": "node --test scripts/bootstrap-next-branch.test.mjs",
     "test:storybook": "pnpm --filter @repo/storybook-config test:storybook",
     "typecheck": "pnpm --filter @fuf-stack/pixels test:types && pnpm --filter @fuf-stack/uniform test:types && pnpm build",
     "turbo": "TURBO_TELEMETRY_DISABLED=1 FORCE_COLOR=1 turbo --cache-dir ./.turbo-cache --color",

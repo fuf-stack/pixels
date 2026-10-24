@@ -29,6 +29,8 @@ jobs:
       - uses: ./.github/actions/setup-project
       - name: Validate dependency boundaries
         run: pnpm check:boundaries
+      - name: Verify release bootstrap
+        run: pnpm test:release
       - name: Lint packages
         run: pnpm lint
 

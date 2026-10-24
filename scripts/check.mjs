@@ -9,6 +9,7 @@ import { spawnSync } from 'node:child_process';
  */
 
 const checks = [
+  ['release bootstrap', 'test:release'],
   ['dependency boundaries', 'check:boundaries'],
   ['lint', 'lint'],
   ['type checking and builds', 'typecheck'],

@@ -4,6 +4,7 @@
   "include-component-in-tag": true,
   "prerelease": true,
   "prerelease-type": "next",
+  "versioning": "prerelease",
   "packages": {
     "packages/atelier": {},
     "packages/megapixels": {},
@@ -13,5 +14,6 @@
     "packages/uniform": {},
     "packages/veto": {}
   },
-  "plugins": ["node-workspace"]
+  "plugins": ["node-workspace"],
+  "bootstrap-sha": "bfc747434d363bd64d3dab39fa29bd10dc81bfe3"
 }
