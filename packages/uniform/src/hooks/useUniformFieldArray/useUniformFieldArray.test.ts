@@ -2,7 +2,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { act, renderHook } from '@testing-library/react';
 
-import { useUniformFieldArray } from './useUniformFieldArray';
+import useUniformFieldArray from './useUniformFieldArray';
 
 // Mock dependencies
 const mockTrigger = vi.fn();
@@ -45,15 +45,16 @@ vi.mock('../useFormContext/useFormContext', () => ({
 }));
 
 vi.mock('../useUniformField/useUniformField', () => ({
-  useUniformField: vi.fn((params) => ({
+  default: vi.fn((params) => ({
     control: { _formControl: true },
-    error: undefined,
     getValues: vi.fn(),
-    invalid: false,
-    testId: params.testId ?? 'test-field',
-    field: {},
-    disabled: params.disabled,
-    label: params.label,
+    field: {
+      error: undefined,
+      invalid: false,
+      testId: params.testId ?? 'test-field',
+      disabled: params.disabled,
+      label: params.label,
+    },
   })),
 }));
 
@@ -105,10 +106,80 @@ describe('useUniformFieldArray', () => {
       );
 
       expect(result.current).toHaveProperty('control');
-      expect(result.current).toHaveProperty('error');
+      expect(result.current.field).toHaveProperty('error');
       expect(result.current).toHaveProperty('getValues');
-      expect(result.current).toHaveProperty('invalid');
-      expect(result.current).toHaveProperty('testId');
+      expect(result.current.field).toHaveProperty('invalid');
+      expect(result.current.field).toHaveProperty('testId');
+    });
+  });
+
+  describe('bound row operations', () => {
+    it.each([false, true])(
+      'binds current row values and identification with flat=%s',
+      (flat) => {
+        mockFields = [{ id: 'row-a' }, { id: 'row-b' }];
+        mockCurrentArrayValue = flat
+          ? ['first', 'second']
+          : [{ name: 'first' }, { name: 'second' }];
+        const { result } = renderHook(() =>
+          useUniformFieldArray({
+            name: 'rows',
+            flat,
+            testId: 'rows-test',
+            elementInitialValue: flat ? 'new' : { name: 'new' },
+          }),
+        );
+        const row = result.current.items[1];
+
+        expect(row.id).toBe('row-b');
+        expect(row.renderProps).toMatchObject({
+          index: 1,
+          length: 2,
+          name: flat ? 'rows.1.__FLAT__' : 'rows.1',
+          testId: 'rows-test_1',
+        });
+
+        // duplicate reads the latest values when the action runs
+        mockCurrentArrayValue = flat
+          ? ['first', 'edited']
+          : [{ name: 'first' }, { name: 'edited' }];
+        act(() => row.renderProps.methods.duplicate());
+        expect(mockInsert).toHaveBeenLastCalledWith(
+          2,
+          flat ? { __FLAT__: 'edited' } : { name: 'edited' },
+        );
+
+        act(() => row.renderProps.methods.insert());
+        expect(mockInsert).toHaveBeenLastCalledWith(
+          2,
+          flat ? { __FLAT__: 'new' } : { name: 'new' },
+        );
+
+        act(() => row.renderProps.methods.remove());
+        expect(mockRemove).toHaveBeenLastCalledWith(1);
+
+        act(() => result.current.appendItem());
+        expect(mockAppend).toHaveBeenLastCalledWith(
+          flat ? { __FLAT__: 'new' } : { name: 'new' },
+        );
+      },
+    );
+
+    it('validates the array after moving a row', () => {
+      mockFields = [{ id: 'row-a' }, { id: 'row-b' }];
+      const { result } = renderHook(() =>
+        useUniformFieldArray({ name: 'rows' }),
+      );
+      mockTrigger.mockClear();
+      mockMove.mockClear();
+
+      act(() => result.current.moveItem(0, 1));
+
+      expect(mockMove).toHaveBeenCalledWith(0, 1);
+      expect(mockTrigger).toHaveBeenCalledWith('rows');
+      expect(mockMove.mock.invocationCallOrder[0]).toBeLessThan(
+        mockTrigger.mock.invocationCallOrder[0],
+      );
     });
   });
 
@@ -826,7 +897,7 @@ describe('useUniformFieldArray', () => {
     });
   });
 
-  describe('Integration with useUniformField', () => {
+  describe('Integration with private field state', () => {
     it('should pass through label prop', () => {
       const { result } = renderHook(() =>
         useUniformFieldArray({
@@ -835,7 +906,7 @@ describe('useUniformFieldArray', () => {
         }),
       );
 
-      expect(result.current.label).toBe('Test Label');
+      expect(result.current.field.label).toBe('Test Label');
     });
 
     it('should pass through disabled prop', () => {
@@ -846,7 +917,7 @@ describe('useUniformFieldArray', () => {
         }),
       );
 
-      expect(result.current.disabled).toBe(true);
+      expect(result.current.field.disabled).toBe(true);
     });
 
     it('should pass through testId prop', () => {
@@ -857,7 +928,7 @@ describe('useUniformFieldArray', () => {
         }),
       );
 
-      expect(result.current.testId).toBe('custom-test-id');
+      expect(result.current.field.testId).toBe('custom-test-id');
     });
   });
 

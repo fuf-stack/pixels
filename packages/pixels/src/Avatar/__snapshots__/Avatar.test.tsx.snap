@@ -6,19 +6,20 @@ exports[`Story Snapshots > AllBorderRadii 1`] = `
     class="flex space-x-4"
   >
     <span
-      class="flex relative justify-center items-center box-border overflow-hidden align-middle z-0 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 w-10 h-10 text-tiny bg-default text-default-foreground rounded-none"
+      class="relative z-0 box-border flex items-center justify-center overflow-hidden bg-default align-middle text-default-foreground outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus rounded-none h-10 w-10 text-tiny"
+      data-slot="base"
       tabindex="-1"
     >
       <span
         aria-label="avatar"
-        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center text-inherit w-full h-full"
+        class="absolute left-1/2 top-1/2 flex h-full w-full -translate-x-1/2 -translate-y-1/2 items-center justify-center text-inherit"
+        data-slot="icon"
         role="img"
       >
         <svg
           aria-hidden="true"
           fill="none"
           height="80%"
-          role="presentation"
           viewBox="0 0 24 24"
           width="80%"
         >
@@ -34,19 +35,20 @@ exports[`Story Snapshots > AllBorderRadii 1`] = `
       </span>
     </span>
     <span
-      class="flex relative justify-center items-center box-border overflow-hidden align-middle z-0 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 w-10 h-10 text-tiny bg-default text-default-foreground rounded-small"
+      class="relative z-0 box-border flex items-center justify-center overflow-hidden bg-default align-middle text-default-foreground outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus rounded-small h-10 w-10 text-tiny"
+      data-slot="base"
       tabindex="-1"
     >
       <span
         aria-label="avatar"
-        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center text-inherit w-full h-full"
+        class="absolute left-1/2 top-1/2 flex h-full w-full -translate-x-1/2 -translate-y-1/2 items-center justify-center text-inherit"
+        data-slot="icon"
         role="img"
       >
         <svg
           aria-hidden="true"
           fill="none"
           height="80%"
-          role="presentation"
           viewBox="0 0 24 24"
           width="80%"
         >
@@ -62,19 +64,20 @@ exports[`Story Snapshots > AllBorderRadii 1`] = `
       </span>
     </span>
     <span
-      class="flex relative justify-center items-center box-border overflow-hidden align-middle z-0 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 w-10 h-10 text-tiny bg-default text-default-foreground rounded-medium"
+      class="relative z-0 box-border flex items-center justify-center overflow-hidden bg-default align-middle text-default-foreground outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus rounded-medium h-10 w-10 text-tiny"
+      data-slot="base"
       tabindex="-1"
     >
       <span
         aria-label="avatar"
-        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center text-inherit w-full h-full"
+        class="absolute left-1/2 top-1/2 flex h-full w-full -translate-x-1/2 -translate-y-1/2 items-center justify-center text-inherit"
+        data-slot="icon"
         role="img"
       >
         <svg
           aria-hidden="true"
           fill="none"
           height="80%"
-          role="presentation"
           viewBox="0 0 24 24"
           width="80%"
         >
@@ -90,19 +93,20 @@ exports[`Story Snapshots > AllBorderRadii 1`] = `
       </span>
     </span>
     <span
-      class="flex relative justify-center items-center box-border overflow-hidden align-middle z-0 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 w-10 h-10 text-tiny bg-default text-default-foreground rounded-large"
+      class="relative z-0 box-border flex items-center justify-center overflow-hidden bg-default align-middle text-default-foreground outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus rounded-large h-10 w-10 text-tiny"
+      data-slot="base"
       tabindex="-1"
     >
       <span
         aria-label="avatar"
-        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center text-inherit w-full h-full"
+        class="absolute left-1/2 top-1/2 flex h-full w-full -translate-x-1/2 -translate-y-1/2 items-center justify-center text-inherit"
+        data-slot="icon"
         role="img"
       >
         <svg
           aria-hidden="true"
           fill="none"
           height="80%"
-          role="presentation"
           viewBox="0 0 24 24"
           width="80%"
         >
@@ -118,19 +122,20 @@ exports[`Story Snapshots > AllBorderRadii 1`] = `
       </span>
     </span>
     <span
-      class="flex relative justify-center items-center box-border overflow-hidden align-middle z-0 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 w-10 h-10 text-tiny bg-default text-default-foreground rounded-full"
+      class="relative z-0 box-border flex items-center justify-center overflow-hidden bg-default align-middle text-default-foreground outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus rounded-full h-10 w-10 text-tiny"
+      data-slot="base"
       tabindex="-1"
     >
       <span
         aria-label="avatar"
-        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center text-inherit w-full h-full"
+        class="absolute left-1/2 top-1/2 flex h-full w-full -translate-x-1/2 -translate-y-1/2 items-center justify-center text-inherit"
+        data-slot="icon"
         role="img"
       >
         <svg
           aria-hidden="true"
           fill="none"
           height="80%"
-          role="presentation"
           viewBox="0 0 24 24"
           width="80%"
         >
@@ -155,32 +160,38 @@ exports[`Story Snapshots > AllSizes 1`] = `
     class="flex space-x-4"
   >
     <span
-      class="flex relative justify-center items-center box-border overflow-hidden align-middle z-0 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 w-8 h-8 text-tiny bg-default text-default-foreground rounded-full"
+      class="relative z-0 box-border flex items-center justify-center overflow-hidden bg-default align-middle text-default-foreground outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus rounded-full h-8 w-8 text-tiny"
+      data-slot="base"
       tabindex="-1"
     >
       <img
         alt="avatar"
-        class="flex object-cover w-full h-full transition-opacity !duration-500 opacity-0 data-[loaded=true]:opacity-100"
+        class="flex h-full w-full object-cover opacity-0 transition-opacity !duration-500 data-[loaded=true]:opacity-100 motion-reduce:transition-none"
+        data-slot="img"
         src="/src/Avatar/sample_image/avatar.png"
       />
     </span>
     <span
-      class="flex relative justify-center items-center box-border overflow-hidden align-middle z-0 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 w-10 h-10 text-tiny bg-default text-default-foreground rounded-full"
+      class="relative z-0 box-border flex items-center justify-center overflow-hidden bg-default align-middle text-default-foreground outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus rounded-full h-10 w-10 text-tiny"
+      data-slot="base"
       tabindex="-1"
     >
       <img
         alt="avatar"
-        class="flex object-cover w-full h-full transition-opacity !duration-500 opacity-0 data-[loaded=true]:opacity-100"
+        class="flex h-full w-full object-cover opacity-0 transition-opacity !duration-500 data-[loaded=true]:opacity-100 motion-reduce:transition-none"
+        data-slot="img"
         src="/src/Avatar/sample_image/avatar.png"
       />
     </span>
     <span
-      class="flex relative justify-center items-center box-border overflow-hidden align-middle z-0 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 w-14 h-14 text-small bg-default text-default-foreground rounded-full"
+      class="relative z-0 box-border flex items-center justify-center overflow-hidden bg-default align-middle text-default-foreground outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus rounded-full h-14 w-14 text-small"
+      data-slot="base"
       tabindex="-1"
     >
       <img
         alt="avatar"
-        class="flex object-cover w-full h-full transition-opacity !duration-500 opacity-0 data-[loaded=true]:opacity-100"
+        class="flex h-full w-full object-cover opacity-0 transition-opacity !duration-500 data-[loaded=true]:opacity-100 motion-reduce:transition-none"
+        data-slot="img"
         src="/src/Avatar/sample_image/avatar.png"
       />
     </span>
@@ -191,12 +202,14 @@ exports[`Story Snapshots > AllSizes 1`] = `
 exports[`Story Snapshots > Bordered 1`] = `
 <div>
   <span
-    class="flex relative justify-center items-center box-border overflow-hidden align-middle z-0 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 w-10 h-10 text-tiny bg-default text-default-foreground rounded-full ring-2 ring-offset-2 ring-offset-background dark:ring-offset-background-dark ring-default"
+    class="relative z-0 box-border flex items-center justify-center overflow-hidden bg-default align-middle text-default-foreground outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus dark:ring-offset-background-dark ring-2 ring-default ring-offset-2 ring-offset-background rounded-full h-10 w-10 text-tiny"
+    data-slot="base"
     tabindex="-1"
   >
     <img
       alt="avatar"
-      class="flex object-cover w-full h-full transition-opacity !duration-500 opacity-0 data-[loaded=true]:opacity-100"
+      class="flex h-full w-full object-cover opacity-0 transition-opacity !duration-500 data-[loaded=true]:opacity-100 motion-reduce:transition-none"
+      data-slot="img"
       src="/src/Avatar/sample_image/avatar.png"
     />
   </span>
@@ -209,52 +222,62 @@ exports[`Story Snapshots > CustomSizes 1`] = `
     class="flex space-x-4"
   >
     <span
-      class="flex relative justify-center items-center box-border overflow-hidden align-middle z-0 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny bg-default text-default-foreground rounded-full h-8 w-8"
+      class="relative z-0 box-border flex items-center justify-center overflow-hidden bg-default align-middle text-default-foreground outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus rounded-full text-tiny h-8 w-8"
+      data-slot="base"
       tabindex="-1"
     >
       <img
         alt="avatar"
-        class="flex object-cover w-full h-full transition-opacity !duration-500 opacity-0 data-[loaded=true]:opacity-100"
+        class="flex h-full w-full object-cover opacity-0 transition-opacity !duration-500 data-[loaded=true]:opacity-100 motion-reduce:transition-none"
+        data-slot="img"
         src="/src/Avatar/sample_image/avatar.png"
       />
     </span>
     <span
-      class="flex relative justify-center items-center box-border overflow-hidden align-middle z-0 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny bg-default text-default-foreground rounded-full h-12 w-12"
+      class="relative z-0 box-border flex items-center justify-center overflow-hidden bg-default align-middle text-default-foreground outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus rounded-full text-tiny h-12 w-12"
+      data-slot="base"
       tabindex="-1"
     >
       <img
         alt="avatar"
-        class="flex object-cover w-full h-full transition-opacity !duration-500 opacity-0 data-[loaded=true]:opacity-100"
+        class="flex h-full w-full object-cover opacity-0 transition-opacity !duration-500 data-[loaded=true]:opacity-100 motion-reduce:transition-none"
+        data-slot="img"
         src="/src/Avatar/sample_image/avatar.png"
       />
     </span>
     <span
-      class="flex relative justify-center items-center box-border overflow-hidden align-middle z-0 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny bg-default text-default-foreground rounded-full h-16 w-16"
+      class="relative z-0 box-border flex items-center justify-center overflow-hidden bg-default align-middle text-default-foreground outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus rounded-full text-tiny h-16 w-16"
+      data-slot="base"
       tabindex="-1"
     >
       <img
         alt="avatar"
-        class="flex object-cover w-full h-full transition-opacity !duration-500 opacity-0 data-[loaded=true]:opacity-100"
+        class="flex h-full w-full object-cover opacity-0 transition-opacity !duration-500 data-[loaded=true]:opacity-100 motion-reduce:transition-none"
+        data-slot="img"
         src="/src/Avatar/sample_image/avatar.png"
       />
     </span>
     <span
-      class="flex relative justify-center items-center box-border overflow-hidden align-middle z-0 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny bg-default text-default-foreground rounded-full h-20 w-20"
+      class="relative z-0 box-border flex items-center justify-center overflow-hidden bg-default align-middle text-default-foreground outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus rounded-full text-tiny h-20 w-20"
+      data-slot="base"
       tabindex="-1"
     >
       <img
         alt="avatar"
-        class="flex object-cover w-full h-full transition-opacity !duration-500 opacity-0 data-[loaded=true]:opacity-100"
+        class="flex h-full w-full object-cover opacity-0 transition-opacity !duration-500 data-[loaded=true]:opacity-100 motion-reduce:transition-none"
+        data-slot="img"
         src="/src/Avatar/sample_image/avatar.png"
       />
     </span>
     <span
-      class="flex relative justify-center items-center box-border overflow-hidden align-middle z-0 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny bg-default text-default-foreground rounded-full h-24 w-24"
+      class="relative z-0 box-border flex items-center justify-center overflow-hidden bg-default align-middle text-default-foreground outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus rounded-full text-tiny h-24 w-24"
+      data-slot="base"
       tabindex="-1"
     >
       <img
         alt="avatar"
-        class="flex object-cover w-full h-full transition-opacity !duration-500 opacity-0 data-[loaded=true]:opacity-100"
+        class="flex h-full w-full object-cover opacity-0 transition-opacity !duration-500 data-[loaded=true]:opacity-100 motion-reduce:transition-none"
+        data-slot="img"
         src="/src/Avatar/sample_image/avatar.png"
       />
     </span>
@@ -262,22 +285,42 @@ exports[`Story Snapshots > CustomSizes 1`] = `
 </div>
 `;
 
+exports[`Story Snapshots > CustomStyling 1`] = `
+<div>
+  <span
+    class="relative z-0 box-border flex items-center justify-center overflow-hidden align-middle outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus rounded-full text-tiny h-16 w-16 bg-primary text-primary-foreground"
+    data-slot="base"
+    tabindex="-1"
+  >
+    <div
+      aria-label="avatar"
+      class="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center text-large"
+      data-slot="fallback"
+      role="img"
+    >
+      JD
+    </div>
+  </span>
+</div>
+`;
+
 exports[`Story Snapshots > Default 1`] = `
 <div>
   <span
-    class="flex relative justify-center items-center box-border overflow-hidden align-middle z-0 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 w-10 h-10 text-tiny bg-default text-default-foreground rounded-full"
+    class="relative z-0 box-border flex items-center justify-center overflow-hidden bg-default align-middle text-default-foreground outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus rounded-full h-10 w-10 text-tiny"
+    data-slot="base"
     tabindex="-1"
   >
     <span
       aria-label="avatar"
-      class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center text-inherit w-full h-full"
+      class="absolute left-1/2 top-1/2 flex h-full w-full -translate-x-1/2 -translate-y-1/2 items-center justify-center text-inherit"
+      data-slot="icon"
       role="img"
     >
       <svg
         aria-hidden="true"
         fill="none"
         height="80%"
-        role="presentation"
         viewBox="0 0 24 24"
         width="80%"
       >
@@ -298,14 +341,41 @@ exports[`Story Snapshots > Default 1`] = `
 exports[`Story Snapshots > Disabled 1`] = `
 <div>
   <span
-    class="flex relative justify-center items-center box-border overflow-hidden align-middle z-0 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 w-10 h-10 text-tiny bg-default text-default-foreground rounded-full opacity-disabled"
+    class="relative z-0 box-border flex items-center justify-center overflow-hidden bg-default align-middle text-default-foreground outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus opacity-disabled rounded-full h-10 w-10 text-tiny"
+    data-slot="base"
     tabindex="-1"
   >
     <img
       alt="avatar"
-      class="flex object-cover w-full h-full transition-opacity !duration-500 opacity-0 data-[loaded=true]:opacity-100"
+      class="flex h-full w-full object-cover opacity-0 transition-opacity !duration-500 data-[loaded=true]:opacity-100 motion-reduce:transition-none"
+      data-slot="img"
       src="/src/Avatar/sample_image/avatar.png"
     />
+  </span>
+</div>
+`;
+
+exports[`Story Snapshots > FailedImage 1`] = `
+<div>
+  <span
+    class="relative z-0 box-border flex items-center justify-center overflow-hidden bg-default align-middle text-default-foreground outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus rounded-full h-10 w-10 text-tiny"
+    data-slot="base"
+    tabindex="-1"
+  >
+    <img
+      alt="avatar"
+      class="flex h-full w-full object-cover opacity-0 transition-opacity !duration-500 data-[loaded=true]:opacity-100 motion-reduce:transition-none"
+      data-slot="img"
+      src="/missing-avatar.png"
+    />
+    <div
+      aria-label="avatar"
+      class="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center"
+      data-slot="fallback"
+      role="img"
+    >
+      JD
+    </div>
   </span>
 </div>
 `;
@@ -313,12 +383,14 @@ exports[`Story Snapshots > Disabled 1`] = `
 exports[`Story Snapshots > FallbackIcon 1`] = `
 <div>
   <span
-    class="flex relative justify-center items-center box-border overflow-hidden align-middle z-0 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 w-10 h-10 text-tiny bg-default text-default-foreground rounded-full"
+    class="relative z-0 box-border flex items-center justify-center overflow-hidden bg-default align-middle text-default-foreground outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus rounded-full h-10 w-10 text-tiny"
+    data-slot="base"
     tabindex="-1"
   >
     <div
       aria-label="avatar"
-      class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center"
+      class="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center"
+      data-slot="fallback"
       role="img"
     >
       <span
@@ -334,12 +406,14 @@ exports[`Story Snapshots > FallbackIcon 1`] = `
 exports[`Story Snapshots > FallbackString 1`] = `
 <div>
   <span
-    class="flex relative justify-center items-center box-border overflow-hidden align-middle z-0 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 w-10 h-10 text-tiny bg-default text-default-foreground rounded-full"
+    class="relative z-0 box-border flex items-center justify-center overflow-hidden bg-default align-middle text-default-foreground outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus rounded-full h-10 w-10 text-tiny"
+    data-slot="base"
     tabindex="-1"
   >
     <div
       aria-label="avatar"
-      class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center"
+      class="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center"
+      data-slot="fallback"
       role="img"
     >
       JD
@@ -353,12 +427,14 @@ exports[`Story Snapshots > Inline 1`] = `
   <p>
     I am "
     <span
-      class="relative justify-center items-center box-border overflow-hidden align-middle z-0 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 w-10 h-10 text-tiny bg-default text-default-foreground rounded-full inline-block"
+      class="relative z-0 box-border items-center justify-center overflow-hidden bg-default align-middle text-default-foreground outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus rounded-full h-10 w-10 text-tiny inline-block"
+      data-slot="base"
       tabindex="-1"
     >
       <img
         alt="avatar"
-        class="flex object-cover w-full h-full transition-opacity !duration-500 opacity-0 data-[loaded=true]:opacity-100"
+        class="flex h-full w-full object-cover opacity-0 transition-opacity !duration-500 data-[loaded=true]:opacity-100 motion-reduce:transition-none"
+        data-slot="img"
         src="/src/Avatar/sample_image/avatar.png"
       />
     </span>
@@ -370,12 +446,14 @@ exports[`Story Snapshots > Inline 1`] = `
 exports[`Story Snapshots > WithImage 1`] = `
 <div>
   <span
-    class="flex relative justify-center items-center box-border overflow-hidden align-middle z-0 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 w-10 h-10 text-tiny bg-default text-default-foreground rounded-full"
+    class="relative z-0 box-border flex items-center justify-center overflow-hidden bg-default align-middle text-default-foreground outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus rounded-full h-10 w-10 text-tiny"
+    data-slot="base"
     tabindex="-1"
   >
     <img
       alt="avatar"
-      class="flex object-cover w-full h-full transition-opacity !duration-500 opacity-0 data-[loaded=true]:opacity-100"
+      class="flex h-full w-full object-cover opacity-0 transition-opacity !duration-500 data-[loaded=true]:opacity-100 motion-reduce:transition-none"
+      data-slot="img"
       src="/src/Avatar/sample_image/avatar.png"
     />
   </span>
@@ -387,7 +465,8 @@ exports[`Story Snapshots > WithMenu 1`] = `
   <button
     aria-expanded="false"
     aria-haspopup="true"
-    class="aria-expanded:scale-[0.97] aria-expanded:opacity-70 subpixel-antialiased z-auto h-10 rounded-full"
+    class="z-auto subpixel-antialiased aria-expanded:!scale-[0.97] aria-expanded:!opacity-70 h-10 rounded-full"
+    data-rac=""
     data-react-aria-pressable="true"
     data-slot="trigger"
     id="react-aria-«replaced-aria-id»"
@@ -395,12 +474,14 @@ exports[`Story Snapshots > WithMenu 1`] = `
     type="button"
   >
     <span
-      class="flex relative justify-center items-center box-border overflow-hidden align-middle z-0 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 w-10 h-10 text-tiny bg-default text-default-foreground rounded-full ring-2 ring-offset-2 ring-offset-background dark:ring-offset-background-dark ring-default"
+      class="relative z-0 box-border flex items-center justify-center overflow-hidden bg-default align-middle text-default-foreground outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus dark:ring-offset-background-dark ring-2 ring-default ring-offset-2 ring-offset-background rounded-full h-10 w-10 text-tiny"
+      data-slot="base"
       tabindex="-1"
     >
       <img
         alt="avatar"
-        class="flex object-cover w-full h-full transition-opacity !duration-500 opacity-0 data-[loaded=true]:opacity-100"
+        class="flex h-full w-full object-cover opacity-0 transition-opacity !duration-500 data-[loaded=true]:opacity-100 motion-reduce:transition-none"
+        data-slot="img"
         src="/src/Avatar/sample_image/avatar.png"
       />
     </span>

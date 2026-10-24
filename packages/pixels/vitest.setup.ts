@@ -1,11 +1,22 @@
 /* eslint-disable import-x/no-extraneous-dependencies */
 import '@testing-library/jest-dom/vitest';
+import './test/setupKeyboardEvent';
 
 import { beforeEach, vi } from 'vitest';
 
 import { cleanup } from '@testing-library/react';
 
-// HeroUI Tabs (and other UI primitives) rely on ResizeObserver in passive effects.
+// jsdom has no Web Animations API, browser stories exercise real cursor transitions
+if (Element.prototype.getAnimations === undefined) {
+  Object.defineProperty(Element.prototype, 'getAnimations', {
+    configurable: true,
+    value: () => {
+      return [];
+    },
+  });
+}
+
+// Tab indicators and other UI primitives rely on ResizeObserver in passive effects.
 // In Vitest's jsdom environment, ResizeObserver may be missing depending on jsdom
 // version/runtime, which causes story snapshot tests to fail with:
 //   "ReferenceError: ResizeObserver is not defined"

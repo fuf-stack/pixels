@@ -23,6 +23,9 @@ export * from './Tabs';
 export * from './Toast';
 export * from './Tooltip';
 
+// styling
+export * from './StylingProvider';
+
 // hooks
 export * from './hooks/useDebounce';
 export * from './hooks/useIsInitialRenderCycle';

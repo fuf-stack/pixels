@@ -1,0 +1,151 @@
+[
+  {
+    "theme": "light",
+    "story": "default",
+    "violations": []
+  },
+  {
+    "theme": "light",
+    "story": "initial-value",
+    "violations": []
+  },
+  {
+    "theme": "light",
+    "story": "multi-select-initial-value",
+    "violations": []
+  },
+  {
+    "theme": "light",
+    "story": "required",
+    "violations": []
+  },
+  {
+    "theme": "light",
+    "story": "disabled",
+    "violations": []
+  },
+  {
+    "theme": "light",
+    "story": "invalid",
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "targets": [["#uniform-_r_0_-label"], [".px-1"]]
+      }
+    ]
+  },
+  {
+    "theme": "light",
+    "story": "loading",
+    "violations": [
+      {
+        "id": "aria-required-children",
+        "impact": "critical",
+        "targets": [["#react-select-uniform-_r_0_-listbox"]]
+      }
+    ]
+  },
+  {
+    "theme": "light",
+    "story": "number-values",
+    "violations": []
+  },
+  {
+    "theme": "light",
+    "story": "help-and-required",
+    "violations": []
+  },
+  {
+    "theme": "dark",
+    "story": "default",
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "targets": [["#uniform-_r_0_"]]
+      }
+    ]
+  },
+  {
+    "theme": "dark",
+    "story": "initial-value",
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "targets": [["#uniform-_r_0_"]]
+      }
+    ]
+  },
+  {
+    "theme": "dark",
+    "story": "multi-select-initial-value",
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "targets": [["#uniform-_r_0_"]]
+      }
+    ]
+  },
+  {
+    "theme": "dark",
+    "story": "required",
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "targets": [["#uniform-_r_0_"]]
+      }
+    ]
+  },
+  {
+    "theme": "dark",
+    "story": "disabled",
+    "violations": []
+  },
+  {
+    "theme": "dark",
+    "story": "invalid",
+    "violations": []
+  },
+  {
+    "theme": "dark",
+    "story": "loading",
+    "violations": [
+      {
+        "id": "aria-required-children",
+        "impact": "critical",
+        "targets": [["#react-select-uniform-_r_0_-listbox"]]
+      },
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "targets": [["#uniform-_r_0_"]]
+      }
+    ]
+  },
+  {
+    "theme": "dark",
+    "story": "number-values",
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "targets": [["#uniform-_r_0_"]]
+      }
+    ]
+  },
+  {
+    "theme": "dark",
+    "story": "help-and-required",
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "targets": [["#uniform-_r_0_"]]
+      }
+    ]
+  }
+]

@@ -1,6 +1,6 @@
 import createConfig from '@fuf-stack/eslint-config-fuf/prettier';
 
 export default createConfig({
-  tailwindConfig: 'packages/config/tailwind-config/tailwind.config.ts',
+  tailwindStylesheet: 'packages/config/tailwind-config/tailwind.css',
   workspacePackagePrefix: '@fuf-stack',
 });

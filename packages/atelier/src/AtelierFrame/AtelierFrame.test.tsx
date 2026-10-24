@@ -4,7 +4,7 @@ import storySnapshots from '@repo/storybook-config/story-snapshots';
 import { fireEvent, render, screen } from '@testing-library/react';
 
 import AtelierFrame from './AtelierFrame';
-import * as stories from './AtelierFrame.stories';
+import * as stories from './stories/AtelierFrame.stories';
 
 describe('Story Snapshots', () => {
   storySnapshots(stories);

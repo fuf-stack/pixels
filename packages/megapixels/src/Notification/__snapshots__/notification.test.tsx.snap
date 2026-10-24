@@ -57,18 +57,20 @@ exports[`Story Snapshots > CustomWidth 1`] = `
             data-title=""
           >
             <div
-              class="flex flex-grow flex-row w-full items-center py-3 px-4 rounded-medium min-w-72 gap-3 border-small border-info-200 bg-info-50 text-info-600 dark:border-info-100 dark:bg-info-50"
+              class="flex w-full min-w-72 flex-grow flex-row items-center gap-3 px-4 py-3 rounded-medium border-small border-info-200 bg-info-50 text-info-600 dark:border-info-100 dark:bg-info-50"
               data-has-description="true"
               data-has-title="true"
+              data-slot="base"
               data-visible="true"
               role="alert"
-              title="width: 600"
             >
               <div
-                class="flex-none relative w-9 h-9 rounded-full grid place-items-center shadow-small border-1 self-start border-info-100 bg-info-50 dark:bg-info-100"
+                class="relative h-9 w-9 flex-none place-items-center rounded-full border-1 shadow-small self-start grid border-info-100 bg-info-50 dark:bg-info-100"
+                data-slot="iconWrapper"
               >
                 <svg
-                  class="fill-current w-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+                  class="absolute left-1/2 top-1/2 w-6 -translate-x-1/2 -translate-y-1/2 fill-current"
+                  data-slot="icon"
                   fill="none"
                   height="24"
                   viewBox="0 0 24 24"
@@ -81,15 +83,18 @@ exports[`Story Snapshots > CustomWidth 1`] = `
                 </svg>
               </div>
               <div
-                class="h-full flex-grow min-h-10 flex flex-col box-border justify-center ms-0 items-stretch gap-1.5 text-inherit"
+                class="ms-0 box-border flex h-full min-h-10 flex-grow flex-col items-stretch justify-center gap-1.5 text-inherit"
+                data-slot="mainWrapper"
               >
                 <div
-                  class="text-small w-full font-medium block leading-5 text-inherit"
+                  class="block w-full font-medium text-inherit text-small"
+                  data-slot="title"
                 >
                   width: 600
                 </div>
                 <div
-                  class="pl-[1px] text-small font-normal text-foreground"
+                  class="pl-[1px] font-normal text-foreground text-small"
+                  data-slot="description"
                 >
                   Short message.
                 </div>
@@ -112,32 +117,40 @@ exports[`Story Snapshots > CustomWidth 1`] = `
         Toaster width:
       </span>
       <button
-        class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
+        class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
+        data-rac=""
         data-react-aria-pressable="true"
+        id="react-aria-«replaced-aria-id»"
         tabindex="0"
         type="button"
       >
         default (600x)
       </button>
       <button
-        class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
+        class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
+        data-rac=""
         data-react-aria-pressable="true"
+        id="react-aria-«replaced-aria-id»"
         tabindex="0"
         type="button"
       >
         40rem
       </button>
       <button
-        class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
+        class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
+        data-rac=""
         data-react-aria-pressable="true"
+        id="react-aria-«replaced-aria-id»"
         tabindex="0"
         type="button"
       >
         30em
       </button>
       <button
-        class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
+        class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
+        data-rac=""
         data-react-aria-pressable="true"
+        id="react-aria-«replaced-aria-id»"
         tabindex="0"
         type="button"
       >
@@ -148,18 +161,24 @@ exports[`Story Snapshots > CustomWidth 1`] = `
       class="flex flex-wrap gap-2"
     >
       <button
-        class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
+        class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
         data-focus="true"
+        data-focused="true"
         data-hover="true"
+        data-hovered="true"
+        data-rac=""
         data-react-aria-pressable="true"
+        id="react-aria-«replaced-aria-id»"
         tabindex="0"
         type="button"
       >
         Short notification
       </button>
       <button
-        class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
+        class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
+        data-rac=""
         data-react-aria-pressable="true"
+        id="react-aria-«replaced-aria-id»"
         tabindex="0"
         type="button"
       >
@@ -227,17 +246,20 @@ exports[`Story Snapshots > Simple 1`] = `
             data-title=""
           >
             <div
-              class="flex flex-grow flex-row w-full items-center py-3 px-4 rounded-medium min-w-72 gap-3 border-small border-info-200 bg-info-50 text-info-600 dark:border-info-100 dark:bg-info-50"
+              class="flex w-full min-w-72 flex-grow flex-row items-center gap-3 px-4 py-3 rounded-medium border-small border-info-200 bg-info-50 text-info-600 dark:border-info-100 dark:bg-info-50"
               data-closeable="true"
               data-has-description="true"
+              data-slot="base"
               data-visible="true"
               role="alert"
             >
               <div
-                class="flex-none relative w-9 h-9 rounded-full grid place-items-center shadow-small border-1 border-info-100 bg-info-50 dark:bg-info-100"
+                class="relative h-9 w-9 flex-none place-items-center rounded-full border-1 shadow-small grid border-info-100 bg-info-50 dark:bg-info-100"
+                data-slot="iconWrapper"
               >
                 <svg
-                  class="fill-current w-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+                  class="absolute left-1/2 top-1/2 w-6 -translate-x-1/2 -translate-y-1/2 fill-current"
+                  data-slot="icon"
                   fill="none"
                   height="24"
                   viewBox="0 0 24 24"
@@ -250,24 +272,28 @@ exports[`Story Snapshots > Simple 1`] = `
                 </svg>
               </div>
               <div
-                class="h-full flex-grow min-h-10 flex flex-col box-border justify-center ms-0 items-stretch gap-1.5 text-inherit"
+                class="ms-0 box-border flex h-full min-h-10 flex-grow flex-col items-stretch justify-center gap-1.5 text-inherit"
+                data-slot="mainWrapper"
               >
                 <div
-                  class="pl-[1px] text-small font-normal text-foreground"
+                  class="pl-[1px] font-normal text-foreground text-small"
+                  data-slot="description"
                 >
                   This is an info notification
                 </div>
               </div>
               <button
                 aria-label="Close"
-                class="z-0 group inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny gap-2 rounded-full px-0 !gap-0 transition-transform-colors-opacity motion-reduce:transition-none bg-transparent min-w-8 w-8 h-8 relative translate-x-1 -translate-y-1 data-[hover=true]:bg-info/20 text-info-500"
+                class="group relative z-0 box-border inline-flex h-8 w-8 min-w-8 items-center justify-center !gap-0 gap-2 overflow-hidden whitespace-nowrap rounded-full px-0 -translate-y-1 translate-x-1 transform-gpu cursor-pointer select-none appearance-none bg-transparent font-normal subpixel-antialiased tap-highlight-transparent text-tiny transition-transform-colors-opacity data-[pressed=true]:scale-[0.97] motion-reduce:transition-none outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus data-[hover=true]:bg-info/20 text-info-500"
+                data-rac=""
                 data-react-aria-pressable="true"
+                data-slot="closeButton"
+                id="react-aria-«replaced-aria-id»"
                 tabindex="0"
                 type="button"
               >
                 <svg
                   aria-hidden="true"
-                  class="fill-current"
                   fill="none"
                   focusable="false"
                   height="20"
@@ -291,10 +317,14 @@ exports[`Story Snapshots > Simple 1`] = `
     </ol>
   </section>
   <button
-    class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
+    class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
     data-focus="true"
+    data-focused="true"
     data-hover="true"
+    data-hovered="true"
+    data-rac=""
     data-react-aria-pressable="true"
+    id="react-aria-«replaced-aria-id»"
     tabindex="0"
     type="button"
   >
@@ -378,19 +408,21 @@ exports[`Story Snapshots > StackingOverModal 1`] = `
                 data-title=""
               >
                 <div
-                  class="flex flex-grow flex-row w-full items-center py-3 px-4 border-small rounded-medium text-danger-600 dark:text-danger-500 border-danger-200 dark:border-danger-100 min-w-72 gap-3 bg-danger-50 dark:bg-danger-50"
+                  class="flex w-full min-w-72 flex-grow flex-row items-center gap-3 px-4 py-3 rounded-medium border-small border-danger-200 bg-danger-50 text-danger-600 dark:border-danger-100 dark:bg-danger-50 dark:text-danger-500"
                   data-closeable="true"
                   data-has-description="true"
                   data-has-title="true"
+                  data-slot="base"
                   data-visible="true"
                   role="alert"
-                  title="Notification"
                 >
                   <div
-                    class="flex-none relative w-9 h-9 rounded-full grid place-items-center bg-danger-50 dark:bg-danger-100 border-danger-100 shadow-small border-1 self-start"
+                    class="relative h-9 w-9 flex-none place-items-center rounded-full border-1 shadow-small self-start grid border-danger-100 bg-danger-50 dark:bg-danger-100"
+                    data-slot="iconWrapper"
                   >
                     <svg
-                      class="fill-current w-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+                      class="absolute left-1/2 top-1/2 w-6 -translate-x-1/2 -translate-y-1/2 fill-current"
+                      data-slot="icon"
                       fill="none"
                       height="20"
                       viewBox="0 0 20 20"
@@ -403,29 +435,34 @@ exports[`Story Snapshots > StackingOverModal 1`] = `
                     </svg>
                   </div>
                   <div
-                    class="h-full flex-grow min-h-10 flex flex-col box-border text-inherit justify-center ms-0 items-stretch gap-1.5"
+                    class="ms-0 box-border flex h-full min-h-10 flex-grow flex-col items-stretch justify-center gap-1.5 text-inherit"
+                    data-slot="mainWrapper"
                   >
                     <div
-                      class="text-small w-full font-medium block text-inherit leading-5"
+                      class="block w-full font-medium text-inherit text-small"
+                      data-slot="title"
                     >
                       Notification
                     </div>
                     <div
-                      class="pl-[1px] text-small font-normal text-foreground"
+                      class="pl-[1px] font-normal text-foreground text-small"
+                      data-slot="description"
                     >
                       A notification on top of the modal.
                     </div>
                   </div>
                   <button
                     aria-label="Close"
-                    class="z-0 group inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny gap-2 rounded-full px-0 !gap-0 transition-transform-colors-opacity motion-reduce:transition-none bg-transparent min-w-8 w-8 h-8 relative translate-x-1 -translate-y-1 text-danger-500 data-[hover]:bg-danger-200 data-[hover=true]:bg-danger/20"
+                    class="group relative z-0 box-border inline-flex h-8 w-8 min-w-8 items-center justify-center !gap-0 gap-2 overflow-hidden whitespace-nowrap rounded-full px-0 -translate-y-1 translate-x-1 transform-gpu cursor-pointer select-none appearance-none bg-transparent font-normal subpixel-antialiased tap-highlight-transparent text-tiny transition-transform-colors-opacity data-[pressed=true]:scale-[0.97] motion-reduce:transition-none outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus text-danger-500 data-[hover=true]:bg-danger/20 data-[hover]:bg-danger-200"
+                    data-rac=""
                     data-react-aria-pressable="true"
+                    data-slot="closeButton"
+                    id="react-aria-«replaced-aria-id»"
                     tabindex="0"
                     type="button"
                   >
                     <svg
                       aria-hidden="true"
-                      class="fill-current"
                       fill="none"
                       focusable="false"
                       height="20"
@@ -475,19 +512,21 @@ exports[`Story Snapshots > StackingOverModal 1`] = `
                 data-title=""
               >
                 <div
-                  class="flex flex-grow flex-row w-full items-center py-3 px-4 border-small rounded-medium text-warning-700 dark:text-warning border-warning-300 dark:border-warning-100 min-w-72 gap-3 bg-warning-50 dark:bg-warning-50"
+                  class="flex w-full min-w-72 flex-grow flex-row items-center gap-3 px-4 py-3 rounded-medium border-small border-warning-300 bg-warning-50 text-warning-700 dark:border-warning-100 dark:bg-warning-50 dark:text-warning"
                   data-closeable="true"
                   data-has-description="true"
                   data-has-title="true"
+                  data-slot="base"
                   data-visible="true"
                   role="alert"
-                  title="Notification"
                 >
                   <div
-                    class="flex-none relative w-9 h-9 rounded-full grid place-items-center bg-warning-50 dark:bg-warning-100 border-warning-100 shadow-small border-1 self-start"
+                    class="relative h-9 w-9 flex-none place-items-center rounded-full border-1 shadow-small self-start grid border-warning-100 bg-warning-50 dark:bg-warning-100"
+                    data-slot="iconWrapper"
                   >
                     <svg
-                      class="fill-current w-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+                      class="absolute left-1/2 top-1/2 w-6 -translate-x-1/2 -translate-y-1/2 fill-current"
+                      data-slot="icon"
                       fill="none"
                       height="24"
                       viewBox="0 0 24 24"
@@ -503,24 +542,32 @@ exports[`Story Snapshots > StackingOverModal 1`] = `
                     </svg>
                   </div>
                   <div
-                    class="h-full flex-grow min-h-10 flex flex-col box-border text-inherit justify-center ms-0 items-stretch gap-1.5"
+                    class="ms-0 box-border flex h-full min-h-10 flex-grow flex-col items-stretch justify-center gap-1.5 text-inherit"
+                    data-slot="mainWrapper"
                   >
                     <div
-                      class="text-small w-full font-medium block text-inherit leading-5"
+                      class="block w-full font-medium text-inherit text-small"
+                      data-slot="title"
                     >
                       Notification
                     </div>
                     <div
-                      class="pl-[1px] text-small font-normal text-foreground"
+                      class="pl-[1px] font-normal text-foreground text-small"
+                      data-slot="description"
                     >
                       A notification beneath the modal.
                     </div>
                   </div>
-                  <div>
+                  <div
+                    data-slot="endContent"
+                  >
                     <button
-                      class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-3 min-w-16 h-8 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default/40 text-default-700 data-[hover=true]:opacity-hover"
+                      class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-8 min-w-16 gap-2 rounded-small px-3 text-tiny [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default/40 text-default-700 data-[hover=true]:opacity-hover"
                       data-hover="true"
+                      data-hovered="true"
+                      data-rac=""
                       data-react-aria-pressable="true"
+                      id="react-aria-«replaced-aria-id»"
                       tabindex="0"
                       type="button"
                     >
@@ -529,14 +576,16 @@ exports[`Story Snapshots > StackingOverModal 1`] = `
                   </div>
                   <button
                     aria-label="Close"
-                    class="z-0 group inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny gap-2 rounded-full px-0 !gap-0 transition-transform-colors-opacity motion-reduce:transition-none bg-transparent min-w-8 w-8 h-8 relative translate-x-1 -translate-y-1 text-warning-500 data-[hover]:bg-warning-200 data-[hover=true]:bg-warning/20"
+                    class="group relative z-0 box-border inline-flex h-8 w-8 min-w-8 items-center justify-center !gap-0 gap-2 overflow-hidden whitespace-nowrap rounded-full px-0 -translate-y-1 translate-x-1 transform-gpu cursor-pointer select-none appearance-none bg-transparent font-normal subpixel-antialiased tap-highlight-transparent text-tiny transition-transform-colors-opacity data-[pressed=true]:scale-[0.97] motion-reduce:transition-none outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus text-warning-500 data-[hover=true]:bg-warning/20 data-[hover]:bg-warning-200"
+                    data-rac=""
                     data-react-aria-pressable="true"
+                    data-slot="closeButton"
+                    id="react-aria-«replaced-aria-id»"
                     tabindex="0"
                     type="button"
                   >
                     <svg
                       aria-hidden="true"
-                      class="fill-current"
                       fill="none"
                       focusable="false"
                       height="20"
@@ -564,16 +613,20 @@ exports[`Story Snapshots > StackingOverModal 1`] = `
         class="flex flex-wrap gap-2"
       >
         <button
-          class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
+          data-rac=""
           data-react-aria-pressable="true"
+          id="react-aria-«replaced-aria-id»"
           tabindex="0"
           type="button"
         >
           Open modal
         </button>
         <button
-          class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
+          data-rac=""
           data-react-aria-pressable="true"
+          id="react-aria-«replaced-aria-id»"
           tabindex="0"
           type="button"
         >
@@ -589,106 +642,110 @@ exports[`Story Snapshots > StackingOverModal 1`] = `
   />
   <div
     aria-hidden="true"
-    tabindex="-1"
+    class="fixed inset-0 z-50 h-screen w-screen bg-overlay/50 backdrop-opacity-disabled"
+    data-slot="backdrop"
+    style="opacity: 1;"
+  />
+  <div
+    aria-hidden="true"
+    class="h-(--visual-viewport-height) fixed inset-0 z-50 w-screen overflow-x-auto flex items-center justify-center"
+    data-slot="wrapper"
+    style="--visual-viewport-height: 768px;"
   >
-    <div
-      aria-hidden="true"
-      class="z-50 bg-overlay/50 backdrop-opacity-disabled w-screen h-screen fixed inset-0"
-    />
-    <div
-      class="flex w-screen fixed inset-0 z-50 overflow-x-auto justify-center h-(--visual-viewport-height) items-center sm:items-center"
-      data-slot="wrapper"
-      style="--visual-viewport-height: 768px;"
+    <section
+      aria-describedby="modal_body-«replaced-aria-id»"
+      aria-labelledby="react-aria-«replaced-aria-id»"
+      aria-modal="true"
+      class="relative z-50 box-border flex w-full flex-col mx-1 my-1 rounded-large bg-content1 shadow-small sm:mx-6 sm:my-16 outline-solid max-h-[calc(100%_-_8rem)] outline-transparent max-w-md"
+      data-dismissable="true"
+      data-open="true"
+      data-placement="center"
+      data-testid="modal"
+      role="dialog"
+      style="opacity: 1; transform: none;"
+      tabindex="-1"
     >
-      <section
-        aria-describedby="«replaced-aria-id»"
-        aria-labelledby="«replaced-aria-id»"
-        aria-modal="true"
-        class="flex flex-col relative z-50 w-full box-border bg-content1 outline-solid outline-transparent mx-1 my-1 sm:mx-6 sm:my-16 rounded-large shadow-small max-h-[calc(100%_-_8rem)] max-w-md"
-        data-dismissable="true"
-        data-open="true"
-        data-placement="center"
-        data-testid="modal"
-        id="«replaced-aria-id»"
-        role="dialog"
-        tabindex="-1"
+      <div
+        style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+      >
+        <button
+          aria-label="Dismiss"
+          id="react-aria-«replaced-aria-id»"
+          style="width: 1px; height: 1px;"
+          tabindex="-1"
+        />
+      </div>
+      <button
+        aria-label="Close"
+        class="absolute end-1 top-1 select-none appearance-none rounded-full p-2 text-foreground-500 tap-highlight-transparent hover:bg-default-100 active:bg-default-200 outline-solid outline-transparent data-[focus-visible]:z-10 data-[focus-visible]:outline-2 data-[focus-visible]:outline-offset-2 data-[focus-visible]:outline-focus"
+        data-rac=""
+        data-react-aria-pressable="true"
+        id="react-aria-«replaced-aria-id»"
+        tabindex="0"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          class="fill-current"
+          fill="none"
+          focusable="false"
+          height="1em"
+          role="presentation"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          width="1em"
+        >
+          <path
+            d="M18 6L6 18M6 6l12 12"
+          />
+        </svg>
+      </button>
+      <header
+        class="flex flex-initial border-b border-b-divider px-6 py-4 font-semibold text-large"
+        data-slot="header"
+        id="react-aria-«replaced-aria-id»"
+      >
+        Normal modal
+      </header>
+      <div
+        class="flex flex-1 flex-col gap-3 overflow-y-auto px-6 py-4"
+        data-slot="body"
+        id="modal_body-«replaced-aria-id»"
       >
         <div
-          style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+          class="space-y-3"
         >
+          <p>
+            I am a normal modal (z-50).
+          </p>
           <button
-            aria-label="Dismiss"
+            class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
+            data-focus="true"
+            data-focused="true"
+            data-rac=""
+            data-react-aria-pressable="true"
             id="react-aria-«replaced-aria-id»"
-            style="width: 1px; height: 1px;"
-            tabindex="-1"
-          />
+            tabindex="0"
+            type="button"
+          >
+            Show notification
+          </button>
         </div>
+      </div>
+      <div
+        style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+      >
         <button
-          aria-label="Close"
-          class="absolute appearance-none select-none top-1 end-1 p-2 text-foreground-500 rounded-full hover:bg-default-100 active:bg-default-200 tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2"
-          data-react-aria-pressable="true"
-          role="button"
-          tabindex="0"
-          type="button"
-        >
-          <svg
-            aria-hidden="true"
-            class="fill-current"
-            fill="none"
-            focusable="false"
-            height="1em"
-            role="presentation"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            viewBox="0 0 24 24"
-            width="1em"
-          >
-            <path
-              d="M18 6L6 18M6 6l12 12"
-            />
-          </svg>
-        </button>
-        <header
-          class="flex py-4 px-6 flex-initial text-large font-semibold border-b border-b-divider"
-          id="«replaced-aria-id»"
-        >
-          Normal modal
-        </header>
-        <div
-          class="flex flex-1 flex-col gap-3 px-6 overflow-y-auto py-4"
-          id="modal_body"
-        >
-          <div
-            class="space-y-3"
-          >
-            <p>
-              I am a normal modal (z-50).
-            </p>
-            <button
-              class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
-              data-focus="true"
-              data-react-aria-pressable="true"
-              tabindex="0"
-              type="button"
-            >
-              Show notification
-            </button>
-          </div>
-        </div>
-        <div
-          style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
-        >
-          <button
-            aria-label="Dismiss"
-            id="react-aria-«replaced-aria-id»"
-            style="width: 1px; height: 1px;"
-            tabindex="-1"
-          />
-        </div>
-      </section>
-    </div>
+          aria-label="Dismiss"
+          id="react-aria-«replaced-aria-id»"
+          style="width: 1px; height: 1px;"
+          tabindex="-1"
+        />
+      </div>
+    </section>
   </div>
   <span
     aria-hidden="true"
@@ -701,93 +758,94 @@ exports[`Story Snapshots > StackingOverModal 1`] = `
     hidden=""
   />
   <div
-    tabindex="-1"
+    aria-hidden="true"
+    class="fixed inset-0 h-screen w-screen bg-overlay/50 backdrop-opacity-disabled z-[70]"
+    data-slot="backdrop"
+    style="opacity: 1;"
+  />
+  <div
+    class="h-(--visual-viewport-height) fixed inset-0 w-screen overflow-x-auto flex items-center justify-center z-[70]"
+    data-slot="wrapper"
+    style="--visual-viewport-height: 768px;"
   >
-    <div
-      aria-hidden="true"
-      class="bg-overlay/50 backdrop-opacity-disabled w-screen h-screen fixed inset-0 z-[70]"
-    />
-    <div
-      class="flex w-screen fixed inset-0 overflow-x-auto justify-center h-(--visual-viewport-height) items-center sm:items-center z-[70]"
-      data-slot="wrapper"
-      style="--visual-viewport-height: 768px;"
+    <section
+      aria-describedby="modal_body-«replaced-aria-id»"
+      aria-labelledby="react-aria-«replaced-aria-id»"
+      aria-modal="true"
+      class="relative z-50 box-border flex w-full flex-col mx-1 my-1 rounded-large bg-content1 shadow-small sm:mx-6 sm:my-16 outline-solid max-h-[calc(100%_-_8rem)] outline-transparent max-w-md"
+      data-dismissable="true"
+      data-open="true"
+      data-placement="center"
+      data-testid="modal"
+      role="dialog"
+      style="opacity: 1; transform: none;"
+      tabindex="-1"
     >
-      <section
-        aria-describedby="«replaced-aria-id»"
-        aria-labelledby="«replaced-aria-id»"
-        aria-modal="true"
-        class="flex flex-col relative z-50 w-full box-border bg-content1 outline-solid outline-transparent mx-1 my-1 sm:mx-6 sm:my-16 rounded-large shadow-small max-h-[calc(100%_-_8rem)] max-w-md"
-        data-dismissable="true"
-        data-open="true"
-        data-placement="center"
-        data-testid="modal"
-        id="«replaced-aria-id»"
-        role="dialog"
-        tabindex="-1"
+      <div
+        style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
       >
-        <div
-          style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
-        >
-          <button
-            aria-label="Dismiss"
-            id="react-aria-«replaced-aria-id»"
-            style="width: 1px; height: 1px;"
-            tabindex="-1"
-          />
-        </div>
         <button
-          aria-label="Close"
-          class="absolute appearance-none select-none top-1 end-1 p-2 text-foreground-500 rounded-full hover:bg-default-100 active:bg-default-200 tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2"
-          data-react-aria-pressable="true"
-          role="button"
-          tabindex="0"
-          type="button"
+          aria-label="Dismiss"
+          id="react-aria-«replaced-aria-id»"
+          style="width: 1px; height: 1px;"
+          tabindex="-1"
+        />
+      </div>
+      <button
+        aria-label="Close"
+        class="absolute end-1 top-1 select-none appearance-none rounded-full p-2 text-foreground-500 tap-highlight-transparent hover:bg-default-100 active:bg-default-200 outline-solid outline-transparent data-[focus-visible]:z-10 data-[focus-visible]:outline-2 data-[focus-visible]:outline-offset-2 data-[focus-visible]:outline-focus"
+        data-rac=""
+        data-react-aria-pressable="true"
+        id="react-aria-«replaced-aria-id»"
+        tabindex="0"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          class="fill-current"
+          fill="none"
+          focusable="false"
+          height="1em"
+          role="presentation"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          width="1em"
         >
-          <svg
-            aria-hidden="true"
-            class="fill-current"
-            fill="none"
-            focusable="false"
-            height="1em"
-            role="presentation"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            viewBox="0 0 24 24"
-            width="1em"
-          >
-            <path
-              d="M18 6L6 18M6 6l12 12"
-            />
-          </svg>
-        </button>
-        <header
-          class="flex py-4 px-6 flex-initial text-large font-semibold border-b border-b-divider"
-          id="«replaced-aria-id»"
-        >
-          Modal from notification
-        </header>
-        <div
-          class="flex flex-1 flex-col gap-3 px-6 overflow-y-auto py-4"
-          id="modal_body"
-        >
-          <p>
-            I am a modal opened from a notification (z-70).
-          </p>
-        </div>
-        <div
-          style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
-        >
-          <button
-            aria-label="Dismiss"
-            id="react-aria-«replaced-aria-id»"
-            style="width: 1px; height: 1px;"
-            tabindex="-1"
+          <path
+            d="M18 6L6 18M6 6l12 12"
           />
-        </div>
-      </section>
-    </div>
+        </svg>
+      </button>
+      <header
+        class="flex flex-initial border-b border-b-divider px-6 py-4 font-semibold text-large"
+        data-slot="header"
+        id="react-aria-«replaced-aria-id»"
+      >
+        Modal from notification
+      </header>
+      <div
+        class="flex flex-1 flex-col gap-3 overflow-y-auto px-6 py-4"
+        data-slot="body"
+        id="modal_body-«replaced-aria-id»"
+      >
+        <p>
+          I am a modal opened from a notification (z-70).
+        </p>
+      </div>
+      <div
+        style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+      >
+        <button
+          aria-label="Dismiss"
+          id="react-aria-«replaced-aria-id»"
+          style="width: 1px; height: 1px;"
+          tabindex="-1"
+        />
+      </div>
+    </section>
   </div>
   <span
     aria-hidden="true"
@@ -854,17 +912,20 @@ exports[`Story Snapshots > Variants 1`] = `
             data-title=""
           >
             <div
-              class="flex flex-grow flex-row w-full items-center py-3 px-4 border-small rounded-medium text-danger-600 dark:text-danger-500 border-danger-200 dark:border-danger-100 min-w-72 gap-3 bg-danger-50 dark:bg-danger-50"
+              class="flex w-full min-w-72 flex-grow flex-row items-center gap-3 px-4 py-3 rounded-medium border-small border-danger-200 bg-danger-50 text-danger-600 dark:border-danger-100 dark:bg-danger-50 dark:text-danger-500"
               data-closeable="true"
               data-has-description="true"
+              data-slot="base"
               data-visible="true"
               role="alert"
             >
               <div
-                class="flex-none relative w-9 h-9 rounded-full grid place-items-center bg-danger-50 dark:bg-danger-100 border-danger-100 shadow-small border-1"
+                class="relative h-9 w-9 flex-none place-items-center rounded-full border-1 shadow-small grid border-danger-100 bg-danger-50 dark:bg-danger-100"
+                data-slot="iconWrapper"
               >
                 <svg
-                  class="fill-current w-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+                  class="absolute left-1/2 top-1/2 w-6 -translate-x-1/2 -translate-y-1/2 fill-current"
+                  data-slot="icon"
                   fill="none"
                   height="20"
                   viewBox="0 0 20 20"
@@ -877,24 +938,28 @@ exports[`Story Snapshots > Variants 1`] = `
                 </svg>
               </div>
               <div
-                class="h-full flex-grow min-h-10 flex flex-col box-border text-inherit justify-center ms-0 items-stretch gap-1.5"
+                class="ms-0 box-border flex h-full min-h-10 flex-grow flex-col items-stretch justify-center gap-1.5 text-inherit"
+                data-slot="mainWrapper"
               >
                 <div
-                  class="pl-[1px] text-small font-normal text-foreground"
+                  class="pl-[1px] font-normal text-foreground text-small"
+                  data-slot="description"
                 >
                   This is an error notification
                 </div>
               </div>
               <button
                 aria-label="Close"
-                class="z-0 group inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny gap-2 rounded-full px-0 !gap-0 transition-transform-colors-opacity motion-reduce:transition-none bg-transparent min-w-8 w-8 h-8 relative translate-x-1 -translate-y-1 text-danger-500 data-[hover]:bg-danger-200 data-[hover=true]:bg-danger/20"
+                class="group relative z-0 box-border inline-flex h-8 w-8 min-w-8 items-center justify-center !gap-0 gap-2 overflow-hidden whitespace-nowrap rounded-full px-0 -translate-y-1 translate-x-1 transform-gpu cursor-pointer select-none appearance-none bg-transparent font-normal subpixel-antialiased tap-highlight-transparent text-tiny transition-transform-colors-opacity data-[pressed=true]:scale-[0.97] motion-reduce:transition-none outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus text-danger-500 data-[hover=true]:bg-danger/20 data-[hover]:bg-danger-200"
+                data-rac=""
                 data-react-aria-pressable="true"
+                data-slot="closeButton"
+                id="react-aria-«replaced-aria-id»"
                 tabindex="0"
                 type="button"
               >
                 <svg
                   aria-hidden="true"
-                  class="fill-current"
                   fill="none"
                   focusable="false"
                   height="20"
@@ -944,16 +1009,19 @@ exports[`Story Snapshots > Variants 1`] = `
             data-title=""
           >
             <div
-              class="flex flex-grow flex-row w-full items-center py-3 px-4 border-small rounded-medium text-success-700 dark:text-success border-success-300 dark:border-success-100 min-w-72 gap-3 bg-success-50 dark:bg-success-50"
+              class="flex w-full min-w-72 flex-grow flex-row items-center gap-3 px-4 py-3 rounded-medium border-small border-success-300 bg-success-50 text-success-700 dark:border-success-100 dark:bg-success-50 dark:text-success"
               data-has-description="true"
+              data-slot="base"
               data-visible="true"
               role="alert"
             >
               <div
-                class="flex-none relative w-9 h-9 rounded-full grid place-items-center bg-success-50 dark:bg-success-100 border-success-100 shadow-small border-1"
+                class="relative h-9 w-9 flex-none place-items-center rounded-full border-1 shadow-small grid border-success-100 bg-success-50 dark:bg-success-100"
+                data-slot="iconWrapper"
               >
                 <svg
-                  class="fill-current w-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+                  class="absolute left-1/2 top-1/2 w-6 -translate-x-1/2 -translate-y-1/2 fill-current"
+                  data-slot="icon"
                   fill="none"
                   height="24"
                   viewBox="0 0 24 24"
@@ -971,10 +1039,12 @@ exports[`Story Snapshots > Variants 1`] = `
                 </svg>
               </div>
               <div
-                class="h-full flex-grow min-h-10 flex flex-col box-border text-inherit justify-center ms-0 items-stretch gap-1.5"
+                class="ms-0 box-border flex h-full min-h-10 flex-grow flex-col items-stretch justify-center gap-1.5 text-inherit"
+                data-slot="mainWrapper"
               >
                 <div
-                  class="pl-[1px] text-small font-normal text-foreground"
+                  class="pl-[1px] font-normal text-foreground text-small"
+                  data-slot="description"
                 >
                   This is a success notification
                 </div>
@@ -1012,17 +1082,20 @@ exports[`Story Snapshots > Variants 1`] = `
             data-title=""
           >
             <div
-              class="flex flex-grow flex-row w-full items-center py-3 px-4 border-small rounded-medium text-warning-700 dark:text-warning border-warning-300 dark:border-warning-100 min-w-72 gap-3 bg-warning-50 dark:bg-warning-50"
+              class="flex w-full min-w-72 flex-grow flex-row items-center gap-3 px-4 py-3 rounded-medium border-small border-warning-300 bg-warning-50 text-warning-700 dark:border-warning-100 dark:bg-warning-50 dark:text-warning"
               data-closeable="true"
               data-has-description="true"
+              data-slot="base"
               data-visible="true"
               role="alert"
             >
               <div
-                class="flex-none relative w-9 h-9 rounded-full grid place-items-center bg-warning-50 dark:bg-warning-100 border-warning-100 shadow-small border-1"
+                class="relative h-9 w-9 flex-none place-items-center rounded-full border-1 shadow-small grid border-warning-100 bg-warning-50 dark:bg-warning-100"
+                data-slot="iconWrapper"
               >
                 <svg
-                  class="fill-current w-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+                  class="absolute left-1/2 top-1/2 w-6 -translate-x-1/2 -translate-y-1/2 fill-current"
+                  data-slot="icon"
                   fill="none"
                   height="24"
                   viewBox="0 0 24 24"
@@ -1038,24 +1111,28 @@ exports[`Story Snapshots > Variants 1`] = `
                 </svg>
               </div>
               <div
-                class="h-full flex-grow min-h-10 flex flex-col box-border text-inherit justify-center ms-0 items-stretch gap-1.5"
+                class="ms-0 box-border flex h-full min-h-10 flex-grow flex-col items-stretch justify-center gap-1.5 text-inherit"
+                data-slot="mainWrapper"
               >
                 <div
-                  class="pl-[1px] text-small font-normal text-foreground"
+                  class="pl-[1px] font-normal text-foreground text-small"
+                  data-slot="description"
                 >
                   This is a warning notification
                 </div>
               </div>
               <button
                 aria-label="Close"
-                class="z-0 group inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny gap-2 rounded-full px-0 !gap-0 transition-transform-colors-opacity motion-reduce:transition-none bg-transparent min-w-8 w-8 h-8 relative translate-x-1 -translate-y-1 text-warning-500 data-[hover]:bg-warning-200 data-[hover=true]:bg-warning/20"
+                class="group relative z-0 box-border inline-flex h-8 w-8 min-w-8 items-center justify-center !gap-0 gap-2 overflow-hidden whitespace-nowrap rounded-full px-0 -translate-y-1 translate-x-1 transform-gpu cursor-pointer select-none appearance-none bg-transparent font-normal subpixel-antialiased tap-highlight-transparent text-tiny transition-transform-colors-opacity data-[pressed=true]:scale-[0.97] motion-reduce:transition-none outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus text-warning-500 data-[hover=true]:bg-warning/20 data-[hover]:bg-warning-200"
+                data-rac=""
                 data-react-aria-pressable="true"
+                data-slot="closeButton"
+                id="react-aria-«replaced-aria-id»"
                 tabindex="0"
                 type="button"
               >
                 <svg
                   aria-hidden="true"
-                  class="fill-current"
                   fill="none"
                   focusable="false"
                   height="20"
@@ -1105,16 +1182,19 @@ exports[`Story Snapshots > Variants 1`] = `
             data-title=""
           >
             <div
-              class="flex flex-grow flex-row w-full items-center py-3 px-4 rounded-medium min-w-72 gap-3 border-small border-info-200 bg-info-50 text-info-600 dark:border-info-100 dark:bg-info-50"
+              class="flex w-full min-w-72 flex-grow flex-row items-center gap-3 px-4 py-3 rounded-medium border-small border-info-200 bg-info-50 text-info-600 dark:border-info-100 dark:bg-info-50"
               data-has-description="true"
+              data-slot="base"
               data-visible="true"
               role="alert"
             >
               <div
-                class="flex-none relative w-9 h-9 rounded-full grid place-items-center shadow-small border-1 border-info-100 bg-info-50 dark:bg-info-100"
+                class="relative h-9 w-9 flex-none place-items-center rounded-full border-1 shadow-small grid border-info-100 bg-info-50 dark:bg-info-100"
+                data-slot="iconWrapper"
               >
                 <svg
-                  class="fill-current w-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+                  class="absolute left-1/2 top-1/2 w-6 -translate-x-1/2 -translate-y-1/2 fill-current"
+                  data-slot="icon"
                   fill="none"
                   height="24"
                   viewBox="0 0 24 24"
@@ -1127,10 +1207,12 @@ exports[`Story Snapshots > Variants 1`] = `
                 </svg>
               </div>
               <div
-                class="h-full flex-grow min-h-10 flex flex-col box-border justify-center ms-0 items-stretch gap-1.5 text-inherit"
+                class="ms-0 box-border flex h-full min-h-10 flex-grow flex-col items-stretch justify-center gap-1.5 text-inherit"
+                data-slot="mainWrapper"
               >
                 <div
-                  class="pl-[1px] text-small font-normal text-foreground"
+                  class="pl-[1px] font-normal text-foreground text-small"
+                  data-slot="description"
                 >
                   This is an info notification
                 </div>
@@ -1168,16 +1250,19 @@ exports[`Story Snapshots > Variants 1`] = `
             data-title=""
           >
             <div
-              class="flex flex-grow flex-row w-full items-center py-3 px-4 border-small rounded-medium text-default-foreground border-default-300 dark:border-default-200 min-w-72 gap-3 bg-white dark:bg-background"
+              class="flex w-full min-w-72 flex-grow flex-row items-center gap-3 px-4 py-3 rounded-medium border-small border-default-300 text-default-foreground dark:border-default-200 bg-white dark:bg-background"
               data-has-description="true"
+              data-slot="base"
               data-visible="true"
               role="alert"
             >
               <div
-                class="flex-none relative w-9 h-9 rounded-full place-items-center hidden bg-default-50 dark:bg-default-100 border-default-200 shadow-small border-1"
+                class="relative h-9 w-9 flex-none place-items-center rounded-full border-1 shadow-small hidden border-default-200 bg-default-50 dark:bg-default-100"
+                data-slot="iconWrapper"
               >
                 <svg
-                  class="fill-current w-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+                  class="absolute left-1/2 top-1/2 w-6 -translate-x-1/2 -translate-y-1/2 fill-current"
+                  data-slot="icon"
                   fill="none"
                   height="24"
                   viewBox="0 0 24 24"
@@ -1190,10 +1275,12 @@ exports[`Story Snapshots > Variants 1`] = `
                 </svg>
               </div>
               <div
-                class="h-full flex-grow min-h-10 flex flex-col box-border text-inherit justify-center ms-0 items-stretch gap-1.5"
+                class="ms-0 box-border flex h-full min-h-10 flex-grow flex-col items-stretch justify-center gap-1.5 text-inherit"
+                data-slot="mainWrapper"
               >
                 <div
-                  class="pl-[1px] text-small font-normal text-foreground"
+                  class="pl-[1px] font-normal text-foreground text-small"
+                  data-slot="description"
                 >
                   This is a default notification
                 </div>
@@ -1208,42 +1295,54 @@ exports[`Story Snapshots > Variants 1`] = `
     class="flex flex-wrap gap-2"
   >
     <button
-      class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
+      class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
+      data-rac=""
       data-react-aria-pressable="true"
+      id="react-aria-«replaced-aria-id»"
       tabindex="0"
       type="button"
     >
       Default
     </button>
     <button
-      class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
+      class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
+      data-rac=""
       data-react-aria-pressable="true"
+      id="react-aria-«replaced-aria-id»"
       tabindex="0"
       type="button"
     >
       Info
     </button>
     <button
-      class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
+      class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
+      data-rac=""
       data-react-aria-pressable="true"
+      id="react-aria-«replaced-aria-id»"
       tabindex="0"
       type="button"
     >
       Warn
     </button>
     <button
-      class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
+      class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
+      data-rac=""
       data-react-aria-pressable="true"
+      id="react-aria-«replaced-aria-id»"
       tabindex="0"
       type="button"
     >
       Success
     </button>
     <button
-      class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
+      class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
       data-focus="true"
+      data-focused="true"
       data-hover="true"
+      data-hovered="true"
+      data-rac=""
       data-react-aria-pressable="true"
+      id="react-aria-«replaced-aria-id»"
       tabindex="0"
       type="button"
     >
@@ -1310,19 +1409,21 @@ exports[`Story Snapshots > WithActionButton 1`] = `
             data-title=""
           >
             <div
-              class="flex flex-grow flex-row w-full items-center py-3 px-4 border-small rounded-medium text-warning-700 dark:text-warning border-warning-300 dark:border-warning-100 min-w-72 gap-3 bg-warning-50 dark:bg-warning-50"
+              class="flex w-full min-w-72 flex-grow flex-row items-center gap-3 px-4 py-3 rounded-medium border-small border-warning-300 bg-warning-50 text-warning-700 dark:border-warning-100 dark:bg-warning-50 dark:text-warning"
               data-closeable="true"
               data-has-description="true"
               data-has-title="true"
+              data-slot="base"
               data-visible="true"
               role="alert"
-              title="Session expiring"
             >
               <div
-                class="flex-none relative w-9 h-9 rounded-full grid place-items-center bg-warning-50 dark:bg-warning-100 border-warning-100 shadow-small border-1 self-start"
+                class="relative h-9 w-9 flex-none place-items-center rounded-full border-1 shadow-small self-start grid border-warning-100 bg-warning-50 dark:bg-warning-100"
+                data-slot="iconWrapper"
               >
                 <svg
-                  class="fill-current w-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+                  class="absolute left-1/2 top-1/2 w-6 -translate-x-1/2 -translate-y-1/2 fill-current"
+                  data-slot="icon"
                   fill="none"
                   height="24"
                   viewBox="0 0 24 24"
@@ -1338,23 +1439,30 @@ exports[`Story Snapshots > WithActionButton 1`] = `
                 </svg>
               </div>
               <div
-                class="h-full flex-grow min-h-10 flex flex-col box-border text-inherit justify-center ms-0 items-stretch gap-1.5"
+                class="ms-0 box-border flex h-full min-h-10 flex-grow flex-col items-stretch justify-center gap-1.5 text-inherit"
+                data-slot="mainWrapper"
               >
                 <div
-                  class="text-small w-full font-medium block text-inherit leading-5"
+                  class="block w-full font-medium text-inherit text-small"
+                  data-slot="title"
                 >
                   Session expiring
                 </div>
                 <div
-                  class="pl-[1px] text-small font-normal text-foreground"
+                  class="pl-[1px] font-normal text-foreground text-small"
+                  data-slot="description"
                 >
                   Your session is about to expire.
                 </div>
               </div>
-              <div>
+              <div
+                data-slot="endContent"
+              >
                 <button
-                  class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-3 min-w-16 h-8 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-warning/20 text-warning-700 dark:text-warning data-[hover=true]:opacity-hover"
+                  class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-8 min-w-16 gap-2 rounded-small px-3 text-tiny [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-warning/20 text-warning-700 dark:text-warning data-[hover=true]:opacity-hover"
+                  data-rac=""
                   data-react-aria-pressable="true"
+                  id="react-aria-«replaced-aria-id»"
                   tabindex="0"
                   type="button"
                 >
@@ -1363,14 +1471,16 @@ exports[`Story Snapshots > WithActionButton 1`] = `
               </div>
               <button
                 aria-label="Close"
-                class="z-0 group inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny gap-2 rounded-full px-0 !gap-0 transition-transform-colors-opacity motion-reduce:transition-none bg-transparent min-w-8 w-8 h-8 relative translate-x-1 -translate-y-1 text-warning-500 data-[hover]:bg-warning-200 data-[hover=true]:bg-warning/20"
+                class="group relative z-0 box-border inline-flex h-8 w-8 min-w-8 items-center justify-center !gap-0 gap-2 overflow-hidden whitespace-nowrap rounded-full px-0 -translate-y-1 translate-x-1 transform-gpu cursor-pointer select-none appearance-none bg-transparent font-normal subpixel-antialiased tap-highlight-transparent text-tiny transition-transform-colors-opacity data-[pressed=true]:scale-[0.97] motion-reduce:transition-none outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus text-warning-500 data-[hover=true]:bg-warning/20 data-[hover]:bg-warning-200"
+                data-rac=""
                 data-react-aria-pressable="true"
+                data-slot="closeButton"
+                id="react-aria-«replaced-aria-id»"
                 tabindex="0"
                 type="button"
               >
                 <svg
                   aria-hidden="true"
-                  class="fill-current"
                   fill="none"
                   focusable="false"
                   height="20"
@@ -1394,10 +1504,14 @@ exports[`Story Snapshots > WithActionButton 1`] = `
     </ol>
   </section>
   <button
-    class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
+    class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
     data-focus="true"
+    data-focused="true"
     data-hover="true"
+    data-hovered="true"
+    data-rac=""
     data-react-aria-pressable="true"
+    id="react-aria-«replaced-aria-id»"
     tabindex="0"
     type="button"
   >
@@ -1464,19 +1578,21 @@ exports[`Story Snapshots > WithErrorModal 1`] = `
               data-title=""
             >
               <div
-                class="flex flex-grow flex-row w-full items-center py-3 px-4 border-small rounded-medium text-danger-600 dark:text-danger-500 border-danger-200 dark:border-danger-100 min-w-72 gap-3 bg-danger-50 dark:bg-danger-50"
+                class="flex w-full min-w-72 flex-grow flex-row items-center gap-3 px-4 py-3 rounded-medium border-small border-danger-200 bg-danger-50 text-danger-600 dark:border-danger-100 dark:bg-danger-50 dark:text-danger-500"
                 data-closeable="true"
                 data-has-description="true"
                 data-has-title="true"
+                data-slot="base"
                 data-visible="true"
                 role="alert"
-                title="Request failed"
               >
                 <div
-                  class="flex-none relative w-9 h-9 rounded-full grid place-items-center bg-danger-50 dark:bg-danger-100 border-danger-100 shadow-small border-1 self-start"
+                  class="relative h-9 w-9 flex-none place-items-center rounded-full border-1 shadow-small self-start grid border-danger-100 bg-danger-50 dark:bg-danger-100"
+                  data-slot="iconWrapper"
                 >
                   <svg
-                    class="fill-current w-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+                    class="absolute left-1/2 top-1/2 w-6 -translate-x-1/2 -translate-y-1/2 fill-current"
+                    data-slot="icon"
                     fill="none"
                     height="20"
                     viewBox="0 0 20 20"
@@ -1489,24 +1605,32 @@ exports[`Story Snapshots > WithErrorModal 1`] = `
                   </svg>
                 </div>
                 <div
-                  class="h-full flex-grow min-h-10 flex flex-col box-border text-inherit justify-center ms-0 items-stretch gap-1.5"
+                  class="ms-0 box-border flex h-full min-h-10 flex-grow flex-col items-stretch justify-center gap-1.5 text-inherit"
+                  data-slot="mainWrapper"
                 >
                   <div
-                    class="text-small w-full font-medium block text-inherit leading-5"
+                    class="block w-full font-medium text-inherit text-small"
+                    data-slot="title"
                   >
                     Request failed
                   </div>
                   <div
-                    class="pl-[1px] text-small font-normal text-foreground"
+                    class="pl-[1px] font-normal text-foreground text-small"
+                    data-slot="description"
                   >
                     A request failed.
                   </div>
                 </div>
-                <div>
+                <div
+                  data-slot="endContent"
+                >
                   <button
-                    class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-3 min-w-16 h-8 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-danger/20 text-danger-600 dark:text-danger-500 data-[hover=true]:opacity-hover"
+                    class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-8 min-w-16 gap-2 rounded-small px-3 text-tiny [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-danger/20 text-danger-600 dark:text-danger-500 data-[hover=true]:opacity-hover"
                     data-hover="true"
+                    data-hovered="true"
+                    data-rac=""
                     data-react-aria-pressable="true"
+                    id="react-aria-«replaced-aria-id»"
                     tabindex="0"
                     type="button"
                   >
@@ -1515,14 +1639,16 @@ exports[`Story Snapshots > WithErrorModal 1`] = `
                 </div>
                 <button
                   aria-label="Close"
-                  class="z-0 group inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny gap-2 rounded-full px-0 !gap-0 transition-transform-colors-opacity motion-reduce:transition-none bg-transparent min-w-8 w-8 h-8 relative translate-x-1 -translate-y-1 text-danger-500 data-[hover]:bg-danger-200 data-[hover=true]:bg-danger/20"
+                  class="group relative z-0 box-border inline-flex h-8 w-8 min-w-8 items-center justify-center !gap-0 gap-2 overflow-hidden whitespace-nowrap rounded-full px-0 -translate-y-1 translate-x-1 transform-gpu cursor-pointer select-none appearance-none bg-transparent font-normal subpixel-antialiased tap-highlight-transparent text-tiny transition-transform-colors-opacity data-[pressed=true]:scale-[0.97] motion-reduce:transition-none outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus text-danger-500 data-[hover=true]:bg-danger/20 data-[hover]:bg-danger-200"
+                  data-rac=""
                   data-react-aria-pressable="true"
+                  data-slot="closeButton"
+                  id="react-aria-«replaced-aria-id»"
                   tabindex="0"
                   type="button"
                 >
                   <svg
                     aria-hidden="true"
-                    class="fill-current"
                     fill="none"
                     focusable="false"
                     height="20"
@@ -1547,9 +1673,12 @@ exports[`Story Snapshots > WithErrorModal 1`] = `
     </section>
     <button
       aria-hidden="true"
-      class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
+      class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
       data-focus="true"
+      data-focused="true"
+      data-rac=""
       data-react-aria-pressable="true"
+      id="react-aria-«replaced-aria-id»"
       tabindex="0"
       type="button"
     >
@@ -1562,81 +1691,83 @@ exports[`Story Snapshots > WithErrorModal 1`] = `
     hidden=""
   />
   <div
-    tabindex="-1"
+    aria-hidden="true"
+    class="fixed inset-0 h-screen w-screen bg-overlay/50 backdrop-opacity-disabled z-[70]"
+    data-slot="backdrop"
+    style="opacity: 1;"
+  />
+  <div
+    class="h-(--visual-viewport-height) fixed inset-0 w-screen overflow-x-auto flex items-center justify-center z-[70]"
+    data-slot="wrapper"
+    style="--visual-viewport-height: 768px;"
   >
-    <div
-      aria-hidden="true"
-      class="bg-overlay/50 backdrop-opacity-disabled w-screen h-screen fixed inset-0 z-[70]"
-    />
-    <div
-      class="flex w-screen fixed inset-0 overflow-x-auto justify-center h-(--visual-viewport-height) items-center sm:items-center z-[70]"
-      data-slot="wrapper"
-      style="--visual-viewport-height: 768px;"
+    <section
+      aria-describedby="modal_body-«replaced-aria-id»"
+      aria-labelledby="react-aria-«replaced-aria-id»"
+      aria-modal="true"
+      class="relative z-50 box-border flex w-full flex-col mx-1 my-1 rounded-large bg-content1 shadow-small sm:mx-6 sm:my-16 outline-solid max-h-[calc(100%_-_8rem)] outline-transparent max-w-md"
+      data-dismissable="true"
+      data-open="true"
+      data-placement="center"
+      data-testid="modal"
+      role="dialog"
+      style="opacity: 1; transform: none;"
+      tabindex="-1"
     >
-      <section
-        aria-describedby="«replaced-aria-id»"
-        aria-labelledby="«replaced-aria-id»"
-        aria-modal="true"
-        class="flex flex-col relative z-50 w-full box-border bg-content1 outline-solid outline-transparent mx-1 my-1 sm:mx-6 sm:my-16 rounded-large shadow-small max-h-[calc(100%_-_8rem)] max-w-md"
-        data-dismissable="true"
-        data-open="true"
-        data-placement="center"
-        data-testid="modal"
-        id="«replaced-aria-id»"
-        role="dialog"
-        tabindex="-1"
+      <div
+        style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
       >
-        <div
-          style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
-        >
-          <button
-            aria-label="Dismiss"
-            id="react-aria-«replaced-aria-id»"
-            style="width: 1px; height: 1px;"
-            tabindex="-1"
-          />
-        </div>
         <button
-          aria-label="Close"
-          class="absolute appearance-none select-none top-1 end-1 p-2 text-foreground-500 rounded-full hover:bg-default-100 active:bg-default-200 tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2"
-          data-react-aria-pressable="true"
-          role="button"
-          tabindex="0"
-          type="button"
+          aria-label="Dismiss"
+          id="react-aria-«replaced-aria-id»"
+          style="width: 1px; height: 1px;"
+          tabindex="-1"
+        />
+      </div>
+      <button
+        aria-label="Close"
+        class="absolute end-1 top-1 select-none appearance-none rounded-full p-2 text-foreground-500 tap-highlight-transparent hover:bg-default-100 active:bg-default-200 outline-solid outline-transparent data-[focus-visible]:z-10 data-[focus-visible]:outline-2 data-[focus-visible]:outline-offset-2 data-[focus-visible]:outline-focus"
+        data-rac=""
+        data-react-aria-pressable="true"
+        id="react-aria-«replaced-aria-id»"
+        tabindex="0"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          class="fill-current"
+          fill="none"
+          focusable="false"
+          height="1em"
+          role="presentation"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          width="1em"
         >
-          <svg
-            aria-hidden="true"
-            class="fill-current"
-            fill="none"
-            focusable="false"
-            height="1em"
-            role="presentation"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            viewBox="0 0 24 24"
-            width="1em"
-          >
-            <path
-              d="M18 6L6 18M6 6l12 12"
-            />
-          </svg>
-        </button>
-        <header
-          class="flex py-4 px-6 flex-initial text-large font-semibold border-b border-b-divider"
-          id="«replaced-aria-id»"
+          <path
+            d="M18 6L6 18M6 6l12 12"
+          />
+        </svg>
+      </button>
+      <header
+        class="flex flex-initial border-b border-b-divider px-6 py-4 font-semibold text-large"
+        data-slot="header"
+        id="react-aria-«replaced-aria-id»"
+      >
+        Request error details
+      </header>
+      <div
+        class="flex flex-1 flex-col gap-3 overflow-y-auto px-6 py-4"
+        data-slot="body"
+        id="modal_body-«replaced-aria-id»"
+      >
+        <pre
+          class="whitespace-pre-wrap text-xs"
         >
-          Request error details
-        </header>
-        <div
-          class="flex flex-1 flex-col gap-3 px-6 overflow-y-auto py-4"
-          id="modal_body"
-        >
-          <pre
-            class="whitespace-pre-wrap text-xs"
-          >
-            [PIZZA-TRACKER] Pineapple paradox detected.
+          [PIZZA-TRACKER] Pineapple paradox detected.
 
 ToppingConflictError: Cannot apply "ADD_PINEAPPLE" and "REMOVE_PINEAPPLE" in the same transaction.
     at reconcileToppingVotes (/path/to/toppings.js:132:69)
@@ -1645,20 +1776,19 @@ ToppingConflictError: Cannot apply "ADD_PINEAPPLE" and "REMOVE_PINEAPPLE" in the
     at preheatOven (/path/to/oven.js:28:9)
     at bakeOrder (/path/to/kitchen.js:201:18)
     at handler (/path/to/server.js:335:28)
-          </pre>
-        </div>
-        <div
-          style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
-        >
-          <button
-            aria-label="Dismiss"
-            id="react-aria-«replaced-aria-id»"
-            style="width: 1px; height: 1px;"
-            tabindex="-1"
-          />
-        </div>
-      </section>
-    </div>
+        </pre>
+      </div>
+      <div
+        style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+      >
+        <button
+          aria-label="Dismiss"
+          id="react-aria-«replaced-aria-id»"
+          style="width: 1px; height: 1px;"
+          tabindex="-1"
+        />
+      </div>
+    </section>
   </div>
   <span
     aria-hidden="true"
@@ -1726,18 +1856,20 @@ exports[`Story Snapshots > WithLargeMoreContentModal 1`] = `
               data-title=""
             >
               <div
-                class="flex flex-grow flex-row w-full items-center py-3 px-4 rounded-medium min-w-72 gap-3 border-small border-info-200 bg-info-50 text-info-600 dark:border-info-100 dark:bg-info-50"
+                class="flex w-full min-w-72 flex-grow flex-row items-center gap-3 px-4 py-3 rounded-medium border-small border-info-200 bg-info-50 text-info-600 dark:border-info-100 dark:bg-info-50"
                 data-has-description="true"
                 data-has-title="true"
+                data-slot="base"
                 data-visible="true"
                 role="alert"
-                title="Daily report"
               >
                 <div
-                  class="flex-none relative w-9 h-9 rounded-full grid place-items-center shadow-small border-1 self-start border-info-100 bg-info-50 dark:bg-info-100"
+                  class="relative h-9 w-9 flex-none place-items-center rounded-full border-1 shadow-small self-start grid border-info-100 bg-info-50 dark:bg-info-100"
+                  data-slot="iconWrapper"
                 >
                   <svg
-                    class="fill-current w-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+                    class="absolute left-1/2 top-1/2 w-6 -translate-x-1/2 -translate-y-1/2 fill-current"
+                    data-slot="icon"
                     fill="none"
                     height="24"
                     viewBox="0 0 24 24"
@@ -1750,24 +1882,32 @@ exports[`Story Snapshots > WithLargeMoreContentModal 1`] = `
                   </svg>
                 </div>
                 <div
-                  class="h-full flex-grow min-h-10 flex flex-col box-border justify-center ms-0 items-stretch gap-1.5 text-inherit"
+                  class="ms-0 box-border flex h-full min-h-10 flex-grow flex-col items-stretch justify-center gap-1.5 text-inherit"
+                  data-slot="mainWrapper"
                 >
                   <div
-                    class="text-small w-full font-medium block leading-5 text-inherit"
+                    class="block w-full font-medium text-inherit text-small"
+                    data-slot="title"
                   >
                     Daily report
                   </div>
                   <div
-                    class="pl-[1px] text-small font-normal text-foreground"
+                    class="pl-[1px] font-normal text-foreground text-small"
+                    data-slot="description"
                   >
                     Report is ready.
                   </div>
                 </div>
-                <div>
+                <div
+                  data-slot="endContent"
+                >
                   <button
-                    class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-3 min-w-16 h-8 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover bg-info/20 text-info-600 whitespace-nowrap"
+                    class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-8 min-w-16 gap-2 rounded-small px-3 text-tiny [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover bg-info/20 text-info-600 whitespace-nowrap"
                     data-hover="true"
+                    data-hovered="true"
+                    data-rac=""
                     data-react-aria-pressable="true"
+                    id="react-aria-«replaced-aria-id»"
                     tabindex="0"
                     type="button"
                   >
@@ -1782,9 +1922,12 @@ exports[`Story Snapshots > WithLargeMoreContentModal 1`] = `
     </section>
     <button
       aria-hidden="true"
-      class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
+      class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
       data-focus="true"
+      data-focused="true"
+      data-rac=""
       data-react-aria-pressable="true"
+      id="react-aria-«replaced-aria-id»"
       tabindex="0"
       type="button"
     >
@@ -1797,154 +1940,155 @@ exports[`Story Snapshots > WithLargeMoreContentModal 1`] = `
     hidden=""
   />
   <div
-    tabindex="-1"
+    aria-hidden="true"
+    class="fixed inset-0 h-screen w-screen bg-overlay/50 backdrop-opacity-disabled z-[70]"
+    data-slot="backdrop"
+    style="opacity: 1;"
+  />
+  <div
+    class="h-(--visual-viewport-height) fixed inset-0 w-screen overflow-x-auto flex items-center justify-center z-[70]"
+    data-slot="wrapper"
+    style="--visual-viewport-height: 768px;"
   >
-    <div
-      aria-hidden="true"
-      class="bg-overlay/50 backdrop-opacity-disabled w-screen h-screen fixed inset-0 z-[70]"
-    />
-    <div
-      class="flex w-screen fixed inset-0 overflow-x-auto justify-center h-(--visual-viewport-height) items-center sm:items-center z-[70]"
-      data-slot="wrapper"
-      style="--visual-viewport-height: 768px;"
+    <section
+      aria-describedby="modal_body-«replaced-aria-id»"
+      aria-labelledby="react-aria-«replaced-aria-id»"
+      aria-modal="true"
+      class="relative z-50 box-border flex w-full flex-col mx-1 my-1 rounded-large bg-content1 shadow-small sm:mx-6 sm:my-16 outline-solid max-h-[calc(100%_-_8rem)] outline-transparent max-w-5xl"
+      data-dismissable="true"
+      data-open="true"
+      data-placement="center"
+      data-testid="modal"
+      role="dialog"
+      style="opacity: 1; transform: none;"
+      tabindex="-1"
     >
-      <section
-        aria-describedby="«replaced-aria-id»"
-        aria-labelledby="«replaced-aria-id»"
-        aria-modal="true"
-        class="flex flex-col relative z-50 w-full box-border bg-content1 outline-solid outline-transparent mx-1 my-1 sm:mx-6 sm:my-16 rounded-large shadow-small max-h-[calc(100%_-_8rem)] max-w-5xl"
-        data-dismissable="true"
-        data-open="true"
-        data-placement="center"
-        data-testid="modal"
-        id="«replaced-aria-id»"
-        role="dialog"
-        tabindex="-1"
+      <div
+        style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+      >
+        <button
+          aria-label="Dismiss"
+          id="react-aria-«replaced-aria-id»"
+          style="width: 1px; height: 1px;"
+          tabindex="-1"
+        />
+      </div>
+      <button
+        aria-label="Close"
+        class="absolute end-1 top-1 select-none appearance-none rounded-full p-2 text-foreground-500 tap-highlight-transparent hover:bg-default-100 active:bg-default-200 outline-solid outline-transparent data-[focus-visible]:z-10 data-[focus-visible]:outline-2 data-[focus-visible]:outline-offset-2 data-[focus-visible]:outline-focus"
+        data-rac=""
+        data-react-aria-pressable="true"
+        id="react-aria-«replaced-aria-id»"
+        tabindex="0"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          class="fill-current"
+          fill="none"
+          focusable="false"
+          height="1em"
+          role="presentation"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          width="1em"
+        >
+          <path
+            d="M18 6L6 18M6 6l12 12"
+          />
+        </svg>
+      </button>
+      <header
+        class="flex flex-initial border-b border-b-divider px-6 py-4 font-semibold text-large"
+        data-slot="header"
+        id="react-aria-«replaced-aria-id»"
+      >
+        Daily report
+      </header>
+      <div
+        class="flex flex-1 flex-col gap-3 overflow-y-auto px-6 py-4"
+        data-slot="body"
+        id="modal_body-«replaced-aria-id»"
       >
         <div
-          style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+          class="space-y-2"
         >
-          <button
-            aria-label="Dismiss"
-            id="react-aria-«replaced-aria-id»"
-            style="width: 1px; height: 1px;"
-            tabindex="-1"
-          />
+          <p>
+            Line 1: report content goes here. The modal opens in xl size so longer reports are easier to read.
+          </p>
+          <p>
+            Line 2: report content goes here. The modal opens in xl size so longer reports are easier to read.
+          </p>
+          <p>
+            Line 3: report content goes here. The modal opens in xl size so longer reports are easier to read.
+          </p>
+          <p>
+            Line 4: report content goes here. The modal opens in xl size so longer reports are easier to read.
+          </p>
+          <p>
+            Line 5: report content goes here. The modal opens in xl size so longer reports are easier to read.
+          </p>
+          <p>
+            Line 6: report content goes here. The modal opens in xl size so longer reports are easier to read.
+          </p>
+          <p>
+            Line 7: report content goes here. The modal opens in xl size so longer reports are easier to read.
+          </p>
+          <p>
+            Line 8: report content goes here. The modal opens in xl size so longer reports are easier to read.
+          </p>
+          <p>
+            Line 9: report content goes here. The modal opens in xl size so longer reports are easier to read.
+          </p>
+          <p>
+            Line 10: report content goes here. The modal opens in xl size so longer reports are easier to read.
+          </p>
+          <p>
+            Line 11: report content goes here. The modal opens in xl size so longer reports are easier to read.
+          </p>
+          <p>
+            Line 12: report content goes here. The modal opens in xl size so longer reports are easier to read.
+          </p>
+          <p>
+            Line 13: report content goes here. The modal opens in xl size so longer reports are easier to read.
+          </p>
+          <p>
+            Line 14: report content goes here. The modal opens in xl size so longer reports are easier to read.
+          </p>
+          <p>
+            Line 15: report content goes here. The modal opens in xl size so longer reports are easier to read.
+          </p>
+          <p>
+            Line 16: report content goes here. The modal opens in xl size so longer reports are easier to read.
+          </p>
+          <p>
+            Line 17: report content goes here. The modal opens in xl size so longer reports are easier to read.
+          </p>
+          <p>
+            Line 18: report content goes here. The modal opens in xl size so longer reports are easier to read.
+          </p>
+          <p>
+            Line 19: report content goes here. The modal opens in xl size so longer reports are easier to read.
+          </p>
+          <p>
+            Line 20: report content goes here. The modal opens in xl size so longer reports are easier to read.
+          </p>
         </div>
+      </div>
+      <div
+        style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+      >
         <button
-          aria-label="Close"
-          class="absolute appearance-none select-none top-1 end-1 p-2 text-foreground-500 rounded-full hover:bg-default-100 active:bg-default-200 tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2"
-          data-react-aria-pressable="true"
-          role="button"
-          tabindex="0"
-          type="button"
-        >
-          <svg
-            aria-hidden="true"
-            class="fill-current"
-            fill="none"
-            focusable="false"
-            height="1em"
-            role="presentation"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            viewBox="0 0 24 24"
-            width="1em"
-          >
-            <path
-              d="M18 6L6 18M6 6l12 12"
-            />
-          </svg>
-        </button>
-        <header
-          class="flex py-4 px-6 flex-initial text-large font-semibold border-b border-b-divider"
-          id="«replaced-aria-id»"
-        >
-          Daily report
-        </header>
-        <div
-          class="flex flex-1 flex-col gap-3 px-6 overflow-y-auto py-4"
-          id="modal_body"
-        >
-          <div
-            class="space-y-2"
-          >
-            <p>
-              Line 1: report content goes here. The modal opens in xl size so longer reports are easier to read.
-            </p>
-            <p>
-              Line 2: report content goes here. The modal opens in xl size so longer reports are easier to read.
-            </p>
-            <p>
-              Line 3: report content goes here. The modal opens in xl size so longer reports are easier to read.
-            </p>
-            <p>
-              Line 4: report content goes here. The modal opens in xl size so longer reports are easier to read.
-            </p>
-            <p>
-              Line 5: report content goes here. The modal opens in xl size so longer reports are easier to read.
-            </p>
-            <p>
-              Line 6: report content goes here. The modal opens in xl size so longer reports are easier to read.
-            </p>
-            <p>
-              Line 7: report content goes here. The modal opens in xl size so longer reports are easier to read.
-            </p>
-            <p>
-              Line 8: report content goes here. The modal opens in xl size so longer reports are easier to read.
-            </p>
-            <p>
-              Line 9: report content goes here. The modal opens in xl size so longer reports are easier to read.
-            </p>
-            <p>
-              Line 10: report content goes here. The modal opens in xl size so longer reports are easier to read.
-            </p>
-            <p>
-              Line 11: report content goes here. The modal opens in xl size so longer reports are easier to read.
-            </p>
-            <p>
-              Line 12: report content goes here. The modal opens in xl size so longer reports are easier to read.
-            </p>
-            <p>
-              Line 13: report content goes here. The modal opens in xl size so longer reports are easier to read.
-            </p>
-            <p>
-              Line 14: report content goes here. The modal opens in xl size so longer reports are easier to read.
-            </p>
-            <p>
-              Line 15: report content goes here. The modal opens in xl size so longer reports are easier to read.
-            </p>
-            <p>
-              Line 16: report content goes here. The modal opens in xl size so longer reports are easier to read.
-            </p>
-            <p>
-              Line 17: report content goes here. The modal opens in xl size so longer reports are easier to read.
-            </p>
-            <p>
-              Line 18: report content goes here. The modal opens in xl size so longer reports are easier to read.
-            </p>
-            <p>
-              Line 19: report content goes here. The modal opens in xl size so longer reports are easier to read.
-            </p>
-            <p>
-              Line 20: report content goes here. The modal opens in xl size so longer reports are easier to read.
-            </p>
-          </div>
-        </div>
-        <div
-          style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
-        >
-          <button
-            aria-label="Dismiss"
-            id="react-aria-«replaced-aria-id»"
-            style="width: 1px; height: 1px;"
-            tabindex="-1"
-          />
-        </div>
-      </section>
-    </div>
+          aria-label="Dismiss"
+          id="react-aria-«replaced-aria-id»"
+          style="width: 1px; height: 1px;"
+          tabindex="-1"
+        />
+      </div>
+    </section>
   </div>
   <span
     aria-hidden="true"

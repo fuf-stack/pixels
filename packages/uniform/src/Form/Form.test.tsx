@@ -1,12 +1,15 @@
 import { describe, expect, it, vi } from 'vitest';
 
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import { string, veto } from '@fuf-stack/veto';
+import { array, object, objectLoose, string, veto } from '@fuf-stack/veto';
 
 import '@testing-library/jest-dom/vitest';
 
+import { useClientValidation } from '../hooks/useClientValidation';
+import { useFormContext } from '../hooks/useFormContext';
+import Input from '../Input';
 import Form from './Form';
 
 describe('Form', () => {
@@ -286,6 +289,410 @@ describe('Form', () => {
           // shouldFilterNullMarker, shouldKeepEmptyArray, and shouldKeepEmptyObject are all filtered out
         },
         expect.anything(),
+      );
+    });
+  });
+
+  describe('disabled field submission', () => {
+    it.each([false, true])(
+      'omits populated disabled fields and preserves enabled fields (schema: %s)',
+      async (withSchema) => {
+        const onSubmit = vi.fn();
+        const user = userEvent.setup();
+
+        const validation = withSchema
+          ? veto({
+              disabledField: string().optional(),
+              enabledField: string(),
+            })
+          : undefined;
+
+        render(
+          <Form
+            initialValues={{
+              disabledField: 'retained',
+              enabledField: 'included',
+            }}
+            onSubmit={onSubmit}
+            validation={validation}
+          >
+            <Input disabled name="disabledField" />
+            <Input name="enabledField" />
+            <button type="submit">Submit</button>
+          </Form>,
+        );
+
+        expect(
+          screen.getByRole('textbox', { name: 'disabledField' }),
+        ).toBeDisabled();
+        expect(
+          screen.getByRole('textbox', { name: 'disabledField' }),
+        ).toHaveValue('retained');
+        await user.click(screen.getByRole('button', { name: 'Submit' }));
+
+        await waitFor(() =>
+          expect(onSubmit).toHaveBeenCalledExactlyOnceWith(
+            { enabledField: 'included' },
+            expect.anything(),
+          ),
+        );
+      },
+    );
+
+    it('reports a missing required disabled field even when its stored value is valid', async () => {
+      const onSubmit = vi.fn();
+      const user = userEvent.setup();
+      const validation = veto({ field: string().min(3) });
+      const validate = vi.spyOn(validation, 'validateAsync');
+      const form = (disabled: boolean) => (
+        <Form
+          initialValues={{ field: 'valid' }}
+          onSubmit={onSubmit}
+          validation={validation}
+        >
+          <Input disabled={disabled} name="field" />
+          <button type="submit">Submit</button>
+        </Form>
+      );
+      const { rerender } = render(form(true));
+      await user.click(screen.getByRole('button', { name: 'Submit' }));
+      await waitFor(() =>
+        expect(screen.getByText('Field is required')).toBeVisible(),
+      );
+      expect(validate).toHaveBeenLastCalledWith({});
+      expect(onSubmit).not.toHaveBeenCalled();
+      expect(screen.getByRole('textbox', { name: 'field' })).toHaveValue(
+        'valid',
+      );
+
+      rerender(form(false));
+      await user.click(screen.getByRole('button', { name: 'Submit' }));
+      await waitFor(() =>
+        expect(onSubmit).toHaveBeenCalledExactlyOnceWith(
+          { field: 'valid' },
+          expect.anything(),
+        ),
+      );
+    });
+
+    it('submits the retained user value after a field is re-enabled', async () => {
+      const onSubmit = vi.fn();
+      const user = userEvent.setup();
+      const form = (disabled: boolean) => (
+        <Form initialValues={{ field: 'initial' }} onSubmit={onSubmit}>
+          <Input debounceDelay={0} disabled={disabled} name="field" />
+          <button type="submit">Submit</button>
+        </Form>
+      );
+      const { rerender } = render(form(false));
+      const input = screen.getByRole('textbox', { name: 'field' });
+
+      await user.clear(input);
+      await user.type(input, 'updated');
+      await user.tab();
+      rerender(form(true));
+      expect(input).toBeDisabled();
+      expect(input).toHaveValue('updated');
+      await user.click(screen.getByRole('button', { name: 'Submit' }));
+      await waitFor(() =>
+        expect(onSubmit).toHaveBeenCalledExactlyOnceWith({}, expect.anything()),
+      );
+
+      rerender(form(false));
+      expect(input).toBeEnabled();
+      expect(input).toHaveValue('updated');
+      await user.click(screen.getByRole('button', { name: 'Submit' }));
+      await waitFor(() => expect(onSubmit).toHaveBeenCalledTimes(2));
+      expect(onSubmit).toHaveBeenNthCalledWith(
+        2,
+        { field: 'updated' },
+        expect.anything(),
+      );
+    });
+
+    it('omits an optional disabled value and validates its retained value when re-enabled', async () => {
+      const onSubmit = vi.fn();
+      const user = userEvent.setup();
+      const validation = veto({
+        field: string().min(3, 'Value is too short').optional(),
+      });
+      const form = (disabled: boolean) => (
+        <Form
+          initialValues={{ field: 'ab' }}
+          onSubmit={onSubmit}
+          validation={validation}
+          validationTrigger="onSubmit"
+        >
+          <Input debounceDelay={0} disabled={disabled} name="field" />
+          <button type="submit">Submit</button>
+        </Form>
+      );
+      const { rerender } = render(form(true));
+      const input = screen.getByRole('textbox', { name: 'field' });
+
+      expect(input).toBeDisabled();
+      await user.click(screen.getByRole('button', { name: 'Submit' }));
+      await waitFor(() =>
+        expect(onSubmit).toHaveBeenCalledExactlyOnceWith({}, expect.anything()),
+      );
+      expect(screen.queryByText('Value is too short')).not.toBeInTheDocument();
+
+      rerender(form(false));
+      expect(input).toBeEnabled();
+      expect(input).toHaveValue('ab');
+      await user.click(screen.getByRole('button', { name: 'Submit' }));
+      await waitFor(() =>
+        expect(screen.getByText('Value is too short')).toBeVisible(),
+      );
+      expect(onSubmit).toHaveBeenCalledTimes(1);
+
+      rerender(form(true));
+      await user.click(screen.getByRole('button', { name: 'Submit' }));
+      await waitFor(() => expect(onSubmit).toHaveBeenCalledTimes(2));
+      expect(onSubmit).toHaveBeenNthCalledWith(2, {}, expect.anything());
+      await waitFor(() =>
+        expect(
+          screen.queryByText('Value is too short'),
+        ).not.toBeInTheDocument(),
+      );
+
+      rerender(form(false));
+      await user.type(input, 'c');
+      await user.tab();
+      await user.click(screen.getByRole('button', { name: 'Submit' }));
+      await waitFor(() => expect(onSubmit).toHaveBeenCalledTimes(3));
+      expect(onSubmit).toHaveBeenNthCalledWith(
+        3,
+        { field: 'abc' },
+        expect.anything(),
+      );
+    });
+  });
+
+  describe('disabled validation paths', () => {
+    it('omits a disabled sibling when only the enabled field is validated', async () => {
+      const user = userEvent.setup();
+      const validation = veto({
+        excluded: string().min(3).optional(),
+        enabled: string(),
+      });
+      const validate = vi.spyOn(validation, 'validateAsync');
+      const triggered = vi.fn();
+      const ValidateEnabled = () => {
+        const { trigger } = useFormContext();
+        return (
+          <button
+            onClick={async () => {
+              const isValid = await trigger('enabled');
+              triggered(isValid);
+            }}
+            type="button"
+          >
+            Validate enabled
+          </button>
+        );
+      };
+
+      render(
+        <Form
+          initialValues={{ excluded: 'x', enabled: 'valid' }}
+          onSubmit={vi.fn()}
+          validation={validation}
+        >
+          <Input disabled name="excluded" />
+          <Input name="enabled" />
+          <ValidateEnabled />
+        </Form>,
+      );
+
+      await user.click(
+        screen.getByRole('button', { name: 'Validate enabled' }),
+      );
+
+      await waitFor(() => expect(triggered).toHaveBeenCalledWith(true));
+      // trigger('enabled') can succeed even if the resolver reports sibling errors;
+      // inspect the actual validation input to prove the sibling was omitted.
+      expect(validate).toHaveBeenLastCalledWith({ enabled: 'valid' });
+      expect(screen.getByRole('textbox', { name: 'excluded' })).toHaveValue(
+        'x',
+      );
+    });
+
+    it.each([false, true])(
+      'submits disabled flat-array entries as null placeholders (schema: %s)',
+      async (withSchema) => {
+        const user = userEvent.setup();
+        const onSubmit = vi.fn();
+        const validation = withSchema
+          ? veto({ tags: array(string().min(3).optional()) })
+          : undefined;
+
+        render(
+          <Form
+            initialValues={{ tags: ['x', 'y', 'valid'] }}
+            onSubmit={onSubmit}
+            validation={validation}
+          >
+            <Input disabled name="tags.0.__FLAT__" />
+            <Input disabled name="tags.1.__FLAT__" />
+            <Input name="tags.2.__FLAT__" />
+            <button type="submit">Submit</button>
+          </Form>,
+        );
+
+        await user.click(screen.getByRole('button', { name: 'Submit' }));
+
+        await waitFor(() =>
+          expect(onSubmit).toHaveBeenCalledExactlyOnceWith(
+            { tags: [null, null, 'valid'] },
+            expect.anything(),
+          ),
+        );
+      },
+    );
+
+    it('retains exclusion across reset and validates the reset value when re-enabled', async () => {
+      const onSubmit = vi.fn();
+      const user = userEvent.setup();
+      const Reset = () => {
+        const { reset } = useFormContext();
+        return (
+          <button onClick={() => reset({ field: 'reset' })} type="button">
+            Reset
+          </button>
+        );
+      };
+      const validation = veto({
+        field: string().min(6, 'Value is too short').optional(),
+      });
+      const form = (disabled: boolean) => (
+        <Form
+          initialValues={{ field: 'initial' }}
+          onSubmit={onSubmit}
+          validation={validation}
+        >
+          <Input disabled={disabled} name="field" />
+          <Reset />
+          <button type="submit">Submit</button>
+        </Form>
+      );
+      const { rerender } = render(form(true));
+      await user.click(screen.getByRole('button', { name: 'Reset' }));
+      expect(screen.getByRole('textbox', { name: 'field' })).toHaveValue(
+        'reset',
+      );
+      await user.click(screen.getByRole('button', { name: 'Submit' }));
+      await waitFor(() =>
+        expect(onSubmit).toHaveBeenCalledExactlyOnceWith({}, expect.anything()),
+      );
+      rerender(form(false));
+      await user.click(screen.getByRole('button', { name: 'Submit' }));
+      await waitFor(() =>
+        expect(screen.getByText('Value is too short')).toBeVisible(),
+      );
+      expect(onSubmit).toHaveBeenCalledTimes(1);
+    });
+
+    it.each([undefined, 'invalid'])(
+      'omits optional disabled values before base and client validation (disabled value: %s)',
+      async (disabledValue) => {
+        const clientRule = vi.fn(async () => false);
+        const ClientRules = () => {
+          useClientValidation(true, () =>
+            objectLoose({
+              excluded: string()
+                .refine(clientRule, 'Client rule ran')
+                .nullish(),
+            }),
+          );
+          return null;
+        };
+        const onSubmit = vi.fn();
+        const user = userEvent.setup();
+        const validation = veto({
+          excluded: string().optional(),
+          enabled: string().min(3, 'Enabled value is too short'),
+        });
+
+        render(
+          <Form
+            initialValues={{ excluded: disabledValue }}
+            onSubmit={onSubmit}
+            validation={validation}
+          >
+            <ClientRules />
+            <Input disabled name="excluded" />
+            <Input debounceDelay={0} name="enabled" />
+            <button type="submit">Submit</button>
+          </Form>,
+        );
+        const enabled = screen.getByRole('textbox', { name: 'enabled' });
+        await user.type(enabled, 'ab');
+        await user.tab();
+        await user.click(screen.getByRole('button', { name: 'Submit' }));
+        await waitFor(() =>
+          expect(screen.getByText('Enabled value is too short')).toBeVisible(),
+        );
+        expect(onSubmit).not.toHaveBeenCalled();
+        expect(clientRule).not.toHaveBeenCalled();
+
+        await user.type(enabled, 'c');
+        await user.tab();
+        await user.click(screen.getByRole('button', { name: 'Submit' }));
+        await waitFor(() =>
+          expect(onSubmit).toHaveBeenCalledExactlyOnceWith(
+            { enabled: 'abc' },
+            expect.anything(),
+          ),
+        );
+        expect(clientRule).not.toHaveBeenCalled();
+      },
+    );
+
+    it('excludes nested disabled fields without disabling the same field in other array rows', async () => {
+      const onSubmit = vi.fn();
+      const user = userEvent.setup();
+      const validation = veto({
+        rows: array(
+          object({
+            name: string().min(3, 'Name is too short').optional(),
+            code: string(),
+          }),
+        ),
+      });
+
+      render(
+        <Form
+          initialValues={{
+            rows: [
+              { name: 'x', code: 'first' },
+              { name: 'x', code: 'second' },
+            ],
+          }}
+          onSubmit={onSubmit}
+          validation={validation}
+        >
+          <Input disabled name="rows.0.name" />
+          <Input debounceDelay={0} name="rows.1.name" />
+          <button type="submit">Submit</button>
+        </Form>,
+      );
+      await user.click(screen.getByRole('button', { name: 'Submit' }));
+      await waitFor(() =>
+        expect(screen.getByText('Name is too short')).toBeVisible(),
+      );
+      expect(onSubmit).not.toHaveBeenCalled();
+      await user.type(
+        screen.getByRole('textbox', { name: 'rows.1.name' }),
+        'yz',
+      );
+      await user.tab();
+      await user.click(screen.getByRole('button', { name: 'Submit' }));
+      await waitFor(() =>
+        expect(onSubmit).toHaveBeenCalledExactlyOnceWith(
+          { rows: [{ code: 'first' }, { name: 'xyz', code: 'second' }] },
+          expect.anything(),
+        ),
       );
     });
   });

@@ -1,5 +1,10 @@
-import type { TimeInput as HeroTimeInput } from '@heroui/date-input';
-import type { ComponentProps } from 'react';
+import type {
+  CalendarDateTime,
+  Time,
+  ZonedDateTime,
+} from '@internationalized/date';
+import type { InputValueTransform } from '../hooks/useInputValueTransform';
+import type { TimeProps } from './Time';
 
 import {
   getLocalTimeZone,
@@ -9,8 +14,9 @@ import {
   parseZonedDateTime,
 } from '@internationalized/date';
 
-/** Value type accepted by HeroUI TimeInput */
-export type TimeValue = ComponentProps<typeof HeroTimeInput>['value'];
+/** Supported segmented time values, including an empty field. */
+export type TimeValue =
+  Time | CalendarDateTime | ZonedDateTime | null | undefined;
 
 /** Cast unknown input to the TimeInput value union type. */
 const asTimeValue = (value: unknown): TimeValue => {
@@ -83,7 +89,7 @@ const tryParse = (parser: () => unknown): TimeValue => {
 };
 
 /**
- * Parse a form value into a HeroUI TimeInput compatible `TimeValue`.
+ * Parse a form value into a segmented time field compatible `TimeValue`.
  *
  * Supports existing `TimeValue` objects, native `Date` instances, plain time
  * strings (`HH:mm[:ss]`), absolute ISO date-time strings, zoned date-time
@@ -245,4 +251,55 @@ export const timeValueToString = (
   }
 
   return null;
+};
+
+/** Converts edited times to UTC strings, numeric hours or time objects */
+export const createTimeValueTransform = ({
+  granularity = 'minute',
+  hourAsNumber,
+  timeZone,
+  valueType,
+}: Pick<
+  TimeProps,
+  'granularity' | 'hourAsNumber' | 'timeZone' | 'valueType'
+>): InputValueTransform => {
+  const resolvedTimeZone = resolveTimeFieldTimeZone(timeZone);
+  const effectiveGranularity = hourAsNumber ? 'hour' : granularity;
+
+  return {
+    toDisplayValue: (value) => {
+      return value ?? '';
+    },
+    toFormValue: (value) => {
+      const nextValue = value as TimeValue;
+      if (nextValue == null) {
+        return null;
+      }
+
+      if (hourAsNumber) {
+        const serializedValue = timeValueToString(
+          nextValue,
+          resolvedTimeZone,
+          'hour',
+        );
+        if (!serializedValue) {
+          return null;
+        }
+
+        const [hoursSegment] = serializedValue.split(':');
+        const hours = Number(hoursSegment);
+
+        return Number.isNaN(hours) ? null : hours;
+      }
+
+      if (valueType === 'timeValue') {
+        return nextValue;
+      }
+
+      return (
+        timeValueToString(nextValue, resolvedTimeZone, effectiveGranularity) ??
+        String(nextValue)
+      );
+    },
+  };
 };

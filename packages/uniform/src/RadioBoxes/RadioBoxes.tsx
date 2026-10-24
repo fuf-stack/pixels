@@ -1,79 +1,48 @@
-import type { TVClassName, TVProps } from '@fuf-stack/pixel-utils';
 import type { ReactNode } from 'react';
-//
-import type { RadioBoxProps } from './RadioBox';
+import type { ClassName, VariantProps } from './radioBoxesVariants';
 
-import { RadioGroup as HeroRadioGroup } from '@heroui/radio';
+import useUniformField from '../hooks/useUniformField/useUniformField';
+import RadioBoxesControl from './subcomponents/RadioBoxesControl';
 
-import { slugify, tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
-
-import { createOptionValueConverter } from '../helpers';
-import { useUniformField } from '../hooks/useUniformField';
-import { RadioBox } from './RadioBox';
-
-export const radioBoxesVariants = tv({
-  slots: {
-    base: [
-      // Needs group for group-data condition.
-      'group',
-      // Match shared field wrapper layout.
-      'flex w-full flex-col',
-      // Keep spacing between label/radio boxes consistent.
-      'gap-y-1.5',
-    ],
-    boxBase: '',
-    boxControl: '',
-    boxDescription: '',
-    boxLabel: '',
-    boxLabelWrapper: '',
-    // see HeroUI styles for group-data condition,
-    // e.g.: https://github.com/heroui-inc/heroui/blob/main/packages/core/theme/src/components/select.ts
-    label:
-      'mb-2 inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger',
-    wrapper: '',
-  },
-});
-
-type VariantProps = TVProps<typeof radioBoxesVariants>;
-type ClassName = TVClassName<typeof radioBoxesVariants>;
+export { radioBoxesVariants } from './radioBoxesVariants';
 
 export interface RadioBoxOption {
-  /** Description of the value. Works with variant radioBox. */
+  /** Help text associated with the field */
   description?: ReactNode;
-  /** disables the option */
+  /** Disables the field */
   disabled?: boolean;
   /** option icon */
   icon?: ReactNode;
-  /** option label */
+  /** Field label */
   label?: ReactNode;
-  /** HTML data-testid attribute of the option */
+  /** HTML data-testid attribute for e2e tests */
   testId?: string;
   /** option value */
   value: string | number;
 }
 
 export interface RadioBoxesProps extends VariantProps {
-  /** Custom aria-label for accessibility. If not provided, falls back to field name when no visible label exists */
+  /** Custom accessible name */
   ariaLabel?: string;
   /** CSS class name */
   className?: ClassName;
-  /** Determines if the Buttons are disabled or not. */
+  /** Help text associated with the field */
+  description?: ReactNode;
+  /** Disables the field */
   disabled?: boolean;
-  /** determines orientation of the Buttons. */
+  /** Arranges options horizontally */
   inline?: boolean;
-  /** Label displayed next to the RadioButton. */
+  /** Field label */
   label?: ReactNode;
-  /** Name the RadioButtons are registered at in HTML forms (react-hook-form). */
+  /** Field name */
   name: string;
-  /** Radio button configuration. */
+  /** Available options */
   options: RadioBoxOption[];
-  /** Id to grab element in internal tests. */
+  /** HTML data-testid attribute for e2e tests */
   testId?: string;
 }
 
-/**
- * RadioBoxes component based on [HeroUI RadioGroup](https://www.heroui.com//docs/components/radio-group)
- */
+/** Form selection field for one option displayed as a box */
 const RadioBoxes = ({
   className = undefined,
   inline = false,
@@ -81,81 +50,15 @@ const RadioBoxes = ({
   options,
   ...uniformFieldProps
 }: RadioBoxesProps) => {
-  const {
-    ariaLabel,
-    errorMessage,
-    invalid,
-    disabled,
-    label,
-    field: { onBlur, onChange, ref, value },
-    required,
-    testId,
-  } = useUniformField({
-    name,
-    ...uniformFieldProps,
-  });
-
-  // Create converter to preserve number types for option values
-  const { convertToOriginalType } = createOptionValueConverter(options);
-
-  // classNames from slots
-  const variants = radioBoxesVariants();
-  const classNames = variantsToClassNames(variants, className, 'base');
-  const boxClassNames: RadioBoxProps['classNames'] = {
-    base: classNames.boxBase,
-    control: classNames.boxControl,
-    description: classNames.boxDescription,
-    label: classNames.boxLabel,
-    labelWrapper: classNames.boxLabelWrapper,
-  };
+  const { field } = useUniformField({ ...uniformFieldProps, name });
 
   return (
-    <HeroRadioGroup
-      ref={ref}
-      aria-label={ariaLabel}
-      classNames={classNames}
-      // see HeroUI styles for group-data condition (data-invalid),
-      // e.g.: https://github.com/heroui-inc/heroui/blob/main/packages/components/select/src/use-select.ts
-      data-invalid={invalid}
-      data-required={required}
-      data-testid={testId}
-      errorMessage={errorMessage}
-      isDisabled={disabled}
-      isInvalid={invalid}
-      isRequired={required}
-      label={label ? <legend>{label}</legend> : null}
-      name={name}
-      onBlur={onBlur}
-      onValueChange={(newValue) => {
-        onChange(convertToOriginalType(newValue));
-      }}
-      orientation={inline ? 'horizontal' : 'vertical'}
-      value={value != null ? String(value) : ''}
-    >
-      {options.map((option) => {
-        if ('value' in option) {
-          const optionTestId = slugify(
-            `${testId}_option_${option.testId ?? option.value}`,
-            { replaceDots: true },
-          );
-          return (
-            <RadioBox
-              key={String(option.value)}
-              classNames={boxClassNames}
-              data-testid={optionTestId}
-              description={option.description}
-              icon={option.icon}
-              isDisabled={!!disabled || option.disabled}
-              isInvalid={invalid}
-              value={String(option.value)}
-            >
-              {option.label ?? option.value}
-            </RadioBox>
-          );
-        }
-        return null;
-      })}
-    </HeroRadioGroup>
+    <RadioBoxesControl
+      className={className}
+      field={field}
+      inline={inline}
+      options={options}
+    />
   );
 };
 

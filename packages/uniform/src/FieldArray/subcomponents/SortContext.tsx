@@ -2,8 +2,6 @@ import type { DragEndEvent } from '@dnd-kit/core';
 import type { ReactNode } from 'react';
 import type { UseFieldArrayMove } from 'react-hook-form';
 
-import { useFormContext } from 'react-hook-form';
-
 import {
   closestCenter,
   DndContext,
@@ -28,8 +26,6 @@ interface SortContextProps {
   fields: Record<'id', string>[];
   /** react-hook-form's move function to update field array indices */
   move: UseFieldArrayMove;
-  /** name of the field array */
-  name: string;
   /** enable/disable sorting functionality */
   sortable: boolean;
 }
@@ -46,11 +42,8 @@ const SortContext = ({
   children,
   fields,
   move,
-  name,
   sortable,
 }: SortContextProps): ReactNode => {
-  const { trigger } = useFormContext();
-
   // Initialize sensors for both pointer (mouse/touch) and keyboard interactions
   const sensors = useSensors(
     useSensor(PointerSensor),
@@ -80,10 +73,6 @@ const SortContext = ({
       });
       // Update the field array order using react-hook-form's move function
       move(oldIndex, newIndex);
-
-      // Finally trigger validation for the array field,
-      // so validation errors are updated for the new order
-      trigger(name);
     }
   };
 

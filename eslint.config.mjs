@@ -42,6 +42,8 @@ export default [
             'packages/uniform/.storybook/preview.tsx',
             'scripts/check-dependency-boundaries.mjs',
             'scripts/check.mjs',
+            'scripts/ci-snapshot-autofix.mjs',
+            'scripts/ci-snapshot-autofix.test.mjs',
             'scripts/verify-packages.mjs',
           ],
           maximumDefaultProjectFileMatchCount_THIS_WILL_SLOW_DOWN_LINTING: 20,
@@ -67,6 +69,13 @@ export default [
       'no-continue': 'off',
       'no-restricted-syntax': 'off',
       'no-use-before-define': 'off',
+    },
+  },
+  {
+    files: ['**/stories/*.storySetup.tsx'],
+    rules: {
+      // shared story fixtures use the same development dependencies as CSF files
+      'import-x/no-extraneous-dependencies': 'off',
     },
   },
 ];

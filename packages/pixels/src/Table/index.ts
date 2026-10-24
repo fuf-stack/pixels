@@ -1,4 +1,5 @@
-import Table, { tableVariants } from './Table';
+import Table from './Table';
+import { tableVariants } from './tableVariants';
 
 export type {
   TableProps,

@@ -1,64 +1,20 @@
-import type { TVClassName, TVProps } from '@fuf-stack/pixel-utils';
-import type { DatePickerProps as HeroDatePickerProps } from '@heroui/date-picker';
 import type { ReactNode } from 'react';
-import type { DatePickerValue } from './dateHelpers';
+import type { ClassName } from './datePickerVariants';
 
-import { DatePicker as HeroDatePicker } from '@heroui/date-picker';
+import useUniformField from '../hooks/useUniformField/useUniformField';
+import { createDatePickerValueTransform } from './dateHelpers';
+import DatePickerControl from './subcomponents/DatePickerControl';
+import DatePickerReset from './subcomponents/DatePickerReset';
 
-import { tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
+export { datePickerVariants } from './datePickerVariants';
 
-import { useUniformField } from '../hooks/useUniformField';
-import {
-  dateValueToUtcIsoString,
-  getDatePickerPlaceholderValue,
-  parseDateValue,
-  resolveDatePickerTimeZone,
-} from './dateHelpers';
-
-export const datePickerVariants = tv({
-  slots: {
-    /** wrapper around the whole date picker */
-    base: '',
-    /** helper wrapper for error/description */
-    helperWrapper: [
-      // set padding to 0 for error message exit animation
-      'p-0',
-    ],
-    /** the calendar element */
-    calendar: '',
-    /** the calendar's content element */
-    calendarContent: '',
-    /**
-     * inner wrapper (HeroUI inputWrapper slot)
-     *
-     * NOTE: Unlike HeroUI Input, the DatePicker does not expose a
-     * `data-focus` indicator on the group, so the focus border has to be
-     * driven by the native `focus-within` state of the segment inputs.
-     */
-    inputWrapper: 'bg-content1 focus-within:border-focus',
-    /** field label */
-    label: 'cursor-default',
-    /** the calendar popover element */
-    popoverContent: '',
-    /** selector button element */
-    selectorButton: '',
-    /** selector icon element */
-    selectorIcon: '',
-    /** the time-input component element */
-    timeInput: '',
-    /** the time-input component's label element */
-    timeInputLabel: '',
-  },
-});
-
-type VariantProps = TVProps<typeof datePickerVariants>;
-type ClassName = TVClassName<typeof datePickerVariants>;
-
-export interface DatePickerProps extends VariantProps {
+export interface DatePickerProps {
   /** Custom aria-label for accessibility. If not provided, falls back to field name when no visible label exists */
   ariaLabel?: string;
   /** CSS class name */
   className?: ClassName;
+  /** Optional help text associated with editable date segments. */
+  description?: ReactNode;
   /** date picker is disabled */
   disabled?: boolean;
   /** hide timezone abbreviation for zoned values */
@@ -66,7 +22,7 @@ export interface DatePickerProps extends VariantProps {
   /**
    * Optional hour cycle override.
    *
-   * When omitted, the picker uses the user's locale default (12-hour or 24-hour).
+   * Defaults to a 24-hour cycle.
    */
   hourCycle?: 12 | 24;
   /** form field label */
@@ -97,11 +53,9 @@ export interface DatePickerProps extends VariantProps {
   withTime?: boolean;
 }
 
-/**
- * DatePicker component based on [HeroUI DatePicker](https://v2.heroui.com/docs/components/date-picker)
- */
+/** Form input field for a date, with an optional time and calendar picker */
 const DatePicker = ({
-  className: _className = undefined,
+  className = undefined,
   hourCycle = 24,
   hideTimeZone = false,
   maxValue = undefined,
@@ -112,100 +66,31 @@ const DatePicker = ({
   withTime = false,
   ...uniformFieldProps
 }: DatePickerProps) => {
-  const {
-    ariaLabel,
-    disabled,
-    errorMessage,
-    field: { onBlur, onChange, ref, value },
-    invalid,
-    label,
-    required,
-    testId,
-  } = useUniformField({ name, ...uniformFieldProps });
+  const transform = createDatePickerValueTransform({
+    timeZone,
+    valueType,
+    withTime,
+  });
 
-  // classNames from slots
-  const variants = datePickerVariants();
-  const classNames = variantsToClassNames(variants, _className, 'base');
-  const resolvedTimeZone = resolveDatePickerTimeZone(withTime, timeZone);
-
-  // Normalize incoming form value into HeroUI's DateValue shape so the field can
-  // render consistently from UTC strings, local strings, Date instances, or DateValue objects.
-  const parsedValue = parseDateValue(
-    value,
-    withTime ? resolvedTimeZone : timeZone,
-  );
-
-  // Build the default placeholder value for time-enabled pickers.
-  const placeholderValue = getDatePickerPlaceholderValue(withTime, timeZone);
-
-  // Parse ISO boundary strings into HeroUI DateValue objects.
-  const parsedMinValue = parseDateValue(
-    minValue,
-    withTime ? resolvedTimeZone : timeZone,
-  ) as unknown as HeroDatePickerProps['minValue'];
-  const parsedMaxValue = parseDateValue(
-    maxValue,
-    withTime ? resolvedTimeZone : timeZone,
-  ) as unknown as HeroDatePickerProps['maxValue'];
-
-  // Normalize DatePicker output into the configured storage format before writing to form state.
-  const handleChange = (nextValue: DatePickerValue) => {
-    if (nextValue == null) {
-      onChange(null);
-      return;
-    }
-
-    if (valueType === 'dateValue') {
-      onChange(nextValue);
-      return;
-    }
-
-    // String mode always stores UTC ISO values so form state is timezone-neutral
-    // and comparable across users/locales.
-    onChange(
-      dateValueToUtcIsoString(nextValue, resolvedTimeZone ?? 'UTC') ??
-        String(nextValue),
-    );
-  };
+  const { field } = useUniformField({
+    ...uniformFieldProps,
+    name,
+    transform,
+  });
 
   return (
-    <HeroDatePicker
-      ref={ref}
-      aria-label={label ? undefined : ariaLabel}
-      classNames={{
-        base: classNames.base,
-        calendar: classNames.calendar,
-        calendarContent: classNames.calendarContent,
-        helperWrapper: classNames.helperWrapper,
-        inputWrapper: classNames.inputWrapper,
-        label: classNames.label,
-        popoverContent: classNames.popoverContent,
-        selectorButton: classNames.selectorButton,
-        selectorIcon: classNames.selectorIcon,
-        timeInput: classNames.timeInput,
-        timeInputLabel: classNames.timeInputLabel,
-      }}
-      data-testid={testId}
-      errorMessage={errorMessage}
-      granularity={withTime ? 'minute' : 'day'}
+    <DatePickerControl
+      className={className}
+      field={field}
       hideTimeZone={hideTimeZone}
       hourCycle={hourCycle}
-      id={testId}
-      isDisabled={disabled}
-      isInvalid={invalid}
-      isRequired={required}
-      label={label}
-      labelPlacement="outside"
-      maxValue={parsedMaxValue}
-      minValue={parsedMinValue}
-      name={name}
-      onBlur={onBlur}
-      onChange={handleChange}
-      placeholderValue={placeholderValue}
-      radius="sm"
-      value={parsedValue}
-      variant="bordered"
-    />
+      maxValue={maxValue}
+      minValue={minValue}
+      timeZone={timeZone}
+      withTime={withTime}
+    >
+      <DatePickerReset />
+    </DatePickerControl>
   );
 };
 

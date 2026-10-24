@@ -6,7 +6,7 @@ exports[`Story Snapshots > AllPlacements 1`] = `
     class="mb-6"
   >
     <span
-      class="cursor-pointer"
+      class="z-10 subpixel-antialiased aria-expanded:scale-[0.97] aria-expanded:opacity-70 cursor-pointer"
     >
       top
     </span>
@@ -15,7 +15,7 @@ exports[`Story Snapshots > AllPlacements 1`] = `
     class="mb-6"
   >
     <span
-      class="cursor-pointer"
+      class="z-10 subpixel-antialiased aria-expanded:scale-[0.97] aria-expanded:opacity-70 cursor-pointer"
     >
       bottom
     </span>
@@ -24,7 +24,7 @@ exports[`Story Snapshots > AllPlacements 1`] = `
     class="mb-6"
   >
     <span
-      class="cursor-pointer"
+      class="z-10 subpixel-antialiased aria-expanded:scale-[0.97] aria-expanded:opacity-70 cursor-pointer"
     >
       left
     </span>
@@ -33,7 +33,7 @@ exports[`Story Snapshots > AllPlacements 1`] = `
     class="mb-6"
   >
     <span
-      class="cursor-pointer"
+      class="z-10 subpixel-antialiased aria-expanded:scale-[0.97] aria-expanded:opacity-70 cursor-pointer"
     >
       right
     </span>
@@ -42,7 +42,7 @@ exports[`Story Snapshots > AllPlacements 1`] = `
     class="mb-6"
   >
     <span
-      class="cursor-pointer"
+      class="z-10 subpixel-antialiased aria-expanded:scale-[0.97] aria-expanded:opacity-70 cursor-pointer"
     >
       top-start
     </span>
@@ -51,7 +51,7 @@ exports[`Story Snapshots > AllPlacements 1`] = `
     class="mb-6"
   >
     <span
-      class="cursor-pointer"
+      class="z-10 subpixel-antialiased aria-expanded:scale-[0.97] aria-expanded:opacity-70 cursor-pointer"
     >
       top-end
     </span>
@@ -60,7 +60,7 @@ exports[`Story Snapshots > AllPlacements 1`] = `
     class="mb-6"
   >
     <span
-      class="cursor-pointer"
+      class="z-10 subpixel-antialiased aria-expanded:scale-[0.97] aria-expanded:opacity-70 cursor-pointer"
     >
       bottom-start
     </span>
@@ -69,7 +69,7 @@ exports[`Story Snapshots > AllPlacements 1`] = `
     class="mb-6"
   >
     <span
-      class="cursor-pointer"
+      class="z-10 subpixel-antialiased aria-expanded:scale-[0.97] aria-expanded:opacity-70 cursor-pointer"
     >
       bottom-end
     </span>
@@ -78,7 +78,7 @@ exports[`Story Snapshots > AllPlacements 1`] = `
     class="mb-6"
   >
     <span
-      class="cursor-pointer"
+      class="z-10 subpixel-antialiased aria-expanded:scale-[0.97] aria-expanded:opacity-70 cursor-pointer"
     >
       left-start
     </span>
@@ -87,7 +87,7 @@ exports[`Story Snapshots > AllPlacements 1`] = `
     class="mb-6"
   >
     <span
-      class="cursor-pointer"
+      class="z-10 subpixel-antialiased aria-expanded:scale-[0.97] aria-expanded:opacity-70 cursor-pointer"
     >
       left-end
     </span>
@@ -96,7 +96,7 @@ exports[`Story Snapshots > AllPlacements 1`] = `
     class="mb-6"
   >
     <span
-      class="cursor-pointer"
+      class="z-10 subpixel-antialiased aria-expanded:scale-[0.97] aria-expanded:opacity-70 cursor-pointer"
     >
       right-start
     </span>
@@ -105,7 +105,7 @@ exports[`Story Snapshots > AllPlacements 1`] = `
     class="mb-6"
   >
     <span
-      class="cursor-pointer"
+      class="z-10 subpixel-antialiased aria-expanded:scale-[0.97] aria-expanded:opacity-70 cursor-pointer"
     >
       right-end
     </span>
@@ -116,9 +116,19 @@ exports[`Story Snapshots > AllPlacements 1`] = `
 exports[`Story Snapshots > CloseDelay 1`] = `
 <div>
   <span
-    class="cursor-pointer"
+    class="z-10 subpixel-antialiased aria-expanded:scale-[0.97] aria-expanded:opacity-70 cursor-pointer"
   >
     3000 ms close delay
+  </span>
+</div>
+`;
+
+exports[`Story Snapshots > CustomStyling 1`] = `
+<div>
+  <span
+    class="z-10 subpixel-antialiased aria-expanded:scale-[0.97] aria-expanded:opacity-70 cursor-pointer"
+  >
+    Hover for details
   </span>
 </div>
 `;
@@ -126,7 +136,7 @@ exports[`Story Snapshots > CloseDelay 1`] = `
 exports[`Story Snapshots > Default 1`] = `
 <div>
   <span
-    class="cursor-pointer"
+    class="z-10 subpixel-antialiased aria-expanded:scale-[0.97] aria-expanded:opacity-70 cursor-pointer"
   >
     hover me
   </span>
@@ -134,86 +144,93 @@ exports[`Story Snapshots > Default 1`] = `
 `;
 
 exports[`Story Snapshots > DefaultOpen 1`] = `
-<body>
-  <div>
-    <span
-      aria-describedby="«replaced-aria-id»"
-      class="cursor-pointer"
-    >
-      hover me
-    </span>
-  </div>
+<div>
   <div
-    data-overlay-container="true"
+    class="origin-bottom data-[placement=bottom]:origin-top data-[placement=left]:origin-right data-[placement=right]:origin-left data-[placement=bottom-end]:origin-top-right data-[placement=bottom-start]:origin-top-left data-[placement=top-end]:origin-bottom-right data-[placement=top-start]:origin-bottom-left data-[placement=left-end]:origin-bottom-right data-[placement=left-start]:origin-top-right data-[placement=right-end]:origin-bottom-left data-[placement=right-start]:origin-top-left"
+    id="react-aria-«replaced-aria-id»"
+    role="tooltip"
+    style="position: absolute; z-index: 100000; max-height: 0px; left: 0px; bottom: 10px;"
   >
     <div
-      id="«replaced-aria-id»"
-      style="position: absolute; z-index: 100000; max-height: 0px; left: 0px; bottom: 10px;"
+      class="relative z-0 bg-transparent outline-none before:absolute before:z-[-1] before:hidden before:h-2.5 before:w-2.5 before:rotate-45 before:rounded-sm before:content-[''] data-[arrow=true]:before:block before:bg-content1 before:shadow-small data-[placement=top]:before:-bottom-[calc(theme(spacing.5)/4_-_1.5px)] data-[placement=top]:before:left-1/2 data-[placement=top]:before:-translate-x-1/2 data-[placement=top-start]:before:-bottom-[calc(theme(spacing.5)/4_-_1.5px)] data-[placement=top-start]:before:left-3 data-[placement=top-end]:before:-bottom-[calc(theme(spacing.5)/4_-_1.5px)] data-[placement=top-end]:before:right-3 data-[placement=bottom]:before:-top-[calc(theme(spacing.5)/4_-_1.5px)] data-[placement=bottom]:before:left-1/2 data-[placement=bottom]:before:-translate-x-1/2 data-[placement=bottom-start]:before:-top-[calc(theme(spacing.5)/4_-_1.5px)] data-[placement=bottom-start]:before:left-3 data-[placement=bottom-end]:before:-top-[calc(theme(spacing.5)/4_-_1.5px)] data-[placement=bottom-end]:before:right-3 data-[placement=left]:before:-right-[calc(theme(spacing.5)/4_-_2px)] data-[placement=left]:before:top-1/2 data-[placement=left]:before:-translate-y-1/2 data-[placement=left-start]:before:-right-[calc(theme(spacing.5)/4_-_3px)] data-[placement=left-start]:before:top-1/4 data-[placement=left-end]:before:-right-[calc(theme(spacing.5)/4_-_3px)] data-[placement=left-end]:before:bottom-1/4 data-[placement=right]:before:-left-[calc(theme(spacing.5)/4_-_2px)] data-[placement=right]:before:top-1/2 data-[placement=right]:before:-translate-y-1/2 data-[placement=right-start]:before:-left-[calc(theme(spacing.5)/4_-_3px)] data-[placement=right-start]:before:top-1/4 data-[placement=right-end]:before:-left-[calc(theme(spacing.5)/4_-_3px)] data-[placement=right-end]:before:bottom-1/4"
+      data-arrow="true"
+      data-open="true"
+      data-placement="top"
+      data-slot="base"
+      style="opacity: 1; transform: none;"
     >
       <div
-        class="z-0 relative bg-transparent [transform-origin:var(--trigger-anchor-point)] before:content-[''] before:hidden before:z-[-1] before:absolute before:rotate-45 before:w-2.5 before:h-2.5 before:rounded-sm data-[arrow=true]:before:block data-[placement=top]:before:-bottom-[calc(theme(spacing.5)/4_-_1.5px)] data-[placement=top]:before:left-1/2 data-[placement=top]:before:-translate-x-1/2 data-[placement=top-start]:before:-bottom-[calc(theme(spacing.5)/4_-_1.5px)] data-[placement=top-start]:before:left-3 data-[placement=top-end]:before:-bottom-[calc(theme(spacing.5)/4_-_1.5px)] data-[placement=top-end]:before:right-3 data-[placement=bottom]:before:-top-[calc(theme(spacing.5)/4_-_1.5px)] data-[placement=bottom]:before:left-1/2 data-[placement=bottom]:before:-translate-x-1/2 data-[placement=bottom-start]:before:-top-[calc(theme(spacing.5)/4_-_1.5px)] data-[placement=bottom-start]:before:left-3 data-[placement=bottom-end]:before:-top-[calc(theme(spacing.5)/4_-_1.5px)] data-[placement=bottom-end]:before:right-3 data-[placement=left]:before:-right-[calc(theme(spacing.5)/4_-_2px)] data-[placement=left]:before:top-1/2 data-[placement=left]:before:-translate-y-1/2 data-[placement=left-start]:before:-right-[calc(theme(spacing.5)/4_-_3px)] data-[placement=left-start]:before:top-1/4 data-[placement=left-end]:before:-right-[calc(theme(spacing.5)/4_-_3px)] data-[placement=left-end]:before:bottom-1/4 data-[placement=right]:before:-left-[calc(theme(spacing.5)/4_-_2px)] data-[placement=right]:before:top-1/2 data-[placement=right]:before:-translate-y-1/2 data-[placement=right-start]:before:-left-[calc(theme(spacing.5)/4_-_3px)] data-[placement=right-start]:before:top-1/4 data-[placement=right-end]:before:-left-[calc(theme(spacing.5)/4_-_3px)] data-[placement=right-end]:before:bottom-1/4 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:bg-content1 before:shadow-small"
-        data-arrow="true"
-        data-open="true"
-        data-placement="top"
-        data-slot="base"
-        role="tooltip"
-        style="transform: scale(1); opacity: 1; transform-origin: 50% 100% 0;"
+        class="relative z-10 box-border flex max-h-[80vh] w-full flex-col items-center justify-center p-0 outline-solid bg-content1 subpixel-antialiased outline-transparent text-small rounded-medium shadow-small"
+        data-slot="content"
       >
-        <div
-          class="z-10 w-full items-center justify-center subpixel-antialiased outline-solid outline-transparent box-border text-small bg-content1 rounded-medium shadow-small flex max-h-[80vh] flex-col p-0"
-          data-arrow="true"
-          data-open="true"
-          data-placement="top"
-          data-slot="content"
-        >
-          <div>
+        <div>
+          <div
+            class="w-full"
+          >
             <div
-              class="w-full"
+              class="w-full px-4 pb-1 pt-2 font-semibold"
             >
-              <div
-                class="w-full px-4 pb-1 pt-2 font-semibold"
-              >
-                header
-              </div>
-              <hr
-                class="m-0 w-full border-divider p-0"
-              />
+              header
             </div>
+            <hr
+              class="m-0 w-full border-divider p-0"
+            />
+          </div>
+          <div
+            class="overflow-y-auto data-[top-scroll=true]:[mask-image:linear-gradient(0deg,#000_calc(100%_-_var(--scroll-shadow-size)),transparent)] data-[bottom-scroll=true]:[mask-image:linear-gradient(180deg,#000_calc(100%_-_var(--scroll-shadow-size)),transparent)] data-[top-bottom-scroll=true]:[mask-image:linear-gradient(#000,#000,transparent_0,#000_var(--scroll-shadow-size),#000_calc(100%_-_var(--scroll-shadow-size)),transparent)] w-full px-4 py-2"
+            data-bottom-scroll="false"
+            data-orientation="vertical"
+            data-top-scroll="false"
+            style="--scroll-shadow-size: 40px;"
+          >
+            tooltip content
+          </div>
+          <div
+            class="w-full"
+          >
+            <hr
+              class="m-0 w-full border-divider p-0"
+            />
             <div
-              class="overflow-y-auto data-[top-scroll=true]:[mask-image:linear-gradient(0deg,#000_calc(100%_-_var(--scroll-shadow-size)),transparent)] data-[bottom-scroll=true]:[mask-image:linear-gradient(180deg,#000_calc(100%_-_var(--scroll-shadow-size)),transparent)] data-[top-bottom-scroll=true]:[mask-image:linear-gradient(#000,#000,transparent_0,#000_var(--scroll-shadow-size),#000_calc(100%_-_var(--scroll-shadow-size)),transparent)] w-full px-4 py-2"
-              data-bottom-scroll="false"
-              data-orientation="vertical"
-              data-top-scroll="false"
-              style="--scroll-shadow-size: 40px;"
+              class="w-full px-4 py-2"
             >
-              tooltip content
-            </div>
-            <div
-              class="w-full"
-            >
-              <hr
-                class="m-0 w-full border-divider p-0"
-              />
-              <div
-                class="w-full px-4 py-2"
-              >
-                footer
-              </div>
+              footer
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</body>
+  <span
+    aria-describedby="react-aria-«replaced-aria-id»"
+    class="z-10 subpixel-antialiased aria-expanded:scale-[0.97] aria-expanded:opacity-70 cursor-pointer"
+  >
+    hover me
+  </span>
+</div>
 `;
 
 exports[`Story Snapshots > Delay 1`] = `
 <div>
   <span
-    class="cursor-pointer"
+    class="z-10 subpixel-antialiased aria-expanded:scale-[0.97] aria-expanded:opacity-70 cursor-pointer"
   >
     1000 ms delay
+  </span>
+</div>
+`;
+
+exports[`Story Snapshots > KeyboardFocus 1`] = `
+<div>
+  <span
+    class="z-10 subpixel-antialiased aria-expanded:scale-[0.97] aria-expanded:opacity-70 cursor-pointer"
+  >
+    <button
+      tabindex="0"
+      type="button"
+    >
+      More information
+    </button>
   </span>
 </div>
 `;
@@ -224,42 +241,42 @@ exports[`Story Snapshots > Sizes 1`] = `
     class="flex flex-col gap-4"
   >
     <span
-      class="cursor-pointer"
+      class="z-10 subpixel-antialiased aria-expanded:scale-[0.97] aria-expanded:opacity-70 cursor-pointer"
     >
       xs
     </span>
     <span
-      class="cursor-pointer"
+      class="z-10 subpixel-antialiased aria-expanded:scale-[0.97] aria-expanded:opacity-70 cursor-pointer"
     >
       sm
     </span>
     <span
-      class="cursor-pointer"
+      class="z-10 subpixel-antialiased aria-expanded:scale-[0.97] aria-expanded:opacity-70 cursor-pointer"
     >
       md
     </span>
     <span
-      class="cursor-pointer"
+      class="z-10 subpixel-antialiased aria-expanded:scale-[0.97] aria-expanded:opacity-70 cursor-pointer"
     >
       lg
     </span>
     <span
-      class="cursor-pointer"
+      class="z-10 subpixel-antialiased aria-expanded:scale-[0.97] aria-expanded:opacity-70 cursor-pointer"
     >
       xl
     </span>
     <span
-      class="cursor-pointer"
+      class="z-10 subpixel-antialiased aria-expanded:scale-[0.97] aria-expanded:opacity-70 cursor-pointer"
     >
       2xl
     </span>
     <span
-      class="cursor-pointer"
+      class="z-10 subpixel-antialiased aria-expanded:scale-[0.97] aria-expanded:opacity-70 cursor-pointer"
     >
       3xl
     </span>
     <span
-      class="cursor-pointer"
+      class="z-10 subpixel-antialiased aria-expanded:scale-[0.97] aria-expanded:opacity-70 cursor-pointer"
     >
       full
     </span>
@@ -270,7 +287,7 @@ exports[`Story Snapshots > Sizes 1`] = `
 exports[`Story Snapshots > TooltipInTooltip 1`] = `
 <div>
   <span
-    class="cursor-pointer"
+    class="z-10 subpixel-antialiased aria-expanded:scale-[0.97] aria-expanded:opacity-70 cursor-pointer"
   >
     hover me
   </span>

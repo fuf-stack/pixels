@@ -148,9 +148,11 @@ exports[`Story Snapshots > RealWorldExample 1`] = `
             </div>
           </details>
           <button
-            class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-danger text-danger-foreground data-[hover=true]:opacity-hover"
+            class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-danger text-danger-foreground data-[hover=true]:opacity-hover"
+            data-rac=""
             data-react-aria-pressable="true"
             data-testid="error-retry-button"
+            id="react-aria-«replaced-aria-id»"
             tabindex="0"
             type="button"
           >
@@ -192,8 +194,10 @@ exports[`Story Snapshots > WithCustomErrorFallback 1`] = `
         Failed to fetch user custom-error-user
       </p>
       <button
-        class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-3 min-w-16 h-8 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-warning data-[hover=true]:opacity-hover text-white mt-2"
+        class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-8 min-w-16 gap-2 rounded-small px-3 text-tiny [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-warning text-white data-[hover=true]:opacity-hover mt-2"
+        data-rac=""
         data-react-aria-pressable="true"
+        id="react-aria-«replaced-aria-id»"
         tabindex="0"
         type="button"
       >

@@ -1,5 +1,10 @@
-import type { DatePicker as HeroDatePicker } from '@heroui/date-picker';
-import type { ComponentProps } from 'react';
+import type {
+  CalendarDate,
+  CalendarDateTime,
+  ZonedDateTime,
+} from '@internationalized/date';
+import type { InputValueTransform } from '../hooks/useInputValueTransform';
+import type { DatePickerProps } from './DatePicker';
 
 import {
   getLocalTimeZone,
@@ -11,8 +16,9 @@ import {
   parseZonedDateTime,
 } from '@internationalized/date';
 
-/** Value type accepted by the HeroUI DatePicker */
-export type DatePickerValue = ComponentProps<typeof HeroDatePicker>['value'];
+/** Supported calendar values, including an empty date picker. */
+export type DatePickerValue =
+  CalendarDate | CalendarDateTime | ZonedDateTime | null | undefined;
 
 /** Cast unknown input to the DatePicker value union type. */
 const asDatePickerValue = (value: unknown): DatePickerValue => {
@@ -48,7 +54,7 @@ const tryParse = (parser: () => unknown): DatePickerValue => {
 };
 
 /**
- * Parse a form value into a HeroUI DatePicker compatible `DateValue`.
+ * Parse a form value into a segmented date control’s `DateValue`
  *
  * Accepts existing `DateValue` objects, native `Date` instances, and ISO-like
  * strings (date, date-time, zoned, and absolute). Returns `null` when the value
@@ -174,4 +180,41 @@ export const dateValueToUtcIsoString = (
   }
 
   return null;
+};
+
+/** Converts edited dates to the configured form storage format */
+export const createDatePickerValueTransform = ({
+  timeZone,
+  valueType,
+  withTime,
+}: Pick<
+  DatePickerProps,
+  'timeZone' | 'valueType' | 'withTime'
+>): InputValueTransform => {
+  const resolvedTimeZone = resolveDatePickerTimeZone(
+    withTime ?? false,
+    timeZone,
+  );
+
+  return {
+    toDisplayValue: (value) => {
+      return value ?? '';
+    },
+    toFormValue: (value) => {
+      const nextValue = value as DatePickerValue;
+      if (nextValue == null) {
+        return null;
+      }
+
+      if (valueType === 'dateValue') {
+        return nextValue;
+      }
+
+      // string storage remains UTC regardless of the display timezone
+      return (
+        dateValueToUtcIsoString(nextValue, resolvedTimeZone ?? 'UTC') ??
+        String(nextValue)
+      );
+    },
+  };
 };

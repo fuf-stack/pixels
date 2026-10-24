@@ -157,11 +157,13 @@ describe('useClientValidation', () => {
       const mockSchema = veto(object({ username: string() }));
       const schemaFactory = vi.fn().mockReturnValue(mockSchema);
 
+      const initialProps: { data: TestData | null } = { data: initialData };
+
       const { rerender } = renderHook(
         ({ data }: { data: TestData | null }) =>
           useClientValidation(data, schemaFactory),
         {
-          initialProps: { data: initialData },
+          initialProps,
         },
       );
 

@@ -1,67 +1,72 @@
-import type { TVClassName, TVProps } from '@fuf-stack/pixel-utils';
-import type React from 'react';
+import type { ReactNode } from 'react';
+import type { ClassName } from './avatarVariants';
 
-import { Avatar as HeroAvatar } from '@heroui/avatar';
+import { useContext } from 'react';
+import { useHover } from 'react-aria';
 
-import { tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
+import { useStyling } from '../StylingProvider';
+import { avatarVariants } from './avatarVariants';
+import AvatarGroupContext from './subcomponents/AvatarGroupContext';
+import AvatarImage from './subcomponents/AvatarImage';
 
-// avatar styling variants
-export const avatarVariants = tv({
-  slots: {
-    base: '',
-    fallback: '',
-    icon: '',
-    img: '',
-    name: '',
-  },
-});
+export { avatarVariants } from './avatarVariants';
 
-type VariantProps = TVProps<typeof avatarVariants>;
-type ClassName = TVClassName<typeof avatarVariants>;
-export interface AvatarProps extends VariantProps {
-  /* Display a border ring around the Avatar */
+export interface AvatarProps {
+  /** Border ring around the avatar */
   bordered?: boolean;
   /** CSS class name */
   className?: ClassName;
-  /* Disables the Avatar */
+  /** Disabled appearance and hover state */
   disabled?: boolean;
-  /* Fallback content to display if the image fails to load or is not provided */
-  fallback?: React.ReactNode;
-  /* Roundness of the border around the Avatar */
+  /** Content shown while the image is unavailable */
+  fallback?: ReactNode;
+  /** Corner roundness */
   rounded?: 'none' | 'sm' | 'md' | 'lg' | 'full';
-  /* Size of the Avatar */
+  /** Avatar size */
   size?: 'sm' | 'md' | 'lg';
-  /* Image source */
+  /** Image source */
   src: string;
 }
 
-/**
- * Avatar component based on [HeroUI Avatar](https://www.heroui.com//docs/components/avatar)
- */
+/** Profile image with optional fallback content and a border ring */
 const Avatar = ({
   bordered = false,
-  rounded = 'full',
-  className: _className = undefined,
+  className = undefined,
   disabled = false,
   fallback = undefined,
+  rounded = 'full',
   size = 'md',
   src,
 }: AvatarProps) => {
-  // className from slots
-  const variants = avatarVariants();
-  const className = variantsToClassNames(variants, _className, 'base');
+  const styling = useStyling();
+  const grouped = useContext(AvatarGroupContext);
+  const { hoverProps, isHovered } = useHover({ isDisabled: disabled });
+
+  // classNames from slots
+  const variants = styling.resolve(avatarVariants, {
+    bordered,
+    disabled,
+    grouped,
+    rounded,
+    size,
+  });
+  const classNames = styling.variantsToClassNames(variants, className, 'base');
 
   return (
-    <HeroAvatar
-      classNames={className}
-      fallback={fallback}
-      isBordered={bordered}
-      isDisabled={disabled}
-      radius={rounded}
-      showFallback={!!fallback}
-      size={size}
-      src={src}
-    />
+    <span
+      {...hoverProps}
+      className={classNames.base}
+      data-hover={isHovered || undefined}
+      data-slot="base"
+      tabIndex={-1}
+    >
+      <AvatarImage
+        key={src}
+        className={classNames}
+        fallback={fallback}
+        src={src}
+      />
+    </span>
   );
 };
 

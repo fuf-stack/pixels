@@ -28,7 +28,7 @@ export interface NotificationOptions extends Omit<ToastOptions, 'endContent'> {
 
 // Modal API exposed to render props. The exposed `modal.open` elevates the
 // modal above the Toaster so it stacks on top of the notification it was opened
-// from: the Toaster sits at z-60 (see NotificationHost) while HeroUI defaults
+// from: the Toaster sits at z-60 (see NotificationHost) while Pixels defaults
 // the modal z-index (on its `wrapper` + `backdrop` slots) to z-50, so we raise
 // both to z-70 via the `className` slot.
 const renderPropsModal: ModalStoreApi = {

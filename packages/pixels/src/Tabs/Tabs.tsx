@@ -1,24 +1,13 @@
-import type { TVClassName, TVProps } from '@fuf-stack/pixel-utils';
 import type { ReactNode } from 'react';
+import type { ClassName } from './tabsVariants';
 
-import { Tab as HeroTab, Tabs as HeroTabs } from '@heroui/tabs';
+import { Tabs as AriaTabs, TabList, TabPanel } from 'react-aria-components';
 
-import { slugify, tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
+import { useStyling } from '../StylingProvider';
+import TabsItem from './subcomponents/TabsItem';
+import { tabsVariants } from './tabsVariants';
 
-export const tabsVariants = tv({
-  slots: {
-    base: '',
-    cursor: '',
-    panel: '',
-    tab: 'data-[hover-unselected=true]:opacity-100',
-    tabContent: 'text-foreground',
-    tabList: '',
-    tabWrapper: '',
-  },
-});
-
-type VariantProps = TVProps<typeof tabsVariants>;
-type ClassName = TVClassName<typeof tabsVariants>;
+export { tabsVariants } from './tabsVariants';
 
 type Key = string | number;
 
@@ -35,7 +24,7 @@ export interface TabProps {
   testId?: string;
 }
 
-export interface TabsProps extends VariantProps {
+export interface TabsProps {
   /** Accessible label for the tabs component */
   ariaLabel?: string;
   /** CSS class name */
@@ -44,7 +33,7 @@ export interface TabsProps extends VariantProps {
   defaultSelectedKey?: string | number;
   /** Whether to destroy inactive tab panel DOM nodes */
   destroyInactiveTabPanel?: boolean;
-  /** Whether the animation should be disabled. */
+  /** Disables selection-indicator animation */
   disableAnimation?: boolean;
   /** Array of keys for the tabs to disable */
   disabledKeys?: string[];
@@ -70,9 +59,7 @@ export interface TabsProps extends VariantProps {
   vertical?: boolean;
 }
 
-/**
- * Tabs component based on [HeroUI Tabs](https://www.heroui.com//docs/components/tabs)
- */
+/** Sections of content selected through a row or column of tab controls */
 const Tabs = ({
   ariaLabel = undefined,
   className = undefined,
@@ -91,40 +78,86 @@ const Tabs = ({
   variant = 'solid',
   vertical = false,
 }: TabsProps) => {
-  const variants = tabsVariants();
-  const classNames = variantsToClassNames(variants, className, 'base');
+  const styling = useStyling();
+
+  // start/end placement uses vertical keyboard navigation as well as vertical layout
+  const resolvedPlacement = placement ?? (vertical ? 'start' : 'top');
+  const orientation =
+    vertical || resolvedPlacement === 'start' || resolvedPlacement === 'end'
+      ? 'vertical'
+      : 'horizontal';
+  const items = tabs ?? [];
+  const unavailableKeys = [
+    ...(disabledKeys ?? []),
+    ...items
+      .filter((item) => {
+        return item.disabled;
+      })
+      .map((item) => {
+        return item.key;
+      }),
+  ];
+
+  // classNames from slots
+  const variants = styling.resolve(tabsVariants, {
+    disableAnimation,
+    fullWidth,
+    placement: vertical ? 'start' : resolvedPlacement,
+    radius,
+    size,
+    variant,
+  });
+  const classNames = styling.variantsToClassNames(variants, className, 'base');
 
   return (
-    <HeroTabs
-      aria-label={ariaLabel}
-      classNames={classNames}
+    <AriaTabs
+      className={classNames.tabWrapper}
+      data-placement={resolvedPlacement}
+      data-slot="tabWrapper"
+      data-vertical={orientation}
       defaultSelectedKey={defaultSelectedKey}
-      destroyInactiveTabPanel={destroyInactiveTabPanel}
-      disableAnimation={disableAnimation}
-      disabledKeys={disabledKeys}
-      fullWidth={fullWidth}
-      isVertical={vertical}
-      items={tabs || []}
+      disabledKeys={unavailableKeys}
       onSelectionChange={onSelectionChange}
-      placement={placement}
-      radius={radius}
+      orientation={orientation}
       selectedKey={selectedKey}
-      size={size}
-      variant={variant}
     >
-      {(item) => {
+      {/* tab controls and their animated selection indicator */}
+      <div className={classNames.base} data-slot="base">
+        <TabList
+          aria-label={ariaLabel ?? 'Tabs'}
+          className={classNames.tabList}
+          data-slot="tabList"
+          items={items}
+        >
+          {(item) => {
+            return (
+              <TabsItem
+                className={classNames}
+                disableAnimation={disableAnimation}
+                id={item.key}
+                item={item}
+                testId={testId}
+              />
+            );
+          }}
+        </TabList>
+      </div>
+
+      {/* inactive panels unmount unless the owner requests state retention */}
+      {items.map((item) => {
         return (
-          <HeroTab
+          <TabPanel
             key={item.key}
-            data-testid={slugify(`${testId}_${item.testId ?? item.key}`)}
-            isDisabled={!!item.disabled}
-            title={item.label}
+            className={classNames.panel}
+            data-slot="panel"
+            id={item.key}
+            shouldForceMount={!destroyInactiveTabPanel}
           >
             {item.content}
-          </HeroTab>
+          </TabPanel>
         );
-      }}
-    </HeroTabs>
+      })}
+    </AriaTabs>
   );
 };
 

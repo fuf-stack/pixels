@@ -1,76 +1,38 @@
-import type { TVClassName, TVProps } from '@fuf-stack/pixel-utils';
-import type { ModalProps as HeroModalProps } from '@heroui/modal';
 import type { ReactNode } from 'react';
+import type { ClassName, VariantProps } from './modalVariants';
 
-import {
-  Modal as HeroModal,
-  ModalBody as HeroModalBody,
-  ModalContent as HeroModalContent,
-  ModalFooter as HeroModalFooter,
-  ModalHeader as HeroModalHeader,
-} from '@heroui/modal';
+import { isTestEnvironment } from '@fuf-stack/pixel-utils';
 
-import {
-  isTestEnvironment,
-  tv,
-  variantsToClassNames,
-} from '@fuf-stack/pixel-utils';
+import { useStyling } from '../StylingProvider';
+import { modalVariants } from './modalVariants';
+import ModalOverlay from './subcomponents/ModalOverlay';
 
-// modal variants
-export const modalVariants = tv({
-  slots: {
-    backdrop: '',
-    base: '',
-    body: 'py-4',
-    closeButton: '',
-    footer: 'border-t border-t-divider',
-    header: 'border-b border-b-divider',
-    wrapper: '',
-  },
-  variants: {
-    size: {
-      sm: { base: 'max-w-sm' },
-      md: { base: 'max-w-md' },
-      lg: { base: 'max-w-lg' },
-      xl: { base: 'max-w-5xl' },
-      full: { base: 'h-[80dvh] max-w-full' },
-    },
-  },
-});
+export { modalVariants } from './modalVariants';
 
-type VariantProps = TVProps<typeof modalVariants>;
-type ClassName = TVClassName<typeof modalVariants>;
-
-export interface ModalProps extends VariantProps {
-  /** modal body content */
+export interface ModalProps {
+  /** Dialog body content */
   children?: ReactNode;
   /** CSS class name */
   className?: ClassName;
-  /**
-   * Disable animations completely. Defaults to `true` in test environments so
-   * snapshots are deterministic (the open/close opacity tween otherwise
-   * captures a random mid-animation frame).
-   */
+  /** Disables animations, defaults to true in tests */
   disableAnimation?: boolean;
-  /** modal footer */
+  /** Actions below the body */
   footer?: ReactNode;
-  /** modal header */
+  /** Title above the body */
   header?: ReactNode;
-  /** open state (controlled) */
+  /** Controlled dialog visibility */
   isOpen: boolean;
-  /** close event handler */
+  /** Callback when closing is requested */
   onClose: () => void;
-  /** The container element in which the overlay portal will be placed */
-  portalContainer?: HeroModalProps['portalContainer'];
-  /** modal size */
+  /** Portal container, defaults to document.body */
+  portalContainer?: Element;
+  /** Maximum width of the dialog */
   size?: VariantProps['size'];
-  /** HTML data-testid attribute used in e2e tests */
+  /** HTML data-testid suffix for the dialog */
   testId?: string;
 }
 
-/**
- * Modal component based on [HeroUI Modal](https://www.heroui.com//docs/components/modal)
- */
+/** Modal dialog for focused content and actions above the page */
 const Modal = ({
   children = null,
   className = undefined,
@@ -83,34 +45,27 @@ const Modal = ({
   size = 'md',
   testId = undefined,
 }: ModalProps) => {
+  const styling = useStyling();
+
   // classNames from slots
-  const variants = modalVariants({ size });
-  const classNames = variantsToClassNames(variants, className, 'base');
+  const variants = styling.resolve(modalVariants, { size });
+  const classNames = styling.variantsToClassNames(variants, className, 'base');
 
   return (
-    <HeroModal
-      backdrop="opaque"
-      classNames={classNames}
-      data-testid={testId}
+    <ModalOverlay
+      bodyIdPrefix="modal_body"
+      className={classNames}
       disableAnimation={disableAnimation}
+      footer={footer}
+      header={header}
       isOpen={isOpen}
+      label="Dialog"
       onClose={onClose}
-      placement="center"
       portalContainer={portalContainer}
-      scrollBehavior="inside"
+      testId={testId ? `modal_${testId}` : 'modal'}
     >
-      <HeroModalContent data-testid={testId ? `modal_${testId}` : 'modal'}>
-        {() => {
-          return (
-            <>
-              {header ? <HeroModalHeader>{header}</HeroModalHeader> : null}
-              <HeroModalBody id="modal_body">{children}</HeroModalBody>
-              {footer ? <HeroModalFooter>{footer}</HeroModalFooter> : null}
-            </>
-          );
-        }}
-      </HeroModalContent>
-    </HeroModal>
+      {children}
+    </ModalOverlay>
   );
 };
 

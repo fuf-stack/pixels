@@ -115,7 +115,7 @@ if (globalThis.window !== undefined) {
   }
 }
 
-// HeroUI Tabs (and other UI primitives) rely on ResizeObserver in passive effects.
+// React Aria components rely on ResizeObserver in passive effects.
 // In Vitest's jsdom environment, ResizeObserver may be missing depending on jsdom
 // version/runtime, which causes story snapshot tests to fail with:
 //   "ReferenceError: ResizeObserver is not defined"

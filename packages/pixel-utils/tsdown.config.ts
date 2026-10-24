@@ -1,4 +1,6 @@
 /* eslint-disable import-x/no-extraneous-dependencies */
+import { copyFile } from 'node:fs/promises';
+
 import { createDepBundledDtsConfig } from '@repo/tsdown-config/config';
 import { defineConfig } from 'tsdown';
 
@@ -7,13 +9,7 @@ import { defineConfig } from 'tsdown';
 //
 // `classnames` and `slug` are intentionally excluded: their CJS-flavored
 // typings currently fail declaration bundling in rolldown-plugin-dts.
-const dtsBundledDeps = [
-  /^@heroui\/theme($|\/)/,
-  // Transitive type dependency of @heroui/theme declarations.
-  /^tailwindcss($|\/)/,
-  /^tailwind-merge($|\/)/,
-  /^tailwind-variants($|\/)/,
-];
+const dtsBundledDeps = [/^tailwind-merge($|\/)/, /^tailwind-variants($|\/)/];
 
 // Two-pass build:
 // 1) runtime JS output (ESM) with dependencies left external, and
@@ -21,6 +17,13 @@ const dtsBundledDeps = [
 export default defineConfig(
   createDepBundledDtsConfig({
     bundledDeps: dtsBundledDeps,
+    exports: false,
     tsconfig: 'tsconfig.build.json',
+    firstPassConfig: {
+      // Keep Tailwind directives intact for the consuming application's build.
+      onSuccess: async () => {
+        await copyFile('src/tokens.css', 'dist/tokens.css');
+      },
+    },
   }),
 );

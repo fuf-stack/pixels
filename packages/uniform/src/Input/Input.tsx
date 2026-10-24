@@ -1,216 +1,99 @@
-import type { TVClassName, TVProps } from '@fuf-stack/pixel-utils';
-import type { InputProps as HeroInputProps } from '@heroui/input';
 import type { ReactNode } from 'react';
 import type { InputValueTransform } from '../hooks/useInputValueTransform';
-
-import { Input as HeroInput } from '@heroui/input';
-import { NumberInput as HeroNumberInput } from '@heroui/number-input';
-
-import { tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
+import type { ClassName } from './inputVariants';
 
 import { useInputValueDebounce } from '../hooks/useInputValueDebounce';
-import { useUniformField } from '../hooks/useUniformField';
-import InputPassword from './InputPassword';
+import useUniformField from '../hooks/useUniformField/useUniformField';
+import InputControl from './subcomponents/InputControl';
 
-// input variants
-export const inputVariants = tv({
-  slots: {
-    /** wrapper around the whole input */
-    base: '',
-    /** clear button */
-    clearButton: '',
-    /** actual input element */
-    input: '',
-    /** inner wrapper (HeroUI inputWrapper slot) */
-    inputWrapper: 'bg-content1 group-data-[focus=true]:border-focus',
-  },
-});
+export { default as inputVariants } from './inputVariants';
 
-type VariantProps = TVProps<typeof inputVariants>;
-type ClassName = TVClassName<typeof inputVariants>;
-
-export interface InputProps extends VariantProps {
-  /** Overrides the accessible name, otherwise derived from the field name when no visible label exists */
+export interface InputProps {
+  /** Custom accessible name */
   ariaLabel?: string;
-  /** Applies CSS classes to the input slots */
+  /** CSS class name */
   className?: ClassName;
   /** Shows a clear button when the input has a value */
   clearable?: boolean;
-  /** Sets the delay in milliseconds before updating form state (default: 300) */
+  /** Delay in milliseconds before updating form state (default: 300) */
   debounceDelay?: number;
+  /** Help text associated with the input */
+  description?: ReactNode;
   /** Disables the input */
   disabled?: boolean;
-  /** Displays content at the end of the input */
+  /** Content at the end of the input */
   endContent?: ReactNode;
-  /** Hides the visibility toggle for password inputs (default: false) */
+  /** Hides the password visibility toggle (default: false) */
   hidePasswordToggle?: boolean;
-  /** Sets the field label */
+  /** Field label */
   label?: ReactNode;
-  /** Identifies the field in form state */
+  /** Field name */
   name: string;
-  /** Callback invoked when the input value is cleared */
+  /** Callback when the input value is cleared */
   onClear?: () => void;
-  /** Sets the placeholder text */
+  /** Placeholder text */
   placeholder?: string;
-  /** Redacts the value from Uniform debug output; password inputs are always redacted */
+  /** Redacts diagnostic values, password fields are always redacted */
   sensitive?: boolean;
-  /** Sets the input size */
+  /** Input size */
   size?: 'sm' | 'md' | 'lg';
-  /** Displays content at the start of the input */
+  /** Content at the start of the input */
   startContent?: ReactNode;
-  /** Sets the HTML data-testid attribute for e2e tests */
+  /** HTML data-testid attribute for e2e tests */
   testId?: string;
-  /** Converts between display and form values */
+  /** Conversion between display and form values */
   transform?: InputValueTransform<string>;
-  /** Sets the input type */
+  /** Input type */
   type?: 'number' | 'password';
 }
 
-/**
- * Input component based on [HeroUI Input](https://www.heroui.com//docs/components/input)
- */
+/** Form input field for text, passwords or numbers */
 const Input = ({
-  className: _className = undefined,
+  className = undefined,
   clearable = false,
   debounceDelay = 300,
   endContent = undefined,
+  startContent = undefined,
+  size = 'md',
+  type = undefined,
+  hidePasswordToggle = false,
   name,
   onClear = undefined,
   placeholder = ' ',
-  hidePasswordToggle = false,
-  size = undefined,
-  startContent = undefined,
-  type = undefined,
-  ...uniformFieldProps
+  ...uniformProps
 }: InputProps) => {
-  const {
-    ariaLabel,
-    disabled,
-    field: {
-      onChange: fieldOnChange,
-      onBlur: fieldOnBlur,
-      value: fieldValue,
-      ref,
-    },
-    errorMessage,
-    invalid,
-    label,
-    required,
-    testId,
-    resetField,
-  } = useUniformField({ name, type, ...uniformFieldProps });
-
-  // Use hook that provides debounced onChange and enhanced blur handling
-  const { onChange, onBlur, value } = useInputValueDebounce({
-    debounceDelay,
+  const { field, formReset } = useUniformField({
+    ...uniformProps,
     name,
-    onBlur: fieldOnBlur,
-    onChange: fieldOnChange,
-    value: fieldValue,
+    placeholder,
+    type,
   });
 
-  const clearValue = () => {
-    // Clear initial values too, rather than restoring the default value.
-    resetField(name, { defaultValue: null });
-    onClear?.();
-  };
-
-  const clearableProps: Pick<HeroInputProps, 'isClearable' | 'onClear'> =
-    clearable ? { isClearable: true, onClear: clearValue } : {};
-
-  const variants = inputVariants();
-  const classNames = variantsToClassNames(variants, _className, 'base');
-
-  // Common props for both Input and NumberInput
-  const commonProps = {
-    ref,
-    // Only add aria-label if there's no meaningful placeholder (HeroUI uses placeholder as aria-label)
-    'aria-label':
-      !placeholder || placeholder.trim() === '' ? ariaLabel : undefined,
-    // disable autocomplete
-    autoComplete: 'off',
-    classNames: {
-      base: classNames.base,
-      clearButton: classNames.clearButton,
-      // set padding to 0 for error message exit animation
-      helperWrapper: 'p-0',
-      input: classNames.input,
-      inputWrapper: classNames.inputWrapper,
-    },
-    'data-testid': testId,
-    endContent,
-    errorMessage,
-    id: testId,
-    isDisabled: disabled,
-    isInvalid: invalid,
-    isRequired: required,
-    label,
-    labelPlacement: 'outside' as const,
+  // debounce form updates, flush pending edits on blur
+  const { value, onChange, onBlur, clear } = useInputValueDebounce({
     name,
-    onBlur,
-    placeholder,
-    radius: 'sm' as const,
-    size,
-    startContent,
-    variant: 'bordered' as const,
-  };
-
-  // Render NumberInput for number type
-  if (type === 'number') {
-    // Parse the string value to number - use null for empty/cleared state to keep component controlled
-    const numberValue =
-      value !== '' && value != null && !Number.isNaN(Number(value))
-        ? Number(value)
-        : null;
-
-    return (
-      <HeroNumberInput
-        {...commonProps}
-        {...clearableProps}
-        // Disable thousands separator to avoid parsing issues
-        formatOptions={{
-          useGrouping: false,
-        }}
-        // NumberInput onChange receives either an event or a number
-        onChange={(e: React.ChangeEvent<HTMLInputElement> | number) => {
-          if (typeof e === 'number') {
-            // Convert number to synthetic event and pass through debounced onChange
-            onChange({
-              target: { value: String(e) },
-            });
-          } else {
-            // Pass event through debounced onChange
-            onChange(e);
-          }
-        }}
-        // @ts-expect-error - HeroUI NumberInput type is not compatible with null,
-        // but it needs to be for empty/cleared state to be controlled
-        value={numberValue}
-      />
-    );
-  }
-
-  if (type === 'password') {
-    return (
-      <InputPassword
-        {...commonProps}
-        clearable={clearable}
-        hidePasswordToggle={hidePasswordToggle}
-        onChange={onChange}
-        onClear={clearValue}
-        testId={testId}
-        value={value}
-      />
-    );
-  }
+    debounceDelay,
+    emptyValue: '',
+    value: field.value,
+    onChange: field.onChange,
+    onBlur: field.onBlur,
+  });
 
   return (
-    <HeroInput
-      {...commonProps}
-      {...clearableProps}
-      onChange={onChange}
+    <InputControl
+      key={`${name}-${type}-${hidePasswordToggle}`}
+      hidePasswordToggle={hidePasswordToggle}
+      className={className}
+      clearable={clearable}
+      endContent={endContent}
+      field={{ ...field, onBlur, onChange, value }}
+      onClear={onClear}
+      onReset={clear}
+      placeholder={placeholder}
+      size={size}
+      startContent={startContent}
+      subscribeReset={formReset.subscribe}
       type={type}
-      value={value}
     />
   );
 };

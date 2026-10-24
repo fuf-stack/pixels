@@ -1,5 +1,158 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`Story Snapshots > Autosizing 1`] = `
+<body>
+  <div>
+    <div
+      class="flex w-full flex-row justify-between gap-6"
+    >
+      <form
+        class="grow min-w-60"
+        data-form-is-valid="true"
+        data-testid=""
+        novalidate=""
+      >
+        <div
+          class="group relative flex w-full flex-col"
+          data-slot="base"
+        >
+          <label
+            class="block pb-1.5 text-foreground text-small"
+            data-slot="label"
+            for="uniform-«replaced-aria-id»"
+            id="uniform-«replaced-aria-id»-label"
+          >
+            Autosizing text
+          </label>
+          <div
+            class="shadow-xs relative inline-flex w-full cursor-text items-start rounded-medium border-medium border-default-200 bg-content1 px-3 py-2 text-foreground transition-colors data-[hover=true]:border-default-400 group-data-[focus=true]:border-focus group-data-[focus=true]:data-[hover=true]:border-default-foreground motion-reduce:transition-none"
+            data-rac=""
+            data-slot="input-wrapper"
+            role="presentation"
+          >
+            <div
+              class="inline-flex w-full items-start"
+              data-slot="inner-wrapper"
+            >
+              <textarea
+                aria-labelledby="uniform-«replaced-aria-id»-label"
+                class="w-full min-w-0 resize-none bg-transparent bg-clip-text font-normal text-inherit outline-none duration-100 transition-height text-small placeholder:text-foreground-500 autofill:bg-transparent data-[hide-scroll=true]:[scrollbar-width:none] motion-reduce:transition-none dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] data-[hide-scroll=true]:[&::-webkit-scrollbar]:hidden"
+                data-hide-scroll="true"
+                data-slot="input"
+                data-testid="textareafield"
+                id="uniform-«replaced-aria-id»"
+                name="textareaField"
+                placeholder=" "
+                tabindex="0"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="mt-4 flex justify-end"
+        >
+          <button
+            aria-label="Submit form"
+            class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
+            data-rac=""
+            data-react-aria-pressable="true"
+            data-testid="form_submit_button"
+            id="react-aria-«replaced-aria-id»"
+            tabindex="0"
+            type="submit"
+          >
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <textarea
+    aria-hidden="true"
+    style="min-height: 0px !important; max-height: none !important; height: 0px !important; visibility: hidden !important; overflow: hidden !important; position: absolute !important; z-index: -1000 !important; top: 0px !important; right: 0px !important; display: block !important; border-bottom-width: 16px; border-left-width: 16px; border-right-width: 16px; border-top-width: 16px; box-sizing: content-box; font-family: "depends on user agent"; font-size: 16px; font-style: normal; font-weight: normal; letter-spacing: normal; line-height: normal; tab-size: 8; text-indent: 0px; text-rendering: auto; text-transform: none; width: auto; word-break: normal; word-spacing: normal; scrollbar-gutter: auto; padding: 0px;"
+    tabindex="-1"
+  />
+</body>
+`;
+
+exports[`Story Snapshots > ConsumerFontSize 1`] = `
+<body>
+  <div>
+    <div
+      class="flex w-full flex-row justify-between gap-6"
+    >
+      <form
+        class="grow min-w-60"
+        data-form-is-valid="true"
+        data-testid=""
+        novalidate=""
+      >
+        <style>
+          .text-body { font-size: 18px; }
+        </style>
+        <div
+          class="group relative flex w-full flex-col"
+          data-slot="base"
+        >
+          <label
+            class="block pb-1.5 text-foreground text-small"
+            data-slot="label"
+            for="uniform-«replaced-aria-id»"
+            id="uniform-«replaced-aria-id»-label"
+          >
+            Custom font size
+          </label>
+          <div
+            class="shadow-xs relative inline-flex w-full cursor-text items-start rounded-medium border-medium border-default-200 bg-content1 px-3 py-2 text-foreground transition-colors data-[hover=true]:border-default-400 group-data-[focus=true]:border-focus group-data-[focus=true]:data-[hover=true]:border-default-foreground motion-reduce:transition-none"
+            data-rac=""
+            data-slot="input-wrapper"
+            role="presentation"
+          >
+            <div
+              class="inline-flex w-full items-start"
+              data-slot="inner-wrapper"
+            >
+              <textarea
+                aria-labelledby="uniform-«replaced-aria-id»-label"
+                class="w-full min-w-0 resize-none bg-transparent bg-clip-text font-normal outline-none duration-100 transition-height placeholder:text-foreground-500 autofill:bg-transparent data-[hide-scroll=true]:[scrollbar-width:none] motion-reduce:transition-none dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] data-[hide-scroll=true]:[&::-webkit-scrollbar]:hidden text-body text-danger"
+                data-hide-scroll="true"
+                data-slot="input"
+                data-testid="textareafield"
+                id="uniform-«replaced-aria-id»"
+                name="textareaField"
+                placeholder=" "
+                tabindex="0"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="mt-4 flex justify-end"
+        >
+          <button
+            aria-label="Submit form"
+            class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
+            data-rac=""
+            data-react-aria-pressable="true"
+            data-testid="form_submit_button"
+            id="react-aria-«replaced-aria-id»"
+            tabindex="0"
+            type="submit"
+          >
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <textarea
+    aria-hidden="true"
+    style="min-height: 0px !important; max-height: none !important; height: 0px !important; visibility: hidden !important; overflow: hidden !important; position: absolute !important; z-index: -1000 !important; top: 0px !important; right: 0px !important; display: block !important; border-bottom-width: 16px; border-left-width: 16px; border-right-width: 16px; border-top-width: 16px; box-sizing: content-box; font-family: "depends on user agent"; font-size: 18px; font-style: normal; font-weight: normal; letter-spacing: normal; line-height: normal; tab-size: 8; text-indent: 0px; text-rendering: auto; text-transform: none; width: auto; word-break: normal; word-spacing: normal; scrollbar-gutter: auto; padding: 0px;"
+    tabindex="-1"
+  />
+</body>
+`;
+
 exports[`Story Snapshots > Default 1`] = `
 <body>
   <div>
@@ -13,34 +166,29 @@ exports[`Story Snapshots > Default 1`] = `
         novalidate=""
       >
         <div
-          class="group flex flex-col data-[hidden=true]:hidden w-full"
-          data-filled="true"
-          data-filled-within="true"
-          data-has-elements="true"
-          data-has-helper="true"
+          class="group relative flex w-full flex-col"
           data-slot="base"
         >
           <div
-            class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 group-data-[focus=true]:data-[hover=true]:border-default-foreground h-10 min-h-10 rounded-medium !h-auto !duration-150 transition-colors motion-reduce:transition-none py-2 bg-content1 group-data-[focus=true]:border-focus"
-            data-has-multiple-rows="true"
+            class="shadow-xs relative inline-flex w-full cursor-text items-start rounded-medium border-medium border-default-200 bg-content1 px-3 py-2 text-foreground transition-colors data-[hover=true]:border-default-400 group-data-[focus=true]:border-focus group-data-[focus=true]:data-[hover=true]:border-default-foreground motion-reduce:transition-none"
+            data-rac=""
             data-slot="input-wrapper"
-            style="cursor: text;"
+            role="presentation"
           >
             <div
-              class="inline-flex w-full h-full box-border items-start group-data-[has-label=true]:items-start"
+              class="inline-flex w-full items-start"
               data-slot="inner-wrapper"
             >
               <textarea
                 aria-label="textareaField"
-                class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text dark:autofill:[-webkit-text-fill-color:hsl(var(--heroui-foreground))] [&::-ms-reveal]:hidden text-small resize-none data-[hide-scroll=true]:scrollbar-hide transition-height !duration-100 motion-reduce:transition-none pe-0"
+                class="w-full min-w-0 resize-none bg-transparent bg-clip-text font-normal text-inherit outline-none duration-100 transition-height text-small placeholder:text-foreground-500 autofill:bg-transparent data-[hide-scroll=true]:[scrollbar-width:none] motion-reduce:transition-none dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] data-[hide-scroll=true]:[&::-webkit-scrollbar]:hidden"
                 data-hide-scroll="true"
                 data-slot="input"
                 data-testid="textareafield"
-                id="textareafield"
+                id="uniform-«replaced-aria-id»"
                 name="textareaField"
                 placeholder=" "
                 tabindex="0"
-                title=""
               />
             </div>
           </div>
@@ -50,9 +198,212 @@ exports[`Story Snapshots > Default 1`] = `
         >
           <button
             aria-label="Submit form"
-            class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
+            class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
+            data-rac=""
             data-react-aria-pressable="true"
             data-testid="form_submit_button"
+            id="react-aria-«replaced-aria-id»"
+            tabindex="0"
+            type="submit"
+          >
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <textarea
+    aria-hidden="true"
+    style="min-height: 0px !important; max-height: none !important; height: 0px !important; visibility: hidden !important; overflow: hidden !important; position: absolute !important; z-index: -1000 !important; top: 0px !important; right: 0px !important; display: block !important; border-bottom-width: 16px; border-left-width: 16px; border-right-width: 16px; border-top-width: 16px; box-sizing: content-box; font-family: "depends on user agent"; font-size: 16px; font-style: normal; font-weight: normal; letter-spacing: normal; line-height: normal; tab-size: 8; text-indent: 0px; text-rendering: auto; text-transform: none; width: auto; word-break: normal; word-spacing: normal; scrollbar-gutter: auto; padding: 0px;"
+    tabindex="-1"
+  />
+</body>
+`;
+
+exports[`Story Snapshots > Disabled 1`] = `
+<body>
+  <div>
+    <div
+      class="flex w-full flex-row justify-between gap-6"
+    >
+      <form
+        class="grow min-w-60"
+        data-form-is-valid="true"
+        data-testid=""
+        novalidate=""
+      >
+        <div
+          class="group relative flex w-full flex-col pointer-events-none opacity-disabled"
+          data-disabled="true"
+          data-slot="base"
+        >
+          <label
+            class="block pb-1.5 text-foreground text-small"
+            data-slot="label"
+            for="uniform-«replaced-aria-id»"
+            id="uniform-«replaced-aria-id»-label"
+          >
+            Text Area
+          </label>
+          <div
+            class="shadow-xs relative inline-flex w-full cursor-text items-start rounded-medium border-medium border-default-200 bg-content1 px-3 py-2 text-foreground transition-colors data-[hover=true]:border-default-400 group-data-[focus=true]:border-focus group-data-[focus=true]:data-[hover=true]:border-default-foreground motion-reduce:transition-none"
+            data-disabled="true"
+            data-rac=""
+            data-slot="input-wrapper"
+            role="presentation"
+          >
+            <div
+              class="inline-flex w-full items-start"
+              data-slot="inner-wrapper"
+            >
+              <textarea
+                aria-labelledby="uniform-«replaced-aria-id»-label"
+                class="w-full min-w-0 resize-none bg-transparent bg-clip-text font-normal text-inherit outline-none duration-100 transition-height text-small placeholder:text-foreground-500 autofill:bg-transparent data-[hide-scroll=true]:[scrollbar-width:none] motion-reduce:transition-none dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] data-[hide-scroll=true]:[&::-webkit-scrollbar]:hidden"
+                data-hide-scroll="true"
+                data-slot="input"
+                data-testid="textareafield"
+                disabled=""
+                id="uniform-«replaced-aria-id»"
+                name="textareaField"
+                placeholder=" "
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="mt-4 flex justify-end"
+        >
+          <button
+            aria-label="Submit form"
+            class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
+            data-rac=""
+            data-react-aria-pressable="true"
+            data-testid="form_submit_button"
+            id="react-aria-«replaced-aria-id»"
+            tabindex="0"
+            type="submit"
+          >
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <textarea
+    aria-hidden="true"
+    style="min-height: 0px !important; max-height: none !important; height: 0px !important; visibility: hidden !important; overflow: hidden !important; position: absolute !important; z-index: -1000 !important; top: 0px !important; right: 0px !important; display: block !important; border-bottom-width: 16px; border-left-width: 16px; border-right-width: 16px; border-top-width: 16px; box-sizing: content-box; font-family: "depends on user agent"; font-size: 16px; font-style: normal; font-weight: normal; letter-spacing: normal; line-height: normal; tab-size: 8; text-indent: 0px; text-rendering: auto; text-transform: none; width: auto; word-break: normal; word-spacing: normal; scrollbar-gutter: auto; padding: 0px;"
+    tabindex="-1"
+  />
+</body>
+`;
+
+exports[`Story Snapshots > HelpAndRequired 1`] = `
+<body>
+  <div>
+    <div
+      class="flex w-full flex-row justify-between gap-6"
+    >
+      <form
+        class="grow min-w-60"
+        data-form-is-valid="false"
+        data-testid=""
+        novalidate=""
+      >
+        <div
+          class="group relative flex w-full flex-col"
+          data-hover="true"
+          data-invalid="true"
+          data-required="true"
+          data-slot="base"
+        >
+          <label
+            class="block pb-1.5 text-small text-danger"
+            data-slot="label"
+            for="uniform-«replaced-aria-id»"
+            id="uniform-«replaced-aria-id»-label"
+          >
+            Text Area
+            <span
+              aria-hidden="true"
+              class="ml-0.5 text-danger"
+            >
+              *
+            </span>
+          </label>
+          <div
+            class="shadow-xs relative inline-flex w-full cursor-text items-start rounded-medium border-medium bg-content1 px-3 py-2 text-foreground transition-colors motion-reduce:transition-none border-danger data-[hover=true]:border-danger group-data-[focus=true]:border-danger group-data-[focus=true]:data-[hover=true]:border-danger"
+            data-hover="true"
+            data-hovered="true"
+            data-rac=""
+            data-slot="input-wrapper"
+            role="presentation"
+          >
+            <div
+              class="inline-flex w-full items-start"
+              data-slot="inner-wrapper"
+            >
+              <textarea
+                aria-describedby="uniform-«replaced-aria-id»-description uniform-«replaced-aria-id»-error"
+                aria-invalid="true"
+                aria-labelledby="uniform-«replaced-aria-id»-label"
+                aria-required="true"
+                class="w-full min-w-0 resize-none bg-transparent bg-clip-text font-normal outline-none duration-100 transition-height text-small autofill:bg-transparent data-[hide-scroll=true]:[scrollbar-width:none] motion-reduce:transition-none dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] data-[hide-scroll=true]:[&::-webkit-scrollbar]:hidden text-danger placeholder:text-danger"
+                data-hide-scroll="true"
+                data-slot="input"
+                data-testid="textareafield"
+                id="uniform-«replaced-aria-id»"
+                name="textareaField"
+                placeholder=" "
+                tabindex="0"
+              />
+            </div>
+          </div>
+          <div
+            class="relative flex flex-col p-0"
+            data-slot="helper-wrapper"
+          >
+            <div
+              class="text-foreground-500 text-tiny"
+              data-slot="description"
+              id="uniform-«replaced-aria-id»-description"
+            >
+              Enter multiple lines.
+            </div>
+            <div
+              class="text-danger text-tiny"
+              data-slot="error-message"
+              id="uniform-«replaced-aria-id»-error"
+            >
+              <ul
+                aria-label="Validation errors of field textareafield"
+                data-testid="textareafield_error"
+              >
+                <li
+                  style="overflow: hidden;"
+                >
+                  <div
+                    class="px-1 pt-1"
+                  >
+                    Field is required
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div
+          class="mt-4 flex justify-end"
+        >
+          <button
+            aria-label="Submit form"
+            class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
+            data-focus="true"
+            data-focus-visible="true"
+            data-focused="true"
+            data-rac=""
+            data-react-aria-pressable="true"
+            data-testid="form_submit_button"
+            id="react-aria-«replaced-aria-id»"
             tabindex="0"
             type="submit"
           >
@@ -83,67 +434,66 @@ exports[`Story Snapshots > Invalid 1`] = `
         novalidate=""
       >
         <div
-          class="group flex flex-col data-[hidden=true]:hidden w-full is-filled"
+          class="group relative flex w-full flex-col is-filled"
           data-filled="true"
-          data-filled-within="true"
-          data-has-elements="true"
-          data-has-helper="true"
-          data-has-label="true"
-          data-has-value="true"
           data-hover="true"
           data-invalid="true"
           data-required="true"
           data-slot="base"
         >
           <label
-            class="z-10 pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block text-small text-foreground-500 !text-danger after:content-['*'] after:text-danger after:ms-0.5 relative will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-1.5 pe-2 max-w-full text-ellipsis overflow-hidden"
+            class="block pb-1.5 text-small text-danger"
             data-slot="label"
-            for="textareafield"
-            id="react-aria-«replaced-aria-id»"
+            for="uniform-«replaced-aria-id»"
+            id="uniform-«replaced-aria-id»-label"
           >
             Text Area
+            <span
+              aria-hidden="true"
+              class="ml-0.5 text-danger"
+            >
+              *
+            </span>
           </label>
           <div
-            class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 group-data-[focus=true]:data-[hover=true]:border-default-foreground h-10 min-h-10 rounded-medium !h-auto !duration-150 transition-colors motion-reduce:transition-none !border-danger group-data-[focus=true]:!border-danger py-2 bg-content1 group-data-[focus=true]:border-focus is-filled"
-            data-has-multiple-rows="true"
+            class="shadow-xs relative inline-flex w-full cursor-text items-start rounded-medium border-medium bg-content1 px-3 py-2 text-foreground transition-colors motion-reduce:transition-none is-filled border-danger data-[hover=true]:border-danger group-data-[focus=true]:border-danger group-data-[focus=true]:data-[hover=true]:border-danger"
             data-hover="true"
+            data-hovered="true"
+            data-rac=""
             data-slot="input-wrapper"
-            style="cursor: text;"
+            role="presentation"
           >
             <div
-              class="inline-flex w-full h-full box-border items-start group-data-[has-label=true]:items-start"
+              class="inline-flex w-full items-start"
               data-slot="inner-wrapper"
             >
               <textarea
-                aria-describedby="react-aria-«replaced-aria-id»"
+                aria-describedby="uniform-«replaced-aria-id»-error"
                 aria-invalid="true"
-                aria-label="Text Area"
-                aria-labelledby="textareafield react-aria-«replaced-aria-id»"
-                class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text dark:autofill:[-webkit-text-fill-color:hsl(var(--heroui-foreground))] [&::-ms-reveal]:hidden text-small !placeholder:text-danger !text-danger resize-none data-[hide-scroll=true]:scrollbar-hide transition-height !duration-100 motion-reduce:transition-none is-filled pe-0"
+                aria-labelledby="uniform-«replaced-aria-id»-label"
+                aria-required="true"
+                class="w-full min-w-0 resize-none bg-transparent bg-clip-text font-normal outline-none duration-100 transition-height text-small autofill:bg-transparent data-[hide-scroll=true]:[scrollbar-width:none] motion-reduce:transition-none dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] data-[hide-scroll=true]:[&::-webkit-scrollbar]:hidden is-filled text-danger placeholder:text-danger"
                 data-filled="true"
-                data-filled-within="true"
                 data-hide-scroll="true"
                 data-slot="input"
                 data-testid="textareafield"
-                id="textareafield"
+                id="uniform-«replaced-aria-id»"
                 name="textareaField"
                 placeholder=" "
-                required=""
                 tabindex="0"
-                title=""
               >
                 invälid
               </textarea>
             </div>
           </div>
           <div
-            class="hidden group-data-[has-helper=true]:flex relative flex-col gap-1.5 p-0"
+            class="relative flex flex-col p-0"
             data-slot="helper-wrapper"
           >
             <div
-              class="text-tiny text-danger"
+              class="text-danger text-tiny"
               data-slot="error-message"
-              id="react-aria-«replaced-aria-id»"
+              id="uniform-«replaced-aria-id»-error"
             >
               <ul
                 aria-label="Validation errors of field textareafield"
@@ -167,9 +517,11 @@ exports[`Story Snapshots > Invalid 1`] = `
         >
           <button
             aria-label="Submit form"
-            class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
+            class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
+            data-rac=""
             data-react-aria-pressable="true"
             data-testid="form_submit_button"
+            id="react-aria-«replaced-aria-id»"
             tabindex="0"
             type="submit"
           >
@@ -200,46 +552,45 @@ exports[`Story Snapshots > Required 1`] = `
         novalidate=""
       >
         <div
-          class="group flex flex-col data-[hidden=true]:hidden w-full"
-          data-filled="true"
-          data-filled-within="true"
-          data-has-elements="true"
-          data-has-helper="true"
-          data-has-label="true"
+          class="group relative flex w-full flex-col"
           data-required="true"
           data-slot="base"
         >
           <label
-            class="z-10 pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block text-small text-foreground-500 after:content-['*'] after:text-danger after:ms-0.5 relative will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-1.5 pe-2 max-w-full text-ellipsis overflow-hidden"
+            class="block pb-1.5 text-foreground text-small"
             data-slot="label"
-            for="textareafield"
-            id="react-aria-«replaced-aria-id»"
+            for="uniform-«replaced-aria-id»"
+            id="uniform-«replaced-aria-id»-label"
           >
             Text Area
+            <span
+              aria-hidden="true"
+              class="ml-0.5 text-danger"
+            >
+              *
+            </span>
           </label>
           <div
-            class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 group-data-[focus=true]:data-[hover=true]:border-default-foreground h-10 min-h-10 rounded-medium !h-auto !duration-150 transition-colors motion-reduce:transition-none py-2 bg-content1 group-data-[focus=true]:border-focus"
-            data-has-multiple-rows="true"
+            class="shadow-xs relative inline-flex w-full cursor-text items-start rounded-medium border-medium border-default-200 bg-content1 px-3 py-2 text-foreground transition-colors data-[hover=true]:border-default-400 group-data-[focus=true]:border-focus group-data-[focus=true]:data-[hover=true]:border-default-foreground motion-reduce:transition-none"
+            data-rac=""
             data-slot="input-wrapper"
-            style="cursor: text;"
+            role="presentation"
           >
             <div
-              class="inline-flex w-full h-full box-border items-start group-data-[has-label=true]:items-start"
+              class="inline-flex w-full items-start"
               data-slot="inner-wrapper"
             >
               <textarea
-                aria-label="Text Area"
-                aria-labelledby="textareafield react-aria-«replaced-aria-id»"
-                class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text dark:autofill:[-webkit-text-fill-color:hsl(var(--heroui-foreground))] [&::-ms-reveal]:hidden text-small resize-none data-[hide-scroll=true]:scrollbar-hide transition-height !duration-100 motion-reduce:transition-none pe-0"
+                aria-labelledby="uniform-«replaced-aria-id»-label"
+                aria-required="true"
+                class="w-full min-w-0 resize-none bg-transparent bg-clip-text font-normal text-inherit outline-none duration-100 transition-height text-small placeholder:text-foreground-500 autofill:bg-transparent data-[hide-scroll=true]:[scrollbar-width:none] motion-reduce:transition-none dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] data-[hide-scroll=true]:[&::-webkit-scrollbar]:hidden"
                 data-hide-scroll="true"
                 data-slot="input"
                 data-testid="textareafield"
-                id="textareafield"
+                id="uniform-«replaced-aria-id»"
                 name="textareaField"
                 placeholder=" "
-                required=""
                 tabindex="0"
-                title=""
               />
             </div>
           </div>
@@ -249,9 +600,11 @@ exports[`Story Snapshots > Required 1`] = `
         >
           <button
             aria-label="Submit form"
-            class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
+            class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
+            data-rac=""
             data-react-aria-pressable="true"
             data-testid="form_submit_button"
+            id="react-aria-«replaced-aria-id»"
             tabindex="0"
             type="submit"
           >
@@ -282,37 +635,31 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
         novalidate=""
       >
         <div
-          class="group flex flex-col data-[hidden=true]:hidden w-full is-filled"
+          class="group relative flex w-full flex-col is-filled"
           data-filled="true"
-          data-filled-within="true"
-          data-has-elements="true"
-          data-has-helper="true"
-          data-has-value="true"
           data-slot="base"
         >
           <div
-            class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 group-data-[focus=true]:data-[hover=true]:border-default-foreground h-10 min-h-10 rounded-medium !h-auto !duration-150 transition-colors motion-reduce:transition-none py-2 bg-content1 group-data-[focus=true]:border-focus is-filled"
-            data-has-multiple-rows="true"
+            class="shadow-xs relative inline-flex w-full cursor-text items-start rounded-medium border-medium border-default-200 bg-content1 px-3 py-2 text-foreground transition-colors data-[hover=true]:border-default-400 group-data-[focus=true]:border-focus group-data-[focus=true]:data-[hover=true]:border-default-foreground motion-reduce:transition-none is-filled"
+            data-rac=""
             data-slot="input-wrapper"
-            style="cursor: text;"
+            role="presentation"
           >
             <div
-              class="inline-flex w-full h-full box-border items-start group-data-[has-label=true]:items-start"
+              class="inline-flex w-full items-start"
               data-slot="inner-wrapper"
             >
               <textarea
                 aria-label="textareaField"
-                class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text dark:autofill:[-webkit-text-fill-color:hsl(var(--heroui-foreground))] [&::-ms-reveal]:hidden text-small resize-none data-[hide-scroll=true]:scrollbar-hide transition-height !duration-100 motion-reduce:transition-none is-filled pe-0"
+                class="w-full min-w-0 resize-none bg-transparent bg-clip-text font-normal text-inherit outline-none duration-100 transition-height text-small placeholder:text-foreground-500 autofill:bg-transparent data-[hide-scroll=true]:[scrollbar-width:none] motion-reduce:transition-none dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] data-[hide-scroll=true]:[&::-webkit-scrollbar]:hidden is-filled"
                 data-filled="true"
-                data-filled-within="true"
                 data-hide-scroll="true"
                 data-slot="input"
                 data-testid="textareafield"
-                id="textareafield"
+                id="uniform-«replaced-aria-id»"
                 name="textareaField"
                 placeholder=" "
                 tabindex="0"
-                title=""
               >
                 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
               </textarea>
@@ -324,9 +671,11 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
         >
           <button
             aria-label="Submit form"
-            class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
+            class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
+            data-rac=""
             data-react-aria-pressable="true"
             data-testid="form_submit_button"
+            id="react-aria-«replaced-aria-id»"
             tabindex="0"
             type="submit"
           >

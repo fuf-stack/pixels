@@ -2,7 +2,9 @@
 
 These workflows are deliberately command-led. Read the root and nearest package
 `AGENTS.md`, make the smallest coherent change, and record the commands and
-manual checks in the pull request.
+manual checks in the pull request. Read [the code style guide](./code-style.md)
+for component structure, readability, type ownership and concrete examples;
+[component styling](./styling.md) owns the Tailwind Variants and CSS details.
 
 ## Public API review
 
@@ -14,11 +16,9 @@ migration document and explicit release sequencing.
 
 ## Pre-commit checks
 
-`pnpm lint-staged` batches staged files from all seven runtime packages into
-one `vitest related --run` invocation, then lints those files. Related tests exclude `@repo/storybook-config*`, matching the unit-test
-CI job; Storybook browser tests run through `pnpm test:storybook`. This keeps
-browser-only CSS transforms out of related unit-test discovery and avoids
-scanning the workspace separately for each affected package.
+`pnpm lint-staged` batches staged runtime-package files into one related unit-test
+run, followed by lint. Related tests exclude `@repo/storybook-config*`, matching
+CI's unit-test job and `pnpm check`'s unit stage. Browser stories run separately through `pnpm test:storybook`.
 
 ## Package release
 
@@ -36,39 +36,37 @@ important loading/error/empty states. Run the package's focused Vitest command,
 `pnpm test:storybook`, and then `pnpm check`. Attach before/after evidence for
 visual changes.
 
-## Storybook edge cases
+Pixels' `test:types` runs TypeScript directly over its source, tests and stories.
+It is part of `pnpm check`, declaration generation alone does not verify every
+internal implementation and story contract.
 
 Run `pnpm test:storybook` from the root to delegate to the shared Storybook
-package's `test:storybook` script. That package owns the browser test command.
-The CI unit-test job uses `pnpm test --project='!@repo/storybook-config*'` to
-exclude browser projects; the separate Storybook job installs Chromium and runs
-those tests.
+package's browser-test command. CI's unit job excludes `@repo/storybook-config*`,
+and its separate browser job installs Chromium and runs those stories.
 
-Keep normal usage and variant examples in `<Component>.stories.tsx`. Put edge
-cases and focused regression scenarios in a sibling
-`<Component>EdgeCases.stories.tsx`, following the Slider examples. Give that file
-the title `<existing component title>/Edge Cases` so Storybook groups these
-scenarios under the component rather than mixing them into its regular examples.
-Use short story names without repeating "Edge Case" in the sidebar.
+## Storybook stories and edge cases
 
-Reuse the component's default story metadata (including decorators and args)
-and append `@repo/storybook-config/edge-case-decorator` to its decorators. Each
-edge-case story must set `parameters.edgeCaseDescription` to a short explanation
-of the trigger and expected behavior. The shared decorator renders this in a
-"What this checks" box above the example. Keep the outer layout unconstrained;
-only the explanation box should have a fixed width, so form debug panels and
-portals still have room.
+Keep every story file in its owner's `stories/` folder. Normal usage and
+composition live in `<Component>.stories.tsx`, with separate
+`<Component>.interactions.stories.tsx` and `<Component>.edge-cases.stories.tsx`
+when those scenarios exist. Use the corresponding titles `<package>/<Component>`,
+`<package>/<Component>/Interactions` and `<package>/<Component>/Edge Cases`.
+See [the code style guide](./code-style.md#story-folders-and-sidebar-groups) for
+shared setup, ordering and concrete examples. Interaction stories must perform
+and assert the named interaction through `play`.
 
-Move scenario-only fixtures and helpers with their stories. Preserve their
-`play` functions, assertions, setup, and cleanup. Update the component's snapshot
-test to call `storySnapshots` for both story modules, retaining any documented
-environment-specific exclusions. Browser Storybook tests discover both files
-automatically. Keep export names when moving existing stories to preserve
-snapshot keys; the new title changes their Storybook URLs, so update any links.
+Each edge-case story sets `parameters.edgeCaseDescription` to explain its trigger
+and expected behavior. Use `@repo/storybook-config/edge-case-decorator` for the
+"What this checks" box. Keep it outside the form and keep the outer layout
+unconstrained; only the explanation box should have a fixed width, so form debug
+panels and portals still have room. Input's shared story setup demonstrates a
+conditional metadata decorator that applies the explanation only to edge cases.
 
-Ordinary disabled, empty, loading, and error variants can remain with the normal
-examples. Separate stories that exercise unusual combinations, boundary
-conditions, or a specific regression.
+Preserve `play` functions, assertions, setup, cleanup and export names when
+moving stories. Check the decorator order and existing snapshots, and update
+story links when consolidation changes their URLs. The component's snapshot
+test imports every group separately; browser tests discover the stories
+automatically. Keep documented environment-specific exclusions explicit.
 
 ## Dependency upgrade
 
@@ -96,33 +94,6 @@ out of date, comment `/autofix-snapshots` on the pull request or add the
 `autofix:snapshots` label. The snapshot autofix workflow runs the test suite in
 update mode, refuses to commit non-snapshot changes, verifies the updated suite,
 pushes the snapshot commit to the Renovate branch, and dispatches CI for it.
-
-## SonarQube coverage
-
-The unit-test CI command selects projects to exclude Storybook. With Vitest 5,
-coverage include globs are relative to the selected package roots, so this
-command also sets `--coverage.include='src/**/*.{js,jsx,ts,tsx}'`. The shared
-workspace preset uses workspace-relative globs for unfiltered test runs.
-Using those globs with `--project` produces an empty report even when all
-tests pass.
-
-CI verifies that `coverage/lcov.info` contains source records and measured
-lines before uploading it and again after downloading it for SonarQube. An
-empty report must fail CI rather than silently report 0% coverage.
-
-## Renovate memory failures
-
-Mend-hosted jobs have a 3 GiB memory limit. `renovate.json5` caps Node child
-processes used for package-manager commands at 1024 MiB with
-`toolSettings.nodeMaxMemory`, leaving room for Renovate and other processes.
-This limits the Node heap; it does not increase the hosted job limit or cap
-the total memory of every process.
-
-If a job still fails with `kernel-out-of-memory`, inspect the end of its debug
-log to identify the active operation before adjusting the cap. A Node heap
-error in pnpm may require a higher cap; continued total job exhaustion may
-require a higher Mend resource tier or a self-hosted runner. See the
-[Mend-hosted FAQ](https://docs.renovatebot.com/mend-hosted/faq/#im-hitting-a-timeout-kernel-out-of-memory-limit-with-a-pnpmyarn-project).
 
 ## Visual and accessibility verification
 

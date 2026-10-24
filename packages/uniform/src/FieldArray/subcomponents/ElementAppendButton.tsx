@@ -2,8 +2,8 @@ import type { ClassValue } from '@fuf-stack/pixel-utils';
 
 import { FaPlus } from 'react-icons/fa';
 
-import { cn } from '@fuf-stack/pixel-utils';
 import { Button } from '@fuf-stack/pixels';
+import { useStyling } from '@fuf-stack/pixels/StylingProvider';
 
 interface ElementAppendButtonProps {
   /** text of the append element button */
@@ -12,7 +12,7 @@ interface ElementAppendButtonProps {
   className?: ClassValue;
   /** click handler */
   onClick: () => void;
-  /** HTML data-testid attribute used in e2e tests */
+  /** HTML data-testid attribute for e2e tests */
   testId?: string;
 }
 
@@ -22,6 +22,7 @@ const ElementAppendButton = ({
   onClick,
   testId = undefined,
 }: ElementAppendButtonProps) => {
+  const { cn } = useStyling();
   return (
     <Button
       className={cn(className)}

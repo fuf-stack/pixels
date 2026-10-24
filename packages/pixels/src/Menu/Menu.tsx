@@ -1,49 +1,38 @@
-import type { TVClassName, TVProps } from '@fuf-stack/pixel-utils';
-import type { ButtonProps } from '@heroui/button';
-import type {
-  DropdownItemProps as HeroDropdownItemProps,
-  DropdownProps as HeroDropdownProps,
-  DropdownSectionProps as HeroDropdownSectionProps,
-} from '@heroui/dropdown';
 import type { Key, ReactNode } from 'react';
+import type { MenuItemProps as AriaMenuItemProps } from 'react-aria-components';
+import type { ButtonProps } from '../Button';
+import type { PopoverProps } from '../Popover';
+import type { ClassName } from './menuVariants';
 
-import { Button } from '@heroui/button';
-import {
-  Dropdown as HeroDropdown,
-  DropdownItem as HeroDropdownItem,
-  DropdownMenu as HeroDropdownMenu,
-  DropdownSection as HeroDropdownSection,
-  DropdownTrigger as HeroDropdownTrigger,
-} from '@heroui/dropdown';
+import { MenuTrigger } from 'react-aria-components';
 
-import { useReducedMotion } from '@fuf-stack/pixel-motion';
-import { cn, slugify, tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
+import { useStyling } from '../StylingProvider';
+import { menuVariants } from './menuVariants';
+import MenuOverlay from './subcomponents/MenuOverlay';
+import MenuTriggerButton from './subcomponents/MenuTriggerButton';
 
-import VerticalDotsIcon from './VerticalDotsIcon';
+export { menuVariants } from './menuVariants';
 
-/**
- * Menu component based on [HeroUI Dropdown](https://www.heroui.com//docs/components/dropdown)
- */
 export interface MenuItem {
   /** CSS class name */
   className?: string;
-  /** Slot name for styling/debugging hooks */
+  /** Slot name for styling and debugging */
   dataSlot?: string;
-  /** additional description shown under the label */
+  /** Supporting text below the label */
   description?: string;
-  /** disables the menu item */
+  /** Disables the action */
   disabled?: boolean;
-  /** menu item icon  */
+  /** Icon before the label */
   icon?: ReactNode;
-  /** unique identifier */
+  /** Unique action key */
   key: string;
-  /** menu item name */
+  /** Action label */
   label: ReactNode;
-  /** click event handler */
-  onClick?: HeroDropdownItemProps['onPress'];
-  /** e2e test identifier */
+  /** Press callback for this action */
+  onClick?: AriaMenuItemProps['onPress'];
+  /** HTML data-testid attribute for e2e tests */
   testId?: string;
-  /** plain-text value used for type-to-select when the label is not plain text */
+  /** Text used for typeahead when the label contains rich content */
   textValue?: string;
 }
 
@@ -51,108 +40,56 @@ export interface MenuItem {
  * Menu section type
  */
 export interface MenuSection {
-  /** section items (array of MenuItem) */
+  /** Actions in the group */
   items: MenuItem[];
-  /** unique identifier */
+  /** Unique group key */
   key: string;
-  /** section label */
+  /** Group heading */
   label: ReactNode;
 }
 
-// menu styling variants
-export const menuVariants = tv({
-  slots: {
-    item: '',
-    trigger: 'z-auto',
-  },
-});
-
-type VariantProps = TVProps<typeof menuVariants>;
-type ClassName = TVClassName<typeof menuVariants>;
-
-export interface MenuProps extends VariantProps {
-  /** sets HTML aria-label attribute */
+export interface MenuProps {
+  /** Accessible name for the menu */
   ariaLabel?: string;
-  /** child components */
+  /** Trigger content, defaults to an ellipsis icon */
   children?: ReactNode;
   /** CSS class name */
   className?: ClassName;
-  /** disables the open/close popover animation (also auto-disabled when the user prefers reduced motion) */
+  /** Disables opening and closing animations */
   disableAnimation?: boolean;
-  /** disable menu trigger */
+  /** Disables the menu trigger */
   isDisabled?: boolean;
-  /** menu item structure */
+  /** Actions and labelled groups */
   items: (MenuSection | MenuItem)[];
-  /** called if item is selected */
+  /** Callback when an enabled action is selected */
   onAction?: (key: Key) => void;
-  /** placement of the menu */
-  placement?: HeroDropdownProps['placement'];
-  /** container the popover portal is rendered into (defaults to document.body) */
-  portalContainer?: HeroDropdownProps['portalContainer'];
-  /** HTML data-testid attribute used in e2e tests */
+  /** Position relative to the trigger */
+  placement?: PopoverProps['placement'];
+  /** Portal container, defaults to document.body */
+  portalContainer?: PopoverProps['portalContainer'];
+  /** HTML data-testid attribute for the trigger */
   testId?: string;
-  /** When defined a Button will be rendered as trigger (with provided props) instead of unstyled html button */
+  /** Renders a styled trigger button with these options */
   triggerButtonProps?: Pick<
     ButtonProps,
-    | 'aria-label'
-    | 'className'
-    | 'color'
-    | 'disableAnimation'
-    | 'disableRipple'
-    | 'disabled'
-    | 'size'
-    | 'variant'
-  > & { 'data-testid'?: string; dataSlot?: string };
+    'className' | 'color' | 'disableAnimation' | 'disabled' | 'size' | 'variant'
+  > & {
+    /** Accessible name for the trigger */
+    'aria-label'?: string;
+    /** HTML data-testid attribute for the trigger */
+    'data-testid'?: string;
+    /** Slot name for the trigger */
+    dataSlot?: string;
+    /** Disables trigger ripple feedback */
+    disableRipple?: boolean;
+  };
 }
 
-// type guard for MenuSection
-const isMenuSection = (item: MenuSection | MenuItem): item is MenuSection => {
-  return 'items' in item;
-};
-
-// returns String[] of disabled items/keys
-const getDisabledKeys = (items: (MenuSection | MenuItem)[]): string[] => {
-  const flatItems = items.reduce<MenuItem[]>((acc, item) => {
-    if (isMenuSection(item)) {
-      acc.push(...item.items);
-    } else {
-      acc.push(item);
-    }
-    return acc;
-  }, []);
-  return flatItems
-    .filter((item) => {
-      return item.disabled === true;
-    })
-    .map((item) => {
-      return item.key;
-    });
-};
-
-const renderMenuItem = (item: MenuItem, itemClassName?: string) => {
-  return (
-    <HeroDropdownItem
-      key={item.key}
-      className={cn(itemClassName, item.className)}
-      data-slot={item.dataSlot}
-      data-testid={slugify(item.testId ?? item.key)}
-      description={item.description}
-      onPress={item.onClick}
-      startContent={item.icon}
-      textValue={item.textValue}
-    >
-      {item.label}
-    </HeroDropdownItem>
-  );
-};
-
-/**
- * Dropdown menu component based on [HeroUI Dropdown](https://www.heroui.com//docs/components/dropdown)
- */
+/** Dropdown of grouped actions with pointer and keyboard navigation */
 const Menu = ({
   ariaLabel = undefined,
   children = null,
-  className: _className = undefined,
+  className = undefined,
   disableAnimation = false,
   isDisabled = false,
   items,
@@ -162,78 +99,37 @@ const Menu = ({
   testId = undefined,
   triggerButtonProps = undefined,
 }: MenuProps) => {
-  // className from slots
-  const variants = menuVariants();
-  const className = variantsToClassNames(variants, _className, 'trigger');
+  const styling = useStyling();
 
-  // disable popover animation when requested or when the user prefers reduced motion
-  const prefersReducedMotion = useReducedMotion();
-  const shouldDisableAnimation = disableAnimation || !!prefersReducedMotion;
-
-  // determine trigger button variant
-  let triggerButton = (
-    <button className={className.trigger} type="button">
-      {children}
-    </button>
+  // classNames from slots
+  const variants = styling.resolve(menuVariants);
+  const classNames = styling.variantsToClassNames(
+    variants,
+    className,
+    'trigger',
   );
-  if (!children) {
-    //  default to ellipsis icon when no children are provided
-    triggerButton = (
-      <Button
-        className={cn('min-w-0 outline outline-divider', className.trigger)}
-        isIconOnly
-        radius="full"
-        size="sm"
-        variant="light"
-        {...triggerButtonProps}
-      >
-        <VerticalDotsIcon />
-      </Button>
-    );
-  } else if (triggerButtonProps) {
-    // use provided triggerButtonProps with hero button
-    triggerButton = (
-      <Button className={className.trigger} {...triggerButtonProps}>
-        {children}
-      </Button>
-    );
-  }
 
   return (
-    <HeroDropdown
-      aria-label={ariaLabel}
-      disableAnimation={shouldDisableAnimation}
-      isDisabled={isDisabled}
-      placement={placement}
-      portalContainer={portalContainer}
-    >
-      <HeroDropdownTrigger data-testid={testId}>
-        {/* NOTE: type and aria properties are injected by HeroDropdownTrigger */}
-        {triggerButton}
-      </HeroDropdownTrigger>
-      <HeroDropdownMenu
-        disabledKeys={getDisabledKeys(items)}
+    <MenuTrigger>
+      <MenuTriggerButton
+        ariaLabel={ariaLabel}
+        className={classNames.trigger}
+        isDisabled={isDisabled}
+        testId={testId}
+        triggerButtonProps={triggerButtonProps}
+      >
+        {children}
+      </MenuTriggerButton>
+      <MenuOverlay
+        ariaLabel={ariaLabel}
+        className={classNames}
+        disableAnimation={disableAnimation}
         items={items}
         onAction={onAction}
-      >
-        {(item) => {
-          if ('items' in item) {
-            return (
-              <HeroDropdownSection
-                key={item.key}
-                items={item.items}
-                title={item.label as HeroDropdownSectionProps['title']}
-              >
-                {(sectionItem) => {
-                  return renderMenuItem(sectionItem, className.item);
-                }}
-              </HeroDropdownSection>
-            );
-          }
-          return renderMenuItem(item, className.item);
-        }}
-      </HeroDropdownMenu>
-    </HeroDropdown>
+        placement={placement}
+        portalContainer={portalContainer}
+      />
+    </MenuTrigger>
   );
 };
 

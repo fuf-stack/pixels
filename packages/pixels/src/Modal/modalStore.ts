@@ -20,7 +20,7 @@ export interface ModalEntry extends ModalOpenOptions {
   isOpen: boolean;
 }
 
-// Duration of the HeroUI modal close animation. Entries stay in the list this
+// Grace period for modal exit feedback. Entries stay in the list this
 // long after `close()` so the exit animation can play before unmounting.
 const MODAL_CLOSE_ANIMATION_MS = 300;
 

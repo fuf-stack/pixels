@@ -1,198 +1,179 @@
-import type { TVProps } from '@fuf-stack/pixel-utils';
-import type { ButtonProps as HeroButtonProps } from '@heroui/button';
+/* eslint-disable react/require-default-props -- defaults are defined in the forwarded component */
 import type { ReactNode } from 'react';
+import type { ButtonProps as AriaButtonProps } from 'react-aria-components';
+import type { VariantProps } from './buttonVariants';
 
-import { forwardRef } from 'react';
+import { forwardRef, useContext } from 'react';
+import { Button as AriaButton } from 'react-aria-components';
 
-import { Button as HeroButton } from '@heroui/button';
-import { button as heroButtonVariants } from '@heroui/theme';
-
-import { tv } from '@fuf-stack/pixel-utils';
-
+import ButtonGroupContext from '../ButtonGroup/ButtonGroupContext';
+import { useStyling } from '../StylingProvider';
+import { buttonVariants } from './buttonVariants';
+import { useButtonRipple } from './hooks/useButtonRipple';
+import ButtonRipple from './subcomponents/ButtonRipple';
 import LoadingSpinner from './subcomponents/LoadingSpinner';
 
-// TODO: `tv(...)` inference here triggers TS2742/TS2883 during declaration emit
-// (non-portable `tailwind-variants` type path). Keep this explicit annotation
-// until we have a portable `tv` return type strategy.
-export const buttonVariants: ReturnType<typeof tv> = tv({
-  extend: heroButtonVariants,
-  variants: {
-    color: {
-      ...heroButtonVariants.variants.color,
-      // see: https://github.com/heroui-inc/heroui/blob/canary/packages/core/theme/src/components/button.ts
-      info: '',
-    },
-    variant: heroButtonVariants.variants.variant,
-    size: heroButtonVariants.variants.size,
-  },
-  compoundVariants: [
-    // white text on solid / shadow success button
-    {
-      color: 'success',
-      variant: 'solid',
-      class: 'text-white',
-    },
-    {
-      color: 'success',
-      variant: 'shadow',
-      class: 'text-white',
-    },
-    // white text on solid / shadow warning button
-    {
-      color: 'warning',
-      variant: 'solid',
-      class: 'text-white',
-    },
-    {
-      color: 'warning',
-      variant: 'shadow',
-      class: 'text-white',
-    },
-    {
-      color: 'info',
-      variant: 'solid',
-      class: 'bg-info text-info-foreground',
-    },
-    {
-      color: 'info',
-      variant: 'shadow',
-      class: 'shadow-info/40 bg-info text-info-foreground shadow-lg',
-    },
-    {
-      color: 'info',
-      variant: 'bordered',
-      class: 'border-medium border-info bg-transparent text-info',
-    },
-    {
-      color: 'info',
-      variant: 'flat',
-      class: 'bg-info/20 text-info-600',
-    },
-    {
-      color: 'info',
-      variant: 'faded',
-      class: 'border-default bg-default-100 text-info',
-    },
-    {
-      color: 'info',
-      variant: 'light',
-      class: 'bg-transparent text-info data-[hover=true]:bg-info-100',
-    },
-    {
-      color: 'info',
-      variant: 'ghost',
-      class:
-        'border-info text-info data-[hover=true]:!bg-info data-[hover=true]:!text-info-foreground',
-    },
-  ],
-});
+export { buttonVariants } from './buttonVariants';
 
-type VariantProps = TVProps<typeof buttonVariants>;
-
-/* eslint-disable react/require-default-props -- not working with forwardRef */
 export interface ButtonProps extends VariantProps {
-  /** sets HTML aria-label attribute */
+  /** Accessible name when the button has no visible text */
   ariaLabel?: string;
-  /** content of the button */
+  /** Button content */
   children?: ReactNode;
   /** CSS class name */
   className?: string;
-  /** color of the button */
+  /** Button color */
   color?: VariantProps['color'];
-  /** Slot name for styling/debugging hooks */
+  /** HTML data-slot attribute */
   dataSlot?: string;
-  /** disables all animations */
+  /** Disables transitions and ripple feedback */
   disableAnimation?: boolean;
-  /** disables the button */
+  /** Disables the button */
   disabled?: boolean;
-  /** associates the button with a form by the form's id (HTML `form` attribute),
-   * so the button can submit a form it is not a DOM descendant of */
+  /** ID of the form to submit or reset, including forms outside the button's ancestors */
   form?: string;
-  /** optional icon */
+  /** Icon before the button text */
   icon?: ReactNode;
-  /** shows loading animation */
+  /** Shows a spinner and prevents activation */
   loading?: boolean;
-  /** blur event handler */
-  onBlur?: HeroButtonProps['onBlur'];
-  /** click event handler */
-  onClick?: HeroButtonProps['onPress'];
-  /** focus event handler */
-  onFocus?: HeroButtonProps['onFocus'];
-  /** border radius size */
+  /** Callback when the button loses focus */
+  onBlur?: AriaButtonProps['onBlur'];
+  /** Callback when activated by pointer, keyboard or assistive technology */
+  onClick?: AriaButtonProps['onPress'];
+  /** Callback when the button receives focus */
+  onFocus?: AriaButtonProps['onFocus'];
+  /** Corner radius */
   radius?: VariantProps['radius'];
-  /** enable ripple animation effect on click */
+  /** Enables ripple feedback on activation */
   ripple?: boolean;
-  /** size options */
+  /** Button size */
   size?: VariantProps['size'];
-  /** HTML data-testid attribute used in e2e tests */
+  /** HTML data-testid attribute for e2e tests */
   testId?: string;
-  /** HTML button type attribute */
-  type?: 'button' | 'submit' | 'reset' | undefined;
-  /** visual style variant */
+  /** Native button action */
+  type?: 'button' | 'submit' | 'reset';
+  /** Button appearance */
   variant?: VariantProps['variant'];
 }
-/* eslint-enable react/require-default-props */
 
-/**
- * Button component based on [HeroUI Button](https://www.heroui.com//docs/components/button)
- */
+/** Button for triggering an action or submitting a form */
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   (
     {
-      ariaLabel = undefined,
-      children = undefined,
-      className: _className = undefined,
-      dataSlot = undefined,
+      ariaLabel,
+      children,
+      className,
       color = 'default',
+      dataSlot,
       disableAnimation = false,
       disabled = false,
-      form = undefined,
-      icon = undefined,
+      form,
+      icon,
       loading = false,
-      onBlur = undefined,
-      onClick = undefined,
-      onFocus = undefined,
-      radius = undefined,
+      onBlur,
+      onClick,
+      onFocus,
+      radius,
       ripple = false,
-      size = undefined,
-      testId = undefined,
-      type = undefined,
+      size,
+      testId,
+      type,
       variant = 'solid',
     },
     ref,
   ) => {
-    const className = buttonVariants({
-      className: _className,
+    const styling = useStyling();
+    const group = useContext(ButtonGroupContext);
+    const { handleRipplePress, handleRippleComplete, ripples } =
+      useButtonRipple(ripple && !disableAnimation);
+
+    // loading prevents activation, the existing icon-only group default hides content
+    const isDisabled = disabled || loading;
+    const isIconOnly = !!(icon && !children);
+    const hideContent = loading && !!group?.isIconOnly;
+    const showRipple = ripple && !disableAnimation;
+
+    // className from the button recipe
+    const buttonClassName = styling.resolve(buttonVariants, {
+      className,
+      color,
       disableAnimation,
       isDisabled: disabled,
-      color,
+      isIconOnly,
+      radius,
       size,
       variant,
-      isIconOnly: !!(icon && !children),
-      radius,
     });
-    const shouldDisableRipple = disableAnimation ? true : !ripple;
+
+    // preserve inherited edges and width, explicit Pixels defaults keep precedence
+    const resolvedClassName = styling.resolve(buttonVariants, {
+      color: group?.color ?? 'default',
+      disableAnimation: group?.disableAnimation ?? false,
+      fullWidth: group?.fullWidth,
+      isDisabled,
+      isIconOnly: group?.isIconOnly ?? false,
+      isInGroup: !!group,
+      radius: group?.radius,
+      size: group?.size,
+      variant: group?.variant ?? 'solid',
+      className: buttonClassName,
+    });
+
+    // keep the public callback as a React Aria press event
+    const handlePress: NonNullable<AriaButtonProps['onPress']> = (event) => {
+      onClick?.(event);
+
+      if (showRipple && !isDisabled) {
+        handleRipplePress(event);
+      }
+    };
 
     return (
-      <HeroButton
+      <AriaButton
         ref={ref}
         aria-label={ariaLabel}
-        className={className}
+        className={resolvedClassName}
+        data-loading={loading || undefined}
         data-slot={dataSlot}
         data-testid={testId}
-        disableRipple={shouldDisableRipple}
         form={form}
-        isDisabled={disabled}
-        isLoading={loading}
+        isDisabled={isDisabled}
         onBlur={onBlur}
         onFocus={onFocus}
-        onPress={onClick}
-        spinner={<LoadingSpinner />}
+        onPress={handlePress}
+        render={(props, state) => {
+          return (
+            <button
+              {...props}
+              data-focus={state.isFocused || undefined}
+              data-hover={state.isHovered || undefined}
+              // React Aria supplies the resolved native button type
+              // eslint-disable-next-line react/button-has-type
+              type={props.type}
+            />
+          );
+        }}
         type={type}
       >
-        {icon}
-        {children}
-      </HeroButton>
+        {loading ? <LoadingSpinner /> : null}
+        {hideContent ? null : (
+          <>
+            {icon}
+            {children}
+          </>
+        )}
+        {showRipple
+          ? ripples.map((item) => {
+              return (
+                <ButtonRipple
+                  key={item.key}
+                  onComplete={handleRippleComplete}
+                  ripple={item}
+                />
+              );
+            })
+          : null}
+      </AriaButton>
     );
   },
 );

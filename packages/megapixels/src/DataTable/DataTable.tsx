@@ -19,8 +19,12 @@ export const dataTableVariants = tv({
     // Root wrapper around toolbar, table, and pagination.
     base: 'w-full',
     // Selection checkbox control in header/rows.
-    checkbox:
-      'relative inline-flex h-4 w-4 shrink-0 cursor-pointer items-center justify-center rounded border border-divider bg-background align-middle text-foreground',
+    checkbox: [
+      // checkbox layout
+      'relative inline-flex h-4 w-4 shrink-0 cursor-pointer items-center justify-center',
+      // outline and surface
+      'rounded border border-divider bg-background align-middle text-foreground',
+    ],
     // Checkmark/minus glyph inside the selection checkbox.
     checkboxIndicator:
       'pointer-events-none absolute inset-0 flex items-center justify-center text-[10px] leading-none',
@@ -32,17 +36,14 @@ export const dataTableVariants = tv({
     // Icon wrapper inside the expandable-row toggle button.
     expandIcon:
       'inline-flex h-3.5 w-3.5 shrink-0 items-center justify-center text-default-500',
+    // Table cell that spans all visible columns for expanded content.
+    expandedCell: 'p-4 text-sm text-default-600',
+    // Table row rendered directly below an expanded data row.
+    expandedRow: 'bg-content1',
     // Header/body cell reserved for the expandable-row toggle column.
     expansionCell: 'w-10 px-0 text-center',
     // Inner wrapper that visually centers expandable-row toggle buttons.
     expansionCellContent: 'flex justify-center',
-    // Table row rendered directly below an expanded data row.
-    expandedRow: 'bg-content1',
-    // Table cell that spans all visible columns for expanded content.
-    expandedCell: 'p-4 text-sm text-default-600',
-    // Built-in text search input(s) rendered in the toolbar.
-    searchInput:
-      'h-10 w-full max-w-sm rounded-small border-2 border-default-200 bg-transparent px-3 text-sm text-foreground outline-none transition-colors placeholder:text-default-500 hover:border-default-400 data-[focused=true]:border-focus dark:border-default-100',
     // Loading-state cell shown while data is being fetched.
     loadingCell: 'h-24 text-center text-default-500',
     // Loading/retry cell shown when fetching next page in infinite mode.
@@ -62,22 +63,31 @@ export const dataTableVariants = tv({
     // Placeholder rows for unknown-yet data in total-count mode.
     placeholderCell:
       'h-10 animate-pulse bg-default-100/60 p-3 dark:bg-default-100/10',
-    // Selected rows summary text in pagination footer.
-    selectionSummary: 'mr-auto text-sm text-default-500',
+    // Scroll container in virtualized/infinite mode.
+    scrollContainer: 'overflow-y-auto overflow-x-hidden',
+    // Optional styling slot for ScrollShadow wrapper behavior.
+    scrollShadow: '',
+    // Built-in text search input(s) rendered in the toolbar.
+    searchInput: [
+      // input dimensions and surface
+      'h-10 w-full max-w-sm rounded-small border-2 border-default-200 bg-transparent px-3 text-sm text-foreground',
+      // focus outline and transitions
+      'outline-none transition-colors',
+      // placeholder and interaction colors
+      'placeholder:text-default-500 hover:border-default-400 data-[focused=true]:border-focus dark:border-default-100',
+    ],
     // Header/body cell reserved for the selection checkbox column.
     selectionCell: 'w-10 px-0 text-center',
     // Inner wrapper that visually centers selection checkboxes in their cells.
     selectionCellContent: 'flex justify-center',
+    // Selected rows summary text in pagination footer.
+    selectionSummary: 'mr-auto text-sm text-default-500',
     // Header button used for sortable columns.
     sortButton:
       '-ml-2 min-w-0 justify-start gap-1.5 px-2 text-left font-medium text-foreground data-[sortable=true]:cursor-pointer',
     // Icon wrapper for sort direction indicators.
     sortIcon:
       'inline-flex h-3.5 w-3.5 shrink-0 items-center justify-center text-default-400',
-    // Scroll container in virtualized/infinite mode.
-    scrollContainer: 'overflow-y-auto overflow-x-hidden',
-    // Optional styling slot for ScrollShadow wrapper behavior.
-    scrollShadow: '',
     // Semantic table element.
     table: 'w-full caption-bottom text-sm',
     // Border/overflow container around the table.
@@ -99,8 +109,12 @@ export const dataTableVariants = tv({
     // Checkmark indicator area inside view options menu items.
     viewOptionsIndicator: 'mr-2 inline-flex w-3 justify-center',
     // Individual view-options menu item.
-    viewOptionsItem:
-      'data-highlighted:bg-default-100 dark:data-highlighted:bg-default-100/20 flex cursor-pointer items-center rounded px-2 py-1 text-sm text-foreground outline-none',
+    viewOptionsItem: [
+      // highlighted item colors
+      'data-highlighted:bg-default-100 dark:data-highlighted:bg-default-100/20',
+      // menu item layout and typography
+      'flex cursor-pointer items-center rounded px-2 py-1 text-sm text-foreground outline-none',
+    ],
     // Dropdown menu panel for view options.
     viewOptionsMenu:
       'z-50 min-w-40 rounded-md border border-divider bg-background p-1 shadow-md',
@@ -545,8 +559,7 @@ const DataTable = <TData, TValue>({
           {resolvedSearchFields.map((searchField) => {
             const searchValue =
               (table.getColumn(searchField.column)?.getFilterValue() as
-                | string
-                | undefined) ?? '';
+                string | undefined) ?? '';
             let searchTestId: string | undefined;
             if (testId) {
               searchTestId =

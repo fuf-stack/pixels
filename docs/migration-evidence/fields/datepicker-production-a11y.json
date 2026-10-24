@@ -1,0 +1,200 @@
+[
+  {
+    "theme": "light",
+    "story": "uniform-datepicker--default",
+    "violations": []
+  },
+  {
+    "theme": "light",
+    "story": "uniform-datepicker--required",
+    "violations": []
+  },
+  {
+    "theme": "light",
+    "story": "uniform-datepicker--invalid",
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "targets": [
+          ["#uniform-_r_0_-label"],
+          ["#react-aria8266521712-_r_e_"],
+          ["#react-aria8266521712-_r_i_"],
+          ["#react-aria8266521712-_r_m_"],
+          ["#react-aria8266521712-_r_s_"],
+          ["#react-aria8266521712-_r_10_"],
+          ["#react-aria8266521712-_r_16_"],
+          [".px-1"]
+        ]
+      }
+    ]
+  },
+  {
+    "theme": "light",
+    "story": "uniform-datepicker--with-time",
+    "violations": []
+  },
+  {
+    "theme": "light",
+    "story": "uniform-datepicker--with-initial-value",
+    "violations": []
+  },
+  {
+    "theme": "light",
+    "story": "uniform-datepicker--disabled",
+    "violations": []
+  },
+  {
+    "theme": "light",
+    "story": "uniform-datepicker--min-and-max-value-without-time",
+    "violations": []
+  },
+  {
+    "theme": "light",
+    "story": "uniform-datepicker--min-and-max-value-with-time",
+    "violations": []
+  },
+  {
+    "theme": "light",
+    "story": "uniform-datepicker--hide-time-zone",
+    "violations": []
+  },
+  {
+    "theme": "light",
+    "story": "uniform-datepicker--with-custom-time-zone",
+    "violations": []
+  },
+  {
+    "theme": "light",
+    "story": "uniform-datepicker--twelve-hour-cycle",
+    "violations": []
+  },
+  {
+    "theme": "light",
+    "story": "uniform-datepicker--with-utc-time-zone",
+    "violations": []
+  },
+  {
+    "theme": "light",
+    "story": "uniform-datepicker-composition--help-and-required",
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "targets": [
+          ["#uniform-_r_0_-label"],
+          ["#react-aria376076781-_r_e_"],
+          ["#react-aria376076781-_r_i_"],
+          ["#react-aria376076781-_r_m_"],
+          ["#react-aria376076781-_r_16_"],
+          [".px-1"]
+        ]
+      }
+    ]
+  },
+  {
+    "theme": "light",
+    "story": "uniform-datepicker-composition--consumer-label-font",
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "targets": [["#uniform-_r_0_-label"]]
+      }
+    ]
+  },
+  {
+    "theme": "dark",
+    "story": "uniform-datepicker--default",
+    "violations": []
+  },
+  {
+    "theme": "dark",
+    "story": "uniform-datepicker--required",
+    "violations": []
+  },
+  {
+    "theme": "dark",
+    "story": "uniform-datepicker--invalid",
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "targets": [
+          ["#react-aria7435507504-_r_e_"],
+          ["#react-aria7435507504-_r_i_"],
+          ["#react-aria7435507504-_r_m_"],
+          ["#react-aria7435507504-_r_s_"],
+          ["#react-aria7435507504-_r_10_"],
+          ["#react-aria7435507504-_r_16_"]
+        ]
+      }
+    ]
+  },
+  {
+    "theme": "dark",
+    "story": "uniform-datepicker--with-time",
+    "violations": []
+  },
+  {
+    "theme": "dark",
+    "story": "uniform-datepicker--with-initial-value",
+    "violations": []
+  },
+  {
+    "theme": "dark",
+    "story": "uniform-datepicker--disabled",
+    "violations": []
+  },
+  {
+    "theme": "dark",
+    "story": "uniform-datepicker--min-and-max-value-without-time",
+    "violations": []
+  },
+  {
+    "theme": "dark",
+    "story": "uniform-datepicker--min-and-max-value-with-time",
+    "violations": []
+  },
+  {
+    "theme": "dark",
+    "story": "uniform-datepicker--hide-time-zone",
+    "violations": []
+  },
+  {
+    "theme": "dark",
+    "story": "uniform-datepicker--with-custom-time-zone",
+    "violations": []
+  },
+  {
+    "theme": "dark",
+    "story": "uniform-datepicker--twelve-hour-cycle",
+    "violations": []
+  },
+  {
+    "theme": "dark",
+    "story": "uniform-datepicker--with-utc-time-zone",
+    "violations": []
+  },
+  {
+    "theme": "dark",
+    "story": "uniform-datepicker-composition--help-and-required",
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "targets": [
+          ["#react-aria7235441103-_r_e_"],
+          ["#react-aria7235441103-_r_i_"],
+          ["#react-aria7235441103-_r_m_"],
+          ["#react-aria7235441103-_r_16_"]
+        ]
+      }
+    ]
+  },
+  {
+    "theme": "dark",
+    "story": "uniform-datepicker-composition--consumer-label-font",
+    "violations": []
+  }
+]

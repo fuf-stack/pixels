@@ -9,7 +9,7 @@ import storySnapshots from '@repo/storybook-config/story-snapshots';
 
 import Form from '../Form';
 import SubmitButton from '../SubmitButton';
-import * as stories from './FormSubmission.stories';
+import * as stories from './stories/FormSubmission.stories';
 
 describe('Story Snapshots', () => {
   storySnapshots(stories);

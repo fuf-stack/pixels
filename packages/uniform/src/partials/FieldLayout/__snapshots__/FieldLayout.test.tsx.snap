@@ -1,0 +1,470 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Story Snapshots > BaseInteractions 1`] = `
+<div>
+  <div
+    aria-labelledby="email-label"
+    class="flex w-72 flex-col gap-1"
+    data-slot="base"
+    role="group"
+    tabindex="0"
+  >
+    <label
+      class="font-medium text-small"
+      data-slot="label"
+      for="email"
+      id="email-label"
+    >
+      Email
+    </label>
+    <input
+      aria-describedby="email-description"
+      aria-labelledby="email-label"
+      class="rounded-small border border-default-300 bg-transparent px-3 py-2"
+      id="email"
+    />
+    <div
+      class="flex flex-col gap-1"
+      data-slot="helper-wrapper"
+    >
+      <div
+        class="text-foreground-500 text-small"
+        data-slot="description"
+        id="email-description"
+      >
+        Use your work email
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Story Snapshots > Default 1`] = `
+<div>
+  <div
+    class="flex w-72 flex-col gap-1"
+    data-slot="base"
+  >
+    <label
+      class="font-medium text-small"
+      data-slot="label"
+      for="email"
+      id="email-label"
+    >
+      Email
+    </label>
+    <input
+      aria-describedby="email-description"
+      aria-labelledby="email-label"
+      class="rounded-small border border-default-300 bg-transparent px-3 py-2"
+      id="email"
+    />
+    <div
+      class="flex flex-col gap-1"
+      data-slot="helper-wrapper"
+    >
+      <div
+        class="text-foreground-500 text-small"
+        data-slot="description"
+        id="email-description"
+      >
+        Use your work email
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Story Snapshots > ErrorOnly 1`] = `
+<div>
+  <div
+    class="flex w-72 flex-col gap-1"
+    data-slot="base"
+  >
+    <label
+      class="font-medium text-small"
+      data-slot="label"
+      for="email"
+      id="email-label"
+    >
+      Email
+    </label>
+    <input
+      aria-describedby="email-error"
+      aria-invalid="true"
+      aria-labelledby="email-label"
+      class="rounded-small border border-default-300 bg-transparent px-3 py-2"
+      id="email"
+    />
+    <div
+      class="flex flex-col gap-1"
+      data-slot="helper-wrapper"
+    >
+      <div
+        class="text-danger text-small"
+        data-slot="error-message"
+        id="email-error"
+      >
+        <ul
+          aria-label="Validation errors of field email"
+          data-testid="email_error"
+        >
+          <li
+            style="overflow: hidden;"
+          >
+            <div
+              class="px-1 pt-1"
+            >
+              Enter a valid email address
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Story Snapshots > InNumberField 1`] = `
+<body>
+  <div
+    data-live-announcer="true"
+    style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+  >
+    <div
+      aria-live="assertive"
+      aria-relevant="additions"
+      role="log"
+    >
+      <div>
+        0
+      </div>
+    </div>
+    <div
+      aria-live="polite"
+      aria-relevant="additions"
+      role="log"
+    />
+  </div>
+  <div>
+    <div
+      class="flex w-72 flex-col gap-1"
+      data-rac=""
+      data-slot="base"
+    >
+      <label
+        class="font-medium text-small"
+        data-slot="label"
+        for="email"
+        id="email-label"
+      >
+        Amount
+      </label>
+      <div
+        class="flex items-center gap-2"
+      >
+        <button
+          aria-controls="email"
+          aria-label="Decrease"
+          class="rounded-small border border-default-300 px-2 py-1"
+          data-hovered="true"
+          data-rac=""
+          data-react-aria-pressable="true"
+          id="react-aria-«replaced-aria-id»"
+          slot="decrement"
+          tabindex="-1"
+          type="button"
+        >
+          −
+        </button>
+        <input
+          aria-describedby="email-description"
+          aria-labelledby="email-label"
+          aria-roledescription="Number field"
+          autocomplete="off"
+          autocorrect="off"
+          class="rounded-small border border-default-300 bg-transparent px-3 py-2"
+          data-focused="true"
+          data-rac=""
+          id="email"
+          inputmode="numeric"
+          spellcheck="false"
+          tabindex="0"
+          type="text"
+          value="0"
+        />
+        <button
+          aria-controls="email"
+          aria-label="Increase"
+          class="rounded-small border border-default-300 px-2 py-1"
+          data-rac=""
+          data-react-aria-pressable="true"
+          id="react-aria-«replaced-aria-id»"
+          slot="increment"
+          tabindex="-1"
+          type="button"
+        >
+          +
+        </button>
+      </div>
+      <div
+        class="flex flex-col gap-1"
+        data-slot="helper-wrapper"
+      >
+        <div
+          class="text-foreground-500 text-small"
+          data-slot="description"
+          id="email-description"
+        >
+          Number of seats
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Story Snapshots > InRadioGroup 1`] = `
+<div>
+  <div
+    aria-labelledby="email-label"
+    aria-orientation="vertical"
+    class="react-aria-RadioGroup"
+    data-orientation="vertical"
+    data-rac=""
+    data-slot="base"
+    id="email"
+    role="radiogroup"
+  >
+    <span
+      class="font-medium text-small"
+      data-slot="label"
+      id="email-label"
+    >
+      Delivery
+    </span>
+    <label
+      class="react-aria-Radio"
+      data-rac=""
+      data-react-aria-pressable="true"
+    >
+      <span
+        style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+      >
+        <input
+          data-react-aria-pressable="true"
+          name="react-aria-«replaced-aria-id»"
+          tabindex="-1"
+          type="radio"
+          value="email"
+        />
+      </span>
+      Email
+    </label>
+    <label
+      class="react-aria-Radio"
+      data-focused="true"
+      data-hovered="true"
+      data-rac=""
+      data-react-aria-pressable="true"
+      data-selected="true"
+    >
+      <span
+        style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+      >
+        <input
+          data-react-aria-pressable="true"
+          name="react-aria-«replaced-aria-id»"
+          tabindex="0"
+          type="radio"
+          value="post"
+        />
+      </span>
+      Post
+    </label>
+    <div
+      class="flex flex-col gap-1"
+      data-slot="helper-wrapper"
+    >
+      <div
+        class="text-foreground-500 text-small"
+        data-slot="description"
+        id="email-description"
+      >
+        Choose a delivery method
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Story Snapshots > InTextField 1`] = `
+<div>
+  <div
+    class="flex w-72 flex-col gap-1"
+    data-rac=""
+    data-slot="base"
+  >
+    <label
+      class="font-medium text-small"
+      data-slot="label"
+      for="email"
+      id="email-label"
+    >
+      Email
+    </label>
+    <input
+      aria-describedby="email-description"
+      aria-labelledby="email-label"
+      class="rounded-small border border-default-300 bg-transparent px-3 py-2"
+      data-focused="true"
+      data-hovered="true"
+      data-rac=""
+      id="email"
+      tabindex="0"
+      type="text"
+      value="name@example.com!"
+    />
+    <div
+      class="flex flex-col gap-1"
+      data-slot="helper-wrapper"
+    >
+      <div
+        class="text-foreground-500 text-small"
+        data-slot="description"
+        id="email-description"
+      >
+        Use your work email
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Story Snapshots > Invalid 1`] = `
+<div>
+  <div
+    class="flex w-72 flex-col gap-1"
+    data-slot="base"
+  >
+    <label
+      class="font-medium text-small"
+      data-slot="label"
+      for="email"
+      id="email-label"
+    >
+      Email
+    </label>
+    <input
+      aria-describedby="email-description email-error"
+      aria-invalid="true"
+      aria-labelledby="email-label"
+      class="rounded-small border border-default-300 bg-transparent px-3 py-2"
+      id="email"
+    />
+    <div
+      class="flex flex-col gap-1"
+      data-slot="helper-wrapper"
+    >
+      <div
+        class="text-foreground-500 text-small"
+        data-slot="description"
+        id="email-description"
+      >
+        Use your work email
+      </div>
+      <div
+        class="text-danger text-small"
+        data-slot="error-message"
+        id="email-error"
+      >
+        <ul
+          aria-label="Validation errors of field email"
+          data-testid="email_error"
+        >
+          <li
+            style="overflow: hidden;"
+          >
+            <div
+              class="px-1 pt-1"
+            >
+              Enter a valid email address
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Story Snapshots > Required 1`] = `
+<div>
+  <div
+    class="flex w-72 flex-col gap-1"
+    data-slot="base"
+  >
+    <label
+      class="font-medium text-small"
+      data-slot="label"
+      for="email"
+      id="email-label"
+    >
+      Email
+      <span
+        aria-hidden="true"
+        class="ml-0.5 text-danger"
+      >
+        *
+      </span>
+    </label>
+    <input
+      aria-describedby="email-description"
+      aria-labelledby="email-label"
+      aria-required="true"
+      class="rounded-small border border-default-300 bg-transparent px-3 py-2"
+      id="email"
+    />
+    <div
+      class="flex flex-col gap-1"
+      data-slot="helper-wrapper"
+    >
+      <div
+        class="text-foreground-500 text-small"
+        data-slot="description"
+        id="email-description"
+      >
+        Use your work email
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Story Snapshots > WithoutLabel 1`] = `
+<div>
+  <div
+    class="flex w-72 flex-col gap-1"
+    data-slot="base"
+  >
+    <input
+      aria-describedby="email-description"
+      aria-label="Email"
+      class="rounded-small border border-default-300 bg-transparent px-3 py-2"
+      id="email"
+    />
+    <div
+      class="flex flex-col gap-1"
+      data-slot="helper-wrapper"
+    >
+      <div
+        class="text-foreground-500 text-small"
+        data-slot="description"
+        id="email-description"
+      >
+        Use your work email
+      </div>
+    </div>
+  </div>
+</div>
+`;

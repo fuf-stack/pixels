@@ -6,18 +6,20 @@ exports[`Story Snapshots > AllVariants 1`] = `
     style="display: flex; flex-direction: column; gap: 12px;"
   >
     <div
-      class="flex flex-grow flex-row w-full items-center py-3 px-4 border-small rounded-medium dark:bg-default-50/50 text-default-foreground border-default-300 dark:border-default-200 min-w-72 gap-3 bg-background"
+      class="flex w-full min-w-72 flex-grow flex-row items-center gap-3 px-4 py-3 rounded-medium border-small border-default-300 bg-background text-default-foreground dark:border-default-200 dark:bg-default-50/50"
       data-has-description="true"
       data-has-title="true"
+      data-slot="base"
       data-visible="true"
       role="alert"
-      title="Something's Up"
     >
       <div
-        class="flex-none relative w-9 h-9 rounded-full place-items-center hidden bg-default-50 dark:bg-default-100 border-default-200 shadow-small border-1 self-start"
+        class="relative h-9 w-9 flex-none place-items-center rounded-full border-1 shadow-small self-start hidden border-default-200 bg-default-50 dark:bg-default-100"
+        data-slot="iconWrapper"
       >
         <svg
-          class="fill-current w-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+          class="absolute left-1/2 top-1/2 w-6 -translate-x-1/2 -translate-y-1/2 fill-current"
+          data-slot="icon"
           fill="none"
           height="24"
           viewBox="0 0 24 24"
@@ -30,33 +32,38 @@ exports[`Story Snapshots > AllVariants 1`] = `
         </svg>
       </div>
       <div
-        class="h-full flex-grow min-h-10 flex flex-col box-border text-inherit justify-center ms-0 items-stretch gap-1.5"
+        class="ms-0 box-border flex h-full min-h-10 flex-grow flex-col items-stretch justify-center gap-1.5 text-inherit"
+        data-slot="mainWrapper"
       >
         <div
-          class="text-small w-full font-medium block text-inherit leading-5"
+          class="block w-full font-medium text-inherit text-small"
+          data-slot="title"
         >
           Something's Up
         </div>
         <div
-          class="pl-[1px] text-small font-normal text-foreground"
+          class="pl-[1px] font-normal text-foreground text-small"
+          data-slot="description"
         >
           A message of varying importance has been detected.
         </div>
       </div>
     </div>
     <div
-      class="flex flex-grow flex-row w-full items-center py-3 px-4 rounded-medium min-w-72 gap-3 border-small border-info-200 bg-info-50 text-info-600 dark:border-info-100 dark:bg-info-50"
+      class="flex w-full min-w-72 flex-grow flex-row items-center gap-3 px-4 py-3 rounded-medium border-small border-info-200 bg-info-50 text-info-600 dark:border-info-100 dark:bg-info-50"
       data-has-description="true"
       data-has-title="true"
+      data-slot="base"
       data-visible="true"
       role="alert"
-      title="Something's Up"
     >
       <div
-        class="flex-none relative w-9 h-9 rounded-full grid place-items-center shadow-small border-1 self-start border-info-100 bg-info-50 dark:bg-info-100"
+        class="relative h-9 w-9 flex-none place-items-center rounded-full border-1 shadow-small self-start grid border-info-100 bg-info-50 dark:bg-info-100"
+        data-slot="iconWrapper"
       >
         <svg
-          class="fill-current w-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+          class="absolute left-1/2 top-1/2 w-6 -translate-x-1/2 -translate-y-1/2 fill-current"
+          data-slot="icon"
           fill="none"
           height="24"
           viewBox="0 0 24 24"
@@ -69,33 +76,38 @@ exports[`Story Snapshots > AllVariants 1`] = `
         </svg>
       </div>
       <div
-        class="h-full flex-grow min-h-10 flex flex-col box-border justify-center ms-0 items-stretch gap-1.5 text-inherit"
+        class="ms-0 box-border flex h-full min-h-10 flex-grow flex-col items-stretch justify-center gap-1.5 text-inherit"
+        data-slot="mainWrapper"
       >
         <div
-          class="text-small w-full font-medium block leading-5 text-inherit"
+          class="block w-full font-medium text-inherit text-small"
+          data-slot="title"
         >
           Something's Up
         </div>
         <div
-          class="pl-[1px] text-small font-normal text-foreground"
+          class="pl-[1px] font-normal text-foreground text-small"
+          data-slot="description"
         >
           A message of varying importance has been detected.
         </div>
       </div>
     </div>
     <div
-      class="flex flex-grow flex-row w-full items-center py-3 px-4 border-small rounded-medium text-success-700 dark:text-success border-success-300 dark:border-success-100 min-w-72 gap-3 bg-success-50 dark:bg-success-50"
+      class="flex w-full min-w-72 flex-grow flex-row items-center gap-3 px-4 py-3 rounded-medium border-small border-success-300 bg-success-50 text-success-700 dark:border-success-100 dark:bg-success-50 dark:text-success"
       data-has-description="true"
       data-has-title="true"
+      data-slot="base"
       data-visible="true"
       role="alert"
-      title="Something's Up"
     >
       <div
-        class="flex-none relative w-9 h-9 rounded-full grid place-items-center bg-success-50 dark:bg-success-100 border-success-100 shadow-small border-1 self-start"
+        class="relative h-9 w-9 flex-none place-items-center rounded-full border-1 shadow-small self-start grid border-success-100 bg-success-50 dark:bg-success-100"
+        data-slot="iconWrapper"
       >
         <svg
-          class="fill-current w-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+          class="absolute left-1/2 top-1/2 w-6 -translate-x-1/2 -translate-y-1/2 fill-current"
+          data-slot="icon"
           fill="none"
           height="24"
           viewBox="0 0 24 24"
@@ -113,33 +125,38 @@ exports[`Story Snapshots > AllVariants 1`] = `
         </svg>
       </div>
       <div
-        class="h-full flex-grow min-h-10 flex flex-col box-border text-inherit justify-center ms-0 items-stretch gap-1.5"
+        class="ms-0 box-border flex h-full min-h-10 flex-grow flex-col items-stretch justify-center gap-1.5 text-inherit"
+        data-slot="mainWrapper"
       >
         <div
-          class="text-small w-full font-medium block text-inherit leading-5"
+          class="block w-full font-medium text-inherit text-small"
+          data-slot="title"
         >
           Something's Up
         </div>
         <div
-          class="pl-[1px] text-small font-normal text-foreground"
+          class="pl-[1px] font-normal text-foreground text-small"
+          data-slot="description"
         >
           A message of varying importance has been detected.
         </div>
       </div>
     </div>
     <div
-      class="flex flex-grow flex-row w-full items-center py-3 px-4 border-small rounded-medium text-warning-700 dark:text-warning border-warning-300 dark:border-warning-100 min-w-72 gap-3 bg-warning-50 dark:bg-warning-50"
+      class="flex w-full min-w-72 flex-grow flex-row items-center gap-3 px-4 py-3 rounded-medium border-small border-warning-300 bg-warning-50 text-warning-700 dark:border-warning-100 dark:bg-warning-50 dark:text-warning"
       data-has-description="true"
       data-has-title="true"
+      data-slot="base"
       data-visible="true"
       role="alert"
-      title="Something's Up"
     >
       <div
-        class="flex-none relative w-9 h-9 rounded-full grid place-items-center bg-warning-50 dark:bg-warning-100 border-warning-100 shadow-small border-1 self-start"
+        class="relative h-9 w-9 flex-none place-items-center rounded-full border-1 shadow-small self-start grid border-warning-100 bg-warning-50 dark:bg-warning-100"
+        data-slot="iconWrapper"
       >
         <svg
-          class="fill-current w-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+          class="absolute left-1/2 top-1/2 w-6 -translate-x-1/2 -translate-y-1/2 fill-current"
+          data-slot="icon"
           fill="none"
           height="24"
           viewBox="0 0 24 24"
@@ -155,33 +172,38 @@ exports[`Story Snapshots > AllVariants 1`] = `
         </svg>
       </div>
       <div
-        class="h-full flex-grow min-h-10 flex flex-col box-border text-inherit justify-center ms-0 items-stretch gap-1.5"
+        class="ms-0 box-border flex h-full min-h-10 flex-grow flex-col items-stretch justify-center gap-1.5 text-inherit"
+        data-slot="mainWrapper"
       >
         <div
-          class="text-small w-full font-medium block text-inherit leading-5"
+          class="block w-full font-medium text-inherit text-small"
+          data-slot="title"
         >
           Something's Up
         </div>
         <div
-          class="pl-[1px] text-small font-normal text-foreground"
+          class="pl-[1px] font-normal text-foreground text-small"
+          data-slot="description"
         >
           A message of varying importance has been detected.
         </div>
       </div>
     </div>
     <div
-      class="flex flex-grow flex-row w-full items-center py-3 px-4 border-small rounded-medium text-danger-600 dark:text-danger-500 border-danger-200 dark:border-danger-100 min-w-72 gap-3 bg-danger-50 dark:bg-danger-50"
+      class="flex w-full min-w-72 flex-grow flex-row items-center gap-3 px-4 py-3 rounded-medium border-small border-danger-200 bg-danger-50 text-danger-600 dark:border-danger-100 dark:bg-danger-50 dark:text-danger-500"
       data-has-description="true"
       data-has-title="true"
+      data-slot="base"
       data-visible="true"
       role="alert"
-      title="Something's Up"
     >
       <div
-        class="flex-none relative w-9 h-9 rounded-full grid place-items-center bg-danger-50 dark:bg-danger-100 border-danger-100 shadow-small border-1 self-start"
+        class="relative h-9 w-9 flex-none place-items-center rounded-full border-1 shadow-small self-start grid border-danger-100 bg-danger-50 dark:bg-danger-100"
+        data-slot="iconWrapper"
       >
         <svg
-          class="fill-current w-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+          class="absolute left-1/2 top-1/2 w-6 -translate-x-1/2 -translate-y-1/2 fill-current"
+          data-slot="icon"
           fill="none"
           height="20"
           viewBox="0 0 20 20"
@@ -194,15 +216,18 @@ exports[`Story Snapshots > AllVariants 1`] = `
         </svg>
       </div>
       <div
-        class="h-full flex-grow min-h-10 flex flex-col box-border text-inherit justify-center ms-0 items-stretch gap-1.5"
+        class="ms-0 box-border flex h-full min-h-10 flex-grow flex-col items-stretch justify-center gap-1.5 text-inherit"
+        data-slot="mainWrapper"
       >
         <div
-          class="text-small w-full font-medium block text-inherit leading-5"
+          class="block w-full font-medium text-inherit text-small"
+          data-slot="title"
         >
           Something's Up
         </div>
         <div
-          class="pl-[1px] text-small font-normal text-foreground"
+          class="pl-[1px] font-normal text-foreground text-small"
+          data-slot="description"
         >
           A message of varying importance has been detected.
         </div>
@@ -215,16 +240,19 @@ exports[`Story Snapshots > AllVariants 1`] = `
 exports[`Story Snapshots > ChildrenOnly 1`] = `
 <div>
   <div
-    class="flex flex-grow flex-row w-full items-center py-3 px-4 rounded-medium min-w-72 gap-3 border-small border-info-200 bg-info-50 text-info-600 dark:border-info-100 dark:bg-info-50"
+    class="flex w-full min-w-72 flex-grow flex-row items-center gap-3 px-4 py-3 rounded-medium border-small border-info-200 bg-info-50 text-info-600 dark:border-info-100 dark:bg-info-50"
     data-has-description="true"
+    data-slot="base"
     data-visible="true"
     role="alert"
   >
     <div
-      class="flex-none relative w-9 h-9 rounded-full grid place-items-center shadow-small border-1 border-info-100 bg-info-50 dark:bg-info-100"
+      class="relative h-9 w-9 flex-none place-items-center rounded-full border-1 shadow-small grid border-info-100 bg-info-50 dark:bg-info-100"
+      data-slot="iconWrapper"
     >
       <svg
-        class="fill-current w-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+        class="absolute left-1/2 top-1/2 w-6 -translate-x-1/2 -translate-y-1/2 fill-current"
+        data-slot="icon"
         fill="none"
         height="24"
         viewBox="0 0 24 24"
@@ -237,10 +265,12 @@ exports[`Story Snapshots > ChildrenOnly 1`] = `
       </svg>
     </div>
     <div
-      class="h-full flex-grow min-h-10 flex flex-col box-border justify-center ms-0 items-stretch gap-1.5 text-inherit"
+      class="ms-0 box-border flex h-full min-h-10 flex-grow flex-col items-stretch justify-center gap-1.5 text-inherit"
+      data-slot="mainWrapper"
     >
       <div
-        class="pl-[1px] text-small font-normal text-foreground"
+        class="pl-[1px] font-normal text-foreground text-small"
+        data-slot="description"
       >
         Your attention is required for this matter.
       </div>
@@ -258,19 +288,21 @@ exports[`Story Snapshots > Closable 1`] = `
       default
     </div>
     <div
-      class="flex flex-grow flex-row w-full items-center py-3 px-4 border-small rounded-medium dark:bg-default-50/50 text-default-foreground border-default-300 dark:border-default-200 min-w-72 gap-3 bg-background"
+      class="flex w-full min-w-72 flex-grow flex-row items-center gap-3 px-4 py-3 rounded-medium border-small border-default-300 bg-background text-default-foreground dark:border-default-200 dark:bg-default-50/50"
       data-closeable="true"
       data-has-description="true"
       data-has-title="true"
+      data-slot="base"
       data-visible="true"
       role="alert"
-      title="Alert: [Close to dismiss]"
     >
       <div
-        class="flex-none relative w-9 h-9 rounded-full place-items-center hidden bg-default-50 dark:bg-default-100 border-default-200 shadow-small border-1 self-start"
+        class="relative h-9 w-9 flex-none place-items-center rounded-full border-1 shadow-small self-start hidden border-default-200 bg-default-50 dark:bg-default-100"
+        data-slot="iconWrapper"
       >
         <svg
-          class="fill-current w-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+          class="absolute left-1/2 top-1/2 w-6 -translate-x-1/2 -translate-y-1/2 fill-current"
+          data-slot="icon"
           fill="none"
           height="24"
           viewBox="0 0 24 24"
@@ -283,29 +315,34 @@ exports[`Story Snapshots > Closable 1`] = `
         </svg>
       </div>
       <div
-        class="h-full flex-grow min-h-10 flex flex-col box-border text-inherit justify-center ms-0 items-stretch gap-1.5"
+        class="ms-0 box-border flex h-full min-h-10 flex-grow flex-col items-stretch justify-center gap-1.5 text-inherit"
+        data-slot="mainWrapper"
       >
         <div
-          class="text-small w-full font-medium block text-inherit leading-5"
+          class="block w-full font-medium text-inherit text-small"
+          data-slot="title"
         >
           Alert: [Close to dismiss]
         </div>
         <div
-          class="pl-[1px] text-small font-normal text-foreground"
+          class="pl-[1px] font-normal text-foreground text-small"
+          data-slot="description"
         >
           X marks the spot (to close).
         </div>
       </div>
       <button
         aria-label="Close"
-        class="z-0 group inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny gap-2 rounded-full px-0 !gap-0 transition-transform-colors-opacity motion-reduce:transition-none bg-transparent min-w-8 w-8 h-8 relative translate-x-1 -translate-y-1 text-default-400 data-[hover=true]:bg-default/40"
+        class="group relative z-0 box-border inline-flex h-8 w-8 min-w-8 items-center justify-center !gap-0 gap-2 overflow-hidden whitespace-nowrap rounded-full px-0 -translate-y-1 translate-x-1 transform-gpu cursor-pointer select-none appearance-none bg-transparent font-normal subpixel-antialiased tap-highlight-transparent text-tiny transition-transform-colors-opacity data-[pressed=true]:scale-[0.97] motion-reduce:transition-none outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus text-default-400 data-[hover=true]:bg-default/40"
+        data-rac=""
         data-react-aria-pressable="true"
+        data-slot="closeButton"
+        id="react-aria-«replaced-aria-id»"
         tabindex="0"
         type="button"
       >
         <svg
           aria-hidden="true"
-          class="fill-current"
           fill="none"
           focusable="false"
           height="20"
@@ -331,19 +368,21 @@ exports[`Story Snapshots > Closable 1`] = `
       info
     </div>
     <div
-      class="flex flex-grow flex-row w-full items-center py-3 px-4 rounded-medium min-w-72 gap-3 border-small border-info-200 bg-info-50 text-info-600 dark:border-info-100 dark:bg-info-50"
+      class="flex w-full min-w-72 flex-grow flex-row items-center gap-3 px-4 py-3 rounded-medium border-small border-info-200 bg-info-50 text-info-600 dark:border-info-100 dark:bg-info-50"
       data-closeable="true"
       data-has-description="true"
       data-has-title="true"
+      data-slot="base"
       data-visible="true"
       role="alert"
-      title="Alert: [Close to dismiss]"
     >
       <div
-        class="flex-none relative w-9 h-9 rounded-full grid place-items-center shadow-small border-1 self-start border-info-100 bg-info-50 dark:bg-info-100"
+        class="relative h-9 w-9 flex-none place-items-center rounded-full border-1 shadow-small self-start grid border-info-100 bg-info-50 dark:bg-info-100"
+        data-slot="iconWrapper"
       >
         <svg
-          class="fill-current w-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+          class="absolute left-1/2 top-1/2 w-6 -translate-x-1/2 -translate-y-1/2 fill-current"
+          data-slot="icon"
           fill="none"
           height="24"
           viewBox="0 0 24 24"
@@ -356,29 +395,34 @@ exports[`Story Snapshots > Closable 1`] = `
         </svg>
       </div>
       <div
-        class="h-full flex-grow min-h-10 flex flex-col box-border justify-center ms-0 items-stretch gap-1.5 text-inherit"
+        class="ms-0 box-border flex h-full min-h-10 flex-grow flex-col items-stretch justify-center gap-1.5 text-inherit"
+        data-slot="mainWrapper"
       >
         <div
-          class="text-small w-full font-medium block leading-5 text-inherit"
+          class="block w-full font-medium text-inherit text-small"
+          data-slot="title"
         >
           Alert: [Close to dismiss]
         </div>
         <div
-          class="pl-[1px] text-small font-normal text-foreground"
+          class="pl-[1px] font-normal text-foreground text-small"
+          data-slot="description"
         >
           X marks the spot (to close).
         </div>
       </div>
       <button
         aria-label="Close"
-        class="z-0 group inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny gap-2 rounded-full px-0 !gap-0 transition-transform-colors-opacity motion-reduce:transition-none bg-transparent min-w-8 w-8 h-8 relative translate-x-1 -translate-y-1 data-[hover=true]:bg-info/20 text-info-500"
+        class="group relative z-0 box-border inline-flex h-8 w-8 min-w-8 items-center justify-center !gap-0 gap-2 overflow-hidden whitespace-nowrap rounded-full px-0 -translate-y-1 translate-x-1 transform-gpu cursor-pointer select-none appearance-none bg-transparent font-normal subpixel-antialiased tap-highlight-transparent text-tiny transition-transform-colors-opacity data-[pressed=true]:scale-[0.97] motion-reduce:transition-none outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus data-[hover=true]:bg-info/20 text-info-500"
+        data-rac=""
         data-react-aria-pressable="true"
+        data-slot="closeButton"
+        id="react-aria-«replaced-aria-id»"
         tabindex="0"
         type="button"
       >
         <svg
           aria-hidden="true"
-          class="fill-current"
           fill="none"
           focusable="false"
           height="20"
@@ -404,19 +448,21 @@ exports[`Story Snapshots > Closable 1`] = `
       success
     </div>
     <div
-      class="flex flex-grow flex-row w-full items-center py-3 px-4 border-small rounded-medium text-success-700 dark:text-success border-success-300 dark:border-success-100 min-w-72 gap-3 bg-success-50 dark:bg-success-50"
+      class="flex w-full min-w-72 flex-grow flex-row items-center gap-3 px-4 py-3 rounded-medium border-small border-success-300 bg-success-50 text-success-700 dark:border-success-100 dark:bg-success-50 dark:text-success"
       data-closeable="true"
       data-has-description="true"
       data-has-title="true"
+      data-slot="base"
       data-visible="true"
       role="alert"
-      title="Alert: [Close to dismiss]"
     >
       <div
-        class="flex-none relative w-9 h-9 rounded-full grid place-items-center bg-success-50 dark:bg-success-100 border-success-100 shadow-small border-1 self-start"
+        class="relative h-9 w-9 flex-none place-items-center rounded-full border-1 shadow-small self-start grid border-success-100 bg-success-50 dark:bg-success-100"
+        data-slot="iconWrapper"
       >
         <svg
-          class="fill-current w-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+          class="absolute left-1/2 top-1/2 w-6 -translate-x-1/2 -translate-y-1/2 fill-current"
+          data-slot="icon"
           fill="none"
           height="24"
           viewBox="0 0 24 24"
@@ -434,29 +480,34 @@ exports[`Story Snapshots > Closable 1`] = `
         </svg>
       </div>
       <div
-        class="h-full flex-grow min-h-10 flex flex-col box-border text-inherit justify-center ms-0 items-stretch gap-1.5"
+        class="ms-0 box-border flex h-full min-h-10 flex-grow flex-col items-stretch justify-center gap-1.5 text-inherit"
+        data-slot="mainWrapper"
       >
         <div
-          class="text-small w-full font-medium block text-inherit leading-5"
+          class="block w-full font-medium text-inherit text-small"
+          data-slot="title"
         >
           Alert: [Close to dismiss]
         </div>
         <div
-          class="pl-[1px] text-small font-normal text-foreground"
+          class="pl-[1px] font-normal text-foreground text-small"
+          data-slot="description"
         >
           X marks the spot (to close).
         </div>
       </div>
       <button
         aria-label="Close"
-        class="z-0 group inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny gap-2 rounded-full px-0 !gap-0 transition-transform-colors-opacity motion-reduce:transition-none bg-transparent min-w-8 w-8 h-8 relative translate-x-1 -translate-y-1 text-success-500 data-[hover]:bg-success-200 data-[hover=true]:bg-success/20"
+        class="group relative z-0 box-border inline-flex h-8 w-8 min-w-8 items-center justify-center !gap-0 gap-2 overflow-hidden whitespace-nowrap rounded-full px-0 -translate-y-1 translate-x-1 transform-gpu cursor-pointer select-none appearance-none bg-transparent font-normal subpixel-antialiased tap-highlight-transparent text-tiny transition-transform-colors-opacity data-[pressed=true]:scale-[0.97] motion-reduce:transition-none outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus text-success-500 data-[hover=true]:bg-success/20 data-[hover]:bg-success-200"
+        data-rac=""
         data-react-aria-pressable="true"
+        data-slot="closeButton"
+        id="react-aria-«replaced-aria-id»"
         tabindex="0"
         type="button"
       >
         <svg
           aria-hidden="true"
-          class="fill-current"
           fill="none"
           focusable="false"
           height="20"
@@ -482,19 +533,21 @@ exports[`Story Snapshots > Closable 1`] = `
       warning
     </div>
     <div
-      class="flex flex-grow flex-row w-full items-center py-3 px-4 border-small rounded-medium text-warning-700 dark:text-warning border-warning-300 dark:border-warning-100 min-w-72 gap-3 bg-warning-50 dark:bg-warning-50"
+      class="flex w-full min-w-72 flex-grow flex-row items-center gap-3 px-4 py-3 rounded-medium border-small border-warning-300 bg-warning-50 text-warning-700 dark:border-warning-100 dark:bg-warning-50 dark:text-warning"
       data-closeable="true"
       data-has-description="true"
       data-has-title="true"
+      data-slot="base"
       data-visible="true"
       role="alert"
-      title="Alert: [Close to dismiss]"
     >
       <div
-        class="flex-none relative w-9 h-9 rounded-full grid place-items-center bg-warning-50 dark:bg-warning-100 border-warning-100 shadow-small border-1 self-start"
+        class="relative h-9 w-9 flex-none place-items-center rounded-full border-1 shadow-small self-start grid border-warning-100 bg-warning-50 dark:bg-warning-100"
+        data-slot="iconWrapper"
       >
         <svg
-          class="fill-current w-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+          class="absolute left-1/2 top-1/2 w-6 -translate-x-1/2 -translate-y-1/2 fill-current"
+          data-slot="icon"
           fill="none"
           height="24"
           viewBox="0 0 24 24"
@@ -510,29 +563,34 @@ exports[`Story Snapshots > Closable 1`] = `
         </svg>
       </div>
       <div
-        class="h-full flex-grow min-h-10 flex flex-col box-border text-inherit justify-center ms-0 items-stretch gap-1.5"
+        class="ms-0 box-border flex h-full min-h-10 flex-grow flex-col items-stretch justify-center gap-1.5 text-inherit"
+        data-slot="mainWrapper"
       >
         <div
-          class="text-small w-full font-medium block text-inherit leading-5"
+          class="block w-full font-medium text-inherit text-small"
+          data-slot="title"
         >
           Alert: [Close to dismiss]
         </div>
         <div
-          class="pl-[1px] text-small font-normal text-foreground"
+          class="pl-[1px] font-normal text-foreground text-small"
+          data-slot="description"
         >
           X marks the spot (to close).
         </div>
       </div>
       <button
         aria-label="Close"
-        class="z-0 group inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny gap-2 rounded-full px-0 !gap-0 transition-transform-colors-opacity motion-reduce:transition-none bg-transparent min-w-8 w-8 h-8 relative translate-x-1 -translate-y-1 text-warning-500 data-[hover]:bg-warning-200 data-[hover=true]:bg-warning/20"
+        class="group relative z-0 box-border inline-flex h-8 w-8 min-w-8 items-center justify-center !gap-0 gap-2 overflow-hidden whitespace-nowrap rounded-full px-0 -translate-y-1 translate-x-1 transform-gpu cursor-pointer select-none appearance-none bg-transparent font-normal subpixel-antialiased tap-highlight-transparent text-tiny transition-transform-colors-opacity data-[pressed=true]:scale-[0.97] motion-reduce:transition-none outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus text-warning-500 data-[hover=true]:bg-warning/20 data-[hover]:bg-warning-200"
+        data-rac=""
         data-react-aria-pressable="true"
+        data-slot="closeButton"
+        id="react-aria-«replaced-aria-id»"
         tabindex="0"
         type="button"
       >
         <svg
           aria-hidden="true"
-          class="fill-current"
           fill="none"
           focusable="false"
           height="20"
@@ -558,19 +616,21 @@ exports[`Story Snapshots > Closable 1`] = `
       danger
     </div>
     <div
-      class="flex flex-grow flex-row w-full items-center py-3 px-4 border-small rounded-medium text-danger-600 dark:text-danger-500 border-danger-200 dark:border-danger-100 min-w-72 gap-3 bg-danger-50 dark:bg-danger-50"
+      class="flex w-full min-w-72 flex-grow flex-row items-center gap-3 px-4 py-3 rounded-medium border-small border-danger-200 bg-danger-50 text-danger-600 dark:border-danger-100 dark:bg-danger-50 dark:text-danger-500"
       data-closeable="true"
       data-has-description="true"
       data-has-title="true"
+      data-slot="base"
       data-visible="true"
       role="alert"
-      title="Alert: [Close to dismiss]"
     >
       <div
-        class="flex-none relative w-9 h-9 rounded-full grid place-items-center bg-danger-50 dark:bg-danger-100 border-danger-100 shadow-small border-1 self-start"
+        class="relative h-9 w-9 flex-none place-items-center rounded-full border-1 shadow-small self-start grid border-danger-100 bg-danger-50 dark:bg-danger-100"
+        data-slot="iconWrapper"
       >
         <svg
-          class="fill-current w-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+          class="absolute left-1/2 top-1/2 w-6 -translate-x-1/2 -translate-y-1/2 fill-current"
+          data-slot="icon"
           fill="none"
           height="20"
           viewBox="0 0 20 20"
@@ -583,29 +643,34 @@ exports[`Story Snapshots > Closable 1`] = `
         </svg>
       </div>
       <div
-        class="h-full flex-grow min-h-10 flex flex-col box-border text-inherit justify-center ms-0 items-stretch gap-1.5"
+        class="ms-0 box-border flex h-full min-h-10 flex-grow flex-col items-stretch justify-center gap-1.5 text-inherit"
+        data-slot="mainWrapper"
       >
         <div
-          class="text-small w-full font-medium block text-inherit leading-5"
+          class="block w-full font-medium text-inherit text-small"
+          data-slot="title"
         >
           Alert: [Close to dismiss]
         </div>
         <div
-          class="pl-[1px] text-small font-normal text-foreground"
+          class="pl-[1px] font-normal text-foreground text-small"
+          data-slot="description"
         >
           X marks the spot (to close).
         </div>
       </div>
       <button
         aria-label="Close"
-        class="z-0 group inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny gap-2 rounded-full px-0 !gap-0 transition-transform-colors-opacity motion-reduce:transition-none bg-transparent min-w-8 w-8 h-8 relative translate-x-1 -translate-y-1 text-danger-500 data-[hover]:bg-danger-200 data-[hover=true]:bg-danger/20"
+        class="group relative z-0 box-border inline-flex h-8 w-8 min-w-8 items-center justify-center !gap-0 gap-2 overflow-hidden whitespace-nowrap rounded-full px-0 -translate-y-1 translate-x-1 transform-gpu cursor-pointer select-none appearance-none bg-transparent font-normal subpixel-antialiased tap-highlight-transparent text-tiny transition-transform-colors-opacity data-[pressed=true]:scale-[0.97] motion-reduce:transition-none outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus text-danger-500 data-[hover=true]:bg-danger/20 data-[hover]:bg-danger-200"
+        data-rac=""
         data-react-aria-pressable="true"
+        data-slot="closeButton"
+        id="react-aria-«replaced-aria-id»"
         tabindex="0"
         type="button"
       >
         <svg
           aria-hidden="true"
-          class="fill-current"
           fill="none"
           focusable="false"
           height="20"
@@ -627,18 +692,23 @@ exports[`Story Snapshots > Closable 1`] = `
 </div>
 `;
 
-exports[`Story Snapshots > Empty 1`] = `
+exports[`Story Snapshots > CustomStyling 1`] = `
 <div>
   <div
-    class="flex flex-grow flex-row w-full py-3 px-4 rounded-medium items-center min-w-72 gap-3 border-small border-info-200 bg-info-50 text-info-600 dark:border-info-100 dark:bg-info-50"
+    class="flex w-full min-w-72 flex-grow flex-row items-center gap-3 px-4 py-3 rounded-medium border-small border-info-200 bg-info-50 text-info-600 dark:border-info-100 dark:bg-info-50 max-w-lg"
+    data-has-description="true"
+    data-has-title="true"
+    data-slot="base"
     data-visible="true"
     role="alert"
   >
     <div
-      class="flex-none relative w-9 h-9 rounded-full grid place-items-center shadow-small border-1 border-info-100 bg-info-50 dark:bg-info-100"
+      class="relative h-9 w-9 flex-none place-items-center rounded-full border-1 shadow-small self-start grid border-info-100 bg-info-50 dark:bg-info-100"
+      data-slot="iconWrapper"
     >
       <svg
-        class="fill-current w-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+        class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 fill-current w-7"
+        data-slot="icon"
         fill="none"
         height="24"
         viewBox="0 0 24 24"
@@ -651,27 +721,79 @@ exports[`Story Snapshots > Empty 1`] = `
       </svg>
     </div>
     <div
-      class="h-full flex-grow min-h-10 flex flex-col box-border justify-center ms-0 items-stretch gap-1.5 text-inherit"
+      class="ms-0 box-border flex h-full min-h-10 flex-grow flex-col items-stretch justify-center gap-1.5 text-inherit"
+      data-slot="mainWrapper"
+    >
+      <div
+        class="block w-full font-medium text-inherit text-medium"
+        data-slot="title"
+      >
+        Custom alert
+      </div>
+      <div
+        class="pl-[1px] font-normal text-foreground text-small"
+        data-slot="description"
+      >
+        Message with custom slot styling
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Story Snapshots > Empty 1`] = `
+<div>
+  <div
+    class="flex w-full min-w-72 flex-grow flex-row items-center gap-3 px-4 py-3 rounded-medium border-small border-info-200 bg-info-50 text-info-600 dark:border-info-100 dark:bg-info-50"
+    data-slot="base"
+    data-visible="true"
+    role="alert"
+  >
+    <div
+      class="relative h-9 w-9 flex-none place-items-center rounded-full border-1 shadow-small grid border-info-100 bg-info-50 dark:bg-info-100"
+      data-slot="iconWrapper"
+    >
+      <svg
+        class="absolute left-1/2 top-1/2 w-6 -translate-x-1/2 -translate-y-1/2 fill-current"
+        data-slot="icon"
+        fill="none"
+        height="24"
+        viewBox="0 0 24 24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M12 22C17.51 22 22 17.51 22 12C22 6.49 17.51 2 12 2C6.49 2 2 6.49 2 12C2 17.51 6.49 22 12 22ZM12.75 16C12.75 16.41 12.41 16.75 12 16.75C11.59 16.75 11.25 16.41 11.25 16L11.25 11C11.25 10.59 11.59 10.25 12 10.25C12.41 10.25 12.75 10.59 12.75 11L12.75 16ZM11.08 7.62C11.13 7.49 11.2 7.39 11.29 7.29C11.39 7.2 11.5 7.13 11.62 7.08C11.74 7.03 11.87 7 12 7C12.13 7 12.26 7.03 12.38 7.08C12.5 7.13 12.61 7.2 12.71 7.29C12.8 7.39 12.87 7.49 12.92 7.62C12.97 7.74 13 7.87 13 8C13 8.13 12.97 8.26 12.92 8.38C12.87 8.5 12.8 8.61 12.71 8.71C12.61 8.8 12.5 8.87 12.38 8.92C12.14 9.02 11.86 9.02 11.62 8.92C11.5 8.87 11.39 8.8 11.29 8.71C11.2 8.61 11.13 8.5 11.08 8.38C11.03 8.26 11 8.13 11 8C11 7.87 11.03 7.74 11.08 7.62Z"
+        />
+      </svg>
+    </div>
+    <div
+      class="ms-0 box-border flex h-full min-h-10 flex-grow flex-col items-stretch justify-center gap-1.5 text-inherit"
+      data-slot="mainWrapper"
     />
   </div>
 </div>
 `;
 
+exports[`Story Snapshots > KeyboardDismissal 1`] = `<div />`;
+
 exports[`Story Snapshots > MultilineChildren 1`] = `
 <div>
   <div
-    class="flex flex-grow flex-row w-full items-center py-3 px-4 rounded-medium min-w-72 gap-3 border-small border-info-200 bg-info-50 text-info-600 dark:border-info-100 dark:bg-info-50"
+    class="flex w-full min-w-72 flex-grow flex-row items-center gap-3 px-4 py-3 rounded-medium border-small border-info-200 bg-info-50 text-info-600 dark:border-info-100 dark:bg-info-50"
     data-has-description="true"
     data-has-title="true"
+    data-slot="base"
     data-visible="true"
     role="alert"
-    title="System Notification"
   >
     <div
-      class="flex-none relative w-9 h-9 rounded-full grid place-items-center shadow-small border-1 self-start border-info-100 bg-info-50 dark:bg-info-100"
+      class="relative h-9 w-9 flex-none place-items-center rounded-full border-1 shadow-small self-start grid border-info-100 bg-info-50 dark:bg-info-100"
+      data-slot="iconWrapper"
     >
       <svg
-        class="fill-current w-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+        class="absolute left-1/2 top-1/2 w-6 -translate-x-1/2 -translate-y-1/2 fill-current"
+        data-slot="icon"
         fill="none"
         height="24"
         viewBox="0 0 24 24"
@@ -684,15 +806,18 @@ exports[`Story Snapshots > MultilineChildren 1`] = `
       </svg>
     </div>
     <div
-      class="h-full flex-grow min-h-10 flex flex-col box-border justify-center ms-0 items-stretch gap-1.5 text-inherit"
+      class="ms-0 box-border flex h-full min-h-10 flex-grow flex-col items-stretch justify-center gap-1.5 text-inherit"
+      data-slot="mainWrapper"
     >
       <div
-        class="text-small w-full font-medium block leading-5 text-inherit"
+        class="block w-full font-medium text-inherit text-small"
+        data-slot="title"
       >
         System Notification
       </div>
       <div
-        class="pl-[1px] text-small font-normal text-foreground"
+        class="pl-[1px] font-normal text-foreground text-small"
+        data-slot="description"
       >
         Your attention is required for this matter.
         <br />
@@ -708,17 +833,19 @@ exports[`Story Snapshots > MultilineChildren 1`] = `
 exports[`Story Snapshots > TitleOnly 1`] = `
 <div>
   <div
-    class="flex flex-grow flex-row w-full py-3 px-4 rounded-medium items-center min-w-72 gap-3 border-small border-info-200 bg-info-50 text-info-600 dark:border-info-100 dark:bg-info-50"
+    class="flex w-full min-w-72 flex-grow flex-row items-center gap-3 px-4 py-3 rounded-medium border-small border-info-200 bg-info-50 text-info-600 dark:border-info-100 dark:bg-info-50"
     data-has-title="true"
+    data-slot="base"
     data-visible="true"
     role="alert"
-    title="System Notification"
   >
     <div
-      class="flex-none relative w-9 h-9 rounded-full grid place-items-center shadow-small border-1 border-info-100 bg-info-50 dark:bg-info-100"
+      class="relative h-9 w-9 flex-none place-items-center rounded-full border-1 shadow-small grid border-info-100 bg-info-50 dark:bg-info-100"
+      data-slot="iconWrapper"
     >
       <svg
-        class="fill-current w-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+        class="absolute left-1/2 top-1/2 w-6 -translate-x-1/2 -translate-y-1/2 fill-current"
+        data-slot="icon"
         fill="none"
         height="24"
         viewBox="0 0 24 24"
@@ -731,10 +858,12 @@ exports[`Story Snapshots > TitleOnly 1`] = `
       </svg>
     </div>
     <div
-      class="h-full flex-grow min-h-10 flex flex-col box-border justify-center ms-0 items-stretch gap-1.5 text-inherit"
+      class="ms-0 box-border flex h-full min-h-10 flex-grow flex-col items-stretch justify-center gap-1.5 text-inherit"
+      data-slot="mainWrapper"
     >
       <div
-        class="text-small w-full font-medium block leading-5 text-inherit"
+        class="block w-full font-medium text-inherit text-small"
+        data-slot="title"
       >
         System Notification
       </div>
@@ -763,18 +892,20 @@ exports[`Story Snapshots > VariantsOnBackgrounds 1`] = `
         white
       </div>
       <div
-        class="flex flex-grow flex-row w-full items-center py-3 px-4 border-small rounded-medium dark:bg-default-50/50 text-default-foreground border-default-300 dark:border-default-200 min-w-72 gap-3 bg-background"
+        class="flex w-full min-w-72 flex-grow flex-row items-center gap-3 px-4 py-3 rounded-medium border-small border-default-300 bg-background text-default-foreground dark:border-default-200 dark:bg-default-50/50"
         data-has-description="true"
         data-has-title="true"
+        data-slot="base"
         data-visible="true"
         role="alert"
-        title="Something's Up"
       >
         <div
-          class="flex-none relative w-9 h-9 rounded-full place-items-center hidden bg-default-50 dark:bg-default-100 border-default-200 shadow-small border-1 self-start"
+          class="relative h-9 w-9 flex-none place-items-center rounded-full border-1 shadow-small self-start hidden border-default-200 bg-default-50 dark:bg-default-100"
+          data-slot="iconWrapper"
         >
           <svg
-            class="fill-current w-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+            class="absolute left-1/2 top-1/2 w-6 -translate-x-1/2 -translate-y-1/2 fill-current"
+            data-slot="icon"
             fill="none"
             height="24"
             viewBox="0 0 24 24"
@@ -787,15 +918,18 @@ exports[`Story Snapshots > VariantsOnBackgrounds 1`] = `
           </svg>
         </div>
         <div
-          class="h-full flex-grow min-h-10 flex flex-col box-border text-inherit justify-center ms-0 items-stretch gap-1.5"
+          class="ms-0 box-border flex h-full min-h-10 flex-grow flex-col items-stretch justify-center gap-1.5 text-inherit"
+          data-slot="mainWrapper"
         >
           <div
-            class="text-small w-full font-medium block text-inherit leading-5"
+            class="block w-full font-medium text-inherit text-small"
+            data-slot="title"
           >
             Something's Up
           </div>
           <div
-            class="pl-[1px] text-small font-normal text-foreground"
+            class="pl-[1px] font-normal text-foreground text-small"
+            data-slot="description"
           >
             A message of varying importance has been detected.
           </div>
@@ -812,18 +946,20 @@ exports[`Story Snapshots > VariantsOnBackgrounds 1`] = `
         light gray
       </div>
       <div
-        class="flex flex-grow flex-row w-full items-center py-3 px-4 border-small rounded-medium dark:bg-default-50/50 text-default-foreground border-default-300 dark:border-default-200 min-w-72 gap-3 bg-background"
+        class="flex w-full min-w-72 flex-grow flex-row items-center gap-3 px-4 py-3 rounded-medium border-small border-default-300 bg-background text-default-foreground dark:border-default-200 dark:bg-default-50/50"
         data-has-description="true"
         data-has-title="true"
+        data-slot="base"
         data-visible="true"
         role="alert"
-        title="Something's Up"
       >
         <div
-          class="flex-none relative w-9 h-9 rounded-full place-items-center hidden bg-default-50 dark:bg-default-100 border-default-200 shadow-small border-1 self-start"
+          class="relative h-9 w-9 flex-none place-items-center rounded-full border-1 shadow-small self-start hidden border-default-200 bg-default-50 dark:bg-default-100"
+          data-slot="iconWrapper"
         >
           <svg
-            class="fill-current w-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+            class="absolute left-1/2 top-1/2 w-6 -translate-x-1/2 -translate-y-1/2 fill-current"
+            data-slot="icon"
             fill="none"
             height="24"
             viewBox="0 0 24 24"
@@ -836,15 +972,18 @@ exports[`Story Snapshots > VariantsOnBackgrounds 1`] = `
           </svg>
         </div>
         <div
-          class="h-full flex-grow min-h-10 flex flex-col box-border text-inherit justify-center ms-0 items-stretch gap-1.5"
+          class="ms-0 box-border flex h-full min-h-10 flex-grow flex-col items-stretch justify-center gap-1.5 text-inherit"
+          data-slot="mainWrapper"
         >
           <div
-            class="text-small w-full font-medium block text-inherit leading-5"
+            class="block w-full font-medium text-inherit text-small"
+            data-slot="title"
           >
             Something's Up
           </div>
           <div
-            class="pl-[1px] text-small font-normal text-foreground"
+            class="pl-[1px] font-normal text-foreground text-small"
+            data-slot="description"
           >
             A message of varying importance has been detected.
           </div>
@@ -861,18 +1000,20 @@ exports[`Story Snapshots > VariantsOnBackgrounds 1`] = `
         dark
       </div>
       <div
-        class="flex flex-grow flex-row w-full items-center py-3 px-4 border-small rounded-medium dark:bg-default-50/50 text-default-foreground border-default-300 dark:border-default-200 min-w-72 gap-3 bg-background"
+        class="flex w-full min-w-72 flex-grow flex-row items-center gap-3 px-4 py-3 rounded-medium border-small border-default-300 bg-background text-default-foreground dark:border-default-200 dark:bg-default-50/50"
         data-has-description="true"
         data-has-title="true"
+        data-slot="base"
         data-visible="true"
         role="alert"
-        title="Something's Up"
       >
         <div
-          class="flex-none relative w-9 h-9 rounded-full place-items-center hidden bg-default-50 dark:bg-default-100 border-default-200 shadow-small border-1 self-start"
+          class="relative h-9 w-9 flex-none place-items-center rounded-full border-1 shadow-small self-start hidden border-default-200 bg-default-50 dark:bg-default-100"
+          data-slot="iconWrapper"
         >
           <svg
-            class="fill-current w-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+            class="absolute left-1/2 top-1/2 w-6 -translate-x-1/2 -translate-y-1/2 fill-current"
+            data-slot="icon"
             fill="none"
             height="24"
             viewBox="0 0 24 24"
@@ -885,15 +1026,18 @@ exports[`Story Snapshots > VariantsOnBackgrounds 1`] = `
           </svg>
         </div>
         <div
-          class="h-full flex-grow min-h-10 flex flex-col box-border text-inherit justify-center ms-0 items-stretch gap-1.5"
+          class="ms-0 box-border flex h-full min-h-10 flex-grow flex-col items-stretch justify-center gap-1.5 text-inherit"
+          data-slot="mainWrapper"
         >
           <div
-            class="text-small w-full font-medium block text-inherit leading-5"
+            class="block w-full font-medium text-inherit text-small"
+            data-slot="title"
           >
             Something's Up
           </div>
           <div
-            class="pl-[1px] text-small font-normal text-foreground"
+            class="pl-[1px] font-normal text-foreground text-small"
+            data-slot="description"
           >
             A message of varying importance has been detected.
           </div>
@@ -919,18 +1063,20 @@ exports[`Story Snapshots > VariantsOnBackgrounds 1`] = `
         white
       </div>
       <div
-        class="flex flex-grow flex-row w-full items-center py-3 px-4 rounded-medium min-w-72 gap-3 border-small border-info-200 bg-info-50 text-info-600 dark:border-info-100 dark:bg-info-50"
+        class="flex w-full min-w-72 flex-grow flex-row items-center gap-3 px-4 py-3 rounded-medium border-small border-info-200 bg-info-50 text-info-600 dark:border-info-100 dark:bg-info-50"
         data-has-description="true"
         data-has-title="true"
+        data-slot="base"
         data-visible="true"
         role="alert"
-        title="Something's Up"
       >
         <div
-          class="flex-none relative w-9 h-9 rounded-full grid place-items-center shadow-small border-1 self-start border-info-100 bg-info-50 dark:bg-info-100"
+          class="relative h-9 w-9 flex-none place-items-center rounded-full border-1 shadow-small self-start grid border-info-100 bg-info-50 dark:bg-info-100"
+          data-slot="iconWrapper"
         >
           <svg
-            class="fill-current w-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+            class="absolute left-1/2 top-1/2 w-6 -translate-x-1/2 -translate-y-1/2 fill-current"
+            data-slot="icon"
             fill="none"
             height="24"
             viewBox="0 0 24 24"
@@ -943,15 +1089,18 @@ exports[`Story Snapshots > VariantsOnBackgrounds 1`] = `
           </svg>
         </div>
         <div
-          class="h-full flex-grow min-h-10 flex flex-col box-border justify-center ms-0 items-stretch gap-1.5 text-inherit"
+          class="ms-0 box-border flex h-full min-h-10 flex-grow flex-col items-stretch justify-center gap-1.5 text-inherit"
+          data-slot="mainWrapper"
         >
           <div
-            class="text-small w-full font-medium block leading-5 text-inherit"
+            class="block w-full font-medium text-inherit text-small"
+            data-slot="title"
           >
             Something's Up
           </div>
           <div
-            class="pl-[1px] text-small font-normal text-foreground"
+            class="pl-[1px] font-normal text-foreground text-small"
+            data-slot="description"
           >
             A message of varying importance has been detected.
           </div>
@@ -968,18 +1117,20 @@ exports[`Story Snapshots > VariantsOnBackgrounds 1`] = `
         light gray
       </div>
       <div
-        class="flex flex-grow flex-row w-full items-center py-3 px-4 rounded-medium min-w-72 gap-3 border-small border-info-200 bg-info-50 text-info-600 dark:border-info-100 dark:bg-info-50"
+        class="flex w-full min-w-72 flex-grow flex-row items-center gap-3 px-4 py-3 rounded-medium border-small border-info-200 bg-info-50 text-info-600 dark:border-info-100 dark:bg-info-50"
         data-has-description="true"
         data-has-title="true"
+        data-slot="base"
         data-visible="true"
         role="alert"
-        title="Something's Up"
       >
         <div
-          class="flex-none relative w-9 h-9 rounded-full grid place-items-center shadow-small border-1 self-start border-info-100 bg-info-50 dark:bg-info-100"
+          class="relative h-9 w-9 flex-none place-items-center rounded-full border-1 shadow-small self-start grid border-info-100 bg-info-50 dark:bg-info-100"
+          data-slot="iconWrapper"
         >
           <svg
-            class="fill-current w-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+            class="absolute left-1/2 top-1/2 w-6 -translate-x-1/2 -translate-y-1/2 fill-current"
+            data-slot="icon"
             fill="none"
             height="24"
             viewBox="0 0 24 24"
@@ -992,15 +1143,18 @@ exports[`Story Snapshots > VariantsOnBackgrounds 1`] = `
           </svg>
         </div>
         <div
-          class="h-full flex-grow min-h-10 flex flex-col box-border justify-center ms-0 items-stretch gap-1.5 text-inherit"
+          class="ms-0 box-border flex h-full min-h-10 flex-grow flex-col items-stretch justify-center gap-1.5 text-inherit"
+          data-slot="mainWrapper"
         >
           <div
-            class="text-small w-full font-medium block leading-5 text-inherit"
+            class="block w-full font-medium text-inherit text-small"
+            data-slot="title"
           >
             Something's Up
           </div>
           <div
-            class="pl-[1px] text-small font-normal text-foreground"
+            class="pl-[1px] font-normal text-foreground text-small"
+            data-slot="description"
           >
             A message of varying importance has been detected.
           </div>
@@ -1017,18 +1171,20 @@ exports[`Story Snapshots > VariantsOnBackgrounds 1`] = `
         dark
       </div>
       <div
-        class="flex flex-grow flex-row w-full items-center py-3 px-4 rounded-medium min-w-72 gap-3 border-small border-info-200 bg-info-50 text-info-600 dark:border-info-100 dark:bg-info-50"
+        class="flex w-full min-w-72 flex-grow flex-row items-center gap-3 px-4 py-3 rounded-medium border-small border-info-200 bg-info-50 text-info-600 dark:border-info-100 dark:bg-info-50"
         data-has-description="true"
         data-has-title="true"
+        data-slot="base"
         data-visible="true"
         role="alert"
-        title="Something's Up"
       >
         <div
-          class="flex-none relative w-9 h-9 rounded-full grid place-items-center shadow-small border-1 self-start border-info-100 bg-info-50 dark:bg-info-100"
+          class="relative h-9 w-9 flex-none place-items-center rounded-full border-1 shadow-small self-start grid border-info-100 bg-info-50 dark:bg-info-100"
+          data-slot="iconWrapper"
         >
           <svg
-            class="fill-current w-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+            class="absolute left-1/2 top-1/2 w-6 -translate-x-1/2 -translate-y-1/2 fill-current"
+            data-slot="icon"
             fill="none"
             height="24"
             viewBox="0 0 24 24"
@@ -1041,15 +1197,18 @@ exports[`Story Snapshots > VariantsOnBackgrounds 1`] = `
           </svg>
         </div>
         <div
-          class="h-full flex-grow min-h-10 flex flex-col box-border justify-center ms-0 items-stretch gap-1.5 text-inherit"
+          class="ms-0 box-border flex h-full min-h-10 flex-grow flex-col items-stretch justify-center gap-1.5 text-inherit"
+          data-slot="mainWrapper"
         >
           <div
-            class="text-small w-full font-medium block leading-5 text-inherit"
+            class="block w-full font-medium text-inherit text-small"
+            data-slot="title"
           >
             Something's Up
           </div>
           <div
-            class="pl-[1px] text-small font-normal text-foreground"
+            class="pl-[1px] font-normal text-foreground text-small"
+            data-slot="description"
           >
             A message of varying importance has been detected.
           </div>
@@ -1075,18 +1234,20 @@ exports[`Story Snapshots > VariantsOnBackgrounds 1`] = `
         white
       </div>
       <div
-        class="flex flex-grow flex-row w-full items-center py-3 px-4 border-small rounded-medium text-success-700 dark:text-success border-success-300 dark:border-success-100 min-w-72 gap-3 bg-success-50 dark:bg-success-50"
+        class="flex w-full min-w-72 flex-grow flex-row items-center gap-3 px-4 py-3 rounded-medium border-small border-success-300 bg-success-50 text-success-700 dark:border-success-100 dark:bg-success-50 dark:text-success"
         data-has-description="true"
         data-has-title="true"
+        data-slot="base"
         data-visible="true"
         role="alert"
-        title="Something's Up"
       >
         <div
-          class="flex-none relative w-9 h-9 rounded-full grid place-items-center bg-success-50 dark:bg-success-100 border-success-100 shadow-small border-1 self-start"
+          class="relative h-9 w-9 flex-none place-items-center rounded-full border-1 shadow-small self-start grid border-success-100 bg-success-50 dark:bg-success-100"
+          data-slot="iconWrapper"
         >
           <svg
-            class="fill-current w-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+            class="absolute left-1/2 top-1/2 w-6 -translate-x-1/2 -translate-y-1/2 fill-current"
+            data-slot="icon"
             fill="none"
             height="24"
             viewBox="0 0 24 24"
@@ -1104,15 +1265,18 @@ exports[`Story Snapshots > VariantsOnBackgrounds 1`] = `
           </svg>
         </div>
         <div
-          class="h-full flex-grow min-h-10 flex flex-col box-border text-inherit justify-center ms-0 items-stretch gap-1.5"
+          class="ms-0 box-border flex h-full min-h-10 flex-grow flex-col items-stretch justify-center gap-1.5 text-inherit"
+          data-slot="mainWrapper"
         >
           <div
-            class="text-small w-full font-medium block text-inherit leading-5"
+            class="block w-full font-medium text-inherit text-small"
+            data-slot="title"
           >
             Something's Up
           </div>
           <div
-            class="pl-[1px] text-small font-normal text-foreground"
+            class="pl-[1px] font-normal text-foreground text-small"
+            data-slot="description"
           >
             A message of varying importance has been detected.
           </div>
@@ -1129,18 +1293,20 @@ exports[`Story Snapshots > VariantsOnBackgrounds 1`] = `
         light gray
       </div>
       <div
-        class="flex flex-grow flex-row w-full items-center py-3 px-4 border-small rounded-medium text-success-700 dark:text-success border-success-300 dark:border-success-100 min-w-72 gap-3 bg-success-50 dark:bg-success-50"
+        class="flex w-full min-w-72 flex-grow flex-row items-center gap-3 px-4 py-3 rounded-medium border-small border-success-300 bg-success-50 text-success-700 dark:border-success-100 dark:bg-success-50 dark:text-success"
         data-has-description="true"
         data-has-title="true"
+        data-slot="base"
         data-visible="true"
         role="alert"
-        title="Something's Up"
       >
         <div
-          class="flex-none relative w-9 h-9 rounded-full grid place-items-center bg-success-50 dark:bg-success-100 border-success-100 shadow-small border-1 self-start"
+          class="relative h-9 w-9 flex-none place-items-center rounded-full border-1 shadow-small self-start grid border-success-100 bg-success-50 dark:bg-success-100"
+          data-slot="iconWrapper"
         >
           <svg
-            class="fill-current w-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+            class="absolute left-1/2 top-1/2 w-6 -translate-x-1/2 -translate-y-1/2 fill-current"
+            data-slot="icon"
             fill="none"
             height="24"
             viewBox="0 0 24 24"
@@ -1158,15 +1324,18 @@ exports[`Story Snapshots > VariantsOnBackgrounds 1`] = `
           </svg>
         </div>
         <div
-          class="h-full flex-grow min-h-10 flex flex-col box-border text-inherit justify-center ms-0 items-stretch gap-1.5"
+          class="ms-0 box-border flex h-full min-h-10 flex-grow flex-col items-stretch justify-center gap-1.5 text-inherit"
+          data-slot="mainWrapper"
         >
           <div
-            class="text-small w-full font-medium block text-inherit leading-5"
+            class="block w-full font-medium text-inherit text-small"
+            data-slot="title"
           >
             Something's Up
           </div>
           <div
-            class="pl-[1px] text-small font-normal text-foreground"
+            class="pl-[1px] font-normal text-foreground text-small"
+            data-slot="description"
           >
             A message of varying importance has been detected.
           </div>
@@ -1183,18 +1352,20 @@ exports[`Story Snapshots > VariantsOnBackgrounds 1`] = `
         dark
       </div>
       <div
-        class="flex flex-grow flex-row w-full items-center py-3 px-4 border-small rounded-medium text-success-700 dark:text-success border-success-300 dark:border-success-100 min-w-72 gap-3 bg-success-50 dark:bg-success-50"
+        class="flex w-full min-w-72 flex-grow flex-row items-center gap-3 px-4 py-3 rounded-medium border-small border-success-300 bg-success-50 text-success-700 dark:border-success-100 dark:bg-success-50 dark:text-success"
         data-has-description="true"
         data-has-title="true"
+        data-slot="base"
         data-visible="true"
         role="alert"
-        title="Something's Up"
       >
         <div
-          class="flex-none relative w-9 h-9 rounded-full grid place-items-center bg-success-50 dark:bg-success-100 border-success-100 shadow-small border-1 self-start"
+          class="relative h-9 w-9 flex-none place-items-center rounded-full border-1 shadow-small self-start grid border-success-100 bg-success-50 dark:bg-success-100"
+          data-slot="iconWrapper"
         >
           <svg
-            class="fill-current w-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+            class="absolute left-1/2 top-1/2 w-6 -translate-x-1/2 -translate-y-1/2 fill-current"
+            data-slot="icon"
             fill="none"
             height="24"
             viewBox="0 0 24 24"
@@ -1212,15 +1383,18 @@ exports[`Story Snapshots > VariantsOnBackgrounds 1`] = `
           </svg>
         </div>
         <div
-          class="h-full flex-grow min-h-10 flex flex-col box-border text-inherit justify-center ms-0 items-stretch gap-1.5"
+          class="ms-0 box-border flex h-full min-h-10 flex-grow flex-col items-stretch justify-center gap-1.5 text-inherit"
+          data-slot="mainWrapper"
         >
           <div
-            class="text-small w-full font-medium block text-inherit leading-5"
+            class="block w-full font-medium text-inherit text-small"
+            data-slot="title"
           >
             Something's Up
           </div>
           <div
-            class="pl-[1px] text-small font-normal text-foreground"
+            class="pl-[1px] font-normal text-foreground text-small"
+            data-slot="description"
           >
             A message of varying importance has been detected.
           </div>
@@ -1246,18 +1420,20 @@ exports[`Story Snapshots > VariantsOnBackgrounds 1`] = `
         white
       </div>
       <div
-        class="flex flex-grow flex-row w-full items-center py-3 px-4 border-small rounded-medium text-warning-700 dark:text-warning border-warning-300 dark:border-warning-100 min-w-72 gap-3 bg-warning-50 dark:bg-warning-50"
+        class="flex w-full min-w-72 flex-grow flex-row items-center gap-3 px-4 py-3 rounded-medium border-small border-warning-300 bg-warning-50 text-warning-700 dark:border-warning-100 dark:bg-warning-50 dark:text-warning"
         data-has-description="true"
         data-has-title="true"
+        data-slot="base"
         data-visible="true"
         role="alert"
-        title="Something's Up"
       >
         <div
-          class="flex-none relative w-9 h-9 rounded-full grid place-items-center bg-warning-50 dark:bg-warning-100 border-warning-100 shadow-small border-1 self-start"
+          class="relative h-9 w-9 flex-none place-items-center rounded-full border-1 shadow-small self-start grid border-warning-100 bg-warning-50 dark:bg-warning-100"
+          data-slot="iconWrapper"
         >
           <svg
-            class="fill-current w-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+            class="absolute left-1/2 top-1/2 w-6 -translate-x-1/2 -translate-y-1/2 fill-current"
+            data-slot="icon"
             fill="none"
             height="24"
             viewBox="0 0 24 24"
@@ -1273,15 +1449,18 @@ exports[`Story Snapshots > VariantsOnBackgrounds 1`] = `
           </svg>
         </div>
         <div
-          class="h-full flex-grow min-h-10 flex flex-col box-border text-inherit justify-center ms-0 items-stretch gap-1.5"
+          class="ms-0 box-border flex h-full min-h-10 flex-grow flex-col items-stretch justify-center gap-1.5 text-inherit"
+          data-slot="mainWrapper"
         >
           <div
-            class="text-small w-full font-medium block text-inherit leading-5"
+            class="block w-full font-medium text-inherit text-small"
+            data-slot="title"
           >
             Something's Up
           </div>
           <div
-            class="pl-[1px] text-small font-normal text-foreground"
+            class="pl-[1px] font-normal text-foreground text-small"
+            data-slot="description"
           >
             A message of varying importance has been detected.
           </div>
@@ -1298,18 +1477,20 @@ exports[`Story Snapshots > VariantsOnBackgrounds 1`] = `
         light gray
       </div>
       <div
-        class="flex flex-grow flex-row w-full items-center py-3 px-4 border-small rounded-medium text-warning-700 dark:text-warning border-warning-300 dark:border-warning-100 min-w-72 gap-3 bg-warning-50 dark:bg-warning-50"
+        class="flex w-full min-w-72 flex-grow flex-row items-center gap-3 px-4 py-3 rounded-medium border-small border-warning-300 bg-warning-50 text-warning-700 dark:border-warning-100 dark:bg-warning-50 dark:text-warning"
         data-has-description="true"
         data-has-title="true"
+        data-slot="base"
         data-visible="true"
         role="alert"
-        title="Something's Up"
       >
         <div
-          class="flex-none relative w-9 h-9 rounded-full grid place-items-center bg-warning-50 dark:bg-warning-100 border-warning-100 shadow-small border-1 self-start"
+          class="relative h-9 w-9 flex-none place-items-center rounded-full border-1 shadow-small self-start grid border-warning-100 bg-warning-50 dark:bg-warning-100"
+          data-slot="iconWrapper"
         >
           <svg
-            class="fill-current w-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+            class="absolute left-1/2 top-1/2 w-6 -translate-x-1/2 -translate-y-1/2 fill-current"
+            data-slot="icon"
             fill="none"
             height="24"
             viewBox="0 0 24 24"
@@ -1325,15 +1506,18 @@ exports[`Story Snapshots > VariantsOnBackgrounds 1`] = `
           </svg>
         </div>
         <div
-          class="h-full flex-grow min-h-10 flex flex-col box-border text-inherit justify-center ms-0 items-stretch gap-1.5"
+          class="ms-0 box-border flex h-full min-h-10 flex-grow flex-col items-stretch justify-center gap-1.5 text-inherit"
+          data-slot="mainWrapper"
         >
           <div
-            class="text-small w-full font-medium block text-inherit leading-5"
+            class="block w-full font-medium text-inherit text-small"
+            data-slot="title"
           >
             Something's Up
           </div>
           <div
-            class="pl-[1px] text-small font-normal text-foreground"
+            class="pl-[1px] font-normal text-foreground text-small"
+            data-slot="description"
           >
             A message of varying importance has been detected.
           </div>
@@ -1350,18 +1534,20 @@ exports[`Story Snapshots > VariantsOnBackgrounds 1`] = `
         dark
       </div>
       <div
-        class="flex flex-grow flex-row w-full items-center py-3 px-4 border-small rounded-medium text-warning-700 dark:text-warning border-warning-300 dark:border-warning-100 min-w-72 gap-3 bg-warning-50 dark:bg-warning-50"
+        class="flex w-full min-w-72 flex-grow flex-row items-center gap-3 px-4 py-3 rounded-medium border-small border-warning-300 bg-warning-50 text-warning-700 dark:border-warning-100 dark:bg-warning-50 dark:text-warning"
         data-has-description="true"
         data-has-title="true"
+        data-slot="base"
         data-visible="true"
         role="alert"
-        title="Something's Up"
       >
         <div
-          class="flex-none relative w-9 h-9 rounded-full grid place-items-center bg-warning-50 dark:bg-warning-100 border-warning-100 shadow-small border-1 self-start"
+          class="relative h-9 w-9 flex-none place-items-center rounded-full border-1 shadow-small self-start grid border-warning-100 bg-warning-50 dark:bg-warning-100"
+          data-slot="iconWrapper"
         >
           <svg
-            class="fill-current w-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+            class="absolute left-1/2 top-1/2 w-6 -translate-x-1/2 -translate-y-1/2 fill-current"
+            data-slot="icon"
             fill="none"
             height="24"
             viewBox="0 0 24 24"
@@ -1377,15 +1563,18 @@ exports[`Story Snapshots > VariantsOnBackgrounds 1`] = `
           </svg>
         </div>
         <div
-          class="h-full flex-grow min-h-10 flex flex-col box-border text-inherit justify-center ms-0 items-stretch gap-1.5"
+          class="ms-0 box-border flex h-full min-h-10 flex-grow flex-col items-stretch justify-center gap-1.5 text-inherit"
+          data-slot="mainWrapper"
         >
           <div
-            class="text-small w-full font-medium block text-inherit leading-5"
+            class="block w-full font-medium text-inherit text-small"
+            data-slot="title"
           >
             Something's Up
           </div>
           <div
-            class="pl-[1px] text-small font-normal text-foreground"
+            class="pl-[1px] font-normal text-foreground text-small"
+            data-slot="description"
           >
             A message of varying importance has been detected.
           </div>
@@ -1411,18 +1600,20 @@ exports[`Story Snapshots > VariantsOnBackgrounds 1`] = `
         white
       </div>
       <div
-        class="flex flex-grow flex-row w-full items-center py-3 px-4 border-small rounded-medium text-danger-600 dark:text-danger-500 border-danger-200 dark:border-danger-100 min-w-72 gap-3 bg-danger-50 dark:bg-danger-50"
+        class="flex w-full min-w-72 flex-grow flex-row items-center gap-3 px-4 py-3 rounded-medium border-small border-danger-200 bg-danger-50 text-danger-600 dark:border-danger-100 dark:bg-danger-50 dark:text-danger-500"
         data-has-description="true"
         data-has-title="true"
+        data-slot="base"
         data-visible="true"
         role="alert"
-        title="Something's Up"
       >
         <div
-          class="flex-none relative w-9 h-9 rounded-full grid place-items-center bg-danger-50 dark:bg-danger-100 border-danger-100 shadow-small border-1 self-start"
+          class="relative h-9 w-9 flex-none place-items-center rounded-full border-1 shadow-small self-start grid border-danger-100 bg-danger-50 dark:bg-danger-100"
+          data-slot="iconWrapper"
         >
           <svg
-            class="fill-current w-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+            class="absolute left-1/2 top-1/2 w-6 -translate-x-1/2 -translate-y-1/2 fill-current"
+            data-slot="icon"
             fill="none"
             height="20"
             viewBox="0 0 20 20"
@@ -1435,15 +1626,18 @@ exports[`Story Snapshots > VariantsOnBackgrounds 1`] = `
           </svg>
         </div>
         <div
-          class="h-full flex-grow min-h-10 flex flex-col box-border text-inherit justify-center ms-0 items-stretch gap-1.5"
+          class="ms-0 box-border flex h-full min-h-10 flex-grow flex-col items-stretch justify-center gap-1.5 text-inherit"
+          data-slot="mainWrapper"
         >
           <div
-            class="text-small w-full font-medium block text-inherit leading-5"
+            class="block w-full font-medium text-inherit text-small"
+            data-slot="title"
           >
             Something's Up
           </div>
           <div
-            class="pl-[1px] text-small font-normal text-foreground"
+            class="pl-[1px] font-normal text-foreground text-small"
+            data-slot="description"
           >
             A message of varying importance has been detected.
           </div>
@@ -1460,18 +1654,20 @@ exports[`Story Snapshots > VariantsOnBackgrounds 1`] = `
         light gray
       </div>
       <div
-        class="flex flex-grow flex-row w-full items-center py-3 px-4 border-small rounded-medium text-danger-600 dark:text-danger-500 border-danger-200 dark:border-danger-100 min-w-72 gap-3 bg-danger-50 dark:bg-danger-50"
+        class="flex w-full min-w-72 flex-grow flex-row items-center gap-3 px-4 py-3 rounded-medium border-small border-danger-200 bg-danger-50 text-danger-600 dark:border-danger-100 dark:bg-danger-50 dark:text-danger-500"
         data-has-description="true"
         data-has-title="true"
+        data-slot="base"
         data-visible="true"
         role="alert"
-        title="Something's Up"
       >
         <div
-          class="flex-none relative w-9 h-9 rounded-full grid place-items-center bg-danger-50 dark:bg-danger-100 border-danger-100 shadow-small border-1 self-start"
+          class="relative h-9 w-9 flex-none place-items-center rounded-full border-1 shadow-small self-start grid border-danger-100 bg-danger-50 dark:bg-danger-100"
+          data-slot="iconWrapper"
         >
           <svg
-            class="fill-current w-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+            class="absolute left-1/2 top-1/2 w-6 -translate-x-1/2 -translate-y-1/2 fill-current"
+            data-slot="icon"
             fill="none"
             height="20"
             viewBox="0 0 20 20"
@@ -1484,15 +1680,18 @@ exports[`Story Snapshots > VariantsOnBackgrounds 1`] = `
           </svg>
         </div>
         <div
-          class="h-full flex-grow min-h-10 flex flex-col box-border text-inherit justify-center ms-0 items-stretch gap-1.5"
+          class="ms-0 box-border flex h-full min-h-10 flex-grow flex-col items-stretch justify-center gap-1.5 text-inherit"
+          data-slot="mainWrapper"
         >
           <div
-            class="text-small w-full font-medium block text-inherit leading-5"
+            class="block w-full font-medium text-inherit text-small"
+            data-slot="title"
           >
             Something's Up
           </div>
           <div
-            class="pl-[1px] text-small font-normal text-foreground"
+            class="pl-[1px] font-normal text-foreground text-small"
+            data-slot="description"
           >
             A message of varying importance has been detected.
           </div>
@@ -1509,18 +1708,20 @@ exports[`Story Snapshots > VariantsOnBackgrounds 1`] = `
         dark
       </div>
       <div
-        class="flex flex-grow flex-row w-full items-center py-3 px-4 border-small rounded-medium text-danger-600 dark:text-danger-500 border-danger-200 dark:border-danger-100 min-w-72 gap-3 bg-danger-50 dark:bg-danger-50"
+        class="flex w-full min-w-72 flex-grow flex-row items-center gap-3 px-4 py-3 rounded-medium border-small border-danger-200 bg-danger-50 text-danger-600 dark:border-danger-100 dark:bg-danger-50 dark:text-danger-500"
         data-has-description="true"
         data-has-title="true"
+        data-slot="base"
         data-visible="true"
         role="alert"
-        title="Something's Up"
       >
         <div
-          class="flex-none relative w-9 h-9 rounded-full grid place-items-center bg-danger-50 dark:bg-danger-100 border-danger-100 shadow-small border-1 self-start"
+          class="relative h-9 w-9 flex-none place-items-center rounded-full border-1 shadow-small self-start grid border-danger-100 bg-danger-50 dark:bg-danger-100"
+          data-slot="iconWrapper"
         >
           <svg
-            class="fill-current w-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+            class="absolute left-1/2 top-1/2 w-6 -translate-x-1/2 -translate-y-1/2 fill-current"
+            data-slot="icon"
             fill="none"
             height="20"
             viewBox="0 0 20 20"
@@ -1533,15 +1734,18 @@ exports[`Story Snapshots > VariantsOnBackgrounds 1`] = `
           </svg>
         </div>
         <div
-          class="h-full flex-grow min-h-10 flex flex-col box-border text-inherit justify-center ms-0 items-stretch gap-1.5"
+          class="ms-0 box-border flex h-full min-h-10 flex-grow flex-col items-stretch justify-center gap-1.5 text-inherit"
+          data-slot="mainWrapper"
         >
           <div
-            class="text-small w-full font-medium block text-inherit leading-5"
+            class="block w-full font-medium text-inherit text-small"
+            data-slot="title"
           >
             Something's Up
           </div>
           <div
-            class="pl-[1px] text-small font-normal text-foreground"
+            class="pl-[1px] font-normal text-foreground text-small"
+            data-slot="description"
           >
             A message of varying importance has been detected.
           </div>
@@ -1555,19 +1759,19 @@ exports[`Story Snapshots > VariantsOnBackgrounds 1`] = `
 exports[`Story Snapshots > WithCustomIcon 1`] = `
 <div>
   <div
-    class="flex flex-grow flex-row w-full items-center py-3 px-4 rounded-medium min-w-72 gap-3 border-small border-info-200 bg-info-50 text-info-600 dark:border-info-100 dark:bg-info-50"
+    class="flex w-full min-w-72 flex-grow flex-row items-center gap-3 px-4 py-3 rounded-medium border-small border-info-200 bg-info-50 text-info-600 dark:border-info-100 dark:bg-info-50"
     data-has-description="true"
     data-has-title="true"
+    data-slot="base"
     data-visible="true"
-    icon="[object Object]"
     role="alert"
-    title="Custom Notification"
   >
     <div
-      class="flex-none relative w-9 h-9 rounded-full grid place-items-center shadow-small border-1 self-start border-info-100 bg-info-50 dark:bg-info-100"
+      class="relative h-9 w-9 flex-none place-items-center rounded-full border-1 shadow-small self-start grid border-info-100 bg-info-50 dark:bg-info-100"
+      data-slot="iconWrapper"
     >
       <svg
-        class="fill-current w-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+        class="absolute left-1/2 top-1/2 w-6 -translate-x-1/2 -translate-y-1/2 fill-current"
         fill="currentColor"
         height="1em"
         stroke="currentColor"
@@ -1582,15 +1786,18 @@ exports[`Story Snapshots > WithCustomIcon 1`] = `
       </svg>
     </div>
     <div
-      class="h-full flex-grow min-h-10 flex flex-col box-border justify-center ms-0 items-stretch gap-1.5 text-inherit"
+      class="ms-0 box-border flex h-full min-h-10 flex-grow flex-col items-stretch justify-center gap-1.5 text-inherit"
+      data-slot="mainWrapper"
     >
       <div
-        class="text-small w-full font-medium block leading-5 text-inherit"
+        class="block w-full font-medium text-inherit text-small"
+        data-slot="title"
       >
         Custom Notification
       </div>
       <div
-        class="pl-[1px] text-small font-normal text-foreground"
+        class="pl-[1px] font-normal text-foreground text-small"
+        data-slot="description"
       >
         This alert uses a custom bell icon.
       </div>
@@ -1602,18 +1809,20 @@ exports[`Story Snapshots > WithCustomIcon 1`] = `
 exports[`Story Snapshots > WithEndContent 1`] = `
 <div>
   <div
-    class="flex flex-grow flex-row w-full items-center py-3 px-4 rounded-medium min-w-72 gap-3 border-small border-info-200 bg-info-50 text-info-600 dark:border-info-100 dark:bg-info-50"
+    class="flex w-full min-w-72 flex-grow flex-row items-center gap-3 px-4 py-3 rounded-medium border-small border-info-200 bg-info-50 text-info-600 dark:border-info-100 dark:bg-info-50"
     data-has-description="true"
     data-has-title="true"
+    data-slot="base"
     data-visible="true"
     role="alert"
-    title="Message from Our Team"
   >
     <div
-      class="flex-none relative w-9 h-9 rounded-full grid place-items-center shadow-small border-1 self-start border-info-100 bg-info-50 dark:bg-info-100"
+      class="relative h-9 w-9 flex-none place-items-center rounded-full border-1 shadow-small self-start grid border-info-100 bg-info-50 dark:bg-info-100"
+      data-slot="iconWrapper"
     >
       <svg
-        class="fill-current w-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+        class="absolute left-1/2 top-1/2 w-6 -translate-x-1/2 -translate-y-1/2 fill-current"
+        data-slot="icon"
         fill="none"
         height="24"
         viewBox="0 0 24 24"
@@ -1626,28 +1835,77 @@ exports[`Story Snapshots > WithEndContent 1`] = `
       </svg>
     </div>
     <div
-      class="h-full flex-grow min-h-10 flex flex-col box-border justify-center ms-0 items-stretch gap-1.5 text-inherit"
+      class="ms-0 box-border flex h-full min-h-10 flex-grow flex-col items-stretch justify-center gap-1.5 text-inherit"
+      data-slot="mainWrapper"
     >
       <div
-        class="text-small w-full font-medium block leading-5 text-inherit"
+        class="block w-full font-medium text-inherit text-small"
+        data-slot="title"
       >
         Message from Our Team
       </div>
       <div
-        class="pl-[1px] text-small font-normal text-foreground"
+        class="pl-[1px] font-normal text-foreground text-small"
+        data-slot="description"
       >
         We have some important news to share with you.
       </div>
     </div>
-    <div>
+    <div
+      data-slot="endContent"
+    >
       <button
-        class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-3 min-w-16 h-8 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover bg-info/20 text-info-600"
+        class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-8 min-w-16 gap-2 rounded-small px-3 text-tiny [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover bg-info/20 text-info-600"
+        data-rac=""
         data-react-aria-pressable="true"
+        id="react-aria-«replaced-aria-id»"
         tabindex="0"
         type="button"
       >
         Show more
       </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Story Snapshots > Zero 1`] = `
+<div>
+  <div
+    class="flex w-full min-w-72 flex-grow flex-row items-center gap-3 px-4 py-3 rounded-medium border-small border-info-200 bg-info-50 text-info-600 dark:border-info-100 dark:bg-info-50"
+    data-has-description="true"
+    data-slot="base"
+    data-visible="true"
+    role="alert"
+  >
+    <div
+      class="relative h-9 w-9 flex-none place-items-center rounded-full border-1 shadow-small grid border-info-100 bg-info-50 dark:bg-info-100"
+      data-slot="iconWrapper"
+    >
+      <svg
+        class="absolute left-1/2 top-1/2 w-6 -translate-x-1/2 -translate-y-1/2 fill-current"
+        data-slot="icon"
+        fill="none"
+        height="24"
+        viewBox="0 0 24 24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M12 22C17.51 22 22 17.51 22 12C22 6.49 17.51 2 12 2C6.49 2 2 6.49 2 12C2 17.51 6.49 22 12 22ZM12.75 16C12.75 16.41 12.41 16.75 12 16.75C11.59 16.75 11.25 16.41 11.25 16L11.25 11C11.25 10.59 11.59 10.25 12 10.25C12.41 10.25 12.75 10.59 12.75 11L12.75 16ZM11.08 7.62C11.13 7.49 11.2 7.39 11.29 7.29C11.39 7.2 11.5 7.13 11.62 7.08C11.74 7.03 11.87 7 12 7C12.13 7 12.26 7.03 12.38 7.08C12.5 7.13 12.61 7.2 12.71 7.29C12.8 7.39 12.87 7.49 12.92 7.62C12.97 7.74 13 7.87 13 8C13 8.13 12.97 8.26 12.92 8.38C12.87 8.5 12.8 8.61 12.71 8.71C12.61 8.8 12.5 8.87 12.38 8.92C12.14 9.02 11.86 9.02 11.62 8.92C11.5 8.87 11.39 8.8 11.29 8.71C11.2 8.61 11.13 8.5 11.08 8.38C11.03 8.26 11 8.13 11 8C11 7.87 11.03 7.74 11.08 7.62Z"
+        />
+      </svg>
+    </div>
+    <div
+      class="ms-0 box-border flex h-full min-h-10 flex-grow flex-col items-stretch justify-center gap-1.5 text-inherit"
+      data-slot="mainWrapper"
+    >
+      <div
+        class="pl-[1px] font-normal text-foreground text-small"
+        data-slot="description"
+      >
+        0
+      </div>
     </div>
   </div>
 </div>

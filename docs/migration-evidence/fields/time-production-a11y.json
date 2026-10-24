@@ -1,0 +1,188 @@
+[
+  {
+    "theme": "light",
+    "story": "uniform-time--default",
+    "violations": []
+  },
+  {
+    "theme": "light",
+    "story": "uniform-time--required",
+    "violations": []
+  },
+  {
+    "theme": "light",
+    "story": "uniform-time--invalid",
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "targets": [
+          ["#uniform-_r_0_-label"],
+          ["#react-aria5136885029-_r_8_"],
+          ["#react-aria5136885029-_r_c_"],
+          ["#react-aria5136885029-_r_i_"],
+          ["#react-aria5136885029-_r_m_"],
+          [".px-1"]
+        ]
+      }
+    ]
+  },
+  {
+    "theme": "light",
+    "story": "uniform-time--with-initial-value",
+    "violations": []
+  },
+  {
+    "theme": "light",
+    "story": "uniform-time--disabled",
+    "violations": []
+  },
+  {
+    "theme": "light",
+    "story": "uniform-time--twelve-hour-cycle",
+    "violations": []
+  },
+  {
+    "theme": "light",
+    "story": "uniform-time--hour-granularity",
+    "violations": []
+  },
+  {
+    "theme": "light",
+    "story": "uniform-time--hour-as-number",
+    "violations": []
+  },
+  {
+    "theme": "light",
+    "story": "uniform-time--hide-time-zone",
+    "violations": []
+  },
+  {
+    "theme": "light",
+    "story": "uniform-time--with-custom-time-zone",
+    "violations": []
+  },
+  {
+    "theme": "light",
+    "story": "uniform-time--with-utc-time-zone",
+    "violations": []
+  },
+  {
+    "theme": "light",
+    "story": "uniform-time-composition--help-and-required",
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "targets": [
+          ["#uniform-_r_0_-label"],
+          ["#react-aria3058291041-_r_i_"],
+          ["#react-aria3058291041-_r_m_"],
+          [".px-1"]
+        ]
+      }
+    ]
+  },
+  {
+    "theme": "light",
+    "story": "uniform-time-composition--consumer-segment-font",
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "targets": [["#react-aria9371407583-_r_m_"]]
+      }
+    ]
+  },
+  {
+    "theme": "dark",
+    "story": "uniform-time--default",
+    "violations": []
+  },
+  {
+    "theme": "dark",
+    "story": "uniform-time--required",
+    "violations": []
+  },
+  {
+    "theme": "dark",
+    "story": "uniform-time--invalid",
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "targets": [
+          ["#react-aria231631032-_r_8_"],
+          ["#react-aria231631032-_r_c_"],
+          ["#react-aria231631032-_r_i_"],
+          ["#react-aria231631032-_r_m_"]
+        ]
+      }
+    ]
+  },
+  {
+    "theme": "dark",
+    "story": "uniform-time--with-initial-value",
+    "violations": []
+  },
+  {
+    "theme": "dark",
+    "story": "uniform-time--disabled",
+    "violations": []
+  },
+  {
+    "theme": "dark",
+    "story": "uniform-time--twelve-hour-cycle",
+    "violations": []
+  },
+  {
+    "theme": "dark",
+    "story": "uniform-time--hour-granularity",
+    "violations": []
+  },
+  {
+    "theme": "dark",
+    "story": "uniform-time--hour-as-number",
+    "violations": []
+  },
+  {
+    "theme": "dark",
+    "story": "uniform-time--hide-time-zone",
+    "violations": []
+  },
+  {
+    "theme": "dark",
+    "story": "uniform-time--with-custom-time-zone",
+    "violations": []
+  },
+  {
+    "theme": "dark",
+    "story": "uniform-time--with-utc-time-zone",
+    "violations": []
+  },
+  {
+    "theme": "dark",
+    "story": "uniform-time-composition--help-and-required",
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "targets": [
+          ["#react-aria1894917970-_r_i_"],
+          ["#react-aria1894917970-_r_m_"]
+        ]
+      }
+    ]
+  },
+  {
+    "theme": "dark",
+    "story": "uniform-time-composition--consumer-segment-font",
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "targets": [["#react-aria7787070852-_r_m_"]]
+      }
+    ]
+  }
+]

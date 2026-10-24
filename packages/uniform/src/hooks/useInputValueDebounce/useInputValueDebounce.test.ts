@@ -20,11 +20,22 @@ vi.mock('@fuf-stack/pixels', () => ({
 
 // Mock trigger function
 const mockTrigger = vi.fn();
+const mockResetField = vi.fn();
+const mockResetListeners = new Set<() => void>();
 
 // Mock useFormContext
-vi.mock('../useFormContext', () => ({
+vi.mock('../useFormContext/useFormContext', () => ({
   useFormContext: () => ({
     trigger: mockTrigger,
+    resetField: mockResetField,
+    formReset: {
+      subscribe: (listener: () => void) => {
+        mockResetListeners.add(listener);
+        return () => {
+          mockResetListeners.delete(listener);
+        };
+      },
+    },
   }),
 }));
 
@@ -32,6 +43,146 @@ describe('useInputValueDebounce', () => {
   const mockOnChange = vi.fn();
   const mockOnBlur = vi.fn();
   const testFieldName = 'testField';
+
+  it('discards queued edits when a reset keeps the same external value', () => {
+    const { result } = renderHook(() =>
+      useInputValueDebounce({
+        name: testFieldName,
+        value: 'initial',
+        debounceDelay: 1000,
+        onChange: mockOnChange,
+        onBlur: mockOnBlur,
+      }),
+    );
+    act(() => {
+      result.current.onChange('pending');
+    });
+    act(() => {
+      mockResetListeners.forEach((listener) => listener());
+    });
+    expect(result.current.value).toBe('initial');
+    act(() => {
+      vi.advanceTimersByTime(1000);
+    });
+    expect(mockOnChange).not.toHaveBeenCalled();
+  });
+
+  it('cancels queued edits for a clear/reset without committing a user change', () => {
+    const { result } = renderHook(() =>
+      useInputValueDebounce({
+        name: testFieldName,
+        value: 'initial',
+        debounceDelay: 1000,
+        onChange: mockOnChange,
+        onBlur: mockOnBlur,
+      }),
+    );
+    act(() => {
+      result.current.onChange('pending');
+    });
+    act(() => {
+      result.current.cancelPendingChange('');
+    });
+    expect(result.current.value).toBe('');
+    act(() => {
+      vi.advanceTimersByTime(1000);
+    });
+    expect(mockOnChange).not.toHaveBeenCalled();
+    act(() => {
+      result.current.onBlur();
+    });
+    expect(mockOnChange).not.toHaveBeenCalled();
+    expect(mockOnBlur).toHaveBeenCalledOnce();
+  });
+
+  describe('Clearing', () => {
+    it('empties the display and resets the field without flushing queued edits', () => {
+      const { result } = renderHook(() =>
+        useInputValueDebounce({
+          name: testFieldName,
+          value: 'initial',
+          emptyValue: '',
+          debounceDelay: 1000,
+          onChange: mockOnChange,
+          onBlur: mockOnBlur,
+        }),
+      );
+
+      act(() => {
+        result.current.onChange('pending');
+      });
+      act(() => {
+        result.current.clear();
+      });
+
+      expect(result.current.value).toBe('');
+      expect(mockResetField).toHaveBeenCalledExactlyOnceWith(testFieldName, {
+        defaultValue: null,
+      });
+
+      act(() => {
+        vi.advanceTimersByTime(1000);
+        result.current.onBlur();
+      });
+
+      expect(mockOnChange).not.toHaveBeenCalled();
+      expect(mockTrigger).not.toHaveBeenCalled();
+      expect(mockOnBlur).toHaveBeenCalledOnce();
+    });
+
+    it('supports a numeric empty display without converting it to text', () => {
+      const { result } = renderHook(() =>
+        useInputValueDebounce({
+          name: testFieldName,
+          value: 12,
+          emptyValue: 0,
+          onChange: mockOnChange,
+          onBlur: mockOnBlur,
+        }),
+      );
+
+      act(() => {
+        result.current.clear();
+      });
+
+      expect(result.current.value).toBe(0);
+      expect(mockResetField).toHaveBeenCalledWith(testFieldName, {
+        defaultValue: null,
+      });
+    });
+
+    it('follows the external reset value when no empty display is configured', () => {
+      const initialProps: { value: string | null } = { value: 'initial' };
+      const { result, rerender } = renderHook(
+        ({ value }: { value: string | null }) =>
+          useInputValueDebounce({
+            name: testFieldName,
+            value,
+            debounceDelay: 1000,
+            onChange: mockOnChange,
+            onBlur: mockOnBlur,
+          }),
+        { initialProps },
+      );
+
+      act(() => {
+        result.current.onChange('pending');
+      });
+      act(() => {
+        result.current.clear();
+      });
+      rerender({ value: null });
+      act(() => {
+        vi.advanceTimersByTime(1000);
+      });
+
+      expect(result.current.value).toBeNull();
+      expect(mockOnChange).not.toHaveBeenCalled();
+      expect(mockResetField).toHaveBeenCalledWith(testFieldName, {
+        defaultValue: null,
+      });
+    });
+  });
 
   beforeEach(() => {
     vi.clearAllMocks();

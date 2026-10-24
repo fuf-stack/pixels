@@ -3,50 +3,43 @@
 import type { CSSProperties, ReactNode } from 'react';
 
 import { forwardRef } from 'react';
+import { useObjectRef } from 'react-aria';
 
-import { ScrollShadow as HeroScrollShadow } from '@heroui/scroll-shadow';
-
-import { cn } from '@fuf-stack/pixel-utils';
+import { useStyling } from '../StylingProvider';
+import useScrollShadow from './hooks/useScrollShadow';
+import { scrollShadowVariants } from './scrollShadowVariants';
 
 type ScrollShadowVisibility =
-  | 'auto'
-  | 'top'
-  | 'bottom'
-  | 'left'
-  | 'right'
-  | 'both'
-  | 'none';
+  'auto' | 'top' | 'bottom' | 'left' | 'right' | 'both' | 'none';
 
 export interface ScrollShadowProps {
-  /** child components */
+  /** Scrollable content */
   children?: ReactNode;
   /** CSS class name */
   className?: string | string[];
-  /** Slot name for styling/debugging hooks */
+  /** Slot name for styling and debugging */
   dataSlot?: string;
   /** Hides the scrollbar */
   hideScrollBar?: boolean;
-  /** Orientation of the scroll shadow */
+  /** Direction of scrolling and edge shadows */
   orientation?: 'horizontal' | 'vertical';
   /** Shadow size in pixels */
   size?: number;
-  /** Inline style overrides for the root scroll container. */
+  /** Inline styles for the scroll container */
   style?: CSSProperties;
-  /** HTML data-testid attribute used in e2e tests */
+  /** HTML data-testid attribute for e2e tests */
   testId?: string;
-  /** Visibility mode for scroll shadows */
+  /** Visible edges, auto follows the current scroll position */
   visibility?: ScrollShadowVisibility;
 }
 
-/**
- * Scroll Shadow component based on [HeroUI Scroll Shadow](https://www.heroui.com//docs/components/scroll-shadow)
- */
-export default forwardRef<HTMLDivElement, ScrollShadowProps>(
+/** Scrollable content with fading edges that indicate more content */
+const ScrollShadow = forwardRef<HTMLDivElement, ScrollShadowProps>(
   (
     {
       children = null,
-      dataSlot = undefined,
       className = undefined,
+      dataSlot = undefined,
       hideScrollBar = false,
       orientation = 'vertical',
       size = 40,
@@ -56,20 +49,36 @@ export default forwardRef<HTMLDivElement, ScrollShadowProps>(
     },
     ref,
   ) => {
+    const styling = useStyling();
+    const controlRef = useObjectRef(ref);
+    useScrollShadow({ children, orientation, ref: controlRef, visibility });
+
+    // className from the scroll surface recipe
+    const variants = styling.resolve(scrollShadowVariants, {
+      className,
+      hideScrollBar,
+      orientation,
+    });
+    const shadowStyle = {
+      '--scroll-shadow-size': `${size}px`,
+      ...style,
+    } as CSSProperties;
+
     return (
-      <HeroScrollShadow
-        ref={ref}
-        className={cn(className)}
+      <div
+        ref={controlRef}
+        className={variants}
+        data-orientation={orientation}
         data-slot={dataSlot}
         data-testid={testId}
-        hideScrollBar={hideScrollBar}
-        orientation={orientation}
-        size={size}
-        style={style}
-        visibility={visibility}
+        style={shadowStyle}
       >
         {children}
-      </HeroScrollShadow>
+      </div>
     );
   },
 );
+
+ScrollShadow.displayName = 'ScrollShadow';
+
+export default ScrollShadow;

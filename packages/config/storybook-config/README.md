@@ -14,6 +14,8 @@ consistent config instead of duplicating Storybook boilerplate.
 - Exposes a reusable story snapshot harness (`story-snapshots.ts`) for Vitest story tests.
 - Includes Storybook v10-compatible local wrapper files in `.storybook/`.
 - Ships local Vite/Tailwind/TypeScript config files used by Storybook config consumers.
+- Compiles Tailwind utilities in browser tests so layout assertions use the same
+  stylesheet as the Storybook development server.
 
 ## Important Files
 

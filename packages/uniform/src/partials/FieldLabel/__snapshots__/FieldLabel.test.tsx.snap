@@ -1,0 +1,115 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Story Snapshots > Default 1`] = `
+<div>
+  <div
+    class="flex flex-col gap-1"
+  >
+    <label
+      class="block text-small"
+      data-slot="label"
+      for="email"
+      id="email-label"
+    >
+      Email
+    </label>
+    <input
+      id="email"
+    />
+  </div>
+</div>
+`;
+
+exports[`Story Snapshots > GroupHeading 1`] = `
+<div>
+  <div
+    aria-labelledby="email-label"
+    role="group"
+  >
+    <div
+      aria-level="3"
+      class="block text-small"
+      data-slot="label"
+      id="email-label"
+      role="heading"
+    >
+      Contact details
+      <span
+        aria-hidden="true"
+        class="ml-0.5 text-danger"
+      >
+        *
+      </span>
+    </div>
+    <label
+      for="contact-email"
+    >
+      Email
+      <input
+        id="contact-email"
+      />
+    </label>
+  </div>
+</div>
+`;
+
+exports[`Story Snapshots > ReactAriaLabel 1`] = `
+<div>
+  <div
+    class="flex flex-col gap-1"
+    data-rac=""
+  >
+    <label
+      class="block text-small"
+      data-slot="label"
+      for="react-aria-«replaced-aria-id»"
+      id="email-label"
+    >
+      Email
+      <span
+        aria-hidden="true"
+        class="ml-0.5 text-danger"
+      >
+        *
+      </span>
+    </label>
+    <input
+      aria-labelledby="email-label"
+      class="react-aria-Input"
+      data-focused="true"
+      data-rac=""
+      id="react-aria-«replaced-aria-id»"
+      tabindex="0"
+      title=""
+      type="text"
+      value=""
+    />
+  </div>
+</div>
+`;
+
+exports[`Story Snapshots > Required 1`] = `
+<div>
+  <div
+    class="flex flex-col gap-1"
+  >
+    <label
+      class="block text-small"
+      data-slot="label"
+      for="email"
+      id="email-label"
+    >
+      Email
+      <span
+        aria-hidden="true"
+        class="ml-0.5 text-danger"
+      >
+        *
+      </span>
+    </label>
+    <input
+      id="email"
+    />
+  </div>
+</div>
+`;

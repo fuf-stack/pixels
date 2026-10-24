@@ -77,6 +77,25 @@ describe('variantsToClassNames with tv', () => {
     });
   });
 
+  it('preserves slot defaults when an override is undefined', () => {
+    const recipe = tv({
+      slots: {
+        label: 'text-sm text-foreground',
+        wrapper: 'border-2',
+      },
+    });
+
+    expect(
+      variantsToClassNames(recipe(), {
+        label: undefined,
+        wrapper: 'border-danger',
+      }),
+    ).toEqual({
+      label: 'text-sm text-foreground',
+      wrapper: 'border-2 border-danger',
+    });
+  });
+
   it('should apply baseSlot logic with tv variants', () => {
     const variants = tv({
       slots: {

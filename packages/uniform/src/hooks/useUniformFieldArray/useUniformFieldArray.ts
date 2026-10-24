@@ -1,5 +1,12 @@
 import type { ReactNode } from 'react';
-import type { ArrayPath, FieldValues, Path } from 'react-hook-form';
+import type {
+  FieldArray as ArrayElement,
+  ArrayPath,
+  FieldValues,
+  Path,
+} from 'react-hook-form';
+import type { UniformFieldState } from '../useUniformField/types';
+import type { FieldArrayElementMethods, FieldArrayItem } from './types';
 
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { useFieldArray as useRHFFieldArray } from 'react-hook-form';
@@ -8,7 +15,7 @@ import { useReducedMotion } from '@fuf-stack/pixel-motion';
 
 import { flatArrayKey, isValueEmpty } from '../../helpers';
 import { useFormContext } from '../useFormContext';
-import { useUniformField } from '../useUniformField';
+import useUniformField from '../useUniformField/useUniformField';
 import { useWatchFormReset } from '../useWatchFormReset';
 
 export interface UseUniformFieldArrayProps<
@@ -44,25 +51,17 @@ export interface UseUniformFieldArrayProps<
  *
  * @see https://react-hook-form.com/docs/usefieldarray
  */
-export const useUniformFieldArray = <
+export const useUniformFieldArrayMethods = <
   TFieldValues extends FieldValues = FieldValues,
->({
-  name,
-  flat = false,
-  elementInitialValue: _elementInitialValue = null,
-  lastElementNotRemovable = false,
-  disabled,
-  testId: explicitTestId,
-  label,
-}: UseUniformFieldArrayProps<TFieldValues>) => {
-  // Get uniform field state and utilities
-  const uniformField = useUniformField<TFieldValues>({
-    name: name as Path<TFieldValues> & string,
-    disabled,
-    testId: explicitTestId,
-    label,
-  });
-
+>(
+  {
+    name,
+    flat = false,
+    elementInitialValue: _elementInitialValue = null,
+    lastElementNotRemovable = false,
+  }: UseUniformFieldArrayProps<TFieldValues>,
+  uniformField: UniformFieldState<TFieldValues>,
+) => {
   const { control } = uniformField;
 
   const { fields, append, remove, insert, move, replace } = useRHFFieldArray({
@@ -240,16 +239,85 @@ export const useUniformFieldArray = <
     [needsInitialize],
   );
 
+  const { testId } = uniformField.field;
+
+  // bind row identification and operations for the renderer
+  const items: FieldArrayItem[] = fields.map((row, index) => {
+    const elementName = flat
+      ? `${name}.${index}.${flatArrayKey}`
+      : `${name}.${index}`;
+    const elementTestId = `${testId}_${index}`;
+
+    const methods: FieldArrayElementMethods = {
+      append: () => {
+        append(elementInitialValue as ArrayElement<TFieldValues>);
+      },
+      duplicate: () => {
+        const values = getValues(name as Path<TFieldValues>);
+        const currentValue = (values as unknown as unknown[])[index];
+
+        insert(
+          index + 1,
+          (flat
+            ? { [flatArrayKey]: currentValue }
+            : currentValue) as ArrayElement<TFieldValues>,
+        );
+      },
+      insert: () => {
+        insert(index + 1, elementInitialValue as ArrayElement<TFieldValues>);
+      },
+      remove: () => {
+        remove(index);
+      },
+    };
+
+    return {
+      id: row.id,
+      renderProps: {
+        index,
+        length: fields.length,
+        methods,
+        name: elementName,
+        testId: elementTestId,
+      },
+    };
+  });
+
+  // append an element using the configured initial value
+  const appendItem = () => {
+    append(elementInitialValue as ArrayElement<TFieldValues>);
+  };
+
+  // validate the array after its row order changes
+  const moveItem = (from: number, to: number) => {
+    move(from, to);
+    trigger(name as Path<TFieldValues>);
+  };
+
   return {
     // Field array methods and state
     fields,
     append,
+    appendItem,
+    items,
     remove,
     insert,
     move,
+    moveItem,
     disableAnimation,
     elementInitialValue,
     // Uniform field state and utilities (spread all)
     ...uniformField,
   };
 };
+
+const useUniformFieldArray = <TFieldValues extends FieldValues = FieldValues>(
+  params: UseUniformFieldArrayProps<TFieldValues>,
+) => {
+  const field = useUniformField<TFieldValues>({
+    ...params,
+    name: params.name as Path<TFieldValues> & string,
+  });
+  return useUniformFieldArrayMethods(params, field);
+};
+export default useUniformFieldArray;

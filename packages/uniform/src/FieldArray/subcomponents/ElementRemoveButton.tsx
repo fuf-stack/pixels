@@ -3,8 +3,8 @@ import type { ClassValue } from '@fuf-stack/pixel-utils';
 import { FaTimes } from 'react-icons/fa';
 
 import { motion } from '@fuf-stack/pixel-motion';
-import { cn } from '@fuf-stack/pixel-utils';
 import { Button } from '@fuf-stack/pixels';
+import { useStyling } from '@fuf-stack/pixels/StylingProvider';
 
 interface ElementRemoveButtonProps {
   /** CSS class name */
@@ -13,7 +13,7 @@ interface ElementRemoveButtonProps {
   disableAnimation?: boolean;
   /** click handler */
   onClick: () => void;
-  /** HTML data-testid attribute used in e2e tests */
+  /** HTML data-testid attribute for e2e tests */
   testId?: string;
 }
 
@@ -23,6 +23,8 @@ const ElementRemoveButton = ({
   onClick,
   testId = undefined,
 }: ElementRemoveButtonProps) => {
+  const { cn } = useStyling();
+
   const button = (
     <Button
       ariaLabel="remove element"

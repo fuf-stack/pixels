@@ -3,7 +3,7 @@
 exports[`Story Snapshots > AddFilterInteraction 1`] = `
 <div>
   <div
-    class="flex flex-auto flex-col w-full"
+    class="flex flex-auto flex-col"
   >
     <div
       class="flex w-full flex-row justify-between gap-6"
@@ -16,15 +16,18 @@ exports[`Story Snapshots > AddFilterInteraction 1`] = `
         name="filterComponentForm"
         novalidate=""
       >
-        <button
-          aria-label="Open mood filter"
-          type="button"
+        <div
+          class="relative box-border inline-flex min-w-min max-w-fit items-center justify-between whitespace-nowrap px-1 text-small bg-primary/20 text-primary-600 h-8 cursor-pointer rounded-md dark:text-foreground"
+          data-slot="base"
         >
-          <div
-            class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 text-small bg-primary/20 text-primary-600 h-8 cursor-pointer rounded-md dark:text-foreground"
+          <span
+            class="flex-1 font-normal text-inherit flex items-center gap-2 px-2 pr-1"
+            data-slot="content"
           >
-            <span
-              class="flex-1 text-inherit font-normal px-2 pr-1 flex items-center gap-2"
+            <button
+              aria-label="Open mood filter"
+              class="flex items-center gap-2"
+              type="button"
             >
               <svg
                 fill="currentColor"
@@ -48,35 +51,38 @@ exports[`Story Snapshots > AddFilterInteraction 1`] = `
                   😊
                 </span>
               </span>
-            </span>
-            <span
-              aria-label="close chip"
-              class="z-10 appearance-none outline-solid outline-transparent select-none transition-opacity opacity-70 hover:opacity-100 cursor-pointer active:opacity-disabled tap-highlight-transparent text-large"
-              data-react-aria-pressable="true"
-              role="button"
-              tabindex="0"
+            </button>
+          </span>
+          <button
+            aria-label="close chip"
+            class="z-10 cursor-pointer select-none appearance-none tap-highlight-transparent opacity-70 transition-opacity hover:opacity-100 active:opacity-disabled motion-reduce:transition-none outline-solid outline-transparent data-[focus-visible=true]:rounded-full data-[focus-visible=true]:ring-1 data-[focus-visible=true]:ring-focus data-[focus-visible=true]:ring-offset-2 data-[focus-visible=true]:ring-offset-background text-large"
+            data-rac=""
+            data-react-aria-pressable="true"
+            data-slot="close-button"
+            id="react-aria-«replaced-aria-id»"
+            tabindex="0"
+            type="button"
+          >
+            <svg
+              aria-hidden="true"
+              fill="none"
+              height="1em"
+              viewBox="0 0 24 24"
+              width="1em"
             >
-              <svg
-                aria-hidden="true"
-                focusable="false"
-                height="1em"
-                role="presentation"
-                viewBox="0 0 24 24"
-                width="1em"
-              >
-                <path
-                  d="M12 2a10 10 0 1010 10A10.016 10.016 0 0012 2zm3.36 12.3a.754.754 0 010 1.06.748.748 0 01-1.06 0l-2.3-2.3-2.3 2.3a.748.748 0 01-1.06 0 .754.754 0 010-1.06l2.3-2.3-2.3-2.3A.75.75 0 019.7 8.64l2.3 2.3 2.3-2.3a.75.75 0 011.06 1.06l-2.3 2.3z"
-                  fill="currentColor"
-                />
-              </svg>
-            </span>
-          </div>
-        </button>
+              <path
+                d="M12 2a10 10 0 1010 10A10.016 10.016 0 0012 2zm3.36 12.3a.754.754 0 010 1.06.748.748 0 01-1.06 0l-2.3-2.3-2.3 2.3a.748.748 0 01-1.06 0 .754.754 0 010-1.06l2.3-2.3-2.3-2.3A.75.75 0 019.7 8.64l2.3 2.3 2.3-2.3a.75.75 0 011.06 1.06l-2.3 2.3z"
+                fill="currentColor"
+              />
+            </svg>
+          </button>
+        </div>
         <button
           aria-expanded="false"
           aria-haspopup="true"
           aria-label="Add Filter"
-          class="group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 border-medium px-3 min-w-16 h-8 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-transparent border-default text-foreground data-[hover=true]:opacity-hover aria-expanded:scale-[0.97] aria-expanded:opacity-70 subpixel-antialiased z-auto"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover group tap-highlight-transparent data-[hover=true]:opacity-hover group relative box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus border-medium h-8 min-w-16 gap-2 rounded-small px-3 text-tiny [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none border-default bg-transparent text-foreground data-[hover=true]:opacity-hover z-auto subpixel-antialiased aria-expanded:!scale-[0.97] aria-expanded:!opacity-70"
+          data-rac=""
           data-react-aria-pressable="true"
           data-slot="trigger"
           data-testid="add_filter_button"
@@ -108,7 +114,7 @@ exports[`Story Snapshots > AddFilterInteraction 1`] = `
 exports[`Story Snapshots > CheckboxesWithReactNodeLabels 1`] = `
 <div>
   <div
-    class="flex flex-auto flex-col w-full"
+    class="flex flex-auto flex-col"
   >
     <div
       class="flex w-full flex-row justify-between gap-6"
@@ -126,9 +132,11 @@ exports[`Story Snapshots > CheckboxesWithReactNodeLabels 1`] = `
         >
           <button
             aria-label="Show search input"
-            class="group tap-highlight-transparent [&>svg]:max-w-[theme(spacing.8)] data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 border-medium text-tiny gap-2 rounded-small px-0 !gap-0 transition-transform-colors-opacity motion-reduce:transition-none bg-transparent border-default text-foreground min-w-8 w-8 h-8 data-[hover=true]:opacity-hover"
+            class="group tap-highlight-transparent [&>svg]:max-w-[theme(spacing.8)] data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus border-medium gap-2 rounded-small text-tiny !gap-0 px-0 transition-transform-colors-opacity motion-reduce:transition-none border-default bg-transparent text-foreground h-8 w-8 min-w-8 data-[hover=true]:opacity-hover"
+            data-rac=""
             data-react-aria-pressable="true"
             data-testid="show_search_input_button"
+            id="react-aria-«replaced-aria-id»"
             tabindex="0"
             type="button"
           >
@@ -147,15 +155,18 @@ exports[`Story Snapshots > CheckboxesWithReactNodeLabels 1`] = `
             </svg>
           </button>
         </div>
-        <button
-          aria-label="Open status filter"
-          type="button"
+        <div
+          class="relative box-border inline-flex min-w-min max-w-fit items-center justify-between whitespace-nowrap px-1 text-small bg-primary/20 text-primary-600 h-8 cursor-pointer rounded-md dark:text-foreground"
+          data-slot="base"
         >
-          <div
-            class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 text-small bg-primary/20 text-primary-600 h-8 cursor-pointer rounded-md dark:text-foreground"
+          <span
+            class="flex-1 font-normal text-inherit flex items-center gap-2 px-2 pr-1"
+            data-slot="content"
           >
-            <span
-              class="flex-1 text-inherit font-normal px-2 pr-1 flex items-center gap-2"
+            <button
+              aria-label="Open status filter"
+              class="flex items-center gap-2"
+              type="button"
             >
               <svg
                 fill="currentColor"
@@ -190,39 +201,44 @@ exports[`Story Snapshots > CheckboxesWithReactNodeLabels 1`] = `
                   </span>
                 </span>
               </span>
-            </span>
-            <span
-              aria-label="close chip"
-              class="z-10 appearance-none outline-solid outline-transparent select-none transition-opacity opacity-70 hover:opacity-100 cursor-pointer active:opacity-disabled tap-highlight-transparent text-large"
-              data-react-aria-pressable="true"
-              role="button"
-              tabindex="0"
-            >
-              <svg
-                aria-hidden="true"
-                focusable="false"
-                height="1em"
-                role="presentation"
-                viewBox="0 0 24 24"
-                width="1em"
-              >
-                <path
-                  d="M12 2a10 10 0 1010 10A10.016 10.016 0 0012 2zm3.36 12.3a.754.754 0 010 1.06.748.748 0 01-1.06 0l-2.3-2.3-2.3 2.3a.748.748 0 01-1.06 0 .754.754 0 010-1.06l2.3-2.3-2.3-2.3A.75.75 0 019.7 8.64l2.3 2.3 2.3-2.3a.75.75 0 011.06 1.06l-2.3 2.3z"
-                  fill="currentColor"
-                />
-              </svg>
-            </span>
-          </div>
-        </button>
-        <button
-          aria-label="Open tags filter"
-          type="button"
-        >
-          <div
-            class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 text-small bg-primary/20 text-primary-600 h-8 cursor-pointer rounded-md dark:text-foreground"
+            </button>
+          </span>
+          <button
+            aria-label="close chip"
+            class="z-10 cursor-pointer select-none appearance-none tap-highlight-transparent opacity-70 transition-opacity hover:opacity-100 active:opacity-disabled motion-reduce:transition-none outline-solid outline-transparent data-[focus-visible=true]:rounded-full data-[focus-visible=true]:ring-1 data-[focus-visible=true]:ring-focus data-[focus-visible=true]:ring-offset-2 data-[focus-visible=true]:ring-offset-background text-large"
+            data-rac=""
+            data-react-aria-pressable="true"
+            data-slot="close-button"
+            id="react-aria-«replaced-aria-id»"
+            tabindex="0"
+            type="button"
           >
-            <span
-              class="flex-1 text-inherit font-normal px-2 pr-1 flex items-center gap-2"
+            <svg
+              aria-hidden="true"
+              fill="none"
+              height="1em"
+              viewBox="0 0 24 24"
+              width="1em"
+            >
+              <path
+                d="M12 2a10 10 0 1010 10A10.016 10.016 0 0012 2zm3.36 12.3a.754.754 0 010 1.06.748.748 0 01-1.06 0l-2.3-2.3-2.3 2.3a.748.748 0 01-1.06 0 .754.754 0 010-1.06l2.3-2.3-2.3-2.3A.75.75 0 019.7 8.64l2.3 2.3 2.3-2.3a.75.75 0 011.06 1.06l-2.3 2.3z"
+                fill="currentColor"
+              />
+            </svg>
+          </button>
+        </div>
+        <div
+          class="relative box-border inline-flex min-w-min max-w-fit items-center justify-between whitespace-nowrap px-1 text-small bg-primary/20 text-primary-600 h-8 cursor-pointer rounded-md dark:text-foreground"
+          data-slot="base"
+        >
+          <span
+            class="flex-1 font-normal text-inherit flex items-center gap-2 px-2 pr-1"
+            data-slot="content"
+          >
+            <button
+              aria-label="Open tags filter"
+              class="flex items-center gap-2"
+              type="button"
             >
               <svg
                 fill="currentColor"
@@ -250,36 +266,39 @@ exports[`Story Snapshots > CheckboxesWithReactNodeLabels 1`] = `
                   </span>
                 </span>
               </span>
-            </span>
-            <span
-              aria-label="close chip"
-              class="z-10 appearance-none outline-solid outline-transparent select-none transition-opacity opacity-70 hover:opacity-100 cursor-pointer active:opacity-disabled tap-highlight-transparent text-large"
-              data-react-aria-pressable="true"
-              role="button"
-              tabindex="0"
+            </button>
+          </span>
+          <button
+            aria-label="close chip"
+            class="z-10 cursor-pointer select-none appearance-none tap-highlight-transparent opacity-70 transition-opacity hover:opacity-100 active:opacity-disabled motion-reduce:transition-none outline-solid outline-transparent data-[focus-visible=true]:rounded-full data-[focus-visible=true]:ring-1 data-[focus-visible=true]:ring-focus data-[focus-visible=true]:ring-offset-2 data-[focus-visible=true]:ring-offset-background text-large"
+            data-rac=""
+            data-react-aria-pressable="true"
+            data-slot="close-button"
+            id="react-aria-«replaced-aria-id»"
+            tabindex="0"
+            type="button"
+          >
+            <svg
+              aria-hidden="true"
+              fill="none"
+              height="1em"
+              viewBox="0 0 24 24"
+              width="1em"
             >
-              <svg
-                aria-hidden="true"
-                focusable="false"
-                height="1em"
-                role="presentation"
-                viewBox="0 0 24 24"
-                width="1em"
-              >
-                <path
-                  d="M12 2a10 10 0 1010 10A10.016 10.016 0 0012 2zm3.36 12.3a.754.754 0 010 1.06.748.748 0 01-1.06 0l-2.3-2.3-2.3 2.3a.748.748 0 01-1.06 0 .754.754 0 010-1.06l2.3-2.3-2.3-2.3A.75.75 0 019.7 8.64l2.3 2.3 2.3-2.3a.75.75 0 011.06 1.06l-2.3 2.3z"
-                  fill="currentColor"
-                />
-              </svg>
-            </span>
-          </div>
-        </button>
+              <path
+                d="M12 2a10 10 0 1010 10A10.016 10.016 0 0012 2zm3.36 12.3a.754.754 0 010 1.06.748.748 0 01-1.06 0l-2.3-2.3-2.3 2.3a.748.748 0 01-1.06 0 .754.754 0 010-1.06l2.3-2.3-2.3-2.3A.75.75 0 019.7 8.64l2.3 2.3 2.3-2.3a.75.75 0 011.06 1.06l-2.3 2.3z"
+                fill="currentColor"
+              />
+            </svg>
+          </button>
+        </div>
         <button
           aria-expanded="false"
           aria-haspopup="true"
           aria-label="Add Filter"
-          class="group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 border-medium px-3 min-w-16 h-8 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-transparent border-default text-foreground data-[hover=true]:opacity-hover aria-expanded:scale-[0.97] aria-expanded:opacity-70 subpixel-antialiased opacity-disabled pointer-events-none z-auto"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover group tap-highlight-transparent pointer-events-none opacity-disabled data-[hover=true]:opacity-hover group relative box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus border-medium h-8 min-w-16 gap-2 rounded-small px-3 text-tiny [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none border-default bg-transparent text-foreground data-[hover=true]:opacity-hover z-auto subpixel-antialiased aria-expanded:!scale-[0.97] aria-expanded:!opacity-70"
           data-disabled="true"
+          data-rac=""
           data-react-aria-pressable="true"
           data-slot="trigger"
           data-testid="add_filter_button"
@@ -308,10 +327,10 @@ exports[`Story Snapshots > CheckboxesWithReactNodeLabels 1`] = `
 </div>
 `;
 
-exports[`Story Snapshots > FiltersOnly 1`] = `
+exports[`Story Snapshots > EditAndRemove 1`] = `
 <div>
   <div
-    class="flex flex-auto flex-col w-full"
+    class="flex flex-auto flex-col"
   >
     <div
       class="flex w-full flex-row justify-between gap-6"
@@ -328,7 +347,58 @@ exports[`Story Snapshots > FiltersOnly 1`] = `
           aria-expanded="false"
           aria-haspopup="true"
           aria-label="Add Filter"
-          class="group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 border-medium px-3 min-w-16 h-8 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-transparent border-default text-foreground data-[hover=true]:opacity-hover aria-expanded:scale-[0.97] aria-expanded:opacity-70 subpixel-antialiased z-auto"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover group tap-highlight-transparent data-[hover=true]:opacity-hover group relative box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus border-medium h-8 min-w-16 gap-2 rounded-small px-3 text-tiny [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none border-default bg-transparent text-foreground data-[hover=true]:opacity-hover z-auto subpixel-antialiased aria-expanded:!scale-[0.97] aria-expanded:!opacity-70"
+          data-rac=""
+          data-react-aria-pressable="true"
+          data-slot="trigger"
+          data-testid="add_filter_button"
+          id="react-aria-«replaced-aria-id»"
+          tabindex="0"
+          type="button"
+        >
+          <svg
+            fill="currentColor"
+            height="1em"
+            stroke="currentColor"
+            stroke-width="0"
+            viewBox="0 0 512 512"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0 416c0 17.7 14.3 32 32 32l54.7 0c12.3 28.3 40.5 48 73.3 48s61-19.7 73.3-48L480 448c17.7 0 32-14.3 32-32s-14.3-32-32-32l-246.7 0c-12.3-28.3-40.5-48-73.3-48s-61 19.7-73.3 48L32 384c-17.7 0-32 14.3-32 32zm128 0a32 32 0 1 1 64 0 32 32 0 1 1 -64 0zM320 256a32 32 0 1 1 64 0 32 32 0 1 1 -64 0zm32-80c-32.8 0-61 19.7-73.3 48L32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l246.7 0c12.3 28.3 40.5 48 73.3 48s61-19.7 73.3-48l54.7 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-54.7 0c-12.3-28.3-40.5-48-73.3-48zM192 128a32 32 0 1 1 0-64 32 32 0 1 1 0 64zm73.3-64C253 35.7 224.8 16 192 16s-61 19.7-73.3 48L32 64C14.3 64 0 78.3 0 96s14.3 32 32 32l86.7 0c12.3 28.3 40.5 48 73.3 48s61-19.7 73.3-48L480 128c17.7 0 32-14.3 32-32s-14.3-32-32-32L265.3 64z"
+            />
+          </svg>
+          Filter
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Story Snapshots > FiltersOnly 1`] = `
+<div>
+  <div
+    class="flex flex-auto flex-col"
+  >
+    <div
+      class="flex w-full flex-row justify-between gap-6"
+    >
+      <form
+        class="grow mb-3 flex flex-wrap gap-3"
+        data-form-is-valid="true"
+        data-testid="filtercomponentform"
+        id="filterComponentForm"
+        name="filterComponentForm"
+        novalidate=""
+      >
+        <button
+          aria-expanded="false"
+          aria-haspopup="true"
+          aria-label="Add Filter"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover group tap-highlight-transparent data-[hover=true]:opacity-hover group relative box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus border-medium h-8 min-w-16 gap-2 rounded-small px-3 text-tiny [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none border-default bg-transparent text-foreground data-[hover=true]:opacity-hover z-auto subpixel-antialiased aria-expanded:!scale-[0.97] aria-expanded:!opacity-70"
+          data-rac=""
           data-react-aria-pressable="true"
           data-slot="trigger"
           data-testid="add_filter_button"
@@ -381,74 +451,69 @@ exports[`Story Snapshots > WithCustomStyles 1`] = `
             style="opacity: 1;"
           >
             <div
-              class="group flex flex-col data-[hidden=true]:hidden w-full relative justify-end data-[has-label=true]:mt-[calc(var(--heroui-font-size-small)_+_8px)] is-filled"
+              class="group relative flex w-full flex-col is-filled"
               data-filled="true"
-              data-filled-within="true"
-              data-has-elements="true"
-              data-has-helper="true"
-              data-has-value="true"
+              data-rac=""
               data-slot="base"
             >
               <div
-                class="h-full flex flex-col"
-                data-slot="main-wrapper"
+                class="relative inline-flex w-full cursor-text items-center shadow-xs group-data-[disabled=true]:pointer-events-none group-data-[invalid=true]:border-danger group-data-[focus=true]:data-[hovered=true]:border-default-foreground motion-reduce:transition-none is-filled h-8 min-h-8 rounded-2xl px-4 transition-colors duration-500 bg-gradient-to-r from-fuchsia-100 via-rose-100 to-amber-100 dark:from-fuchsia-900 dark:via-rose-900 dark:to-amber-900 border-2 border-fuchsia-400 data-[hovered=true]:border-amber-400 group-data-[focus=true]:border-amber-400 text-fuchsia-700 dark:text-fuchsia-300"
+                data-rac=""
+                data-slot="input-wrapper"
+                role="presentation"
               >
                 <div
-                  class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs gap-3 group-data-[focus=true]:data-[hover=true]:border-default-foreground h-8 min-h-8 !duration-150 motion-reduce:transition-none rounded-2xl px-4 transition-colors duration-500 bg-gradient-to-r from-fuchsia-100 via-rose-100 to-amber-100 dark:from-fuchsia-900 dark:via-rose-900 dark:to-amber-900 border-2 border-fuchsia-400 data-[hover=true]:border-amber-400 group-data-[focus=true]:border-amber-400 text-fuchsia-700 dark:text-fuchsia-300 is-filled"
-                  data-slot="input-wrapper"
-                  style="cursor: text;"
+                  class="inline-flex h-full w-full items-center gap-0"
+                  data-slot="inner-wrapper"
                 >
-                  <div
-                    class="inline-flex w-full items-center h-full box-border"
-                    data-slot="inner-wrapper"
+                  <input
+                    aria-label="Search with party vibes…"
+                    autocomplete="off"
+                    class="w-full min-w-0 bg-transparent bg-clip-text font-normal text-inherit outline-none autofill:bg-transparent data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden is-filled pe-6 text-small placeholder:text-fuchsia-400/70 dark:placeholder:text-fuchsia-500/60"
+                    data-filled="true"
+                    data-has-end-content="true"
+                    data-rac=""
+                    data-slot="input"
+                    data-testid="search"
+                    id="uniform-«replaced-aria-id»"
+                    name="search"
+                    placeholder="Search with party vibes…"
+                    tabindex="0"
+                    type="text"
+                    value="party"
+                  />
+                  <button
+                    aria-label="clear input"
+                    class="absolute end-3 z-10 -m-2 cursor-pointer rounded-full p-2 opacity-70 outline-none hover:opacity-100 focus-visible:outline-2 focus-visible:outline-focus text-medium"
+                    data-rac=""
+                    data-react-aria-pressable="true"
+                    data-slot="clear-button"
+                    id="react-aria-«replaced-aria-id»"
+                    tabindex="0"
+                    type="button"
                   >
-                    <input
-                      aria-label="Search with party vibes…"
-                      autocomplete="off"
-                      class="w-full font-normal bg-transparent !outline-solid focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text dark:autofill:[-webkit-text-fill-color:hsl(var(--heroui-foreground))] [&::-ms-reveal]:hidden text-small peer pe-6 input-search-cancel-button-none placeholder:text-fuchsia-400/70 dark:placeholder:text-fuchsia-500/60 is-filled"
-                      data-filled="true"
-                      data-filled-within="true"
-                      data-slot="input"
-                      data-testid="search"
-                      id="search"
-                      name="search"
-                      placeholder="Search with party vibes…"
-                      tabindex="0"
-                      title=""
-                      type="text"
-                      value="party"
-                    />
-                    <button
-                      aria-label="clear input"
-                      class="p-2 -m-2 z-10 absolute end-3 start-auto pointer-events-none appearance-none select-none opacity-0 cursor-pointer active:!opacity-70 rounded-full outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-medium peer-data-[filled=true]:pointer-events-auto peer-data-[filled=true]:opacity-70 peer-data-[filled=true]:block peer-data-[filled=true]:scale-100 scale-90 ease-out duration-150 transition-[opacity,transform] motion-reduce:transition-none motion-reduce:scale-100"
-                      data-react-aria-pressable="true"
-                      data-slot="clear-button"
-                      tabindex="-1"
-                      type="button"
+                    <svg
+                      aria-hidden="true"
+                      height="1em"
+                      viewBox="0 0 24 24"
+                      width="1em"
                     >
-                      <svg
-                        aria-hidden="true"
-                        focusable="false"
-                        height="1em"
-                        role="presentation"
-                        viewBox="0 0 24 24"
-                        width="1em"
-                      >
-                        <path
-                          d="M12 2a10 10 0 1010 10A10.016 10.016 0 0012 2zm3.36 12.3a.754.754 0 010 1.06.748.748 0 01-1.06 0l-2.3-2.3-2.3 2.3a.748.748 0 01-1.06 0 .754.754 0 010-1.06l2.3-2.3-2.3-2.3A.75.75 0 019.7 8.64l2.3 2.3 2.3-2.3a.75.75 0 011.06 1.06l-2.3 2.3z"
-                          fill="currentColor"
-                        />
-                      </svg>
-                    </button>
-                  </div>
+                      <path
+                        d="M12 2a10 10 0 1010 10A10.016 10.016 0 0012 2zm3.36 12.3a.754.754 0 010 1.06.748.748 0 01-1.06 0l-2.3-2.3-2.3 2.3a.748.748 0 01-1.06 0 .754.754 0 010-1.06l2.3-2.3-2.3-2.3A.75.75 0 019.7 8.64l2.3 2.3 2.3-2.3a.75.75 0 011.06 1.06l-2.3 2.3z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                  </button>
                 </div>
               </div>
             </div>
             <button
               aria-label="Submit search"
-              class="group tap-highlight-transparent [&>svg]:max-w-[theme(spacing.8)] data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 text-tiny gap-2 px-0 !gap-0 motion-reduce:transition-none min-w-8 w-8 h-8 data-[hover=true]:opacity-hover rounded-full text-white shadow-lg transition-transform bg-gradient-to-br from-fuchsia-500 to-indigo-500 hover:scale-105 active:scale-95 dark:from-fuchsia-500 dark:to-purple-600 data-[focus-visible=true]:outline-amber-400"
+              class="group tap-highlight-transparent [&>svg]:max-w-[theme(spacing.8)] data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 gap-2 text-tiny !gap-0 px-0 motion-reduce:transition-none h-8 w-8 min-w-8 data-[hover=true]:opacity-hover rounded-full text-white shadow-lg transition-transform bg-gradient-to-br from-fuchsia-500 to-indigo-500 hover:scale-105 active:scale-95 dark:from-fuchsia-500 dark:to-purple-600 data-[focus-visible=true]:outline-amber-400"
+              data-rac=""
               data-react-aria-pressable="true"
               data-testid="submit_search_button"
+              id="react-aria-«replaced-aria-id»"
               tabindex="0"
               type="submit"
             >
@@ -468,15 +533,18 @@ exports[`Story Snapshots > WithCustomStyles 1`] = `
             </button>
           </div>
         </div>
-        <button
-          aria-label="Open magical filter"
-          type="button"
+        <div
+          class="relative box-border inline-flex min-w-min max-w-fit items-center justify-between whitespace-nowrap px-1 text-small h-8 cursor-pointer rounded-full border text-amber-900 shadow transition hover:shadow-md border-amber-400/30 bg-amber-200/85 dark:bg-amber-400/20 dark:text-amber-200"
+          data-slot="base"
         >
-          <div
-            class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 text-small h-8 cursor-pointer rounded-full border text-amber-900 shadow transition hover:shadow-md border-amber-400/30 bg-amber-200/85 dark:bg-amber-400/20 dark:text-amber-200"
+          <span
+            class="flex-1 font-normal text-inherit flex items-center gap-2 px-2 pr-1"
+            data-slot="content"
           >
-            <span
-              class="flex-1 text-inherit font-normal px-2 pr-1 flex items-center gap-2"
+            <button
+              aria-label="Open magical filter"
+              class="flex items-center gap-2"
+              type="button"
             >
               <svg
                 fill="currentColor"
@@ -492,39 +560,44 @@ exports[`Story Snapshots > WithCustomStyles 1`] = `
                 />
               </svg>
               is Magical
-            </span>
-            <span
-              aria-label="close chip"
-              class="z-10 appearance-none outline-solid outline-transparent select-none transition-opacity opacity-70 hover:opacity-100 cursor-pointer active:opacity-disabled tap-highlight-transparent text-large"
-              data-react-aria-pressable="true"
-              role="button"
-              tabindex="0"
-            >
-              <svg
-                aria-hidden="true"
-                focusable="false"
-                height="1em"
-                role="presentation"
-                viewBox="0 0 24 24"
-                width="1em"
-              >
-                <path
-                  d="M12 2a10 10 0 1010 10A10.016 10.016 0 0012 2zm3.36 12.3a.754.754 0 010 1.06.748.748 0 01-1.06 0l-2.3-2.3-2.3 2.3a.748.748 0 01-1.06 0 .754.754 0 010-1.06l2.3-2.3-2.3-2.3A.75.75 0 019.7 8.64l2.3 2.3 2.3-2.3a.75.75 0 011.06 1.06l-2.3 2.3z"
-                  fill="currentColor"
-                />
-              </svg>
-            </span>
-          </div>
-        </button>
-        <button
-          aria-label="Open mood filter"
-          type="button"
-        >
-          <div
-            class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 text-small h-8 cursor-pointer rounded-full border text-amber-900 shadow transition hover:shadow-md border-amber-400/30 bg-amber-200/85 dark:bg-amber-400/20 dark:text-amber-200"
+            </button>
+          </span>
+          <button
+            aria-label="close chip"
+            class="z-10 cursor-pointer select-none appearance-none tap-highlight-transparent opacity-70 transition-opacity hover:opacity-100 active:opacity-disabled motion-reduce:transition-none outline-solid outline-transparent data-[focus-visible=true]:rounded-full data-[focus-visible=true]:ring-1 data-[focus-visible=true]:ring-focus data-[focus-visible=true]:ring-offset-2 data-[focus-visible=true]:ring-offset-background text-large"
+            data-rac=""
+            data-react-aria-pressable="true"
+            data-slot="close-button"
+            id="react-aria-«replaced-aria-id»"
+            tabindex="0"
+            type="button"
           >
-            <span
-              class="flex-1 text-inherit font-normal px-2 pr-1 flex items-center gap-2"
+            <svg
+              aria-hidden="true"
+              fill="none"
+              height="1em"
+              viewBox="0 0 24 24"
+              width="1em"
+            >
+              <path
+                d="M12 2a10 10 0 1010 10A10.016 10.016 0 0012 2zm3.36 12.3a.754.754 0 010 1.06.748.748 0 01-1.06 0l-2.3-2.3-2.3 2.3a.748.748 0 01-1.06 0 .754.754 0 010-1.06l2.3-2.3-2.3-2.3A.75.75 0 019.7 8.64l2.3 2.3 2.3-2.3a.75.75 0 011.06 1.06l-2.3 2.3z"
+                fill="currentColor"
+              />
+            </svg>
+          </button>
+        </div>
+        <div
+          class="relative box-border inline-flex min-w-min max-w-fit items-center justify-between whitespace-nowrap px-1 text-small h-8 cursor-pointer rounded-full border text-amber-900 shadow transition hover:shadow-md border-amber-400/30 bg-amber-200/85 dark:bg-amber-400/20 dark:text-amber-200"
+          data-slot="base"
+        >
+          <span
+            class="flex-1 font-normal text-inherit flex items-center gap-2 px-2 pr-1"
+            data-slot="content"
+          >
+            <button
+              aria-label="Open mood filter"
+              class="flex items-center gap-2"
+              type="button"
             >
               <svg
                 fill="currentColor"
@@ -548,39 +621,44 @@ exports[`Story Snapshots > WithCustomStyles 1`] = `
                   🤖
                 </span>
               </span>
-            </span>
-            <span
-              aria-label="close chip"
-              class="z-10 appearance-none outline-solid outline-transparent select-none transition-opacity opacity-70 hover:opacity-100 cursor-pointer active:opacity-disabled tap-highlight-transparent text-large"
-              data-react-aria-pressable="true"
-              role="button"
-              tabindex="0"
-            >
-              <svg
-                aria-hidden="true"
-                focusable="false"
-                height="1em"
-                role="presentation"
-                viewBox="0 0 24 24"
-                width="1em"
-              >
-                <path
-                  d="M12 2a10 10 0 1010 10A10.016 10.016 0 0012 2zm3.36 12.3a.754.754 0 010 1.06.748.748 0 01-1.06 0l-2.3-2.3-2.3 2.3a.748.748 0 01-1.06 0 .754.754 0 010-1.06l2.3-2.3-2.3-2.3A.75.75 0 019.7 8.64l2.3 2.3 2.3-2.3a.75.75 0 011.06 1.06l-2.3 2.3z"
-                  fill="currentColor"
-                />
-              </svg>
-            </span>
-          </div>
-        </button>
-        <button
-          aria-label="Open snacks filter"
-          type="button"
-        >
-          <div
-            class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 text-small h-8 cursor-pointer rounded-full border text-amber-900 shadow transition hover:shadow-md border-amber-400/30 bg-amber-200/85 dark:bg-amber-400/20 dark:text-amber-200"
+            </button>
+          </span>
+          <button
+            aria-label="close chip"
+            class="z-10 cursor-pointer select-none appearance-none tap-highlight-transparent opacity-70 transition-opacity hover:opacity-100 active:opacity-disabled motion-reduce:transition-none outline-solid outline-transparent data-[focus-visible=true]:rounded-full data-[focus-visible=true]:ring-1 data-[focus-visible=true]:ring-focus data-[focus-visible=true]:ring-offset-2 data-[focus-visible=true]:ring-offset-background text-large"
+            data-rac=""
+            data-react-aria-pressable="true"
+            data-slot="close-button"
+            id="react-aria-«replaced-aria-id»"
+            tabindex="0"
+            type="button"
           >
-            <span
-              class="flex-1 text-inherit font-normal px-2 pr-1 flex items-center gap-2"
+            <svg
+              aria-hidden="true"
+              fill="none"
+              height="1em"
+              viewBox="0 0 24 24"
+              width="1em"
+            >
+              <path
+                d="M12 2a10 10 0 1010 10A10.016 10.016 0 0012 2zm3.36 12.3a.754.754 0 010 1.06.748.748 0 01-1.06 0l-2.3-2.3-2.3 2.3a.748.748 0 01-1.06 0 .754.754 0 010-1.06l2.3-2.3-2.3-2.3A.75.75 0 019.7 8.64l2.3 2.3 2.3-2.3a.75.75 0 011.06 1.06l-2.3 2.3z"
+                fill="currentColor"
+              />
+            </svg>
+          </button>
+        </div>
+        <div
+          class="relative box-border inline-flex min-w-min max-w-fit items-center justify-between whitespace-nowrap px-1 text-small h-8 cursor-pointer rounded-full border text-amber-900 shadow transition hover:shadow-md border-amber-400/30 bg-amber-200/85 dark:bg-amber-400/20 dark:text-amber-200"
+          data-slot="base"
+        >
+          <span
+            class="flex-1 font-normal text-inherit flex items-center gap-2 px-2 pr-1"
+            data-slot="content"
+          >
+            <button
+              aria-label="Open snacks filter"
+              class="flex items-center gap-2"
+              type="button"
             >
               <svg
                 fill="currentColor"
@@ -607,35 +685,38 @@ exports[`Story Snapshots > WithCustomStyles 1`] = `
                   🍿
                 </span>
               </span>
-            </span>
-            <span
-              aria-label="close chip"
-              class="z-10 appearance-none outline-solid outline-transparent select-none transition-opacity opacity-70 hover:opacity-100 cursor-pointer active:opacity-disabled tap-highlight-transparent text-large"
-              data-react-aria-pressable="true"
-              role="button"
-              tabindex="0"
+            </button>
+          </span>
+          <button
+            aria-label="close chip"
+            class="z-10 cursor-pointer select-none appearance-none tap-highlight-transparent opacity-70 transition-opacity hover:opacity-100 active:opacity-disabled motion-reduce:transition-none outline-solid outline-transparent data-[focus-visible=true]:rounded-full data-[focus-visible=true]:ring-1 data-[focus-visible=true]:ring-focus data-[focus-visible=true]:ring-offset-2 data-[focus-visible=true]:ring-offset-background text-large"
+            data-rac=""
+            data-react-aria-pressable="true"
+            data-slot="close-button"
+            id="react-aria-«replaced-aria-id»"
+            tabindex="0"
+            type="button"
+          >
+            <svg
+              aria-hidden="true"
+              fill="none"
+              height="1em"
+              viewBox="0 0 24 24"
+              width="1em"
             >
-              <svg
-                aria-hidden="true"
-                focusable="false"
-                height="1em"
-                role="presentation"
-                viewBox="0 0 24 24"
-                width="1em"
-              >
-                <path
-                  d="M12 2a10 10 0 1010 10A10.016 10.016 0 0012 2zm3.36 12.3a.754.754 0 010 1.06.748.748 0 01-1.06 0l-2.3-2.3-2.3 2.3a.748.748 0 01-1.06 0 .754.754 0 010-1.06l2.3-2.3-2.3-2.3A.75.75 0 019.7 8.64l2.3 2.3 2.3-2.3a.75.75 0 011.06 1.06l-2.3 2.3z"
-                  fill="currentColor"
-                />
-              </svg>
-            </span>
-          </div>
-        </button>
+              <path
+                d="M12 2a10 10 0 1010 10A10.016 10.016 0 0012 2zm3.36 12.3a.754.754 0 010 1.06.748.748 0 01-1.06 0l-2.3-2.3-2.3 2.3a.748.748 0 01-1.06 0 .754.754 0 010-1.06l2.3-2.3-2.3-2.3A.75.75 0 019.7 8.64l2.3 2.3 2.3-2.3a.75.75 0 011.06 1.06l-2.3 2.3z"
+                fill="currentColor"
+              />
+            </svg>
+          </button>
+        </div>
         <button
           aria-expanded="false"
           aria-haspopup="true"
           aria-label="Add Filter"
-          class="group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 px-3 min-w-16 h-8 text-tiny gap-2 [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover aria-expanded:scale-[0.97] aria-expanded:opacity-70 subpixel-antialiased z-auto rounded-full leading-none border-2 border-rose-300/60 bg-rose-50/60 text-rose-700 hover:bg-rose-100/70 dark:border-fuchsia-500/40 dark:bg-fuchsia-500/10 dark:text-fuchsia-200 dark:hover:bg-fuchsia-500/20 data-[focus-visible=true]:outline-amber-400"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover group tap-highlight-transparent data-[hover=true]:opacity-hover group relative box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 h-8 min-w-16 gap-2 px-3 text-tiny [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover z-auto subpixel-antialiased aria-expanded:!scale-[0.97] aria-expanded:!opacity-70 rounded-full leading-none border-2 border-rose-300/60 bg-rose-50/60 text-rose-700 hover:bg-rose-100/70 dark:border-fuchsia-500/40 dark:bg-fuchsia-500/10 dark:text-fuchsia-200 dark:hover:bg-fuchsia-500/20 data-[focus-visible=true]:outline-amber-400"
+          data-rac=""
           data-react-aria-pressable="true"
           data-slot="trigger"
           data-testid="add_filter_button"
@@ -667,7 +748,7 @@ exports[`Story Snapshots > WithCustomStyles 1`] = `
 exports[`Story Snapshots > WithInitialValue 1`] = `
 <div>
   <div
-    class="flex flex-auto flex-col w-full"
+    class="flex flex-auto flex-col"
   >
     <div
       class="flex w-full flex-row justify-between gap-6"
@@ -688,74 +769,69 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
             style="opacity: 1;"
           >
             <div
-              class="group flex flex-col data-[hidden=true]:hidden w-full relative justify-end data-[has-label=true]:mt-[calc(var(--heroui-font-size-small)_+_8px)] is-filled"
+              class="group relative flex w-full flex-col is-filled"
               data-filled="true"
-              data-filled-within="true"
-              data-has-elements="true"
-              data-has-helper="true"
-              data-has-value="true"
+              data-rac=""
               data-slot="base"
             >
               <div
-                class="h-full flex flex-col"
-                data-slot="main-wrapper"
+                class="relative inline-flex w-full cursor-text items-center shadow-xs rounded-small border-medium border-default-200 bg-content1 text-foreground transition-colors group-data-[disabled=true]:pointer-events-none group-data-[focus=true]:border-focus group-data-[invalid=true]:border-danger data-[hovered=true]:border-default-400 group-data-[focus=true]:data-[hovered=true]:border-default-foreground motion-reduce:transition-none is-filled h-8 min-h-8 px-2"
+                data-rac=""
+                data-slot="input-wrapper"
+                role="presentation"
               >
                 <div
-                  class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 group-data-[focus=true]:data-[hover=true]:border-default-foreground h-8 min-h-8 px-2 rounded-small !duration-150 transition-colors motion-reduce:transition-none bg-content1 group-data-[focus=true]:border-focus is-filled"
-                  data-slot="input-wrapper"
-                  style="cursor: text;"
+                  class="inline-flex h-full w-full items-center gap-0"
+                  data-slot="inner-wrapper"
                 >
-                  <div
-                    class="inline-flex w-full items-center h-full box-border"
-                    data-slot="inner-wrapper"
+                  <input
+                    aria-label="Search something fun…"
+                    autocomplete="off"
+                    class="w-full min-w-0 bg-transparent bg-clip-text font-normal text-inherit outline-none placeholder:text-foreground-500 autofill:bg-transparent data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden is-filled pe-6 text-small"
+                    data-filled="true"
+                    data-has-end-content="true"
+                    data-rac=""
+                    data-slot="input"
+                    data-testid="search"
+                    id="uniform-«replaced-aria-id»"
+                    name="search"
+                    placeholder="Search something fun…"
+                    tabindex="0"
+                    type="text"
+                    value="tonight"
+                  />
+                  <button
+                    aria-label="clear input"
+                    class="absolute end-3 z-10 -m-2 cursor-pointer rounded-full p-2 opacity-70 outline-none hover:opacity-100 focus-visible:outline-2 focus-visible:outline-focus text-medium"
+                    data-rac=""
+                    data-react-aria-pressable="true"
+                    data-slot="clear-button"
+                    id="react-aria-«replaced-aria-id»"
+                    tabindex="0"
+                    type="button"
                   >
-                    <input
-                      aria-label="Search something fun…"
-                      autocomplete="off"
-                      class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text dark:autofill:[-webkit-text-fill-color:hsl(var(--heroui-foreground))] [&::-ms-reveal]:hidden text-small peer pe-6 input-search-cancel-button-none is-filled"
-                      data-filled="true"
-                      data-filled-within="true"
-                      data-slot="input"
-                      data-testid="search"
-                      id="search"
-                      name="search"
-                      placeholder="Search something fun…"
-                      tabindex="0"
-                      title=""
-                      type="text"
-                      value="tonight"
-                    />
-                    <button
-                      aria-label="clear input"
-                      class="p-2 -m-2 z-10 absolute end-3 start-auto pointer-events-none appearance-none select-none opacity-0 cursor-pointer active:!opacity-70 rounded-full outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-medium peer-data-[filled=true]:pointer-events-auto peer-data-[filled=true]:opacity-70 peer-data-[filled=true]:block peer-data-[filled=true]:scale-100 scale-90 ease-out duration-150 transition-[opacity,transform] motion-reduce:transition-none motion-reduce:scale-100"
-                      data-react-aria-pressable="true"
-                      data-slot="clear-button"
-                      tabindex="-1"
-                      type="button"
+                    <svg
+                      aria-hidden="true"
+                      height="1em"
+                      viewBox="0 0 24 24"
+                      width="1em"
                     >
-                      <svg
-                        aria-hidden="true"
-                        focusable="false"
-                        height="1em"
-                        role="presentation"
-                        viewBox="0 0 24 24"
-                        width="1em"
-                      >
-                        <path
-                          d="M12 2a10 10 0 1010 10A10.016 10.016 0 0012 2zm3.36 12.3a.754.754 0 010 1.06.748.748 0 01-1.06 0l-2.3-2.3-2.3 2.3a.748.748 0 01-1.06 0 .754.754 0 010-1.06l2.3-2.3-2.3-2.3A.75.75 0 019.7 8.64l2.3 2.3 2.3-2.3a.75.75 0 011.06 1.06l-2.3 2.3z"
-                          fill="currentColor"
-                        />
-                      </svg>
-                    </button>
-                  </div>
+                      <path
+                        d="M12 2a10 10 0 1010 10A10.016 10.016 0 0012 2zm3.36 12.3a.754.754 0 010 1.06.748.748 0 01-1.06 0l-2.3-2.3-2.3 2.3a.748.748 0 01-1.06 0 .754.754 0 010-1.06l2.3-2.3-2.3-2.3A.75.75 0 019.7 8.64l2.3 2.3 2.3-2.3a.75.75 0 011.06 1.06l-2.3 2.3z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                  </button>
                 </div>
               </div>
             </div>
             <button
               aria-label="Submit search"
-              class="group tap-highlight-transparent [&>svg]:max-w-[theme(spacing.8)] data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny gap-2 rounded-small px-0 !gap-0 transition-transform-colors-opacity motion-reduce:transition-none bg-primary text-primary-foreground min-w-8 w-8 h-8 data-[hover=true]:opacity-hover"
+              class="group tap-highlight-transparent [&>svg]:max-w-[theme(spacing.8)] data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus gap-2 rounded-small text-tiny !gap-0 px-0 transition-transform-colors-opacity motion-reduce:transition-none bg-primary text-primary-foreground h-8 w-8 min-w-8 data-[hover=true]:opacity-hover"
+              data-rac=""
               data-react-aria-pressable="true"
               data-testid="submit_search_button"
+              id="react-aria-«replaced-aria-id»"
               tabindex="0"
               type="submit"
             >
@@ -775,15 +851,18 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
             </button>
           </div>
         </div>
-        <button
-          aria-label="Open magical filter"
-          type="button"
+        <div
+          class="relative box-border inline-flex min-w-min max-w-fit items-center justify-between whitespace-nowrap px-1 text-small bg-primary/20 text-primary-600 h-8 cursor-pointer rounded-md dark:text-foreground"
+          data-slot="base"
         >
-          <div
-            class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 text-small bg-primary/20 text-primary-600 h-8 cursor-pointer rounded-md dark:text-foreground"
+          <span
+            class="flex-1 font-normal text-inherit flex items-center gap-2 px-2 pr-1"
+            data-slot="content"
           >
-            <span
-              class="flex-1 text-inherit font-normal px-2 pr-1 flex items-center gap-2"
+            <button
+              aria-label="Open magical filter"
+              class="flex items-center gap-2"
+              type="button"
             >
               <svg
                 fill="currentColor"
@@ -799,39 +878,44 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
                 />
               </svg>
               is Magical
-            </span>
-            <span
-              aria-label="close chip"
-              class="z-10 appearance-none outline-solid outline-transparent select-none transition-opacity opacity-70 hover:opacity-100 cursor-pointer active:opacity-disabled tap-highlight-transparent text-large"
-              data-react-aria-pressable="true"
-              role="button"
-              tabindex="0"
-            >
-              <svg
-                aria-hidden="true"
-                focusable="false"
-                height="1em"
-                role="presentation"
-                viewBox="0 0 24 24"
-                width="1em"
-              >
-                <path
-                  d="M12 2a10 10 0 1010 10A10.016 10.016 0 0012 2zm3.36 12.3a.754.754 0 010 1.06.748.748 0 01-1.06 0l-2.3-2.3-2.3 2.3a.748.748 0 01-1.06 0 .754.754 0 010-1.06l2.3-2.3-2.3-2.3A.75.75 0 019.7 8.64l2.3 2.3 2.3-2.3a.75.75 0 011.06 1.06l-2.3 2.3z"
-                  fill="currentColor"
-                />
-              </svg>
-            </span>
-          </div>
-        </button>
-        <button
-          aria-label="Open mood filter"
-          type="button"
-        >
-          <div
-            class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 text-small bg-primary/20 text-primary-600 h-8 cursor-pointer rounded-md dark:text-foreground"
+            </button>
+          </span>
+          <button
+            aria-label="close chip"
+            class="z-10 cursor-pointer select-none appearance-none tap-highlight-transparent opacity-70 transition-opacity hover:opacity-100 active:opacity-disabled motion-reduce:transition-none outline-solid outline-transparent data-[focus-visible=true]:rounded-full data-[focus-visible=true]:ring-1 data-[focus-visible=true]:ring-focus data-[focus-visible=true]:ring-offset-2 data-[focus-visible=true]:ring-offset-background text-large"
+            data-rac=""
+            data-react-aria-pressable="true"
+            data-slot="close-button"
+            id="react-aria-«replaced-aria-id»"
+            tabindex="0"
+            type="button"
           >
-            <span
-              class="flex-1 text-inherit font-normal px-2 pr-1 flex items-center gap-2"
+            <svg
+              aria-hidden="true"
+              fill="none"
+              height="1em"
+              viewBox="0 0 24 24"
+              width="1em"
+            >
+              <path
+                d="M12 2a10 10 0 1010 10A10.016 10.016 0 0012 2zm3.36 12.3a.754.754 0 010 1.06.748.748 0 01-1.06 0l-2.3-2.3-2.3 2.3a.748.748 0 01-1.06 0 .754.754 0 010-1.06l2.3-2.3-2.3-2.3A.75.75 0 019.7 8.64l2.3 2.3 2.3-2.3a.75.75 0 011.06 1.06l-2.3 2.3z"
+                fill="currentColor"
+              />
+            </svg>
+          </button>
+        </div>
+        <div
+          class="relative box-border inline-flex min-w-min max-w-fit items-center justify-between whitespace-nowrap px-1 text-small bg-primary/20 text-primary-600 h-8 cursor-pointer rounded-md dark:text-foreground"
+          data-slot="base"
+        >
+          <span
+            class="flex-1 font-normal text-inherit flex items-center gap-2 px-2 pr-1"
+            data-slot="content"
+          >
+            <button
+              aria-label="Open mood filter"
+              class="flex items-center gap-2"
+              type="button"
             >
               <svg
                 fill="currentColor"
@@ -855,39 +939,44 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
                   😊
                 </span>
               </span>
-            </span>
-            <span
-              aria-label="close chip"
-              class="z-10 appearance-none outline-solid outline-transparent select-none transition-opacity opacity-70 hover:opacity-100 cursor-pointer active:opacity-disabled tap-highlight-transparent text-large"
-              data-react-aria-pressable="true"
-              role="button"
-              tabindex="0"
-            >
-              <svg
-                aria-hidden="true"
-                focusable="false"
-                height="1em"
-                role="presentation"
-                viewBox="0 0 24 24"
-                width="1em"
-              >
-                <path
-                  d="M12 2a10 10 0 1010 10A10.016 10.016 0 0012 2zm3.36 12.3a.754.754 0 010 1.06.748.748 0 01-1.06 0l-2.3-2.3-2.3 2.3a.748.748 0 01-1.06 0 .754.754 0 010-1.06l2.3-2.3-2.3-2.3A.75.75 0 019.7 8.64l2.3 2.3 2.3-2.3a.75.75 0 011.06 1.06l-2.3 2.3z"
-                  fill="currentColor"
-                />
-              </svg>
-            </span>
-          </div>
-        </button>
-        <button
-          aria-label="Open snacks filter"
-          type="button"
-        >
-          <div
-            class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 text-small bg-primary/20 text-primary-600 h-8 cursor-pointer rounded-md dark:text-foreground"
+            </button>
+          </span>
+          <button
+            aria-label="close chip"
+            class="z-10 cursor-pointer select-none appearance-none tap-highlight-transparent opacity-70 transition-opacity hover:opacity-100 active:opacity-disabled motion-reduce:transition-none outline-solid outline-transparent data-[focus-visible=true]:rounded-full data-[focus-visible=true]:ring-1 data-[focus-visible=true]:ring-focus data-[focus-visible=true]:ring-offset-2 data-[focus-visible=true]:ring-offset-background text-large"
+            data-rac=""
+            data-react-aria-pressable="true"
+            data-slot="close-button"
+            id="react-aria-«replaced-aria-id»"
+            tabindex="0"
+            type="button"
           >
-            <span
-              class="flex-1 text-inherit font-normal px-2 pr-1 flex items-center gap-2"
+            <svg
+              aria-hidden="true"
+              fill="none"
+              height="1em"
+              viewBox="0 0 24 24"
+              width="1em"
+            >
+              <path
+                d="M12 2a10 10 0 1010 10A10.016 10.016 0 0012 2zm3.36 12.3a.754.754 0 010 1.06.748.748 0 01-1.06 0l-2.3-2.3-2.3 2.3a.748.748 0 01-1.06 0 .754.754 0 010-1.06l2.3-2.3-2.3-2.3A.75.75 0 019.7 8.64l2.3 2.3 2.3-2.3a.75.75 0 011.06 1.06l-2.3 2.3z"
+                fill="currentColor"
+              />
+            </svg>
+          </button>
+        </div>
+        <div
+          class="relative box-border inline-flex min-w-min max-w-fit items-center justify-between whitespace-nowrap px-1 text-small bg-primary/20 text-primary-600 h-8 cursor-pointer rounded-md dark:text-foreground"
+          data-slot="base"
+        >
+          <span
+            class="flex-1 font-normal text-inherit flex items-center gap-2 px-2 pr-1"
+            data-slot="content"
+          >
+            <button
+              aria-label="Open snacks filter"
+              class="flex items-center gap-2"
+              type="button"
             >
               <svg
                 fill="currentColor"
@@ -914,35 +1003,38 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
                   🍫
                 </span>
               </span>
-            </span>
-            <span
-              aria-label="close chip"
-              class="z-10 appearance-none outline-solid outline-transparent select-none transition-opacity opacity-70 hover:opacity-100 cursor-pointer active:opacity-disabled tap-highlight-transparent text-large"
-              data-react-aria-pressable="true"
-              role="button"
-              tabindex="0"
+            </button>
+          </span>
+          <button
+            aria-label="close chip"
+            class="z-10 cursor-pointer select-none appearance-none tap-highlight-transparent opacity-70 transition-opacity hover:opacity-100 active:opacity-disabled motion-reduce:transition-none outline-solid outline-transparent data-[focus-visible=true]:rounded-full data-[focus-visible=true]:ring-1 data-[focus-visible=true]:ring-focus data-[focus-visible=true]:ring-offset-2 data-[focus-visible=true]:ring-offset-background text-large"
+            data-rac=""
+            data-react-aria-pressable="true"
+            data-slot="close-button"
+            id="react-aria-«replaced-aria-id»"
+            tabindex="0"
+            type="button"
+          >
+            <svg
+              aria-hidden="true"
+              fill="none"
+              height="1em"
+              viewBox="0 0 24 24"
+              width="1em"
             >
-              <svg
-                aria-hidden="true"
-                focusable="false"
-                height="1em"
-                role="presentation"
-                viewBox="0 0 24 24"
-                width="1em"
-              >
-                <path
-                  d="M12 2a10 10 0 1010 10A10.016 10.016 0 0012 2zm3.36 12.3a.754.754 0 010 1.06.748.748 0 01-1.06 0l-2.3-2.3-2.3 2.3a.748.748 0 01-1.06 0 .754.754 0 010-1.06l2.3-2.3-2.3-2.3A.75.75 0 019.7 8.64l2.3 2.3 2.3-2.3a.75.75 0 011.06 1.06l-2.3 2.3z"
-                  fill="currentColor"
-                />
-              </svg>
-            </span>
-          </div>
-        </button>
+              <path
+                d="M12 2a10 10 0 1010 10A10.016 10.016 0 0012 2zm3.36 12.3a.754.754 0 010 1.06.748.748 0 01-1.06 0l-2.3-2.3-2.3 2.3a.748.748 0 01-1.06 0 .754.754 0 010-1.06l2.3-2.3-2.3-2.3A.75.75 0 019.7 8.64l2.3 2.3 2.3-2.3a.75.75 0 011.06 1.06l-2.3 2.3z"
+                fill="currentColor"
+              />
+            </svg>
+          </button>
+        </div>
         <button
           aria-expanded="false"
           aria-haspopup="true"
           aria-label="Add Filter"
-          class="group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 border-medium px-3 min-w-16 h-8 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-transparent border-default text-foreground data-[hover=true]:opacity-hover aria-expanded:scale-[0.97] aria-expanded:opacity-70 subpixel-antialiased z-auto"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover group tap-highlight-transparent data-[hover=true]:opacity-hover group relative box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus border-medium h-8 min-w-16 gap-2 rounded-small px-3 text-tiny [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none border-default bg-transparent text-foreground data-[hover=true]:opacity-hover z-auto subpixel-antialiased aria-expanded:!scale-[0.97] aria-expanded:!opacity-70"
+          data-rac=""
           data-react-aria-pressable="true"
           data-slot="trigger"
           data-testid="add_filter_button"
@@ -974,7 +1066,7 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
 exports[`Story Snapshots > WithSearch 1`] = `
 <div>
   <div
-    class="flex flex-auto flex-col w-full"
+    class="flex flex-auto flex-col"
   >
     <div
       class="flex w-full flex-row justify-between gap-6"
@@ -992,9 +1084,11 @@ exports[`Story Snapshots > WithSearch 1`] = `
         >
           <button
             aria-label="Show search input"
-            class="group tap-highlight-transparent [&>svg]:max-w-[theme(spacing.8)] data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 border-medium text-tiny gap-2 rounded-small px-0 !gap-0 transition-transform-colors-opacity motion-reduce:transition-none bg-transparent border-default text-foreground min-w-8 w-8 h-8 data-[hover=true]:opacity-hover"
+            class="group tap-highlight-transparent [&>svg]:max-w-[theme(spacing.8)] data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus border-medium gap-2 rounded-small text-tiny !gap-0 px-0 transition-transform-colors-opacity motion-reduce:transition-none border-default bg-transparent text-foreground h-8 w-8 min-w-8 data-[hover=true]:opacity-hover"
+            data-rac=""
             data-react-aria-pressable="true"
             data-testid="show_search_input_button"
+            id="react-aria-«replaced-aria-id»"
             tabindex="0"
             type="button"
           >
@@ -1017,7 +1111,8 @@ exports[`Story Snapshots > WithSearch 1`] = `
           aria-expanded="false"
           aria-haspopup="true"
           aria-label="Add Filter"
-          class="group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 border-medium px-3 min-w-16 h-8 text-tiny gap-2 rounded-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-transparent border-default text-foreground data-[hover=true]:opacity-hover aria-expanded:scale-[0.97] aria-expanded:opacity-70 subpixel-antialiased z-auto"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover group tap-highlight-transparent data-[hover=true]:opacity-hover group relative box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus border-medium h-8 min-w-16 gap-2 rounded-small px-3 text-tiny [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none border-default bg-transparent text-foreground data-[hover=true]:opacity-hover z-auto subpixel-antialiased aria-expanded:!scale-[0.97] aria-expanded:!opacity-70"
+          data-rac=""
           data-react-aria-pressable="true"
           data-slot="trigger"
           data-testid="add_filter_button"
