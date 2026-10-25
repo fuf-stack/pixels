@@ -14,7 +14,21 @@ import { useController } from '../useController/useController';
 import { useFormContext } from '../useFormContext/useFormContext';
 import { useInputValueTransform } from '../useInputValueTransform/useInputValueTransform';
 
-/** Binds a field's value, validation, label and accessible associations */
+/**
+ * Binds a form field's value, interactions, validation and label metadata
+ *
+ * Converts stored values for display and edited values back to form values
+ * through `transform`, with automatic number conversion for numeric inputs
+ *
+ * Reveals validation errors after editing a nonempty value, blur or submission,
+ * keeping pristine fields quiet. Debounces invalid-state changes to avoid
+ * flickering during validation updates
+ *
+ * Returns a bound `field` with callbacks, a focus ref, rendered validation
+ * messages and label content, including the test ID action in debug mode
+ * Stable IDs and accessible-name metadata support associations in controls
+ * Form operations remain separate from the field bundle
+ */
 const useUniformField = <
   TFieldValues extends FieldValues = FieldValues,
   TDisplay = unknown,

@@ -30,7 +30,7 @@ export interface SwitchBoxProps {
   thumbIcon?: SwitchProps['thumbIcon'];
 }
 
-/** Form toggle field displayed as a selectable box */
+/** Form toggle field with a switch inside a selectable card */
 const SwitchBox = ({
   className = undefined,
   description = undefined,

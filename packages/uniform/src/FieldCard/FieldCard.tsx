@@ -25,7 +25,15 @@ export interface FieldCardProps {
   testId?: string;
 }
 
-/** Form field group displayed as a card with a heading and validation footer */
+/**
+ * Groups related form fields in a card with a heading and validation footer
+ *
+ * Renders nested fields in the body and object-level validation messages in the
+ * footer. Individual fields retain their own validation messages
+ *
+ * The card's required indicator reflects its nested fields, and its danger
+ * outline follows child interaction and form submission
+ */
 const FieldCard = ({
   children,
   className: _className = undefined,
