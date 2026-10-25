@@ -1,5 +1,31 @@
 # Changelog
 
+## [2.0.0-next.1](https://github.com/fuf-stack/pixels/compare/uniform-v2.0.0-next.0...uniform-v2.0.0-next.1) (2026-10-25)
+
+
+### ⚠ BREAKING CHANGES
+
+* Remove the pixel-utils heroui export and public Uniform useInput, useUniformField and useUniformFieldArray hook exports. Applications must import pixel-utils/tokens.css, configure Tailwind source scanning and replace custom --heroui-* variables with --pixel-* variables. Custom fields must migrate to the supported controller and form-context APIs. Selectors targeting removed internal markup or state attributes must migrate to the documented slots and supported attributes.
+
+### Features
+
+* replace HeroUI with owned components and Tailwind 4 styling ([df27899](https://github.com/fuf-stack/pixels/commit/df27899a1675df276d40bebc7ae745e3dc31be5a))
+
+
+### Bug Fixes
+
+* **release:** merge main into next and repair prerelease bootstrap ([3bb219d](https://github.com/fuf-stack/pixels/commit/3bb219d42bbba9bdff8612e27209d142ff26ca63))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @fuf-stack/pixel-motion bumped to 2.0.0-next.1
+    * @fuf-stack/pixel-utils bumped to 2.0.0-next.1
+    * @fuf-stack/pixels bumped to 2.0.0-next.1
+    * @fuf-stack/veto bumped to 2.0.0-next.1
+
 ## [1.28.0](https://github.com/fuf-stack/pixels/compare/uniform-v1.27.0...uniform-v1.28.0) (2026-10-19)
 
 
