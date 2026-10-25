@@ -29,8 +29,6 @@ jobs:
       - uses: ./.github/actions/setup-project
       - name: Validate dependency boundaries
         run: pnpm check:boundaries
-      - name: Verify release bootstrap
-        run: pnpm test:release
       - name: Lint packages
         run: pnpm lint
 
@@ -58,10 +56,15 @@ jobs:
           path: coverage/
           if-no-files-found: error
 
-  storybook:
-    name: Storybook tests
+  storybook-shards:
+    name: Storybook tests (${{ matrix.shard }}/4)
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    strategy:
+      # Each shard gets its own browser and runner, preserving focus isolation.
+      fail-fast: false
+      matrix:
+        shard: [1, 2, 3, 4]
 
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
@@ -71,7 +74,18 @@ jobs:
         # binary and Linux system dependencies before running the browser tests.
         run: pnpm --filter @repo/storybook-config exec playwright install --with-deps chromium
       - name: Run Storybook browser tests
-        run: pnpm test:storybook
+        run: pnpm test:storybook --shard=${{ matrix.shard }}/4
+
+  storybook:
+    # Preserve the existing status check name for branch protection.
+    name: Storybook tests
+    needs: [storybook-shards]
+    if: ${{ always() }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 1
+    steps:
+      - name: Verify all Storybook shards passed
+        run: test "${{ needs.storybook-shards.result }}" = success
 
   visual-tests:
     name: Visual regression pilot

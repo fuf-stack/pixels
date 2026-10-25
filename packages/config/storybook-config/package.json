@@ -7,7 +7,7 @@
   "scripts": {
     "storybook": "STORYBOOK_DISABLE_TELEMETRY=true storybook dev -p 6006",
     "storybook:build": "STORYBOOK_DISABLE_TELEMETRY=true storybook build --quiet",
-    "test:storybook": "vitest run --config vitest.config.ts --project=storybook --maxWorkers=4",
+    "test:storybook": "vitest run --config vitest.config.ts --project=storybook --maxWorkers=1",
     "test:visual": "playwright test --config playwright.config.mjs"
   },
   "devDependencies": {

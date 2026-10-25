@@ -15,7 +15,7 @@ fresh static Storybook build:
 make test-visual
 ```
 
-`make test` remains one Vitest run for unit and Storybook browser tests. It does
+`make test` runs unit tests followed by parallel Storybook browser tests. It does
 not launch Playwright screenshot comparisons. `make check` likewise leaves visual
 comparisons to the dedicated command and CI job.
 

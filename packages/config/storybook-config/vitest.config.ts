@@ -7,13 +7,18 @@ import { playwright } from '@vitest/browser-playwright';
 
 const storybookRoot = path.dirname(fileURLToPath(import.meta.url));
 const configDirectory = path.resolve(storybookRoot, '.storybook');
+const cacheDir = path.join(
+  storybookRoot,
+  'node_modules/.vite-browser-tests',
+  process.env.STORYBOOK_TEST_SHARD ?? 'serial',
+);
 
 export default {
   root: storybookRoot,
   // Browser tests need the same utility compilation as the Storybook server.
   plugins: [tailwindcss()],
   // Do not share optimizer metadata with an open Storybook development server.
-  cacheDir: path.join(storybookRoot, 'node_modules/.vite-browser-tests'),
+  cacheDir,
   optimizeDeps: {
     // Discover all story dependencies before executing browser tests, including
     // renderer prototypes that introduce a new interaction foundation.
@@ -35,10 +40,16 @@ export default {
               skip: [],
             },
           }),
+          {
+            // Storybook sets its own cache, override it after the addon config hook
+            name: 'isolated-storybook-test-cache',
+            enforce: 'post' as const,
+            config: () => ({ cacheDir }),
+          },
         ],
         test: {
           name: 'storybook',
-          // focus assertions share the browser, run story files without competing pages
+          // keep focus assertions serial within each browser, CI shards use separate runners
           fileParallelism: false,
           browser: {
             enabled: true,

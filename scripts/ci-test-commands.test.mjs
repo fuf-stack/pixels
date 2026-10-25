@@ -25,7 +25,20 @@ beforeEach(() => {
   writeFileSync(
     path.join(temporaryDirectory, 'pnpm'),
     `#!/bin/sh
-"${process.execPath}" -e 'require("node:fs").appendFileSync(process.env.TEST_COMMAND_LOG, JSON.stringify(process.argv.slice(1)) + "\\n")' -- "$@"
+"${process.execPath}" -e 'require("node:fs").appendFileSync(process.env.TEST_COMMAND_LOG, JSON.stringify({ args: process.argv.slice(1), cache: process.env.STORYBOOK_TEST_SHARD }) + "\\n")' -- "$@"
+if [ -n "\${TEST_COMMAND_OUTPUT:-}" ]; then
+  printf 'stdout %s\\n' "\${STORYBOOK_TEST_SHARD}"
+  printf 'stderr %s\\n' "\${STORYBOOK_TEST_SHARD}" >&2
+fi
+if [ -n "\${TEST_COMMAND_FAIL_ON:-}" ] && [ "$1" = "$TEST_COMMAND_FAIL_ON" ]; then
+  exit 7
+fi
+if [ "\${STORYBOOK_TEST_SHARD:-}" = "\${TEST_COMMAND_FAIL_SHARD:-not-a-shard}" ]; then
+  exit 7
+fi
+if [ -n "\${TEST_COMMAND_SIGNAL:-}" ]; then
+  kill -s "$TEST_COMMAND_SIGNAL" $$
+fi
 exit "\${TEST_COMMAND_EXIT_CODE:-0}"
 `,
     { mode: 0o755 },
@@ -47,23 +60,21 @@ const run = (category, args = [], extraEnvironment = {}) => {
         ...process.env,
         PATH: `${temporaryDirectory}${path.delimiter}${process.env.PATH}`,
         TEST_COMMAND_LOG: log,
+        STORYBOOK_TEST_SHARDS: '2',
         ...extraEnvironment,
       },
     },
   );
 
-  const commands = !existsSync(log)
+  const records = !existsSync(log)
     ? []
     : readFileSync(log, 'utf8').trim().split('\n').map(JSON.parse);
 
-  return { ...result, commands };
+  return { ...result, records, commands: records.map((record) => record.args) };
 };
 
 test.each([
-  ['all', 'test', 'test'],
   ['unit', 'test:unit', 'test-unit'],
-  ['storybook', 'test:storybook', 'test-storybook'],
-  ['release', 'test:release', 'test-release'],
   ['dts', ['--filter', '@fuf-stack/veto', 'test:dts'], 'test-dts'],
 ])('runs only the selected category: %s', (category, command, target) => {
   const result = run(category, ['--example-option']);
@@ -108,4 +119,176 @@ test('rejects an unknown category without starting a runner', () => {
   expect(result.status).toBe(1);
   expect(result.stderr).toContain('Unknown test category');
   expect(result.commands).toEqual([]);
+});
+
+test('runs local Storybook shards with separate caches and forwards runner options', () => {
+  const result = run('storybook', ['--testNamePattern=Keyboard']);
+  expect(result.status).toBe(0);
+  expect(result.records.sort((a, b) => a.cache.localeCompare(b.cache))).toEqual(
+    [
+      {
+        args: [
+          '--filter',
+          '@repo/storybook-config',
+          'test:storybook',
+          '--testNamePattern=Keyboard',
+          '--shard=1/2',
+        ],
+        cache: '1-of-2',
+      },
+      {
+        args: [
+          '--filter',
+          '@repo/storybook-config',
+          'test:storybook',
+          '--testNamePattern=Keyboard',
+          '--shard=2/2',
+        ],
+        cache: '2-of-2',
+      },
+    ],
+  );
+
+  const make = spawnSync('make', ['--dry-run', 'test-storybook'], {
+    cwd: root,
+    encoding: 'utf8',
+  });
+  expect(make.stdout).toContain('node scripts/test.mjs storybook');
+});
+
+test.each([['--shard=3/4'], ['--shard', '3/4']])(
+  'does not reshard an explicit CI partition: %j',
+  (...args) => {
+    const result = run('storybook', args);
+    expect(result.status).toBe(0);
+    expect(result.commands).toEqual([
+      ['--filter', '@repo/storybook-config', 'test:storybook', ...args],
+    ]);
+  },
+);
+
+test('can run the whole Storybook suite in one process', () => {
+  const result = run('storybook', [], { STORYBOOK_TEST_SHARDS: '1' });
+  expect(result.status).toBe(0);
+  expect(result.commands).toEqual([
+    ['--filter', '@repo/storybook-config', 'test:storybook'],
+  ]);
+});
+
+test('reports a failing shard after collecting every partition', () => {
+  const result = run('storybook', [], { TEST_COMMAND_EXIT_CODE: '7' });
+  expect(result.status).toBe(7);
+  expect(result.commands).toHaveLength(2);
+});
+
+test.each(['0', 'invalid', '2.5'])(
+  'rejects invalid local shard counts: %s',
+  (count) => {
+    const result = run('storybook', [], { STORYBOOK_TEST_SHARDS: count });
+    expect(result.status).toBe(1);
+    expect(result.commands).toEqual([]);
+    expect(result.stderr).toContain(
+      'STORYBOOK_TEST_SHARDS must be a positive integer',
+    );
+  },
+);
+
+test('runs unit tests followed by the parallel Storybook command for the full suite', () => {
+  const result = run('all', ['--testNamePattern=Keyboard']);
+  expect(result.status).toBe(0);
+  expect(result.commands).toEqual([
+    ['test:unit', '--testNamePattern=Keyboard'],
+    ['test:storybook', '--testNamePattern=Keyboard'],
+  ]);
+
+  const make = spawnSync('make', ['--dry-run', 'test'], {
+    cwd: root,
+    encoding: 'utf8',
+  });
+  expect(make.stdout).toContain('node scripts/test.mjs all');
+});
+
+test('runs both categories after a failure and exits unsuccessfully', () => {
+  const result = run('all', [], { TEST_COMMAND_EXIT_CODE: '7' });
+  expect(result.status).toBe(7);
+  expect(result.commands).toEqual([['test:unit'], ['test:storybook']]);
+});
+
+test('groups shard stdout and stderr into complete non-interactive blocks', () => {
+  const result = run('storybook', [], { TEST_COMMAND_OUTPUT: '1' });
+  expect(result.status).toBe(0);
+
+  const blocks = result.stdout.split('--- Storybook shard ').slice(1);
+  expect(blocks).toHaveLength(2);
+
+  for (const block of blocks) {
+    const index = block.startsWith('1/2') ? 1 : 2;
+    const other = index === 1 ? 2 : 1;
+    expect(block).toContain(`${index}/2 (passed)`);
+    expect(block).toContain(`stdout ${index}-of-2`);
+    expect(block).toContain(`stderr ${index}-of-2`);
+    expect(block).not.toContain(`stdout ${other}-of-2`);
+    expect(block).not.toContain(`stderr ${other}-of-2`);
+  }
+});
+
+test.each([
+  ['test:unit', 'FAIL test:unit', 'PASS test:storybook'],
+  ['test:storybook', 'PASS test:unit', 'FAIL test:storybook'],
+])(
+  'summarizes every suite and preserves the failure of %s',
+  (failed, unit, storybook) => {
+    const result = run('all', [], { TEST_COMMAND_FAIL_ON: failed });
+    expect(result.status).toBe(7);
+    expect(result.commands).toEqual([['test:unit'], ['test:storybook']]);
+    expect(result.stdout).toContain(
+      `=== Test summary ===\n${unit}\n${storybook}\n1/2 test suites passed.`,
+    );
+  },
+);
+
+test('summarizes a successful full test run', () => {
+  const result = run('all');
+  expect(result.status).toBe(0);
+  expect(result.stdout).toContain(
+    '=== Test summary ===\nPASS test:unit\nPASS test:storybook\n2/2 test suites passed.',
+  );
+});
+
+test.each([1, 2])(
+  'includes every Storybook shard in the final summary when shard %s fails',
+  (index) => {
+    const result = run('storybook', [], {
+      TEST_COMMAND_FAIL_SHARD: `${index}-of-2`,
+    });
+    expect(result.status).toBe(7);
+    expect(result.stdout).toContain('=== Storybook summary ===');
+    expect(result.stdout).toContain(
+      `${index === 1 ? 'FAIL' : 'PASS'} shard 1/2`,
+    );
+    expect(result.stdout).toContain(
+      `${index === 2 ? 'FAIL' : 'PASS'} shard 2/2`,
+    );
+    expect(result.stdout).toContain('1/2 Storybook shards passed.');
+  },
+);
+
+test.each([
+  ['Modal.interactions.stories.tsx'],
+  ['Modal', '--testNamePattern=Keyboard'],
+])(
+  'runs a focused file filter once without hiding empty-filter failures: %j',
+  (...args) => {
+    const result = run('storybook', args);
+    expect(result.status).toBe(0);
+    expect(result.commands).toEqual([
+      ['--filter', '@repo/storybook-config', 'test:storybook', ...args],
+    ]);
+  },
+);
+
+test('stops the full sequence when the unit runner is terminated', () => {
+  const result = run('all', [], { TEST_COMMAND_SIGNAL: 'TERM' });
+  expect(result.status).toBe(143);
+  expect(result.commands).toEqual([['test:unit']]);
 });

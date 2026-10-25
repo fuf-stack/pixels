@@ -16,18 +16,20 @@ migration document and explicit release sequencing.
 
 ## Test commands
 
-`make test` installs and builds the workspace, then runs all Vitest projects in
-one invocation, including unit tests, script tests and Storybook Chromium tests.
-Playwright screenshot comparisons are a separate runner and are not part of that
-Vitest invocation. Select one category to run only its tests:
+`make test` installs and builds the workspace, then runs unit and script tests
+with coverage, followed by isolated parallel Storybook Chromium shards. Both
+categories run even if one fails. The final summary lists each suite's result,
+and any failure makes the command fail, even when the last suite passes.
+Cancellation stops the sequence instead of starting another suite.
+Playwright screenshot comparisons remain a separate command. Select one category
+to run only its tests:
 
 | Command               | Tests                                                                   |
 | --------------------- | ----------------------------------------------------------------------- |
-| `make test`           | All Vitest projects, with coverage                                      |
+| `make test`           | Unit tests with coverage, then parallel Storybook tests                 |
 | `make test-unit`      | Unit and CI-script tests, with coverage, excluding browser stories      |
 | `make test-storybook` | Storybook interaction and accessibility tests in Chromium               |
 | `make test-visual`    | Builds static Storybook, then compares screenshots in CI's Docker image |
-| `make test-release`   | Release-bootstrap script tests                                          |
 | `make test-dts`       | Veto declaration-consumer smoke tests                                   |
 
 All Make test commands install dependencies and build the workspace first. Use
@@ -38,8 +40,10 @@ make test-unit ARGS="--project=@fuf-stack/uniform"
 make test-visual ARGS="--grep=uniform-input--invalid"
 ```
 
-With dependencies and packages already built, use `pnpm test`, `pnpm test:unit`,
-`pnpm test:storybook` or `pnpm test:release` directly. `pnpm test:visual:docker`
+With dependencies and packages already built, use `node scripts/test.mjs all`
+for the same full test sequence, or `pnpm test:unit` and `pnpm test:storybook`
+for individual categories. `pnpm test` remains the direct
+single-Vitest entry point for existing callers. `pnpm test:visual:docker`
 compares an existing static Storybook build; `pnpm test:visual` runs directly in
 the pinned Linux container. See [visual regression](./visual-regression.md) for
 baseline updates and environment requirements.
@@ -48,6 +52,15 @@ The dedicated Make targets delegate to `scripts/test.mjs`, which selects the
 runner and forwards `ARGS`. `make storybook` starts the development server.
 `make check` / `pnpm check` runs the verification stages, including unit and
 Storybook tests; visual comparisons remain a separate CI job and local command.
+
+Script tests, including release-bootstrap tests, belong to the `ci-scripts`
+Vitest project and run with the unit suite. Add them as `scripts/*.test.mjs`,
+using Vitest's test API with Node assertions and filesystem/process APIs where
+useful. To run only the bootstrap tests:
+
+```sh
+pnpm exec vitest run --project=ci-scripts scripts/bootstrap-next-branch.test.mjs
+```
 
 ## Pre-commit checks
 
@@ -78,9 +91,52 @@ internal implementation and story contract.
 Run `pnpm test:storybook` from the root to delegate to the shared Storybook
 package's browser-test command. CI's unit job excludes `@repo/storybook-config*`,
 and its separate browser job installs Chromium and runs those stories.
-Story files run serially so keyboard and focus-restoration assertions do not
-compete across browser pages. Keep these assertions enabled when changing
-browser concurrency.
+CI runs four Storybook shards in parallel on separate GitHub runners. Each shard
+has its own Chromium process, Vite cache and test server. Files run serially
+within each shard so keyboard and focus-restoration assertions do not compete
+across pages. `fail-fast: false` lets every shard report failures. A final `Storybook tests`
+status check succeeds only when all shards pass, preserving the existing check
+name for branch protection.
+
+Locally, `make test-storybook`, `pnpm test:storybook` and the Storybook stage of
+`pnpm check` run up to four shards in parallel, limited by available CPU cores.
+Each process has its own Chromium instance, test server and dependency cache.
+Files remain serial within each process. The first run populates each cache;
+subsequent runs reuse them. Local shards use non-interactive reporters, with each
+shard's stdout and stderr printed together when it finishes. This avoids competing
+terminal progress displays and keeps complete failure details. A final Storybook
+summary lists every shard's result and fails if any shard failed, regardless of
+which one finishes last. An explicit single shard retains the normal live reporter.
+
+Focused file filters run in one process, so a shard without matching files cannot
+cause a false failure. Options written with separate argument values also use
+this path; use `--option=value` to retain parallelism for option-only runs.
+
+```sh
+pnpm test:storybook Modal.interactions.stories.tsx
+```
+
+Set `STORYBOOK_TEST_SHARDS` to reduce resource use or reproduce serial execution:
+
+```sh
+STORYBOOK_TEST_SHARDS=2 pnpm test:storybook
+STORYBOOK_TEST_SHARDS=1 make test-storybook
+```
+
+`make test` uses the same parallel Storybook runner after its unit tests.
+Shared `ARGS`, such as `--testNamePattern`, reach both categories; use dedicated
+targets for project-specific filters or runner options. An explicit `--shard`
+bypasses local fan-out and runs only that partition, as CI does. To reproduce a specific CI shard:
+
+```sh
+make test-storybook ARGS="--shard=2/4"
+# Without dependency setup and workspace builds:
+pnpm test:storybook --shard=2/4
+```
+
+Use the same shard count for every job, and run every index from 1 through that
+count. Keep focus assertions enabled when changing browser concurrency. Do not
+enable file parallelism within a shard to increase concurrency.
 
 ## Storybook stories and edge cases
 
