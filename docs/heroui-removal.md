@@ -221,7 +221,8 @@ Additional coupling:
   plugin and HeroUI source globs are removed. `tokens.css` supplies the semantic
   theme in both workspace previews and packaged consumers.
 - Pixels Toast uses Sonner already; retain its behavior and test interoperability
-  with replacement overlays. Existing Megapixels Base UI implementations stay.
+  with replacement overlays. Megapixels selection checkboxes now use React Aria,
+  and the Base UI dependency has been removed.
 - Uniform has no direct HeroUI dependencies or published HeroUI runtime/type
   references. Radio options, switch thumbs and date/time values use owned
   contracts. Legacy hook exports have been removed as an explicit breaking change.

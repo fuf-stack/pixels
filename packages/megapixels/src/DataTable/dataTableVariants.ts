@@ -13,6 +13,8 @@ export const dataTableVariants = tv({
       'relative inline-flex h-4 w-4 shrink-0 cursor-pointer items-center justify-center',
       // outline and surface
       'rounded border border-divider bg-background align-middle text-foreground',
+      // keyboard focus on the checkbox label
+      'data-[focus-visible]:outline-2 data-[focus-visible]:outline-offset-2 data-[focus-visible]:outline-focus',
     ],
     /** Checkmark/minus glyph inside the selection checkbox */
     checkboxIndicator:
@@ -44,7 +46,7 @@ export const dataTableVariants = tv({
     /** Menu trigger used to choose page size */
     pageSizeSelect: 'min-w-16 justify-between gap-2',
     /** "Page X of Y" summary text */
-    pageSummary: "text-sm text-default-500",
+    pageSummary: 'text-sm text-default-500',
     /** Pagination footer container */
     pagination: 'flex items-center gap-2 py-4',
     /** Shared class applied to pagination action buttons */

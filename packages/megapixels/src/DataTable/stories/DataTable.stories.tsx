@@ -504,7 +504,13 @@ export const RowSelection: Story = {
     await expect(
       canvas.queryByText(/row\(s\) selected/i),
     ).not.toBeInTheDocument();
-    await userEvent.click(canvas.getByLabelText('Select row 0'));
+    const row = canvas.getByRole('checkbox', { name: 'Select row 0' });
+    row.focus();
+    await userEvent.keyboard('[Space]');
+    await expect(row).toBeChecked();
+    await expect(
+      canvas.getByRole('checkbox', { name: 'Select all rows on page' }),
+    ).toBePartiallyChecked();
     await expect(
       canvas.getByText('1 of 2 row(s) selected.'),
     ).toBeInTheDocument();

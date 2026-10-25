@@ -77,22 +77,28 @@ exports[`Story Snapshots > CustomIcons 1`] = `
                 data-slot="selection-cell-content"
               >
                 <span
-                  aria-checked="false"
-                  aria-label="Select all rows on page"
-                  class="relative inline-flex h-4 w-4 shrink-0 cursor-pointer items-center justify-center rounded border border-divider bg-background align-middle text-foreground"
-                  data-slot="checkbox"
-                  data-unchecked=""
-                  id="base-ui-«replaced-aria-id»"
-                  role="checkbox"
-                  tabindex="0"
-                />
-                <input
-                  aria-hidden="true"
-                  id="base-ui-«replaced-aria-id»"
-                  style="clip-path: inset(50%); overflow: hidden; white-space: nowrap; border: 0px; padding: 0px; width: 1px; height: 1px; margin: -1px; position: fixed; top: 0px; left: 0px;"
-                  tabindex="-1"
-                  type="checkbox"
-                />
+                  class="react-aria-CheckboxField"
+                  data-rac=""
+                >
+                  <label
+                    class="relative inline-flex h-4 w-4 shrink-0 cursor-pointer items-center justify-center rounded border border-divider bg-background align-middle text-foreground data-[focus-visible]:outline-2 data-[focus-visible]:outline-offset-2 data-[focus-visible]:outline-focus"
+                    data-rac=""
+                    data-react-aria-pressable="true"
+                    data-slot="checkbox"
+                  >
+                    <span
+                      style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+                    >
+                      <input
+                        aria-label="Select all rows on page"
+                        data-react-aria-pressable="true"
+                        tabindex="0"
+                        title=""
+                        type="checkbox"
+                      />
+                    </span>
+                  </label>
+                </span>
               </div>
             </th>
             <th
@@ -290,22 +296,28 @@ exports[`Story Snapshots > CustomIcons 1`] = `
                 data-slot="selection-cell-content"
               >
                 <span
-                  aria-checked="false"
-                  aria-label="Select row 0"
-                  class="relative inline-flex h-4 w-4 shrink-0 cursor-pointer items-center justify-center rounded border border-divider bg-background align-middle text-foreground"
-                  data-slot="checkbox"
-                  data-unchecked=""
-                  id="base-ui-«replaced-aria-id»"
-                  role="checkbox"
-                  tabindex="0"
-                />
-                <input
-                  aria-hidden="true"
-                  id="base-ui-«replaced-aria-id»"
-                  style="clip-path: inset(50%); overflow: hidden; white-space: nowrap; border: 0px; padding: 0px; width: 1px; height: 1px; margin: -1px; position: fixed; top: 0px; left: 0px;"
-                  tabindex="-1"
-                  type="checkbox"
-                />
+                  class="react-aria-CheckboxField"
+                  data-rac=""
+                >
+                  <label
+                    class="relative inline-flex h-4 w-4 shrink-0 cursor-pointer items-center justify-center rounded border border-divider bg-background align-middle text-foreground data-[focus-visible]:outline-2 data-[focus-visible]:outline-offset-2 data-[focus-visible]:outline-focus"
+                    data-rac=""
+                    data-react-aria-pressable="true"
+                    data-slot="checkbox"
+                  >
+                    <span
+                      style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+                    >
+                      <input
+                        aria-label="Select row 0"
+                        data-react-aria-pressable="true"
+                        tabindex="0"
+                        title=""
+                        type="checkbox"
+                      />
+                    </span>
+                  </label>
+                </span>
               </div>
             </td>
             <td
@@ -451,22 +463,28 @@ exports[`Story Snapshots > CustomIcons 1`] = `
                 data-slot="selection-cell-content"
               >
                 <span
-                  aria-checked="false"
-                  aria-label="Select row 1"
-                  class="relative inline-flex h-4 w-4 shrink-0 cursor-pointer items-center justify-center rounded border border-divider bg-background align-middle text-foreground"
-                  data-slot="checkbox"
-                  data-unchecked=""
-                  id="base-ui-«replaced-aria-id»"
-                  role="checkbox"
-                  tabindex="0"
-                />
-                <input
-                  aria-hidden="true"
-                  id="base-ui-«replaced-aria-id»"
-                  style="clip-path: inset(50%); overflow: hidden; white-space: nowrap; border: 0px; padding: 0px; width: 1px; height: 1px; margin: -1px; position: fixed; top: 0px; left: 0px;"
-                  tabindex="-1"
-                  type="checkbox"
-                />
+                  class="react-aria-CheckboxField"
+                  data-rac=""
+                >
+                  <label
+                    class="relative inline-flex h-4 w-4 shrink-0 cursor-pointer items-center justify-center rounded border border-divider bg-background align-middle text-foreground data-[focus-visible]:outline-2 data-[focus-visible]:outline-offset-2 data-[focus-visible]:outline-focus"
+                    data-rac=""
+                    data-react-aria-pressable="true"
+                    data-slot="checkbox"
+                  >
+                    <span
+                      style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+                    >
+                      <input
+                        aria-label="Select row 1"
+                        data-react-aria-pressable="true"
+                        tabindex="0"
+                        title=""
+                        type="checkbox"
+                      />
+                    </span>
+                  </label>
+                </span>
               </div>
             </td>
             <td
@@ -557,22 +575,28 @@ exports[`Story Snapshots > CustomIcons 1`] = `
                 data-slot="selection-cell-content"
               >
                 <span
-                  aria-checked="false"
-                  aria-label="Select row 2"
-                  class="relative inline-flex h-4 w-4 shrink-0 cursor-pointer items-center justify-center rounded border border-divider bg-background align-middle text-foreground"
-                  data-slot="checkbox"
-                  data-unchecked=""
-                  id="base-ui-«replaced-aria-id»"
-                  role="checkbox"
-                  tabindex="0"
-                />
-                <input
-                  aria-hidden="true"
-                  id="base-ui-«replaced-aria-id»"
-                  style="clip-path: inset(50%); overflow: hidden; white-space: nowrap; border: 0px; padding: 0px; width: 1px; height: 1px; margin: -1px; position: fixed; top: 0px; left: 0px;"
-                  tabindex="-1"
-                  type="checkbox"
-                />
+                  class="react-aria-CheckboxField"
+                  data-rac=""
+                >
+                  <label
+                    class="relative inline-flex h-4 w-4 shrink-0 cursor-pointer items-center justify-center rounded border border-divider bg-background align-middle text-foreground data-[focus-visible]:outline-2 data-[focus-visible]:outline-offset-2 data-[focus-visible]:outline-focus"
+                    data-rac=""
+                    data-react-aria-pressable="true"
+                    data-slot="checkbox"
+                  >
+                    <span
+                      style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+                    >
+                      <input
+                        aria-label="Select row 2"
+                        data-react-aria-pressable="true"
+                        tabindex="0"
+                        title=""
+                        type="checkbox"
+                      />
+                    </span>
+                  </label>
+                </span>
               </div>
             </td>
             <td
@@ -800,22 +824,28 @@ exports[`Story Snapshots > CustomStyles 1`] = `
                 data-slot="selection-cell-content"
               >
                 <span
-                  aria-checked="false"
-                  aria-label="Select all rows on page"
-                  class="relative inline-flex h-4 w-4 shrink-0 cursor-pointer items-center justify-center rounded border align-middle border-fuchsia-400/50 bg-fuchsia-50/70 text-fuchsia-700 dark:border-fuchsia-400/40 dark:bg-fuchsia-500/10 dark:text-fuchsia-200"
-                  data-slot="checkbox"
-                  data-unchecked=""
-                  id="base-ui-«replaced-aria-id»"
-                  role="checkbox"
-                  tabindex="0"
-                />
-                <input
-                  aria-hidden="true"
-                  id="base-ui-«replaced-aria-id»"
-                  style="clip-path: inset(50%); overflow: hidden; white-space: nowrap; border: 0px; padding: 0px; width: 1px; height: 1px; margin: -1px; position: fixed; top: 0px; left: 0px;"
-                  tabindex="-1"
-                  type="checkbox"
-                />
+                  class="react-aria-CheckboxField"
+                  data-rac=""
+                >
+                  <label
+                    class="relative inline-flex h-4 w-4 shrink-0 cursor-pointer items-center justify-center rounded border align-middle data-[focus-visible]:outline-2 data-[focus-visible]:outline-offset-2 data-[focus-visible]:outline-focus border-fuchsia-400/50 bg-fuchsia-50/70 text-fuchsia-700 dark:border-fuchsia-400/40 dark:bg-fuchsia-500/10 dark:text-fuchsia-200"
+                    data-rac=""
+                    data-react-aria-pressable="true"
+                    data-slot="checkbox"
+                  >
+                    <span
+                      style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+                    >
+                      <input
+                        aria-label="Select all rows on page"
+                        data-react-aria-pressable="true"
+                        tabindex="0"
+                        title=""
+                        type="checkbox"
+                      />
+                    </span>
+                  </label>
+                </span>
               </div>
             </th>
             <th
@@ -891,22 +921,28 @@ exports[`Story Snapshots > CustomStyles 1`] = `
                 data-slot="selection-cell-content"
               >
                 <span
-                  aria-checked="false"
-                  aria-label="Select row 0"
-                  class="relative inline-flex h-4 w-4 shrink-0 cursor-pointer items-center justify-center rounded border align-middle border-fuchsia-400/50 bg-fuchsia-50/70 text-fuchsia-700 dark:border-fuchsia-400/40 dark:bg-fuchsia-500/10 dark:text-fuchsia-200"
-                  data-slot="checkbox"
-                  data-unchecked=""
-                  id="base-ui-«replaced-aria-id»"
-                  role="checkbox"
-                  tabindex="0"
-                />
-                <input
-                  aria-hidden="true"
-                  id="base-ui-«replaced-aria-id»"
-                  style="clip-path: inset(50%); overflow: hidden; white-space: nowrap; border: 0px; padding: 0px; width: 1px; height: 1px; margin: -1px; position: fixed; top: 0px; left: 0px;"
-                  tabindex="-1"
-                  type="checkbox"
-                />
+                  class="react-aria-CheckboxField"
+                  data-rac=""
+                >
+                  <label
+                    class="relative inline-flex h-4 w-4 shrink-0 cursor-pointer items-center justify-center rounded border align-middle data-[focus-visible]:outline-2 data-[focus-visible]:outline-offset-2 data-[focus-visible]:outline-focus border-fuchsia-400/50 bg-fuchsia-50/70 text-fuchsia-700 dark:border-fuchsia-400/40 dark:bg-fuchsia-500/10 dark:text-fuchsia-200"
+                    data-rac=""
+                    data-react-aria-pressable="true"
+                    data-slot="checkbox"
+                  >
+                    <span
+                      style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+                    >
+                      <input
+                        aria-label="Select row 0"
+                        data-react-aria-pressable="true"
+                        tabindex="0"
+                        title=""
+                        type="checkbox"
+                      />
+                    </span>
+                  </label>
+                </span>
               </div>
             </td>
             <td
@@ -964,22 +1000,28 @@ exports[`Story Snapshots > CustomStyles 1`] = `
                 data-slot="selection-cell-content"
               >
                 <span
-                  aria-checked="false"
-                  aria-label="Select row 1"
-                  class="relative inline-flex h-4 w-4 shrink-0 cursor-pointer items-center justify-center rounded border align-middle border-fuchsia-400/50 bg-fuchsia-50/70 text-fuchsia-700 dark:border-fuchsia-400/40 dark:bg-fuchsia-500/10 dark:text-fuchsia-200"
-                  data-slot="checkbox"
-                  data-unchecked=""
-                  id="base-ui-«replaced-aria-id»"
-                  role="checkbox"
-                  tabindex="0"
-                />
-                <input
-                  aria-hidden="true"
-                  id="base-ui-«replaced-aria-id»"
-                  style="clip-path: inset(50%); overflow: hidden; white-space: nowrap; border: 0px; padding: 0px; width: 1px; height: 1px; margin: -1px; position: fixed; top: 0px; left: 0px;"
-                  tabindex="-1"
-                  type="checkbox"
-                />
+                  class="react-aria-CheckboxField"
+                  data-rac=""
+                >
+                  <label
+                    class="relative inline-flex h-4 w-4 shrink-0 cursor-pointer items-center justify-center rounded border align-middle data-[focus-visible]:outline-2 data-[focus-visible]:outline-offset-2 data-[focus-visible]:outline-focus border-fuchsia-400/50 bg-fuchsia-50/70 text-fuchsia-700 dark:border-fuchsia-400/40 dark:bg-fuchsia-500/10 dark:text-fuchsia-200"
+                    data-rac=""
+                    data-react-aria-pressable="true"
+                    data-slot="checkbox"
+                  >
+                    <span
+                      style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+                    >
+                      <input
+                        aria-label="Select row 1"
+                        data-react-aria-pressable="true"
+                        tabindex="0"
+                        title=""
+                        type="checkbox"
+                      />
+                    </span>
+                  </label>
+                </span>
               </div>
             </td>
             <td
@@ -1037,22 +1079,28 @@ exports[`Story Snapshots > CustomStyles 1`] = `
                 data-slot="selection-cell-content"
               >
                 <span
-                  aria-checked="false"
-                  aria-label="Select row 2"
-                  class="relative inline-flex h-4 w-4 shrink-0 cursor-pointer items-center justify-center rounded border align-middle border-fuchsia-400/50 bg-fuchsia-50/70 text-fuchsia-700 dark:border-fuchsia-400/40 dark:bg-fuchsia-500/10 dark:text-fuchsia-200"
-                  data-slot="checkbox"
-                  data-unchecked=""
-                  id="base-ui-«replaced-aria-id»"
-                  role="checkbox"
-                  tabindex="0"
-                />
-                <input
-                  aria-hidden="true"
-                  id="base-ui-«replaced-aria-id»"
-                  style="clip-path: inset(50%); overflow: hidden; white-space: nowrap; border: 0px; padding: 0px; width: 1px; height: 1px; margin: -1px; position: fixed; top: 0px; left: 0px;"
-                  tabindex="-1"
-                  type="checkbox"
-                />
+                  class="react-aria-CheckboxField"
+                  data-rac=""
+                >
+                  <label
+                    class="relative inline-flex h-4 w-4 shrink-0 cursor-pointer items-center justify-center rounded border align-middle data-[focus-visible]:outline-2 data-[focus-visible]:outline-offset-2 data-[focus-visible]:outline-focus border-fuchsia-400/50 bg-fuchsia-50/70 text-fuchsia-700 dark:border-fuchsia-400/40 dark:bg-fuchsia-500/10 dark:text-fuchsia-200"
+                    data-rac=""
+                    data-react-aria-pressable="true"
+                    data-slot="checkbox"
+                  >
+                    <span
+                      style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+                    >
+                      <input
+                        aria-label="Select row 2"
+                        data-react-aria-pressable="true"
+                        tabindex="0"
+                        title=""
+                        type="checkbox"
+                      />
+                    </span>
+                  </label>
+                </span>
               </div>
             </td>
             <td
@@ -5290,22 +5338,28 @@ exports[`Story Snapshots > Playground 1`] = `
                 data-slot="selection-cell-content"
               >
                 <span
-                  aria-checked="false"
-                  aria-label="Select all rows on page"
-                  class="relative inline-flex h-4 w-4 shrink-0 cursor-pointer items-center justify-center rounded border border-divider bg-background align-middle text-foreground"
-                  data-slot="checkbox"
-                  data-unchecked=""
-                  id="base-ui-«replaced-aria-id»"
-                  role="checkbox"
-                  tabindex="0"
-                />
-                <input
-                  aria-hidden="true"
-                  id="base-ui-«replaced-aria-id»"
-                  style="clip-path: inset(50%); overflow: hidden; white-space: nowrap; border: 0px; padding: 0px; width: 1px; height: 1px; margin: -1px; position: fixed; top: 0px; left: 0px;"
-                  tabindex="-1"
-                  type="checkbox"
-                />
+                  class="react-aria-CheckboxField"
+                  data-rac=""
+                >
+                  <label
+                    class="relative inline-flex h-4 w-4 shrink-0 cursor-pointer items-center justify-center rounded border border-divider bg-background align-middle text-foreground data-[focus-visible]:outline-2 data-[focus-visible]:outline-offset-2 data-[focus-visible]:outline-focus"
+                    data-rac=""
+                    data-react-aria-pressable="true"
+                    data-slot="checkbox"
+                  >
+                    <span
+                      style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+                    >
+                      <input
+                        aria-label="Select all rows on page"
+                        data-react-aria-pressable="true"
+                        tabindex="0"
+                        title=""
+                        type="checkbox"
+                      />
+                    </span>
+                  </label>
+                </span>
               </div>
             </th>
             <th
@@ -5600,22 +5654,28 @@ exports[`Story Snapshots > Playground 1`] = `
                 data-slot="selection-cell-content"
               >
                 <span
-                  aria-checked="false"
-                  aria-label="Select row 0"
-                  class="relative inline-flex h-4 w-4 shrink-0 cursor-pointer items-center justify-center rounded border border-divider bg-background align-middle text-foreground"
-                  data-slot="checkbox"
-                  data-unchecked=""
-                  id="base-ui-«replaced-aria-id»"
-                  role="checkbox"
-                  tabindex="0"
-                />
-                <input
-                  aria-hidden="true"
-                  id="base-ui-«replaced-aria-id»"
-                  style="clip-path: inset(50%); overflow: hidden; white-space: nowrap; border: 0px; padding: 0px; width: 1px; height: 1px; margin: -1px; position: fixed; top: 0px; left: 0px;"
-                  tabindex="-1"
-                  type="checkbox"
-                />
+                  class="react-aria-CheckboxField"
+                  data-rac=""
+                >
+                  <label
+                    class="relative inline-flex h-4 w-4 shrink-0 cursor-pointer items-center justify-center rounded border border-divider bg-background align-middle text-foreground data-[focus-visible]:outline-2 data-[focus-visible]:outline-offset-2 data-[focus-visible]:outline-focus"
+                    data-rac=""
+                    data-react-aria-pressable="true"
+                    data-slot="checkbox"
+                  >
+                    <span
+                      style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+                    >
+                      <input
+                        aria-label="Select row 0"
+                        data-react-aria-pressable="true"
+                        tabindex="0"
+                        title=""
+                        type="checkbox"
+                      />
+                    </span>
+                  </label>
+                </span>
               </div>
             </td>
             <td
@@ -5717,22 +5777,28 @@ exports[`Story Snapshots > Playground 1`] = `
                 data-slot="selection-cell-content"
               >
                 <span
-                  aria-checked="false"
-                  aria-label="Select row 1"
-                  class="relative inline-flex h-4 w-4 shrink-0 cursor-pointer items-center justify-center rounded border border-divider bg-background align-middle text-foreground"
-                  data-slot="checkbox"
-                  data-unchecked=""
-                  id="base-ui-«replaced-aria-id»"
-                  role="checkbox"
-                  tabindex="0"
-                />
-                <input
-                  aria-hidden="true"
-                  id="base-ui-«replaced-aria-id»"
-                  style="clip-path: inset(50%); overflow: hidden; white-space: nowrap; border: 0px; padding: 0px; width: 1px; height: 1px; margin: -1px; position: fixed; top: 0px; left: 0px;"
-                  tabindex="-1"
-                  type="checkbox"
-                />
+                  class="react-aria-CheckboxField"
+                  data-rac=""
+                >
+                  <label
+                    class="relative inline-flex h-4 w-4 shrink-0 cursor-pointer items-center justify-center rounded border border-divider bg-background align-middle text-foreground data-[focus-visible]:outline-2 data-[focus-visible]:outline-offset-2 data-[focus-visible]:outline-focus"
+                    data-rac=""
+                    data-react-aria-pressable="true"
+                    data-slot="checkbox"
+                  >
+                    <span
+                      style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+                    >
+                      <input
+                        aria-label="Select row 1"
+                        data-react-aria-pressable="true"
+                        tabindex="0"
+                        title=""
+                        type="checkbox"
+                      />
+                    </span>
+                  </label>
+                </span>
               </div>
             </td>
             <td
@@ -5834,22 +5900,28 @@ exports[`Story Snapshots > Playground 1`] = `
                 data-slot="selection-cell-content"
               >
                 <span
-                  aria-checked="false"
-                  aria-label="Select row 2"
-                  class="relative inline-flex h-4 w-4 shrink-0 cursor-pointer items-center justify-center rounded border border-divider bg-background align-middle text-foreground"
-                  data-slot="checkbox"
-                  data-unchecked=""
-                  id="base-ui-«replaced-aria-id»"
-                  role="checkbox"
-                  tabindex="0"
-                />
-                <input
-                  aria-hidden="true"
-                  id="base-ui-«replaced-aria-id»"
-                  style="clip-path: inset(50%); overflow: hidden; white-space: nowrap; border: 0px; padding: 0px; width: 1px; height: 1px; margin: -1px; position: fixed; top: 0px; left: 0px;"
-                  tabindex="-1"
-                  type="checkbox"
-                />
+                  class="react-aria-CheckboxField"
+                  data-rac=""
+                >
+                  <label
+                    class="relative inline-flex h-4 w-4 shrink-0 cursor-pointer items-center justify-center rounded border border-divider bg-background align-middle text-foreground data-[focus-visible]:outline-2 data-[focus-visible]:outline-offset-2 data-[focus-visible]:outline-focus"
+                    data-rac=""
+                    data-react-aria-pressable="true"
+                    data-slot="checkbox"
+                  >
+                    <span
+                      style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+                    >
+                      <input
+                        aria-label="Select row 2"
+                        data-react-aria-pressable="true"
+                        tabindex="0"
+                        title=""
+                        type="checkbox"
+                      />
+                    </span>
+                  </label>
+                </span>
               </div>
             </td>
             <td
@@ -5951,22 +6023,28 @@ exports[`Story Snapshots > Playground 1`] = `
                 data-slot="selection-cell-content"
               >
                 <span
-                  aria-checked="false"
-                  aria-label="Select row 3"
-                  class="relative inline-flex h-4 w-4 shrink-0 cursor-pointer items-center justify-center rounded border border-divider bg-background align-middle text-foreground"
-                  data-slot="checkbox"
-                  data-unchecked=""
-                  id="base-ui-«replaced-aria-id»"
-                  role="checkbox"
-                  tabindex="0"
-                />
-                <input
-                  aria-hidden="true"
-                  id="base-ui-«replaced-aria-id»"
-                  style="clip-path: inset(50%); overflow: hidden; white-space: nowrap; border: 0px; padding: 0px; width: 1px; height: 1px; margin: -1px; position: fixed; top: 0px; left: 0px;"
-                  tabindex="-1"
-                  type="checkbox"
-                />
+                  class="react-aria-CheckboxField"
+                  data-rac=""
+                >
+                  <label
+                    class="relative inline-flex h-4 w-4 shrink-0 cursor-pointer items-center justify-center rounded border border-divider bg-background align-middle text-foreground data-[focus-visible]:outline-2 data-[focus-visible]:outline-offset-2 data-[focus-visible]:outline-focus"
+                    data-rac=""
+                    data-react-aria-pressable="true"
+                    data-slot="checkbox"
+                  >
+                    <span
+                      style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+                    >
+                      <input
+                        aria-label="Select row 3"
+                        data-react-aria-pressable="true"
+                        tabindex="0"
+                        title=""
+                        type="checkbox"
+                      />
+                    </span>
+                  </label>
+                </span>
               </div>
             </td>
             <td
@@ -6068,22 +6146,28 @@ exports[`Story Snapshots > Playground 1`] = `
                 data-slot="selection-cell-content"
               >
                 <span
-                  aria-checked="false"
-                  aria-label="Select row 4"
-                  class="relative inline-flex h-4 w-4 shrink-0 cursor-pointer items-center justify-center rounded border border-divider bg-background align-middle text-foreground"
-                  data-slot="checkbox"
-                  data-unchecked=""
-                  id="base-ui-«replaced-aria-id»"
-                  role="checkbox"
-                  tabindex="0"
-                />
-                <input
-                  aria-hidden="true"
-                  id="base-ui-«replaced-aria-id»"
-                  style="clip-path: inset(50%); overflow: hidden; white-space: nowrap; border: 0px; padding: 0px; width: 1px; height: 1px; margin: -1px; position: fixed; top: 0px; left: 0px;"
-                  tabindex="-1"
-                  type="checkbox"
-                />
+                  class="react-aria-CheckboxField"
+                  data-rac=""
+                >
+                  <label
+                    class="relative inline-flex h-4 w-4 shrink-0 cursor-pointer items-center justify-center rounded border border-divider bg-background align-middle text-foreground data-[focus-visible]:outline-2 data-[focus-visible]:outline-offset-2 data-[focus-visible]:outline-focus"
+                    data-rac=""
+                    data-react-aria-pressable="true"
+                    data-slot="checkbox"
+                  >
+                    <span
+                      style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+                    >
+                      <input
+                        aria-label="Select row 4"
+                        data-react-aria-pressable="true"
+                        tabindex="0"
+                        title=""
+                        type="checkbox"
+                      />
+                    </span>
+                  </label>
+                </span>
               </div>
             </td>
             <td
@@ -6185,22 +6269,28 @@ exports[`Story Snapshots > Playground 1`] = `
                 data-slot="selection-cell-content"
               >
                 <span
-                  aria-checked="false"
-                  aria-label="Select row 5"
-                  class="relative inline-flex h-4 w-4 shrink-0 cursor-pointer items-center justify-center rounded border border-divider bg-background align-middle text-foreground"
-                  data-slot="checkbox"
-                  data-unchecked=""
-                  id="base-ui-«replaced-aria-id»"
-                  role="checkbox"
-                  tabindex="0"
-                />
-                <input
-                  aria-hidden="true"
-                  id="base-ui-«replaced-aria-id»"
-                  style="clip-path: inset(50%); overflow: hidden; white-space: nowrap; border: 0px; padding: 0px; width: 1px; height: 1px; margin: -1px; position: fixed; top: 0px; left: 0px;"
-                  tabindex="-1"
-                  type="checkbox"
-                />
+                  class="react-aria-CheckboxField"
+                  data-rac=""
+                >
+                  <label
+                    class="relative inline-flex h-4 w-4 shrink-0 cursor-pointer items-center justify-center rounded border border-divider bg-background align-middle text-foreground data-[focus-visible]:outline-2 data-[focus-visible]:outline-offset-2 data-[focus-visible]:outline-focus"
+                    data-rac=""
+                    data-react-aria-pressable="true"
+                    data-slot="checkbox"
+                  >
+                    <span
+                      style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+                    >
+                      <input
+                        aria-label="Select row 5"
+                        data-react-aria-pressable="true"
+                        tabindex="0"
+                        title=""
+                        type="checkbox"
+                      />
+                    </span>
+                  </label>
+                </span>
               </div>
             </td>
             <td
@@ -6302,22 +6392,28 @@ exports[`Story Snapshots > Playground 1`] = `
                 data-slot="selection-cell-content"
               >
                 <span
-                  aria-checked="false"
-                  aria-label="Select row 6"
-                  class="relative inline-flex h-4 w-4 shrink-0 cursor-pointer items-center justify-center rounded border border-divider bg-background align-middle text-foreground"
-                  data-slot="checkbox"
-                  data-unchecked=""
-                  id="base-ui-«replaced-aria-id»"
-                  role="checkbox"
-                  tabindex="0"
-                />
-                <input
-                  aria-hidden="true"
-                  id="base-ui-«replaced-aria-id»"
-                  style="clip-path: inset(50%); overflow: hidden; white-space: nowrap; border: 0px; padding: 0px; width: 1px; height: 1px; margin: -1px; position: fixed; top: 0px; left: 0px;"
-                  tabindex="-1"
-                  type="checkbox"
-                />
+                  class="react-aria-CheckboxField"
+                  data-rac=""
+                >
+                  <label
+                    class="relative inline-flex h-4 w-4 shrink-0 cursor-pointer items-center justify-center rounded border border-divider bg-background align-middle text-foreground data-[focus-visible]:outline-2 data-[focus-visible]:outline-offset-2 data-[focus-visible]:outline-focus"
+                    data-rac=""
+                    data-react-aria-pressable="true"
+                    data-slot="checkbox"
+                  >
+                    <span
+                      style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+                    >
+                      <input
+                        aria-label="Select row 6"
+                        data-react-aria-pressable="true"
+                        tabindex="0"
+                        title=""
+                        type="checkbox"
+                      />
+                    </span>
+                  </label>
+                </span>
               </div>
             </td>
             <td
@@ -6491,30 +6587,37 @@ exports[`Story Snapshots > RowSelection 1`] = `
                 data-slot="selection-cell-content"
               >
                 <span
-                  aria-checked="mixed"
-                  aria-label="Select all rows on page"
-                  class="relative inline-flex h-4 w-4 shrink-0 cursor-pointer items-center justify-center rounded border border-divider bg-background align-middle text-foreground"
-                  data-indeterminate=""
-                  data-slot="checkbox"
-                  id="base-ui-«replaced-aria-id»"
-                  role="checkbox"
-                  tabindex="0"
+                  class="react-aria-CheckboxField"
+                  data-indeterminate="true"
+                  data-rac=""
                 >
-                  <span
-                    class="pointer-events-none absolute inset-0 flex items-center justify-center text-[10px] leading-none"
-                    data-indeterminate=""
-                    data-slot="checkbox-indicator"
+                  <label
+                    class="relative inline-flex h-4 w-4 shrink-0 cursor-pointer items-center justify-center rounded border border-divider bg-background align-middle text-foreground data-[focus-visible]:outline-2 data-[focus-visible]:outline-offset-2 data-[focus-visible]:outline-focus"
+                    data-indeterminate="true"
+                    data-rac=""
+                    data-react-aria-pressable="true"
+                    data-slot="checkbox"
                   >
-                    −
-                  </span>
+                    <span
+                      style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+                    >
+                      <input
+                        aria-label="Select all rows on page"
+                        data-react-aria-pressable="true"
+                        tabindex="0"
+                        title=""
+                        type="checkbox"
+                      />
+                    </span>
+                    <span
+                      aria-hidden="true"
+                      class="pointer-events-none absolute inset-0 flex items-center justify-center text-[10px] leading-none"
+                      data-slot="checkbox-indicator"
+                    >
+                      −
+                    </span>
+                  </label>
                 </span>
-                <input
-                  aria-hidden="true"
-                  id="base-ui-«replaced-aria-id»"
-                  style="clip-path: inset(50%); overflow: hidden; white-space: nowrap; border: 0px; padding: 0px; width: 1px; height: 1px; margin: -1px; position: fixed; top: 0px; left: 0px;"
-                  tabindex="-1"
-                  type="checkbox"
-                />
               </div>
             </th>
             <th
@@ -6591,30 +6694,39 @@ exports[`Story Snapshots > RowSelection 1`] = `
                 data-slot="selection-cell-content"
               >
                 <span
-                  aria-checked="true"
-                  aria-label="Select row 0"
-                  class="relative inline-flex h-4 w-4 shrink-0 cursor-pointer items-center justify-center rounded border border-divider bg-background align-middle text-foreground"
-                  data-checked=""
-                  data-slot="checkbox"
-                  id="base-ui-«replaced-aria-id»"
-                  role="checkbox"
-                  tabindex="0"
+                  class="react-aria-CheckboxField"
+                  data-rac=""
+                  data-selected="true"
                 >
-                  <span
-                    class="pointer-events-none absolute inset-0 flex items-center justify-center text-[10px] leading-none"
-                    data-checked=""
-                    data-slot="checkbox-indicator"
+                  <label
+                    class="relative inline-flex h-4 w-4 shrink-0 cursor-pointer items-center justify-center rounded border border-divider bg-background align-middle text-foreground data-[focus-visible]:outline-2 data-[focus-visible]:outline-offset-2 data-[focus-visible]:outline-focus"
+                    data-focus-visible="true"
+                    data-focused="true"
+                    data-rac=""
+                    data-react-aria-pressable="true"
+                    data-selected="true"
+                    data-slot="checkbox"
                   >
-                    ✓
-                  </span>
+                    <span
+                      style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+                    >
+                      <input
+                        aria-label="Select row 0"
+                        data-react-aria-pressable="true"
+                        tabindex="0"
+                        title=""
+                        type="checkbox"
+                      />
+                    </span>
+                    <span
+                      aria-hidden="true"
+                      class="pointer-events-none absolute inset-0 flex items-center justify-center text-[10px] leading-none"
+                      data-slot="checkbox-indicator"
+                    >
+                      ✓
+                    </span>
+                  </label>
                 </span>
-                <input
-                  aria-hidden="true"
-                  id="base-ui-«replaced-aria-id»"
-                  style="clip-path: inset(50%); overflow: hidden; white-space: nowrap; border: 0px; padding: 0px; width: 1px; height: 1px; margin: -1px; position: fixed; top: 0px; left: 0px;"
-                  tabindex="-1"
-                  type="checkbox"
-                />
               </div>
             </td>
             <td
@@ -6672,22 +6784,28 @@ exports[`Story Snapshots > RowSelection 1`] = `
                 data-slot="selection-cell-content"
               >
                 <span
-                  aria-checked="false"
-                  aria-label="Select row 1"
-                  class="relative inline-flex h-4 w-4 shrink-0 cursor-pointer items-center justify-center rounded border border-divider bg-background align-middle text-foreground"
-                  data-slot="checkbox"
-                  data-unchecked=""
-                  id="base-ui-«replaced-aria-id»"
-                  role="checkbox"
-                  tabindex="0"
-                />
-                <input
-                  aria-hidden="true"
-                  id="base-ui-«replaced-aria-id»"
-                  style="clip-path: inset(50%); overflow: hidden; white-space: nowrap; border: 0px; padding: 0px; width: 1px; height: 1px; margin: -1px; position: fixed; top: 0px; left: 0px;"
-                  tabindex="-1"
-                  type="checkbox"
-                />
+                  class="react-aria-CheckboxField"
+                  data-rac=""
+                >
+                  <label
+                    class="relative inline-flex h-4 w-4 shrink-0 cursor-pointer items-center justify-center rounded border border-divider bg-background align-middle text-foreground data-[focus-visible]:outline-2 data-[focus-visible]:outline-offset-2 data-[focus-visible]:outline-focus"
+                    data-rac=""
+                    data-react-aria-pressable="true"
+                    data-slot="checkbox"
+                  >
+                    <span
+                      style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+                    >
+                      <input
+                        aria-label="Select row 1"
+                        data-react-aria-pressable="true"
+                        tabindex="0"
+                        title=""
+                        type="checkbox"
+                      />
+                    </span>
+                  </label>
+                </span>
               </div>
             </td>
             <td

@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react';
+import type { CheckboxFieldProps } from 'react-aria-components';
 
-import { Checkbox } from '@base-ui/react/checkbox';
+import { CheckboxButton, CheckboxField } from 'react-aria-components';
 
 interface CheckboxClassName {
   checkbox?: string;
@@ -26,7 +27,11 @@ export interface DataTableCheckboxProps {
   testId?: string;
 }
 
-/** Small checkbox wrapper used by DataTable selection UI */
+/**
+ * Row selection checkbox with a mixed state for partially selected pages
+ *
+ * @see https://react-aria.adobe.com/Checkbox
+ */
 const DataTableCheckbox = ({
   ariaLabel,
   checked,
@@ -40,26 +45,35 @@ const DataTableCheckbox = ({
   const indicatorIcon = indeterminate ? indeterminateIcon : checkedIcon;
   const resolvedIndicatorIcon = indicatorIcon === false ? null : indicatorIcon;
 
+  // keep the field wrapper inline inside table cells
+  const renderField: NonNullable<CheckboxFieldProps['render']> = (props) => {
+    return <span {...props} />;
+  };
+
   return (
-    <Checkbox.Root
+    <CheckboxField
       aria-label={ariaLabel}
-      checked={checked}
-      className={className?.checkbox}
-      data-slot="checkbox"
-      data-testid={testId}
-      indeterminate={indeterminate}
-      onCheckedChange={(nextChecked) => {
-        // base UI can emit non-boolean-ish values, normalize for table callers
-        onCheckedChange(Boolean(nextChecked));
-      }}
+      isIndeterminate={indeterminate}
+      isSelected={checked}
+      onChange={onCheckedChange}
+      render={renderField}
     >
-      <Checkbox.Indicator
-        className={className?.checkboxIndicator}
-        data-slot="checkbox-indicator"
+      <CheckboxButton
+        className={className?.checkbox}
+        data-slot="checkbox"
+        data-testid={testId}
       >
-        {resolvedIndicatorIcon}
-      </Checkbox.Indicator>
-    </Checkbox.Root>
+        {checked || indeterminate ? (
+          <span
+            aria-hidden="true"
+            className={className?.checkboxIndicator}
+            data-slot="checkbox-indicator"
+          >
+            {resolvedIndicatorIcon}
+          </span>
+        ) : null}
+      </CheckboxButton>
+    </CheckboxField>
   );
 };
 
