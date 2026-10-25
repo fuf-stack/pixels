@@ -25,7 +25,7 @@ consistent config instead of duplicating Storybook boilerplate.
 - `.storybook/main.ts`: consumer-facing Storybook main wrapper.
 - `.storybook/preview.tsx`: consumer-facing preview wrapper.
 
-## Visual regression pilot
+## Visual regression tests
 
 At the repository root, `pnpm --filter @repo/storybook-config storybook:build`
 builds the stories and `pnpm test:visual:docker` compares selected stories in the

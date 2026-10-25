@@ -44,7 +44,7 @@ storybook: install
 storybook-react-scan:
 	pnpx react-scan@latest http://localhost:6006
 
-# Run unit tests followed by isolated parallel Storybook shards.
+# Run unit, parallel Storybook and Docker visual tests, with a combined summary.
 test: install
 	clear
 	node scripts/test.mjs all $(ARGS)

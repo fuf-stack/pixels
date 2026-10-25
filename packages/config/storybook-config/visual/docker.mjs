@@ -13,6 +13,12 @@ const image = getVisualTestImage(workflow);
 
 await access(new URL('../storybook-static/iframe.html', import.meta.url));
 
+// Docker does not inherit terminal detection or color preferences from the host
+const colorEnvironment =
+  process.env.NO_COLOR !== undefined
+    ? 'NO_COLOR=1'
+    : `FORCE_COLOR=${process.env.FORCE_COLOR ?? (process.stdout.isTTY ? '1' : '0')}`;
+
 // run the test server and browser together in CI's Linux environment
 const runner = spawn(
   'docker',
@@ -23,6 +29,8 @@ const runner = spawn(
     '--ipc=host',
     '--platform',
     'linux/arm64',
+    '--env',
+    colorEnvironment,
     '--volume',
     `${root}:/workspace`,
     '--workdir',

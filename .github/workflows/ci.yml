@@ -88,7 +88,7 @@ jobs:
         run: test "${{ needs.storybook-shards.result }}" = success
 
   visual-tests:
-    name: Visual regression pilot
+    name: Visual regression tests
     runs-on: ubuntu-24.04-arm
     timeout-minutes: 20
     container:
@@ -101,6 +101,8 @@ jobs:
       - name: Build Storybook
         run: pnpm --filter @repo/storybook-config storybook:build
       - name: Compare visual baselines
+        env:
+          FORCE_COLOR: '1'
         run: pnpm test:visual
       - name: Upload visual report and differences
         if: ${{ !cancelled() }}

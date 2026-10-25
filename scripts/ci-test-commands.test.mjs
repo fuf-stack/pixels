@@ -30,6 +30,9 @@ if [ -n "\${TEST_COMMAND_OUTPUT:-}" ]; then
   printf 'stdout %s\\n' "\${STORYBOOK_TEST_SHARD}"
   printf 'stderr %s\\n' "\${STORYBOOK_TEST_SHARD}" >&2
 fi
+if [ -n "\${TEST_COMMAND_DELAY:-}" ]; then
+  sleep "$TEST_COMMAND_DELAY"
+fi
 if [ -n "\${TEST_COMMAND_FAIL_ON:-}" ] && [ "$1" = "$TEST_COMMAND_FAIL_ON" ]; then
   exit 7
 fi
@@ -193,12 +196,14 @@ test.each(['0', 'invalid', '2.5'])(
   },
 );
 
-test('runs unit tests followed by the parallel Storybook command for the full suite', () => {
+test('runs unit, parallel Storybook and prepared visual tests for the full suite', () => {
   const result = run('all', ['--testNamePattern=Keyboard']);
   expect(result.status).toBe(0);
   expect(result.commands).toEqual([
     ['test:unit', '--testNamePattern=Keyboard'],
     ['test:storybook', '--testNamePattern=Keyboard'],
+    ['--filter', '@repo/storybook-config', 'storybook:build'],
+    ['test:visual:docker'],
   ]);
 
   const make = spawnSync('make', ['--dry-run', 'test'], {
@@ -208,10 +213,14 @@ test('runs unit tests followed by the parallel Storybook command for the full su
   expect(make.stdout).toContain('node scripts/test.mjs all');
 });
 
-test('runs both categories after a failure and exits unsuccessfully', () => {
+test('runs every category after a failure and skips comparisons after failed preparation', () => {
   const result = run('all', [], { TEST_COMMAND_EXIT_CODE: '7' });
   expect(result.status).toBe(7);
-  expect(result.commands).toEqual([['test:unit'], ['test:storybook']]);
+  expect(result.commands).toEqual([
+    ['test:unit'],
+    ['test:storybook'],
+    ['--filter', '@repo/storybook-config', 'storybook:build'],
+  ]);
 });
 
 test('groups shard stdout and stderr into complete non-interactive blocks', () => {
@@ -232,27 +241,66 @@ test('groups shard stdout and stderr into complete non-interactive blocks', () =
   }
 });
 
-test.each([
-  ['test:unit', 'FAIL test:unit', 'PASS test:storybook'],
-  ['test:storybook', 'PASS test:unit', 'FAIL test:storybook'],
-])(
+test.each(['test:unit', 'test:storybook', 'test:visual:docker'])(
   'summarizes every suite and preserves the failure of %s',
-  (failed, unit, storybook) => {
+  (failed) => {
     const result = run('all', [], { TEST_COMMAND_FAIL_ON: failed });
     expect(result.status).toBe(7);
-    expect(result.commands).toEqual([['test:unit'], ['test:storybook']]);
-    expect(result.stdout).toContain(
-      `=== Test summary ===\n${unit}\n${storybook}\n1/2 test suites passed.`,
-    );
+    expect(result.commands).toEqual([
+      ['test:unit'],
+      ['test:storybook'],
+      ['--filter', '@repo/storybook-config', 'storybook:build'],
+      ['test:visual:docker'],
+    ]);
+
+    for (const [command, label] of [
+      ['test:unit', 'test:unit'],
+      ['test:storybook', 'test:storybook'],
+      ['test:visual:docker', 'test:visual'],
+    ]) {
+      expect(result.stdout).toMatch(
+        new RegExp(
+          String.raw`${failed === command ? 'FAIL' : 'PASS'} ${label} \(\d+\.\ds\)`,
+        ),
+      );
+    }
+
+    expect(result.stdout).toContain('2/3 test suites passed.');
   },
 );
 
-test('summarizes a successful full test run', () => {
-  const result = run('all');
+test('reports failed visual preparation without comparing stale output', () => {
+  const result = run('all', [], { TEST_COMMAND_FAIL_ON: '--filter' });
+  expect(result.status).toBe(7);
+  expect(result.commands).toEqual([
+    ['test:unit'],
+    ['test:storybook'],
+    ['--filter', '@repo/storybook-config', 'storybook:build'],
+  ]);
+  expect(result.stdout).toContain('FAIL test:visual');
+  expect(result.stdout).toContain('2/3 test suites passed.');
+});
+
+test('summarizes a successful full test run with category and total runtimes', () => {
+  const result = run('all', [], { TEST_COMMAND_DELAY: '0.1' });
   expect(result.status).toBe(0);
-  expect(result.stdout).toContain(
-    '=== Test summary ===\nPASS test:unit\nPASS test:storybook\n2/2 test suites passed.',
-  );
+
+  const summary = result.stdout.split('=== Test summary ===')[1];
+  const durations = [...summary.matchAll(/PASS test:([a-z]+) \((\d+\.\d)s\)/g)];
+  expect(durations.map((match) => match[1])).toEqual([
+    'unit',
+    'storybook',
+    'visual',
+  ]);
+  expect(Number(durations[0][2])).toBeGreaterThanOrEqual(0.1);
+  expect(Number(durations[1][2])).toBeGreaterThanOrEqual(0.1);
+  // visual runtime includes both the build and the comparison command
+  expect(Number(durations[2][2])).toBeGreaterThanOrEqual(0.2);
+  expect(summary).toContain('3/3 test suites passed.');
+
+  const total = summary.match(/Total runtime: (\d+\.\d)s/);
+  expect(total).not.toBeNull();
+  expect(Number(total[1])).toBeGreaterThanOrEqual(0.4);
 });
 
 test.each([1, 2])(

@@ -12,7 +12,7 @@ export default defineConfig({
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
   retries: 0,
-  workers: 2,
+  workers: 4,
   outputDir: './test-results/visual',
   snapshotPathTemplate: '{testDir}/../../../{arg}{ext}',
   updateSnapshots: 'none',

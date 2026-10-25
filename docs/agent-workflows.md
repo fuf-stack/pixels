@@ -17,16 +17,31 @@ migration document and explicit release sequencing.
 ## Test commands
 
 `make test` installs and builds the workspace, then runs unit and script tests
-with coverage, followed by isolated parallel Storybook Chromium shards. Both
-categories run even if one fails. The final summary lists each suite's result,
-and any failure makes the command fail, even when the last suite passes.
+with coverage, isolated parallel Storybook Chromium shards, and Docker visual
+comparisons. All three categories run even if an earlier category fails. The
+visual stage builds static Storybook first, and skips comparisons if that build
+fails rather than testing stale output. The final summary lists each category's
+pass/fail status and runtime, including visual build preparation, plus total
+elapsed time. Any failure makes the command fail, even when the last suite passes.
 Cancellation stops the sequence instead of starting another suite.
-Playwright screenshot comparisons remain a separate command. Select one category
-to run only its tests:
+
+Example final report:
+
+```text
+=== Test summary ===
+PASS test:unit (30.0s)
+PASS test:storybook (45.0s)
+PASS test:visual (90.0s)
+3/3 test suites passed.
+Total runtime: 165.0s
+```
+
+Docker must be running for the full test command. Select a category to run only
+its tests:
 
 | Command               | Tests                                                                   |
 | --------------------- | ----------------------------------------------------------------------- |
-| `make test`           | Unit tests with coverage, then parallel Storybook tests                 |
+| `make test`           | Unit tests, parallel Storybook tests, then Docker visual comparisons    |
 | `make test-unit`      | Unit and CI-script tests, with coverage, excluding browser stories      |
 | `make test-storybook` | Storybook interaction and accessibility tests in Chromium               |
 | `make test-visual`    | Builds static Storybook, then compares screenshots in CI's Docker image |
@@ -49,9 +64,13 @@ the pinned Linux container. See [visual regression](./visual-regression.md) for
 baseline updates and environment requirements.
 
 The dedicated Make targets delegate to `scripts/test.mjs`, which selects the
-runner and forwards `ARGS`. `make storybook` starts the development server.
+runner and forwards `ARGS`. For `make test`, these options apply to the two
+Vitest categories; the visual stage runs its complete suite. Use `make test-visual`
+for Playwright options such as `--grep` or `--workers`. `make storybook` starts the
+development server.
 `make check` / `pnpm check` runs the verification stages, including unit and
-Storybook tests; visual comparisons remain a separate CI job and local command.
+Storybook tests; visual comparisons have their own CI job and run locally through
+`make test` or `make test-visual`.
 
 Script tests, including release-bootstrap tests, belong to the `ci-scripts`
 Vitest project and run with the unit suite. Add them as `scripts/*.test.mjs`,

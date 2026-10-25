@@ -55,6 +55,18 @@ automatically, do not create separate light/dark story copies.
 
 ## Run and review
 
+Visual comparisons run with four Playwright workers, each test gets an isolated
+browser context. Light and dark cases share that worker pool. On a constrained
+machine, reduce concurrency without changing the configuration:
+
+```sh
+pnpm test:visual:docker --workers=2
+```
+
+The Docker helper enables colors in a local terminal and forwards explicit
+`FORCE_COLOR` levels. Set `NO_COLOR=1` to disable colors. Piped output stays plain
+unless colors are explicitly requested.
+
 Run only the visual category, including dependency setup, workspace builds and a
 fresh static Storybook build:
 
@@ -62,9 +74,11 @@ fresh static Storybook build:
 make test-visual
 ```
 
-`make test` runs unit tests followed by parallel Storybook browser tests. It does
-not launch Playwright screenshot comparisons. `make check` likewise leaves visual
-comparisons to the dedicated command and CI job.
+`make test` runs unit tests, parallel Storybook browser tests, then builds static
+Storybook and runs these visual comparisons in Docker. Its final report includes
+each category's result and runtime, plus total elapsed time. Docker must be
+running. `make test-visual` runs just the visual category. `make check` keeps its
+existing verification stages; visual comparisons have their own CI job.
 
 For an already installed workspace, run the underlying commands directly.
 
@@ -87,8 +101,9 @@ an ARM Linux host for native rendering, x64 hosts need working ARM emulation.
 the CI container. Use the Docker command on macOS to compare and update the Linux
 baselines. Other operating systems and browser versions can render different pixels.
 
-CI has a separate **Visual regression pilot** job. Its artifact contains the HTML
-report, failure traces, and expected/actual/difference images. Download and extract
+CI has a separate **Visual regression tests** job with colored list-reporter
+output in the Actions log. Its artifact contains the HTML report, failure traces
+and expected/actual/difference images. Download and extract
 `visual-regression-report`, then serve its extracted `playwright-report` folder:
 
 ```sh
@@ -189,7 +204,7 @@ Screenshot comparisons disable animations and hide the caret. Keep the baseline
 PNGs with the component owning the source `stories/` folder; shared configuration,
 serving and reporting stay in the tooling package.
 
-No pixel differences are allowed in this initial pilot. If a case proves unstable,
+No pixel differences are allowed. If a case proves unstable,
 fix its data, animation or readiness condition before considering a narrowly
 justified tolerance. Avoid masking the component being tested.
 

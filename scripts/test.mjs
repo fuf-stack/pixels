@@ -4,7 +4,7 @@ import { availableParallelism, constants } from 'node:os';
 const [category = 'all', ...args] = process.argv.slice(2);
 
 const commands = {
-  all: [['test:unit'], ['test:storybook']],
+  all: ['unit', 'storybook', 'visual'],
   unit: [['test:unit']],
   storybook: [['--filter', '@repo/storybook-config', 'test:storybook']],
   visual: [
@@ -107,45 +107,66 @@ if (category === 'storybook') {
   // finish every shard so one failure does not hide failures in another partition
   process.exitCode = results.find((code) => code !== 0) ?? 0;
 } else {
-  // forward options to both test categories, but never to visual build preparation
-  const selected = commands[category];
+  const categories = category === 'all' ? commands.all : [category];
   const results = [];
+  const startedAt = performance.now();
   let exitCode = 0;
 
-  for (const [index, command] of selected.entries()) {
-    const options =
-      category === 'all' || index === selected.length - 1 ? args : [];
-    const result = spawnSync('pnpm', [...command, ...options], {
-      cwd: new URL('../', import.meta.url),
-      stdio: 'inherit',
+  for (const suite of categories) {
+    // use the root Storybook command to keep its isolated parallel shards
+    const selected =
+      suite === 'storybook' ? [['test:storybook']] : commands[suite];
+    const suiteStartedAt = performance.now();
+    let suiteExitCode = 0;
+
+    for (const [index, command] of selected.entries()) {
+      // Vitest filters do not apply to Playwright or its build preparation
+      const options =
+        index === selected.length - 1 &&
+        !(category === 'all' && suite === 'visual')
+          ? args
+          : [];
+      const result = spawnSync('pnpm', [...command, ...options], {
+        cwd: new URL('../', import.meta.url),
+        stdio: 'inherit',
+      });
+
+      if (result.error) console.error(result.error.message);
+
+      // cancellation must stop the sequence rather than launch the next suite
+      if (result.signal === 'SIGINT' || result.signal === 'SIGTERM') {
+        process.exit(128 + constants.signals[result.signal]);
+      }
+
+      if (result.status !== 0) {
+        suiteExitCode = result.status ?? 1;
+        // a failed visual build must not compare stale Storybook output
+        break;
+      }
+    }
+
+    results.push({
+      name: `test:${suite}`,
+      passed: suiteExitCode === 0,
+      seconds: ((performance.now() - suiteStartedAt) / 1000).toFixed(1),
     });
-
-    results.push({ name: command[0], passed: result.status === 0 });
-
-    if (result.error) console.error(result.error.message);
-
-    // cancellation must stop the sequence rather than launch the next suite
-    if (result.signal === 'SIGINT' || result.signal === 'SIGTERM') {
-      process.exit(128 + constants.signals[result.signal]);
-    }
-
-    if (result.status !== 0) {
-      if (category !== 'all') process.exit(result.status ?? 1);
-
-      // still run browser tests when unit tests fail, preserving the first failure
-      exitCode ||= result.status ?? 1;
-    }
+    exitCode ||= suiteExitCode;
   }
 
   if (category === 'all') {
     console.log('\n=== Test summary ===');
 
     for (const result of results) {
-      console.log(`${result.passed ? 'PASS' : 'FAIL'} ${result.name}`);
+      console.log(
+        `${result.passed ? 'PASS' : 'FAIL'} ${result.name} (${result.seconds}s)`,
+      );
     }
 
     const passed = results.filter((result) => result.passed).length;
     console.log(`${passed}/${results.length} test suites passed.`);
+    console.log(
+      `Total runtime: ${((performance.now() - startedAt) / 1000).toFixed(1)}s`,
+    );
   }
 
   process.exitCode = exitCode;
