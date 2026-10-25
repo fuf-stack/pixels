@@ -13,6 +13,7 @@
     "test": "FORCE_COLOR=1 vitest run --coverage $VITEST_EXTRA_OPTS",
     "test:release": "node --test scripts/bootstrap-next-branch.test.mjs",
     "test:storybook": "pnpm --filter @repo/storybook-config test:storybook",
+    "test:unit": "pnpm test --project='!@repo/storybook-config*'",
     "test:visual": "pnpm --filter @repo/storybook-config test:visual",
     "test:visual:docker": "node packages/config/storybook-config/visual/docker.mjs",
     "turbo": "TURBO_TELEMETRY_DISABLED=1 FORCE_COLOR=1 turbo --cache-dir ./.turbo-cache --color",

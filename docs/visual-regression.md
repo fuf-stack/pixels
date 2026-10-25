@@ -8,6 +8,19 @@ an open modal, selected table rows and a narrow table viewport.
 
 ## Run and review
 
+Run only the visual category, including dependency setup, workspace builds and a
+fresh static Storybook build:
+
+```sh
+make test-visual
+```
+
+`make test` remains one Vitest run for unit and Storybook browser tests. It does
+not launch Playwright screenshot comparisons. `make check` likewise leaves visual
+comparisons to the dedicated command and CI job.
+
+For an already installed workspace, run the underlying commands directly.
+
 Build the workspace first if its published packages have changed:
 
 ```sh

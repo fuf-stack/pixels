@@ -14,6 +14,41 @@ and new call sites and decide whether the change is internal, additive, or
 breaking. Run focused tests followed by `pnpm check`. A breaking change needs a
 migration document and explicit release sequencing.
 
+## Test commands
+
+`make test` installs and builds the workspace, then runs all Vitest projects in
+one invocation, including unit tests, script tests and Storybook Chromium tests.
+Playwright screenshot comparisons are a separate runner and are not part of that
+Vitest invocation. Select one category to run only its tests:
+
+| Command               | Tests                                                                   |
+| --------------------- | ----------------------------------------------------------------------- |
+| `make test`           | All Vitest projects, with coverage                                      |
+| `make test-unit`      | Unit and CI-script tests, with coverage, excluding browser stories      |
+| `make test-storybook` | Storybook interaction and accessibility tests in Chromium               |
+| `make test-visual`    | Builds static Storybook, then compares screenshots in CI's Docker image |
+| `make test-release`   | Release-bootstrap script tests                                          |
+| `make test-dts`       | Veto declaration-consumer smoke tests                                   |
+
+All Make test commands install dependencies and build the workspace first. Use
+`ARGS` for runner options, for example:
+
+```sh
+make test-unit ARGS="--project=@fuf-stack/uniform"
+make test-visual ARGS="--grep=uniform-input--invalid"
+```
+
+With dependencies and packages already built, use `pnpm test`, `pnpm test:unit`,
+`pnpm test:storybook` or `pnpm test:release` directly. `pnpm test:visual:docker`
+compares an existing static Storybook build; `pnpm test:visual` runs directly in
+the pinned Linux container. See [visual regression](./visual-regression.md) for
+baseline updates and environment requirements.
+
+The dedicated Make targets delegate to `scripts/test.mjs`, which selects the
+runner and forwards `ARGS`. `make storybook` starts the development server.
+`make check` / `pnpm check` runs the verification stages, including unit and
+Storybook tests; visual comparisons remain a separate CI job and local command.
+
 ## Pre-commit checks
 
 `pnpm lint-staged` batches staged runtime-package files into one related unit-test

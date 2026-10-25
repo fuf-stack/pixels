@@ -13,7 +13,7 @@ const checks = [
   ['dependency boundaries', 'check:boundaries'],
   ['lint', 'lint'],
   ['type checking and builds', 'typecheck'],
-  ['unit tests', 'test', '--project=!@repo/storybook-config*'],
+  ['unit tests', 'test:unit'],
   ['Storybook tests', 'test:storybook'],
   ['published package verification', 'verify:packages'],
 ];
