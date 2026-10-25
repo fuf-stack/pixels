@@ -1,0 +1,162 @@
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import type { LabelProps } from '../Label';
+
+import { FaRocket } from 'react-icons/fa6';
+
+import { action } from 'storybook/actions';
+
+import Label from '../Label';
+
+// -----------------------------------------------------------------------------
+// Story base setup
+// -----------------------------------------------------------------------------
+
+const meta: Meta<typeof Label> = {
+  title: 'pixels/Label',
+  component: Label,
+};
+
+export default meta;
+type Story = StoryObj<typeof Label>;
+
+// -----------------------------------------------------------------------------
+// Normal stories
+// -----------------------------------------------------------------------------
+
+export const Default: Story = {
+  args: {
+    children: 'Some Label',
+  },
+};
+
+export const IconOnly: Story = {
+  args: {
+    icon: <FaRocket />,
+  },
+};
+
+export const IconAndContent: Story = {
+  tags: ['visual'],
+  parameters: { visual: { target: '[data-component="label"]' } },
+  args: {
+    icon: <FaRocket />,
+    children: 'Some Label',
+  },
+};
+
+export const EndContent: Story = {
+  args: {
+    children: 'Some Label',
+    endContent: <FaRocket />,
+  },
+};
+
+export const WithCloseButton: Story = {
+  args: {
+    children: 'Some Label',
+    onClose: action('onClose'),
+  },
+};
+
+export const AllColors: Story = {
+  tags: ['visual'],
+  parameters: { visual: { target: '[data-component="label"]' } },
+  argTypes: {
+    variant: {
+      control: 'select',
+      options: ['solid', 'bordered', 'light', 'flat', 'faded', 'dot'],
+    },
+  },
+  render: (args) => {
+    return (
+      <>
+        {[
+          'default',
+          'primary',
+          'secondary',
+          'info',
+          'success',
+          'warning',
+          'danger',
+        ].map((color) => {
+          return (
+            <div key={color} style={{ marginTop: '10px' }}>
+              <Label {...args} color={color as LabelProps['color']}>
+                {color}
+              </Label>
+            </div>
+          );
+        })}
+      </>
+    );
+  },
+};
+
+export const AllSizes: Story = {
+  tags: ['visual'],
+  parameters: { visual: { target: '[data-component="label"]' } },
+  render: () => {
+    return (
+      <>
+        {['sm', 'md', 'lg'].map((size) => {
+          return (
+            <div key={size} style={{ marginTop: '10px' }}>
+              <Label size={size as LabelProps['size']}>{size}</Label>
+            </div>
+          );
+        })}
+      </>
+    );
+  },
+};
+
+export const AllRadius: Story = {
+  render: () => {
+    return (
+      <>
+        {['none', 'sm', 'md', 'lg', 'full'].map((radius) => {
+          return (
+            <div key={radius} style={{ marginTop: '10px' }}>
+              <Label radius={radius as LabelProps['radius']}>{radius}</Label>
+            </div>
+          );
+        })}
+      </>
+    );
+  },
+};
+
+export const AllVariants: Story = {
+  render: () => {
+    return (
+      <>
+        {['solid', 'bordered', 'light', 'flat', 'faded', 'dot'].map(
+          (variant) => {
+            return (
+              <div key={variant} style={{ marginTop: '10px' }}>
+                <Label
+                  color="success"
+                  variant={variant as LabelProps['variant']}
+                >
+                  {variant}
+                </Label>
+              </div>
+            );
+          },
+        )}
+      </>
+    );
+  },
+};
+
+export const CustomStyling: Story = {
+  args: {
+    children: 'Custom label',
+    className: {
+      base: 'h-10',
+      closeButton: 'text-danger',
+      content: 'text-large',
+    },
+    onClose: action('onClose'),
+  },
+};

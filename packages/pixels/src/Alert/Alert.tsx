@@ -1,137 +1,118 @@
-import type { TVClassName, TVProps } from '@fuf-stack/pixel-utils';
-import type { AlertProps as HeroAlertProps } from '@heroui/alert';
 import type { ReactNode } from 'react';
+import type { ClassName, VariantProps } from './alertVariants';
 
-import { Alert as HeroAlert } from '@heroui/alert';
-import { alert as heroAlertVariants } from '@heroui/theme';
+import { useState } from 'react';
 
-import { tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
+import { useStyling } from '../StylingProvider';
+import { alertVariants } from './alertVariants';
+import AlertCloseButton from './subcomponents/AlertCloseButton';
+import AlertIcon from './subcomponents/AlertIcon';
 
-export const alertVariants = tv({
-  slots: {
-    base: 'min-w-72 gap-3',
-    closeButton: '',
-    description: '',
-    endContent: '',
-    icon: '',
-    iconWrapper: '',
-    mainWrapper: 'ms-0 items-stretch gap-1.5',
-    title: '',
-  },
-  variants: {
-    // if HeroUI Alert title and description are set the icon is placed on top (looks better)
-    hasTitleAndChildren: {
-      true: {
-        iconWrapper: 'self-start',
-      },
-    },
-    // see:  https://github.com/heroui-inc/heroui/blob/canary/packages/core/theme/src/components/alert.ts
-    variant: {
-      danger: {
-        base: 'bg-danger-50 dark:bg-danger-50',
-        closeButton: 'data-[hover=true]:bg-danger/20',
-        description: 'text-foreground',
-      },
-      default: {
-        base: 'bg-background',
-        closeButton: 'data-[hover=true]:bg-default/40',
-        description: 'text-foreground',
-      },
-      info: {
-        base: 'border-small border-info-200 bg-info-50 text-info-600 dark:border-info-100 dark:bg-info-50',
-        closeButton: 'data-[hover=true]:bg-info/20 text-info-500',
-        description: 'text-foreground',
-        icon: 'fill-current',
-        iconWrapper: 'border-info-100 bg-info-50 dark:bg-info-100',
-        mainWrapper: 'text-inherit',
-        title: 'text-inherit',
-      },
-      success: {
-        base: 'bg-success-50 dark:bg-success-50',
-        closeButton: 'data-[hover=true]:bg-success/20',
-        description: 'text-foreground',
-      },
-      warning: {
-        base: 'bg-warning-50 dark:bg-warning-50',
-        closeButton: 'data-[hover=true]:bg-warning/20',
-        description: 'text-foreground',
-      },
-    },
-  },
-});
+export { alertVariants } from './alertVariants';
+export type { VariantProps } from './alertVariants';
 
-export type VariantProps = TVProps<typeof alertVariants>;
-type ClassName = TVClassName<typeof alertVariants>;
-
-// hasTitleAndChildren is omitted because its used for automatic icon position
-export interface AlertProps extends Omit<VariantProps, 'hasTitleAndChildren'> {
-  /** Content displayed inside the Alert if no description is given! */
+export interface AlertProps {
+  /** Supporting message below the title */
   children?: ReactNode;
   /** CSS class name */
   className?: ClassName;
-  /** Whether the Alert can be closed */
+  /** Shows the dismiss action */
   closable?: boolean;
-  /** Content displayed at the end of the Alert */
+  /** Content displayed after the message */
   endContent?: ReactNode;
-  /** Icon displayed at the start of the Alert */
+  /** Optional element replacing the status symbol */
   icon?: ReactNode;
-  /** Callback fired when the close button is clicked */
+  /** Callback after the alert is dismissed */
   onClose?: () => void;
-  /** HTML data-testid attribute used in e2e tests */
+  /** HTML data-testid attribute for e2e tests */
   testId?: string;
-  /** Title displayed in the Alert above the content */
+  /** Heading above the supporting message */
   title?: string;
-  /** Style variant of the Alert */
+  /** Message type and color treatment */
   variant?: VariantProps['variant'];
 }
 
-/**
- * Alert component based on [HeroUI Alert](https://www.heroui.com//docs/components/alert)
- */
+/** Status message with an optional title, supporting content and dismiss action */
 const Alert = ({
   children = undefined,
   className = undefined,
+  closable = false,
   endContent = undefined,
   icon = undefined,
-  closable = false,
   onClose = undefined,
   testId = undefined,
   title = undefined,
   variant = 'info',
 }: AlertProps) => {
+  const styling = useStyling();
+  const [visible, setVisible] = useState(true);
+
+  const hasDescription =
+    children != null &&
+    children !== '' &&
+    (!Array.isArray(children) || children.length > 0);
   const hasTitleAndChildren = !!children && !!title;
 
   // classNames from slots
-  const variants = alertVariants({ hasTitleAndChildren, variant });
-  const { endContent: endContentClassName, ...classNames } =
-    variantsToClassNames(variants, className, 'base');
-
-  // map variant to HeroUI color prop (only for variants that exist in HeroUI)
-  const heroColor = Object.keys(heroAlertVariants.variants.color).includes(
+  const variants = styling.resolve(alertVariants, {
+    hasTitleAndChildren,
     variant,
-  )
-    ? (variant as HeroAlertProps['color'])
-    : undefined;
+  });
+  const classNames = styling.variantsToClassNames(variants, className, 'base');
+
+  // hide the message before notifying its owner
+  const handleClose = () => {
+    setVisible(false);
+    onClose?.();
+  };
+
+  if (!visible) {
+    return null;
+  }
 
   return (
-    <HeroAlert
-      classNames={classNames}
-      color={heroColor}
+    <div
+      className={classNames.base}
+      data-closeable={closable || undefined}
+      data-component="alert"
+      data-has-description={hasDescription || undefined}
+      data-has-title={!!title || undefined}
+      data-slot="base"
       data-testid={testId}
-      description={children}
-      endContent={
-        endContent ? (
-          <div className={endContentClassName}>{endContent}</div>
-        ) : undefined
-      }
-      hideIcon={variant === 'default'}
-      icon={icon}
-      // map closable to isClosable, because of we do not want "is" as prefix
-      isClosable={closable}
-      onClose={onClose}
-      title={title}
-      variant="faded"
-    />
+      data-visible
+      role="alert"
+    >
+      <div className={classNames.iconWrapper} data-slot="iconWrapper">
+        <AlertIcon className={classNames.icon} icon={icon} variant={variant} />
+      </div>
+
+      {/* title and supporting message */}
+      <div className={classNames.mainWrapper} data-slot="mainWrapper">
+        {title ? (
+          <div className={classNames.title} data-slot="title">
+            {title}
+          </div>
+        ) : null}
+        {hasDescription ? (
+          <div className={classNames.description} data-slot="description">
+            {children}
+          </div>
+        ) : null}
+      </div>
+
+      {/* trailing content and optional dismissal */}
+      {endContent ? (
+        <div className={classNames.endContent} data-slot="endContent">
+          {endContent}
+        </div>
+      ) : null}
+      {closable || onClose ? (
+        <AlertCloseButton
+          className={classNames.closeButton}
+          onClose={handleClose}
+        />
+      ) : null}
+    </div>
   );
 };
 

@@ -1,6 +1,6 @@
 import DataTable from './DataTable';
 
-export { dataTableVariants } from './DataTable';
+export { dataTableVariants } from './dataTableVariants';
 
 export type {
   DataTableExpandableRowsFeature,

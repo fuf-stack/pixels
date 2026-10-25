@@ -119,10 +119,15 @@ their original cutoff. Never leave `last-release-sha` set permanently: it
 overrides release discovery and can repeatedly include already released commits.
 
 Review the resulting commits and push with `git push -u origin next`.
-Bootstrapping does not push or publish. Run `pnpm test:release` to exercise the
-bootstrap against temporary Git repositories, including repeat runs, remote
-branch recovery, stable version advancement, legacy cutoff migration, and new
-cycles that exclude already released history.
+Bootstrapping does not push or publish. Its tests run in Vitest's `ci-scripts`
+project as part of the unit suite. They exercise temporary Git repositories,
+including repeat runs, remote branch recovery, stable version advancement,
+legacy cutoff migration, and new cycles that exclude already released history.
+For a focused run:
+
+```sh
+pnpm exec vitest run --project=ci-scripts scripts/bootstrap-next-branch.test.mjs
+```
 
 ## Permissions
 

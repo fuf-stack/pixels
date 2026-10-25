@@ -1,0 +1,57 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Story Snapshots > Default 1`] = `
+<div>
+  <div
+    class="flex flex-col gap-1"
+  >
+    <label
+      for="email"
+    >
+      Email
+      <input
+        aria-describedby="email-description"
+        id="email"
+      />
+    </label>
+    <div
+      class="text-foreground-500 text-small"
+      data-slot="description"
+      id="email-description"
+    >
+      Use the address where you receive work email
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Story Snapshots > RichContent 1`] = `
+<div>
+  <div
+    class="flex flex-col gap-1"
+  >
+    <label
+      for="email"
+    >
+      Email
+      <input
+        aria-describedby="email-description"
+        id="email"
+      />
+    </label>
+    <div
+      class="text-foreground-500 text-small"
+      data-slot="description"
+      id="email-description"
+    >
+      <span>
+        Use your 
+        <strong>
+          work email
+        </strong>
+        , not your personal address
+      </span>
+    </div>
+  </div>
+</div>
+`;

@@ -5,10 +5,11 @@ import { useEffect, useState } from 'react';
 import { FaTimes } from 'react-icons/fa';
 import { FaBug, FaBullseye } from 'react-icons/fa6';
 
-import { tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
+import { tv } from '@fuf-stack/pixel-utils';
 import { Button } from '@fuf-stack/pixels/Button';
 import { Card } from '@fuf-stack/pixels/Card';
 import { Json } from '@fuf-stack/pixels/Json';
+import { useStyling } from '@fuf-stack/pixels/StylingProvider';
 
 import { useFormContext } from '../../hooks/useFormContext';
 import { redactDebugData, useSensitiveDebug } from './SensitiveFields';
@@ -56,8 +57,12 @@ const FormDebugViewer = ({ className = undefined }: FormDebugViewerProps) => {
   const showDebugTestIds = debugMode === 'debug-testids';
 
   // classNames from slots
-  const variants = formDebugViewerVariants();
-  const classNames = variantsToClassNames(variants, className, 'base');
+  const styling = useStyling();
+  const classNames = styling.variantsToClassNames(
+    styling.resolve(formDebugViewerVariants),
+    className,
+    'base',
+  );
   const cardClassNames: CardProps['className'] = {
     base: classNames.base,
     header: classNames.header,

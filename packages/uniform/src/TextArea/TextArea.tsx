@@ -1,31 +1,13 @@
-import type { TVClassName, TVProps } from '@fuf-stack/pixel-utils';
 import type { ReactNode } from 'react';
-
-import { Textarea as HeroTextArea } from '@heroui/input';
-
-import { tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
+import type { ClassName } from './textAreaVariants';
 
 import { useInputValueDebounce } from '../hooks/useInputValueDebounce';
-import { useUniformField } from '../hooks/useUniformField';
+import useUniformField from '../hooks/useUniformField/useUniformField';
+import TextAreaControl from './subcomponents/TextAreaControl';
 
-// input variants
-export const textAreaVariants = tv({
-  slots: {
-    /** wrapper around the whole input */
-    base: '',
-    /** clear button */
-    clearButton: '',
-    /** actual input element */
-    input: '',
-    /** inner wrapper (HeroUI inputWrapper slot) */
-    inputWrapper: 'bg-content1 group-data-[focus=true]:border-focus',
-  },
-});
+export { default as textAreaVariants } from './textAreaVariants';
 
-type VariantProps = TVProps<typeof textAreaVariants>;
-type ClassName = TVClassName<typeof textAreaVariants>;
-
-export interface TextAreaProps extends VariantProps {
+export interface TextAreaProps {
   /** Custom aria-label for accessibility. If not provided, falls back to field name when no visible label exists */
   ariaLabel?: string;
   /** Child components. The content of the textarea. */
@@ -34,6 +16,8 @@ export interface TextAreaProps extends VariantProps {
   className?: ClassName;
   /** debounce delay in milliseconds for form state updates (default: 300ms) */
   debounceDelay?: number;
+  /** Help text associated with the editable control. */
+  description?: ReactNode;
   /** Determines if the TextArea is disabled or not. */
   disabled?: boolean;
   /** Label displayed above the TextArea. */
@@ -46,78 +30,35 @@ export interface TextAreaProps extends VariantProps {
   testId?: string;
 }
 
-/**
- * TextArea component based on [HeroUI TextArea](https://www.heroui.com//docs/components/textarea)
- */
+/** Form input field for multiline text */
 const TextArea = ({
-  children = null,
-  className: _className = undefined,
+  className = undefined,
   debounceDelay = 300,
   name,
   placeholder = ' ',
-  ...uniformFieldProps
+  ...uniformProps
 }: TextAreaProps) => {
-  const {
-    ariaLabel,
-    disabled,
-    errorMessage,
-    field: {
-      onChange: fieldOnChange,
-      onBlur: fieldOnBlur,
-      value: fieldValue,
-      ref,
-    },
-    invalid,
-    label,
-    required,
-    testId,
-  } = useUniformField({ name, ...uniformFieldProps });
-
-  // Use debounced handlers for form updates
-  const { onChange, onBlur, value } = useInputValueDebounce({
-    debounceDelay,
+  const { field } = useUniformField({
+    ...uniformProps,
     name,
-    onBlur: fieldOnBlur,
-    onChange: fieldOnChange,
-    value: fieldValue,
+    placeholder,
   });
 
-  // classNames from slots
-  const variants = textAreaVariants();
-  const classNames = variantsToClassNames(variants, _className, 'base');
+  // debounce form updates, flush pending edits on blur
+  const { value, onChange, onBlur } = useInputValueDebounce({
+    debounceDelay,
+    name,
+    onBlur: field.onBlur,
+    onChange: field.onChange,
+    value: field.value,
+  });
 
   return (
-    <HeroTextArea
-      ref={ref}
-      // Only add aria-label if there's no meaningful placeholder (HeroUI uses placeholder as aria-label)
-      aria-label={
-        !placeholder || placeholder.trim() === '' ? ariaLabel : undefined
-      }
-      classNames={{
-        base: classNames.base,
-        clearButton: classNames.clearButton,
-        // set padding to 0 for error message exit animation
-        helperWrapper: 'p-0',
-        input: classNames.input,
-        inputWrapper: classNames.inputWrapper,
-      }}
-      data-testid={testId}
-      errorMessage={errorMessage}
-      id={testId}
-      isDisabled={disabled}
-      isInvalid={invalid}
-      isRequired={required}
-      label={label}
-      labelPlacement="outside"
-      name={name}
-      onBlur={onBlur}
-      onChange={onChange}
+    <TextAreaControl
+      className={className}
+      field={{ ...field, onBlur, onChange, value }}
       placeholder={placeholder}
-      value={value}
-      variant="bordered"
-    >
-      {children}
-    </HeroTextArea>
+    />
   );
 };
 

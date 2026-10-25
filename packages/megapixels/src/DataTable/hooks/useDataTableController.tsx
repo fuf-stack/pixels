@@ -22,7 +22,7 @@ import {
 
 import { Button } from '@fuf-stack/pixels/Button';
 
-import DataTableCheckbox from '../Subcomponents/DataTableCheckbox';
+import DataTableCheckbox from '../subcomponents/DataTableCheckbox';
 
 /** Stable id used for the injected row-selection column. */
 export const SELECTION_COLUMN_ID = '__select';
@@ -432,8 +432,8 @@ export const useDataTableController = <TData, TValue>({
     getRowCanExpand: (row) => {
       return hasExpandableRowContent || row.subRows.length > 0;
     },
-    getSubRows,
     getSortedRowModel: enableServerMode ? undefined : getSortedRowModel(),
+    getSubRows,
     manualFiltering: enableServerMode,
     manualSorting: enableServerMode,
     onColumnFiltersChange: setColumnFilters,

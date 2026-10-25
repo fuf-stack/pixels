@@ -1,5 +1,6 @@
 import type { Variants as MotionVariants } from '@fuf-stack/pixel-motion';
 import type { ClassValue } from '@fuf-stack/pixel-utils';
+import type { FieldArrayElementMethods } from '../../hooks/useUniformFieldArray/types';
 import type { FieldArrayFeatures } from '../types';
 
 import { useState } from 'react';
@@ -8,28 +9,19 @@ import { useSortable } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
 
 import { AnimatePresence, motion } from '@fuf-stack/pixel-motion';
-import { cn } from '@fuf-stack/pixel-utils';
+import { useStyling } from '@fuf-stack/pixels/StylingProvider';
 
 import Grid from '../../Grid';
 import ElementActionsMenu from './ElementActionsMenu';
 import ElementRemoveButton from './ElementRemoveButton';
 import SortDragHandle from './SortDragHandle';
 
-export interface FieldArrayElementMethods {
-  /** Add new element at end */
-  append: () => void;
-  /** Clone current element */
-  duplicate: () => void;
-  /** Add new element after current */
-  insert: () => void;
-  /** Remove current element */
-  remove: () => void;
-}
+export type { FieldArrayElementMethods } from '../../hooks/useUniformFieldArray/types';
 
 interface FieldArrayElementProps extends FieldArrayFeatures {
   /** Form elements to render inside array element */
   children: React.ReactNode;
-  /** CSS class names for component parts */
+  /** CSS class name */
   className: {
     /** Class of wrapper grid inside the li that wraps the rendered element fields directly */
     elementFieldsGrid?: ClassValue;
@@ -58,7 +50,7 @@ interface FieldArrayElementProps extends FieldArrayFeatures {
   lastNotDeletable?: boolean;
   /** Field array operation methods */
   methods: FieldArrayElementMethods;
-  /** HTML data-testid of the element */
+  /** HTML data-testid attribute for e2e tests */
   testId?: string;
 }
 
@@ -82,10 +74,12 @@ const FieldArrayElement = ({
   sortable = false,
   testId = undefined,
 }: FieldArrayElementProps) => {
-  // Apply transform styles when sortable is enabled for smooth drag animations
-  // transform: handles the item's position during drag
-  // transition: controls the animation timing when dropping
+  const { cn } = useStyling();
   const { setNodeRef, transform, transition, isDragging } = useSortable({ id });
+  // keep the row mounted until its exit animation finishes
+  const [isVisible, setIsVisible] = useState(true);
+
+  // apply drag positioning only when sorting is enabled
   const sortingStyle = sortable
     ? {
         transform: CSS.Translate.toString(transform),
@@ -94,10 +88,7 @@ const FieldArrayElement = ({
       }
     : undefined;
 
-  // Local visibility to allow exit animation before removing from RHF state
-  const [isVisible, setIsVisible] = useState(true);
-
-  // Motion variants for the list item
+  // animate row insertion and removal
   const listItemMotionVariants: MotionVariants = {
     hidden: { opacity: 0, height: 0, marginBottom: 0 },
     visible: {
@@ -119,14 +110,20 @@ const FieldArrayElement = ({
     },
   };
 
-  // Height animation handled on <motion.li> using overflow hidden
+  // let the exit animation finish before removing the registered row
+  const handleRemove = () => {
+    if (disableAnimation) {
+      methods.remove();
+    } else {
+      setIsVisible(false);
+    }
+  };
+
   return (
     <AnimatePresence
       mode="wait"
       // remove from RHF state after exit animation
-      onExitComplete={() => {
-        methods.remove();
-      }}
+      onExitComplete={methods.remove}
     >
       {isVisible ? (
         <motion.li
@@ -168,13 +165,7 @@ const FieldArrayElement = ({
                 insertAfter={insertAfter}
                 methods={{
                   ...methods,
-                  remove: () => {
-                    if (disableAnimation) {
-                      methods.remove();
-                    } else {
-                      setIsVisible(false);
-                    }
-                  },
+                  remove: handleRemove,
                 }}
                 showRemove={!(lastNotDeletable && fields.length === 1)}
                 testId={`${testId}_actions_menu`}
@@ -188,13 +179,7 @@ const FieldArrayElement = ({
                       key="remove-button"
                       className={className.removeButton}
                       disableAnimation={disableAnimation}
-                      onClick={() => {
-                        if (disableAnimation) {
-                          methods.remove();
-                        } else {
-                          setIsVisible(false);
-                        }
-                      }}
+                      onClick={handleRemove}
                       testId={`${testId}_remove_button`}
                     />
                   )}

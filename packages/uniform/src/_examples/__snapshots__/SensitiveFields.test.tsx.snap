@@ -1,16 +1,1120 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`Story Snapshots > CompactedArrays 1`] = `
+<div>
+  <div
+    class="flex flex-col gap-6"
+  >
+    <aside
+      aria-label="What this checks"
+      class="w-80 max-w-full rounded-lg border border-default-200 bg-default-100 p-3 text-sm text-foreground"
+    >
+      <p
+        class="mb-1 font-semibold"
+      >
+        What this checks
+      </p>
+      <p>
+        Submission removes empty rows before a password and a nested token. The callback receives compacted values while the debug viewer keeps both secrets redacted. Submit-log redaction is also covered by a focused regression test.
+      </p>
+    </aside>
+    <div
+      class="flex flex-wrap items-start gap-8"
+    >
+      <form
+        class="grid w-80 gap-4"
+        novalidate=""
+      >
+        <div
+          class="group relative flex w-full flex-col is-filled"
+          data-component="input"
+          data-filled="true"
+          data-rac=""
+          data-slot="base"
+        >
+          <label
+            class="block cursor-default pb-1 text-small text-foreground group-data-[invalid=true]:text-danger"
+            data-slot="label"
+            for="uniform-«replaced-aria-id»"
+            id="uniform-«replaced-aria-id»-label"
+          >
+            Password in the second row
+          </label>
+          <div
+            class="relative inline-flex h-10 min-h-10 w-full cursor-text items-center shadow-xs rounded-small border-medium border-default-200 bg-content1 px-3 text-foreground transition-colors group-data-[disabled=true]:pointer-events-none group-data-[focus=true]:border-focus group-data-[invalid=true]:border-danger data-[hovered=true]:border-default-400 group-data-[focus=true]:data-[hovered=true]:border-default-foreground motion-reduce:transition-none is-filled"
+            data-rac=""
+            data-slot="input-wrapper"
+            role="presentation"
+          >
+            <div
+              class="inline-flex h-full w-full items-center gap-2"
+              data-slot="inner-wrapper"
+            >
+              <input
+                aria-labelledby="uniform-«replaced-aria-id»-label"
+                autocomplete="off"
+                class="w-full min-w-0 bg-transparent bg-clip-text text-small font-normal text-inherit outline-none placeholder:text-foreground-500 autofill:bg-transparent data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden is-filled"
+                data-filled="true"
+                data-rac=""
+                data-slot="input"
+                data-testid="accounts_1_password"
+                id="uniform-«replaced-aria-id»"
+                name="accounts.1.password"
+                placeholder=" "
+                tabindex="0"
+                type="password"
+                value="example-password"
+              />
+              <button
+                aria-controls="uniform-«replaced-aria-id»"
+                aria-label="Show password"
+                aria-pressed="false"
+                class="shrink-0 rounded-sm p-1 text-default-400 outline-none focus-visible:ring-2 focus-visible:ring-focus"
+                data-rac=""
+                data-react-aria-pressable="true"
+                data-testid="accounts_1_password_password_toggle"
+                id="react-aria-«replaced-aria-id»"
+                tabindex="0"
+                type="button"
+              >
+                <svg
+                  aria-hidden="true"
+                  fill="currentColor"
+                  height="1em"
+                  stroke="currentColor"
+                  stroke-width="0"
+                  viewBox="0 0 576 512"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM144 256a144 144 0 1 1 288 0 144 144 0 1 1 -288 0zm144-64c0 35.3-28.7 64-64 64c-7.1 0-13.9-1.2-20.3-3.3c-5.5-1.8-11.9 1.6-11.7 7.4c.3 6.9 1.3 13.8 3.2 20.7c13.7 51.2 66.4 81.6 117.6 67.9s81.6-66.4 67.9-117.6c-11.1-41.5-47.8-69.4-88.6-71.1c-5.8-.2-9.2 6.1-7.4 11.7c2.1 6.4 3.3 13.2 3.3 20.3z"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          class="group relative flex w-full flex-col is-filled"
+          data-component="input"
+          data-filled="true"
+          data-rac=""
+          data-slot="base"
+        >
+          <label
+            class="block cursor-default pb-1 text-small text-foreground group-data-[invalid=true]:text-danger"
+            data-slot="label"
+            for="uniform-«replaced-aria-id»"
+            id="uniform-«replaced-aria-id»-label"
+          >
+            Token in a nested second row
+          </label>
+          <div
+            class="relative inline-flex h-10 min-h-10 w-full cursor-text items-center shadow-xs rounded-small border-medium border-default-200 bg-content1 px-3 text-foreground transition-colors group-data-[disabled=true]:pointer-events-none group-data-[focus=true]:border-focus group-data-[invalid=true]:border-danger data-[hovered=true]:border-default-400 group-data-[focus=true]:data-[hovered=true]:border-default-foreground motion-reduce:transition-none is-filled"
+            data-rac=""
+            data-slot="input-wrapper"
+            role="presentation"
+          >
+            <div
+              class="inline-flex h-full w-full items-center gap-0"
+              data-slot="inner-wrapper"
+            >
+              <input
+                aria-labelledby="uniform-«replaced-aria-id»-label"
+                autocomplete="off"
+                class="w-full min-w-0 bg-transparent bg-clip-text text-small font-normal text-inherit outline-none placeholder:text-foreground-500 autofill:bg-transparent data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden is-filled"
+                data-filled="true"
+                data-rac=""
+                data-slot="input"
+                data-testid="accounts_1_tokens_1_value"
+                id="uniform-«replaced-aria-id»"
+                name="accounts.1.tokens.1.value"
+                placeholder=" "
+                tabindex="0"
+                type="text"
+                value="example-token"
+              />
+            </div>
+          </div>
+        </div>
+        <button
+          aria-label="Submit form"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
+          data-component="submit-button"
+          data-focus="true"
+          data-focused="true"
+          data-hover="true"
+          data-hovered="true"
+          data-rac=""
+          data-react-aria-pressable="true"
+          data-testid="form_submit_button"
+          id="react-aria-«replaced-aria-id»"
+          tabindex="0"
+          type="submit"
+        >
+          Submit
+        </button>
+      </form>
+      <div
+        class="min-w-96"
+        data-testid="compacted-debug-panel"
+      >
+        <div
+          class="relative box-border flex h-auto w-full flex-col overflow-hidden rounded-small border border-divider bg-content1 text-foreground shadow-none outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus transition-transform-background motion-reduce:transition-none"
+          data-component="card"
+          data-slot="base"
+          tabindex="-1"
+        >
+          <div
+            class="color-inherit overflow-inherit z-auto flex w-full shrink-0 items-center rounded-t-small p-3 text-base font-semibold subpixel-antialiased justify-between"
+            data-slot="header"
+          >
+            <span
+              class="text-lg"
+            >
+              Debug Mode
+            </span>
+            <button
+              class="group tap-highlight-transparent [&>svg]:max-w-[theme(spacing.8)] data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus gap-2 rounded-small text-tiny !gap-0 px-0 transition-transform-colors-opacity motion-reduce:transition-none bg-transparent text-danger data-[hover=true]:bg-danger/20 h-8 w-8 min-w-8"
+              data-component="button"
+              data-rac=""
+              data-react-aria-pressable="true"
+              id="react-aria-«replaced-aria-id»"
+              tabindex="0"
+              type="button"
+            >
+              <span
+                data-testid="icon-FaTimes"
+              >
+                FaTimes
+              </span>
+            </button>
+          </div>
+          <hr
+            class="my-0 h-divider w-full shrink-0 border-none border-divider bg-divider"
+          />
+          <div
+            class="relative flex h-auto w-full flex-auto flex-col p-3 place-content-inherit align-items-inherit overflow-y-auto break-words text-left subpixel-antialiased"
+            data-slot="body"
+          >
+            <button
+              class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-transparent text-default-foreground data-[hover=true]:bg-default/40 mb-4 ml-auto mr-auto"
+              data-component="button"
+              data-rac=""
+              data-react-aria-pressable="true"
+              id="react-aria-«replaced-aria-id»"
+              tabindex="0"
+              type="button"
+            >
+              <span
+                data-testid="icon-FaBullseye"
+              >
+                FaBullseye
+              </span>
+              Show CopyButton
+            </button>
+            <div
+              aria-label="JSON viewer"
+              class=""
+              data-component="json"
+              role="region"
+            >
+              <div
+                class="relative"
+              >
+                <div
+                  class="w-json-view-container w-rjv pr-5 w-rjv-inner"
+                  style="line-height: 1.4; font-family: var(--w-rjv-font-family, Menlo, monospace); color: var(--w-rjv-color, #002b36); background-color: var(--w-rjv-background-color, #00000000); font-size: 13px;"
+                >
+                  <span
+                    style="display: inline-flex; align-items: center;"
+                  >
+                    <span
+                      class="w-rjv-arrow"
+                      style="transform: rotate(0deg); transition: all 0.3s;"
+                    >
+                      <svg
+                        fill="var(--w-rjv-arrow-color, currentColor)"
+                        style="cursor: pointer; height: 1em; width: 1em; user-select: none; display: inline-flex;"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                        />
+                      </svg>
+                    </span>
+                    <span
+                      class="w-rjv-curlybraces-start"
+                      style="color: var(--w-rjv-curlybraces-color, #236a7c);"
+                    >
+                      {
+                    </span>
+                    <span
+                      class="w-rjv-object-size"
+                      style="color: var(--w-rjv-info-color, #0000004d); padding-left: 8px; font-style: italic;"
+                    >
+                      3 items
+                    </span>
+                  </span>
+                  <div
+                    class="w-rjv-wrap"
+                    style="border-left: var(--w-rjv-border-left-width, 1px) var(--w-rjv-line-style, solid) var(--w-rjv-line-color, #ebebeb); padding-left: 15px; margin-left: 6px;"
+                  >
+                    <div
+                      class="w-rjv-inner"
+                    >
+                      <span
+                        style="display: inline-flex; align-items: center;"
+                      >
+                        <span
+                          class="w-rjv-arrow"
+                          style="transform: rotate(0deg); transition: all 0.3s;"
+                        >
+                          <svg
+                            fill="var(--w-rjv-arrow-color, currentColor)"
+                            style="cursor: pointer; height: 1em; width: 1em; user-select: none; display: inline-flex;"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                            />
+                          </svg>
+                        </span>
+                        <span>
+                          <span
+                            class="w-rjv-quotes"
+                            data-placement="left"
+                            style="color: var(--w-rjv-quotes-color, #236a7c);"
+                          >
+                            "
+                          </span>
+                          <span
+                            class="w-rjv-object-key"
+                            style="color: var(--w-rjv-key-string, #002b36);"
+                          >
+                            values
+                          </span>
+                          <span
+                            class="w-rjv-quotes"
+                            data-placement="right"
+                            style="color: var(--w-rjv-quotes-color, #236a7c);"
+                          >
+                            "
+                          </span>
+                        </span>
+                        <span
+                          class="w-rjv-colon"
+                          style="color: var(--w-rjv-colon-color, var(--w-rjv-color)); margin-left: 0px; margin-right: 2px;"
+                        >
+                          :
+                        </span>
+                        <span
+                          class="w-rjv-curlybraces-start"
+                          style="color: var(--w-rjv-curlybraces-color, #236a7c);"
+                        >
+                          {
+                        </span>
+                        <span
+                          class="w-rjv-object-size"
+                          style="color: var(--w-rjv-info-color, #0000004d); padding-left: 8px; font-style: italic;"
+                        >
+                          1 item
+                        </span>
+                      </span>
+                      <div
+                        class="w-rjv-wrap"
+                        style="border-left: var(--w-rjv-border-left-width, 1px) var(--w-rjv-line-style, solid) var(--w-rjv-line-color, #ebebeb); padding-left: 15px; margin-left: 6px;"
+                      >
+                        <div
+                          class="w-rjv-inner"
+                        >
+                          <span
+                            style="display: inline-flex; align-items: center;"
+                          >
+                            <span
+                              class="w-rjv-arrow"
+                              style="transform: rotate(0deg); transition: all 0.3s;"
+                            >
+                              <svg
+                                fill="var(--w-rjv-arrow-color, currentColor)"
+                                style="cursor: pointer; height: 1em; width: 1em; user-select: none; display: inline-flex;"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                                />
+                              </svg>
+                            </span>
+                            <span>
+                              <span
+                                class="w-rjv-quotes"
+                                data-placement="left"
+                                style="color: var(--w-rjv-quotes-color, #236a7c);"
+                              >
+                                "
+                              </span>
+                              <span
+                                class="w-rjv-object-key"
+                                style="color: var(--w-rjv-key-string, #002b36);"
+                              >
+                                accounts
+                              </span>
+                              <span
+                                class="w-rjv-quotes"
+                                data-placement="right"
+                                style="color: var(--w-rjv-quotes-color, #236a7c);"
+                              >
+                                "
+                              </span>
+                            </span>
+                            <span
+                              class="w-rjv-colon"
+                              style="color: var(--w-rjv-colon-color, var(--w-rjv-color)); margin-left: 0px; margin-right: 2px;"
+                            >
+                              :
+                            </span>
+                            <span
+                              class="w-rjv-brackets-start"
+                              style="color: var(--w-rjv-brackets-color, #236a7c);"
+                            >
+                              [
+                            </span>
+                            <span
+                              class="w-rjv-object-size"
+                              style="color: var(--w-rjv-info-color, #0000004d); padding-left: 8px; font-style: italic;"
+                            >
+                              2 items
+                            </span>
+                          </span>
+                          <div
+                            class="w-rjv-wrap"
+                            style="border-left: var(--w-rjv-border-left-width, 1px) var(--w-rjv-line-style, solid) var(--w-rjv-line-color, #ebebeb); padding-left: 15px; margin-left: 6px;"
+                          >
+                            <div
+                              class="w-rjv-inner"
+                            >
+                              <span
+                                style="display: inline-flex; align-items: center;"
+                              >
+                                <span>
+                                  <span
+                                    class="w-rjv-object-key"
+                                    style="color: var(--w-rjv-key-number, #268bd2);"
+                                  >
+                                    0
+                                  </span>
+                                </span>
+                                <span
+                                  class="w-rjv-colon"
+                                  style="color: var(--w-rjv-colon-color, var(--w-rjv-color)); margin-left: 0px; margin-right: 2px;"
+                                >
+                                  :
+                                </span>
+                                <span
+                                  class="w-rjv-curlybraces-start"
+                                  style="color: var(--w-rjv-curlybraces-color, #236a7c);"
+                                >
+                                  {
+                                </span>
+                                <span
+                                  class="w-rjv-curlybraces-end"
+                                  style="color: var(--w-rjv-curlybraces-color, #236a7c);"
+                                >
+                                  }
+                                </span>
+                                <span
+                                  class="w-rjv-object-size"
+                                  style="color: var(--w-rjv-info-color, #0000004d); padding-left: 8px; font-style: italic;"
+                                >
+                                  0 items
+                                </span>
+                              </span>
+                              <div
+                                class="w-rjv-wrap"
+                                style="border-left: var(--w-rjv-border-left-width, 1px) var(--w-rjv-line-style, solid) var(--w-rjv-line-color, #ebebeb); padding-left: 15px; margin-left: 6px;"
+                              />
+                            </div>
+                            <div
+                              class="w-rjv-inner"
+                            >
+                              <span
+                                style="display: inline-flex; align-items: center;"
+                              >
+                                <span
+                                  class="w-rjv-arrow"
+                                  style="transform: rotate(0deg); transition: all 0.3s;"
+                                >
+                                  <svg
+                                    fill="var(--w-rjv-arrow-color, currentColor)"
+                                    style="cursor: pointer; height: 1em; width: 1em; user-select: none; display: inline-flex;"
+                                    viewBox="0 0 24 24"
+                                  >
+                                    <path
+                                      d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                                    />
+                                  </svg>
+                                </span>
+                                <span>
+                                  <span
+                                    class="w-rjv-object-key"
+                                    style="color: var(--w-rjv-key-number, #268bd2);"
+                                  >
+                                    1
+                                  </span>
+                                </span>
+                                <span
+                                  class="w-rjv-colon"
+                                  style="color: var(--w-rjv-colon-color, var(--w-rjv-color)); margin-left: 0px; margin-right: 2px;"
+                                >
+                                  :
+                                </span>
+                                <span
+                                  class="w-rjv-curlybraces-start"
+                                  style="color: var(--w-rjv-curlybraces-color, #236a7c);"
+                                >
+                                  {
+                                </span>
+                                <span
+                                  class="w-rjv-object-size"
+                                  style="color: var(--w-rjv-info-color, #0000004d); padding-left: 8px; font-style: italic;"
+                                >
+                                  2 items
+                                </span>
+                              </span>
+                              <div
+                                class="w-rjv-wrap"
+                                style="border-left: var(--w-rjv-border-left-width, 1px) var(--w-rjv-line-style, solid) var(--w-rjv-line-color, #ebebeb); padding-left: 15px; margin-left: 6px;"
+                              >
+                                <div
+                                  class="w-rjv-line"
+                                >
+                                  <span>
+                                    <span
+                                      class="w-rjv-quotes"
+                                      data-placement="left"
+                                      style="color: var(--w-rjv-quotes-color, #236a7c);"
+                                    >
+                                      "
+                                    </span>
+                                    <span
+                                      class="w-rjv-object-key"
+                                      style="color: var(--w-rjv-key-string, #002b36);"
+                                    >
+                                      password
+                                    </span>
+                                    <span
+                                      class="w-rjv-quotes"
+                                      data-placement="right"
+                                      style="color: var(--w-rjv-quotes-color, #236a7c);"
+                                    >
+                                      "
+                                    </span>
+                                  </span>
+                                  <span
+                                    class="w-rjv-colon"
+                                    style="color: var(--w-rjv-colon-color, var(--w-rjv-color)); margin-left: 0px; margin-right: 2px;"
+                                  >
+                                    :
+                                  </span>
+                                  <span
+                                    class="w-rjv-quotes"
+                                    style="color: var(--w-rjv-quotes-string-color, #cb4b16);"
+                                  >
+                                    "
+                                  </span>
+                                  <span
+                                    class="w-rjv-value"
+                                    data-type="string"
+                                    style="color: var(--w-rjv-type-string-color, #cb4b16); cursor: initial;"
+                                  >
+                                    [REDACTED]
+                                  </span>
+                                  <span
+                                    class="w-rjv-quotes"
+                                    style="color: var(--w-rjv-quotes-string-color, #cb4b16);"
+                                  >
+                                    "
+                                  </span>
+                                </div>
+                                <div
+                                  class="w-rjv-inner"
+                                >
+                                  <span
+                                    style="display: inline-flex; align-items: center;"
+                                  >
+                                    <span
+                                      class="w-rjv-arrow"
+                                      style="transform: rotate(0deg); transition: all 0.3s;"
+                                    >
+                                      <svg
+                                        fill="var(--w-rjv-arrow-color, currentColor)"
+                                        style="cursor: pointer; height: 1em; width: 1em; user-select: none; display: inline-flex;"
+                                        viewBox="0 0 24 24"
+                                      >
+                                        <path
+                                          d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                                        />
+                                      </svg>
+                                    </span>
+                                    <span>
+                                      <span
+                                        class="w-rjv-quotes"
+                                        data-placement="left"
+                                        style="color: var(--w-rjv-quotes-color, #236a7c);"
+                                      >
+                                        "
+                                      </span>
+                                      <span
+                                        class="w-rjv-object-key"
+                                        style="color: var(--w-rjv-key-string, #002b36);"
+                                      >
+                                        tokens
+                                      </span>
+                                      <span
+                                        class="w-rjv-quotes"
+                                        data-placement="right"
+                                        style="color: var(--w-rjv-quotes-color, #236a7c);"
+                                      >
+                                        "
+                                      </span>
+                                    </span>
+                                    <span
+                                      class="w-rjv-colon"
+                                      style="color: var(--w-rjv-colon-color, var(--w-rjv-color)); margin-left: 0px; margin-right: 2px;"
+                                    >
+                                      :
+                                    </span>
+                                    <span
+                                      class="w-rjv-brackets-start"
+                                      style="color: var(--w-rjv-brackets-color, #236a7c);"
+                                    >
+                                      [
+                                    </span>
+                                    <span
+                                      class="w-rjv-object-size"
+                                      style="color: var(--w-rjv-info-color, #0000004d); padding-left: 8px; font-style: italic;"
+                                    >
+                                      2 items
+                                    </span>
+                                  </span>
+                                  <div
+                                    class="w-rjv-wrap"
+                                    style="border-left: var(--w-rjv-border-left-width, 1px) var(--w-rjv-line-style, solid) var(--w-rjv-line-color, #ebebeb); padding-left: 15px; margin-left: 6px;"
+                                  >
+                                    <div
+                                      class="w-rjv-inner"
+                                    >
+                                      <span
+                                        style="display: inline-flex; align-items: center;"
+                                      >
+                                        <span>
+                                          <span
+                                            class="w-rjv-object-key"
+                                            style="color: var(--w-rjv-key-number, #268bd2);"
+                                          >
+                                            0
+                                          </span>
+                                        </span>
+                                        <span
+                                          class="w-rjv-colon"
+                                          style="color: var(--w-rjv-colon-color, var(--w-rjv-color)); margin-left: 0px; margin-right: 2px;"
+                                        >
+                                          :
+                                        </span>
+                                        <span
+                                          class="w-rjv-curlybraces-start"
+                                          style="color: var(--w-rjv-curlybraces-color, #236a7c);"
+                                        >
+                                          {
+                                        </span>
+                                        <span
+                                          class="w-rjv-curlybraces-end"
+                                          style="color: var(--w-rjv-curlybraces-color, #236a7c);"
+                                        >
+                                          }
+                                        </span>
+                                        <span
+                                          class="w-rjv-object-size"
+                                          style="color: var(--w-rjv-info-color, #0000004d); padding-left: 8px; font-style: italic;"
+                                        >
+                                          0 items
+                                        </span>
+                                      </span>
+                                      <div
+                                        class="w-rjv-wrap"
+                                        style="border-left: var(--w-rjv-border-left-width, 1px) var(--w-rjv-line-style, solid) var(--w-rjv-line-color, #ebebeb); padding-left: 15px; margin-left: 6px;"
+                                      />
+                                    </div>
+                                    <div
+                                      class="w-rjv-inner"
+                                    >
+                                      <span
+                                        style="display: inline-flex; align-items: center;"
+                                      >
+                                        <span
+                                          class="w-rjv-arrow"
+                                          style="transform: rotate(0deg); transition: all 0.3s;"
+                                        >
+                                          <svg
+                                            fill="var(--w-rjv-arrow-color, currentColor)"
+                                            style="cursor: pointer; height: 1em; width: 1em; user-select: none; display: inline-flex;"
+                                            viewBox="0 0 24 24"
+                                          >
+                                            <path
+                                              d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                                            />
+                                          </svg>
+                                        </span>
+                                        <span>
+                                          <span
+                                            class="w-rjv-object-key"
+                                            style="color: var(--w-rjv-key-number, #268bd2);"
+                                          >
+                                            1
+                                          </span>
+                                        </span>
+                                        <span
+                                          class="w-rjv-colon"
+                                          style="color: var(--w-rjv-colon-color, var(--w-rjv-color)); margin-left: 0px; margin-right: 2px;"
+                                        >
+                                          :
+                                        </span>
+                                        <span
+                                          class="w-rjv-curlybraces-start"
+                                          style="color: var(--w-rjv-curlybraces-color, #236a7c);"
+                                        >
+                                          {
+                                        </span>
+                                        <span
+                                          class="w-rjv-object-size"
+                                          style="color: var(--w-rjv-info-color, #0000004d); padding-left: 8px; font-style: italic;"
+                                        >
+                                          1 item
+                                        </span>
+                                      </span>
+                                      <div
+                                        class="w-rjv-wrap"
+                                        style="border-left: var(--w-rjv-border-left-width, 1px) var(--w-rjv-line-style, solid) var(--w-rjv-line-color, #ebebeb); padding-left: 15px; margin-left: 6px;"
+                                      >
+                                        <div
+                                          class="w-rjv-line"
+                                        >
+                                          <span>
+                                            <span
+                                              class="w-rjv-quotes"
+                                              data-placement="left"
+                                              style="color: var(--w-rjv-quotes-color, #236a7c);"
+                                            >
+                                              "
+                                            </span>
+                                            <span
+                                              class="w-rjv-object-key"
+                                              style="color: var(--w-rjv-key-string, #002b36);"
+                                            >
+                                              value
+                                            </span>
+                                            <span
+                                              class="w-rjv-quotes"
+                                              data-placement="right"
+                                              style="color: var(--w-rjv-quotes-color, #236a7c);"
+                                            >
+                                              "
+                                            </span>
+                                          </span>
+                                          <span
+                                            class="w-rjv-colon"
+                                            style="color: var(--w-rjv-colon-color, var(--w-rjv-color)); margin-left: 0px; margin-right: 2px;"
+                                          >
+                                            :
+                                          </span>
+                                          <span
+                                            class="w-rjv-quotes"
+                                            style="color: var(--w-rjv-quotes-string-color, #cb4b16);"
+                                          >
+                                            "
+                                          </span>
+                                          <span
+                                            class="w-rjv-value"
+                                            data-type="string"
+                                            style="color: var(--w-rjv-type-string-color, #cb4b16); cursor: initial;"
+                                          >
+                                            [REDACTED]
+                                          </span>
+                                          <span
+                                            class="w-rjv-quotes"
+                                            style="color: var(--w-rjv-quotes-string-color, #cb4b16);"
+                                          >
+                                            "
+                                          </span>
+                                        </div>
+                                      </div>
+                                      <div
+                                        style="padding-left: 4px;"
+                                      >
+                                        <span
+                                          class="w-rjv-curlybraces-end"
+                                          style="color: var(--w-rjv-curlybraces-color, #236a7c);"
+                                        >
+                                          }
+                                        </span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div
+                                    style="padding-left: 4px;"
+                                  >
+                                    <span
+                                      class="w-rjv-brackets-end"
+                                      style="color: var(--w-rjv-brackets-color, #236a7c);"
+                                    >
+                                      ]
+                                    </span>
+                                  </div>
+                                </div>
+                              </div>
+                              <div
+                                style="padding-left: 4px;"
+                              >
+                                <span
+                                  class="w-rjv-curlybraces-end"
+                                  style="color: var(--w-rjv-curlybraces-color, #236a7c);"
+                                >
+                                  }
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            style="padding-left: 4px;"
+                          >
+                            <span
+                              class="w-rjv-brackets-end"
+                              style="color: var(--w-rjv-brackets-color, #236a7c);"
+                            >
+                              ]
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        style="padding-left: 4px;"
+                      >
+                        <span
+                          class="w-rjv-curlybraces-end"
+                          style="color: var(--w-rjv-curlybraces-color, #236a7c);"
+                        >
+                          }
+                        </span>
+                      </div>
+                    </div>
+                    <div
+                      class="w-rjv-line"
+                    >
+                      <span>
+                        <span
+                          class="w-rjv-quotes"
+                          data-placement="left"
+                          style="color: var(--w-rjv-quotes-color, #236a7c);"
+                        >
+                          "
+                        </span>
+                        <span
+                          class="w-rjv-object-key"
+                          style="color: var(--w-rjv-key-string, #002b36);"
+                        >
+                          errors
+                        </span>
+                        <span
+                          class="w-rjv-quotes"
+                          data-placement="right"
+                          style="color: var(--w-rjv-quotes-color, #236a7c);"
+                        >
+                          "
+                        </span>
+                      </span>
+                      <span
+                        class="w-rjv-colon"
+                        style="color: var(--w-rjv-colon-color, var(--w-rjv-color)); margin-left: 0px; margin-right: 2px;"
+                      >
+                        :
+                      </span>
+                      <span
+                        class="rounded bg-warning-100 px-1 text-xs text-warning-700"
+                        style=""
+                      >
+                        null
+                      </span>
+                    </div>
+                    <div
+                      class="w-rjv-inner"
+                    >
+                      <span
+                        style="display: inline-flex; align-items: center;"
+                      >
+                        <span
+                          class="w-rjv-arrow"
+                          style="transform: rotate(0deg); transition: all 0.3s;"
+                        >
+                          <svg
+                            fill="var(--w-rjv-arrow-color, currentColor)"
+                            style="cursor: pointer; height: 1em; width: 1em; user-select: none; display: inline-flex;"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                            />
+                          </svg>
+                        </span>
+                        <span>
+                          <span
+                            class="w-rjv-quotes"
+                            data-placement="left"
+                            style="color: var(--w-rjv-quotes-color, #236a7c);"
+                          >
+                            "
+                          </span>
+                          <span
+                            class="w-rjv-object-key"
+                            style="color: var(--w-rjv-key-string, #002b36);"
+                          >
+                            submit
+                          </span>
+                          <span
+                            class="w-rjv-quotes"
+                            data-placement="right"
+                            style="color: var(--w-rjv-quotes-color, #236a7c);"
+                          >
+                            "
+                          </span>
+                        </span>
+                        <span
+                          class="w-rjv-colon"
+                          style="color: var(--w-rjv-colon-color, var(--w-rjv-color)); margin-left: 0px; margin-right: 2px;"
+                        >
+                          :
+                        </span>
+                        <span
+                          class="w-rjv-curlybraces-start"
+                          style="color: var(--w-rjv-curlybraces-color, #236a7c);"
+                        >
+                          {
+                        </span>
+                        <span
+                          class="w-rjv-object-size"
+                          style="color: var(--w-rjv-info-color, #0000004d); padding-left: 8px; font-style: italic;"
+                        >
+                          4 items
+                        </span>
+                      </span>
+                      <div
+                        class="w-rjv-wrap"
+                        style="border-left: var(--w-rjv-border-left-width, 1px) var(--w-rjv-line-style, solid) var(--w-rjv-line-color, #ebebeb); padding-left: 15px; margin-left: 6px;"
+                      >
+                        <div
+                          class="w-rjv-line"
+                        >
+                          <span>
+                            <span
+                              class="w-rjv-quotes"
+                              data-placement="left"
+                              style="color: var(--w-rjv-quotes-color, #236a7c);"
+                            >
+                              "
+                            </span>
+                            <span
+                              class="w-rjv-object-key"
+                              style="color: var(--w-rjv-key-string, #002b36);"
+                            >
+                              isValid
+                            </span>
+                            <span
+                              class="w-rjv-quotes"
+                              data-placement="right"
+                              style="color: var(--w-rjv-quotes-color, #236a7c);"
+                            >
+                              "
+                            </span>
+                          </span>
+                          <span
+                            class="w-rjv-colon"
+                            style="color: var(--w-rjv-colon-color, var(--w-rjv-color)); margin-left: 0px; margin-right: 2px;"
+                          >
+                            :
+                          </span>
+                          <span
+                            class="w-rjv-value"
+                            data-type="bool"
+                            style="color: var(--w-rjv-type-boolean-color, #2aa198);"
+                          >
+                            true
+                          </span>
+                        </div>
+                        <div
+                          class="w-rjv-line"
+                        >
+                          <span>
+                            <span
+                              class="w-rjv-quotes"
+                              data-placement="left"
+                              style="color: var(--w-rjv-quotes-color, #236a7c);"
+                            >
+                              "
+                            </span>
+                            <span
+                              class="w-rjv-object-key"
+                              style="color: var(--w-rjv-key-string, #002b36);"
+                            >
+                              isSubmitting
+                            </span>
+                            <span
+                              class="w-rjv-quotes"
+                              data-placement="right"
+                              style="color: var(--w-rjv-quotes-color, #236a7c);"
+                            >
+                              "
+                            </span>
+                          </span>
+                          <span
+                            class="w-rjv-colon"
+                            style="color: var(--w-rjv-colon-color, var(--w-rjv-color)); margin-left: 0px; margin-right: 2px;"
+                          >
+                            :
+                          </span>
+                          <span
+                            class="w-rjv-value"
+                            data-type="bool"
+                            style="color: var(--w-rjv-type-boolean-color, #2aa198);"
+                          >
+                            false
+                          </span>
+                        </div>
+                        <div
+                          class="w-rjv-line"
+                        >
+                          <span>
+                            <span
+                              class="w-rjv-quotes"
+                              data-placement="left"
+                              style="color: var(--w-rjv-quotes-color, #236a7c);"
+                            >
+                              "
+                            </span>
+                            <span
+                              class="w-rjv-object-key"
+                              style="color: var(--w-rjv-key-string, #002b36);"
+                            >
+                              isSubmitSuccessful
+                            </span>
+                            <span
+                              class="w-rjv-quotes"
+                              data-placement="right"
+                              style="color: var(--w-rjv-quotes-color, #236a7c);"
+                            >
+                              "
+                            </span>
+                          </span>
+                          <span
+                            class="w-rjv-colon"
+                            style="color: var(--w-rjv-colon-color, var(--w-rjv-color)); margin-left: 0px; margin-right: 2px;"
+                          >
+                            :
+                          </span>
+                          <span
+                            class="w-rjv-value"
+                            data-type="bool"
+                            style="color: var(--w-rjv-type-boolean-color, #2aa198);"
+                          >
+                            true
+                          </span>
+                        </div>
+                        <div
+                          class="w-rjv-line"
+                        >
+                          <span>
+                            <span
+                              class="w-rjv-quotes"
+                              data-placement="left"
+                              style="color: var(--w-rjv-quotes-color, #236a7c);"
+                            >
+                              "
+                            </span>
+                            <span
+                              class="w-rjv-object-key"
+                              style="color: var(--w-rjv-key-string, #002b36);"
+                            >
+                              submitCount
+                            </span>
+                            <span
+                              class="w-rjv-quotes"
+                              data-placement="right"
+                              style="color: var(--w-rjv-quotes-color, #236a7c);"
+                            >
+                              "
+                            </span>
+                          </span>
+                          <span
+                            class="w-rjv-colon"
+                            style="color: var(--w-rjv-colon-color, var(--w-rjv-color)); margin-left: 0px; margin-right: 2px;"
+                          >
+                            :
+                          </span>
+                          <span
+                            class="w-rjv-value"
+                            data-type="int"
+                            style="color: var(--w-rjv-type-int-color, #268bd2);"
+                          >
+                            1
+                          </span>
+                        </div>
+                      </div>
+                      <div
+                        style="padding-left: 4px;"
+                      >
+                        <span
+                          class="w-rjv-curlybraces-end"
+                          style="color: var(--w-rjv-curlybraces-color, #236a7c);"
+                        >
+                          }
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    style="padding-left: 4px;"
+                  >
+                    <span
+                      class="w-rjv-curlybraces-end"
+                      style="color: var(--w-rjv-curlybraces-color, #236a7c);"
+                    >
+                      }
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Story Snapshots > PasswordAndToken 1`] = `
 <div>
   <div
     class="flex flex-col gap-6"
   >
     <div
-      class="flex flex-col relative overflow-hidden h-auto text-foreground box-border bg-content1 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 shadow-none rounded-small w-full transition-transform-background motion-reduce:transition-none border border-divider max-w-3xl"
+      class="relative box-border flex h-auto w-full flex-col overflow-hidden rounded-small border border-divider bg-content1 text-foreground shadow-none outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus transition-transform-background motion-reduce:transition-none max-w-3xl"
+      data-component="card"
+      data-slot="base"
       tabindex="-1"
     >
       <div
-        class="flex p-3 w-full justify-start items-center shrink-0 overflow-inherit color-inherit subpixel-antialiased rounded-t-small z-auto text-base font-semibold"
+        class="color-inherit overflow-inherit z-auto flex w-full shrink-0 items-center justify-start rounded-t-small p-3 text-base font-semibold subpixel-antialiased"
+        data-slot="header"
       >
         <h2
           class="font-semibold"
@@ -19,11 +1123,11 @@ exports[`Story Snapshots > PasswordAndToken 1`] = `
         </h2>
       </div>
       <hr
-        class="shrink-0 bg-divider border-none w-full h-divider my-0 border-divider"
-        role="separator"
+        class="my-0 h-divider w-full shrink-0 border-none border-divider bg-divider"
       />
       <div
-        class="relative flex w-full p-3 flex-auto flex-col place-content-inherit align-items-inherit h-auto break-words text-left overflow-y-auto subpixel-antialiased"
+        class="relative flex h-auto w-full flex-auto flex-col p-3 place-content-inherit align-items-inherit overflow-y-auto break-words text-left subpixel-antialiased"
+        data-slot="body"
       >
         <div
           class="space-y-2 text-sm"
@@ -45,197 +1149,171 @@ exports[`Story Snapshots > PasswordAndToken 1`] = `
         novalidate=""
       >
         <div
-          class="group flex flex-col data-[hidden=true]:hidden w-full relative justify-end data-[has-label=true]:mt-[calc(var(--heroui-font-size-small)_+_10px)] is-filled"
+          class="group relative flex w-full flex-col is-filled"
+          data-component="input"
           data-filled="true"
-          data-filled-within="true"
-          data-has-elements="true"
-          data-has-helper="true"
-          data-has-label="true"
-          data-has-value="true"
+          data-rac=""
           data-slot="base"
         >
+          <label
+            class="block cursor-default pb-1 text-small text-foreground group-data-[invalid=true]:text-danger"
+            data-slot="label"
+            for="uniform-«replaced-aria-id»"
+            id="uniform-«replaced-aria-id»-label"
+          >
+            Username
+          </label>
           <div
-            class="h-full flex flex-col"
-            data-slot="main-wrapper"
+            class="relative inline-flex h-10 min-h-10 w-full cursor-text items-center shadow-xs rounded-small border-medium border-default-200 bg-content1 px-3 text-foreground transition-colors group-data-[disabled=true]:pointer-events-none group-data-[focus=true]:border-focus group-data-[invalid=true]:border-danger data-[hovered=true]:border-default-400 group-data-[focus=true]:data-[hovered=true]:border-default-foreground motion-reduce:transition-none is-filled"
+            data-rac=""
+            data-slot="input-wrapper"
+            role="presentation"
           >
             <div
-              class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 group-data-[focus=true]:data-[hover=true]:border-default-foreground h-10 min-h-10 rounded-small !duration-150 transition-colors motion-reduce:transition-none bg-content1 group-data-[focus=true]:border-focus is-filled"
-              data-slot="input-wrapper"
-              style="cursor: text;"
+              class="inline-flex h-full w-full items-center gap-0"
+              data-slot="inner-wrapper"
             >
-              <label
-                class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block text-foreground-500 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto text-small group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden"
-                data-slot="label"
-                for="username"
-                id="react-aria-«replaced-aria-id»"
-              >
-                Username
-              </label>
-              <div
-                class="inline-flex w-full items-center h-full box-border"
-                data-slot="inner-wrapper"
-              >
-                <input
-                  aria-label="Username"
-                  aria-labelledby="username react-aria-«replaced-aria-id»"
-                  autocomplete="off"
-                  class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text dark:autofill:[-webkit-text-fill-color:hsl(var(--heroui-foreground))] [&::-ms-reveal]:hidden text-small is-filled"
-                  data-filled="true"
-                  data-filled-within="true"
-                  data-slot="input"
-                  data-testid="username"
-                  id="username"
-                  name="username"
-                  placeholder=" "
-                  tabindex="0"
-                  title=""
-                  type="text"
-                  value="john"
-                />
-              </div>
+              <input
+                aria-labelledby="uniform-«replaced-aria-id»-label"
+                autocomplete="off"
+                class="w-full min-w-0 bg-transparent bg-clip-text text-small font-normal text-inherit outline-none placeholder:text-foreground-500 autofill:bg-transparent data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden is-filled"
+                data-filled="true"
+                data-rac=""
+                data-slot="input"
+                data-testid="username"
+                id="uniform-«replaced-aria-id»"
+                name="username"
+                placeholder=" "
+                tabindex="0"
+                type="text"
+                value="john"
+              />
             </div>
           </div>
         </div>
         <div
-          class="group flex flex-col data-[hidden=true]:hidden w-full relative justify-end data-[has-label=true]:mt-[calc(var(--heroui-font-size-small)_+_10px)] is-filled"
+          class="group relative flex w-full flex-col is-filled"
+          data-component="input"
           data-filled="true"
-          data-filled-within="true"
-          data-has-elements="true"
-          data-has-helper="true"
-          data-has-label="true"
-          data-has-value="true"
-          data-hover="true"
+          data-rac=""
           data-slot="base"
         >
+          <label
+            class="block cursor-default pb-1 text-small text-foreground group-data-[invalid=true]:text-danger"
+            data-slot="label"
+            for="uniform-«replaced-aria-id»"
+            id="uniform-«replaced-aria-id»-label"
+          >
+            Password
+          </label>
           <div
-            class="h-full flex flex-col"
-            data-slot="main-wrapper"
+            class="relative inline-flex h-10 min-h-10 w-full cursor-text items-center shadow-xs rounded-small border-medium border-default-200 bg-content1 px-3 text-foreground transition-colors group-data-[disabled=true]:pointer-events-none group-data-[focus=true]:border-focus group-data-[invalid=true]:border-danger data-[hovered=true]:border-default-400 group-data-[focus=true]:data-[hovered=true]:border-default-foreground motion-reduce:transition-none is-filled"
+            data-hovered="true"
+            data-rac=""
+            data-slot="input-wrapper"
+            role="presentation"
           >
             <div
-              class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 group-data-[focus=true]:data-[hover=true]:border-default-foreground h-10 min-h-10 rounded-small !duration-150 transition-colors motion-reduce:transition-none bg-content1 group-data-[focus=true]:border-focus is-filled"
-              data-hover="true"
-              data-slot="input-wrapper"
-              style="cursor: text;"
+              class="inline-flex h-full w-full items-center gap-2"
+              data-slot="inner-wrapper"
             >
-              <label
-                class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block text-foreground-500 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto text-small group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden"
-                data-slot="label"
-                for="password"
+              <input
+                aria-labelledby="uniform-«replaced-aria-id»-label"
+                autocomplete="off"
+                class="w-full min-w-0 bg-transparent bg-clip-text text-small font-normal text-inherit outline-none placeholder:text-foreground-500 autofill:bg-transparent data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden is-filled"
+                data-filled="true"
+                data-rac=""
+                data-slot="input"
+                data-testid="password"
+                id="uniform-«replaced-aria-id»"
+                name="password"
+                placeholder=" "
+                tabindex="0"
+                type="text"
+                value="Example_123"
+              />
+              <button
+                aria-controls="uniform-«replaced-aria-id»"
+                aria-label="Hide password"
+                aria-pressed="true"
+                class="shrink-0 rounded-sm p-1 text-default-400 outline-none focus-visible:ring-2 focus-visible:ring-focus"
+                data-hovered="true"
+                data-rac=""
+                data-react-aria-pressable="true"
+                data-testid="password_password_toggle"
                 id="react-aria-«replaced-aria-id»"
+                tabindex="0"
+                type="button"
               >
-                Password
-              </label>
-              <div
-                class="inline-flex w-full items-center h-full box-border"
-                data-slot="inner-wrapper"
-              >
-                <input
-                  aria-label="Password"
-                  aria-labelledby="password react-aria-«replaced-aria-id»"
-                  autocomplete="off"
-                  class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text dark:autofill:[-webkit-text-fill-color:hsl(var(--heroui-foreground))] [&::-ms-reveal]:hidden text-small is-filled"
-                  data-filled="true"
-                  data-filled-within="true"
-                  data-has-end-content="true"
-                  data-slot="input"
-                  data-testid="password"
-                  data-type="text"
-                  id="password"
-                  name="password"
-                  placeholder=" "
-                  tabindex="0"
-                  title=""
-                  type="text"
-                  value="Example_123"
-                />
-                <span
-                  class="inline-flex shrink-0 items-center gap-2"
+                <svg
+                  aria-hidden="true"
+                  fill="currentColor"
+                  height="1em"
+                  stroke="currentColor"
+                  stroke-width="0"
+                  viewBox="0 0 640 512"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
                 >
-                  <button
-                    aria-controls="password"
-                    aria-label="Hide password"
-                    aria-pressed="true"
-                    class="rounded-sm p-1 text-default-400 outline-none focus-visible:ring-2 focus-visible:ring-focus"
-                    data-testid="password_password_toggle"
-                    type="button"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      fill="currentColor"
-                      height="1em"
-                      stroke="currentColor"
-                      stroke-width="0"
-                      viewBox="0 0 640 512"
-                      width="1em"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c8.4-19.3 10.6-41.4 4.8-63.3c-11.1-41.5-47.8-69.4-88.6-71.1c-5.8-.2-9.2 6.1-7.4 11.7c2.1 6.4 3.3 13.2 3.3 20.3c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zM373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5L373 389.9z"
-                      />
-                    </svg>
-                  </button>
-                </span>
-              </div>
+                  <path
+                    d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c8.4-19.3 10.6-41.4 4.8-63.3c-11.1-41.5-47.8-69.4-88.6-71.1c-5.8-.2-9.2 6.1-7.4 11.7c2.1 6.4 3.3 13.2 3.3 20.3c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zM373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5L373 389.9z"
+                  />
+                </svg>
+              </button>
             </div>
           </div>
         </div>
         <div
-          class="group flex flex-col data-[hidden=true]:hidden w-full relative justify-end data-[has-label=true]:mt-[calc(var(--heroui-font-size-small)_+_10px)] is-filled"
+          class="group relative flex w-full flex-col is-filled"
+          data-component="input"
           data-filled="true"
-          data-filled-within="true"
-          data-has-elements="true"
-          data-has-helper="true"
-          data-has-label="true"
-          data-has-value="true"
+          data-rac=""
           data-slot="base"
         >
+          <label
+            class="block cursor-default pb-1 text-small text-foreground group-data-[invalid=true]:text-danger"
+            data-slot="label"
+            for="uniform-«replaced-aria-id»"
+            id="uniform-«replaced-aria-id»-label"
+          >
+            API Token
+          </label>
           <div
-            class="h-full flex flex-col"
-            data-slot="main-wrapper"
+            class="relative inline-flex h-10 min-h-10 w-full cursor-text items-center shadow-xs rounded-small border-medium border-default-200 bg-content1 px-3 text-foreground transition-colors group-data-[disabled=true]:pointer-events-none group-data-[focus=true]:border-focus group-data-[invalid=true]:border-danger data-[hovered=true]:border-default-400 group-data-[focus=true]:data-[hovered=true]:border-default-foreground motion-reduce:transition-none is-filled"
+            data-rac=""
+            data-slot="input-wrapper"
+            role="presentation"
           >
             <div
-              class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 group-data-[focus=true]:data-[hover=true]:border-default-foreground h-10 min-h-10 rounded-small !duration-150 transition-colors motion-reduce:transition-none bg-content1 group-data-[focus=true]:border-focus is-filled"
-              data-slot="input-wrapper"
-              style="cursor: text;"
+              class="inline-flex h-full w-full items-center gap-0"
+              data-slot="inner-wrapper"
             >
-              <label
-                class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block text-foreground-500 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto text-small group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden"
-                data-slot="label"
-                for="apitoken"
-                id="react-aria-«replaced-aria-id»"
-              >
-                API Token
-              </label>
-              <div
-                class="inline-flex w-full items-center h-full box-border"
-                data-slot="inner-wrapper"
-              >
-                <input
-                  aria-label="API Token"
-                  aria-labelledby="apitoken react-aria-«replaced-aria-id»"
-                  autocomplete="off"
-                  class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text dark:autofill:[-webkit-text-fill-color:hsl(var(--heroui-foreground))] [&::-ms-reveal]:hidden text-small is-filled"
-                  data-filled="true"
-                  data-filled-within="true"
-                  data-slot="input"
-                  data-testid="apitoken"
-                  id="apitoken"
-                  name="apiToken"
-                  placeholder=" "
-                  tabindex="0"
-                  title=""
-                  type="text"
-                  value="example-api-token"
-                />
-              </div>
+              <input
+                aria-labelledby="uniform-«replaced-aria-id»-label"
+                autocomplete="off"
+                class="w-full min-w-0 bg-transparent bg-clip-text text-small font-normal text-inherit outline-none placeholder:text-foreground-500 autofill:bg-transparent data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden is-filled"
+                data-filled="true"
+                data-rac=""
+                data-slot="input"
+                data-testid="apitoken"
+                id="uniform-«replaced-aria-id»"
+                name="apiToken"
+                placeholder=" "
+                tabindex="0"
+                type="text"
+                value="example-api-token"
+              />
             </div>
           </div>
         </div>
         <button
           aria-label="Submit form"
-          class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
+          data-component="submit-button"
+          data-rac=""
           data-react-aria-pressable="true"
           data-testid="form_submit_button"
+          id="react-aria-«replaced-aria-id»"
           tabindex="0"
           type="submit"
         >
@@ -247,11 +1325,14 @@ exports[`Story Snapshots > PasswordAndToken 1`] = `
         data-testid="sensitive-debug-panel"
       >
         <div
-          class="flex flex-col relative overflow-hidden h-auto text-foreground box-border bg-content1 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 shadow-none rounded-small w-full transition-transform-background motion-reduce:transition-none border border-divider"
+          class="relative box-border flex h-auto w-full flex-col overflow-hidden rounded-small border border-divider bg-content1 text-foreground shadow-none outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus transition-transform-background motion-reduce:transition-none"
+          data-component="card"
+          data-slot="base"
           tabindex="-1"
         >
           <div
-            class="flex p-3 w-full items-center shrink-0 overflow-inherit color-inherit subpixel-antialiased rounded-t-small z-auto text-base font-semibold justify-between"
+            class="color-inherit overflow-inherit z-auto flex w-full shrink-0 items-center rounded-t-small p-3 text-base font-semibold subpixel-antialiased justify-between"
+            data-slot="header"
           >
             <span
               class="text-lg"
@@ -259,8 +1340,11 @@ exports[`Story Snapshots > PasswordAndToken 1`] = `
               Debug Mode
             </span>
             <button
-              class="group tap-highlight-transparent [&>svg]:max-w-[theme(spacing.8)] data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny gap-2 rounded-small px-0 !gap-0 transition-transform-colors-opacity motion-reduce:transition-none bg-transparent text-danger data-[hover=true]:bg-danger/20 min-w-8 w-8 h-8"
+              class="group tap-highlight-transparent [&>svg]:max-w-[theme(spacing.8)] data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus gap-2 rounded-small text-tiny !gap-0 px-0 transition-transform-colors-opacity motion-reduce:transition-none bg-transparent text-danger data-[hover=true]:bg-danger/20 h-8 w-8 min-w-8"
+              data-component="button"
+              data-rac=""
               data-react-aria-pressable="true"
+              id="react-aria-«replaced-aria-id»"
               tabindex="0"
               type="button"
             >
@@ -272,15 +1356,18 @@ exports[`Story Snapshots > PasswordAndToken 1`] = `
             </button>
           </div>
           <hr
-            class="shrink-0 bg-divider border-none w-full h-divider my-0 border-divider"
-            role="separator"
+            class="my-0 h-divider w-full shrink-0 border-none border-divider bg-divider"
           />
           <div
-            class="relative flex w-full p-3 flex-auto flex-col place-content-inherit align-items-inherit h-auto break-words text-left overflow-y-auto subpixel-antialiased"
+            class="relative flex h-auto w-full flex-auto flex-col p-3 place-content-inherit align-items-inherit overflow-y-auto break-words text-left subpixel-antialiased"
+            data-slot="body"
           >
             <button
-              class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-transparent text-default-foreground data-[hover=true]:bg-default/40 mb-4 ml-auto mr-auto"
+              class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-transparent text-default-foreground data-[hover=true]:bg-default/40 mb-4 ml-auto mr-auto"
+              data-component="button"
+              data-rac=""
               data-react-aria-pressable="true"
+              id="react-aria-«replaced-aria-id»"
               tabindex="0"
               type="button"
             >
@@ -294,6 +1381,7 @@ exports[`Story Snapshots > PasswordAndToken 1`] = `
             <div
               aria-label="JSON viewer"
               class=""
+              data-component="json"
               role="region"
             >
               <div

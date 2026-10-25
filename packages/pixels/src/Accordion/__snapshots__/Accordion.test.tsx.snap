@@ -2,21 +2,25 @@
 
 exports[`Coverage > should render with undefined className 1`] = `
 <div
-  class="w-full px-0 divide-y divide-solid divide-divider border-b border-t border-solid border-divider"
-  data-collection="react-aria-«replaced-aria-id»"
+  class="w-full px-0 divide-y divide-solid divide-divider border-y border-solid border-divider"
+  data-component="accordion"
   data-orientation="vertical"
+  data-slot="wrapper"
+  role="group"
 />
 `;
 
 exports[`Story Snapshots > AllDisabled 1`] = `
 <div>
   <div
-    class="px-0 divide-y divide-solid divide-divider border-b border-t border-solid border-divider w-96"
-    data-collection="react-aria-«replaced-aria-id»"
+    class="px-0 divide-y divide-solid divide-divider border-y border-solid border-divider w-96"
+    data-component="accordion"
     data-orientation="vertical"
+    data-slot="wrapper"
+    role="group"
   >
     <div
-      class="opacity-disabled pointer-events-none"
+      class="data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-disabled"
       data-disabled="true"
       data-slot="base"
     >
@@ -26,17 +30,21 @@ exports[`Story Snapshots > AllDisabled 1`] = `
         data-slot="heading"
       >
         <button
+          aria-controls="accordion-«replaced-aria-id»-panel"
           aria-expanded="false"
-          class="flex py-4 w-full h-full gap-3 items-center tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 transition-opacity cursor-pointer"
+          class="flex h-full w-full cursor-pointer items-center gap-3 py-4 tap-highlight-transparent outline-solid outline-transparent transition-opacity motion-reduce:transition-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus"
+          data-accordion-trigger="true"
           data-disabled="true"
+          data-rac=""
           data-react-aria-pressable="true"
           data-slot="trigger"
           disabled=""
-          id="«replaced-aria-id»"
+          id="accordion-«replaced-aria-id»-trigger"
           type="button"
         >
           <div
-            class="flex-1 flex flex-col text-start"
+            class="flex flex-1 flex-col text-start"
+            data-slot="titleWrapper"
           >
             <span
               class="text-foreground text-medium"
@@ -48,16 +56,14 @@ exports[`Story Snapshots > AllDisabled 1`] = `
           </div>
           <span
             aria-hidden="true"
-            class="text-default-400 transition-transform rotate-0 data-[open=true]:-rotate-90 rtl:-rotate-180 rtl:data-[open=true]:-rotate-90"
+            class="text-default-400 rotate-0 transition-transform data-[open=true]:-rotate-90 motion-reduce:transition-none rtl:-rotate-180 rtl:data-[open=true]:-rotate-90"
             data-disabled="true"
             data-slot="indicator"
           >
             <svg
               aria-hidden="true"
               fill="none"
-              focusable="false"
               height="1em"
-              role="presentation"
               viewBox="0 0 24 24"
               width="1em"
             >
@@ -74,7 +80,7 @@ exports[`Story Snapshots > AllDisabled 1`] = `
       </h2>
     </div>
     <div
-      class="opacity-disabled pointer-events-none"
+      class="data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-disabled"
       data-disabled="true"
       data-slot="base"
     >
@@ -84,17 +90,21 @@ exports[`Story Snapshots > AllDisabled 1`] = `
         data-slot="heading"
       >
         <button
+          aria-controls="accordion-«replaced-aria-id»-panel"
           aria-expanded="false"
-          class="flex py-4 w-full h-full gap-3 items-center tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 transition-opacity cursor-pointer"
+          class="flex h-full w-full cursor-pointer items-center gap-3 py-4 tap-highlight-transparent outline-solid outline-transparent transition-opacity motion-reduce:transition-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus"
+          data-accordion-trigger="true"
           data-disabled="true"
+          data-rac=""
           data-react-aria-pressable="true"
           data-slot="trigger"
           disabled=""
-          id="«replaced-aria-id»"
+          id="accordion-«replaced-aria-id»-trigger"
           type="button"
         >
           <div
-            class="flex-1 flex flex-col text-start"
+            class="flex flex-1 flex-col text-start"
+            data-slot="titleWrapper"
           >
             <span
               class="text-foreground text-medium"
@@ -106,16 +116,14 @@ exports[`Story Snapshots > AllDisabled 1`] = `
           </div>
           <span
             aria-hidden="true"
-            class="text-default-400 transition-transform rotate-0 data-[open=true]:-rotate-90 rtl:-rotate-180 rtl:data-[open=true]:-rotate-90"
+            class="text-default-400 rotate-0 transition-transform data-[open=true]:-rotate-90 motion-reduce:transition-none rtl:-rotate-180 rtl:data-[open=true]:-rotate-90"
             data-disabled="true"
             data-slot="indicator"
           >
             <svg
               aria-hidden="true"
               fill="none"
-              focusable="false"
               height="1em"
-              role="presentation"
               viewBox="0 0 24 24"
               width="1em"
             >
@@ -132,7 +140,7 @@ exports[`Story Snapshots > AllDisabled 1`] = `
       </h2>
     </div>
     <div
-      class="opacity-disabled pointer-events-none"
+      class="data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-disabled"
       data-disabled="true"
       data-slot="base"
     >
@@ -142,17 +150,21 @@ exports[`Story Snapshots > AllDisabled 1`] = `
         data-slot="heading"
       >
         <button
+          aria-controls="accordion-«replaced-aria-id»-panel"
           aria-expanded="false"
-          class="flex py-4 w-full h-full gap-3 items-center tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 transition-opacity cursor-pointer"
+          class="flex h-full w-full cursor-pointer items-center gap-3 py-4 tap-highlight-transparent outline-solid outline-transparent transition-opacity motion-reduce:transition-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus"
+          data-accordion-trigger="true"
           data-disabled="true"
+          data-rac=""
           data-react-aria-pressable="true"
           data-slot="trigger"
           disabled=""
-          id="«replaced-aria-id»"
+          id="accordion-«replaced-aria-id»-trigger"
           type="button"
         >
           <div
-            class="flex-1 flex flex-col text-start"
+            class="flex flex-1 flex-col text-start"
+            data-slot="titleWrapper"
           >
             <span
               class="text-foreground text-medium"
@@ -164,16 +176,14 @@ exports[`Story Snapshots > AllDisabled 1`] = `
           </div>
           <span
             aria-hidden="true"
-            class="text-default-400 transition-transform rotate-0 data-[open=true]:-rotate-90 rtl:-rotate-180 rtl:data-[open=true]:-rotate-90"
+            class="text-default-400 rotate-0 transition-transform data-[open=true]:-rotate-90 motion-reduce:transition-none rtl:-rotate-180 rtl:data-[open=true]:-rotate-90"
             data-disabled="true"
             data-slot="indicator"
           >
             <svg
               aria-hidden="true"
               fill="none"
-              focusable="false"
               height="1em"
-              role="presentation"
               viewBox="0 0 24 24"
               width="1em"
             >
@@ -199,11 +209,14 @@ exports[`Story Snapshots > AllVariants 1`] = `
     class="w-96"
   >
     <div
-      class="w-full px-0 divide-y divide-solid divide-divider border-b border-t border-solid border-divider mb-12"
-      data-collection="react-aria-«replaced-aria-id»"
+      class="w-full px-0 divide-y divide-solid divide-divider border-y border-solid border-divider mb-12"
+      data-component="accordion"
       data-orientation="vertical"
+      data-slot="wrapper"
+      role="group"
     >
       <div
+        class="data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-disabled"
         data-slot="base"
       >
         <h2
@@ -211,16 +224,20 @@ exports[`Story Snapshots > AllVariants 1`] = `
           data-slot="heading"
         >
           <button
+            aria-controls="accordion-«replaced-aria-id»-panel"
             aria-expanded="false"
-            class="flex py-4 w-full h-full gap-3 items-center tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 transition-opacity cursor-pointer"
+            class="flex h-full w-full cursor-pointer items-center gap-3 py-4 tap-highlight-transparent outline-solid outline-transparent transition-opacity motion-reduce:transition-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus"
+            data-accordion-trigger="true"
+            data-rac=""
             data-react-aria-pressable="true"
             data-slot="trigger"
-            id="«replaced-aria-id»"
+            id="accordion-«replaced-aria-id»-trigger"
             tabindex="0"
             type="button"
           >
             <div
-              class="flex-1 flex flex-col text-start"
+              class="flex flex-1 flex-col text-start"
+              data-slot="titleWrapper"
             >
               <span
                 class="text-foreground text-medium"
@@ -231,15 +248,13 @@ exports[`Story Snapshots > AllVariants 1`] = `
             </div>
             <span
               aria-hidden="true"
-              class="text-default-400 transition-transform rotate-0 data-[open=true]:-rotate-90 rtl:-rotate-180 rtl:data-[open=true]:-rotate-90"
+              class="text-default-400 rotate-0 transition-transform data-[open=true]:-rotate-90 motion-reduce:transition-none rtl:-rotate-180 rtl:data-[open=true]:-rotate-90"
               data-slot="indicator"
             >
               <svg
                 aria-hidden="true"
                 fill="none"
-                focusable="false"
                 height="1em"
-                role="presentation"
                 viewBox="0 0 24 24"
                 width="1em"
               >
@@ -256,6 +271,7 @@ exports[`Story Snapshots > AllVariants 1`] = `
         </h2>
       </div>
       <div
+        class="data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-disabled"
         data-slot="base"
       >
         <h2
@@ -263,16 +279,20 @@ exports[`Story Snapshots > AllVariants 1`] = `
           data-slot="heading"
         >
           <button
+            aria-controls="accordion-«replaced-aria-id»-panel"
             aria-expanded="false"
-            class="flex py-4 w-full h-full gap-3 items-center tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 transition-opacity cursor-pointer"
+            class="flex h-full w-full cursor-pointer items-center gap-3 py-4 tap-highlight-transparent outline-solid outline-transparent transition-opacity motion-reduce:transition-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus"
+            data-accordion-trigger="true"
+            data-rac=""
             data-react-aria-pressable="true"
             data-slot="trigger"
-            id="«replaced-aria-id»"
+            id="accordion-«replaced-aria-id»-trigger"
             tabindex="0"
             type="button"
           >
             <div
-              class="flex-1 flex flex-col text-start"
+              class="flex flex-1 flex-col text-start"
+              data-slot="titleWrapper"
             >
               <span
                 class="text-foreground text-medium"
@@ -283,15 +303,13 @@ exports[`Story Snapshots > AllVariants 1`] = `
             </div>
             <span
               aria-hidden="true"
-              class="text-default-400 transition-transform rotate-0 data-[open=true]:-rotate-90 rtl:-rotate-180 rtl:data-[open=true]:-rotate-90"
+              class="text-default-400 rotate-0 transition-transform data-[open=true]:-rotate-90 motion-reduce:transition-none rtl:-rotate-180 rtl:data-[open=true]:-rotate-90"
               data-slot="indicator"
             >
               <svg
                 aria-hidden="true"
                 fill="none"
-                focusable="false"
                 height="1em"
-                role="presentation"
                 viewBox="0 0 24 24"
                 width="1em"
               >
@@ -308,6 +326,7 @@ exports[`Story Snapshots > AllVariants 1`] = `
         </h2>
       </div>
       <div
+        class="data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-disabled"
         data-slot="base"
       >
         <h2
@@ -315,16 +334,20 @@ exports[`Story Snapshots > AllVariants 1`] = `
           data-slot="heading"
         >
           <button
+            aria-controls="accordion-«replaced-aria-id»-panel"
             aria-expanded="false"
-            class="flex py-4 w-full h-full gap-3 items-center tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 transition-opacity cursor-pointer"
+            class="flex h-full w-full cursor-pointer items-center gap-3 py-4 tap-highlight-transparent outline-solid outline-transparent transition-opacity motion-reduce:transition-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus"
+            data-accordion-trigger="true"
+            data-rac=""
             data-react-aria-pressable="true"
             data-slot="trigger"
-            id="«replaced-aria-id»"
+            id="accordion-«replaced-aria-id»-trigger"
             tabindex="0"
             type="button"
           >
             <div
-              class="flex-1 flex flex-col text-start"
+              class="flex flex-1 flex-col text-start"
+              data-slot="titleWrapper"
             >
               <span
                 class="text-foreground text-medium"
@@ -335,15 +358,13 @@ exports[`Story Snapshots > AllVariants 1`] = `
             </div>
             <span
               aria-hidden="true"
-              class="text-default-400 transition-transform rotate-0 data-[open=true]:-rotate-90 rtl:-rotate-180 rtl:data-[open=true]:-rotate-90"
+              class="text-default-400 rotate-0 transition-transform data-[open=true]:-rotate-90 motion-reduce:transition-none rtl:-rotate-180 rtl:data-[open=true]:-rotate-90"
               data-slot="indicator"
             >
               <svg
                 aria-hidden="true"
                 fill="none"
-                focusable="false"
                 height="1em"
-                role="presentation"
                 viewBox="0 0 24 24"
                 width="1em"
               >
@@ -361,11 +382,14 @@ exports[`Story Snapshots > AllVariants 1`] = `
       </div>
     </div>
     <div
-      class="shadow-medium rounded-medium bg-content1 w-full px-0 divide-y divide-solid divide-divider mb-12"
-      data-collection="react-aria-«replaced-aria-id»"
+      class="w-full px-0 divide-y divide-solid divide-divider rounded-medium bg-content1 shadow-medium mb-12"
+      data-component="accordion"
       data-orientation="vertical"
+      data-slot="wrapper"
+      role="group"
     >
       <div
+        class="data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-disabled"
         data-slot="base"
       >
         <h2
@@ -373,16 +397,20 @@ exports[`Story Snapshots > AllVariants 1`] = `
           data-slot="heading"
         >
           <button
+            aria-controls="accordion-«replaced-aria-id»-panel"
             aria-expanded="false"
-            class="flex py-4 w-full h-full gap-3 items-center tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 transition-opacity cursor-pointer"
+            class="flex h-full w-full cursor-pointer items-center gap-3 py-4 tap-highlight-transparent outline-solid outline-transparent transition-opacity motion-reduce:transition-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus"
+            data-accordion-trigger="true"
+            data-rac=""
             data-react-aria-pressable="true"
             data-slot="trigger"
-            id="«replaced-aria-id»"
+            id="accordion-«replaced-aria-id»-trigger"
             tabindex="0"
             type="button"
           >
             <div
-              class="flex-1 flex flex-col text-start"
+              class="flex flex-1 flex-col text-start"
+              data-slot="titleWrapper"
             >
               <span
                 class="text-foreground text-medium"
@@ -393,15 +421,13 @@ exports[`Story Snapshots > AllVariants 1`] = `
             </div>
             <span
               aria-hidden="true"
-              class="text-default-400 transition-transform rotate-0 data-[open=true]:-rotate-90 rtl:-rotate-180 rtl:data-[open=true]:-rotate-90"
+              class="text-default-400 rotate-0 transition-transform data-[open=true]:-rotate-90 motion-reduce:transition-none rtl:-rotate-180 rtl:data-[open=true]:-rotate-90"
               data-slot="indicator"
             >
               <svg
                 aria-hidden="true"
                 fill="none"
-                focusable="false"
                 height="1em"
-                role="presentation"
                 viewBox="0 0 24 24"
                 width="1em"
               >
@@ -418,6 +444,7 @@ exports[`Story Snapshots > AllVariants 1`] = `
         </h2>
       </div>
       <div
+        class="data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-disabled"
         data-slot="base"
       >
         <h2
@@ -425,16 +452,20 @@ exports[`Story Snapshots > AllVariants 1`] = `
           data-slot="heading"
         >
           <button
+            aria-controls="accordion-«replaced-aria-id»-panel"
             aria-expanded="false"
-            class="flex py-4 w-full h-full gap-3 items-center tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 transition-opacity cursor-pointer"
+            class="flex h-full w-full cursor-pointer items-center gap-3 py-4 tap-highlight-transparent outline-solid outline-transparent transition-opacity motion-reduce:transition-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus"
+            data-accordion-trigger="true"
+            data-rac=""
             data-react-aria-pressable="true"
             data-slot="trigger"
-            id="«replaced-aria-id»"
+            id="accordion-«replaced-aria-id»-trigger"
             tabindex="0"
             type="button"
           >
             <div
-              class="flex-1 flex flex-col text-start"
+              class="flex flex-1 flex-col text-start"
+              data-slot="titleWrapper"
             >
               <span
                 class="text-foreground text-medium"
@@ -445,15 +476,13 @@ exports[`Story Snapshots > AllVariants 1`] = `
             </div>
             <span
               aria-hidden="true"
-              class="text-default-400 transition-transform rotate-0 data-[open=true]:-rotate-90 rtl:-rotate-180 rtl:data-[open=true]:-rotate-90"
+              class="text-default-400 rotate-0 transition-transform data-[open=true]:-rotate-90 motion-reduce:transition-none rtl:-rotate-180 rtl:data-[open=true]:-rotate-90"
               data-slot="indicator"
             >
               <svg
                 aria-hidden="true"
                 fill="none"
-                focusable="false"
                 height="1em"
-                role="presentation"
                 viewBox="0 0 24 24"
                 width="1em"
               >
@@ -470,6 +499,7 @@ exports[`Story Snapshots > AllVariants 1`] = `
         </h2>
       </div>
       <div
+        class="data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-disabled"
         data-slot="base"
       >
         <h2
@@ -477,16 +507,20 @@ exports[`Story Snapshots > AllVariants 1`] = `
           data-slot="heading"
         >
           <button
+            aria-controls="accordion-«replaced-aria-id»-panel"
             aria-expanded="false"
-            class="flex py-4 w-full h-full gap-3 items-center tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 transition-opacity cursor-pointer"
+            class="flex h-full w-full cursor-pointer items-center gap-3 py-4 tap-highlight-transparent outline-solid outline-transparent transition-opacity motion-reduce:transition-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus"
+            data-accordion-trigger="true"
+            data-rac=""
             data-react-aria-pressable="true"
             data-slot="trigger"
-            id="«replaced-aria-id»"
+            id="accordion-«replaced-aria-id»-trigger"
             tabindex="0"
             type="button"
           >
             <div
-              class="flex-1 flex flex-col text-start"
+              class="flex flex-1 flex-col text-start"
+              data-slot="titleWrapper"
             >
               <span
                 class="text-foreground text-medium"
@@ -497,15 +531,13 @@ exports[`Story Snapshots > AllVariants 1`] = `
             </div>
             <span
               aria-hidden="true"
-              class="text-default-400 transition-transform rotate-0 data-[open=true]:-rotate-90 rtl:-rotate-180 rtl:data-[open=true]:-rotate-90"
+              class="text-default-400 rotate-0 transition-transform data-[open=true]:-rotate-90 motion-reduce:transition-none rtl:-rotate-180 rtl:data-[open=true]:-rotate-90"
               data-slot="indicator"
             >
               <svg
                 aria-hidden="true"
                 fill="none"
-                focusable="false"
                 height="1em"
-                role="presentation"
                 viewBox="0 0 24 24"
                 width="1em"
               >
@@ -523,11 +555,14 @@ exports[`Story Snapshots > AllVariants 1`] = `
       </div>
     </div>
     <div
-      class="border-medium border-divider rounded-medium w-full px-0 divide-y divide-solid divide-divider mb-12"
-      data-collection="react-aria-«replaced-aria-id»"
+      class="w-full px-0 divide-y divide-solid divide-divider rounded-medium border-medium border-divider mb-12"
+      data-component="accordion"
       data-orientation="vertical"
+      data-slot="wrapper"
+      role="group"
     >
       <div
+        class="data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-disabled"
         data-slot="base"
       >
         <h2
@@ -535,16 +570,20 @@ exports[`Story Snapshots > AllVariants 1`] = `
           data-slot="heading"
         >
           <button
+            aria-controls="accordion-«replaced-aria-id»-panel"
             aria-expanded="false"
-            class="flex py-4 w-full h-full gap-3 items-center tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 transition-opacity cursor-pointer"
+            class="flex h-full w-full cursor-pointer items-center gap-3 py-4 tap-highlight-transparent outline-solid outline-transparent transition-opacity motion-reduce:transition-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus"
+            data-accordion-trigger="true"
+            data-rac=""
             data-react-aria-pressable="true"
             data-slot="trigger"
-            id="«replaced-aria-id»"
+            id="accordion-«replaced-aria-id»-trigger"
             tabindex="0"
             type="button"
           >
             <div
-              class="flex-1 flex flex-col text-start"
+              class="flex flex-1 flex-col text-start"
+              data-slot="titleWrapper"
             >
               <span
                 class="text-foreground text-medium"
@@ -555,15 +594,13 @@ exports[`Story Snapshots > AllVariants 1`] = `
             </div>
             <span
               aria-hidden="true"
-              class="text-default-400 transition-transform rotate-0 data-[open=true]:-rotate-90 rtl:-rotate-180 rtl:data-[open=true]:-rotate-90"
+              class="text-default-400 rotate-0 transition-transform data-[open=true]:-rotate-90 motion-reduce:transition-none rtl:-rotate-180 rtl:data-[open=true]:-rotate-90"
               data-slot="indicator"
             >
               <svg
                 aria-hidden="true"
                 fill="none"
-                focusable="false"
                 height="1em"
-                role="presentation"
                 viewBox="0 0 24 24"
                 width="1em"
               >
@@ -580,6 +617,7 @@ exports[`Story Snapshots > AllVariants 1`] = `
         </h2>
       </div>
       <div
+        class="data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-disabled"
         data-slot="base"
       >
         <h2
@@ -587,16 +625,20 @@ exports[`Story Snapshots > AllVariants 1`] = `
           data-slot="heading"
         >
           <button
+            aria-controls="accordion-«replaced-aria-id»-panel"
             aria-expanded="false"
-            class="flex py-4 w-full h-full gap-3 items-center tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 transition-opacity cursor-pointer"
+            class="flex h-full w-full cursor-pointer items-center gap-3 py-4 tap-highlight-transparent outline-solid outline-transparent transition-opacity motion-reduce:transition-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus"
+            data-accordion-trigger="true"
+            data-rac=""
             data-react-aria-pressable="true"
             data-slot="trigger"
-            id="«replaced-aria-id»"
+            id="accordion-«replaced-aria-id»-trigger"
             tabindex="0"
             type="button"
           >
             <div
-              class="flex-1 flex flex-col text-start"
+              class="flex flex-1 flex-col text-start"
+              data-slot="titleWrapper"
             >
               <span
                 class="text-foreground text-medium"
@@ -607,15 +649,13 @@ exports[`Story Snapshots > AllVariants 1`] = `
             </div>
             <span
               aria-hidden="true"
-              class="text-default-400 transition-transform rotate-0 data-[open=true]:-rotate-90 rtl:-rotate-180 rtl:data-[open=true]:-rotate-90"
+              class="text-default-400 rotate-0 transition-transform data-[open=true]:-rotate-90 motion-reduce:transition-none rtl:-rotate-180 rtl:data-[open=true]:-rotate-90"
               data-slot="indicator"
             >
               <svg
                 aria-hidden="true"
                 fill="none"
-                focusable="false"
                 height="1em"
-                role="presentation"
                 viewBox="0 0 24 24"
                 width="1em"
               >
@@ -632,6 +672,7 @@ exports[`Story Snapshots > AllVariants 1`] = `
         </h2>
       </div>
       <div
+        class="data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-disabled"
         data-slot="base"
       >
         <h2
@@ -639,16 +680,20 @@ exports[`Story Snapshots > AllVariants 1`] = `
           data-slot="heading"
         >
           <button
+            aria-controls="accordion-«replaced-aria-id»-panel"
             aria-expanded="false"
-            class="flex py-4 w-full h-full gap-3 items-center tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 transition-opacity cursor-pointer"
+            class="flex h-full w-full cursor-pointer items-center gap-3 py-4 tap-highlight-transparent outline-solid outline-transparent transition-opacity motion-reduce:transition-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus"
+            data-accordion-trigger="true"
+            data-rac=""
             data-react-aria-pressable="true"
             data-slot="trigger"
-            id="«replaced-aria-id»"
+            id="accordion-«replaced-aria-id»-trigger"
             tabindex="0"
             type="button"
           >
             <div
-              class="flex-1 flex flex-col text-start"
+              class="flex flex-1 flex-col text-start"
+              data-slot="titleWrapper"
             >
               <span
                 class="text-foreground text-medium"
@@ -659,15 +704,13 @@ exports[`Story Snapshots > AllVariants 1`] = `
             </div>
             <span
               aria-hidden="true"
-              class="text-default-400 transition-transform rotate-0 data-[open=true]:-rotate-90 rtl:-rotate-180 rtl:data-[open=true]:-rotate-90"
+              class="text-default-400 rotate-0 transition-transform data-[open=true]:-rotate-90 motion-reduce:transition-none rtl:-rotate-180 rtl:data-[open=true]:-rotate-90"
               data-slot="indicator"
             >
               <svg
                 aria-hidden="true"
                 fill="none"
-                focusable="false"
                 height="1em"
-                role="presentation"
                 viewBox="0 0 24 24"
                 width="1em"
               >
@@ -685,12 +728,14 @@ exports[`Story Snapshots > AllVariants 1`] = `
       </div>
     </div>
     <div
-      class="flex flex-col gap-2 w-full px-0 mb-12"
-      data-collection="react-aria-«replaced-aria-id»"
+      class="w-full px-0 flex flex-col gap-2 mb-12"
+      data-component="accordion"
       data-orientation="vertical"
+      data-slot="wrapper"
+      role="group"
     >
       <div
-        class="px-4 bg-content1 shadow-medium rounded-medium"
+        class="data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-disabled rounded-medium bg-content1 px-4 shadow-medium"
         data-slot="base"
       >
         <h2
@@ -698,16 +743,20 @@ exports[`Story Snapshots > AllVariants 1`] = `
           data-slot="heading"
         >
           <button
+            aria-controls="accordion-«replaced-aria-id»-panel"
             aria-expanded="false"
-            class="flex py-4 w-full h-full gap-3 items-center tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 transition-opacity cursor-pointer"
+            class="flex h-full w-full cursor-pointer items-center gap-3 py-4 tap-highlight-transparent outline-solid outline-transparent transition-opacity motion-reduce:transition-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus"
+            data-accordion-trigger="true"
+            data-rac=""
             data-react-aria-pressable="true"
             data-slot="trigger"
-            id="«replaced-aria-id»"
+            id="accordion-«replaced-aria-id»-trigger"
             tabindex="0"
             type="button"
           >
             <div
-              class="flex-1 flex flex-col text-start"
+              class="flex flex-1 flex-col text-start"
+              data-slot="titleWrapper"
             >
               <span
                 class="text-foreground text-medium"
@@ -718,15 +767,13 @@ exports[`Story Snapshots > AllVariants 1`] = `
             </div>
             <span
               aria-hidden="true"
-              class="text-default-400 transition-transform rotate-0 data-[open=true]:-rotate-90 rtl:-rotate-180 rtl:data-[open=true]:-rotate-90"
+              class="text-default-400 rotate-0 transition-transform data-[open=true]:-rotate-90 motion-reduce:transition-none rtl:-rotate-180 rtl:data-[open=true]:-rotate-90"
               data-slot="indicator"
             >
               <svg
                 aria-hidden="true"
                 fill="none"
-                focusable="false"
                 height="1em"
-                role="presentation"
                 viewBox="0 0 24 24"
                 width="1em"
               >
@@ -743,7 +790,7 @@ exports[`Story Snapshots > AllVariants 1`] = `
         </h2>
       </div>
       <div
-        class="px-4 bg-content1 shadow-medium rounded-medium"
+        class="data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-disabled rounded-medium bg-content1 px-4 shadow-medium"
         data-slot="base"
       >
         <h2
@@ -751,16 +798,20 @@ exports[`Story Snapshots > AllVariants 1`] = `
           data-slot="heading"
         >
           <button
+            aria-controls="accordion-«replaced-aria-id»-panel"
             aria-expanded="false"
-            class="flex py-4 w-full h-full gap-3 items-center tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 transition-opacity cursor-pointer"
+            class="flex h-full w-full cursor-pointer items-center gap-3 py-4 tap-highlight-transparent outline-solid outline-transparent transition-opacity motion-reduce:transition-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus"
+            data-accordion-trigger="true"
+            data-rac=""
             data-react-aria-pressable="true"
             data-slot="trigger"
-            id="«replaced-aria-id»"
+            id="accordion-«replaced-aria-id»-trigger"
             tabindex="0"
             type="button"
           >
             <div
-              class="flex-1 flex flex-col text-start"
+              class="flex flex-1 flex-col text-start"
+              data-slot="titleWrapper"
             >
               <span
                 class="text-foreground text-medium"
@@ -771,15 +822,13 @@ exports[`Story Snapshots > AllVariants 1`] = `
             </div>
             <span
               aria-hidden="true"
-              class="text-default-400 transition-transform rotate-0 data-[open=true]:-rotate-90 rtl:-rotate-180 rtl:data-[open=true]:-rotate-90"
+              class="text-default-400 rotate-0 transition-transform data-[open=true]:-rotate-90 motion-reduce:transition-none rtl:-rotate-180 rtl:data-[open=true]:-rotate-90"
               data-slot="indicator"
             >
               <svg
                 aria-hidden="true"
                 fill="none"
-                focusable="false"
                 height="1em"
-                role="presentation"
                 viewBox="0 0 24 24"
                 width="1em"
               >
@@ -796,7 +845,7 @@ exports[`Story Snapshots > AllVariants 1`] = `
         </h2>
       </div>
       <div
-        class="px-4 bg-content1 shadow-medium rounded-medium"
+        class="data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-disabled rounded-medium bg-content1 px-4 shadow-medium"
         data-slot="base"
       >
         <h2
@@ -804,16 +853,20 @@ exports[`Story Snapshots > AllVariants 1`] = `
           data-slot="heading"
         >
           <button
+            aria-controls="accordion-«replaced-aria-id»-panel"
             aria-expanded="false"
-            class="flex py-4 w-full h-full gap-3 items-center tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 transition-opacity cursor-pointer"
+            class="flex h-full w-full cursor-pointer items-center gap-3 py-4 tap-highlight-transparent outline-solid outline-transparent transition-opacity motion-reduce:transition-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus"
+            data-accordion-trigger="true"
+            data-rac=""
             data-react-aria-pressable="true"
             data-slot="trigger"
-            id="«replaced-aria-id»"
+            id="accordion-«replaced-aria-id»-trigger"
             tabindex="0"
             type="button"
           >
             <div
-              class="flex-1 flex flex-col text-start"
+              class="flex flex-1 flex-col text-start"
+              data-slot="titleWrapper"
             >
               <span
                 class="text-foreground text-medium"
@@ -824,15 +877,13 @@ exports[`Story Snapshots > AllVariants 1`] = `
             </div>
             <span
               aria-hidden="true"
-              class="text-default-400 transition-transform rotate-0 data-[open=true]:-rotate-90 rtl:-rotate-180 rtl:data-[open=true]:-rotate-90"
+              class="text-default-400 rotate-0 transition-transform data-[open=true]:-rotate-90 motion-reduce:transition-none rtl:-rotate-180 rtl:data-[open=true]:-rotate-90"
               data-slot="indicator"
             >
               <svg
                 aria-hidden="true"
                 fill="none"
-                focusable="false"
                 height="1em"
-                role="presentation"
                 viewBox="0 0 24 24"
                 width="1em"
               >
@@ -853,15 +904,17 @@ exports[`Story Snapshots > AllVariants 1`] = `
 </div>
 `;
 
-exports[`Story Snapshots > CustomStyles 1`] = `
+exports[`Story Snapshots > CustomStyling 1`] = `
 <div>
   <div
-    class="px-0 divide-y divide-solid divide-divider border-b border-t border-solid border-divider w-96"
-    data-collection="react-aria-«replaced-aria-id»"
+    class="px-0 divide-y divide-solid divide-divider border-y border-solid border-divider w-96"
+    data-component="accordion"
     data-orientation="vertical"
+    data-slot="wrapper"
+    role="group"
   >
     <div
-      class="py-0"
+      class="data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-disabled py-0"
       data-slot="base"
     >
       <h2
@@ -869,16 +922,20 @@ exports[`Story Snapshots > CustomStyles 1`] = `
         data-slot="heading"
       >
         <button
+          aria-controls="accordion-«replaced-aria-id»-panel"
           aria-expanded="false"
-          class="w-full gap-3 tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 transition-opacity cursor-pointer py-0 data-[hover=true]:bg-blue-100 rounded-lg h-14 flex items-center"
+          class="w-full cursor-pointer gap-3 tap-highlight-transparent outline-solid outline-transparent transition-opacity motion-reduce:transition-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus py-0 data-[hover=true]:bg-blue-100 rounded-lg h-14 flex items-center"
+          data-accordion-trigger="true"
+          data-rac=""
           data-react-aria-pressable="true"
           data-slot="trigger"
-          id="«replaced-aria-id»"
+          id="accordion-«replaced-aria-id»-trigger"
           tabindex="0"
           type="button"
         >
           <div
-            class="flex-1 flex flex-col text-start"
+            class="flex flex-1 flex-col text-start"
+            data-slot="titleWrapper"
           >
             <span
               class="text-foreground font-normal text-medium"
@@ -889,15 +946,13 @@ exports[`Story Snapshots > CustomStyles 1`] = `
           </div>
           <span
             aria-hidden="true"
-            class="text-default-400 transition-transform rtl:-rotate-180 rtl:data-[open=true]:-rotate-90 text-medium rotate-180 data-[open=true]:rotate-90"
+            class="text-default-400 transition-transform motion-reduce:transition-none rtl:-rotate-180 rtl:data-[open=true]:-rotate-90 text-medium rotate-180 data-[open=true]:rotate-90"
             data-slot="indicator"
           >
             <svg
               aria-hidden="true"
               fill="none"
-              focusable="false"
               height="1em"
-              role="presentation"
               viewBox="0 0 24 24"
               width="1em"
             >
@@ -914,7 +969,7 @@ exports[`Story Snapshots > CustomStyles 1`] = `
       </h2>
     </div>
     <div
-      class="py-0"
+      class="data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-disabled py-0"
       data-slot="base"
     >
       <h2
@@ -922,16 +977,20 @@ exports[`Story Snapshots > CustomStyles 1`] = `
         data-slot="heading"
       >
         <button
+          aria-controls="accordion-«replaced-aria-id»-panel"
           aria-expanded="false"
-          class="w-full gap-3 tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 transition-opacity cursor-pointer py-0 data-[hover=true]:bg-blue-100 rounded-lg h-14 flex items-center"
+          class="w-full cursor-pointer gap-3 tap-highlight-transparent outline-solid outline-transparent transition-opacity motion-reduce:transition-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus py-0 data-[hover=true]:bg-blue-100 rounded-lg h-14 flex items-center"
+          data-accordion-trigger="true"
+          data-rac=""
           data-react-aria-pressable="true"
           data-slot="trigger"
-          id="«replaced-aria-id»"
+          id="accordion-«replaced-aria-id»-trigger"
           tabindex="0"
           type="button"
         >
           <div
-            class="flex-1 flex flex-col text-start"
+            class="flex flex-1 flex-col text-start"
+            data-slot="titleWrapper"
           >
             <span
               class="text-foreground font-normal text-medium"
@@ -942,15 +1001,13 @@ exports[`Story Snapshots > CustomStyles 1`] = `
           </div>
           <span
             aria-hidden="true"
-            class="text-default-400 transition-transform rtl:-rotate-180 rtl:data-[open=true]:-rotate-90 text-medium rotate-180 data-[open=true]:rotate-90"
+            class="text-default-400 transition-transform motion-reduce:transition-none rtl:-rotate-180 rtl:data-[open=true]:-rotate-90 text-medium rotate-180 data-[open=true]:rotate-90"
             data-slot="indicator"
           >
             <svg
               aria-hidden="true"
               fill="none"
-              focusable="false"
               height="1em"
-              role="presentation"
               viewBox="0 0 24 24"
               width="1em"
             >
@@ -967,7 +1024,7 @@ exports[`Story Snapshots > CustomStyles 1`] = `
       </h2>
     </div>
     <div
-      class="py-0"
+      class="data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-disabled py-0"
       data-slot="base"
     >
       <h2
@@ -975,16 +1032,20 @@ exports[`Story Snapshots > CustomStyles 1`] = `
         data-slot="heading"
       >
         <button
+          aria-controls="accordion-«replaced-aria-id»-panel"
           aria-expanded="false"
-          class="w-full gap-3 tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 transition-opacity cursor-pointer py-0 data-[hover=true]:bg-blue-100 rounded-lg h-14 flex items-center"
+          class="w-full cursor-pointer gap-3 tap-highlight-transparent outline-solid outline-transparent transition-opacity motion-reduce:transition-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus py-0 data-[hover=true]:bg-blue-100 rounded-lg h-14 flex items-center"
+          data-accordion-trigger="true"
+          data-rac=""
           data-react-aria-pressable="true"
           data-slot="trigger"
-          id="«replaced-aria-id»"
+          id="accordion-«replaced-aria-id»-trigger"
           tabindex="0"
           type="button"
         >
           <div
-            class="flex-1 flex flex-col text-start"
+            class="flex flex-1 flex-col text-start"
+            data-slot="titleWrapper"
           >
             <span
               class="text-foreground font-normal text-medium"
@@ -995,15 +1056,13 @@ exports[`Story Snapshots > CustomStyles 1`] = `
           </div>
           <span
             aria-hidden="true"
-            class="text-default-400 transition-transform rtl:-rotate-180 rtl:data-[open=true]:-rotate-90 text-medium rotate-180 data-[open=true]:rotate-90"
+            class="text-default-400 transition-transform motion-reduce:transition-none rtl:-rotate-180 rtl:data-[open=true]:-rotate-90 text-medium rotate-180 data-[open=true]:rotate-90"
             data-slot="indicator"
           >
             <svg
               aria-hidden="true"
               fill="none"
-              focusable="false"
               height="1em"
-              role="presentation"
               viewBox="0 0 24 24"
               width="1em"
             >
@@ -1026,11 +1085,14 @@ exports[`Story Snapshots > CustomStyles 1`] = `
 exports[`Story Snapshots > Default 1`] = `
 <div>
   <div
-    class="px-0 divide-y divide-solid divide-divider border-b border-t border-solid border-divider w-96"
-    data-collection="react-aria-«replaced-aria-id»"
+    class="px-0 divide-y divide-solid divide-divider border-y border-solid border-divider w-96"
+    data-component="accordion"
     data-orientation="vertical"
+    data-slot="wrapper"
+    role="group"
   >
     <div
+      class="data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-disabled"
       data-slot="base"
     >
       <h2
@@ -1038,16 +1100,20 @@ exports[`Story Snapshots > Default 1`] = `
         data-slot="heading"
       >
         <button
+          aria-controls="accordion-«replaced-aria-id»-panel"
           aria-expanded="false"
-          class="flex py-4 w-full h-full gap-3 items-center tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 transition-opacity cursor-pointer"
+          class="flex h-full w-full cursor-pointer items-center gap-3 py-4 tap-highlight-transparent outline-solid outline-transparent transition-opacity motion-reduce:transition-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus"
+          data-accordion-trigger="true"
+          data-rac=""
           data-react-aria-pressable="true"
           data-slot="trigger"
-          id="«replaced-aria-id»"
+          id="accordion-«replaced-aria-id»-trigger"
           tabindex="0"
           type="button"
         >
           <div
-            class="flex-1 flex flex-col text-start"
+            class="flex flex-1 flex-col text-start"
+            data-slot="titleWrapper"
           >
             <span
               class="text-foreground text-medium"
@@ -1058,15 +1124,13 @@ exports[`Story Snapshots > Default 1`] = `
           </div>
           <span
             aria-hidden="true"
-            class="text-default-400 transition-transform rotate-0 data-[open=true]:-rotate-90 rtl:-rotate-180 rtl:data-[open=true]:-rotate-90"
+            class="text-default-400 rotate-0 transition-transform data-[open=true]:-rotate-90 motion-reduce:transition-none rtl:-rotate-180 rtl:data-[open=true]:-rotate-90"
             data-slot="indicator"
           >
             <svg
               aria-hidden="true"
               fill="none"
-              focusable="false"
               height="1em"
-              role="presentation"
               viewBox="0 0 24 24"
               width="1em"
             >
@@ -1083,6 +1147,7 @@ exports[`Story Snapshots > Default 1`] = `
       </h2>
     </div>
     <div
+      class="data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-disabled"
       data-slot="base"
     >
       <h2
@@ -1090,16 +1155,20 @@ exports[`Story Snapshots > Default 1`] = `
         data-slot="heading"
       >
         <button
+          aria-controls="accordion-«replaced-aria-id»-panel"
           aria-expanded="false"
-          class="flex py-4 w-full h-full gap-3 items-center tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 transition-opacity cursor-pointer"
+          class="flex h-full w-full cursor-pointer items-center gap-3 py-4 tap-highlight-transparent outline-solid outline-transparent transition-opacity motion-reduce:transition-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus"
+          data-accordion-trigger="true"
+          data-rac=""
           data-react-aria-pressable="true"
           data-slot="trigger"
-          id="«replaced-aria-id»"
+          id="accordion-«replaced-aria-id»-trigger"
           tabindex="0"
           type="button"
         >
           <div
-            class="flex-1 flex flex-col text-start"
+            class="flex flex-1 flex-col text-start"
+            data-slot="titleWrapper"
           >
             <span
               class="text-foreground text-medium"
@@ -1110,15 +1179,13 @@ exports[`Story Snapshots > Default 1`] = `
           </div>
           <span
             aria-hidden="true"
-            class="text-default-400 transition-transform rotate-0 data-[open=true]:-rotate-90 rtl:-rotate-180 rtl:data-[open=true]:-rotate-90"
+            class="text-default-400 rotate-0 transition-transform data-[open=true]:-rotate-90 motion-reduce:transition-none rtl:-rotate-180 rtl:data-[open=true]:-rotate-90"
             data-slot="indicator"
           >
             <svg
               aria-hidden="true"
               fill="none"
-              focusable="false"
               height="1em"
-              role="presentation"
               viewBox="0 0 24 24"
               width="1em"
             >
@@ -1135,6 +1202,7 @@ exports[`Story Snapshots > Default 1`] = `
       </h2>
     </div>
     <div
+      class="data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-disabled"
       data-slot="base"
     >
       <h2
@@ -1142,16 +1210,20 @@ exports[`Story Snapshots > Default 1`] = `
         data-slot="heading"
       >
         <button
+          aria-controls="accordion-«replaced-aria-id»-panel"
           aria-expanded="false"
-          class="flex py-4 w-full h-full gap-3 items-center tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 transition-opacity cursor-pointer"
+          class="flex h-full w-full cursor-pointer items-center gap-3 py-4 tap-highlight-transparent outline-solid outline-transparent transition-opacity motion-reduce:transition-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus"
+          data-accordion-trigger="true"
+          data-rac=""
           data-react-aria-pressable="true"
           data-slot="trigger"
-          id="«replaced-aria-id»"
+          id="accordion-«replaced-aria-id»-trigger"
           tabindex="0"
           type="button"
         >
           <div
-            class="flex-1 flex flex-col text-start"
+            class="flex flex-1 flex-col text-start"
+            data-slot="titleWrapper"
           >
             <span
               class="text-foreground text-medium"
@@ -1162,15 +1234,13 @@ exports[`Story Snapshots > Default 1`] = `
           </div>
           <span
             aria-hidden="true"
-            class="text-default-400 transition-transform rotate-0 data-[open=true]:-rotate-90 rtl:-rotate-180 rtl:data-[open=true]:-rotate-90"
+            class="text-default-400 rotate-0 transition-transform data-[open=true]:-rotate-90 motion-reduce:transition-none rtl:-rotate-180 rtl:data-[open=true]:-rotate-90"
             data-slot="indicator"
           >
             <svg
               aria-hidden="true"
               fill="none"
-              focusable="false"
               height="1em"
-              role="presentation"
               viewBox="0 0 24 24"
               width="1em"
             >
@@ -1193,11 +1263,14 @@ exports[`Story Snapshots > Default 1`] = `
 exports[`Story Snapshots > DefaultOpen 1`] = `
 <div>
   <div
-    class="px-0 divide-y divide-solid divide-divider border-b border-t border-solid border-divider w-96"
-    data-collection="react-aria-«replaced-aria-id»"
+    class="px-0 divide-y divide-solid divide-divider border-y border-solid border-divider w-96"
+    data-component="accordion"
     data-orientation="vertical"
+    data-slot="wrapper"
+    role="group"
   >
     <div
+      class="data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-disabled"
       data-slot="base"
     >
       <h2
@@ -1205,16 +1278,20 @@ exports[`Story Snapshots > DefaultOpen 1`] = `
         data-slot="heading"
       >
         <button
+          aria-controls="accordion-«replaced-aria-id»-panel"
           aria-expanded="false"
-          class="flex py-4 w-full h-full gap-3 items-center tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 transition-opacity cursor-pointer"
+          class="flex h-full w-full cursor-pointer items-center gap-3 py-4 tap-highlight-transparent outline-solid outline-transparent transition-opacity motion-reduce:transition-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus"
+          data-accordion-trigger="true"
+          data-rac=""
           data-react-aria-pressable="true"
           data-slot="trigger"
-          id="«replaced-aria-id»"
+          id="accordion-«replaced-aria-id»-trigger"
           tabindex="0"
           type="button"
         >
           <div
-            class="flex-1 flex flex-col text-start"
+            class="flex flex-1 flex-col text-start"
+            data-slot="titleWrapper"
           >
             <span
               class="text-foreground text-medium"
@@ -1225,15 +1302,13 @@ exports[`Story Snapshots > DefaultOpen 1`] = `
           </div>
           <span
             aria-hidden="true"
-            class="text-default-400 transition-transform rotate-0 data-[open=true]:-rotate-90 rtl:-rotate-180 rtl:data-[open=true]:-rotate-90"
+            class="text-default-400 rotate-0 transition-transform data-[open=true]:-rotate-90 motion-reduce:transition-none rtl:-rotate-180 rtl:data-[open=true]:-rotate-90"
             data-slot="indicator"
           >
             <svg
               aria-hidden="true"
               fill="none"
-              focusable="false"
               height="1em"
-              role="presentation"
               viewBox="0 0 24 24"
               width="1em"
             >
@@ -1250,6 +1325,7 @@ exports[`Story Snapshots > DefaultOpen 1`] = `
       </h2>
     </div>
     <div
+      class="data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-disabled"
       data-open="true"
       data-slot="base"
     >
@@ -1259,18 +1335,21 @@ exports[`Story Snapshots > DefaultOpen 1`] = `
         data-slot="heading"
       >
         <button
-          aria-controls="«replaced-aria-id»"
+          aria-controls="accordion-«replaced-aria-id»-panel"
           aria-expanded="true"
-          class="flex py-4 w-full h-full gap-3 items-center tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 transition-opacity cursor-pointer"
+          class="flex h-full w-full cursor-pointer items-center gap-3 py-4 tap-highlight-transparent outline-solid outline-transparent transition-opacity motion-reduce:transition-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus"
+          data-accordion-trigger="true"
           data-open="true"
+          data-rac=""
           data-react-aria-pressable="true"
           data-slot="trigger"
-          id="«replaced-aria-id»"
+          id="accordion-«replaced-aria-id»-trigger"
           tabindex="0"
           type="button"
         >
           <div
-            class="flex-1 flex flex-col text-start"
+            class="flex flex-1 flex-col text-start"
+            data-slot="titleWrapper"
           >
             <span
               class="text-foreground text-medium"
@@ -1282,16 +1361,14 @@ exports[`Story Snapshots > DefaultOpen 1`] = `
           </div>
           <span
             aria-hidden="true"
-            class="text-default-400 transition-transform rotate-0 data-[open=true]:-rotate-90 rtl:-rotate-180 rtl:data-[open=true]:-rotate-90"
+            class="text-default-400 rotate-0 transition-transform data-[open=true]:-rotate-90 motion-reduce:transition-none rtl:-rotate-180 rtl:data-[open=true]:-rotate-90"
             data-open="true"
             data-slot="indicator"
           >
             <svg
               aria-hidden="true"
               fill="none"
-              focusable="false"
               height="1em"
-              role="presentation"
               viewBox="0 0 24 24"
               width="1em"
             >
@@ -1306,24 +1383,21 @@ exports[`Story Snapshots > DefaultOpen 1`] = `
           </span>
         </button>
       </h2>
-      <section
-        style="will-change: auto; opacity: 1; height: auto; overflow-y: unset;"
+      <div
+        aria-labelledby="accordion-«replaced-aria-id»-trigger"
+        class="px-4 py-2"
+        data-open="true"
+        data-slot="content"
+        id="accordion-«replaced-aria-id»-panel"
+        role="region"
       >
-        <div
-          aria-labelledby="«replaced-aria-id»"
-          class="py-2 px-4"
-          data-open="true"
-          data-slot="content"
-          id="«replaced-aria-id»"
-          role="region"
-        >
-          <div>
-            Second item
-          </div>
+        <div>
+          Second item
         </div>
-      </section>
+      </div>
     </div>
     <div
+      class="data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-disabled"
       data-slot="base"
     >
       <h2
@@ -1331,16 +1405,20 @@ exports[`Story Snapshots > DefaultOpen 1`] = `
         data-slot="heading"
       >
         <button
+          aria-controls="accordion-«replaced-aria-id»-panel"
           aria-expanded="false"
-          class="flex py-4 w-full h-full gap-3 items-center tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 transition-opacity cursor-pointer"
+          class="flex h-full w-full cursor-pointer items-center gap-3 py-4 tap-highlight-transparent outline-solid outline-transparent transition-opacity motion-reduce:transition-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus"
+          data-accordion-trigger="true"
+          data-rac=""
           data-react-aria-pressable="true"
           data-slot="trigger"
-          id="«replaced-aria-id»"
+          id="accordion-«replaced-aria-id»-trigger"
           tabindex="0"
           type="button"
         >
           <div
-            class="flex-1 flex flex-col text-start"
+            class="flex flex-1 flex-col text-start"
+            data-slot="titleWrapper"
           >
             <span
               class="text-foreground text-medium"
@@ -1351,15 +1429,13 @@ exports[`Story Snapshots > DefaultOpen 1`] = `
           </div>
           <span
             aria-hidden="true"
-            class="text-default-400 transition-transform rotate-0 data-[open=true]:-rotate-90 rtl:-rotate-180 rtl:data-[open=true]:-rotate-90"
+            class="text-default-400 rotate-0 transition-transform data-[open=true]:-rotate-90 motion-reduce:transition-none rtl:-rotate-180 rtl:data-[open=true]:-rotate-90"
             data-slot="indicator"
           >
             <svg
               aria-hidden="true"
               fill="none"
-              focusable="false"
               height="1em"
-              role="presentation"
               viewBox="0 0 24 24"
               width="1em"
             >
@@ -1372,6 +1448,133 @@ exports[`Story Snapshots > DefaultOpen 1`] = `
               />
             </svg>
           </span>
+        </button>
+      </h2>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Story Snapshots > Empty 1`] = `
+<div>
+  <div
+    class="px-0 divide-y divide-solid divide-divider border-y border-solid border-divider w-96"
+    data-component="accordion"
+    data-orientation="vertical"
+    data-slot="wrapper"
+    role="group"
+  />
+</div>
+`;
+
+exports[`Story Snapshots > HiddenIndicator 1`] = `
+<div>
+  <div
+    class="px-0 divide-y divide-solid divide-divider border-y border-solid border-divider w-96"
+    data-component="accordion"
+    data-orientation="vertical"
+    data-slot="wrapper"
+    role="group"
+  >
+    <div
+      class="data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-disabled"
+      data-slot="base"
+    >
+      <h2
+        class="px-4"
+        data-slot="heading"
+      >
+        <button
+          aria-controls="accordion-«replaced-aria-id»-panel"
+          aria-expanded="false"
+          class="flex h-full w-full cursor-pointer items-center gap-3 py-4 tap-highlight-transparent outline-solid outline-transparent transition-opacity motion-reduce:transition-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus"
+          data-accordion-trigger="true"
+          data-rac=""
+          data-react-aria-pressable="true"
+          data-slot="trigger"
+          id="accordion-«replaced-aria-id»-trigger"
+          tabindex="0"
+          type="button"
+        >
+          <div
+            class="flex flex-1 flex-col text-start"
+            data-slot="titleWrapper"
+          >
+            <span
+              class="text-foreground text-medium"
+              data-slot="title"
+            >
+              1.
+            </span>
+          </div>
+        </button>
+      </h2>
+    </div>
+    <div
+      class="data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-disabled"
+      data-slot="base"
+    >
+      <h2
+        class="px-4"
+        data-slot="heading"
+      >
+        <button
+          aria-controls="accordion-«replaced-aria-id»-panel"
+          aria-expanded="false"
+          class="flex h-full w-full cursor-pointer items-center gap-3 py-4 tap-highlight-transparent outline-solid outline-transparent transition-opacity motion-reduce:transition-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus"
+          data-accordion-trigger="true"
+          data-rac=""
+          data-react-aria-pressable="true"
+          data-slot="trigger"
+          id="accordion-«replaced-aria-id»-trigger"
+          tabindex="0"
+          type="button"
+        >
+          <div
+            class="flex flex-1 flex-col text-start"
+            data-slot="titleWrapper"
+          >
+            <span
+              class="text-foreground text-medium"
+              data-slot="title"
+            >
+              2.
+            </span>
+          </div>
+        </button>
+      </h2>
+    </div>
+    <div
+      class="data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-disabled"
+      data-slot="base"
+    >
+      <h2
+        class="px-4"
+        data-slot="heading"
+      >
+        <button
+          aria-controls="accordion-«replaced-aria-id»-panel"
+          aria-expanded="false"
+          class="flex h-full w-full cursor-pointer items-center gap-3 py-4 tap-highlight-transparent outline-solid outline-transparent transition-opacity motion-reduce:transition-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus"
+          data-accordion-trigger="true"
+          data-rac=""
+          data-react-aria-pressable="true"
+          data-slot="trigger"
+          id="accordion-«replaced-aria-id»-trigger"
+          tabindex="0"
+          type="button"
+        >
+          <div
+            class="flex flex-1 flex-col text-start"
+            data-slot="titleWrapper"
+          >
+            <span
+              class="text-foreground text-medium"
+              data-slot="title"
+            >
+              3.
+            </span>
+          </div>
         </button>
       </h2>
     </div>
@@ -1382,11 +1585,14 @@ exports[`Story Snapshots > DefaultOpen 1`] = `
 exports[`Story Snapshots > IndicatorLeft 1`] = `
 <div>
   <div
-    class="px-0 divide-y divide-solid divide-divider border-b border-t border-solid border-divider w-96"
-    data-collection="react-aria-«replaced-aria-id»"
+    class="px-0 divide-y divide-solid divide-divider border-y border-solid border-divider w-96"
+    data-component="accordion"
     data-orientation="vertical"
+    data-slot="wrapper"
+    role="group"
   >
     <div
+      class="data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-disabled"
       data-slot="base"
     >
       <h2
@@ -1394,16 +1600,20 @@ exports[`Story Snapshots > IndicatorLeft 1`] = `
         data-slot="heading"
       >
         <button
+          aria-controls="accordion-«replaced-aria-id»-panel"
           aria-expanded="false"
-          class="flex py-4 w-full h-full gap-3 items-center tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 transition-opacity cursor-pointer flex-row-reverse"
+          class="flex h-full w-full cursor-pointer items-center gap-3 py-4 tap-highlight-transparent outline-solid outline-transparent transition-opacity motion-reduce:transition-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus flex-row-reverse"
+          data-accordion-trigger="true"
+          data-rac=""
           data-react-aria-pressable="true"
           data-slot="trigger"
-          id="«replaced-aria-id»"
+          id="accordion-«replaced-aria-id»-trigger"
           tabindex="0"
           type="button"
         >
           <div
-            class="flex-1 flex flex-col text-start"
+            class="flex flex-1 flex-col text-start"
+            data-slot="titleWrapper"
           >
             <span
               class="text-foreground text-medium"
@@ -1414,15 +1624,13 @@ exports[`Story Snapshots > IndicatorLeft 1`] = `
           </div>
           <span
             aria-hidden="true"
-            class="text-default-400 transition-transform rtl:-rotate-180 rtl:data-[open=true]:-rotate-90 -rotate-180 data-[open=true]:-rotate-90"
+            class="text-default-400 transition-transform motion-reduce:transition-none rtl:-rotate-180 rtl:data-[open=true]:-rotate-90 -rotate-180 data-[open=true]:-rotate-90"
             data-slot="indicator"
           >
             <svg
               aria-hidden="true"
               fill="none"
-              focusable="false"
               height="1em"
-              role="presentation"
               viewBox="0 0 24 24"
               width="1em"
             >
@@ -1439,6 +1647,7 @@ exports[`Story Snapshots > IndicatorLeft 1`] = `
       </h2>
     </div>
     <div
+      class="data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-disabled"
       data-slot="base"
     >
       <h2
@@ -1446,16 +1655,20 @@ exports[`Story Snapshots > IndicatorLeft 1`] = `
         data-slot="heading"
       >
         <button
+          aria-controls="accordion-«replaced-aria-id»-panel"
           aria-expanded="false"
-          class="flex py-4 w-full h-full gap-3 items-center tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 transition-opacity cursor-pointer flex-row-reverse"
+          class="flex h-full w-full cursor-pointer items-center gap-3 py-4 tap-highlight-transparent outline-solid outline-transparent transition-opacity motion-reduce:transition-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus flex-row-reverse"
+          data-accordion-trigger="true"
+          data-rac=""
           data-react-aria-pressable="true"
           data-slot="trigger"
-          id="«replaced-aria-id»"
+          id="accordion-«replaced-aria-id»-trigger"
           tabindex="0"
           type="button"
         >
           <div
-            class="flex-1 flex flex-col text-start"
+            class="flex flex-1 flex-col text-start"
+            data-slot="titleWrapper"
           >
             <span
               class="text-foreground text-medium"
@@ -1466,15 +1679,13 @@ exports[`Story Snapshots > IndicatorLeft 1`] = `
           </div>
           <span
             aria-hidden="true"
-            class="text-default-400 transition-transform rtl:-rotate-180 rtl:data-[open=true]:-rotate-90 -rotate-180 data-[open=true]:-rotate-90"
+            class="text-default-400 transition-transform motion-reduce:transition-none rtl:-rotate-180 rtl:data-[open=true]:-rotate-90 -rotate-180 data-[open=true]:-rotate-90"
             data-slot="indicator"
           >
             <svg
               aria-hidden="true"
               fill="none"
-              focusable="false"
               height="1em"
-              role="presentation"
               viewBox="0 0 24 24"
               width="1em"
             >
@@ -1491,6 +1702,7 @@ exports[`Story Snapshots > IndicatorLeft 1`] = `
       </h2>
     </div>
     <div
+      class="data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-disabled"
       data-slot="base"
     >
       <h2
@@ -1498,16 +1710,20 @@ exports[`Story Snapshots > IndicatorLeft 1`] = `
         data-slot="heading"
       >
         <button
+          aria-controls="accordion-«replaced-aria-id»-panel"
           aria-expanded="false"
-          class="flex py-4 w-full h-full gap-3 items-center tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 transition-opacity cursor-pointer flex-row-reverse"
+          class="flex h-full w-full cursor-pointer items-center gap-3 py-4 tap-highlight-transparent outline-solid outline-transparent transition-opacity motion-reduce:transition-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus flex-row-reverse"
+          data-accordion-trigger="true"
+          data-rac=""
           data-react-aria-pressable="true"
           data-slot="trigger"
-          id="«replaced-aria-id»"
+          id="accordion-«replaced-aria-id»-trigger"
           tabindex="0"
           type="button"
         >
           <div
-            class="flex-1 flex flex-col text-start"
+            class="flex flex-1 flex-col text-start"
+            data-slot="titleWrapper"
           >
             <span
               class="text-foreground text-medium"
@@ -1518,15 +1734,13 @@ exports[`Story Snapshots > IndicatorLeft 1`] = `
           </div>
           <span
             aria-hidden="true"
-            class="text-default-400 transition-transform rtl:-rotate-180 rtl:data-[open=true]:-rotate-90 -rotate-180 data-[open=true]:-rotate-90"
+            class="text-default-400 transition-transform motion-reduce:transition-none rtl:-rotate-180 rtl:data-[open=true]:-rotate-90 -rotate-180 data-[open=true]:-rotate-90"
             data-slot="indicator"
           >
             <svg
               aria-hidden="true"
               fill="none"
-              focusable="false"
               height="1em"
-              role="presentation"
               viewBox="0 0 24 24"
               width="1em"
             >
@@ -1546,14 +1760,17 @@ exports[`Story Snapshots > IndicatorLeft 1`] = `
 </div>
 `;
 
-exports[`Story Snapshots > OnlySingleSelection 1`] = `
+exports[`Story Snapshots > KeyboardExpansion 1`] = `
 <div>
   <div
-    class="px-0 divide-y divide-solid divide-divider border-b border-t border-solid border-divider w-96"
-    data-collection="react-aria-«replaced-aria-id»"
+    class="px-0 divide-y divide-solid divide-divider border-y border-solid border-divider w-96"
+    data-component="accordion"
     data-orientation="vertical"
+    data-slot="wrapper"
+    role="group"
   >
     <div
+      class="data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-disabled"
       data-slot="base"
     >
       <h2
@@ -1561,16 +1778,221 @@ exports[`Story Snapshots > OnlySingleSelection 1`] = `
         data-slot="heading"
       >
         <button
+          aria-controls="accordion-«replaced-aria-id»-panel"
           aria-expanded="false"
-          class="flex py-4 w-full h-full gap-3 items-center tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 transition-opacity cursor-pointer"
+          class="flex h-full w-full cursor-pointer items-center gap-3 py-4 tap-highlight-transparent outline-solid outline-transparent transition-opacity motion-reduce:transition-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus"
+          data-accordion-trigger="true"
+          data-focus="true"
+          data-focus-visible="true"
+          data-focused="true"
+          data-rac=""
           data-react-aria-pressable="true"
           data-slot="trigger"
-          id="«replaced-aria-id»"
+          id="accordion-«replaced-aria-id»-trigger"
           tabindex="0"
           type="button"
         >
           <div
-            class="flex-1 flex flex-col text-start"
+            class="flex flex-1 flex-col text-start"
+            data-slot="titleWrapper"
+          >
+            <span
+              class="text-foreground text-medium"
+              data-slot="title"
+            >
+              First
+            </span>
+          </div>
+          <span
+            aria-hidden="true"
+            class="text-default-400 rotate-0 transition-transform data-[open=true]:-rotate-90 motion-reduce:transition-none rtl:-rotate-180 rtl:data-[open=true]:-rotate-90"
+            data-slot="indicator"
+          >
+            <svg
+              aria-hidden="true"
+              fill="none"
+              height="1em"
+              viewBox="0 0 24 24"
+              width="1em"
+            >
+              <path
+                d="M15.5 19l-7-7 7-7"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+              />
+            </svg>
+          </span>
+        </button>
+      </h2>
+    </div>
+    <div
+      class="data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-disabled"
+      data-disabled="true"
+      data-slot="base"
+    >
+      <h2
+        class="px-4"
+        data-disabled="true"
+        data-slot="heading"
+      >
+        <button
+          aria-controls="accordion-«replaced-aria-id»-panel"
+          aria-expanded="false"
+          class="flex h-full w-full cursor-pointer items-center gap-3 py-4 tap-highlight-transparent outline-solid outline-transparent transition-opacity motion-reduce:transition-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus"
+          data-accordion-trigger="true"
+          data-disabled="true"
+          data-rac=""
+          data-react-aria-pressable="true"
+          data-slot="trigger"
+          disabled=""
+          id="accordion-«replaced-aria-id»-trigger"
+          type="button"
+        >
+          <div
+            class="flex flex-1 flex-col text-start"
+            data-slot="titleWrapper"
+          >
+            <span
+              class="text-foreground text-medium"
+              data-disabled="true"
+              data-slot="title"
+            >
+              Unavailable
+            </span>
+          </div>
+          <span
+            aria-hidden="true"
+            class="text-default-400 rotate-0 transition-transform data-[open=true]:-rotate-90 motion-reduce:transition-none rtl:-rotate-180 rtl:data-[open=true]:-rotate-90"
+            data-disabled="true"
+            data-slot="indicator"
+          >
+            <svg
+              aria-hidden="true"
+              fill="none"
+              height="1em"
+              viewBox="0 0 24 24"
+              width="1em"
+            >
+              <path
+                d="M15.5 19l-7-7 7-7"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+              />
+            </svg>
+          </span>
+        </button>
+      </h2>
+    </div>
+    <div
+      class="data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-disabled"
+      data-open="true"
+      data-slot="base"
+    >
+      <h2
+        class="px-4"
+        data-open="true"
+        data-slot="heading"
+      >
+        <button
+          aria-controls="accordion-«replaced-aria-id»-panel"
+          aria-expanded="true"
+          class="flex h-full w-full cursor-pointer items-center gap-3 py-4 tap-highlight-transparent outline-solid outline-transparent transition-opacity motion-reduce:transition-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus"
+          data-accordion-trigger="true"
+          data-open="true"
+          data-rac=""
+          data-react-aria-pressable="true"
+          data-slot="trigger"
+          id="accordion-«replaced-aria-id»-trigger"
+          tabindex="0"
+          type="button"
+        >
+          <div
+            class="flex flex-1 flex-col text-start"
+            data-slot="titleWrapper"
+          >
+            <span
+              class="text-foreground text-medium"
+              data-open="true"
+              data-slot="title"
+            >
+              Third
+            </span>
+          </div>
+          <span
+            aria-hidden="true"
+            class="text-default-400 rotate-0 transition-transform data-[open=true]:-rotate-90 motion-reduce:transition-none rtl:-rotate-180 rtl:data-[open=true]:-rotate-90"
+            data-open="true"
+            data-slot="indicator"
+          >
+            <svg
+              aria-hidden="true"
+              fill="none"
+              height="1em"
+              viewBox="0 0 24 24"
+              width="1em"
+            >
+              <path
+                d="M15.5 19l-7-7 7-7"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+              />
+            </svg>
+          </span>
+        </button>
+      </h2>
+      <div
+        aria-labelledby="accordion-«replaced-aria-id»-trigger"
+        class="px-4 py-2"
+        data-open="true"
+        data-slot="content"
+        id="accordion-«replaced-aria-id»-panel"
+        role="region"
+      >
+        Third panel
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Story Snapshots > OnlySingleSelection 1`] = `
+<div>
+  <div
+    class="px-0 divide-y divide-solid divide-divider border-y border-solid border-divider w-96"
+    data-component="accordion"
+    data-orientation="vertical"
+    data-slot="wrapper"
+    role="group"
+  >
+    <div
+      class="data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-disabled"
+      data-slot="base"
+    >
+      <h2
+        class="px-4"
+        data-slot="heading"
+      >
+        <button
+          aria-controls="accordion-«replaced-aria-id»-panel"
+          aria-expanded="false"
+          class="flex h-full w-full cursor-pointer items-center gap-3 py-4 tap-highlight-transparent outline-solid outline-transparent transition-opacity motion-reduce:transition-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus"
+          data-accordion-trigger="true"
+          data-rac=""
+          data-react-aria-pressable="true"
+          data-slot="trigger"
+          id="accordion-«replaced-aria-id»-trigger"
+          tabindex="0"
+          type="button"
+        >
+          <div
+            class="flex flex-1 flex-col text-start"
+            data-slot="titleWrapper"
           >
             <span
               class="text-foreground text-medium"
@@ -1581,15 +2003,13 @@ exports[`Story Snapshots > OnlySingleSelection 1`] = `
           </div>
           <span
             aria-hidden="true"
-            class="text-default-400 transition-transform rotate-0 data-[open=true]:-rotate-90 rtl:-rotate-180 rtl:data-[open=true]:-rotate-90"
+            class="text-default-400 rotate-0 transition-transform data-[open=true]:-rotate-90 motion-reduce:transition-none rtl:-rotate-180 rtl:data-[open=true]:-rotate-90"
             data-slot="indicator"
           >
             <svg
               aria-hidden="true"
               fill="none"
-              focusable="false"
               height="1em"
-              role="presentation"
               viewBox="0 0 24 24"
               width="1em"
             >
@@ -1606,6 +2026,7 @@ exports[`Story Snapshots > OnlySingleSelection 1`] = `
       </h2>
     </div>
     <div
+      class="data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-disabled"
       data-slot="base"
     >
       <h2
@@ -1613,16 +2034,20 @@ exports[`Story Snapshots > OnlySingleSelection 1`] = `
         data-slot="heading"
       >
         <button
+          aria-controls="accordion-«replaced-aria-id»-panel"
           aria-expanded="false"
-          class="flex py-4 w-full h-full gap-3 items-center tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 transition-opacity cursor-pointer"
+          class="flex h-full w-full cursor-pointer items-center gap-3 py-4 tap-highlight-transparent outline-solid outline-transparent transition-opacity motion-reduce:transition-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus"
+          data-accordion-trigger="true"
+          data-rac=""
           data-react-aria-pressable="true"
           data-slot="trigger"
-          id="«replaced-aria-id»"
+          id="accordion-«replaced-aria-id»-trigger"
           tabindex="0"
           type="button"
         >
           <div
-            class="flex-1 flex flex-col text-start"
+            class="flex flex-1 flex-col text-start"
+            data-slot="titleWrapper"
           >
             <span
               class="text-foreground text-medium"
@@ -1633,15 +2058,13 @@ exports[`Story Snapshots > OnlySingleSelection 1`] = `
           </div>
           <span
             aria-hidden="true"
-            class="text-default-400 transition-transform rotate-0 data-[open=true]:-rotate-90 rtl:-rotate-180 rtl:data-[open=true]:-rotate-90"
+            class="text-default-400 rotate-0 transition-transform data-[open=true]:-rotate-90 motion-reduce:transition-none rtl:-rotate-180 rtl:data-[open=true]:-rotate-90"
             data-slot="indicator"
           >
             <svg
               aria-hidden="true"
               fill="none"
-              focusable="false"
               height="1em"
-              role="presentation"
               viewBox="0 0 24 24"
               width="1em"
             >
@@ -1658,6 +2081,7 @@ exports[`Story Snapshots > OnlySingleSelection 1`] = `
       </h2>
     </div>
     <div
+      class="data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-disabled"
       data-slot="base"
     >
       <h2
@@ -1665,16 +2089,20 @@ exports[`Story Snapshots > OnlySingleSelection 1`] = `
         data-slot="heading"
       >
         <button
+          aria-controls="accordion-«replaced-aria-id»-panel"
           aria-expanded="false"
-          class="flex py-4 w-full h-full gap-3 items-center tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 transition-opacity cursor-pointer"
+          class="flex h-full w-full cursor-pointer items-center gap-3 py-4 tap-highlight-transparent outline-solid outline-transparent transition-opacity motion-reduce:transition-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus"
+          data-accordion-trigger="true"
+          data-rac=""
           data-react-aria-pressable="true"
           data-slot="trigger"
-          id="«replaced-aria-id»"
+          id="accordion-«replaced-aria-id»-trigger"
           tabindex="0"
           type="button"
         >
           <div
-            class="flex-1 flex flex-col text-start"
+            class="flex flex-1 flex-col text-start"
+            data-slot="titleWrapper"
           >
             <span
               class="text-foreground text-medium"
@@ -1685,15 +2113,13 @@ exports[`Story Snapshots > OnlySingleSelection 1`] = `
           </div>
           <span
             aria-hidden="true"
-            class="text-default-400 transition-transform rotate-0 data-[open=true]:-rotate-90 rtl:-rotate-180 rtl:data-[open=true]:-rotate-90"
+            class="text-default-400 rotate-0 transition-transform data-[open=true]:-rotate-90 motion-reduce:transition-none rtl:-rotate-180 rtl:data-[open=true]:-rotate-90"
             data-slot="indicator"
           >
             <svg
               aria-hidden="true"
               fill="none"
-              focusable="false"
               height="1em"
-              role="presentation"
               viewBox="0 0 24 24"
               width="1em"
             >
@@ -1716,15 +2142,16 @@ exports[`Story Snapshots > OnlySingleSelection 1`] = `
 exports[`Story Snapshots > SomeDisabled 1`] = `
 <div>
   <div
-    class="px-0 divide-y divide-solid divide-divider border-b border-t border-solid border-divider w-96"
-    data-collection="react-aria-«replaced-aria-id»"
+    class="px-0 divide-y divide-solid divide-divider border-y border-solid border-divider w-96"
+    data-component="accordion"
     data-orientation="vertical"
+    data-slot="wrapper"
+    role="group"
   >
     <div
-      class="opacity-disabled pointer-events-none"
+      class="data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-disabled"
       data-disabled="true"
       data-slot="base"
-      disabled=""
     >
       <h2
         class="px-4"
@@ -1732,17 +2159,21 @@ exports[`Story Snapshots > SomeDisabled 1`] = `
         data-slot="heading"
       >
         <button
+          aria-controls="accordion-«replaced-aria-id»-panel"
           aria-expanded="false"
-          class="flex py-4 w-full h-full gap-3 items-center tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 transition-opacity cursor-pointer"
+          class="flex h-full w-full cursor-pointer items-center gap-3 py-4 tap-highlight-transparent outline-solid outline-transparent transition-opacity motion-reduce:transition-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus"
+          data-accordion-trigger="true"
           data-disabled="true"
+          data-rac=""
           data-react-aria-pressable="true"
           data-slot="trigger"
           disabled=""
-          id="«replaced-aria-id»"
+          id="accordion-«replaced-aria-id»-trigger"
           type="button"
         >
           <div
-            class="flex-1 flex flex-col text-start"
+            class="flex flex-1 flex-col text-start"
+            data-slot="titleWrapper"
           >
             <span
               class="text-foreground text-medium"
@@ -1754,16 +2185,14 @@ exports[`Story Snapshots > SomeDisabled 1`] = `
           </div>
           <span
             aria-hidden="true"
-            class="text-default-400 transition-transform rotate-0 data-[open=true]:-rotate-90 rtl:-rotate-180 rtl:data-[open=true]:-rotate-90"
+            class="text-default-400 rotate-0 transition-transform data-[open=true]:-rotate-90 motion-reduce:transition-none rtl:-rotate-180 rtl:data-[open=true]:-rotate-90"
             data-disabled="true"
             data-slot="indicator"
           >
             <svg
               aria-hidden="true"
               fill="none"
-              focusable="false"
               height="1em"
-              role="presentation"
               viewBox="0 0 24 24"
               width="1em"
             >
@@ -1780,7 +2209,7 @@ exports[`Story Snapshots > SomeDisabled 1`] = `
       </h2>
     </div>
     <div
-      class="opacity-disabled pointer-events-none"
+      class="data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-disabled"
       data-disabled="true"
       data-slot="base"
     >
@@ -1790,17 +2219,21 @@ exports[`Story Snapshots > SomeDisabled 1`] = `
         data-slot="heading"
       >
         <button
+          aria-controls="accordion-«replaced-aria-id»-panel"
           aria-expanded="false"
-          class="flex py-4 w-full h-full gap-3 items-center tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 transition-opacity cursor-pointer"
+          class="flex h-full w-full cursor-pointer items-center gap-3 py-4 tap-highlight-transparent outline-solid outline-transparent transition-opacity motion-reduce:transition-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus"
+          data-accordion-trigger="true"
           data-disabled="true"
+          data-rac=""
           data-react-aria-pressable="true"
           data-slot="trigger"
           disabled=""
-          id="«replaced-aria-id»"
+          id="accordion-«replaced-aria-id»-trigger"
           type="button"
         >
           <div
-            class="flex-1 flex flex-col text-start"
+            class="flex flex-1 flex-col text-start"
+            data-slot="titleWrapper"
           >
             <span
               class="text-foreground text-medium"
@@ -1812,16 +2245,14 @@ exports[`Story Snapshots > SomeDisabled 1`] = `
           </div>
           <span
             aria-hidden="true"
-            class="text-default-400 transition-transform rotate-0 data-[open=true]:-rotate-90 rtl:-rotate-180 rtl:data-[open=true]:-rotate-90"
+            class="text-default-400 rotate-0 transition-transform data-[open=true]:-rotate-90 motion-reduce:transition-none rtl:-rotate-180 rtl:data-[open=true]:-rotate-90"
             data-disabled="true"
             data-slot="indicator"
           >
             <svg
               aria-hidden="true"
               fill="none"
-              focusable="false"
               height="1em"
-              role="presentation"
               viewBox="0 0 24 24"
               width="1em"
             >
@@ -1838,6 +2269,7 @@ exports[`Story Snapshots > SomeDisabled 1`] = `
       </h2>
     </div>
     <div
+      class="data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-disabled"
       data-slot="base"
     >
       <h2
@@ -1845,16 +2277,20 @@ exports[`Story Snapshots > SomeDisabled 1`] = `
         data-slot="heading"
       >
         <button
+          aria-controls="accordion-«replaced-aria-id»-panel"
           aria-expanded="false"
-          class="flex py-4 w-full h-full gap-3 items-center tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 transition-opacity cursor-pointer"
+          class="flex h-full w-full cursor-pointer items-center gap-3 py-4 tap-highlight-transparent outline-solid outline-transparent transition-opacity motion-reduce:transition-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus"
+          data-accordion-trigger="true"
+          data-rac=""
           data-react-aria-pressable="true"
           data-slot="trigger"
-          id="«replaced-aria-id»"
+          id="accordion-«replaced-aria-id»-trigger"
           tabindex="0"
           type="button"
         >
           <div
-            class="flex-1 flex flex-col text-start"
+            class="flex flex-1 flex-col text-start"
+            data-slot="titleWrapper"
           >
             <span
               class="text-foreground text-medium"
@@ -1865,15 +2301,13 @@ exports[`Story Snapshots > SomeDisabled 1`] = `
           </div>
           <span
             aria-hidden="true"
-            class="text-default-400 transition-transform rotate-0 data-[open=true]:-rotate-90 rtl:-rotate-180 rtl:data-[open=true]:-rotate-90"
+            class="text-default-400 rotate-0 transition-transform data-[open=true]:-rotate-90 motion-reduce:transition-none rtl:-rotate-180 rtl:data-[open=true]:-rotate-90"
             data-slot="indicator"
           >
             <svg
               aria-hidden="true"
               fill="none"
-              focusable="false"
               height="1em"
-              role="presentation"
               viewBox="0 0 24 24"
               width="1em"
             >
@@ -1896,11 +2330,14 @@ exports[`Story Snapshots > SomeDisabled 1`] = `
 exports[`Story Snapshots > WithSubtitle 1`] = `
 <div>
   <div
-    class="px-0 divide-y divide-solid divide-divider border-b border-t border-solid border-divider w-96"
-    data-collection="react-aria-«replaced-aria-id»"
+    class="px-0 divide-y divide-solid divide-divider border-y border-solid border-divider w-96"
+    data-component="accordion"
     data-orientation="vertical"
+    data-slot="wrapper"
+    role="group"
   >
     <div
+      class="data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-disabled"
       data-slot="base"
     >
       <h2
@@ -1908,16 +2345,20 @@ exports[`Story Snapshots > WithSubtitle 1`] = `
         data-slot="heading"
       >
         <button
+          aria-controls="accordion-«replaced-aria-id»-panel"
           aria-expanded="false"
-          class="flex py-4 w-full h-full gap-3 items-center tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 transition-opacity cursor-pointer"
+          class="flex h-full w-full cursor-pointer items-center gap-3 py-4 tap-highlight-transparent outline-solid outline-transparent transition-opacity motion-reduce:transition-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus"
+          data-accordion-trigger="true"
+          data-rac=""
           data-react-aria-pressable="true"
           data-slot="trigger"
-          id="«replaced-aria-id»"
+          id="accordion-«replaced-aria-id»-trigger"
           tabindex="0"
           type="button"
         >
           <div
-            class="flex-1 flex flex-col text-start"
+            class="flex flex-1 flex-col text-start"
+            data-slot="titleWrapper"
           >
             <span
               class="text-foreground text-medium"
@@ -1926,7 +2367,7 @@ exports[`Story Snapshots > WithSubtitle 1`] = `
               1.
             </span>
             <span
-              class="text-small text-foreground-500 font-normal"
+              class="font-normal text-foreground-500 text-small"
               data-slot="subtitle"
             >
               Subtitle
@@ -1934,15 +2375,13 @@ exports[`Story Snapshots > WithSubtitle 1`] = `
           </div>
           <span
             aria-hidden="true"
-            class="text-default-400 transition-transform rotate-0 data-[open=true]:-rotate-90 rtl:-rotate-180 rtl:data-[open=true]:-rotate-90"
+            class="text-default-400 rotate-0 transition-transform data-[open=true]:-rotate-90 motion-reduce:transition-none rtl:-rotate-180 rtl:data-[open=true]:-rotate-90"
             data-slot="indicator"
           >
             <svg
               aria-hidden="true"
               fill="none"
-              focusable="false"
               height="1em"
-              role="presentation"
               viewBox="0 0 24 24"
               width="1em"
             >
@@ -1959,6 +2398,7 @@ exports[`Story Snapshots > WithSubtitle 1`] = `
       </h2>
     </div>
     <div
+      class="data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-disabled"
       data-slot="base"
     >
       <h2
@@ -1966,16 +2406,20 @@ exports[`Story Snapshots > WithSubtitle 1`] = `
         data-slot="heading"
       >
         <button
+          aria-controls="accordion-«replaced-aria-id»-panel"
           aria-expanded="false"
-          class="flex py-4 w-full h-full gap-3 items-center tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 transition-opacity cursor-pointer"
+          class="flex h-full w-full cursor-pointer items-center gap-3 py-4 tap-highlight-transparent outline-solid outline-transparent transition-opacity motion-reduce:transition-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus"
+          data-accordion-trigger="true"
+          data-rac=""
           data-react-aria-pressable="true"
           data-slot="trigger"
-          id="«replaced-aria-id»"
+          id="accordion-«replaced-aria-id»-trigger"
           tabindex="0"
           type="button"
         >
           <div
-            class="flex-1 flex flex-col text-start"
+            class="flex flex-1 flex-col text-start"
+            data-slot="titleWrapper"
           >
             <span
               class="text-foreground text-medium"
@@ -1984,7 +2428,7 @@ exports[`Story Snapshots > WithSubtitle 1`] = `
               2.
             </span>
             <span
-              class="text-small text-foreground-500 font-normal"
+              class="font-normal text-foreground-500 text-small"
               data-slot="subtitle"
             >
               Subtitle
@@ -1992,15 +2436,13 @@ exports[`Story Snapshots > WithSubtitle 1`] = `
           </div>
           <span
             aria-hidden="true"
-            class="text-default-400 transition-transform rotate-0 data-[open=true]:-rotate-90 rtl:-rotate-180 rtl:data-[open=true]:-rotate-90"
+            class="text-default-400 rotate-0 transition-transform data-[open=true]:-rotate-90 motion-reduce:transition-none rtl:-rotate-180 rtl:data-[open=true]:-rotate-90"
             data-slot="indicator"
           >
             <svg
               aria-hidden="true"
               fill="none"
-              focusable="false"
               height="1em"
-              role="presentation"
               viewBox="0 0 24 24"
               width="1em"
             >
@@ -2017,6 +2459,7 @@ exports[`Story Snapshots > WithSubtitle 1`] = `
       </h2>
     </div>
     <div
+      class="data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-disabled"
       data-slot="base"
     >
       <h2
@@ -2024,16 +2467,20 @@ exports[`Story Snapshots > WithSubtitle 1`] = `
         data-slot="heading"
       >
         <button
+          aria-controls="accordion-«replaced-aria-id»-panel"
           aria-expanded="false"
-          class="flex py-4 w-full h-full gap-3 items-center tap-highlight-transparent outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 transition-opacity cursor-pointer"
+          class="flex h-full w-full cursor-pointer items-center gap-3 py-4 tap-highlight-transparent outline-solid outline-transparent transition-opacity motion-reduce:transition-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus"
+          data-accordion-trigger="true"
+          data-rac=""
           data-react-aria-pressable="true"
           data-slot="trigger"
-          id="«replaced-aria-id»"
+          id="accordion-«replaced-aria-id»-trigger"
           tabindex="0"
           type="button"
         >
           <div
-            class="flex-1 flex flex-col text-start"
+            class="flex flex-1 flex-col text-start"
+            data-slot="titleWrapper"
           >
             <span
               class="text-foreground text-medium"
@@ -2042,7 +2489,7 @@ exports[`Story Snapshots > WithSubtitle 1`] = `
               3.
             </span>
             <span
-              class="text-small text-foreground-500 font-normal"
+              class="font-normal text-foreground-500 text-small"
               data-slot="subtitle"
             >
               Subtitle
@@ -2050,15 +2497,13 @@ exports[`Story Snapshots > WithSubtitle 1`] = `
           </div>
           <span
             aria-hidden="true"
-            class="text-default-400 transition-transform rotate-0 data-[open=true]:-rotate-90 rtl:-rotate-180 rtl:data-[open=true]:-rotate-90"
+            class="text-default-400 rotate-0 transition-transform data-[open=true]:-rotate-90 motion-reduce:transition-none rtl:-rotate-180 rtl:data-[open=true]:-rotate-90"
             data-slot="indicator"
           >
             <svg
               aria-hidden="true"
               fill="none"
-              focusable="false"
               height="1em"
-              role="presentation"
               viewBox="0 0 24 24"
               width="1em"
             >

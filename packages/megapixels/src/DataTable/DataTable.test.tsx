@@ -6,11 +6,16 @@ import storySnapshots from '@repo/storybook-config/story-snapshots';
 import { render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
+import { createStyling } from '@fuf-stack/pixel-utils';
+import { StylingProvider } from '@fuf-stack/pixels/StylingProvider';
+
 import DataTable from './DataTable';
-import * as stories from './DataTable.stories';
+import * as edgeCases from './stories/DataTable.edge-cases.stories';
+import * as stories from './stories/DataTable.stories';
 
 describe('Story Snapshots', () => {
   storySnapshots(stories);
+  storySnapshots(edgeCases);
 });
 
 interface Row {
@@ -259,9 +264,18 @@ describe('DataTable interactions', () => {
     expect(
       container.querySelectorAll('[data-slot="selection-cell"]').length,
     ).toBeGreaterThan(0);
-    expect(
-      container.querySelectorAll('[data-slot="selection-cell-content"]').length,
-    ).toBeGreaterThan(0);
+
+    const wrappers = container.querySelectorAll(
+      '[data-slot="selection-cell-content"]',
+    );
+
+    expect(wrappers.length).toBeGreaterThan(0);
+
+    wrappers.forEach((wrapper) => {
+      expect(wrapper).toHaveClass('flex', 'justify-center');
+      expect(wrapper.firstElementChild).toBeInstanceOf(HTMLDivElement);
+      expect(within(wrapper).getByRole('checkbox')).toHaveAccessibleName();
+    });
   });
 
   it('expands and collapses custom row content', async () => {
@@ -345,6 +359,40 @@ describe('DataTable interactions', () => {
     await user.click(screen.getByLabelText('Select all rows on page'));
 
     expect(screen.getByText('2 of 2 row(s) selected.')).toBeInTheDocument();
+  });
+
+  it('supports keyboard selection and announces a partially selected page', async () => {
+    const user = userEvent.setup();
+    render(
+      <DataTable
+        columns={columns}
+        data={rows}
+        features={{ pagination: true, rowSelection: true }}
+      />,
+    );
+
+    const row = screen.getByRole('checkbox', { name: 'Select row 0' });
+    const all = screen.getByRole('checkbox', {
+      name: 'Select all rows on page',
+    });
+
+    row.focus();
+    await user.keyboard('[Space]');
+
+    expect(row).toBeChecked();
+    expect(all).toBePartiallyChecked();
+
+    all.focus();
+    await user.keyboard('[Space]');
+
+    expect(all).toBeChecked();
+    expect(screen.getByText('2 of 2 row(s) selected.')).toBeInTheDocument();
+
+    await user.keyboard('[Space]');
+
+    expect(all).not.toBeChecked();
+    expect(row).not.toBeChecked();
+    expect(screen.queryByText(/row\(s\) selected/i)).not.toBeInTheDocument();
   });
 
   it('navigates between pages', async () => {
@@ -478,5 +526,30 @@ describe('DataTable interactions', () => {
       screen.getByRole('button', { name: 'Retry loading page' }),
     );
     expect(onLoadMore).toHaveBeenCalledTimes(1);
+  });
+});
+
+describe('Styling composition', () => {
+  it('uses consumer typography merging without losing semantic text colors', () => {
+    const styling = createStyling({
+      extend: { classGroups: { 'font-size': [{ text: ['body'] }] } },
+    });
+
+    render(
+      <StylingProvider styling={styling}>
+        <DataTable
+          className={{ searchInput: 'text-body' }}
+          columns={[{ accessorKey: 'name', header: 'Name' }]}
+          data={[{ name: 'Apple' }]}
+          features={{ search: { columns: [{ column: 'name' }] } }}
+        />
+      </StylingProvider>,
+    );
+
+    expect(screen.getByRole('textbox')).toHaveClass(
+      'text-body',
+      'text-foreground',
+    );
+    expect(screen.getByRole('textbox')).not.toHaveClass('text-sm');
   });
 });

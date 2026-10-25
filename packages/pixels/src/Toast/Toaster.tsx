@@ -12,21 +12,14 @@ export type ToasterProps = Pick<
 >;
 
 const Toaster = ({ toastOptions, ...rest }: ToasterProps) => {
-  // Mark the toaster as a react-aria "top layer" so it stacks above modals
-  // correctly. react-aria treats toasts as a special case: with this attribute
-  // present on an ancestor, an open HeroUI/react-aria modal (1) no longer
-  // swallows pointer/click events on the toaster as "interact outside" — which
-  // otherwise blocks clicks on toast action buttons and could dismiss the
-  // modal — and (2) keeps the toaster visible to screen readers instead of
-  // `aria-hidden`-ing it. See `useInteractOutside` / `ariaHideOutside` in
-  // @react-aria, which both special-case `[data-react-aria-top-layer]`. HeroUI
-  // does not forward `shouldCloseOnInteractOutside` (see heroui-inc/heroui#3635),
-  // so this attribute is the only way to opt out. Sonner forwards the `ref` to
-  // its root <section>, but does not accept arbitrary DOM attributes, so we set
-  // it imperatively.
+  // mark toasts as a React Aria top layer so modal outside-interaction handling
+  // neither blocks toast actions nor dismisses the modal when they are clicked
+  // this also keeps toasts accessible to screen readers while a modal is open
+  // Sonner forwards the root ref but not arbitrary DOM attributes
   const ref = useRef<HTMLElement>(null);
   useEffect(() => {
     ref.current?.setAttribute('data-react-aria-top-layer', 'true');
+    ref.current?.setAttribute('data-component', 'toaster');
   }, []);
 
   // Force each toast to take the configured Toaster `--width` so that toasts

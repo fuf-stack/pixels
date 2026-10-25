@@ -5,20 +5,22 @@ import {
   motion,
   useReducedMotion,
 } from '@fuf-stack/pixel-motion';
-import { cn } from '@fuf-stack/pixel-utils';
+import { useStyling } from '@fuf-stack/pixels/StylingProvider';
 
-import { useUniformField } from '../../hooks/useUniformField';
 import FieldValidationError from '../../partials/FieldValidationError/FieldValidationError';
+import fieldCardValidationErrorVariants from './fieldCardValidationErrorVariants';
 
 export interface FieldCardValidationErrorProps {
-  /** CSS class name for the error footer wrapper */
+  /** CSS class name */
   className?: string;
   /** Error object from parent FieldCard (passed directly to avoid duplicate hook calls) */
   error?: FieldError[] | undefined;
+  /** Optional error association ID supplied by the owning group. */
+  errorId: string;
   /** CSS class name for the error text (controls color based on invalid state) */
   errorTextClassName?: string;
-  /** Field name */
-  name: string;
+  /** HTML data-testid attribute for e2e tests */
+  testId: string;
 }
 
 /**
@@ -35,19 +37,23 @@ const FieldCardValidationError = ({
   className = undefined,
   error = undefined,
   errorTextClassName = undefined,
-  name,
+  errorId,
+  testId,
 }: FieldCardValidationErrorProps) => {
-  const { getErrorMessageProps, getHelperWrapperProps, testId } =
-    useUniformField({
-      name,
-    });
-
-  // disable all animation if user prefers reduced motion
+  const styling = useStyling();
   const disableAnimation = useReducedMotion();
 
-  // Always show object-level errors (_errors) when they exist
-  // @ts-expect-error - error._errors exists but not typed
-  const hasErrors = !!error?._errors;
+  // classNames from slots
+  const variants = styling.resolve(fieldCardValidationErrorVariants);
+  const classNames = styling.variantsToClassNames(variants, {
+    errorMessage: errorTextClassName,
+    helperWrapper: className,
+  });
+
+  // show object-level errors whenever they exist
+  const objectErrors = (error as unknown as { _errors?: FieldError[] })
+    ?._errors;
+  const hasErrors = !!objectErrors;
 
   return (
     <AnimatePresence initial={!disableAnimation}>
@@ -62,23 +68,13 @@ const FieldCardValidationError = ({
           style={{ overflow: 'hidden' }}
           transition={{ duration: 0.4, ease: 'circOut' }}
         >
-          <div
-            {...getHelperWrapperProps()}
-            className={cn(getHelperWrapperProps()?.className, className)}
-          >
-            <div
-              {...getErrorMessageProps()}
-              className={cn(
-                getErrorMessageProps()?.className,
-                errorTextClassName,
-              )}
-            >
-              <FieldValidationError
-                // @ts-expect-error - error._errors exists but not typed
-                error={error._errors}
-                testId={testId}
-              />
-            </div>
+          <div className={classNames.helperWrapper} data-slot="helper-wrapper">
+            <FieldValidationError
+              className={{ wrapper: classNames.errorMessage }}
+              error={objectErrors}
+              id={errorId}
+              testId={testId}
+            />
           </div>
         </motion.div>
       ) : null}

@@ -18,11 +18,8 @@
     "./hooks/useClientValidation": "./dist/hooks/useClientValidation/index.mjs",
     "./hooks/useController": "./dist/hooks/useController/index.mjs",
     "./hooks/useFormContext": "./dist/hooks/useFormContext/index.mjs",
-    "./hooks/useInput": "./dist/hooks/useInput/index.mjs",
     "./hooks/useInputValueDebounce": "./dist/hooks/useInputValueDebounce/index.mjs",
     "./hooks/useInputValueTransform": "./dist/hooks/useInputValueTransform/index.mjs",
-    "./hooks/useUniformField": "./dist/hooks/useUniformField/index.mjs",
-    "./hooks/useUniformFieldArray": "./dist/hooks/useUniformFieldArray/index.mjs",
     "./hooks/useWatchFormReset": "./dist/hooks/useWatchFormReset/index.mjs",
     "./hooks/useWatchUserChange": "./dist/hooks/useWatchUserChange/index.mjs",
     "./Input": "./dist/Input/index.mjs",
@@ -57,7 +54,8 @@
   "scripts": {
     "build": "tsdown",
     "prepack": "pnpm build",
-    "test": "vitest ./src"
+    "test": "vitest ./src",
+    "test:types": "tsc --project tsconfig.build.json --noEmit && tsc --project test/typecheck/tsconfig.json"
   },
   "peerDependencies": {
     "react": ">=18",
@@ -73,24 +71,14 @@
     "@fuf-stack/pixel-utils": "workspace:*",
     "@fuf-stack/pixels": "workspace:*",
     "@fuf-stack/veto": "workspace:*",
-    "@heroui/button": "2.2.32",
-    "@heroui/checkbox": "2.3.32",
-    "@heroui/date-input": "2.3.32",
-    "@heroui/date-picker": "2.3.33",
-    "@heroui/input": "2.4.33",
-    "@heroui/number-input": "2.0.23",
-    "@heroui/radio": "2.3.32",
-    "@heroui/select": "2.4.33",
-    "@heroui/switch": "2.2.27",
-    "@heroui/slider": "2.4.29",
-    "@heroui/system": "2.4.28",
-    "@heroui/theme": "2.4.26",
-    "@react-aria/visually-hidden": "3.9.1",
     "debug": "4.4.3",
-    "framer-motion": "12.43.0",
     "react-icons": "5.7.0",
     "react-hook-form": "7.81.0",
-    "react-select": "5.10.2"
+    "react-select": "5.10.2",
+    "react-stately": "3.48.0",
+    "react-textarea-autosize": "8.5.9",
+    "react-aria-components": "1.19.0",
+    "react-aria": "3.50.0"
   },
   "devDependencies": {
     "@types/debug": "4.1.13",

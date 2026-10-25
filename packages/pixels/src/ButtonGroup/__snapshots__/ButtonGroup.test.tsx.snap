@@ -1,30 +1,172 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Story Snapshots > Default 1`] = `
+exports[`Story Snapshots > ChildOverrides 1`] = `
 <div>
   <div
-    class="inline-flex items-center justify-center h-auto"
+    class="inline-flex h-auto items-center justify-center"
+    data-component="button-group"
     role="group"
   >
     <button
-      class="group tap-highlight-transparent [&:not(:first-child):not(:last-child)]:rounded-none first:rounded-s-medium last:rounded-e-medium data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
+      class="group tap-highlight-transparent [&:not(:first-child):not(:last-child)]:rounded-none first:rounded-s-small last:rounded-e-small data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus border-medium h-8 min-w-16 gap-2 rounded-small px-3 text-tiny [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none border-primary bg-transparent text-primary data-[hover=true]:opacity-hover"
+      data-component="button"
+      data-rac=""
       data-react-aria-pressable="true"
+      id="react-aria-«replaced-aria-id»"
       tabindex="0"
       type="button"
     >
       One
     </button>
     <button
-      class="group tap-highlight-transparent [&:not(:first-child):not(:last-child)]:rounded-none first:rounded-s-medium last:rounded-e-medium data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
+      class="group tap-highlight-transparent [&:not(:first-child):not(:last-child)]:rounded-none first:rounded-s-small last:rounded-e-small data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus border-medium h-10 min-w-20 gap-2 px-4 text-small rounded-full [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none border-primary bg-transparent text-primary data-[hover=true]:opacity-hover"
+      data-component="button"
+      data-rac=""
       data-react-aria-pressable="true"
+      id="react-aria-«replaced-aria-id»"
       tabindex="0"
       type="button"
     >
       Two
     </button>
     <button
-      class="group tap-highlight-transparent [&:not(:first-child):not(:last-child)]:rounded-none first:rounded-s-medium last:rounded-e-medium data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
+      class="group tap-highlight-transparent [&:not(:first-child):not(:last-child)]:rounded-none first:rounded-s-small last:rounded-e-small data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus border-medium h-12 min-w-24 gap-3 rounded-large px-6 text-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none border-primary bg-transparent text-primary data-[hover=true]:opacity-hover"
+      data-component="button"
+      data-rac=""
       data-react-aria-pressable="true"
+      id="react-aria-«replaced-aria-id»"
+      tabindex="0"
+      type="button"
+    >
+      Three
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Story Snapshots > Default 1`] = `
+<div>
+  <div
+    class="inline-flex h-auto items-center justify-center"
+    data-component="button-group"
+    role="group"
+  >
+    <button
+      class="group tap-highlight-transparent [&:not(:first-child):not(:last-child)]:rounded-none first:rounded-s-medium last:rounded-e-medium data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
+      data-component="button"
+      data-rac=""
+      data-react-aria-pressable="true"
+      id="react-aria-«replaced-aria-id»"
+      tabindex="0"
+      type="button"
+    >
+      One
+    </button>
+    <button
+      class="group tap-highlight-transparent [&:not(:first-child):not(:last-child)]:rounded-none first:rounded-s-medium last:rounded-e-medium data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
+      data-component="button"
+      data-rac=""
+      data-react-aria-pressable="true"
+      id="react-aria-«replaced-aria-id»"
+      tabindex="0"
+      type="button"
+    >
+      Two
+    </button>
+    <button
+      class="group tap-highlight-transparent [&:not(:first-child):not(:last-child)]:rounded-none first:rounded-s-medium last:rounded-e-medium data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
+      data-component="button"
+      data-rac=""
+      data-react-aria-pressable="true"
+      id="react-aria-«replaced-aria-id»"
+      tabindex="0"
+      type="button"
+    >
+      Three
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Story Snapshots > FullWidth 1`] = `
+<div>
+  <div
+    class="inline-flex h-auto items-center justify-center w-full"
+    data-component="button-group"
+    role="group"
+  >
+    <button
+      class="group tap-highlight-transparent w-full [&:not(:first-child):not(:last-child)]:rounded-none first:rounded-s-medium last:rounded-e-medium data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
+      data-component="button"
+      data-rac=""
+      data-react-aria-pressable="true"
+      id="react-aria-«replaced-aria-id»"
+      tabindex="0"
+      type="button"
+    >
+      One
+    </button>
+    <button
+      class="group tap-highlight-transparent w-full [&:not(:first-child):not(:last-child)]:rounded-none first:rounded-s-medium last:rounded-e-medium data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
+      data-component="button"
+      data-rac=""
+      data-react-aria-pressable="true"
+      id="react-aria-«replaced-aria-id»"
+      tabindex="0"
+      type="button"
+    >
+      Two
+    </button>
+    <button
+      class="group tap-highlight-transparent w-full [&:not(:first-child):not(:last-child)]:rounded-none first:rounded-s-medium last:rounded-e-medium data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
+      data-component="button"
+      data-rac=""
+      data-react-aria-pressable="true"
+      id="react-aria-«replaced-aria-id»"
+      tabindex="0"
+      type="button"
+    >
+      Three
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Story Snapshots > GroupDefaults 1`] = `
+<div>
+  <div
+    class="inline-flex h-auto items-center justify-center"
+    data-component="button-group"
+    role="group"
+  >
+    <button
+      class="group tap-highlight-transparent border-medium [&:not(:first-child):not(:last-child)]:rounded-none border-primary first:rounded-s-full last:rounded-e-full [&+.border-medium.border-primary]:ms-[calc(var(--pixel-border-width-medium)*-1)] data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
+      data-component="button"
+      data-rac=""
+      data-react-aria-pressable="true"
+      id="react-aria-«replaced-aria-id»"
+      tabindex="0"
+      type="button"
+    >
+      One
+    </button>
+    <button
+      class="group tap-highlight-transparent border-medium [&:not(:first-child):not(:last-child)]:rounded-none border-primary first:rounded-s-full last:rounded-e-full [&+.border-medium.border-primary]:ms-[calc(var(--pixel-border-width-medium)*-1)] data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
+      data-component="button"
+      data-rac=""
+      data-react-aria-pressable="true"
+      id="react-aria-«replaced-aria-id»"
+      tabindex="0"
+      type="button"
+    >
+      Two
+    </button>
+    <button
+      class="group tap-highlight-transparent border-medium [&:not(:first-child):not(:last-child)]:rounded-none border-primary first:rounded-s-full last:rounded-e-full [&+.border-medium.border-primary]:ms-[calc(var(--pixel-border-width-medium)*-1)] data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
+      data-component="button"
+      data-rac=""
+      data-react-aria-pressable="true"
+      id="react-aria-«replaced-aria-id»"
       tabindex="0"
       type="button"
     >

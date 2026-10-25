@@ -1,8 +1,18 @@
-.PHONY: check
+.PHONY: check test test-unit test-storybook test-visual test-dts
 
 # List all available make targets
 list:
 	@LC_ALL=C $(MAKE) -pRrq -f $(lastword $(MAKEFILE_LIST)) : 2>/dev/null | awk -v RS= -F: '/(^|\n)# Files(\n|$$)/,/(^|\n)# Finished Make data base/ {if ($$1 !~ "^[#.]") {print $$1}}' | sort | grep -E -v -e '^[^[:alnum:]]' -e '^$@$$'
+
+# Bootstrap or update the 'next' prerelease branch
+# Creates .release-please-manifest-next.json with major version bumps
+# Start a fresh cycle after the stable release with ARGS=--start-new-cycle
+bootstrap-next:
+	node ./scripts/bootstrap-next-branch.mjs $(ARGS);
+
+# Run the canonical repository verification suite.
+check:
+	pnpm check;
 
 # Clean up repository (remove node_modules, dist, build artifacts, etc.)
 clean:
@@ -34,24 +44,29 @@ storybook: install
 storybook-react-scan:
 	pnpx react-scan@latest http://localhost:6006
 
-# Run all tests (installs dependencies first)
+# Run unit, parallel Storybook and Docker visual tests, with a combined summary.
 test: install
-	clear;
-	pnpm test;
-
-# Run the canonical repository verification suite.
-check:
-	pnpm check;
+	clear
+	node scripts/test.mjs all $(ARGS)
 
 # Run the declaration-emit smoke test (installs dependencies first).
 # `install` already runs `pnpm build`, so dist/index.d.ts is fresh
 # by the time tsc reads it. See: packages/veto/test/dts-smoke/.
 test-dts: install
-	clear;
-	pnpm --filter @fuf-stack/veto test:dts;
+	clear
+	node scripts/test.mjs dts $(ARGS)
 
-# Bootstrap or update the 'next' prerelease branch
-# Creates .release-please-manifest-next.json with major version bumps
-# Start a fresh cycle after the stable release with ARGS=--start-new-cycle
-bootstrap-next:
-	node ./scripts/bootstrap-next-branch.mjs $(ARGS);
+# Run only unit and CI-script tests.
+test-unit: install
+	clear
+	node scripts/test.mjs unit $(ARGS)
+
+# Run only Storybook interaction and accessibility tests in Chromium.
+test-storybook: install
+	clear
+	node scripts/test.mjs storybook $(ARGS)
+
+# Build Storybook and compare screenshots in the pinned Docker environment.
+test-visual: install
+	clear
+	node scripts/test.mjs visual $(ARGS)

@@ -1,152 +1,63 @@
-import type { TVClassName, TVProps } from '@fuf-stack/pixel-utils';
-import type { SwitchProps as HeroSwitchProps } from '@heroui/switch';
 import type { ReactNode } from 'react';
+import type { SwitchThumbIconProps } from './subcomponents/SwitchThumb';
+import type { ClassName } from './switchVariants';
 
-import { useRef } from 'react';
+import useUniformField from '../hooks/useUniformField/useUniformField';
+import SwitchControl from './subcomponents/SwitchControl';
 
-import { Switch as HeroSwitch } from '@heroui/switch';
-import { VisuallyHidden } from '@react-aria/visually-hidden';
+export type { SwitchThumbIconProps } from './subcomponents/SwitchThumb';
 
-import { cn, tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
+export { switchVariants } from './switchVariants';
 
-import { useUniformField } from '../hooks/useUniformField';
-
-export const switchVariants = tv({
-  slots: {
-    base: '',
-    endContent: '',
-    errorMessage: 'ml-1 mt-1',
-    // see HeroUI styles for group-data condition,
-    // e.g.: https://github.com/heroui-inc/heroui/blob/main/packages/core/theme/src/components/select.ts
-    label:
-      'text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]',
-    outerWrapper: 'place-content-center',
-    startContent: '',
-    thumb: '',
-    thumbIcon: '',
-    wrapper: '',
-  },
-});
-
-type VariantProps = TVProps<typeof switchVariants>;
-type ClassName = TVClassName<typeof switchVariants>;
-
-export interface SwitchProps extends VariantProps {
-  /** Custom aria-label for accessibility. If not provided, falls back to field name when no visible label exists */
+export interface SwitchProps {
+  /** Custom accessible name */
   ariaLabel?: string;
   /** CSS class name */
   className?: ClassName;
-  /** whether the select should be disabled */
+  /** Help text associated with the field */
+  description?: ReactNode;
+  /** Disables the field */
   disabled?: boolean;
   /** Icon to be displayed at the end of the switch (when enabled) */
   endContent?: ReactNode;
-  /** component displayed next to the switch */
+  /** Field label */
   label?: ReactNode;
-  /** name the field is registered under */
+  /** Field name */
   name: string;
-  /* Size of the switch */
+  /** Control size */
   size?: 'sm' | 'md' | 'lg';
   /** Icon to be displayed at the start of the switch (when disabled) */
   startContent?: ReactNode;
-  /** HTML data-testid attribute used in e2e tests */
+  /** HTML data-testid attribute for e2e tests */
   testId?: string;
-  /** Icon to be displayed inside the thumb */
-  thumbIcon?: HeroSwitchProps['thumbIcon'];
+  /** Content or render callback inside the toggle thumb */
+  thumbIcon?: ReactNode | ((props: SwitchThumbIconProps) => ReactNode);
 }
 
-/**
- *  Switch component based on [HeroUI Switch](https://www.heroui.com//docs/components/switch)
- */
+/** Form toggle field for a boolean value */
 const Switch = ({
   className = undefined,
   endContent = undefined,
   name,
-  size = undefined,
+  size = 'md',
   startContent = undefined,
   thumbIcon = undefined,
-  ...uniformFieldProps
+  ...uniformProps
 }: SwitchProps) => {
-  const {
-    ariaLabel,
-    defaultValue,
-    disabled,
-    errorMessage,
-    field,
-    getErrorMessageProps,
-    getHelperWrapperProps,
-    invalid,
-    label,
-    onBlur,
-    onChange,
-    ref,
-    required,
-    testId,
-  } = useUniformField({
+  const { field } = useUniformField({
+    ...uniformProps,
     name,
-    ...uniformFieldProps,
   });
 
-  // Ref for the visual switch to forward focus
-  const visualSwitchRef = useRef<HTMLInputElement>(null);
-
-  // classNames from slots
-  const variants = switchVariants();
-  const classNames = variantsToClassNames(variants, className, 'outerWrapper');
-
   return (
-    <div className={classNames.outerWrapper}>
-      {/* Visually hidden input for form accessibility and focus management */}
-      <VisuallyHidden>
-        <input
-          ref={ref}
-          aria-label={ariaLabel}
-          checked={!!field.value}
-          name={name}
-          onBlur={onBlur}
-          onChange={(e) => {
-            onChange(e.target.checked);
-          }}
-          onFocus={() => {
-            // When RHF focuses this hidden input (e.g., on validation error),
-            // forward focus to the visual switch to show focus ring
-            visualSwitchRef.current?.focus();
-          }}
-          type="checkbox"
-        />
-      </VisuallyHidden>
-      {/* Visual HeroSwitch component */}
-      <HeroSwitch
-        ref={visualSwitchRef}
-        aria-label={ariaLabel}
-        classNames={classNames}
-        data-invalid={invalid}
-        data-required={required}
-        data-testid={testId}
-        defaultSelected={!!defaultValue}
-        endContent={endContent}
-        isDisabled={disabled}
-        isSelected={!!field.value}
-        name={`${name}_switch`}
-        onValueChange={onChange}
-        size={size}
-        startContent={startContent}
-        thumbIcon={thumbIcon}
-      >
-        {label}
-      </HeroSwitch>
-      {invalid ? (
-        <div
-          {...getHelperWrapperProps()}
-          className={cn(
-            getHelperWrapperProps()?.className,
-            // force helper to be visible (for some reason it's hidden by default) and remove margin
-            'ml-0 block',
-          )}
-        >
-          <div {...getErrorMessageProps()}>{errorMessage}</div>
-        </div>
-      ) : null}
-    </div>
+    <SwitchControl
+      className={className}
+      endContent={endContent}
+      field={field}
+      size={size}
+      startContent={startContent}
+      thumbIcon={thumbIcon}
+    />
   );
 };
 

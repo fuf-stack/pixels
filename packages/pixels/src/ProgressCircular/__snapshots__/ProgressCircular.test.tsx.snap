@@ -8,15 +8,20 @@ exports[`<ProgressCircular /> spec > renders correctly 1`] = `
     aria-valuemin="0"
     aria-valuenow="42"
     aria-valuetext="42%"
-    class="flex flex-col justify-center gap-1 max-w-fit items-center"
+    class="flex max-w-fit flex-col items-center justify-center gap-1"
+    data-component="progress-circular"
+    data-slot="base"
     id="react-aria-«replaced-aria-id»"
     role="progressbar"
   >
     <div
       class="relative block"
+      data-slot="svgWrapper"
     >
       <svg
-        class="z-0 relative overflow-hidden !transition-none motion-reduce:transition-none text-info h-16 w-16"
+        aria-hidden="true"
+        class="relative z-0 overflow-hidden text-info h-16 w-16"
+        data-slot="svg"
         fill="none"
         stroke-width="1.6"
         viewBox="0 0 32 32"
@@ -25,6 +30,7 @@ exports[`<ProgressCircular /> spec > renders correctly 1`] = `
           class="h-full stroke-default-300"
           cx="16"
           cy="16"
+          data-slot="track"
           r="14.4"
           role="presentation"
           stroke-dasharray="90.47786842338604 90.47786842338604"
@@ -33,9 +39,10 @@ exports[`<ProgressCircular /> spec > renders correctly 1`] = `
           transform="rotate(-90 16 16)"
         />
         <circle
-          class="h-full stroke-current"
+          class="h-full stroke-current transition-all !duration-500 motion-reduce:transition-none !transition-none"
           cx="16"
           cy="16"
+          data-slot="indicator"
           r="14.4"
           role="presentation"
           stroke-dasharray="90.47786842338604 90.47786842338604"
@@ -45,7 +52,8 @@ exports[`<ProgressCircular /> spec > renders correctly 1`] = `
         />
       </svg>
       <span
-        class="absolute font-normal inset-0 flex items-center justify-center text-md"
+        class="absolute inset-0 flex items-center justify-center font-normal text-md"
+        data-slot="value"
       >
         42%
       </span>
@@ -65,15 +73,20 @@ exports[`Story Snapshots > AllColors 1`] = `
       aria-valuemin="0"
       aria-valuenow="42"
       aria-valuetext="42%"
-      class="flex flex-col justify-center gap-1 max-w-fit items-center"
+      class="flex max-w-fit flex-col items-center justify-center gap-1"
+      data-component="progress-circular"
+      data-slot="base"
       id="react-aria-«replaced-aria-id»"
       role="progressbar"
     >
       <div
         class="relative block"
+        data-slot="svgWrapper"
       >
         <svg
-          class="z-0 relative overflow-hidden !transition-none motion-reduce:transition-none text-info h-16 w-16"
+          aria-hidden="true"
+          class="relative z-0 overflow-hidden text-info h-16 w-16"
+          data-slot="svg"
           fill="none"
           stroke-width="1.6"
           viewBox="0 0 32 32"
@@ -82,6 +95,7 @@ exports[`Story Snapshots > AllColors 1`] = `
             class="h-full stroke-default-300"
             cx="16"
             cy="16"
+            data-slot="track"
             r="14.4"
             role="presentation"
             stroke-dasharray="90.47786842338604 90.47786842338604"
@@ -90,9 +104,10 @@ exports[`Story Snapshots > AllColors 1`] = `
             transform="rotate(-90 16 16)"
           />
           <circle
-            class="h-full stroke-current"
+            class="h-full stroke-current transition-all !duration-500 motion-reduce:transition-none !transition-none"
             cx="16"
             cy="16"
+            data-slot="indicator"
             r="14.4"
             role="presentation"
             stroke-dasharray="90.47786842338604 90.47786842338604"
@@ -102,7 +117,8 @@ exports[`Story Snapshots > AllColors 1`] = `
           />
         </svg>
         <span
-          class="absolute font-normal inset-0 flex items-center justify-center text-md"
+          class="absolute inset-0 flex items-center justify-center font-normal text-md"
+          data-slot="value"
         >
           42%
         </span>
@@ -118,15 +134,20 @@ exports[`Story Snapshots > AllColors 1`] = `
       aria-valuemin="0"
       aria-valuenow="42"
       aria-valuetext="42%"
-      class="flex flex-col justify-center gap-1 max-w-fit items-center"
+      class="flex max-w-fit flex-col items-center justify-center gap-1"
+      data-component="progress-circular"
+      data-slot="base"
       id="react-aria-«replaced-aria-id»"
       role="progressbar"
     >
       <div
         class="relative block"
+        data-slot="svgWrapper"
       >
         <svg
-          class="z-0 relative overflow-hidden !transition-none motion-reduce:transition-none text-default-400 h-16 w-16"
+          aria-hidden="true"
+          class="relative z-0 overflow-hidden text-default-400 h-16 w-16"
+          data-slot="svg"
           fill="none"
           stroke-width="1.6"
           viewBox="0 0 32 32"
@@ -135,6 +156,7 @@ exports[`Story Snapshots > AllColors 1`] = `
             class="h-full stroke-default-300"
             cx="16"
             cy="16"
+            data-slot="track"
             r="14.4"
             role="presentation"
             stroke-dasharray="90.47786842338604 90.47786842338604"
@@ -143,9 +165,10 @@ exports[`Story Snapshots > AllColors 1`] = `
             transform="rotate(-90 16 16)"
           />
           <circle
-            class="h-full stroke-current"
+            class="h-full stroke-current transition-all !duration-500 motion-reduce:transition-none !transition-none"
             cx="16"
             cy="16"
+            data-slot="indicator"
             r="14.4"
             role="presentation"
             stroke-dasharray="90.47786842338604 90.47786842338604"
@@ -155,7 +178,8 @@ exports[`Story Snapshots > AllColors 1`] = `
           />
         </svg>
         <span
-          class="absolute font-normal inset-0 flex items-center justify-center text-md"
+          class="absolute inset-0 flex items-center justify-center font-normal text-md"
+          data-slot="value"
         >
           42%
         </span>
@@ -171,15 +195,20 @@ exports[`Story Snapshots > AllColors 1`] = `
       aria-valuemin="0"
       aria-valuenow="42"
       aria-valuetext="42%"
-      class="flex flex-col justify-center gap-1 max-w-fit items-center"
+      class="flex max-w-fit flex-col items-center justify-center gap-1"
+      data-component="progress-circular"
+      data-slot="base"
       id="react-aria-«replaced-aria-id»"
       role="progressbar"
     >
       <div
         class="relative block"
+        data-slot="svgWrapper"
       >
         <svg
-          class="z-0 relative overflow-hidden !transition-none motion-reduce:transition-none text-primary h-16 w-16"
+          aria-hidden="true"
+          class="relative z-0 overflow-hidden text-primary h-16 w-16"
+          data-slot="svg"
           fill="none"
           stroke-width="1.6"
           viewBox="0 0 32 32"
@@ -188,6 +217,7 @@ exports[`Story Snapshots > AllColors 1`] = `
             class="h-full stroke-default-300"
             cx="16"
             cy="16"
+            data-slot="track"
             r="14.4"
             role="presentation"
             stroke-dasharray="90.47786842338604 90.47786842338604"
@@ -196,9 +226,10 @@ exports[`Story Snapshots > AllColors 1`] = `
             transform="rotate(-90 16 16)"
           />
           <circle
-            class="h-full stroke-current"
+            class="h-full stroke-current transition-all !duration-500 motion-reduce:transition-none !transition-none"
             cx="16"
             cy="16"
+            data-slot="indicator"
             r="14.4"
             role="presentation"
             stroke-dasharray="90.47786842338604 90.47786842338604"
@@ -208,7 +239,8 @@ exports[`Story Snapshots > AllColors 1`] = `
           />
         </svg>
         <span
-          class="absolute font-normal inset-0 flex items-center justify-center text-md"
+          class="absolute inset-0 flex items-center justify-center font-normal text-md"
+          data-slot="value"
         >
           42%
         </span>
@@ -224,15 +256,20 @@ exports[`Story Snapshots > AllColors 1`] = `
       aria-valuemin="0"
       aria-valuenow="42"
       aria-valuetext="42%"
-      class="flex flex-col justify-center gap-1 max-w-fit items-center"
+      class="flex max-w-fit flex-col items-center justify-center gap-1"
+      data-component="progress-circular"
+      data-slot="base"
       id="react-aria-«replaced-aria-id»"
       role="progressbar"
     >
       <div
         class="relative block"
+        data-slot="svgWrapper"
       >
         <svg
-          class="z-0 relative overflow-hidden !transition-none motion-reduce:transition-none text-secondary h-16 w-16"
+          aria-hidden="true"
+          class="relative z-0 overflow-hidden text-secondary h-16 w-16"
+          data-slot="svg"
           fill="none"
           stroke-width="1.6"
           viewBox="0 0 32 32"
@@ -241,6 +278,7 @@ exports[`Story Snapshots > AllColors 1`] = `
             class="h-full stroke-default-300"
             cx="16"
             cy="16"
+            data-slot="track"
             r="14.4"
             role="presentation"
             stroke-dasharray="90.47786842338604 90.47786842338604"
@@ -249,9 +287,10 @@ exports[`Story Snapshots > AllColors 1`] = `
             transform="rotate(-90 16 16)"
           />
           <circle
-            class="h-full stroke-current"
+            class="h-full stroke-current transition-all !duration-500 motion-reduce:transition-none !transition-none"
             cx="16"
             cy="16"
+            data-slot="indicator"
             r="14.4"
             role="presentation"
             stroke-dasharray="90.47786842338604 90.47786842338604"
@@ -261,7 +300,8 @@ exports[`Story Snapshots > AllColors 1`] = `
           />
         </svg>
         <span
-          class="absolute font-normal inset-0 flex items-center justify-center text-md"
+          class="absolute inset-0 flex items-center justify-center font-normal text-md"
+          data-slot="value"
         >
           42%
         </span>
@@ -277,15 +317,20 @@ exports[`Story Snapshots > AllColors 1`] = `
       aria-valuemin="0"
       aria-valuenow="42"
       aria-valuetext="42%"
-      class="flex flex-col justify-center gap-1 max-w-fit items-center"
+      class="flex max-w-fit flex-col items-center justify-center gap-1"
+      data-component="progress-circular"
+      data-slot="base"
       id="react-aria-«replaced-aria-id»"
       role="progressbar"
     >
       <div
         class="relative block"
+        data-slot="svgWrapper"
       >
         <svg
-          class="z-0 relative overflow-hidden !transition-none motion-reduce:transition-none text-success h-16 w-16"
+          aria-hidden="true"
+          class="relative z-0 overflow-hidden text-success h-16 w-16"
+          data-slot="svg"
           fill="none"
           stroke-width="1.6"
           viewBox="0 0 32 32"
@@ -294,6 +339,7 @@ exports[`Story Snapshots > AllColors 1`] = `
             class="h-full stroke-default-300"
             cx="16"
             cy="16"
+            data-slot="track"
             r="14.4"
             role="presentation"
             stroke-dasharray="90.47786842338604 90.47786842338604"
@@ -302,9 +348,10 @@ exports[`Story Snapshots > AllColors 1`] = `
             transform="rotate(-90 16 16)"
           />
           <circle
-            class="h-full stroke-current"
+            class="h-full stroke-current transition-all !duration-500 motion-reduce:transition-none !transition-none"
             cx="16"
             cy="16"
+            data-slot="indicator"
             r="14.4"
             role="presentation"
             stroke-dasharray="90.47786842338604 90.47786842338604"
@@ -314,7 +361,8 @@ exports[`Story Snapshots > AllColors 1`] = `
           />
         </svg>
         <span
-          class="absolute font-normal inset-0 flex items-center justify-center text-md"
+          class="absolute inset-0 flex items-center justify-center font-normal text-md"
+          data-slot="value"
         >
           42%
         </span>
@@ -330,15 +378,20 @@ exports[`Story Snapshots > AllColors 1`] = `
       aria-valuemin="0"
       aria-valuenow="42"
       aria-valuetext="42%"
-      class="flex flex-col justify-center gap-1 max-w-fit items-center"
+      class="flex max-w-fit flex-col items-center justify-center gap-1"
+      data-component="progress-circular"
+      data-slot="base"
       id="react-aria-«replaced-aria-id»"
       role="progressbar"
     >
       <div
         class="relative block"
+        data-slot="svgWrapper"
       >
         <svg
-          class="z-0 relative overflow-hidden !transition-none motion-reduce:transition-none text-warning h-16 w-16"
+          aria-hidden="true"
+          class="relative z-0 overflow-hidden text-warning h-16 w-16"
+          data-slot="svg"
           fill="none"
           stroke-width="1.6"
           viewBox="0 0 32 32"
@@ -347,6 +400,7 @@ exports[`Story Snapshots > AllColors 1`] = `
             class="h-full stroke-default-300"
             cx="16"
             cy="16"
+            data-slot="track"
             r="14.4"
             role="presentation"
             stroke-dasharray="90.47786842338604 90.47786842338604"
@@ -355,9 +409,10 @@ exports[`Story Snapshots > AllColors 1`] = `
             transform="rotate(-90 16 16)"
           />
           <circle
-            class="h-full stroke-current"
+            class="h-full stroke-current transition-all !duration-500 motion-reduce:transition-none !transition-none"
             cx="16"
             cy="16"
+            data-slot="indicator"
             r="14.4"
             role="presentation"
             stroke-dasharray="90.47786842338604 90.47786842338604"
@@ -367,7 +422,8 @@ exports[`Story Snapshots > AllColors 1`] = `
           />
         </svg>
         <span
-          class="absolute font-normal inset-0 flex items-center justify-center text-md"
+          class="absolute inset-0 flex items-center justify-center font-normal text-md"
+          data-slot="value"
         >
           42%
         </span>
@@ -383,15 +439,20 @@ exports[`Story Snapshots > AllColors 1`] = `
       aria-valuemin="0"
       aria-valuenow="42"
       aria-valuetext="42%"
-      class="flex flex-col justify-center gap-1 max-w-fit items-center"
+      class="flex max-w-fit flex-col items-center justify-center gap-1"
+      data-component="progress-circular"
+      data-slot="base"
       id="react-aria-«replaced-aria-id»"
       role="progressbar"
     >
       <div
         class="relative block"
+        data-slot="svgWrapper"
       >
         <svg
-          class="z-0 relative overflow-hidden !transition-none motion-reduce:transition-none text-danger h-16 w-16"
+          aria-hidden="true"
+          class="relative z-0 overflow-hidden text-danger h-16 w-16"
+          data-slot="svg"
           fill="none"
           stroke-width="1.6"
           viewBox="0 0 32 32"
@@ -400,6 +461,7 @@ exports[`Story Snapshots > AllColors 1`] = `
             class="h-full stroke-default-300"
             cx="16"
             cy="16"
+            data-slot="track"
             r="14.4"
             role="presentation"
             stroke-dasharray="90.47786842338604 90.47786842338604"
@@ -408,9 +470,10 @@ exports[`Story Snapshots > AllColors 1`] = `
             transform="rotate(-90 16 16)"
           />
           <circle
-            class="h-full stroke-current"
+            class="h-full stroke-current transition-all !duration-500 motion-reduce:transition-none !transition-none"
             cx="16"
             cy="16"
+            data-slot="indicator"
             r="14.4"
             role="presentation"
             stroke-dasharray="90.47786842338604 90.47786842338604"
@@ -420,7 +483,8 @@ exports[`Story Snapshots > AllColors 1`] = `
           />
         </svg>
         <span
-          class="absolute font-normal inset-0 flex items-center justify-center text-md"
+          class="absolute inset-0 flex items-center justify-center font-normal text-md"
+          data-slot="value"
         >
           42%
         </span>
@@ -441,15 +505,20 @@ exports[`Story Snapshots > AllSizes 1`] = `
       aria-valuemin="0"
       aria-valuenow="42"
       aria-valuetext="42%"
-      class="flex flex-col justify-center gap-1 max-w-fit items-center"
+      class="flex max-w-fit flex-col items-center justify-center gap-1"
+      data-component="progress-circular"
+      data-slot="base"
       id="react-aria-«replaced-aria-id»"
       role="progressbar"
     >
       <div
         class="relative block"
+        data-slot="svgWrapper"
       >
         <svg
-          class="z-0 relative overflow-hidden !transition-none motion-reduce:transition-none text-info h-10 w-10"
+          aria-hidden="true"
+          class="relative z-0 overflow-hidden text-info h-10 w-10"
+          data-slot="svg"
           fill="none"
           stroke-width="2"
           viewBox="0 0 32 32"
@@ -458,6 +527,7 @@ exports[`Story Snapshots > AllSizes 1`] = `
             class="h-full stroke-default-300"
             cx="16"
             cy="16"
+            data-slot="track"
             r="14"
             role="presentation"
             stroke-dasharray="87.96459430051421 87.96459430051421"
@@ -466,9 +536,10 @@ exports[`Story Snapshots > AllSizes 1`] = `
             transform="rotate(-90 16 16)"
           />
           <circle
-            class="h-full stroke-current"
+            class="h-full stroke-current transition-all !duration-500 motion-reduce:transition-none !transition-none"
             cx="16"
             cy="16"
+            data-slot="indicator"
             r="14"
             role="presentation"
             stroke-dasharray="87.96459430051421 87.96459430051421"
@@ -478,7 +549,8 @@ exports[`Story Snapshots > AllSizes 1`] = `
           />
         </svg>
         <span
-          class="absolute font-normal inset-0 flex items-center justify-center text-[0.6rem]"
+          class="absolute inset-0 flex items-center justify-center font-normal text-[0.6rem]"
+          data-slot="value"
         >
           42%
         </span>
@@ -494,15 +566,20 @@ exports[`Story Snapshots > AllSizes 1`] = `
       aria-valuemin="0"
       aria-valuenow="42"
       aria-valuetext="42%"
-      class="flex flex-col justify-center gap-1 max-w-fit items-center"
+      class="flex max-w-fit flex-col items-center justify-center gap-1"
+      data-component="progress-circular"
+      data-slot="base"
       id="react-aria-«replaced-aria-id»"
       role="progressbar"
     >
       <div
         class="relative block"
+        data-slot="svgWrapper"
       >
         <svg
-          class="z-0 relative overflow-hidden !transition-none motion-reduce:transition-none text-info h-12 w-12"
+          aria-hidden="true"
+          class="relative z-0 overflow-hidden text-info h-12 w-12"
+          data-slot="svg"
           fill="none"
           stroke-width="1.8"
           viewBox="0 0 32 32"
@@ -511,6 +588,7 @@ exports[`Story Snapshots > AllSizes 1`] = `
             class="h-full stroke-default-300"
             cx="16"
             cy="16"
+            data-slot="track"
             r="14.2"
             role="presentation"
             stroke-dasharray="89.22123136195012 89.22123136195012"
@@ -519,9 +597,10 @@ exports[`Story Snapshots > AllSizes 1`] = `
             transform="rotate(-90 16 16)"
           />
           <circle
-            class="h-full stroke-current"
+            class="h-full stroke-current transition-all !duration-500 motion-reduce:transition-none !transition-none"
             cx="16"
             cy="16"
+            data-slot="indicator"
             r="14.2"
             role="presentation"
             stroke-dasharray="89.22123136195012 89.22123136195012"
@@ -531,7 +610,8 @@ exports[`Story Snapshots > AllSizes 1`] = `
           />
         </svg>
         <span
-          class="absolute font-normal inset-0 flex items-center justify-center text-xs"
+          class="absolute inset-0 flex items-center justify-center font-normal text-xs"
+          data-slot="value"
         >
           42%
         </span>
@@ -547,15 +627,20 @@ exports[`Story Snapshots > AllSizes 1`] = `
       aria-valuemin="0"
       aria-valuenow="42"
       aria-valuetext="42%"
-      class="flex flex-col justify-center gap-1 max-w-fit items-center"
+      class="flex max-w-fit flex-col items-center justify-center gap-1"
+      data-component="progress-circular"
+      data-slot="base"
       id="react-aria-«replaced-aria-id»"
       role="progressbar"
     >
       <div
         class="relative block"
+        data-slot="svgWrapper"
       >
         <svg
-          class="z-0 relative overflow-hidden !transition-none motion-reduce:transition-none text-info h-16 w-16"
+          aria-hidden="true"
+          class="relative z-0 overflow-hidden text-info h-16 w-16"
+          data-slot="svg"
           fill="none"
           stroke-width="1.6"
           viewBox="0 0 32 32"
@@ -564,6 +649,7 @@ exports[`Story Snapshots > AllSizes 1`] = `
             class="h-full stroke-default-300"
             cx="16"
             cy="16"
+            data-slot="track"
             r="14.4"
             role="presentation"
             stroke-dasharray="90.47786842338604 90.47786842338604"
@@ -572,9 +658,10 @@ exports[`Story Snapshots > AllSizes 1`] = `
             transform="rotate(-90 16 16)"
           />
           <circle
-            class="h-full stroke-current"
+            class="h-full stroke-current transition-all !duration-500 motion-reduce:transition-none !transition-none"
             cx="16"
             cy="16"
+            data-slot="indicator"
             r="14.4"
             role="presentation"
             stroke-dasharray="90.47786842338604 90.47786842338604"
@@ -584,7 +671,8 @@ exports[`Story Snapshots > AllSizes 1`] = `
           />
         </svg>
         <span
-          class="absolute font-normal inset-0 flex items-center justify-center text-md"
+          class="absolute inset-0 flex items-center justify-center font-normal text-md"
+          data-slot="value"
         >
           42%
         </span>
@@ -600,15 +688,20 @@ exports[`Story Snapshots > AllSizes 1`] = `
       aria-valuemin="0"
       aria-valuenow="42"
       aria-valuetext="42%"
-      class="flex flex-col justify-center gap-1 max-w-fit items-center"
+      class="flex max-w-fit flex-col items-center justify-center gap-1"
+      data-component="progress-circular"
+      data-slot="base"
       id="react-aria-«replaced-aria-id»"
       role="progressbar"
     >
       <div
         class="relative block"
+        data-slot="svgWrapper"
       >
         <svg
-          class="z-0 relative overflow-hidden !transition-none motion-reduce:transition-none text-info h-20 w-20"
+          aria-hidden="true"
+          class="relative z-0 overflow-hidden text-info h-20 w-20"
+          data-slot="svg"
           fill="none"
           stroke-width="1.6"
           viewBox="0 0 32 32"
@@ -617,6 +710,7 @@ exports[`Story Snapshots > AllSizes 1`] = `
             class="h-full stroke-default-300"
             cx="16"
             cy="16"
+            data-slot="track"
             r="14.4"
             role="presentation"
             stroke-dasharray="90.47786842338604 90.47786842338604"
@@ -625,9 +719,10 @@ exports[`Story Snapshots > AllSizes 1`] = `
             transform="rotate(-90 16 16)"
           />
           <circle
-            class="h-full stroke-current"
+            class="h-full stroke-current transition-all !duration-500 motion-reduce:transition-none !transition-none"
             cx="16"
             cy="16"
+            data-slot="indicator"
             r="14.4"
             role="presentation"
             stroke-dasharray="90.47786842338604 90.47786842338604"
@@ -637,7 +732,8 @@ exports[`Story Snapshots > AllSizes 1`] = `
           />
         </svg>
         <span
-          class="absolute font-normal inset-0 flex items-center justify-center text-lg"
+          class="absolute inset-0 flex items-center justify-center font-normal text-lg"
+          data-slot="value"
         >
           42%
         </span>
@@ -653,15 +749,20 @@ exports[`Story Snapshots > AllSizes 1`] = `
       aria-valuemin="0"
       aria-valuenow="42"
       aria-valuetext="42%"
-      class="flex flex-col justify-center gap-1 max-w-fit items-center"
+      class="flex max-w-fit flex-col items-center justify-center gap-1"
+      data-component="progress-circular"
+      data-slot="base"
       id="react-aria-«replaced-aria-id»"
       role="progressbar"
     >
       <div
         class="relative block"
+        data-slot="svgWrapper"
       >
         <svg
-          class="z-0 relative overflow-hidden !transition-none motion-reduce:transition-none text-info h-24 w-24"
+          aria-hidden="true"
+          class="relative z-0 overflow-hidden text-info h-24 w-24"
+          data-slot="svg"
           fill="none"
           stroke-width="1.6"
           viewBox="0 0 32 32"
@@ -670,6 +771,7 @@ exports[`Story Snapshots > AllSizes 1`] = `
             class="h-full stroke-default-300"
             cx="16"
             cy="16"
+            data-slot="track"
             r="14.4"
             role="presentation"
             stroke-dasharray="90.47786842338604 90.47786842338604"
@@ -678,9 +780,10 @@ exports[`Story Snapshots > AllSizes 1`] = `
             transform="rotate(-90 16 16)"
           />
           <circle
-            class="h-full stroke-current"
+            class="h-full stroke-current transition-all !duration-500 motion-reduce:transition-none !transition-none"
             cx="16"
             cy="16"
+            data-slot="indicator"
             r="14.4"
             role="presentation"
             stroke-dasharray="90.47786842338604 90.47786842338604"
@@ -690,11 +793,153 @@ exports[`Story Snapshots > AllSizes 1`] = `
           />
         </svg>
         <span
-          class="absolute font-normal inset-0 flex items-center justify-center text-xl"
+          class="absolute inset-0 flex items-center justify-center font-normal text-xl"
+          data-slot="value"
         >
           42%
         </span>
       </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Story Snapshots > CustomStrokeWidth 1`] = `
+<div>
+  <div
+    class="flex flex-col gap-6"
+  >
+    <aside
+      aria-label="What this checks"
+      class="w-80 max-w-full rounded-lg border border-default-200 bg-default-100 p-3 text-sm text-foreground"
+    >
+      <p
+        class="mb-1 font-semibold"
+      >
+        What this checks
+      </p>
+      <p>
+        A custom stroke width preserves the progress ring layout.
+      </p>
+    </aside>
+    <div
+      aria-label="progress"
+      aria-valuemax="100"
+      aria-valuemin="0"
+      aria-valuenow="42"
+      aria-valuetext="42%"
+      class="flex max-w-fit flex-col items-center justify-center gap-1"
+      data-component="progress-circular"
+      data-slot="base"
+      id="react-aria-«replaced-aria-id»"
+      role="progressbar"
+    >
+      <div
+        class="relative block"
+        data-slot="svgWrapper"
+      >
+        <svg
+          aria-hidden="true"
+          class="relative z-0 overflow-hidden text-info h-16 w-16"
+          data-slot="svg"
+          fill="none"
+          stroke-width="4"
+          viewBox="0 0 32 32"
+        >
+          <circle
+            class="h-full stroke-default-300"
+            cx="16"
+            cy="16"
+            data-slot="track"
+            r="12"
+            role="presentation"
+            stroke-dasharray="75.39822368615503 75.39822368615503"
+            stroke-dashoffset="0"
+            stroke-linecap="round"
+            transform="rotate(-90 16 16)"
+          />
+          <circle
+            class="h-full stroke-current transition-all !duration-500 motion-reduce:transition-none !transition-none"
+            cx="16"
+            cy="16"
+            data-slot="indicator"
+            r="12"
+            role="presentation"
+            stroke-dasharray="75.39822368615503 75.39822368615503"
+            stroke-dashoffset="43.73096973796992"
+            stroke-linecap="round"
+            transform="rotate(-90 16 16)"
+          />
+        </svg>
+        <span
+          class="absolute inset-0 flex items-center justify-center font-normal text-md"
+          data-slot="value"
+        >
+          42%
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Story Snapshots > CustomStyling 1`] = `
+<div>
+  <div
+    aria-label="progress"
+    aria-valuemax="100"
+    aria-valuemin="0"
+    aria-valuenow="42"
+    aria-valuetext="42%"
+    class="flex max-w-fit flex-col items-center justify-center gap-1"
+    data-component="progress-circular"
+    data-slot="base"
+    id="react-aria-«replaced-aria-id»"
+    role="progressbar"
+  >
+    <div
+      class="relative block"
+      data-slot="svgWrapper"
+    >
+      <svg
+        aria-hidden="true"
+        class="relative z-0 overflow-hidden h-24 w-24 text-secondary"
+        data-slot="svg"
+        fill="none"
+        stroke-width="1.6"
+        viewBox="0 0 32 32"
+      >
+        <circle
+          class="h-full stroke-secondary/20"
+          cx="16"
+          cy="16"
+          data-slot="track"
+          r="14.4"
+          role="presentation"
+          stroke-dasharray="90.47786842338604 90.47786842338604"
+          stroke-dashoffset="0"
+          stroke-linecap="round"
+          transform="rotate(-90 16 16)"
+        />
+        <circle
+          class="h-full stroke-current transition-all !duration-500 motion-reduce:transition-none !transition-none"
+          cx="16"
+          cy="16"
+          data-slot="indicator"
+          r="14.4"
+          role="presentation"
+          stroke-dasharray="90.47786842338604 90.47786842338604"
+          stroke-dashoffset="52.47716368556391"
+          stroke-linecap="round"
+          transform="rotate(-90 16 16)"
+        />
+      </svg>
+      <span
+        class="absolute inset-0 flex items-center justify-center text-md font-semibold text-secondary"
+        data-slot="value"
+      >
+        42%
+      </span>
     </div>
   </div>
 </div>
@@ -708,15 +953,20 @@ exports[`Story Snapshots > Default 1`] = `
     aria-valuemin="0"
     aria-valuenow="42"
     aria-valuetext="42%"
-    class="flex flex-col justify-center gap-1 max-w-fit items-center"
+    class="flex max-w-fit flex-col items-center justify-center gap-1"
+    data-component="progress-circular"
+    data-slot="base"
     id="react-aria-«replaced-aria-id»"
     role="progressbar"
   >
     <div
       class="relative block"
+      data-slot="svgWrapper"
     >
       <svg
-        class="z-0 relative overflow-hidden !transition-none motion-reduce:transition-none text-info h-16 w-16"
+        aria-hidden="true"
+        class="relative z-0 overflow-hidden text-info h-16 w-16"
+        data-slot="svg"
         fill="none"
         stroke-width="1.6"
         viewBox="0 0 32 32"
@@ -725,6 +975,7 @@ exports[`Story Snapshots > Default 1`] = `
           class="h-full stroke-default-300"
           cx="16"
           cy="16"
+          data-slot="track"
           r="14.4"
           role="presentation"
           stroke-dasharray="90.47786842338604 90.47786842338604"
@@ -733,9 +984,10 @@ exports[`Story Snapshots > Default 1`] = `
           transform="rotate(-90 16 16)"
         />
         <circle
-          class="h-full stroke-current"
+          class="h-full stroke-current transition-all !duration-500 motion-reduce:transition-none !transition-none"
           cx="16"
           cy="16"
+          data-slot="indicator"
           r="14.4"
           role="presentation"
           stroke-dasharray="90.47786842338604 90.47786842338604"
@@ -745,7 +997,8 @@ exports[`Story Snapshots > Default 1`] = `
         />
       </svg>
       <span
-        class="absolute font-normal inset-0 flex items-center justify-center text-md"
+        class="absolute inset-0 flex items-center justify-center font-normal text-md"
+        data-slot="value"
       >
         42%
       </span>
@@ -762,15 +1015,20 @@ exports[`Story Snapshots > DisableFinishedState 1`] = `
     aria-valuemin="0"
     aria-valuenow="100"
     aria-valuetext="101%"
-    class="flex flex-col justify-center gap-1 max-w-fit items-center"
+    class="flex max-w-fit flex-col items-center justify-center gap-1"
+    data-component="progress-circular"
+    data-slot="base"
     id="react-aria-«replaced-aria-id»"
     role="progressbar"
   >
     <div
       class="relative block"
+      data-slot="svgWrapper"
     >
       <svg
-        class="z-0 relative overflow-hidden !transition-none motion-reduce:transition-none text-info h-16 w-16"
+        aria-hidden="true"
+        class="relative z-0 overflow-hidden text-info h-16 w-16"
+        data-slot="svg"
         fill="none"
         stroke-width="1.6"
         viewBox="0 0 32 32"
@@ -779,6 +1037,7 @@ exports[`Story Snapshots > DisableFinishedState 1`] = `
           class="h-full stroke-default-300"
           cx="16"
           cy="16"
+          data-slot="track"
           r="14.4"
           role="presentation"
           stroke-dasharray="90.47786842338604 90.47786842338604"
@@ -787,9 +1046,10 @@ exports[`Story Snapshots > DisableFinishedState 1`] = `
           transform="rotate(-90 16 16)"
         />
         <circle
-          class="h-full stroke-current"
+          class="h-full stroke-current transition-all !duration-500 motion-reduce:transition-none !transition-none"
           cx="16"
           cy="16"
+          data-slot="indicator"
           r="14.4"
           role="presentation"
           stroke-dasharray="90.47786842338604 90.47786842338604"
@@ -799,10 +1059,104 @@ exports[`Story Snapshots > DisableFinishedState 1`] = `
         />
       </svg>
       <span
-        class="absolute font-normal inset-0 flex items-center justify-center text-md"
+        class="absolute inset-0 flex items-center justify-center font-normal text-md"
+        data-slot="value"
       >
         101%
       </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Story Snapshots > ErrorAtCompletion 1`] = `
+<div>
+  <div
+    class="flex flex-col gap-6"
+  >
+    <aside
+      aria-label="What this checks"
+      class="w-80 max-w-full rounded-lg border border-default-200 bg-default-100 p-3 text-sm text-foreground"
+    >
+      <p
+        class="mb-1 font-semibold"
+      >
+        What this checks
+      </p>
+      <p>
+        An error remains visible even when progress reaches completion.
+      </p>
+    </aside>
+    <div
+      aria-label="progress"
+      aria-valuemax="100"
+      aria-valuemin="0"
+      aria-valuenow="100"
+      aria-valuetext="Error"
+      class="flex max-w-fit flex-col items-center justify-center gap-1"
+      data-component="progress-circular"
+      data-slot="base"
+      id="react-aria-«replaced-aria-id»"
+      role="progressbar"
+    >
+      <div
+        class="relative block"
+        data-slot="svgWrapper"
+      >
+        <svg
+          aria-hidden="true"
+          class="relative z-0 overflow-hidden text-danger h-16 w-16"
+          data-slot="svg"
+          fill="none"
+          stroke-width="1.6"
+          viewBox="0 0 32 32"
+        >
+          <circle
+            class="h-full stroke-default-300"
+            cx="16"
+            cy="16"
+            data-slot="track"
+            r="14.4"
+            role="presentation"
+            stroke-dasharray="90.47786842338604 90.47786842338604"
+            stroke-dashoffset="0"
+            stroke-linecap="round"
+            transform="rotate(-90 16 16)"
+          />
+          <circle
+            class="h-full stroke-current transition-all !duration-500 motion-reduce:transition-none !transition-none"
+            cx="16"
+            cy="16"
+            data-slot="indicator"
+            r="14.4"
+            role="presentation"
+            stroke-dasharray="90.47786842338604 90.47786842338604"
+            stroke-dashoffset="0"
+            stroke-linecap="round"
+            transform="rotate(-90 16 16)"
+          />
+        </svg>
+        <span
+          class="absolute inset-0 flex items-center justify-center font-normal text-md"
+          data-slot="value"
+        >
+          <svg
+            aria-hidden="true"
+            class="text-danger"
+            fill="currentColor"
+            height="1em"
+            stroke="currentColor"
+            stroke-width="0"
+            viewBox="0 0 352 512"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+            />
+          </svg>
+        </span>
+      </div>
     </div>
   </div>
 </div>
@@ -815,16 +1169,21 @@ exports[`Story Snapshots > Finished 1`] = `
     aria-valuemax="100"
     aria-valuemin="0"
     aria-valuenow="100"
-    aria-valuetext="[object Object]"
-    class="flex flex-col justify-center gap-1 max-w-fit items-center"
+    aria-valuetext="100%"
+    class="flex max-w-fit flex-col items-center justify-center gap-1"
+    data-component="progress-circular"
+    data-slot="base"
     id="react-aria-«replaced-aria-id»"
     role="progressbar"
   >
     <div
       class="relative block"
+      data-slot="svgWrapper"
     >
       <svg
-        class="z-0 relative overflow-hidden !transition-none motion-reduce:transition-none text-success h-16 w-16"
+        aria-hidden="true"
+        class="relative z-0 overflow-hidden text-success h-16 w-16"
+        data-slot="svg"
         fill="none"
         stroke-width="1.6"
         viewBox="0 0 32 32"
@@ -833,6 +1192,7 @@ exports[`Story Snapshots > Finished 1`] = `
           class="h-full stroke-default-300"
           cx="16"
           cy="16"
+          data-slot="track"
           r="14.4"
           role="presentation"
           stroke-dasharray="90.47786842338604 90.47786842338604"
@@ -841,9 +1201,10 @@ exports[`Story Snapshots > Finished 1`] = `
           transform="rotate(-90 16 16)"
         />
         <circle
-          class="h-full stroke-current"
+          class="h-full stroke-current transition-all !duration-500 motion-reduce:transition-none !transition-none"
           cx="16"
           cy="16"
+          data-slot="indicator"
           r="14.4"
           role="presentation"
           stroke-dasharray="90.47786842338604 90.47786842338604"
@@ -853,9 +1214,11 @@ exports[`Story Snapshots > Finished 1`] = `
         />
       </svg>
       <span
-        class="absolute font-normal inset-0 flex items-center justify-center text-md"
+        class="absolute inset-0 flex items-center justify-center font-normal text-md"
+        data-slot="value"
       >
         <svg
+          aria-hidden="true"
           class="text-success"
           fill="currentColor"
           height="1em"
@@ -882,16 +1245,21 @@ exports[`Story Snapshots > HasError 1`] = `
     aria-valuemax="100"
     aria-valuemin="0"
     aria-valuenow="42"
-    aria-valuetext="[object Object]"
-    class="flex flex-col justify-center gap-1 max-w-fit items-center"
+    aria-valuetext="Error"
+    class="flex max-w-fit flex-col items-center justify-center gap-1"
+    data-component="progress-circular"
+    data-slot="base"
     id="react-aria-«replaced-aria-id»"
     role="progressbar"
   >
     <div
       class="relative block"
+      data-slot="svgWrapper"
     >
       <svg
-        class="z-0 relative overflow-hidden !transition-none motion-reduce:transition-none text-danger h-16 w-16"
+        aria-hidden="true"
+        class="relative z-0 overflow-hidden text-danger h-16 w-16"
+        data-slot="svg"
         fill="none"
         stroke-width="1.6"
         viewBox="0 0 32 32"
@@ -900,6 +1268,7 @@ exports[`Story Snapshots > HasError 1`] = `
           class="h-full stroke-default-300"
           cx="16"
           cy="16"
+          data-slot="track"
           r="14.4"
           role="presentation"
           stroke-dasharray="90.47786842338604 90.47786842338604"
@@ -908,9 +1277,10 @@ exports[`Story Snapshots > HasError 1`] = `
           transform="rotate(-90 16 16)"
         />
         <circle
-          class="h-full stroke-current"
+          class="h-full stroke-current transition-all !duration-500 motion-reduce:transition-none !transition-none"
           cx="16"
           cy="16"
+          data-slot="indicator"
           r="14.4"
           role="presentation"
           stroke-dasharray="90.47786842338604 90.47786842338604"
@@ -920,9 +1290,11 @@ exports[`Story Snapshots > HasError 1`] = `
         />
       </svg>
       <span
-        class="absolute font-normal inset-0 flex items-center justify-center text-md"
+        class="absolute inset-0 flex items-center justify-center font-normal text-md"
+        data-slot="value"
       >
         <svg
+          aria-hidden="true"
           class="text-danger"
           fill="currentColor"
           height="1em"
@@ -942,6 +1314,88 @@ exports[`Story Snapshots > HasError 1`] = `
 </div>
 `;
 
+exports[`Story Snapshots > RichValue 1`] = `
+<div>
+  <div
+    class="flex flex-col gap-6"
+  >
+    <aside
+      aria-label="What this checks"
+      class="w-80 max-w-full rounded-lg border border-default-200 bg-default-100 p-3 text-sm text-foreground"
+    >
+      <p
+        class="mb-1 font-semibold"
+      >
+        What this checks
+      </p>
+      <p>
+        Rich value content renders inside the progress ring.
+      </p>
+    </aside>
+    <div
+      aria-label="progress"
+      aria-valuemax="100"
+      aria-valuemin="0"
+      aria-valuenow="42"
+      aria-valuetext="42%"
+      class="flex max-w-fit flex-col items-center justify-center gap-1"
+      data-component="progress-circular"
+      data-slot="base"
+      id="react-aria-«replaced-aria-id»"
+      role="progressbar"
+    >
+      <div
+        class="relative block"
+        data-slot="svgWrapper"
+      >
+        <svg
+          aria-hidden="true"
+          class="relative z-0 overflow-hidden text-info h-24 w-24"
+          data-slot="svg"
+          fill="none"
+          stroke-width="1.6"
+          viewBox="0 0 32 32"
+        >
+          <circle
+            class="h-full stroke-default-300"
+            cx="16"
+            cy="16"
+            data-slot="track"
+            r="14.4"
+            role="presentation"
+            stroke-dasharray="90.47786842338604 90.47786842338604"
+            stroke-dashoffset="0"
+            stroke-linecap="round"
+            transform="rotate(-90 16 16)"
+          />
+          <circle
+            class="h-full stroke-current transition-all !duration-500 motion-reduce:transition-none !transition-none"
+            cx="16"
+            cy="16"
+            data-slot="indicator"
+            r="14.4"
+            role="presentation"
+            stroke-dasharray="90.47786842338604 90.47786842338604"
+            stroke-dashoffset="52.47716368556391"
+            stroke-linecap="round"
+            transform="rotate(-90 16 16)"
+          />
+        </svg>
+        <span
+          class="absolute inset-0 flex items-center justify-center font-normal text-xl"
+          data-slot="value"
+        >
+          <strong>
+            42
+             files
+          </strong>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Story Snapshots > SomePercentages 1`] = `
 <div>
   <div
@@ -953,15 +1407,20 @@ exports[`Story Snapshots > SomePercentages 1`] = `
       aria-valuemin="0"
       aria-valuenow="0"
       aria-valuetext="0%"
-      class="flex flex-col justify-center gap-1 max-w-fit items-center"
+      class="flex max-w-fit flex-col items-center justify-center gap-1"
+      data-component="progress-circular"
+      data-slot="base"
       id="react-aria-«replaced-aria-id»"
       role="progressbar"
     >
       <div
         class="relative block"
+        data-slot="svgWrapper"
       >
         <svg
-          class="z-0 relative overflow-hidden !transition-none motion-reduce:transition-none text-info h-16 w-16"
+          aria-hidden="true"
+          class="relative z-0 overflow-hidden text-info h-16 w-16"
+          data-slot="svg"
           fill="none"
           stroke-width="1.6"
           viewBox="0 0 32 32"
@@ -970,6 +1429,7 @@ exports[`Story Snapshots > SomePercentages 1`] = `
             class="h-full stroke-default-300"
             cx="16"
             cy="16"
+            data-slot="track"
             r="14.4"
             role="presentation"
             stroke-dasharray="90.47786842338604 90.47786842338604"
@@ -978,9 +1438,10 @@ exports[`Story Snapshots > SomePercentages 1`] = `
             transform="rotate(-90 16 16)"
           />
           <circle
-            class="h-full stroke-current"
+            class="h-full stroke-current transition-all !duration-500 motion-reduce:transition-none !transition-none"
             cx="16"
             cy="16"
+            data-slot="indicator"
             r="14.4"
             role="presentation"
             stroke-dasharray="90.47786842338604 90.47786842338604"
@@ -990,7 +1451,8 @@ exports[`Story Snapshots > SomePercentages 1`] = `
           />
         </svg>
         <span
-          class="absolute font-normal inset-0 flex items-center justify-center text-md"
+          class="absolute inset-0 flex items-center justify-center font-normal text-md"
+          data-slot="value"
         >
           0%
         </span>
@@ -1006,15 +1468,20 @@ exports[`Story Snapshots > SomePercentages 1`] = `
       aria-valuemin="0"
       aria-valuenow="10"
       aria-valuetext="10%"
-      class="flex flex-col justify-center gap-1 max-w-fit items-center"
+      class="flex max-w-fit flex-col items-center justify-center gap-1"
+      data-component="progress-circular"
+      data-slot="base"
       id="react-aria-«replaced-aria-id»"
       role="progressbar"
     >
       <div
         class="relative block"
+        data-slot="svgWrapper"
       >
         <svg
-          class="z-0 relative overflow-hidden !transition-none motion-reduce:transition-none text-info h-16 w-16"
+          aria-hidden="true"
+          class="relative z-0 overflow-hidden text-info h-16 w-16"
+          data-slot="svg"
           fill="none"
           stroke-width="1.6"
           viewBox="0 0 32 32"
@@ -1023,6 +1490,7 @@ exports[`Story Snapshots > SomePercentages 1`] = `
             class="h-full stroke-default-300"
             cx="16"
             cy="16"
+            data-slot="track"
             r="14.4"
             role="presentation"
             stroke-dasharray="90.47786842338604 90.47786842338604"
@@ -1031,9 +1499,10 @@ exports[`Story Snapshots > SomePercentages 1`] = `
             transform="rotate(-90 16 16)"
           />
           <circle
-            class="h-full stroke-current"
+            class="h-full stroke-current transition-all !duration-500 motion-reduce:transition-none !transition-none"
             cx="16"
             cy="16"
+            data-slot="indicator"
             r="14.4"
             role="presentation"
             stroke-dasharray="90.47786842338604 90.47786842338604"
@@ -1043,7 +1512,8 @@ exports[`Story Snapshots > SomePercentages 1`] = `
           />
         </svg>
         <span
-          class="absolute font-normal inset-0 flex items-center justify-center text-md"
+          class="absolute inset-0 flex items-center justify-center font-normal text-md"
+          data-slot="value"
         >
           10%
         </span>
@@ -1059,15 +1529,20 @@ exports[`Story Snapshots > SomePercentages 1`] = `
       aria-valuemin="0"
       aria-valuenow="20"
       aria-valuetext="20%"
-      class="flex flex-col justify-center gap-1 max-w-fit items-center"
+      class="flex max-w-fit flex-col items-center justify-center gap-1"
+      data-component="progress-circular"
+      data-slot="base"
       id="react-aria-«replaced-aria-id»"
       role="progressbar"
     >
       <div
         class="relative block"
+        data-slot="svgWrapper"
       >
         <svg
-          class="z-0 relative overflow-hidden !transition-none motion-reduce:transition-none text-info h-16 w-16"
+          aria-hidden="true"
+          class="relative z-0 overflow-hidden text-info h-16 w-16"
+          data-slot="svg"
           fill="none"
           stroke-width="1.6"
           viewBox="0 0 32 32"
@@ -1076,6 +1551,7 @@ exports[`Story Snapshots > SomePercentages 1`] = `
             class="h-full stroke-default-300"
             cx="16"
             cy="16"
+            data-slot="track"
             r="14.4"
             role="presentation"
             stroke-dasharray="90.47786842338604 90.47786842338604"
@@ -1084,9 +1560,10 @@ exports[`Story Snapshots > SomePercentages 1`] = `
             transform="rotate(-90 16 16)"
           />
           <circle
-            class="h-full stroke-current"
+            class="h-full stroke-current transition-all !duration-500 motion-reduce:transition-none !transition-none"
             cx="16"
             cy="16"
+            data-slot="indicator"
             r="14.4"
             role="presentation"
             stroke-dasharray="90.47786842338604 90.47786842338604"
@@ -1096,7 +1573,8 @@ exports[`Story Snapshots > SomePercentages 1`] = `
           />
         </svg>
         <span
-          class="absolute font-normal inset-0 flex items-center justify-center text-md"
+          class="absolute inset-0 flex items-center justify-center font-normal text-md"
+          data-slot="value"
         >
           20%
         </span>
@@ -1112,15 +1590,20 @@ exports[`Story Snapshots > SomePercentages 1`] = `
       aria-valuemin="0"
       aria-valuenow="30"
       aria-valuetext="30%"
-      class="flex flex-col justify-center gap-1 max-w-fit items-center"
+      class="flex max-w-fit flex-col items-center justify-center gap-1"
+      data-component="progress-circular"
+      data-slot="base"
       id="react-aria-«replaced-aria-id»"
       role="progressbar"
     >
       <div
         class="relative block"
+        data-slot="svgWrapper"
       >
         <svg
-          class="z-0 relative overflow-hidden !transition-none motion-reduce:transition-none text-info h-16 w-16"
+          aria-hidden="true"
+          class="relative z-0 overflow-hidden text-info h-16 w-16"
+          data-slot="svg"
           fill="none"
           stroke-width="1.6"
           viewBox="0 0 32 32"
@@ -1129,6 +1612,7 @@ exports[`Story Snapshots > SomePercentages 1`] = `
             class="h-full stroke-default-300"
             cx="16"
             cy="16"
+            data-slot="track"
             r="14.4"
             role="presentation"
             stroke-dasharray="90.47786842338604 90.47786842338604"
@@ -1137,9 +1621,10 @@ exports[`Story Snapshots > SomePercentages 1`] = `
             transform="rotate(-90 16 16)"
           />
           <circle
-            class="h-full stroke-current"
+            class="h-full stroke-current transition-all !duration-500 motion-reduce:transition-none !transition-none"
             cx="16"
             cy="16"
+            data-slot="indicator"
             r="14.4"
             role="presentation"
             stroke-dasharray="90.47786842338604 90.47786842338604"
@@ -1149,7 +1634,8 @@ exports[`Story Snapshots > SomePercentages 1`] = `
           />
         </svg>
         <span
-          class="absolute font-normal inset-0 flex items-center justify-center text-md"
+          class="absolute inset-0 flex items-center justify-center font-normal text-md"
+          data-slot="value"
         >
           30%
         </span>
@@ -1165,15 +1651,20 @@ exports[`Story Snapshots > SomePercentages 1`] = `
       aria-valuemin="0"
       aria-valuenow="40"
       aria-valuetext="40%"
-      class="flex flex-col justify-center gap-1 max-w-fit items-center"
+      class="flex max-w-fit flex-col items-center justify-center gap-1"
+      data-component="progress-circular"
+      data-slot="base"
       id="react-aria-«replaced-aria-id»"
       role="progressbar"
     >
       <div
         class="relative block"
+        data-slot="svgWrapper"
       >
         <svg
-          class="z-0 relative overflow-hidden !transition-none motion-reduce:transition-none text-info h-16 w-16"
+          aria-hidden="true"
+          class="relative z-0 overflow-hidden text-info h-16 w-16"
+          data-slot="svg"
           fill="none"
           stroke-width="1.6"
           viewBox="0 0 32 32"
@@ -1182,6 +1673,7 @@ exports[`Story Snapshots > SomePercentages 1`] = `
             class="h-full stroke-default-300"
             cx="16"
             cy="16"
+            data-slot="track"
             r="14.4"
             role="presentation"
             stroke-dasharray="90.47786842338604 90.47786842338604"
@@ -1190,9 +1682,10 @@ exports[`Story Snapshots > SomePercentages 1`] = `
             transform="rotate(-90 16 16)"
           />
           <circle
-            class="h-full stroke-current"
+            class="h-full stroke-current transition-all !duration-500 motion-reduce:transition-none !transition-none"
             cx="16"
             cy="16"
+            data-slot="indicator"
             r="14.4"
             role="presentation"
             stroke-dasharray="90.47786842338604 90.47786842338604"
@@ -1202,7 +1695,8 @@ exports[`Story Snapshots > SomePercentages 1`] = `
           />
         </svg>
         <span
-          class="absolute font-normal inset-0 flex items-center justify-center text-md"
+          class="absolute inset-0 flex items-center justify-center font-normal text-md"
+          data-slot="value"
         >
           40%
         </span>
@@ -1218,15 +1712,20 @@ exports[`Story Snapshots > SomePercentages 1`] = `
       aria-valuemin="0"
       aria-valuenow="50"
       aria-valuetext="50%"
-      class="flex flex-col justify-center gap-1 max-w-fit items-center"
+      class="flex max-w-fit flex-col items-center justify-center gap-1"
+      data-component="progress-circular"
+      data-slot="base"
       id="react-aria-«replaced-aria-id»"
       role="progressbar"
     >
       <div
         class="relative block"
+        data-slot="svgWrapper"
       >
         <svg
-          class="z-0 relative overflow-hidden !transition-none motion-reduce:transition-none text-info h-16 w-16"
+          aria-hidden="true"
+          class="relative z-0 overflow-hidden text-info h-16 w-16"
+          data-slot="svg"
           fill="none"
           stroke-width="1.6"
           viewBox="0 0 32 32"
@@ -1235,6 +1734,7 @@ exports[`Story Snapshots > SomePercentages 1`] = `
             class="h-full stroke-default-300"
             cx="16"
             cy="16"
+            data-slot="track"
             r="14.4"
             role="presentation"
             stroke-dasharray="90.47786842338604 90.47786842338604"
@@ -1243,9 +1743,10 @@ exports[`Story Snapshots > SomePercentages 1`] = `
             transform="rotate(-90 16 16)"
           />
           <circle
-            class="h-full stroke-current"
+            class="h-full stroke-current transition-all !duration-500 motion-reduce:transition-none !transition-none"
             cx="16"
             cy="16"
+            data-slot="indicator"
             r="14.4"
             role="presentation"
             stroke-dasharray="90.47786842338604 90.47786842338604"
@@ -1255,7 +1756,8 @@ exports[`Story Snapshots > SomePercentages 1`] = `
           />
         </svg>
         <span
-          class="absolute font-normal inset-0 flex items-center justify-center text-md"
+          class="absolute inset-0 flex items-center justify-center font-normal text-md"
+          data-slot="value"
         >
           50%
         </span>
@@ -1271,15 +1773,20 @@ exports[`Story Snapshots > SomePercentages 1`] = `
       aria-valuemin="0"
       aria-valuenow="60"
       aria-valuetext="60%"
-      class="flex flex-col justify-center gap-1 max-w-fit items-center"
+      class="flex max-w-fit flex-col items-center justify-center gap-1"
+      data-component="progress-circular"
+      data-slot="base"
       id="react-aria-«replaced-aria-id»"
       role="progressbar"
     >
       <div
         class="relative block"
+        data-slot="svgWrapper"
       >
         <svg
-          class="z-0 relative overflow-hidden !transition-none motion-reduce:transition-none text-info h-16 w-16"
+          aria-hidden="true"
+          class="relative z-0 overflow-hidden text-info h-16 w-16"
+          data-slot="svg"
           fill="none"
           stroke-width="1.6"
           viewBox="0 0 32 32"
@@ -1288,6 +1795,7 @@ exports[`Story Snapshots > SomePercentages 1`] = `
             class="h-full stroke-default-300"
             cx="16"
             cy="16"
+            data-slot="track"
             r="14.4"
             role="presentation"
             stroke-dasharray="90.47786842338604 90.47786842338604"
@@ -1296,9 +1804,10 @@ exports[`Story Snapshots > SomePercentages 1`] = `
             transform="rotate(-90 16 16)"
           />
           <circle
-            class="h-full stroke-current"
+            class="h-full stroke-current transition-all !duration-500 motion-reduce:transition-none !transition-none"
             cx="16"
             cy="16"
+            data-slot="indicator"
             r="14.4"
             role="presentation"
             stroke-dasharray="90.47786842338604 90.47786842338604"
@@ -1308,7 +1817,8 @@ exports[`Story Snapshots > SomePercentages 1`] = `
           />
         </svg>
         <span
-          class="absolute font-normal inset-0 flex items-center justify-center text-md"
+          class="absolute inset-0 flex items-center justify-center font-normal text-md"
+          data-slot="value"
         >
           60%
         </span>
@@ -1324,15 +1834,20 @@ exports[`Story Snapshots > SomePercentages 1`] = `
       aria-valuemin="0"
       aria-valuenow="70"
       aria-valuetext="70%"
-      class="flex flex-col justify-center gap-1 max-w-fit items-center"
+      class="flex max-w-fit flex-col items-center justify-center gap-1"
+      data-component="progress-circular"
+      data-slot="base"
       id="react-aria-«replaced-aria-id»"
       role="progressbar"
     >
       <div
         class="relative block"
+        data-slot="svgWrapper"
       >
         <svg
-          class="z-0 relative overflow-hidden !transition-none motion-reduce:transition-none text-info h-16 w-16"
+          aria-hidden="true"
+          class="relative z-0 overflow-hidden text-info h-16 w-16"
+          data-slot="svg"
           fill="none"
           stroke-width="1.6"
           viewBox="0 0 32 32"
@@ -1341,6 +1856,7 @@ exports[`Story Snapshots > SomePercentages 1`] = `
             class="h-full stroke-default-300"
             cx="16"
             cy="16"
+            data-slot="track"
             r="14.4"
             role="presentation"
             stroke-dasharray="90.47786842338604 90.47786842338604"
@@ -1349,9 +1865,10 @@ exports[`Story Snapshots > SomePercentages 1`] = `
             transform="rotate(-90 16 16)"
           />
           <circle
-            class="h-full stroke-current"
+            class="h-full stroke-current transition-all !duration-500 motion-reduce:transition-none !transition-none"
             cx="16"
             cy="16"
+            data-slot="indicator"
             r="14.4"
             role="presentation"
             stroke-dasharray="90.47786842338604 90.47786842338604"
@@ -1361,7 +1878,8 @@ exports[`Story Snapshots > SomePercentages 1`] = `
           />
         </svg>
         <span
-          class="absolute font-normal inset-0 flex items-center justify-center text-md"
+          class="absolute inset-0 flex items-center justify-center font-normal text-md"
+          data-slot="value"
         >
           70%
         </span>
@@ -1377,15 +1895,20 @@ exports[`Story Snapshots > SomePercentages 1`] = `
       aria-valuemin="0"
       aria-valuenow="80"
       aria-valuetext="80%"
-      class="flex flex-col justify-center gap-1 max-w-fit items-center"
+      class="flex max-w-fit flex-col items-center justify-center gap-1"
+      data-component="progress-circular"
+      data-slot="base"
       id="react-aria-«replaced-aria-id»"
       role="progressbar"
     >
       <div
         class="relative block"
+        data-slot="svgWrapper"
       >
         <svg
-          class="z-0 relative overflow-hidden !transition-none motion-reduce:transition-none text-info h-16 w-16"
+          aria-hidden="true"
+          class="relative z-0 overflow-hidden text-info h-16 w-16"
+          data-slot="svg"
           fill="none"
           stroke-width="1.6"
           viewBox="0 0 32 32"
@@ -1394,6 +1917,7 @@ exports[`Story Snapshots > SomePercentages 1`] = `
             class="h-full stroke-default-300"
             cx="16"
             cy="16"
+            data-slot="track"
             r="14.4"
             role="presentation"
             stroke-dasharray="90.47786842338604 90.47786842338604"
@@ -1402,9 +1926,10 @@ exports[`Story Snapshots > SomePercentages 1`] = `
             transform="rotate(-90 16 16)"
           />
           <circle
-            class="h-full stroke-current"
+            class="h-full stroke-current transition-all !duration-500 motion-reduce:transition-none !transition-none"
             cx="16"
             cy="16"
+            data-slot="indicator"
             r="14.4"
             role="presentation"
             stroke-dasharray="90.47786842338604 90.47786842338604"
@@ -1414,7 +1939,8 @@ exports[`Story Snapshots > SomePercentages 1`] = `
           />
         </svg>
         <span
-          class="absolute font-normal inset-0 flex items-center justify-center text-md"
+          class="absolute inset-0 flex items-center justify-center font-normal text-md"
+          data-slot="value"
         >
           80%
         </span>
@@ -1430,15 +1956,20 @@ exports[`Story Snapshots > SomePercentages 1`] = `
       aria-valuemin="0"
       aria-valuenow="90"
       aria-valuetext="90%"
-      class="flex flex-col justify-center gap-1 max-w-fit items-center"
+      class="flex max-w-fit flex-col items-center justify-center gap-1"
+      data-component="progress-circular"
+      data-slot="base"
       id="react-aria-«replaced-aria-id»"
       role="progressbar"
     >
       <div
         class="relative block"
+        data-slot="svgWrapper"
       >
         <svg
-          class="z-0 relative overflow-hidden !transition-none motion-reduce:transition-none text-info h-16 w-16"
+          aria-hidden="true"
+          class="relative z-0 overflow-hidden text-info h-16 w-16"
+          data-slot="svg"
           fill="none"
           stroke-width="1.6"
           viewBox="0 0 32 32"
@@ -1447,6 +1978,7 @@ exports[`Story Snapshots > SomePercentages 1`] = `
             class="h-full stroke-default-300"
             cx="16"
             cy="16"
+            data-slot="track"
             r="14.4"
             role="presentation"
             stroke-dasharray="90.47786842338604 90.47786842338604"
@@ -1455,9 +1987,10 @@ exports[`Story Snapshots > SomePercentages 1`] = `
             transform="rotate(-90 16 16)"
           />
           <circle
-            class="h-full stroke-current"
+            class="h-full stroke-current transition-all !duration-500 motion-reduce:transition-none !transition-none"
             cx="16"
             cy="16"
+            data-slot="indicator"
             r="14.4"
             role="presentation"
             stroke-dasharray="90.47786842338604 90.47786842338604"
@@ -1467,7 +2000,8 @@ exports[`Story Snapshots > SomePercentages 1`] = `
           />
         </svg>
         <span
-          class="absolute font-normal inset-0 flex items-center justify-center text-md"
+          class="absolute inset-0 flex items-center justify-center font-normal text-md"
+          data-slot="value"
         >
           90%
         </span>
@@ -1482,16 +2016,21 @@ exports[`Story Snapshots > SomePercentages 1`] = `
       aria-valuemax="100"
       aria-valuemin="0"
       aria-valuenow="100"
-      aria-valuetext="[object Object]"
-      class="flex flex-col justify-center gap-1 max-w-fit items-center"
+      aria-valuetext="100%"
+      class="flex max-w-fit flex-col items-center justify-center gap-1"
+      data-component="progress-circular"
+      data-slot="base"
       id="react-aria-«replaced-aria-id»"
       role="progressbar"
     >
       <div
         class="relative block"
+        data-slot="svgWrapper"
       >
         <svg
-          class="z-0 relative overflow-hidden !transition-none motion-reduce:transition-none text-success h-16 w-16"
+          aria-hidden="true"
+          class="relative z-0 overflow-hidden text-success h-16 w-16"
+          data-slot="svg"
           fill="none"
           stroke-width="1.6"
           viewBox="0 0 32 32"
@@ -1500,6 +2039,7 @@ exports[`Story Snapshots > SomePercentages 1`] = `
             class="h-full stroke-default-300"
             cx="16"
             cy="16"
+            data-slot="track"
             r="14.4"
             role="presentation"
             stroke-dasharray="90.47786842338604 90.47786842338604"
@@ -1508,9 +2048,10 @@ exports[`Story Snapshots > SomePercentages 1`] = `
             transform="rotate(-90 16 16)"
           />
           <circle
-            class="h-full stroke-current"
+            class="h-full stroke-current transition-all !duration-500 motion-reduce:transition-none !transition-none"
             cx="16"
             cy="16"
+            data-slot="indicator"
             r="14.4"
             role="presentation"
             stroke-dasharray="90.47786842338604 90.47786842338604"
@@ -1520,9 +2061,11 @@ exports[`Story Snapshots > SomePercentages 1`] = `
           />
         </svg>
         <span
-          class="absolute font-normal inset-0 flex items-center justify-center text-md"
+          class="absolute inset-0 flex items-center justify-center font-normal text-md"
+          data-slot="value"
         >
           <svg
+            aria-hidden="true"
             class="text-success"
             fill="currentColor"
             height="1em"
@@ -1548,16 +2091,21 @@ exports[`Story Snapshots > SomePercentages 1`] = `
       aria-valuemax="100"
       aria-valuemin="0"
       aria-valuenow="100"
-      aria-valuetext="[object Object]"
-      class="flex flex-col justify-center gap-1 max-w-fit items-center"
+      aria-valuetext="150%"
+      class="flex max-w-fit flex-col items-center justify-center gap-1"
+      data-component="progress-circular"
+      data-slot="base"
       id="react-aria-«replaced-aria-id»"
       role="progressbar"
     >
       <div
         class="relative block"
+        data-slot="svgWrapper"
       >
         <svg
-          class="z-0 relative overflow-hidden !transition-none motion-reduce:transition-none text-success h-16 w-16"
+          aria-hidden="true"
+          class="relative z-0 overflow-hidden text-success h-16 w-16"
+          data-slot="svg"
           fill="none"
           stroke-width="1.6"
           viewBox="0 0 32 32"
@@ -1566,6 +2114,7 @@ exports[`Story Snapshots > SomePercentages 1`] = `
             class="h-full stroke-default-300"
             cx="16"
             cy="16"
+            data-slot="track"
             r="14.4"
             role="presentation"
             stroke-dasharray="90.47786842338604 90.47786842338604"
@@ -1574,9 +2123,10 @@ exports[`Story Snapshots > SomePercentages 1`] = `
             transform="rotate(-90 16 16)"
           />
           <circle
-            class="h-full stroke-current"
+            class="h-full stroke-current transition-all !duration-500 motion-reduce:transition-none !transition-none"
             cx="16"
             cy="16"
+            data-slot="indicator"
             r="14.4"
             role="presentation"
             stroke-dasharray="90.47786842338604 90.47786842338604"
@@ -1586,9 +2136,11 @@ exports[`Story Snapshots > SomePercentages 1`] = `
           />
         </svg>
         <span
-          class="absolute font-normal inset-0 flex items-center justify-center text-md"
+          class="absolute inset-0 flex items-center justify-center font-normal text-md"
+          data-slot="value"
         >
           <svg
+            aria-hidden="true"
             class="text-success"
             fill="currentColor"
             height="1em"
@@ -1609,6 +2161,87 @@ exports[`Story Snapshots > SomePercentages 1`] = `
 </div>
 `;
 
+exports[`Story Snapshots > UpdatingProgress 1`] = `
+<div>
+  <div
+    class="flex items-center gap-4"
+  >
+    <div
+      aria-label="Upload progress"
+      aria-valuemax="100"
+      aria-valuemin="0"
+      aria-valuenow="50"
+      aria-valuetext="50%"
+      class="flex max-w-fit flex-col items-center justify-center gap-1"
+      data-component="progress-circular"
+      data-slot="base"
+      id="react-aria-«replaced-aria-id»"
+      role="progressbar"
+    >
+      <div
+        class="relative block"
+        data-slot="svgWrapper"
+      >
+        <svg
+          aria-hidden="true"
+          class="relative z-0 overflow-hidden text-info h-16 w-16"
+          data-slot="svg"
+          fill="none"
+          stroke-width="1.6"
+          viewBox="0 0 32 32"
+        >
+          <circle
+            class="h-full stroke-default-300"
+            cx="16"
+            cy="16"
+            data-slot="track"
+            r="14.4"
+            role="presentation"
+            stroke-dasharray="90.47786842338604 90.47786842338604"
+            stroke-dashoffset="0"
+            stroke-linecap="round"
+            transform="rotate(-90 16 16)"
+          />
+          <circle
+            class="h-full stroke-current transition-all !duration-500 motion-reduce:transition-none"
+            cx="16"
+            cy="16"
+            data-slot="indicator"
+            r="14.4"
+            role="presentation"
+            stroke-dasharray="90.47786842338604 90.47786842338604"
+            stroke-dashoffset="45.23893421169302"
+            stroke-linecap="round"
+            transform="rotate(-90 16 16)"
+          />
+        </svg>
+        <span
+          class="absolute inset-0 flex items-center justify-center font-normal text-md"
+          data-slot="value"
+        >
+          50%
+        </span>
+      </div>
+    </div>
+    <button
+      class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
+      data-component="button"
+      data-focus="true"
+      data-focused="true"
+      data-hover="true"
+      data-hovered="true"
+      data-rac=""
+      data-react-aria-pressable="true"
+      id="react-aria-«replaced-aria-id»"
+      tabindex="0"
+      type="button"
+    >
+      Advance
+    </button>
+  </div>
+</div>
+`;
+
 exports[`Story Snapshots > WithoutPercentProp 1`] = `
 <div>
   <div
@@ -1617,15 +2250,20 @@ exports[`Story Snapshots > WithoutPercentProp 1`] = `
     aria-valuemin="0"
     aria-valuenow="0"
     aria-valuetext="0%"
-    class="flex flex-col justify-center gap-1 max-w-fit items-center"
+    class="flex max-w-fit flex-col items-center justify-center gap-1"
+    data-component="progress-circular"
+    data-slot="base"
     id="react-aria-«replaced-aria-id»"
     role="progressbar"
   >
     <div
       class="relative block"
+      data-slot="svgWrapper"
     >
       <svg
-        class="z-0 relative overflow-hidden !transition-none motion-reduce:transition-none text-info h-16 w-16"
+        aria-hidden="true"
+        class="relative z-0 overflow-hidden text-info h-16 w-16"
+        data-slot="svg"
         fill="none"
         stroke-width="1.6"
         viewBox="0 0 32 32"
@@ -1634,6 +2272,7 @@ exports[`Story Snapshots > WithoutPercentProp 1`] = `
           class="h-full stroke-default-300"
           cx="16"
           cy="16"
+          data-slot="track"
           r="14.4"
           role="presentation"
           stroke-dasharray="90.47786842338604 90.47786842338604"
@@ -1642,9 +2281,10 @@ exports[`Story Snapshots > WithoutPercentProp 1`] = `
           transform="rotate(-90 16 16)"
         />
         <circle
-          class="h-full stroke-current"
+          class="h-full stroke-current transition-all !duration-500 motion-reduce:transition-none !transition-none"
           cx="16"
           cy="16"
+          data-slot="indicator"
           r="14.4"
           role="presentation"
           stroke-dasharray="90.47786842338604 90.47786842338604"
@@ -1654,7 +2294,8 @@ exports[`Story Snapshots > WithoutPercentProp 1`] = `
         />
       </svg>
       <span
-        class="absolute font-normal inset-0 flex items-center justify-center text-md"
+        class="absolute inset-0 flex items-center justify-center font-normal text-md"
+        data-slot="value"
       >
         0%
       </span>

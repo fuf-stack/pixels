@@ -4,6 +4,7 @@ exports[`Coverage > renders ScrollShadow component without children and classNam
 <div
   class="overflow-y-auto data-[top-scroll=true]:[mask-image:linear-gradient(0deg,#000_calc(100%_-_var(--scroll-shadow-size)),transparent)] data-[bottom-scroll=true]:[mask-image:linear-gradient(180deg,#000_calc(100%_-_var(--scroll-shadow-size)),transparent)] data-[top-bottom-scroll=true]:[mask-image:linear-gradient(#000,#000,transparent_0,#000_var(--scroll-shadow-size),#000_calc(100%_-_var(--scroll-shadow-size)),transparent)]"
   data-bottom-scroll="false"
+  data-component="scroll-shadow"
   data-orientation="vertical"
   data-top-scroll="false"
   style="--scroll-shadow-size: 40px;"
@@ -13,8 +14,9 @@ exports[`Coverage > renders ScrollShadow component without children and classNam
 exports[`Story Snapshots > HideScrollBar 1`] = `
 <div>
   <div
-    class="overflow-y-auto data-[top-scroll=true]:[mask-image:linear-gradient(0deg,#000_calc(100%_-_var(--scroll-shadow-size)),transparent)] data-[bottom-scroll=true]:[mask-image:linear-gradient(180deg,#000_calc(100%_-_var(--scroll-shadow-size)),transparent)] data-[top-bottom-scroll=true]:[mask-image:linear-gradient(#000,#000,transparent_0,#000_var(--scroll-shadow-size),#000_calc(100%_-_var(--scroll-shadow-size)),transparent)] scrollbar-hide w-[300px] h-[300px]"
+    class="[scrollbar-width:none] [&::-webkit-scrollbar]:hidden overflow-y-auto data-[top-scroll=true]:[mask-image:linear-gradient(0deg,#000_calc(100%_-_var(--scroll-shadow-size)),transparent)] data-[bottom-scroll=true]:[mask-image:linear-gradient(180deg,#000_calc(100%_-_var(--scroll-shadow-size)),transparent)] data-[top-bottom-scroll=true]:[mask-image:linear-gradient(#000,#000,transparent_0,#000_var(--scroll-shadow-size),#000_calc(100%_-_var(--scroll-shadow-size)),transparent)] w-[300px] h-[300px]"
     data-bottom-scroll="false"
+    data-component="scroll-shadow"
     data-orientation="vertical"
     data-top-scroll="false"
     style="--scroll-shadow-size: 40px;"
@@ -277,6 +279,7 @@ exports[`Story Snapshots > Horizontal 1`] = `
 <div>
   <div
     class="overflow-x-auto data-[left-scroll=true]:[mask-image:linear-gradient(270deg,#000_calc(100%_-_var(--scroll-shadow-size)),transparent)] data-[right-scroll=true]:[mask-image:linear-gradient(90deg,#000_calc(100%_-_var(--scroll-shadow-size)),transparent)] data-[left-right-scroll=true]:[mask-image:linear-gradient(to_right,#000,#000,transparent_0,#000_var(--scroll-shadow-size),#000_calc(100%_-_var(--scroll-shadow-size)),transparent)] w-[400px] h-[120px]"
+    data-component="scroll-shadow"
     data-left-scroll="false"
     data-orientation="horizontal"
     data-right-scroll="false"
@@ -475,6 +478,7 @@ exports[`Story Snapshots > LargeShadow 1`] = `
   <div
     class="overflow-y-auto data-[top-scroll=true]:[mask-image:linear-gradient(0deg,#000_calc(100%_-_var(--scroll-shadow-size)),transparent)] data-[bottom-scroll=true]:[mask-image:linear-gradient(180deg,#000_calc(100%_-_var(--scroll-shadow-size)),transparent)] data-[top-bottom-scroll=true]:[mask-image:linear-gradient(#000,#000,transparent_0,#000_var(--scroll-shadow-size),#000_calc(100%_-_var(--scroll-shadow-size)),transparent)] w-[300px] h-[400px]"
     data-bottom-scroll="false"
+    data-component="scroll-shadow"
     data-orientation="vertical"
     data-top-scroll="false"
     style="--scroll-shadow-size: 120px;"
@@ -738,6 +742,7 @@ exports[`Story Snapshots > MaxHeightViaStyle 1`] = `
   <div
     class="overflow-y-auto data-[top-scroll=true]:[mask-image:linear-gradient(0deg,#000_calc(100%_-_var(--scroll-shadow-size)),transparent)] data-[bottom-scroll=true]:[mask-image:linear-gradient(180deg,#000_calc(100%_-_var(--scroll-shadow-size)),transparent)] data-[top-bottom-scroll=true]:[mask-image:linear-gradient(#000,#000,transparent_0,#000_var(--scroll-shadow-size),#000_calc(100%_-_var(--scroll-shadow-size)),transparent)] w-[300px]"
     data-bottom-scroll="false"
+    data-component="scroll-shadow"
     data-orientation="vertical"
     data-top-scroll="false"
     style="--scroll-shadow-size: 40px; max-height: 260px;"
@@ -996,16 +1001,308 @@ exports[`Story Snapshots > MaxHeightViaStyle 1`] = `
 </div>
 `;
 
+exports[`Story Snapshots > NoOverflow 1`] = `
+<div>
+  <div
+    class="flex flex-col gap-6"
+  >
+    <aside
+      aria-label="What this checks"
+      class="w-80 max-w-full rounded-lg border border-default-200 bg-default-100 p-3 text-sm text-foreground"
+    >
+      <p
+        class="mb-1 font-semibold"
+      >
+        What this checks
+      </p>
+      <p>
+        Content that fits the viewport does not need overflow shadows.
+      </p>
+    </aside>
+    <div
+      class="overflow-y-auto data-[top-scroll=true]:[mask-image:linear-gradient(0deg,#000_calc(100%_-_var(--scroll-shadow-size)),transparent)] data-[bottom-scroll=true]:[mask-image:linear-gradient(180deg,#000_calc(100%_-_var(--scroll-shadow-size)),transparent)] data-[top-bottom-scroll=true]:[mask-image:linear-gradient(#000,#000,transparent_0,#000_var(--scroll-shadow-size),#000_calc(100%_-_var(--scroll-shadow-size)),transparent)] h-32 w-64"
+      data-bottom-scroll="false"
+      data-component="scroll-shadow"
+      data-orientation="vertical"
+      data-top-scroll="false"
+      style="--scroll-shadow-size: 40px;"
+    >
+      All content is visible
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Story Snapshots > NoShadow 1`] = `
 <div>
   <div
     class="overflow-y-auto data-[top-scroll=true]:[mask-image:linear-gradient(0deg,#000_calc(100%_-_var(--scroll-shadow-size)),transparent)] data-[bottom-scroll=true]:[mask-image:linear-gradient(180deg,#000_calc(100%_-_var(--scroll-shadow-size)),transparent)] data-[top-bottom-scroll=true]:[mask-image:linear-gradient(#000,#000,transparent_0,#000_var(--scroll-shadow-size),#000_calc(100%_-_var(--scroll-shadow-size)),transparent)] w-[300px] h-[400px]"
-    data-bottom-scroll="false"
-    data-left-right-scroll="false"
-    data-left-scroll="false"
+    data-component="scroll-shadow"
     data-orientation="vertical"
-    data-right-scroll="false"
-    data-top-bottom-scroll="false"
+    style="--scroll-shadow-size: 40px;"
+  >
+    <div
+      class="border-b border-default-200 p-2 hover:bg-default-50"
+    >
+      🍕 Pizza delivery guy who forgot the pizza
+    </div>
+    <div
+      class="border-b border-default-200 p-2 hover:bg-default-50"
+    >
+      🐢 Turtle racing champion (retired)
+    </div>
+    <div
+      class="border-b border-default-200 p-2 hover:bg-default-50"
+    >
+      🎵 Elevator music that makes you question life choices
+    </div>
+    <div
+      class="border-b border-default-200 p-2 hover:bg-default-50"
+    >
+      🧦 Sock that went missing in the dryer (found!)
+    </div>
+    <div
+      class="border-b border-default-200 p-2 hover:bg-default-50"
+    >
+      🚀 Rocket ship powered by coffee
+    </div>
+    <div
+      class="border-b border-default-200 p-2 hover:bg-default-50"
+    >
+      🐧 Penguin wearing a tuxedo to a beach party
+    </div>
+    <div
+      class="border-b border-default-200 p-2 hover:bg-default-50"
+    >
+      🎪 Circus elephant who learned to juggle
+    </div>
+    <div
+      class="border-b border-default-200 p-2 hover:bg-default-50"
+    >
+      🌮 Taco Tuesday on a Wednesday (scandal!)
+    </div>
+    <div
+      class="border-b border-default-200 p-2 hover:bg-default-50"
+    >
+      🎭 Drama llama with trust issues
+    </div>
+    <div
+      class="border-b border-default-200 p-2 hover:bg-default-50"
+    >
+      🎸 Guitar that only plays polka music
+    </div>
+    <div
+      class="border-b border-default-200 p-2 hover:bg-default-50"
+    >
+      🦖 Dinosaur who survived by being really good at hide and seek
+    </div>
+    <div
+      class="border-b border-default-200 p-2 hover:bg-default-50"
+    >
+      🍪 Cookie monster's diet coach
+    </div>
+    <div
+      class="border-b border-default-200 p-2 hover:bg-default-50"
+    >
+      🎯 Dart board that never gets bullseyes
+    </div>
+    <div
+      class="border-b border-default-200 p-2 hover:bg-default-50"
+    >
+      🎨 Paint that watched too much reality TV
+    </div>
+    <div
+      class="border-b border-default-200 p-2 hover:bg-default-50"
+    >
+      🧸 Teddy bear who moonlights as a bouncer
+    </div>
+    <div
+      class="border-b border-default-200 p-2 hover:bg-default-50"
+    >
+      🎮 Gaming controller with commitment issues
+    </div>
+    <div
+      class="border-b border-default-200 p-2 hover:bg-default-50"
+    >
+      🌈 Rainbow that ran out of colors
+    </div>
+    <div
+      class="border-b border-default-200 p-2 hover:bg-default-50"
+    >
+      🔮 Crystal ball showing only cat videos
+    </div>
+    <div
+      class="border-b border-default-200 p-2 hover:bg-default-50"
+    >
+      🎪 Clown who's afraid of children
+    </div>
+    <div
+      class="border-b border-default-200 p-2 hover:bg-default-50"
+    >
+      🐙 Octopus who can't multitask
+    </div>
+    <div
+      class="border-b border-default-200 p-2 hover:bg-default-50"
+    >
+      🍕 Pizza delivery guy who forgot the pizza
+    </div>
+    <div
+      class="border-b border-default-200 p-2 hover:bg-default-50"
+    >
+      🐢 Turtle racing champion (retired)
+    </div>
+    <div
+      class="border-b border-default-200 p-2 hover:bg-default-50"
+    >
+      🎵 Elevator music that makes you question life choices
+    </div>
+    <div
+      class="border-b border-default-200 p-2 hover:bg-default-50"
+    >
+      🧦 Sock that went missing in the dryer (found!)
+    </div>
+    <div
+      class="border-b border-default-200 p-2 hover:bg-default-50"
+    >
+      🚀 Rocket ship powered by coffee
+    </div>
+    <div
+      class="border-b border-default-200 p-2 hover:bg-default-50"
+    >
+      🐧 Penguin wearing a tuxedo to a beach party
+    </div>
+    <div
+      class="border-b border-default-200 p-2 hover:bg-default-50"
+    >
+      🎪 Circus elephant who learned to juggle
+    </div>
+    <div
+      class="border-b border-default-200 p-2 hover:bg-default-50"
+    >
+      🌮 Taco Tuesday on a Wednesday (scandal!)
+    </div>
+    <div
+      class="border-b border-default-200 p-2 hover:bg-default-50"
+    >
+      🎭 Drama llama with trust issues
+    </div>
+    <div
+      class="border-b border-default-200 p-2 hover:bg-default-50"
+    >
+      🎸 Guitar that only plays polka music
+    </div>
+    <div
+      class="border-b border-default-200 p-2 hover:bg-default-50"
+    >
+      🦖 Dinosaur who survived by being really good at hide and seek
+    </div>
+    <div
+      class="border-b border-default-200 p-2 hover:bg-default-50"
+    >
+      🍪 Cookie monster's diet coach
+    </div>
+    <div
+      class="border-b border-default-200 p-2 hover:bg-default-50"
+    >
+      🎯 Dart board that never gets bullseyes
+    </div>
+    <div
+      class="border-b border-default-200 p-2 hover:bg-default-50"
+    >
+      🎨 Paint that watched too much reality TV
+    </div>
+    <div
+      class="border-b border-default-200 p-2 hover:bg-default-50"
+    >
+      🧸 Teddy bear who moonlights as a bouncer
+    </div>
+    <div
+      class="border-b border-default-200 p-2 hover:bg-default-50"
+    >
+      🎮 Gaming controller with commitment issues
+    </div>
+    <div
+      class="border-b border-default-200 p-2 hover:bg-default-50"
+    >
+      🌈 Rainbow that ran out of colors
+    </div>
+    <div
+      class="border-b border-default-200 p-2 hover:bg-default-50"
+    >
+      🔮 Crystal ball showing only cat videos
+    </div>
+    <div
+      class="border-b border-default-200 p-2 hover:bg-default-50"
+    >
+      🎪 Clown who's afraid of children
+    </div>
+    <div
+      class="border-b border-default-200 p-2 hover:bg-default-50"
+    >
+      🐙 Octopus who can't multitask
+    </div>
+    <div
+      class="border-b border-default-200 p-2 hover:bg-default-50"
+    >
+      🍕 Pizza delivery guy who forgot the pizza
+    </div>
+    <div
+      class="border-b border-default-200 p-2 hover:bg-default-50"
+    >
+      🐢 Turtle racing champion (retired)
+    </div>
+    <div
+      class="border-b border-default-200 p-2 hover:bg-default-50"
+    >
+      🎵 Elevator music that makes you question life choices
+    </div>
+    <div
+      class="border-b border-default-200 p-2 hover:bg-default-50"
+    >
+      🧦 Sock that went missing in the dryer (found!)
+    </div>
+    <div
+      class="border-b border-default-200 p-2 hover:bg-default-50"
+    >
+      🚀 Rocket ship powered by coffee
+    </div>
+    <div
+      class="border-b border-default-200 p-2 hover:bg-default-50"
+    >
+      🐧 Penguin wearing a tuxedo to a beach party
+    </div>
+    <div
+      class="border-b border-default-200 p-2 hover:bg-default-50"
+    >
+      🎪 Circus elephant who learned to juggle
+    </div>
+    <div
+      class="border-b border-default-200 p-2 hover:bg-default-50"
+    >
+      🌮 Taco Tuesday on a Wednesday (scandal!)
+    </div>
+    <div
+      class="border-b border-default-200 p-2 hover:bg-default-50"
+    >
+      🎭 Drama llama with trust issues
+    </div>
+    <div
+      class="border-b border-default-200 p-2 hover:bg-default-50"
+    >
+      🎸 Guitar that only plays polka music
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Story Snapshots > ScrollEdges 1`] = `
+<div>
+  <div
+    class="overflow-y-auto data-[top-scroll=true]:[mask-image:linear-gradient(0deg,#000_calc(100%_-_var(--scroll-shadow-size)),transparent)] data-[bottom-scroll=true]:[mask-image:linear-gradient(180deg,#000_calc(100%_-_var(--scroll-shadow-size)),transparent)] data-[top-bottom-scroll=true]:[mask-image:linear-gradient(#000,#000,transparent_0,#000_var(--scroll-shadow-size),#000_calc(100%_-_var(--scroll-shadow-size)),transparent)] w-[300px] h-[400px]"
+    data-bottom-scroll="false"
+    data-component="scroll-shadow"
+    data-orientation="vertical"
+    data-testid="scroll-edges"
     data-top-scroll="false"
     style="--scroll-shadow-size: 40px;"
   >
@@ -1268,6 +1565,7 @@ exports[`Story Snapshots > SmallShadow 1`] = `
   <div
     class="overflow-y-auto data-[top-scroll=true]:[mask-image:linear-gradient(0deg,#000_calc(100%_-_var(--scroll-shadow-size)),transparent)] data-[bottom-scroll=true]:[mask-image:linear-gradient(180deg,#000_calc(100%_-_var(--scroll-shadow-size)),transparent)] data-[top-bottom-scroll=true]:[mask-image:linear-gradient(#000,#000,transparent_0,#000_var(--scroll-shadow-size),#000_calc(100%_-_var(--scroll-shadow-size)),transparent)] w-[300px] h-[400px]"
     data-bottom-scroll="false"
+    data-component="scroll-shadow"
     data-orientation="vertical"
     data-top-scroll="false"
     style="--scroll-shadow-size: 15px;"
@@ -1530,12 +1828,8 @@ exports[`Story Snapshots > TopOnlyShadow 1`] = `
 <div>
   <div
     class="overflow-y-auto data-[top-scroll=true]:[mask-image:linear-gradient(0deg,#000_calc(100%_-_var(--scroll-shadow-size)),transparent)] data-[bottom-scroll=true]:[mask-image:linear-gradient(180deg,#000_calc(100%_-_var(--scroll-shadow-size)),transparent)] data-[top-bottom-scroll=true]:[mask-image:linear-gradient(#000,#000,transparent_0,#000_var(--scroll-shadow-size),#000_calc(100%_-_var(--scroll-shadow-size)),transparent)] w-[300px] h-[400px]"
-    data-bottom-scroll="false"
-    data-left-right-scroll="false"
-    data-left-scroll="false"
+    data-component="scroll-shadow"
     data-orientation="vertical"
-    data-right-scroll="false"
-    data-top-bottom-scroll="false"
     data-top-scroll="true"
     style="--scroll-shadow-size: 40px;"
   >
@@ -1798,6 +2092,7 @@ exports[`Story Snapshots > Vertical 1`] = `
   <div
     class="overflow-y-auto data-[top-scroll=true]:[mask-image:linear-gradient(0deg,#000_calc(100%_-_var(--scroll-shadow-size)),transparent)] data-[bottom-scroll=true]:[mask-image:linear-gradient(180deg,#000_calc(100%_-_var(--scroll-shadow-size)),transparent)] data-[top-bottom-scroll=true]:[mask-image:linear-gradient(#000,#000,transparent_0,#000_var(--scroll-shadow-size),#000_calc(100%_-_var(--scroll-shadow-size)),transparent)] w-[300px] h-[400px]"
     data-bottom-scroll="false"
+    data-component="scroll-shadow"
     data-orientation="vertical"
     data-top-scroll="false"
     style="--scroll-shadow-size: 40px;"

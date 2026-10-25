@@ -205,7 +205,11 @@ const AtelierFrame = ({
   };
 
   return (
-    <section className={classNames.base} data-testid={testId}>
+    <section
+      className={classNames.base}
+      data-component="atelier-frame"
+      data-testid={testId}
+    >
       <header className={classNames.header}>
         <div className={classNames.shellMeta}>
           {withMobileDrawer ? (

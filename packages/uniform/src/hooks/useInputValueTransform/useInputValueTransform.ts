@@ -118,7 +118,7 @@ export const useInputValueTransform = <TDisplay = unknown>({
 
       // For number type, convert valid strings to numbers for display
       if (type === 'number') {
-        if (formValue === '') {
+        if (formValue === '' || formValue === null || formValue === undefined) {
           return '' as TDisplay;
         }
         const numValue = Number(formValue);

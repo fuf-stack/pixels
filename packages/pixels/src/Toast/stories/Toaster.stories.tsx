@@ -1,0 +1,96 @@
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import type { CSSProperties } from 'react';
+
+import { useState } from 'react';
+
+import { expect, userEvent, within } from 'storybook/test';
+
+import { toast, Toaster } from '..';
+import { Button } from '../../Button';
+
+const positions = [
+  'top-left',
+  'top-center',
+  'top-right',
+  'bottom-left',
+  'bottom-center',
+  'bottom-right',
+] as const;
+
+const meta: Meta<typeof Toaster> = {
+  title: 'pixels/Toast/Toaster',
+  component: Toaster,
+};
+
+export default meta;
+type Story = StoryObj<typeof Toaster>;
+
+const PositionExample = () => {
+  const [position, setPosition] =
+    useState<(typeof positions)[number]>('top-center');
+  return (
+    <>
+      <Toaster position={position} />
+      <div className="flex flex-wrap gap-2">
+        {positions.map((pos) => {
+          return (
+            <Button
+              key={pos}
+              color={pos === position ? 'primary' : 'default'}
+              onClick={() => {
+                setPosition(pos);
+                toast.info(`Toaster position: ${pos}`);
+              }}
+            >
+              {pos}
+            </Button>
+          );
+        })}
+      </div>
+    </>
+  );
+};
+
+export const Position: Story = {
+  render: () => {
+    return <PositionExample />;
+  },
+  // Trigger a toast so the snapshot captures it at the selected position.
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    await userEvent.click(canvas.getByText('top-center'));
+    await expect(
+      canvas.getByText('Toaster position: top-center'),
+    ).toBeInTheDocument();
+  },
+};
+
+export const CustomWidth: Story = {
+  tags: ['visual'],
+  parameters: { visual: { target: '[data-sonner-toast]' } },
+  render: () => {
+    return (
+      <>
+        <Toaster style={{ '--width': '600px' } as CSSProperties} />
+        <Button
+          onClick={() => {
+            toast.info(
+              'All toasts from this Toaster are 600px wide because the Toaster sets --width.',
+              { title: 'Wider toast' },
+            );
+          }}
+        >
+          Show toast
+        </Button>
+      </>
+    );
+  },
+  // Trigger the toast so the snapshot captures it at the custom width.
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    await userEvent.click(canvas.getByText('Show toast'));
+    await expect(canvas.getByText('Wider toast')).toBeInTheDocument();
+  },
+};

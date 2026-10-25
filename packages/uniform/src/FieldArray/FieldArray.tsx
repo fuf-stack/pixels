@@ -1,111 +1,39 @@
-import type { FieldArrayElementMethods } from './subcomponents/FieldArrayElement';
-import type { FieldArrayProps } from './types';
+import type { CSSProperties, ReactNode } from 'react';
+import type { ClassName, VariantProps } from './fieldArrayVariants';
+import type { FieldArrayChildrenRenderFn, FieldArrayFeatures } from './types';
 
-import { cn, tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
+import useUniformFieldArray from '../hooks/useUniformFieldArray/useUniformFieldArray';
+import FieldArrayControl from './subcomponents/FieldArrayControl';
 
-import { flatArrayKey } from '../helpers';
-import { useUniformFieldArray } from '../hooks/useUniformFieldArray';
-import ElementAppendButton from './subcomponents/ElementAppendButton';
-import FieldArrayElement from './subcomponents/FieldArrayElement';
-import FieldArrayLabel from './subcomponents/FieldArrayLabel';
-import FieldArrayValidationError from './subcomponents/FieldArrayValidationError';
-import SortContext from './subcomponents/SortContext';
+export { fieldArrayVariants } from './fieldArrayVariants';
 
-export const fieldArrayVariants = tv({
-  slots: {
-    /** base class for the field array wrapper */
-    base: [
-      // base styles
-      'overflow-hidden rounded-small border border-divider bg-content1',
-      // divider between items
-      'divide-y divide-divider',
-    ],
-    /** class for the actions menu button */
-    actionsMenuButton: [
-      // base styles
-      'flex items-center justify-center text-default-600',
-      // fixed height/no round corners/center align
-      'h-full rounded-none',
-      // focus styles - inset ring
-      'outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-focus',
-    ],
-    /** class for the append button */
-    appendButton: [
-      // base styles
-      'w-full justify-start rounded-b-small rounded-t-none font-semibold',
-      // match label height (p-3 = 12px vertical padding + text-base line height)
-      '!h-[48px] !min-h-0',
-      // focus styles - inset ring with rounded bottom corners to match container
-      'outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-focus',
-    ],
-    /** class for the element fields grid */
-    elementFieldsGrid: ['w-full grow p-3'],
-    /** class for the label */
-    label: [
-      // override HeroUI label positioning and display
-      'pointer-events-auto! static! z-auto! block! w-full!',
-      // reset any transforms or translations
-      'translate-x-0! translate-y-0! transform-none!',
-      // card header styling - use text-medium (16px) instead of text-base for correct 48px height
-      'rounded-t-small p-3 font-semibold text-medium',
-    ],
-    /** class for the list */
-    list: ['overflow-hidden'],
-    /** class for the list wrapper */
-    listWrapper: ['overflow-hidden'],
-    /** class for the list item (performs motion animations) */
-    listItem: [
-      // base styles
-      'group relative flex flex-row',
-      // overlap borders by shifting first item up 1px (similar to how last item overlaps with append button)
-      'first:-mt-px',
-    ],
-    /** class for the list item inner */
-    listItemInner: [
-      // base styles
-      'flex w-full flex-row items-stretch divide-divider bg-content1',
-      // x division and borders
-      'divide-x divide-solid border-b border-t border-divider',
-    ],
-    /** class for the remove button */
-    removeButton: [
-      // base styles
-      'flex items-center justify-center',
-      // fixed height/no round corners
-      '!h-full !min-h-0 !rounded-none px-3',
-      // focus styles - inset ring
-      'outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-focus',
-    ],
-    /** class for the sort drag handle */
-    sortDragHandle: [
-      // base styles
-      'flex cursor-grab items-center justify-center px-2 text-default-600 transition-colors',
-      // hover and  dragging state
-      'hover:bg-default-100 active:cursor-grabbing group-data-[dragging=true]:bg-default-100',
-      // focus styles - inset ring
-      'outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-focus',
-    ],
-  },
-  variants: {
-    hasLabel: {
-      false: {
-        // focus styles - when there is no label, the first item actions menu button should have rounded top right corners
-        actionsMenuButton:
-          'group-[:first-child]:!rounded-tr-small group-[:first-child]:group-data-[dragging=true]:!rounded-tr-none',
-        // focus styles - when there is no label, the first item remove button focus ring should have rounded top right corners
-        removeButton:
-          'group-[:first-child]:!rounded-tr-small group-[:first-child]:group-data-[dragging=true]:!rounded-tr-none',
-        // focus styles - when there is no label, the first item sort drag handle focus ring should have rounded top left corners
-        sortDragHandle:
-          'group-[:first-child]:rounded-tl-small group-[:first-child]:group-data-[dragging=true]:rounded-tl-none',
-      },
-    },
-  },
-});
+export interface FieldArrayProps extends FieldArrayFeatures, VariantProps {
+  /** text of the append element button */
+  appendButtonText?: string;
+  /** function that renders the children with provided Properties. */
+  children: FieldArrayChildrenRenderFn;
+  /** CSS class name */
+  className?: ClassName;
+  /* initial value of a filed that is created in the array */
+  elementInitialValue?: unknown;
+  /*
+   * bottom margin of a list element (default 1rem), this needs to be set as a prop (and not via className slot)
+   * because the margin bottom needs to be animated when elements are added or removed
+   */
+  elementMarginBottom?: CSSProperties['marginBottom'];
+  /** when true, array stores primitives as wrapper objects: { __FLAT__: value } */
+  flat?: boolean;
+  /** Field label */
+  label?: ReactNode;
+  /** when true (default false) last element can not be removed and will be shown even if field array is empty */
+  lastElementNotRemovable?: boolean;
+  /** Field name */
+  name: string;
+  /** HTML data-testid attribute for e2e tests */
+  testId?: string;
+}
 
-/**
- * FieldArray component based in [RHF useFieldArray](https://react-hook-form.com/docs/usefieldarray)
- */
+/** Form field group for adding, removing and reordering array entries */
 const FieldArray = ({
   appendButtonText = 'Add Element',
   children,
@@ -120,121 +48,33 @@ const FieldArray = ({
   sortable = false,
   ...uniformFieldProps
 }: FieldArrayProps) => {
-  const {
-    fields,
-    append,
-    remove,
-    insert,
-    move,
-    disableAnimation,
-    elementInitialValue,
-    getValues,
-    testId,
-  } = useUniformFieldArray({
-    name,
-    flat,
-    elementInitialValue: _elementInitialValue,
-    lastElementNotRemovable,
-    ...uniformFieldProps,
-  });
-
-  // className from slots
-  const variants = fieldArrayVariants({ hasLabel: !!uniformFieldProps.label });
-  const className = variantsToClassNames(variants, _className, 'base');
+  const { field, fields, appendItem, items, moveItem, disableAnimation } =
+    useUniformFieldArray({
+      ...uniformFieldProps,
+      elementInitialValue: _elementInitialValue,
+      flat,
+      lastElementNotRemovable,
+      name,
+    });
 
   return (
-    <div className={className.base}>
-      {/* field array label */}
-      <FieldArrayLabel
-        className={className.label}
-        label={uniformFieldProps.label}
-        name={name}
-      />
-
-      {fields.length ? (
-        /* list wrapper */
-        <div className={cn(className.listWrapper)}>
-          {/* sortable context */}
-          <SortContext
-            fields={fields}
-            move={move}
-            name={name}
-            sortable={sortable}
-          >
-            {/* list container */}
-            <ul className={className.list} data-testid={testId}>
-              {/* fields / list elements  */}
-              {fields.map((field, index) => {
-                const elementName = flat
-                  ? `${name}.${index}.${flatArrayKey}`
-                  : `${name}.${index}`;
-                const elementTestId = `${testId}_${index}`;
-
-                // create methods for element
-                const elementMethods: FieldArrayElementMethods = {
-                  append: () => {
-                    append(elementInitialValue);
-                  },
-                  duplicate: () => {
-                    const values = getValues(name);
-                    const currentValue = (values as unknown[])[index];
-                    const nextValue = flat
-                      ? { [flatArrayKey]: currentValue }
-                      : currentValue;
-                    insert(index + 1, nextValue);
-                  },
-                  insert: () => {
-                    insert(index + 1, elementInitialValue);
-                  },
-                  remove: () => {
-                    remove(index);
-                  },
-                };
-
-                return (
-                  <FieldArrayElement
-                    key={field.id}
-                    className={className}
-                    disableAnimation={disableAnimation}
-                    duplicate={duplicate}
-                    elementMarginBottom={elementMarginBottom}
-                    fields={fields}
-                    id={field.id}
-                    index={index}
-                    insertAfter={insertAfter}
-                    lastNotDeletable={lastElementNotRemovable}
-                    methods={elementMethods}
-                    sortable={sortable}
-                    testId={elementTestId}
-                  >
-                    {children({
-                      index,
-                      length: fields.length,
-                      methods: elementMethods,
-                      name: elementName,
-                      testId: elementTestId,
-                    })}
-                  </FieldArrayElement>
-                );
-              })}
-            </ul>
-          </SortContext>
-        </div>
-      ) : null}
-
-      {/* top level field array errors */}
-      <FieldArrayValidationError name={name} />
-
-      {/* append elements button */}
-      <ElementAppendButton
-        appendButtonText={appendButtonText}
-        className={className.appendButton}
-        onClick={() => {
-          append(elementInitialValue);
-        }}
-        testId={`${testId}_append_button`}
-      />
-    </div>
+    <FieldArrayControl
+      appendButtonText={appendButtonText}
+      className={_className}
+      disableAnimation={disableAnimation}
+      duplicate={duplicate}
+      elementMarginBottom={elementMarginBottom}
+      field={field}
+      fields={fields}
+      insertAfter={insertAfter}
+      items={items}
+      lastElementNotRemovable={lastElementNotRemovable}
+      onAppend={appendItem}
+      onMove={moveItem}
+      sortable={sortable}
+    >
+      {children}
+    </FieldArrayControl>
   );
 };
 

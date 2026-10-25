@@ -1,7 +1,7 @@
 import { FaBullseye } from 'react-icons/fa6';
 
-import { cn } from '@fuf-stack/pixel-utils';
 import { Button } from '@fuf-stack/pixels';
+import { useStyling } from '@fuf-stack/pixels/StylingProvider';
 
 export interface FieldCopyTestIdButtonProps {
   /** CSS class name */
@@ -14,6 +14,7 @@ const FieldCopyTestIdButton = ({
   className = undefined,
   testId,
 }: FieldCopyTestIdButtonProps) => {
+  const { cn } = useStyling();
   const copyToClipboard = () => {
     // This component runs in the browser; the Node compatibility rule cannot
     // distinguish the DOM Clipboard API from Node's global navigator.
@@ -26,6 +27,7 @@ const FieldCopyTestIdButton = ({
   return (
     <Button
       className={cn(className, 'pointer-events-auto')}
+      dataComponent="field-copy-test-id-button"
       icon={<FaBullseye />}
       onClick={copyToClipboard}
       size="sm"

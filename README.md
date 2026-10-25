@@ -47,7 +47,9 @@ pnpm exec playwright install chromium
 ```
 
 Project documentation lives in [`docs/`](./docs/). Start with the
-[agent workflows](./docs/agent-workflows.md) for common change types and the
+[code style guide](./docs/code-style.md) for structure and readability,
+[component styling](./docs/styling.md) for Tailwind Variants and CSS,
+[agent workflows](./docs/agent-workflows.md) for common change types, and the
 [release workflow](./docs/package-release-workflow.md) for publishing.
 
 ## License

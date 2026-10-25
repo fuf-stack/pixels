@@ -8,6 +8,11 @@ import { beforeEach, vi } from 'vitest';
 
 import { cleanup } from '@testing-library/react';
 
+// jsdom cannot scroll, record requests without moving the test viewport
+const scrollTo = vi.fn();
+window.scrollTo = scrollTo;
+vi.stubGlobal('scrollTo', scrollTo);
+
 // Workaround: Storybook >=10.2.10 + jsdom 27 PointerEvent/MouseEvent crash
 //
 // Storybook's bundled @testing-library/user-event clones events by passing the
@@ -115,7 +120,7 @@ if (globalThis.window !== undefined) {
   }
 }
 
-// HeroUI Tabs (and other UI primitives) rely on ResizeObserver in passive effects.
+// React Aria components rely on ResizeObserver in passive effects.
 // In Vitest's jsdom environment, ResizeObserver may be missing depending on jsdom
 // version/runtime, which causes story snapshot tests to fail with:
 //   "ReferenceError: ResizeObserver is not defined"

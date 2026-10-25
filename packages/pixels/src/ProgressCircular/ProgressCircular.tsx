@@ -1,184 +1,116 @@
-import type { TVClassName, TVProps } from '@fuf-stack/pixel-utils';
-import type { CircularProgressProps as HeroCircularProgressProps } from '@heroui/progress';
 import type { ReactNode } from 'react';
+import type { ClassName, VariantProps } from './progressCircularVariants';
 
+import { useProgressBar } from 'react-aria';
 import { FaCheck, FaTimes } from 'react-icons/fa';
 
-import { CircularProgress as HeroCircularProgress } from '@heroui/progress';
-import { circularProgress as heroCircularProgressVariants } from '@heroui/theme';
-
-import { tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
-
 import { useIsInitialRenderCycle } from '../hooks/useIsInitialRenderCycle';
+import { useStyling } from '../StylingProvider';
+import { progressCircularVariants } from './progressCircularVariants';
+import ProgressCircularRing from './subcomponents/ProgressCircularRing';
 
-export const progressCircularVariants = tv({
-  slots: {
-    // wrapper around the whole component
-    base: '',
-    // indicator of the circle (finished part)
-    indicator: '',
-    // label next to the svgWrapper
-    label: '',
-    // wrapper for the circle
-    svg: '',
-    // wrapper around progress svg and value span
-    svgWrapper: '',
-    // track of the circle (not finished part)
-    track: 'stroke-default-300',
-    // outer span next to the svg
-    value: '',
-  },
-  variants: {
-    color: {
-      info: {
-        svg: 'text-info',
-      },
-      // see: https://github.com/heroui-inc/heroui/blob/canary/packages/core/theme/src/components/progress.ts
-      ...heroCircularProgressVariants.variants.color,
-    },
-    hasError: {
-      true: {
-        svg: 'text-danger',
-      },
-    },
-    isFinished: {
-      true: {
-        svg: 'text-success',
-      },
-    },
-    size: {
-      xs: {
-        svg: 'h-10 w-10',
-        value: 'text-[0.6rem]',
-      },
-      sm: {
-        svg: 'h-12 w-12',
-        value: 'text-xs',
-      },
-      md: {
-        svg: 'h-16 w-16',
-        value: 'text-md',
-      },
-      lg: {
-        svg: 'h-20 w-20',
-        value: 'text-lg',
-      },
-      xl: {
-        svg: 'h-24 w-24',
-        value: 'text-xl',
-      },
-    },
-  },
-});
+export { progressCircularVariants } from './progressCircularVariants';
 
-type VariantProps = TVProps<typeof progressCircularVariants>;
-type ClassName = TVClassName<typeof progressCircularVariants>;
-
-export interface ProgressCircularProps extends VariantProps {
-  /** sets HTML aria-label attribute */
+export interface ProgressCircularProps {
+  /** Accessible name */
   ariaLabel?: string;
   /** CSS class name */
   className?: ClassName;
-  /** color options */
+  /** Progress indicator color */
   color?: VariantProps['color'];
-  /** disables all animations */
+  /** Disables progress animations */
   disableAnimation?: boolean;
-  /** disables special finished state (checkmark icon and success color) */
+  /** Keeps the formatted value and configured color on completion */
   disableFinishedState?: boolean;
-  /** formats the display value of the progress in the center */
+  /** Formatter for the value inside the ring */
   format?: (percent?: number) => ReactNode;
-  /** enables error version */
+  /** Shows an error icon and color instead of the formatted value */
   hasError?: boolean;
-  /** percentage / progress of the circular progress bar */
+  /** Legacy recipe prop, completion is derived from percent */
+  isFinished?: boolean;
+  /** Completion percentage */
   percent: number;
-  /** size options */
+  /** Progress ring and value size */
   size?: VariantProps['size'];
-  /** stroke width of the circular progress bar */
+  /** Stroke width in SVG viewBox units */
   strokeWidth?: number;
 }
 
-/** formats percent with percent sign */
 const defaultFormat = (percent = 0) => {
   return `${percent}%`;
 };
 
-/**
- * ProgressCircular component based on [HeroUI CircularProgress](https://www.heroui.com/docs/components/circular-progress)
- */
+/** Progress ring showing completion or an error for a task */
 const ProgressCircular = ({
   ariaLabel = 'progress',
   className = undefined,
+  color = 'info',
+  disableAnimation = false,
+  disableFinishedState = false,
   format = defaultFormat,
   hasError = false,
   percent,
-  disableAnimation = false,
-  disableFinishedState = false,
   size = 'md',
-  color = 'info',
-  strokeWidth: strokeWidthProp = undefined,
+  strokeWidth = undefined,
 }: ProgressCircularProps) => {
-  // used to disable animation on initial render cycle
+  const styling = useStyling();
   const isInitialRenderCycle = useIsInitialRenderCycle();
 
-  // Apply finished state if percent is 100 or more and not disabled by disableFinishedState
-  const isFinished = !hasError && percent >= 100 && !disableFinishedState;
+  // keep rich values and status icons out of ARIA attributes
+  const formattedValue = format(percent);
+  const valueLabel =
+    typeof formattedValue === 'string' || typeof formattedValue === 'number'
+      ? String(formattedValue)
+      : undefined;
+  const { progressBarProps } = useProgressBar({
+    'aria-label': ariaLabel,
+    value: percent || 0,
+    valueLabel: hasError ? 'Error' : valueLabel,
+  });
 
-  const variants = progressCircularVariants({
+  const isFinished = !hasError && percent >= 100 && !disableFinishedState;
+  const percentage = Math.min(100, Math.max(0, percent || 0));
+
+  // classNames from slots
+  const variants = styling.resolve(progressCircularVariants, {
     color,
+    disableAnimation: isInitialRenderCycle || disableAnimation,
     hasError,
     isFinished,
     size,
   });
-  const classNames = variantsToClassNames(variants, className, 'base');
+  const classNames = styling.variantsToClassNames(variants, className, 'base');
 
-  // format value
-  let value = format(percent);
-
-  let strokeWidth = strokeWidthProp;
-  // set strokeWidth based on size prop when no strokeWidth provided
-  if (!strokeWidth) {
-    switch (size) {
-      case 'xs':
-        strokeWidth = 2;
-        break;
-      case 'sm':
-        strokeWidth = 1.8;
-        break;
-      default:
-        strokeWidth = 1.6;
-        break;
-    }
-  }
-
-  // handle special states
-  let progressColor: VariantProps['color'] = color;
+  // errors take precedence over the completed state
+  let value = formattedValue;
   if (hasError) {
-    progressColor = 'danger';
-    value = <FaTimes className="text-danger" />;
+    value = <FaTimes aria-hidden="true" className={classNames.statusIcon} />;
   } else if (isFinished) {
-    progressColor = 'success';
-    value = <FaCheck className="text-success" />;
+    value = <FaCheck aria-hidden="true" className={classNames.statusIcon} />;
   }
-
-  // pass only HeroUI colors as props
-  const heroUiColor = Object.keys(
-    heroCircularProgressVariants.variants.color,
-  ).includes(color)
-    ? (progressColor as HeroCircularProgressProps['color'])
-    : undefined;
 
   return (
-    <HeroCircularProgress
-      aria-label={ariaLabel}
-      classNames={classNames}
-      color={heroUiColor}
-      disableAnimation={isInitialRenderCycle || disableAnimation}
-      showValueLabel
-      strokeWidth={strokeWidth}
-      // INFO: we do NOT use spinner animation when no percent provided
-      value={percent || 0}
-      valueLabel={value}
-    />
+    <div
+      {...progressBarProps}
+      className={classNames.base}
+      data-component="progress-circular"
+      data-slot="base"
+    >
+      <div className={classNames.svgWrapper} data-slot="svgWrapper">
+        {/* track and completed arc */}
+        <ProgressCircularRing
+          className={classNames}
+          percentage={percentage}
+          size={size}
+          strokeWidth={strokeWidth}
+        />
+
+        {/* formatted value or status icon */}
+        <span className={classNames.value} data-slot="value">
+          {value}
+        </span>
+      </div>
+    </div>
   );
 };
 

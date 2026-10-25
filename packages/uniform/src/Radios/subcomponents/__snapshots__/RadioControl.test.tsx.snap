@@ -1,0 +1,349 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Story Snapshots > Default 1`] = `
+<div>
+  <div
+    aria-label="Delivery"
+    aria-orientation="vertical"
+    class="react-aria-RadioGroup"
+    data-orientation="vertical"
+    data-rac=""
+    id="react-aria-«replaced-aria-id»"
+    role="radiogroup"
+  >
+    <div
+      class="contents"
+      data-rac=""
+      data-selected="true"
+    >
+      <label
+        class="group relative -m-2 inline-flex max-w-fit cursor-pointer select-none items-center justify-start p-2 tap-highlight-transparent data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-disabled"
+        data-focus="true"
+        data-focused="true"
+        data-hover="true"
+        data-hovered="true"
+        data-rac=""
+        data-react-aria-pressable="true"
+        data-selected="true"
+        data-slot="base"
+        for="«replaced-aria-id»-control"
+      >
+        <span
+          style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+        >
+          <input
+            aria-labelledby="«replaced-aria-id»-label"
+            data-react-aria-pressable="true"
+            id="«replaced-aria-id»-control"
+            name="react-aria-«replaced-aria-id»"
+            tabindex="0"
+            type="radio"
+            value="email"
+          />
+        </span>
+        <span
+          aria-hidden="true"
+          class="relative box-border inline-flex h-5 w-5 shrink-0 items-center justify-center overflow-hidden rounded-full border-2 border-solid border-default transition-transform-colors group-data-[pressed=true]:scale-95 group-data-[invalid=true]:border-danger group-data-[invalid=true]:group-data-[selected=true]:border-danger group-data-[selected=true]:border-primary group-data-[hover-unselected=true]:bg-default-100 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background motion-reduce:transition-none"
+          data-slot="wrapper"
+        >
+          <span
+            class="z-10 h-2 w-2 origin-center scale-0 rounded-full bg-primary text-primary-foreground opacity-0 transition-transform-opacity group-data-[selected=true]:scale-100 group-data-[invalid=true]:bg-danger group-data-[invalid=true]:text-danger-foreground group-data-[selected=true]:opacity-100 motion-reduce:transition-none"
+            data-slot="control"
+          />
+        </span>
+        <div
+          class="ml-1 ms-2 flex flex-col"
+          data-slot="label-wrapper"
+        >
+          <span
+            class="relative select-none text-foreground transition-colors text-medium motion-reduce:transition-none"
+            data-slot="label"
+            id="«replaced-aria-id»-label"
+          >
+            Email
+          </span>
+        </div>
+      </label>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Story Snapshots > Disabled 1`] = `
+<div>
+  <div
+    aria-label="Delivery"
+    aria-orientation="vertical"
+    class="react-aria-RadioGroup"
+    data-orientation="vertical"
+    data-rac=""
+    id="react-aria-«replaced-aria-id»"
+    role="radiogroup"
+  >
+    <div
+      class="contents"
+      data-disabled="true"
+      data-rac=""
+    >
+      <label
+        class="group relative -m-2 inline-flex max-w-fit cursor-pointer select-none items-center justify-start p-2 tap-highlight-transparent data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-disabled"
+        data-disabled="true"
+        data-rac=""
+        data-react-aria-pressable="true"
+        data-slot="base"
+        for="«replaced-aria-id»-control"
+      >
+        <span
+          style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+        >
+          <input
+            aria-labelledby="«replaced-aria-id»-label"
+            data-react-aria-pressable="true"
+            disabled=""
+            id="«replaced-aria-id»-control"
+            name="react-aria-«replaced-aria-id»"
+            type="radio"
+            value="email"
+          />
+        </span>
+        <span
+          aria-hidden="true"
+          class="relative box-border inline-flex h-5 w-5 shrink-0 items-center justify-center overflow-hidden rounded-full border-2 border-solid border-default transition-transform-colors group-data-[pressed=true]:scale-95 group-data-[invalid=true]:border-danger group-data-[invalid=true]:group-data-[selected=true]:border-danger group-data-[selected=true]:border-primary group-data-[hover-unselected=true]:bg-default-100 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background motion-reduce:transition-none"
+          data-slot="wrapper"
+        >
+          <span
+            class="z-10 h-2 w-2 origin-center scale-0 rounded-full bg-primary text-primary-foreground opacity-0 transition-transform-opacity group-data-[selected=true]:scale-100 group-data-[invalid=true]:bg-danger group-data-[invalid=true]:text-danger-foreground group-data-[selected=true]:opacity-100 motion-reduce:transition-none"
+            data-slot="control"
+          />
+        </span>
+        <div
+          class="ml-1 ms-2 flex flex-col"
+          data-slot="label-wrapper"
+        >
+          <span
+            class="relative select-none text-foreground transition-colors text-medium motion-reduce:transition-none"
+            data-slot="label"
+            id="«replaced-aria-id»-label"
+          >
+            Email
+          </span>
+        </div>
+      </label>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Story Snapshots > Invalid 1`] = `
+<div>
+  <div
+    aria-invalid="true"
+    aria-label="Delivery"
+    aria-orientation="vertical"
+    class="react-aria-RadioGroup"
+    data-invalid="true"
+    data-orientation="vertical"
+    data-rac=""
+    id="react-aria-«replaced-aria-id»"
+    role="radiogroup"
+  >
+    <div
+      class="contents"
+      data-invalid="true"
+      data-rac=""
+    >
+      <label
+        class="group relative -m-2 inline-flex max-w-fit cursor-pointer select-none items-center justify-start p-2 tap-highlight-transparent data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-disabled"
+        data-invalid="true"
+        data-rac=""
+        data-react-aria-pressable="true"
+        data-slot="base"
+        for="«replaced-aria-id»-control"
+      >
+        <span
+          style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+        >
+          <input
+            aria-labelledby="«replaced-aria-id»-label"
+            data-react-aria-pressable="true"
+            id="«replaced-aria-id»-control"
+            name="react-aria-«replaced-aria-id»"
+            tabindex="0"
+            type="radio"
+            value="email"
+          />
+        </span>
+        <span
+          aria-hidden="true"
+          class="relative box-border inline-flex h-5 w-5 shrink-0 items-center justify-center overflow-hidden rounded-full border-2 border-solid transition-transform-colors group-data-[pressed=true]:scale-95 group-data-[invalid=true]:border-danger group-data-[invalid=true]:group-data-[selected=true]:border-danger group-data-[hover-unselected=true]:bg-default-100 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background motion-reduce:transition-none border-danger group-data-[selected=true]:border-danger"
+          data-slot="wrapper"
+        >
+          <span
+            class="z-10 h-2 w-2 origin-center scale-0 rounded-full opacity-0 transition-transform-opacity group-data-[selected=true]:scale-100 group-data-[invalid=true]:bg-danger group-data-[invalid=true]:text-danger-foreground group-data-[selected=true]:opacity-100 motion-reduce:transition-none bg-danger text-danger-foreground"
+            data-slot="control"
+          />
+        </span>
+        <div
+          class="ml-1 ms-2 flex flex-col"
+          data-slot="label-wrapper"
+        >
+          <span
+            class="relative select-none transition-colors text-medium motion-reduce:transition-none text-danger"
+            data-slot="label"
+            id="«replaced-aria-id»-label"
+          >
+            Email
+          </span>
+        </div>
+      </label>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Story Snapshots > WithDescription 1`] = `
+<div>
+  <div
+    aria-label="Delivery"
+    aria-orientation="vertical"
+    class="react-aria-RadioGroup"
+    data-orientation="vertical"
+    data-rac=""
+    id="react-aria-«replaced-aria-id»"
+    role="radiogroup"
+  >
+    <div
+      class="contents"
+      data-rac=""
+      data-selected="true"
+    >
+      <label
+        class="group relative -m-2 inline-flex max-w-fit cursor-pointer select-none items-center justify-start p-2 tap-highlight-transparent data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-disabled"
+        data-focus="true"
+        data-focused="true"
+        data-hover="true"
+        data-hovered="true"
+        data-rac=""
+        data-react-aria-pressable="true"
+        data-selected="true"
+        data-slot="base"
+        for="«replaced-aria-id»-control"
+      >
+        <span
+          style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+        >
+          <input
+            aria-describedby="«replaced-aria-id»-description"
+            aria-labelledby="«replaced-aria-id»-label"
+            data-react-aria-pressable="true"
+            id="«replaced-aria-id»-control"
+            name="react-aria-«replaced-aria-id»"
+            tabindex="0"
+            type="radio"
+            value="email"
+          />
+        </span>
+        <span
+          aria-hidden="true"
+          class="relative box-border inline-flex h-5 w-5 shrink-0 items-center justify-center overflow-hidden rounded-full border-2 border-solid border-default transition-transform-colors group-data-[pressed=true]:scale-95 group-data-[invalid=true]:border-danger group-data-[invalid=true]:group-data-[selected=true]:border-danger group-data-[selected=true]:border-primary group-data-[hover-unselected=true]:bg-default-100 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background motion-reduce:transition-none"
+          data-slot="wrapper"
+        >
+          <span
+            class="z-10 h-2 w-2 origin-center scale-0 rounded-full bg-primary text-primary-foreground opacity-0 transition-transform-opacity group-data-[selected=true]:scale-100 group-data-[invalid=true]:bg-danger group-data-[invalid=true]:text-danger-foreground group-data-[selected=true]:opacity-100 motion-reduce:transition-none"
+            data-slot="control"
+          />
+        </span>
+        <div
+          class="ml-1 ms-2 flex flex-col"
+          data-slot="label-wrapper"
+        >
+          <span
+            class="relative select-none text-foreground transition-colors text-medium motion-reduce:transition-none"
+            data-slot="label"
+            id="«replaced-aria-id»-label"
+          >
+            Email
+          </span>
+          <div
+            class="relative text-foreground-400 transition-colors text-small motion-reduce:transition-none"
+            data-slot="description"
+            id="«replaced-aria-id»-description"
+          >
+            Sent to your inbox
+          </div>
+        </div>
+      </label>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Story Snapshots > WithIcon 1`] = `
+<div>
+  <div
+    aria-label="Delivery"
+    aria-orientation="vertical"
+    class="react-aria-RadioGroup"
+    data-orientation="vertical"
+    data-rac=""
+    id="react-aria-«replaced-aria-id»"
+    role="radiogroup"
+  >
+    <div
+      class="contents"
+      data-rac=""
+    >
+      <label
+        class="group relative -m-2 inline-flex max-w-fit cursor-pointer select-none items-center justify-start p-2 tap-highlight-transparent data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-disabled"
+        data-rac=""
+        data-react-aria-pressable="true"
+        data-slot="base"
+        for="«replaced-aria-id»-control"
+      >
+        <span
+          style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+        >
+          <input
+            aria-labelledby="«replaced-aria-id»-label"
+            data-react-aria-pressable="true"
+            id="«replaced-aria-id»-control"
+            name="react-aria-«replaced-aria-id»"
+            tabindex="0"
+            type="radio"
+            value="email"
+          />
+        </span>
+        <div>
+          <span
+            aria-hidden="true"
+          >
+            ✉
+          </span>
+        </div>
+        <div
+          class="ml-1 ms-2 flex flex-col"
+          data-slot="label-wrapper"
+        >
+          <span
+            class="relative select-none text-foreground transition-colors text-medium motion-reduce:transition-none"
+            data-slot="label"
+            id="«replaced-aria-id»-label"
+          >
+            Email
+          </span>
+        </div>
+        <span
+          aria-hidden="true"
+          class="relative box-border inline-flex h-5 w-5 shrink-0 items-center justify-center overflow-hidden rounded-full border-2 border-solid border-default transition-transform-colors group-data-[pressed=true]:scale-95 group-data-[invalid=true]:border-danger group-data-[invalid=true]:group-data-[selected=true]:border-danger group-data-[selected=true]:border-primary group-data-[hover-unselected=true]:bg-default-100 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background motion-reduce:transition-none"
+          data-slot="wrapper"
+        >
+          <span
+            class="z-10 h-2 w-2 origin-center scale-0 rounded-full bg-primary text-primary-foreground opacity-0 transition-transform-opacity group-data-[selected=true]:scale-100 group-data-[invalid=true]:bg-danger group-data-[invalid=true]:text-danger-foreground group-data-[selected=true]:opacity-100 motion-reduce:transition-none"
+            data-slot="control"
+          />
+        </span>
+      </label>
+    </div>
+  </div>
+</div>
+`;

@@ -34,6 +34,10 @@ export default [
             'packages/uniform/vitest.config.mts',
             'packages/veto/vitest.config.mts',
             'packages/config/storybook-config/.storybook/preview.tsx',
+            'packages/config/storybook-config/playwright.config.mjs',
+            'packages/config/storybook-config/visual/docker.mjs',
+            'packages/config/storybook-config/visual/getVisualTestImage.mjs',
+            'packages/config/storybook-config/visual/serve.mjs',
             'packages/megapixels/.storybook/main.ts',
             'packages/megapixels/.storybook/preview.tsx',
             'packages/pixels/.storybook/main.ts',
@@ -42,6 +46,8 @@ export default [
             'packages/uniform/.storybook/preview.tsx',
             'scripts/check-dependency-boundaries.mjs',
             'scripts/check.mjs',
+            'scripts/ci-snapshot-autofix.mjs',
+            'scripts/ci-snapshot-autofix.test.mjs',
             'scripts/verify-packages.mjs',
           ],
           maximumDefaultProjectFileMatchCount_THIS_WILL_SLOW_DOWN_LINTING: 20,
@@ -55,6 +61,9 @@ export default [
       'packages/*/.storybook/*.{ts,tsx}',
       'packages/config/storybook-config/.storybook/*.{ts,tsx}',
       'scripts/*.mjs',
+      'packages/config/storybook-config/playwright.config.mjs',
+      'packages/config/storybook-config/visual/*.mjs',
+      'packages/config/storybook-config/visual/*.ts',
     ],
     rules: {
       // Storybook/Vitest configuration executes development-only packages.
@@ -67,6 +76,13 @@ export default [
       'no-continue': 'off',
       'no-restricted-syntax': 'off',
       'no-use-before-define': 'off',
+    },
+  },
+  {
+    files: ['**/stories/*.storySetup.tsx'],
+    rules: {
+      // shared story fixtures use the same development dependencies as CSF files
+      'import-x/no-extraneous-dependencies': 'off',
     },
   },
 ];

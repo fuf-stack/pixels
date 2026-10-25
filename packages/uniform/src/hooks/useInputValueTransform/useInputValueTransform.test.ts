@@ -31,6 +31,18 @@ describe('useInputValueTransform', () => {
   });
 
   describe('Number type handling', () => {
+    it('keeps cleared/nullish number displays empty while preserving numeric zero', () => {
+      const { result } = renderHook(() =>
+        useInputValueTransform({ type: 'number' }),
+      );
+      expect(result.current.toDisplayValue(null)).toBe('');
+      expect(result.current.toDisplayValue(undefined)).toBe('');
+      expect(result.current.toDisplayValue('')).toBe('');
+      expect(result.current.toDisplayValue(0)).toBe(0);
+      expect(result.current.toDisplayValue('0')).toBe(0);
+      expect(result.current.toDisplayValue(-2.5)).toBe(-2.5);
+    });
+
     it('should convert strings to numbers for number type display values', () => {
       const { result } = renderHook(() =>
         useInputValueTransform({ type: 'number' }),

@@ -4,14 +4,16 @@ import type { Preview } from '@storybook/react-vite';
 
 import { themes } from 'storybook/theming';
 
+import visualLoader from './visual/loader';
+
 const preview: Preview = {
+  loaders: [visualLoader],
   parameters: {
     actions: { argTypesRegex: '^on[A-Z].*' },
     // show also description and default in controls panel
     controls: { expanded: true },
     // configure dark mode
     // see: https://github.com/vuelessjs/storybook-dark-mode
-    // see: https://github.com/heroui-inc/heroui/blob/canary/packages/storybook/.storybook/preview.tsx
     darkMode: {
       classTarget: 'html',
       current: 'dark',

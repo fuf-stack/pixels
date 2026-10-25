@@ -1,10 +1,32 @@
-import { describe, expect, it } from 'vitest';
+import type { VetoInstance } from '@fuf-stack/veto';
+
+import { describe, expect, it, vi } from 'vitest';
+
+import { useLayoutEffect } from 'react';
+import { useController, useForm } from 'react-hook-form';
 
 import { act, renderHook, waitFor } from '@testing-library/react';
 
-import { objectLoose, string, veto } from '@fuf-stack/veto';
+import { array, objectLoose, string, veto } from '@fuf-stack/veto';
 
 import { useExtendedValidation, useFormResolver } from './FormResolver';
+
+// Exercise the resolver against RHF's real registration and disabled state.
+const useRegisteredResolver = (
+  validation: VetoInstance,
+  name: string,
+  disabled = true,
+) => {
+  const { control } = useForm();
+  useController({ control, disabled, name });
+
+  const state = useFormResolver(validation);
+  const { bindControl } = state;
+
+  useLayoutEffect(() => bindControl(control), [bindControl, control]);
+
+  return state;
+};
 
 describe('useExtendedValidation', () => {
   it('returns undefined when no base and no client validation exists', () => {
@@ -175,6 +197,59 @@ describe('useExtendedValidation', () => {
 });
 
 describe('useFormResolver', () => {
+  it('omits disabled input and schema defaults from output without changing stored values', async () => {
+    const validation = veto({
+      disabledField: string().default('schema default'),
+      enabledField: string().trim(),
+    });
+    const validate = vi.spyOn(validation, 'validateAsync');
+    const values = { disabledField: 'stored', enabledField: ' Ada ' };
+    const { result } = renderHook(() =>
+      useRegisteredResolver(validation, 'disabledField'),
+    );
+    await act(async () => {
+      const resolved = await result.current.resolver?.(values);
+
+      expect(resolved).toEqual({
+        errors: {},
+        values: { enabledField: 'Ada' },
+      });
+    });
+    expect(validate).toHaveBeenLastCalledWith({ enabledField: ' Ada ' });
+    expect(values).toEqual({ disabledField: 'stored', enabledField: ' Ada ' });
+    const directValidation = validation.validate({ enabledField: 'Ada' });
+
+    expect(directValidation.data).toEqual({
+      disabledField: 'schema default',
+      enabledField: 'Ada',
+    });
+  });
+
+  it('maps disabled flat-array field names to normalized validation paths', async () => {
+    const validation = veto({ tags: array(string().min(3).optional()) });
+    const { result, rerender } = renderHook(
+      ({ disabled }) =>
+        useRegisteredResolver(validation, 'tags.0.__FLAT__', disabled),
+      { initialProps: { disabled: true } },
+    );
+    await act(async () => {
+      const resolved = await result.current.resolver?.({
+        tags: [{ __FLAT__: 'x' }, { __FLAT__: 'valid' }],
+      });
+      expect(resolved).toEqual({
+        errors: {},
+        values: { tags: [undefined, 'valid'] },
+      });
+    });
+    rerender({ disabled: false });
+    await act(async () => {
+      await result.current.resolver?.({
+        tags: [{ __FLAT__: 'x' }, { __FLAT__: 'valid' }],
+      });
+    });
+    expect(result.current.validationErrors).toBeDefined();
+  });
+
   it('returns undefined resolver when no validation is provided', () => {
     const { result } = renderHook(() => useFormResolver());
 

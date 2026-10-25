@@ -98,7 +98,7 @@ const storySnapshots = <TProps extends Record<string, any>>(
     test(name, async () => {
       await story.run();
       // Ensures a consistent snapshot by waiting for the component to render
-      // Small delay allows third-party component hooks (like HeroUI's use-is-mounted) to complete
+      // allow component mount effects to complete before capturing the snapshot
       await new Promise((resolve) => {
         setTimeout(resolve, 50);
       });

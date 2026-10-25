@@ -1,74 +1,71 @@
-import type { TVClassName, TVProps } from '@fuf-stack/pixel-utils';
-import type { BadgeProps as HeroBadgeProps } from '@heroui/badge';
 import type { ReactNode } from 'react';
+import type { ClassName, VariantProps } from './badgeVariants';
 
-import { Badge as HeroBadge } from '@heroui/badge';
+import { useStyling } from '../StylingProvider';
+import { badgeVariants } from './badgeVariants';
 
-import { tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
+export { badgeVariants } from './badgeVariants';
 
-// badge styling variants
-export const badgeVariants = tv({
-  slots: {
-    badge: '',
-    base: '',
-  },
-});
-
-type VariantProps = TVProps<typeof badgeVariants>;
-type ClassName = TVClassName<typeof badgeVariants>;
-
-export interface BadgeProps extends VariantProps {
-  /** component which is wrapped by the batch */
-  children: HeroBadgeProps['children'];
+export interface BadgeProps {
+  /** Element carrying the badge */
+  children: ReactNode;
   /** CSS class name */
   className?: ClassName;
-  /** color of the badge */
-  color?: HeroBadgeProps['color'];
-  /** badge content */
-  content?: HeroBadgeProps['content'];
-  /** if set the badge have the same height and width */
-  isOneChar?: HeroBadgeProps['isOneChar'];
-  /** removes the badge outline */
+  /** Badge color */
+  color?: VariantProps['color'];
+  /** Badge content, undefined renders the children alone */
+  content?: ReactNode;
+  /** Fixed circular size for short content */
+  isOneChar?: boolean;
+  /** Removes the contrasting border around the badge */
   noOutline?: boolean;
-  /** placement of the badge */
-  placement?: HeroBadgeProps['placement'];
-  /** size of the badge */
-  size?: HeroBadgeProps['size'];
+  /** Corner used to position the badge */
+  placement?: VariantProps['placement'];
+  /** Badge size */
+  size?: VariantProps['size'];
 }
 
-/**
- * Badge component based on [HeroUI Badge](https://www.heroui.com//docs/components/badge)
- */
-const Avatar = ({
+/** Small count or status indicator attached to a corner of another element */
+const Badge = ({
   children,
-  className: _className = undefined,
-  content = undefined,
+  className = undefined,
   color = 'default',
+  content = undefined,
   isOneChar = false,
   noOutline = false,
   placement = 'top-right',
   size = 'md',
 }: BadgeProps): ReactNode => {
+  const styling = useStyling();
+
+  // numeric zero and single characters use a fixed circle, empty strings use a dot
+  const contentText = String(content);
+  const oneChar = contentText.length === 1 || isOneChar;
+  const isDot = contentText.length === 0;
+
+  // classNames from slots
+  const variants = styling.resolve(badgeVariants, {
+    color,
+    isDot,
+    isOneChar: oneChar,
+    noOutline,
+    placement,
+    size,
+  });
+  const classNames = styling.variantsToClassNames(variants, className, 'base');
+
   if (content === undefined) {
     return children;
   }
-  // className from slots
-  const variants = badgeVariants();
-  const className = variantsToClassNames(variants, _className, 'base');
 
   return (
-    <HeroBadge
-      classNames={className}
-      color={color}
-      content={content}
-      isOneChar={isOneChar}
-      placement={placement}
-      showOutline={!noOutline}
-      size={size}
-    >
+    <div className={classNames.base} data-component="badge" data-slot="base">
       {children}
-    </HeroBadge>
+      <span className={classNames.badge} data-slot="badge">
+        {content}
+      </span>
+    </div>
   );
 };
 
-export default Avatar;
+export default Badge;

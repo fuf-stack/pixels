@@ -1,94 +1,48 @@
-import type { TVClassName, TVProps } from '@fuf-stack/pixel-utils';
 import type { ReactNode } from 'react';
+import type { ClassName, VariantProps } from './progressVariants';
 
-import { Progress as HeroProgress } from '@heroui/progress';
-
-import { tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
+import { useProgressBar } from 'react-aria';
 
 import { useIsInitialRenderCycle } from '../hooks/useIsInitialRenderCycle';
+import { useStyling } from '../StylingProvider';
+import { progressVariants } from './progressVariants';
+import ProgressIndicator from './subcomponents/ProgressIndicator';
 
-// progress styling variants
-export const progressVariants = tv({
-  slots: {
-    // wrapper around the whole component
-    base: '',
-    // indicator of the progress (finished part)
-    indicator: '',
-    // label at the top left of the progress bar
-    label: '',
-    // wrapper around progress label and label span
-    labelWrapper: '',
-    // track of the progress (not finished part)
-    track: '',
-    // span around the progress value
-    value: '',
-  },
-  variants: {
-    // see: https://github.com/heroui-inc/heroui/blob/canary/packages/core/theme/src/components/progress.ts
-    color: {
-      danger: {
-        indicator: 'bg-danger',
-      },
-      default: {
-        indicator: 'bg-default-400',
-      },
-      info: {
-        indicator: 'bg-info',
-      },
-      primary: {
-        indicator: 'bg-primary',
-      },
-      secondary: {
-        indicator: 'bg-secondary',
-      },
-      success: {
-        indicator: 'bg-success',
-      },
-      warning: {
-        indicator: 'bg-warning',
-      },
-    },
-  },
-});
+export { progressVariants } from './progressVariants';
+export type { VariantProps } from './progressVariants';
 
-export type VariantProps = TVProps<typeof progressVariants>;
-type ClassName = TVClassName<typeof progressVariants>;
-
-export interface ProgressProps extends VariantProps {
-  /** sets HTML aria-label attribute */
+export interface ProgressProps {
+  /** Accessible name */
   ariaLabel?: string;
   /** CSS class name */
   className?: ClassName;
-  /** color of the progress bar */
+  /** Progress indicator color */
   color?: VariantProps['color'];
-  /** disables all animations */
+  /** Disables progress animations */
   disableAnimation?: boolean;
-  /** disables special finished state (checkmark icon and success color) */
+  /** Keeps the configured color when progress reaches one hundred */
   disableFinishedState?: boolean;
-  /** function to format the progress value */
+  /** Formatter for the displayed percentage */
   format?: (percent: number) => ReactNode;
-  /** shows indeterminate progress animation */
+  /** Shows activity without a known completion percentage */
   indeterminate?: boolean;
-  /** label of the progress bar */
+  /** Description above the progress track */
   label?: ReactNode;
-  /** percentage / progress of the progress bar */
+  /** Completion percentage */
   percent: number;
-  /** whether to show the value label */
+  /** Shows the formatted percentage above the track */
   showValueLabel?: boolean;
-  /** size of the progress bar */
+  /** Progress track and label size */
   size?: 'sm' | 'md' | 'lg';
-  /** HTML data-testid attribute used in e2e tests */
+  /** HTML data-testid attribute for e2e tests */
   testId?: string;
 }
 
-/** formats percent with percent sign */
 const defaultFormat = (percent = 0) => {
   return `${percent}%`;
 };
 
-/**
- * Progress component based on [HeroUI Progress](https://www.heroui.com//docs/components/progress)
- */
+/** Progress bar showing how much of a task is complete */
 const Progress = ({
   ariaLabel = 'progress',
   className = undefined,
@@ -103,36 +57,74 @@ const Progress = ({
   size = 'md',
   testId = undefined,
 }: ProgressProps) => {
-  // used to disable animation on initial render cycle
+  const styling = useStyling();
   const isInitialRenderCycle = useIsInitialRenderCycle();
-
-  // Apply finished state if percent is 100 or more and not disabled by disableFinishedState
-  const isFinished = percent >= 100 && !disableFinishedState;
-
-  // handle special states
-  let progressColor: VariantProps['color'] = color;
-  if (isFinished) {
-    progressColor = 'success';
-  }
-
-  const variants = progressVariants({ color: progressColor });
-  const classNames = variantsToClassNames(variants, className, 'base');
-
+  // rich content is rendered visually, ARIA keeps a plain value description
   const value = format(percent);
+  const valueLabel =
+    typeof value === 'string' || typeof value === 'number'
+      ? String(value)
+      : undefined;
+  const { progressBarProps, labelProps } = useProgressBar({
+    'aria-label': ariaLabel,
+    isIndeterminate: indeterminate,
+    label,
+    value: percent || 0,
+    valueLabel: percent ? valueLabel : undefined,
+  });
+
+  const isFinished = percent >= 100 && !disableFinishedState;
+  const percentage = Math.min(100, Math.max(0, percent || 0));
+  const displayValue = percent ? value : progressBarProps['aria-valuetext'];
+
+  // classNames from slots
+  const variants = styling.resolve(progressVariants, {
+    color: isFinished ? 'success' : color,
+    disableAnimation: isInitialRenderCycle || disableAnimation,
+    indeterminate,
+    size,
+  });
+  const classNames = styling.variantsToClassNames(variants, className, 'base');
 
   return (
-    <HeroProgress
-      aria-label={ariaLabel}
-      classNames={classNames}
+    <div
+      {...progressBarProps}
+      className={classNames.base}
+      data-component="progress"
+      data-indeterminate={indeterminate || undefined}
+      data-slot="base"
       data-testid={testId}
-      disableAnimation={isInitialRenderCycle || disableAnimation}
-      isIndeterminate={indeterminate}
-      label={label}
-      showValueLabel={showValueLabel}
-      size={size}
-      value={percent || 0}
-      valueLabel={!!percent && value}
-    />
+    >
+      {/* description and formatted progress */}
+      {label || showValueLabel ? (
+        <div className={classNames.labelWrapper} data-slot="labelWrapper">
+          {label ? (
+            <span
+              {...labelProps}
+              className={classNames.label}
+              data-slot="label"
+            >
+              {label}
+            </span>
+          ) : null}
+          {showValueLabel ? (
+            <span className={classNames.value} data-slot="value">
+              {indeterminate ? null : displayValue}
+            </span>
+          ) : null}
+        </div>
+      ) : null}
+
+      {/* track and filled indicator */}
+      <div className={classNames.track} data-slot="track">
+        <ProgressIndicator
+          className={classNames.indicator}
+          disableAnimation={disableAnimation}
+          indeterminate={indeterminate}
+          percentage={percentage}
+        />
+      </div>
+    </div>
   );
 };
 

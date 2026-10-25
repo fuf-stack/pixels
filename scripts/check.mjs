@@ -9,20 +9,19 @@ import { spawnSync } from 'node:child_process';
  */
 
 const checks = [
-  ['release bootstrap', 'test:release'],
   ['dependency boundaries', 'check:boundaries'],
   ['lint', 'lint'],
   ['type checking and builds', 'typecheck'],
-  ['unit tests', 'test'],
+  ['unit tests', 'test:unit'],
   ['Storybook tests', 'test:storybook'],
   ['published package verification', 'verify:packages'],
 ];
 
 const failures = [];
 
-for (const [label, script] of checks) {
+for (const [label, script, ...args] of checks) {
   console.log(`\n=== ${label} ===`);
-  const result = spawnSync('pnpm', ['run', script], {
+  const result = spawnSync('pnpm', ['run', script, ...args], {
     stdio: 'inherit',
   });
 

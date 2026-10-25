@@ -1,48 +1,28 @@
-import type { TVClassName, TVProps } from '@fuf-stack/pixel-utils';
 import type { ReactNode } from 'react';
+import type { ClassName } from './cardVariants';
 
 import { forwardRef } from 'react';
+import { useFocusRing } from 'react-aria';
 
-import {
-  Card as HeroCard,
-  CardBody as HeroCardBody,
-  CardFooter as HeroCardFooter,
-  CardHeader as HeroCardHeader,
-} from '@heroui/card';
-import { Divider as HeroDivider } from '@heroui/divider';
+import { useStyling } from '../StylingProvider';
+import { cardVariants } from './cardVariants';
 
-import { tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
+export { cardVariants } from './cardVariants';
 
-// card styling variants
-export const cardVariants = tv({
-  slots: {
-    base: 'border border-divider',
-    body: '',
-    divider: 'my-0 border-divider',
-    footer: '',
-    header: 'z-auto text-base font-semibold',
-  },
-});
-
-type VariantProps = TVProps<typeof cardVariants>;
-type ClassName = TVClassName<typeof cardVariants>;
-
-export interface CardProps extends VariantProps {
-  /** card body content */
+export interface CardProps {
+  /** Main content */
   children?: ReactNode;
   /** CSS class name */
   className?: ClassName;
-  /** footer content */
+  /** Supporting content below the body */
   footer?: ReactNode;
-  /** header content */
+  /** Heading content above the body */
   header?: ReactNode;
-  /** HTML data-testid attribute used in e2e tests */
+  /** HTML data-testid attribute for e2e tests */
   testId?: string;
 }
 
-/**
- * Card component based on [HeroUI Card](https://www.heroui.com//docs/components/card)
- */
+/** Bordered content surface with an optional heading and footer */
 const Card = forwardRef<HTMLDivElement, CardProps>(
   (
     {
@@ -54,51 +34,70 @@ const Card = forwardRef<HTMLDivElement, CardProps>(
     },
     ref,
   ) => {
+    const styling = useStyling();
+    const { focusProps, isFocused, isFocusVisible } = useFocusRing();
+
     // classNames from slots
-    const variants = cardVariants();
-    const { divider: dividerClassName, ...classNames } = variantsToClassNames(
+    const variants = styling.resolve(cardVariants);
+    const classNames = styling.variantsToClassNames(
       variants,
       className,
       'base',
     );
 
-    const divider = <HeroDivider className={dividerClassName} />;
-
     return (
-      <HeroCard
+      <div
+        {...focusProps}
         ref={ref}
-        classNames={classNames}
-        data-testid={testId ? `card_${testId}` : null}
-        fullWidth
-        radius="sm"
-        shadow="none"
+        className={classNames.base}
+        data-component="card"
+        data-focus={isFocused || undefined}
+        data-focus-visible={isFocusVisible || undefined}
+        data-slot="base"
+        data-testid={testId ? `card_${testId}` : undefined}
+        tabIndex={-1}
       >
+        {/* optional heading and its divider */}
         {header ? (
           <>
-            <HeroCardHeader
-              data-testid={testId ? `card_header_${testId}` : null}
+            <div
+              className={classNames.header}
+              data-slot="header"
+              data-testid={testId ? `card_header_${testId}` : undefined}
             >
               {header}
-            </HeroCardHeader>
-            {divider}
+            </div>
+            <hr className={classNames.divider} />
           </>
         ) : null}
-        <HeroCardBody data-testid={testId ? `card_body_${testId}` : null}>
+
+        {/* main content */}
+        <div
+          className={classNames.body}
+          data-slot="body"
+          data-testid={testId ? `card_body_${testId}` : undefined}
+        >
           {children}
-        </HeroCardBody>
+        </div>
+
+        {/* optional footer and its divider */}
         {footer ? (
           <>
-            {divider}
-            <HeroCardFooter
-              data-testid={testId ? `card_footer_${testId}` : null}
+            <hr className={classNames.divider} />
+            <div
+              className={classNames.footer}
+              data-slot="footer"
+              data-testid={testId ? `card_footer_${testId}` : undefined}
             >
               {footer}
-            </HeroCardFooter>
+            </div>
           </>
         ) : null}
-      </HeroCard>
+      </div>
     );
   },
 );
+
+Card.displayName = 'Card';
 
 export default Card;

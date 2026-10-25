@@ -1,98 +1,55 @@
-import type { TVClassName, TVProps } from '@fuf-stack/pixel-utils';
 import type { ReactNode } from 'react';
+import type { ClassName, VariantProps } from './tableVariants';
 
-import {
-  getKeyValue,
-  Table as HeroTable,
-  TableBody,
-  TableCell,
-  TableColumn,
-  TableHeader,
-  TableRow,
-} from '@heroui/table';
+import { slugify } from '@fuf-stack/pixel-utils';
 
-import { slugify, tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
+import { useStyling } from '../StylingProvider';
+import TableGrid from './subcomponents/TableGrid';
+import { tableVariants } from './tableVariants';
 
-// table styling variants
-export const tableVariants = tv({
-  slots: {
-    base: '',
-    wrapper: '',
-    table: '',
-    thead: '',
-    tbody: '',
-    tr: '',
-    th: 'bg-content2',
-    td: '',
-    tfoot: '',
-    sortIcon: '',
-    emptyWrapper: '',
-    loadingWrapper: '',
-  },
-  variants: {
-    separation: {
-      divider: {
-        tr: 'divide-x rounded-lg border-b data-[last=true]:border-none [&:first-child:not([data-first="true"])]:border-none',
-      },
-      'divider-x': {
-        tr: 'divide-x',
-      },
-      'divider-y': {
-        tr: 'rounded-lg border-b data-[last=true]:border-none [&:first-child:not([data-first="true"])]:border-none',
-      },
-      'striped-divider-x': {
-        tr: 'divide-x',
-        th: 'border-divider',
-        td: 'border-divider first:rounded-s-lg last:rounded-e-lg group-data-[odd=true]:bg-content2',
-      },
-      striped: {
-        tr: '',
-        td: 'first:rounded-s-lg last:rounded-e-lg group-data-[odd=true]:bg-content2',
-      },
-      none: {},
-    },
-  },
-});
-
-export type VariantProps = TVProps<typeof tableVariants>;
-type ClassName = TVClassName<typeof tableVariants>;
+export { tableVariants } from './tableVariants';
+export type { VariantProps } from './tableVariants';
 
 export interface TableColumnProps {
+  /** Unique column key */
   key: string;
+  /** Column heading */
   label: ReactNode;
 }
 
 export interface TableRowProps {
+  /** Cell content indexed by column key */
   [key: string | number]: ReactNode;
+  /** Unique row key */
   key: string | number;
 }
 
 export interface TableProps extends VariantProps {
-  /** Aria label for the Table. */
+  /** Accessible name of the table */
   ariaLabel?: string;
-  /** Component to display at the bottom of the Table. */
+  /** Content below the table */
   bottomContent?: ReactNode;
   /** CSS class name */
   className?: ClassName;
-  /** Objects with table data */
+  /** Column headings and row property keys */
   columns: TableColumnProps[];
-  /** Component to display if there are no rows! */
+  /** Message shown when no rows are available */
   emptyContent?: ReactNode;
-  /** Determine if the Table should have a card like wrapper. */
+  /** Wraps the table in a scrolling card surface */
   hasWrapper?: boolean;
-  /** remove header */
+  /** Hides column headings */
   hideHeader?: boolean;
-  /** Tells the Table to show the loading component. */
+  /** Shows loading content over existing rows */
   loading?: boolean;
-  /** Loading animation component. */
+  /** Content announced while loading */
   loadingContent?: ReactNode;
-  /** The maximum height of the table in pixels. Required when using virtualization. */
+  /** Scroll surface height in pixels, defaults to 600 when virtualized */
   maxTableHeight?: number;
-  /** The fixed height of each row item in pixels. Required when using virtualization. */
+  /** Fixed virtual row height in pixels, defaults to 40 */
   rowHeight?: number;
-  /** Items displayed as rows in the Table. Should have key-value pair for each column. */
+  /** Row values indexed by column key */
   rows?: TableRowProps[];
-  /** Separation style for the rows & columns. */
+  /** Separation treatment for rows and columns */
   separation?:
     | 'none'
     | 'striped'
@@ -100,17 +57,15 @@ export interface TableProps extends VariantProps {
     | 'divider-x'
     | 'divider-y'
     | 'divider';
-  /** Keeps the header of the Table in view while scrolling a height limited Table. */
+  /** Keeps column headings visible while scrolling */
   stickyHeader?: boolean;
-  /** HTML data-testid attribute used in e2e tests */
+  /** HTML data-testid attribute for e2e tests */
   testId?: string;
-  /** Virtualize allows efficient rendering of large lists by only rendering items that are visible in the viewport. */
+  /** Renders a bounded window of rows for large collections */
   virtualized?: boolean;
 }
 
-/**
- * Table component based on [HeroUI Table](https://www.heroui.com//docs/components/table)
- */
+/** Data arranged in columns and rows, with keyboard navigation and optional virtual scrolling */
 const Table = ({
   ariaLabel = undefined,
   bottomContent = undefined,
@@ -129,48 +84,39 @@ const Table = ({
   testId = undefined,
   virtualized = false,
 }: TableProps) => {
-  const variants = tableVariants({ separation });
-  const classNames = variantsToClassNames(variants, className, 'base');
+  const styling = useStyling();
+
+  // classNames from slots
+  const variants = styling.resolve(tableVariants, {
+    hideHeader,
+    separation,
+    stickyHeader,
+  });
+  const classNames = styling.variantsToClassNames(variants, className, 'base');
 
   return (
-    <HeroTable
-      aria-label={ariaLabel}
-      bottomContent={bottomContent}
-      classNames={classNames}
-      data-testid={testId ? slugify(testId) : null}
-      hideHeader={hideHeader}
-      isHeaderSticky={stickyHeader}
-      isStriped={separation === 'striped' || separation === 'striped-divider-x'}
-      isVirtualized={virtualized}
-      maxTableHeight={maxTableHeight}
-      removeWrapper={virtualized ? false : !hasWrapper} // always show wrapper if virtualized
-      rowHeight={rowHeight}
+    <div
+      className={classNames.base}
+      data-component="table"
+      data-slot="base"
+      data-testid={testId ? slugify(testId) : undefined}
     >
-      <TableHeader columns={columns}>
-        {(column: TableColumnProps) => {
-          return <TableColumn key={column.key}>{column.label}</TableColumn>;
-        }}
-      </TableHeader>
-      <TableBody
+      <TableGrid
+        ariaLabel={ariaLabel}
+        bottomContent={bottomContent}
+        className={classNames}
+        columns={columns}
         emptyContent={emptyContent}
-        isLoading={loading}
-        items={rows}
-        loadingContent={loadingContent ?? '...'} // TODO: use future spinner/loading component
-      >
-        {(item: TableRowProps) => {
-          return (
-            <TableRow
-              key={item.key}
-              // data-testid={`${slugify(testId || 'table')}_item_${slugify(JSON.stringify(item.testId || item.key))}`}
-            >
-              {(columnKey) => {
-                return <TableCell>{getKeyValue(item, columnKey)}</TableCell>;
-              }}
-            </TableRow>
-          );
-        }}
-      </TableBody>
-    </HeroTable>
+        hasWrapper={hasWrapper}
+        loading={loading}
+        loadingContent={loadingContent}
+        maxTableHeight={maxTableHeight}
+        rowHeight={rowHeight}
+        rows={rows}
+        stickyHeader={stickyHeader}
+        virtualized={virtualized}
+      />
+    </div>
   );
 };
 

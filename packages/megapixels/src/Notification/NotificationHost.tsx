@@ -13,7 +13,7 @@ export interface NotificationHostProps {
 }
 
 /**
- * Mounts the Toaster and ModalHost.
+ * Application host for toast notifications and their related dialogs
  *
  * Use once at the top level of your app:
  *
@@ -22,21 +22,15 @@ export interface NotificationHostProps {
  * ```
  */
 const NotificationHost = ({ width = 600 }: NotificationHostProps) => {
-  // Stacking layers (see notification.tsx for the modal side):
-  //   1. normal app-level modal — HeroUI default z-50
-  //   2. notification / Toaster  — z-60 (this), so notifications appear ABOVE
-  //      a normal modal that is already open
-  //   3. modal opened FROM a notification — z-70 (set in notification.tsx),
-  //      so it appears above the notification again
-  // Sonner defaults the Toaster to z-index 999999999, so we override it here.
-  // `--width` is passed inline because Sonner sets its default `--width` inline
-  // on the same element, which beats class-based overrides.
+  // toasts sit above normal modals, notification-owned modals use z-70
+  // Sonner defines width inline, so its override must also be inline
   const toasterStyle = {
     zIndex: 60,
     ...(width != null && {
       '--width': typeof width === 'number' ? `${width}px` : width,
     }),
   } as CSSProperties;
+
   return (
     <>
       <Toaster style={toasterStyle} />

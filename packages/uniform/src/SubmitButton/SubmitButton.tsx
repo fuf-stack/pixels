@@ -1,8 +1,9 @@
 import type { ButtonProps } from '@fuf-stack/pixels';
 import type { ReactNode } from 'react';
 
-import { cn, slugify } from '@fuf-stack/pixel-utils';
+import { slugify } from '@fuf-stack/pixel-utils';
 import { Button } from '@fuf-stack/pixels';
+import { useStyling } from '@fuf-stack/pixels/StylingProvider';
 
 export interface SubmitButtonProps {
   /** sets HTML aria-label attribute */
@@ -53,11 +54,13 @@ const SubmitButton = ({
   size = 'md',
   testId = 'form_submit_button',
 }: SubmitButtonProps) => {
+  const { cn } = useStyling();
   return (
     <Button
       ariaLabel={ariaLabel}
       className={cn(className)}
       color={color}
+      dataComponent="submit-button"
       // associate with a form rendered elsewhere via the native `form` attribute
       // (see remoteFormId prop) so the button can submit a form it is not a DOM
       // descendant of

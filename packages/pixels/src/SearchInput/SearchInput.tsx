@@ -1,99 +1,52 @@
-import type { TVClassName, TVProps } from '@fuf-stack/pixel-utils';
-import type { ChangeEvent, ReactNode } from 'react';
+import type { ReactNode } from 'react';
+import type { ClassName, VariantProps } from './searchInputVariants';
 
 import { useState } from 'react';
-import { FaSearch } from 'react-icons/fa';
 
-import { Input as HeroInput } from '@heroui/input';
+import SearchInputControl from './subcomponents/SearchInputControl';
 
-import { slugify, tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
+export { inputVariants } from './searchInputVariants';
 
-// input variants
-export const inputVariants = tv({
-  slots: {
-    /** wrapper around the whole input */
-    base: '',
-    /** clear button */
-    clearButton: '',
-    /** actual input element */
-    input: '',
-    /** inner wrapper (HeroUI inputWrapper slot) */
-    inputWrapper: 'bg-content1 group-data-[focus=true]:border-focus',
-  },
-});
-
-type VariantProps = TVProps<typeof inputVariants>;
-type ClassName = TVClassName<typeof inputVariants>;
-
-export interface SearchInputProps extends VariantProps {
+export interface SearchInputProps {
   /** CSS class name */
   className?: ClassName;
-  /** input field is disabled */
+  /** Disables the input */
   disabled?: boolean;
-  /** added content to the end of the input Field. */
+  /** Content after the input, replaced by the clear action when present */
   endContent?: ReactNode;
-  /** optional initial value of the input */
+  /** Initial search text, read when the component mounts */
   initialValue?: string;
-  /** callback that is fired when the value is changed or cleared */
+  /** Callback for text edits, null when explicitly cleared */
   onChange: (value: string | null) => void;
-  /** form field placeholder */
+  /** Placeholder text */
   placeholder?: string;
-  /** size of the input */
-  size?: 'sm' | 'md' | 'lg';
-  /** content added to the start of the input field */
+  /** Input size */
+  size?: VariantProps['size'];
+  /** Content before the input, defaults to a search icon */
   startContent?: ReactNode;
-  /** HTML data-testid attribute used in e2e tests */
+  /** HTML data-testid attribute for e2e tests */
   testId?: string;
 }
 
-/**
- * SearchInput component based on [HeroUI Input](https://www.heroui.com//docs/components/input)
- */
+/** Search input for filtering content, with an action to clear the search text */
 const SearchInput = ({
-  className: _className = undefined,
-  disabled = false,
-  endContent = undefined,
-  onChange,
-  placeholder = undefined,
-  size = undefined,
-  startContent = undefined,
-  testId = undefined,
   initialValue = undefined,
+  onChange,
+  ...props
 }: SearchInputProps) => {
-  // handle controlled value with initial value
   const [value, setValue] = useState(initialValue ?? '');
 
-  const handleChange = (e?: ChangeEvent<HTMLInputElement>) => {
-    setValue(e?.target?.value ?? '');
-    onChange(e?.target?.value ?? null);
+  // update the displayed text and preserve the explicit clear signal
+  const handleValueChange = (next: string | null) => {
+    setValue(next ?? '');
+    onChange(next);
   };
 
-  // classNames from slots
-  const variants = inputVariants();
-  const classNames = variantsToClassNames(variants, _className, 'base');
-
   return (
-    <HeroInput
-      // disable password manager integrations
-      autoComplete="off"
-      classNames={{
-        base: classNames.base,
-        clearButton: classNames.clearButton,
-        input: classNames.input,
-        inputWrapper: classNames.inputWrapper,
-      }}
-      data-testid={testId ? slugify(testId) : undefined}
-      endContent={endContent}
-      isClearable
-      isDisabled={disabled}
-      onChange={handleChange}
-      onClear={handleChange}
-      placeholder={placeholder}
-      radius="sm"
-      size={size}
-      startContent={startContent ?? <FaSearch className="opacity-50" />}
+    <SearchInputControl
+      {...props}
+      onValueChange={handleValueChange}
       value={value}
-      variant="bordered"
     />
   );
 };

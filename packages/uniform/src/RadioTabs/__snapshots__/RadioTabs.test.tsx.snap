@@ -3,47 +3,43 @@
 exports[`Story Snapshots > BooleanValuesWithConditionalField 1`] = `
 <div>
   <div
-    class="flex w-full flex-row justify-between gap-6"
+    class="flex w-full flex-row justify-between gap-6 min-w-md"
+    data-component="form"
   >
     <form
-      class="grow min-w-md"
+      class="grow"
       data-form-is-valid="true"
       data-testid=""
+      novalidate=""
     >
       <div
-        style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
-      >
-        <input
-          aria-label="Do you want pizza? 🍕"
-          name="wantsPizza"
-          value="false"
-        />
-      </div>
-      <div
-        aria-label="Do you want pizza? 🍕"
-        aria-orientation="vertical"
-        class="relative gap-2 group flex w-full flex-col gap-y-1.5"
+        aria-labelledby="uniform-«replaced-aria-id»-label"
+        class="group flex w-full flex-col gap-y-1.5 relative"
+        data-component="radio-tabs"
         data-invalid="false"
         data-required="false"
+        data-slot="base"
         data-testid="wantspizza"
-        id="react-aria-«replaced-aria-id»"
-        role="radiogroup"
+        id="uniform-«replaced-aria-id»"
+        role="group"
       >
-        <span
-          class="relative mb-2 inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger"
-        >
-          <legend>
-            Do you want pizza? 🍕
-          </legend>
-        </span>
         <div
-          class="flex flex-col flex-wrap gap-2 data-[orientation=horizontal]:flex-row"
-          data-orientation="vertical"
-          role="presentation"
+          class="mb-2 inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger relative"
+          data-slot="label"
+          id="uniform-«replaced-aria-id»-label"
         >
+          Do you want pizza? 🍕
+        </div>
+        <div
+          class="flex flex-col flex-wrap gap-2"
+          data-slot="wrapper"
+        >
+          <template />
           <div
             class="rounded-medium border border-divider w-full"
+            data-orientation="horizontal"
             data-placement="top"
+            data-rac=""
             data-slot="tabWrapper"
             data-vertical="horizontal"
           >
@@ -52,22 +48,30 @@ exports[`Story Snapshots > BooleanValuesWithConditionalField 1`] = `
               data-slot="base"
             >
               <div
+                aria-label="Do you want pizza? 🍕"
                 aria-orientation="horizontal"
-                class="relative flex p-1 h-fit gap-2 items-center flex-nowrap overflow-x-scroll scrollbar-hide bg-default-100 rounded-medium w-full"
+                class="relative flex h-fit w-full flex-nowrap items-center gap-2 overflow-x-auto rounded-medium bg-default-100 p-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
                 data-collection="react-aria-«replaced-aria-id»"
+                data-orientation="horizontal"
+                data-rac=""
                 data-slot="tabList"
                 id="react-aria-«replaced-aria-id»"
                 role="tablist"
               >
                 <span
-                  class="absolute z-0 will-change-[transform,width,height] invisible data-[initialized=true]:visible data-[animated=true]:transition-[left,top,width,height] data-[animated=true]:duration-250 data-[animated=true]:ease-out rounded-small bg-background dark:bg-default shadow-small"
+                  aria-hidden="true"
+                  class="pointer-events-none absolute z-0 rounded-small bg-background shadow-small transition-[left,top,width,height] duration-250 ease-out motion-reduce:transition-none dark:bg-default"
+                  data-animated="true"
+                  data-initialized="true"
                   data-slot="cursor"
+                  style="left: 0px; top: 0px; width: 0px; height: 0px;"
                 />
-                <button
+                <div
                   aria-selected="true"
-                  class="z-0 w-full px-3 py-1 flex group relative justify-center items-center cursor-pointer transition-opacity tap-highlight-transparent data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 h-8 text-small rounded-small data-[hover-unselected=true]:opacity-100"
+                  class="outline-solid group relative z-0 flex h-8 w-full cursor-pointer items-center justify-center rounded-small px-3 py-1 outline-transparent transition-opacity text-small data-[focus-visible=true]:z-10 data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus motion-reduce:transition-none"
                   data-collection="react-aria-«replaced-aria-id»"
                   data-key="false"
+                  data-rac=""
                   data-react-aria-pressable="true"
                   data-selected="true"
                   data-slot="tab"
@@ -75,35 +79,34 @@ exports[`Story Snapshots > BooleanValuesWithConditionalField 1`] = `
                   id="react-aria-«replaced-aria-id»-tab-false"
                   role="tab"
                   tabindex="0"
-                  type="button"
                 >
-                  <div
-                    class="relative z-10 whitespace-nowrap transition-colors group-data-[selected=true]:text-default-foreground text-foreground"
+                  <span
+                    class="relative z-10 whitespace-nowrap text-foreground transition-colors group-data-[selected=true]:text-default-foreground motion-reduce:transition-none"
                     data-slot="tabContent"
                   >
                     No thanks 😢
-                  </div>
-                </button>
-                <button
+                  </span>
+                </div>
+                <div
                   aria-selected="false"
-                  class="z-0 w-full px-3 py-1 flex group relative justify-center items-center cursor-pointer transition-opacity tap-highlight-transparent data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 h-8 text-small rounded-small data-[hover-unselected=true]:opacity-100"
+                  class="outline-solid group relative z-0 flex h-8 w-full cursor-pointer items-center justify-center rounded-small px-3 py-1 outline-transparent transition-opacity text-small data-[focus-visible=true]:z-10 data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus motion-reduce:transition-none"
                   data-collection="react-aria-«replaced-aria-id»"
                   data-key="true"
+                  data-rac=""
                   data-react-aria-pressable="true"
                   data-slot="tab"
                   data-testid="wantspizza_option_true"
                   id="react-aria-«replaced-aria-id»-tab-true"
                   role="tab"
                   tabindex="-1"
-                  type="button"
                 >
-                  <div
-                    class="relative z-10 whitespace-nowrap transition-colors group-data-[selected=true]:text-default-foreground text-foreground"
+                  <span
+                    class="relative z-10 whitespace-nowrap text-foreground transition-colors group-data-[selected=true]:text-default-foreground motion-reduce:transition-none"
                     data-slot="tabContent"
                   >
                     Yes please! 🎉
-                  </div>
-                </button>
+                  </span>
+                </div>
               </div>
             </div>
           </div>
@@ -114,9 +117,212 @@ exports[`Story Snapshots > BooleanValuesWithConditionalField 1`] = `
       >
         <button
           aria-label="Submit form"
-          class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
+          data-component="submit-button"
+          data-rac=""
           data-react-aria-pressable="true"
           data-testid="form_submit_button"
+          id="react-aria-«replaced-aria-id»"
+          tabindex="0"
+          type="submit"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`Story Snapshots > CustomStyling 1`] = `
+<div>
+  <div
+    class="flex w-full flex-row justify-between gap-6"
+    data-component="form"
+  >
+    <form
+      class="grow min-w-60"
+      data-form-is-valid="false"
+      data-testid=""
+      novalidate=""
+    >
+      <div
+        aria-describedby="uniform-«replaced-aria-id»-description uniform-«replaced-aria-id»-error uniform-«replaced-aria-id»-required"
+        aria-invalid="true"
+        aria-labelledby="uniform-«replaced-aria-id»-label"
+        class="group flex w-full flex-col gap-y-1.5 relative"
+        data-component="radio-tabs"
+        data-invalid="true"
+        data-required="true"
+        data-slot="base"
+        data-testid="radiotabsfield"
+        id="uniform-«replaced-aria-id»"
+        role="group"
+      >
+        <div
+          class="mb-2 inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger relative"
+          data-slot="label"
+          id="uniform-«replaced-aria-id»-label"
+        >
+          Choice
+          <span
+            aria-hidden="true"
+            class="ml-0.5 text-danger"
+          >
+            *
+          </span>
+        </div>
+        <span
+          class="sr-only"
+          id="uniform-«replaced-aria-id»-required"
+        >
+          Required selection.
+        </span>
+        <div
+          class="flex flex-col flex-wrap gap-2"
+          data-slot="wrapper"
+        >
+          <template />
+          <div
+            class="rounded-medium border-2 !border-danger"
+            data-focused="true"
+            data-orientation="horizontal"
+            data-placement="top"
+            data-rac=""
+            data-slot="tabWrapper"
+            data-vertical="horizontal"
+          >
+            <div
+              class="inline-flex w-full"
+              data-slot="base"
+            >
+              <div
+                aria-label="Choice"
+                aria-orientation="horizontal"
+                class="relative flex h-fit w-full flex-nowrap items-center gap-2 overflow-x-auto rounded-medium bg-default-100 p-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+                data-collection="react-aria-«replaced-aria-id»"
+                data-orientation="horizontal"
+                data-rac=""
+                data-slot="tabList"
+                id="react-aria-«replaced-aria-id»"
+                role="tablist"
+              >
+                <div
+                  aria-describedby="uniform-«replaced-aria-id»-description uniform-«replaced-aria-id»-error uniform-«replaced-aria-id»-required"
+                  aria-selected="false"
+                  class="outline-solid group relative z-0 flex h-8 w-full cursor-pointer items-center justify-center rounded-small px-3 py-1 outline-transparent transition-opacity text-small data-[focus-visible=true]:z-10 data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus motion-reduce:transition-none"
+                  data-collection="react-aria-«replaced-aria-id»"
+                  data-focus="true"
+                  data-focused="true"
+                  data-key="option_1"
+                  data-rac=""
+                  data-react-aria-pressable="true"
+                  data-slot="tab"
+                  data-testid="radiotabsfield_option_option_1"
+                  id="react-aria-«replaced-aria-id»-tab-option_1"
+                  role="tab"
+                  tabindex="0"
+                >
+                  <span
+                    class="relative z-10 whitespace-nowrap text-foreground transition-colors group-data-[selected=true]:text-default-foreground motion-reduce:transition-none"
+                    data-slot="tabContent"
+                  >
+                    Option 1
+                  </span>
+                </div>
+                <div
+                  aria-describedby="uniform-«replaced-aria-id»-description uniform-«replaced-aria-id»-error uniform-«replaced-aria-id»-required"
+                  aria-selected="false"
+                  class="outline-solid group relative z-0 flex h-8 w-full cursor-pointer items-center justify-center rounded-small px-3 py-1 outline-transparent transition-opacity text-small data-[focus-visible=true]:z-10 data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus motion-reduce:transition-none"
+                  data-collection="react-aria-«replaced-aria-id»"
+                  data-key="option_2"
+                  data-rac=""
+                  data-react-aria-pressable="true"
+                  data-slot="tab"
+                  data-testid="radiotabsfield_option_option_2"
+                  id="react-aria-«replaced-aria-id»-tab-option_2"
+                  role="tab"
+                  tabindex="-1"
+                >
+                  <span
+                    class="relative z-10 whitespace-nowrap text-foreground transition-colors group-data-[selected=true]:text-default-foreground motion-reduce:transition-none"
+                    data-slot="tabContent"
+                  >
+                    Option 2
+                  </span>
+                </div>
+                <div
+                  aria-describedby="uniform-«replaced-aria-id»-description uniform-«replaced-aria-id»-error uniform-«replaced-aria-id»-required"
+                  aria-selected="false"
+                  class="outline-solid group relative z-0 flex h-8 w-full cursor-pointer items-center justify-center rounded-small px-3 py-1 outline-transparent transition-opacity text-small data-[focus-visible=true]:z-10 data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus motion-reduce:transition-none"
+                  data-collection="react-aria-«replaced-aria-id»"
+                  data-key="option_3"
+                  data-rac=""
+                  data-react-aria-pressable="true"
+                  data-slot="tab"
+                  data-testid="radiotabsfield_option_option_3"
+                  id="react-aria-«replaced-aria-id»-tab-option_3"
+                  role="tab"
+                  tabindex="-1"
+                >
+                  <span
+                    class="relative z-10 whitespace-nowrap text-foreground transition-colors group-data-[selected=true]:text-default-foreground motion-reduce:transition-none"
+                    data-slot="tabContent"
+                  >
+                    Option 3
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="flex flex-col gap-2"
+          data-slot="helper-wrapper"
+        >
+          <div
+            class="text-primary text-small"
+            data-slot="description"
+            id="uniform-«replaced-aria-id»-description"
+          >
+            Choose an available option
+          </div>
+          <div
+            class="text-danger text-tiny font-semibold"
+            data-slot="error-message"
+            id="uniform-«replaced-aria-id»-error"
+          >
+            <ul
+              aria-label="Validation errors of field radiotabsfield"
+              data-component="field-validation-error"
+              data-testid="radiotabsfield_error"
+            >
+              <li
+                style="overflow: hidden;"
+              >
+                <div
+                  class="px-1 pt-1"
+                >
+                  Field is required
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div
+        class="mt-4 flex justify-end"
+      >
+        <button
+          aria-label="Submit form"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
+          data-component="submit-button"
+          data-hover="true"
+          data-hovered="true"
+          data-rac=""
+          data-react-aria-pressable="true"
+          data-testid="form_submit_button"
+          id="react-aria-«replaced-aria-id»"
           tabindex="0"
           type="submit"
         >
@@ -132,38 +338,35 @@ exports[`Story Snapshots > Default 1`] = `
 <div>
   <div
     class="flex w-full flex-row justify-between gap-6"
+    data-component="form"
   >
     <form
       class="grow min-w-60"
       data-form-is-valid="true"
       data-testid=""
+      novalidate=""
     >
       <div
-        style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
-      >
-        <input
-          aria-label="radioTabsField"
-          name="radioTabsField"
-          value=""
-        />
-      </div>
-      <div
         aria-label="radioTabsField"
-        aria-orientation="vertical"
-        class="relative gap-2 group flex w-full flex-col gap-y-1.5"
+        class="group flex w-full flex-col gap-y-1.5 relative"
+        data-component="radio-tabs"
         data-invalid="false"
         data-required="false"
+        data-slot="base"
         data-testid="radiotabsfield"
-        id="react-aria-«replaced-aria-id»"
-        role="radiogroup"
+        id="uniform-«replaced-aria-id»"
+        role="group"
       >
         <div
-          class="flex flex-col flex-wrap gap-2 data-[orientation=horizontal]:flex-row"
-          data-orientation="vertical"
-          role="presentation"
+          class="flex flex-col flex-wrap gap-2"
+          data-slot="wrapper"
         >
+          <template />
           <div
+            class="react-aria-Tabs"
+            data-orientation="horizontal"
             data-placement="top"
+            data-rac=""
             data-slot="tabWrapper"
             data-vertical="horizontal"
           >
@@ -172,73 +375,76 @@ exports[`Story Snapshots > Default 1`] = `
               data-slot="base"
             >
               <div
+                aria-label="radioTabsField"
                 aria-orientation="horizontal"
-                class="relative flex p-1 h-fit gap-2 items-center flex-nowrap overflow-x-scroll scrollbar-hide bg-default-100 rounded-medium w-full"
+                class="relative flex h-fit w-full flex-nowrap items-center gap-2 overflow-x-auto rounded-medium bg-default-100 p-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
                 data-collection="react-aria-«replaced-aria-id»"
+                data-orientation="horizontal"
+                data-rac=""
                 data-slot="tabList"
                 id="react-aria-«replaced-aria-id»"
                 role="tablist"
               >
-                <button
+                <div
                   aria-selected="false"
-                  class="z-0 w-full px-3 py-1 flex group relative justify-center items-center cursor-pointer transition-opacity tap-highlight-transparent data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 h-8 text-small rounded-small data-[hover-unselected=true]:opacity-100"
+                  class="outline-solid group relative z-0 flex h-8 w-full cursor-pointer items-center justify-center rounded-small px-3 py-1 outline-transparent transition-opacity text-small data-[focus-visible=true]:z-10 data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus motion-reduce:transition-none"
                   data-collection="react-aria-«replaced-aria-id»"
                   data-key="option_1"
+                  data-rac=""
                   data-react-aria-pressable="true"
                   data-slot="tab"
                   data-testid="radiotabsfield_option_option_1"
                   id="react-aria-«replaced-aria-id»-tab-option_1"
                   role="tab"
                   tabindex="-1"
-                  type="button"
                 >
-                  <div
-                    class="relative z-10 whitespace-nowrap transition-colors group-data-[selected=true]:text-default-foreground text-foreground"
+                  <span
+                    class="relative z-10 whitespace-nowrap text-foreground transition-colors group-data-[selected=true]:text-default-foreground motion-reduce:transition-none"
                     data-slot="tabContent"
                   >
                     Option 1
-                  </div>
-                </button>
-                <button
+                  </span>
+                </div>
+                <div
                   aria-selected="false"
-                  class="z-0 w-full px-3 py-1 flex group relative justify-center items-center cursor-pointer transition-opacity tap-highlight-transparent data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 h-8 text-small rounded-small data-[hover-unselected=true]:opacity-100"
+                  class="outline-solid group relative z-0 flex h-8 w-full cursor-pointer items-center justify-center rounded-small px-3 py-1 outline-transparent transition-opacity text-small data-[focus-visible=true]:z-10 data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus motion-reduce:transition-none"
                   data-collection="react-aria-«replaced-aria-id»"
                   data-key="option_2"
+                  data-rac=""
                   data-react-aria-pressable="true"
                   data-slot="tab"
                   data-testid="radiotabsfield_option_option_2"
                   id="react-aria-«replaced-aria-id»-tab-option_2"
                   role="tab"
                   tabindex="-1"
-                  type="button"
                 >
-                  <div
-                    class="relative z-10 whitespace-nowrap transition-colors group-data-[selected=true]:text-default-foreground text-foreground"
+                  <span
+                    class="relative z-10 whitespace-nowrap text-foreground transition-colors group-data-[selected=true]:text-default-foreground motion-reduce:transition-none"
                     data-slot="tabContent"
                   >
                     Option 2
-                  </div>
-                </button>
-                <button
+                  </span>
+                </div>
+                <div
                   aria-selected="false"
-                  class="z-0 w-full px-3 py-1 flex group relative justify-center items-center cursor-pointer transition-opacity tap-highlight-transparent data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 h-8 text-small rounded-small data-[hover-unselected=true]:opacity-100"
+                  class="outline-solid group relative z-0 flex h-8 w-full cursor-pointer items-center justify-center rounded-small px-3 py-1 outline-transparent transition-opacity text-small data-[focus-visible=true]:z-10 data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus motion-reduce:transition-none"
                   data-collection="react-aria-«replaced-aria-id»"
                   data-key="option_3"
+                  data-rac=""
                   data-react-aria-pressable="true"
                   data-slot="tab"
                   data-testid="radiotabsfield_option_option_3"
                   id="react-aria-«replaced-aria-id»-tab-option_3"
                   role="tab"
                   tabindex="-1"
-                  type="button"
                 >
-                  <div
-                    class="relative z-10 whitespace-nowrap transition-colors group-data-[selected=true]:text-default-foreground text-foreground"
+                  <span
+                    class="relative z-10 whitespace-nowrap text-foreground transition-colors group-data-[selected=true]:text-default-foreground motion-reduce:transition-none"
                     data-slot="tabContent"
                   >
                     Option 3
-                  </div>
-                </button>
+                  </span>
+                </div>
               </div>
             </div>
           </div>
@@ -249,9 +455,12 @@ exports[`Story Snapshots > Default 1`] = `
       >
         <button
           aria-label="Submit form"
-          class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
+          data-component="submit-button"
+          data-rac=""
           data-react-aria-pressable="true"
           data-testid="form_submit_button"
+          id="react-aria-«replaced-aria-id»"
           tabindex="0"
           type="submit"
         >
@@ -267,38 +476,35 @@ exports[`Story Snapshots > DisabledCompletely 1`] = `
 <div>
   <div
     class="flex w-full flex-row justify-between gap-6"
+    data-component="form"
   >
     <form
       class="grow min-w-60"
       data-form-is-valid="true"
       data-testid=""
+      novalidate=""
     >
       <div
-        style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
-      >
-        <input
-          aria-label="radioTabsField"
-          name="radioTabsField"
-          value=""
-        />
-      </div>
-      <div
         aria-label="radioTabsField"
-        aria-orientation="vertical"
-        class="relative gap-2 group flex w-full flex-col gap-y-1.5"
+        class="group flex w-full flex-col gap-y-1.5 relative"
+        data-component="radio-tabs"
         data-invalid="false"
         data-required="false"
+        data-slot="base"
         data-testid="radiotabsfield"
-        id="react-aria-«replaced-aria-id»"
-        role="radiogroup"
+        id="uniform-«replaced-aria-id»"
+        role="group"
       >
         <div
-          class="flex flex-col flex-wrap gap-2 data-[orientation=horizontal]:flex-row"
-          data-orientation="vertical"
-          role="presentation"
+          class="flex flex-col flex-wrap gap-2"
+          data-slot="wrapper"
         >
+          <template />
           <div
+            class="react-aria-Tabs"
+            data-orientation="horizontal"
             data-placement="top"
+            data-rac=""
             data-slot="tabWrapper"
             data-vertical="horizontal"
           >
@@ -307,73 +513,76 @@ exports[`Story Snapshots > DisabledCompletely 1`] = `
               data-slot="base"
             >
               <div
+                aria-label="radioTabsField"
                 aria-orientation="horizontal"
-                class="relative flex p-1 h-fit gap-2 items-center flex-nowrap overflow-x-scroll scrollbar-hide bg-default-100 rounded-medium w-full"
+                class="relative flex h-fit w-full flex-nowrap items-center gap-2 overflow-x-auto rounded-medium bg-default-100 p-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
                 data-collection="react-aria-«replaced-aria-id»"
+                data-orientation="horizontal"
+                data-rac=""
                 data-slot="tabList"
                 id="react-aria-«replaced-aria-id»"
                 role="tablist"
               >
-                <button
+                <div
                   aria-disabled="true"
                   aria-selected="false"
-                  class="z-0 w-full px-3 py-1 flex group relative justify-center items-center cursor-pointer transition-opacity tap-highlight-transparent data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 h-8 text-small rounded-small data-[hover-unselected=true]:opacity-100"
+                  class="outline-solid group relative z-0 flex h-8 w-full cursor-pointer items-center justify-center rounded-small px-3 py-1 outline-transparent transition-opacity text-small data-[focus-visible=true]:z-10 data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus motion-reduce:transition-none"
                   data-collection="react-aria-«replaced-aria-id»"
                   data-disabled="true"
                   data-key="option_1"
+                  data-rac=""
                   data-slot="tab"
                   data-testid="radiotabsfield_option_option_1"
                   id="react-aria-«replaced-aria-id»-tab-option_1"
                   role="tab"
-                  type="button"
                 >
-                  <div
-                    class="relative z-10 whitespace-nowrap transition-colors group-data-[selected=true]:text-default-foreground text-foreground"
+                  <span
+                    class="relative z-10 whitespace-nowrap text-foreground transition-colors group-data-[selected=true]:text-default-foreground motion-reduce:transition-none"
                     data-slot="tabContent"
                   >
                     Option 1
-                  </div>
-                </button>
-                <button
+                  </span>
+                </div>
+                <div
                   aria-disabled="true"
                   aria-selected="false"
-                  class="z-0 w-full px-3 py-1 flex group relative justify-center items-center cursor-pointer transition-opacity tap-highlight-transparent data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 h-8 text-small rounded-small data-[hover-unselected=true]:opacity-100"
+                  class="outline-solid group relative z-0 flex h-8 w-full cursor-pointer items-center justify-center rounded-small px-3 py-1 outline-transparent transition-opacity text-small data-[focus-visible=true]:z-10 data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus motion-reduce:transition-none"
                   data-collection="react-aria-«replaced-aria-id»"
                   data-disabled="true"
                   data-key="option_2"
+                  data-rac=""
                   data-slot="tab"
                   data-testid="radiotabsfield_option_option_2"
                   id="react-aria-«replaced-aria-id»-tab-option_2"
                   role="tab"
-                  type="button"
                 >
-                  <div
-                    class="relative z-10 whitespace-nowrap transition-colors group-data-[selected=true]:text-default-foreground text-foreground"
+                  <span
+                    class="relative z-10 whitespace-nowrap text-foreground transition-colors group-data-[selected=true]:text-default-foreground motion-reduce:transition-none"
                     data-slot="tabContent"
                   >
                     Option 2
-                  </div>
-                </button>
-                <button
+                  </span>
+                </div>
+                <div
                   aria-disabled="true"
                   aria-selected="false"
-                  class="z-0 w-full px-3 py-1 flex group relative justify-center items-center cursor-pointer transition-opacity tap-highlight-transparent data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 h-8 text-small rounded-small data-[hover-unselected=true]:opacity-100"
+                  class="outline-solid group relative z-0 flex h-8 w-full cursor-pointer items-center justify-center rounded-small px-3 py-1 outline-transparent transition-opacity text-small data-[focus-visible=true]:z-10 data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus motion-reduce:transition-none"
                   data-collection="react-aria-«replaced-aria-id»"
                   data-disabled="true"
                   data-key="option_3"
+                  data-rac=""
                   data-slot="tab"
                   data-testid="radiotabsfield_option_option_3"
                   id="react-aria-«replaced-aria-id»-tab-option_3"
                   role="tab"
-                  type="button"
                 >
-                  <div
-                    class="relative z-10 whitespace-nowrap transition-colors group-data-[selected=true]:text-default-foreground text-foreground"
+                  <span
+                    class="relative z-10 whitespace-nowrap text-foreground transition-colors group-data-[selected=true]:text-default-foreground motion-reduce:transition-none"
                     data-slot="tabContent"
                   >
                     Option 3
-                  </div>
-                </button>
+                  </span>
+                </div>
               </div>
             </div>
           </div>
@@ -384,9 +593,12 @@ exports[`Story Snapshots > DisabledCompletely 1`] = `
       >
         <button
           aria-label="Submit form"
-          class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
+          data-component="submit-button"
+          data-rac=""
           data-react-aria-pressable="true"
           data-testid="form_submit_button"
+          id="react-aria-«replaced-aria-id»"
           tabindex="0"
           type="submit"
         >
@@ -402,38 +614,35 @@ exports[`Story Snapshots > DisabledOption 1`] = `
 <div>
   <div
     class="flex w-full flex-row justify-between gap-6"
+    data-component="form"
   >
     <form
       class="grow min-w-60"
       data-form-is-valid="true"
       data-testid=""
+      novalidate=""
     >
       <div
-        style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
-      >
-        <input
-          aria-label="radioTabsField"
-          name="radioTabsField"
-          value=""
-        />
-      </div>
-      <div
         aria-label="radioTabsField"
-        aria-orientation="vertical"
-        class="relative gap-2 group flex w-full flex-col gap-y-1.5"
+        class="group flex w-full flex-col gap-y-1.5 relative"
+        data-component="radio-tabs"
         data-invalid="false"
         data-required="false"
+        data-slot="base"
         data-testid="radiotabsfield"
-        id="react-aria-«replaced-aria-id»"
-        role="radiogroup"
+        id="uniform-«replaced-aria-id»"
+        role="group"
       >
         <div
-          class="flex flex-col flex-wrap gap-2 data-[orientation=horizontal]:flex-row"
-          data-orientation="vertical"
-          role="presentation"
+          class="flex flex-col flex-wrap gap-2"
+          data-slot="wrapper"
         >
+          <template />
           <div
+            class="react-aria-Tabs"
+            data-orientation="horizontal"
             data-placement="top"
+            data-rac=""
             data-slot="tabWrapper"
             data-vertical="horizontal"
           >
@@ -442,73 +651,76 @@ exports[`Story Snapshots > DisabledOption 1`] = `
               data-slot="base"
             >
               <div
+                aria-label="radioTabsField"
                 aria-orientation="horizontal"
-                class="relative flex p-1 h-fit gap-2 items-center flex-nowrap overflow-x-scroll scrollbar-hide bg-default-100 rounded-medium w-full"
+                class="relative flex h-fit w-full flex-nowrap items-center gap-2 overflow-x-auto rounded-medium bg-default-100 p-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
                 data-collection="react-aria-«replaced-aria-id»"
+                data-orientation="horizontal"
+                data-rac=""
                 data-slot="tabList"
                 id="react-aria-«replaced-aria-id»"
                 role="tablist"
               >
-                <button
+                <div
                   aria-selected="false"
-                  class="z-0 w-full px-3 py-1 flex group relative justify-center items-center cursor-pointer transition-opacity tap-highlight-transparent data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 h-8 text-small rounded-small data-[hover-unselected=true]:opacity-100"
+                  class="outline-solid group relative z-0 flex h-8 w-full cursor-pointer items-center justify-center rounded-small px-3 py-1 outline-transparent transition-opacity text-small data-[focus-visible=true]:z-10 data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus motion-reduce:transition-none"
                   data-collection="react-aria-«replaced-aria-id»"
                   data-key="option_1"
+                  data-rac=""
                   data-react-aria-pressable="true"
                   data-slot="tab"
                   data-testid="radiotabsfield_option_option_1"
                   id="react-aria-«replaced-aria-id»-tab-option_1"
                   role="tab"
                   tabindex="-1"
-                  type="button"
                 >
-                  <div
-                    class="relative z-10 whitespace-nowrap transition-colors group-data-[selected=true]:text-default-foreground text-foreground"
+                  <span
+                    class="relative z-10 whitespace-nowrap text-foreground transition-colors group-data-[selected=true]:text-default-foreground motion-reduce:transition-none"
                     data-slot="tabContent"
                   >
                     Option 1
-                  </div>
-                </button>
-                <button
+                  </span>
+                </div>
+                <div
                   aria-disabled="true"
                   aria-selected="false"
-                  class="z-0 w-full px-3 py-1 flex group relative justify-center items-center cursor-pointer transition-opacity tap-highlight-transparent data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 h-8 text-small rounded-small data-[hover-unselected=true]:opacity-100"
+                  class="outline-solid group relative z-0 flex h-8 w-full cursor-pointer items-center justify-center rounded-small px-3 py-1 outline-transparent transition-opacity text-small data-[focus-visible=true]:z-10 data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus motion-reduce:transition-none"
                   data-collection="react-aria-«replaced-aria-id»"
                   data-disabled="true"
                   data-key="option_2"
+                  data-rac=""
                   data-slot="tab"
                   data-testid="radiotabsfield_option_option_2"
                   id="react-aria-«replaced-aria-id»-tab-option_2"
                   role="tab"
-                  type="button"
                 >
-                  <div
-                    class="relative z-10 whitespace-nowrap transition-colors group-data-[selected=true]:text-default-foreground text-foreground"
+                  <span
+                    class="relative z-10 whitespace-nowrap text-foreground transition-colors group-data-[selected=true]:text-default-foreground motion-reduce:transition-none"
                     data-slot="tabContent"
                   >
                     option 2
-                  </div>
-                </button>
-                <button
+                  </span>
+                </div>
+                <div
                   aria-selected="false"
-                  class="z-0 w-full px-3 py-1 flex group relative justify-center items-center cursor-pointer transition-opacity tap-highlight-transparent data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 h-8 text-small rounded-small data-[hover-unselected=true]:opacity-100"
+                  class="outline-solid group relative z-0 flex h-8 w-full cursor-pointer items-center justify-center rounded-small px-3 py-1 outline-transparent transition-opacity text-small data-[focus-visible=true]:z-10 data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus motion-reduce:transition-none"
                   data-collection="react-aria-«replaced-aria-id»"
                   data-key="option_3"
+                  data-rac=""
                   data-react-aria-pressable="true"
                   data-slot="tab"
                   data-testid="radiotabsfield_option_option_3"
                   id="react-aria-«replaced-aria-id»-tab-option_3"
                   role="tab"
                   tabindex="-1"
-                  type="button"
                 >
-                  <div
-                    class="relative z-10 whitespace-nowrap transition-colors group-data-[selected=true]:text-default-foreground text-foreground"
+                  <span
+                    class="relative z-10 whitespace-nowrap text-foreground transition-colors group-data-[selected=true]:text-default-foreground motion-reduce:transition-none"
                     data-slot="tabContent"
                   >
                     Option 3
-                  </div>
-                </button>
+                  </span>
+                </div>
               </div>
             </div>
           </div>
@@ -519,9 +731,12 @@ exports[`Story Snapshots > DisabledOption 1`] = `
       >
         <button
           aria-label="Submit form"
-          class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
+          data-component="submit-button"
+          data-rac=""
           data-react-aria-pressable="true"
           data-testid="form_submit_button"
+          id="react-aria-«replaced-aria-id»"
           tabindex="0"
           type="submit"
         >
@@ -536,47 +751,43 @@ exports[`Story Snapshots > DisabledOption 1`] = `
 exports[`Story Snapshots > FullWidth 1`] = `
 <div>
   <div
-    class="flex w-full flex-row justify-between gap-6"
+    class="flex w-full flex-row justify-between gap-6 min-w-md"
+    data-component="form"
   >
     <form
-      class="grow min-w-md"
+      class="grow"
       data-form-is-valid="true"
       data-testid=""
+      novalidate=""
     >
       <div
-        style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
-      >
-        <input
-          aria-label="Radio Tabs Field"
-          name="radioTabsField"
-          value="option_1"
-        />
-      </div>
-      <div
-        aria-label="Radio Tabs Field"
-        aria-orientation="vertical"
-        class="relative gap-2 group flex w-full flex-col gap-y-1.5"
+        aria-labelledby="uniform-«replaced-aria-id»-label"
+        class="group flex w-full flex-col gap-y-1.5 relative"
+        data-component="radio-tabs"
         data-invalid="false"
         data-required="false"
+        data-slot="base"
         data-testid="radiotabsfield"
-        id="react-aria-«replaced-aria-id»"
-        role="radiogroup"
+        id="uniform-«replaced-aria-id»"
+        role="group"
       >
-        <span
-          class="relative mb-2 inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger"
-        >
-          <legend>
-            Radio Tabs Field
-          </legend>
-        </span>
         <div
-          class="flex flex-col flex-wrap gap-2 data-[orientation=horizontal]:flex-row"
-          data-orientation="vertical"
-          role="presentation"
+          class="mb-2 inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger relative"
+          data-slot="label"
+          id="uniform-«replaced-aria-id»-label"
         >
+          Radio Tabs Field
+        </div>
+        <div
+          class="flex flex-col flex-wrap gap-2"
+          data-slot="wrapper"
+        >
+          <template />
           <div
             class="w-full"
+            data-orientation="horizontal"
             data-placement="top"
+            data-rac=""
             data-slot="tabWrapper"
             data-vertical="horizontal"
           >
@@ -585,22 +796,30 @@ exports[`Story Snapshots > FullWidth 1`] = `
               data-slot="base"
             >
               <div
+                aria-label="Radio Tabs Field"
                 aria-orientation="horizontal"
-                class="relative flex p-1 h-fit gap-2 items-center flex-nowrap overflow-x-scroll scrollbar-hide bg-default-100 rounded-medium w-full"
+                class="relative flex h-fit w-full flex-nowrap items-center gap-2 overflow-x-auto rounded-medium bg-default-100 p-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
                 data-collection="react-aria-«replaced-aria-id»"
+                data-orientation="horizontal"
+                data-rac=""
                 data-slot="tabList"
                 id="react-aria-«replaced-aria-id»"
                 role="tablist"
               >
                 <span
-                  class="absolute z-0 will-change-[transform,width,height] invisible data-[initialized=true]:visible data-[animated=true]:transition-[left,top,width,height] data-[animated=true]:duration-250 data-[animated=true]:ease-out rounded-small bg-background dark:bg-default shadow-small"
+                  aria-hidden="true"
+                  class="pointer-events-none absolute z-0 rounded-small bg-background shadow-small transition-[left,top,width,height] duration-250 ease-out motion-reduce:transition-none dark:bg-default"
+                  data-animated="true"
+                  data-initialized="true"
                   data-slot="cursor"
+                  style="left: 0px; top: 0px; width: 0px; height: 0px;"
                 />
-                <button
+                <div
                   aria-selected="true"
-                  class="z-0 w-full px-3 py-1 flex group relative justify-center items-center cursor-pointer transition-opacity tap-highlight-transparent data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 h-8 text-small rounded-small data-[hover-unselected=true]:opacity-100"
+                  class="outline-solid group relative z-0 flex h-8 w-full cursor-pointer items-center justify-center rounded-small px-3 py-1 outline-transparent transition-opacity text-small data-[focus-visible=true]:z-10 data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus motion-reduce:transition-none"
                   data-collection="react-aria-«replaced-aria-id»"
                   data-key="option_1"
+                  data-rac=""
                   data-react-aria-pressable="true"
                   data-selected="true"
                   data-slot="tab"
@@ -608,55 +827,54 @@ exports[`Story Snapshots > FullWidth 1`] = `
                   id="react-aria-«replaced-aria-id»-tab-option_1"
                   role="tab"
                   tabindex="0"
-                  type="button"
                 >
-                  <div
-                    class="relative z-10 whitespace-nowrap transition-colors group-data-[selected=true]:text-default-foreground text-foreground"
+                  <span
+                    class="relative z-10 whitespace-nowrap text-foreground transition-colors group-data-[selected=true]:text-default-foreground motion-reduce:transition-none"
                     data-slot="tabContent"
                   >
                     Option 1
-                  </div>
-                </button>
-                <button
+                  </span>
+                </div>
+                <div
                   aria-selected="false"
-                  class="z-0 w-full px-3 py-1 flex group relative justify-center items-center cursor-pointer transition-opacity tap-highlight-transparent data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 h-8 text-small rounded-small data-[hover-unselected=true]:opacity-100"
+                  class="outline-solid group relative z-0 flex h-8 w-full cursor-pointer items-center justify-center rounded-small px-3 py-1 outline-transparent transition-opacity text-small data-[focus-visible=true]:z-10 data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus motion-reduce:transition-none"
                   data-collection="react-aria-«replaced-aria-id»"
                   data-key="option_2"
+                  data-rac=""
                   data-react-aria-pressable="true"
                   data-slot="tab"
                   data-testid="radiotabsfield_option_option_2"
                   id="react-aria-«replaced-aria-id»-tab-option_2"
                   role="tab"
                   tabindex="-1"
-                  type="button"
                 >
-                  <div
-                    class="relative z-10 whitespace-nowrap transition-colors group-data-[selected=true]:text-default-foreground text-foreground"
+                  <span
+                    class="relative z-10 whitespace-nowrap text-foreground transition-colors group-data-[selected=true]:text-default-foreground motion-reduce:transition-none"
                     data-slot="tabContent"
                   >
                     Option 2
-                  </div>
-                </button>
-                <button
+                  </span>
+                </div>
+                <div
                   aria-selected="false"
-                  class="z-0 w-full px-3 py-1 flex group relative justify-center items-center cursor-pointer transition-opacity tap-highlight-transparent data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 h-8 text-small rounded-small data-[hover-unselected=true]:opacity-100"
+                  class="outline-solid group relative z-0 flex h-8 w-full cursor-pointer items-center justify-center rounded-small px-3 py-1 outline-transparent transition-opacity text-small data-[focus-visible=true]:z-10 data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus motion-reduce:transition-none"
                   data-collection="react-aria-«replaced-aria-id»"
                   data-key="option_3"
+                  data-rac=""
                   data-react-aria-pressable="true"
                   data-slot="tab"
                   data-testid="radiotabsfield_option_option_3"
                   id="react-aria-«replaced-aria-id»-tab-option_3"
                   role="tab"
                   tabindex="-1"
-                  type="button"
                 >
-                  <div
-                    class="relative z-10 whitespace-nowrap transition-colors group-data-[selected=true]:text-default-foreground text-foreground"
+                  <span
+                    class="relative z-10 whitespace-nowrap text-foreground transition-colors group-data-[selected=true]:text-default-foreground motion-reduce:transition-none"
                     data-slot="tabContent"
                   >
                     Option 3
-                  </div>
-                </button>
+                  </span>
+                </div>
               </div>
             </div>
           </div>
@@ -667,9 +885,12 @@ exports[`Story Snapshots > FullWidth 1`] = `
       >
         <button
           aria-label="Submit form"
-          class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
+          data-component="submit-button"
+          data-rac=""
           data-react-aria-pressable="true"
           data-testid="form_submit_button"
+          id="react-aria-«replaced-aria-id»"
           tabindex="0"
           type="submit"
         >
@@ -685,49 +906,57 @@ exports[`Story Snapshots > Invalid 1`] = `
 <div>
   <div
     class="flex w-full flex-row justify-between gap-6"
+    data-component="form"
   >
     <form
       class="grow min-w-60"
       data-form-is-valid="false"
       data-testid=""
+      novalidate=""
     >
       <div
-        style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
-      >
-        <input
-          aria-label="Radio Tabs Field"
-          name="radioTabsField"
-          value="option_2"
-        />
-      </div>
-      <div
-        aria-describedby="react-aria-«replaced-aria-id»"
+        aria-describedby="uniform-«replaced-aria-id»-error uniform-«replaced-aria-id»-required"
         aria-invalid="true"
-        aria-label="Radio Tabs Field"
-        aria-orientation="vertical"
-        aria-required="true"
-        class="relative gap-2 group flex w-full flex-col gap-y-1.5"
+        aria-labelledby="uniform-«replaced-aria-id»-label"
+        class="group flex w-full flex-col gap-y-1.5 relative"
+        data-component="radio-tabs"
         data-invalid="true"
         data-required="true"
+        data-slot="base"
         data-testid="radiotabsfield"
-        id="react-aria-«replaced-aria-id»"
-        role="radiogroup"
+        id="uniform-«replaced-aria-id»"
+        role="group"
       >
-        <span
-          class="relative after:content-['*'] after:text-danger after:ml-0.5 mb-2 inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger"
+        <div
+          class="mb-2 inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger relative"
+          data-slot="label"
+          id="uniform-«replaced-aria-id»-label"
         >
-          <legend>
-            Radio Tabs Field
-          </legend>
+          Radio Tabs Field
+          <span
+            aria-hidden="true"
+            class="ml-0.5 text-danger"
+          >
+            *
+          </span>
+        </div>
+        <span
+          class="sr-only"
+          id="uniform-«replaced-aria-id»-required"
+        >
+          Required selection.
         </span>
         <div
-          class="flex flex-col flex-wrap gap-2 data-[orientation=horizontal]:flex-row"
-          data-orientation="vertical"
-          role="presentation"
+          class="flex flex-col flex-wrap gap-2"
+          data-slot="wrapper"
         >
+          <template />
           <div
             class="rounded-medium border-2 !border-danger"
+            data-focused="true"
+            data-orientation="horizontal"
             data-placement="top"
+            data-rac=""
             data-slot="tabWrapper"
             data-vertical="horizontal"
           >
@@ -736,44 +965,56 @@ exports[`Story Snapshots > Invalid 1`] = `
               data-slot="base"
             >
               <div
+                aria-label="Radio Tabs Field"
                 aria-orientation="horizontal"
-                class="relative flex p-1 h-fit gap-2 items-center flex-nowrap overflow-x-scroll scrollbar-hide bg-default-100 rounded-medium w-full"
+                class="relative flex h-fit w-full flex-nowrap items-center gap-2 overflow-x-auto rounded-medium bg-default-100 p-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
                 data-collection="react-aria-«replaced-aria-id»"
+                data-orientation="horizontal"
+                data-rac=""
                 data-slot="tabList"
                 id="react-aria-«replaced-aria-id»"
                 role="tablist"
               >
                 <span
-                  class="absolute z-0 will-change-[transform,width,height] invisible data-[initialized=true]:visible data-[animated=true]:transition-[left,top,width,height] data-[animated=true]:duration-250 data-[animated=true]:ease-out rounded-small bg-background dark:bg-default shadow-small"
+                  aria-hidden="true"
+                  class="pointer-events-none absolute z-0 rounded-small bg-background shadow-small transition-[left,top,width,height] duration-250 ease-out motion-reduce:transition-none dark:bg-default"
+                  data-animated="true"
+                  data-initialized="true"
                   data-slot="cursor"
+                  style="left: 0px; top: 0px; width: 0px; height: 0px;"
                 />
-                <button
+                <div
+                  aria-describedby="uniform-«replaced-aria-id»-error uniform-«replaced-aria-id»-required"
                   aria-selected="false"
-                  class="z-0 w-full px-3 py-1 flex group relative justify-center items-center cursor-pointer transition-opacity tap-highlight-transparent data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 h-8 text-small rounded-small data-[hover-unselected=true]:opacity-100"
+                  class="outline-solid group relative z-0 flex h-8 w-full cursor-pointer items-center justify-center rounded-small px-3 py-1 outline-transparent transition-opacity text-small data-[focus-visible=true]:z-10 data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus motion-reduce:transition-none"
                   data-collection="react-aria-«replaced-aria-id»"
                   data-key="option_1"
+                  data-rac=""
                   data-react-aria-pressable="true"
                   data-slot="tab"
                   data-testid="radiotabsfield_option_option_1"
                   id="react-aria-«replaced-aria-id»-tab-option_1"
                   role="tab"
                   tabindex="-1"
-                  type="button"
                 >
-                  <div
-                    class="relative z-10 whitespace-nowrap transition-colors group-data-[selected=true]:text-default-foreground text-foreground"
+                  <span
+                    class="relative z-10 whitespace-nowrap text-foreground transition-colors group-data-[selected=true]:text-default-foreground motion-reduce:transition-none"
                     data-slot="tabContent"
                   >
                     Option 1
-                  </div>
-                </button>
-                <button
+                  </span>
+                </div>
+                <div
+                  aria-describedby="uniform-«replaced-aria-id»-error uniform-«replaced-aria-id»-required"
                   aria-selected="true"
-                  class="z-0 w-full px-3 py-1 flex group relative justify-center items-center cursor-pointer transition-opacity tap-highlight-transparent data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 h-8 text-small rounded-small data-[hover-unselected=true]:opacity-100"
+                  class="outline-solid group relative z-0 flex h-8 w-full cursor-pointer items-center justify-center rounded-small px-3 py-1 outline-transparent transition-opacity text-small data-[focus-visible=true]:z-10 data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus motion-reduce:transition-none"
                   data-collection="react-aria-«replaced-aria-id»"
                   data-focus="true"
+                  data-focused="true"
                   data-hover="true"
+                  data-hovered="true"
                   data-key="option_2"
+                  data-rac=""
                   data-react-aria-pressable="true"
                   data-selected="true"
                   data-slot="tab"
@@ -781,57 +1022,63 @@ exports[`Story Snapshots > Invalid 1`] = `
                   id="react-aria-«replaced-aria-id»-tab-option_2"
                   role="tab"
                   tabindex="0"
-                  type="button"
                 >
-                  <div
-                    class="relative z-10 whitespace-nowrap transition-colors group-data-[selected=true]:text-default-foreground text-foreground"
+                  <span
+                    class="relative z-10 whitespace-nowrap text-foreground transition-colors group-data-[selected=true]:text-default-foreground motion-reduce:transition-none"
                     data-slot="tabContent"
                   >
                     Option 2
-                  </div>
-                </button>
-                <button
+                  </span>
+                </div>
+                <div
+                  aria-describedby="uniform-«replaced-aria-id»-error uniform-«replaced-aria-id»-required"
                   aria-selected="false"
-                  class="z-0 w-full px-3 py-1 flex group relative justify-center items-center cursor-pointer transition-opacity tap-highlight-transparent data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 h-8 text-small rounded-small data-[hover-unselected=true]:opacity-100"
+                  class="outline-solid group relative z-0 flex h-8 w-full cursor-pointer items-center justify-center rounded-small px-3 py-1 outline-transparent transition-opacity text-small data-[focus-visible=true]:z-10 data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus motion-reduce:transition-none"
                   data-collection="react-aria-«replaced-aria-id»"
                   data-key="option_3"
+                  data-rac=""
                   data-react-aria-pressable="true"
                   data-slot="tab"
                   data-testid="radiotabsfield_option_option_3"
                   id="react-aria-«replaced-aria-id»-tab-option_3"
                   role="tab"
                   tabindex="-1"
-                  type="button"
                 >
-                  <div
-                    class="relative z-10 whitespace-nowrap transition-colors group-data-[selected=true]:text-default-foreground text-foreground"
+                  <span
+                    class="relative z-10 whitespace-nowrap text-foreground transition-colors group-data-[selected=true]:text-default-foreground motion-reduce:transition-none"
                     data-slot="tabContent"
                   >
                     Option 3
-                  </div>
-                </button>
+                  </span>
+                </div>
               </div>
             </div>
           </div>
         </div>
         <div
-          class="text-tiny text-danger"
-          id="react-aria-«replaced-aria-id»"
+          data-slot="helper-wrapper"
         >
-          <ul
-            aria-label="Validation errors of field radiotabsfield"
-            data-testid="radiotabsfield_error"
+          <div
+            class="text-danger text-tiny"
+            data-slot="error-message"
+            id="uniform-«replaced-aria-id»-error"
           >
-            <li
-              style="overflow: hidden;"
+            <ul
+              aria-label="Validation errors of field radiotabsfield"
+              data-component="field-validation-error"
+              data-testid="radiotabsfield_error"
             >
-              <div
-                class="px-1 pt-1"
+              <li
+                style="overflow: hidden;"
               >
-                Please use another option
-              </div>
-            </li>
-          </ul>
+                <div
+                  class="px-1 pt-1"
+                >
+                  Please use another option
+                </div>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
       <div
@@ -839,9 +1086,12 @@ exports[`Story Snapshots > Invalid 1`] = `
       >
         <button
           aria-label="Submit form"
-          class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
+          data-component="submit-button"
+          data-rac=""
           data-react-aria-pressable="true"
           data-testid="form_submit_button"
+          id="react-aria-«replaced-aria-id»"
           tabindex="0"
           type="submit"
         >
@@ -856,50 +1106,58 @@ exports[`Story Snapshots > Invalid 1`] = `
 exports[`Story Snapshots > InvalidWithContent 1`] = `
 <div>
   <div
-    class="flex w-full flex-row justify-between gap-6"
+    class="flex w-full flex-row justify-between gap-6 min-w-md"
+    data-component="form"
   >
     <form
-      class="grow min-w-md"
+      class="grow"
       data-form-is-valid="false"
       data-testid=""
+      novalidate=""
     >
       <div
-        style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
-      >
-        <input
-          aria-label="Select Your Plan"
-          name="radioTabsField"
-          value="option_2"
-        />
-      </div>
-      <div
-        aria-describedby="react-aria-«replaced-aria-id»"
+        aria-describedby="uniform-«replaced-aria-id»-error uniform-«replaced-aria-id»-required"
         aria-invalid="true"
-        aria-label="Select Your Plan"
-        aria-orientation="vertical"
-        aria-required="true"
-        class="relative gap-2 group flex w-full flex-col gap-y-1.5"
+        aria-labelledby="uniform-«replaced-aria-id»-label"
+        class="group flex w-full flex-col gap-y-1.5 relative"
+        data-component="radio-tabs"
         data-invalid="true"
         data-required="true"
+        data-slot="base"
         data-testid="radiotabsfield"
-        id="react-aria-«replaced-aria-id»"
-        role="radiogroup"
+        id="uniform-«replaced-aria-id»"
+        role="group"
       >
-        <span
-          class="relative after:content-['*'] after:text-danger after:ml-0.5 mb-2 inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger"
+        <div
+          class="mb-2 inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger relative"
+          data-slot="label"
+          id="uniform-«replaced-aria-id»-label"
         >
-          <legend>
-            Select Your Plan
-          </legend>
+          Select Your Plan
+          <span
+            aria-hidden="true"
+            class="ml-0.5 text-danger"
+          >
+            *
+          </span>
+        </div>
+        <span
+          class="sr-only"
+          id="uniform-«replaced-aria-id»-required"
+        >
+          Required selection.
         </span>
         <div
-          class="flex flex-col flex-wrap gap-2 data-[orientation=horizontal]:flex-row"
-          data-orientation="vertical"
-          role="presentation"
+          class="flex flex-col flex-wrap gap-2"
+          data-slot="wrapper"
         >
+          <template />
           <div
             class="border-divider w-full rounded-medium border-2 !border-danger"
+            data-focused="true"
+            data-orientation="horizontal"
             data-placement="top"
+            data-rac=""
             data-slot="tabWrapper"
             data-vertical="horizontal"
           >
@@ -908,45 +1166,57 @@ exports[`Story Snapshots > InvalidWithContent 1`] = `
               data-slot="base"
             >
               <div
+                aria-label="Select Your Plan"
                 aria-orientation="horizontal"
-                class="relative flex p-1 h-fit gap-2 items-center flex-nowrap overflow-x-scroll scrollbar-hide bg-default-100 rounded-medium w-full"
+                class="relative flex h-fit w-full flex-nowrap items-center gap-2 overflow-x-auto rounded-medium bg-default-100 p-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
                 data-collection="react-aria-«replaced-aria-id»"
+                data-orientation="horizontal"
+                data-rac=""
                 data-slot="tabList"
                 id="react-aria-«replaced-aria-id»"
                 role="tablist"
               >
                 <span
-                  class="absolute z-0 will-change-[transform,width,height] invisible data-[initialized=true]:visible data-[animated=true]:transition-[left,top,width,height] data-[animated=true]:duration-250 data-[animated=true]:ease-out rounded-small bg-background dark:bg-default shadow-small"
+                  aria-hidden="true"
+                  class="pointer-events-none absolute z-0 rounded-small bg-background shadow-small transition-[left,top,width,height] duration-250 ease-out motion-reduce:transition-none dark:bg-default"
+                  data-animated="true"
+                  data-initialized="true"
                   data-slot="cursor"
+                  style="left: 0px; top: 0px; width: 0px; height: 0px;"
                 />
-                <button
+                <div
+                  aria-describedby="uniform-«replaced-aria-id»-error uniform-«replaced-aria-id»-required"
                   aria-selected="false"
-                  class="z-0 w-full px-3 py-1 flex group relative justify-center items-center cursor-pointer transition-opacity tap-highlight-transparent data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 h-8 text-small rounded-small data-[hover-unselected=true]:opacity-100"
+                  class="outline-solid group relative z-0 flex h-8 w-full cursor-pointer items-center justify-center rounded-small px-3 py-1 outline-transparent transition-opacity text-small data-[focus-visible=true]:z-10 data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus motion-reduce:transition-none"
                   data-collection="react-aria-«replaced-aria-id»"
                   data-key="option_1"
+                  data-rac=""
                   data-react-aria-pressable="true"
                   data-slot="tab"
                   data-testid="radiotabsfield_option_option_1"
                   id="react-aria-«replaced-aria-id»-tab-option_1"
                   role="tab"
                   tabindex="-1"
-                  type="button"
                 >
-                  <div
-                    class="relative z-10 whitespace-nowrap transition-colors group-data-[selected=true]:text-default-foreground text-foreground"
+                  <span
+                    class="relative z-10 whitespace-nowrap text-foreground transition-colors group-data-[selected=true]:text-default-foreground motion-reduce:transition-none"
                     data-slot="tabContent"
                   >
                     Starter
-                  </div>
-                </button>
-                <button
+                  </span>
+                </div>
+                <div
                   aria-controls="react-aria-«replaced-aria-id»-tabpanel-option_2"
+                  aria-describedby="uniform-«replaced-aria-id»-error uniform-«replaced-aria-id»-required"
                   aria-selected="true"
-                  class="z-0 w-full px-3 py-1 flex group relative justify-center items-center cursor-pointer transition-opacity tap-highlight-transparent data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 h-8 text-small rounded-small data-[hover-unselected=true]:opacity-100"
+                  class="outline-solid group relative z-0 flex h-8 w-full cursor-pointer items-center justify-center rounded-small px-3 py-1 outline-transparent transition-opacity text-small data-[focus-visible=true]:z-10 data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus motion-reduce:transition-none"
                   data-collection="react-aria-«replaced-aria-id»"
                   data-focus="true"
+                  data-focused="true"
                   data-hover="true"
+                  data-hovered="true"
                   data-key="option_2"
+                  data-rac=""
                   data-react-aria-pressable="true"
                   data-selected="true"
                   data-slot="tab"
@@ -954,42 +1224,41 @@ exports[`Story Snapshots > InvalidWithContent 1`] = `
                   id="react-aria-«replaced-aria-id»-tab-option_2"
                   role="tab"
                   tabindex="0"
-                  type="button"
                 >
-                  <div
-                    class="relative z-10 whitespace-nowrap transition-colors group-data-[selected=true]:text-default-foreground text-foreground"
+                  <span
+                    class="relative z-10 whitespace-nowrap text-foreground transition-colors group-data-[selected=true]:text-default-foreground motion-reduce:transition-none"
                     data-slot="tabContent"
                   >
                     Pro
-                  </div>
-                </button>
-                <button
+                  </span>
+                </div>
+                <div
+                  aria-describedby="uniform-«replaced-aria-id»-error uniform-«replaced-aria-id»-required"
                   aria-selected="false"
-                  class="z-0 w-full px-3 py-1 flex group relative justify-center items-center cursor-pointer transition-opacity tap-highlight-transparent data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 h-8 text-small rounded-small data-[hover-unselected=true]:opacity-100"
+                  class="outline-solid group relative z-0 flex h-8 w-full cursor-pointer items-center justify-center rounded-small px-3 py-1 outline-transparent transition-opacity text-small data-[focus-visible=true]:z-10 data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus motion-reduce:transition-none"
                   data-collection="react-aria-«replaced-aria-id»"
                   data-key="option_3"
+                  data-rac=""
                   data-react-aria-pressable="true"
                   data-slot="tab"
                   data-testid="radiotabsfield_option_option_3"
                   id="react-aria-«replaced-aria-id»-tab-option_3"
                   role="tab"
                   tabindex="-1"
-                  type="button"
                 >
-                  <div
-                    class="relative z-10 whitespace-nowrap transition-colors group-data-[selected=true]:text-default-foreground text-foreground"
+                  <span
+                    class="relative z-10 whitespace-nowrap text-foreground transition-colors group-data-[selected=true]:text-default-foreground motion-reduce:transition-none"
                     data-slot="tabContent"
                   >
                     Enterprise
-                  </div>
-                </button>
+                  </span>
+                </div>
               </div>
             </div>
             <div
               aria-labelledby="react-aria-«replaced-aria-id»-tab-option_2"
-              class="data-[inert=true]:hidden outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 p-3"
-              data-focus="false"
-              data-focus-visible="false"
+              class="outline-solid p-3 outline-transparent data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus"
+              data-rac=""
               data-slot="panel"
               id="react-aria-«replaced-aria-id»-tabpanel-option_2"
               role="tabpanel"
@@ -1000,23 +1269,29 @@ exports[`Story Snapshots > InvalidWithContent 1`] = `
           </div>
         </div>
         <div
-          class="text-tiny text-danger"
-          id="react-aria-«replaced-aria-id»"
+          data-slot="helper-wrapper"
         >
-          <ul
-            aria-label="Validation errors of field radiotabsfield"
-            data-testid="radiotabsfield_error"
+          <div
+            class="text-danger text-tiny"
+            data-slot="error-message"
+            id="uniform-«replaced-aria-id»-error"
           >
-            <li
-              style="overflow: hidden;"
+            <ul
+              aria-label="Validation errors of field radiotabsfield"
+              data-component="field-validation-error"
+              data-testid="radiotabsfield_error"
             >
-              <div
-                class="px-1 pt-1"
+              <li
+                style="overflow: hidden;"
               >
-                This option is not allowed
-              </div>
-            </li>
-          </ul>
+                <div
+                  class="px-1 pt-1"
+                >
+                  This option is not allowed
+                </div>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
       <div
@@ -1024,9 +1299,12 @@ exports[`Story Snapshots > InvalidWithContent 1`] = `
       >
         <button
           aria-label="Submit form"
-          class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
+          data-component="submit-button"
+          data-rac=""
           data-react-aria-pressable="true"
           data-testid="form_submit_button"
+          id="react-aria-«replaced-aria-id»"
           tabindex="0"
           type="submit"
         >
@@ -1042,38 +1320,35 @@ exports[`Story Snapshots > NumberValues 1`] = `
 <div>
   <div
     class="flex w-full flex-row justify-between gap-6"
+    data-component="form"
   >
     <form
       class="grow min-w-60"
       data-form-is-valid="true"
       data-testid=""
+      novalidate=""
     >
       <div
-        style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
-      >
-        <input
-          aria-label="radioTabsField"
-          name="radioTabsField"
-          value=""
-        />
-      </div>
-      <div
         aria-label="radioTabsField"
-        aria-orientation="vertical"
-        class="relative gap-2 group flex w-full flex-col gap-y-1.5"
+        class="group flex w-full flex-col gap-y-1.5 relative"
+        data-component="radio-tabs"
         data-invalid="false"
         data-required="false"
+        data-slot="base"
         data-testid="radiotabsfield"
-        id="react-aria-«replaced-aria-id»"
-        role="radiogroup"
+        id="uniform-«replaced-aria-id»"
+        role="group"
       >
         <div
-          class="flex flex-col flex-wrap gap-2 data-[orientation=horizontal]:flex-row"
-          data-orientation="vertical"
-          role="presentation"
+          class="flex flex-col flex-wrap gap-2"
+          data-slot="wrapper"
         >
+          <template />
           <div
+            class="react-aria-Tabs"
+            data-orientation="horizontal"
             data-placement="top"
+            data-rac=""
             data-slot="tabWrapper"
             data-vertical="horizontal"
           >
@@ -1082,73 +1357,76 @@ exports[`Story Snapshots > NumberValues 1`] = `
               data-slot="base"
             >
               <div
+                aria-label="radioTabsField"
                 aria-orientation="horizontal"
-                class="relative flex p-1 h-fit gap-2 items-center flex-nowrap overflow-x-scroll scrollbar-hide bg-default-100 rounded-medium w-full"
+                class="relative flex h-fit w-full flex-nowrap items-center gap-2 overflow-x-auto rounded-medium bg-default-100 p-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
                 data-collection="react-aria-«replaced-aria-id»"
+                data-orientation="horizontal"
+                data-rac=""
                 data-slot="tabList"
                 id="react-aria-«replaced-aria-id»"
                 role="tablist"
               >
-                <button
+                <div
                   aria-selected="false"
-                  class="z-0 w-full px-3 py-1 flex group relative justify-center items-center cursor-pointer transition-opacity tap-highlight-transparent data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 h-8 text-small rounded-small data-[hover-unselected=true]:opacity-100"
+                  class="outline-solid group relative z-0 flex h-8 w-full cursor-pointer items-center justify-center rounded-small px-3 py-1 outline-transparent transition-opacity text-small data-[focus-visible=true]:z-10 data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus motion-reduce:transition-none"
                   data-collection="react-aria-«replaced-aria-id»"
                   data-key="1"
+                  data-rac=""
                   data-react-aria-pressable="true"
                   data-slot="tab"
                   data-testid="radiotabsfield_option_1"
                   id="react-aria-«replaced-aria-id»-tab-1"
                   role="tab"
                   tabindex="-1"
-                  type="button"
                 >
-                  <div
-                    class="relative z-10 whitespace-nowrap transition-colors group-data-[selected=true]:text-default-foreground text-foreground"
+                  <span
+                    class="relative z-10 whitespace-nowrap text-foreground transition-colors group-data-[selected=true]:text-default-foreground motion-reduce:transition-none"
                     data-slot="tabContent"
                   >
                     One
-                  </div>
-                </button>
-                <button
+                  </span>
+                </div>
+                <div
                   aria-selected="false"
-                  class="z-0 w-full px-3 py-1 flex group relative justify-center items-center cursor-pointer transition-opacity tap-highlight-transparent data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 h-8 text-small rounded-small data-[hover-unselected=true]:opacity-100"
+                  class="outline-solid group relative z-0 flex h-8 w-full cursor-pointer items-center justify-center rounded-small px-3 py-1 outline-transparent transition-opacity text-small data-[focus-visible=true]:z-10 data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus motion-reduce:transition-none"
                   data-collection="react-aria-«replaced-aria-id»"
                   data-key="2"
+                  data-rac=""
                   data-react-aria-pressable="true"
                   data-slot="tab"
                   data-testid="radiotabsfield_option_2"
                   id="react-aria-«replaced-aria-id»-tab-2"
                   role="tab"
                   tabindex="-1"
-                  type="button"
                 >
-                  <div
-                    class="relative z-10 whitespace-nowrap transition-colors group-data-[selected=true]:text-default-foreground text-foreground"
+                  <span
+                    class="relative z-10 whitespace-nowrap text-foreground transition-colors group-data-[selected=true]:text-default-foreground motion-reduce:transition-none"
                     data-slot="tabContent"
                   >
                     Two
-                  </div>
-                </button>
-                <button
+                  </span>
+                </div>
+                <div
                   aria-selected="false"
-                  class="z-0 w-full px-3 py-1 flex group relative justify-center items-center cursor-pointer transition-opacity tap-highlight-transparent data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 h-8 text-small rounded-small data-[hover-unselected=true]:opacity-100"
+                  class="outline-solid group relative z-0 flex h-8 w-full cursor-pointer items-center justify-center rounded-small px-3 py-1 outline-transparent transition-opacity text-small data-[focus-visible=true]:z-10 data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus motion-reduce:transition-none"
                   data-collection="react-aria-«replaced-aria-id»"
                   data-key="13"
+                  data-rac=""
                   data-react-aria-pressable="true"
                   data-slot="tab"
                   data-testid="radiotabsfield_option_13"
                   id="react-aria-«replaced-aria-id»-tab-13"
                   role="tab"
                   tabindex="-1"
-                  type="button"
                 >
-                  <div
-                    class="relative z-10 whitespace-nowrap transition-colors group-data-[selected=true]:text-default-foreground text-foreground"
+                  <span
+                    class="relative z-10 whitespace-nowrap text-foreground transition-colors group-data-[selected=true]:text-default-foreground motion-reduce:transition-none"
                     data-slot="tabContent"
                   >
                     Unlucky
-                  </div>
-                </button>
+                  </span>
+                </div>
               </div>
             </div>
           </div>
@@ -1159,9 +1437,12 @@ exports[`Story Snapshots > NumberValues 1`] = `
       >
         <button
           aria-label="Submit form"
-          class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
+          data-component="submit-button"
+          data-rac=""
           data-react-aria-pressable="true"
           data-testid="form_submit_button"
+          id="react-aria-«replaced-aria-id»"
           tabindex="0"
           type="submit"
         >
@@ -1177,46 +1458,55 @@ exports[`Story Snapshots > Required 1`] = `
 <div>
   <div
     class="flex w-full flex-row justify-between gap-6"
+    data-component="form"
   >
     <form
       class="grow min-w-60"
       data-form-is-valid="false"
       data-testid=""
+      novalidate=""
     >
       <div
-        style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
-      >
-        <input
-          aria-label="Radio Tabs Field"
-          name="radioTabsField"
-          value=""
-        />
-      </div>
-      <div
-        aria-label="Radio Tabs Field"
-        aria-orientation="vertical"
-        aria-required="true"
-        class="relative gap-2 group flex w-full flex-col gap-y-1.5"
+        aria-describedby="uniform-«replaced-aria-id»-required"
+        aria-labelledby="uniform-«replaced-aria-id»-label"
+        class="group flex w-full flex-col gap-y-1.5 relative"
+        data-component="radio-tabs"
         data-invalid="false"
         data-required="true"
+        data-slot="base"
         data-testid="radiotabsfield"
-        id="react-aria-«replaced-aria-id»"
-        role="radiogroup"
+        id="uniform-«replaced-aria-id»"
+        role="group"
       >
-        <span
-          class="relative after:content-['*'] after:text-danger after:ml-0.5 mb-2 inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger"
+        <div
+          class="mb-2 inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger relative"
+          data-slot="label"
+          id="uniform-«replaced-aria-id»-label"
         >
-          <legend>
-            Radio Tabs Field
-          </legend>
+          Radio Tabs Field
+          <span
+            aria-hidden="true"
+            class="ml-0.5 text-danger"
+          >
+            *
+          </span>
+        </div>
+        <span
+          class="sr-only"
+          id="uniform-«replaced-aria-id»-required"
+        >
+          Required selection.
         </span>
         <div
-          class="flex flex-col flex-wrap gap-2 data-[orientation=horizontal]:flex-row"
-          data-orientation="vertical"
-          role="presentation"
+          class="flex flex-col flex-wrap gap-2"
+          data-slot="wrapper"
         >
+          <template />
           <div
+            class="react-aria-Tabs"
+            data-orientation="horizontal"
             data-placement="top"
+            data-rac=""
             data-slot="tabWrapper"
             data-vertical="horizontal"
           >
@@ -1225,73 +1515,79 @@ exports[`Story Snapshots > Required 1`] = `
               data-slot="base"
             >
               <div
+                aria-label="Radio Tabs Field"
                 aria-orientation="horizontal"
-                class="relative flex p-1 h-fit gap-2 items-center flex-nowrap overflow-x-scroll scrollbar-hide bg-default-100 rounded-medium w-full"
+                class="relative flex h-fit w-full flex-nowrap items-center gap-2 overflow-x-auto rounded-medium bg-default-100 p-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
                 data-collection="react-aria-«replaced-aria-id»"
+                data-orientation="horizontal"
+                data-rac=""
                 data-slot="tabList"
                 id="react-aria-«replaced-aria-id»"
                 role="tablist"
               >
-                <button
+                <div
+                  aria-describedby="uniform-«replaced-aria-id»-required"
                   aria-selected="false"
-                  class="z-0 w-full px-3 py-1 flex group relative justify-center items-center cursor-pointer transition-opacity tap-highlight-transparent data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 h-8 text-small rounded-small data-[hover-unselected=true]:opacity-100"
+                  class="outline-solid group relative z-0 flex h-8 w-full cursor-pointer items-center justify-center rounded-small px-3 py-1 outline-transparent transition-opacity text-small data-[focus-visible=true]:z-10 data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus motion-reduce:transition-none"
                   data-collection="react-aria-«replaced-aria-id»"
                   data-key="option_1"
+                  data-rac=""
                   data-react-aria-pressable="true"
                   data-slot="tab"
                   data-testid="radiotabsfield_option_option_1"
                   id="react-aria-«replaced-aria-id»-tab-option_1"
                   role="tab"
                   tabindex="-1"
-                  type="button"
                 >
-                  <div
-                    class="relative z-10 whitespace-nowrap transition-colors group-data-[selected=true]:text-default-foreground text-foreground"
+                  <span
+                    class="relative z-10 whitespace-nowrap text-foreground transition-colors group-data-[selected=true]:text-default-foreground motion-reduce:transition-none"
                     data-slot="tabContent"
                   >
                     Option 1
-                  </div>
-                </button>
-                <button
+                  </span>
+                </div>
+                <div
+                  aria-describedby="uniform-«replaced-aria-id»-required"
                   aria-selected="false"
-                  class="z-0 w-full px-3 py-1 flex group relative justify-center items-center cursor-pointer transition-opacity tap-highlight-transparent data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 h-8 text-small rounded-small data-[hover-unselected=true]:opacity-100"
+                  class="outline-solid group relative z-0 flex h-8 w-full cursor-pointer items-center justify-center rounded-small px-3 py-1 outline-transparent transition-opacity text-small data-[focus-visible=true]:z-10 data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus motion-reduce:transition-none"
                   data-collection="react-aria-«replaced-aria-id»"
                   data-key="option_2"
+                  data-rac=""
                   data-react-aria-pressable="true"
                   data-slot="tab"
                   data-testid="radiotabsfield_option_option_2"
                   id="react-aria-«replaced-aria-id»-tab-option_2"
                   role="tab"
                   tabindex="-1"
-                  type="button"
                 >
-                  <div
-                    class="relative z-10 whitespace-nowrap transition-colors group-data-[selected=true]:text-default-foreground text-foreground"
+                  <span
+                    class="relative z-10 whitespace-nowrap text-foreground transition-colors group-data-[selected=true]:text-default-foreground motion-reduce:transition-none"
                     data-slot="tabContent"
                   >
                     Option 2
-                  </div>
-                </button>
-                <button
+                  </span>
+                </div>
+                <div
+                  aria-describedby="uniform-«replaced-aria-id»-required"
                   aria-selected="false"
-                  class="z-0 w-full px-3 py-1 flex group relative justify-center items-center cursor-pointer transition-opacity tap-highlight-transparent data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 h-8 text-small rounded-small data-[hover-unselected=true]:opacity-100"
+                  class="outline-solid group relative z-0 flex h-8 w-full cursor-pointer items-center justify-center rounded-small px-3 py-1 outline-transparent transition-opacity text-small data-[focus-visible=true]:z-10 data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus motion-reduce:transition-none"
                   data-collection="react-aria-«replaced-aria-id»"
                   data-key="option_3"
+                  data-rac=""
                   data-react-aria-pressable="true"
                   data-slot="tab"
                   data-testid="radiotabsfield_option_option_3"
                   id="react-aria-«replaced-aria-id»-tab-option_3"
                   role="tab"
                   tabindex="-1"
-                  type="button"
                 >
-                  <div
-                    class="relative z-10 whitespace-nowrap transition-colors group-data-[selected=true]:text-default-foreground text-foreground"
+                  <span
+                    class="relative z-10 whitespace-nowrap text-foreground transition-colors group-data-[selected=true]:text-default-foreground motion-reduce:transition-none"
                     data-slot="tabContent"
                   >
                     Option 3
-                  </div>
-                </button>
+                  </span>
+                </div>
               </div>
             </div>
           </div>
@@ -1302,9 +1598,12 @@ exports[`Story Snapshots > Required 1`] = `
       >
         <button
           aria-label="Submit form"
-          class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
+          data-component="submit-button"
+          data-rac=""
           data-react-aria-pressable="true"
           data-testid="form_submit_button"
+          id="react-aria-«replaced-aria-id»"
           tabindex="0"
           type="submit"
         >
@@ -1319,40 +1618,36 @@ exports[`Story Snapshots > Required 1`] = `
 exports[`Story Snapshots > WithContent 1`] = `
 <div>
   <div
-    class="flex w-full flex-row justify-between gap-6"
+    class="flex w-full flex-row justify-between gap-6 min-w-md"
+    data-component="form"
   >
     <form
-      class="grow min-w-md"
+      class="grow"
       data-form-is-valid="true"
       data-testid=""
+      novalidate=""
     >
       <div
-        style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
-      >
-        <input
-          aria-label="radioTabsField"
-          name="radioTabsField"
-          value="option_1"
-        />
-      </div>
-      <div
         aria-label="radioTabsField"
-        aria-orientation="vertical"
-        class="relative gap-2 group flex w-full flex-col gap-y-1.5"
+        class="group flex w-full flex-col gap-y-1.5 relative"
+        data-component="radio-tabs"
         data-invalid="false"
         data-required="false"
+        data-slot="base"
         data-testid="radiotabsfield"
-        id="react-aria-«replaced-aria-id»"
-        role="radiogroup"
+        id="uniform-«replaced-aria-id»"
+        role="group"
       >
         <div
-          class="flex flex-col flex-wrap gap-2 data-[orientation=horizontal]:flex-row"
-          data-orientation="vertical"
-          role="presentation"
+          class="flex flex-col flex-wrap gap-2"
+          data-slot="wrapper"
         >
+          <template />
           <div
             class="rounded-medium border border-divider w-full"
+            data-orientation="horizontal"
             data-placement="top"
+            data-rac=""
             data-slot="tabWrapper"
             data-vertical="horizontal"
           >
@@ -1361,23 +1656,31 @@ exports[`Story Snapshots > WithContent 1`] = `
               data-slot="base"
             >
               <div
+                aria-label="radioTabsField"
                 aria-orientation="horizontal"
-                class="relative flex p-1 h-fit gap-2 items-center flex-nowrap overflow-x-scroll scrollbar-hide bg-default-100 rounded-medium w-full"
+                class="relative flex h-fit w-full flex-nowrap items-center gap-2 overflow-x-auto rounded-medium bg-default-100 p-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
                 data-collection="react-aria-«replaced-aria-id»"
+                data-orientation="horizontal"
+                data-rac=""
                 data-slot="tabList"
                 id="react-aria-«replaced-aria-id»"
                 role="tablist"
               >
                 <span
-                  class="absolute z-0 will-change-[transform,width,height] invisible data-[initialized=true]:visible data-[animated=true]:transition-[left,top,width,height] data-[animated=true]:duration-250 data-[animated=true]:ease-out rounded-small bg-background dark:bg-default shadow-small"
+                  aria-hidden="true"
+                  class="pointer-events-none absolute z-0 rounded-small bg-background shadow-small transition-[left,top,width,height] duration-250 ease-out motion-reduce:transition-none dark:bg-default"
+                  data-animated="true"
+                  data-initialized="true"
                   data-slot="cursor"
+                  style="left: 0px; top: 0px; width: 0px; height: 0px;"
                 />
-                <button
+                <div
                   aria-controls="react-aria-«replaced-aria-id»-tabpanel-option_1"
                   aria-selected="true"
-                  class="z-0 w-full px-3 py-1 flex group relative justify-center items-center cursor-pointer transition-opacity tap-highlight-transparent data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 h-8 text-small rounded-small data-[hover-unselected=true]:opacity-100"
+                  class="outline-solid group relative z-0 flex h-8 w-full cursor-pointer items-center justify-center rounded-small px-3 py-1 outline-transparent transition-opacity text-small data-[focus-visible=true]:z-10 data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus motion-reduce:transition-none"
                   data-collection="react-aria-«replaced-aria-id»"
                   data-key="option_1"
+                  data-rac=""
                   data-react-aria-pressable="true"
                   data-selected="true"
                   data-slot="tab"
@@ -1385,62 +1688,60 @@ exports[`Story Snapshots > WithContent 1`] = `
                   id="react-aria-«replaced-aria-id»-tab-option_1"
                   role="tab"
                   tabindex="0"
-                  type="button"
                 >
-                  <div
-                    class="relative z-10 whitespace-nowrap transition-colors group-data-[selected=true]:text-default-foreground text-foreground"
+                  <span
+                    class="relative z-10 whitespace-nowrap text-foreground transition-colors group-data-[selected=true]:text-default-foreground motion-reduce:transition-none"
                     data-slot="tabContent"
                   >
                     Option 1
-                  </div>
-                </button>
-                <button
+                  </span>
+                </div>
+                <div
                   aria-selected="false"
-                  class="z-0 w-full px-3 py-1 flex group relative justify-center items-center cursor-pointer transition-opacity tap-highlight-transparent data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 h-8 text-small rounded-small data-[hover-unselected=true]:opacity-100"
+                  class="outline-solid group relative z-0 flex h-8 w-full cursor-pointer items-center justify-center rounded-small px-3 py-1 outline-transparent transition-opacity text-small data-[focus-visible=true]:z-10 data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus motion-reduce:transition-none"
                   data-collection="react-aria-«replaced-aria-id»"
                   data-key="option_2"
+                  data-rac=""
                   data-react-aria-pressable="true"
                   data-slot="tab"
                   data-testid="radiotabsfield_option_option_2"
                   id="react-aria-«replaced-aria-id»-tab-option_2"
                   role="tab"
                   tabindex="-1"
-                  type="button"
                 >
-                  <div
-                    class="relative z-10 whitespace-nowrap transition-colors group-data-[selected=true]:text-default-foreground text-foreground"
+                  <span
+                    class="relative z-10 whitespace-nowrap text-foreground transition-colors group-data-[selected=true]:text-default-foreground motion-reduce:transition-none"
                     data-slot="tabContent"
                   >
                     Option 2
-                  </div>
-                </button>
-                <button
+                  </span>
+                </div>
+                <div
                   aria-selected="false"
-                  class="z-0 w-full px-3 py-1 flex group relative justify-center items-center cursor-pointer transition-opacity tap-highlight-transparent data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 h-8 text-small rounded-small data-[hover-unselected=true]:opacity-100"
+                  class="outline-solid group relative z-0 flex h-8 w-full cursor-pointer items-center justify-center rounded-small px-3 py-1 outline-transparent transition-opacity text-small data-[focus-visible=true]:z-10 data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus motion-reduce:transition-none"
                   data-collection="react-aria-«replaced-aria-id»"
                   data-key="option_3"
+                  data-rac=""
                   data-react-aria-pressable="true"
                   data-slot="tab"
                   data-testid="radiotabsfield_option_option_3"
                   id="react-aria-«replaced-aria-id»-tab-option_3"
                   role="tab"
                   tabindex="-1"
-                  type="button"
                 >
-                  <div
-                    class="relative z-10 whitespace-nowrap transition-colors group-data-[selected=true]:text-default-foreground text-foreground"
+                  <span
+                    class="relative z-10 whitespace-nowrap text-foreground transition-colors group-data-[selected=true]:text-default-foreground motion-reduce:transition-none"
                     data-slot="tabContent"
                   >
                     Option 3
-                  </div>
-                </button>
+                  </span>
+                </div>
               </div>
             </div>
             <div
               aria-labelledby="react-aria-«replaced-aria-id»-tab-option_1"
-              class="data-[inert=true]:hidden outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 p-3"
-              data-focus="false"
-              data-focus-visible="false"
+              class="outline-solid p-3 outline-transparent data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus"
+              data-rac=""
               data-slot="panel"
               id="react-aria-«replaced-aria-id»-tabpanel-option_1"
               role="tabpanel"
@@ -1456,9 +1757,12 @@ exports[`Story Snapshots > WithContent 1`] = `
       >
         <button
           aria-label="Submit form"
-          class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
+          data-component="submit-button"
+          data-rac=""
           data-react-aria-pressable="true"
           data-testid="form_submit_button"
+          id="react-aria-«replaced-aria-id»"
           tabindex="0"
           type="submit"
         >
@@ -1474,38 +1778,35 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
 <div>
   <div
     class="flex w-full flex-row justify-between gap-6"
+    data-component="form"
   >
     <form
       class="grow min-w-60"
       data-form-is-valid="true"
       data-testid=""
+      novalidate=""
     >
       <div
-        style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
-      >
-        <input
-          aria-label="radioTabsField"
-          name="radioTabsField"
-          value="option_2"
-        />
-      </div>
-      <div
         aria-label="radioTabsField"
-        aria-orientation="vertical"
-        class="relative gap-2 group flex w-full flex-col gap-y-1.5"
+        class="group flex w-full flex-col gap-y-1.5 relative"
+        data-component="radio-tabs"
         data-invalid="false"
         data-required="false"
+        data-slot="base"
         data-testid="radiotabsfield"
-        id="react-aria-«replaced-aria-id»"
-        role="radiogroup"
+        id="uniform-«replaced-aria-id»"
+        role="group"
       >
         <div
-          class="flex flex-col flex-wrap gap-2 data-[orientation=horizontal]:flex-row"
-          data-orientation="vertical"
-          role="presentation"
+          class="flex flex-col flex-wrap gap-2"
+          data-slot="wrapper"
         >
+          <template />
           <div
+            class="react-aria-Tabs"
+            data-orientation="horizontal"
             data-placement="top"
+            data-rac=""
             data-slot="tabWrapper"
             data-vertical="horizontal"
           >
@@ -1514,42 +1815,50 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
               data-slot="base"
             >
               <div
+                aria-label="radioTabsField"
                 aria-orientation="horizontal"
-                class="relative flex p-1 h-fit gap-2 items-center flex-nowrap overflow-x-scroll scrollbar-hide bg-default-100 rounded-medium w-full"
+                class="relative flex h-fit w-full flex-nowrap items-center gap-2 overflow-x-auto rounded-medium bg-default-100 p-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
                 data-collection="react-aria-«replaced-aria-id»"
+                data-orientation="horizontal"
+                data-rac=""
                 data-slot="tabList"
                 id="react-aria-«replaced-aria-id»"
                 role="tablist"
               >
                 <span
-                  class="absolute z-0 will-change-[transform,width,height] invisible data-[initialized=true]:visible data-[animated=true]:transition-[left,top,width,height] data-[animated=true]:duration-250 data-[animated=true]:ease-out rounded-small bg-background dark:bg-default shadow-small"
+                  aria-hidden="true"
+                  class="pointer-events-none absolute z-0 rounded-small bg-background shadow-small transition-[left,top,width,height] duration-250 ease-out motion-reduce:transition-none dark:bg-default"
+                  data-animated="true"
+                  data-initialized="true"
                   data-slot="cursor"
+                  style="left: 0px; top: 0px; width: 0px; height: 0px;"
                 />
-                <button
+                <div
                   aria-selected="false"
-                  class="z-0 w-full px-3 py-1 flex group relative justify-center items-center cursor-pointer transition-opacity tap-highlight-transparent data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 h-8 text-small rounded-small data-[hover-unselected=true]:opacity-100"
+                  class="outline-solid group relative z-0 flex h-8 w-full cursor-pointer items-center justify-center rounded-small px-3 py-1 outline-transparent transition-opacity text-small data-[focus-visible=true]:z-10 data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus motion-reduce:transition-none"
                   data-collection="react-aria-«replaced-aria-id»"
                   data-key="option_1"
+                  data-rac=""
                   data-react-aria-pressable="true"
                   data-slot="tab"
                   data-testid="radiotabsfield_option_option_1"
                   id="react-aria-«replaced-aria-id»-tab-option_1"
                   role="tab"
                   tabindex="-1"
-                  type="button"
                 >
-                  <div
-                    class="relative z-10 whitespace-nowrap transition-colors group-data-[selected=true]:text-default-foreground text-foreground"
+                  <span
+                    class="relative z-10 whitespace-nowrap text-foreground transition-colors group-data-[selected=true]:text-default-foreground motion-reduce:transition-none"
                     data-slot="tabContent"
                   >
                     Option 1
-                  </div>
-                </button>
-                <button
+                  </span>
+                </div>
+                <div
                   aria-selected="true"
-                  class="z-0 w-full px-3 py-1 flex group relative justify-center items-center cursor-pointer transition-opacity tap-highlight-transparent data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 h-8 text-small rounded-small data-[hover-unselected=true]:opacity-100"
+                  class="outline-solid group relative z-0 flex h-8 w-full cursor-pointer items-center justify-center rounded-small px-3 py-1 outline-transparent transition-opacity text-small data-[focus-visible=true]:z-10 data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus motion-reduce:transition-none"
                   data-collection="react-aria-«replaced-aria-id»"
                   data-key="option_2"
+                  data-rac=""
                   data-react-aria-pressable="true"
                   data-selected="true"
                   data-slot="tab"
@@ -1557,35 +1866,34 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
                   id="react-aria-«replaced-aria-id»-tab-option_2"
                   role="tab"
                   tabindex="0"
-                  type="button"
                 >
-                  <div
-                    class="relative z-10 whitespace-nowrap transition-colors group-data-[selected=true]:text-default-foreground text-foreground"
+                  <span
+                    class="relative z-10 whitespace-nowrap text-foreground transition-colors group-data-[selected=true]:text-default-foreground motion-reduce:transition-none"
                     data-slot="tabContent"
                   >
                     Option 2
-                  </div>
-                </button>
-                <button
+                  </span>
+                </div>
+                <div
                   aria-selected="false"
-                  class="z-0 w-full px-3 py-1 flex group relative justify-center items-center cursor-pointer transition-opacity tap-highlight-transparent data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 h-8 text-small rounded-small data-[hover-unselected=true]:opacity-100"
+                  class="outline-solid group relative z-0 flex h-8 w-full cursor-pointer items-center justify-center rounded-small px-3 py-1 outline-transparent transition-opacity text-small data-[focus-visible=true]:z-10 data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus motion-reduce:transition-none"
                   data-collection="react-aria-«replaced-aria-id»"
                   data-key="option_3"
+                  data-rac=""
                   data-react-aria-pressable="true"
                   data-slot="tab"
                   data-testid="radiotabsfield_option_option_3"
                   id="react-aria-«replaced-aria-id»-tab-option_3"
                   role="tab"
                   tabindex="-1"
-                  type="button"
                 >
-                  <div
-                    class="relative z-10 whitespace-nowrap transition-colors group-data-[selected=true]:text-default-foreground text-foreground"
+                  <span
+                    class="relative z-10 whitespace-nowrap text-foreground transition-colors group-data-[selected=true]:text-default-foreground motion-reduce:transition-none"
                     data-slot="tabContent"
                   >
                     Option 3
-                  </div>
-                </button>
+                  </span>
+                </div>
               </div>
             </div>
           </div>
@@ -1596,9 +1904,12 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
       >
         <button
           aria-label="Submit form"
-          class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
+          data-component="submit-button"
+          data-rac=""
           data-react-aria-pressable="true"
           data-testid="form_submit_button"
+          id="react-aria-«replaced-aria-id»"
           tabindex="0"
           type="submit"
         >

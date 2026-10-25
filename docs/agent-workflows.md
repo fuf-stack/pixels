@@ -2,7 +2,9 @@
 
 These workflows are deliberately command-led. Read the root and nearest package
 `AGENTS.md`, make the smallest coherent change, and record the commands and
-manual checks in the pull request.
+manual checks in the pull request. Read [the code style guide](./code-style.md)
+for component structure, readability, type ownership and concrete examples;
+[component styling](./styling.md) owns the Tailwind Variants and CSS details.
 
 ## Public API review
 
@@ -12,13 +14,78 @@ and new call sites and decide whether the change is internal, additive, or
 breaking. Run focused tests followed by `pnpm check`. A breaking change needs a
 migration document and explicit release sequencing.
 
+## Test commands
+
+`make test` installs and builds the workspace, then runs unit and script tests
+with coverage, isolated parallel Storybook Chromium shards, and Docker visual
+comparisons. All three categories run even if an earlier category fails. The
+visual stage builds static Storybook first, and skips comparisons if that build
+fails rather than testing stale output. The final summary lists each category's
+pass/fail status and runtime, including visual build preparation, plus total
+elapsed time. Any failure makes the command fail, even when the last suite passes.
+Cancellation stops the sequence instead of starting another suite.
+
+Example final report:
+
+```text
+=== Test summary ===
+PASS test:unit (30.0s)
+PASS test:storybook (45.0s)
+PASS test:visual (90.0s)
+3/3 test suites passed.
+Total runtime: 165.0s
+```
+
+Docker must be running for the full test command. Select a category to run only
+its tests:
+
+| Command               | Tests                                                                   |
+| --------------------- | ----------------------------------------------------------------------- |
+| `make test`           | Unit tests, parallel Storybook tests, then Docker visual comparisons    |
+| `make test-unit`      | Unit and CI-script tests, with coverage, excluding browser stories      |
+| `make test-storybook` | Storybook interaction and accessibility tests in Chromium               |
+| `make test-visual`    | Builds static Storybook, then compares screenshots in CI's Docker image |
+| `make test-dts`       | Veto declaration-consumer smoke tests                                   |
+
+All Make test commands install dependencies and build the workspace first. Use
+`ARGS` for runner options, for example:
+
+```sh
+make test-unit ARGS="--project=@fuf-stack/uniform"
+make test-visual ARGS="--grep=uniform-input--invalid"
+```
+
+With dependencies and packages already built, use `node scripts/test.mjs all`
+for the same full test sequence, or `pnpm test:unit` and `pnpm test:storybook`
+for individual categories. `pnpm test` remains the direct
+single-Vitest entry point for existing callers. `pnpm test:visual:docker`
+compares an existing static Storybook build; `pnpm test:visual` runs directly in
+the pinned Linux container. See [visual regression](./visual-regression.md) for
+baseline updates and environment requirements.
+
+The dedicated Make targets delegate to `scripts/test.mjs`, which selects the
+runner and forwards `ARGS`. For `make test`, these options apply to the two
+Vitest categories; the visual stage runs its complete suite. Use `make test-visual`
+for Playwright options such as `--grep` or `--workers`. `make storybook` starts the
+development server.
+`make check` / `pnpm check` runs the verification stages, including unit and
+Storybook tests; visual comparisons have their own CI job and run locally through
+`make test` or `make test-visual`.
+
+Script tests, including release-bootstrap tests, belong to the `ci-scripts`
+Vitest project and run with the unit suite. Add them as `scripts/*.test.mjs`,
+using Vitest's test API with Node assertions and filesystem/process APIs where
+useful. To run only the bootstrap tests:
+
+```sh
+pnpm exec vitest run --project=ci-scripts scripts/bootstrap-next-branch.test.mjs
+```
+
 ## Pre-commit checks
 
-`pnpm lint-staged` batches staged files from all seven runtime packages into
-one `vitest related --run` invocation, then lints those files. Related tests exclude `@repo/storybook-config*`, matching the unit-test
-CI job; Storybook browser tests run through `pnpm test:storybook`. This keeps
-browser-only CSS transforms out of related unit-test discovery and avoids
-scanning the workspace separately for each affected package.
+`pnpm lint-staged` batches staged runtime-package files into one related unit-test
+run, followed by lint. Related tests exclude `@repo/storybook-config*`, matching
+CI's unit-test job and `pnpm check`'s unit stage. Browser stories run separately through `pnpm test:storybook`.
 
 ## Package release
 
@@ -36,39 +103,83 @@ important loading/error/empty states. Run the package's focused Vitest command,
 `pnpm test:storybook`, and then `pnpm check`. Attach before/after evidence for
 visual changes.
 
-## Storybook edge cases
+Pixels' `test:types` runs TypeScript directly over its source, tests and stories.
+It is part of `pnpm check`, declaration generation alone does not verify every
+internal implementation and story contract.
 
 Run `pnpm test:storybook` from the root to delegate to the shared Storybook
-package's `test:storybook` script. That package owns the browser test command.
-The CI unit-test job uses `pnpm test --project='!@repo/storybook-config*'` to
-exclude browser projects; the separate Storybook job installs Chromium and runs
-those tests.
+package's browser-test command. CI's unit job excludes `@repo/storybook-config*`,
+and its separate browser job installs Chromium and runs those stories.
+CI runs four Storybook shards in parallel on separate GitHub runners. Each shard
+has its own Chromium process, Vite cache and test server. Files run serially
+within each shard so keyboard and focus-restoration assertions do not compete
+across pages. `fail-fast: false` lets every shard report failures. A final `Storybook tests`
+status check succeeds only when all shards pass, preserving the existing check
+name for branch protection.
 
-Keep normal usage and variant examples in `<Component>.stories.tsx`. Put edge
-cases and focused regression scenarios in a sibling
-`<Component>EdgeCases.stories.tsx`, following the Slider examples. Give that file
-the title `<existing component title>/Edge Cases` so Storybook groups these
-scenarios under the component rather than mixing them into its regular examples.
-Use short story names without repeating "Edge Case" in the sidebar.
+Locally, `make test-storybook`, `pnpm test:storybook` and the Storybook stage of
+`pnpm check` run up to four shards in parallel, limited by available CPU cores.
+Each process has its own Chromium instance, test server and dependency cache.
+Files remain serial within each process. The first run populates each cache;
+subsequent runs reuse them. Local shards use non-interactive reporters, with each
+shard's stdout and stderr printed together when it finishes. This avoids competing
+terminal progress displays and keeps complete failure details. A final Storybook
+summary lists every shard's result and fails if any shard failed, regardless of
+which one finishes last. An explicit single shard retains the normal live reporter.
 
-Reuse the component's default story metadata (including decorators and args)
-and append `@repo/storybook-config/edge-case-decorator` to its decorators. Each
-edge-case story must set `parameters.edgeCaseDescription` to a short explanation
-of the trigger and expected behavior. The shared decorator renders this in a
-"What this checks" box above the example. Keep the outer layout unconstrained;
-only the explanation box should have a fixed width, so form debug panels and
-portals still have room.
+Focused file filters run in one process, so a shard without matching files cannot
+cause a false failure. Options written with separate argument values also use
+this path; use `--option=value` to retain parallelism for option-only runs.
 
-Move scenario-only fixtures and helpers with their stories. Preserve their
-`play` functions, assertions, setup, and cleanup. Update the component's snapshot
-test to call `storySnapshots` for both story modules, retaining any documented
-environment-specific exclusions. Browser Storybook tests discover both files
-automatically. Keep export names when moving existing stories to preserve
-snapshot keys; the new title changes their Storybook URLs, so update any links.
+```sh
+pnpm test:storybook Modal.interactions.stories.tsx
+```
 
-Ordinary disabled, empty, loading, and error variants can remain with the normal
-examples. Separate stories that exercise unusual combinations, boundary
-conditions, or a specific regression.
+Set `STORYBOOK_TEST_SHARDS` to reduce resource use or reproduce serial execution:
+
+```sh
+STORYBOOK_TEST_SHARDS=2 pnpm test:storybook
+STORYBOOK_TEST_SHARDS=1 make test-storybook
+```
+
+`make test` uses the same parallel Storybook runner after its unit tests.
+Shared `ARGS`, such as `--testNamePattern`, reach both categories; use dedicated
+targets for project-specific filters or runner options. An explicit `--shard`
+bypasses local fan-out and runs only that partition, as CI does. To reproduce a specific CI shard:
+
+```sh
+make test-storybook ARGS="--shard=2/4"
+# Without dependency setup and workspace builds:
+pnpm test:storybook --shard=2/4
+```
+
+Use the same shard count for every job, and run every index from 1 through that
+count. Keep focus assertions enabled when changing browser concurrency. Do not
+enable file parallelism within a shard to increase concurrency.
+
+## Storybook stories and edge cases
+
+Keep every story file in its owner's `stories/` folder. Normal usage and
+composition live in `<Component>.stories.tsx`, with separate
+`<Component>.interactions.stories.tsx` and `<Component>.edge-cases.stories.tsx`
+when those scenarios exist. Use the corresponding titles `<package>/<Component>`,
+`<package>/<Component>/Interactions` and `<package>/<Component>/Edge Cases`.
+See [the code style guide](./code-style.md#story-folders-and-sidebar-groups) for
+shared setup, ordering and concrete examples. Interaction stories must perform
+and assert the named interaction through `play`.
+
+Each edge-case story sets `parameters.edgeCaseDescription` to explain its trigger
+and expected behavior. Use `@repo/storybook-config/edge-case-decorator` for the
+"What this checks" box. Keep it outside the form and keep the outer layout
+unconstrained; only the explanation box should have a fixed width, so form debug
+panels and portals still have room. Input's shared story setup demonstrates a
+conditional metadata decorator that applies the explanation only to edge cases.
+
+Preserve `play` functions, assertions, setup, cleanup and export names when
+moving stories. Check the decorator order and existing snapshots, and update
+story links when consolidation changes their URLs. The component's snapshot
+test imports every group separately; browser tests discover the stories
+automatically. Keep documented environment-specific exclusions explicit.
 
 ## Dependency upgrade
 
@@ -97,34 +208,43 @@ out of date, comment `/autofix-snapshots` on the pull request or add the
 update mode, refuses to commit non-snapshot changes, verifies the updated suite,
 pushes the snapshot commit to the Renovate branch, and dispatches CI for it.
 
-## SonarQube coverage
+## Expected errors in stories
 
-The unit-test CI command selects projects to exclude Storybook. With Vitest 5,
-coverage include globs are relative to the selected package roots, so this
-command also sets `--coverage.include='src/**/*.{js,jsx,ts,tsx}'`. The shared
-workspace preset uses workspace-relative globs for unfiltered test runs.
-Using those globs with `--project` produces an empty report even when all
-tests pass.
+An error-boundary story should verify its fallback without hiding unrelated
+errors. For React 19 stories, use the story's `parameters.react.rootOptions` to
+handle the exact deliberate error instance via `onCaughtError`, forwarding every
+other error to `console.error`. Keep the handler scoped to that story, leave
+uncaught errors alone, and keep the fallback assertions in `play`.
 
-CI verifies that `coverage/lcov.info` contains source records and measured
-lines before uploading it and again after downloading it for SonarQube. An
-empty report must fail CI rather than silently report 0% coverage.
+```tsx
+parameters: {
+  react: {
+    rootOptions: {
+      onCaughtError: createExpectedErrorHandler(expectedErrors['error-user']),
+    },
+  },
+},
+```
 
-## Renovate memory failures
+The `createWithSuspense` stories demonstrate this pattern. Its tests verify that
+a different error with the same message is still reported. Avoid global console
+filters matching broad text such as `Error:` or `The above error occurred`.
 
-Mend-hosted jobs have a 3 GiB memory limit. `renovate.json5` caps Node child
-processes used for package-manager commands at 1024 MiB with
-`toolSettings.nodeMaxMemory`, leaving room for Renovate and other processes.
-This limits the Node heap; it does not increase the hosted job limit or cap
-the total memory of every process.
+## jsdom limitations
 
-If a job still fails with `kernel-out-of-memory`, inspect the end of its debug
-log to identify the active operation before adjusting the cap. A Node heap
-error in pnpm may require a higher cap; continued total job exhaustion may
-require a higher Mend resource tier or a self-hosted runner. See the
-[Mend-hosted FAQ](https://docs.renovatebot.com/mend-hosted/faq/#im-hitting-a-timeout-kernel-out-of-memory-limit-with-a-pnpmyarn-project).
+Uniform's jsdom setup mocks `window.scrollTo` and the global `scrollTo` with the
+same Vitest mock. jsdom does not implement viewport scrolling; this records scroll
+requests without suppressing console warnings. Real viewport movement belongs in
+browser tests. After a validation action that requests scrolling, a unit test can
+assert `expect(window.scrollTo).toHaveBeenCalled()`, while a browser story checks
+the resulting position.
 
 ## Visual and accessibility verification
+
+The [visual regression suite](./visual-regression.md) compares selected stories in
+CI. Build with `pnpm --filter @repo/storybook-config storybook:build`, then run
+`pnpm test:visual:docker` for the same Linux rendering locally. Review baseline
+changes alongside component changes.
 
 Use Storybook to cover meaningful states, themes, responsive behavior, and
 reduced motion. Run `pnpm test:storybook`, then manually verify keyboard order,
@@ -132,3 +252,11 @@ focus visibility/restoration, accessible names and descriptions, disabled and
 error states, and contrast. Record browsers, assistive technology, and visual
 evidence in the pull request. Automated accessibility checks are a baseline,
 not a replacement for interaction review.
+
+### Sidebar ordering configuration
+
+Storybook statically extracts `parameters.options.storySort` from each actual
+`.storybook/preview.tsx`. Keep the ordering object there, an imported shared
+preview spread is not followed by the indexer. The extraction regression test is
+`scripts/ci-storybook-order.test.mjs`. Verify ordering in the rendered sidebar
+after changing it. Normal stories precede Composition, Interactions and Edge Cases.

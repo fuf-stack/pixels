@@ -1,54 +1,64 @@
 import type { ReactNode } from 'react';
 
-import { cn } from '@fuf-stack/pixel-utils';
+import { useStyling } from '@fuf-stack/pixels/StylingProvider';
 
-import { useUniformField } from '../../hooks/useUniformField';
+import FieldLabel from '../../partials/FieldLabel/FieldLabel';
 
 export interface FieldArrayLabelProps {
   /** CSS class name */
   className?: string;
-  /** Label content */
+  /** Optional heading ID supplied by the owning group. */
+  id?: string;
+  /** Shows an array-level validation failure */
+  invalid: boolean;
+  /** Field label */
   label: ReactNode;
-  /** Field name */
-  name: string;
+  /** Marks the array as required */
+  required: boolean;
 }
 
 /**
  * Renders the label for a FieldArray component.
  *
  * This component handles displaying the array label with proper accessibility
- * attributes using the label props from useUniformField.
+ * attributes using owned heading markup and field state.
  */
 const FieldArrayLabel = ({
   className = undefined,
-  label: _label,
-  name,
+  id = undefined,
+  label,
+  invalid,
+  required,
 }: FieldArrayLabelProps) => {
-  const { error, getLabelProps, invalid, label } = useUniformField({
-    name,
-    label: _label,
-  });
+  const { cn } = useStyling();
 
   // when no label is provided, don't render anything
-  if (!_label) {
+  if (!label) {
     return null;
   }
 
-  // @ts-expect-error - error._errors exists but not typed
-  const hasErrors = invalid && error?._errors;
+  const hasErrors = invalid;
 
   return (
-    <div
-      {...getLabelProps()}
+    <FieldLabel
       aria-level={3}
-      className={cn(getLabelProps()?.className, className, {
-        // when there are no array level errors, the label should have foreground color
-        'text-foreground!': !hasErrors,
-      })}
+      as="div"
+      className={cn(
+        'block max-w-full overflow-hidden text-ellipsis subpixel-antialiased text-small',
+        hasErrors ? 'text-danger!' : undefined,
+        className,
+        {
+          // when there are no array level errors, the label should have foreground color
+          'text-foreground!': !hasErrors,
+        },
+      )}
+      id={id}
+      required={required}
+      requiredClassName="ms-0.5 text-danger"
       role="heading"
     >
       {label}
-    </div>
+    </FieldLabel>
   );
 };
 

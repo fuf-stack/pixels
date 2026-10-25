@@ -19,3 +19,5 @@ export * from './Filter';
 
 // export the Filter component as default
 export default Filter;
+
+export { filterVariants } from './filterVariants';

@@ -4,6 +4,7 @@ exports[`Story Snapshots > SimpleReset 1`] = `
 <div>
   <div
     class="flex w-full flex-row justify-between gap-6"
+    data-component="form"
   >
     <form
       class="grow min-w-96"
@@ -12,28 +13,30 @@ exports[`Story Snapshots > SimpleReset 1`] = `
       novalidate=""
     >
       <div
-        class="flex flex-col relative overflow-hidden h-auto text-foreground box-border bg-content1 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 shadow-none rounded-small w-full transition-transform-background motion-reduce:transition-none border border-divider"
+        class="relative box-border flex h-auto w-full flex-col overflow-hidden rounded-small border border-divider bg-content1 text-foreground shadow-none outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus transition-transform-background motion-reduce:transition-none"
+        data-component="card"
+        data-slot="base"
         tabindex="-1"
       >
         <div
-          class="relative flex w-full p-3 flex-auto flex-col place-content-inherit align-items-inherit h-auto break-words text-left overflow-y-auto subpixel-antialiased"
+          class="relative flex h-auto w-full flex-auto flex-col p-3 place-content-inherit align-items-inherit overflow-y-auto break-words text-left subpixel-antialiased"
+          data-slot="body"
         >
           <div
             class="grid gap-6"
+            data-component="grid"
           >
             <div
               class="group flex w-full flex-col gap-y-1.5 leading-normal"
-              data-has-helper="true"
-              data-has-label="true"
-              data-required="false"
+              data-component="select"
               data-slot="base"
               data-testid="country_wrapper"
             >
               <label
                 class="pointer-events-auto inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger"
                 data-slot="label"
-                for="react-select-country-input"
-                id="react-aria-«replaced-aria-id»"
+                for="uniform-«replaced-aria-id»"
+                id="uniform-«replaced-aria-id»-label"
               >
                 Country
               </label>
@@ -42,7 +45,7 @@ exports[`Story Snapshots > SimpleReset 1`] = `
               >
                 <span
                   class="css-1f43avz-a11yText-A11yText"
-                  id="react-select-country-live-region"
+                  id="react-select-uniform-«replaced-aria-id»-live-region"
                 />
                 <span
                   aria-atomic="false"
@@ -61,7 +64,7 @@ exports[`Story Snapshots > SimpleReset 1`] = `
                       class="gap-1 p-1 css-14oxtc6"
                     >
                       <div
-                        class="ml-1! leading-7! font-normal w-full text-start text-small truncate group-data-[has-value=true]:text-default-foreground css-w54w9q-singleValue"
+                        class="w-full truncate text-start font-normal text-small ml-1! leading-7! css-w54w9q-singleValue"
                       >
                         🇩🇪 Germany
                       </div>
@@ -75,15 +78,13 @@ exports[`Story Snapshots > SimpleReset 1`] = `
                           aria-errormessage=""
                           aria-expanded="false"
                           aria-haspopup="true"
-                          aria-invalid="false"
-                          aria-label="Country"
-                          aria-labelledby="react-aria-«replaced-aria-id»"
+                          aria-labelledby="uniform-«replaced-aria-id»-label"
                           autocapitalize="none"
                           autocomplete="off"
                           autocorrect="off"
                           class=""
                           data-testid="country"
-                          id="react-select-country-input"
+                          id="uniform-«replaced-aria-id»"
                           role="combobox"
                           spellcheck="false"
                           style="color: inherit; background: 0px center; opacity: 0; width: 100%; grid-area: 1 / 2; font: inherit; min-width: 2px; border: 0px; margin: 0px; outline: 0px; padding: 0px;"
@@ -148,98 +149,84 @@ exports[`Story Snapshots > SimpleReset 1`] = `
               </div>
             </div>
             <div
-              class="group flex flex-col data-[hidden=true]:hidden w-full relative justify-end data-[has-label=true]:mt-[calc(var(--heroui-font-size-small)_+_10px)]"
-              data-filled="true"
-              data-filled-within="true"
-              data-has-elements="true"
-              data-has-helper="true"
-              data-has-label="true"
+              class="group relative flex w-full flex-col"
+              data-component="input"
+              data-rac=""
               data-slot="base"
             >
+              <label
+                class="block cursor-default pb-1 text-small text-foreground group-data-[invalid=true]:text-danger"
+                data-slot="label"
+                for="uniform-«replaced-aria-id»"
+                id="uniform-«replaced-aria-id»-label"
+              >
+                City
+              </label>
               <div
-                class="h-full flex flex-col"
-                data-slot="main-wrapper"
+                class="relative inline-flex h-10 min-h-10 w-full cursor-text items-center shadow-xs rounded-small border-medium border-default-200 bg-content1 px-3 text-foreground transition-colors group-data-[disabled=true]:pointer-events-none group-data-[focus=true]:border-focus group-data-[invalid=true]:border-danger data-[hovered=true]:border-default-400 group-data-[focus=true]:data-[hovered=true]:border-default-foreground motion-reduce:transition-none"
+                data-rac=""
+                data-slot="input-wrapper"
+                role="presentation"
               >
                 <div
-                  class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 group-data-[focus=true]:data-[hover=true]:border-default-foreground h-10 min-h-10 rounded-small !duration-150 transition-colors motion-reduce:transition-none bg-content1 group-data-[focus=true]:border-focus"
-                  data-slot="input-wrapper"
-                  style="cursor: text;"
+                  class="inline-flex h-full w-full items-center gap-0"
+                  data-slot="inner-wrapper"
                 >
-                  <label
-                    class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block text-foreground-500 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto text-small group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden"
-                    data-slot="label"
-                    for="city"
-                    id="react-aria-«replaced-aria-id»"
-                  >
-                    City
-                  </label>
-                  <div
-                    class="inline-flex w-full items-center h-full box-border"
-                    data-slot="inner-wrapper"
-                  >
-                    <input
-                      aria-labelledby="react-aria-«replaced-aria-id»"
-                      autocomplete="off"
-                      class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text dark:autofill:[-webkit-text-fill-color:hsl(var(--heroui-foreground))] [&::-ms-reveal]:hidden text-small"
-                      data-slot="input"
-                      data-testid="city"
-                      id="city"
-                      name="city"
-                      placeholder="Enter city..."
-                      tabindex="0"
-                      title=""
-                      type="text"
-                      value=""
-                    />
-                  </div>
+                  <input
+                    aria-labelledby="uniform-«replaced-aria-id»-label"
+                    autocomplete="off"
+                    class="w-full min-w-0 bg-transparent bg-clip-text text-small font-normal text-inherit outline-none placeholder:text-foreground-500 autofill:bg-transparent data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden"
+                    data-rac=""
+                    data-slot="input"
+                    data-testid="city"
+                    id="uniform-«replaced-aria-id»"
+                    name="city"
+                    placeholder="Enter city..."
+                    tabindex="0"
+                    type="text"
+                    value=""
+                  />
                 </div>
               </div>
             </div>
             <div
-              class="group flex flex-col data-[hidden=true]:hidden w-full relative justify-end data-[has-label=true]:mt-[calc(var(--heroui-font-size-small)_+_10px)]"
-              data-filled="true"
-              data-filled-within="true"
-              data-has-elements="true"
-              data-has-helper="true"
-              data-has-label="true"
+              class="group relative flex w-full flex-col"
+              data-component="input"
+              data-rac=""
               data-slot="base"
             >
+              <label
+                class="block cursor-default pb-1 text-small text-foreground group-data-[invalid=true]:text-danger"
+                data-slot="label"
+                for="uniform-«replaced-aria-id»"
+                id="uniform-«replaced-aria-id»-label"
+              >
+                Zip Code
+              </label>
               <div
-                class="h-full flex flex-col"
-                data-slot="main-wrapper"
+                class="relative inline-flex h-10 min-h-10 w-full cursor-text items-center shadow-xs rounded-small border-medium border-default-200 bg-content1 px-3 text-foreground transition-colors group-data-[disabled=true]:pointer-events-none group-data-[focus=true]:border-focus group-data-[invalid=true]:border-danger data-[hovered=true]:border-default-400 group-data-[focus=true]:data-[hovered=true]:border-default-foreground motion-reduce:transition-none"
+                data-rac=""
+                data-slot="input-wrapper"
+                role="presentation"
               >
                 <div
-                  class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 group-data-[focus=true]:data-[hover=true]:border-default-foreground h-10 min-h-10 rounded-small !duration-150 transition-colors motion-reduce:transition-none bg-content1 group-data-[focus=true]:border-focus"
-                  data-slot="input-wrapper"
-                  style="cursor: text;"
+                  class="inline-flex h-full w-full items-center gap-0"
+                  data-slot="inner-wrapper"
                 >
-                  <label
-                    class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block text-foreground-500 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto text-small group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden"
-                    data-slot="label"
-                    for="zipcode"
-                    id="react-aria-«replaced-aria-id»"
-                  >
-                    Zip Code
-                  </label>
-                  <div
-                    class="inline-flex w-full items-center h-full box-border"
-                    data-slot="inner-wrapper"
-                  >
-                    <input
-                      aria-labelledby="react-aria-«replaced-aria-id»"
-                      autocomplete="off"
-                      class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text dark:autofill:[-webkit-text-fill-color:hsl(var(--heroui-foreground))] [&::-ms-reveal]:hidden text-small"
-                      data-slot="input"
-                      data-testid="zipcode"
-                      id="zipcode"
-                      name="zipCode"
-                      placeholder="Enter zip..."
-                      tabindex="0"
-                      title=""
-                      type="text"
-                      value=""
-                    />
-                  </div>
+                  <input
+                    aria-labelledby="uniform-«replaced-aria-id»-label"
+                    autocomplete="off"
+                    class="w-full min-w-0 bg-transparent bg-clip-text text-small font-normal text-inherit outline-none placeholder:text-foreground-500 autofill:bg-transparent data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden"
+                    data-rac=""
+                    data-slot="input"
+                    data-testid="zipcode"
+                    id="uniform-«replaced-aria-id»"
+                    name="zipCode"
+                    placeholder="Enter zip..."
+                    tabindex="0"
+                    type="text"
+                    value=""
+                  />
                 </div>
               </div>
             </div>
@@ -251,9 +238,12 @@ exports[`Story Snapshots > SimpleReset 1`] = `
       >
         <button
           aria-label="Submit form"
-          class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
+          data-component="submit-button"
+          data-rac=""
           data-react-aria-pressable="true"
           data-testid="form_submit_button"
+          id="react-aria-«replaced-aria-id»"
           tabindex="0"
           type="submit"
         >
@@ -269,6 +259,7 @@ exports[`Story Snapshots > SmartDefaults 1`] = `
 <div>
   <div
     class="flex w-full flex-row justify-between gap-6"
+    data-component="form"
   >
     <form
       class="grow min-w-96"
@@ -277,28 +268,30 @@ exports[`Story Snapshots > SmartDefaults 1`] = `
       novalidate=""
     >
       <div
-        class="flex flex-col relative overflow-hidden h-auto text-foreground box-border bg-content1 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 shadow-none rounded-small w-full transition-transform-background motion-reduce:transition-none border border-divider"
+        class="relative box-border flex h-auto w-full flex-col overflow-hidden rounded-small border border-divider bg-content1 text-foreground shadow-none outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus transition-transform-background motion-reduce:transition-none"
+        data-component="card"
+        data-slot="base"
         tabindex="-1"
       >
         <div
-          class="relative flex w-full p-3 flex-auto flex-col place-content-inherit align-items-inherit h-auto break-words text-left overflow-y-auto subpixel-antialiased"
+          class="relative flex h-auto w-full flex-auto flex-col p-3 place-content-inherit align-items-inherit overflow-y-auto break-words text-left subpixel-antialiased"
+          data-slot="body"
         >
           <div
             class="grid gap-6"
+            data-component="grid"
           >
             <div
               class="group flex w-full flex-col gap-y-1.5 leading-normal"
-              data-has-helper="true"
-              data-has-label="true"
-              data-required="false"
+              data-component="select"
               data-slot="base"
               data-testid="animal_wrapper"
             >
               <label
                 class="pointer-events-auto inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger"
                 data-slot="label"
-                for="react-select-animal-input"
-                id="react-aria-«replaced-aria-id»"
+                for="uniform-«replaced-aria-id»"
+                id="uniform-«replaced-aria-id»-label"
               >
                 Choose Your Spirit Animal
               </label>
@@ -307,7 +300,7 @@ exports[`Story Snapshots > SmartDefaults 1`] = `
               >
                 <span
                   class="css-1f43avz-a11yText-A11yText"
-                  id="react-select-animal-live-region"
+                  id="react-select-uniform-«replaced-aria-id»-live-region"
                 />
                 <span
                   aria-atomic="false"
@@ -326,7 +319,7 @@ exports[`Story Snapshots > SmartDefaults 1`] = `
                       class="gap-1 p-1 css-14oxtc6"
                     >
                       <div
-                        class="ml-1! leading-7! font-normal w-full text-start text-small truncate group-data-[has-value=true]:text-default-foreground css-w54w9q-singleValue"
+                        class="w-full truncate text-start font-normal text-small ml-1! leading-7! css-w54w9q-singleValue"
                       >
                         🐪 Camel (Desert King)
                       </div>
@@ -340,15 +333,13 @@ exports[`Story Snapshots > SmartDefaults 1`] = `
                           aria-errormessage=""
                           aria-expanded="false"
                           aria-haspopup="true"
-                          aria-invalid="false"
-                          aria-label="Choose Your Spirit Animal"
-                          aria-labelledby="react-aria-«replaced-aria-id»"
+                          aria-labelledby="uniform-«replaced-aria-id»-label"
                           autocapitalize="none"
                           autocomplete="off"
                           autocorrect="off"
                           class=""
                           data-testid="animal"
-                          id="react-select-animal-input"
+                          id="uniform-«replaced-aria-id»"
                           role="combobox"
                           spellcheck="false"
                           style="color: inherit; background: 0px center; opacity: 0; width: 100%; grid-area: 1 / 2; font: inherit; min-width: 2px; border: 0px; margin: 0px; outline: 0px; padding: 0px;"
@@ -413,104 +404,88 @@ exports[`Story Snapshots > SmartDefaults 1`] = `
               </div>
             </div>
             <div
-              class="group flex flex-col data-[hidden=true]:hidden w-full relative justify-end data-[has-label=true]:mt-[calc(var(--heroui-font-size-small)_+_10px)] is-filled"
+              class="group relative flex w-full flex-col is-filled"
+              data-component="input"
               data-filled="true"
-              data-filled-within="true"
-              data-has-elements="true"
-              data-has-helper="true"
-              data-has-label="true"
-              data-has-value="true"
+              data-rac=""
               data-slot="base"
             >
+              <label
+                class="block cursor-default pb-1 text-small text-foreground group-data-[invalid=true]:text-danger"
+                data-slot="label"
+                for="uniform-«replaced-aria-id»"
+                id="uniform-«replaced-aria-id»-label"
+              >
+                Natural Habitat
+              </label>
               <div
-                class="h-full flex flex-col"
-                data-slot="main-wrapper"
+                class="relative inline-flex h-10 min-h-10 w-full cursor-text items-center shadow-xs rounded-small border-medium border-default-200 bg-content1 px-3 text-foreground transition-colors group-data-[disabled=true]:pointer-events-none group-data-[focus=true]:border-focus group-data-[invalid=true]:border-danger data-[hovered=true]:border-default-400 group-data-[focus=true]:data-[hovered=true]:border-default-foreground motion-reduce:transition-none is-filled"
+                data-rac=""
+                data-slot="input-wrapper"
+                role="presentation"
               >
                 <div
-                  class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 group-data-[focus=true]:data-[hover=true]:border-default-foreground h-10 min-h-10 rounded-small !duration-150 transition-colors motion-reduce:transition-none bg-content1 group-data-[focus=true]:border-focus is-filled"
-                  data-slot="input-wrapper"
-                  style="cursor: text;"
+                  class="inline-flex h-full w-full items-center gap-0"
+                  data-slot="inner-wrapper"
                 >
-                  <label
-                    class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block text-foreground-500 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto text-small group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden"
-                    data-slot="label"
-                    for="habitat"
-                    id="react-aria-«replaced-aria-id»"
-                  >
-                    Natural Habitat
-                  </label>
-                  <div
-                    class="inline-flex w-full items-center h-full box-border"
-                    data-slot="inner-wrapper"
-                  >
-                    <input
-                      aria-labelledby="react-aria-«replaced-aria-id»"
-                      autocomplete="off"
-                      class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text dark:autofill:[-webkit-text-fill-color:hsl(var(--heroui-foreground))] [&::-ms-reveal]:hidden text-small is-filled"
-                      data-filled="true"
-                      data-filled-within="true"
-                      data-slot="input"
-                      data-testid="habitat"
-                      id="habitat"
-                      name="habitat"
-                      placeholder="Where they vibe..."
-                      tabindex="0"
-                      title=""
-                      type="text"
-                      value="🏜️ Desert (Very Hot)"
-                    />
-                  </div>
+                  <input
+                    aria-labelledby="uniform-«replaced-aria-id»-label"
+                    autocomplete="off"
+                    class="w-full min-w-0 bg-transparent bg-clip-text text-small font-normal text-inherit outline-none placeholder:text-foreground-500 autofill:bg-transparent data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden is-filled"
+                    data-filled="true"
+                    data-rac=""
+                    data-slot="input"
+                    data-testid="habitat"
+                    id="uniform-«replaced-aria-id»"
+                    name="habitat"
+                    placeholder="Where they vibe..."
+                    tabindex="0"
+                    type="text"
+                    value="🏜️ Desert (Very Hot)"
+                  />
                 </div>
               </div>
             </div>
             <div
-              class="group flex flex-col data-[hidden=true]:hidden w-full relative justify-end data-[has-label=true]:mt-[calc(var(--heroui-font-size-small)_+_10px)] is-filled"
+              class="group relative flex w-full flex-col is-filled"
+              data-component="input"
               data-filled="true"
-              data-filled-within="true"
-              data-has-elements="true"
-              data-has-helper="true"
-              data-has-label="true"
-              data-has-value="true"
+              data-rac=""
               data-slot="base"
             >
+              <label
+                class="block cursor-default pb-1 text-small text-foreground group-data-[invalid=true]:text-danger"
+                data-slot="label"
+                for="uniform-«replaced-aria-id»"
+                id="uniform-«replaced-aria-id»-label"
+              >
+                Favorite Snack
+              </label>
               <div
-                class="h-full flex flex-col"
-                data-slot="main-wrapper"
+                class="relative inline-flex h-10 min-h-10 w-full cursor-text items-center shadow-xs rounded-small border-medium border-default-200 bg-content1 px-3 text-foreground transition-colors group-data-[disabled=true]:pointer-events-none group-data-[focus=true]:border-focus group-data-[invalid=true]:border-danger data-[hovered=true]:border-default-400 group-data-[focus=true]:data-[hovered=true]:border-default-foreground motion-reduce:transition-none is-filled"
+                data-rac=""
+                data-slot="input-wrapper"
+                role="presentation"
               >
                 <div
-                  class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 group-data-[focus=true]:data-[hover=true]:border-default-foreground h-10 min-h-10 rounded-small !duration-150 transition-colors motion-reduce:transition-none bg-content1 group-data-[focus=true]:border-focus is-filled"
-                  data-slot="input-wrapper"
-                  style="cursor: text;"
+                  class="inline-flex h-full w-full items-center gap-0"
+                  data-slot="inner-wrapper"
                 >
-                  <label
-                    class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block text-foreground-500 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto text-small group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden"
-                    data-slot="label"
-                    for="favoritesnack"
-                    id="react-aria-«replaced-aria-id»"
-                  >
-                    Favorite Snack
-                  </label>
-                  <div
-                    class="inline-flex w-full items-center h-full box-border"
-                    data-slot="inner-wrapper"
-                  >
-                    <input
-                      aria-labelledby="react-aria-«replaced-aria-id»"
-                      autocomplete="off"
-                      class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text dark:autofill:[-webkit-text-fill-color:hsl(var(--heroui-foreground))] [&::-ms-reveal]:hidden text-small is-filled"
-                      data-filled="true"
-                      data-filled-within="true"
-                      data-slot="input"
-                      data-testid="favoritesnack"
-                      id="favoritesnack"
-                      name="favoriteSnack"
-                      placeholder="What they munch..."
-                      tabindex="0"
-                      title=""
-                      type="text"
-                      value="🌵 Cactus Juice"
-                    />
-                  </div>
+                  <input
+                    aria-labelledby="uniform-«replaced-aria-id»-label"
+                    autocomplete="off"
+                    class="w-full min-w-0 bg-transparent bg-clip-text text-small font-normal text-inherit outline-none placeholder:text-foreground-500 autofill:bg-transparent data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden is-filled"
+                    data-filled="true"
+                    data-rac=""
+                    data-slot="input"
+                    data-testid="favoritesnack"
+                    id="uniform-«replaced-aria-id»"
+                    name="favoriteSnack"
+                    placeholder="What they munch..."
+                    tabindex="0"
+                    type="text"
+                    value="🌵 Cactus Juice"
+                  />
                 </div>
               </div>
             </div>
@@ -522,9 +497,12 @@ exports[`Story Snapshots > SmartDefaults 1`] = `
       >
         <button
           aria-label="Submit form"
-          class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
+          data-component="submit-button"
+          data-rac=""
           data-react-aria-pressable="true"
           data-testid="form_submit_button"
+          id="react-aria-«replaced-aria-id»"
           tabindex="0"
           type="submit"
         >
@@ -540,6 +518,7 @@ exports[`Story Snapshots > WatchMultipleFields 1`] = `
 <div>
   <div
     class="flex w-full flex-row justify-between gap-6"
+    data-component="form"
   >
     <form
       class="grow min-w-96"
@@ -548,170 +527,154 @@ exports[`Story Snapshots > WatchMultipleFields 1`] = `
       novalidate=""
     >
       <div
-        class="flex flex-col relative overflow-hidden h-auto text-foreground box-border bg-content1 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 shadow-none rounded-small w-full transition-transform-background motion-reduce:transition-none border border-divider"
+        class="relative box-border flex h-auto w-full flex-col overflow-hidden rounded-small border border-divider bg-content1 text-foreground shadow-none outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus transition-transform-background motion-reduce:transition-none"
+        data-component="card"
+        data-slot="base"
         tabindex="-1"
       >
         <div
-          class="relative flex w-full p-3 flex-auto flex-col place-content-inherit align-items-inherit h-auto break-words text-left overflow-y-auto subpixel-antialiased"
+          class="relative flex h-auto w-full flex-auto flex-col p-3 place-content-inherit align-items-inherit overflow-y-auto break-words text-left subpixel-antialiased"
+          data-slot="body"
         >
           <div
             class="grid gap-6"
+            data-component="grid"
           >
             <div
-              class="group flex flex-col data-[hidden=true]:hidden w-full relative justify-end data-[has-label=true]:mt-[calc(var(--heroui-font-size-small)_+_10px)] is-filled"
+              class="group relative flex w-full flex-col is-filled"
+              data-component="input"
               data-filled="true"
-              data-filled-within="true"
-              data-has-elements="true"
-              data-has-helper="true"
-              data-has-label="true"
-              data-has-value="true"
+              data-rac=""
               data-slot="base"
             >
+              <label
+                class="block cursor-default pb-1 text-small text-foreground group-data-[invalid=true]:text-danger"
+                data-slot="label"
+                for="uniform-«replaced-aria-id»"
+                id="uniform-«replaced-aria-id»-label"
+              >
+                First Name
+              </label>
               <div
-                class="h-full flex flex-col"
-                data-slot="main-wrapper"
+                class="relative inline-flex h-10 min-h-10 w-full cursor-text items-center shadow-xs rounded-small border-medium border-default-200 bg-content1 px-3 text-foreground transition-colors group-data-[disabled=true]:pointer-events-none group-data-[focus=true]:border-focus group-data-[invalid=true]:border-danger data-[hovered=true]:border-default-400 group-data-[focus=true]:data-[hovered=true]:border-default-foreground motion-reduce:transition-none is-filled"
+                data-rac=""
+                data-slot="input-wrapper"
+                role="presentation"
               >
                 <div
-                  class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 group-data-[focus=true]:data-[hover=true]:border-default-foreground h-10 min-h-10 rounded-small !duration-150 transition-colors motion-reduce:transition-none bg-content1 group-data-[focus=true]:border-focus is-filled"
-                  data-slot="input-wrapper"
-                  style="cursor: text;"
+                  class="inline-flex h-full w-full items-center gap-0"
+                  data-slot="inner-wrapper"
                 >
-                  <label
-                    class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block text-foreground-500 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto text-small group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden"
-                    data-slot="label"
-                    for="firstname"
-                    id="react-aria-«replaced-aria-id»"
-                  >
-                    First Name
-                  </label>
-                  <div
-                    class="inline-flex w-full items-center h-full box-border"
-                    data-slot="inner-wrapper"
-                  >
-                    <input
-                      aria-labelledby="react-aria-«replaced-aria-id»"
-                      autocomplete="off"
-                      class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text dark:autofill:[-webkit-text-fill-color:hsl(var(--heroui-foreground))] [&::-ms-reveal]:hidden text-small is-filled"
-                      data-filled="true"
-                      data-filled-within="true"
-                      data-slot="input"
-                      data-testid="firstname"
-                      id="firstname"
-                      name="firstName"
-                      placeholder="Enter first name..."
-                      tabindex="0"
-                      title=""
-                      type="text"
-                      value="Jane"
-                    />
-                  </div>
+                  <input
+                    aria-labelledby="uniform-«replaced-aria-id»-label"
+                    autocomplete="off"
+                    class="w-full min-w-0 bg-transparent bg-clip-text text-small font-normal text-inherit outline-none placeholder:text-foreground-500 autofill:bg-transparent data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden is-filled"
+                    data-filled="true"
+                    data-rac=""
+                    data-slot="input"
+                    data-testid="firstname"
+                    id="uniform-«replaced-aria-id»"
+                    name="firstName"
+                    placeholder="Enter first name..."
+                    tabindex="0"
+                    type="text"
+                    value="Jane"
+                  />
                 </div>
               </div>
             </div>
             <div
-              class="group flex flex-col data-[hidden=true]:hidden w-full relative justify-end data-[has-label=true]:mt-[calc(var(--heroui-font-size-small)_+_10px)] is-filled"
+              class="group relative flex w-full flex-col is-filled"
+              data-component="input"
               data-filled="true"
-              data-filled-within="true"
               data-focus="true"
-              data-focus-within="true"
-              data-has-elements="true"
-              data-has-helper="true"
-              data-has-label="true"
-              data-has-value="true"
-              data-hover="true"
+              data-rac=""
               data-slot="base"
             >
+              <label
+                class="block cursor-default pb-1 text-small text-foreground group-data-[invalid=true]:text-danger"
+                data-slot="label"
+                for="uniform-«replaced-aria-id»"
+                id="uniform-«replaced-aria-id»-label"
+              >
+                Last Name
+              </label>
               <div
-                class="h-full flex flex-col"
-                data-slot="main-wrapper"
+                class="relative inline-flex h-10 min-h-10 w-full cursor-text items-center shadow-xs rounded-small border-medium border-default-200 bg-content1 px-3 text-foreground transition-colors group-data-[disabled=true]:pointer-events-none group-data-[focus=true]:border-focus group-data-[invalid=true]:border-danger data-[hovered=true]:border-default-400 group-data-[focus=true]:data-[hovered=true]:border-default-foreground motion-reduce:transition-none is-filled"
+                data-focus="true"
+                data-focus-within="true"
+                data-hovered="true"
+                data-rac=""
+                data-slot="input-wrapper"
+                role="presentation"
               >
                 <div
-                  class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 group-data-[focus=true]:data-[hover=true]:border-default-foreground h-10 min-h-10 rounded-small !duration-150 transition-colors motion-reduce:transition-none bg-content1 group-data-[focus=true]:border-focus is-filled"
-                  data-focus="true"
-                  data-hover="true"
-                  data-slot="input-wrapper"
-                  style="cursor: text;"
+                  class="inline-flex h-full w-full items-center gap-0"
+                  data-slot="inner-wrapper"
                 >
-                  <label
-                    class="absolute pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block text-foreground-500 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto text-small group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden"
-                    data-slot="label"
-                    for="lastname"
-                    id="react-aria-«replaced-aria-id»"
-                  >
-                    Last Name
-                  </label>
-                  <div
-                    class="inline-flex w-full items-center h-full box-border"
-                    data-slot="inner-wrapper"
-                  >
-                    <input
-                      aria-labelledby="react-aria-«replaced-aria-id»"
-                      autocomplete="off"
-                      class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text dark:autofill:[-webkit-text-fill-color:hsl(var(--heroui-foreground))] [&::-ms-reveal]:hidden text-small is-filled"
-                      data-filled="true"
-                      data-filled-within="true"
-                      data-slot="input"
-                      data-testid="lastname"
-                      id="lastname"
-                      name="lastName"
-                      placeholder="Enter last name..."
-                      tabindex="0"
-                      title=""
-                      type="text"
-                      value="Smith"
-                    />
-                  </div>
+                  <input
+                    aria-labelledby="uniform-«replaced-aria-id»-label"
+                    autocomplete="off"
+                    class="w-full min-w-0 bg-transparent bg-clip-text text-small font-normal text-inherit outline-none placeholder:text-foreground-500 autofill:bg-transparent data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden is-filled"
+                    data-filled="true"
+                    data-focused="true"
+                    data-hovered="true"
+                    data-rac=""
+                    data-slot="input"
+                    data-testid="lastname"
+                    id="uniform-«replaced-aria-id»"
+                    name="lastName"
+                    placeholder="Enter last name..."
+                    tabindex="0"
+                    type="text"
+                    value="Smith"
+                  />
                 </div>
               </div>
             </div>
             <div
-              class="group flex flex-col data-[hidden=true]:hidden w-full opacity-disabled pointer-events-none relative justify-end data-[has-label=true]:mt-[calc(var(--heroui-font-size-small)_+_10px)] md:col-span-2 is-filled"
+              class="group relative flex w-full flex-col is-filled pointer-events-none opacity-disabled md:col-span-2"
+              data-component="input"
               data-disabled="true"
               data-filled="true"
-              data-filled-within="true"
-              data-has-elements="true"
-              data-has-helper="true"
-              data-has-label="true"
-              data-has-value="true"
+              data-rac=""
               data-slot="base"
             >
+              <label
+                class="block cursor-default pb-1 text-small text-foreground group-data-[invalid=true]:text-danger"
+                data-slot="label"
+                for="uniform-«replaced-aria-id»"
+                id="uniform-«replaced-aria-id»-label"
+              >
+                Company Email (Auto-generated)
+              </label>
               <div
-                class="h-full flex flex-col"
-                data-slot="main-wrapper"
+                class="relative inline-flex h-10 min-h-10 w-full cursor-text items-center shadow-xs rounded-small border-medium border-default-200 bg-content1 px-3 text-foreground transition-colors group-data-[disabled=true]:pointer-events-none group-data-[focus=true]:border-focus group-data-[invalid=true]:border-danger data-[hovered=true]:border-default-400 group-data-[focus=true]:data-[hovered=true]:border-default-foreground motion-reduce:transition-none is-filled"
+                data-disabled="true"
+                data-rac=""
+                data-slot="input-wrapper"
+                role="presentation"
               >
                 <div
-                  class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 group-data-[focus=true]:data-[hover=true]:border-default-foreground h-10 min-h-10 rounded-small pointer-events-none !duration-150 transition-colors motion-reduce:transition-none bg-content1 group-data-[focus=true]:border-focus is-filled"
-                  data-slot="input-wrapper"
-                  style="cursor: text;"
+                  class="inline-flex h-full w-full items-center gap-0"
+                  data-slot="inner-wrapper"
                 >
-                  <label
-                    class="absolute origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block text-foreground-500 pointer-events-none will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto text-small group-data-[filled-within=true]:-translate-y-[calc(100%_+_var(--heroui-font-size-small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden"
-                    data-slot="label"
-                    for="email"
-                    id="react-aria-«replaced-aria-id»"
-                  >
-                    Company Email (Auto-generated)
-                  </label>
-                  <div
-                    class="inline-flex w-full items-center h-full box-border"
-                    data-slot="inner-wrapper"
-                  >
-                    <input
-                      aria-labelledby="react-aria-«replaced-aria-id»"
-                      autocomplete="off"
-                      class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text dark:autofill:[-webkit-text-fill-color:hsl(var(--heroui-foreground))] [&::-ms-reveal]:hidden text-small is-filled"
-                      data-filled="true"
-                      data-filled-within="true"
-                      data-slot="input"
-                      data-testid="email"
-                      disabled=""
-                      id="email"
-                      name="email"
-                      placeholder="Auto-generated..."
-                      type="text"
-                      value="jane.smith@company.com"
-                    />
-                  </div>
+                  <input
+                    aria-labelledby="uniform-«replaced-aria-id»-label"
+                    autocomplete="off"
+                    class="w-full min-w-0 bg-transparent bg-clip-text text-small font-normal text-inherit outline-none placeholder:text-foreground-500 autofill:bg-transparent data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden is-filled"
+                    data-disabled="true"
+                    data-filled="true"
+                    data-rac=""
+                    data-slot="input"
+                    data-testid="email"
+                    disabled=""
+                    id="uniform-«replaced-aria-id»"
+                    name="email"
+                    placeholder="Auto-generated..."
+                    type="text"
+                    value="jane.smith@company.com"
+                  />
                 </div>
               </div>
             </div>
@@ -723,9 +686,12 @@ exports[`Story Snapshots > WatchMultipleFields 1`] = `
       >
         <button
           aria-label="Submit form"
-          class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
+          data-component="submit-button"
+          data-rac=""
           data-react-aria-pressable="true"
           data-testid="form_submit_button"
+          id="react-aria-«replaced-aria-id»"
           tabindex="0"
           type="submit"
         >

@@ -3,9 +3,11 @@
   "description": "shared tailwind config",
   "private": true,
   "type": "module",
-  "main": "./tailwind.config.ts",
   "devDependencies": {
-    "@heroui/theme": "2.4.26",
-    "tailwindcss": "4.3.3"
+    "tailwindcss": "4.3.3",
+    "@fuf-stack/pixel-utils": "workspace:*"
+  },
+  "exports": {
+    "./tailwind.css": "./tailwind.css"
   }
 }

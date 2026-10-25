@@ -4,6 +4,7 @@ exports[`Story Snapshots > AllSizes 1`] = `
 <div>
   <div
     class="flex w-full flex-row justify-between gap-6"
+    data-component="form"
   >
     <form
       class="grow min-w-60"
@@ -16,45 +17,46 @@ exports[`Story Snapshots > AllSizes 1`] = `
       >
         <div
           class="place-content-center"
+          data-component="switch"
+          data-slot="outer-wrapper"
         >
-          <div
-            style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
-          >
-            <input
-              aria-label="🐭 Microservices"
-              name="smallSwitch"
-              type="checkbox"
-            />
-          </div>
           <label
-            aria-label="🐭 Microservices"
-            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer touch-none tap-highlight-transparent select-none"
+            class="group relative inline-flex max-w-fit cursor-pointer touch-none select-none items-center justify-start tap-highlight-transparent"
             data-invalid="false"
+            data-react-aria-pressable="true"
             data-required="false"
+            data-slot="base"
             data-testid="smallswitch"
+            for="uniform-«replaced-aria-id»"
           >
-            <input
-              aria-label="[object Object]"
-              aria-labelledby="«replaced-aria-id»"
-              class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
-              data-react-aria-pressable="true"
-              name="smallSwitch_switch"
-              role="switch"
-              tabindex="0"
-              type="checkbox"
-              value=""
-            />
             <span
-              aria-hidden="true"
-              class="px-1 relative inline-flex items-center justify-start shrink-0 overflow-hidden bg-default-200 rounded-full outline-solid outline-transparent group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:bg-primary group-data-[selected=true]:text-primary-foreground w-10 h-6 transition-background"
+              style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
             >
-              <span
-                class="z-10 flex items-center justify-center bg-white shadow-small rounded-full origin-right pointer-events-none w-4 h-4 text-tiny group-data-[selected=true]:ms-4 transition-all group-data-[pressed=true]:w-5 group-data-[selected]:group-data-[pressed]:ml-3"
+              <input
+                aria-labelledby="uniform-«replaced-aria-id»-label"
+                data-react-aria-pressable="true"
+                data-slot="input"
+                id="uniform-«replaced-aria-id»"
+                name="smallSwitch"
+                role="switch"
+                tabindex="0"
+                type="checkbox"
               />
             </span>
             <span
-              class="relative select-none ms-2 text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
-              id="«replaced-aria-id»"
+              aria-hidden="true"
+              class="relative inline-flex shrink-0 items-center justify-start overflow-hidden rounded-full bg-default-200 px-1 transition-background group-data-[selected=true]:bg-primary group-data-[selected=true]:text-primary-foreground group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background motion-reduce:transition-none h-6 w-10"
+              data-slot="wrapper"
+            >
+              <span
+                class="pointer-events-none z-10 flex origin-right items-center justify-center rounded-full bg-white shadow-small transition-all motion-reduce:transition-none h-4 w-4 text-tiny group-data-[selected=true]:group-data-[pressed=true]:ms-3 group-data-[selected=true]:ms-4 group-data-[pressed=true]:w-5"
+                data-slot="thumb"
+              />
+            </span>
+            <span
+              class="group-data-[invalid=true]:text-danger! relative ms-2 select-none text-sm text-foreground subpixel-antialiased"
+              data-slot="label"
+              id="uniform-«replaced-aria-id»-label"
             >
               🐭 Microservices
             </span>
@@ -62,45 +64,46 @@ exports[`Story Snapshots > AllSizes 1`] = `
         </div>
         <div
           class="place-content-center"
+          data-component="switch"
+          data-slot="outer-wrapper"
         >
-          <div
-            style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
-          >
-            <input
-              aria-label="🏗️ Monolith"
-              name="mediumSwitch"
-              type="checkbox"
-            />
-          </div>
           <label
-            aria-label="🏗️ Monolith"
-            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer touch-none tap-highlight-transparent select-none"
+            class="group relative inline-flex max-w-fit cursor-pointer touch-none select-none items-center justify-start tap-highlight-transparent"
             data-invalid="false"
+            data-react-aria-pressable="true"
             data-required="false"
+            data-slot="base"
             data-testid="mediumswitch"
+            for="uniform-«replaced-aria-id»"
           >
-            <input
-              aria-label="[object Object]"
-              aria-labelledby="«replaced-aria-id»"
-              class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
-              data-react-aria-pressable="true"
-              name="mediumSwitch_switch"
-              role="switch"
-              tabindex="0"
-              type="checkbox"
-              value=""
-            />
             <span
-              aria-hidden="true"
-              class="px-1 relative inline-flex items-center justify-start shrink-0 overflow-hidden bg-default-200 rounded-full outline-solid outline-transparent group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:bg-primary group-data-[selected=true]:text-primary-foreground w-12 h-7 transition-background"
+              style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
             >
-              <span
-                class="z-10 flex items-center justify-center bg-white shadow-small rounded-full origin-right pointer-events-none w-5 h-5 text-small group-data-[selected=true]:ms-5 transition-all group-data-[pressed=true]:w-6 group-data-[selected]:group-data-[pressed]:ml-4"
+              <input
+                aria-labelledby="uniform-«replaced-aria-id»-label"
+                data-react-aria-pressable="true"
+                data-slot="input"
+                id="uniform-«replaced-aria-id»"
+                name="mediumSwitch"
+                role="switch"
+                tabindex="0"
+                type="checkbox"
               />
             </span>
             <span
-              class="relative select-none ms-2 text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
-              id="«replaced-aria-id»"
+              aria-hidden="true"
+              class="relative inline-flex h-7 w-12 shrink-0 items-center justify-start overflow-hidden rounded-full bg-default-200 px-1 transition-background group-data-[selected=true]:bg-primary group-data-[selected=true]:text-primary-foreground group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background motion-reduce:transition-none"
+              data-slot="wrapper"
+            >
+              <span
+                class="pointer-events-none z-10 flex h-5 w-5 origin-right items-center justify-center rounded-full bg-white shadow-small transition-all text-small group-data-[selected=true]:group-data-[pressed=true]:ms-4 group-data-[selected=true]:ms-5 group-data-[pressed=true]:w-6 motion-reduce:transition-none"
+                data-slot="thumb"
+              />
+            </span>
+            <span
+              class="group-data-[invalid=true]:text-danger! relative ms-2 select-none text-sm text-foreground subpixel-antialiased"
+              data-slot="label"
+              id="uniform-«replaced-aria-id»-label"
             >
               🏗️ Monolith
             </span>
@@ -108,45 +111,46 @@ exports[`Story Snapshots > AllSizes 1`] = `
         </div>
         <div
           class="place-content-center"
+          data-component="switch"
+          data-slot="outer-wrapper"
         >
-          <div
-            style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
-          >
-            <input
-              aria-label="🏢 Enterprise Monolith"
-              name="largeSwitch"
-              type="checkbox"
-            />
-          </div>
           <label
-            aria-label="🏢 Enterprise Monolith"
-            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer touch-none tap-highlight-transparent select-none"
+            class="group relative inline-flex max-w-fit cursor-pointer touch-none select-none items-center justify-start tap-highlight-transparent"
             data-invalid="false"
+            data-react-aria-pressable="true"
             data-required="false"
+            data-slot="base"
             data-testid="largeswitch"
+            for="uniform-«replaced-aria-id»"
           >
-            <input
-              aria-label="[object Object]"
-              aria-labelledby="«replaced-aria-id»"
-              class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
-              data-react-aria-pressable="true"
-              name="largeSwitch_switch"
-              role="switch"
-              tabindex="0"
-              type="checkbox"
-              value=""
-            />
             <span
-              aria-hidden="true"
-              class="px-1 relative inline-flex items-center justify-start shrink-0 overflow-hidden bg-default-200 rounded-full outline-solid outline-transparent group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:bg-primary group-data-[selected=true]:text-primary-foreground w-14 h-8 transition-background"
+              style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
             >
-              <span
-                class="z-10 flex items-center justify-center bg-white shadow-small rounded-full origin-right pointer-events-none w-6 h-6 text-medium group-data-[selected=true]:ms-6 transition-all group-data-[pressed=true]:w-7 group-data-[selected]:group-data-[pressed]:ml-5"
+              <input
+                aria-labelledby="uniform-«replaced-aria-id»-label"
+                data-react-aria-pressable="true"
+                data-slot="input"
+                id="uniform-«replaced-aria-id»"
+                name="largeSwitch"
+                role="switch"
+                tabindex="0"
+                type="checkbox"
               />
             </span>
             <span
-              class="relative select-none ms-2 text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
-              id="«replaced-aria-id»"
+              aria-hidden="true"
+              class="relative inline-flex shrink-0 items-center justify-start overflow-hidden rounded-full bg-default-200 px-1 transition-background group-data-[selected=true]:bg-primary group-data-[selected=true]:text-primary-foreground group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background motion-reduce:transition-none h-8 w-14"
+              data-slot="wrapper"
+            >
+              <span
+                class="pointer-events-none z-10 flex origin-right items-center justify-center rounded-full bg-white shadow-small transition-all motion-reduce:transition-none h-6 w-6 text-medium group-data-[selected=true]:group-data-[pressed=true]:ms-5 group-data-[selected=true]:ms-6 group-data-[pressed=true]:w-7"
+                data-slot="thumb"
+              />
+            </span>
+            <span
+              class="group-data-[invalid=true]:text-danger! relative ms-2 select-none text-sm text-foreground subpixel-antialiased"
+              data-slot="label"
+              id="uniform-«replaced-aria-id»-label"
             >
               🏢 Enterprise Monolith
             </span>
@@ -158,9 +162,12 @@ exports[`Story Snapshots > AllSizes 1`] = `
       >
         <button
           aria-label="Submit form"
-          class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
+          data-component="submit-button"
+          data-rac=""
           data-react-aria-pressable="true"
           data-testid="form_submit_button"
+          id="react-aria-«replaced-aria-id»"
           tabindex="0"
           type="submit"
         >
@@ -176,6 +183,7 @@ exports[`Story Snapshots > Default 1`] = `
 <div>
   <div
     class="flex w-full flex-row justify-between gap-6"
+    data-component="form"
   >
     <form
       class="grow min-w-60"
@@ -185,45 +193,46 @@ exports[`Story Snapshots > Default 1`] = `
     >
       <div
         class="place-content-center"
+        data-component="switch"
+        data-slot="outer-wrapper"
       >
-        <div
-          style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
-        >
-          <input
-            aria-label="🐛 Enable bugs in production"
-            name="switchField"
-            type="checkbox"
-          />
-        </div>
         <label
-          aria-label="🐛 Enable bugs in production"
-          class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer touch-none tap-highlight-transparent select-none"
+          class="group relative inline-flex max-w-fit cursor-pointer touch-none select-none items-center justify-start tap-highlight-transparent"
           data-invalid="false"
+          data-react-aria-pressable="true"
           data-required="false"
+          data-slot="base"
           data-testid="switchfield"
+          for="uniform-«replaced-aria-id»"
         >
-          <input
-            aria-label="[object Object]"
-            aria-labelledby="«replaced-aria-id»"
-            class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
-            data-react-aria-pressable="true"
-            name="switchField_switch"
-            role="switch"
-            tabindex="0"
-            type="checkbox"
-            value=""
-          />
           <span
-            aria-hidden="true"
-            class="px-1 relative inline-flex items-center justify-start shrink-0 overflow-hidden bg-default-200 rounded-full outline-solid outline-transparent group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:bg-primary group-data-[selected=true]:text-primary-foreground w-12 h-7 transition-background"
+            style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
           >
-            <span
-              class="z-10 flex items-center justify-center bg-white shadow-small rounded-full origin-right pointer-events-none w-5 h-5 text-small group-data-[selected=true]:ms-5 transition-all group-data-[pressed=true]:w-6 group-data-[selected]:group-data-[pressed]:ml-4"
+            <input
+              aria-labelledby="uniform-«replaced-aria-id»-label"
+              data-react-aria-pressable="true"
+              data-slot="input"
+              id="uniform-«replaced-aria-id»"
+              name="switchField"
+              role="switch"
+              tabindex="0"
+              type="checkbox"
             />
           </span>
           <span
-            class="relative select-none ms-2 text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
-            id="«replaced-aria-id»"
+            aria-hidden="true"
+            class="relative inline-flex h-7 w-12 shrink-0 items-center justify-start overflow-hidden rounded-full bg-default-200 px-1 transition-background group-data-[selected=true]:bg-primary group-data-[selected=true]:text-primary-foreground group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background motion-reduce:transition-none"
+            data-slot="wrapper"
+          >
+            <span
+              class="pointer-events-none z-10 flex h-5 w-5 origin-right items-center justify-center rounded-full bg-white shadow-small transition-all text-small group-data-[selected=true]:group-data-[pressed=true]:ms-4 group-data-[selected=true]:ms-5 group-data-[pressed=true]:w-6 motion-reduce:transition-none"
+              data-slot="thumb"
+            />
+          </span>
+          <span
+            class="group-data-[invalid=true]:text-danger! relative ms-2 select-none text-sm text-foreground subpixel-antialiased"
+            data-slot="label"
+            id="uniform-«replaced-aria-id»-label"
           >
             🐛 Enable bugs in production
           </span>
@@ -234,9 +243,12 @@ exports[`Story Snapshots > Default 1`] = `
       >
         <button
           aria-label="Submit form"
-          class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
+          data-component="submit-button"
+          data-rac=""
           data-react-aria-pressable="true"
           data-testid="form_submit_button"
+          id="react-aria-«replaced-aria-id»"
           tabindex="0"
           type="submit"
         >
@@ -252,6 +264,7 @@ exports[`Story Snapshots > Disabled 1`] = `
 <div>
   <div
     class="flex w-full flex-row justify-between gap-6"
+    data-component="form"
   >
     <form
       class="grow min-w-60"
@@ -261,46 +274,47 @@ exports[`Story Snapshots > Disabled 1`] = `
     >
       <div
         class="place-content-center"
+        data-component="switch"
+        data-slot="outer-wrapper"
       >
-        <div
-          style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
-        >
-          <input
-            aria-label="📚 Read documentation first"
-            name="switchField"
-            type="checkbox"
-          />
-        </div>
         <label
-          aria-label="📚 Read documentation first"
-          class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer touch-none tap-highlight-transparent select-none opacity-disabled pointer-events-none"
+          class="group relative inline-flex max-w-fit cursor-pointer touch-none select-none items-center justify-start tap-highlight-transparent pointer-events-none opacity-disabled"
           data-disabled="true"
           data-invalid="false"
+          data-react-aria-pressable="true"
           data-required="false"
+          data-slot="base"
           data-testid="switchfield"
+          for="uniform-«replaced-aria-id»"
         >
-          <input
-            aria-label="[object Object]"
-            aria-labelledby="«replaced-aria-id»"
-            class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
-            data-react-aria-pressable="true"
-            disabled=""
-            name="switchField_switch"
-            role="switch"
-            type="checkbox"
-            value=""
-          />
           <span
-            aria-hidden="true"
-            class="px-1 relative inline-flex items-center justify-start shrink-0 overflow-hidden bg-default-200 rounded-full outline-solid outline-transparent group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:bg-primary group-data-[selected=true]:text-primary-foreground w-12 h-7 transition-background"
+            style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
           >
-            <span
-              class="z-10 flex items-center justify-center bg-white shadow-small rounded-full origin-right pointer-events-none w-5 h-5 text-small group-data-[selected=true]:ms-5 transition-all group-data-[pressed=true]:w-6 group-data-[selected]:group-data-[pressed]:ml-4"
+            <input
+              aria-labelledby="uniform-«replaced-aria-id»-label"
+              data-react-aria-pressable="true"
+              data-slot="input"
+              disabled=""
+              id="uniform-«replaced-aria-id»"
+              name="switchField"
+              role="switch"
+              type="checkbox"
             />
           </span>
           <span
-            class="relative select-none ms-2 text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
-            id="«replaced-aria-id»"
+            aria-hidden="true"
+            class="relative inline-flex h-7 w-12 shrink-0 items-center justify-start overflow-hidden rounded-full bg-default-200 px-1 transition-background group-data-[selected=true]:bg-primary group-data-[selected=true]:text-primary-foreground group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background motion-reduce:transition-none"
+            data-slot="wrapper"
+          >
+            <span
+              class="pointer-events-none z-10 flex h-5 w-5 origin-right items-center justify-center rounded-full bg-white shadow-small transition-all text-small group-data-[selected=true]:group-data-[pressed=true]:ms-4 group-data-[selected=true]:ms-5 group-data-[pressed=true]:w-6 motion-reduce:transition-none"
+              data-slot="thumb"
+            />
+          </span>
+          <span
+            class="group-data-[invalid=true]:text-danger! relative ms-2 select-none text-sm text-foreground subpixel-antialiased"
+            data-slot="label"
+            id="uniform-«replaced-aria-id»-label"
           >
             📚 Read documentation first
           </span>
@@ -311,9 +325,12 @@ exports[`Story Snapshots > Disabled 1`] = `
       >
         <button
           aria-label="Submit form"
-          class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
+          data-component="submit-button"
+          data-rac=""
           data-react-aria-pressable="true"
           data-testid="form_submit_button"
+          id="react-aria-«replaced-aria-id»"
           tabindex="0"
           type="submit"
         >
@@ -329,6 +346,7 @@ exports[`Story Snapshots > Invalid 1`] = `
 <div>
   <div
     class="flex w-full flex-row justify-between gap-6"
+    data-component="form"
   >
     <form
       class="grow min-w-60"
@@ -338,63 +356,74 @@ exports[`Story Snapshots > Invalid 1`] = `
     >
       <div
         class="place-content-center"
+        data-component="switch"
+        data-slot="outer-wrapper"
       >
-        <div
-          style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
-        >
-          <input
-            aria-label="🤡 Use jQuery in 2024"
-            name="switchField"
-            type="checkbox"
-          />
-        </div>
         <label
-          aria-label="🤡 Use jQuery in 2024"
-          class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer touch-none tap-highlight-transparent select-none"
+          class="group relative inline-flex max-w-fit cursor-pointer touch-none select-none items-center justify-start tap-highlight-transparent"
           data-focus="true"
           data-hover="true"
           data-invalid="true"
+          data-react-aria-pressable="true"
           data-required="true"
           data-selected="true"
+          data-slot="base"
           data-testid="switchfield"
+          for="uniform-«replaced-aria-id»"
         >
-          <input
-            aria-label="[object Object]"
-            aria-labelledby="«replaced-aria-id»"
-            class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
-            data-react-aria-pressable="true"
-            name="switchField_switch"
-            role="switch"
-            tabindex="0"
-            type="checkbox"
-            value=""
-          />
           <span
-            aria-hidden="true"
-            class="px-1 relative inline-flex items-center justify-start shrink-0 overflow-hidden bg-default-200 rounded-full outline-solid outline-transparent group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:bg-primary group-data-[selected=true]:text-primary-foreground w-12 h-7 transition-background"
+            style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
           >
-            <span
-              class="z-10 flex items-center justify-center bg-white shadow-small rounded-full origin-right pointer-events-none w-5 h-5 text-small group-data-[selected=true]:ms-5 transition-all group-data-[pressed=true]:w-6 group-data-[selected]:group-data-[pressed]:ml-4"
+            <input
+              aria-describedby="uniform-«replaced-aria-id»-error"
+              aria-invalid="true"
+              aria-labelledby="uniform-«replaced-aria-id»-label"
+              aria-required="true"
+              data-react-aria-pressable="true"
+              data-slot="input"
+              id="uniform-«replaced-aria-id»"
+              name="switchField"
+              role="switch"
+              tabindex="0"
+              type="checkbox"
             />
           </span>
           <span
-            class="relative select-none ms-2 text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
-            id="«replaced-aria-id»"
+            aria-hidden="true"
+            class="relative inline-flex h-7 w-12 shrink-0 items-center justify-start overflow-hidden rounded-full bg-default-200 px-1 transition-background group-data-[selected=true]:bg-primary group-data-[selected=true]:text-primary-foreground group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background motion-reduce:transition-none"
+            data-slot="wrapper"
+          >
+            <span
+              class="pointer-events-none z-10 flex h-5 w-5 origin-right items-center justify-center rounded-full bg-white shadow-small transition-all text-small group-data-[selected=true]:group-data-[pressed=true]:ms-4 group-data-[selected=true]:ms-5 group-data-[pressed=true]:w-6 motion-reduce:transition-none"
+              data-slot="thumb"
+            />
+          </span>
+          <span
+            class="group-data-[invalid=true]:text-danger! relative ms-2 select-none text-sm text-foreground subpixel-antialiased"
+            data-slot="label"
+            id="uniform-«replaced-aria-id»-label"
           >
             🤡 Use jQuery in 2024
+            <span
+              aria-hidden="true"
+              class="ml-0.5 text-danger"
+            >
+              *
+            </span>
           </span>
         </label>
         <div
-          class="group-data-[has-helper=true]:flex relative flex-col gap-1.5 p-0 ml-0 block"
+          class="relative ml-0 block p-0"
           data-slot="helper-wrapper"
         >
           <div
-            class="text-tiny text-danger"
+            class="text-danger text-tiny"
             data-slot="error-message"
-            id="react-aria-«replaced-aria-id»"
+            id="uniform-«replaced-aria-id»-error"
           >
             <ul
               aria-label="Validation errors of field switchfield"
+              data-component="field-validation-error"
               data-testid="switchfield_error"
             >
               <li
@@ -415,9 +444,118 @@ exports[`Story Snapshots > Invalid 1`] = `
       >
         <button
           aria-label="Submit form"
-          class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
+          data-component="submit-button"
+          data-rac=""
           data-react-aria-pressable="true"
           data-testid="form_submit_button"
+          id="react-aria-«replaced-aria-id»"
+          tabindex="0"
+          type="submit"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`Story Snapshots > KeyboardAndRequired 1`] = `
+<div>
+  <div
+    class="flex w-full flex-row justify-between gap-6"
+    data-component="form"
+  >
+    <form
+      class="grow min-w-60"
+      data-form-is-valid="true"
+      data-testid=""
+      novalidate=""
+    >
+      <div
+        class="place-content-center"
+        data-component="switch"
+        data-slot="outer-wrapper"
+      >
+        <label
+          class="group relative inline-flex max-w-fit cursor-pointer touch-none select-none items-center justify-start tap-highlight-transparent"
+          data-invalid="false"
+          data-react-aria-pressable="true"
+          data-required="true"
+          data-slot="base"
+          data-testid="switchfield"
+          for="uniform-«replaced-aria-id»"
+        >
+          <span
+            style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+          >
+            <input
+              aria-describedby="uniform-«replaced-aria-id»-description"
+              aria-labelledby="uniform-«replaced-aria-id»-label"
+              aria-required="true"
+              data-react-aria-pressable="true"
+              data-slot="input"
+              id="uniform-«replaced-aria-id»"
+              name="switchField"
+              role="switch"
+              tabindex="0"
+              type="checkbox"
+            />
+          </span>
+          <span
+            aria-hidden="true"
+            class="relative inline-flex h-7 w-12 shrink-0 items-center justify-start overflow-hidden rounded-full bg-default-200 px-1 transition-background group-data-[selected=true]:bg-primary group-data-[selected=true]:text-primary-foreground group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background motion-reduce:transition-none"
+            data-slot="wrapper"
+          >
+            <span
+              class="pointer-events-none z-10 flex h-5 w-5 origin-right items-center justify-center rounded-full bg-white shadow-small transition-all text-small group-data-[selected=true]:group-data-[pressed=true]:ms-4 group-data-[selected=true]:ms-5 group-data-[pressed=true]:w-6 motion-reduce:transition-none"
+              data-slot="thumb"
+            />
+          </span>
+          <span
+            class="group-data-[invalid=true]:text-danger! relative ms-2 select-none text-sm text-foreground subpixel-antialiased"
+            data-slot="label"
+            id="uniform-«replaced-aria-id»-label"
+          >
+            🚀 Deploy on Friday
+            <span
+              aria-hidden="true"
+              class="ml-0.5 text-danger"
+            >
+              *
+            </span>
+          </span>
+        </label>
+        <div
+          class="relative ml-0 block p-0"
+          data-slot="helper-wrapper"
+        >
+          <div
+            class="text-foreground-500 text-tiny"
+            data-slot="description"
+            id="uniform-«replaced-aria-id»-description"
+          >
+            Toggle with Space.
+          </div>
+        </div>
+      </div>
+      <div
+        class="mt-4 flex justify-end"
+      >
+        <button
+          aria-label="Submit form"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
+          data-component="submit-button"
+          data-focus="true"
+          data-focus-visible="true"
+          data-focused="true"
+          data-hover="true"
+          data-hovered="true"
+          data-rac=""
+          data-react-aria-pressable="true"
+          data-testid="form_submit_button"
+          id="react-aria-«replaced-aria-id»"
           tabindex="0"
           type="submit"
         >
@@ -433,6 +571,7 @@ exports[`Story Snapshots > Required 1`] = `
 <div>
   <div
     class="flex w-full flex-row justify-between gap-6"
+    data-component="form"
   >
     <form
       class="grow min-w-60"
@@ -442,47 +581,55 @@ exports[`Story Snapshots > Required 1`] = `
     >
       <div
         class="place-content-center"
+        data-component="switch"
+        data-slot="outer-wrapper"
       >
-        <div
-          style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
-        >
-          <input
-            aria-label="🚀 Deploy on Friday"
-            name="switchField"
-            type="checkbox"
-          />
-        </div>
         <label
-          aria-label="🚀 Deploy on Friday"
-          class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer touch-none tap-highlight-transparent select-none"
+          class="group relative inline-flex max-w-fit cursor-pointer touch-none select-none items-center justify-start tap-highlight-transparent"
           data-invalid="false"
+          data-react-aria-pressable="true"
           data-required="true"
+          data-slot="base"
           data-testid="switchfield"
+          for="uniform-«replaced-aria-id»"
         >
-          <input
-            aria-label="[object Object]"
-            aria-labelledby="«replaced-aria-id»"
-            class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
-            data-react-aria-pressable="true"
-            name="switchField_switch"
-            role="switch"
-            tabindex="0"
-            type="checkbox"
-            value=""
-          />
           <span
-            aria-hidden="true"
-            class="px-1 relative inline-flex items-center justify-start shrink-0 overflow-hidden bg-default-200 rounded-full outline-solid outline-transparent group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:bg-primary group-data-[selected=true]:text-primary-foreground w-12 h-7 transition-background"
+            style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
           >
-            <span
-              class="z-10 flex items-center justify-center bg-white shadow-small rounded-full origin-right pointer-events-none w-5 h-5 text-small group-data-[selected=true]:ms-5 transition-all group-data-[pressed=true]:w-6 group-data-[selected]:group-data-[pressed]:ml-4"
+            <input
+              aria-labelledby="uniform-«replaced-aria-id»-label"
+              aria-required="true"
+              data-react-aria-pressable="true"
+              data-slot="input"
+              id="uniform-«replaced-aria-id»"
+              name="switchField"
+              role="switch"
+              tabindex="0"
+              type="checkbox"
             />
           </span>
           <span
-            class="relative select-none ms-2 text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
-            id="«replaced-aria-id»"
+            aria-hidden="true"
+            class="relative inline-flex h-7 w-12 shrink-0 items-center justify-start overflow-hidden rounded-full bg-default-200 px-1 transition-background group-data-[selected=true]:bg-primary group-data-[selected=true]:text-primary-foreground group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background motion-reduce:transition-none"
+            data-slot="wrapper"
+          >
+            <span
+              class="pointer-events-none z-10 flex h-5 w-5 origin-right items-center justify-center rounded-full bg-white shadow-small transition-all text-small group-data-[selected=true]:group-data-[pressed=true]:ms-4 group-data-[selected=true]:ms-5 group-data-[pressed=true]:w-6 motion-reduce:transition-none"
+              data-slot="thumb"
+            />
+          </span>
+          <span
+            class="group-data-[invalid=true]:text-danger! relative ms-2 select-none text-sm text-foreground subpixel-antialiased"
+            data-slot="label"
+            id="uniform-«replaced-aria-id»-label"
           >
             🚀 Deploy on Friday
+            <span
+              aria-hidden="true"
+              class="ml-0.5 text-danger"
+            >
+              *
+            </span>
           </span>
         </label>
       </div>
@@ -491,9 +638,12 @@ exports[`Story Snapshots > Required 1`] = `
       >
         <button
           aria-label="Submit form"
-          class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
+          data-component="submit-button"
+          data-rac=""
           data-react-aria-pressable="true"
           data-testid="form_submit_button"
+          id="react-aria-«replaced-aria-id»"
           tabindex="0"
           type="submit"
         >
@@ -509,6 +659,7 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
 <div>
   <div
     class="flex w-full flex-row justify-between gap-6"
+    data-component="form"
   >
     <form
       class="grow min-w-60"
@@ -518,48 +669,48 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
     >
       <div
         class="place-content-center"
+        data-component="switch"
+        data-slot="outer-wrapper"
       >
-        <div
-          style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
-        >
-          <input
-            aria-label="☕ Coffee is a vegetable"
-            checked=""
-            name="switchField"
-            type="checkbox"
-          />
-        </div>
         <label
-          aria-label="☕ Coffee is a vegetable"
-          class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer touch-none tap-highlight-transparent select-none"
+          class="group relative inline-flex max-w-fit cursor-pointer touch-none select-none items-center justify-start tap-highlight-transparent"
           data-invalid="false"
+          data-react-aria-pressable="true"
           data-required="false"
           data-selected="true"
+          data-slot="base"
           data-testid="switchfield"
+          for="uniform-«replaced-aria-id»"
         >
-          <input
-            aria-label="[object Object]"
-            aria-labelledby="«replaced-aria-id»"
-            checked=""
-            class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
-            data-react-aria-pressable="true"
-            name="switchField_switch"
-            role="switch"
-            tabindex="0"
-            type="checkbox"
-            value=""
-          />
           <span
-            aria-hidden="true"
-            class="px-1 relative inline-flex items-center justify-start shrink-0 overflow-hidden bg-default-200 rounded-full outline-solid outline-transparent group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:bg-primary group-data-[selected=true]:text-primary-foreground w-12 h-7 transition-background"
+            style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
           >
-            <span
-              class="z-10 flex items-center justify-center bg-white shadow-small rounded-full origin-right pointer-events-none w-5 h-5 text-small group-data-[selected=true]:ms-5 transition-all group-data-[pressed=true]:w-6 group-data-[selected]:group-data-[pressed]:ml-4"
+            <input
+              aria-labelledby="uniform-«replaced-aria-id»-label"
+              checked=""
+              data-react-aria-pressable="true"
+              data-slot="input"
+              id="uniform-«replaced-aria-id»"
+              name="switchField"
+              role="switch"
+              tabindex="0"
+              type="checkbox"
             />
           </span>
           <span
-            class="relative select-none ms-2 text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
-            id="«replaced-aria-id»"
+            aria-hidden="true"
+            class="relative inline-flex h-7 w-12 shrink-0 items-center justify-start overflow-hidden rounded-full bg-default-200 px-1 transition-background group-data-[selected=true]:bg-primary group-data-[selected=true]:text-primary-foreground group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background motion-reduce:transition-none"
+            data-slot="wrapper"
+          >
+            <span
+              class="pointer-events-none z-10 flex h-5 w-5 origin-right items-center justify-center rounded-full bg-white shadow-small transition-all text-small group-data-[selected=true]:group-data-[pressed=true]:ms-4 group-data-[selected=true]:ms-5 group-data-[pressed=true]:w-6 motion-reduce:transition-none"
+              data-slot="thumb"
+            />
+          </span>
+          <span
+            class="group-data-[invalid=true]:text-danger! relative ms-2 select-none text-sm text-foreground subpixel-antialiased"
+            data-slot="label"
+            id="uniform-«replaced-aria-id»-label"
           >
             ☕ Coffee is a vegetable
           </span>
@@ -570,9 +721,12 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
       >
         <button
           aria-label="Submit form"
-          class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
+          data-component="submit-button"
+          data-rac=""
           data-react-aria-pressable="true"
           data-testid="form_submit_button"
+          id="react-aria-«replaced-aria-id»"
           tabindex="0"
           type="submit"
         >
@@ -588,6 +742,7 @@ exports[`Story Snapshots > WithStartAndEndContent 1`] = `
 <div>
   <div
     class="flex w-full flex-row justify-between gap-6"
+    data-component="form"
   >
     <form
       class="grow min-w-60"
@@ -597,40 +752,38 @@ exports[`Story Snapshots > WithStartAndEndContent 1`] = `
     >
       <div
         class="place-content-center"
+        data-component="switch"
+        data-slot="outer-wrapper"
       >
-        <div
-          style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
-        >
-          <input
-            aria-label="📧 Send emails at 3 AM"
-            checked=""
-            name="switchField"
-            type="checkbox"
-          />
-        </div>
         <label
-          aria-label="📧 Send emails at 3 AM"
-          class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer touch-none tap-highlight-transparent select-none"
+          class="group relative inline-flex max-w-fit cursor-pointer touch-none select-none items-center justify-start tap-highlight-transparent"
           data-invalid="false"
+          data-react-aria-pressable="true"
           data-required="false"
           data-selected="true"
+          data-slot="base"
           data-testid="switchfield"
+          for="uniform-«replaced-aria-id»"
         >
-          <input
-            aria-label="[object Object]"
-            aria-labelledby="«replaced-aria-id»"
-            checked=""
-            class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
-            data-react-aria-pressable="true"
-            name="switchField_switch"
-            role="switch"
-            tabindex="0"
-            type="checkbox"
-            value=""
-          />
+          <span
+            style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+          >
+            <input
+              aria-labelledby="uniform-«replaced-aria-id»-label"
+              checked=""
+              data-react-aria-pressable="true"
+              data-slot="input"
+              id="uniform-«replaced-aria-id»"
+              name="switchField"
+              role="switch"
+              tabindex="0"
+              type="checkbox"
+            />
+          </span>
           <span
             aria-hidden="true"
-            class="px-1 relative inline-flex items-center justify-start shrink-0 overflow-hidden bg-default-200 rounded-full outline-solid outline-transparent group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:bg-primary group-data-[selected=true]:text-primary-foreground w-12 h-7 transition-background"
+            class="relative inline-flex h-7 w-12 shrink-0 items-center justify-start overflow-hidden rounded-full bg-default-200 px-1 transition-background group-data-[selected=true]:bg-primary group-data-[selected=true]:text-primary-foreground group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background motion-reduce:transition-none"
+            data-slot="wrapper"
           >
             <span
               data-testid="icon-FaPhone"
@@ -638,7 +791,8 @@ exports[`Story Snapshots > WithStartAndEndContent 1`] = `
               FaPhone
             </span>
             <span
-              class="z-10 flex items-center justify-center bg-white shadow-small rounded-full origin-right pointer-events-none w-5 h-5 text-small group-data-[selected=true]:ms-5 transition-all group-data-[pressed=true]:w-6 group-data-[selected]:group-data-[pressed]:ml-4"
+              class="pointer-events-none z-10 flex h-5 w-5 origin-right items-center justify-center rounded-full bg-white shadow-small transition-all text-small group-data-[selected=true]:group-data-[pressed=true]:ms-4 group-data-[selected=true]:ms-5 group-data-[pressed=true]:w-6 motion-reduce:transition-none"
+              data-slot="thumb"
             />
             <span
               data-testid="icon-FaEnvelope"
@@ -647,8 +801,9 @@ exports[`Story Snapshots > WithStartAndEndContent 1`] = `
             </span>
           </span>
           <span
-            class="relative select-none ms-2 text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
-            id="«replaced-aria-id»"
+            class="group-data-[invalid=true]:text-danger! relative ms-2 select-none text-sm text-foreground subpixel-antialiased"
+            data-slot="label"
+            id="uniform-«replaced-aria-id»-label"
           >
             📧 Send emails at 3 AM
           </span>
@@ -659,9 +814,12 @@ exports[`Story Snapshots > WithStartAndEndContent 1`] = `
       >
         <button
           aria-label="Submit form"
-          class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
+          data-component="submit-button"
+          data-rac=""
           data-react-aria-pressable="true"
           data-testid="form_submit_button"
+          id="react-aria-«replaced-aria-id»"
           tabindex="0"
           type="submit"
         >
@@ -677,6 +835,7 @@ exports[`Story Snapshots > WithThumbIcon 1`] = `
 <div>
   <div
     class="flex w-full flex-row justify-between gap-6"
+    data-component="form"
   >
     <form
       class="grow min-w-60"
@@ -686,43 +845,42 @@ exports[`Story Snapshots > WithThumbIcon 1`] = `
     >
       <div
         class="place-content-center"
+        data-component="switch"
+        data-slot="outer-wrapper"
       >
-        <div
-          style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
-        >
-          <input
-            aria-label="🌙 Dark mode developer"
-            checked=""
-            name="switchField"
-            type="checkbox"
-          />
-        </div>
         <label
-          aria-label="🌙 Dark mode developer"
-          class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer touch-none tap-highlight-transparent select-none"
+          class="group relative inline-flex max-w-fit cursor-pointer touch-none select-none items-center justify-start tap-highlight-transparent"
           data-invalid="false"
+          data-react-aria-pressable="true"
           data-required="false"
           data-selected="true"
+          data-slot="base"
           data-testid="switchfield"
+          for="uniform-«replaced-aria-id»"
         >
-          <input
-            aria-label="[object Object]"
-            aria-labelledby="«replaced-aria-id»"
-            checked=""
-            class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
-            data-react-aria-pressable="true"
-            name="switchField_switch"
-            role="switch"
-            tabindex="0"
-            type="checkbox"
-            value=""
-          />
+          <span
+            style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+          >
+            <input
+              aria-labelledby="uniform-«replaced-aria-id»-label"
+              checked=""
+              data-react-aria-pressable="true"
+              data-slot="input"
+              id="uniform-«replaced-aria-id»"
+              name="switchField"
+              role="switch"
+              tabindex="0"
+              type="checkbox"
+            />
+          </span>
           <span
             aria-hidden="true"
-            class="px-1 relative inline-flex items-center justify-start shrink-0 overflow-hidden bg-default-200 rounded-full outline-solid outline-transparent group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:bg-primary group-data-[selected=true]:text-primary-foreground w-12 h-7 transition-background"
+            class="relative inline-flex h-7 w-12 shrink-0 items-center justify-start overflow-hidden rounded-full bg-default-200 px-1 transition-background group-data-[selected=true]:bg-primary group-data-[selected=true]:text-primary-foreground group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background motion-reduce:transition-none"
+            data-slot="wrapper"
           >
             <span
-              class="z-10 flex items-center justify-center bg-white shadow-small rounded-full origin-right pointer-events-none w-5 h-5 text-small group-data-[selected=true]:ms-5 transition-all group-data-[pressed=true]:w-6 group-data-[selected]:group-data-[pressed]:ml-4"
+              class="pointer-events-none z-10 flex h-5 w-5 origin-right items-center justify-center rounded-full bg-white shadow-small transition-all text-small group-data-[selected=true]:group-data-[pressed=true]:ms-4 group-data-[selected=true]:ms-5 group-data-[pressed=true]:w-6 motion-reduce:transition-none"
+              data-slot="thumb"
             >
               <span
                 data-testid="icon-FaRocket"
@@ -732,8 +890,9 @@ exports[`Story Snapshots > WithThumbIcon 1`] = `
             </span>
           </span>
           <span
-            class="relative select-none ms-2 text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
-            id="«replaced-aria-id»"
+            class="group-data-[invalid=true]:text-danger! relative ms-2 select-none text-sm text-foreground subpixel-antialiased"
+            data-slot="label"
+            id="uniform-«replaced-aria-id»-label"
           >
             🌙 Dark mode developer
           </span>
@@ -744,9 +903,12 @@ exports[`Story Snapshots > WithThumbIcon 1`] = `
       >
         <button
           aria-label="Submit form"
-          class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
+          data-component="submit-button"
+          data-rac=""
           data-react-aria-pressable="true"
           data-testid="form_submit_button"
+          id="react-aria-«replaced-aria-id»"
           tabindex="0"
           type="submit"
         >

@@ -1,58 +1,20 @@
-import type { TVClassName } from '@fuf-stack/pixel-utils';
 import type { VetoInput } from '@fuf-stack/veto';
 import type { ReactNode } from 'react';
 import type { FiltersConfiguration } from './filters/types';
-import type { SearchConfiguration } from './Subcomponents/SearchInput';
+import type { ClassName } from './filterVariants';
+import type { SearchConfiguration } from './subcomponents/SearchInput';
 
 import createDebug from 'debug';
 
-import { tv, variantsToClassNames } from '@fuf-stack/pixel-utils';
-import Form from '@fuf-stack/uniform/Form';
+import { useStyling } from '@fuf-stack/pixels/StylingProvider';
 
+import { filterVariants } from './filterVariants';
 import { useFilterValidation } from './hooks/useFilterValidation';
-import ActiveFilters from './Subcomponents/ActiveFilters';
-import AddFilterMenu from './Subcomponents/AddFilterMenu';
-import FilterModal from './Subcomponents/FilterModal';
-import { FiltersContextProvider } from './Subcomponents/FiltersContext';
-import SearchInput from './Subcomponents/SearchInput';
+import FilterControl from './subcomponents/FilterControl';
+
+export { filterVariants } from './filterVariants';
 
 const debug = createDebug('megapixels:Filter');
-
-// filter styling variants
-export const filterVariants = tv({
-  slots: {
-    // outer wrapper
-    base: 'flex flex-auto flex-col',
-    // add filter menu trigger button
-    addFilterMenuButton: '',
-    // add filter menu item
-    addFilterMenuItem: '',
-    // active filter label
-    activeFilterLabel: 'h-8 cursor-pointer rounded-md dark:text-foreground',
-    // filter modal body
-    filterModalBody: '',
-    // filter modal header
-    filterModalHeader: 'flex items-center gap-3 text-default-700',
-    // filter modal footer
-    filterModalFooter: 'justify-between',
-    // form element
-    form: 'mb-3 flex flex-wrap gap-3',
-    // search input field
-    searchInput: '',
-    // search input wrapper (inner control)
-    searchInputWrapper: '',
-    // search motion container
-    searchMotionDiv: 'flex w-72 gap-2',
-    // search show button
-    searchShowButton: '',
-    // search submit button
-    searchSubmitButton: '',
-    // search wrapper
-    searchWrapper: 'flex items-center',
-  },
-});
-
-type ClassName = TVClassName<typeof filterVariants>;
 
 export interface FilterValues {
   filter?: string | Record<string, unknown> | null;
@@ -64,23 +26,6 @@ export type FilterChildRenderFn = (values: {
   filter?: Record<string, unknown>;
 }) => ReactNode;
 
-/**
- * Filter
- *
- * Controlled, form-driven filter UI.
- *
- * Responsibilities
- * - Derives initial form values from the controlled `values` prop
- * - Builds a composite validation schema from the filter registry (and optional search)
- * - Exposes ergonomic UI: active filters list, add/remove actions, and per-filter modal
- * - Commits changes by invoking the controlled `onChange` callback on submit
- *
- * Structure
- * - Owns an ex-forms `Form` that wraps the entire filter experience
- * - Optionally renders a search input bound to the `search` field
- * - Renders ActiveFilters, AddFilterMenu, and FilterModal inside a shared context
- * - Optionally renders children as a render-prop with the resolved `values`
- */
 export interface FilterProps {
   /** Optional render-prop that receives the resolved, controlled values */
   children?: FilterChildRenderFn;
@@ -98,7 +43,7 @@ export interface FilterProps {
   };
   /** Disables the add-filter menu and modal open/close animations */
   disableAnimation?: boolean;
-  /** ex-forms form instance name. Defaults to "filterComponentForm". */
+  /** Uniform form instance name. Defaults to "filterComponentForm". */
   formName?: string;
   /** Controlled setter invoked on submit with the next canonical values */
   onChange: (nextValues: FilterValues) => void;
@@ -113,9 +58,14 @@ export interface FilterProps {
 }
 
 /**
- * Renders the filter UI bound to a single ex-forms `Form`.
- * The form is the source of truth during user interaction; the committed
- * state is controlled by the parent via `values`/`onChange`.
+ * Configurable search and filter controls for narrowing a result set
+ *
+ * Shows active filters with actions to add, edit and remove them using the
+ * configured filter registry and validation schemas
+ *
+ * Edits stay in the form until submission, which commits changes through
+ * `onChange`. The parent controls committed state through `values`
+ * Optional render-prop children receive the resolved search and filter values
  */
 const Filter = ({
   children = undefined,
@@ -127,13 +77,9 @@ const Filter = ({
   portalContainer = undefined,
   values,
 }: FilterProps) => {
-  // Submit handler: map form state back into the controlled `values` shape
-  const handleSubmit = (nextValues: Record<string, unknown>) => {
-    debug('handleSubmit', { nextValues });
-    onChange(nextValues);
-  };
+  const styling = useStyling();
 
-  // Build validation schema for all configured filters (and optional search)
+  // combine filter schemas with the optional search field
   const validation = useFilterValidation(
     config.filters,
     Boolean(config.search),
@@ -147,8 +93,8 @@ const Filter = ({
   } = validation.validate(values as VetoInput);
 
   // classNames from slots
-  const variants = filterVariants();
-  const classNames = variantsToClassNames(variants, className, 'base');
+  const variants = styling.resolve(filterVariants);
+  const classNames = styling.variantsToClassNames(variants, className, 'base');
 
   debug('render', {
     props: { config, values },
@@ -156,71 +102,18 @@ const Filter = ({
   });
 
   return (
-    <div className={classNames.base}>
-      {/*
-        Uniform Form wrapper
-        - initialValues derive from controlled props (with optional defaults)
-        - validation is built from the registry for all configured filters
-        - onSubmit maps form values back into values/onChange
-      */}
-      <Form
-        className={{ form: classNames.form }}
-        // disable debug mode for now
-        debug={{ disable: true }}
-        initialValues={valuesValidated ?? {}}
-        name={formName}
-        onSubmit={handleSubmit}
-        // the FilterModal footer's SubmitButton is portalled OUTSIDE this form's
-        // DOM subtree, so it associates with the form via the native `form`
-        // attribute (SubmitButton `remoteFormId`) instead of DOM descent
-        remoteFormId={formName}
-        validation={validation}
-      >
-        {/* Render search if search config is provided */}
-        {config.search ? (
-          <SearchInput
-            classNames={{
-              searchInput: classNames.searchInput,
-              searchInputWrapper: classNames.searchInputWrapper,
-              searchMotionDiv: classNames.searchMotionDiv,
-              searchShowButton: classNames.searchShowButton,
-              searchSubmitButton: classNames.searchSubmitButton,
-              searchWrapper: classNames.searchWrapper,
-            }}
-            config={config.search}
-          />
-        ) : null}
-        {/*
-          FiltersContextProvider exposes a minimal API for the UI layer:
-          - activeFilters/unusedFilters by name
-          - helpers to get merged config, value, components, and field names
-          - methods to add/remove filters and show/close the modal
-        */}
-        <FiltersContextProvider config={config.filters}>
-          <ActiveFilters className={classNames.activeFilterLabel} />
-          <AddFilterMenu
-            classNames={{
-              addFilterMenuButton: classNames.addFilterMenuButton,
-              addFilterMenuItem: classNames.addFilterMenuItem,
-            }}
-            disableAnimation={disableAnimation}
-            portalContainer={portalContainer}
-          />
-          <FilterModal
-            classNames={{
-              body: classNames.filterModalBody,
-              footer: classNames.filterModalFooter,
-              header: classNames.filterModalHeader,
-            }}
-            disableAnimation={disableAnimation}
-            portalContainer={portalContainer}
-            remoteFormId={formName}
-          />
-        </FiltersContextProvider>
-      </Form>
-      {/* Children can consume derived search string and parsed filter object */}
-      {children?.(valuesValidated ?? {})}
-    </div>
+    <FilterControl
+      className={classNames}
+      config={config}
+      disableAnimation={disableAnimation}
+      formName={formName}
+      onChange={onChange}
+      portalContainer={portalContainer}
+      validation={validation}
+      values={valuesValidated ?? {}}
+    >
+      {children}
+    </FilterControl>
   );
 };
 

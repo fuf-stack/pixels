@@ -14,6 +14,8 @@ consistent config instead of duplicating Storybook boilerplate.
 - Exposes a reusable story snapshot harness (`story-snapshots.ts`) for Vitest story tests.
 - Includes Storybook v10-compatible local wrapper files in `.storybook/`.
 - Ships local Vite/Tailwind/TypeScript config files used by Storybook config consumers.
+- Compiles Tailwind utilities in browser tests so layout assertions use the same
+  stylesheet as the Storybook development server.
 
 ## Important Files
 
@@ -22,6 +24,14 @@ consistent config instead of duplicating Storybook boilerplate.
 - `story-snapshots.ts`: deterministic story snapshot helper for Vitest.
 - `.storybook/main.ts`: consumer-facing Storybook main wrapper.
 - `.storybook/preview.tsx`: consumer-facing preview wrapper.
+
+## Visual regression tests
+
+At the repository root, `pnpm --filter @repo/storybook-config storybook:build`
+builds the stories and `pnpm test:visual:docker` compares selected stories in the
+pinned CI environment. See the
+[visual regression workflow](../../../docs/visual-regression.md) for baseline
+review and updates.
 
 ## Notes
 

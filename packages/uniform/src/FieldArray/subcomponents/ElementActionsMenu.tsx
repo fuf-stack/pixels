@@ -6,8 +6,8 @@ import type { FieldArrayElementMethods } from './FieldArrayElement';
 import { FaCopy, FaTimes } from 'react-icons/fa';
 import { VscInsert } from 'react-icons/vsc';
 
-import { cn } from '@fuf-stack/pixel-utils';
 import { Menu } from '@fuf-stack/pixels';
+import { useStyling } from '@fuf-stack/pixels/StylingProvider';
 
 export interface ElementActionsMenuProps {
   /** CSS class name */
@@ -20,7 +20,7 @@ export interface ElementActionsMenuProps {
   methods: FieldArrayElementMethods;
   /** Whether to show remove button (false when last element is not deletable) */
   showRemove?: boolean;
-  /** HTML data-testid attribute used in e2e tests */
+  /** HTML data-testid attribute for e2e tests */
   testId?: string;
 }
 
@@ -35,6 +35,9 @@ const ElementActionsMenu = ({
   methods,
   testId = undefined,
 }: ElementActionsMenuProps) => {
+  const { cn } = useStyling();
+
+  // dispatch the selected row action
   const handleAction = (key: Key) => {
     switch (key) {
       case 'remove':
@@ -51,7 +54,7 @@ const ElementActionsMenu = ({
     }
   };
 
-  // Build menu items based on available actions
+  // include the enabled row actions
   const menuItems: MenuItem[] = [];
 
   if (duplicate) {
