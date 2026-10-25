@@ -85,6 +85,8 @@ export const WithHeader: Story = {
 };
 
 export const WithHeaderAndFooter: Story = {
+  tags: ['visual'],
+  parameters: { visual: { capture: 'viewport' } },
   args: {
     header: 'Modal Header',
     children: shortContent,

@@ -42,6 +42,8 @@ export const WithRef: Story = {
 };
 
 export const KeyboardActivation: Story = {
+  tags: ['visual'],
+  parameters: { visual: { target: '[data-component="button"]' } },
   args: { children: 'Activate', onClick: fn() },
   play: async ({ args, canvasElement }) => {
     const canvas = within(canvasElement);

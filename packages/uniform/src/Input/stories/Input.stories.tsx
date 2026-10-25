@@ -45,6 +45,8 @@ export const Default: Story = {
 };
 
 export const WithLabel: Story = {
+  tags: ['visual'],
+  parameters: { visual: { target: '[data-component="input"]' } },
   args: {
     label: 'Some Label',
     name: 'inputField',
@@ -102,7 +104,9 @@ export const Disabled: Story = {
 };
 
 export const Invalid: Story = {
+  tags: ['visual'],
   parameters: {
+    visual: { target: '[data-component="input"]' },
     formProps: {
       validation: veto({
         inputField: string()

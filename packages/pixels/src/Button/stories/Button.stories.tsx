@@ -35,6 +35,8 @@ export const Basic: Story = {
 };
 
 export const Disabled: Story = {
+  tags: ['visual'],
+  parameters: { visual: { target: '[data-component="button"]' } },
   args: {
     children: 'Button',
     disabled: true,
@@ -73,6 +75,8 @@ export const DisabledAnimation: Story = {
 };
 
 export const AllColors: Story = {
+  tags: ['visual'],
+  parameters: { visual: { target: '[data-component="button"]' } },
   render: () => {
     return (
       <>

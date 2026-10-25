@@ -100,6 +100,11 @@ pushes the snapshot commit to the Renovate branch, and dispatches CI for it.
 
 ## Visual and accessibility verification
 
+The [visual regression pilot](./visual-regression.md) compares selected stories in
+CI. Build with `pnpm --filter @repo/storybook-config storybook:build`, then run
+`pnpm test:visual:docker` for the same Linux rendering locally. Review baseline
+changes alongside component changes.
+
 Use Storybook to cover meaningful states, themes, responsive behavior, and
 reduced motion. Run `pnpm test:storybook`, then manually verify keyboard order,
 focus visibility/restoration, accessible names and descriptions, disabled and

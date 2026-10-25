@@ -45,6 +45,18 @@
       prCreation: 'immediate',
     },
 
+    // Keep the browser image and its npm runtime in the same update PR.
+    {
+      matchDatasources: ['npm', 'docker'],
+      matchPackageNames: [
+        '@playwright/test',
+        'playwright',
+        'playwright-core',
+        'mcr.microsoft.com/playwright',
+      ],
+      groupName: 'Playwright runtime',
+    },
+
     // @dnd-kit monorepo
     {
       matchPackageNames: ['/^@dnd-kit/'],

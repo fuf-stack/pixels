@@ -922,6 +922,31 @@ New shared partials have their own stories and tests too. For example,
 changes. Keep these files beside the partial rather than relying only on its
 consumers' coverage.
 
+Visual regression cases reuse the Storybook stories, do not add a separate
+component visual test file. Tag selected stories with `visual` and put capture
+settings in `parameters.visual`. Keep interactions in the story's `play` function.
+Co-locate approved PNGs under `__snapshots__/visual/<theme>/`, for example
+`DataTable/__snapshots__/visual/dark/row-selection.png`.
+
+```tsx
+export const Default: Story = {
+  args,
+  tags: ['visual'],
+  parameters: {
+    visual: {
+      target: '[data-component="data-table"]',
+      viewport: { width: 390, height: 844 },
+    },
+  },
+};
+```
+
+Shared tooling owns discovery and capture mechanics. The viewport controls the
+rendered layout, while the target controls the cropped screenshot. Include
+portaled elements in the target and padding for focus rings and shadows. Use
+`capture: 'viewport'` instead of `target` for modal backdrops and placement. See
+the [visual regression workflow](./visual-regression.md) for further examples.
+
 Always leave a blank line between cases and describe blocks. Separate setup,
 interactions and assertions when it helps show the test's phases.
 

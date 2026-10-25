@@ -4,6 +4,10 @@
 list:
 	@LC_ALL=C $(MAKE) -pRrq -f $(lastword $(MAKEFILE_LIST)) : 2>/dev/null | awk -v RS= -F: '/(^|\n)# Files(\n|$$)/,/(^|\n)# Finished Make data base/ {if ($$1 !~ "^[#.]") {print $$1}}' | sort | grep -E -v -e '^[^[:alnum:]]' -e '^$@$$'
 
+# Run the canonical repository verification suite.
+check:
+	pnpm check;
+
 # Clean up repository (remove node_modules, dist, build artifacts, etc.)
 clean:
 	sh ./scripts/cleanup-repository.sh;
@@ -38,10 +42,6 @@ storybook-react-scan:
 test: install
 	clear;
 	pnpm test;
-
-# Run the canonical repository verification suite.
-check:
-	pnpm check;
 
 # Run the declaration-emit smoke test (installs dependencies first).
 # `install` already runs `pnpm build`, so dist/index.d.ts is fresh

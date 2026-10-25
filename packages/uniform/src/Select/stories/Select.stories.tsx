@@ -30,6 +30,21 @@ export const Default: Story = {
   args,
 };
 
+export const OpenMenu: Story = {
+  args,
+  tags: ['visual'],
+  parameters: {
+    visual: { target: '[data-component="select"], [role="listbox"]' },
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const body = within(canvasElement.ownerDocument.body);
+
+    await userEvent.click(canvas.getByRole('combobox'));
+    await expect(await body.findByRole('listbox')).toBeVisible();
+  },
+};
+
 export const NumberValues: Story = {
   args: {
     name: 'selectField',

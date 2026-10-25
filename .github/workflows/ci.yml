@@ -73,6 +73,32 @@ jobs:
       - name: Run Storybook browser tests
         run: pnpm test:storybook
 
+  visual-tests:
+    name: Visual regression pilot
+    runs-on: ubuntu-24.04-arm
+    timeout-minutes: 20
+    container:
+      image: mcr.microsoft.com/playwright:v1.64.0-noble@sha256:06a9939e57531807f8d5fd76ce44b53165ffb7d7501d87ab10e285c20b1e971f
+      options: --ipc=host
+
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+      - uses: ./.github/actions/setup-project
+      - name: Build Storybook
+        run: pnpm --filter @repo/storybook-config storybook:build
+      - name: Compare visual baselines
+        run: pnpm test:visual
+      - name: Upload visual report and differences
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
+        with:
+          name: visual-regression-report
+          path: |
+            packages/config/storybook-config/playwright-report/
+            packages/config/storybook-config/test-results/visual/
+          retention-days: 14
+          if-no-files-found: error
+
   package-smoke:
     name: Package smoke tests
     runs-on: ubuntu-latest

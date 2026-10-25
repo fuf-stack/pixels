@@ -4,6 +4,7 @@
   "compilerOptions": {
     "composite": true,
     "tsBuildInfoFile": "node_modules/.cache/tsbuildinfo.json",
-    "types": ["node"]
+    "types": ["node"],
+    "lib": ["ESNext", "DOM", "DOM.Iterable"]
   }
 }

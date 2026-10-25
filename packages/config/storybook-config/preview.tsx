@@ -4,7 +4,10 @@ import type { Preview } from '@storybook/react-vite';
 
 import { themes } from 'storybook/theming';
 
+import visualLoader from './visual/loader';
+
 const preview: Preview = {
+  loaders: [visualLoader],
   parameters: {
     actions: { argTypesRegex: '^on[A-Z].*' },
     // show also description and default in controls panel

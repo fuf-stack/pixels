@@ -299,6 +299,13 @@ const playgroundArgs: PlaygroundArgs = {
 // -----------------------------------------------------------------------------
 
 export const Default: Story = {
+  tags: ['visual'],
+  parameters: {
+    visual: {
+      target: '[data-component="data-table"]',
+      viewport: { width: 390, height: 844 },
+    },
+  },
   args: {
     ariaLabel: 'European snack shop orders',
     columns: defaultColumns,
@@ -488,6 +495,8 @@ export const MultiLevelExpandableRows: Story = {
 };
 
 export const RowSelection: Story = {
+  tags: ['visual'],
+  parameters: { visual: { target: '[data-component="data-table"]' } },
   args: {
     ariaLabel: 'Selectable European snack shop orders',
     columns: defaultColumns,

@@ -34,6 +34,10 @@ export default [
             'packages/uniform/vitest.config.mts',
             'packages/veto/vitest.config.mts',
             'packages/config/storybook-config/.storybook/preview.tsx',
+            'packages/config/storybook-config/playwright.config.mjs',
+            'packages/config/storybook-config/visual/docker.mjs',
+            'packages/config/storybook-config/visual/getVisualTestImage.mjs',
+            'packages/config/storybook-config/visual/serve.mjs',
             'packages/megapixels/.storybook/main.ts',
             'packages/megapixels/.storybook/preview.tsx',
             'packages/pixels/.storybook/main.ts',
@@ -57,6 +61,9 @@ export default [
       'packages/*/.storybook/*.{ts,tsx}',
       'packages/config/storybook-config/.storybook/*.{ts,tsx}',
       'scripts/*.mjs',
+      'packages/config/storybook-config/playwright.config.mjs',
+      'packages/config/storybook-config/visual/*.mjs',
+      'packages/config/storybook-config/visual/*.ts',
     ],
     rules: {
       // Storybook/Vitest configuration executes development-only packages.
