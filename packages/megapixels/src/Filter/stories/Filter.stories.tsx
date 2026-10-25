@@ -49,12 +49,16 @@ export const FiltersOnly: Story = {
 };
 
 export const WithSearch: Story = {
+  tags: ['visual'],
+  parameters: { visual: { target: '[data-component="filter"]' } },
   args: {
     config: { filters, search: { placeholder: 'Search something fun…' } },
   },
 };
 
 export const WithInitialValue: Story = {
+  tags: ['visual'],
+  parameters: { visual: { target: '[data-component="filter"]' } },
   args: {
     config: { filters, search: { placeholder: 'Search something fun…' } },
     values: {

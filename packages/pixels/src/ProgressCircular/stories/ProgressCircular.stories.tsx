@@ -28,12 +28,16 @@ export const Default: Story = {
 };
 
 export const Finished: Story = {
+  tags: ['visual'],
+  parameters: { visual: { target: '[data-component="progress-circular"]' } },
   args: {
     percent: 100,
   },
 };
 
 export const HasError: Story = {
+  tags: ['visual'],
+  parameters: { visual: { target: '[data-component="progress-circular"]' } },
   args: {
     hasError: true,
     percent: 42,
@@ -71,6 +75,8 @@ export const AllColors: Story = {
 };
 
 export const AllSizes: Story = {
+  tags: ['visual'],
+  parameters: { visual: { target: '[data-component="progress-circular"]' } },
   render: (args) => {
     return (
       <>

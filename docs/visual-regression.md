@@ -1,10 +1,57 @@
-# Storybook visual regression pilot
+# Storybook visual regression
 
-The pilot compares screenshots of existing Button, Input, Select, Modal and
-DataTable stories. It complements interaction and accessibility tests, and does
-not replace them. Nine states run in light and dark themes: button colors,
-disabled and keyboard focus, an input label and validation error, an open select,
-an open modal, selected table rows and a narrow table viewport.
+Visual comparisons reuse selected Storybook stories and run in light and dark
+themes. They complement interaction and accessibility tests, they do not replace
+them. Coverage grows with meaningful visual states rather than the story count.
+
+## Which stories get visual coverage
+
+Tag a story when its final rendered state protects a distinct appearance that
+interaction assertions would not catch. Do not tag every story automatically.
+Every public component with a rendered surface needs at least one representative
+baseline. A gallery or composition can serve as that baseline, it does not have
+to be a story named Default. Add further states where the layout or styling
+changes materially:
+
+| Story kind   | Capture when                                                           | Example                                 |
+| ------------ | ---------------------------------------------------------------------- | --------------------------------------- |
+| Normal usage | It establishes the component's representative appearance               | Input with label                        |
+| Variants     | A compact gallery covers different colors, sizes or shapes             | Alert variants, Switch sizes            |
+| State        | Selection, focus, disabled or validation changes the visible treatment | Selected table rows, invalid TextArea   |
+| Composition  | Wrapping, slots or custom styling could regress independently          | Multiline Alert, custom Avatar slots    |
+| Overlay      | The open surface, positioning or backdrop is the contract              | Open Select and Tooltip, Modal backdrop |
+| Responsive   | A specific width exposes overflow or a different arrangement           | Narrow DataTable                        |
+| Edge case    | The unusual data has a meaningful visible result                       | DataTable empty after filtering         |
+
+Reuse one gallery instead of capturing each equivalent variant separately. Add a
+second story only for an appearance it does not cover. For example, a default
+Switch adds little beside the size gallery, while its disabled treatment does.
+A callback-only story, value-transform example or repeated prop combination
+usually needs interaction assertions rather than another PNG. An interaction
+that closes or removes the component also needs a separate stable open-state
+story if the visible surface is what should be protected.
+
+Use fixed data, local assets and explicit dates/time zones. Avoid live requests,
+relative dates and random values. Let `play` establish and assert the state before
+capture; screenshots record the final state, not every intermediate interaction.
+For example, TextArea's autosizing story clears its content at the end, so tag a
+populated multiline story to protect the expanded layout instead. Keep focus
+visible when that is the state under test. Inspect the initial PNG to confirm the
+intended state is actually captured, a passing `play` assertion alone does not
+prove that focus or selection remains in that state afterward. Prefer a stable
+state story if an interaction returns to the initial appearance. Do not tag an
+animation until it has a deterministic resting state.
+
+The [coverage inventory](./visual-coverage.md) lists selected stories by component
+across Pixels, Uniform, Megapixels and Atelier, plus the explicit exceptions for
+APIs without their own rendered surface. Use it when reviewing a new component,
+and update it whenever stories are added to or removed from visual coverage.
+
+When adding or changing a component, review the table above and add or update the
+smallest set of stories that protects its distinct appearances. New public visual
+components need a baseline in the same change. For a behavior-only API, document
+which visual component or composition covers its output instead. Both themes run
+automatically, do not create separate light/dark story copies.
 
 ## Run and review
 
@@ -69,7 +116,7 @@ component change. Do not update baselines just to make CI green. Reports,
 traces, actual/difference images and the built Storybook are ignored generated
 files; only approved baseline PNGs belong in Git.
 
-## Extend the pilot
+## Tag an existing story
 
 Reuse stories rather than adding separate component visual test files. Add the
 `visual` tag to a story and declare its capture settings in `parameters.visual`:
@@ -85,7 +132,10 @@ export const Invalid: Story = {
 };
 ```
 
-The shared runner discovers tagged stories from the built Storybook index.
+Declare `tags: ['visual']` explicitly on each selected story, including stories
+that spread another story. The static index does not infer inherited tags from
+object spreads. The shared runner discovers tagged stories from the built
+Storybook index.
 Rebuild with `pnpm --filter @repo/storybook-config storybook:build` after adding a
 tag or changing a story. Baseline names follow the story ID's final segment, for example `invalid.png`:
 

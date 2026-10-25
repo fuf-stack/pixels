@@ -444,11 +444,15 @@ exports[`Story Snapshots > WithTriggerButtonProps 1`] = `
 exports[`Story Snapshots > WithoutTrigger 1`] = `
 <div>
   <button
-    aria-expanded="false"
+    aria-controls="react-aria-«replaced-aria-id»"
+    aria-expanded="true"
     aria-haspopup="true"
     aria-label="Open menu"
-    class="group tap-highlight-transparent [&>svg]:max-w-[theme(spacing.8)] data-[hover=true]:opacity-hover group tap-highlight-transparent group relative box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus gap-2 text-tiny rounded-full !gap-0 px-0 transition-transform-colors-opacity motion-reduce:transition-none bg-transparent text-default-foreground data-[hover=true]:bg-default/40 h-8 w-8 min-w-0 outline outline-divider z-auto subpixel-antialiased aria-expanded:!scale-[0.97] aria-expanded:!opacity-70"
+    class="group tap-highlight-transparent [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover group tap-highlight-transparent group relative box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent outline-solid data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus gap-2 text-tiny rounded-full !gap-0 px-0 !transition-none data-[pressed=true]:scale-100 bg-transparent text-default-foreground data-[hover=true]:bg-default/40 h-8 w-8 min-w-0 outline outline-divider z-auto subpixel-antialiased aria-expanded:!scale-[0.97] aria-expanded:!opacity-70"
     data-component="button"
+    data-hover="true"
+    data-hovered="true"
+    data-pressed="true"
     data-rac=""
     data-react-aria-pressable="true"
     data-slot="trigger"
@@ -471,5 +475,168 @@ exports[`Story Snapshots > WithoutTrigger 1`] = `
       />
     </svg>
   </button>
+  <span
+    data-focus-scope-start="true"
+    hidden=""
+  />
+  <div
+    data-component="menu"
+    style="position: absolute; z-index: 100000; max-height: 0px; left: 12px; top: 7px;"
+  >
+    <div
+      class="relative z-10 box-border flex w-full min-w-[200px] flex-col items-center justify-center rounded-large bg-content1 p-1 subpixel-antialiased shadow-medium outline-none text-small"
+      style="opacity: 1; transform: none;"
+    >
+      <div
+        class="relative flex w-full flex-col gap-1 overflow-clip p-1"
+      >
+        <template />
+        <span
+          data-focus-scope-start="true"
+          hidden=""
+        />
+        <div
+          aria-labelledby="react-aria-«replaced-aria-id»"
+          class="outline-solid flex w-full flex-col gap-0.5 outline-transparent"
+          data-collection="react-aria-«replaced-aria-id»"
+          data-rac=""
+          id="react-aria-«replaced-aria-id»"
+          role="menu"
+          tabindex="0"
+        >
+          <section
+            aria-labelledby="react-aria-«replaced-aria-id»"
+            class="relative mb-2"
+            data-rac=""
+            role="group"
+          >
+            <header
+              class="mb-1 block pl-1 text-foreground-500 text-tiny leading-5"
+              id="react-aria-«replaced-aria-id»"
+              role="presentation"
+            >
+              Section
+            </header>
+            <div
+              aria-labelledby="react-aria-«replaced-aria-id»"
+              class="group relative box-border flex h-full w-full cursor-pointer items-center justify-between gap-2 rounded-small px-2 py-1.5 subpixel-antialiased outline-solid outline-transparent data-[focus-visible]:z-10 data-[focus-visible]:outline-2 data-[focus-visible]:outline-offset-2 data-[focus-visible]:outline-focus data-[focused]:bg-default data-[hovered]:bg-default data-[focused]:text-default-foreground data-[hovered]:text-default-foreground data-[hovered]:transition-colors data-[disabled]:pointer-events-none data-[disabled]:opacity-disabled"
+              data-collection="react-aria-«replaced-aria-id»"
+              data-key="itemWithIcon"
+              data-rac=""
+              data-react-aria-pressable="true"
+              data-testid="itemwithicon"
+              id="react-aria-«replaced-aria-id»"
+              role="menuitem"
+              tabindex="-1"
+            >
+              <span
+                data-testid="icon-FaBars"
+              >
+                FaBars
+              </span>
+              <span
+                class="w-full flex-1 truncate font-normal text-small"
+                id="react-aria-«replaced-aria-id»"
+                slot="label"
+              >
+                Item with icon
+              </span>
+            </div>
+            <div
+              aria-describedby="react-aria-«replaced-aria-id»"
+              aria-labelledby="react-aria-«replaced-aria-id»"
+              class="group relative box-border flex h-full w-full cursor-pointer items-center justify-between gap-2 rounded-small px-2 py-1.5 subpixel-antialiased outline-solid outline-transparent data-[focus-visible]:z-10 data-[focus-visible]:outline-2 data-[focus-visible]:outline-offset-2 data-[focus-visible]:outline-focus data-[focused]:bg-default data-[hovered]:bg-default data-[focused]:text-default-foreground data-[hovered]:text-default-foreground data-[hovered]:transition-colors data-[disabled]:pointer-events-none data-[disabled]:opacity-disabled"
+              data-collection="react-aria-«replaced-aria-id»"
+              data-key="itemWithDescription"
+              data-rac=""
+              data-react-aria-pressable="true"
+              data-testid="itemwithdescription"
+              id="react-aria-«replaced-aria-id»"
+              role="menuitem"
+              tabindex="-1"
+            >
+              <div
+                class="flex w-full min-w-0 flex-col items-start justify-center"
+              >
+                <span
+                  class="w-full flex-1 truncate font-normal text-small"
+                  id="react-aria-«replaced-aria-id»"
+                  slot="label"
+                >
+                  Item With Description
+                </span>
+                <span
+                  class="w-full truncate text-foreground-500 text-tiny group-hover:text-current"
+                  id="react-aria-«replaced-aria-id»"
+                  slot="description"
+                >
+                  description text
+                </span>
+              </div>
+            </div>
+          </section>
+          <div
+            aria-disabled="true"
+            aria-labelledby="react-aria-«replaced-aria-id»"
+            class="group relative box-border flex h-full w-full cursor-pointer items-center justify-between gap-2 rounded-small px-2 py-1.5 subpixel-antialiased outline-solid outline-transparent data-[focus-visible]:z-10 data-[focus-visible]:outline-2 data-[focus-visible]:outline-offset-2 data-[focus-visible]:outline-focus data-[focused]:bg-default data-[hovered]:bg-default data-[focused]:text-default-foreground data-[hovered]:text-default-foreground data-[hovered]:transition-colors data-[disabled]:pointer-events-none data-[disabled]:opacity-disabled"
+            data-collection="react-aria-«replaced-aria-id»"
+            data-disabled="true"
+            data-key="itemDisabled"
+            data-rac=""
+            data-react-aria-pressable="true"
+            data-testid="itemdisabled"
+            id="react-aria-«replaced-aria-id»"
+            role="menuitem"
+          >
+            <span
+              class="w-full flex-1 truncate font-normal text-small"
+              id="react-aria-«replaced-aria-id»"
+              slot="label"
+            >
+              Item Disabled
+            </span>
+          </div>
+          <div
+            aria-labelledby="react-aria-«replaced-aria-id»"
+            class="group relative box-border flex h-full w-full cursor-pointer items-center justify-between gap-2 rounded-small px-2 py-1.5 subpixel-antialiased outline-solid outline-transparent data-[focus-visible]:z-10 data-[focus-visible]:outline-2 data-[focus-visible]:outline-offset-2 data-[focus-visible]:outline-focus data-[focused]:bg-default data-[hovered]:bg-default data-[focused]:text-default-foreground data-[hovered]:text-default-foreground data-[hovered]:transition-colors data-[disabled]:pointer-events-none data-[disabled]:opacity-disabled text-red-500"
+            data-collection="react-aria-«replaced-aria-id»"
+            data-key="itemCss"
+            data-rac=""
+            data-react-aria-pressable="true"
+            data-testid="menu_item_css"
+            id="react-aria-«replaced-aria-id»"
+            role="menuitem"
+            tabindex="-1"
+          >
+            <span
+              class="w-full flex-1 truncate font-normal text-small"
+              id="react-aria-«replaced-aria-id»"
+              slot="label"
+            >
+              Item with CSS class
+            </span>
+          </div>
+        </div>
+        <span
+          data-focus-scope-end="true"
+          hidden=""
+        />
+      </div>
+      <div
+        style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+      >
+        <button
+          aria-label="Dismiss"
+          id="react-aria-«replaced-aria-id»"
+          style="width: 1px; height: 1px;"
+          tabindex="-1"
+        />
+      </div>
+    </div>
+  </div>
+  <span
+    data-focus-scope-end="true"
+    hidden=""
+  />
 </div>
 `;

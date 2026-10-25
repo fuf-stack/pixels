@@ -110,7 +110,9 @@ export const NumberValues: Story = {
 };
 
 export const WithContent: Story = {
+  tags: ['visual'],
   parameters: {
+    visual: { target: '[data-component="radio-tabs"]' },
     formProps: {
       className: 'min-w-md',
       initialValues: { radioTabsField: 'option_1' },
@@ -192,6 +194,8 @@ export const DisabledCompletely: Story = {
 };
 
 export const DisabledOption: Story = {
+  tags: ['visual'],
+  parameters: { visual: { target: '[data-component="radio-tabs"]' } },
   args: {
     name: 'radioTabsField',
     options: [
@@ -375,7 +379,9 @@ export const KeyboardAndRequired: StoryObj<typeof RadioTabs> = {
 };
 
 export const AllVariants: StoryObj<typeof RadioTabs> = {
+  tags: ['visual'],
   parameters: {
+    visual: { target: '[data-component="radio-tabs"]' },
     formProps: {
       initialValues: {
         solid: 'second',

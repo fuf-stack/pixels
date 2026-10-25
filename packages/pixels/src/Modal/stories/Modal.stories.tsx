@@ -97,6 +97,8 @@ export const WithHeaderAndFooter: Story = {
 };
 
 export const ScrollLongContent: Story = {
+  tags: ['visual'],
+  parameters: { visual: { capture: 'viewport' } },
   args: {
     header: 'Modal Header',
     children: longContent,
@@ -198,6 +200,8 @@ export const AllSizes: Story = {
 };
 
 export const WithModalHost: Story = {
+  tags: ['visual'],
+  parameters: { visual: { capture: 'viewport' } },
   render: (_args, { canvasElement }) => {
     return (
       <>

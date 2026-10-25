@@ -32,6 +32,8 @@ export const WithSubtitle: Story = {
   },
 };
 export const AllVariants: Story = {
+  tags: ['visual'],
+  parameters: { visual: { target: '[data-component="accordion"]' } },
   args: {
     accordionItems,
     indicatorLeft: false,
@@ -62,6 +64,8 @@ export const OnlySingleSelection: Story = {
 };
 
 export const DefaultOpen: Story = {
+  tags: ['visual'],
+  parameters: { visual: { target: '[data-component="accordion"]' } },
   args: {
     defaultSelectedKeys: ['1'],
     accordionItems,

@@ -49,6 +49,8 @@ export const Footer: Story = {
 };
 
 export const DefaultOpen: Story = {
+  tags: ['visual'],
+  parameters: { visual: { capture: 'viewport' } },
   render: Template,
   args: {
     header: "The Drawer That Doesn't Need an Introduction (or a click)",

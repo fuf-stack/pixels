@@ -114,7 +114,9 @@ export const Inline: Story = {
 };
 
 export const WithInitialValue: Story = {
+  tags: ['visual'],
   parameters: {
+    visual: { target: '[data-component="radio-boxes"]' },
     formProps: { initialValues: { radioBoxesField: 'wizard' } },
   },
   args: {
@@ -217,7 +219,9 @@ export const Required: Story = {
 };
 
 export const Invalid: Story = {
+  tags: ['visual'],
   parameters: {
+    visual: { target: '[data-component="radio-boxes"]' },
     formProps: {
       validation: veto({
         radioBoxesField: string().refine((value) => {
@@ -266,6 +270,8 @@ export const Invalid: Story = {
 };
 
 export const WithIcons: Story = {
+  tags: ['visual'],
+  parameters: { visual: { target: '[data-component="radio-boxes"]' } },
   args: {
     name: 'radioBoxesField',
     options: [

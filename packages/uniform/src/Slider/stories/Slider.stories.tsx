@@ -88,7 +88,9 @@ export const WithStep: Story = {
 };
 
 export const Disabled: Story = {
+  tags: ['visual'],
   parameters: {
+    visual: { target: '[data-component="slider"]' },
     formProps: { initialValues: { sliderField: 60 } },
   },
   args: {
@@ -107,7 +109,9 @@ export const Required: Story = {
 };
 
 export const Invalid: Story = {
+  tags: ['visual'],
   parameters: {
+    visual: { target: '[data-component="slider"]' },
     formProps: { validation, initialValues: { sliderField: 30 } },
   },
   args: {
@@ -151,7 +155,9 @@ export const WithStartAndEndContent: Story = {
 };
 
 export const WithSteps: Story = {
+  tags: ['visual'],
   parameters: {
+    visual: { target: '[data-component="slider"]' },
     formProps: { initialValues: { sliderField: 0 } },
   },
   args: {

@@ -58,6 +58,10 @@ export const SingleError: Story = {
 };
 
 export const MultipleErrors: Story = {
+  tags: ['visual'],
+  parameters: {
+    visual: { target: '[data-component="field-validation-error"]' },
+  },
   args: {
     error: [
       { type: 'custom', message: 'first error' },

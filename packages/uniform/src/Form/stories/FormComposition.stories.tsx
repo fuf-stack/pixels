@@ -62,6 +62,8 @@ const sample = (configured: boolean) => {
 };
 
 export const DefaultLayout: Story = {
+  tags: ['visual'],
+  parameters: { visual: { target: '[data-component="form"]' } },
   render: () => {
     return sample(false);
   },

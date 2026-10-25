@@ -1050,6 +1050,18 @@ export const KeyboardFocus: Story = {
 };
 ```
 
+Every public component with a rendered surface needs a representative visual
+baseline. Opt stable stories into further coverage when they protect a distinct
+layout or visible state. Prefer a representative example and compact variant galleries,
+then add meaningful focus, validation, disabled, overlay and responsive states.
+Do not tag every story or duplicate behavior-only coverage. For example, tag an
+invalid TextArea after `play` shows its validation message, rather than every
+value-transform story. Keep capture settings on the existing story and baseline
+PNGs with the component. See [visual story selection](./visual-regression.md#which-stories-get-visual-coverage)
+for the selection table and concrete examples. Keep the
+[coverage inventory](./visual-coverage.md) updated alongside tags, and document
+exceptions for hooks, providers and APIs without their own rendered surface.
+
 Group hook stories under `<package>/hooks/<hookName>`, including private hooks.
 The sidebar describes the code's role, not its export visibility:
 

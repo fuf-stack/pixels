@@ -64,6 +64,8 @@ export const NoOutline: Story = {
 };
 
 export const AllColors: Story = {
+  tags: ['visual'],
+  parameters: { visual: { target: '[data-component="badge"]' } },
   args: {
     children,
     content,
@@ -98,6 +100,8 @@ export const AllColors: Story = {
 };
 
 export const AllSizes: Story = {
+  tags: ['visual'],
+  parameters: { visual: { target: '[data-component="badge"]' } },
   args: {
     children,
     content,

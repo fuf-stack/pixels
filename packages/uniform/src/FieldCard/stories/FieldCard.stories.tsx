@@ -29,7 +29,9 @@ export default meta;
 // -----------------------------------------------------------------------------
 
 export const Default: Story = {
+  tags: ['visual'],
   parameters: {
+    visual: { target: '[data-component="field-card"]' },
     formProps: { validation: validationPizzaDelivery },
   },
   args: {
@@ -161,7 +163,9 @@ export const CrossFieldValidation: Story = {
 };
 
 export const ObjectLevelError: Story = {
+  tags: ['visual'],
   parameters: {
+    visual: { target: '[data-component="field-card"]' },
     formProps: {
       validation: validationTacoOrder,
       initialValues: {

@@ -52,7 +52,9 @@ export const Default: Story = {
 };
 
 export const WithInitialValue: Story = {
+  tags: ['visual'],
   parameters: {
+    visual: { target: '[data-component="switch-box"]' },
     formProps: { initialValues: { switchBox: true } },
   },
   args: {
@@ -63,6 +65,8 @@ export const WithInitialValue: Story = {
 };
 
 export const Disabled: Story = {
+  tags: ['visual'],
+  parameters: { visual: { target: '[data-component="switch-box"]' } },
   args: {
     name: 'switchBox',
     label: 'Pro features',
@@ -91,7 +95,13 @@ const invalidValidation = veto({
 });
 
 export const Invalid: Story = {
-  parameters: { formProps: { validation: invalidValidation } },
+  tags: ['visual'],
+  parameters: {
+    visual: {
+      target: '[data-component="switch-box"], [data-slot="error-message"]',
+    },
+    formProps: { validation: invalidValidation },
+  },
   args: {
     name: 'switchBox',
     label: 'Enable chaos mode',

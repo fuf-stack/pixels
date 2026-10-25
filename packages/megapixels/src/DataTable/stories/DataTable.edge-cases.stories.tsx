@@ -24,7 +24,9 @@ type Story = StoryObj<typeof meta>;
 // -----------------------------------------------------------------------------
 
 export const EmptyAfterFiltering: Story = {
+  tags: ['visual'],
   parameters: {
+    visual: { target: '[data-component="data-table"]' },
     edgeCaseDescription:
       'A search matching no rows shows the empty state while preserving column headings.',
   },

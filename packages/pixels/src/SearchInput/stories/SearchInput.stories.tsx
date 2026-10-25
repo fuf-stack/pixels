@@ -52,6 +52,8 @@ export const WithInitialValue: Story = {
 };
 
 export const Clearable: Story = {
+  tags: ['visual'],
+  parameters: { visual: { target: '[data-component="search-input"]' } },
   args: {},
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
@@ -81,6 +83,8 @@ const renderAllSizes = () => {
 };
 
 export const AllSizes: Story = {
+  tags: ['visual'],
+  parameters: { visual: { target: '[data-component="search-input"]' } },
   render: renderAllSizes,
 };
 

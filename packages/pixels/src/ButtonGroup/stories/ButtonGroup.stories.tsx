@@ -20,6 +20,8 @@ type Story = StoryObj<typeof ButtonGroup>;
 // -----------------------------------------------------------------------------
 
 export const Default: Story = {
+  tags: ['visual'],
+  parameters: { visual: { target: '[data-component="button-group"]' } },
   args: {
     children: (
       <>
@@ -32,8 +34,12 @@ export const Default: Story = {
 };
 
 export const FullWidth: Story = {
+  tags: ['visual'],
   args: { ...Default.args, fullWidth: true },
-  parameters: { layout: 'padded' },
+  parameters: {
+    visual: { target: '[data-component="button-group"]' },
+    layout: 'padded',
+  },
 };
 
 // -----------------------------------------------------------------------------

@@ -16,6 +16,8 @@ export default meta;
 // -----------------------------------------------------------------------------
 
 export const Default: Story = {
+  tags: ['visual'],
+  parameters: { visual: { target: '[data-component="tabs"]' } },
   args: {
     ariaLabel: 'Basic tabs example',
     tabs: [
@@ -79,6 +81,8 @@ export const WithIcons: Story = {
 };
 
 export const VerticalLayout: Story = {
+  tags: ['visual'],
+  parameters: { visual: { target: '[data-component="tabs"]' } },
   args: {
     ariaLabel: 'Developer life cycle',
     vertical: true,

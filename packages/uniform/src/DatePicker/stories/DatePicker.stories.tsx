@@ -92,6 +92,8 @@ export const WithInitialValue: Story = {
 };
 
 export const Disabled: Story = {
+  tags: ['visual'],
+  parameters: { visual: { target: '[data-component="date-picker"]' } },
   args: {
     label: 'Disabled Date & Time',
     name: 'dateTimeField',
@@ -101,7 +103,9 @@ export const Disabled: Story = {
 };
 
 export const Invalid: Story = {
+  tags: ['visual'],
   parameters: {
+    visual: { target: '[data-component="date-picker"]' },
     formProps: {
       validation: veto({
         dateTimeField: string()
@@ -191,7 +195,9 @@ export const TwelveHourCycle: Story = {
 };
 
 export const WithUtcTimeZone: Story = {
+  tags: ['visual'],
   parameters: {
+    visual: { target: '[data-component="date-picker"]' },
     formProps: {
       initialValues: { dateTimeField: '2026-05-30T10:15:00.000Z' },
     },
@@ -201,6 +207,31 @@ export const WithUtcTimeZone: Story = {
     name: 'dateTimeField',
     timeZone: 'UTC',
     withTime: true,
+  },
+};
+
+export const OpenCalendar: Story = {
+  ...WithUtcTimeZone,
+  tags: ['visual'],
+  parameters: {
+    ...WithUtcTimeZone.parameters,
+    visual: {
+      target: '[data-component="date-picker"], [role="dialog"]',
+    },
+  },
+  play: async ({ canvasElement }) => {
+    await userEvent.click(
+      within(canvasElement).getByRole('button', { name: /calendar/i }),
+    );
+
+    const dialog = await within(canvasElement.ownerDocument.body).findByRole(
+      'dialog',
+    );
+
+    await expect(dialog).toBeVisible();
+    await expect(within(dialog).getByRole('heading')).toHaveTextContent(
+      'May 2026',
+    );
   },
 };
 

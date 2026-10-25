@@ -117,6 +117,8 @@ export const CustomSizes: Story = {
 };
 
 export const AllBorderRadii: Story = {
+  tags: ['visual'],
+  parameters: { visual: { target: '[data-component="avatar"]' } },
   args: {
     src: undefined,
   },
@@ -164,6 +166,8 @@ export const WithMenu: Story = {
 };
 
 export const CustomStyling: Story = {
+  tags: ['visual'],
+  parameters: { visual: { target: '[data-component="avatar"]' } },
   args: {
     className: {
       base: 'h-16 w-16 bg-primary text-primary-foreground',

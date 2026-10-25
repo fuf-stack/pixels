@@ -78,7 +78,9 @@ export const Inline: Story = {
 };
 
 export const WithInitialValue: Story = {
+  tags: ['visual'],
   parameters: {
+    visual: { target: '[data-component="radios"]' },
     formProps: { initialValues: { radiosField: 'option 2' } },
   },
   args: {
@@ -104,6 +106,8 @@ export const DisabledCompletely: Story = {
 };
 
 export const DisabledOption: Story = {
+  tags: ['visual'],
+  parameters: { visual: { target: '[data-component="radios"]' } },
   args: {
     name: 'radiosField',
     options: [
@@ -132,7 +136,9 @@ export const Required: Story = {
 };
 
 export const Invalid: Story = {
+  tags: ['visual'],
   parameters: {
+    visual: { target: '[data-component="radios"]' },
     formProps: {
       validation: veto({
         radiosField: string().refine((value) => {

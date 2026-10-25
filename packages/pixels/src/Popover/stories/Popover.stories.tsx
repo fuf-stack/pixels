@@ -56,6 +56,26 @@ export const WithCustomTriggerButton: Story = {
 };
 
 export const AllSections: Story = {
+  tags: ['visual'],
+  parameters: {
+    visual: { target: '[data-component="popover"], [aria-haspopup="dialog"]' },
+  },
+  render: (args, { canvasElement }) => {
+    return <Popover {...args} portalContainer={canvasElement} />;
+  },
+  play: async ({ canvasElement }) => {
+    await userEvent.click(
+      within(canvasElement).getByRole('button', { name: 'i am the trigger' }),
+    );
+
+    const dialog = await within(canvasElement.ownerDocument.body).findByRole(
+      'dialog',
+    );
+
+    await waitFor(() => {
+      expect(dialog).toBeVisible();
+    });
+  },
   args: {
     header: 'i am the title',
     footer: 'i am the footer',

@@ -73,6 +73,8 @@ type Story = StoryObj<typeof StringVirtualList>;
 // -----------------------------------------------------------------------------
 
 export const Default: Story = {
+  tags: ['visual'],
+  parameters: { visual: { target: '[data-component="virtual-list"]' } },
   render: () => {
     return (
       <VirtualList
@@ -187,6 +189,8 @@ export const InfiniteScrollLoadError: Story = {
 };
 
 export const DynamicItemHeights: Story = {
+  tags: ['visual'],
+  parameters: { visual: { target: '[data-component="virtual-list"]' } },
   render: () => {
     const items = useMemo(() => {
       return Array.from({ length: 300 }, (_, index) => {

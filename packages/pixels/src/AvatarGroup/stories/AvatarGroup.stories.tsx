@@ -23,6 +23,8 @@ type Story = StoryObj<typeof AvatarGroup>;
 // -----------------------------------------------------------------------------
 
 export const Default: Story = {
+  tags: ['visual'],
+  parameters: { visual: { target: '[data-component="avatar-group"]' } },
   args: {
     avatars: [
       {
@@ -158,6 +160,8 @@ export const OneDisabled: Story = {
 };
 
 export const AllDisabled: Story = {
+  tags: ['visual'],
+  parameters: { visual: { target: '[data-component="avatar-group"]' } },
   args: {
     disabled: true,
     avatars: [

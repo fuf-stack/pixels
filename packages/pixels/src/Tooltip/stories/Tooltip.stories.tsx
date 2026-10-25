@@ -98,6 +98,10 @@ export const Sizes: Story = {
 };
 
 export const DefaultOpen: Story = {
+  tags: ['visual'],
+  parameters: {
+    visual: { target: '[data-component="tooltip"], [aria-describedby]' },
+  },
   args: {
     content: 'tooltip content',
     footer: 'footer',

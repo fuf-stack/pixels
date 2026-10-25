@@ -53,7 +53,9 @@ export const Default: Story = {
 };
 
 export const WithInitialValue: Story = {
+  tags: ['visual'],
   parameters: {
+    visual: { target: '[data-component="switch"]' },
     formProps: { initialValues: { switchField: true } },
   },
   args: {
@@ -63,6 +65,8 @@ export const WithInitialValue: Story = {
 };
 
 export const Disabled: Story = {
+  tags: ['visual'],
+  parameters: { visual: { target: '[data-component="switch"]' } },
   args: {
     name: 'switchField',
     label: '📚 Read documentation first',
@@ -138,6 +142,8 @@ export const WithStartAndEndContent: Story = {
 };
 
 export const AllSizes: Story = {
+  tags: ['visual'],
+  parameters: { visual: { target: '[data-component="switch"]' } },
   render: () => {
     return (
       <div className="flex flex-col gap-4">

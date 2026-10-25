@@ -52,6 +52,8 @@ export const WithSeparator: Story = {
 };
 
 export const WithMaxItems: Story = {
+  tags: ['visual'],
+  parameters: { visual: { target: '[data-component="breadcrumb"]' } },
   args: {
     breadcrumbItems,
     maxItems: 3,
@@ -59,6 +61,8 @@ export const WithMaxItems: Story = {
 };
 
 export const AllVariants: Story = {
+  tags: ['visual'],
+  parameters: { visual: { target: '[data-component="breadcrumb"]' } },
   args: {
     breadcrumbItems,
   },

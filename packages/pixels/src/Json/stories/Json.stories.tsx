@@ -22,6 +22,8 @@ export const WithJsonString: Story = {
 };
 
 export const WithJsonObject: Story = {
+  tags: ['visual'],
+  parameters: { visual: { target: '[data-component="json"]' } },
   args: {
     value: testObject,
   },
@@ -35,6 +37,8 @@ export const Collapsed: Story = {
 };
 
 export const InvalidJson: Story = {
+  tags: ['visual'],
+  parameters: { visual: { target: '[data-component="json"]' } },
   args: {
     value: 'this is a string, not a Json',
   },

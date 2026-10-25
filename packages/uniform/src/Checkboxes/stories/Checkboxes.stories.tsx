@@ -172,7 +172,9 @@ export const WithOptionLabelSubline: Story = {
 };
 
 export const WithInitialValue: Story = {
+  tags: ['visual'],
   parameters: {
+    visual: { target: '[data-component="checkboxes"]' },
     formProps: { initialValues: { checkboxField: ['sing-shower'] } },
   },
   args: {
@@ -198,6 +200,8 @@ export const DisabledCompletely: Story = {
 };
 
 export const DisabledOption: Story = {
+  tags: ['visual'],
+  parameters: { visual: { target: '[data-component="checkboxes"]' } },
   args: {
     name: 'checkboxField',
     options: [
@@ -230,7 +234,11 @@ const validation = veto({
 });
 
 export const Invalid: Story = {
-  parameters: { formProps: { validation } },
+  tags: ['visual'],
+  parameters: {
+    visual: { target: '[data-component="checkboxes"]' },
+    formProps: { validation },
+  },
   args: {
     label: 'Checkbox Field',
     name: 'checkboxField',

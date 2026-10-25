@@ -41,6 +41,8 @@ type Story = StoryObj<typeof Alert>;
 // -----------------------------------------------------------------------------
 
 export const AllVariants: Story = {
+  tags: ['visual'],
+  parameters: { visual: { target: '[data-component="alert"]' } },
   render: (args) => {
     return (
       <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
@@ -112,6 +114,8 @@ export const WithEndContent: Story = {
 };
 
 export const MultilineChildren: Story = {
+  tags: ['visual'],
+  parameters: { visual: { target: '[data-component="alert"]' } },
   args: {
     title: 'System Notification',
     children: (

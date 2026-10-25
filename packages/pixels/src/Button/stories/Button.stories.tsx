@@ -44,6 +44,8 @@ export const Disabled: Story = {
 };
 
 export const IconOnly: Story = {
+  tags: ['visual'],
+  parameters: { visual: { target: '[data-component="button"]' } },
   args: {
     ariaLabel: 'Email',
     icon: <FaEnvelope />,
@@ -54,6 +56,8 @@ export const IconOnly: Story = {
 };
 
 export const Loading: Story = {
+  tags: ['visual'],
+  parameters: { visual: { target: '[data-component="button"]' } },
   args: {
     children: 'Button',
     loading: true,
@@ -111,6 +115,8 @@ export const AllRadius: Story = {
 };
 
 export const AllSizes: Story = {
+  tags: ['visual'],
+  parameters: { visual: { target: '[data-component="button"]' } },
   render: (args) => {
     return (
       <>
@@ -129,6 +135,8 @@ export const AllSizes: Story = {
 };
 
 export const AllVariants: Story = {
+  tags: ['visual'],
+  parameters: { visual: { target: '[data-component="button"]' } },
   render: (args) => {
     return (
       <>

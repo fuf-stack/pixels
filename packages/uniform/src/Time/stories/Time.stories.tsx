@@ -82,6 +82,8 @@ export const WithInitialValue: Story = {
 };
 
 export const Disabled: Story = {
+  tags: ['visual'],
+  parameters: { visual: { target: '[data-component="time"]' } },
   args: {
     disabled: true,
     label: 'Disabled time',
@@ -90,7 +92,9 @@ export const Disabled: Story = {
 };
 
 export const Invalid: Story = {
+  tags: ['visual'],
   parameters: {
+    visual: { target: '[data-component="time"]' },
     formProps: {
       validation: veto({
         timeField: string()
@@ -175,7 +179,9 @@ export const WithCustomTimeZone: Story = {
 };
 
 export const WithUtcTimeZone: Story = {
+  tags: ['visual'],
   parameters: {
+    visual: { target: '[data-component="time"]' },
     formProps: {
       initialValues: { timeField: '10:15Z' },
     },

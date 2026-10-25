@@ -96,6 +96,8 @@ export const Clearable: Story = {
 };
 
 export const Disabled: Story = {
+  tags: ['visual'],
+  parameters: { visual: { target: '[data-component="input"]' } },
   args: {
     label: 'Input Field',
     name: 'inputField',
@@ -158,7 +160,9 @@ export const WithSelect: Story = {
 };
 
 export const Number: Story = {
+  tags: ['visual'],
   parameters: {
+    visual: { target: '[data-component="input"]' },
     formProps: {
       validation: veto({
         numberField: number(),
@@ -186,7 +190,9 @@ export const Number: Story = {
 };
 
 export const Password: Story = {
+  tags: ['visual'],
   parameters: {
+    visual: { target: '[data-component="input"]' },
     formProps: {
       validation: veto({
         passwordField: string({ min: 20 }),
@@ -320,6 +326,8 @@ export const WithTransformComplexObject: Story = {
 };
 
 export const AllSizes: Story = {
+  tags: ['visual'],
+  parameters: { visual: { target: '[data-component="input"]' } },
   // @ts-expect-error this is ok
   render: renderAllSizes,
 };

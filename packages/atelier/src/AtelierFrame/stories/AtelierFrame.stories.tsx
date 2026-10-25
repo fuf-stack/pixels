@@ -121,9 +121,14 @@ const meta: Meta<typeof AtelierFrame> = {
 export default meta;
 type Story = StoryObj<typeof AtelierFrame>;
 
-export const Default: Story = {};
+export const Default: Story = {
+  tags: ['visual'],
+  parameters: { visual: { target: '[data-component="atelier-frame"]' } },
+};
 
 export const LoggedOut: Story = {
+  tags: ['visual'],
+  parameters: { visual: { target: '[data-component="atelier-frame"]' } },
   args: {
     authState: {
       status: 'anonymous',
@@ -133,6 +138,8 @@ export const LoggedOut: Story = {
 };
 
 export const SessionLoading: Story = {
+  tags: ['visual'],
+  parameters: { visual: { target: '[data-component="atelier-frame"]' } },
   args: {
     authState: {
       status: 'loading',
@@ -143,6 +150,8 @@ export const SessionLoading: Story = {
 };
 
 export const ResourceEmpty: Story = {
+  tags: ['visual'],
+  parameters: { visual: { target: '[data-component="atelier-frame"]' } },
   args: {
     dataState: 'empty',
     resourceData: [],
@@ -150,6 +159,8 @@ export const ResourceEmpty: Story = {
 };
 
 export const ResourceError: Story = {
+  tags: ['visual'],
+  parameters: { visual: { target: '[data-component="atelier-frame"]' } },
   args: {
     dataState: 'error',
     resourceError: new Error('backend temporarily unavailable'),
@@ -196,6 +207,16 @@ export const CustomSlotsAndStyles: Story = {
           Sign out
         </button>
       ),
+    },
+  },
+};
+
+export const MobileLayout: Story = {
+  tags: ['visual'],
+  parameters: {
+    visual: {
+      target: '[data-component="atelier-frame"]',
+      viewport: { width: 390, height: 844 },
     },
   },
 };

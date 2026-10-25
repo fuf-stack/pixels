@@ -19,6 +19,8 @@ export default meta;
 // -----------------------------------------------------------------------------
 
 export const Vertical: Story = {
+  tags: ['visual'],
+  parameters: { visual: { target: '[data-component="scroll-shadow"]' } },
   args: {
     className: 'w-[300px] h-[400px]',
     children: <VerticalContent />,
@@ -26,6 +28,8 @@ export const Vertical: Story = {
 };
 
 export const Horizontal: Story = {
+  tags: ['visual'],
+  parameters: { visual: { target: '[data-component="scroll-shadow"]' } },
   args: {
     className: 'w-[400px] h-[120px]',
     orientation: 'horizontal',

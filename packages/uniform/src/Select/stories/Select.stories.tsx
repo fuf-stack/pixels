@@ -87,7 +87,9 @@ export const MultiSelect: Story = {
 };
 
 export const MultiSelectInitialValue: Story = {
+  tags: ['visual'],
   parameters: {
+    visual: { target: '[data-component="select"]' },
     formProps: {
       initialValues: {
         selectField: ['vanilla', 'chocolate', 'strawberry'],
@@ -115,7 +117,9 @@ export const Required: Story = {
 };
 
 export const Invalid: Story = {
+  tags: ['visual'],
   parameters: {
+    visual: { target: '[data-component="select"]' },
     formProps: { validation, initialValues: { selectField: 'vanilla' } },
   },
   args,
@@ -139,6 +143,8 @@ export const Invalid: Story = {
 };
 
 export const Disabled: Story = {
+  tags: ['visual'],
+  parameters: { visual: { target: '[data-component="select"]' } },
   args: {
     ...args,
     disabled: true,

@@ -50,7 +50,9 @@ export const Default: Story = {
 };
 
 export const WithInitialValue: Story = {
+  tags: ['visual'],
   parameters: {
+    visual: { target: '[data-component="text-area"]' },
     formProps: {
       initialValues: {
         textareaField:
@@ -83,7 +85,9 @@ const validation = veto({
 });
 
 export const Invalid: Story = {
+  tags: ['visual'],
   parameters: {
+    visual: { target: '[data-component="text-area"]' },
     formProps: { validation },
   },
   args: {
@@ -108,6 +112,8 @@ export const Invalid: Story = {
 };
 
 export const Disabled: Story = {
+  tags: ['visual'],
+  parameters: { visual: { target: '[data-component="text-area"]' } },
   args: { name: 'textareaField', label: 'Text Area', disabled: true },
 };
 

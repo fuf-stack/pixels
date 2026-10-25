@@ -69,6 +69,7 @@ export const Default: Story = {
 };
 
 export const ResponsiveColumns: Story = {
+  tags: ['visual'],
   args: {
     className: 'md:grid-cols-2',
     children: (
@@ -84,6 +85,7 @@ export const ResponsiveColumns: Story = {
     ),
   },
   parameters: {
+    visual: { target: '[data-component="grid"]' },
     docs: {
       description: {
         story:
@@ -103,6 +105,18 @@ export const CustomStyling: Story = {
         story:
           'Override the default spacing and add a border and padding through className.',
       },
+    },
+  },
+};
+
+export const NarrowColumns: Story = {
+  ...ResponsiveColumns,
+  tags: ['visual'],
+  parameters: {
+    ...ResponsiveColumns.parameters,
+    visual: {
+      target: '[data-component="grid"]',
+      viewport: { width: 390, height: 844 },
     },
   },
 };

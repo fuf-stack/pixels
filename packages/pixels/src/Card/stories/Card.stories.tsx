@@ -33,6 +33,8 @@ export const Default: Story = {
 };
 
 export const FooterAndHeader: Story = {
+  tags: ['visual'],
+  parameters: { visual: { target: '[data-component="card"]' } },
   args: {
     footer: 'Footer',
     header: 'Header',

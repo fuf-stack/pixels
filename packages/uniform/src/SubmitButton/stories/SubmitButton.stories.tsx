@@ -27,12 +27,16 @@ export default meta;
 type Story = StoryObj<typeof SubmitButton>;
 
 export const Default: Story = {
+  tags: ['visual'],
+  parameters: { visual: { target: '[data-component="submit-button"]' } },
   args: {
     testId: 'some-test-id',
   },
 };
 
 export const IconOnly: Story = {
+  tags: ['visual'],
+  parameters: { visual: { target: '[data-component="submit-button"]' } },
   args: {
     testId: 'some-test-id',
     children: null,

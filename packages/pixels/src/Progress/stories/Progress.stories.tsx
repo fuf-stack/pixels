@@ -23,6 +23,8 @@ export const Default: Story = {
 };
 
 export const Finished: Story = {
+  tags: ['visual'],
+  parameters: { visual: { target: '[data-component="progress"]' } },
   args: {
     percent: 100,
   },
@@ -57,6 +59,8 @@ export const WithLabelAndValueLabel: Story = {
 };
 
 export const AllColors: Story = {
+  tags: ['visual'],
+  parameters: { visual: { target: '[data-component="progress"]' } },
   render: (args) => {
     return (
       <>
@@ -87,6 +91,8 @@ export const AllColors: Story = {
 };
 
 export const AllSizes: Story = {
+  tags: ['visual'],
+  parameters: { visual: { target: '[data-component="progress"]' } },
   render: (args) => {
     return (
       <>

@@ -43,6 +43,8 @@ type Story = StoryObj;
 // -----------------------------------------------------------------------------
 
 export const Simple: Story = {
+  tags: ['visual'],
+  parameters: { visual: { target: '[data-sonner-toast]' } },
   render: () => {
     return (
       <Button

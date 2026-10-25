@@ -67,6 +67,8 @@ export const Position: Story = {
 };
 
 export const CustomWidth: Story = {
+  tags: ['visual'],
+  parameters: { visual: { target: '[data-sonner-toast]' } },
   render: () => {
     return (
       <>

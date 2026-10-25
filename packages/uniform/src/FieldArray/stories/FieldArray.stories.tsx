@@ -53,7 +53,9 @@ export const FlatArray: Story = {
 };
 
 export const WithInitialValue: Story = {
+  tags: ['visual'],
   parameters: {
+    visual: { target: '[data-component="field-array"]' },
     formProps: {
       initialValues: { arrayField: [{ name: 'Max' }, { name: 'Maria' }] },
     },
@@ -84,7 +86,9 @@ export const Required: Story = {
 };
 
 export const Invalid: Story = {
+  tags: ['visual'],
   parameters: {
+    visual: { target: '[data-component="field-array"]' },
     formProps: {
       validation: complexValidator,
       initialValues: { arrayField: [{}] },
@@ -389,7 +393,9 @@ export const DuplicateAndInsertAfter: Story = {
 };
 
 export const AllFeatures: Story = {
+  tags: ['visual'],
   parameters: {
+    visual: { target: '[data-component="field-array"]' },
     formProps: {
       validation: complexValidator,
       initialValues: { arrayField: [{ name: 'Max' }, { name: 'Maria' }] },

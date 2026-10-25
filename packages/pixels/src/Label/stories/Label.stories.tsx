@@ -36,6 +36,8 @@ export const IconOnly: Story = {
 };
 
 export const IconAndContent: Story = {
+  tags: ['visual'],
+  parameters: { visual: { target: '[data-component="label"]' } },
   args: {
     icon: <FaRocket />,
     children: 'Some Label',
@@ -57,6 +59,8 @@ export const WithCloseButton: Story = {
 };
 
 export const AllColors: Story = {
+  tags: ['visual'],
+  parameters: { visual: { target: '[data-component="label"]' } },
   argTypes: {
     variant: {
       control: 'select',
@@ -89,6 +93,8 @@ export const AllColors: Story = {
 };
 
 export const AllSizes: Story = {
+  tags: ['visual'],
+  parameters: { visual: { target: '[data-component="label"]' } },
   render: () => {
     return (
       <>

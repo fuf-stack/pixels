@@ -1,6 +1,7 @@
 import type { Story } from './Menu.storySetup';
 
 import { action } from 'storybook/actions';
+import { expect, userEvent, waitFor, within } from 'storybook/test';
 
 import Menu from '../Menu';
 import { funItems, menuItems, meta as sharedMeta } from './Menu.storySetup';
@@ -24,7 +25,27 @@ export const Default: Story = {
 };
 
 export const WithoutTrigger: Story = {
+  tags: ['visual'],
+  parameters: {
+    visual: { target: '[data-component="menu"], [aria-haspopup="true"]' },
+  },
+  render: (args, { canvasElement }) => {
+    return <Menu {...args} portalContainer={canvasElement} />;
+  },
+  play: async ({ canvasElement }) => {
+    await userEvent.click(within(canvasElement).getByRole('button'));
+
+    const menu = await within(canvasElement.ownerDocument.body).findByRole(
+      'menu',
+    );
+
+    await waitFor(() => {
+      expect(menu).toBeVisible();
+    });
+  },
   args: {
+    disableAnimation: true,
+    triggerButtonProps: { disableAnimation: true, disableRipple: true },
     items: menuItems,
   },
 };

@@ -437,6 +437,8 @@ export const WithMegapixelsFilter: Story = {
 };
 
 export const ExpandableRows: Story = {
+  tags: ['visual'],
+  parameters: { visual: { target: '[data-component="data-table"]' } },
   args: {
     ariaLabel: 'Expandable European snack shop orders',
     columns: defaultColumns,
@@ -527,6 +529,8 @@ export const RowSelection: Story = {
 };
 
 export const Loading: Story = {
+  tags: ['visual'],
+  parameters: { visual: { target: '[data-component="data-table"]' } },
   args: {
     ariaLabel: 'Loading European snack shop orders',
     columns: defaultColumns,

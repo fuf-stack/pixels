@@ -62,10 +62,14 @@ const rows = [
 // -----------------------------------------------------------------------------
 
 export const Default: Story = {
+  tags: ['visual'],
+  parameters: { visual: { target: '[data-component="table"]' } },
   args: { columns, rows, ariaLabel: 'Employee information table' },
 };
 
 export const AllSeparators: Story = {
+  tags: ['visual'],
+  parameters: { visual: { target: '[data-component="table"]' } },
   args: { columns, rows, ariaLabel: 'Table with different separator styles' },
   render: (args) => {
     return (
@@ -106,6 +110,8 @@ export const WithWrapper: Story = {
 };
 
 export const StickyHeader: Story = {
+  tags: ['visual'],
+  parameters: { visual: { target: '[data-component="table"]' } },
   args: {
     columns,
     rows,
