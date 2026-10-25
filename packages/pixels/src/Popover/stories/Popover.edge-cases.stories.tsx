@@ -1,5 +1,6 @@
 import type { Story } from './Popover.storySetup';
 
+import edgeCaseDecorator from '@repo/storybook-config/edge-case-decorator';
 import { expect, userEvent, waitFor, within } from 'storybook/test';
 
 import Popover from '../Popover';
@@ -13,15 +14,19 @@ import { meta as sharedMeta } from './Popover.storySetup';
 const meta: typeof sharedMeta = {
   ...sharedMeta,
   title: 'pixels/Popover/Edge Cases',
+  decorators: [...[sharedMeta.decorators ?? []].flat(), edgeCaseDecorator],
 };
 
 export default meta;
 
 // -----------------------------------------------------------------------------
-// Edge cases
+// Edge Cases
 // -----------------------------------------------------------------------------
 
 export const DisabledTrigger: Story = {
+  parameters: {
+    edgeCaseDescription: 'A disabled trigger cannot open the popover.',
+  },
   args: {
     ...Default.args,
     triggerButtonProps: { disabled: true, color: 'primary' },
@@ -29,6 +34,10 @@ export const DisabledTrigger: Story = {
 };
 
 export const TooMuchContent: Story = {
+  parameters: {
+    edgeCaseDescription:
+      'Long content scrolls inside the popover and Escape dismisses it.',
+  },
   play: async ({ canvasElement }) => {
     await userEvent.click(
       within(canvasElement).getByRole('button', { name: 'i am the trigger' }),
@@ -67,6 +76,10 @@ export const TooMuchContent: Story = {
 };
 
 export const DoubleScrollbar: Story = {
+  parameters: {
+    edgeCaseDescription:
+      'A scrollable page and overflowing popover keep their scroll areas separate.',
+  },
   args: {
     children: 'i am the trigger',
     placement: 'right',
@@ -95,6 +108,10 @@ export const DoubleScrollbar: Story = {
 };
 
 export const BlockOuterScrollbar: Story = {
+  parameters: {
+    edgeCaseDescription:
+      'Opening the popover blocks page scrolling when scroll blocking is enabled.',
+  },
   args: {
     children: 'i am the trigger',
     content: (

@@ -1600,71 +1600,88 @@ exports[`Story Snapshots > Empty 1`] = `
 exports[`Story Snapshots > EmptyAfterFiltering 1`] = `
 <div>
   <div
-    class="w-full"
-    data-component="data-table"
-    data-slot="base"
-    data-testid="empty-after-filtering"
+    class="flex flex-col gap-6"
   >
-    <div
-      class="flex items-center gap-3 py-4"
-      data-slot="toolbar"
+    <aside
+      aria-label="What this checks"
+      class="w-80 max-w-full rounded-lg border border-default-200 bg-default-100 p-3 text-sm text-foreground"
     >
-      <input
-        class="h-10 w-full max-w-sm rounded-small border-2 border-default-200 bg-transparent px-3 text-sm text-foreground outline-none transition-colors placeholder:text-default-500 hover:border-default-400 data-[focused=true]:border-focus dark:border-default-100"
-        data-focused="true"
-        data-slot="search-input"
-        data-testid="empty-after-filtering-search"
-        placeholder="Search..."
-        value="No match"
-      />
-    </div>
-    <div
-      class="overflow-hidden rounded-md border border-divider"
-      data-slot="table-wrapper"
-    >
-      <table
-        aria-label="Data table"
-        class="w-full caption-bottom text-sm"
-        data-slot="table"
+      <p
+        class="mb-1 font-semibold"
       >
-        <thead
-          class="bg-content2"
-          data-slot="thead"
+        What this checks
+      </p>
+      <p>
+        A search matching no rows shows the empty state while preserving column headings.
+      </p>
+    </aside>
+    <div
+      class="w-full"
+      data-component="data-table"
+      data-slot="base"
+      data-testid="empty-after-filtering"
+    >
+      <div
+        class="flex items-center gap-3 py-4"
+        data-slot="toolbar"
+      >
+        <input
+          class="h-10 w-full max-w-sm rounded-small border-2 border-default-200 bg-transparent px-3 text-sm text-foreground outline-none transition-colors placeholder:text-default-500 hover:border-default-400 data-[focused=true]:border-focus dark:border-default-100"
+          data-focused="true"
+          data-slot="search-input"
+          data-testid="empty-after-filtering-search"
+          placeholder="Search..."
+          value="No match"
+        />
+      </div>
+      <div
+        class="overflow-hidden rounded-md border border-divider"
+        data-slot="table-wrapper"
+      >
+        <table
+          aria-label="Data table"
+          class="w-full caption-bottom text-sm"
+          data-slot="table"
         >
-          <tr
-            class="border-b border-divider last:border-b-0 data-[state=selected]:bg-content2/60"
-            data-slot="tr"
+          <thead
+            class="bg-content2"
+            data-slot="thead"
           >
-            <th
-              class="h-10 px-3 text-left align-middle font-medium text-foreground"
-              data-slot="th"
+            <tr
+              class="border-b border-divider last:border-b-0 data-[state=selected]:bg-content2/60"
+              data-slot="tr"
             >
-              <div
-                class="inline-flex items-center"
-                data-slot="non-sortable-header-content"
+              <th
+                class="h-10 px-3 text-left align-middle font-medium text-foreground"
+                data-slot="th"
               >
-                Name
-              </div>
-            </th>
-          </tr>
-        </thead>
-        <tbody
-          data-slot="tbody"
-        >
-          <tr
-            class="border-b border-divider last:border-b-0 data-[state=selected]:bg-content2/60"
-            data-slot="tr"
+                <div
+                  class="inline-flex items-center"
+                  data-slot="non-sortable-header-content"
+                >
+                  Name
+                </div>
+              </th>
+            </tr>
+          </thead>
+          <tbody
+            data-slot="tbody"
           >
-            <td
-              class="h-24 text-center text-default-500"
-              colspan="1"
-              data-slot="empty-cell"
+            <tr
+              class="border-b border-divider last:border-b-0 data-[state=selected]:bg-content2/60"
+              data-slot="tr"
             >
-              No results.
-            </td>
-          </tr>
-        </tbody>
-      </table>
+              <td
+                class="h-24 text-center text-default-500"
+                colspan="1"
+                data-slot="empty-cell"
+              >
+                No results.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </div>
@@ -5197,45 +5214,62 @@ exports[`Story Snapshots > MultiLevelExpandableRows 1`] = `
 exports[`Story Snapshots > NoColumns 1`] = `
 <div>
   <div
-    class="w-full"
-    data-component="data-table"
-    data-slot="base"
+    class="flex flex-col gap-6"
   >
-    <div
-      class="overflow-hidden rounded-md border border-divider"
-      data-slot="table-wrapper"
+    <aside
+      aria-label="What this checks"
+      class="w-80 max-w-full rounded-lg border border-default-200 bg-default-100 p-3 text-sm text-foreground"
     >
-      <table
-        aria-label="Data table"
-        class="w-full caption-bottom text-sm"
-        data-slot="table"
+      <p
+        class="mb-1 font-semibold"
       >
-        <thead
-          class="bg-content2"
-          data-slot="thead"
+        What this checks
+      </p>
+      <p>
+        A table with no columns or rows renders its empty state without crashing.
+      </p>
+    </aside>
+    <div
+      class="w-full"
+      data-component="data-table"
+      data-slot="base"
+    >
+      <div
+        class="overflow-hidden rounded-md border border-divider"
+        data-slot="table-wrapper"
+      >
+        <table
+          aria-label="Data table"
+          class="w-full caption-bottom text-sm"
+          data-slot="table"
         >
-          <tr
-            class="border-b border-divider last:border-b-0 data-[state=selected]:bg-content2/60"
-            data-slot="tr"
-          />
-        </thead>
-        <tbody
-          data-slot="tbody"
-        >
-          <tr
-            class="border-b border-divider last:border-b-0 data-[state=selected]:bg-content2/60"
-            data-slot="tr"
+          <thead
+            class="bg-content2"
+            data-slot="thead"
           >
-            <td
-              class="h-24 text-center text-default-500"
-              colspan="0"
-              data-slot="empty-cell"
+            <tr
+              class="border-b border-divider last:border-b-0 data-[state=selected]:bg-content2/60"
+              data-slot="tr"
+            />
+          </thead>
+          <tbody
+            data-slot="tbody"
+          >
+            <tr
+              class="border-b border-divider last:border-b-0 data-[state=selected]:bg-content2/60"
+              data-slot="tr"
             >
-              No results.
-            </td>
-          </tr>
-        </tbody>
-      </table>
+              <td
+                class="h-24 text-center text-default-500"
+                colspan="0"
+                data-slot="empty-cell"
+              >
+                No results.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </div>

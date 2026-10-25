@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
+import edgeCaseDecorator from '@repo/storybook-config/edge-case-decorator';
 import { expect, userEvent, within } from 'storybook/test';
 
 import DataTable from '../DataTable';
@@ -9,7 +10,8 @@ import DataTable from '../DataTable';
 // -----------------------------------------------------------------------------
 
 const meta = {
-  title: 'megapixels/DataTable/Edge cases',
+  title: 'megapixels/DataTable/Edge Cases',
+  decorators: [edgeCaseDecorator],
   component: DataTable,
 } satisfies Meta<typeof DataTable>;
 
@@ -18,10 +20,14 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 // -----------------------------------------------------------------------------
-// Edge cases
+// Edge Cases
 // -----------------------------------------------------------------------------
 
 export const EmptyAfterFiltering: Story = {
+  parameters: {
+    edgeCaseDescription:
+      'A search matching no rows shows the empty state while preserving column headings.',
+  },
   args: {
     columns: [{ accessorKey: 'name', header: 'Name' }],
     data: [{ name: 'Apple' }],
@@ -40,6 +46,10 @@ export const EmptyAfterFiltering: Story = {
 };
 
 export const NoColumns: Story = {
+  parameters: {
+    edgeCaseDescription:
+      'A table with no columns or rows renders its empty state without crashing.',
+  },
   args: { columns: [], data: [] },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);

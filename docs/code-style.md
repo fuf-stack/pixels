@@ -983,6 +983,22 @@ const meta: typeof sharedMeta = {
 export default meta;
 ```
 
+Within each component, show normal stories first, followed by nested scenario
+groups. The Storybook entry-point configuration places Composition, Interactions and Edge
+Cases last, in that order, and keeps Default first among normal stories. Preserve
+source order within each group, rather than alphabetizing the individual stories.
+Always spell the group title `Edge Cases`, including its section banners.
+
+```text
+DataTable
+  Default
+  Playground
+  Row Selection
+  Composition
+  Interactions
+  Edge Cases
+```
+
 Keep setup first, followed by stories, with short dashed section banners where
 useful. Default comes first among normal stories. Interaction stories must execute
 the interaction and assert its result, a static example named `KeyboardFocus`

@@ -610,43 +610,60 @@ exports[`Story Snapshots > Indeterminate 1`] = `
 exports[`Story Snapshots > RichValue 1`] = `
 <div>
   <div
-    style="width: 300px;"
+    class="flex flex-col gap-6"
   >
+    <aside
+      aria-label="What this checks"
+      class="w-80 max-w-full rounded-lg border border-default-200 bg-default-100 p-3 text-sm text-foreground"
+    >
+      <p
+        class="mb-1 font-semibold"
+      >
+        What this checks
+      </p>
+      <p>
+        Rich value content renders alongside the progress bar.
+      </p>
+    </aside>
     <div
-      aria-label="progress"
-      aria-valuemax="100"
-      aria-valuemin="0"
-      aria-valuenow="42"
-      aria-valuetext="42%"
-      class="flex w-full flex-col gap-2"
-      data-component="progress"
-      data-slot="base"
-      id="react-aria-«replaced-aria-id»"
-      role="progressbar"
+      style="width: 300px;"
     >
       <div
-        class="flex justify-between"
-        data-slot="labelWrapper"
-      >
-        <span
-          class="text-medium"
-          data-slot="value"
-        >
-          <strong>
-            42
-             files
-          </strong>
-        </span>
-      </div>
-      <div
-        class="relative z-0 overflow-hidden rounded-full bg-default-300/50 rtl:rotate-180 h-3"
-        data-slot="track"
+        aria-label="progress"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="42"
+        aria-valuetext="42%"
+        class="flex w-full flex-col gap-2"
+        data-component="progress"
+        data-slot="base"
+        id="react-aria-«replaced-aria-id»"
+        role="progressbar"
       >
         <div
-          class="h-full rounded-full transition-transform !duration-500 motion-reduce:transition-none bg-info !transition-none"
-          data-slot="indicator"
-          style="transform: translateX(-58%);"
-        />
+          class="flex justify-between"
+          data-slot="labelWrapper"
+        >
+          <span
+            class="text-medium"
+            data-slot="value"
+          >
+            <strong>
+              42
+               files
+            </strong>
+          </span>
+        </div>
+        <div
+          class="relative z-0 overflow-hidden rounded-full bg-default-300/50 rtl:rotate-180 h-3"
+          data-slot="track"
+        >
+          <div
+            class="h-full rounded-full transition-transform !duration-500 motion-reduce:transition-none bg-info !transition-none"
+            data-slot="indicator"
+            style="transform: translateX(-58%);"
+          />
+        </div>
       </div>
     </div>
   </div>
@@ -1164,28 +1181,45 @@ exports[`Story Snapshots > SomePercentages 1`] = `
 exports[`Story Snapshots > StaticIndeterminate 1`] = `
 <div>
   <div
-    style="width: 300px;"
+    class="flex flex-col gap-6"
   >
+    <aside
+      aria-label="What this checks"
+      class="w-80 max-w-full rounded-lg border border-default-200 bg-default-100 p-3 text-sm text-foreground"
+    >
+      <p
+        class="mb-1 font-semibold"
+      >
+        What this checks
+      </p>
+      <p>
+        Indeterminate progress remains visible with animation disabled.
+      </p>
+    </aside>
     <div
-      aria-label="progress"
-      aria-valuemax="100"
-      aria-valuemin="0"
-      class="flex w-full flex-col gap-2"
-      data-component="progress"
-      data-indeterminate="true"
-      data-slot="base"
-      id="react-aria-«replaced-aria-id»"
-      role="progressbar"
+      style="width: 300px;"
     >
       <div
-        class="relative z-0 overflow-hidden rounded-full bg-default-300/50 rtl:rotate-180 h-3"
-        data-slot="track"
+        aria-label="progress"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        class="flex w-full flex-col gap-2"
+        data-component="progress"
+        data-indeterminate="true"
+        data-slot="base"
+        id="react-aria-«replaced-aria-id»"
+        role="progressbar"
       >
         <div
-          class="h-full rounded-full transition-transform !duration-500 motion-reduce:transition-none bg-info !transition-none absolute w-full origin-left"
-          data-slot="indicator"
-          style="transform: translateX(25%) scaleX(0.5);"
-        />
+          class="relative z-0 overflow-hidden rounded-full bg-default-300/50 rtl:rotate-180 h-3"
+          data-slot="track"
+        >
+          <div
+            class="h-full rounded-full transition-transform !duration-500 motion-reduce:transition-none bg-info !transition-none absolute w-full origin-left"
+            data-slot="indicator"
+            style="transform: translateX(25%) scaleX(0.5);"
+          />
+        </div>
       </div>
     </div>
   </div>

@@ -1,6 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import type { BadgeProps } from '../Badge';
 
+import edgeCaseDecorator from '@repo/storybook-config/edge-case-decorator';
+
 import { Avatar } from '../../Avatar';
 import Badge from '../Badge';
 
@@ -10,6 +12,7 @@ import Badge from '../Badge';
 
 const meta: Meta<typeof Badge> = {
   title: 'pixels/Badge/Edge Cases',
+  decorators: [edgeCaseDecorator],
   component: Badge,
 };
 
@@ -20,10 +23,14 @@ type Story = StoryObj<typeof Badge>;
 const children = <Avatar src="" />;
 
 // -----------------------------------------------------------------------------
-// Edge cases
+// Edge Cases
 // -----------------------------------------------------------------------------
 
 export const NoContent: Story = {
+  parameters: {
+    edgeCaseDescription:
+      'Missing content hides the badge while keeping its child visible.',
+  },
   args: {
     children,
   },
@@ -48,9 +55,15 @@ export const NoContent: Story = {
 };
 
 export const Zero: Story = {
+  parameters: {
+    edgeCaseDescription: 'Numeric zero remains visible as badge content.',
+  },
   args: { children, content: 0 },
 };
 
 export const EmptyString: Story = {
+  parameters: {
+    edgeCaseDescription: 'An empty string does not show an empty badge bubble.',
+  },
   args: { children, content: '' },
 };

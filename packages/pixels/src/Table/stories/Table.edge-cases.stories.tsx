@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
+import edgeCaseDecorator from '@repo/storybook-config/edge-case-decorator';
+
 import Table from '../Table';
 
 // -----------------------------------------------------------------------------
@@ -8,6 +10,7 @@ import Table from '../Table';
 
 const meta: Meta<typeof Table> = {
   title: 'pixels/Table/Edge Cases',
+  decorators: [edgeCaseDecorator],
   component: Table,
 };
 
@@ -33,14 +36,21 @@ const rows = [
 ];
 
 // -----------------------------------------------------------------------------
-// Edge cases
+// Edge Cases
 // -----------------------------------------------------------------------------
 
 export const Loading: Story = {
+  parameters: {
+    edgeCaseDescription: 'Loading content is shown while rows already exist.',
+  },
   args: { columns, rows, loading: true, ariaLabel: 'Loading employee data' },
 };
 
 export const EmptyContent: Story = {
+  parameters: {
+    edgeCaseDescription:
+      'An empty table displays its configured empty message.',
+  },
   args: {
     columns,
     emptyContent: 'No data available',
@@ -49,6 +59,10 @@ export const EmptyContent: Story = {
 };
 
 export const LoadingEmpty: Story = {
+  parameters: {
+    edgeCaseDescription:
+      'Loading takes precedence over the empty state when no rows exist.',
+  },
   args: {
     ariaLabel: 'Loading employees',
     columns,
@@ -58,6 +72,10 @@ export const LoadingEmpty: Story = {
 };
 
 export const CellValues: Story = {
+  parameters: {
+    edgeCaseDescription:
+      'Different cell values render without losing zero or rich content.',
+  },
   args: {
     ariaLabel: 'Mixed values',
     columns: [

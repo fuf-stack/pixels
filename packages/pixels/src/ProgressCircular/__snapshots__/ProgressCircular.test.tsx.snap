@@ -807,60 +807,77 @@ exports[`Story Snapshots > AllSizes 1`] = `
 exports[`Story Snapshots > CustomStrokeWidth 1`] = `
 <div>
   <div
-    aria-label="progress"
-    aria-valuemax="100"
-    aria-valuemin="0"
-    aria-valuenow="42"
-    aria-valuetext="42%"
-    class="flex max-w-fit flex-col items-center justify-center gap-1"
-    data-component="progress-circular"
-    data-slot="base"
-    id="react-aria-«replaced-aria-id»"
-    role="progressbar"
+    class="flex flex-col gap-6"
   >
-    <div
-      class="relative block"
-      data-slot="svgWrapper"
+    <aside
+      aria-label="What this checks"
+      class="w-80 max-w-full rounded-lg border border-default-200 bg-default-100 p-3 text-sm text-foreground"
     >
-      <svg
-        aria-hidden="true"
-        class="relative z-0 overflow-hidden text-info h-16 w-16"
-        data-slot="svg"
-        fill="none"
-        stroke-width="4"
-        viewBox="0 0 32 32"
+      <p
+        class="mb-1 font-semibold"
       >
-        <circle
-          class="h-full stroke-default-300"
-          cx="16"
-          cy="16"
-          data-slot="track"
-          r="12"
-          role="presentation"
-          stroke-dasharray="75.39822368615503 75.39822368615503"
-          stroke-dashoffset="0"
-          stroke-linecap="round"
-          transform="rotate(-90 16 16)"
-        />
-        <circle
-          class="h-full stroke-current transition-all !duration-500 motion-reduce:transition-none !transition-none"
-          cx="16"
-          cy="16"
-          data-slot="indicator"
-          r="12"
-          role="presentation"
-          stroke-dasharray="75.39822368615503 75.39822368615503"
-          stroke-dashoffset="43.73096973796992"
-          stroke-linecap="round"
-          transform="rotate(-90 16 16)"
-        />
-      </svg>
-      <span
-        class="absolute inset-0 flex items-center justify-center font-normal text-md"
-        data-slot="value"
+        What this checks
+      </p>
+      <p>
+        A custom stroke width preserves the progress ring layout.
+      </p>
+    </aside>
+    <div
+      aria-label="progress"
+      aria-valuemax="100"
+      aria-valuemin="0"
+      aria-valuenow="42"
+      aria-valuetext="42%"
+      class="flex max-w-fit flex-col items-center justify-center gap-1"
+      data-component="progress-circular"
+      data-slot="base"
+      id="react-aria-«replaced-aria-id»"
+      role="progressbar"
+    >
+      <div
+        class="relative block"
+        data-slot="svgWrapper"
       >
-        42%
-      </span>
+        <svg
+          aria-hidden="true"
+          class="relative z-0 overflow-hidden text-info h-16 w-16"
+          data-slot="svg"
+          fill="none"
+          stroke-width="4"
+          viewBox="0 0 32 32"
+        >
+          <circle
+            class="h-full stroke-default-300"
+            cx="16"
+            cy="16"
+            data-slot="track"
+            r="12"
+            role="presentation"
+            stroke-dasharray="75.39822368615503 75.39822368615503"
+            stroke-dashoffset="0"
+            stroke-linecap="round"
+            transform="rotate(-90 16 16)"
+          />
+          <circle
+            class="h-full stroke-current transition-all !duration-500 motion-reduce:transition-none !transition-none"
+            cx="16"
+            cy="16"
+            data-slot="indicator"
+            r="12"
+            role="presentation"
+            stroke-dasharray="75.39822368615503 75.39822368615503"
+            stroke-dashoffset="43.73096973796992"
+            stroke-linecap="round"
+            transform="rotate(-90 16 16)"
+          />
+        </svg>
+        <span
+          class="absolute inset-0 flex items-center justify-center font-normal text-md"
+          data-slot="value"
+        >
+          42%
+        </span>
+      </div>
     </div>
   </div>
 </div>
@@ -1055,74 +1072,91 @@ exports[`Story Snapshots > DisableFinishedState 1`] = `
 exports[`Story Snapshots > ErrorAtCompletion 1`] = `
 <div>
   <div
-    aria-label="progress"
-    aria-valuemax="100"
-    aria-valuemin="0"
-    aria-valuenow="100"
-    aria-valuetext="Error"
-    class="flex max-w-fit flex-col items-center justify-center gap-1"
-    data-component="progress-circular"
-    data-slot="base"
-    id="react-aria-«replaced-aria-id»"
-    role="progressbar"
+    class="flex flex-col gap-6"
   >
-    <div
-      class="relative block"
-      data-slot="svgWrapper"
+    <aside
+      aria-label="What this checks"
+      class="w-80 max-w-full rounded-lg border border-default-200 bg-default-100 p-3 text-sm text-foreground"
     >
-      <svg
-        aria-hidden="true"
-        class="relative z-0 overflow-hidden text-danger h-16 w-16"
-        data-slot="svg"
-        fill="none"
-        stroke-width="1.6"
-        viewBox="0 0 32 32"
+      <p
+        class="mb-1 font-semibold"
       >
-        <circle
-          class="h-full stroke-default-300"
-          cx="16"
-          cy="16"
-          data-slot="track"
-          r="14.4"
-          role="presentation"
-          stroke-dasharray="90.47786842338604 90.47786842338604"
-          stroke-dashoffset="0"
-          stroke-linecap="round"
-          transform="rotate(-90 16 16)"
-        />
-        <circle
-          class="h-full stroke-current transition-all !duration-500 motion-reduce:transition-none !transition-none"
-          cx="16"
-          cy="16"
-          data-slot="indicator"
-          r="14.4"
-          role="presentation"
-          stroke-dasharray="90.47786842338604 90.47786842338604"
-          stroke-dashoffset="0"
-          stroke-linecap="round"
-          transform="rotate(-90 16 16)"
-        />
-      </svg>
-      <span
-        class="absolute inset-0 flex items-center justify-center font-normal text-md"
-        data-slot="value"
+        What this checks
+      </p>
+      <p>
+        An error remains visible even when progress reaches completion.
+      </p>
+    </aside>
+    <div
+      aria-label="progress"
+      aria-valuemax="100"
+      aria-valuemin="0"
+      aria-valuenow="100"
+      aria-valuetext="Error"
+      class="flex max-w-fit flex-col items-center justify-center gap-1"
+      data-component="progress-circular"
+      data-slot="base"
+      id="react-aria-«replaced-aria-id»"
+      role="progressbar"
+    >
+      <div
+        class="relative block"
+        data-slot="svgWrapper"
       >
         <svg
           aria-hidden="true"
-          class="text-danger"
-          fill="currentColor"
-          height="1em"
-          stroke="currentColor"
-          stroke-width="0"
-          viewBox="0 0 352 512"
-          width="1em"
-          xmlns="http://www.w3.org/2000/svg"
+          class="relative z-0 overflow-hidden text-danger h-16 w-16"
+          data-slot="svg"
+          fill="none"
+          stroke-width="1.6"
+          viewBox="0 0 32 32"
         >
-          <path
-            d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+          <circle
+            class="h-full stroke-default-300"
+            cx="16"
+            cy="16"
+            data-slot="track"
+            r="14.4"
+            role="presentation"
+            stroke-dasharray="90.47786842338604 90.47786842338604"
+            stroke-dashoffset="0"
+            stroke-linecap="round"
+            transform="rotate(-90 16 16)"
+          />
+          <circle
+            class="h-full stroke-current transition-all !duration-500 motion-reduce:transition-none !transition-none"
+            cx="16"
+            cy="16"
+            data-slot="indicator"
+            r="14.4"
+            role="presentation"
+            stroke-dasharray="90.47786842338604 90.47786842338604"
+            stroke-dashoffset="0"
+            stroke-linecap="round"
+            transform="rotate(-90 16 16)"
           />
         </svg>
-      </span>
+        <span
+          class="absolute inset-0 flex items-center justify-center font-normal text-md"
+          data-slot="value"
+        >
+          <svg
+            aria-hidden="true"
+            class="text-danger"
+            fill="currentColor"
+            height="1em"
+            stroke="currentColor"
+            stroke-width="0"
+            viewBox="0 0 352 512"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+            />
+          </svg>
+        </span>
+      </div>
     </div>
   </div>
 </div>
@@ -1283,63 +1317,80 @@ exports[`Story Snapshots > HasError 1`] = `
 exports[`Story Snapshots > RichValue 1`] = `
 <div>
   <div
-    aria-label="progress"
-    aria-valuemax="100"
-    aria-valuemin="0"
-    aria-valuenow="42"
-    aria-valuetext="42%"
-    class="flex max-w-fit flex-col items-center justify-center gap-1"
-    data-component="progress-circular"
-    data-slot="base"
-    id="react-aria-«replaced-aria-id»"
-    role="progressbar"
+    class="flex flex-col gap-6"
   >
-    <div
-      class="relative block"
-      data-slot="svgWrapper"
+    <aside
+      aria-label="What this checks"
+      class="w-80 max-w-full rounded-lg border border-default-200 bg-default-100 p-3 text-sm text-foreground"
     >
-      <svg
-        aria-hidden="true"
-        class="relative z-0 overflow-hidden text-info h-24 w-24"
-        data-slot="svg"
-        fill="none"
-        stroke-width="1.6"
-        viewBox="0 0 32 32"
+      <p
+        class="mb-1 font-semibold"
       >
-        <circle
-          class="h-full stroke-default-300"
-          cx="16"
-          cy="16"
-          data-slot="track"
-          r="14.4"
-          role="presentation"
-          stroke-dasharray="90.47786842338604 90.47786842338604"
-          stroke-dashoffset="0"
-          stroke-linecap="round"
-          transform="rotate(-90 16 16)"
-        />
-        <circle
-          class="h-full stroke-current transition-all !duration-500 motion-reduce:transition-none !transition-none"
-          cx="16"
-          cy="16"
-          data-slot="indicator"
-          r="14.4"
-          role="presentation"
-          stroke-dasharray="90.47786842338604 90.47786842338604"
-          stroke-dashoffset="52.47716368556391"
-          stroke-linecap="round"
-          transform="rotate(-90 16 16)"
-        />
-      </svg>
-      <span
-        class="absolute inset-0 flex items-center justify-center font-normal text-xl"
-        data-slot="value"
+        What this checks
+      </p>
+      <p>
+        Rich value content renders inside the progress ring.
+      </p>
+    </aside>
+    <div
+      aria-label="progress"
+      aria-valuemax="100"
+      aria-valuemin="0"
+      aria-valuenow="42"
+      aria-valuetext="42%"
+      class="flex max-w-fit flex-col items-center justify-center gap-1"
+      data-component="progress-circular"
+      data-slot="base"
+      id="react-aria-«replaced-aria-id»"
+      role="progressbar"
+    >
+      <div
+        class="relative block"
+        data-slot="svgWrapper"
       >
-        <strong>
-          42
-           files
-        </strong>
-      </span>
+        <svg
+          aria-hidden="true"
+          class="relative z-0 overflow-hidden text-info h-24 w-24"
+          data-slot="svg"
+          fill="none"
+          stroke-width="1.6"
+          viewBox="0 0 32 32"
+        >
+          <circle
+            class="h-full stroke-default-300"
+            cx="16"
+            cy="16"
+            data-slot="track"
+            r="14.4"
+            role="presentation"
+            stroke-dasharray="90.47786842338604 90.47786842338604"
+            stroke-dashoffset="0"
+            stroke-linecap="round"
+            transform="rotate(-90 16 16)"
+          />
+          <circle
+            class="h-full stroke-current transition-all !duration-500 motion-reduce:transition-none !transition-none"
+            cx="16"
+            cy="16"
+            data-slot="indicator"
+            r="14.4"
+            role="presentation"
+            stroke-dasharray="90.47786842338604 90.47786842338604"
+            stroke-dashoffset="52.47716368556391"
+            stroke-linecap="round"
+            transform="rotate(-90 16 16)"
+          />
+        </svg>
+        <span
+          class="absolute inset-0 flex items-center justify-center font-normal text-xl"
+          data-slot="value"
+        >
+          <strong>
+            42
+             files
+          </strong>
+        </span>
+      </div>
     </div>
   </div>
 </div>

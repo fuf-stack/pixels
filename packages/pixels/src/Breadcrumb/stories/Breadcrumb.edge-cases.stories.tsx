@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
+import edgeCaseDecorator from '@repo/storybook-config/edge-case-decorator';
+
 import Breadcrumb from '../Breadcrumb';
 
 // -----------------------------------------------------------------------------
@@ -8,6 +10,7 @@ import Breadcrumb from '../Breadcrumb';
 
 const meta: Meta<typeof Breadcrumb> = {
   title: 'pixels/Breadcrumb/Edge Cases',
+  decorators: [edgeCaseDecorator],
   component: Breadcrumb,
 };
 
@@ -16,12 +19,20 @@ export default meta;
 type Story = StoryObj<typeof Breadcrumb>;
 
 // -----------------------------------------------------------------------------
-// Edge cases
+// Edge Cases
 // -----------------------------------------------------------------------------
 
-export const Empty: Story = { args: { breadcrumbItems: [] } };
+export const Empty: Story = {
+  parameters: {
+    edgeCaseDescription: 'An empty item list renders without navigation items.',
+  },
+  args: { breadcrumbItems: [] },
+};
 
 export const Disabled: Story = {
+  parameters: {
+    edgeCaseDescription: 'Disabled breadcrumb items cannot be activated.',
+  },
   args: {
     breadcrumbItems: [{ children: 'Home' }, { children: 'Current' }],
     disabled: true,
@@ -29,6 +40,10 @@ export const Disabled: Story = {
 };
 
 export const RichContent: Story = {
+  parameters: {
+    edgeCaseDescription:
+      'Rich labels and icons remain usable as breadcrumb content.',
+  },
   args: {
     breadcrumbItems: [
       { children: 'Home', startContent: <span aria-hidden="true">⌂</span> },

@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
+import edgeCaseDecorator from '@repo/storybook-config/edge-case-decorator';
 import { expect, fn, within } from 'storybook/test';
 
 import Filter from '../Filter';
@@ -9,7 +10,8 @@ import Filter from '../Filter';
 // -----------------------------------------------------------------------------
 
 const meta = {
-  title: 'megapixels/Filter/Edge cases',
+  title: 'megapixels/Filter/Edge Cases',
+  decorators: [edgeCaseDecorator],
   component: Filter,
 } satisfies Meta<typeof Filter>;
 
@@ -18,10 +20,14 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 // -----------------------------------------------------------------------------
-// Edge cases
+// Edge Cases
 // -----------------------------------------------------------------------------
 
 export const NoConfiguredFilters: Story = {
+  parameters: {
+    edgeCaseDescription:
+      'An empty filter configuration renders without search controls or an open dialog.',
+  },
   args: {
     config: { filters: [] },
     onChange: fn(),

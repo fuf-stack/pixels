@@ -88,22 +88,39 @@ exports[`Story Snapshots > AllSections 1`] = `
 exports[`Story Snapshots > BlockOuterScrollbar 1`] = `
 <div>
   <div
-    class="h-[2000px]"
+    class="flex flex-col gap-6"
   >
-    <button
-      aria-expanded="false"
-      aria-haspopup="dialog"
-      class="z-10 subpixel-antialiased aria-expanded:scale-[0.97] aria-expanded:opacity-70"
-      data-rac=""
-      data-react-aria-pressable="true"
-      data-slot="trigger"
-      data-testid="testId42"
-      id="react-aria-«replaced-aria-id»"
-      tabindex="0"
-      type="button"
+    <aside
+      aria-label="What this checks"
+      class="w-80 max-w-full rounded-lg border border-default-200 bg-default-100 p-3 text-sm text-foreground"
     >
-      i am the trigger
-    </button>
+      <p
+        class="mb-1 font-semibold"
+      >
+        What this checks
+      </p>
+      <p>
+        Opening the popover blocks page scrolling when scroll blocking is enabled.
+      </p>
+    </aside>
+    <div
+      class="h-[2000px]"
+    >
+      <button
+        aria-expanded="false"
+        aria-haspopup="dialog"
+        class="z-10 subpixel-antialiased aria-expanded:scale-[0.97] aria-expanded:opacity-70"
+        data-rac=""
+        data-react-aria-pressable="true"
+        data-slot="trigger"
+        data-testid="testId42"
+        id="react-aria-«replaced-aria-id»"
+        tabindex="0"
+        type="button"
+      >
+        i am the trigger
+      </button>
+    </div>
   </div>
 </div>
 `;
@@ -191,43 +208,77 @@ exports[`Story Snapshots > Default 1`] = `
 
 exports[`Story Snapshots > DisabledTrigger 1`] = `
 <div>
-  <button
-    aria-expanded="false"
-    aria-haspopup="dialog"
-    class="group tap-highlight-transparent data-[hover=true]:opacity-hover group tap-highlight-transparent data-[hover=true]:opacity-hover group relative box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small pointer-events-none opacity-disabled [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-primary text-primary-foreground data-[hover=true]:opacity-hover z-10 subpixel-antialiased aria-expanded:scale-[0.97] aria-expanded:opacity-70"
-    data-component="button"
-    data-disabled="true"
-    data-rac=""
-    data-react-aria-pressable="true"
-    data-slot="trigger"
-    disabled=""
-    id="react-aria-«replaced-aria-id»"
-    type="button"
+  <div
+    class="flex flex-col gap-6"
   >
-    i am the trigger
-  </button>
+    <aside
+      aria-label="What this checks"
+      class="w-80 max-w-full rounded-lg border border-default-200 bg-default-100 p-3 text-sm text-foreground"
+    >
+      <p
+        class="mb-1 font-semibold"
+      >
+        What this checks
+      </p>
+      <p>
+        A disabled trigger cannot open the popover.
+      </p>
+    </aside>
+    <button
+      aria-expanded="false"
+      aria-haspopup="dialog"
+      class="group tap-highlight-transparent data-[hover=true]:opacity-hover group tap-highlight-transparent data-[hover=true]:opacity-hover group relative box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small pointer-events-none opacity-disabled [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-primary text-primary-foreground data-[hover=true]:opacity-hover z-10 subpixel-antialiased aria-expanded:scale-[0.97] aria-expanded:opacity-70"
+      data-component="button"
+      data-disabled="true"
+      data-rac=""
+      data-react-aria-pressable="true"
+      data-slot="trigger"
+      disabled=""
+      id="react-aria-«replaced-aria-id»"
+      type="button"
+    >
+      i am the trigger
+    </button>
+  </div>
 </div>
 `;
 
 exports[`Story Snapshots > DoubleScrollbar 1`] = `
 <div>
   <div
-    class="h-[2000px]"
+    class="flex flex-col gap-6"
   >
-    <button
-      aria-expanded="false"
-      aria-haspopup="dialog"
-      class="z-10 subpixel-antialiased aria-expanded:scale-[0.97] aria-expanded:opacity-70"
-      data-rac=""
-      data-react-aria-pressable="true"
-      data-slot="trigger"
-      data-testid="testId42"
-      id="react-aria-«replaced-aria-id»"
-      tabindex="0"
-      type="button"
+    <aside
+      aria-label="What this checks"
+      class="w-80 max-w-full rounded-lg border border-default-200 bg-default-100 p-3 text-sm text-foreground"
     >
-      i am the trigger
-    </button>
+      <p
+        class="mb-1 font-semibold"
+      >
+        What this checks
+      </p>
+      <p>
+        A scrollable page and overflowing popover keep their scroll areas separate.
+      </p>
+    </aside>
+    <div
+      class="h-[2000px]"
+    >
+      <button
+        aria-expanded="false"
+        aria-haspopup="dialog"
+        class="z-10 subpixel-antialiased aria-expanded:scale-[0.97] aria-expanded:opacity-70"
+        data-rac=""
+        data-react-aria-pressable="true"
+        data-slot="trigger"
+        data-testid="testId42"
+        id="react-aria-«replaced-aria-id»"
+        tabindex="0"
+        type="button"
+      >
+        i am the trigger
+      </button>
+    </div>
   </div>
 </div>
 `;
@@ -455,23 +506,40 @@ exports[`Story Snapshots > Title 1`] = `
 
 exports[`Story Snapshots > TooMuchContent 1`] = `
 <div>
-  <button
-    aria-expanded="false"
-    aria-haspopup="dialog"
-    class="z-10 subpixel-antialiased aria-expanded:scale-[0.97] aria-expanded:opacity-70"
-    data-focus-visible="true"
-    data-focused="true"
-    data-hovered="true"
-    data-rac=""
-    data-react-aria-pressable="true"
-    data-slot="trigger"
-    data-testid="testId42"
-    id="react-aria-«replaced-aria-id»"
-    tabindex="0"
-    type="button"
+  <div
+    class="flex flex-col gap-6"
   >
-    i am the trigger
-  </button>
+    <aside
+      aria-label="What this checks"
+      class="w-80 max-w-full rounded-lg border border-default-200 bg-default-100 p-3 text-sm text-foreground"
+    >
+      <p
+        class="mb-1 font-semibold"
+      >
+        What this checks
+      </p>
+      <p>
+        Long content scrolls inside the popover and Escape dismisses it.
+      </p>
+    </aside>
+    <button
+      aria-expanded="false"
+      aria-haspopup="dialog"
+      class="z-10 subpixel-antialiased aria-expanded:scale-[0.97] aria-expanded:opacity-70"
+      data-focus-visible="true"
+      data-focused="true"
+      data-hovered="true"
+      data-rac=""
+      data-react-aria-pressable="true"
+      data-slot="trigger"
+      data-testid="testId42"
+      id="react-aria-«replaced-aria-id»"
+      tabindex="0"
+      type="button"
+    >
+      i am the trigger
+    </button>
+  </div>
 </div>
 `;
 

@@ -106,3 +106,11 @@ focus visibility/restoration, accessible names and descriptions, disabled and
 error states, and contrast. Record browsers, assistive technology, and visual
 evidence in the pull request. Automated accessibility checks are a baseline,
 not a replacement for interaction review.
+
+### Sidebar ordering configuration
+
+Storybook statically extracts `parameters.options.storySort` from each actual
+`.storybook/preview.tsx`. Keep the ordering object there, an imported shared
+preview spread is not followed by the indexer. The extraction regression test is
+`scripts/ci-storybook-order.test.mjs`. Verify ordering in the rendered sidebar
+after changing it. Normal stories precede Composition, Interactions and Edge Cases.

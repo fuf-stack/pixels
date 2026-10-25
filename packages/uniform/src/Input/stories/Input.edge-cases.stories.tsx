@@ -18,7 +18,7 @@ const meta: typeof sharedMeta = {
 export default meta;
 
 // -----------------------------------------------------------------------------
-// Edge cases
+// Edge Cases
 // -----------------------------------------------------------------------------
 
 export const NullishNumber: Story = {

@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
+import edgeCaseDecorator from '@repo/storybook-config/edge-case-decorator';
+
 import Alert from '../Alert';
 
 // -----------------------------------------------------------------------------
@@ -8,6 +10,7 @@ import Alert from '../Alert';
 
 const meta: Meta<typeof Alert> = {
   title: 'pixels/Alert/Edge Cases',
+  decorators: [edgeCaseDecorator],
   component: Alert,
 };
 
@@ -16,9 +19,19 @@ export default meta;
 type Story = StoryObj<typeof Alert>;
 
 // -----------------------------------------------------------------------------
-// Edge cases
+// Edge Cases
 // -----------------------------------------------------------------------------
 
-export const Empty: Story = {};
+export const Empty: Story = {
+  parameters: {
+    edgeCaseDescription:
+      'An alert can render without title or message content.',
+  },
+};
 
-export const Zero: Story = { args: { children: 0 } };
+export const Zero: Story = {
+  parameters: {
+    edgeCaseDescription: 'Numeric zero remains visible as alert content.',
+  },
+  args: { children: 0 },
+};

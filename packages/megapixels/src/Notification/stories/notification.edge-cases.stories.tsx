@@ -18,7 +18,7 @@ import meta from './notification.stories';
 
 const edgeCaseMeta: Meta<typeof NotificationHost> = {
   ...meta,
-  title: 'megapixels/Notification/Edge cases',
+  title: 'megapixels/Notification/Edge Cases',
   decorators: [...[meta.decorators ?? []].flat(), edgeCaseDecorator],
 };
 

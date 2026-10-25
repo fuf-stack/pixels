@@ -1,5 +1,7 @@
 import type { Story } from './Tabs.storySetup';
 
+import edgeCaseDecorator from '@repo/storybook-config/edge-case-decorator';
+
 import { meta as sharedMeta } from './Tabs.storySetup';
 
 // -----------------------------------------------------------------------------
@@ -9,15 +11,17 @@ import { meta as sharedMeta } from './Tabs.storySetup';
 const meta: typeof sharedMeta = {
   ...sharedMeta,
   title: 'pixels/Tabs/Edge Cases',
+  decorators: [...[sharedMeta.decorators ?? []].flat(), edgeCaseDecorator],
 };
 
 export default meta;
 
 // -----------------------------------------------------------------------------
-// Edge cases
+// Edge Cases
 // -----------------------------------------------------------------------------
 
 export const DisabledTabs: Story = {
+  parameters: { edgeCaseDescription: 'Disabled tabs cannot be selected.' },
   args: {
     ariaLabel: 'Tabs with disabled items',
     tabs: [
@@ -48,9 +52,18 @@ export const DisabledTabs: Story = {
   },
 };
 
-export const Empty: Story = { args: { ariaLabel: 'Empty sections', tabs: [] } };
+export const Empty: Story = {
+  parameters: {
+    edgeCaseDescription: 'An empty tab list renders without panels.',
+  },
+  args: { ariaLabel: 'Empty sections', tabs: [] },
+};
 
 export const NumericKeys: Story = {
+  parameters: {
+    edgeCaseDescription:
+      'Numeric tab keys preserve selection and panel associations.',
+  },
   args: {
     ariaLabel: 'Numeric sections',
     defaultSelectedKey: 2,
@@ -62,6 +75,10 @@ export const NumericKeys: Story = {
 };
 
 export const RetainedPanels: Story = {
+  parameters: {
+    edgeCaseDescription:
+      'Inactive panels retain their mounted content when configured to stay mounted.',
+  },
   args: {
     ariaLabel: 'Retained sections',
     destroyInactiveTabPanel: false,
