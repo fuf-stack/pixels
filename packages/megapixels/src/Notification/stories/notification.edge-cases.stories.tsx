@@ -12,10 +12,14 @@ import { Modal } from '@fuf-stack/pixels/Modal';
 import { notification } from '..';
 import meta from './notification.stories';
 
+// -----------------------------------------------------------------------------
+// Story base setup
+// -----------------------------------------------------------------------------
+
 const edgeCaseMeta: Meta<typeof NotificationHost> = {
   ...meta,
-  title: 'Megapixels/Notification/Edge Cases',
-  decorators: [...(meta.decorators ?? []), edgeCaseDecorator],
+  title: 'megapixels/Notification/Edge cases',
+  decorators: [...[meta.decorators ?? []].flat(), edgeCaseDecorator],
 };
 
 export default edgeCaseMeta;
@@ -34,6 +38,10 @@ type Story = StoryObj<typeof NotificationHost>;
  *   button). The same flow is shown in `WithErrorModal` /
  *   `WithLargeMoreContentModal`.
  */
+// -----------------------------------------------------------------------------
+// Normal stories
+// -----------------------------------------------------------------------------
+
 export const StackingOverModal: Story = {
   name: 'Stacking Over Modal',
   parameters: {

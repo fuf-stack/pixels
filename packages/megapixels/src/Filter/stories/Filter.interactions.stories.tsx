@@ -6,6 +6,7 @@ import { useState } from 'react';
 import { expect, fn, userEvent, waitFor, within } from 'storybook/test';
 
 import Filter, { filters as f } from '..';
+import { filters } from './Filter.storySetup';
 
 // -----------------------------------------------------------------------------
 // Story base setup
@@ -94,5 +95,33 @@ export const EditAndRemove: Story = {
     });
     await expect(args.onChange).toHaveBeenCalled();
     await expect(canvas.queryByRole('dialog')).not.toBeInTheDocument();
+  },
+};
+
+export const AddFilterInteraction: Story = {
+  args: {
+    className: 'w-full',
+    config: { filters },
+    onChange: fn(),
+    values: {},
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    // Open the add-filter menu and add the "Mood" filter.
+    await userEvent.click(canvas.getByTestId('add_filter_button'));
+    await userEvent.click(
+      await canvas.findByRole('menuitem', { name: /Mood/ }),
+    );
+
+    // Pick a mood option in the modal and apply the filter.
+    await userEvent.click(await canvas.findByRole('checkbox', { name: '😊' }));
+    await userEvent.click(canvas.getByTestId('apply_filter_button'));
+
+    // The modal closes and the active "Mood" filter chip is shown.
+    await waitFor(async () => {
+      return expect(canvas.queryByRole('dialog')).not.toBeInTheDocument();
+    });
+    await expect(canvas.getByText('😊')).toBeInTheDocument();
   },
 };

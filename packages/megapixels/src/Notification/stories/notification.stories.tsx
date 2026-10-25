@@ -9,8 +9,12 @@ import { Button } from '@fuf-stack/pixels/Button';
 
 import { notification, NotificationHost } from '..';
 
+// -----------------------------------------------------------------------------
+// Story base setup
+// -----------------------------------------------------------------------------
+
 const meta: Meta = {
-  title: 'Megapixels/Notification',
+  title: 'megapixels/Notification',
   component: NotificationHost,
   decorators: [
     (Story, context) => {
@@ -33,6 +37,10 @@ const meta: Meta = {
 
 export default meta;
 type Story = StoryObj;
+
+// -----------------------------------------------------------------------------
+// Normal stories
+// -----------------------------------------------------------------------------
 
 export const Simple: Story = {
   render: () => {

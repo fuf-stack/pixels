@@ -7,6 +7,10 @@ import { useMemo, useState } from 'react';
 import VirtualList from '../VirtualList';
 
 // Animations/latency are disabled in the test environment for stable snapshots.
+// -----------------------------------------------------------------------------
+// Story base setup
+// -----------------------------------------------------------------------------
+
 const isTestEnv = process.env.NODE_ENV === 'test';
 
 const TOTAL_SERVER_ITEMS = 200;
@@ -57,12 +61,16 @@ const useSimulatedItemConnection = () => {
 const StringVirtualList = VirtualList<string>;
 
 const meta: Meta<typeof StringVirtualList> = {
-  title: 'Megapixels/VirtualList',
+  title: 'megapixels/VirtualList',
   component: StringVirtualList,
 };
 
 export default meta;
 type Story = StoryObj<typeof StringVirtualList>;
+
+// -----------------------------------------------------------------------------
+// Normal stories
+// -----------------------------------------------------------------------------
 
 export const Default: Story = {
   render: () => {

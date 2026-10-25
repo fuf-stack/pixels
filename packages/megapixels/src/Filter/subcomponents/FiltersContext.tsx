@@ -16,9 +16,9 @@ import { useFormContext } from '@fuf-stack/uniform/hooks/useFormContext';
 interface FiltersContextValue {
   /** Active filters (names only) */
   activeFilters: string[];
-  /** Seed default value and open modal for a filter usage. */
+  /** Seed default value and open modal for a filter usage */
   addFilter: (name: string) => void;
-  /** Close the modal. */
+  /** Close the modal */
   closeFilterModal: () => void;
   /** Build fully-qualified form field path for a filter name */
   getFilterFormFieldName: (name: string) => string;
@@ -26,13 +26,13 @@ interface FiltersContextValue {
   getFilterInstanceByName: (name: string) => FilterInstance<unknown, unknown>;
   /** Get current form value for a given filter name */
   getFilterValueByName: (name: string) => unknown;
-  /** Validation helper for a specific filter field. */
+  /** Validation helper for a specific filter field */
   hasError: (name: string) => boolean;
   /** Name of the current filter that has its modal open */
   modalFilterName: string | undefined;
-  /** Remove a filter from the form. */
+  /** Remove a filter from the form */
   removeFilter: (name: string) => void;
-  /** Open the modal for a given filter name. */
+  /** Open the modal for a given filter name */
   showFilterModal: (name: string) => void;
   /** Filters that are not active (names only) */
   unusedFilters: string[];
@@ -105,7 +105,7 @@ export const FiltersContextProvider = ({
     previousValue: unknown;
   } | null>(null);
 
-  // Read current filter values from the form as the live edit buffer
+  // read current filter values from the form as the live edit buffer
   const filterValue = watch('filter', {});
 
   /**
@@ -130,7 +130,7 @@ export const FiltersContextProvider = ({
     [filterValue],
   );
 
-  /** Open the filter edit modal for the given filter name. */
+  /** Open the filter edit modal for the given filter name */
   const showFilterModal = useCallback(
     (name: string) => {
       const prev = getFilterValueByName(name);
@@ -143,7 +143,7 @@ export const FiltersContextProvider = ({
     [getFilterValueByName],
   );
 
-  /** Close the filter edit modal. Rollback un-applied edits to controlled state. */
+  /** Close the filter edit modal. Rollback un-applied edits to controlled state */
   const closeFilterModal = useCallback(() => {
     if (currentModalFilter?.name) {
       const fieldName = getFilterFormFieldName(currentModalFilter.name);
@@ -172,7 +172,7 @@ export const FiltersContextProvider = ({
       formState.submitCount !== lastSubmitCountRef.current &&
       formState.isSubmitSuccessful
     ) {
-      // On successful submit, close without rollback
+      // on successful submit, close without rollback
       setCurrentModalFilter(null);
     }
     lastSubmitCountRef.current = formState.submitCount;
@@ -192,8 +192,8 @@ export const FiltersContextProvider = ({
   const activeFilters = useMemo(() => {
     return config
       .filter((f) => {
-        // Keep compatibility with the shared Node 16.0 lint target, which
-        // predates Object.hasOwn.
+        // keep compatibility with the shared Node 16.0 lint target, which
+        // predates Object.hasOwn
         // eslint-disable-next-line prefer-object-has-own
         return Object.prototype.hasOwnProperty.call(filterValue ?? {}, f.name);
       })
@@ -267,7 +267,7 @@ export const FiltersContextProvider = ({
       unregister(getFilterFormFieldName(name));
       // close filter modal if open
       if (currentModalFilter?.name === name) {
-        // Explicit removal: close without rollback
+        // explicit removal: close without rollback
         setCurrentModalFilter(null);
       }
       // trigger form submit (to update filter state)

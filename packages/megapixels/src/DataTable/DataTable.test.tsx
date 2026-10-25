@@ -6,11 +6,16 @@ import storySnapshots from '@repo/storybook-config/story-snapshots';
 import { render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
+import { createStyling } from '@fuf-stack/pixel-utils';
+import { StylingProvider } from '@fuf-stack/pixels/StylingProvider';
+
 import DataTable from './DataTable';
+import * as edgeCases from './stories/DataTable.edge-cases.stories';
 import * as stories from './stories/DataTable.stories';
 
 describe('Story Snapshots', () => {
   storySnapshots(stories);
+  storySnapshots(edgeCases);
 });
 
 interface Row {
@@ -478,5 +483,30 @@ describe('DataTable interactions', () => {
       screen.getByRole('button', { name: 'Retry loading page' }),
     );
     expect(onLoadMore).toHaveBeenCalledTimes(1);
+  });
+});
+
+describe('Styling composition', () => {
+  it('uses consumer typography merging without losing semantic text colors', () => {
+    const styling = createStyling({
+      extend: { classGroups: { 'font-size': [{ text: ['body'] }] } },
+    });
+
+    render(
+      <StylingProvider styling={styling}>
+        <DataTable
+          className={{ searchInput: 'text-body' }}
+          columns={[{ accessorKey: 'name', header: 'Name' }]}
+          data={[{ name: 'Apple' }]}
+          features={{ search: { columns: [{ column: 'name' }] } }}
+        />
+      </StylingProvider>,
+    );
+
+    expect(screen.getByRole('textbox')).toHaveClass(
+      'text-body',
+      'text-foreground',
+    );
+    expect(screen.getByRole('textbox')).not.toHaveClass('text-sm');
   });
 });

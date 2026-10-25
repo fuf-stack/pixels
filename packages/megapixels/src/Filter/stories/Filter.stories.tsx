@@ -1,27 +1,20 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import type { FiltersConfiguration } from '../filters/types';
 
-import {
-  FaCheckCircle,
-  FaClock,
-  FaGhost,
-  FaMagic,
-  FaPizzaSlice,
-  FaSmile,
-  FaTimesCircle,
-} from 'react-icons/fa';
+import { FaCheckCircle, FaClock, FaSmile, FaTimesCircle } from 'react-icons/fa';
 
 import { action } from 'storybook/actions';
 import { useArgs } from 'storybook/preview-api';
-import { expect, userEvent, waitFor, within } from 'storybook/test';
+import { expect, within } from 'storybook/test';
 
 import Filter, { filters as f } from '..';
+import { filters } from './Filter.storySetup';
 
-// Animations are disabled in the test environment so snapshots are stable.
-const isTestEnv = process.env.NODE_ENV === 'test';
+// -----------------------------------------------------------------------------
+// Story base setup
+// -----------------------------------------------------------------------------
 
 const meta: Meta<typeof Filter> = {
-  title: 'Megapixels/Filter',
+  title: 'megapixels/Filter',
   component: Filter,
   args: {
     className: 'w-full',
@@ -45,38 +38,9 @@ const meta: Meta<typeof Filter> = {
 export default meta;
 type Story = StoryObj<typeof Filter>;
 
-const filters: FiltersConfiguration = [
-  f.boolean({
-    name: 'magical',
-    icon: <FaMagic />,
-    config: { text: 'Magical', textPrefix: 'is', textNoWord: 'not' },
-  }),
-  f.checkboxes({
-    name: 'mood',
-    icon: <FaSmile />,
-    config: {
-      text: 'Mood',
-      options: ['😊', '😴', '🤓', '🤖'].map((mood) => {
-        return { label: mood, value: mood };
-      }),
-    },
-  }),
-  f.checkboxes({
-    name: 'snacks',
-    icon: <FaPizzaSlice />,
-    config: {
-      text: 'Snacks',
-      options: ['🍕', '🍪', '🍫', '🍿'].map((snack) => {
-        return { label: snack, value: snack };
-      }),
-    },
-  }),
-  f.boolean({
-    name: 'haunted',
-    icon: <FaGhost />,
-    config: { text: 'Haunted', textPrefix: 'is', textNoWord: 'not' },
-  }),
-];
+// -----------------------------------------------------------------------------
+// Normal stories
+// -----------------------------------------------------------------------------
 
 export const FiltersOnly: Story = {
   args: {
@@ -111,49 +75,6 @@ export const WithInitialValue: Story = {
         setTimeout(resolve, 0);
       });
     });
-  },
-};
-
-export const AddFilterInteraction: Story = {
-  args: {
-    config: { filters },
-  },
-  render: (args, { canvasElement }) => {
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    const [{ values }, updateArgs] = useArgs();
-    return (
-      <Filter
-        {...args}
-        // Disable animations and portal into the story root so the play's
-        // menu/modal interactions produce deterministic snapshots.
-        disableAnimation={isTestEnv}
-        onChange={(next) => {
-          action('onChange')(next);
-          updateArgs({ values: next });
-        }}
-        portalContainer={canvasElement}
-        values={values ?? {}}
-      />
-    );
-  },
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
-
-    // Open the add-filter menu and add the "Mood" filter.
-    await userEvent.click(canvas.getByTestId('add_filter_button'));
-    await userEvent.click(
-      await canvas.findByRole('menuitem', { name: /Mood/ }),
-    );
-
-    // Pick a mood option in the modal and apply the filter.
-    await userEvent.click(await canvas.findByRole('checkbox', { name: '😊' }));
-    await userEvent.click(canvas.getByTestId('apply_filter_button'));
-
-    // The modal closes and the active "Mood" filter chip is shown.
-    await waitFor(async () => {
-      return expect(canvas.queryByRole('dialog')).not.toBeInTheDocument();
-    });
-    await expect(canvas.getByText('😊')).toBeInTheDocument();
   },
 };
 

@@ -1,18 +1,23 @@
 import type { Row } from '@tanstack/react-table';
 import type { DataTableExpandableRowsFeature } from '../DataTable';
-import type { DataTableClassNames } from './DataTableCells';
+import type { DataTableClassNames } from '../dataTableVariants';
 
 import { Fragment } from 'react';
 
 import { cn } from '@fuf-stack/pixel-utils';
 
-import { DataTableBodyCell } from './DataTableCells';
+import DataTableBodyCell from './DataTableBodyCell';
 
 interface DataTableBodyRowsProps<TData> {
-  classNames: DataTableClassNames;
+  /** Resolved CSS class names */
+  className: DataTableClassNames;
+  /** Expanded detail and nested-row configuration */
   expandableRows?: DataTableExpandableRowsFeature<TData>;
+  /** Visible rows from the table model */
   rows: Row<TData>[];
+  /** Uses flex layout for virtual columns */
   virtualized?: boolean;
+  /** Number of columns spanned by expanded detail rows */
   visibleColumnCount: number;
 }
 
@@ -24,7 +29,8 @@ interface DataTableBodyRowsProps<TData> {
  * - an optional sibling expanded-content row that spans all visible columns
  */
 const DataTableBodyRows = <TData,>({
-  classNames,
+  /** Resolved CSS class names */
+  className: classNames,
   expandableRows = undefined,
   rows,
   visibleColumnCount,
@@ -44,7 +50,7 @@ const DataTableBodyRows = <TData,>({
               <DataTableBodyCell
                 key={cell.id}
                 cell={cell}
-                classNames={classNames}
+                className={classNames}
                 virtualized={virtualized}
               />
             );

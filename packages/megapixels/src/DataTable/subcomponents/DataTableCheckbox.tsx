@@ -8,25 +8,25 @@ interface CheckboxClassName {
 }
 
 export interface DataTableCheckboxProps {
-  /** Accessible label for assistive technologies. */
+  /** Accessible label for assistive technologies */
   ariaLabel: string;
-  /** Controlled checked state. */
+  /** Controlled checked state */
   checked: boolean;
-  /** Icon shown for checked state; pass `false` to hide. */
+  /** Icon shown for checked state; pass `false` to hide */
   checkedIcon?: ReactNode | false;
-  /** Optional class names for root and indicator nodes. */
+  /** Optional class names for root and indicator nodes */
   className?: CheckboxClassName;
-  /** Enables mixed visual state for parent/select-all behavior. */
+  /** Enables mixed visual state for parent/select-all behavior */
   indeterminate?: boolean;
-  /** Icon shown for indeterminate state; pass `false` to hide. */
+  /** Icon shown for indeterminate state; pass `false` to hide */
   indeterminateIcon?: ReactNode | false;
-  /** Emits normalized boolean checked values. */
+  /** Emits normalized boolean checked values */
   onCheckedChange: (checked: boolean) => void;
-  /** Optional test id applied to the root element. */
+  /** Optional test id applied to the root element */
   testId?: string;
 }
 
-/** Small checkbox wrapper used by DataTable selection UI. */
+/** Small checkbox wrapper used by DataTable selection UI */
 const DataTableCheckbox = ({
   ariaLabel,
   checked,
@@ -49,7 +49,7 @@ const DataTableCheckbox = ({
       data-testid={testId}
       indeterminate={indeterminate}
       onCheckedChange={(nextChecked) => {
-        // Base UI can emit non-boolean-ish values; normalize for table callers.
+        // base UI can emit non-boolean-ish values, normalize for table callers
         onCheckedChange(Boolean(nextChecked));
       }}
     >

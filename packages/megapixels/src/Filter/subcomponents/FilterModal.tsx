@@ -8,7 +8,8 @@ import SubmitButton from '@fuf-stack/uniform/SubmitButton';
 import { useFilters } from './FiltersContext';
 
 interface FilterModalProps {
-  classNames?: Partial<{
+  /** CSS class name */
+  className?: Partial<{
     header: string;
     footer: string;
     body: string;
@@ -23,8 +24,9 @@ interface FilterModalProps {
   remoteFormId?: string;
 }
 
+/** Modal editor for the active filter and its apply/remove actions */
 const FilterModal = ({
-  classNames = {},
+  className: classNames = {},
   disableAnimation = false,
   portalContainer = undefined,
   remoteFormId = undefined,
@@ -48,6 +50,11 @@ const FilterModal = ({
   // get the form component from the instance
   const FormComponent = instance.components.Form;
 
+  // removing the edited filter also closes its modal
+  const handleRemove = () => {
+    removeFilter(modalFilterName);
+  };
+
   return (
     <Modal
       className={{
@@ -61,9 +68,7 @@ const FilterModal = ({
           <Button
             ariaLabel="Remove filter"
             color="danger"
-            onClick={() => {
-              removeFilter(modalFilterName);
-            }}
+            onClick={handleRemove}
             testId="remove_filter_button"
             variant="flat"
           >

@@ -16,7 +16,7 @@ export type SearchConfiguration =
 
 interface SearchInputProps {
   /** Slots class names passed from parent variants */
-  classNames?: Partial<{
+  className?: Partial<{
     searchWrapper: string;
     searchShowButton: string;
     searchMotionDiv: string;
@@ -34,15 +34,35 @@ interface SearchInputProps {
  * By default renders only a search button. When clicked, the text input animates in
  * and a trailing submit button is shown.
  */
-const SearchInput = ({ classNames = {}, config }: SearchInputProps) => {
+const SearchInput = ({
+  className: classNames = {},
+  config,
+}: SearchInputProps) => {
   const { formState, setFocus, triggerSubmit } = useFormContext();
 
-  // Auto-open if there is an initial or externally set search value
+  // auto-open if there is an initial or externally set search value
   const isInitiallyVisible = !!formState?.defaultValues?.search;
   const [isVisible, setIsVisible] = useState(isInitiallyVisible);
 
   const placeholder =
     typeof config === 'object' ? config.placeholder : undefined;
+
+  // reveal the search field before moving focus into it
+  const handleShow = () => {
+    setIsVisible(true);
+  };
+
+  // wait until the reveal finishes so focus does not interrupt the animation
+  const handleAnimationComplete = () => {
+    if (!isInitiallyVisible) {
+      setFocus('search');
+    }
+  };
+
+  // clearing commits the empty search immediately
+  const handleClear = () => {
+    triggerSubmit();
+  };
 
   return (
     <div className={classNames.searchWrapper}>
@@ -51,9 +71,7 @@ const SearchInput = ({ classNames = {}, config }: SearchInputProps) => {
           ariaLabel="Show search input"
           className={classNames.searchShowButton}
           icon={<FaSearch />}
-          onClick={() => {
-            setIsVisible(true);
-          }}
+          onClick={handleShow}
           size="sm"
           testId="show_search_input_button"
           variant="bordered"
@@ -66,12 +84,7 @@ const SearchInput = ({ classNames = {}, config }: SearchInputProps) => {
           className={classNames.searchMotionDiv}
           // if the input was not initially visible, animate in
           initial={!isInitiallyVisible ? { opacity: 0.5 } : false}
-          onAnimationComplete={() => {
-            // if the input was not initially visible, focus it
-            if (!isInitiallyVisible) {
-              setFocus('search');
-            }
-          }}
+          onAnimationComplete={handleAnimationComplete}
           transition={{
             duration: 0.3,
             ease: 'circOut',
@@ -88,9 +101,7 @@ const SearchInput = ({ classNames = {}, config }: SearchInputProps) => {
             size="sm"
             name="search"
             // submit on clear
-            onClear={() => {
-              triggerSubmit();
-            }}
+            onClear={handleClear}
           />
           <SubmitButton
             className={classNames.searchSubmitButton}

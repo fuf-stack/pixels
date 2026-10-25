@@ -7,40 +7,40 @@ import type {
   DataTableInfiniteScrollFeature,
   DataTableVirtualizationFeature,
 } from '../DataTable';
-import type { DataTableClassNames } from './DataTableCells';
+import type { DataTableClassNames } from '../dataTableVariants';
 
 import { cn } from '@fuf-stack/pixel-utils';
 import { Button } from '@fuf-stack/pixels/Button';
 
 import { useDataTableVirtualizer } from '../hooks/useDataTableVirtualizer';
+import DataTableBodyCell from './DataTableBodyCell';
 import {
-  DataTableBodyCell,
   getColumnKind,
   getVirtualCellStyle,
   virtualFullWidthCellStyle,
   virtualFullWidthRowStyle,
-} from './DataTableCells';
+} from './dataTableCellHelpers';
 
 interface DataTableVirtualBodyRowsProps<TData> {
-  /** Slot classes resolved by `dataTableVariants`. */
-  classNames: DataTableClassNames;
-  /** Optional expanded-row behavior and content renderer. */
+  /** Slot classes resolved by `dataTableVariants` */
+  className: DataTableClassNames;
+  /** Optional expanded-row behavior and content renderer */
   expandableRows?: DataTableExpandableRowsFeature<TData>;
-  /** Optional cursor-based infinite-scroll state/callbacks. */
+  /** Optional cursor-based infinite-scroll state/callbacks */
   infiniteScroll?: DataTableInfiniteScrollFeature;
-  /** Content shown in the load-more row while next page is fetching. */
+  /** Content shown in the load-more row while next page is fetching */
   loadingMoreContent?: ReactNode;
-  /** Retry button label/content when load-more fails. */
+  /** Retry button label/content when load-more fails */
   retryContent?: ReactNode;
-  /** TanStack rows currently loaded in the table model. */
+  /** TanStack rows currently loaded in the table model */
   rows: Row<TData>[];
-  /** Scroll container consumed by the shared virtualizer hook. */
+  /** Scroll container consumed by the shared virtualizer hook */
   scrollElementRef?: RefObject<HTMLDivElement | null>;
-  /** Virtualizer options (maxHeight, estimate, dynamic sizing, overscan). */
+  /** Virtualizer options (maxHeight, estimate, dynamic sizing, overscan) */
   virtualization?: DataTableVirtualizationFeature;
-  /** Enables virtualized row/cell sizing behavior. */
+  /** Enables virtualized row/cell sizing behavior */
   virtualized: boolean;
-  /** Current visible column count for full-width helper rows. */
+  /** Current visible column count for full-width helper rows */
   visibleColumnCount: number;
 }
 
@@ -51,7 +51,7 @@ interface DataTableVirtualBodyRowsProps<TData> {
  * positioned `<tr>` elements and delegates load-more retry handling.
  */
 export const DataTableVirtualBodyRows = <TData,>({
-  classNames,
+  className: classNames,
   expandableRows = undefined,
   infiniteScroll = undefined,
   loadingMoreContent = 'Loading more...',
@@ -62,7 +62,7 @@ export const DataTableVirtualBodyRows = <TData,>({
   virtualization = undefined,
   visibleColumnCount,
 }: DataTableVirtualBodyRowsProps<TData>) => {
-  // Shared hook flattens rows + expanded rows + placeholders + sentinel.
+  // shared hook flattens rows + expanded rows + placeholders + sentinel
   const { getItem, measureElement, retry, totalSize, virtualItems } =
     useDataTableVirtualizer({
       expandableRows,
@@ -84,7 +84,7 @@ export const DataTableVirtualBodyRows = <TData,>({
       </tr>
 
       {virtualItems.map((virtualItem) => {
-        // Resolve the view model item backing this virtual row index.
+        // resolve the view model item backing this virtual row index
         const item = getItem(virtualItem);
         if (!item) {
           return null;
@@ -111,7 +111,7 @@ export const DataTableVirtualBodyRows = <TData,>({
                   <DataTableBodyCell
                     key={cell.id}
                     cell={cell}
-                    classNames={classNames}
+                    className={classNames}
                     virtualized={virtualized}
                   />
                 );
@@ -121,7 +121,7 @@ export const DataTableVirtualBodyRows = <TData,>({
         }
 
         if (item.kind === 'expanded') {
-          // Expanded content consumes full table width as a dedicated row.
+          // expanded content consumes full table width as a dedicated row
           return (
             <tr
               key={item.key}
@@ -144,7 +144,7 @@ export const DataTableVirtualBodyRows = <TData,>({
         }
 
         if (item.kind === 'placeholder') {
-          // Placeholder rows reserve scroll height in total-count mode.
+          // placeholder rows reserve scroll height in total-count mode
           return (
             <tr
               key={item.key}

@@ -34,23 +34,23 @@ const ChevronDownIcon = () => {
 };
 
 export interface DataTablePaginationProps<TData> {
-  /** Slot-driven class names forwarded from DataTable variants. */
-  classNames: PaginationClassNames;
-  /** Available rows-per-page options. */
+  /** Slot-driven class names forwarded from DataTable variants */
+  className: PaginationClassNames;
+  /** Available rows-per-page options */
   pageSizeOptions: number[];
-  /** Shows the rows-per-page selector when pagination is enabled. */
+  /** Shows the rows-per-page selector when pagination is enabled */
   showRowsPerPage: boolean;
-  /** Shows selected-row summary when row selection is enabled. */
+  /** Shows selected-row summary when row selection is enabled */
   showSelectionSummary: boolean;
-  /** TanStack table instance used for paging and counts. */
+  /** TanStack table instance used for paging and counts */
   table: Table<TData>;
-  /** Optional test id prefix used for control ids. */
+  /** Optional test id prefix used for control ids */
   testId?: string;
 }
 
-/** Footer controls for paging, page size, and selected-row summary. */
+/** Footer controls for paging, page size, and selected-row summary */
 const DataTablePagination = <TData,>({
-  classNames,
+  className: classNames,
   pageSizeOptions,
   showRowsPerPage,
   showSelectionSummary,
@@ -99,7 +99,7 @@ const DataTablePagination = <TData,>({
             ariaLabel="Rows per page"
             items={pageSizeItems}
             onAction={(key) => {
-              // Keep page-size source of truth inside TanStack state.
+              // keep page-size source of truth inside TanStack state
               table.setPageSize(Number(key));
             }}
             placement="top"

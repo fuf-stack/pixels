@@ -6,7 +6,7 @@ import { useFilters } from './FiltersContext';
 
 /** Layout of the edit action inside an active filter label */
 const activeFilterTriggerVariants = tv({
-  base: 'flex items-center gap-2',
+  base: "flex items-center gap-2",
 });
 
 interface ActiveFiltersProps {

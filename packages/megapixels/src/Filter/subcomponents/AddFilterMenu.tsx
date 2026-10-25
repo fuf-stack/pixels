@@ -6,7 +6,7 @@ import { useFilters } from './FiltersContext';
 
 interface AddFilterMenuProps {
   /** CSS class name map for slots */
-  classNames?: Partial<{
+  className?: Partial<{
     addFilterMenuItem: string;
     addFilterMenuButton: string;
   }>;
@@ -23,7 +23,7 @@ interface AddFilterMenuProps {
  * item triggers the parent to seed a default value and open the modal.
  */
 const AddFilterMenu = ({
-  classNames = {},
+  className: classNames = {},
   disableAnimation = false,
   portalContainer = undefined,
 }: AddFilterMenuProps) => {

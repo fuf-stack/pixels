@@ -32,6 +32,10 @@ import {
 } from '../storybookData';
 
 // Animations are disabled in the test environment so snapshots are stable.
+// -----------------------------------------------------------------------------
+// Story base setup
+// -----------------------------------------------------------------------------
+
 const isTestEnv = process.env.NODE_ENV === 'test';
 
 const renderStatusLabel = (statusKey: SnackOrder['status']) => {
@@ -254,7 +258,7 @@ const DataTableWithMegapixelsFilter = ({
 const SnackOrderDataTable = DataTable<SnackOrder, unknown>;
 
 const meta: Meta<typeof SnackOrderDataTable> = {
-  title: 'Megapixels/DataTable',
+  title: 'megapixels/DataTable',
   component: SnackOrderDataTable,
 };
 
@@ -289,6 +293,10 @@ const playgroundArgs: PlaygroundArgs = {
   showRowsPerPage: true,
   testId: 'datatable-playground',
 };
+
+// -----------------------------------------------------------------------------
+// Normal stories
+// -----------------------------------------------------------------------------
 
 export const Default: Story = {
   args: {

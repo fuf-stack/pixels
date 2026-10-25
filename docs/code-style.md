@@ -783,20 +783,46 @@ A main component's docstring describes its purpose. For form fields, name the
 kind of field and what it accepts or selects, using familiar terms such as
 "text" rather than implementation types such as "strings".
 
-Add context or constraints only when they are not obvious and affect correct
-usage. For example, Uniform
-fields do not need to repeat that they require a Uniform Form. Show that setup in
-the README example instead. A one-line header is enough when there is nothing
-else to explain.
-Keep optional features and defaults in prop docs or the README. Examples and
-upstream documentation links belong in the README. Avoid internal wiring
-descriptions and feature lists.
+Let the header's length follow the useful information, rather than enforcing a
+one-line format. Complex components can have longer headers when an overview of
+their capabilities, behavior or usage helps readers understand them. Keep the
+opening description clear, then group additional context into short paragraphs
+or a list when useful. A simple component may need only one line.
+
+Preserve valuable context when editing or extracting components. Explain important
+behavior such as when edits are committed or how incremental loading works,
+without listing every prop or internal hook. Keep detailed configuration,
+examples and upstream links in the README or prop docs. Skip obvious setup,
+such as repeating that a Uniform field requires a Uniform Form.
 
 ```tsx
 /** Form input field for text, passwords or numbers */
 const Input = ({ name, ...props }: InputProps) => {
   // ...
 };
+```
+
+When extracting subcomponents, keep the top-level purpose header and preserve
+useful rationale beside the code that now owns it. Move architecture details to
+the component README rather than replacing the public description with internal
+wiring or deleting comments that explain a constraint.
+
+```tsx
+/**
+ * Configurable data table built on TanStack Table with semantic table markup
+ *
+ * Configure search, sorting, column visibility, row selection and pagination
+ * through column definitions and `features`, with optional custom toolbar content
+ *
+ * Supports virtual scrolling and cursor-based loading for larger datasets
+ * Customize individual slots through `className`
+ */
+const DataTable = <TData, TValue>(props: DataTableProps<TData, TValue>) => {
+  // ...
+};
+
+// inside the table surface
+// keep the header outside the viewport so only the body scrolls
 ```
 
 For hooks with non-obvious policy, explain what they derive, why the owning
@@ -993,6 +1019,19 @@ title: 'uniform/hooks/useUniformField',
 Preserve `play` assertions, scenario descriptions and decorator order when moving
 stories. See [the story workflow](./agent-workflows.md#storybook-stories-and-edge-cases)
 for the shared explanation decorator and verification.
+
+## Package READMEs
+
+Keep the package-root README to a short introduction describing the package and
+what it provides. Do not turn it into an index of component guides or repository
+style documentation. Those files are not necessarily shipped with the package.
+
+```md
+# Megapixels
+
+Advanced React components for data-heavy interfaces, built on Pixels and Uniform.
+Includes data tables, configurable filters, virtualized lists and notifications.
+```
 
 ## Component READMEs
 

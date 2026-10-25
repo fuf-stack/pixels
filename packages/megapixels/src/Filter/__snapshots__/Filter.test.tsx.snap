@@ -3,7 +3,7 @@
 exports[`Story Snapshots > AddFilterInteraction 1`] = `
 <div>
   <div
-    class="flex flex-auto flex-col"
+    class="flex flex-auto flex-col w-full"
     data-component="filter"
   >
     <div
@@ -118,7 +118,7 @@ exports[`Story Snapshots > AddFilterInteraction 1`] = `
 exports[`Story Snapshots > CheckboxesWithReactNodeLabels 1`] = `
 <div>
   <div
-    class="flex flex-auto flex-col"
+    class="flex flex-auto flex-col w-full"
     data-component="filter"
   >
     <div
@@ -393,7 +393,7 @@ exports[`Story Snapshots > EditAndRemove 1`] = `
 exports[`Story Snapshots > FiltersOnly 1`] = `
 <div>
   <div
-    class="flex flex-auto flex-col"
+    class="flex flex-auto flex-col w-full"
     data-component="filter"
   >
     <div
@@ -420,6 +420,60 @@ exports[`Story Snapshots > FiltersOnly 1`] = `
           data-testid="add_filter_button"
           id="react-aria-«replaced-aria-id»"
           tabindex="0"
+          type="button"
+        >
+          <svg
+            fill="currentColor"
+            height="1em"
+            stroke="currentColor"
+            stroke-width="0"
+            viewBox="0 0 512 512"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0 416c0 17.7 14.3 32 32 32l54.7 0c12.3 28.3 40.5 48 73.3 48s61-19.7 73.3-48L480 448c17.7 0 32-14.3 32-32s-14.3-32-32-32l-246.7 0c-12.3-28.3-40.5-48-73.3-48s-61 19.7-73.3 48L32 384c-17.7 0-32 14.3-32 32zm128 0a32 32 0 1 1 64 0 32 32 0 1 1 -64 0zM320 256a32 32 0 1 1 64 0 32 32 0 1 1 -64 0zm32-80c-32.8 0-61 19.7-73.3 48L32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l246.7 0c12.3 28.3 40.5 48 73.3 48s61-19.7 73.3-48l54.7 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-54.7 0c-12.3-28.3-40.5-48-73.3-48zM192 128a32 32 0 1 1 0-64 32 32 0 1 1 0 64zm73.3-64C253 35.7 224.8 16 192 16s-61 19.7-73.3 48L32 64C14.3 64 0 78.3 0 96s14.3 32 32 32l86.7 0c12.3 28.3 40.5 48 73.3 48s61-19.7 73.3-48L480 128c17.7 0 32-14.3 32-32s-14.3-32-32-32L265.3 64z"
+            />
+          </svg>
+          Filter
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Story Snapshots > NoConfiguredFilters 1`] = `
+<div>
+  <div
+    class="flex flex-auto flex-col"
+    data-component="filter"
+  >
+    <div
+      class="flex w-full flex-row justify-between gap-6"
+      data-component="form"
+    >
+      <form
+        class="grow mb-3 flex flex-wrap gap-3"
+        data-form-is-valid="true"
+        data-testid="filtercomponentform"
+        id="filterComponentForm"
+        name="filterComponentForm"
+        novalidate=""
+      >
+        <button
+          aria-expanded="false"
+          aria-haspopup="true"
+          aria-label="Add Filter"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover group tap-highlight-transparent pointer-events-none opacity-disabled data-[hover=true]:opacity-hover group relative box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus border-medium h-8 min-w-16 gap-2 rounded-small px-3 text-tiny [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none border-default bg-transparent text-foreground data-[hover=true]:opacity-hover z-auto subpixel-antialiased aria-expanded:!scale-[0.97] aria-expanded:!opacity-70"
+          data-component="button"
+          data-disabled="true"
+          data-rac=""
+          data-react-aria-pressable="true"
+          data-slot="trigger"
+          data-testid="add_filter_button"
+          disabled=""
+          id="react-aria-«replaced-aria-id»"
           type="button"
         >
           <svg
@@ -772,7 +826,7 @@ exports[`Story Snapshots > WithCustomStyles 1`] = `
 exports[`Story Snapshots > WithInitialValue 1`] = `
 <div>
   <div
-    class="flex flex-auto flex-col"
+    class="flex flex-auto flex-col w-full"
     data-component="filter"
   >
     <div
@@ -1098,7 +1152,7 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
 exports[`Story Snapshots > WithSearch 1`] = `
 <div>
   <div
-    class="flex flex-auto flex-col"
+    class="flex flex-auto flex-col w-full"
     data-component="filter"
   >
     <div

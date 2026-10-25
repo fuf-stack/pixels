@@ -21,32 +21,32 @@ interface ViewOptionsClassNames {
 }
 
 export interface DataTableViewOptionsProps<TData> {
-  /** Slot-driven class names forwarded from DataTable variants. */
-  classNames: ViewOptionsClassNames;
-  /** TanStack table instance used to enumerate/toggle columns. */
+  /** Slot-driven class names forwarded from DataTable variants */
+  className: ViewOptionsClassNames;
+  /** TanStack table instance used to enumerate/toggle columns */
   table: Table<TData>;
-  /** Optional test id prefix used for the trigger. */
+  /** Optional test id prefix used for the trigger */
   testId?: string;
-  /** Icon shown in the trigger; pass `false` to hide. */
+  /** Icon shown in the trigger; pass `false` to hide */
   triggerIcon?: ReactNode | false;
-  /** Icon shown for visible columns; pass `false` to hide. */
+  /** Icon shown for visible columns; pass `false` to hide */
   visibleIcon?: ReactNode | false;
 }
 
-/** Dropdown for toggling table column visibility. */
+/** Dropdown for toggling table column visibility */
 const DataTableViewOptions = <TData,>({
-  classNames,
+  className: classNames,
   table,
   triggerIcon = <LuColumns3 />,
   visibleIcon = '✓',
   testId = undefined,
 }: DataTableViewOptionsProps<TData>) => {
-  // Only show columns TanStack allows to be hidden.
+  // only show columns TanStack allows to be hidden
   const hideableColumns = table.getAllColumns().filter((column) => {
     return column.getCanHide();
   });
 
-  // Fast lookup for onAction callbacks from menu key -> column instance.
+  // fast lookup for onAction callbacks from menu key -> column instance
   const columnsById = new Map(
     hideableColumns.map((column) => {
       return [column.id, column] as const;

@@ -1549,6 +1549,79 @@ exports[`Story Snapshots > Empty 1`] = `
 </div>
 `;
 
+exports[`Story Snapshots > EmptyAfterFiltering 1`] = `
+<div>
+  <div
+    class="w-full"
+    data-component="data-table"
+    data-slot="base"
+    data-testid="empty-after-filtering"
+  >
+    <div
+      class="flex items-center gap-3 py-4"
+      data-slot="toolbar"
+    >
+      <input
+        class="h-10 w-full max-w-sm rounded-small border-2 border-default-200 bg-transparent px-3 text-sm text-foreground outline-none transition-colors placeholder:text-default-500 hover:border-default-400 data-[focused=true]:border-focus dark:border-default-100"
+        data-focused="true"
+        data-slot="search-input"
+        data-testid="empty-after-filtering-search"
+        placeholder="Search..."
+        value="No match"
+      />
+    </div>
+    <div
+      class="overflow-hidden rounded-md border border-divider"
+      data-slot="table-wrapper"
+    >
+      <table
+        aria-label="Data table"
+        class="w-full caption-bottom text-sm"
+        data-slot="table"
+      >
+        <thead
+          class="bg-content2"
+          data-slot="thead"
+        >
+          <tr
+            class="border-b border-divider last:border-b-0 data-[state=selected]:bg-content2/60"
+            data-slot="tr"
+          >
+            <th
+              class="h-10 px-3 text-left align-middle font-medium text-foreground"
+              data-slot="th"
+            >
+              <div
+                class="inline-flex items-center"
+                data-slot="non-sortable-header-content"
+              >
+                Name
+              </div>
+            </th>
+          </tr>
+        </thead>
+        <tbody
+          data-slot="tbody"
+        >
+          <tr
+            class="border-b border-divider last:border-b-0 data-[state=selected]:bg-content2/60"
+            data-slot="tr"
+          >
+            <td
+              class="h-24 text-center text-default-500"
+              colspan="1"
+              data-slot="empty-cell"
+            >
+              No results.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Story Snapshots > ExpandableRows 1`] = `
 <div>
   <div
@@ -5064,6 +5137,53 @@ exports[`Story Snapshots > MultiLevelExpandableRows 1`] = `
                   Delivered
                 </span>
               </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Story Snapshots > NoColumns 1`] = `
+<div>
+  <div
+    class="w-full"
+    data-component="data-table"
+    data-slot="base"
+  >
+    <div
+      class="overflow-hidden rounded-md border border-divider"
+      data-slot="table-wrapper"
+    >
+      <table
+        aria-label="Data table"
+        class="w-full caption-bottom text-sm"
+        data-slot="table"
+      >
+        <thead
+          class="bg-content2"
+          data-slot="thead"
+        >
+          <tr
+            class="border-b border-divider last:border-b-0 data-[state=selected]:bg-content2/60"
+            data-slot="tr"
+          />
+        </thead>
+        <tbody
+          data-slot="tbody"
+        >
+          <tr
+            class="border-b border-divider last:border-b-0 data-[state=selected]:bg-content2/60"
+            data-slot="tr"
+          >
+            <td
+              class="h-24 text-center text-default-500"
+              colspan="0"
+              data-slot="empty-cell"
+            >
+              No results.
             </td>
           </tr>
         </tbody>
