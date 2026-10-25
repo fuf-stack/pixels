@@ -13,7 +13,9 @@ The main props and feature types stay in `DataTable.tsx`, slot recipes and
 derived styling types live in `dataTableVariants.ts`.
 
 Selection controls use React Aria, including keyboard activation and the mixed
-state for partially selected pages. TanStack owns table state and virtualization.
+state for partially selected pages. Checkbox fields keep React Aria's native root;
+selection-cell styling owns their alignment. TanStack owns table state and
+virtualization.
 
 Normal stories show feature combinations. Edge cases cover an empty filtered
 result while preserving headers. Infinite-loading retry and expansion behavior

@@ -249,7 +249,13 @@ describe('Base element ownership', () => {
     const { container } = render(
       <FieldLayout
         baseAs={TextField}
-        baseProps={{ ref, defaultValue: 'hello', isDisabled: true, onChange }}
+        baseProps={{
+          'aria-labelledby': ids.label,
+          defaultValue: 'hello',
+          isDisabled: true,
+          onChange,
+          ref,
+        }}
         className={{ base: 'custom-base' }}
         description="Use your work email"
         errorMessage={null}

@@ -46,22 +46,27 @@ storybook-react-scan:
 
 # Run unit tests followed by isolated parallel Storybook shards.
 test: install
+	clear
 	node scripts/test.mjs all $(ARGS)
-
-# Run only unit and CI-script tests.
-test-unit: install
-	node scripts/test.mjs unit $(ARGS)
-
-# Run only Storybook interaction and accessibility tests in Chromium.
-test-storybook: install
-	node scripts/test.mjs storybook $(ARGS)
-
-# Build Storybook and compare screenshots in the pinned Docker environment.
-test-visual: install
-	node scripts/test.mjs visual $(ARGS)
 
 # Run the declaration-emit smoke test (installs dependencies first).
 # `install` already runs `pnpm build`, so dist/index.d.ts is fresh
 # by the time tsc reads it. See: packages/veto/test/dts-smoke/.
 test-dts: install
+	clear
 	node scripts/test.mjs dts $(ARGS)
+
+# Run only unit and CI-script tests.
+test-unit: install
+	clear
+	node scripts/test.mjs unit $(ARGS)
+
+# Run only Storybook interaction and accessibility tests in Chromium.
+test-storybook: install
+	clear
+	node scripts/test.mjs storybook $(ARGS)
+
+# Build Storybook and compare screenshots in the pinned Docker environment.
+test-visual: install
+	clear
+	node scripts/test.mjs visual $(ARGS)

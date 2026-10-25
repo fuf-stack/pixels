@@ -2,10 +2,21 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { use } from 'react';
 
-import { expect, userEvent, within } from 'storybook/test';
+import { expect, userEvent, waitFor, within } from 'storybook/test';
 
 import { Button } from '../../../Button';
 import { createWithSuspense } from '../createWithSuspense';
+import createExpectedErrorHandler from './createExpectedErrorHandler';
+
+// share exact error instances with the root handler, similar messages must remain visible
+const expectedErrors = {
+  'custom-error-user': new Error('Failed to fetch user custom-error-user'),
+  'error-user': new Error('Failed to fetch user error-user'),
+  'multi-error': new Error('Failed to fetch user multi-error'),
+  'real-world-error': new Error('Failed to fetch user real-world-error'),
+};
+
+type ErrorId = keyof typeof expectedErrors;
 
 // Helper: Create a promise that resolves after delay
 // Note: Not marked as async to avoid double-wrapping the promise
@@ -21,10 +32,10 @@ const createDelayedPromise = <T,>(value: T, delay: number) => {
 // Helper: Create a promise that rejects after delay
 // Note: Not marked as async to avoid double-wrapping the promise
 // eslint-disable-next-line @typescript-eslint/promise-function-async
-const createFailedPromise = (message: string, delay: number) => {
+const createFailedPromise = (error: Error, delay: number) => {
   return new Promise<string>((_, reject) => {
     setTimeout(() => {
-      reject(new Error(message));
+      reject(error);
     }, delay);
   });
 };
@@ -48,12 +59,12 @@ const fetchUser = (userId: string, delay = 1000): Promise<string> => {
 
 // Note: Not marked as async to return the promise directly without wrapping
 // eslint-disable-next-line @typescript-eslint/promise-function-async
-const fetchUserWithError = (userId: string, delay = 1000): Promise<string> => {
+const fetchUserWithError = (userId: ErrorId, delay = 1000): Promise<string> => {
   const cacheKey = `error-${userId}-${delay}`;
   if (!promiseCache.has(cacheKey)) {
     promiseCache.set(
       cacheKey,
-      createFailedPromise(`Failed to fetch user ${userId}`, delay),
+      createFailedPromise(expectedErrors[userId], delay),
     );
   }
   const promise = promiseCache.get(cacheKey);
@@ -99,7 +110,7 @@ const UserProfile = ({ userId }: { userId: string }) => {
 };
 
 // Component that throws an error
-const UserProfileWithError = ({ userId }: { userId: string }) => {
+const UserProfileWithError = ({ userId }: { userId: ErrorId }) => {
   const userName = use(fetchUserWithError(userId));
   return (
     <div className="rounded-md border border-default-200 bg-default-50 p-4">
@@ -194,6 +205,13 @@ export const WithCustomOverride: Story = {
 };
 
 export const WithErrorBoundary: Story = {
+  parameters: {
+    react: {
+      rootOptions: {
+        onCaughtError: createExpectedErrorHandler(expectedErrors['error-user']),
+      },
+    },
+  },
   render: () => {
     const UserProfileWithErrorBoundary =
       projectWithSuspense(UserProfileWithError);
@@ -223,6 +241,15 @@ export const WithErrorBoundary: Story = {
 };
 
 export const WithCustomErrorFallback: Story = {
+  parameters: {
+    react: {
+      rootOptions: {
+        onCaughtError: createExpectedErrorHandler(
+          expectedErrors['custom-error-user'],
+        ),
+      },
+    },
+  },
   render: () => {
     const UserProfileCustomError = projectWithSuspense(UserProfileWithError, {
       errorFallback: (error) => {
@@ -267,6 +294,9 @@ export const WithCustomErrorFallback: Story = {
       { timeout: 2000 },
     );
     expect(errorHeading).toBeInTheDocument();
+    expect(
+      canvas.getByText('Failed to fetch user custom-error-user'),
+    ).toBeInTheDocument();
     const retryButton = canvas.getByText('Retry');
     expect(retryButton).toBeInTheDocument();
   },
@@ -330,6 +360,15 @@ export const WithDisabledAnimation: Story = {
 };
 
 export const MultipleComponentsWithFactory: Story = {
+  parameters: {
+    react: {
+      rootOptions: {
+        onCaughtError: createExpectedErrorHandler(
+          expectedErrors['multi-error'],
+        ),
+      },
+    },
+  },
   render: () => {
     const UserProfile1 = projectWithSuspense(UserProfile);
     const UserProfile2 = projectWithSuspense(UserProfile);
@@ -369,10 +408,22 @@ export const MultipleComponentsWithFactory: Story = {
       { timeout: 3000 },
     );
     expect(errorHeading).toBeInTheDocument();
+    expect(
+      canvas.getByText('Failed to fetch user multi-error'),
+    ).toBeInTheDocument();
   },
 };
 
 export const RealWorldExample: Story = {
+  parameters: {
+    react: {
+      rootOptions: {
+        onCaughtError: createExpectedErrorHandler(
+          expectedErrors['real-world-error'],
+        ),
+      },
+    },
+  },
   render: () => {
     // Real-world usage: Create a project-specific withSuspense
     const myAppWithSuspense = createWithSuspense({
@@ -481,5 +532,10 @@ export const RealWorldExample: Story = {
     const errorDetails = canvas.getByText('Error Details');
     expect(errorDetails).toBeInTheDocument();
     await userEvent.click(errorDetails);
+    await waitFor(() => {
+      expect(
+        canvas.getByText('Failed to fetch user real-world-error'),
+      ).toBeVisible();
+    });
   },
 };

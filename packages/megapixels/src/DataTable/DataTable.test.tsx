@@ -264,9 +264,18 @@ describe('DataTable interactions', () => {
     expect(
       container.querySelectorAll('[data-slot="selection-cell"]').length,
     ).toBeGreaterThan(0);
-    expect(
-      container.querySelectorAll('[data-slot="selection-cell-content"]').length,
-    ).toBeGreaterThan(0);
+
+    const wrappers = container.querySelectorAll(
+      '[data-slot="selection-cell-content"]',
+    );
+
+    expect(wrappers.length).toBeGreaterThan(0);
+
+    wrappers.forEach((wrapper) => {
+      expect(wrapper).toHaveClass('flex', 'justify-center');
+      expect(wrapper.firstElementChild).toBeInstanceOf(HTMLDivElement);
+      expect(within(wrapper).getByRole('checkbox')).toHaveAccessibleName();
+    });
   });
 
   it('expands and collapses custom row content', async () => {

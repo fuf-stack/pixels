@@ -1,5 +1,4 @@
 import type { ReactNode } from 'react';
-import type { CheckboxFieldProps } from 'react-aria-components';
 
 import { CheckboxButton, CheckboxField } from 'react-aria-components';
 
@@ -45,18 +44,12 @@ const DataTableCheckbox = ({
   const indicatorIcon = indeterminate ? indeterminateIcon : checkedIcon;
   const resolvedIndicatorIcon = indicatorIcon === false ? null : indicatorIcon;
 
-  // keep the field wrapper inline inside table cells
-  const renderField: NonNullable<CheckboxFieldProps['render']> = (props) => {
-    return <span {...props} />;
-  };
-
   return (
     <CheckboxField
       aria-label={ariaLabel}
       isIndeterminate={indeterminate}
       isSelected={checked}
       onChange={onCheckedChange}
-      render={renderField}
     >
       <CheckboxButton
         className={className?.checkbox}

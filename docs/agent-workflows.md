@@ -189,6 +189,37 @@ out of date, comment `/autofix-snapshots` on the pull request or add the
 update mode, refuses to commit non-snapshot changes, verifies the updated suite,
 pushes the snapshot commit to the Renovate branch, and dispatches CI for it.
 
+## Expected errors in stories
+
+An error-boundary story should verify its fallback without hiding unrelated
+errors. For React 19 stories, use the story's `parameters.react.rootOptions` to
+handle the exact deliberate error instance via `onCaughtError`, forwarding every
+other error to `console.error`. Keep the handler scoped to that story, leave
+uncaught errors alone, and keep the fallback assertions in `play`.
+
+```tsx
+parameters: {
+  react: {
+    rootOptions: {
+      onCaughtError: createExpectedErrorHandler(expectedErrors['error-user']),
+    },
+  },
+},
+```
+
+The `createWithSuspense` stories demonstrate this pattern. Its tests verify that
+a different error with the same message is still reported. Avoid global console
+filters matching broad text such as `Error:` or `The above error occurred`.
+
+## jsdom limitations
+
+Uniform's jsdom setup mocks `window.scrollTo` and the global `scrollTo` with the
+same Vitest mock. jsdom does not implement viewport scrolling; this records scroll
+requests without suppressing console warnings. Real viewport movement belongs in
+browser tests. After a validation action that requests scrolling, a unit test can
+assert `expect(window.scrollTo).toHaveBeenCalled()`, while a browser story checks
+the resulting position.
+
 ## Visual and accessibility verification
 
 The [visual regression pilot](./visual-regression.md) compares selected stories in

@@ -1,42 +1,44 @@
-import { afterAll, beforeAll, describe, vi } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 
 import storySnapshots from '@repo/storybook-config/story-snapshots';
 
+import createExpectedErrorHandler from './stories/createExpectedErrorHandler';
 import * as stories from './stories/createWithSuspense.stories';
 
 describe('Story Snapshots', () => {
-  // Suppress expected error logs from error boundary stories
-  const originalConsoleError = console.error;
-
-  beforeAll(() => {
-    console.error = vi.fn((...args) => {
-      const message = args[0];
-      const fullMessage = args.join(' ');
-
-      // Suppress React error boundary logs and expected test errors
-      if (
-        (typeof message === 'string' &&
-          (message.includes('Error:') ||
-            message.includes('Failed to fetch user') ||
-            message.includes('The above error occurred') ||
-            message.includes('React will try to recreate') ||
-            message.includes('Error caught by boundary'))) ||
-        (message instanceof Error &&
-          message.message.includes('Failed to fetch user')) ||
-        fullMessage.includes('The above error occurred') ||
-        fullMessage.includes('React will try to recreate')
-      ) {
-        return;
-      }
-
-      // Log other errors normally
-      originalConsoleError(...args);
-    });
-  });
-
-  afterAll(() => {
-    console.error = originalConsoleError;
-  });
-
   storySnapshots(stories);
+});
+
+describe('Expected story errors', () => {
+  afterEach(() => {
+    vi.restoreAllMocks();
+  });
+
+  it('handles the deliberate error without logging it', () => {
+    const report = vi.spyOn(console, 'error').mockImplementation(() => {});
+    const error = new Error('Failed to fetch user error-user');
+    const handleCaughtError = createExpectedErrorHandler(error);
+
+    handleCaughtError(error, { componentStack: 'UserProfileWithError' });
+
+    expect(report).not.toHaveBeenCalled();
+  });
+
+  it.each([
+    new Error('Failed to fetch user error-user'),
+    new Error('Unexpected render failure'),
+    'Unexpected rejection',
+  ])(
+    'reports another caught value even if its message matches: %s',
+    (error) => {
+      const report = vi.spyOn(console, 'error').mockImplementation(() => {});
+      const expectedError = new Error('Failed to fetch user error-user');
+      const handleCaughtError = createExpectedErrorHandler(expectedError);
+      const errorInfo = { componentStack: 'UnexpectedComponent' };
+
+      handleCaughtError(error, errorInfo);
+
+      expect(report).toHaveBeenCalledExactlyOnceWith(error, errorInfo);
+    },
+  );
 });

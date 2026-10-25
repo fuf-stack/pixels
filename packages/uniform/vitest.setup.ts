@@ -8,6 +8,11 @@ import { beforeEach, vi } from 'vitest';
 
 import { cleanup } from '@testing-library/react';
 
+// jsdom cannot scroll, record requests without moving the test viewport
+const scrollTo = vi.fn();
+window.scrollTo = scrollTo;
+vi.stubGlobal('scrollTo', scrollTo);
+
 // Workaround: Storybook >=10.2.10 + jsdom 27 PointerEvent/MouseEvent crash
 //
 // Storybook's bundled @testing-library/user-event clones events by passing the
