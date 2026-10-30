@@ -1,5 +1,26 @@
 # Changelog
 
+## [0.17.2](https://github.com/fuf-stack/pixels/compare/megapixels-v0.17.1...megapixels-v0.17.2) (2026-10-30)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @tanstack/react-virtual to v3.14.14 ([#1926](https://github.com/fuf-stack/pixels/issues/1926)) ([6e7f074](https://github.com/fuf-stack/pixels/commit/6e7f0744b58b365fe803720d1808f88aa706e092))
+* **deps:** update dependency @tanstack/react-virtual to v3.14.15 ([#1935](https://github.com/fuf-stack/pixels/issues/1935)) ([11584d0](https://github.com/fuf-stack/pixels/commit/11584d0ce3042854227a5be162bad9061cae6c20))
+* **deps:** update dependency @tanstack/react-virtual to v3.14.17 ([#1938](https://github.com/fuf-stack/pixels/issues/1938)) ([9d99c43](https://github.com/fuf-stack/pixels/commit/9d99c43c4a18957a9a5804fcd835cb3849cf1186))
+* **deps:** update dependency @tanstack/react-virtual to v3.14.18 ([#1941](https://github.com/fuf-stack/pixels/issues/1941)) ([cd4dc7e](https://github.com/fuf-stack/pixels/commit/cd4dc7efd8a3614939931874e53e482fbda95e99))
+* **deps:** update dependency @tanstack/react-virtual to v3.14.19 ([#1943](https://github.com/fuf-stack/pixels/issues/1943)) ([c5f9e5d](https://github.com/fuf-stack/pixels/commit/c5f9e5da396124ade08ea1a7c922257e625d4852))
+* **deps:** update dependency @tanstack/react-virtual to v3.14.20 ([#1949](https://github.com/fuf-stack/pixels/issues/1949)) ([b77c1cb](https://github.com/fuf-stack/pixels/commit/b77c1cbafae9071425275a2451951382355923b8))
+* **deps:** update dependency @tanstack/react-virtual to v3.14.21 ([#1952](https://github.com/fuf-stack/pixels/issues/1952)) ([9a3ba4c](https://github.com/fuf-stack/pixels/commit/9a3ba4cb1227bfb2623a1be7982e9212254c9344))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @fuf-stack/uniform bumped to 1.28.1
+    * @fuf-stack/veto bumped to 1.11.1
+
 ## [0.17.1](https://github.com/fuf-stack/pixels/compare/megapixels-v0.17.0...megapixels-v0.17.1) (2026-10-19)
 
 
