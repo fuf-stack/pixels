@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.28.1](https://github.com/fuf-stack/pixels/compare/uniform-v1.28.0...uniform-v1.28.1) (2026-10-30)
+
+
+### Bug Fixes
+
+* **uniform:** omit disabled values before schema validation and submission ([302dc78](https://github.com/fuf-stack/pixels/commit/302dc78013d3e4dd91e695e5a1d68349086cafe6))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @fuf-stack/veto bumped to 1.11.1
+
 ## [1.28.0](https://github.com/fuf-stack/pixels/compare/uniform-v1.27.0...uniform-v1.28.0) (2026-10-19)
 
 
