@@ -183,8 +183,8 @@ importers:
         specifier: 5.0.8
         version: 5.0.8(@types/node@24.19.2)(@vitest/browser-playwright@5.0.3)(@vitest/browser@5.0.3)(@vitest/ui@5.0.3)(jsdom@30.0.1)(vite@8.3.4(@types/node@24.19.2)(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.23.15)(yaml@2.9.1))
       '@lerna-lite/cli':
-        specifier: 5.6.3
-        version: 5.6.3(@lerna-lite/list@5.6.2)(@lerna-lite/publish@5.6.2)(@lerna-lite/version@5.6.2)(@types/node@24.19.2)
+        specifier: 5.6.4
+        version: 5.6.4(@lerna-lite/list@5.6.2)(@lerna-lite/publish@5.6.2)(@lerna-lite/version@5.6.2)(@types/node@24.19.2)
       '@repo/storybook-config':
         specifier: workspace:*
         version: link:packages/config/storybook-config
@@ -1923,8 +1923,8 @@ packages:
       '@lerna-lite/watch':
         optional: true
 
-  '@lerna-lite/cli@5.6.3':
-    resolution: {integrity: sha512-DL79xF5lGeT/7JflVm9L9Gz3z5EJW1zsc/UbUi7dCXMNGKgeD0HSO976GVQi5hSNQDBwYEApWKtEdZOntdn9+A==}
+  '@lerna-lite/cli@5.6.4':
+    resolution: {integrity: sha512-Oyh/ReScWByM9KxcPHVkeatDeygGuCZtEZgf+o4gZo9KPvG0Xy3WxTlpyzYs4LG869orBi1Ru+G73oCq5+G8bQ==}
     engines: {node: ^22.17.0 || >=24.0.0}
     hasBin: true
     peerDependencies:
@@ -1952,16 +1952,16 @@ packages:
     resolution: {integrity: sha512-6E00BtVmYUg6wqr3FzkqsXRvFIDk9KSvviNr8eds/vY9iqklKGbesCJ2CkkMB+7Nvx8oNgC+vTZkV6McTtouzA==}
     engines: {node: ^22.17.0 || >=24.0.0}
 
-  '@lerna-lite/core@5.6.3':
-    resolution: {integrity: sha512-33QjLOI+Nsgio2+BAhepCala8H0gaRiOoAEz2T/eGm+vUx2gxEaL/rXRBSCJSRE3LVGGYTat8NMyIQ5F3CxVVg==}
+  '@lerna-lite/core@5.6.4':
+    resolution: {integrity: sha512-QvCoTbJ67q0v0ZwL/C6yRDj38PeNBJGeIig8w8Y/9LVQ6ufuvwOj9Z+Ag10YE0UfVSrXLCMlgWlfrGs1J0zC6g==}
     engines: {node: ^22.17.0 || >=24.0.0}
 
   '@lerna-lite/init@5.6.2':
     resolution: {integrity: sha512-t50cPUzl3bn2eo1A2ESd2UNWHMZD7sQ5swuKRTl4o9vz0epv+mmCXB0tWVp3K2d++PjGhlteOcwNx8tOTcBxBg==}
     engines: {node: ^22.17.0 || >=24.0.0}
 
-  '@lerna-lite/init@5.6.3':
-    resolution: {integrity: sha512-Ad1J0tdkF9oMiLXth7Y00QYW9ZSeRd0kAeLQNGVOJknpVEwPhaOG+T4R062FPpKOx58EIVJvvVOm8HNTlUqV5w==}
+  '@lerna-lite/init@5.6.4':
+    resolution: {integrity: sha512-B5I+2VOKjr7cmxt2DDDQoxnL+eergZQ82+8h61IJBb9yt5D60f8R8chkuARJcTTErwhco0RzRSZ/5N16yJeGMg==}
     engines: {node: ^22.17.0 || >=24.0.0}
 
   '@lerna-lite/list@5.6.2':
@@ -9580,10 +9580,10 @@ snapshots:
     transitivePeerDependencies:
       - '@types/node'
 
-  '@lerna-lite/cli@5.6.3(@lerna-lite/list@5.6.2)(@lerna-lite/publish@5.6.2)(@lerna-lite/version@5.6.2)(@types/node@24.19.2)':
+  '@lerna-lite/cli@5.6.4(@lerna-lite/list@5.6.2)(@lerna-lite/publish@5.6.2)(@lerna-lite/version@5.6.2)(@types/node@24.19.2)':
     dependencies:
-      '@lerna-lite/core': 5.6.3(@types/node@24.19.2)
-      '@lerna-lite/init': 5.6.3(@types/node@24.19.2)
+      '@lerna-lite/core': 5.6.4(@types/node@24.19.2)
+      '@lerna-lite/init': 5.6.4(@types/node@24.19.2)
       '@lerna-lite/npmlog': 5.4.1
       dotenv: 18.0.8
       import-local: 3.2.0
@@ -9615,7 +9615,7 @@ snapshots:
     transitivePeerDependencies:
       - '@types/node'
 
-  '@lerna-lite/core@5.6.3(@types/node@24.19.2)':
+  '@lerna-lite/core@5.6.4(@types/node@24.19.2)':
     dependencies:
       '@inquirer/expand': 5.1.6(@types/node@24.19.2)
       '@inquirer/input': 5.1.7(@types/node@24.19.2)
@@ -9642,9 +9642,9 @@ snapshots:
     transitivePeerDependencies:
       - '@types/node'
 
-  '@lerna-lite/init@5.6.3(@types/node@24.19.2)':
+  '@lerna-lite/init@5.6.4(@types/node@24.19.2)':
     dependencies:
-      '@lerna-lite/core': 5.6.3(@types/node@24.19.2)
+      '@lerna-lite/core': 5.6.4(@types/node@24.19.2)
       write-json-file: 7.0.0
     transitivePeerDependencies:
       - '@types/node'
