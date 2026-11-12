@@ -3,7 +3,6 @@ import type { CSSProperties } from 'react';
 
 import { useState } from 'react';
 
-import { toast as sonnerToast } from 'sonner';
 import { expect, userEvent, within } from 'storybook/test';
 
 import { toast, Toaster } from '.';
@@ -24,7 +23,7 @@ const meta: Meta<typeof Toaster> = {
   // A newly mounted Toaster replays toasts that are still active, so dismiss
   // toasts from previous stories to keep every story isolated.
   beforeEach: () => {
-    sonnerToast.dismiss();
+    toast.close();
   },
 };
 

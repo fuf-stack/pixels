@@ -2,7 +2,6 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { FaBell, FaRocket } from 'react-icons/fa';
 
-import { toast as sonnerToast } from 'sonner';
 import { action } from 'storybook/actions';
 import { expect, userEvent, waitFor, within } from 'storybook/test';
 
@@ -15,7 +14,7 @@ const meta: Meta = {
   // A newly mounted Toaster replays toasts that are still active, so dismiss
   // toasts from previous stories to keep every story isolated.
   beforeEach: () => {
-    sonnerToast.dismiss();
+    toast.close();
   },
   decorators: [
     (Story) => {
@@ -290,6 +289,44 @@ export const CloseExternal: Story = {
     await expect(
       canvas.getByText('This toast can be closed programmatically'),
     ).toBeInTheDocument();
+  },
+};
+
+export const CloseAll: Story = {
+  render: () => {
+    return (
+      <div className="flex gap-2">
+        <Button
+          onClick={() => {
+            toast.info('First open toast', { duration: 60000 });
+            toast.success('Second open toast', { duration: 60000 });
+          }}
+        >
+          Show toasts
+        </Button>
+        <Button
+          onClick={() => {
+            toast.close();
+          }}
+        >
+          Close all toasts
+        </Button>
+      </div>
+    );
+  },
+  // Calling `toast.close()` without an id closes every open toast.
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    await userEvent.click(canvas.getByText('Show toasts'));
+    await expect(canvas.getByText('First open toast')).toBeInTheDocument();
+    await expect(canvas.getByText('Second open toast')).toBeInTheDocument();
+
+    await userEvent.click(canvas.getByText('Close all toasts'));
+    await waitFor(() => {
+      expect(canvas.queryByText('First open toast')).not.toBeInTheDocument();
+      expect(canvas.queryByText('Second open toast')).not.toBeInTheDocument();
+    });
   },
 };
 
