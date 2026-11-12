@@ -3,6 +3,7 @@ import type { NotificationHostProps } from '.';
 
 import { useState } from 'react';
 
+import { toast as sonnerToast } from 'sonner';
 import { expect, userEvent, waitFor, within } from 'storybook/test';
 
 import { Button } from '@fuf-stack/pixels/Button';
@@ -12,6 +13,11 @@ import { notification, NotificationHost } from '.';
 const meta: Meta = {
   title: 'Megapixels/Notification',
   component: NotificationHost,
+  // A newly mounted Toaster replays toasts that are still active, so dismiss
+  // notifications from previous stories to keep every story isolated.
+  beforeEach: () => {
+    sonnerToast.dismiss();
+  },
   decorators: [
     (Story, context) => {
       // Stories can override the host props via `parameters.notificationHost`,

@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { FaBell, FaRocket } from 'react-icons/fa';
 
+import { toast as sonnerToast } from 'sonner';
 import { action } from 'storybook/actions';
 import { expect, userEvent, waitFor, within } from 'storybook/test';
 
@@ -11,6 +12,11 @@ import { Button } from '../Button';
 const meta: Meta = {
   title: 'pixels/Toast',
   component: Toaster,
+  // A newly mounted Toaster replays toasts that are still active, so dismiss
+  // toasts from previous stories to keep every story isolated.
+  beforeEach: () => {
+    sonnerToast.dismiss();
+  },
   decorators: [
     (Story) => {
       return (
