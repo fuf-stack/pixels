@@ -1,5 +1,9 @@
-import type { Column, Table } from '@tanstack/react-table';
+import type { RowData } from '@tanstack/react-table';
 import type { ReactNode } from 'react';
+import type {
+  DataTableColumn as Column,
+  DataTableTable as Table,
+} from '../types';
 
 import { LuColumns3 } from 'react-icons/lu';
 
@@ -9,7 +13,9 @@ import { Menu } from '@fuf-stack/pixels/Menu';
  * Resolves a human-readable label for a column, preferring its string header
  * over the raw TanStack column id (e.g. "Status" instead of "status").
  */
-const getColumnLabel = <TData,>(column: Column<TData>): string => {
+const getColumnLabel = <TData extends RowData>(
+  column: Column<TData>,
+): string => {
   const { header } = column.columnDef;
   return typeof header === 'string' ? header : column.id;
 };
@@ -20,7 +26,7 @@ interface ViewOptionsClassNames {
   viewOptionsTrigger?: string;
 }
 
-export interface DataTableViewOptionsProps<TData> {
+export interface DataTableViewOptionsProps<TData extends RowData> {
   /** Slot-driven class names forwarded from DataTable variants */
   className: ViewOptionsClassNames;
   /** TanStack table instance used to enumerate/toggle columns */
@@ -34,7 +40,7 @@ export interface DataTableViewOptionsProps<TData> {
 }
 
 /** Dropdown for toggling table column visibility */
-const DataTableViewOptions = <TData,>({
+const DataTableViewOptions = <TData extends RowData>({
   className: classNames,
   table,
   triggerIcon = <LuColumns3 />,

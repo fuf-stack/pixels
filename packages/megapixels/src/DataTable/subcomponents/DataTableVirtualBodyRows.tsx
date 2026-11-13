@@ -1,6 +1,6 @@
 /* eslint-disable import-x/prefer-default-export */
 
-import type { Row } from '@tanstack/react-table';
+import type { RowData } from '@tanstack/react-table';
 import type { ReactNode, RefObject } from 'react';
 import type {
   DataTableExpandableRowsFeature,
@@ -8,6 +8,7 @@ import type {
   DataTableVirtualizationFeature,
 } from '../DataTable';
 import type { DataTableClassNames } from '../dataTableVariants';
+import type { DataTableRow as Row } from '../types';
 
 import { cn } from '@fuf-stack/pixel-utils';
 import { Button } from '@fuf-stack/pixels/Button';
@@ -21,7 +22,7 @@ import {
   virtualFullWidthRowStyle,
 } from './dataTableCellHelpers';
 
-interface DataTableVirtualBodyRowsProps<TData> {
+interface DataTableVirtualBodyRowsProps<TData extends RowData> {
   /** Slot classes resolved by `dataTableVariants` */
   className: DataTableClassNames;
   /** Optional expanded-row behavior and content renderer */
@@ -50,7 +51,7 @@ interface DataTableVirtualBodyRowsProps<TData> {
  * It maps virtual items (row/expanded/placeholder/load-more) to absolute
  * positioned `<tr>` elements and delegates load-more retry handling.
  */
-export const DataTableVirtualBodyRows = <TData,>({
+export const DataTableVirtualBodyRows = <TData extends RowData>({
   className: classNames,
   expandableRows = undefined,
   infiniteScroll = undefined,

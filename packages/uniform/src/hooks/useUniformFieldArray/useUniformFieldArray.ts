@@ -4,6 +4,7 @@ import type {
   ArrayPath,
   FieldValues,
   Path,
+  UseFieldArrayReturn,
 } from 'react-hook-form';
 import type { UniformFieldState } from '../useUniformField/types';
 import type { FieldArrayElementMethods, FieldArrayItem } from './types';
@@ -38,6 +39,31 @@ export interface UseUniformFieldArrayProps<
 }
 
 /**
+ * Return type of `useUniformFieldArrayMethods` and `useUniformFieldArray`.
+ *
+ * Declared explicitly so the published declarations only reference types that
+ * react-hook-form exports from its package root.
+ */
+export type UseUniformFieldArrayReturn<
+  TFieldValues extends FieldValues = FieldValues,
+> = Pick<
+  UseFieldArrayReturn<TFieldValues, ArrayPath<TFieldValues>>,
+  'append' | 'fields' | 'insert' | 'move' | 'remove'
+> &
+  UniformFieldState<TFieldValues> & {
+    /** Appends an element using the configured initial value */
+    appendItem: () => void;
+    /** Disables element animations during initialization, reset and reduced motion */
+    disableAnimation: boolean;
+    /** Value used for newly added array elements */
+    elementInitialValue: NonNullable<unknown>;
+    /** Bound operations and identification for each array row */
+    items: FieldArrayItem[];
+    /** Moves an element and validates the array afterwards */
+    moveItem: (from: number, to: number) => void;
+  };
+
+/**
  * Enhanced useFieldArray hook with initialization and animation logic.
  * Based on React Hook Form's useFieldArray with additional features:
  * - Automatic initialization when lastElementNotRemovable is set
@@ -61,7 +87,7 @@ export const useUniformFieldArrayMethods = <
     lastElementNotRemovable = false,
   }: UseUniformFieldArrayProps<TFieldValues>,
   uniformField: UniformFieldState<TFieldValues>,
-) => {
+): UseUniformFieldArrayReturn<TFieldValues> => {
   const { control } = uniformField;
 
   const { fields, append, remove, insert, move, replace } = useRHFFieldArray({
@@ -313,7 +339,7 @@ export const useUniformFieldArrayMethods = <
 
 const useUniformFieldArray = <TFieldValues extends FieldValues = FieldValues>(
   params: UseUniformFieldArrayProps<TFieldValues>,
-) => {
+): UseUniformFieldArrayReturn<TFieldValues> => {
   const field = useUniformField<TFieldValues>({
     ...params,
     name: params.name as Path<TFieldValues> & string,

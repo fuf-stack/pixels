@@ -1,4 +1,4 @@
-import type { Table } from '@tanstack/react-table';
+import type { RowData } from '@tanstack/react-table';
 import type { RefObject } from 'react';
 import type {
   DataTableFeatures,
@@ -6,6 +6,7 @@ import type {
   DataTableVirtualizationFeature,
 } from '../DataTable';
 import type { DataTableClassNames } from '../dataTableVariants';
+import type { DataTableTable as Table } from '../types';
 
 import { ScrollShadow } from '@fuf-stack/pixels/ScrollShadow';
 
@@ -14,7 +15,7 @@ import DataTableHeaderRows from './DataTableHeaderRows';
 import DataTableStateRows from './DataTableStateRows';
 import { DataTableVirtualBodyRows } from './DataTableVirtualBodyRows';
 
-interface DataTableSurfaceProps<TData> extends Pick<
+interface DataTableSurfaceProps<TData extends RowData> extends Pick<
   DataTableProps<TData, unknown>,
   'ariaLabel' | 'emptyContent' | 'icons' | 'loading' | 'loadingContent'
 > {
@@ -35,7 +36,7 @@ interface DataTableSurfaceProps<TData> extends Pick<
 }
 
 /** Semantic table surface with standard or virtualized row composition */
-const DataTableSurface = <TData,>({
+const DataTableSurface = <TData extends RowData>({
   ariaLabel = undefined,
   className: classNames,
   emptyContent = undefined,

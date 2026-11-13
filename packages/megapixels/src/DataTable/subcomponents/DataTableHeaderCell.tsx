@@ -1,6 +1,7 @@
-import type { Header } from '@tanstack/react-table';
+import type { RowData } from '@tanstack/react-table';
 import type { DataTableIcons } from '../DataTable';
 import type { DataTableClassNames } from '../dataTableVariants';
+import type { DataTableHeader as Header } from '../types';
 
 import { flexRender } from '@tanstack/react-table';
 
@@ -15,7 +16,7 @@ import {
   getVirtualCellStyle,
 } from './dataTableCellHelpers';
 
-interface DataTableHeaderCellProps<TData, TValue> {
+interface DataTableHeaderCellProps<TData extends RowData, TValue> {
   /** Slot classes resolved by `dataTableVariants` */
   className: DataTableClassNames;
   /** TanStack header instance for this column */
@@ -29,7 +30,7 @@ interface DataTableHeaderCellProps<TData, TValue> {
 /**
  * Renders one header cell and encapsulates sortable/non-sortable behavior.
  */
-const DataTableHeaderCell = <TData, TValue>({
+const DataTableHeaderCell = <TData extends RowData, TValue>({
   className: classNames,
   header,
   sortIcons = undefined,

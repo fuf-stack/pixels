@@ -1,6 +1,7 @@
-import type { Row } from '@tanstack/react-table';
+import type { RowData } from '@tanstack/react-table';
 import type { DataTableExpandableRowsFeature } from '../DataTable';
 import type { DataTableClassNames } from '../dataTableVariants';
+import type { DataTableRow as Row } from '../types';
 
 import { Fragment } from 'react';
 
@@ -8,7 +9,7 @@ import { cn } from '@fuf-stack/pixel-utils';
 
 import DataTableBodyCell from './DataTableBodyCell';
 
-interface DataTableBodyRowsProps<TData> {
+interface DataTableBodyRowsProps<TData extends RowData> {
   /** Resolved CSS class names */
   className: DataTableClassNames;
   /** Expanded detail and nested-row configuration */
@@ -28,7 +29,7 @@ interface DataTableBodyRowsProps<TData> {
  * - each data row
  * - an optional sibling expanded-content row that spans all visible columns
  */
-const DataTableBodyRows = <TData,>({
+const DataTableBodyRows = <TData extends RowData>({
   /** Resolved CSS class names */
   className: classNames,
   expandableRows = undefined,

@@ -1,4 +1,4 @@
-import type { Row } from '@tanstack/react-table';
+import type { RowData } from '@tanstack/react-table';
 import type { VirtualItem } from '@tanstack/react-virtual';
 import type { RefObject } from 'react';
 import type {
@@ -6,6 +6,7 @@ import type {
   DataTableInfiniteScrollFeature,
   DataTableVirtualizationFeature,
 } from '../DataTable';
+import type { DataTableRow as Row } from '../types';
 
 import { useMemo } from 'react';
 
@@ -18,7 +19,7 @@ import { useInfiniteVirtualizer } from '../../hooks/useInfiniteVirtualizer';
  * expanded detail row, placeholders, loading sentinel) are normalized into a
  * single ordered sequence.
  */
-export type DataTableVirtualItem<TData> =
+export type DataTableVirtualItem<TData extends RowData> =
   | {
       key: string;
       kind: 'expanded';
@@ -48,7 +49,7 @@ export type DataTableVirtualItem<TData> =
  * - `total-count` mode appends unloaded `placeholder` items after loaded rows
  * - infinite mode appends a trailing `load-more` sentinel when needed
  */
-export const getDataTableVirtualItems = <TData>({
+export const getDataTableVirtualItems = <TData extends RowData>({
   expandableRows,
   infiniteScroll,
   rows,
@@ -151,7 +152,7 @@ export const getDataTableVirtualItems = <TData>({
  * - translate generic load events back to cursor-based `onLoadMore`
  * - expose a `getItem(virtualItem)` lookup for row rendering
  */
-export const useDataTableVirtualizer = <TData>({
+export const useDataTableVirtualizer = <TData extends RowData>({
   expandableRows,
   infiniteScroll,
   rows,

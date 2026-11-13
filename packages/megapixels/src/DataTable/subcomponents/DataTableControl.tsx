@@ -1,4 +1,4 @@
-import type { SortingState } from '@tanstack/react-table';
+import type { RowData, SortingState } from '@tanstack/react-table';
 import type {
   DataTableProps,
   DataTableVirtualizationFeature,
@@ -12,7 +12,7 @@ import DataTablePagination from './DataTablePagination';
 import DataTableSurface from './DataTableSurface';
 import DataTableToolbar from './DataTableToolbar';
 
-interface DataTableControlProps<TData, TValue> extends Omit<
+interface DataTableControlProps<TData extends RowData, TValue> extends Omit<
   DataTableProps<TData, TValue>,
   'className'
 > {
@@ -21,7 +21,7 @@ interface DataTableControlProps<TData, TValue> extends Omit<
 }
 
 /** Table feature state and composition of toolbar, rows and pagination */
-const DataTableControl = <TData, TValue>({
+const DataTableControl = <TData extends RowData, TValue>({
   ariaLabel = 'Data table',
   className: classNames,
   columns,

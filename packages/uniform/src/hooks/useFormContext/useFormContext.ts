@@ -1,7 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 import type { VetoFormattedError, VetoInstance } from '@fuf-stack/veto';
-import type { FieldError, FieldValues, Path } from 'react-hook-form';
+import type { ContextType } from 'react';
+import type {
+  FieldError,
+  FieldValues,
+  Path,
+  UseFormReturn,
+} from 'react-hook-form';
 
 import { useContext } from 'react';
 import { useFormContext as useHookFormContext } from 'react-hook-form';
@@ -69,6 +75,45 @@ const getValidationErrorsByName = (
   return current as FieldError[] | undefined;
 };
 
+/** Field state returned by the enhanced `getFieldState` */
+export interface UniformFieldState {
+  /** Validation errors for the field from the Uniform validation schema */
+  error: FieldError[] | undefined;
+  /** Whether the field has validation errors */
+  invalid: boolean;
+  /** Whether the field value differs from its default value */
+  isDirty: boolean;
+  /** Whether the field has been touched */
+  isTouched: boolean;
+  /** Whether the field is currently being validated */
+  isValidating: boolean;
+  /** Whether the validation schema requires the field */
+  required: boolean;
+  /** Generated HTML data-testid for the field */
+  testId: string;
+}
+
+/**
+ * Return type of `useFormContext`.
+ *
+ * Declared explicitly so the published declarations only reference types that
+ * react-hook-form exports from its package root.
+ */
+export type UseFormContextReturn<
+  TFieldValues extends FieldValues = FieldValues,
+  TContext = any,
+  TTransformedValues = TFieldValues,
+> = Omit<
+  UseFormReturn<TFieldValues, TContext, TTransformedValues>,
+  'getFieldState'
+> &
+  ContextType<typeof UniformContext> & {
+    getFieldState: (
+      name: Path<TFieldValues>,
+      testId?: string,
+    ) => UniformFieldState;
+  };
+
 /**
  * Custom hook that extends react-hook-form's useFormContext to add validation and state management.
  *
@@ -83,7 +128,7 @@ export const useFormContext = <
   TFieldValues extends FieldValues = FieldValues,
   TContext = any,
   TTransformedValues = TFieldValues,
->() => {
+>(): UseFormContextReturn<TFieldValues, TContext, TTransformedValues> => {
   const {
     formState,
     // some methods that will be enhanced below
@@ -118,7 +163,10 @@ export const useFormContext = <
    * @param name - The field path (string or array)
    * @param testId - Optional explicit testId. If provided, will be slugified. If not provided, generated from name.
    */
-  const getFieldState = (name: Path<TFieldValues>, testId?: string) => {
+  const getFieldState = (
+    name: Path<TFieldValues>,
+    testId?: string,
+  ): UniformFieldState => {
     const fieldPath =
       typeof name === 'string' ? name.replace(/\[\d+\]/g, '').split('.') : name;
 

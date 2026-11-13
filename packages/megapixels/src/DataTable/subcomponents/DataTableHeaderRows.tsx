@@ -1,10 +1,11 @@
-import type { Table } from '@tanstack/react-table';
+import type { RowData } from '@tanstack/react-table';
 import type { DataTableIcons } from '../DataTable';
 import type { DataTableClassNames } from '../dataTableVariants';
+import type { DataTableTable as Table } from '../types';
 
 import DataTableHeaderCell from './DataTableHeaderCell';
 
-interface DataTableHeaderRowsProps<TData> {
+interface DataTableHeaderRowsProps<TData extends RowData> {
   /** Resolved CSS class names */
   className: DataTableClassNames;
   /** Sort indicator overrides */
@@ -16,7 +17,7 @@ interface DataTableHeaderRowsProps<TData> {
 }
 
 /** Column header groups and sorting controls for either table layout */
-const DataTableHeaderRows = <TData,>({
+const DataTableHeaderRows = <TData extends RowData>({
   className: classNames,
   sortIcons = undefined,
   table,

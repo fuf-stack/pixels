@@ -1,12 +1,13 @@
-import type { Table } from '@tanstack/react-table';
+import type { RowData } from '@tanstack/react-table';
 import type { RefObject } from 'react';
 import type { DataTableProps, DataTableSearchField } from '../DataTable';
 import type { DataTableClassNames } from '../dataTableVariants';
+import type { DataTableTable as Table } from '../types';
 
 import DataTableSearchInput from './DataTableSearchInput';
 import DataTableViewOptions from './DataTableViewOptions';
 
-interface DataTableToolbarProps<TData> extends Pick<
+interface DataTableToolbarProps<TData extends RowData> extends Pick<
   DataTableProps<TData, unknown>,
   'icons' | 'testId' | 'toolbarContent'
 > {
@@ -27,7 +28,7 @@ interface DataTableToolbarProps<TData> extends Pick<
 }
 
 /** Search, custom actions and column visibility controls above the table */
-const DataTableToolbar = <TData,>({
+const DataTableToolbar = <TData extends RowData>({
   className: classNames,
   columnVisibility: resolvedEnableColumnVisibility,
   icons = undefined,

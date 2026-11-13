@@ -93,7 +93,7 @@ const show = (
 /**
  * Imperative API for showing notifications: `default` / `info` / `warn` /
  * `success` / `error` show a notification (each returns an id), and `close`
- * dismisses one by id.
+ * dismisses one by id, or all notifications when called without an id.
  *
  * Besides a plain node, `endContent` may be a render function that receives
  * the {@link NotificationRenderProps} — including a `modal` API and a
@@ -152,8 +152,8 @@ const notification = {
   error: (message: ReactNode, options?: NotificationOptions) => {
     return show(toast.error, message, options);
   },
-  /** Close a notification by its id */
-  close: (id: string | number) => {
+  /** Close a notification by its id, or close all notifications when no id is given */
+  close: (id?: string | number) => {
     toast.close(id);
   },
 };

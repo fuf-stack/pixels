@@ -1,4 +1,4 @@
-import type { ColumnDef } from '@tanstack/react-table';
+import type { DataTableColumnDef as ColumnDef } from '../types';
 
 import { describe, expect, it } from 'vitest';
 
@@ -107,7 +107,7 @@ describe('useDataTableController', () => {
       result.current.table.getRowModel().rows[0]?.toggleExpanded(true);
     });
 
-    expect(result.current.table.getState().expanded).toEqual({ 0: true });
+    expect(result.current.table.state.expanded).toEqual({ 0: true });
   });
 
   it('uses getSubRows for hierarchical expansion', () => {
@@ -150,7 +150,7 @@ describe('useDataTableController', () => {
       result.current.table.getColumn('email')?.setFilterValue('amelia');
     });
 
-    expect(result.current.table.getState().columnFilters).toEqual([
+    expect(result.current.table.state.columnFilters).toEqual([
       { id: 'email', value: 'amelia' },
     ]);
   });
@@ -162,7 +162,7 @@ describe('useDataTableController', () => {
       result.current.table.getColumn('amount')?.toggleVisibility(false);
     });
 
-    expect(result.current.table.getState().columnVisibility).toEqual({
+    expect(result.current.table.state.columnVisibility).toEqual({
       amount: false,
     });
   });
@@ -170,7 +170,7 @@ describe('useDataTableController', () => {
   it('uses the first page size option for paginated rows', () => {
     const { result } = renderDataTableController({ pageSizeOptions: [1, 2] });
 
-    expect(result.current.table.getState().pagination.pageSize).toBe(1);
+    expect(result.current.table.state.pagination.pageSize).toBe(1);
     expect(result.current.table.getRowModel().rows).toHaveLength(1);
   });
 
@@ -180,14 +180,14 @@ describe('useDataTableController', () => {
       pageSizeOptions: [1],
     });
 
-    expect(result.current.table.getState().pagination.pageSize).toBe(1);
+    expect(result.current.table.state.pagination.pageSize).toBe(1);
     expect(result.current.table.getRowModel().rows).toHaveLength(rows.length);
   });
 
   it('falls back to page size 10 when no options are provided', () => {
     const { result } = renderDataTableController({ pageSizeOptions: [] });
 
-    expect(result.current.table.getState().pagination.pageSize).toBe(10);
+    expect(result.current.table.state.pagination.pageSize).toBe(10);
   });
 
   it('stores row selection changes in TanStack state', () => {
@@ -197,7 +197,7 @@ describe('useDataTableController', () => {
       result.current.table.getRowModel().rows[0]?.toggleSelected(true);
     });
 
-    expect(result.current.table.getState().rowSelection).toEqual({ 0: true });
+    expect(result.current.table.state.rowSelection).toEqual({ 0: true });
   });
 
   it('keeps columns non-sortable unless they explicitly opt in', () => {
@@ -233,12 +233,65 @@ describe('useDataTableController', () => {
       result.current.table.getColumn('email')?.toggleSorting(false);
     });
 
-    expect(result.current.table.getState().sorting).toEqual([
+    expect(result.current.table.state.sorting).toEqual([
       { desc: false, id: 'email' },
     ]);
     expect(result.current.table.getRowModel().rows[0]?.original.email).toBe(
       'amelia@example.com',
     );
+  });
+
+  it('uses a custom v9 sort function', () => {
+    const { result } = renderDataTableController({
+      controllerColumns: [
+        {
+          accessorKey: 'email',
+          enableSorting: true,
+          sortFn: (left, right) =>
+            left.original.email.length - right.original.email.length,
+        },
+      ],
+    });
+    act(() => result.current.table.getColumn('email')?.toggleSorting(false));
+    expect(
+      result.current.table.getRowModel().rows.map((row) => row.original.email),
+    ).toEqual(['zoe@example.com', 'amelia@example.com']);
+    act(() => result.current.table.getColumn('email')?.toggleSorting(true));
+    expect(
+      result.current.table.getRowModel().rows.map((row) => row.original.email),
+    ).toEqual(['amelia@example.com', 'zoe@example.com']);
+  });
+
+  it('recomputes filtered and sorted rows when data is replaced', () => {
+    const { result, rerender } = renderHook(
+      ({ data }) =>
+        useDataTableController({
+          checkboxClassNames: {},
+          columns,
+          data,
+          enableExpandableRows: false,
+          enablePagination: true,
+          enableRowSelection: false,
+          expansionClassNames: {},
+          hasExpandableRowContent: false,
+          pageSizeOptions: [10],
+        }),
+      { initialProps: { data: rows } },
+    );
+    act(() => {
+      result.current.table.getColumn('email')?.setFilterValue('example.com');
+      result.current.table.getColumn('email')?.toggleSorting(false);
+    });
+    rerender({
+      data: [
+        { amount: 3, email: 'zara@example.com' },
+        { amount: 2, email: 'ignored@elsewhere.com' },
+        { amount: 1, email: 'anna@example.com' },
+      ],
+    });
+    expect(
+      result.current.table.getRowModel().rows.map((row) => row.original.email),
+    ).toEqual(['anna@example.com', 'zara@example.com']);
   });
 
   it('keeps server ordering when server mode is enabled', () => {
@@ -250,7 +303,7 @@ describe('useDataTableController', () => {
       result.current.table.getColumn('email')?.toggleSorting(false);
     });
 
-    expect(result.current.table.getState().sorting).toEqual([
+    expect(result.current.table.state.sorting).toEqual([
       { desc: false, id: 'email' },
     ]);
     expect(result.current.table.getRowModel().rows[0]?.original.email).toBe(

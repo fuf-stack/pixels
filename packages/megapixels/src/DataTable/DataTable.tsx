@@ -1,6 +1,10 @@
-import type { ColumnDef, Row, SortingState } from '@tanstack/react-table';
+import type { RowData, SortingState } from '@tanstack/react-table';
 import type { ReactNode } from 'react';
 import type { ClassName } from './dataTableVariants';
+import type {
+  DataTableColumnDef as ColumnDef,
+  DataTableRow as Row,
+} from './types';
 
 import { useStyling } from '@fuf-stack/pixels/StylingProvider';
 
@@ -49,7 +53,9 @@ export interface DataTableIcons {
   };
 }
 
-export interface DataTableExpandableRowsFeature<TData = unknown> {
+export interface DataTableExpandableRowsFeature<
+  TData extends RowData = RowData,
+> {
   /**
    * Returns nested child rows for TanStack-style hierarchical expansion.
    * Provide this when your data contains multi-level rows (for example
@@ -60,7 +66,7 @@ export interface DataTableExpandableRowsFeature<TData = unknown> {
   renderContent?: (row: Row<TData>) => ReactNode;
 }
 
-export interface DataTableFeatures<TData = unknown> {
+export interface DataTableFeatures<TData extends RowData = RowData> {
   /** Enables the "Columns" menu for toggling visible columns. */
   columnVisibility?: boolean;
   /** Enables TanStack expanding for detail panels, nested sub rows, or both. */
@@ -135,7 +141,7 @@ export interface DataTableVirtualizationFeature {
   scrollShadowSize?: number;
 }
 
-export interface DataTableProps<TData, TValue> {
+export interface DataTableProps<TData extends RowData, TValue> {
   /** Accessible label for the underlying HTML table. */
   ariaLabel?: string;
   /** Slot-based class overrides generated from `dataTableVariants`. */
@@ -169,7 +175,7 @@ export interface DataTableProps<TData, TValue> {
  * Supports virtual scrolling and cursor-based loading for larger datasets
  * Customize individual slots through `className`
  */
-const DataTable = <TData, TValue>({
+const DataTable = <TData extends RowData, TValue>({
   className = undefined,
   ...props
 }: DataTableProps<TData, TValue>) => {

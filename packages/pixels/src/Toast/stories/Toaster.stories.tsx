@@ -20,6 +20,11 @@ const positions = [
 const meta: Meta<typeof Toaster> = {
   title: 'pixels/Toast/Toaster',
   component: Toaster,
+  // A newly mounted Toaster replays toasts that are still active, so dismiss
+  // toasts from previous stories to keep every story isolated.
+  beforeEach: () => {
+    toast.close();
+  },
 };
 
 export default meta;

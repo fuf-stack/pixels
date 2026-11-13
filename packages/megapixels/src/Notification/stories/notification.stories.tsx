@@ -16,6 +16,11 @@ import { notification, NotificationHost } from '..';
 const meta: Meta = {
   title: 'megapixels/Notification',
   component: NotificationHost,
+  // A newly mounted Toaster replays toasts that are still active, so dismiss
+  // notifications from previous stories to keep every story isolated.
+  beforeEach: () => {
+    notification.close();
+  },
   decorators: [
     (Story, context) => {
       // Stories can override the host props via `parameters.notificationHost`,
@@ -376,5 +381,53 @@ export const CustomWidth: Story = {
 
     await userEvent.click(canvas.getByText('Short notification'));
     await expect(canvas.getByText('Short message.')).toBeInTheDocument();
+  },
+};
+
+export const CloseAll: Story = {
+  render: () => {
+    return (
+      <div className="flex gap-2">
+        <Button
+          onClick={() => {
+            notification.info('First open notification', { duration: 60000 });
+            notification.success('Second open notification', {
+              duration: 60000,
+            });
+          }}
+        >
+          Show notifications
+        </Button>
+        <Button
+          onClick={() => {
+            notification.close();
+          }}
+        >
+          Close all notifications
+        </Button>
+      </div>
+    );
+  },
+  // Calling `notification.close()` without an id closes every open notification.
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    await userEvent.click(canvas.getByText('Show notifications'));
+    await expect(
+      canvas.getByText('First open notification'),
+    ).toBeInTheDocument();
+    await expect(
+      canvas.getByText('Second open notification'),
+    ).toBeInTheDocument();
+
+    await userEvent.click(canvas.getByText('Close all notifications'));
+    await waitFor(() => {
+      expect(
+        canvas.queryByText('First open notification'),
+      ).not.toBeInTheDocument();
+      expect(
+        canvas.queryByText('Second open notification'),
+      ).not.toBeInTheDocument();
+    });
   },
 };

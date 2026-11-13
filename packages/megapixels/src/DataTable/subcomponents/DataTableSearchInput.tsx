@@ -1,11 +1,12 @@
-import type { Table } from '@tanstack/react-table';
+import type { RowData } from '@tanstack/react-table';
 import type { ChangeEvent, RefObject } from 'react';
 import type {
   DataTableInfiniteScrollFeature,
   DataTableSearchField,
 } from '../DataTable';
+import type { DataTableTable as Table } from '../types';
 
-interface DataTableSearchInputProps<TData> {
+interface DataTableSearchInputProps<TData extends RowData> {
   /** CSS class name */
   className: string;
   /** Server-side search configuration */
@@ -23,7 +24,7 @@ interface DataTableSearchInputProps<TData> {
 }
 
 /** Column search input that commits filters and resets server-side scrolling */
-const DataTableSearchInput = <TData,>({
+const DataTableSearchInput = <TData extends RowData>({
   className,
   infiniteScroll: resolvedInfiniteScroll = undefined,
   scrollContainerRef,

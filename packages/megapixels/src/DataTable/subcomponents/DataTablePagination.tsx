@@ -1,4 +1,5 @@
-import type { Table } from '@tanstack/react-table';
+import type { RowData } from '@tanstack/react-table';
+import type { DataTableTable as Table } from '../types';
 
 import { Button } from '@fuf-stack/pixels/Button';
 import { Menu } from '@fuf-stack/pixels/Menu';
@@ -33,7 +34,7 @@ const ChevronDownIcon = () => {
   );
 };
 
-export interface DataTablePaginationProps<TData> {
+export interface DataTablePaginationProps<TData extends RowData> {
   /** Slot-driven class names forwarded from DataTable variants */
   className: PaginationClassNames;
   /** Available rows-per-page options */
@@ -49,7 +50,7 @@ export interface DataTablePaginationProps<TData> {
 }
 
 /** Footer controls for paging, page size, and selected-row summary */
-const DataTablePagination = <TData,>({
+const DataTablePagination = <TData extends RowData>({
   className: classNames,
   pageSizeOptions,
   showRowsPerPage,
@@ -57,7 +58,7 @@ const DataTablePagination = <TData,>({
   table,
   testId = undefined,
 }: DataTablePaginationProps<TData>) => {
-  const { pageSize } = table.getState().pagination;
+  const { pageSize } = table.state.pagination;
   const selectedRowCount = table.getFilteredSelectedRowModel().rows.length;
   const pageSizeItems = pageSizeOptions.map((size) => {
     return {
@@ -120,7 +121,7 @@ const DataTablePagination = <TData,>({
       ) : null}
 
       <div className={classNames.pageSummary} data-slot="page-summary">
-        Page {table.getState().pagination.pageIndex + 1} of{' '}
+        Page {table.state.pagination.pageIndex + 1} of{' '}
         {Math.max(table.getPageCount(), 1)}
       </div>
 

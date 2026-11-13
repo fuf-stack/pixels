@@ -1,10 +1,13 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import type { ColumnDef, Row } from '@tanstack/react-table';
 import type { ReactElement, ReactNode } from 'react';
 import type { DataTableProps, DataTableSearchField } from '../DataTable';
 import type { SnackOrder } from '../storybookData';
+import type {
+  DataTableColumnDef as ColumnDef,
+  DataTableRow as Row,
+} from '../types';
 
 import { isValidElement, useMemo, useState } from 'react';
 
@@ -1032,6 +1035,44 @@ export const UniformRadioField: Story = {
           <SubmitButton />
         </div>
       </Form>
+    );
+  },
+};
+
+/** Sorts by a project-specific value with the native TanStack v9 sortFn API. */
+export const CustomSorting: Story = {
+  args: {
+    data: defaultOrders,
+    columns: [
+      {
+        accessorKey: 'customer',
+        header: 'Name length',
+        enableSorting: true,
+        sortDescFirst: false,
+        sortFn: (left, right) => {
+          return left.original.customer.length - right.original.customer.length;
+        },
+      },
+    ],
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await userEvent.click(canvas.getByRole('button', { name: /Name length/ }));
+    const names = canvas.getAllByRole('cell').map((cell) => {
+      return cell.textContent ?? '';
+    });
+    expect(
+      names.map((name) => {
+        return name.length;
+      }),
+    ).toEqual(
+      [...names]
+        .map((name) => {
+          return name.length;
+        })
+        .sort((a, b) => {
+          return a - b;
+        }),
     );
   },
 };

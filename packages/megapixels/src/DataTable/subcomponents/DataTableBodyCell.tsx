@@ -1,5 +1,6 @@
-import type { Cell } from '@tanstack/react-table';
+import type { RowData } from '@tanstack/react-table';
 import type { DataTableClassNames } from '../dataTableVariants';
+import type { DataTableCell as Cell } from '../types';
 
 import { flexRender } from '@tanstack/react-table';
 
@@ -12,9 +13,9 @@ import {
   getVirtualCellStyle,
 } from './dataTableCellHelpers';
 
-interface DataTableBodyCellProps<TData> {
+interface DataTableBodyCellProps<TData extends RowData> {
   /** TanStack body cell instance to render */
-  cell: Cell<TData, unknown>;
+  cell: Cell<TData>;
   /** Slot classes resolved by `dataTableVariants` */
   className: DataTableClassNames;
   /** Enables flex sizing for virtualized row layout */
@@ -24,7 +25,7 @@ interface DataTableBodyCellProps<TData> {
 /**
  * Renders one body cell and hides control-column wrapper details from row loops.
  */
-const DataTableBodyCell = <TData,>({
+const DataTableBodyCell = <TData extends RowData>({
   cell,
   className: classNames,
   virtualized = false,

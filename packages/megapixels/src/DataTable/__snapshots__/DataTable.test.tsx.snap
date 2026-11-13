@@ -736,6 +736,125 @@ exports[`Story Snapshots > CustomIcons 1`] = `
 </div>
 `;
 
+exports[`Story Snapshots > CustomSorting 1`] = `
+<div>
+  <div
+    class="w-full"
+    data-component="data-table"
+    data-slot="base"
+  >
+    <div
+      class="overflow-hidden rounded-md border border-divider"
+      data-slot="table-wrapper"
+    >
+      <table
+        aria-label="Data table"
+        class="w-full caption-bottom text-sm"
+        data-slot="table"
+      >
+        <thead
+          class="bg-content2"
+          data-slot="thead"
+        >
+          <tr
+            class="border-b border-divider last:border-b-0 data-[state=selected]:bg-content2/60"
+            data-slot="tr"
+          >
+            <th
+              class="h-10 px-3 text-left align-middle font-medium text-foreground"
+              data-slot="th"
+            >
+              <button
+                class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center select-none appearance-none whitespace-nowrap subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-8 rounded-small text-tiny [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-transparent data-[hover=true]:bg-default/40 -ml-2 min-w-0 justify-start gap-1.5 px-2 text-left font-medium text-foreground data-[sortable=true]:cursor-pointer"
+                data-component="button"
+                data-focus="true"
+                data-focused="true"
+                data-hover="true"
+                data-hovered="true"
+                data-rac=""
+                data-react-aria-pressable="true"
+                data-slot="sort-button"
+                id="react-aria-«replaced-aria-id»"
+                tabindex="0"
+                type="button"
+              >
+                Name length
+                <span
+                  aria-hidden="true"
+                  class="inline-flex h-3.5 w-3.5 shrink-0 items-center justify-center text-default-400"
+                  data-slot="sort-icon"
+                >
+                  <svg
+                    aria-hidden="true"
+                    fill="none"
+                    focusable="false"
+                    height="14"
+                    viewBox="0 0 16 16"
+                    width="14"
+                  >
+                    <path
+                      d="M8 13V3"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.75"
+                    />
+                    <path
+                      d="M4.5 6.5 8 3l3.5 3.5"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.75"
+                    />
+                  </svg>
+                </span>
+              </button>
+            </th>
+          </tr>
+        </thead>
+        <tbody
+          data-slot="tbody"
+        >
+          <tr
+            class="border-b border-divider last:border-b-0 data-[state=selected]:bg-content2/60"
+            data-slot="tr"
+          >
+            <td
+              class="p-3 align-middle text-foreground"
+              data-slot="td"
+            >
+              Marta Silva
+            </td>
+          </tr>
+          <tr
+            class="border-b border-divider last:border-b-0 data-[state=selected]:bg-content2/60"
+            data-slot="tr"
+          >
+            <td
+              class="p-3 align-middle text-foreground"
+              data-slot="td"
+            >
+              Klara Müller
+            </td>
+          </tr>
+          <tr
+            class="border-b border-divider last:border-b-0 data-[state=selected]:bg-content2/60"
+            data-slot="tr"
+          >
+            <td
+              class="p-3 align-middle text-foreground"
+              data-slot="td"
+            >
+              Jules Dubois
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Story Snapshots > CustomStyles 1`] = `
 <div>
   <div

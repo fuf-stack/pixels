@@ -205,8 +205,22 @@ published declarations can change.
 When a Renovate pull request fails only because committed Vitest snapshots are
 out of date, comment `/autofix-snapshots` on the pull request or add the
 `autofix:snapshots` label. The snapshot autofix workflow runs the test suite in
-update mode, refuses to commit non-snapshot changes, verifies the updated suite,
-pushes the snapshot commit to the Renovate branch, and dispatches CI for it.
+update mode on an immutable head SHA with a read-only token and no persisted Git
+credentials. A separate job runs only trusted workflow code and treats the build
+artifact as untrusted data. It accepts updates only to existing regular
+`__snapshots__/*.snap` files containing only Vitest snapshot data assignments
+(without JavaScript interpolation or extra code), verifies the branch still
+points to the tested SHA,
+creates a commit through the GitHub API, and dispatches CI. Inline snapshots in
+test source, new snapshot files, and other changes require manual review. If the
+branch moves, request a fresh run. Manual requests must dispatch the workflow
+from the default branch and specify a `renovate/` branch.
+
+The trusted artifact gate tests run automatically with `pnpm test`. For a
+focused run, use `pnpm exec vitest run --project=ci-scripts`.
+The workflow delegates branch resolution, test retries, artifact collection and
+validated writes to `scripts/ci-snapshot-autofix.mjs`. The resolver and writer
+load the trusted workflow revision; only the read-only build job loads branch code.
 
 ## Expected errors in stories
 
@@ -238,6 +252,33 @@ requests without suppressing console warnings. Real viewport movement belongs in
 browser tests. After a validation action that requests scrolling, a unit test can
 assert `expect(window.scrollTo).toHaveBeenCalled()`, while a browser story checks
 the resulting position.
+
+## SonarQube coverage
+
+The unit-test CI command (`pnpm test:unit`) excludes Storybook projects and sets
+`--coverage.include='**/src/**/*.{js,jsx,ts,tsx}'`. Vitest 5 matches coverage paths
+relative to the first matching project root. With both package projects and the
+root-level `ci-scripts` project selected, the glob must match both `src/...` and
+`packages/.../src/...`. A package-only glob can produce file records without
+measured lines even when all tests pass.
+
+CI verifies that `coverage/lcov.info` contains source records and measured
+lines before uploading it and again after downloading it for SonarQube. An
+empty report must fail CI rather than silently report 0% coverage.
+
+## Renovate memory failures
+
+Mend-hosted jobs have a 3 GiB memory limit. `renovate.json5` caps Node child
+processes used for package-manager commands at 1024 MiB with
+`toolSettings.nodeMaxMemory`, leaving room for Renovate and other processes.
+This limits the Node heap; it does not increase the hosted job limit or cap
+the total memory of every process.
+
+If a job still fails with `kernel-out-of-memory`, inspect the end of its debug
+log to identify the active operation before adjusting the cap. A Node heap
+error in pnpm may require a higher cap; continued total job exhaustion may
+require a higher Mend resource tier or a self-hosted runner. See the
+[Mend-hosted FAQ](https://docs.renovatebot.com/mend-hosted/faq/#im-hitting-a-timeout-kernel-out-of-memory-limit-with-a-pnpmyarn-project).
 
 ## Visual and accessibility verification
 
