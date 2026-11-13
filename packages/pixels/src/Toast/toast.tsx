@@ -148,8 +148,8 @@ const toast = {
       ...options,
     });
   },
-  /** Close a toast by its id */
-  close: (toastId: string | number) => {
+  /** Close a toast by its id, or close all toasts when no id is given */
+  close: (toastId?: string | number) => {
     sonnerToast.dismiss(toastId);
   },
 };
