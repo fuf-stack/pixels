@@ -23,6 +23,6 @@ export const slugify = (string: string, options?: SlugifyOptions) => {
       ...(replacement !== '-' ? { '-': '_' } : {}),
     },
     replacement,
-    ...(options ?? {}),
+    ...options,
   });
 };
