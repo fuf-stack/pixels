@@ -36,11 +36,18 @@ export const Default: Story = {
     const input = within(canvasElement).getByRole('textbox');
     const wrapper = input.closest('[data-slot="input-wrapper"]') as HTMLElement;
 
-    await userEvent.hover(wrapper);
-    await expect(wrapper).toHaveAttribute('data-hovered', 'true');
+    // React Aria ends hover on any document pointerover outside the wrapper,
+    // so a stray browser pointer event can cancel the synthetic hover. Retry
+    // the hover instead of asserting a single attempt.
+    await waitFor(async () => {
+      await userEvent.hover(wrapper);
+      await expect(wrapper).toHaveAttribute('data-hovered', 'true');
+    });
     await expect(wrapper).not.toHaveAttribute('data-hover');
     await userEvent.unhover(wrapper);
-    await expect(wrapper).not.toHaveAttribute('data-hovered');
+    await waitFor(async () => {
+      await expect(wrapper).not.toHaveAttribute('data-hovered');
+    });
   },
 };
 
