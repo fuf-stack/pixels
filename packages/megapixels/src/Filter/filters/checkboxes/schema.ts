@@ -37,7 +37,7 @@ export const validate = (cfg?: Config) => {
       }
       values.forEach((value) => {
         if (
-          !cfg.options.find((option) => {
+          !cfg.options.some((option) => {
             return option?.value === value;
           })
         ) {

@@ -11,11 +11,8 @@ const Display = ({
   config: { text, textPrefix, textNoWord },
 }: FilterDisplayProps<Config, Value>) => {
   if (typeof value === 'boolean') {
-    return (
-      <>
-        {`${value ? textPrefix : `${textPrefix} ${textNoWord ?? 'no'}`} ${text}`}
-      </>
-    );
+    const prefix = value ? textPrefix : `${textPrefix} ${textNoWord ?? 'no'}`;
+    return <>{`${prefix} ${text}`}</>;
   }
   return <>{`${text}...`}</>;
 };

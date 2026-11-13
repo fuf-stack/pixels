@@ -136,7 +136,7 @@ export const FiltersContextProvider = ({
       const prev = getFilterValueByName(name);
       setCurrentModalFilter({
         name,
-        hadValue: typeof prev !== 'undefined',
+        hadValue: prev !== undefined,
         previousValue: prev,
       });
     },
