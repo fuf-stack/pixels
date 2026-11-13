@@ -1,7 +1,8 @@
-import AtelierFrame, { atelierFrameVariants } from './AtelierFrame';
+import AtelierFrame from './AtelierFrame';
 
 export type { AtelierFrameProps } from './AtelierFrame';
 
-export { AtelierFrame, atelierFrameVariants };
+export { atelierFrameVariants } from './AtelierFrame';
+export { AtelierFrame };
 
 export default AtelierFrame;
