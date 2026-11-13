@@ -42,7 +42,7 @@ export const veto = <T extends VetoSchema>(
     const result = vSchema.safeParse(
       {
         // add defaults to input when defined
-        ...(options?.defaults ?? {}),
+        ...options?.defaults,
         ...input,
       },
       {
@@ -77,7 +77,7 @@ export const veto = <T extends VetoSchema>(
     const result = await vSchema.safeParseAsync(
       {
         // add defaults to input when defined
-        ...(options?.defaults ?? {}),
+        ...options?.defaults,
         ...input,
       },
       {

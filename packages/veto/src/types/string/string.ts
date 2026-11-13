@@ -47,8 +47,8 @@ const blacklist = (options: BlacklistOptions) => {
     // Convert blacklist patterns to regex patterns
     const blacklistRegexes = options.patterns.map((pattern) => {
       const regexPattern = pattern
-        .replace(/[-[\]{}()+?.,\\^$|#\s]/g, '\\$&')
-        .replace(/\*/g, '.*');
+        .replace(/[-[\]{}()+?.,\\^$|#\s]/g, String.raw`\$&`)
+        .replaceAll('*', '.*');
       return new RegExp(`^${regexPattern}$`, 'i');
     });
 
