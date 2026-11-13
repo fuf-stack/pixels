@@ -28,6 +28,48 @@ expect.addSnapshotSerializer({
   },
 });
 
+// Custom snapshot serializer to normalize narrow no-break spaces in text nodes
+// Node.js 24 returns U+202F before the day period from
+// Intl.DateTimeFormat#formatToParts (e.g. "10:30<U+202F>AM") while Node.js 26
+// returns a regular space, so snapshots always use a regular space
+const NARROW_NO_BREAK_SPACE = /\u202F/g;
+
+interface SnapshotTextNode {
+  data: string;
+  nodeType: number;
+  ownerDocument: { createTextNode: (data: string) => unknown };
+}
+
+const isTextNodeWithNarrowNoBreakSpace = (
+  val: unknown,
+): val is SnapshotTextNode => {
+  if (typeof val !== 'object' || val === null) {
+    return false;
+  }
+  const node = val as Partial<SnapshotTextNode>;
+  // 3 = Node.TEXT_NODE
+  return (
+    node.nodeType === 3 &&
+    typeof node.data === 'string' &&
+    node.data.includes('\u202F')
+  );
+};
+
+expect.addSnapshotSerializer({
+  serialize(val: SnapshotTextNode, config, indentation, depth, refs, printer) {
+    return printer(
+      val.ownerDocument.createTextNode(
+        val.data.replace(NARROW_NO_BREAK_SPACE, ' '),
+      ),
+      config,
+      indentation,
+      depth,
+      refs,
+    );
+  },
+  test: isTextNodeWithNarrowNoBreakSpace,
+});
+
 // Make StoryFile generic to accept component props
 interface StoryFile<TProps = any> {
   default: Meta<TProps>;

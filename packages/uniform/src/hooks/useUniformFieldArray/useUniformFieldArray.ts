@@ -1,5 +1,11 @@
 import type { ReactNode } from 'react';
-import type { ArrayPath, FieldValues, Path } from 'react-hook-form';
+import type {
+  ArrayPath,
+  FieldValues,
+  Path,
+  UseFieldArrayReturn,
+} from 'react-hook-form';
+import type { UseUniformFieldReturn } from '../useUniformField';
 
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { useFieldArray as useRHFFieldArray } from 'react-hook-form';
@@ -31,6 +37,25 @@ export interface UseUniformFieldArrayProps<
 }
 
 /**
+ * Return type of `useUniformFieldArray`.
+ *
+ * Declared explicitly so the published declarations only reference types that
+ * react-hook-form exports from its package root.
+ */
+export type UseUniformFieldArrayReturn<
+  TFieldValues extends FieldValues = FieldValues,
+> = Pick<
+  UseFieldArrayReturn<TFieldValues, ArrayPath<TFieldValues>>,
+  'append' | 'fields' | 'insert' | 'move' | 'remove'
+> &
+  UseUniformFieldReturn<TFieldValues> & {
+    /** Disables element animations during initialization, reset and reduced motion */
+    disableAnimation: boolean;
+    /** Value used for newly added array elements */
+    elementInitialValue: NonNullable<unknown>;
+  };
+
+/**
  * Enhanced useFieldArray hook with initialization and animation logic.
  * Based on React Hook Form's useFieldArray with additional features:
  * - Automatic initialization when lastElementNotRemovable is set
@@ -54,7 +79,7 @@ export const useUniformFieldArray = <
   disabled,
   testId: explicitTestId,
   label,
-}: UseUniformFieldArrayProps<TFieldValues>) => {
+}: UseUniformFieldArrayProps<TFieldValues>): UseUniformFieldArrayReturn<TFieldValues> => {
   // Get uniform field state and utilities
   const uniformField = useUniformField<TFieldValues>({
     name: name as Path<TFieldValues> & string,
