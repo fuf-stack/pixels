@@ -1,5 +1,6 @@
-import type { Row } from '@tanstack/react-table';
+import type { RowData } from '@tanstack/react-table';
 import type { DataTableExpandableRowsFeature } from '../DataTable';
+import type { DataTableRow as Row } from '../types';
 import type { DataTableClassNames } from './DataTableCells';
 
 import { Fragment } from 'react';
@@ -8,7 +9,7 @@ import { cn } from '@fuf-stack/pixel-utils';
 
 import { DataTableBodyCell } from './DataTableCells';
 
-interface DataTableBodyRowsProps<TData> {
+interface DataTableBodyRowsProps<TData extends RowData> {
   classNames: DataTableClassNames;
   expandableRows?: DataTableExpandableRowsFeature<TData>;
   rows: Row<TData>[];
@@ -23,7 +24,7 @@ interface DataTableBodyRowsProps<TData> {
  * - each data row
  * - an optional sibling expanded-content row that spans all visible columns
  */
-const DataTableBodyRows = <TData,>({
+const DataTableBodyRows = <TData extends RowData>({
   classNames,
   expandableRows = undefined,
   rows,

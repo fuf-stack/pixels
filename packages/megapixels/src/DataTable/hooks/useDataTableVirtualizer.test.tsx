@@ -1,5 +1,5 @@
-import type { Row } from '@tanstack/react-table';
 import type { VirtualItem } from '@tanstack/react-virtual';
+import type { DataTableRow as Row } from '../types';
 
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
