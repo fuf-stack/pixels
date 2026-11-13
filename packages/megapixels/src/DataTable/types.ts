@@ -9,8 +9,8 @@ import type {
 } from '@tanstack/react-table';
 import type dataTableFeatures from './features';
 
-/** Features available to DataTable column definitions and render callbacks */
-export type DataTableTanStackFeatures = typeof dataTableFeatures;
+/** TanStack features registered by DataTable, bound into the aliases below */
+type DataTableTanStackFeatures = typeof dataTableFeatures;
 export type DataTableColumnDef<
   TData extends RowData,
   TValue = unknown,

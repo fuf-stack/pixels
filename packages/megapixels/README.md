@@ -39,7 +39,6 @@ const renderDetails = (row: DataTableRow<Person>) => row.original.name;
 V9 renames `sortingFn` to `sortFn` and replaces `table.getState()` with
 `table.state`. Custom cell/header callbacks receive native v9 contexts; migrate
 any direct TanStack API calls using the [official migration guide](https://tanstack.com/table/latest/docs/framework/react/guide/migrating).
-`DataTableTanStackFeatures` is exported for consumers needing other native v9
-types or column helpers with the same feature set. The integration registers
+The integration registers
 stock column features plus the sorting, filtering, expansion and pagination row
 models explicitly; it does not use the deprecated legacy adapter.
