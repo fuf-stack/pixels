@@ -32,7 +32,7 @@ expect.addSnapshotSerializer({
 // Node.js 24 returns U+202F before the day period from
 // Intl.DateTimeFormat#formatToParts (e.g. "10:30<U+202F>AM") while Node.js 26
 // returns a regular space, so snapshots always use a regular space
-const NARROW_NO_BREAK_SPACE = /\u202F/g;
+const NARROW_NO_BREAK_SPACE = '\u202F';
 
 interface SnapshotTextNode {
   data: string;
@@ -59,7 +59,7 @@ expect.addSnapshotSerializer({
   serialize(val: SnapshotTextNode, config, indentation, depth, refs, printer) {
     return printer(
       val.ownerDocument.createTextNode(
-        val.data.replace(NARROW_NO_BREAK_SPACE, ' '),
+        val.data.replaceAll(NARROW_NO_BREAK_SPACE, ' '),
       ),
       config,
       indentation,
