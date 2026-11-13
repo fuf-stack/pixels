@@ -1,27 +1,22 @@
 import type {
-  ColumnDef,
   ColumnFiltersState,
+  ColumnVisibilityState,
   ExpandedState,
   PaginationState,
+  RowData,
   RowSelectionState,
   SortingState,
-  VisibilityState,
 } from '@tanstack/react-table';
 import type { ReactNode } from 'react';
+import type { DataTableColumnDef as ColumnDef } from '../types';
 
 import { useMemo, useState } from 'react';
 
-import {
-  getCoreRowModel,
-  getExpandedRowModel,
-  getFilteredRowModel,
-  getPaginationRowModel,
-  getSortedRowModel,
-  useReactTable,
-} from '@tanstack/react-table';
+import { useTable } from '@tanstack/react-table';
 
 import { Button } from '@fuf-stack/pixels/Button';
 
+import dataTableFeatures from '../features';
 import DataTableCheckbox from '../Subcomponents/DataTableCheckbox';
 
 /** Stable id used for the injected row-selection column. */
@@ -188,7 +183,7 @@ const RowExpandedIcon = () => {
   );
 };
 
-export interface UseDataTableControllerParams<TData, TValue> {
+export interface UseDataTableControllerParams<TData extends RowData, TValue> {
   /** Class names forwarded to the injected selection checkbox column. */
   checkboxClassNames: SelectionColumnClassNames;
   /** Base TanStack column definitions from component props. */
@@ -220,7 +215,7 @@ export interface UseDataTableControllerParams<TData, TValue> {
 }
 
 /** Builds the optional leading expansion column used by DataTable. */
-const createExpansionColumn = <TData, TValue>(
+const createExpansionColumn = <TData extends RowData, TValue>(
   classNames: ExpansionColumnClassNames,
   icons: ExpansionColumnIcons | undefined,
 ): ColumnDef<TData, TValue> => {
@@ -264,7 +259,7 @@ const createExpansionColumn = <TData, TValue>(
 };
 
 /** Builds the optional leading selection column used by DataTable. */
-const createSelectionColumn = <TData, TValue>(
+const createSelectionColumn = <TData extends RowData, TValue>(
   classNames: SelectionColumnClassNames,
   icons: SelectionColumnIcons | undefined,
 ): ColumnDef<TData, TValue> => {
@@ -342,7 +337,7 @@ export const getSortIndicator = (
  * Keeps stateful table mechanics out of the render component so `DataTable.tsx`
  * can stay focused on structure/markup.
  */
-export const useDataTableController = <TData, TValue>({
+export const useDataTableController = <TData extends RowData, TValue>({
   checkboxClassNames,
   columns,
   data,
@@ -362,7 +357,8 @@ export const useDataTableController = <TData, TValue>({
   const [sorting, setSorting] = useState<SortingState>([]);
   const [expanded, setExpanded] = useState<ExpandedState>({});
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
-  const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({});
+  const [columnVisibility, setColumnVisibility] =
+    useState<ColumnVisibilityState>({});
   const [rowSelection, setRowSelection] = useState<RowSelectionState>({});
   const [pagination, setPagination] = useState<PaginationState>({
     pageIndex: 0,
@@ -412,28 +408,23 @@ export const useDataTableController = <TData, TValue>({
     });
   };
 
-  // eslint-disable-next-line react-hooks/incompatible-library -- TanStack Table intentionally returns function helpers that React Compiler cannot memoize.
-  const table = useReactTable({
-    columns: tableColumns,
+  const table = useTable({
+    features: dataTableFeatures,
+    // V9 erases cell values to unknown at the table boundary. Column accessors
+    // and renderers remain paired and retain TValue in the public definitions.
+    columns: tableColumns as ColumnDef<TData>[],
     data,
     defaultColumn: {
       enableSorting: false,
     },
     enableExpanding: enableExpandableRows,
     enableRowSelection,
-    getCoreRowModel: getCoreRowModel(),
-    getExpandedRowModel: enableExpandableRows
-      ? getExpandedRowModel()
-      : undefined,
-    getFilteredRowModel: enableServerMode ? undefined : getFilteredRowModel(),
-    getPaginationRowModel: enablePagination
-      ? getPaginationRowModel()
-      : undefined,
+    manualExpanding: !enableExpandableRows,
+    manualPagination: !enablePagination,
     getRowCanExpand: (row) => {
       return hasExpandableRowContent || row.subRows.length > 0;
     },
     getSubRows,
-    getSortedRowModel: enableServerMode ? undefined : getSortedRowModel(),
     manualFiltering: enableServerMode,
     manualSorting: enableServerMode,
     onColumnFiltersChange: setColumnFilters,

@@ -1,4 +1,4 @@
-import type { ColumnDef } from '@tanstack/react-table';
+import type { DataTableColumnDef as ColumnDef } from './types';
 
 import { describe, expect, it, vi } from 'vitest';
 

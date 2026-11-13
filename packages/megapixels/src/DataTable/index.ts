@@ -16,3 +16,9 @@ export type {
 
 export { DataTable };
 export default DataTable;
+
+export type {
+  DataTableColumnDef,
+  DataTableRow,
+  DataTableTanStackFeatures,
+} from './types';

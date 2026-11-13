@@ -1,6 +1,10 @@
-import type { Cell, Header } from '@tanstack/react-table';
+import type { RowData } from '@tanstack/react-table';
 import type { CSSProperties } from 'react';
 import type { DataTableIcons } from '../DataTable';
+import type {
+  DataTableCell as Cell,
+  DataTableHeader as Header,
+} from '../types';
 
 import { flexRender } from '@tanstack/react-table';
 
@@ -130,7 +134,7 @@ export const virtualFullWidthCellStyle: CSSProperties = {
   width: '100%',
 };
 
-interface DataTableHeaderCellProps<TData, TValue> {
+interface DataTableHeaderCellProps<TData extends RowData, TValue> {
   /** Slot classes resolved by `dataTableVariants`. */
   classNames: DataTableClassNames;
   /** TanStack header instance for this column. */
@@ -144,7 +148,7 @@ interface DataTableHeaderCellProps<TData, TValue> {
 /**
  * Renders one header cell and encapsulates sortable/non-sortable behavior.
  */
-export const DataTableHeaderCell = <TData, TValue>({
+export const DataTableHeaderCell = <TData extends RowData, TValue>({
   classNames,
   header,
   sortIcons = undefined,
@@ -231,9 +235,9 @@ export const DataTableHeaderCell = <TData, TValue>({
   );
 };
 
-interface DataTableBodyCellProps<TData> {
+interface DataTableBodyCellProps<TData extends RowData> {
   /** TanStack body cell instance to render. */
-  cell: Cell<TData, unknown>;
+  cell: Cell<TData>;
   /** Slot classes resolved by `dataTableVariants`. */
   classNames: DataTableClassNames;
   /** Enables flex sizing for virtualized row layout. */
@@ -243,7 +247,7 @@ interface DataTableBodyCellProps<TData> {
 /**
  * Renders one body cell and hides control-column wrapper details from row loops.
  */
-export const DataTableBodyCell = <TData,>({
+export const DataTableBodyCell = <TData extends RowData>({
   cell,
   classNames,
   virtualized = false,
