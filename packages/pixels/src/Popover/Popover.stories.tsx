@@ -23,8 +23,7 @@ export const TooMuchContent: Story = {
     placement: 'right',
     content: (
       <>
-        {/* eslint-disable-next-line prefer-spread */}
-        {Array.apply(null, Array(100)).map((_, i) => {
+        {Array.from({ length: 100 }).map((_, i) => {
           return (
             // eslint-disable-next-line react/no-array-index-key
             <div key={i}>
@@ -45,8 +44,7 @@ export const DoubleScrollbar: Story = {
     placement: 'right',
     content: (
       <>
-        {/* eslint-disable-next-line prefer-spread */}
-        {Array.apply(null, Array(100)).map((_, i) => {
+        {Array.from({ length: 100 }).map((_, i) => {
           return (
             // eslint-disable-next-line react/no-array-index-key
             <div key={i}>too much content</div>
@@ -72,8 +70,7 @@ export const BlockOuterScrollbar: Story = {
     children: 'i am the trigger',
     content: (
       <>
-        {/* eslint-disable-next-line prefer-spread */}
-        {Array.apply(null, Array(100)).map((_, i) => {
+        {Array.from({ length: 100 }).map((_, i) => {
           return (
             // eslint-disable-next-line react/no-array-index-key
             <div key={i}>too much content</div>

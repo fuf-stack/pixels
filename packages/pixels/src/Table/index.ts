@@ -1,4 +1,4 @@
-import Table, { tableVariants } from './Table';
+import Table from './Table';
 
 export type {
   TableProps,
@@ -7,6 +7,7 @@ export type {
   VariantProps,
 } from './Table';
 
-export { Table, tableVariants };
+export { tableVariants } from './Table';
+export { Table };
 
 export default Table;

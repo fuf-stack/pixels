@@ -1,7 +1,8 @@
-import Accordion, { accordionVariants } from './Accordion';
+import Accordion from './Accordion';
 
 export type { AccordionProps, AccordionItemProps } from './Accordion';
 
-export { Accordion, accordionVariants };
+export { accordionVariants } from './Accordion';
+export { Accordion };
 
 export default Accordion;

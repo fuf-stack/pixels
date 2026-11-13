@@ -118,7 +118,7 @@ export const DefaultOpen: Story = {
     const body = within(canvasElement?.parentElement as HTMLElement);
 
     // Wait for tooltip to appear
-    await waitFor(async () => {
+    await waitFor(() => {
       const tooltipContent = body.getByText('tooltip content');
       expect(tooltipContent).toBeInTheDocument();
       expect(tooltipContent).toBeVisible();

@@ -1,7 +1,8 @@
-import Breadcrumb, { breadcrumbVariants } from './Breadcrumb';
+import Breadcrumb from './Breadcrumb';
 
 export type { BreadcrumbProps, BreadcrumbItemProps } from './Breadcrumb';
 
-export { Breadcrumb, breadcrumbVariants };
+export { breadcrumbVariants } from './Breadcrumb';
+export { Breadcrumb };
 
 export default Breadcrumb;

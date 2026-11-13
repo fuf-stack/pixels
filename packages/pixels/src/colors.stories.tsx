@@ -16,7 +16,7 @@ const getHexFromClass = (bgClass: string): string => {
     document.body.appendChild(element);
     const computedStyle = getComputedStyle(element);
     const { backgroundColor } = computedStyle;
-    document.body.removeChild(element);
+    element.remove();
 
     if (
       backgroundColor &&
@@ -33,7 +33,7 @@ const getHexFromClass = (bgClass: string): string => {
 
         // Force a style calculation
         const rgbColor = getComputedStyle(tempDiv).backgroundColor;
-        document.body.removeChild(tempDiv);
+        tempDiv.remove();
 
         // If browser converted it to rgb format, use that
         if (

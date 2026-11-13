@@ -27,9 +27,9 @@ const meta: Meta<typeof Button> = {
 export default meta;
 type Story = StoryObj<typeof Button>;
 
-const colors = [...Object.keys(buttonVariants.variants.color)];
-const variants = [...Object.keys(buttonVariants.variants.variant)];
-const sizes = [...Object.keys(buttonVariants.variants.size)];
+const colors = Object.keys(buttonVariants.variants.color);
+const variants = Object.keys(buttonVariants.variants.variant);
+const sizes = Object.keys(buttonVariants.variants.size);
 
 export const Default: Story = {
   args: {},

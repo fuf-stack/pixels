@@ -285,7 +285,7 @@ export const MultipleModalsInHost: Story = {
       </>
     );
   },
-  play: async ({ canvasElement }) => {
+  play: ({ canvasElement }) => {
     // Backdrop of an opened modal blocks pointer events, so trigger
     // the imperative API directly instead of clicking through buttons.
     openThreeModals(canvasElement);

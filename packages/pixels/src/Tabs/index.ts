@@ -1,7 +1,8 @@
-import Tabs, { tabsVariants } from './Tabs';
+import Tabs from './Tabs';
 
 export type { TabsProps, TabProps } from './Tabs';
 
-export { Tabs, tabsVariants };
+export { tabsVariants } from './Tabs';
+export { Tabs };
 
 export default Tabs;

@@ -51,8 +51,7 @@ const funnyVerticalItems = [
 const VerticalContent = () => {
   return (
     <>
-      {/* eslint-disable-next-line prefer-spread */}
-      {Array.apply(null, Array(50)).map((_, i) => {
+      {Array.from({ length: 50 }).map((_, i) => {
         const item = funnyVerticalItems[i % funnyVerticalItems.length];
         return (
           <div
@@ -94,8 +93,7 @@ const funnyHorizontalCards = [
 const HorizontalContent = () => {
   return (
     <div className="flex space-x-4">
-      {/* eslint-disable-next-line prefer-spread */}
-      {Array.apply(null, Array(20)).map((_, i) => {
+      {Array.from({ length: 20 }).map((_, i) => {
         const card = funnyHorizontalCards[i % funnyHorizontalCards.length];
         return (
           <div
