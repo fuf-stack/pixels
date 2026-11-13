@@ -350,7 +350,6 @@ const FormProvider: React.FC<FormProviderProps> = ({
   );
 
   // Create submit handler with automatic data conversion
-  // eslint-disable-next-line consistent-return
   const handleSubmit = async (e?: React.BaseSyntheticEvent) => {
     debug('handleSubmit called', {
       preventSubmit,
@@ -371,7 +370,7 @@ const FormProvider: React.FC<FormProviderProps> = ({
         '[FormProvider] form submit was prevented because preventSubmit is true...',
       );
       e?.preventDefault();
-      return Promise.resolve();
+      return;
     }
 
     debug('✓ Form submit ALLOWED', {

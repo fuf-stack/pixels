@@ -57,7 +57,7 @@ export const isValueEmpty = (value: unknown): boolean => {
     }
     // For objects (e.g., FieldCard), check if all values are null/undefined/empty
     const values = Object.values(record);
-    return values.length === 0 || values.every(isValueEmpty);
+    return values.every(isValueEmpty);
   }
   return false;
 };

@@ -133,7 +133,7 @@ describe('useInputValueTransform', () => {
       const { result } = renderHook(() => useInputValueTransform({}));
 
       expect(result.current.toDisplayValue(null)).toBe('');
-      expect(result.current.toFormValue(null)).toBe(null);
+      expect(result.current.toFormValue(null)).toBeNull();
     });
 
     it('should handle transforms that return null/undefined', () => {
@@ -148,8 +148,8 @@ describe('useInputValueTransform', () => {
         }),
       );
 
-      expect(result.current.toDisplayValue('test')).toBe(null);
-      expect(result.current.toFormValue('test')).toBe(undefined);
+      expect(result.current.toDisplayValue('test')).toBeNull();
+      expect(result.current.toFormValue('test')).toBeUndefined();
     });
 
     it('should handle complex transformation errors gracefully', () => {
@@ -491,7 +491,7 @@ describe('useInputValueTransform', () => {
       expect(result.current.toDisplayValue('option1')).toEqual(['option1']);
       expect(result.current.toDisplayValue(undefined)).toEqual([]);
       expect(result.current.toFormValue(['option1'])).toBe('option1');
-      expect(result.current.toFormValue([])).toBe(undefined);
+      expect(result.current.toFormValue([])).toBeUndefined();
     });
 
     it('should handle tags input scenario (array to comma-separated string)', () => {

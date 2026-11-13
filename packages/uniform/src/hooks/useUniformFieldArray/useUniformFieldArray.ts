@@ -187,7 +187,6 @@ export const useUniformFieldArray = <
       // - array where all entries are empty placeholders
       const isEffectivelyEmptyAfterReset =
         !valueIsArray ||
-        arrayValue.length === 0 ||
         arrayValue.every((entry) => {
           return isValueEmpty(entry);
         });

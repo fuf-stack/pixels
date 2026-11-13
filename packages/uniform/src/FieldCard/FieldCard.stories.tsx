@@ -126,7 +126,7 @@ export const Required: Story = {
       </>
     ),
   },
-  play: async ({ canvasElement }) => {
+  play: ({ canvasElement }) => {
     const canvas = within(canvasElement);
     const fieldCardLabel = canvas.getByRole('heading', {
       name: /space mission crew/i,
@@ -160,7 +160,7 @@ export const AllOptional: Story = {
       </>
     ),
   },
-  play: async ({ canvasElement }) => {
+  play: ({ canvasElement }) => {
     const canvas = within(canvasElement);
     const fieldCardLabel = canvas.getByRole('heading', {
       name: /your hobbies/i,

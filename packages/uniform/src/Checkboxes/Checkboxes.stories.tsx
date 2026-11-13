@@ -236,7 +236,7 @@ export const Invalid: Story = {
     await userEvent.click(optionTwo, {
       delay: 500,
     });
-    const inputInvalid = optionTwo.getAttribute('data-invalid');
+    const inputInvalid = optionTwo.dataset.invalid;
     await expect(inputInvalid).toBe('true');
 
     // Wait for validation to complete and error message to appear

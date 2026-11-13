@@ -1,5 +1,7 @@
 /* eslint-disable import-x/prefer-default-export */
 
+type OptionValue = string | number | boolean;
+
 /**
  * Creates a converter function that preserves the original type (string, number, or boolean)
  * of option values when converting from string keys back to their original type.
@@ -13,9 +15,7 @@
  *   - `numberValueKeys`: Set of string representations of number values (for internal use)
  *   - `booleanValueKeys`: Map of string representations to boolean values (for internal use)
  */
-export const createOptionValueConverter = <
-  T extends { value: string | number | boolean },
->(
+export const createOptionValueConverter = <T extends { value: OptionValue }>(
   options: T[],
 ) => {
   // Create a set of string keys that represent number values
@@ -44,9 +44,7 @@ export const createOptionValueConverter = <
    * Converts a string key back to its original type (string, number, or boolean)
    * based on whether the original option value was a number or boolean
    */
-  const convertToOriginalType = (
-    key: string | number | boolean,
-  ): string | number | boolean => {
+  const convertToOriginalType = (key: OptionValue): OptionValue => {
     const keyStr = String(key);
     const booleanValue = booleanValueKeys.get(keyStr);
     if (booleanValue !== undefined) {

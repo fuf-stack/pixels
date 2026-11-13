@@ -184,7 +184,7 @@ export const Invalid: Story = {
     appendButton.click();
 
     // wait for second element to be present
-    await waitFor(async () => {
+    await waitFor(() => {
       return canvas.getByTestId('arrayfield_1_name');
     });
 

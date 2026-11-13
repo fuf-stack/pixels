@@ -25,13 +25,13 @@ describe('toNullishString', () => {
     expect(toNullishString(true)).toBe(true);
     expect(toNullishString({})).toEqual({});
     expect(toNullishString([])).toEqual([]);
-    expect(toNullishString(undefined)).toBe(undefined);
+    expect(toNullishString(undefined)).toBeUndefined();
   });
 });
 
 describe('fromNullishString', () => {
   it('should convert from nullish strings', () => {
-    expect(fromNullishString('__NULL__')).toBe(null);
+    expect(fromNullishString('__NULL__')).toBeNull();
     expect(fromNullishString('__FALSE__')).toBe(false);
     expect(fromNullishString('__ZERO__')).toBe(0);
   });
@@ -42,8 +42,8 @@ describe('fromNullishString', () => {
     expect(fromNullishString(true)).toBe(true);
     expect(fromNullishString({})).toEqual({});
     expect(fromNullishString([])).toEqual([]);
-    expect(fromNullishString(undefined)).toBe(undefined);
-    expect(fromNullishString(null)).toBe(null);
+    expect(fromNullishString(undefined)).toBeUndefined();
+    expect(fromNullishString(null)).toBeNull();
     expect(fromNullishString(false)).toBe(false);
     expect(fromNullishString(0)).toBe(0);
   });
