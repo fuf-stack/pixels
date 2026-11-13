@@ -17,7 +17,4 @@ export type {
 export { DataTable };
 export default DataTable;
 
-export type {
-  DataTableColumnDef,
-  DataTableRow,
-} from './types';
+export type { DataTableColumnDef, DataTableRow } from './types';
