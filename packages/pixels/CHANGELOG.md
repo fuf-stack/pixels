@@ -1,5 +1,18 @@
 # Changelog
 
+## [2.0.0-next.2](https://github.com/fuf-stack/pixels/compare/pixels-v2.0.0-next.1...pixels-v2.0.0-next.2) (2026-11-13)
+
+
+### Features
+
+* **pixels:** close all toasts when toast.close() has no id ([b95360a](https://github.com/fuf-stack/pixels/commit/b95360ad8d984b660c45fabf395f199eda53c141))
+
+
+### Bug Fixes
+
+* **deps:** update dependency sonner to v2.0.8 ([9c11a80](https://github.com/fuf-stack/pixels/commit/9c11a80b9dda79f0b155e71a290c5012ae30909f))
+* **deps:** update dependency sonner to v2.0.8 ([9a3b672](https://github.com/fuf-stack/pixels/commit/9a3b6726291d77eb2fecd0af4384f0cb0d43a084))
+
 ## [2.0.0-next.1](https://github.com/fuf-stack/pixels/compare/pixels-v2.0.0-next.0...pixels-v2.0.0-next.1) (2026-10-25)
 
 

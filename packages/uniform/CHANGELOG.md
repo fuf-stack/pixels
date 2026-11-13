@@ -1,5 +1,22 @@
 # Changelog
 
+## [2.0.0-next.2](https://github.com/fuf-stack/pixels/compare/uniform-v2.0.0-next.1...uniform-v2.0.0-next.2) (2026-11-13)
+
+
+### Bug Fixes
+
+* **deps:** update dependency react-hook-form to v7.91.0 ([59faddc](https://github.com/fuf-stack/pixels/commit/59faddce03336e3b4f43d59091da19ff47f6af17))
+* **deps:** update dependency react-hook-form to v7.91.0 ([bc96b83](https://github.com/fuf-stack/pixels/commit/bc96b835c1b689f5d87cfdb4ac9b68db03a6bbb5))
+* **uniform:** declare hook return types for react-hook-form 7.91 ([f2a48e0](https://github.com/fuf-stack/pixels/commit/f2a48e0e85a25351250b45bfcc533796b2dc012a))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @fuf-stack/pixels bumped to 2.0.0-next.2
+    * @fuf-stack/veto bumped to 2.0.0-next.2
+
 ## [2.0.0-next.1](https://github.com/fuf-stack/pixels/compare/uniform-v2.0.0-next.0...uniform-v2.0.0-next.1) (2026-10-25)
 
 
