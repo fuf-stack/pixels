@@ -48,6 +48,28 @@ configuration.
 
 If no release is created, the publish steps are skipped.
 
+## Conflicting release PRs
+
+After a release on `main`, the `check-conflicting-prs` job removes the
+`autorelease: pending` label from open `main` release PRs that GitHub does not
+report as mergeable, and `release-please-rebase` regenerates them. The job only
+looks at PRs targeting `main`, because the rebase only refreshes `main`.
+
+## Recovering a release PR merged without its label
+
+Release Please only creates tags, GitHub releases, and npm publishes for a merged
+release PR labeled `autorelease: pending`. If the label was missing at merge
+time, the release is silently skipped: the manifest and `package.json` versions
+advance, but no tags or packages are published, and Release Please opens a new
+release PR for the following version with a too-wide commit range.
+
+To recover:
+
+1. Close the new release PR without merging it.
+2. Add the `autorelease: pending` label back to the merged release PR.
+3. Re-run the `release-please` workflow run of the merge commit. It creates the
+   missing tags and releases and publishes the packages.
+
 ## Why we publish with Lerna
 
 `pnpm publish` does not currently support npm trusted publishing (OIDC) in the way we need for this workflow, so release publishing is performed with Lerna (Lerna-Lite), which delegates to npm.

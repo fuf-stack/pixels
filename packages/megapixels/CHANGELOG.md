@@ -64,6 +64,46 @@
     * @fuf-stack/uniform bumped to 2.0.0-next.1
     * @fuf-stack/veto bumped to 2.0.0-next.1
 
+## [1.0.0](https://github.com/fuf-stack/pixels/compare/megapixels-v0.17.1...megapixels-v1.0.0) (2026-11-13)
+
+
+### ⚠ BREAKING CHANGES
+
+* **megapixels:** DataTable uses feature-bound TanStack Table v9 column and row types. Import DataTableColumnDef and DataTableRow from @fuf-stack/megapixels/DataTable, use sortFn instead of sortingFn, and table.state instead of table.getState().
+
+### Features
+
+* **megapixels:** close all notifications when notification.close() has no id ([41406c0](https://github.com/fuf-stack/pixels/commit/41406c03de86165ba5ededd178da1843cb6f8b26))
+
+
+### Bug Fixes
+
+* **deps:** update dependency @base-ui/react to v1.9.0 ([563f990](https://github.com/fuf-stack/pixels/commit/563f9900741c9a668f142ca7a6fc7028abb33b2d))
+* **deps:** update dependency @base-ui/react to v1.9.0 ([a6752ac](https://github.com/fuf-stack/pixels/commit/a6752ac864e1a2c12d2c29dce90b58231b6e03db))
+* **deps:** update dependency @tanstack/react-table to v9 ([9000dc9](https://github.com/fuf-stack/pixels/commit/9000dc945c202bb8089d7c16133522ebcb93e593))
+* **deps:** update dependency @tanstack/react-table to v9 ([8d0e6ef](https://github.com/fuf-stack/pixels/commit/8d0e6ef60da85cdfe73b1d1b56670ff2c259e69e))
+* **deps:** update dependency @tanstack/react-virtual to v3.14.14 ([#1926](https://github.com/fuf-stack/pixels/issues/1926)) ([6e7f074](https://github.com/fuf-stack/pixels/commit/6e7f0744b58b365fe803720d1808f88aa706e092))
+* **deps:** update dependency @tanstack/react-virtual to v3.14.15 ([#1935](https://github.com/fuf-stack/pixels/issues/1935)) ([11584d0](https://github.com/fuf-stack/pixels/commit/11584d0ce3042854227a5be162bad9061cae6c20))
+* **deps:** update dependency @tanstack/react-virtual to v3.14.17 ([#1938](https://github.com/fuf-stack/pixels/issues/1938)) ([9d99c43](https://github.com/fuf-stack/pixels/commit/9d99c43c4a18957a9a5804fcd835cb3849cf1186))
+* **deps:** update dependency @tanstack/react-virtual to v3.14.18 ([#1941](https://github.com/fuf-stack/pixels/issues/1941)) ([cd4dc7e](https://github.com/fuf-stack/pixels/commit/cd4dc7efd8a3614939931874e53e482fbda95e99))
+* **deps:** update dependency @tanstack/react-virtual to v3.14.19 ([#1943](https://github.com/fuf-stack/pixels/issues/1943)) ([c5f9e5d](https://github.com/fuf-stack/pixels/commit/c5f9e5da396124ade08ea1a7c922257e625d4852))
+* **deps:** update dependency @tanstack/react-virtual to v3.14.20 ([#1949](https://github.com/fuf-stack/pixels/issues/1949)) ([b77c1cb](https://github.com/fuf-stack/pixels/commit/b77c1cbafae9071425275a2451951382355923b8))
+* **deps:** update dependency @tanstack/react-virtual to v3.14.21 ([#1952](https://github.com/fuf-stack/pixels/issues/1952)) ([9a3ba4c](https://github.com/fuf-stack/pixels/commit/9a3ba4cb1227bfb2623a1be7982e9212254c9344))
+* **deps:** update dependency @tanstack/react-virtual to v3.14.22 ([#1958](https://github.com/fuf-stack/pixels/issues/1958)) ([360d606](https://github.com/fuf-stack/pixels/commit/360d60656be8c4eaceb34e1bc82dd7840d9971a9))
+* **deps:** update dependency @tanstack/react-virtual to v3.14.23 ([#1963](https://github.com/fuf-stack/pixels/issues/1963)) ([028a9a5](https://github.com/fuf-stack/pixels/commit/028a9a52b6736c823a521f8f15332d6ba632d436))
+* **deps:** update dependency @tanstack/react-virtual to v3.14.24 ([#1970](https://github.com/fuf-stack/pixels/issues/1970)) ([9744ca5](https://github.com/fuf-stack/pixels/commit/9744ca5ded921b7d0e07a719998f52502fd7a55a))
+* **deps:** update dependency sonner to v2.0.8 ([9c11a80](https://github.com/fuf-stack/pixels/commit/9c11a80b9dda79f0b155e71a290c5012ae30909f))
+* **megapixels:** migrate DataTable to TanStack Table v9 ([956e27f](https://github.com/fuf-stack/pixels/commit/956e27f30f8e3663bb8932abed8e8809c244a9c6))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @fuf-stack/pixels bumped to 1.15.0
+    * @fuf-stack/uniform bumped to 1.28.1
+    * @fuf-stack/veto bumped to 1.11.1
+
 ## [0.17.1](https://github.com/fuf-stack/pixels/compare/megapixels-v0.17.0...megapixels-v0.17.1) (2026-10-19)
 
 
