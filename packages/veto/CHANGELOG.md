@@ -1,5 +1,22 @@
 # Changelog
 
+## [2.0.0-next.3](https://github.com/fuf-stack/pixels/compare/veto-v2.0.0-next.2...veto-v2.0.0-next.3) (2026-11-14)
+
+
+### ⚠ BREAKING CHANGES
+
+* Remove the pixel-utils heroui export and public Uniform useInput, useUniformField and useUniformFieldArray hook exports. Applications must import pixel-utils/tokens.css, configure Tailwind source scanning and replace custom --heroui-* variables with --pixel-* variables. Custom fields must migrate to the supported controller and form-context APIs. Selectors targeting removed internal markup or state attributes must migrate to the documented slots and supported attributes.
+
+### Features
+
+* replace HeroUI with owned components and Tailwind 4 styling ([df27899](https://github.com/fuf-stack/pixels/commit/df27899a1675df276d40bebc7ae745e3dc31be5a))
+
+
+### Bug Fixes
+
+* **deps:** update dependency zod to v4.6.7 ([#1940](https://github.com/fuf-stack/pixels/issues/1940)) ([151b7e3](https://github.com/fuf-stack/pixels/commit/151b7e3ff46bda068ee4d777359d378f22087fb4))
+* **release:** merge main into next and repair prerelease bootstrap ([3bb219d](https://github.com/fuf-stack/pixels/commit/3bb219d42bbba9bdff8612e27209d142ff26ca63))
+
 ## [2.0.0-next.2](https://github.com/fuf-stack/pixels/compare/veto-v2.0.0-next.1...veto-v2.0.0-next.2) (2026-11-13)
 
 
