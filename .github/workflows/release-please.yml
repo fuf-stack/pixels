@@ -96,7 +96,9 @@ jobs:
           REPO: ${{ github.repository }}
         run: |
           set -euo pipefail
-          pending_prs=$(gh pr list --repo "$REPO" --label "autorelease: pending" --state open --json number --jq '.[].number')
+          # Only main release PRs: the rebase job below refreshes main only, so
+          # removing the label from a next release PR would silently skip its release.
+          pending_prs=$(gh pr list --repo "$REPO" --base main --label "autorelease: pending" --state open --json number --jq '.[].number')
           need_rebase=""
 
           if [[ -n "$pending_prs" ]]; then
