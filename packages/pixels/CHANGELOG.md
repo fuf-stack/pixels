@@ -1,5 +1,24 @@
 # Changelog
 
+## [2.0.0-next.3](https://github.com/fuf-stack/pixels/compare/pixels-v2.0.0-next.2...pixels-v2.0.0-next.3) (2026-11-14)
+
+
+### ⚠ BREAKING CHANGES
+
+* Remove the pixel-utils heroui export and public Uniform useInput, useUniformField and useUniformFieldArray hook exports. Applications must import pixel-utils/tokens.css, configure Tailwind source scanning and replace custom --heroui-* variables with --pixel-* variables. Custom fields must migrate to the supported controller and form-context APIs. Selectors targeting removed internal markup or state attributes must migrate to the documented slots and supported attributes.
+
+### Features
+
+* **pixels:** close all toasts when toast.close() has no id ([b95360a](https://github.com/fuf-stack/pixels/commit/b95360ad8d984b660c45fabf395f199eda53c141))
+* replace HeroUI with owned components and Tailwind 4 styling ([df27899](https://github.com/fuf-stack/pixels/commit/df27899a1675df276d40bebc7ae745e3dc31be5a))
+
+
+### Bug Fixes
+
+* **deps:** update dependency sonner to v2.0.8 ([9c11a80](https://github.com/fuf-stack/pixels/commit/9c11a80b9dda79f0b155e71a290c5012ae30909f))
+* **deps:** update dependency sonner to v2.0.8 ([9a3b672](https://github.com/fuf-stack/pixels/commit/9a3b6726291d77eb2fecd0af4384f0cb0d43a084))
+* **release:** merge main into next and repair prerelease bootstrap ([3bb219d](https://github.com/fuf-stack/pixels/commit/3bb219d42bbba9bdff8612e27209d142ff26ca63))
+
 ## [2.0.0-next.2](https://github.com/fuf-stack/pixels/compare/pixels-v2.0.0-next.1...pixels-v2.0.0-next.2) (2026-11-13)
 
 
