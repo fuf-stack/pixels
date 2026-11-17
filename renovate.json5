@@ -1,72 +1,50 @@
 {
-  // validate with (see: https://docs.renovatebot.com/config-validation/):
-  // npx --yes --package renovate -- renovate-config-validator renovate.json5 --strict
-
-  dependencyDashboardLabels: ['effort | ongoing', 'scope | dependencies'],
-  dependencyDashboardOSVVulnerabilitySummary: 'all',
+  dependencyDashboard: {
+    labels: ["effort | ongoing", "scope | dependencies"],
+    osvVulnerabilitySummary: "all",
+  },
   extends: [
-    // Includes recommended defaults and GitHub Action SHA pinning.
-    'config:best-practices',
-    ':automergeDigest',
-    ':automergeMinor',
-    ':combinePatchMinorReleases',
-    ':dependencyDashboard',
-    ':docker',
-    ':enableVulnerabilityAlertsWithLabel(renovate | alert)',
-    ':maintainLockFilesWeekly',
-    ':prHourlyLimit4',
+    "config:best-practices",
+    ":automergeDigest",
+    ":automergeMinor",
+    ":combinePatchMinorReleases",
+    ":dependencyDashboard",
+    ":docker",
+    ":enableVulnerabilityAlertsWithLabel(renovate | alert)",
+    ":maintainLockFilesWeekly",
+    ":prHourlyLimit4",
   ],
-  ignorePaths: ['/node_modules/'],
-  // Wait 14 days to match pnpm, except for @fuf-stack packages below.
-  // see: https://docs.renovatebot.com/configuration-options/#minimumreleaseage
-  minimumReleaseAge: '14 days',
-  // Exclude releases until the age requirement passes, then create PRs
-  // immediately rather than waiting for branch checks.
-  internalChecksFilter: 'strict',
-  prCreation: 'immediate',
-  // see: https://docs.renovatebot.com/configuration-options/#prconcurrentlimit
+  ignorePaths: ["/node_modules/"],
+  minimumReleaseAge: "14 days",
+  internalChecksFilter: "strict",
+  prCreation: "immediate",
   prConcurrentLimit: 20,
-  // only rebase merge requests when they become conflicted
-  // see: https://docs.renovatebot.com/configuration-options/#rebasewhen
-  rebaseWhen: 'conflicted',
-  // https://docs.renovatebot.com/configuration-options/#stopupdatinglabel
-  stopUpdatingLabel: 'renovate | stop update',
-  // Mend jobs have 3 GiB total; leave room for Renovate alongside pnpm.
-  // https://docs.renovatebot.com/mend-hosted/faq/#im-hitting-a-timeout-kernel-out-of-memory-limit-with-a-pnpmyarn-project
+  rebaseWhen: "conflicted",
+  stopUpdatingLabel: "renovate | stop update",
   toolSettings: {
     nodeMaxMemory: 1024,
   },
   packageRules: [
-    // Preserve our 14-day npm delay and immediate PR creation over the
-    // shorter release age and branch-check defaults in best-practices.
     {
-      matchManagers: ['npm'],
-      minimumReleaseAge: '14 days',
-      prCreation: 'immediate',
+      matchManagers: ["npm"],
+      minimumReleaseAge: "14 days",
+      prCreation: "immediate",
     },
-
-    // @dnd-kit monorepo
     {
-      matchPackageNames: ['/^@dnd-kit/'],
-      groupName: '@dnd-kit monorepo',
+      matchPackageNames: ["/^@dnd-kit/"],
+      groupName: "@dnd-kit monorepo",
     },
-
-    // @fuf-stack packages: skip minimumReleaseAge (fuf packages)
     {
-      matchPackageNames: ['/^@fuf-stack/'],
+      matchPackageNames: ["/^@fuf-stack/"],
       minimumReleaseAge: null,
     },
-
-    // @heroui monorepo
     {
-      matchPackageNames: ['/^@heroui/'],
-      groupName: '@heroui monorepo',
+      matchPackageNames: ["/^@heroui/"],
+      groupName: "@heroui monorepo",
     },
-
-    // framer-motion: weekly only (rate-limiting)
     {
-      matchPackageNames: ['framer-motion'],
-      schedule: ['before 9am on monday'],
+      matchPackageNames: ["framer-motion"],
+      schedule: ["before 9am on monday"],
     },
   ],
 }
