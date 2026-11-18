@@ -2,6 +2,8 @@
 
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
+import { useEffect } from 'react';
+
 import { act, render, screen } from '@testing-library/react';
 
 import FormDebugViewer from './FormDebugViewer';
@@ -54,6 +56,46 @@ vi.mock('@fuf-stack/pixels/Json', () => ({
 describe('FormDebugViewer', () => {
   beforeEach(() => {
     vi.clearAllMocks();
+  });
+
+  it('captures field initialization when debug is already open on mount', () => {
+    let values: Record<string, unknown> = {};
+    let listener:
+      ((state: { values: Record<string, unknown> }) => void) | undefined;
+    mockUseFormContext.mockReturnValue({
+      debugMode: 'debug',
+      formState: {
+        isValid: true,
+        isSubmitting: false,
+        isSubmitSuccessful: false,
+        submitCount: 0,
+      },
+      getValues: () => values,
+      setDebugMode: vi.fn(),
+      validation: { errors: undefined },
+      subscribe: ({ callback }: { callback: typeof listener }) => {
+        listener = callback;
+        return () => {
+          listener = undefined;
+        };
+      },
+    });
+    const InitializeField = () => {
+      useEffect(() => {
+        values = { cpuCount: 4, memory: 16 };
+        listener?.({ values });
+      }, []);
+      return null;
+    };
+    render(
+      <>
+        <InitializeField />
+        <FormDebugViewer />
+      </>,
+    );
+    expect(screen.getByTestId('debug-json')).toHaveTextContent(
+      '"values":{"cpuCount":4,"memory":16}',
+    );
   });
 
   it('does not subscribe while debug card is hidden', () => {

@@ -28,3 +28,20 @@ consistent config instead of duplicating Storybook boilerplate.
 - This package is intended to be imported by other workspace packages.
 - Keep this package aligned with the `pixels` Storybook config package where possible.
 - Keep intentional differences documented (for example, snapshot normalization behavior).
+
+## Browser test styling limitation
+
+The Vitest browser project currently does not enable CSS processing or the
+Tailwind Vite plugin. Interaction and DOM assertions still run, but passing
+accessibility checks do not establish contrast or layout correctness for the
+styled UI. Check those in the normal styled Storybook preview.
+
+Enabling `css: true` together with `@tailwindcss/vite` should be a separate testing
+infrastructure change. It exposes existing contrast failures, including white
+text on the green success/submit button (about 2.19:1 normally and 1.9:1 on hover,
+below the required 4.5:1). These remain unresolved; the current test configuration
+is not evidence that they are fixed. Review theme and component changes separately.
+
+FieldReset tests assert reset behavior and placement within the input's end-content
+slot. Pixel-alignment checks from its former custom positioning implementation
+are no longer needed; the input now owns that layout.
