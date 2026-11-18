@@ -1,0 +1,1890 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Story Snapshots > Changed 1`] = `
+<body>
+  <div
+    data-live-announcer="true"
+    style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+  >
+    <div
+      aria-live="assertive"
+      aria-relevant="additions"
+      role="log"
+    >
+      <div>
+        8
+      </div>
+    </div>
+    <div
+      aria-live="polite"
+      aria-relevant="additions"
+      role="log"
+    />
+  </div>
+  <div>
+    <div
+      class="flex w-full flex-row justify-between gap-6"
+      data-component="form"
+    >
+      <form
+        class="grow min-w-60"
+        data-form-is-valid="true"
+        data-testid=""
+        novalidate=""
+      >
+        <div
+          class="flex flex-col gap-4"
+        >
+          <div
+            class="min-w-0"
+            data-changed="true"
+            data-component="field-reset"
+            data-slot="base"
+          >
+            <div
+              class="group relative flex w-full flex-col is-filled"
+              data-component="input"
+              data-filled="true"
+              data-rac=""
+              data-slot="base"
+            >
+              <label
+                class="block cursor-default pb-1 text-small text-foreground group-data-[invalid=true]:text-danger"
+                data-slot="label"
+                for="uniform-«replaced-aria-id»"
+                id="uniform-«replaced-aria-id»-label"
+              >
+                CPU count
+              </label>
+              <div
+                aria-disabled="false"
+                class="relative inline-flex h-10 min-h-10 w-full cursor-text items-center shadow-xs rounded-small border-medium border-default-200 bg-content1 px-3 text-foreground transition-colors group-data-[disabled=true]:pointer-events-none group-data-[focus=true]:border-focus group-data-[invalid=true]:border-danger data-[hovered=true]:border-default-400 group-data-[focus=true]:data-[hovered=true]:border-default-foreground motion-reduce:transition-none is-filled"
+                data-rac=""
+                data-slot="input-wrapper"
+                role="group"
+              >
+                <div
+                  class="inline-flex h-full w-full items-center gap-0"
+                  data-slot="inner-wrapper"
+                >
+                  <input
+                    aria-labelledby="uniform-«replaced-aria-id»-label"
+                    aria-roledescription="Number field"
+                    autocomplete="off"
+                    autocorrect="off"
+                    class="w-full min-w-0 bg-transparent bg-clip-text text-small font-normal text-inherit outline-none placeholder:text-foreground-500 autofill:bg-transparent data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden is-filled"
+                    data-filled="true"
+                    data-has-end-content="true"
+                    data-rac=""
+                    data-slot="input"
+                    data-testid="cpucount"
+                    id="uniform-«replaced-aria-id»"
+                    inputmode="numeric"
+                    placeholder=" "
+                    spellcheck="false"
+                    tabindex="0"
+                    type="text"
+                    value="8"
+                  />
+                  <span
+                    class="inline-flex shrink-0 items-center gap-2"
+                  >
+                    <span
+                      class="text-small text-default-600"
+                    >
+                      Cores
+                    </span>
+                    <span
+                      class="z-10 subpixel-antialiased aria-expanded:scale-[0.97] aria-expanded:opacity-70 cursor-pointer"
+                    >
+                      <button
+                        aria-label="Reset to original: cpuCount"
+                        class="inline-flex size-6 shrink-0 items-center justify-center rounded-sm text-warning data-[hovered=true]:bg-warning/15 outline-none data-[focus-visible=true]:ring-2 data-[focus-visible=true]:ring-focus data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-50"
+                        data-rac=""
+                        data-react-aria-pressable="true"
+                        data-slot="reset-action"
+                        id="react-aria-«replaced-aria-id»"
+                        tabindex="0"
+                        type="button"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="size-3.5"
+                          data-slot="icon"
+                          fill="currentColor"
+                          height="1em"
+                          stroke="currentColor"
+                          stroke-width="0"
+                          viewBox="0 0 512 512"
+                          width="1em"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M255.545 8c-66.269.119-126.438 26.233-170.86 68.685L48.971 40.971C33.851 25.851 8 36.559 8 57.941V192c0 13.255 10.745 24 24 24h134.059c21.382 0 32.09-25.851 16.971-40.971l-41.75-41.75c30.864-28.899 70.801-44.907 113.23-45.273 92.398-.798 170.283 73.977 169.484 169.442C423.236 348.009 349.816 424 256 424c-41.127 0-79.997-14.678-110.63-41.556-4.743-4.161-11.906-3.908-16.368.553L89.34 422.659c-4.872 4.872-4.631 12.815.482 17.433C133.798 479.813 192.074 504 256 504c136.966 0 247.999-111.033 248-247.998C504.001 119.193 392.354 7.755 255.545 8z"
+                          />
+                        </svg>
+                      </button>
+                    </span>
+                  </span>
+                  <div
+                    class="flex h-full flex-col justify-center ps-1"
+                    data-slot="stepper-wrapper"
+                  >
+                    <button
+                      aria-controls="uniform-«replaced-aria-id»"
+                      aria-label="Increase"
+                      class="flex h-3 w-3 items-center justify-center text-default-foreground outline-none hover:opacity-hover focus-visible:outline-2 focus-visible:outline-focus"
+                      data-rac=""
+                      data-react-aria-pressable="true"
+                      data-slot="increase-button"
+                      id="react-aria-«replaced-aria-id»"
+                      slot="increment"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        fill="none"
+                        height="1em"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.5"
+                        viewBox="0 0 24 24"
+                        width="1em"
+                      >
+                        <path
+                          d="m18 15-6-6-6 6"
+                        />
+                      </svg>
+                    </button>
+                    <button
+                      aria-controls="uniform-«replaced-aria-id»"
+                      aria-label="Decrease"
+                      class="flex h-3 w-3 items-center justify-center text-default-foreground outline-none hover:opacity-hover focus-visible:outline-2 focus-visible:outline-focus"
+                      data-rac=""
+                      data-react-aria-pressable="true"
+                      data-slot="decrease-button"
+                      id="react-aria-«replaced-aria-id»"
+                      slot="decrement"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        fill="none"
+                        height="1em"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.5"
+                        viewBox="0 0 24 24"
+                        width="1em"
+                      >
+                        <path
+                          d="m6 9 6 6 6-6"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <input
+              name="cpuCount"
+              type="hidden"
+              value="8"
+            />
+            <span
+              aria-live="polite"
+              class="sr-only"
+              data-slot="announcement"
+            >
+              Changed
+            </span>
+          </div>
+          <div
+            class="min-w-0"
+            data-component="field-reset"
+            data-slot="base"
+          >
+            <div
+              class="group relative flex w-full flex-col is-filled"
+              data-component="input"
+              data-filled="true"
+              data-rac=""
+              data-slot="base"
+            >
+              <label
+                class="block cursor-default pb-1 text-small text-foreground group-data-[invalid=true]:text-danger"
+                data-slot="label"
+                for="uniform-«replaced-aria-id»"
+                id="uniform-«replaced-aria-id»-label"
+              >
+                Memory
+              </label>
+              <div
+                aria-disabled="false"
+                class="relative inline-flex h-10 min-h-10 w-full cursor-text items-center shadow-xs rounded-small border-medium border-default-200 bg-content1 px-3 text-foreground transition-colors group-data-[disabled=true]:pointer-events-none group-data-[focus=true]:border-focus group-data-[invalid=true]:border-danger data-[hovered=true]:border-default-400 group-data-[focus=true]:data-[hovered=true]:border-default-foreground motion-reduce:transition-none is-filled"
+                data-rac=""
+                data-slot="input-wrapper"
+                role="group"
+              >
+                <div
+                  class="inline-flex h-full w-full items-center gap-0"
+                  data-slot="inner-wrapper"
+                >
+                  <input
+                    aria-labelledby="uniform-«replaced-aria-id»-label"
+                    aria-roledescription="Number field"
+                    autocomplete="off"
+                    autocorrect="off"
+                    class="w-full min-w-0 bg-transparent bg-clip-text text-small font-normal text-inherit outline-none placeholder:text-foreground-500 autofill:bg-transparent data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden is-filled"
+                    data-filled="true"
+                    data-has-end-content="true"
+                    data-rac=""
+                    data-slot="input"
+                    data-testid="memory"
+                    id="uniform-«replaced-aria-id»"
+                    inputmode="numeric"
+                    placeholder=" "
+                    spellcheck="false"
+                    tabindex="0"
+                    type="text"
+                    value="16"
+                  />
+                  <span
+                    class="inline-flex shrink-0 items-center gap-2"
+                  >
+                    <span
+                      class="text-small text-default-600"
+                    >
+                      GB
+                    </span>
+                  </span>
+                  <div
+                    class="flex h-full flex-col justify-center ps-1"
+                    data-slot="stepper-wrapper"
+                  >
+                    <button
+                      aria-controls="uniform-«replaced-aria-id»"
+                      aria-label="Increase"
+                      class="flex h-3 w-3 items-center justify-center text-default-foreground outline-none hover:opacity-hover focus-visible:outline-2 focus-visible:outline-focus"
+                      data-rac=""
+                      data-react-aria-pressable="true"
+                      data-slot="increase-button"
+                      id="react-aria-«replaced-aria-id»"
+                      slot="increment"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        fill="none"
+                        height="1em"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.5"
+                        viewBox="0 0 24 24"
+                        width="1em"
+                      >
+                        <path
+                          d="m18 15-6-6-6 6"
+                        />
+                      </svg>
+                    </button>
+                    <button
+                      aria-controls="uniform-«replaced-aria-id»"
+                      aria-label="Decrease"
+                      class="flex h-3 w-3 items-center justify-center text-default-foreground outline-none hover:opacity-hover focus-visible:outline-2 focus-visible:outline-focus"
+                      data-rac=""
+                      data-react-aria-pressable="true"
+                      data-slot="decrease-button"
+                      id="react-aria-«replaced-aria-id»"
+                      slot="decrement"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        fill="none"
+                        height="1em"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.5"
+                        viewBox="0 0 24 24"
+                        width="1em"
+                      >
+                        <path
+                          d="m6 9 6 6 6-6"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <input
+              name="memory"
+              type="hidden"
+              value="16"
+            />
+            <span
+              aria-live="polite"
+              class="sr-only"
+              data-slot="announcement"
+            />
+          </div>
+          <div
+            class="min-w-0"
+            data-component="field-reset"
+            data-slot="base"
+          >
+            <div
+              class="group relative flex w-full flex-col is-filled"
+              data-component="input"
+              data-filled="true"
+              data-rac=""
+              data-slot="base"
+            >
+              <label
+                class="block cursor-default pb-1 text-small text-foreground group-data-[invalid=true]:text-danger"
+                data-slot="label"
+                for="uniform-«replaced-aria-id»"
+                id="uniform-«replaced-aria-id»-label"
+              >
+                Note
+              </label>
+              <div
+                class="relative inline-flex h-10 min-h-10 w-full cursor-text items-center shadow-xs rounded-small border-medium border-default-200 bg-content1 px-3 text-foreground transition-colors group-data-[disabled=true]:pointer-events-none group-data-[focus=true]:border-focus group-data-[invalid=true]:border-danger data-[hovered=true]:border-default-400 group-data-[focus=true]:data-[hovered=true]:border-default-foreground motion-reduce:transition-none is-filled"
+                data-rac=""
+                data-slot="input-wrapper"
+                role="presentation"
+              >
+                <div
+                  class="inline-flex h-full w-full items-center gap-0"
+                  data-slot="inner-wrapper"
+                >
+                  <input
+                    aria-labelledby="uniform-«replaced-aria-id»-label"
+                    autocomplete="off"
+                    class="w-full min-w-0 bg-transparent bg-clip-text text-small font-normal text-inherit outline-none placeholder:text-foreground-500 autofill:bg-transparent data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden is-filled"
+                    data-filled="true"
+                    data-has-end-content="true"
+                    data-rac=""
+                    data-slot="input"
+                    data-testid="note"
+                    id="uniform-«replaced-aria-id»"
+                    name="note"
+                    placeholder=" "
+                    tabindex="0"
+                    type="text"
+                    value="Current settings"
+                  />
+                </div>
+              </div>
+            </div>
+            <span
+              aria-live="polite"
+              class="sr-only"
+              data-slot="announcement"
+            />
+          </div>
+        </div>
+        <div
+          class="mt-4 flex justify-end"
+        >
+          <button
+            aria-label="Submit form"
+            class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
+            data-component="submit-button"
+            data-focus="true"
+            data-focused="true"
+            data-hover="true"
+            data-hovered="true"
+            data-rac=""
+            data-react-aria-pressable="true"
+            data-testid="form_submit_button"
+            id="react-aria-«replaced-aria-id»"
+            tabindex="0"
+            type="submit"
+          >
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Story Snapshots > Default 1`] = `
+<div>
+  <div
+    class="flex w-full flex-row justify-between gap-6"
+    data-component="form"
+  >
+    <form
+      class="grow min-w-60"
+      data-form-is-valid="false"
+      data-testid=""
+      novalidate=""
+    >
+      <div
+        class="flex flex-col gap-4"
+      >
+        <div
+          class="min-w-0"
+          data-component="field-reset"
+          data-slot="base"
+        >
+          <div
+            class="group relative flex w-full flex-col is-filled"
+            data-component="input"
+            data-filled="true"
+            data-rac=""
+            data-slot="base"
+          >
+            <label
+              class="block cursor-default pb-1 text-small text-foreground group-data-[invalid=true]:text-danger"
+              data-slot="label"
+              for="uniform-«replaced-aria-id»"
+              id="uniform-«replaced-aria-id»-label"
+            >
+              CPU count
+            </label>
+            <div
+              aria-disabled="false"
+              class="relative inline-flex h-10 min-h-10 w-full cursor-text items-center shadow-xs rounded-small border-medium border-default-200 bg-content1 px-3 text-foreground transition-colors group-data-[disabled=true]:pointer-events-none group-data-[focus=true]:border-focus group-data-[invalid=true]:border-danger data-[hovered=true]:border-default-400 group-data-[focus=true]:data-[hovered=true]:border-default-foreground motion-reduce:transition-none is-filled"
+              data-rac=""
+              data-slot="input-wrapper"
+              role="group"
+            >
+              <div
+                class="inline-flex h-full w-full items-center gap-0"
+                data-slot="inner-wrapper"
+              >
+                <input
+                  aria-labelledby="uniform-«replaced-aria-id»-label"
+                  aria-roledescription="Number field"
+                  autocomplete="off"
+                  autocorrect="off"
+                  class="w-full min-w-0 bg-transparent bg-clip-text text-small font-normal text-inherit outline-none placeholder:text-foreground-500 autofill:bg-transparent data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden is-filled"
+                  data-filled="true"
+                  data-has-end-content="true"
+                  data-rac=""
+                  data-slot="input"
+                  data-testid="cpucount"
+                  id="uniform-«replaced-aria-id»"
+                  inputmode="numeric"
+                  placeholder=" "
+                  spellcheck="false"
+                  tabindex="0"
+                  type="text"
+                  value="4"
+                />
+                <span
+                  class="inline-flex shrink-0 items-center gap-2"
+                >
+                  <span
+                    class="text-small text-default-600"
+                  >
+                    Cores
+                  </span>
+                </span>
+                <div
+                  class="flex h-full flex-col justify-center ps-1"
+                  data-slot="stepper-wrapper"
+                >
+                  <button
+                    aria-controls="uniform-«replaced-aria-id»"
+                    aria-label="Increase"
+                    class="flex h-3 w-3 items-center justify-center text-default-foreground outline-none hover:opacity-hover focus-visible:outline-2 focus-visible:outline-focus"
+                    data-rac=""
+                    data-react-aria-pressable="true"
+                    data-slot="increase-button"
+                    id="react-aria-«replaced-aria-id»"
+                    slot="increment"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      fill="none"
+                      height="1em"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.5"
+                      viewBox="0 0 24 24"
+                      width="1em"
+                    >
+                      <path
+                        d="m18 15-6-6-6 6"
+                      />
+                    </svg>
+                  </button>
+                  <button
+                    aria-controls="uniform-«replaced-aria-id»"
+                    aria-label="Decrease"
+                    class="flex h-3 w-3 items-center justify-center text-default-foreground outline-none hover:opacity-hover focus-visible:outline-2 focus-visible:outline-focus"
+                    data-rac=""
+                    data-react-aria-pressable="true"
+                    data-slot="decrease-button"
+                    id="react-aria-«replaced-aria-id»"
+                    slot="decrement"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      fill="none"
+                      height="1em"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.5"
+                      viewBox="0 0 24 24"
+                      width="1em"
+                    >
+                      <path
+                        d="m6 9 6 6 6-6"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <input
+            name="cpuCount"
+            type="hidden"
+            value="4"
+          />
+          <span
+            aria-live="polite"
+            class="sr-only"
+            data-slot="announcement"
+          />
+        </div>
+        <div
+          class="min-w-0"
+          data-component="field-reset"
+          data-slot="base"
+        >
+          <div
+            class="group relative flex w-full flex-col is-filled"
+            data-component="input"
+            data-filled="true"
+            data-rac=""
+            data-slot="base"
+          >
+            <label
+              class="block cursor-default pb-1 text-small text-foreground group-data-[invalid=true]:text-danger"
+              data-slot="label"
+              for="uniform-«replaced-aria-id»"
+              id="uniform-«replaced-aria-id»-label"
+            >
+              Memory
+            </label>
+            <div
+              aria-disabled="false"
+              class="relative inline-flex h-10 min-h-10 w-full cursor-text items-center shadow-xs rounded-small border-medium border-default-200 bg-content1 px-3 text-foreground transition-colors group-data-[disabled=true]:pointer-events-none group-data-[focus=true]:border-focus group-data-[invalid=true]:border-danger data-[hovered=true]:border-default-400 group-data-[focus=true]:data-[hovered=true]:border-default-foreground motion-reduce:transition-none is-filled"
+              data-rac=""
+              data-slot="input-wrapper"
+              role="group"
+            >
+              <div
+                class="inline-flex h-full w-full items-center gap-0"
+                data-slot="inner-wrapper"
+              >
+                <input
+                  aria-labelledby="uniform-«replaced-aria-id»-label"
+                  aria-roledescription="Number field"
+                  autocomplete="off"
+                  autocorrect="off"
+                  class="w-full min-w-0 bg-transparent bg-clip-text text-small font-normal text-inherit outline-none placeholder:text-foreground-500 autofill:bg-transparent data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden is-filled"
+                  data-filled="true"
+                  data-has-end-content="true"
+                  data-rac=""
+                  data-slot="input"
+                  data-testid="memory"
+                  id="uniform-«replaced-aria-id»"
+                  inputmode="numeric"
+                  placeholder=" "
+                  spellcheck="false"
+                  tabindex="0"
+                  type="text"
+                  value="16"
+                />
+                <span
+                  class="inline-flex shrink-0 items-center gap-2"
+                >
+                  <span
+                    class="text-small text-default-600"
+                  >
+                    GB
+                  </span>
+                </span>
+                <div
+                  class="flex h-full flex-col justify-center ps-1"
+                  data-slot="stepper-wrapper"
+                >
+                  <button
+                    aria-controls="uniform-«replaced-aria-id»"
+                    aria-label="Increase"
+                    class="flex h-3 w-3 items-center justify-center text-default-foreground outline-none hover:opacity-hover focus-visible:outline-2 focus-visible:outline-focus"
+                    data-rac=""
+                    data-react-aria-pressable="true"
+                    data-slot="increase-button"
+                    id="react-aria-«replaced-aria-id»"
+                    slot="increment"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      fill="none"
+                      height="1em"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.5"
+                      viewBox="0 0 24 24"
+                      width="1em"
+                    >
+                      <path
+                        d="m18 15-6-6-6 6"
+                      />
+                    </svg>
+                  </button>
+                  <button
+                    aria-controls="uniform-«replaced-aria-id»"
+                    aria-label="Decrease"
+                    class="flex h-3 w-3 items-center justify-center text-default-foreground outline-none hover:opacity-hover focus-visible:outline-2 focus-visible:outline-focus"
+                    data-rac=""
+                    data-react-aria-pressable="true"
+                    data-slot="decrease-button"
+                    id="react-aria-«replaced-aria-id»"
+                    slot="decrement"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      fill="none"
+                      height="1em"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.5"
+                      viewBox="0 0 24 24"
+                      width="1em"
+                    >
+                      <path
+                        d="m6 9 6 6 6-6"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <input
+            name="memory"
+            type="hidden"
+            value="16"
+          />
+          <span
+            aria-live="polite"
+            class="sr-only"
+            data-slot="announcement"
+          />
+        </div>
+        <div
+          class="min-w-0"
+          data-component="field-reset"
+          data-slot="base"
+        >
+          <div
+            class="group relative flex w-full flex-col is-filled"
+            data-component="input"
+            data-filled="true"
+            data-rac=""
+            data-slot="base"
+          >
+            <label
+              class="block cursor-default pb-1 text-small text-foreground group-data-[invalid=true]:text-danger"
+              data-slot="label"
+              for="uniform-«replaced-aria-id»"
+              id="uniform-«replaced-aria-id»-label"
+            >
+              Note
+            </label>
+            <div
+              class="relative inline-flex h-10 min-h-10 w-full cursor-text items-center shadow-xs rounded-small border-medium border-default-200 bg-content1 px-3 text-foreground transition-colors group-data-[disabled=true]:pointer-events-none group-data-[focus=true]:border-focus group-data-[invalid=true]:border-danger data-[hovered=true]:border-default-400 group-data-[focus=true]:data-[hovered=true]:border-default-foreground motion-reduce:transition-none is-filled"
+              data-rac=""
+              data-slot="input-wrapper"
+              role="presentation"
+            >
+              <div
+                class="inline-flex h-full w-full items-center gap-0"
+                data-slot="inner-wrapper"
+              >
+                <input
+                  aria-labelledby="uniform-«replaced-aria-id»-label"
+                  autocomplete="off"
+                  class="w-full min-w-0 bg-transparent bg-clip-text text-small font-normal text-inherit outline-none placeholder:text-foreground-500 autofill:bg-transparent data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden is-filled"
+                  data-filled="true"
+                  data-has-end-content="true"
+                  data-rac=""
+                  data-slot="input"
+                  data-testid="note"
+                  id="uniform-«replaced-aria-id»"
+                  name="note"
+                  placeholder=" "
+                  tabindex="0"
+                  type="text"
+                  value="Current settings"
+                />
+              </div>
+            </div>
+          </div>
+          <span
+            aria-live="polite"
+            class="sr-only"
+            data-slot="announcement"
+          />
+        </div>
+      </div>
+      <div
+        class="mt-4 flex justify-end"
+      >
+        <button
+          aria-label="Submit form"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
+          data-component="submit-button"
+          data-rac=""
+          data-react-aria-pressable="true"
+          data-testid="form_submit_button"
+          id="react-aria-«replaced-aria-id»"
+          tabindex="0"
+          type="submit"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`Story Snapshots > IncludeAlways 1`] = `
+<div>
+  <div
+    class="flex w-full flex-row justify-between gap-6"
+    data-component="form"
+  >
+    <form
+      class="grow min-w-60"
+      data-form-is-valid="true"
+      data-testid=""
+      novalidate=""
+    >
+      <div
+        class="flex flex-col gap-4"
+      >
+        <div
+          class="min-w-0"
+          data-component="field-reset"
+          data-slot="base"
+        >
+          <div
+            class="group relative flex w-full flex-col is-filled"
+            data-component="input"
+            data-filled="true"
+            data-rac=""
+            data-slot="base"
+          >
+            <label
+              class="block cursor-default pb-1 text-small text-foreground group-data-[invalid=true]:text-danger"
+              data-slot="label"
+              for="uniform-«replaced-aria-id»"
+              id="uniform-«replaced-aria-id»-label"
+            >
+              CPU count
+            </label>
+            <div
+              aria-disabled="false"
+              class="relative inline-flex h-10 min-h-10 w-full cursor-text items-center shadow-xs rounded-small border-medium border-default-200 bg-content1 px-3 text-foreground transition-colors group-data-[disabled=true]:pointer-events-none group-data-[focus=true]:border-focus group-data-[invalid=true]:border-danger data-[hovered=true]:border-default-400 group-data-[focus=true]:data-[hovered=true]:border-default-foreground motion-reduce:transition-none is-filled"
+              data-rac=""
+              data-slot="input-wrapper"
+              role="group"
+            >
+              <div
+                class="inline-flex h-full w-full items-center gap-0"
+                data-slot="inner-wrapper"
+              >
+                <input
+                  aria-labelledby="uniform-«replaced-aria-id»-label"
+                  aria-roledescription="Number field"
+                  autocomplete="off"
+                  autocorrect="off"
+                  class="w-full min-w-0 bg-transparent bg-clip-text text-small font-normal text-inherit outline-none placeholder:text-foreground-500 autofill:bg-transparent data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden is-filled"
+                  data-filled="true"
+                  data-has-end-content="true"
+                  data-rac=""
+                  data-slot="input"
+                  data-testid="cpucount"
+                  id="uniform-«replaced-aria-id»"
+                  inputmode="numeric"
+                  placeholder=" "
+                  spellcheck="false"
+                  tabindex="0"
+                  type="text"
+                  value="4"
+                />
+                <span
+                  class="inline-flex shrink-0 items-center gap-2"
+                >
+                  <span
+                    class="text-small text-default-600"
+                  >
+                    Cores
+                  </span>
+                </span>
+                <div
+                  class="flex h-full flex-col justify-center ps-1"
+                  data-slot="stepper-wrapper"
+                >
+                  <button
+                    aria-controls="uniform-«replaced-aria-id»"
+                    aria-label="Increase"
+                    class="flex h-3 w-3 items-center justify-center text-default-foreground outline-none hover:opacity-hover focus-visible:outline-2 focus-visible:outline-focus"
+                    data-rac=""
+                    data-react-aria-pressable="true"
+                    data-slot="increase-button"
+                    id="react-aria-«replaced-aria-id»"
+                    slot="increment"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      fill="none"
+                      height="1em"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.5"
+                      viewBox="0 0 24 24"
+                      width="1em"
+                    >
+                      <path
+                        d="m18 15-6-6-6 6"
+                      />
+                    </svg>
+                  </button>
+                  <button
+                    aria-controls="uniform-«replaced-aria-id»"
+                    aria-label="Decrease"
+                    class="flex h-3 w-3 items-center justify-center text-default-foreground outline-none hover:opacity-hover focus-visible:outline-2 focus-visible:outline-focus"
+                    data-rac=""
+                    data-react-aria-pressable="true"
+                    data-slot="decrease-button"
+                    id="react-aria-«replaced-aria-id»"
+                    slot="decrement"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      fill="none"
+                      height="1em"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.5"
+                      viewBox="0 0 24 24"
+                      width="1em"
+                    >
+                      <path
+                        d="m6 9 6 6 6-6"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <input
+            name="cpuCount"
+            type="hidden"
+            value="4"
+          />
+          <span
+            aria-live="polite"
+            class="sr-only"
+            data-slot="announcement"
+          />
+        </div>
+        <div
+          class="min-w-0"
+          data-component="field-reset"
+          data-slot="base"
+        >
+          <div
+            class="group relative flex w-full flex-col is-filled"
+            data-component="input"
+            data-filled="true"
+            data-rac=""
+            data-slot="base"
+          >
+            <label
+              class="block cursor-default pb-1 text-small text-foreground group-data-[invalid=true]:text-danger"
+              data-slot="label"
+              for="uniform-«replaced-aria-id»"
+              id="uniform-«replaced-aria-id»-label"
+            >
+              Memory
+            </label>
+            <div
+              aria-disabled="false"
+              class="relative inline-flex h-10 min-h-10 w-full cursor-text items-center shadow-xs rounded-small border-medium border-default-200 bg-content1 px-3 text-foreground transition-colors group-data-[disabled=true]:pointer-events-none group-data-[focus=true]:border-focus group-data-[invalid=true]:border-danger data-[hovered=true]:border-default-400 group-data-[focus=true]:data-[hovered=true]:border-default-foreground motion-reduce:transition-none is-filled"
+              data-rac=""
+              data-slot="input-wrapper"
+              role="group"
+            >
+              <div
+                class="inline-flex h-full w-full items-center gap-0"
+                data-slot="inner-wrapper"
+              >
+                <input
+                  aria-labelledby="uniform-«replaced-aria-id»-label"
+                  aria-roledescription="Number field"
+                  autocomplete="off"
+                  autocorrect="off"
+                  class="w-full min-w-0 bg-transparent bg-clip-text text-small font-normal text-inherit outline-none placeholder:text-foreground-500 autofill:bg-transparent data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden is-filled"
+                  data-filled="true"
+                  data-has-end-content="true"
+                  data-rac=""
+                  data-slot="input"
+                  data-testid="memory"
+                  id="uniform-«replaced-aria-id»"
+                  inputmode="numeric"
+                  placeholder=" "
+                  spellcheck="false"
+                  tabindex="0"
+                  type="text"
+                  value="16"
+                />
+                <span
+                  class="inline-flex shrink-0 items-center gap-2"
+                >
+                  <span
+                    class="text-small text-default-600"
+                  >
+                    GB
+                  </span>
+                </span>
+                <div
+                  class="flex h-full flex-col justify-center ps-1"
+                  data-slot="stepper-wrapper"
+                >
+                  <button
+                    aria-controls="uniform-«replaced-aria-id»"
+                    aria-label="Increase"
+                    class="flex h-3 w-3 items-center justify-center text-default-foreground outline-none hover:opacity-hover focus-visible:outline-2 focus-visible:outline-focus"
+                    data-rac=""
+                    data-react-aria-pressable="true"
+                    data-slot="increase-button"
+                    id="react-aria-«replaced-aria-id»"
+                    slot="increment"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      fill="none"
+                      height="1em"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.5"
+                      viewBox="0 0 24 24"
+                      width="1em"
+                    >
+                      <path
+                        d="m18 15-6-6-6 6"
+                      />
+                    </svg>
+                  </button>
+                  <button
+                    aria-controls="uniform-«replaced-aria-id»"
+                    aria-label="Decrease"
+                    class="flex h-3 w-3 items-center justify-center text-default-foreground outline-none hover:opacity-hover focus-visible:outline-2 focus-visible:outline-focus"
+                    data-rac=""
+                    data-react-aria-pressable="true"
+                    data-slot="decrease-button"
+                    id="react-aria-«replaced-aria-id»"
+                    slot="decrement"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      fill="none"
+                      height="1em"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.5"
+                      viewBox="0 0 24 24"
+                      width="1em"
+                    >
+                      <path
+                        d="m6 9 6 6 6-6"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <input
+            name="memory"
+            type="hidden"
+            value="16"
+          />
+          <span
+            aria-live="polite"
+            class="sr-only"
+            data-slot="announcement"
+          />
+        </div>
+        <div
+          class="min-w-0"
+          data-component="field-reset"
+          data-slot="base"
+        >
+          <div
+            class="group relative flex w-full flex-col is-filled"
+            data-component="input"
+            data-filled="true"
+            data-rac=""
+            data-slot="base"
+          >
+            <label
+              class="block cursor-default pb-1 text-small text-foreground group-data-[invalid=true]:text-danger"
+              data-slot="label"
+              for="uniform-«replaced-aria-id»"
+              id="uniform-«replaced-aria-id»-label"
+            >
+              Note
+            </label>
+            <div
+              class="relative inline-flex h-10 min-h-10 w-full cursor-text items-center shadow-xs rounded-small border-medium border-default-200 bg-content1 px-3 text-foreground transition-colors group-data-[disabled=true]:pointer-events-none group-data-[focus=true]:border-focus group-data-[invalid=true]:border-danger data-[hovered=true]:border-default-400 group-data-[focus=true]:data-[hovered=true]:border-default-foreground motion-reduce:transition-none is-filled"
+              data-rac=""
+              data-slot="input-wrapper"
+              role="presentation"
+            >
+              <div
+                class="inline-flex h-full w-full items-center gap-0"
+                data-slot="inner-wrapper"
+              >
+                <input
+                  aria-labelledby="uniform-«replaced-aria-id»-label"
+                  autocomplete="off"
+                  class="w-full min-w-0 bg-transparent bg-clip-text text-small font-normal text-inherit outline-none placeholder:text-foreground-500 autofill:bg-transparent data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden is-filled"
+                  data-filled="true"
+                  data-has-end-content="true"
+                  data-rac=""
+                  data-slot="input"
+                  data-testid="note"
+                  id="uniform-«replaced-aria-id»"
+                  name="note"
+                  placeholder=" "
+                  tabindex="0"
+                  type="text"
+                  value="Current settings"
+                />
+              </div>
+            </div>
+          </div>
+          <span
+            aria-live="polite"
+            class="sr-only"
+            data-slot="announcement"
+          />
+        </div>
+      </div>
+      <div
+        class="mt-4 flex justify-end"
+      >
+        <button
+          aria-label="Submit form"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
+          data-component="submit-button"
+          data-focus="true"
+          data-focused="true"
+          data-hover="true"
+          data-hovered="true"
+          data-rac=""
+          data-react-aria-pressable="true"
+          data-testid="form_submit_button"
+          id="react-aria-«replaced-aria-id»"
+          tabindex="0"
+          type="submit"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`Story Snapshots > Reset 1`] = `
+<div>
+  <div
+    class="flex w-full flex-row justify-between gap-6"
+    data-component="form"
+  >
+    <form
+      class="grow min-w-60"
+      data-form-is-valid="false"
+      data-testid=""
+      novalidate=""
+    >
+      <div
+        class="flex flex-col gap-4"
+      >
+        <div
+          class="min-w-0"
+          data-component="field-reset"
+          data-slot="base"
+        >
+          <div
+            class="group relative flex w-full flex-col is-filled"
+            data-component="input"
+            data-filled="true"
+            data-focus="true"
+            data-rac=""
+            data-slot="base"
+          >
+            <label
+              class="block cursor-default pb-1 text-small text-foreground group-data-[invalid=true]:text-danger"
+              data-slot="label"
+              for="uniform-«replaced-aria-id»"
+              id="uniform-«replaced-aria-id»-label"
+            >
+              CPU count
+            </label>
+            <div
+              aria-disabled="false"
+              class="relative inline-flex h-10 min-h-10 w-full cursor-text items-center shadow-xs rounded-small border-medium border-default-200 bg-content1 px-3 text-foreground transition-colors group-data-[disabled=true]:pointer-events-none group-data-[focus=true]:border-focus group-data-[invalid=true]:border-danger data-[hovered=true]:border-default-400 group-data-[focus=true]:data-[hovered=true]:border-default-foreground motion-reduce:transition-none is-filled"
+              data-focus="true"
+              data-focus-visible="true"
+              data-focus-within="true"
+              data-rac=""
+              data-slot="input-wrapper"
+              role="group"
+            >
+              <div
+                class="inline-flex h-full w-full items-center gap-0"
+                data-slot="inner-wrapper"
+              >
+                <input
+                  aria-labelledby="uniform-«replaced-aria-id»-label"
+                  aria-roledescription="Number field"
+                  autocomplete="off"
+                  autocorrect="off"
+                  class="w-full min-w-0 bg-transparent bg-clip-text text-small font-normal text-inherit outline-none placeholder:text-foreground-500 autofill:bg-transparent data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden is-filled"
+                  data-filled="true"
+                  data-focus-visible="true"
+                  data-focused="true"
+                  data-has-end-content="true"
+                  data-rac=""
+                  data-slot="input"
+                  data-testid="cpucount"
+                  id="uniform-«replaced-aria-id»"
+                  inputmode="numeric"
+                  placeholder=" "
+                  spellcheck="false"
+                  tabindex="0"
+                  type="text"
+                  value="4"
+                />
+                <span
+                  class="inline-flex shrink-0 items-center gap-2"
+                >
+                  <span
+                    class="text-small text-default-600"
+                  >
+                    Cores
+                  </span>
+                </span>
+                <div
+                  class="flex h-full flex-col justify-center ps-1"
+                  data-slot="stepper-wrapper"
+                >
+                  <button
+                    aria-controls="uniform-«replaced-aria-id»"
+                    aria-label="Increase"
+                    class="flex h-3 w-3 items-center justify-center text-default-foreground outline-none hover:opacity-hover focus-visible:outline-2 focus-visible:outline-focus"
+                    data-rac=""
+                    data-react-aria-pressable="true"
+                    data-slot="increase-button"
+                    id="react-aria-«replaced-aria-id»"
+                    slot="increment"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      fill="none"
+                      height="1em"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.5"
+                      viewBox="0 0 24 24"
+                      width="1em"
+                    >
+                      <path
+                        d="m18 15-6-6-6 6"
+                      />
+                    </svg>
+                  </button>
+                  <button
+                    aria-controls="uniform-«replaced-aria-id»"
+                    aria-label="Decrease"
+                    class="flex h-3 w-3 items-center justify-center text-default-foreground outline-none hover:opacity-hover focus-visible:outline-2 focus-visible:outline-focus"
+                    data-rac=""
+                    data-react-aria-pressable="true"
+                    data-slot="decrease-button"
+                    id="react-aria-«replaced-aria-id»"
+                    slot="decrement"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      fill="none"
+                      height="1em"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.5"
+                      viewBox="0 0 24 24"
+                      width="1em"
+                    >
+                      <path
+                        d="m6 9 6 6 6-6"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <input
+            name="cpuCount"
+            type="hidden"
+            value="4"
+          />
+          <span
+            aria-live="polite"
+            class="sr-only"
+            data-slot="announcement"
+          />
+        </div>
+        <div
+          class="min-w-0"
+          data-component="field-reset"
+          data-slot="base"
+        >
+          <div
+            class="group relative flex w-full flex-col is-filled"
+            data-component="input"
+            data-filled="true"
+            data-rac=""
+            data-slot="base"
+          >
+            <label
+              class="block cursor-default pb-1 text-small text-foreground group-data-[invalid=true]:text-danger"
+              data-slot="label"
+              for="uniform-«replaced-aria-id»"
+              id="uniform-«replaced-aria-id»-label"
+            >
+              Memory
+            </label>
+            <div
+              aria-disabled="false"
+              class="relative inline-flex h-10 min-h-10 w-full cursor-text items-center shadow-xs rounded-small border-medium border-default-200 bg-content1 px-3 text-foreground transition-colors group-data-[disabled=true]:pointer-events-none group-data-[focus=true]:border-focus group-data-[invalid=true]:border-danger data-[hovered=true]:border-default-400 group-data-[focus=true]:data-[hovered=true]:border-default-foreground motion-reduce:transition-none is-filled"
+              data-rac=""
+              data-slot="input-wrapper"
+              role="group"
+            >
+              <div
+                class="inline-flex h-full w-full items-center gap-0"
+                data-slot="inner-wrapper"
+              >
+                <input
+                  aria-labelledby="uniform-«replaced-aria-id»-label"
+                  aria-roledescription="Number field"
+                  autocomplete="off"
+                  autocorrect="off"
+                  class="w-full min-w-0 bg-transparent bg-clip-text text-small font-normal text-inherit outline-none placeholder:text-foreground-500 autofill:bg-transparent data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden is-filled"
+                  data-filled="true"
+                  data-has-end-content="true"
+                  data-rac=""
+                  data-slot="input"
+                  data-testid="memory"
+                  id="uniform-«replaced-aria-id»"
+                  inputmode="numeric"
+                  placeholder=" "
+                  spellcheck="false"
+                  tabindex="0"
+                  type="text"
+                  value="16"
+                />
+                <span
+                  class="inline-flex shrink-0 items-center gap-2"
+                >
+                  <span
+                    class="text-small text-default-600"
+                  >
+                    GB
+                  </span>
+                </span>
+                <div
+                  class="flex h-full flex-col justify-center ps-1"
+                  data-slot="stepper-wrapper"
+                >
+                  <button
+                    aria-controls="uniform-«replaced-aria-id»"
+                    aria-label="Increase"
+                    class="flex h-3 w-3 items-center justify-center text-default-foreground outline-none hover:opacity-hover focus-visible:outline-2 focus-visible:outline-focus"
+                    data-rac=""
+                    data-react-aria-pressable="true"
+                    data-slot="increase-button"
+                    id="react-aria-«replaced-aria-id»"
+                    slot="increment"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      fill="none"
+                      height="1em"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.5"
+                      viewBox="0 0 24 24"
+                      width="1em"
+                    >
+                      <path
+                        d="m18 15-6-6-6 6"
+                      />
+                    </svg>
+                  </button>
+                  <button
+                    aria-controls="uniform-«replaced-aria-id»"
+                    aria-label="Decrease"
+                    class="flex h-3 w-3 items-center justify-center text-default-foreground outline-none hover:opacity-hover focus-visible:outline-2 focus-visible:outline-focus"
+                    data-rac=""
+                    data-react-aria-pressable="true"
+                    data-slot="decrease-button"
+                    id="react-aria-«replaced-aria-id»"
+                    slot="decrement"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      fill="none"
+                      height="1em"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.5"
+                      viewBox="0 0 24 24"
+                      width="1em"
+                    >
+                      <path
+                        d="m6 9 6 6 6-6"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <input
+            name="memory"
+            type="hidden"
+            value="16"
+          />
+          <span
+            aria-live="polite"
+            class="sr-only"
+            data-slot="announcement"
+          />
+        </div>
+        <div
+          class="min-w-0"
+          data-component="field-reset"
+          data-slot="base"
+        >
+          <div
+            class="group relative flex w-full flex-col is-filled"
+            data-component="input"
+            data-filled="true"
+            data-rac=""
+            data-slot="base"
+          >
+            <label
+              class="block cursor-default pb-1 text-small text-foreground group-data-[invalid=true]:text-danger"
+              data-slot="label"
+              for="uniform-«replaced-aria-id»"
+              id="uniform-«replaced-aria-id»-label"
+            >
+              Note
+            </label>
+            <div
+              class="relative inline-flex h-10 min-h-10 w-full cursor-text items-center shadow-xs rounded-small border-medium border-default-200 bg-content1 px-3 text-foreground transition-colors group-data-[disabled=true]:pointer-events-none group-data-[focus=true]:border-focus group-data-[invalid=true]:border-danger data-[hovered=true]:border-default-400 group-data-[focus=true]:data-[hovered=true]:border-default-foreground motion-reduce:transition-none is-filled"
+              data-rac=""
+              data-slot="input-wrapper"
+              role="presentation"
+            >
+              <div
+                class="inline-flex h-full w-full items-center gap-0"
+                data-slot="inner-wrapper"
+              >
+                <input
+                  aria-labelledby="uniform-«replaced-aria-id»-label"
+                  autocomplete="off"
+                  class="w-full min-w-0 bg-transparent bg-clip-text text-small font-normal text-inherit outline-none placeholder:text-foreground-500 autofill:bg-transparent data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden is-filled"
+                  data-filled="true"
+                  data-has-end-content="true"
+                  data-rac=""
+                  data-slot="input"
+                  data-testid="note"
+                  id="uniform-«replaced-aria-id»"
+                  name="note"
+                  placeholder=" "
+                  tabindex="0"
+                  type="text"
+                  value="Current settings"
+                />
+              </div>
+            </div>
+          </div>
+          <span
+            aria-live="polite"
+            class="sr-only"
+            data-slot="announcement"
+          />
+        </div>
+      </div>
+      <div
+        class="mt-4 flex justify-end"
+      >
+        <button
+          aria-label="Submit form"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
+          data-component="submit-button"
+          data-hover="true"
+          data-hovered="true"
+          data-rac=""
+          data-react-aria-pressable="true"
+          data-testid="form_submit_button"
+          id="react-aria-«replaced-aria-id»"
+          tabindex="0"
+          type="submit"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`Story Snapshots > ValidationError 1`] = `
+<div>
+  <div
+    class="flex w-full flex-row justify-between gap-6"
+    data-component="form"
+  >
+    <form
+      class="grow min-w-60"
+      data-form-is-valid="true"
+      data-testid=""
+      novalidate=""
+    >
+      <div
+        class="flex flex-col gap-4"
+      >
+        <div
+          class="min-w-0"
+          data-component="field-reset"
+          data-slot="base"
+        >
+          <div
+            class="group relative flex w-full flex-col is-filled"
+            data-component="input"
+            data-filled="true"
+            data-focus="true"
+            data-rac=""
+            data-required="true"
+            data-slot="base"
+          >
+            <label
+              class="block cursor-default pb-1 text-small text-foreground group-data-[invalid=true]:text-danger"
+              data-slot="label"
+              for="uniform-«replaced-aria-id»"
+              id="uniform-«replaced-aria-id»-label"
+            >
+              CPU count
+              <span
+                aria-hidden="true"
+                class="ml-0.5 text-danger"
+              >
+                *
+              </span>
+            </label>
+            <div
+              aria-disabled="false"
+              class="relative inline-flex h-10 min-h-10 w-full cursor-text items-center shadow-xs rounded-small border-medium border-default-200 bg-content1 px-3 text-foreground transition-colors group-data-[disabled=true]:pointer-events-none group-data-[focus=true]:border-focus group-data-[invalid=true]:border-danger data-[hovered=true]:border-default-400 group-data-[focus=true]:data-[hovered=true]:border-default-foreground motion-reduce:transition-none is-filled"
+              data-focus="true"
+              data-focus-within="true"
+              data-hovered="true"
+              data-rac=""
+              data-slot="input-wrapper"
+              role="group"
+            >
+              <div
+                class="inline-flex h-full w-full items-center gap-0"
+                data-slot="inner-wrapper"
+              >
+                <input
+                  aria-labelledby="uniform-«replaced-aria-id»-label"
+                  aria-required="true"
+                  aria-roledescription="Number field"
+                  autocomplete="off"
+                  autocorrect="off"
+                  class="w-full min-w-0 bg-transparent bg-clip-text text-small font-normal text-inherit outline-none placeholder:text-foreground-500 autofill:bg-transparent data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden is-filled"
+                  data-filled="true"
+                  data-focused="true"
+                  data-has-end-content="true"
+                  data-rac=""
+                  data-slot="input"
+                  data-testid="cpucount"
+                  id="uniform-«replaced-aria-id»"
+                  inputmode="numeric"
+                  placeholder=" "
+                  spellcheck="false"
+                  tabindex="0"
+                  type="text"
+                  value="4"
+                />
+                <span
+                  class="inline-flex shrink-0 items-center gap-2"
+                >
+                  <span
+                    class="text-small text-default-600"
+                  >
+                    Cores
+                  </span>
+                </span>
+                <div
+                  class="flex h-full flex-col justify-center ps-1"
+                  data-slot="stepper-wrapper"
+                >
+                  <button
+                    aria-controls="uniform-«replaced-aria-id»"
+                    aria-label="Increase"
+                    class="flex h-3 w-3 items-center justify-center text-default-foreground outline-none hover:opacity-hover focus-visible:outline-2 focus-visible:outline-focus"
+                    data-rac=""
+                    data-react-aria-pressable="true"
+                    data-slot="increase-button"
+                    id="react-aria-«replaced-aria-id»"
+                    slot="increment"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      fill="none"
+                      height="1em"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.5"
+                      viewBox="0 0 24 24"
+                      width="1em"
+                    >
+                      <path
+                        d="m18 15-6-6-6 6"
+                      />
+                    </svg>
+                  </button>
+                  <button
+                    aria-controls="uniform-«replaced-aria-id»"
+                    aria-label="Decrease"
+                    class="flex h-3 w-3 items-center justify-center text-default-foreground outline-none hover:opacity-hover focus-visible:outline-2 focus-visible:outline-focus"
+                    data-rac=""
+                    data-react-aria-pressable="true"
+                    data-slot="decrease-button"
+                    id="react-aria-«replaced-aria-id»"
+                    slot="decrement"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      fill="none"
+                      height="1em"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.5"
+                      viewBox="0 0 24 24"
+                      width="1em"
+                    >
+                      <path
+                        d="m6 9 6 6 6-6"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <input
+            name="cpuCount"
+            type="hidden"
+            value="4"
+          />
+          <span
+            aria-live="polite"
+            class="sr-only"
+            data-slot="announcement"
+          />
+        </div>
+        <div
+          class="min-w-0"
+          data-component="field-reset"
+          data-slot="base"
+        >
+          <div
+            class="group relative flex w-full flex-col is-filled"
+            data-component="input"
+            data-filled="true"
+            data-rac=""
+            data-slot="base"
+          >
+            <label
+              class="block cursor-default pb-1 text-small text-foreground group-data-[invalid=true]:text-danger"
+              data-slot="label"
+              for="uniform-«replaced-aria-id»"
+              id="uniform-«replaced-aria-id»-label"
+            >
+              Memory
+            </label>
+            <div
+              aria-disabled="false"
+              class="relative inline-flex h-10 min-h-10 w-full cursor-text items-center shadow-xs rounded-small border-medium border-default-200 bg-content1 px-3 text-foreground transition-colors group-data-[disabled=true]:pointer-events-none group-data-[focus=true]:border-focus group-data-[invalid=true]:border-danger data-[hovered=true]:border-default-400 group-data-[focus=true]:data-[hovered=true]:border-default-foreground motion-reduce:transition-none is-filled"
+              data-rac=""
+              data-slot="input-wrapper"
+              role="group"
+            >
+              <div
+                class="inline-flex h-full w-full items-center gap-0"
+                data-slot="inner-wrapper"
+              >
+                <input
+                  aria-labelledby="uniform-«replaced-aria-id»-label"
+                  aria-roledescription="Number field"
+                  autocomplete="off"
+                  autocorrect="off"
+                  class="w-full min-w-0 bg-transparent bg-clip-text text-small font-normal text-inherit outline-none placeholder:text-foreground-500 autofill:bg-transparent data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden is-filled"
+                  data-filled="true"
+                  data-has-end-content="true"
+                  data-rac=""
+                  data-slot="input"
+                  data-testid="memory"
+                  id="uniform-«replaced-aria-id»"
+                  inputmode="numeric"
+                  placeholder=" "
+                  spellcheck="false"
+                  tabindex="0"
+                  type="text"
+                  value="16"
+                />
+                <span
+                  class="inline-flex shrink-0 items-center gap-2"
+                >
+                  <span
+                    class="text-small text-default-600"
+                  >
+                    GB
+                  </span>
+                </span>
+                <div
+                  class="flex h-full flex-col justify-center ps-1"
+                  data-slot="stepper-wrapper"
+                >
+                  <button
+                    aria-controls="uniform-«replaced-aria-id»"
+                    aria-label="Increase"
+                    class="flex h-3 w-3 items-center justify-center text-default-foreground outline-none hover:opacity-hover focus-visible:outline-2 focus-visible:outline-focus"
+                    data-rac=""
+                    data-react-aria-pressable="true"
+                    data-slot="increase-button"
+                    id="react-aria-«replaced-aria-id»"
+                    slot="increment"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      fill="none"
+                      height="1em"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.5"
+                      viewBox="0 0 24 24"
+                      width="1em"
+                    >
+                      <path
+                        d="m18 15-6-6-6 6"
+                      />
+                    </svg>
+                  </button>
+                  <button
+                    aria-controls="uniform-«replaced-aria-id»"
+                    aria-label="Decrease"
+                    class="flex h-3 w-3 items-center justify-center text-default-foreground outline-none hover:opacity-hover focus-visible:outline-2 focus-visible:outline-focus"
+                    data-rac=""
+                    data-react-aria-pressable="true"
+                    data-slot="decrease-button"
+                    id="react-aria-«replaced-aria-id»"
+                    slot="decrement"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      fill="none"
+                      height="1em"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.5"
+                      viewBox="0 0 24 24"
+                      width="1em"
+                    >
+                      <path
+                        d="m6 9 6 6 6-6"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <input
+            name="memory"
+            type="hidden"
+            value="16"
+          />
+          <span
+            aria-live="polite"
+            class="sr-only"
+            data-slot="announcement"
+          />
+        </div>
+        <div
+          class="min-w-0"
+          data-component="field-reset"
+          data-slot="base"
+        >
+          <div
+            class="group relative flex w-full flex-col is-filled"
+            data-component="input"
+            data-filled="true"
+            data-rac=""
+            data-slot="base"
+          >
+            <label
+              class="block cursor-default pb-1 text-small text-foreground group-data-[invalid=true]:text-danger"
+              data-slot="label"
+              for="uniform-«replaced-aria-id»"
+              id="uniform-«replaced-aria-id»-label"
+            >
+              Note
+            </label>
+            <div
+              class="relative inline-flex h-10 min-h-10 w-full cursor-text items-center shadow-xs rounded-small border-medium border-default-200 bg-content1 px-3 text-foreground transition-colors group-data-[disabled=true]:pointer-events-none group-data-[focus=true]:border-focus group-data-[invalid=true]:border-danger data-[hovered=true]:border-default-400 group-data-[focus=true]:data-[hovered=true]:border-default-foreground motion-reduce:transition-none is-filled"
+              data-rac=""
+              data-slot="input-wrapper"
+              role="presentation"
+            >
+              <div
+                class="inline-flex h-full w-full items-center gap-0"
+                data-slot="inner-wrapper"
+              >
+                <input
+                  aria-labelledby="uniform-«replaced-aria-id»-label"
+                  autocomplete="off"
+                  class="w-full min-w-0 bg-transparent bg-clip-text text-small font-normal text-inherit outline-none placeholder:text-foreground-500 autofill:bg-transparent data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden is-filled"
+                  data-filled="true"
+                  data-has-end-content="true"
+                  data-rac=""
+                  data-slot="input"
+                  data-testid="note"
+                  id="uniform-«replaced-aria-id»"
+                  name="note"
+                  placeholder=" "
+                  tabindex="0"
+                  type="text"
+                  value="Current settings"
+                />
+              </div>
+            </div>
+          </div>
+          <span
+            aria-live="polite"
+            class="sr-only"
+            data-slot="announcement"
+          />
+        </div>
+      </div>
+      <div
+        class="mt-4 flex justify-end"
+      >
+        <button
+          aria-label="Submit form"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
+          data-component="submit-button"
+          data-rac=""
+          data-react-aria-pressable="true"
+          data-testid="form_submit_button"
+          id="react-aria-«replaced-aria-id»"
+          tabindex="0"
+          type="submit"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;

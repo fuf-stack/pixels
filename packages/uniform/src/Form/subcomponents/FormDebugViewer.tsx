@@ -1,7 +1,7 @@
 import type { TVClassName, TVProps } from '@fuf-stack/pixel-utils';
 import type { CardProps } from '@fuf-stack/pixels/Card';
 
-import { useEffect, useState } from 'react';
+import { useLayoutEffect, useState } from 'react';
 import { FaTimes } from 'react-icons/fa';
 import { FaBug, FaBullseye } from 'react-icons/fa6';
 
@@ -78,7 +78,8 @@ const FormDebugViewer = ({ className = undefined }: FormDebugViewerProps) => {
     return getValues() ?? {};
   });
 
-  useEffect(() => {
+  // Subscribe before sibling fields initialize values in passive effects.
+  useLayoutEffect(() => {
     // Only subscribe when debug card is visible
     if (!showDebugCard) {
       return undefined;

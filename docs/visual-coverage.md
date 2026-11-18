@@ -10,7 +10,7 @@ A component does not need a story named Default when a gallery or composition
 already shows its normal appearance. These are selected states, not a requirement
 to snapshot every possible prop combination.
 
-The current set contains **120 stories / 240 theme comparisons**.
+The current set contains **121 stories / 242 theme comparisons**.
 
 ## Pixels
 
@@ -48,6 +48,7 @@ The current set contains **120 stories / 240 theme comparisons**.
 | [DatePicker](../packages/uniform/src/DatePicker/stories/)                                         | Disabled, Invalid, With Utc Time Zone, Open Calendar       |
 | [FieldArray](../packages/uniform/src/FieldArray/stories/)                                         | With Initial Value, Invalid, All Features                  |
 | [FieldCard](../packages/uniform/src/FieldCard/stories/)                                           | Default, Object Level Error                                |
+| [FieldReset](../packages/uniform/src/FieldReset/stories/) | Changed |
 | [Form](../packages/uniform/src/Form/stories/)                                                     | Default Layout                                             |
 | [Grid](../packages/uniform/src/Grid/stories/)                                                     | Responsive Columns, Narrow Columns                         |
 | [Input](../packages/uniform/src/Input/stories/)                                                   | With Label, Disabled, Invalid, Number, Password, All Sizes |
