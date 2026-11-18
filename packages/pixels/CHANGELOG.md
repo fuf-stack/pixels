@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.15.1](https://github.com/fuf-stack/pixels/compare/pixels-v1.15.0...pixels-v1.15.1) (2026-11-18)
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @fuf-stack/pixel-utils bumped to 1.5.0
+
 ## [1.15.0](https://github.com/fuf-stack/pixels/compare/pixels-v1.14.1...pixels-v1.15.0) (2026-11-13)
 
 
