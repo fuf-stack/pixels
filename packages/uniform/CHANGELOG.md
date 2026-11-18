@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.29.0](https://github.com/fuf-stack/pixels/compare/uniform-v1.28.1...uniform-v1.29.0) (2026-11-18)
+
+
+### Features
+
+* **uniform:** add FieldReset with changed-only submission ([3c1016a](https://github.com/fuf-stack/pixels/commit/3c1016a0ffbe5cf67bf33f39325ace640bf0772f))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @fuf-stack/pixel-utils bumped to 1.5.0
+    * @fuf-stack/pixels bumped to 1.15.1
+
 ## [1.28.1](https://github.com/fuf-stack/pixels/compare/uniform-v1.28.0...uniform-v1.28.1) (2026-11-13)
 
 

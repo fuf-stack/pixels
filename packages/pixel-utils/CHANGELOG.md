@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.0](https://github.com/fuf-stack/pixels/compare/pixel-utils-v1.4.1...pixel-utils-v1.5.0) (2026-11-18)
+
+
+### Features
+
+* **uniform:** add FieldReset with changed-only submission ([3c1016a](https://github.com/fuf-stack/pixels/commit/3c1016a0ffbe5cf67bf33f39325ace640bf0772f))
+
 ## [1.4.1](https://github.com/fuf-stack/pixels/compare/pixel-utils-v1.4.0...pixel-utils-v1.4.1) (2026-10-19)
 
 
