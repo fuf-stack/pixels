@@ -16,19 +16,16 @@ strictDepBuilds: false
 # https://docs.renovatebot.com/configuration-options/#minimumreleaseage
 minimumReleaseAge: 20160
 minimumReleaseAgeStrict: true
+# Remove exact name@version exclusions (added by Renovate security updates)
+# once the lockfile no longer resolves them; name patterns are kept.
+# Only read from this file, not from the CLI flag.
+# https://pnpm.io/settings#minimumreleaseageexcludeprune
+minimumReleaseAgeExcludePrune: true
 
 # Allow freshly published internal @fuf-stack packages even when a global
 # minimumReleaseAge is enforced (e.g. in CI/user pnpm config).
 minimumReleaseAgeExclude:
   - '@fuf-stack/*'
-  # Renovate security update: vite@8.3.3
-  - vite@8.3.3
-  # Renovate security update: storybook@10.6.2
-  - storybook@10.6.2
-  # Renovate security update: @storybook/addon-vitest@10.6.2
-  - "@storybook/addon-vitest@10.6.2"
-  # Renovate security update: zod@4.6.6
-  - zod@4.6.6
 
 packages:
   - 'packages/*'
