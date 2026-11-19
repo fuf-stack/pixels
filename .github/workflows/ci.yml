@@ -49,6 +49,24 @@ jobs:
           test -s coverage/lcov.info
           grep -q '^SF:' coverage/lcov.info
           grep -q '^DA:' coverage/lcov.info
+      - name: Summarize coverage
+        run: |
+          node --input-type=module <<'JS'
+          import { appendFileSync, readFileSync } from 'node:fs';
+
+          const { total } = JSON.parse(readFileSync('coverage/coverage-summary.json', 'utf8'));
+          const metrics = ['statements', 'branches', 'functions', 'lines'];
+          const rows = metrics.map((metric) => {
+            const { pct, covered, total: count } = total[metric];
+            return `| ${metric} | ${pct}% | ${covered}/${count} |`;
+          });
+          appendFileSync(process.env.GITHUB_STEP_SUMMARY, [
+            '### Test coverage', '',
+            '| Metric | Coverage | Covered/Total |',
+            '| --- | ---: | ---: |',
+            ...rows, '',
+          ].join('\n'));
+          JS
       - name: Upload coverage reports
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
         with:

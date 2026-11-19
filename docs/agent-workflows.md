@@ -113,6 +113,18 @@ load the trusted workflow revision; only the read-only build job loads branch co
 
 ## SonarQube coverage
 
+The root Vitest config prints coverage totals locally. In GitHub Actions it also
+generates `coverage/lcov.info` and `coverage/coverage-summary.json`, without HTML.
+The unit-test workflow adds the JSON totals to the job summary and uploads both
+files in the existing `coverage-report` artifact. SonarQube continues to consume
+LCOV from that artifact.
+
+The root config selects `@fuf-stack/vitest-config/workspace/github` from v6.0.0
+when `GITHUB_ACTIONS === 'true'`, and the local `/workspace` preset otherwise.
+Both retain the `ci-scripts` project and the CI flags below. Use
+`GITHUB_ACTIONS=true pnpm test` with the CI flags to reproduce the report files
+locally; ordinary local coverage runs print a summary without report files.
+
 The unit-test CI command selects projects to exclude Storybook and sets
 `--coverage.include='**/src/**/*.{js,jsx,ts,tsx}'`. Vitest 5 matches coverage paths
 relative to the first matching project root. With both package projects and the
