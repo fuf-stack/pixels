@@ -19,12 +19,6 @@
     ':prHourlyLimit4',
   ],
   ignorePaths: ['/node_modules/'],
-  // Also create security PRs from osv.dev data, independent of whether
-  // GitHub Dependabot alerts are enabled and readable by the Renovate app.
-  // Vulnerability fixes skip minimumReleaseAge and the schedule; fixes younger
-  // than 14 days still need a minimumReleaseAgeExclude in pnpm-workspace.yaml.
-  // see: https://docs.renovatebot.com/configuration-options/#osvvulnerabilityalerts
-  osvVulnerabilityAlerts: true,
   // Wait 14 days to match pnpm, except for @fuf-stack packages below.
   // see: https://docs.renovatebot.com/configuration-options/#minimumreleaseage
   minimumReleaseAge: '14 days',
@@ -32,6 +26,12 @@
   // immediately rather than waiting for branch checks.
   internalChecksFilter: 'strict',
   prCreation: 'immediate',
+  // Also create security PRs from osv.dev data, independent of whether
+  // GitHub Dependabot alerts are enabled and readable by the Renovate app.
+  // Vulnerability fixes skip minimumReleaseAge and the schedule; fixes younger
+  // than 14 days still need a minimumReleaseAgeExclude in pnpm-workspace.yaml.
+  // see: https://docs.renovatebot.com/configuration-options/#osvvulnerabilityalerts
+  osvVulnerabilityAlerts: true,
   // see: https://docs.renovatebot.com/configuration-options/#prconcurrentlimit
   prConcurrentLimit: 20,
   // only rebase merge requests when they become conflicted
