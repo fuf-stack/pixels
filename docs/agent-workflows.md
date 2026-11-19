@@ -119,9 +119,9 @@ The unit-test workflow adds the JSON totals to the job summary and uploads both
 files in the existing `coverage-report` artifact. SonarQube continues to consume
 LCOV from that artifact.
 
-The root config selects `@fuf-stack/vitest-config/workspace/github` from v6.0.0
-when `GITHUB_ACTIONS === 'true'`, and the local `/workspace` preset otherwise.
-Both retain the `ci-scripts` project and the CI flags below. Use
+The root config uses `@fuf-stack/vitest-config/workspace` from v6.1.0, which
+selects GitHub reports automatically in Actions and a text summary locally.
+The `ci-scripts` project and the CI flags below remain intact. Use
 `GITHUB_ACTIONS=true pnpm test` with the CI flags to reproduce the report files
 locally; ordinary local coverage runs print a summary without report files.
 

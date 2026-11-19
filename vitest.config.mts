@@ -2,12 +2,9 @@
 
 import { mergeConfig } from 'vitest/config';
 
-import local from '@fuf-stack/vitest-config/workspace';
-import github from '@fuf-stack/vitest-config/workspace/github';
+import config from '@fuf-stack/vitest-config/workspace';
 
-const base = process.env.GITHUB_ACTIONS === 'true' ? github : local;
-
-export default mergeConfig(base, {
+export default mergeConfig(config, {
   test: {
     // Append Node-based CI script tests to the shared workspace projects so
     // pnpm test (and CI's unit-test selection) runs them automatically.
