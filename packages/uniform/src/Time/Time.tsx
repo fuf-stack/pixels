@@ -34,6 +34,14 @@ export const timeVariants = tv({
     /** individual segment */
     segment: '',
   },
+  variants: {
+    readOnly: {
+      true: {
+        // Inner controls set their own cursors, so override every descendant.
+        base: '**:cursor-not-allowed cursor-not-allowed opacity-disabled',
+      },
+    },
+  },
 });
 
 type VariantProps = TVProps<typeof timeVariants>;
@@ -58,6 +66,8 @@ export interface TimeProps extends VariantProps {
   label?: ReactNode;
   /** form field name */
   name: string;
+  /** Prevents changes while keeping the time input focusable and its value in validation and submission */
+  readOnly?: boolean;
   /** HTML data-testid attribute used in e2e tests */
   testId?: string;
   /**
@@ -90,12 +100,13 @@ const Time = ({
     field: { onBlur, onChange, ref, value },
     invalid,
     label,
+    readOnly,
     required,
     testId,
   } = useUniformField({ name, ...uniformFieldProps });
 
   // classNames from slots
-  const variants = timeVariants();
+  const variants = timeVariants({ readOnly });
   const classNames = variantsToClassNames(variants, _className, 'base');
   const resolvedTimeZone = resolveTimeFieldTimeZone(timeZone);
   const effectiveGranularity = hourAsNumber ? 'hour' : granularity;
@@ -167,6 +178,7 @@ const Time = ({
       id={testId}
       isDisabled={disabled}
       isInvalid={invalid}
+      isReadOnly={readOnly}
       isRequired={required}
       label={label}
       labelPlacement="outside"

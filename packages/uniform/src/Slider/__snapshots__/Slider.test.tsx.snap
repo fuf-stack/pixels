@@ -1816,6 +1816,140 @@ exports[`Story Snapshots > Invalid 1`] = `
 </div>
 `;
 
+exports[`Story Snapshots > ReadOnly 1`] = `
+<div>
+  <div
+    class="flex w-full flex-row justify-between gap-6"
+  >
+    <form
+      class="grow min-w-60"
+      data-form-is-valid="true"
+      data-testid=""
+      novalidate=""
+    >
+      <div
+        class="group flex w-full flex-col gap-y-1.5 **:cursor-not-allowed cursor-not-allowed opacity-disabled"
+        data-invalid="false"
+        data-required="false"
+        data-testid="sliderfield"
+        tabindex="-1"
+      >
+        <div
+          style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+        >
+          <input
+            aria-label="Locked Setting"
+            aria-readonly="true"
+            max="100"
+            min="0"
+            name="sliderField"
+            step="1"
+            tabindex="-1"
+            type="range"
+            value="60"
+          />
+        </div>
+        <div
+          aria-label="Locked Setting"
+          aria-labelledby="react-aria-«replaced-aria-id» react-aria-«replaced-aria-id»"
+          class="flex flex-col w-full gap-1"
+          data-hover="false"
+          data-orientation="horizontal"
+          data-slot="base"
+          id="react-aria-«replaced-aria-id»"
+          role="group"
+        >
+          <div
+            class="w-full flex justify-between items-center mb-1"
+            data-slot="labelWrapper"
+          >
+            <label
+              class="cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
+              data-slot="label"
+              id="react-aria-«replaced-aria-id»"
+            >
+              Locked Setting
+            </label>
+            <output
+              aria-live="off"
+              class="text-small"
+              data-slot="value"
+              for="react-aria-«replaced-aria-id»-0"
+            >
+              60
+            </output>
+          </div>
+          <div
+            class="relative flex gap-2 items-center"
+            data-slot="track-wrapper"
+          >
+            <div
+              class="flex w-full relative rounded-full bg-default-300/50 border-x-transparent h-3 my-[calc((theme(spacing.6)-theme(spacing.3))/2)] border-x-[calc(theme(spacing.6)/2)] data-[fill-start=true]:border-s-primary data-[fill-end=true]:border-e-primary"
+              data-fill-end="false"
+              data-fill-start="true"
+              data-slot="track"
+              data-thumb-hidden="false"
+              data-vertical="false"
+              style="position: relative; touch-action: none;"
+            >
+              <div
+                class="h-full absolute bg-primary"
+                data-slot="filler"
+                style="left: 0%; width: 60%;"
+              />
+              <div
+                aria-label="Slider thumb 1"
+                class="flex justify-center items-center before:absolute before:w-11 before:h-11 before:rounded-full after:shadow-small after:bg-background data-[focused=true]:z-10 outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 w-6 h-6 after:w-5 after:h-5 rounded-full after:rounded-full bg-primary top-1/2 cursor-grab data-[dragging=true]:cursor-grabbing ring-transparent border-0 after:transition-all motion-reduce:after:transition-none data-[dragging=true]:after:scale-80 shadow-small group-data-[invalid=true]:data-[focused=true]:outline-2 group-data-[invalid=true]:data-[focused=true]:outline-focus group-data-[invalid=true]:data-[focused=true]:outline-offset-2"
+                data-react-aria-pressable="true"
+                data-slot="thumb"
+                index="0"
+                orientation="horizontal"
+                style="position: absolute; left: 60%; transform: translate(-50%, -50%); touch-action: none;"
+              >
+                <div
+                  style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+                >
+                  <input
+                    aria-describedby=""
+                    aria-details=""
+                    aria-labelledby="react-aria-«replaced-aria-id»"
+                    aria-orientation="horizontal"
+                    aria-readonly="true"
+                    aria-valuetext="60"
+                    id="react-aria-«replaced-aria-id»-0"
+                    max="100"
+                    min="0"
+                    name="sliderField_slider"
+                    step="1"
+                    tabindex="0"
+                    type="range"
+                    value="60"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="mt-4 flex justify-end"
+      >
+        <button
+          aria-label="Submit form"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
+          data-react-aria-pressable="true"
+          data-testid="form_submit_button"
+          tabindex="0"
+          type="submit"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
 exports[`Story Snapshots > Required 1`] = `
 <div>
   <div

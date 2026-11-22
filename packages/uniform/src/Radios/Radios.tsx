@@ -22,7 +22,14 @@ export const radiosVariants = tv({
       'gap-y-1.5',
     ],
     errorMessage: '',
-    itemBase: '',
+    itemBase: [
+      // HeroUI disables pointer events on disabled options, which hides the
+      // cursor; re-enable them (the disabled input still blocks changes).
+      'data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed',
+      // The hidden native input covers the option and keeps the browser's
+      // default cursor, so override every descendant too.
+      'data-[disabled=true]:**:cursor-not-allowed',
+    ],
     itemControl: 'bg-focus group-data-[invalid=true]:bg-danger',
     itemDescription: '',
     itemLabel: 'text-sm',
@@ -33,6 +40,14 @@ export const radiosVariants = tv({
     label:
       'mb-2 inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger',
     wrapper: '',
+  },
+  variants: {
+    readOnly: {
+      true: {
+        // Inner controls set their own cursors, so override every descendant.
+        base: '**:cursor-not-allowed cursor-not-allowed opacity-disabled',
+      },
+    },
   },
 });
 
@@ -87,6 +102,8 @@ export interface RadiosProps extends VariantProps {
   name: string;
   /** Radio button configuration. */
   options: RadioOption[];
+  /** Prevents changes while keeping the radios focusable and its value in validation and submission */
+  readOnly?: boolean;
   /** Id to grab element in internal tests. */
   testId?: string;
 }
@@ -109,6 +126,7 @@ const Radios = ({
     field: { onBlur, onChange, ref, value },
     invalid,
     label,
+    readOnly,
     required,
     testId,
   } = useUniformField({
@@ -120,7 +138,7 @@ const Radios = ({
   const { convertToOriginalType } = createOptionValueConverter(options);
 
   // classNames from slots
-  const variants = radiosVariants();
+  const variants = radiosVariants({ readOnly });
   const classNames = variantsToClassNames(variants, className, 'base');
 
   const itemClassNames = {
@@ -178,6 +196,7 @@ const Radios = ({
       errorMessage={errorMessage}
       isDisabled={disabled}
       isInvalid={invalid}
+      isReadOnly={readOnly}
       isRequired={required}
       label={label ? <legend>{label}</legend> : null}
       name={name}

@@ -73,6 +73,29 @@ export const selectVariants = tv({
     singleValue: 'ml-1! leading-7!',
     valueContainer: 'gap-1 p-1',
   },
+  variants: {
+    disabled: {
+      true: {
+        base: '**:cursor-not-allowed cursor-not-allowed opacity-disabled',
+        clearIndicator:
+          'hover:cursor-not-allowed hover:bg-transparent hover:text-foreground-500',
+        control: 'hover:border-default-200',
+        dropdownIndicator:
+          'hover:cursor-not-allowed hover:bg-transparent hover:text-foreground-500',
+      },
+    },
+    readOnly: {
+      true: {
+        // Inner controls set their own cursors, so override every descendant.
+        base: '**:cursor-not-allowed cursor-not-allowed opacity-disabled',
+        clearIndicator:
+          'hover:cursor-not-allowed hover:bg-transparent hover:text-foreground-500',
+        control: 'hover:border-default-200',
+        dropdownIndicator:
+          'hover:cursor-not-allowed hover:bg-transparent hover:text-foreground-500',
+      },
+    },
+  },
 });
 
 export interface SelectOption {
@@ -123,6 +146,8 @@ export interface SelectProps extends VariantProps {
   options: SelectOption[];
   /** Placeholder that is displayed when nothing is selected */
   placeholder?: string;
+  /** Prevents changes while keeping the select focusable and its value in validation and submission */
+  readOnly?: boolean;
   /** Render custom content when no options match the current search input. */
   renderEmptyOptions?: Props['noOptionsMessage'];
   /** Format the label of the option */
@@ -140,6 +165,11 @@ export interface SelectProps extends VariantProps {
   /** Allows disentangled display and form values for a field. */
   transform?: InputValueTransform;
 }
+
+/** Hides react-select sub-components, e.g. multi-value remove buttons. */
+const hiddenComponent = () => {
+  return null;
+};
 
 /** Select component based on [HeroUI Select](https://www.heroui.com//docs/components/select) and [React-Select](https://react-select.com/home) */
 const Select = ({
@@ -169,6 +199,7 @@ const Select = ({
     getLabelProps,
     invalid,
     label,
+    readOnly,
     required,
     testId,
   } = useUniformField({
@@ -188,7 +219,7 @@ const Select = ({
   const { convertToOriginalType } = createOptionValueConverter(options);
 
   // classNames from slots
-  const variants = selectVariants();
+  const variants = selectVariants({ disabled, readOnly });
   const classNames = variantsToClassNames(variants, className, 'base');
 
   // React-select classNames configuration
@@ -350,6 +381,9 @@ const Select = ({
   const handleChange = (
     option: MultiValue<SelectOption> | SingleValue<SelectOption>,
   ) => {
+    if (readOnly) {
+      return;
+    }
     if (multiSelect) {
       onChange(
         (option as SelectOption[])?.map((_option) => {
@@ -377,6 +411,15 @@ const Select = ({
     }
   };
 
+  // Read-only selects keep their value, so they never clear or open the menu.
+  const isClearable = clearable && !readOnly;
+  let menuIsOpen: boolean | undefined;
+  if (readOnly) {
+    menuIsOpen = false;
+  } else if (debugMenuOpen) {
+    menuIsOpen = true;
+  }
+
   // Handle blur event
   const handleBlur = () => {
     setIsFocused(false);
@@ -391,7 +434,7 @@ const Select = ({
   return (
     <div
       {...getBaseProps()}
-      className={cn(classNames.base)}
+      className={classNames.base}
       // see HeroUI styles for group-data condition (data-invalid),
       // e.g.: https://github.com/heroui-inc/heroui/blob/main/packages/components/select/src/use-select.ts
       data-required={required}
@@ -423,11 +466,17 @@ const Select = ({
             ? getTriggerProps()['aria-labelledby']?.split(' ')[1]
             : undefined
         }
+        // forwarded to the input by InputComponent
+        aria-readonly={readOnly || undefined}
+        // react-select has no read-only mode: the control stays focusable,
+        // while value removal, clearing, search, and the menu are blocked
+        backspaceRemovesValue={!readOnly}
         classNames={reactSelectClassNames}
         components={{
           Control: ControlComponent,
           DropdownIndicator: DropdownIndicatorComponent,
           Input: InputComponent,
+          ...(readOnly ? { MultiValueRemove: hiddenComponent } : {}),
           Option: OptionComponent,
         }}
         // Does not affect the testId of the select, but is needed to pass it to sub-components
@@ -436,11 +485,12 @@ const Select = ({
         formatOptionLabel={renderOptionLabel}
         inputValue={inputValue}
         instanceId={name}
-        isClearable={clearable}
+        isClearable={isClearable}
         isDisabled={disabled}
         isLoading={loading}
         isMulti={multiSelect}
-        menuIsOpen={debugMenuOpen ? true : undefined}
+        isSearchable={!readOnly}
+        menuIsOpen={menuIsOpen}
         // set menuPosition to fixed so that menu can be rendered
         // inside Card / Modal components, menuShouldBlockScroll
         // prevents container scroll when menu is open

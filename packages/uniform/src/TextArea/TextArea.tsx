@@ -20,6 +20,14 @@ export const textAreaVariants = tv({
     /** inner wrapper (HeroUI inputWrapper slot) */
     inputWrapper: 'bg-content1 group-data-[focus=true]:border-focus',
   },
+  variants: {
+    readOnly: {
+      true: {
+        // Inner controls set their own cursors, so override every descendant.
+        base: '**:cursor-not-allowed cursor-not-allowed opacity-disabled',
+      },
+    },
+  },
 });
 
 type VariantProps = TVProps<typeof textAreaVariants>;
@@ -42,6 +50,8 @@ export interface TextAreaProps extends VariantProps {
   name: string;
   /** placeholder for the textArea content. */
   placeholder?: string;
+  /** Prevents changes while keeping the text area focusable and its value in validation and submission */
+  readOnly?: boolean;
   /** Id to grab element in internal tests. */
   testId?: string;
 }
@@ -69,6 +79,7 @@ const TextArea = ({
     },
     invalid,
     label,
+    readOnly,
     required,
     testId,
   } = useUniformField({ name, ...uniformFieldProps });
@@ -83,7 +94,7 @@ const TextArea = ({
   });
 
   // classNames from slots
-  const variants = textAreaVariants();
+  const variants = textAreaVariants({ readOnly });
   const classNames = variantsToClassNames(variants, _className, 'base');
 
   return (
@@ -106,6 +117,7 @@ const TextArea = ({
       id={testId}
       isDisabled={disabled}
       isInvalid={invalid}
+      isReadOnly={readOnly}
       isRequired={required}
       label={label}
       labelPlacement="outside"

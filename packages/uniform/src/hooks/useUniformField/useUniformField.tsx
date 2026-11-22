@@ -29,6 +29,8 @@ export interface UseUniformFieldParams<
   label?: ReactNode;
   /** Form field name */
   name: Path<TFieldValues> & string;
+  /** Makes the field read-only: users can focus and copy it but not change it; its value is still validated and submitted */
+  readOnly?: boolean;
   /** Redacts the field value from Uniform debug output */
   sensitive?: boolean;
   /** Optional explicit test id used to build stable test ids */
@@ -74,6 +76,8 @@ export interface UseUniformFieldReturn<
   onBlur: ReturnType<typeof useController<TFieldValues>>['field']['onBlur'];
   /** onChange handler from controller (with transform applied) */
   onChange: ReturnType<typeof useController<TFieldValues>>['field']['onChange'];
+  /** Whether the field is read-only; its value stays registered, validated and submitted */
+  readOnly: boolean;
   /** Ref to forward to underlying control */
   ref: ReturnType<typeof useController<TFieldValues>>['field']['ref'];
   /** Whether the field is required according to validation schema */
@@ -105,6 +109,9 @@ export interface UseUniformFieldReturn<
  *   • Prevents showing errors on pristine/untouched fields for better UX
  *   • Works well for all field types (text inputs, checkboxes, radios, arrays)
  * - Prebuilt `errorMessage` React node (with optional array-error normalization via `isArrayValue`)
+ * - Read-only support: `readOnly` is returned for components to render a
+ *   focusable, non-editable control; the field stays enabled in RHF, so its
+ *   value is validated and submitted
  * - Computed `label` node which appends a `FieldCopyTestIdButton` in
  *   `debug-testids` mode
  * - `defaultValue` for uncontrolled defaults and all usual field handlers
@@ -123,6 +130,7 @@ export const useUniformField = <
     ariaLabel: customAriaLabel,
     disabled = false,
     isArrayValue = false,
+    readOnly = false,
     sensitive = false,
     testId: explicitTestId,
     label,
@@ -289,6 +297,7 @@ export const useUniformField = <
     label: labelNode,
     onBlur,
     onChange: transformedOnChange as typeof field.onChange,
+    readOnly,
     ref,
     required,
     resetField,

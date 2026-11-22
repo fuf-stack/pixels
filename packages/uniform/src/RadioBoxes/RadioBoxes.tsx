@@ -32,6 +32,15 @@ export const radioBoxesVariants = tv({
       'mb-2 inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger',
     wrapper: '',
   },
+  variants: {
+    readOnly: {
+      true: {
+        // Inner controls set their own cursors, so override every descendant.
+        base: '**:cursor-not-allowed cursor-not-allowed opacity-disabled',
+        boxBase: 'hover:bg-transparent',
+      },
+    },
+  },
 });
 
 type VariantProps = TVProps<typeof radioBoxesVariants>;
@@ -67,6 +76,8 @@ export interface RadioBoxesProps extends VariantProps {
   name: string;
   /** Radio button configuration. */
   options: RadioBoxOption[];
+  /** Prevents changes while keeping the radio boxes focusable and its value in validation and submission */
+  readOnly?: boolean;
   /** Id to grab element in internal tests. */
   testId?: string;
 }
@@ -88,6 +99,7 @@ const RadioBoxes = ({
     disabled,
     label,
     field: { onBlur, onChange, ref, value },
+    readOnly,
     required,
     testId,
   } = useUniformField({
@@ -99,7 +111,7 @@ const RadioBoxes = ({
   const { convertToOriginalType } = createOptionValueConverter(options);
 
   // classNames from slots
-  const variants = radioBoxesVariants();
+  const variants = radioBoxesVariants({ readOnly });
   const classNames = variantsToClassNames(variants, className, 'base');
   const boxClassNames: RadioBoxProps['classNames'] = {
     base: classNames.boxBase,
@@ -122,6 +134,7 @@ const RadioBoxes = ({
       errorMessage={errorMessage}
       isDisabled={disabled}
       isInvalid={invalid}
+      isReadOnly={readOnly}
       isRequired={required}
       label={label ? <legend>{label}</legend> : null}
       name={name}

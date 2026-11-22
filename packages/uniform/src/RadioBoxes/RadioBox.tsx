@@ -17,12 +17,14 @@ export const radioBoxVariants = tv({
     labelWrapper: 'grow',
   },
   variants: {
-    isDisabled: {
+    disabled: {
       true: {
-        base: 'pointer-events-none opacity-disabled',
+        // Keep pointer events so the not-allowed cursor shows; the disabled
+        // input still blocks changes.
+        base: '**:cursor-not-allowed cursor-not-allowed opacity-disabled hover:bg-transparent',
       },
     },
-    isInvalid: {
+    invalid: {
       true: {
         base: '!border-danger',
       },
@@ -62,8 +64,8 @@ export const RadioBox = ({
 
   // classNames from slots
   const variants = radioBoxVariants({
-    isDisabled,
-    isInvalid,
+    disabled: isDisabled,
+    invalid: isInvalid,
   });
   const classNames = variantsToClassNames(
     variants,

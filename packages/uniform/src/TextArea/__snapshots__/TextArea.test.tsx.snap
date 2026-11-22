@@ -70,6 +70,91 @@ exports[`Story Snapshots > Default 1`] = `
 </body>
 `;
 
+exports[`Story Snapshots > Disabled 1`] = `
+<body>
+  <div>
+    <div
+      class="flex w-full flex-row justify-between gap-6"
+    >
+      <form
+        class="grow min-w-60"
+        data-form-is-valid="true"
+        data-testid=""
+        novalidate=""
+      >
+        <div
+          class="group flex flex-col data-[hidden=true]:hidden w-full opacity-disabled pointer-events-none is-filled"
+          data-disabled="true"
+          data-filled="true"
+          data-filled-within="true"
+          data-has-elements="true"
+          data-has-helper="true"
+          data-has-label="true"
+          data-has-value="true"
+          data-slot="base"
+        >
+          <label
+            class="z-10 origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block text-small text-foreground-500 pointer-events-none relative will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-1.5 pe-2 max-w-full text-ellipsis overflow-hidden"
+            data-slot="label"
+            for="textareafield"
+            id="react-aria-«replaced-aria-id»"
+          >
+            Disabled text
+          </label>
+          <div
+            class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 group-data-[focus=true]:data-[hover=true]:border-default-foreground h-10 min-h-10 rounded-medium pointer-events-none !h-auto !duration-150 transition-colors motion-reduce:transition-none py-2 bg-content1 group-data-[focus=true]:border-focus is-filled"
+            data-has-multiple-rows="true"
+            data-slot="input-wrapper"
+            style="cursor: text;"
+          >
+            <div
+              class="inline-flex w-full h-full box-border items-start group-data-[has-label=true]:items-start"
+              data-slot="inner-wrapper"
+            >
+              <textarea
+                aria-label="Disabled text"
+                aria-labelledby="textareafield react-aria-«replaced-aria-id»"
+                class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text dark:autofill:[-webkit-text-fill-color:hsl(var(--heroui-foreground))] [&::-ms-reveal]:hidden text-small resize-none data-[hide-scroll=true]:scrollbar-hide transition-height !duration-100 motion-reduce:transition-none is-filled pe-0"
+                data-filled="true"
+                data-filled-within="true"
+                data-hide-scroll="true"
+                data-slot="input"
+                data-testid="textareafield"
+                disabled=""
+                id="textareafield"
+                name="textareaField"
+                placeholder=" "
+              >
+                This value is left out on submit.
+              </textarea>
+            </div>
+          </div>
+        </div>
+        <div
+          class="mt-4 flex justify-end"
+        >
+          <button
+            aria-label="Submit form"
+            class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
+            data-react-aria-pressable="true"
+            data-testid="form_submit_button"
+            tabindex="0"
+            type="submit"
+          >
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <textarea
+    aria-hidden="true"
+    style="min-height: 0px !important; max-height: none !important; height: 0px !important; visibility: hidden !important; overflow: hidden !important; position: absolute !important; z-index: -1000 !important; top: 0px !important; right: 0px !important; display: block !important; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-top-width: 0px; box-sizing: content-box; font-family: "depends on user agent"; font-size: 16px; font-style: normal; font-weight: 400; letter-spacing: normal; line-height: normal; tab-size: 8; text-indent: 0px; text-rendering: auto; text-transform: none; width: auto; word-break: normal; word-spacing: normal; scrollbar-gutter: auto; padding: 0px;"
+    tabindex="-1"
+  />
+</body>
+`;
+
 exports[`Story Snapshots > Invalid 1`] = `
 <body>
   <div>
@@ -159,6 +244,94 @@ exports[`Story Snapshots > Invalid 1`] = `
                   </div>
                 </li>
               </ul>
+            </div>
+          </div>
+        </div>
+        <div
+          class="mt-4 flex justify-end"
+        >
+          <button
+            aria-label="Submit form"
+            class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
+            data-react-aria-pressable="true"
+            data-testid="form_submit_button"
+            tabindex="0"
+            type="submit"
+          >
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <textarea
+    aria-hidden="true"
+    style="min-height: 0px !important; max-height: none !important; height: 0px !important; visibility: hidden !important; overflow: hidden !important; position: absolute !important; z-index: -1000 !important; top: 0px !important; right: 0px !important; display: block !important; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-top-width: 0px; box-sizing: content-box; font-family: "depends on user agent"; font-size: 16px; font-style: normal; font-weight: 400; letter-spacing: normal; line-height: normal; tab-size: 8; text-indent: 0px; text-rendering: auto; text-transform: none; width: auto; word-break: normal; word-spacing: normal; scrollbar-gutter: auto; padding: 0px;"
+    tabindex="-1"
+  />
+</body>
+`;
+
+exports[`Story Snapshots > ReadOnly 1`] = `
+<body>
+  <div>
+    <div
+      class="flex w-full flex-row justify-between gap-6"
+    >
+      <form
+        class="grow min-w-60"
+        data-form-is-valid="true"
+        data-testid=""
+        novalidate=""
+      >
+        <div
+          class="group flex flex-col data-[hidden=true]:hidden w-full **:cursor-not-allowed cursor-not-allowed opacity-disabled is-filled"
+          data-filled="true"
+          data-filled-within="true"
+          data-has-elements="true"
+          data-has-helper="true"
+          data-has-label="true"
+          data-has-value="true"
+          data-readonly="true"
+          data-slot="base"
+        >
+          <label
+            class="z-10 pointer-events-none origin-top-left shrink-0 rtl:origin-top-right subpixel-antialiased block text-small text-foreground-500 relative will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity,translate,scale] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto pb-1.5 pe-2 max-w-full text-ellipsis overflow-hidden"
+            data-slot="label"
+            for="textareafield"
+            id="react-aria-«replaced-aria-id»"
+          >
+            Read-only text
+          </label>
+          <div
+            class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 group-data-[focus=true]:data-[hover=true]:border-default-foreground h-10 min-h-10 rounded-medium !h-auto !duration-150 transition-colors motion-reduce:transition-none py-2 bg-content1 group-data-[focus=true]:border-focus is-filled"
+            data-has-multiple-rows="true"
+            data-slot="input-wrapper"
+            style="cursor: text;"
+          >
+            <div
+              class="inline-flex w-full h-full box-border items-start group-data-[has-label=true]:items-start"
+              data-slot="inner-wrapper"
+            >
+              <textarea
+                aria-label="Read-only text"
+                aria-labelledby="textareafield react-aria-«replaced-aria-id»"
+                aria-readonly="true"
+                class="w-full font-normal bg-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid outline-transparent data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 data-[type=color]:rounded-none file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text dark:autofill:[-webkit-text-fill-color:hsl(var(--heroui-foreground))] [&::-ms-reveal]:hidden text-small resize-none data-[hide-scroll=true]:scrollbar-hide transition-height !duration-100 motion-reduce:transition-none is-filled pe-0"
+                data-filled="true"
+                data-filled-within="true"
+                data-hide-scroll="true"
+                data-slot="input"
+                data-testid="textareafield"
+                id="textareafield"
+                name="textareaField"
+                placeholder=" "
+                readonly=""
+                tabindex="0"
+                title=""
+              >
+                This value is submitted unchanged.
+              </textarea>
             </div>
           </div>
         </div>

@@ -40,14 +40,17 @@ const meta: Meta<typeof RadioTabs> = {
 export default meta;
 type Story = StoryObj<typeof RadioTabs>;
 
+const travelOptions = [
+  { value: 'train', label: '🚆 Train' },
+  { value: 'bike', label: '🚲 Bike' },
+  { value: 'rocket', label: '🚀 Rocket' },
+];
+
 export const Default: Story = {
   args: {
+    label: 'How do you get to work?',
     name: 'radioTabsField',
-    options: [
-      { value: 'option_1', label: 'Option 1' },
-      { value: 'option_2', label: 'Option 2' },
-      { value: 'option_3', label: 'Option 3' },
-    ],
+    options: travelOptions,
   },
 };
 
@@ -66,15 +69,28 @@ export const WithContent: Story = {
   parameters: {
     formProps: {
       className: 'min-w-md',
-      initialValues: { radioTabsField: 'option_1' },
+      initialValues: { radioTabsField: 'train' },
     },
   },
   args: {
+    label: 'How do you get to work?',
     name: 'radioTabsField',
     options: [
-      { value: 'option_1', label: 'Option 1', content: 'Option 1 Content' },
-      { value: 'option_2', label: 'Option 2', content: 'Option 2 Content' },
-      { value: 'option_3', label: 'Option 3', content: 'Option 3 Content' },
+      {
+        value: 'train',
+        label: '🚆 Train',
+        content: 'Reliable, with time to finish that book.',
+      },
+      {
+        value: 'bike',
+        label: '🚲 Bike',
+        content: 'Fresh air and no traffic jams. Bring a rain jacket.',
+      },
+      {
+        value: 'rocket',
+        label: '🚀 Rocket',
+        content: 'Fastest option. Parking might be tricky.',
+      },
     ],
   },
 };
@@ -120,41 +136,47 @@ export const BooleanValuesWithConditionalField: Story = {
 
 export const WithInitialValue: Story = {
   parameters: {
-    formProps: { initialValues: { radioTabsField: 'option_2' } },
+    formProps: { initialValues: { radioTabsField: 'bike' } },
   },
   args: {
+    label: 'How do you get to work?',
     name: 'radioTabsField',
-    options: [
-      { value: 'option_1', label: 'Option 1' },
-      { value: 'option_2', label: 'Option 2' },
-      { value: 'option_3', label: 'Option 3' },
-    ],
+    options: travelOptions,
   },
 };
 
 export const DisabledCompletely: Story = {
+  parameters: {
+    formProps: { initialValues: { radioTabsField: 'train' } },
+  },
   args: {
-    name: 'radioTabsField',
     disabled: true,
-    options: [
-      { value: 'option_1', label: 'Option 1' },
-      { value: 'option_2', label: 'Option 2' },
-      { value: 'option_3', label: 'Option 3' },
-    ],
+    label: 'How do you get to work?',
+    name: 'radioTabsField',
+    options: travelOptions,
+  },
+};
+
+export const ReadOnly: Story = {
+  parameters: {
+    formProps: { initialValues: { radioTabsField: 'bike' } },
+  },
+  args: {
+    label: 'How do you get to work?',
+    name: 'radioTabsField',
+    options: travelOptions,
+    readOnly: true,
   },
 };
 
 export const DisabledOption: Story = {
   args: {
+    label: 'How do you get to work?',
     name: 'radioTabsField',
     options: [
-      { value: 'option_1', label: 'Option 1' },
-      {
-        value: 'option_2',
-        label: 'option 2',
-        disabled: true,
-      },
-      { value: 'option_3', label: 'Option 3' },
+      { value: 'train', label: '🚆 Train' },
+      { value: 'bike', label: '🚲 Bike' },
+      { value: 'rocket', label: '🚀 Rocket (out of fuel)', disabled: true },
     ],
   },
 };
@@ -166,13 +188,9 @@ const requiredValidation = veto({
 export const Required: Story = {
   parameters: { formProps: { validation: requiredValidation } },
   args: {
-    label: 'Radio Tabs Field',
+    label: 'How do you get to work?',
     name: 'radioTabsField',
-    options: [
-      { value: 'option_1', label: 'Option 1' },
-      { value: 'option_2', label: 'Option 2' },
-      { value: 'option_3', label: 'Option 3' },
-    ],
+    options: travelOptions,
   },
 };
 
@@ -181,25 +199,21 @@ export const Invalid: Story = {
     formProps: {
       validation: veto({
         radioTabsField: string().refine((value) => {
-          return value !== 'option_2';
-        }, 'Please use another option'),
+          return value !== 'rocket';
+        }, 'Rockets are not allowed in the city'),
       }),
     },
   },
   args: {
     name: 'radioTabsField',
-    label: 'Radio Tabs Field',
+    label: 'How do you get to work?',
     testId: 'radioTabsField',
-    options: [
-      { value: 'option_1', label: 'Option 1' },
-      { value: 'option_2', label: 'Option 2' },
-      { value: 'option_3', label: 'Option 3' },
-    ],
+    options: travelOptions,
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    const optionTwo = canvas.getByTestId('radiotabsfield_option_option_2');
-    await userEvent.click(optionTwo, {
+    const rocket = canvas.getByTestId('radiotabsfield_option_rocket');
+    await userEvent.click(rocket, {
       delay: 100,
     });
 
@@ -216,8 +230,8 @@ export const InvalidWithContent: Story = {
       className: 'min-w-md',
       validation: veto({
         radioTabsField: string().refine((value) => {
-          return value !== 'option_2';
-        }, 'This option is not allowed'),
+          return value !== 'pro';
+        }, 'The Pro plan is sold out this month'),
       }),
     },
   },
@@ -228,25 +242,25 @@ export const InvalidWithContent: Story = {
     options: [
       {
         content: 'Perfect for individuals just getting started.',
-        label: 'Starter',
-        value: 'option_1',
+        label: '🌱 Starter',
+        value: 'starter',
       },
       {
         content: 'Great for growing teams and businesses.',
-        label: 'Pro',
-        value: 'option_2',
+        label: '🚀 Pro',
+        value: 'pro',
       },
       {
         content: 'For large organizations with advanced needs.',
-        label: 'Enterprise',
-        value: 'option_3',
+        label: '🏢 Enterprise',
+        value: 'enterprise',
       },
     ],
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    const optionTwo = canvas.getByTestId('radiotabsfield_option_option_2');
-    await userEvent.click(optionTwo, {
+    const pro = canvas.getByTestId('radiotabsfield_option_pro');
+    await userEvent.click(pro, {
       delay: 100,
     });
 
@@ -261,17 +275,13 @@ export const FullWidth: Story = {
   parameters: {
     formProps: {
       className: 'min-w-md',
-      initialValues: { radioTabsField: 'option_1' },
+      initialValues: { radioTabsField: 'train' },
     },
   },
   args: {
-    label: 'Radio Tabs Field',
+    label: 'How do you get to work?',
     fullWidth: true,
     name: 'radioTabsField',
-    options: [
-      { value: 'option_1', label: 'Option 1' },
-      { value: 'option_2', label: 'Option 2' },
-      { value: 'option_3', label: 'Option 3' },
-    ],
+    options: travelOptions,
   },
 };

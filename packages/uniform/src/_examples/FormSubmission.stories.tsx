@@ -180,6 +180,53 @@ export const RequiredDisabledField: Story = {
   },
 };
 
+const ReadOnlyFieldsExample = () => {
+  const [submitted, setSubmitted] = useState<Record<string, unknown> | null>(
+    null,
+  );
+
+  return (
+    <Form
+      initialValues={{ accountCode: 'AC-1', disabledCode: 'DC-1', name: 'Ada' }}
+      onSubmit={(data) => {
+        setSubmitted(data);
+      }}
+      validation={veto({
+        accountCode: string(),
+        disabledCode: string().optional(),
+        name: string(),
+      })}
+    >
+      <Input label="Account code (read-only)" name="accountCode" readOnly />
+      <Input disabled label="Disabled code" name="disabledCode" />
+      <Input label="Name" name="name" />
+      <SubmitButton>Submit</SubmitButton>
+      <pre data-testid="submitted_values">{JSON.stringify(submitted)}</pre>
+    </Form>
+  );
+};
+
+/** Read-only values can be focused and copied but not changed, and stay in validation and submission. */
+export const ReadOnlyFields: Story = {
+  render: () => {
+    return <ReadOnlyFieldsExample />;
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const accountCode = canvas.getByRole('textbox', { name: /Account code/ });
+    await expect(accountCode).toBeEnabled();
+    await expect(accountCode).toHaveAttribute('readonly');
+    await userEvent.type(accountCode, 'changed');
+    await expect(accountCode).toHaveValue('AC-1');
+    await userEvent.click(canvas.getByRole('button', { name: 'Submit form' }));
+    await waitFor(async () => {
+      return expect(canvas.getByTestId('submitted_values')).toHaveTextContent(
+        '{"accountCode":"AC-1","name":"Ada"}',
+      );
+    });
+  },
+};
+
 /**
  * Basic form submission. The `SubmitButton` is a native `type="submit"` button
  * inside the `<Form>`, so submission is handled entirely by the browser:

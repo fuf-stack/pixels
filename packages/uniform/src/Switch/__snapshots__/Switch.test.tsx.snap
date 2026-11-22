@@ -429,6 +429,87 @@ exports[`Story Snapshots > Invalid 1`] = `
 </div>
 `;
 
+exports[`Story Snapshots > ReadOnly 1`] = `
+<div>
+  <div
+    class="flex w-full flex-row justify-between gap-6"
+  >
+    <form
+      class="grow min-w-60"
+      data-form-is-valid="true"
+      data-testid=""
+      novalidate=""
+    >
+      <div
+        class="place-content-center"
+      >
+        <div
+          style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+        >
+          <input
+            aria-label="📚 Read documentation first"
+            checked=""
+            name="switchField"
+            type="checkbox"
+          />
+        </div>
+        <label
+          aria-label="📚 Read documentation first"
+          class="group relative max-w-fit inline-flex items-center justify-start touch-none tap-highlight-transparent select-none **:cursor-not-allowed cursor-not-allowed opacity-disabled"
+          data-invalid="false"
+          data-readonly="true"
+          data-required="false"
+          data-selected="true"
+          data-testid="switchfield"
+        >
+          <input
+            aria-label="[object Object]"
+            aria-labelledby="«replaced-aria-id»"
+            aria-readonly="true"
+            checked=""
+            class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
+            data-react-aria-pressable="true"
+            name="switchField_switch"
+            role="switch"
+            tabindex="0"
+            type="checkbox"
+            value=""
+          />
+          <span
+            aria-hidden="true"
+            class="px-1 relative inline-flex items-center justify-start shrink-0 overflow-hidden bg-default-200 rounded-full outline-solid outline-transparent group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:bg-primary group-data-[selected=true]:text-primary-foreground w-12 h-7 transition-background"
+          >
+            <span
+              class="z-10 flex items-center justify-center bg-white shadow-small rounded-full origin-right pointer-events-none w-5 h-5 text-small group-data-[selected=true]:ms-5 transition-all group-data-[pressed=true]:w-6 group-data-[selected]:group-data-[pressed]:ml-4"
+            />
+          </span>
+          <span
+            class="relative select-none ms-2 text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger group-data-[required=true]:after:ml-0.5 group-data-[required=true]:after:text-danger group-data-[required=true]:after:content-["*"]"
+            id="«replaced-aria-id»"
+          >
+            📚 Read documentation first
+          </span>
+        </label>
+      </div>
+      <div
+        class="mt-4 flex justify-end"
+      >
+        <button
+          aria-label="Submit form"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
+          data-react-aria-pressable="true"
+          data-testid="form_submit_button"
+          tabindex="0"
+          type="submit"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
 exports[`Story Snapshots > Required 1`] = `
 <div>
   <div

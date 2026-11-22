@@ -53,6 +53,32 @@ export const WithInitialValue: Story = {
   },
 };
 
+export const Disabled: Story = {
+  parameters: {
+    formProps: {
+      initialValues: { textareaField: 'This value is left out on submit.' },
+    },
+  },
+  args: {
+    disabled: true,
+    label: 'Disabled text',
+    name: 'textareaField',
+  },
+};
+
+export const ReadOnly: Story = {
+  parameters: {
+    formProps: {
+      initialValues: { textareaField: 'This value is submitted unchanged.' },
+    },
+  },
+  args: {
+    label: 'Read-only text',
+    name: 'textareaField',
+    readOnly: true,
+  },
+};
+
 const requiredValidation = veto({
   textareaField: string(),
 });

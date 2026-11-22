@@ -98,6 +98,17 @@ export const Disabled: Story = {
   },
 };
 
+export const ReadOnly: Story = {
+  parameters: {
+    formProps: { initialValues: { inputField: 'ID-1042' } },
+  },
+  args: {
+    label: 'Input Field',
+    name: 'inputField',
+    readOnly: true,
+  },
+};
+
 export const Invalid: Story = {
   parameters: {
     formProps: {
