@@ -193,6 +193,21 @@ export const DisabledCompletely: Story = {
   },
 };
 
+export const ReadOnly: Story = {
+  parameters: {
+    formProps: { initialValues: { radioTabsField: 'option_2' } },
+  },
+  args: {
+    name: 'radioTabsField',
+    options: [
+      { value: 'option_1', label: 'Option 1' },
+      { value: 'option_2', label: 'Option 2' },
+      { value: 'option_3', label: 'Option 3' },
+    ],
+    readOnly: true,
+  },
+};
+
 export const DisabledOption: Story = {
   tags: ['visual'],
   parameters: { visual: { target: '[data-component="radio-tabs"]' } },

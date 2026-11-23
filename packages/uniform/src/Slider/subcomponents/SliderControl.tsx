@@ -2,7 +2,7 @@ import type { FocusEvent } from 'react';
 import type { UniformField } from '../../hooks/useUniformField/types';
 import type { SliderProps } from '../Slider';
 
-import { useMemo } from 'react';
+import { useEffect, useMemo } from 'react';
 import {
   Slider as AriaSlider,
   Label,
@@ -59,6 +59,7 @@ const SliderControl = ({
     name,
     onBlur,
     onChange: onValueChange,
+    readOnly,
     required,
     testId,
   } = field;
@@ -84,6 +85,16 @@ const SliderControl = ({
     };
   }, [inputRef]);
 
+  // React Aria's thumb input has no read-only prop, mark it directly so screen
+  // readers announce the state when keyboard focus reaches the thumb
+  useEffect(() => {
+    if (readOnly) {
+      controlRef.current?.setAttribute('aria-readonly', 'true');
+    } else {
+      controlRef.current?.removeAttribute('aria-readonly');
+    }
+  }, [controlRef, readOnly]);
+
   const associations = controlProps;
   const describedBy =
     [
@@ -97,12 +108,25 @@ const SliderControl = ({
   const value = Math.min(maxValue, Math.max(minValue, rawValue));
 
   // classNames from slots
-  const variants = styling.resolve(sliderVariants, { size, disabled, invalid });
+  const variants = styling.resolve(sliderVariants, {
+    disabled,
+    invalid,
+    readOnly,
+    size,
+  });
   const classNames = styling.variantsToClassNames(variants, className, 'base');
+
+  // Slider has no read-only mode, read-only values ignore changes so the
+  // controlled thumb keeps the stored value
+  const handleValueChange = (nextValue: number) => {
+    if (!readOnly) {
+      onValueChange(nextValue);
+    }
+  };
 
   // an empty field may finish at the displayed minimum without emitting a change
   const handleValueCommit = (nextValue: number) => {
-    if (isValueEmpty(getCurrentValue())) {
+    if (!readOnly && isValueEmpty(getCurrentValue())) {
       onValueChange(nextValue);
     }
   };
@@ -119,6 +143,7 @@ const SliderControl = ({
       className={classNames.base}
       data-component="slider"
       data-invalid={invalid}
+      data-readonly={readOnly || undefined}
       data-required={required}
       data-testid={testId}
       onFocus={handleFocus}
@@ -141,7 +166,7 @@ const SliderControl = ({
         isDisabled={disabled}
         maxValue={maxValue}
         minValue={minValue}
-        onChange={onValueChange}
+        onChange={handleValueChange}
         onChangeEnd={handleValueCommit}
         step={step}
         value={value}

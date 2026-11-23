@@ -24,7 +24,7 @@ export interface RadioTabOption {
 
 export interface RadioTabsProps extends Omit<
   VariantProps,
-  'appearance' | 'hasContent'
+  'appearance' | 'hasContent' | 'invalid'
 > {
   /** Custom accessible name */
   ariaLabel?: string;
@@ -44,6 +44,8 @@ export interface RadioTabsProps extends Omit<
   name: string;
   /** Available options */
   options: RadioTabOption[];
+  /** Prevents changes while keeping the selection in validation and submission */
+  readOnly?: boolean;
   /** HTML data-testid attribute for e2e tests */
   testId?: string;
   /** How the RadioTabs should look like. */

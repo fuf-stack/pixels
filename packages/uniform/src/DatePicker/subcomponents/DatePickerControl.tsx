@@ -61,6 +61,7 @@ const DatePickerControl = ({
     name,
     onBlur,
     onChange: onValueChange,
+    readOnly,
     required,
   } = field;
 
@@ -78,8 +79,16 @@ const DatePickerControl = ({
   const placeholderValue = getDatePickerPlaceholderValue(withTime, timeZone);
 
   // classNames from slots
-  const variants = styling.resolve(datePickerVariants, { disabled });
+  const variants = styling.resolve(datePickerVariants, { disabled, readOnly });
   const classNames = styling.variantsToClassNames(variants, className, 'base');
+
+  // read-only values ignore edits, e.g. from a calendar popup that was
+  // already open when the field became read-only
+  const handleValueChange = (nextValue: DatePickerValue | null) => {
+    if (!readOnly) {
+      onValueChange(nextValue);
+    }
+  };
 
   // route form focus to the first enabled date segment
   const handleControlRef = (element: HTMLDivElement | null) => {
@@ -113,12 +122,13 @@ const DatePickerControl = ({
       id={controlProps.id}
       isDisabled={disabled}
       isInvalid={invalid}
+      isReadOnly={readOnly}
       isRequired={required}
       maxValue={parsedMaxValue ?? undefined}
       minValue={parsedMinValue ?? undefined}
       name={name}
       onBlur={onBlur}
-      onChange={onValueChange}
+      onChange={handleValueChange}
       placeholderValue={placeholderValue ?? undefined}
       shouldCloseOnSelect={!withTime}
       shouldForceLeadingZeros
@@ -153,6 +163,7 @@ const DatePickerControl = ({
               maxValue={parsedMaxValue}
               minValue={parsedMinValue}
               placeholderValue={placeholderValue}
+              readOnly={readOnly}
               state={state}
               withTime={withTime}
             />

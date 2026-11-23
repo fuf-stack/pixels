@@ -33,6 +33,8 @@ export interface InputProps {
   onClear?: () => void;
   /** Placeholder text */
   placeholder?: string;
+  /** Prevents changes, the value can still be focused, copied and is submitted */
+  readOnly?: boolean;
   /** Redacts diagnostic values, password fields are always redacted */
   sensitive?: boolean;
   /** Input size */

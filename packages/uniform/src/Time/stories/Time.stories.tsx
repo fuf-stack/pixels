@@ -91,6 +91,16 @@ export const Disabled: Story = {
   },
 };
 
+export const ReadOnly: Story = {
+  parameters: { formProps: { initialValues: { timeField: '10:15Z' } } },
+  args: {
+    label: 'Read-only time',
+    name: 'timeField',
+    readOnly: true,
+    timeZone: 'UTC',
+  },
+};
+
 export const Invalid: Story = {
   tags: ['visual'],
   parameters: {

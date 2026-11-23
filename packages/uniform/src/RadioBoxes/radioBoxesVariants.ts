@@ -35,6 +35,14 @@ export const radioBoxesVariants = tv({
     wrapper:
       'flex flex-col flex-wrap gap-2 data-[orientation=horizontal]:flex-row',
   },
+  variants: {
+    readOnly: {
+      true: {
+        // drop hover feedback so read-only boxes do not look clickable
+        boxBase: 'hover:bg-transparent',
+      },
+    },
+  },
 });
 
 export type VariantProps = TVProps<typeof radioBoxesVariants>;

@@ -44,6 +44,7 @@ const RadioTabsControl = ({
     label,
     onBlur,
     onChange: onValueChange,
+    readOnly,
     required,
     testId,
     value,
@@ -67,7 +68,8 @@ const RadioTabsControl = ({
   const variants = styling.resolve(radioTabsVariants, {
     fullWidth,
     hasContent,
-    isInvalid: invalid,
+    invalid,
+    readOnly,
     appearance: variant ?? 'solid',
   });
   const classNames = styling.variantsToClassNames(variants, className, 'base');
@@ -82,9 +84,12 @@ const RadioTabsControl = ({
       .filter(Boolean)
       .join(' ') || undefined;
 
-  // restore the selected option's original value type
+  // restore the selected option's original value type, read-only tabs keep
+  // their selection since Tabs have no read-only mode
   const handleChange = (nextValue: string) => {
-    onValueChange(convertToOriginalType(nextValue));
+    if (!readOnly) {
+      onValueChange(convertToOriginalType(nextValue));
+    }
   };
 
   // route form focus to the selected enabled tab, otherwise the first enabled tab
@@ -125,6 +130,7 @@ const RadioTabsControl = ({
         'aria-describedby': describedBy,
         'data-component': 'radio-tabs',
         'data-invalid': invalid,
+        'data-readonly': readOnly || undefined,
         'data-required': required,
         'data-testid': testId,
         ref: handleControlRef,

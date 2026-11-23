@@ -7,132 +7,331 @@ exports[`Story Snapshots > DisabledFields 1`] = `
     data-component="form"
   >
     <form
-      class="grow"
+      class="grow min-w-lg"
       data-form-is-valid="true"
       data-testid=""
       novalidate=""
     >
       <div
-        class="group relative flex w-full flex-col is-filled"
-        data-component="input"
-        data-filled="true"
-        data-rac=""
-        data-slot="base"
+        class="grid gap-6"
+        data-component="grid"
       >
-        <label
-          class="block cursor-default pb-1 text-small text-foreground group-data-[invalid=true]:text-danger"
-          data-slot="label"
-          for="uniform-«replaced-aria-id»"
-          id="uniform-«replaced-aria-id»-label"
-        >
-          Account code
-        </label>
         <div
-          class="relative inline-flex h-10 min-h-10 w-full cursor-text items-center shadow-xs rounded-small border-medium border-default-200 bg-content1 px-3 text-foreground transition-colors group-data-[disabled=true]:pointer-events-none group-data-[focus=true]:border-focus group-data-[invalid=true]:border-danger data-[hovered=true]:border-default-400 group-data-[focus=true]:data-[hovered=true]:border-default-foreground motion-reduce:transition-none is-filled"
+          class="group relative flex w-full flex-col is-filled"
+          data-component="input"
+          data-filled="true"
           data-rac=""
-          data-slot="input-wrapper"
-          role="presentation"
+          data-slot="base"
         >
-          <div
-            class="inline-flex h-full w-full items-center gap-0"
-            data-slot="inner-wrapper"
+          <label
+            class="block cursor-default pb-1 text-small text-foreground group-data-[invalid=true]:text-danger"
+            data-slot="label"
+            for="uniform-«replaced-aria-id»"
+            id="uniform-«replaced-aria-id»-label"
           >
-            <input
-              aria-labelledby="uniform-«replaced-aria-id»-label"
-              autocomplete="off"
-              class="w-full min-w-0 bg-transparent bg-clip-text text-small font-normal text-inherit outline-none placeholder:text-foreground-500 autofill:bg-transparent data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden is-filled"
-              data-filled="true"
-              data-rac=""
-              data-slot="input"
-              data-testid="accountcode"
-              id="uniform-«replaced-aria-id»"
-              name="accountCode"
-              placeholder=" "
-              tabindex="0"
-              type="text"
-              value="abc"
-            />
+            🎟️ Coupon code
+          </label>
+          <div
+            class="relative inline-flex h-10 min-h-10 w-full cursor-text items-center shadow-xs rounded-small border-medium border-default-200 bg-content1 px-3 text-foreground transition-colors group-data-[disabled=true]:pointer-events-none group-data-[focus=true]:border-focus group-data-[invalid=true]:border-danger data-[hovered=true]:border-default-400 group-data-[focus=true]:data-[hovered=true]:border-default-foreground motion-reduce:transition-none is-filled"
+            data-rac=""
+            data-slot="input-wrapper"
+            role="presentation"
+          >
+            <div
+              class="inline-flex h-full w-full items-center gap-0"
+              data-slot="inner-wrapper"
+            >
+              <input
+                aria-labelledby="uniform-«replaced-aria-id»-label"
+                autocomplete="off"
+                class="w-full min-w-0 bg-transparent bg-clip-text text-small font-normal text-inherit outline-none placeholder:text-foreground-500 autofill:bg-transparent data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden is-filled"
+                data-filled="true"
+                data-rac=""
+                data-slot="input"
+                data-testid="couponcode"
+                id="uniform-«replaced-aria-id»"
+                name="couponCode"
+                placeholder=" "
+                tabindex="0"
+                type="text"
+                value="abc"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="group relative flex w-full flex-col is-filled"
+          data-component="input"
+          data-filled="true"
+          data-rac=""
+          data-required="true"
+          data-slot="base"
+        >
+          <label
+            class="block cursor-default pb-1 text-small text-foreground group-data-[invalid=true]:text-danger"
+            data-slot="label"
+            for="uniform-«replaced-aria-id»"
+            id="uniform-«replaced-aria-id»-label"
+          >
+            Name for the order
+            <span
+              aria-hidden="true"
+              class="ml-0.5 text-danger"
+            >
+              *
+            </span>
+          </label>
+          <div
+            class="relative inline-flex h-10 min-h-10 w-full cursor-text items-center shadow-xs rounded-small border-medium border-default-200 bg-content1 px-3 text-foreground transition-colors group-data-[disabled=true]:pointer-events-none group-data-[focus=true]:border-focus group-data-[invalid=true]:border-danger data-[hovered=true]:border-default-400 group-data-[focus=true]:data-[hovered=true]:border-default-foreground motion-reduce:transition-none is-filled"
+            data-rac=""
+            data-slot="input-wrapper"
+            role="presentation"
+          >
+            <div
+              class="inline-flex h-full w-full items-center gap-0"
+              data-slot="inner-wrapper"
+            >
+              <input
+                aria-labelledby="uniform-«replaced-aria-id»-label"
+                aria-required="true"
+                autocomplete="off"
+                class="w-full min-w-0 bg-transparent bg-clip-text text-small font-normal text-inherit outline-none placeholder:text-foreground-500 autofill:bg-transparent data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden is-filled"
+                data-filled="true"
+                data-rac=""
+                data-slot="input"
+                data-testid="name"
+                id="uniform-«replaced-aria-id»"
+                name="name"
+                placeholder=" "
+                tabindex="0"
+                type="text"
+                value="Ada"
+              />
+            </div>
           </div>
         </div>
       </div>
       <div
-        class="group relative flex w-full flex-col is-filled"
-        data-component="input"
-        data-filled="true"
-        data-rac=""
-        data-required="true"
-        data-slot="base"
+        class="mt-6 flex justify-end gap-2"
       >
-        <label
-          class="block cursor-default pb-1 text-small text-foreground group-data-[invalid=true]:text-danger"
-          data-slot="label"
-          for="uniform-«replaced-aria-id»"
-          id="uniform-«replaced-aria-id»-label"
-        >
-          Name
-          <span
-            aria-hidden="true"
-            class="ml-0.5 text-danger"
-          >
-            *
-          </span>
-        </label>
-        <div
-          class="relative inline-flex h-10 min-h-10 w-full cursor-text items-center shadow-xs rounded-small border-medium border-default-200 bg-content1 px-3 text-foreground transition-colors group-data-[disabled=true]:pointer-events-none group-data-[focus=true]:border-focus group-data-[invalid=true]:border-danger data-[hovered=true]:border-default-400 group-data-[focus=true]:data-[hovered=true]:border-default-foreground motion-reduce:transition-none is-filled"
+        <button
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus border-medium h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none border-default bg-transparent text-foreground data-[hover=true]:opacity-hover"
+          data-component="button"
           data-rac=""
-          data-slot="input-wrapper"
-          role="presentation"
+          data-react-aria-pressable="true"
+          id="react-aria-«replaced-aria-id»"
+          tabindex="0"
+          type="button"
+        >
+          Disable field
+        </button>
+        <button
+          aria-label="Submit form"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
+          data-component="submit-button"
+          data-focus="true"
+          data-focused="true"
+          data-hover="true"
+          data-hovered="true"
+          data-rac=""
+          data-react-aria-pressable="true"
+          data-testid="form_submit_button"
+          id="react-aria-«replaced-aria-id»"
+          tabindex="0"
+          type="submit"
+        >
+          Submit
+        </button>
+      </div>
+      <div
+        class="relative box-border flex h-auto w-full flex-col overflow-hidden rounded-small border border-divider bg-content1 text-foreground shadow-none outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus transition-transform-background motion-reduce:transition-none mt-6"
+        data-component="card"
+        data-slot="base"
+        tabindex="-1"
+      >
+        <div
+          class="color-inherit overflow-inherit z-auto flex w-full shrink-0 items-center justify-start rounded-t-small p-3 text-base font-semibold subpixel-antialiased"
+          data-slot="header"
+        >
+          Submitted values
+        </div>
+        <hr
+          class="my-0 h-divider w-full shrink-0 border-none border-divider bg-divider"
+        />
+        <div
+          class="relative flex h-auto w-full flex-auto flex-col p-3 place-content-inherit align-items-inherit overflow-y-auto break-words text-left subpixel-antialiased"
+          data-slot="body"
         >
           <div
-            class="inline-flex h-full w-full items-center gap-0"
-            data-slot="inner-wrapper"
+            data-submitted="{"couponCode":"abc","name":"Ada"}"
+            data-testid="submitted_values"
           >
-            <input
-              aria-labelledby="uniform-«replaced-aria-id»-label"
-              aria-required="true"
-              autocomplete="off"
-              class="w-full min-w-0 bg-transparent bg-clip-text text-small font-normal text-inherit outline-none placeholder:text-foreground-500 autofill:bg-transparent data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden is-filled"
-              data-filled="true"
-              data-rac=""
-              data-slot="input"
-              data-testid="name"
-              id="uniform-«replaced-aria-id»"
-              name="name"
-              placeholder=" "
-              tabindex="0"
-              type="text"
-              value="Ada"
-            />
+            <div
+              aria-label="JSON viewer"
+              class=""
+              data-component="json"
+              role="region"
+            >
+              <div
+                class="relative"
+              >
+                <div
+                  class="w-json-view-container w-rjv pr-5 w-rjv-inner"
+                  style="line-height: 1.4; font-family: var(--w-rjv-font-family, Menlo, monospace); color: var(--w-rjv-color, #002b36); background-color: var(--w-rjv-background-color, #00000000); font-size: 13px;"
+                >
+                  <span
+                    style="display: inline-flex; align-items: center;"
+                  >
+                    <span
+                      class="w-rjv-arrow"
+                      style="transform: rotate(0deg); transition: all 0.3s;"
+                    >
+                      <svg
+                        fill="var(--w-rjv-arrow-color, currentColor)"
+                        style="cursor: pointer; height: 1em; width: 1em; user-select: none; display: inline-flex;"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                        />
+                      </svg>
+                    </span>
+                    <span
+                      class="w-rjv-curlybraces-start"
+                      style="color: var(--w-rjv-curlybraces-color, #236a7c);"
+                    >
+                      {
+                    </span>
+                    <span
+                      class="w-rjv-object-size"
+                      style="color: var(--w-rjv-info-color, #0000004d); padding-left: 8px; font-style: italic;"
+                    >
+                      2 items
+                    </span>
+                  </span>
+                  <div
+                    class="w-rjv-wrap"
+                    style="border-left: var(--w-rjv-border-left-width, 1px) var(--w-rjv-line-style, solid) var(--w-rjv-line-color, #ebebeb); padding-left: 15px; margin-left: 6px;"
+                  >
+                    <div
+                      class="w-rjv-line"
+                    >
+                      <span>
+                        <span
+                          class="w-rjv-quotes"
+                          data-placement="left"
+                          style="color: var(--w-rjv-quotes-color, #236a7c);"
+                        >
+                          "
+                        </span>
+                        <span
+                          class="w-rjv-object-key"
+                          style="color: var(--w-rjv-key-string, #002b36);"
+                        >
+                          couponCode
+                        </span>
+                        <span
+                          class="w-rjv-quotes"
+                          data-placement="right"
+                          style="color: var(--w-rjv-quotes-color, #236a7c);"
+                        >
+                          "
+                        </span>
+                      </span>
+                      <span
+                        class="w-rjv-colon"
+                        style="color: var(--w-rjv-colon-color, var(--w-rjv-color)); margin-left: 0px; margin-right: 2px;"
+                      >
+                        :
+                      </span>
+                      <span
+                        class="w-rjv-quotes"
+                        style="color: var(--w-rjv-quotes-string-color, #cb4b16);"
+                      >
+                        "
+                      </span>
+                      <span
+                        class="w-rjv-value"
+                        data-type="string"
+                        style="color: var(--w-rjv-type-string-color, #cb4b16); cursor: initial;"
+                      >
+                        abc
+                      </span>
+                      <span
+                        class="w-rjv-quotes"
+                        style="color: var(--w-rjv-quotes-string-color, #cb4b16);"
+                      >
+                        "
+                      </span>
+                    </div>
+                    <div
+                      class="w-rjv-line"
+                    >
+                      <span>
+                        <span
+                          class="w-rjv-quotes"
+                          data-placement="left"
+                          style="color: var(--w-rjv-quotes-color, #236a7c);"
+                        >
+                          "
+                        </span>
+                        <span
+                          class="w-rjv-object-key"
+                          style="color: var(--w-rjv-key-string, #002b36);"
+                        >
+                          name
+                        </span>
+                        <span
+                          class="w-rjv-quotes"
+                          data-placement="right"
+                          style="color: var(--w-rjv-quotes-color, #236a7c);"
+                        >
+                          "
+                        </span>
+                      </span>
+                      <span
+                        class="w-rjv-colon"
+                        style="color: var(--w-rjv-colon-color, var(--w-rjv-color)); margin-left: 0px; margin-right: 2px;"
+                      >
+                        :
+                      </span>
+                      <span
+                        class="w-rjv-quotes"
+                        style="color: var(--w-rjv-quotes-string-color, #cb4b16);"
+                      >
+                        "
+                      </span>
+                      <span
+                        class="w-rjv-value"
+                        data-type="string"
+                        style="color: var(--w-rjv-type-string-color, #cb4b16); cursor: initial;"
+                      >
+                        Ada
+                      </span>
+                      <span
+                        class="w-rjv-quotes"
+                        style="color: var(--w-rjv-quotes-string-color, #cb4b16);"
+                      >
+                        "
+                      </span>
+                    </div>
+                  </div>
+                  <div
+                    style="padding-left: 4px;"
+                  >
+                    <span
+                      class="w-rjv-curlybraces-end"
+                      style="color: var(--w-rjv-curlybraces-color, #236a7c);"
+                    >
+                      }
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-      <button
-        type="button"
-      >
-        Disable field
-      </button>
-      <button
-        aria-label="Submit form"
-        class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
-        data-component="submit-button"
-        data-focus="true"
-        data-focused="true"
-        data-hover="true"
-        data-hovered="true"
-        data-rac=""
-        data-react-aria-pressable="true"
-        data-testid="form_submit_button"
-        id="react-aria-«replaced-aria-id»"
-        tabindex="0"
-        type="submit"
-      >
-        Submit
-      </button>
-      <pre
-        data-testid="submitted_values"
-      >
-        {"accountCode":"abc","name":"Ada"}
-      </pre>
       <div
         class="relative box-border flex h-auto w-full flex-col overflow-hidden rounded-small border border-divider bg-content1 text-foreground shadow-none outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus transition-transform-background motion-reduce:transition-none mt-6"
         data-component="card"
@@ -691,6 +890,388 @@ exports[`Story Snapshots > LongRunningSubmit 1`] = `
 </div>
 `;
 
+exports[`Story Snapshots > ReadOnlyVsDisabledFields 1`] = `
+<div>
+  <div
+    class="flex w-full flex-row justify-between gap-6"
+    data-component="form"
+  >
+    <form
+      class="grow min-w-lg"
+      data-form-is-valid="true"
+      data-testid=""
+      novalidate=""
+    >
+      <div
+        class="grid gap-6"
+        data-component="grid"
+      >
+        <div
+          class="group relative flex w-full flex-col is-filled cursor-not-allowed opacity-disabled **:cursor-not-allowed"
+          data-component="input"
+          data-filled="true"
+          data-rac=""
+          data-readonly="true"
+          data-required="true"
+          data-slot="base"
+        >
+          <label
+            class="block cursor-default pb-1 text-small text-foreground group-data-[invalid=true]:text-danger"
+            data-slot="label"
+            for="uniform-«replaced-aria-id»"
+            id="uniform-«replaced-aria-id»-label"
+          >
+            🍦 Flavor of the day (read-only)
+            <span
+              aria-hidden="true"
+              class="ml-0.5 text-danger"
+            >
+              *
+            </span>
+          </label>
+          <div
+            class="relative inline-flex h-10 min-h-10 w-full cursor-text items-center shadow-xs rounded-small border-medium border-default-200 bg-content1 px-3 text-foreground transition-colors group-data-[disabled=true]:pointer-events-none group-data-[focus=true]:border-focus group-data-[invalid=true]:border-danger data-[hovered=true]:border-default-400 group-data-[focus=true]:data-[hovered=true]:border-default-foreground motion-reduce:transition-none is-filled"
+            data-rac=""
+            data-slot="input-wrapper"
+            role="presentation"
+          >
+            <div
+              class="inline-flex h-full w-full items-center gap-0"
+              data-slot="inner-wrapper"
+            >
+              <input
+                aria-labelledby="uniform-«replaced-aria-id»-label"
+                aria-required="true"
+                autocomplete="off"
+                class="w-full min-w-0 bg-transparent bg-clip-text text-small font-normal text-inherit outline-none placeholder:text-foreground-500 autofill:bg-transparent data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden is-filled"
+                data-filled="true"
+                data-rac=""
+                data-slot="input"
+                data-testid="flavor"
+                id="uniform-«replaced-aria-id»"
+                name="flavor"
+                placeholder=" "
+                readonly=""
+                tabindex="0"
+                type="text"
+                value="pistachio"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="group relative flex w-full flex-col is-filled pointer-events-none opacity-disabled"
+          data-component="input"
+          data-disabled="true"
+          data-filled="true"
+          data-rac=""
+          data-slot="base"
+        >
+          <label
+            class="block cursor-default pb-1 text-small text-foreground group-data-[invalid=true]:text-danger"
+            data-slot="label"
+            for="uniform-«replaced-aria-id»"
+            id="uniform-«replaced-aria-id»-label"
+          >
+            🎟️ Coupon code (disabled)
+          </label>
+          <div
+            class="relative inline-flex h-10 min-h-10 w-full cursor-text items-center shadow-xs rounded-small border-medium border-default-200 bg-content1 px-3 text-foreground transition-colors group-data-[disabled=true]:pointer-events-none group-data-[focus=true]:border-focus group-data-[invalid=true]:border-danger data-[hovered=true]:border-default-400 group-data-[focus=true]:data-[hovered=true]:border-default-foreground motion-reduce:transition-none is-filled"
+            data-disabled="true"
+            data-rac=""
+            data-slot="input-wrapper"
+            role="presentation"
+          >
+            <div
+              class="inline-flex h-full w-full items-center gap-0"
+              data-slot="inner-wrapper"
+            >
+              <input
+                aria-labelledby="uniform-«replaced-aria-id»-label"
+                autocomplete="off"
+                class="w-full min-w-0 bg-transparent bg-clip-text text-small font-normal text-inherit outline-none placeholder:text-foreground-500 autofill:bg-transparent data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden is-filled"
+                data-disabled="true"
+                data-filled="true"
+                data-rac=""
+                data-slot="input"
+                data-testid="couponcode"
+                disabled=""
+                id="uniform-«replaced-aria-id»"
+                name="couponCode"
+                placeholder=" "
+                type="text"
+                value="SUMMER"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="group relative flex w-full flex-col is-filled"
+          data-component="input"
+          data-filled="true"
+          data-rac=""
+          data-required="true"
+          data-slot="base"
+        >
+          <label
+            class="block cursor-default pb-1 text-small text-foreground group-data-[invalid=true]:text-danger"
+            data-slot="label"
+            for="uniform-«replaced-aria-id»"
+            id="uniform-«replaced-aria-id»-label"
+          >
+            Name for the order
+            <span
+              aria-hidden="true"
+              class="ml-0.5 text-danger"
+            >
+              *
+            </span>
+          </label>
+          <div
+            class="relative inline-flex h-10 min-h-10 w-full cursor-text items-center shadow-xs rounded-small border-medium border-default-200 bg-content1 px-3 text-foreground transition-colors group-data-[disabled=true]:pointer-events-none group-data-[focus=true]:border-focus group-data-[invalid=true]:border-danger data-[hovered=true]:border-default-400 group-data-[focus=true]:data-[hovered=true]:border-default-foreground motion-reduce:transition-none is-filled"
+            data-rac=""
+            data-slot="input-wrapper"
+            role="presentation"
+          >
+            <div
+              class="inline-flex h-full w-full items-center gap-0"
+              data-slot="inner-wrapper"
+            >
+              <input
+                aria-labelledby="uniform-«replaced-aria-id»-label"
+                aria-required="true"
+                autocomplete="off"
+                class="w-full min-w-0 bg-transparent bg-clip-text text-small font-normal text-inherit outline-none placeholder:text-foreground-500 autofill:bg-transparent data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden is-filled"
+                data-filled="true"
+                data-rac=""
+                data-slot="input"
+                data-testid="name"
+                id="uniform-«replaced-aria-id»"
+                name="name"
+                placeholder=" "
+                tabindex="0"
+                type="text"
+                value="Ada"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="mt-6 flex justify-end"
+      >
+        <button
+          aria-label="Submit form"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
+          data-component="submit-button"
+          data-focus="true"
+          data-focused="true"
+          data-hover="true"
+          data-hovered="true"
+          data-rac=""
+          data-react-aria-pressable="true"
+          data-testid="form_submit_button"
+          id="react-aria-«replaced-aria-id»"
+          tabindex="0"
+          type="submit"
+        >
+          Submit
+        </button>
+      </div>
+      <div
+        class="relative box-border flex h-auto w-full flex-col overflow-hidden rounded-small border border-divider bg-content1 text-foreground shadow-none outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus transition-transform-background motion-reduce:transition-none mt-6"
+        data-component="card"
+        data-slot="base"
+        tabindex="-1"
+      >
+        <div
+          class="color-inherit overflow-inherit z-auto flex w-full shrink-0 items-center justify-start rounded-t-small p-3 text-base font-semibold subpixel-antialiased"
+          data-slot="header"
+        >
+          Submitted values
+        </div>
+        <hr
+          class="my-0 h-divider w-full shrink-0 border-none border-divider bg-divider"
+        />
+        <div
+          class="relative flex h-auto w-full flex-auto flex-col p-3 place-content-inherit align-items-inherit overflow-y-auto break-words text-left subpixel-antialiased"
+          data-slot="body"
+        >
+          <div
+            data-submitted="{"flavor":"pistachio","name":"Ada"}"
+            data-testid="submitted_values"
+          >
+            <div
+              aria-label="JSON viewer"
+              class=""
+              data-component="json"
+              role="region"
+            >
+              <div
+                class="relative"
+              >
+                <div
+                  class="w-json-view-container w-rjv pr-5 w-rjv-inner"
+                  style="line-height: 1.4; font-family: var(--w-rjv-font-family, Menlo, monospace); color: var(--w-rjv-color, #002b36); background-color: var(--w-rjv-background-color, #00000000); font-size: 13px;"
+                >
+                  <span
+                    style="display: inline-flex; align-items: center;"
+                  >
+                    <span
+                      class="w-rjv-arrow"
+                      style="transform: rotate(0deg); transition: all 0.3s;"
+                    >
+                      <svg
+                        fill="var(--w-rjv-arrow-color, currentColor)"
+                        style="cursor: pointer; height: 1em; width: 1em; user-select: none; display: inline-flex;"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                        />
+                      </svg>
+                    </span>
+                    <span
+                      class="w-rjv-curlybraces-start"
+                      style="color: var(--w-rjv-curlybraces-color, #236a7c);"
+                    >
+                      {
+                    </span>
+                    <span
+                      class="w-rjv-object-size"
+                      style="color: var(--w-rjv-info-color, #0000004d); padding-left: 8px; font-style: italic;"
+                    >
+                      2 items
+                    </span>
+                  </span>
+                  <div
+                    class="w-rjv-wrap"
+                    style="border-left: var(--w-rjv-border-left-width, 1px) var(--w-rjv-line-style, solid) var(--w-rjv-line-color, #ebebeb); padding-left: 15px; margin-left: 6px;"
+                  >
+                    <div
+                      class="w-rjv-line"
+                    >
+                      <span>
+                        <span
+                          class="w-rjv-quotes"
+                          data-placement="left"
+                          style="color: var(--w-rjv-quotes-color, #236a7c);"
+                        >
+                          "
+                        </span>
+                        <span
+                          class="w-rjv-object-key"
+                          style="color: var(--w-rjv-key-string, #002b36);"
+                        >
+                          flavor
+                        </span>
+                        <span
+                          class="w-rjv-quotes"
+                          data-placement="right"
+                          style="color: var(--w-rjv-quotes-color, #236a7c);"
+                        >
+                          "
+                        </span>
+                      </span>
+                      <span
+                        class="w-rjv-colon"
+                        style="color: var(--w-rjv-colon-color, var(--w-rjv-color)); margin-left: 0px; margin-right: 2px;"
+                      >
+                        :
+                      </span>
+                      <span
+                        class="w-rjv-quotes"
+                        style="color: var(--w-rjv-quotes-string-color, #cb4b16);"
+                      >
+                        "
+                      </span>
+                      <span
+                        class="w-rjv-value"
+                        data-type="string"
+                        style="color: var(--w-rjv-type-string-color, #cb4b16); cursor: initial;"
+                      >
+                        pistachio
+                      </span>
+                      <span
+                        class="w-rjv-quotes"
+                        style="color: var(--w-rjv-quotes-string-color, #cb4b16);"
+                      >
+                        "
+                      </span>
+                    </div>
+                    <div
+                      class="w-rjv-line"
+                    >
+                      <span>
+                        <span
+                          class="w-rjv-quotes"
+                          data-placement="left"
+                          style="color: var(--w-rjv-quotes-color, #236a7c);"
+                        >
+                          "
+                        </span>
+                        <span
+                          class="w-rjv-object-key"
+                          style="color: var(--w-rjv-key-string, #002b36);"
+                        >
+                          name
+                        </span>
+                        <span
+                          class="w-rjv-quotes"
+                          data-placement="right"
+                          style="color: var(--w-rjv-quotes-color, #236a7c);"
+                        >
+                          "
+                        </span>
+                      </span>
+                      <span
+                        class="w-rjv-colon"
+                        style="color: var(--w-rjv-colon-color, var(--w-rjv-color)); margin-left: 0px; margin-right: 2px;"
+                      >
+                        :
+                      </span>
+                      <span
+                        class="w-rjv-quotes"
+                        style="color: var(--w-rjv-quotes-string-color, #cb4b16);"
+                      >
+                        "
+                      </span>
+                      <span
+                        class="w-rjv-value"
+                        data-type="string"
+                        style="color: var(--w-rjv-type-string-color, #cb4b16); cursor: initial;"
+                      >
+                        Ada
+                      </span>
+                      <span
+                        class="w-rjv-quotes"
+                        style="color: var(--w-rjv-quotes-string-color, #cb4b16);"
+                      >
+                        "
+                      </span>
+                    </div>
+                  </div>
+                  <div
+                    style="padding-left: 4px;"
+                  >
+                    <span
+                      class="w-rjv-curlybraces-end"
+                      style="color: var(--w-rjv-curlybraces-color, #236a7c);"
+                    >
+                      }
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
 exports[`Story Snapshots > RemoteFormSubmission 1`] = `
 <div>
   <div
@@ -974,140 +1555,339 @@ exports[`Story Snapshots > RequiredDisabledField 1`] = `
     data-component="form"
   >
     <form
-      class="grow"
+      class="grow min-w-lg"
       data-form-is-valid="true"
       data-testid=""
       novalidate=""
     >
       <div
-        class="group relative flex w-full flex-col is-filled"
-        data-component="input"
-        data-filled="true"
-        data-rac=""
-        data-required="true"
-        data-slot="base"
+        class="grid gap-6"
+        data-component="grid"
       >
-        <label
-          class="block cursor-default pb-1 text-small text-foreground group-data-[invalid=true]:text-danger"
-          data-slot="label"
-          for="uniform-«replaced-aria-id»"
-          id="uniform-«replaced-aria-id»-label"
-        >
-          Account code
-          <span
-            aria-hidden="true"
-            class="ml-0.5 text-danger"
-          >
-            *
-          </span>
-        </label>
         <div
-          class="relative inline-flex h-10 min-h-10 w-full cursor-text items-center shadow-xs rounded-small border-medium border-default-200 bg-content1 px-3 text-foreground transition-colors group-data-[disabled=true]:pointer-events-none group-data-[focus=true]:border-focus group-data-[invalid=true]:border-danger data-[hovered=true]:border-default-400 group-data-[focus=true]:data-[hovered=true]:border-default-foreground motion-reduce:transition-none is-filled"
+          class="group relative flex w-full flex-col is-filled"
+          data-component="input"
+          data-filled="true"
           data-rac=""
-          data-slot="input-wrapper"
-          role="presentation"
+          data-required="true"
+          data-slot="base"
         >
-          <div
-            class="inline-flex h-full w-full items-center gap-0"
-            data-slot="inner-wrapper"
+          <label
+            class="block cursor-default pb-1 text-small text-foreground group-data-[invalid=true]:text-danger"
+            data-slot="label"
+            for="uniform-«replaced-aria-id»"
+            id="uniform-«replaced-aria-id»-label"
           >
-            <input
-              aria-labelledby="uniform-«replaced-aria-id»-label"
-              aria-required="true"
-              autocomplete="off"
-              class="w-full min-w-0 bg-transparent bg-clip-text text-small font-normal text-inherit outline-none placeholder:text-foreground-500 autofill:bg-transparent data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden is-filled"
-              data-filled="true"
-              data-rac=""
-              data-slot="input"
-              data-testid="accountcode"
-              id="uniform-«replaced-aria-id»"
-              name="accountCode"
-              placeholder=" "
-              tabindex="0"
-              type="text"
-              value="abc"
-            />
+            🎟️ Coupon code
+            <span
+              aria-hidden="true"
+              class="ml-0.5 text-danger"
+            >
+              *
+            </span>
+          </label>
+          <div
+            class="relative inline-flex h-10 min-h-10 w-full cursor-text items-center shadow-xs rounded-small border-medium border-default-200 bg-content1 px-3 text-foreground transition-colors group-data-[disabled=true]:pointer-events-none group-data-[focus=true]:border-focus group-data-[invalid=true]:border-danger data-[hovered=true]:border-default-400 group-data-[focus=true]:data-[hovered=true]:border-default-foreground motion-reduce:transition-none is-filled"
+            data-rac=""
+            data-slot="input-wrapper"
+            role="presentation"
+          >
+            <div
+              class="inline-flex h-full w-full items-center gap-0"
+              data-slot="inner-wrapper"
+            >
+              <input
+                aria-labelledby="uniform-«replaced-aria-id»-label"
+                aria-required="true"
+                autocomplete="off"
+                class="w-full min-w-0 bg-transparent bg-clip-text text-small font-normal text-inherit outline-none placeholder:text-foreground-500 autofill:bg-transparent data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden is-filled"
+                data-filled="true"
+                data-rac=""
+                data-slot="input"
+                data-testid="couponcode"
+                id="uniform-«replaced-aria-id»"
+                name="couponCode"
+                placeholder=" "
+                tabindex="0"
+                type="text"
+                value="abc"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="group relative flex w-full flex-col is-filled"
+          data-component="input"
+          data-filled="true"
+          data-rac=""
+          data-required="true"
+          data-slot="base"
+        >
+          <label
+            class="block cursor-default pb-1 text-small text-foreground group-data-[invalid=true]:text-danger"
+            data-slot="label"
+            for="uniform-«replaced-aria-id»"
+            id="uniform-«replaced-aria-id»-label"
+          >
+            Name for the order
+            <span
+              aria-hidden="true"
+              class="ml-0.5 text-danger"
+            >
+              *
+            </span>
+          </label>
+          <div
+            class="relative inline-flex h-10 min-h-10 w-full cursor-text items-center shadow-xs rounded-small border-medium border-default-200 bg-content1 px-3 text-foreground transition-colors group-data-[disabled=true]:pointer-events-none group-data-[focus=true]:border-focus group-data-[invalid=true]:border-danger data-[hovered=true]:border-default-400 group-data-[focus=true]:data-[hovered=true]:border-default-foreground motion-reduce:transition-none is-filled"
+            data-rac=""
+            data-slot="input-wrapper"
+            role="presentation"
+          >
+            <div
+              class="inline-flex h-full w-full items-center gap-0"
+              data-slot="inner-wrapper"
+            >
+              <input
+                aria-labelledby="uniform-«replaced-aria-id»-label"
+                aria-required="true"
+                autocomplete="off"
+                class="w-full min-w-0 bg-transparent bg-clip-text text-small font-normal text-inherit outline-none placeholder:text-foreground-500 autofill:bg-transparent data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden is-filled"
+                data-filled="true"
+                data-rac=""
+                data-slot="input"
+                data-testid="name"
+                id="uniform-«replaced-aria-id»"
+                name="name"
+                placeholder=" "
+                tabindex="0"
+                type="text"
+                value="Ada"
+              />
+            </div>
           </div>
         </div>
       </div>
       <div
-        class="group relative flex w-full flex-col is-filled"
-        data-component="input"
-        data-filled="true"
-        data-rac=""
-        data-required="true"
-        data-slot="base"
+        class="mt-6 flex justify-end gap-2"
       >
-        <label
-          class="block cursor-default pb-1 text-small text-foreground group-data-[invalid=true]:text-danger"
-          data-slot="label"
-          for="uniform-«replaced-aria-id»"
-          id="uniform-«replaced-aria-id»-label"
-        >
-          Name
-          <span
-            aria-hidden="true"
-            class="ml-0.5 text-danger"
-          >
-            *
-          </span>
-        </label>
-        <div
-          class="relative inline-flex h-10 min-h-10 w-full cursor-text items-center shadow-xs rounded-small border-medium border-default-200 bg-content1 px-3 text-foreground transition-colors group-data-[disabled=true]:pointer-events-none group-data-[focus=true]:border-focus group-data-[invalid=true]:border-danger data-[hovered=true]:border-default-400 group-data-[focus=true]:data-[hovered=true]:border-default-foreground motion-reduce:transition-none is-filled"
+        <button
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus border-medium h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none border-default bg-transparent text-foreground data-[hover=true]:opacity-hover"
+          data-component="button"
           data-rac=""
-          data-slot="input-wrapper"
-          role="presentation"
+          data-react-aria-pressable="true"
+          id="react-aria-«replaced-aria-id»"
+          tabindex="0"
+          type="button"
+        >
+          Disable field
+        </button>
+        <button
+          aria-label="Submit form"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
+          data-component="submit-button"
+          data-focus="true"
+          data-focused="true"
+          data-hover="true"
+          data-hovered="true"
+          data-rac=""
+          data-react-aria-pressable="true"
+          data-testid="form_submit_button"
+          id="react-aria-«replaced-aria-id»"
+          tabindex="0"
+          type="submit"
+        >
+          Submit
+        </button>
+      </div>
+      <div
+        class="relative box-border flex h-auto w-full flex-col overflow-hidden rounded-small border border-divider bg-content1 text-foreground shadow-none outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus transition-transform-background motion-reduce:transition-none mt-6"
+        data-component="card"
+        data-slot="base"
+        tabindex="-1"
+      >
+        <div
+          class="color-inherit overflow-inherit z-auto flex w-full shrink-0 items-center justify-start rounded-t-small p-3 text-base font-semibold subpixel-antialiased"
+          data-slot="header"
+        >
+          Submitted values
+        </div>
+        <hr
+          class="my-0 h-divider w-full shrink-0 border-none border-divider bg-divider"
+        />
+        <div
+          class="relative flex h-auto w-full flex-auto flex-col p-3 place-content-inherit align-items-inherit overflow-y-auto break-words text-left subpixel-antialiased"
+          data-slot="body"
         >
           <div
-            class="inline-flex h-full w-full items-center gap-0"
-            data-slot="inner-wrapper"
+            data-submitted="{"couponCode":"abc","name":"Ada"}"
+            data-testid="submitted_values"
           >
-            <input
-              aria-labelledby="uniform-«replaced-aria-id»-label"
-              aria-required="true"
-              autocomplete="off"
-              class="w-full min-w-0 bg-transparent bg-clip-text text-small font-normal text-inherit outline-none placeholder:text-foreground-500 autofill:bg-transparent data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden is-filled"
-              data-filled="true"
-              data-rac=""
-              data-slot="input"
-              data-testid="name"
-              id="uniform-«replaced-aria-id»"
-              name="name"
-              placeholder=" "
-              tabindex="0"
-              type="text"
-              value="Ada"
-            />
+            <div
+              aria-label="JSON viewer"
+              class=""
+              data-component="json"
+              role="region"
+            >
+              <div
+                class="relative"
+              >
+                <div
+                  class="w-json-view-container w-rjv pr-5 w-rjv-inner"
+                  style="line-height: 1.4; font-family: var(--w-rjv-font-family, Menlo, monospace); color: var(--w-rjv-color, #002b36); background-color: var(--w-rjv-background-color, #00000000); font-size: 13px;"
+                >
+                  <span
+                    style="display: inline-flex; align-items: center;"
+                  >
+                    <span
+                      class="w-rjv-arrow"
+                      style="transform: rotate(0deg); transition: all 0.3s;"
+                    >
+                      <svg
+                        fill="var(--w-rjv-arrow-color, currentColor)"
+                        style="cursor: pointer; height: 1em; width: 1em; user-select: none; display: inline-flex;"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                        />
+                      </svg>
+                    </span>
+                    <span
+                      class="w-rjv-curlybraces-start"
+                      style="color: var(--w-rjv-curlybraces-color, #236a7c);"
+                    >
+                      {
+                    </span>
+                    <span
+                      class="w-rjv-object-size"
+                      style="color: var(--w-rjv-info-color, #0000004d); padding-left: 8px; font-style: italic;"
+                    >
+                      2 items
+                    </span>
+                  </span>
+                  <div
+                    class="w-rjv-wrap"
+                    style="border-left: var(--w-rjv-border-left-width, 1px) var(--w-rjv-line-style, solid) var(--w-rjv-line-color, #ebebeb); padding-left: 15px; margin-left: 6px;"
+                  >
+                    <div
+                      class="w-rjv-line"
+                    >
+                      <span>
+                        <span
+                          class="w-rjv-quotes"
+                          data-placement="left"
+                          style="color: var(--w-rjv-quotes-color, #236a7c);"
+                        >
+                          "
+                        </span>
+                        <span
+                          class="w-rjv-object-key"
+                          style="color: var(--w-rjv-key-string, #002b36);"
+                        >
+                          couponCode
+                        </span>
+                        <span
+                          class="w-rjv-quotes"
+                          data-placement="right"
+                          style="color: var(--w-rjv-quotes-color, #236a7c);"
+                        >
+                          "
+                        </span>
+                      </span>
+                      <span
+                        class="w-rjv-colon"
+                        style="color: var(--w-rjv-colon-color, var(--w-rjv-color)); margin-left: 0px; margin-right: 2px;"
+                      >
+                        :
+                      </span>
+                      <span
+                        class="w-rjv-quotes"
+                        style="color: var(--w-rjv-quotes-string-color, #cb4b16);"
+                      >
+                        "
+                      </span>
+                      <span
+                        class="w-rjv-value"
+                        data-type="string"
+                        style="color: var(--w-rjv-type-string-color, #cb4b16); cursor: initial;"
+                      >
+                        abc
+                      </span>
+                      <span
+                        class="w-rjv-quotes"
+                        style="color: var(--w-rjv-quotes-string-color, #cb4b16);"
+                      >
+                        "
+                      </span>
+                    </div>
+                    <div
+                      class="w-rjv-line"
+                    >
+                      <span>
+                        <span
+                          class="w-rjv-quotes"
+                          data-placement="left"
+                          style="color: var(--w-rjv-quotes-color, #236a7c);"
+                        >
+                          "
+                        </span>
+                        <span
+                          class="w-rjv-object-key"
+                          style="color: var(--w-rjv-key-string, #002b36);"
+                        >
+                          name
+                        </span>
+                        <span
+                          class="w-rjv-quotes"
+                          data-placement="right"
+                          style="color: var(--w-rjv-quotes-color, #236a7c);"
+                        >
+                          "
+                        </span>
+                      </span>
+                      <span
+                        class="w-rjv-colon"
+                        style="color: var(--w-rjv-colon-color, var(--w-rjv-color)); margin-left: 0px; margin-right: 2px;"
+                      >
+                        :
+                      </span>
+                      <span
+                        class="w-rjv-quotes"
+                        style="color: var(--w-rjv-quotes-string-color, #cb4b16);"
+                      >
+                        "
+                      </span>
+                      <span
+                        class="w-rjv-value"
+                        data-type="string"
+                        style="color: var(--w-rjv-type-string-color, #cb4b16); cursor: initial;"
+                      >
+                        Ada
+                      </span>
+                      <span
+                        class="w-rjv-quotes"
+                        style="color: var(--w-rjv-quotes-string-color, #cb4b16);"
+                      >
+                        "
+                      </span>
+                    </div>
+                  </div>
+                  <div
+                    style="padding-left: 4px;"
+                  >
+                    <span
+                      class="w-rjv-curlybraces-end"
+                      style="color: var(--w-rjv-curlybraces-color, #236a7c);"
+                    >
+                      }
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-      <button
-        type="button"
-      >
-        Disable field
-      </button>
-      <button
-        aria-label="Submit form"
-        class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
-        data-component="submit-button"
-        data-focus="true"
-        data-focused="true"
-        data-hover="true"
-        data-hovered="true"
-        data-rac=""
-        data-react-aria-pressable="true"
-        data-testid="form_submit_button"
-        id="react-aria-«replaced-aria-id»"
-        tabindex="0"
-        type="submit"
-      >
-        Submit
-      </button>
-      <pre
-        data-testid="submitted_values"
-      >
-        {"accountCode":"abc","name":"Ada"}
-      </pre>
       <div
         class="relative box-border flex h-auto w-full flex-col overflow-hidden rounded-small border border-divider bg-content1 text-foreground shadow-none outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus transition-transform-background motion-reduce:transition-none mt-6"
         data-component="card"

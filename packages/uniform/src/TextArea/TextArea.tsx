@@ -26,6 +26,8 @@ export interface TextAreaProps {
   name: string;
   /** placeholder for the textArea content. */
   placeholder?: string;
+  /** Prevents changes, the text can still be focused, copied and is submitted */
+  readOnly?: boolean;
   /** Id to grab element in internal tests. */
   testId?: string;
 }

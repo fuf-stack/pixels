@@ -32,6 +32,7 @@ const bindings = () =>
       name: 'standalone',
       onBlur: vi.fn(),
       onChange: vi.fn(),
+      readOnly: false,
       required: false,
       testId: 'standalone',
       value: 'ready',

@@ -74,6 +74,15 @@ export const Disabled: Story = {
   },
 };
 
+export const ReadOnly: Story = {
+  parameters: { formProps: { initialValues: { switchField: true } } },
+  args: {
+    name: 'switchField',
+    label: '📚 Read documentation first',
+    readOnly: true,
+  },
+};
+
 const requiredValidation = veto({
   switchField: boolean(),
 });

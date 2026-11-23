@@ -45,6 +45,7 @@ const RadiosControl = ({
     name,
     onBlur,
     onChange: onValueChange,
+    readOnly,
     required,
     testId,
     value,
@@ -58,7 +59,7 @@ const RadiosControl = ({
   const { convertToOriginalType } = createOptionValueConverter(options);
 
   // classNames from slots
-  const variants = styling.resolve(radiosVariants);
+  const variants = styling.resolve(radiosVariants, { readOnly });
   const classNames = styling.variantsToClassNames(variants, className, 'base');
 
   const optionVariants = styling.resolve(radioControlVariants, { invalid });
@@ -123,6 +124,7 @@ const RadiosControl = ({
         name,
         onBlur,
         onChange: handleChange,
+        readOnly,
         required,
         testId,
         value,

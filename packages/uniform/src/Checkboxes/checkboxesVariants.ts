@@ -58,8 +58,8 @@ export const checkboxesVariants = tv({
       '',
       // option layout and pointer behavior
       'group relative -m-2 inline-flex max-w-fit cursor-pointer select-none items-center justify-start p-2 tap-highlight-transparent',
-      // disabled interaction and opacity
-      'data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-disabled',
+      // disabled cursor and opacity, the native input covers the option
+      'data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-disabled data-[disabled=true]:**:cursor-not-allowed',
     ],
     /** Checkmark inside the selection indicator */
     optionIcon: [
@@ -118,6 +118,13 @@ export const checkboxesVariants = tv({
       true: {
         optionLabel: 'text-danger',
         optionWrapper: 'before:border-danger',
+      },
+    },
+    readOnly: {
+      true: {
+        // inner controls set their own cursors, override every descendant
+        base: 'cursor-not-allowed opacity-disabled **:cursor-not-allowed',
+        optionWrapper: 'group-data-[hover=true]:before:bg-transparent',
       },
     },
   },

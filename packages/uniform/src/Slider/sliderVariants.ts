@@ -79,6 +79,13 @@ export const sliderVariants = tv({
     disabled: {
       true: { thumb: 'cursor-default', visualBase: 'opacity-disabled' },
     },
+    readOnly: {
+      true: {
+        // inner controls set their own cursors, override every descendant
+        base: 'cursor-not-allowed **:cursor-not-allowed',
+        visualBase: 'opacity-disabled',
+      },
+    },
     invalid: {
       true: {
         filler: 'bg-danger',

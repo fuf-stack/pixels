@@ -112,6 +112,24 @@ export const Disabled: Story = {
   },
 };
 
+export const ReadOnly: Story = {
+  parameters: { formProps: { initialValues: { inputField: 'ID-1042' } } },
+  args: {
+    label: 'Input Field',
+    name: 'inputField',
+    readOnly: true,
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const input = canvas.getByTestId('inputfield');
+
+    await userEvent.type(input, 'changed');
+
+    await expect(input).toHaveAttribute('readonly');
+    await expect(input).toHaveValue('ID-1042');
+  },
+};
+
 export const Invalid: Story = {
   tags: ['visual'],
   parameters: {

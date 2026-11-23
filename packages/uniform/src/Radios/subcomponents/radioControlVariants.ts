@@ -8,8 +8,8 @@ const radioControlVariants = tv({
     base: [
       // option layout and pointer behavior
       'group relative -m-2 inline-flex max-w-fit cursor-pointer select-none items-center justify-start p-2 tap-highlight-transparent',
-      // disabled interaction and opacity
-      'data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-disabled',
+      // disabled cursor and opacity, the native input covers the option
+      'data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-disabled data-[disabled=true]:**:cursor-not-allowed',
     ],
     /** Dot marking the selected option */
     control: [

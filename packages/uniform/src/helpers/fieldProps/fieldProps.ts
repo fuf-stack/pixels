@@ -6,6 +6,8 @@ interface FieldDataState {
   disabled?: boolean;
   /** Marks visible validation failure */
   invalid?: boolean;
+  /** Prevents changes to the field */
+  readOnly?: boolean;
   /** Marks a required field */
   required?: boolean;
 }
@@ -14,11 +16,13 @@ interface FieldDataState {
 export const getFieldDataAttributes = ({
   disabled,
   invalid,
+  readOnly,
   required,
 }: FieldDataState) => {
   return {
     'data-disabled': disabled ? true : undefined,
     'data-invalid': invalid ? true : undefined,
+    'data-readonly': readOnly ? true : undefined,
     'data-required': required ? true : undefined,
   };
 };

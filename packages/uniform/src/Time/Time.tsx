@@ -29,6 +29,8 @@ export interface TimeProps {
   label?: ReactNode;
   /** form field name */
   name: string;
+  /** Prevents changes while keeping the value in validation and submission */
+  readOnly?: boolean;
   /** HTML data-testid attribute used in e2e tests */
   testId?: string;
   /**

@@ -100,6 +100,17 @@ export const Disabled: Story = {
   },
 };
 
+export const ReadOnly: Story = {
+  parameters: {
+    formProps: { initialValues: { sliderField: 60 } },
+  },
+  args: {
+    name: 'sliderField',
+    label: 'Locked Setting',
+    readOnly: true,
+  },
+};
+
 export const Required: Story = {
   parameters: { formProps: { validation: requiredValidation } },
   args: {

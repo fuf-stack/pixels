@@ -524,9 +524,9 @@ package-wide aggregate. An app that renders pixels components through
 
 ## Field state attributes
 
-Uniform's private [getFieldDataAttributes helper](../packages/uniform/src/helpers/fieldProps/fieldProps.ts) maps disabled, invalid and
-required state to `data-disabled`, `data-invalid` and `data-required`. Inactive
-flags are omitted. Input, TextArea and Select use it on their field roots.
+Uniform's private [getFieldDataAttributes helper](../packages/uniform/src/helpers/fieldProps/fieldProps.ts) maps disabled, invalid,
+read-only and required state to `data-disabled`, `data-invalid`, `data-readonly`
+and `data-required`. Inactive flags are omitted. Input, TextArea and Select use it on their field roots.
 It shares the `fieldProps` module with `getFieldControlProps`, which derives
 accessibility associations for the editable control or group. Call each helper
 where its attributes belong, see the [helpers guide](../packages/uniform/src/helpers/README.md).

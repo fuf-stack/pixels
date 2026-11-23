@@ -90,6 +90,12 @@ export const inputVariants = tv({
       },
     },
     disabled: { true: { base: 'pointer-events-none opacity-disabled' } },
+    readOnly: {
+      true: {
+        // inner controls set their own cursors, override every descendant
+        base: 'cursor-not-allowed opacity-disabled **:cursor-not-allowed',
+      },
+    },
     invalid: {
       true: {
         input: 'text-danger',

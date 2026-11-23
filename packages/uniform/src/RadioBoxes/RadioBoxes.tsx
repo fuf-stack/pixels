@@ -38,6 +38,8 @@ export interface RadioBoxesProps extends VariantProps {
   name: string;
   /** Available options */
   options: RadioBoxOption[];
+  /** Prevents changes while keeping the selection in validation and submission */
+  readOnly?: boolean;
   /** HTML data-testid attribute for e2e tests */
   testId?: string;
 }

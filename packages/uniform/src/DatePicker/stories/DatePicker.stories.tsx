@@ -102,6 +102,19 @@ export const Disabled: Story = {
   },
 };
 
+export const ReadOnly: Story = {
+  parameters: {
+    formProps: { initialValues: { dateTimeField: '2026-03-14T09:30:00Z' } },
+  },
+  args: {
+    label: 'Read-only Date & Time',
+    name: 'dateTimeField',
+    readOnly: true,
+    timeZone: 'UTC',
+    withTime: true,
+  },
+};
+
 export const Invalid: Story = {
   tags: ['visual'],
   parameters: {

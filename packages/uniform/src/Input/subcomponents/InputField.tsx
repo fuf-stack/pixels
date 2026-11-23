@@ -48,6 +48,7 @@ const InputField = ({
     name,
     onBlur,
     onChange: onValueChange,
+    readOnly,
     required,
     value,
   } = field;
@@ -69,6 +70,7 @@ const InputField = ({
     'data-slot': 'base',
     isDisabled: disabled,
     isInvalid: invalid,
+    isReadOnly: readOnly,
     isRequired: required,
     name,
     onBlur,

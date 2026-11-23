@@ -17,12 +17,12 @@ export interface RadioBoxProps {
   'data-testid'?: string;
   /** Help text associated with the field */
   description?: ReactNode;
+  /** Disables the option */
+  disabled?: boolean;
   /** icon for the option */
   icon?: ReactNode;
-  /** Whether the option is disabled. */
-  isDisabled?: boolean;
-  /** whether the radio is invalid */
-  isInvalid?: boolean;
+  /** Marks the option as invalid */
+  invalid?: boolean;
   /** String value managed by the containing radio group. */
   value: string;
 }
@@ -36,8 +36,8 @@ export const RadioBox = ({
   className = undefined,
   classNames: _classNames = undefined,
   icon = undefined,
-  isInvalid = false,
-  isDisabled = false,
+  invalid = false,
+  disabled = false,
   description = undefined,
   children = undefined,
   value,
@@ -46,7 +46,7 @@ export const RadioBox = ({
   const styling = useStyling();
 
   // classNames from slots
-  const variants = styling.resolve(radioBoxVariants, { isDisabled, isInvalid });
+  const variants = styling.resolve(radioBoxVariants, { disabled, invalid });
   const classNames = styling.variantsToClassNames(
     variants,
     _classNames ?? className,
@@ -57,9 +57,9 @@ export const RadioBox = ({
     <RadioControl
       className={classNames}
       description={description}
-      disabled={isDisabled}
+      disabled={disabled}
       icon={icon}
-      invalid={isInvalid}
+      invalid={invalid}
       testId={props['data-testid']}
       value={value}
     >

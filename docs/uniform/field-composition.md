@@ -13,7 +13,7 @@ properties belong to one field:
 
 - Value and interactions: `name`, `value`, `defaultValue`, `onChange`, `onBlur`, `ref`
 - Content and validation: `label`, `description`, `error`, `errorMessage`,
-  `disabled`, `invalid`, `required`
+  `disabled`, `invalid`, `readOnly`, `required`
 - Associations and identification: `ariaLabel`, `customAriaLabel`, `hasLabel`, `hasErrors`, `ids`, `testId`
 
 Renderers call `getFieldControlProps(field)` where control associations are needed.
@@ -25,6 +25,11 @@ normalized validation messages. Form operations and debug configuration remain o
 `field`. No React Hook Form controller properties are spread into the bundle.
 `errorMessage` remains rendered content, and `error` retains its existing raw/group
 shape unless array-value normalization was requested.
+
+Only `disabled` reaches the form controller, which omits disabled values from
+validation and submission. `readOnly` stays presentation state: controls pass it
+to their engine's read-only mode, or ignore changes where the engine has none,
+so the value is still validated and submitted.
 
 ```tsx
 const { field } = useUniformField({ ...uniformFieldProps, name });

@@ -43,6 +43,7 @@ const RadioBoxesControl = ({
     name,
     onBlur,
     onChange: onValueChange,
+    readOnly,
     required,
     testId,
     value,
@@ -56,7 +57,7 @@ const RadioBoxesControl = ({
   const { convertToOriginalType } = createOptionValueConverter(options);
 
   // classNames from slots
-  const variants = styling.resolve(radioBoxesVariants);
+  const variants = styling.resolve(radioBoxesVariants, { readOnly });
   const classNames = styling.variantsToClassNames(variants, className, 'base');
 
   // restore the selected option's original value type
@@ -77,6 +78,7 @@ const RadioBoxesControl = ({
         name,
         onBlur,
         onChange: handleChange,
+        readOnly,
         required,
         testId,
         value,
@@ -113,9 +115,9 @@ const RadioBoxesControl = ({
                 }}
                 data-testid={optionTestId}
                 description={option.description}
+                disabled={!!disabled || option.disabled}
                 icon={option.icon}
-                isDisabled={!!disabled || option.disabled}
-                isInvalid={invalid}
+                invalid={invalid}
                 value={String(option.value)}
               >
                 {option.label ?? option.value}
