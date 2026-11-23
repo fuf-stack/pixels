@@ -81,8 +81,9 @@ provide passes validation.
 
 ### Behavior per field
 
-All fields stay keyboard focusable and announce themselves as read-only where
-the control supports it.
+The fields below support `readOnly` and stay keyboard focusable. They announce
+themselves as read-only where the control supports it. `FieldArray` does not
+support `readOnly`.
 
 | Field                                                       | Read-only behavior                                                                                                        |
 | ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |

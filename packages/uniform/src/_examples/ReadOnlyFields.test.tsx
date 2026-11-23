@@ -3,7 +3,7 @@ import type { ReactElement } from 'react';
 
 import { describe, expect, it, vi } from 'vitest';
 
-import { render, screen, waitFor } from '@testing-library/react';
+import { render, screen, waitFor, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import { array, boolean, number, string, veto } from '@fuf-stack/veto';
@@ -13,6 +13,7 @@ import '@testing-library/jest-dom/vitest';
 import Checkboxes from '../Checkboxes';
 import DatePicker from '../DatePicker';
 import Form from '../Form';
+import { useFormContext } from '../hooks/useFormContext';
 import Input from '../Input';
 import RadioBoxes from '../RadioBoxes';
 import Radios from '../Radios';
@@ -242,6 +243,154 @@ describe('readOnly text fields', () => {
     );
 
     expect(screen.queryByLabelText('clear input')).not.toBeInTheDocument();
+  });
+});
+
+describe.each(Object.entries(fieldCases))(
+  '%s switching to readOnly',
+  (_name, fieldCase) => {
+    it('keeps the stored value once the field becomes read-only', async () => {
+      const onSubmit = vi.fn();
+      const user = userEvent.setup();
+      const { container, rerender } = render(
+        <Form
+          initialValues={{ field: fieldCase.value }}
+          onSubmit={onSubmit}
+          validation={veto({ field: fieldCase.schema })}
+        >
+          {fieldCase.renderField({})}
+          <button type="submit">Submit</button>
+        </Form>,
+      );
+
+      rerender(
+        <Form
+          initialValues={{ field: fieldCase.value }}
+          onSubmit={onSubmit}
+          validation={veto({ field: fieldCase.schema })}
+        >
+          {fieldCase.renderField({ readOnly: true })}
+          <button type="submit">Submit</button>
+        </Form>,
+      );
+      await attemptChanges(user, container);
+      await user.click(screen.getByRole('button', { name: 'Submit' }));
+
+      await waitFor(() => {
+        expect(onSubmit).toHaveBeenCalledExactlyOnceWith(
+          { field: fieldCase.value },
+          expect.anything(),
+        );
+      });
+    });
+  },
+);
+
+describe('readOnly transitions and resets', () => {
+  /** Resets the form to a new field value, like a programmatic form reset */
+  const ResetButton = () => {
+    const { reset } = useFormContext();
+    const handleReset = () => {
+      reset({ field: 'reset value' });
+    };
+
+    return (
+      <button onClick={handleReset} type="button">
+        Reset
+      </button>
+    );
+  };
+
+  const renderInput = (readOnly: boolean, onSubmit = vi.fn()) => (
+    <Form initialValues={{ field: 'stored' }} onSubmit={onSubmit}>
+      <Input debounceDelay={0} name="field" readOnly={readOnly} />
+      <ResetButton />
+      <button type="submit">Submit</button>
+    </Form>
+  );
+
+  it('resumes editing after readOnly is removed', async () => {
+    const onSubmit = vi.fn();
+    const user = userEvent.setup();
+    const { rerender } = render(renderInput(true, onSubmit));
+
+    rerender(renderInput(false, onSubmit));
+    await user.type(screen.getByRole('textbox'), ' edited');
+    await user.click(screen.getByRole('button', { name: 'Submit' }));
+
+    await waitFor(() => {
+      expect(onSubmit).toHaveBeenCalledExactlyOnceWith(
+        { field: 'stored edited' },
+        expect.anything(),
+      );
+    });
+  });
+
+  it('submits the value a form reset sets on a read-only field', async () => {
+    const onSubmit = vi.fn();
+    const user = userEvent.setup();
+    render(renderInput(true, onSubmit));
+
+    await user.click(screen.getByRole('button', { name: 'Reset' }));
+    await user.click(screen.getByRole('button', { name: 'Submit' }));
+
+    await waitFor(() => {
+      expect(onSubmit).toHaveBeenCalledExactlyOnceWith(
+        { field: 'reset value' },
+        expect.anything(),
+      );
+    });
+  });
+
+  it('ignores the open calendar popover once the date picker becomes read-only', async () => {
+    const onSubmit = vi.fn();
+    const user = userEvent.setup();
+    const value = '2026-01-02T10:30:00.000Z';
+    const renderPicker = (readOnly: boolean) => (
+      <Form initialValues={{ field: value }} onSubmit={onSubmit}>
+        <DatePicker name="field" readOnly={readOnly} timeZone="UTC" withTime />
+        <button type="submit">Submit</button>
+      </Form>
+    );
+    const { rerender } = render(renderPicker(false));
+
+    await user.click(
+      document.querySelector<HTMLElement>(
+        '[data-slot="selector-button"]',
+      ) as HTMLElement,
+    );
+    const dialog = await screen.findByRole('dialog');
+
+    rerender(renderPicker(true));
+    const [hourSegment] = within(dialog).getAllByRole('spinbutton');
+    await user.click(hourSegment);
+    await user.keyboard('{ArrowUp}{ArrowUp}');
+    // close the popup, a modal popover hides the rest of the form
+    await user.keyboard('{Escape}');
+    await user.click(screen.getByRole('button', { name: 'Submit' }));
+
+    await waitFor(() => {
+      expect(onSubmit).toHaveBeenCalledExactlyOnceWith(
+        { field: value },
+        expect.anything(),
+      );
+    });
+  });
+
+  it('keeps the selected value visible while a search is pending', () => {
+    render(
+      <Form initialValues={{ field: 'b' }} onSubmit={vi.fn()}>
+        <Select
+          inputValue="pending search"
+          label="Field"
+          name="field"
+          options={options}
+          readOnly
+        />
+      </Form>,
+    );
+
+    expect(screen.getByText('B')).toBeInTheDocument();
   });
 });
 

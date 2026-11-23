@@ -189,7 +189,8 @@ const SelectCombobox = ({
           filterOption={filterOption}
           formatOptionLabel={renderOptionLabel}
           inputId={ids.control}
-          inputValue={inputValue}
+          // a pending search hides the selected value, read-only selects show it
+          inputValue={readOnly ? '' : inputValue}
           instanceId={ids.control}
           isClearable={isClearable}
           isDisabled={disabled}

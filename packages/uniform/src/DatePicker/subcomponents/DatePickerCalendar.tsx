@@ -35,6 +35,8 @@ interface DatePickerCalendarProps extends Pick<
   minValue: DatePickerValue;
   /** Date and zone used for an empty time field */
   placeholderValue: DatePickerValue;
+  /** Locks the time editor of an already open popup */
+  readOnly: boolean;
   /** Calendar selection and popup state */
   state: DatePickerRenderProps['state'];
 }
@@ -52,6 +54,7 @@ const DatePickerCalendar = ({
   maxValue,
   minValue,
   placeholderValue,
+  readOnly,
   state,
   withTime,
 }: DatePickerCalendarProps) => {
@@ -59,7 +62,7 @@ const DatePickerCalendar = ({
   const handleTimeChange: NonNullable<
     ComponentProps<typeof TimeField>['onChange']
   > = (next) => {
-    if (next) {
+    if (next && !readOnly) {
       state.setTimeValue(next);
     }
   };
@@ -133,6 +136,7 @@ const DatePickerCalendar = ({
               granularity="minute"
               hideTimeZone={hideTimeZone}
               hourCycle={hourCycle}
+              isReadOnly={readOnly}
               maxValue={maxValue && 'hour' in maxValue ? maxValue : undefined}
               minValue={minValue && 'hour' in minValue ? minValue : undefined}
               onChange={handleTimeChange}
