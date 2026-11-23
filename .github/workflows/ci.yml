@@ -25,7 +25,7 @@ jobs:
     timeout-minutes: 10
 
     steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - uses: ./.github/actions/setup-project
       - name: Validate dependency boundaries
         run: pnpm check:boundaries
@@ -38,7 +38,7 @@ jobs:
     timeout-minutes: 15
 
     steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - uses: ./.github/actions/setup-project
       - name: Run unit tests with coverage
         # Nested project names begin with the config package, not "storybook".
@@ -80,7 +80,7 @@ jobs:
     timeout-minutes: 15
 
     steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - uses: ./.github/actions/setup-project
       - name: Install Playwright browser
         # Use Storybook's Playwright version to install its matching Chromium
@@ -95,7 +95,7 @@ jobs:
     timeout-minutes: 15
 
     steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       # Package verification consumes the built publishable artifacts.
       - uses: ./.github/actions/setup-project
       - name: Verify package tarballs and consumer installation
@@ -111,7 +111,7 @@ jobs:
 
     steps:
       # Full history clone — Sonarqube needs it for blame / new-code detection.
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0 # Required for Sonarqube
 

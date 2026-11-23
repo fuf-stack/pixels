@@ -50,7 +50,7 @@ jobs:
       sha: ${{ steps.head.outputs.sha }}
     steps:
       # Resolve requests using the trusted workflow revision, without Git auth.
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           ref: ${{ github.workflow_sha }}
           persist-credentials: false
@@ -75,7 +75,7 @@ jobs:
     outputs:
       changed: ${{ steps.payload.outputs.changed }}
     steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           # Build the resolved PR/manual-request commit without retaining auth.
           ref: ${{ needs.resolve.outputs.sha }}
@@ -113,7 +113,7 @@ jobs:
       actions: write
     steps:
       # Never check out the Renovate head or install its dependencies here.
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           ref: ${{ github.workflow_sha }}
           persist-credentials: false
