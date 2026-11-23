@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.0.0-next.4](https://github.com/fuf-stack/pixels/compare/uniform-v2.0.0-next.3...uniform-v2.0.0-next.4) (2026-11-23)
+
+
+### Features
+
+* **uniform:** export FieldLabel and FieldHelper partials ([03805ec](https://github.com/fuf-stack/pixels/commit/03805ec575768c41178799c1e2833c812b17f8e9))
+* **uniform:** unify field label and helper styles ([9a1b71c](https://github.com/fuf-stack/pixels/commit/9a1b71cb23f3cc6ec3d5cc0abd91f45295a56695))
+
 ## [2.0.0-next.3](https://github.com/fuf-stack/pixels/compare/uniform-v2.0.0-next.2...uniform-v2.0.0-next.3) (2026-11-23)
 
 
