@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.1.0](https://github.com/fuf-stack/pixels/compare/megapixels-v1.0.1...megapixels-v1.1.0) (2026-11-23)
+
+
+### Features
+
+* **uniform:** add readOnly to form fields ([5d80818](https://github.com/fuf-stack/pixels/commit/5d80818de4bf35c5e336b7392bf2ad25e858e8ef))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @fuf-stack/uniform bumped to 1.30.0
+
 ## [1.0.1](https://github.com/fuf-stack/pixels/compare/megapixels-v1.0.0...megapixels-v1.0.1) (2026-11-18)
 
 

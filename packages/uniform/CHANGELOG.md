@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.30.0](https://github.com/fuf-stack/pixels/compare/uniform-v1.29.0...uniform-v1.30.0) (2026-11-23)
+
+
+### Features
+
+* **uniform:** add readOnly to form fields ([5d80818](https://github.com/fuf-stack/pixels/commit/5d80818de4bf35c5e336b7392bf2ad25e858e8ef))
+
+
+### Bug Fixes
+
+* **uniform:** address read-only review feedback ([9244cb3](https://github.com/fuf-stack/pixels/commit/9244cb3ade383cf7ff1e3bfe07ececd3ed0826d0))
+
 ## [1.29.0](https://github.com/fuf-stack/pixels/compare/uniform-v1.28.1...uniform-v1.29.0) (2026-11-18)
 
 
