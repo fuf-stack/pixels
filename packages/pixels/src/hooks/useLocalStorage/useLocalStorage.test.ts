@@ -181,25 +181,5 @@ describe('useLocalStorage', () => {
   // because React DOM itself requires window to be defined for rendering.
   // The hook properly handles SSR by checking typeof window === 'undefined'
   // in the setValue function and useEffect hooks.
-  it.skip('should handle setValue when window is undefined', () => {
-    const consoleWarnSpy = vi.spyOn(console, 'warn');
-
-    // Mock window as undefined
-    const originalWindow = global.window;
-    // @ts-expect-error - intentionally setting to undefined for test
-    delete global.window;
-
-    const { result } = renderHook(() => useLocalStorage('test-key', 'initial'));
-
-    act(() => {
-      result.current[1]('updated');
-    });
-
-    expect(consoleWarnSpy).toHaveBeenCalledWith(
-      'Tried setting localStorage key "test-key" even though environment is not a client',
-    );
-
-    // Restore window
-    global.window = originalWindow;
-  });
+  it.todo('should handle setValue when window is undefined');
 });

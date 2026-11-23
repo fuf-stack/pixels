@@ -35,7 +35,7 @@ type InputFieldProps = Pick<InputControlProps, 'field'> & {
  */
 const InputField = ({
   field,
-  type,
+  type = 'text',
   children,
   className = undefined,
   focused,
@@ -102,7 +102,7 @@ const InputField = ({
     <TextField
       {...rootProps}
       onChange={onValueChange}
-      type={type ?? 'text'}
+      type={type}
       value={String(value ?? '')}
     >
       {children}

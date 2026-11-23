@@ -156,6 +156,9 @@ export const useInfiniteVirtualizer = ({
     ],
   );
 
+  // TanStack Virtual returns functions the React Compiler cannot memoize, so the
+  // compiler skips this hook. Nothing memoized depends on the returned functions.
+  // eslint-disable-next-line react-hooks/incompatible-library
   const virtualizer = useVirtualizer<HTMLDivElement, HTMLElement>({
     count,
     enabled,

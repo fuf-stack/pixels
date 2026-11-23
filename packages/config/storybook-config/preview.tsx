@@ -6,7 +6,8 @@ import { themes } from 'storybook/theming';
 
 import visualLoader from './visual/loader';
 
-const preview: Preview = {
+/** Shared Storybook preview, extended by each package's .storybook/preview.tsx */
+const sharedPreview: Preview = {
   loaders: [visualLoader],
   parameters: {
     actions: { argTypesRegex: '^on[A-Z].*' },
@@ -41,6 +42,6 @@ const preview: Preview = {
   tags: ['autodocs'],
 };
 
-export default preview;
+export default sharedPreview;
 
 export type { Preview };

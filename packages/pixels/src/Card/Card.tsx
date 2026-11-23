@@ -1,3 +1,4 @@
+/* eslint-disable react/require-default-props -- defaults are defined in the forwarded component */
 import type { ReactNode } from 'react';
 import type { ClassName } from './cardVariants';
 

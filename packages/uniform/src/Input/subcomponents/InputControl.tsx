@@ -44,8 +44,11 @@ export interface InputControlProps extends Pick<
  * @see https://react-aria.adobe.com/TextField
  * @see https://react-aria.adobe.com/NumberField
  */
-const InputControl = (props: InputControlProps) => {
-  const { field, subscribeReset } = props;
+const InputControl = ({
+  subscribeReset = undefined,
+  ...props
+}: InputControlProps) => {
+  const { field } = props;
 
   const styling = useStyling();
   const [passwordVisible, setPasswordVisible] = useState(false);

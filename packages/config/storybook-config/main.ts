@@ -1,6 +1,7 @@
 import type { StorybookConfig } from '@storybook/react-vite';
 
-const config: StorybookConfig = {
+/** Shared Storybook config, extended by each package's .storybook/main.ts */
+const sharedConfig: StorybookConfig = {
   // this has to be defined where shared config is used
   stories: [],
   addons: [
@@ -30,6 +31,6 @@ const config: StorybookConfig = {
   },
 };
 
-export default config;
+export default sharedConfig;
 
 export type { StorybookConfig };

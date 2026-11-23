@@ -7,7 +7,7 @@ import type {
 
 import { describe, expect, expectTypeOf, it } from 'vitest';
 
-import v, {
+import veto, {
   boolean,
   json,
   jsonObject,
@@ -95,7 +95,7 @@ describe('json validator', () => {
     invalidValues.forEach(({ value, name }) => {
       it(`rejects ${name}`, () => {
         const schema = { jsonField: json() };
-        const result = v(schema).validate({ jsonField: value });
+        const result = veto(schema).validate({ jsonField: value });
         expect(result).toHaveProperty('success', false);
         expect(result).toHaveProperty('data', null);
         expect(result.errors).toBeTruthy();
@@ -107,7 +107,7 @@ describe('json validator', () => {
     literalsData.forEach((value) => {
       it(`accepts json literal: ${JSON.stringify(value)}`, () => {
         const schema = { jsonField: json() };
-        const result = v(schema).validate({ jsonField: value });
+        const result = veto(schema).validate({ jsonField: value });
         expect(result).toHaveProperty('success', true);
         expect(result).toHaveProperty('data.jsonField', value);
         expect(result).toHaveProperty('errors', null);
@@ -118,7 +118,7 @@ describe('json validator', () => {
   describe('validation of arrays', () => {
     it('accepts empty arrays', () => {
       const schema = { jsonField: json() };
-      const result = v(schema).validate({ jsonField: [] });
+      const result = veto(schema).validate({ jsonField: [] });
       expect(result).toHaveProperty('success', true);
       expect(result).toHaveProperty('data.jsonField', []);
       expect(result).toHaveProperty('errors', null);
@@ -127,7 +127,7 @@ describe('json validator', () => {
     it('accepts nested arrays', () => {
       const nestedArray = [1, [2, [3, ['deep']]]];
       const schema = { jsonField: json() };
-      const result = v(schema).validate({ jsonField: nestedArray });
+      const result = veto(schema).validate({ jsonField: nestedArray });
       expect(result).toHaveProperty('success', true);
       expect(result).toHaveProperty('data.jsonField', nestedArray);
       expect(result).toHaveProperty('errors', null);
@@ -135,7 +135,7 @@ describe('json validator', () => {
 
     it('accepts mixed-type arrays', () => {
       const schema = { jsonField: json() };
-      const result = v(schema).validate({ jsonField: jsonArrayData });
+      const result = veto(schema).validate({ jsonField: jsonArrayData });
       expect(result).toHaveProperty('success', true);
       expect(result).toHaveProperty('data.jsonField', jsonArrayData);
       expect(result).toHaveProperty('errors', null);
@@ -145,7 +145,7 @@ describe('json validator', () => {
   describe('validation of objects', () => {
     it('accepts empty objects', () => {
       const schema = { jsonField: json() };
-      const result = v(schema).validate({ jsonField: {} });
+      const result = veto(schema).validate({ jsonField: {} });
       expect(result).toHaveProperty('success', true);
       expect(result).toHaveProperty('data.jsonField', {});
       expect(result).toHaveProperty('errors', null);
@@ -153,7 +153,7 @@ describe('json validator', () => {
 
     it('accepts deeply nested objects', () => {
       const schema = { jsonField: json() };
-      const result = v(schema).validate({ jsonField: jsonObjectData });
+      const result = veto(schema).validate({ jsonField: jsonObjectData });
       expect(result).toHaveProperty('success', true);
       expect(result).toHaveProperty('data.jsonField', jsonObjectData);
       expect(result).toHaveProperty('errors', null);
@@ -169,7 +169,7 @@ describe('json validator', () => {
         nested: { a: { b: { c: 'deep' } } },
       };
       const schema = { jsonField: json() };
-      const result = v(schema).validate({ jsonField: mixedObject });
+      const result = veto(schema).validate({ jsonField: mixedObject });
       expect(result).toHaveProperty('success', true);
       expect(result).toHaveProperty('data.jsonField', mixedObject);
       expect(result).toHaveProperty('errors', null);
@@ -182,7 +182,7 @@ describe('json validator', () => {
         l1: { l2: { l3: { l4: { l5: 'too deep' } } } },
       };
       const schema = { jsonField: json() };
-      const result = v(schema).validate({ jsonField: deeplyNested });
+      const result = veto(schema).validate({ jsonField: deeplyNested });
       expect(result).toHaveProperty('success', true);
       expect(result).toHaveProperty('data.jsonField', deeplyNested);
       expect(result).toHaveProperty('errors', null);
@@ -194,7 +194,7 @@ describe('jsonObject validator', () => {
   describe('validation of non-objects', () => {
     it('rejects undefined', () => {
       const schema = { jsonObjectField: jsonObject() };
-      const result = v(schema).validate({ jsonField: undefined });
+      const result = veto(schema).validate({ jsonField: undefined });
       expect(result).toHaveProperty('success', false);
       expect(result).toHaveProperty('data', null);
       expect(result).toHaveProperty(
@@ -208,7 +208,7 @@ describe('jsonObject validator', () => {
     nonObjects.forEach((value) => {
       it(`rejects non-object value: ${JSON.stringify(value)}`, () => {
         const schema = { jsonObjectField: jsonObject() };
-        const result = v(schema).validate({ jsonObjectField: value });
+        const result = veto(schema).validate({ jsonObjectField: value });
         expect(result).toHaveProperty('success', false);
         expect(result).toHaveProperty('data', null);
         expect(result).toHaveProperty(
@@ -222,7 +222,7 @@ describe('jsonObject validator', () => {
   describe('validation of valid objects', () => {
     it('accepts empty objects', () => {
       const schema = { jsonObjectField: jsonObject() };
-      const result = v(schema).validate({ jsonObjectField: {} });
+      const result = veto(schema).validate({ jsonObjectField: {} });
       expect(result).toHaveProperty('success', true);
       expect(result).toHaveProperty('data.jsonObjectField', {});
       expect(result).toHaveProperty('errors', null);
@@ -230,7 +230,7 @@ describe('jsonObject validator', () => {
 
     it('accepts complex nested objects', () => {
       const schema = { jsonObjectField: jsonObject() };
-      const result = v(schema).validate({ jsonObjectField: jsonObjectData });
+      const result = veto(schema).validate({ jsonObjectField: jsonObjectData });
       expect(result).toHaveProperty('success', true);
       expect(result).toHaveProperty('data.jsonObjectField', jsonObjectData);
       expect(result).toHaveProperty('errors', null);
@@ -243,7 +243,9 @@ describe('jsonObject validator', () => {
         nestedArrays: [1, [2, [3, [4]]]],
       };
       const schema = { jsonObjectField: jsonObject() };
-      const result = v(schema).validate({ jsonObjectField: objectWithArrays });
+      const result = veto(schema).validate({
+        jsonObjectField: objectWithArrays,
+      });
       expect(result).toHaveProperty('success', true);
       expect(result).toHaveProperty('data.jsonObjectField', objectWithArrays);
       expect(result).toHaveProperty('errors', null);
@@ -256,7 +258,7 @@ describe('jsonObject validator', () => {
         l1: { l2: { l3: { l4: { l5: 'too deep' } } } },
       };
       const schema = { jsonObjectField: jsonObject() };
-      const result = v(schema).validate({ jsonObjectField: deeplyNested });
+      const result = veto(schema).validate({ jsonObjectField: deeplyNested });
       expect(result).toHaveProperty('success', true);
       expect(result).toHaveProperty('data.jsonObjectField', deeplyNested);
       expect(result).toHaveProperty('errors', null);

@@ -29,11 +29,14 @@ vi.stubGlobal('scrollTo', scrollTo);
 if (globalThis.window !== undefined) {
   try {
     const probe = new MouseEvent('click', { view: globalThis.window });
-    new PointerEvent('click', probe);
-    console.info(
-      '[FUF][vitest.setup] jsdom event cloning works natively now — ' +
-        'the MouseEvent/PointerEvent workaround below can be removed.',
-    );
+    // throws while jsdom rejects the cloned view
+    const pointerProbe = new PointerEvent('click', probe);
+    if (pointerProbe.type === 'click') {
+      console.info(
+        '[FUF][vitest.setup] jsdom event cloning works natively now — ' +
+          'the MouseEvent/PointerEvent workaround below can be removed.',
+      );
+    }
   } catch {
     // still broken — keep the workaround
   }
