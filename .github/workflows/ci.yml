@@ -130,6 +130,6 @@ jobs:
 
       # Upload coverage + project metadata to SonarQube.
       - name: Run SonarQube analysis
-        uses: SonarSource/sonarqube-scan-action@d209202bc7d53ff1cc128f7f907dac145c9d6ae9 # v8
+        uses: SonarSource/sonarqube-scan-action@70bad232163b09d998ea0707ee80c0ec80798c16 # v8
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
