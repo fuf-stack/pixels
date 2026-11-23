@@ -6,7 +6,7 @@ import type {
 } from 'react';
 import type { FieldIds } from '../types';
 
-import FieldDescription from '../FieldDescription/FieldDescription';
+import FieldHelper from '../FieldHelper/FieldHelper';
 import FieldLabel from '../FieldLabel/FieldLabel';
 
 type ClassName = Partial<
@@ -91,25 +91,13 @@ const FieldLayout = <TBase extends ElementType = 'div'>({
       {children}
 
       {/* help text and validation messages */}
-      {description || invalid ? (
-        <div className={className.helperWrapper} data-slot="helper-wrapper">
-          <FieldDescription
-            className={className.description}
-            id={ids.description}
-          >
-            {description}
-          </FieldDescription>
-          {invalid ? (
-            <div
-              className={className.errorMessage}
-              data-slot="error-message"
-              id={ids.error}
-            >
-              {errorMessage}
-            </div>
-          ) : null}
-        </div>
-      ) : null}
+      <FieldHelper
+        className={className}
+        description={description}
+        errorMessage={errorMessage}
+        ids={ids}
+        invalid={invalid}
+      />
     </Base>
   );
 };

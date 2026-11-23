@@ -26,8 +26,9 @@ exports or their former API.
 For custom controls, use the existing public
 `@fuf-stack/uniform/hooks/useController` and
 `@fuf-stack/uniform/hooks/useFormContext` APIs for registration and form state.
-Own the label, description and error markup, create stable IDs with React's
-`useId`, and apply accessible associations and the registered ref to the actual
+Own the label, description and error markup, using the public
+`@fuf-stack/uniform/partials/FieldLabel`, `FieldHelper` and `FieldValidationError`
+partials for matching labels, help text and errors. Create stable IDs with React's `useId`, and apply accessible associations and the registered ref to the actual
 editable element. For CodeMirror, use editor content attributes and route the
 ref to its focus method. The Markdown editor's old `useInput` import must be
 replaced before adopting this breaking release; its external source is not

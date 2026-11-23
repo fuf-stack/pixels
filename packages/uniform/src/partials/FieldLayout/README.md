@@ -17,8 +17,9 @@ Private composition of a field base, label, editable content and supporting mess
 - Owns the outer `div`, `data-slot="base"` and `className.base`
 - `baseProps` supplies attributes, handlers and a ref; styling stays in `className`
 - Receives IDs and validation state, without registering a field or deriving control semantics
-- Renders the supplied `errorMessage` inside the styled wrapper with `ids.error`
-- Omits the helper wrapper when neither description nor visible validation exists
+- Renders description and the supplied `errorMessage` through
+  [FieldHelper](../FieldHelper/README.md), which omits the helper wrapper when
+  neither description nor visible validation exists
 
 ## Custom base
 

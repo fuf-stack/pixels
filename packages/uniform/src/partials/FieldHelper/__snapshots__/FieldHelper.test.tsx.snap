@@ -1,0 +1,101 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Story Snapshots > Default 1`] = `
+<div>
+  <div
+    class="flex flex-col gap-1"
+  >
+    <label
+      for="email"
+    >
+      Email
+      <input
+        aria-describedby="email-description email-error"
+        aria-invalid="false"
+        id="email"
+      />
+    </label>
+    <div
+      class="relative flex flex-col p-0"
+      data-slot="helper-wrapper"
+    >
+      <div
+        class="text-foreground-500 text-tiny"
+        data-slot="description"
+        id="email-description"
+      >
+        Use the address where you receive work email
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Story Snapshots > ErrorOnly 1`] = `
+<div>
+  <div
+    class="flex flex-col gap-1"
+  >
+    <label
+      for="email"
+    >
+      Email
+      <input
+        aria-describedby="email-description email-error"
+        aria-invalid="true"
+        id="email"
+      />
+    </label>
+    <div
+      class="relative flex flex-col p-0"
+      data-slot="helper-wrapper"
+    >
+      <div
+        class="text-danger text-tiny"
+        data-slot="error-message"
+        id="email-error"
+      >
+        Invalid email address
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Story Snapshots > Invalid 1`] = `
+<div>
+  <div
+    class="flex flex-col gap-1"
+  >
+    <label
+      for="email"
+    >
+      Email
+      <input
+        aria-describedby="email-description email-error"
+        aria-invalid="true"
+        id="email"
+      />
+    </label>
+    <div
+      class="relative flex flex-col p-0"
+      data-slot="helper-wrapper"
+    >
+      <div
+        class="text-foreground-500 text-tiny"
+        data-slot="description"
+        id="email-description"
+      >
+        Use the address where you receive work email
+      </div>
+      <div
+        class="text-danger text-tiny"
+        data-slot="error-message"
+        id="email-error"
+      >
+        Invalid email address
+      </div>
+    </div>
+  </div>
+</div>
+`;

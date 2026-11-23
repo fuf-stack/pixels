@@ -1,6 +1,8 @@
 import type { CheckboxesProps } from '@fuf-stack/uniform/Checkboxes';
 import type { DatePickerProps } from '@fuf-stack/uniform/DatePicker';
 import type { InputProps } from '@fuf-stack/uniform/Input';
+import type { FieldHelperProps } from '@fuf-stack/uniform/partials/FieldHelper';
+import type { FieldLabelProps } from '@fuf-stack/uniform/partials/FieldLabel';
 import type { FieldValidationErrorProps } from '@fuf-stack/uniform/partials/FieldValidationError';
 import type { RadioBoxesProps } from '@fuf-stack/uniform/RadioBoxes';
 import type { RadiosProps } from '@fuf-stack/uniform/Radios';
@@ -18,6 +20,21 @@ import { useController } from '@fuf-stack/uniform/hooks/useController';
 import { useFormContext } from '@fuf-stack/uniform/hooks/useFormContext';
 
 type OptionNode = ReturnType<NonNullable<RadiosProps['children']>>;
+
+export const requiredLabel: FieldLabelProps = {
+  children: 'Email',
+  htmlFor: 'email-control',
+  id: 'email-label',
+  required: true,
+};
+
+export const helperMessages: FieldHelperProps = {
+  className: { errorMessage: 'text-danger', helperWrapper: 'flex flex-col' },
+  description: 'Use your work email',
+  errorMessage: 'Required',
+  ids: { description: 'email-description', error: 'email-error' },
+  invalid: true,
+};
 
 export const standaloneValidation: FieldValidationErrorProps = {
   className: 'font-semibold',

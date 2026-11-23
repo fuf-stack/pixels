@@ -13,6 +13,7 @@ import { useStyling } from '@fuf-stack/pixels/StylingProvider';
 
 import { getFieldControlProps } from '../../helpers/fieldProps/fieldProps';
 import FieldDescription from '../../partials/FieldDescription/FieldDescription';
+import FieldHelper from '../../partials/FieldHelper/FieldHelper';
 import FieldLabel from '../../partials/FieldLabel/FieldLabel';
 import { switchVariants } from '../../Switch/switchVariants';
 import { switchBoxVariants } from '../switchBoxVariants';
@@ -164,18 +165,13 @@ const SwitchBoxControl = ({
         ) : null}
       </label>
 
-      {/* validation messages below the box */}
-      {invalid ? (
-        <div className={classNames.helperWrapper} data-slot="helper-wrapper">
-          <div
-            className={classNames.errorMessage}
-            data-slot="error-message"
-            id={ids.error}
-          >
-            {errorMessage}
-          </div>
-        </div>
-      ) : null}
+      {/* validation messages below the box, its description is inside */}
+      <FieldHelper
+        className={classNames}
+        errorMessage={errorMessage}
+        ids={ids}
+        invalid={invalid}
+      />
     </>
   );
 };

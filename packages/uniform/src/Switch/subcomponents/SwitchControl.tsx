@@ -12,7 +12,7 @@ import { useToggleState } from 'react-stately/useToggleState';
 import { useStyling } from '@fuf-stack/pixels/StylingProvider';
 
 import { getFieldControlProps } from '../../helpers/fieldProps/fieldProps';
-import FieldDescription from '../../partials/FieldDescription/FieldDescription';
+import FieldHelper from '../../partials/FieldHelper/FieldHelper';
 import FieldLabel from '../../partials/FieldLabel/FieldLabel';
 import { switchVariants } from '../switchVariants';
 import SwitchTrack from './SwitchTrack';
@@ -147,25 +147,13 @@ const SwitchControl = ({
       </label>
 
       {/* help text and validation messages */}
-      {description || invalid ? (
-        <div className={classNames.helperWrapper} data-slot="helper-wrapper">
-          <FieldDescription
-            className={classNames.description}
-            id={ids.description}
-          >
-            {description}
-          </FieldDescription>
-          {invalid ? (
-            <div
-              className={classNames.errorMessage}
-              data-slot="error-message"
-              id={ids.error}
-            >
-              {errorMessage}
-            </div>
-          ) : null}
-        </div>
-      ) : null}
+      <FieldHelper
+        className={classNames}
+        description={description}
+        errorMessage={errorMessage}
+        ids={ids}
+        invalid={invalid}
+      />
     </div>
   );
 };

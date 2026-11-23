@@ -70,8 +70,9 @@ Input                         Form binding, transforms and debounce
         InputWrapper          Bordered Group, editable input and surrounding controls
           InputClearButton    Clear action
           InputStepper        Number increment and decrement controls
-        FieldDescription      Help text
-        error-message         Styled association wrapper around supplied messages
+        FieldHelper           Helper wrapper below the control
+          FieldDescription    Help text
+          error-message       Styled association wrapper around supplied messages
 ```
 
 [Input](../../packages/uniform/src/Input/Input.tsx) owns its public props and
@@ -125,8 +126,9 @@ to preserve their distinct label and control arrangements.
 
 The private `useUniformField` hook returns a rendered `field.errorMessage` using
 `FieldValidationError`. That component owns the message list and animation.
-Field presentation chooses visibility and places the messages in a styled wrapper
-with the shared error ID. Direct uses of `FieldValidationError` can supply `id`
+[FieldHelper](../../packages/uniform/src/partials/FieldHelper/README.md) shows
+them while the field is invalid and places them in a styled wrapper with the
+shared error ID, for `FieldLayout` and fields that compose the partials directly. Direct uses of `FieldValidationError` can supply `id`
 for its optional association wrapper. The hook's `field.error` property retains raw/group
 errors. Private hook names do not restore the removed public exports, see
 [the migration notes](./migration.md#breaking-change-legacy-field-hooks-removed).

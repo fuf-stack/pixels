@@ -4,7 +4,7 @@ import type { TimeClassNames } from '../timeVariants';
 
 import { DateInput, DateSegment } from 'react-aria-components';
 
-import FieldDescription from '../../partials/FieldDescription/FieldDescription';
+import FieldHelper from '../../partials/FieldHelper/FieldHelper';
 
 interface TimeInputProps {
   /** CSS class name */
@@ -44,25 +44,13 @@ const TimeInput = ({ className: classNames, field }: TimeInputProps) => {
       </div>
 
       {/* help text and validation messages */}
-      {description || invalid ? (
-        <div className={classNames.helperWrapper} data-slot="helper-wrapper">
-          <FieldDescription
-            className={classNames.description}
-            id={ids.description}
-          >
-            {description}
-          </FieldDescription>
-          {invalid ? (
-            <div
-              className={classNames.errorMessage}
-              data-slot="error-message"
-              id={ids.error}
-            >
-              {errorMessage}
-            </div>
-          ) : null}
-        </div>
-      ) : null}
+      <FieldHelper
+        className={classNames}
+        description={description}
+        errorMessage={errorMessage}
+        ids={ids}
+        invalid={invalid}
+      />
     </div>
   );
 };

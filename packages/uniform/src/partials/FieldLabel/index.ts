@@ -1,0 +1,5 @@
+import FieldLabel from './FieldLabel';
+
+export type { FieldLabelProps } from './FieldLabel';
+
+export default FieldLabel;

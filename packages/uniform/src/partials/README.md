@@ -1,16 +1,21 @@
 # Shared field presentation
 
-Private field partials reuse label, help text and error markup without registering
-a field or reading form state. Their props live beside their implementations.
+Field partials reuse label, help text and error markup without registering a
+field or reading form state. Most are private, `FieldLabel`, `FieldHelper`,
+`FieldValidationError` and `FieldCopyTestIdButton` are also exported for custom controls. Their props live beside their implementations.
 Each partial has colocated stories and tests for its presentation and semantics.
 Shared control associations and IDs live in `types.ts`.
 
 - [FieldLayout](./FieldLayout/README.md) provides the default label → children →
   supporting messages arrangement, owning the base element by default. Fields
   with an engine-owned root select it with `baseAs` and configure it with `baseProps`
-- `FieldLabel` renders the label and required indicator. Use its native label
+- [FieldLabel](./FieldLabel/README.md) renders the label and required indicator,
+  and is also exported for custom controls. Use its native label
   with `htmlFor`, React Aria `Label` for field context, or a `span`/`div` when
   the field already owns the label or group heading
+- [FieldHelper](./FieldHelper/README.md) renders the helper wrapper below the
+  control, with help text and visible validation messages, and is also exported
+  for custom controls
 - `FieldDescription` renders help text with the supplied description ID
 - [FieldValidationError](./FieldValidationError/README.md) owns validation message
   rendering, animations and the optional error association wrapper
@@ -28,18 +33,21 @@ For example, a native control keeps its label association explicit:
   {label}
 </FieldLabel>
 <input aria-describedby={ids.description} id={ids.control} />
-<FieldDescription id={ids.description}>{description}</FieldDescription>
+<FieldHelper
+  description={description}
+  errorMessage={errorMessage}
+  ids={ids}
+  invalid={invalid}
+/>
 ```
 
 Use `FieldLayout` for the usual arrangement. Fields with a different structure
-compose the label, description and error partials directly. `FieldLayout` owns
-the helper wrapper and validation visibility for its arrangement, without another
-component between the layout and the description/error partials. The field engine retains its root
+compose `FieldLabel` and `FieldHelper` directly. `FieldHelper` owns the helper
+wrapper and validation visibility, for `FieldLayout` and those fields alike. The field engine retains its root
 and context. The binding supplies IDs and metadata, and renderers derive control
 associations through `getFieldControlProps`. `useUniformField`
-returns a rendered `field.errorMessage` using `FieldValidationError`. The layout places
-that node inside its styled error association wrapper, without another shared
-error component.
+returns a rendered `field.errorMessage` using `FieldValidationError`. `FieldHelper` places
+that node inside its styled error association wrapper.
 
 Pure field helpers live under `helpers/`, including
 [fieldProps](../helpers/fieldProps/fieldProps.ts). See the

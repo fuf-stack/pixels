@@ -1,7 +1,7 @@
 import type { HTMLAttributes, ReactNode } from 'react';
 import type { Label as AriaLabel } from 'react-aria-components';
 
-interface FieldLabelProps extends Pick<
+export interface FieldLabelProps extends Pick<
   HTMLAttributes<HTMLElement>,
   'aria-level' | 'role'
 > {
