@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.0.0-next.3](https://github.com/fuf-stack/pixels/compare/megapixels-v2.0.0-next.2...megapixels-v2.0.0-next.3) (2026-11-23)
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @fuf-stack/pixel-utils bumped to 2.0.0-next.2
+    * @fuf-stack/pixels bumped to 2.0.0-next.4
+    * @fuf-stack/uniform bumped to 2.0.0-next.5
+
 ## [2.0.0-next.2](https://github.com/fuf-stack/pixels/compare/megapixels-v2.0.0-next.1...megapixels-v2.0.0-next.2) (2026-11-23)
 
 

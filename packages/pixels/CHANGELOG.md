@@ -1,5 +1,19 @@
 # Changelog
 
+## [2.0.0-next.4](https://github.com/fuf-stack/pixels/compare/pixels-v2.0.0-next.3...pixels-v2.0.0-next.4) (2026-11-23)
+
+
+### Bug Fixes
+
+* **pixels:** open tooltips on non-interactive trigger content ([e35bcdf](https://github.com/fuf-stack/pixels/commit/e35bcdffa093f09c5a6d26e17c5736db848a0d93))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @fuf-stack/pixel-utils bumped to 2.0.0-next.2
+
 ## [2.0.0-next.3](https://github.com/fuf-stack/pixels/compare/pixels-v2.0.0-next.2...pixels-v2.0.0-next.3) (2026-11-23)
 
 
