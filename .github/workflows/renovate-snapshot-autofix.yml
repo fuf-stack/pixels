@@ -91,7 +91,7 @@ jobs:
             const scriptUrl = pathToFileURL(`${process.env.GITHUB_WORKSPACE}/scripts/ci-snapshot-autofix.mjs`);
             const { buildSnapshots } = await import(scriptUrl.href);
             buildSnapshots({ core });
-      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         if: steps.payload.outputs.changed == 'true'
         with:
           name: snapshots-${{ github.run_id }}-${{ github.run_attempt }}
