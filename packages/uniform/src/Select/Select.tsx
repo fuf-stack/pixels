@@ -483,7 +483,8 @@ const Select = ({
         data-testid={testId}
         filterOption={filterOption}
         formatOptionLabel={renderOptionLabel}
-        inputValue={inputValue}
+        // a pending search hides the selected value, read-only selects show it
+        inputValue={readOnly ? '' : inputValue}
         instanceId={name}
         isClearable={isClearable}
         isDisabled={disabled}

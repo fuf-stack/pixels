@@ -161,6 +161,12 @@ const DatePicker = ({
 
   // Normalize DatePicker output into the configured storage format before writing to form state.
   const handleChange = (nextValue: DatePickerValue) => {
+    // read-only values ignore edits, e.g. from a calendar popover that was
+    // already open when the field became read-only
+    if (readOnly) {
+      return;
+    }
+
     if (nextValue == null) {
       onChange(null);
       return;
@@ -215,6 +221,8 @@ const DatePicker = ({
       onChange={handleChange}
       placeholderValue={placeholderValue}
       radius="sm"
+      // HeroUI does not forward isReadOnly to the popover's time input
+      timeInputProps={{ isReadOnly: readOnly }}
       value={parsedValue}
       variant="bordered"
     />

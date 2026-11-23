@@ -41,8 +41,9 @@ const validation = veto({ flavor: string(), scoops: number() });
 
 ## Behavior per field
 
-All Uniform fields support `readOnly` and stay keyboard focusable. Fields
-announce themselves as read-only where the underlying control supports it.
+The fields below support `readOnly` and stay keyboard focusable. They announce
+themselves as read-only where the underlying control supports it. `FieldArray`
+does not support `readOnly`.
 
 | Field                                                       | Read-only behavior                                                                                                        |
 | ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
