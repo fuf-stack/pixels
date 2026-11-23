@@ -7,7 +7,7 @@
     "check:boundaries": "node scripts/check-dependency-boundaries.mjs",
     "commit": "lint-staged && git-cz",
     "dev": "lerna run --parallel dev",
-    "fix": "eslint --debug --fix packages || true && prettier --write \"packages/**/*\"",
+    "fix": "eslint --fix packages || true && prettier --write --ignore-unknown packages",
     "lint": "eslint ./packages",
     "lint:debug": "eslint --debug ./packages",
     "test": "FORCE_COLOR=1 vitest run --coverage $VITEST_EXTRA_OPTS",
