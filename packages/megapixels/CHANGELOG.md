@@ -1,5 +1,19 @@
 # Changelog
 
+## [2.0.0-next.2](https://github.com/fuf-stack/pixels/compare/megapixels-v2.0.0-next.1...megapixels-v2.0.0-next.2) (2026-11-23)
+
+
+### Features
+
+* **uniform:** unify field label and helper styles ([9a1b71c](https://github.com/fuf-stack/pixels/commit/9a1b71cb23f3cc6ec3d5cc0abd91f45295a56695))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @fuf-stack/uniform bumped to 2.0.0-next.4
+
 ## [2.0.0-next.1](https://github.com/fuf-stack/pixels/compare/megapixels-v2.0.0-next.0...megapixels-v2.0.0-next.1) (2026-11-23)
 
 
