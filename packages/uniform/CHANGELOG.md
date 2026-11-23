@@ -1,5 +1,20 @@
 # Changelog
 
+## [2.0.0-next.5](https://github.com/fuf-stack/pixels/compare/uniform-v2.0.0-next.4...uniform-v2.0.0-next.5) (2026-11-23)
+
+
+### Bug Fixes
+
+* **uniform:** avoid form updates while fields render ([9670c88](https://github.com/fuf-stack/pixels/commit/9670c8853602f346759dfc7380709b514527c7f7))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @fuf-stack/pixel-utils bumped to 2.0.0-next.2
+    * @fuf-stack/pixels bumped to 2.0.0-next.4
+
 ## [2.0.0-next.4](https://github.com/fuf-stack/pixels/compare/uniform-v2.0.0-next.3...uniform-v2.0.0-next.4) (2026-11-23)
 
 
