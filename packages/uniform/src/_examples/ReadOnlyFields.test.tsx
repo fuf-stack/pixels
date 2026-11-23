@@ -365,6 +365,8 @@ describe('readOnly transitions and resets', () => {
     const [hourSegment] = within(dialog).getAllByRole('spinbutton');
     await user.click(hourSegment);
     await user.keyboard('{ArrowUp}{ArrowUp}');
+    // close the popup, a modal popover hides the rest of the form
+    await user.keyboard('{Escape}');
     await user.click(screen.getByRole('button', { name: 'Submit' }));
 
     await waitFor(() => {
