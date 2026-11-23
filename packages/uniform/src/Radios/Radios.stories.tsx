@@ -33,14 +33,17 @@ const meta: Meta<typeof Radios> = {
 export default meta;
 type Story = StoryObj<typeof Radios>;
 
+const iceCreamOptions = [
+  { value: 'vanilla', label: '🍦 Vanilla' },
+  { value: 'chocolate', label: '🍫 Chocolate' },
+  { value: 'strawberry', label: '🍓 Strawberry' },
+];
+
 export const Default: Story = {
   args: {
+    label: 'Favorite ice cream',
     name: 'radiosField',
-    options: [
-      { value: '1', label: 'option 1' },
-      { value: '2', label: 'option 2' },
-      { value: '3', label: 'option 3' },
-    ],
+    options: iceCreamOptions,
   },
 };
 
@@ -58,48 +61,55 @@ export const NumberValues: Story = {
 export const Inline: Story = {
   args: {
     inline: true,
+    label: 'Favorite ice cream',
     name: 'radiosField',
-    options: [
-      { value: 'option 1' },
-      { value: 'option 2' },
-      { value: 'option 3' },
-    ],
+    options: iceCreamOptions,
   },
 };
 
 export const WithInitialValue: Story = {
   parameters: {
-    formProps: { initialValues: { radiosField: 'option 2' } },
+    formProps: { initialValues: { radiosField: 'chocolate' } },
   },
   args: {
+    label: 'Favorite ice cream',
     name: 'radiosField',
-    options: [
-      { value: 'option 1' },
-      { value: 'option 2' },
-      { value: 'option 3' },
-    ],
+    options: iceCreamOptions,
   },
 };
 
 export const DisabledCompletely: Story = {
+  parameters: {
+    formProps: { initialValues: { radiosField: 'vanilla' } },
+  },
   args: {
-    name: 'radiosField',
     disabled: true,
-    options: [
-      { value: 'option 1' },
-      { value: 'option 2' },
-      { value: 'option 3' },
-    ],
+    label: 'Favorite ice cream',
+    name: 'radiosField',
+    options: iceCreamOptions,
+  },
+};
+
+export const ReadOnly: Story = {
+  parameters: {
+    formProps: { initialValues: { radiosField: 'chocolate' } },
+  },
+  args: {
+    label: 'Favorite ice cream',
+    name: 'radiosField',
+    options: iceCreamOptions,
+    readOnly: true,
   },
 };
 
 export const DisabledOption: Story = {
   args: {
+    label: 'Favorite ice cream',
     name: 'radiosField',
     options: [
-      { value: 'option 1' },
-      { value: 'disabled option', disabled: true },
-      { value: 'option 3' },
+      { value: 'vanilla', label: '🍦 Vanilla' },
+      { value: 'chocolate', label: '🍫 Chocolate (sold out)', disabled: true },
+      { value: 'strawberry', label: '🍓 Strawberry' },
     ],
   },
 };
@@ -111,13 +121,9 @@ const requiredValidation = veto({
 export const Required: Story = {
   parameters: { formProps: { validation: requiredValidation } },
   args: {
-    label: 'radiosField',
+    label: 'Favorite ice cream',
     name: 'radiosField',
-    options: [
-      { label: '1', value: '1' },
-      { label: '2', value: '2' },
-      { label: '3', value: '3' },
-    ],
+    options: iceCreamOptions,
   },
 };
 
@@ -126,24 +132,28 @@ export const Invalid: Story = {
     formProps: {
       validation: veto({
         radiosField: string().refine((value) => {
-          return value !== 'two';
-        }, 'Please use another option'),
+          return value !== 'pineapple';
+        }, 'Pineapple on pizza? Please pick another topping'),
       }),
     },
   },
   args: {
     name: 'radiosField',
-    label: 'radiosField',
-    options: [{ value: 'one' }, { value: 'two' }, { value: 'three' }],
+    label: 'Pizza topping',
+    options: [
+      { value: 'cheese', label: '🧀 Extra cheese' },
+      { value: 'pineapple', label: '🍍 Pineapple' },
+      { value: 'mushrooms', label: '🍄 Mushrooms' },
+    ],
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    const optionOne = canvas.getByTestId('radiosfield_option_one');
-    await userEvent.click(optionOne, {
+    const cheese = canvas.getByTestId('radiosfield_option_cheese');
+    await userEvent.click(cheese, {
       delay: 100,
     });
-    const optionTwo = canvas.getByTestId('radiosfield_option_two');
-    await userEvent.click(optionTwo, {
+    const pineapple = canvas.getByTestId('radiosfield_option_pineapple');
+    await userEvent.click(pineapple, {
       delay: 100,
     });
 

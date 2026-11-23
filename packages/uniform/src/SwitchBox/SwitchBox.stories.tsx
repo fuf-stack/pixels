@@ -63,6 +63,18 @@ export const Disabled: Story = {
   },
 };
 
+export const ReadOnly: Story = {
+  parameters: {
+    formProps: { initialValues: { switchBox: true } },
+  },
+  args: {
+    name: 'switchBox',
+    label: 'Pro features',
+    description: 'Upgrade to unlock premium features',
+    readOnly: true,
+  },
+};
+
 const requiredValidation = veto({
   switchBox: boolean(),
 });

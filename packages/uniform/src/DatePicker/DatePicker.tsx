@@ -49,6 +49,14 @@ export const datePickerVariants = tv({
     /** the time-input component's label element */
     timeInputLabel: '',
   },
+  variants: {
+    readOnly: {
+      true: {
+        // Inner controls set their own cursors, so override every descendant.
+        base: '**:cursor-not-allowed cursor-not-allowed opacity-disabled',
+      },
+    },
+  },
 });
 
 type VariantProps = TVProps<typeof datePickerVariants>;
@@ -77,6 +85,8 @@ export interface DatePickerProps extends VariantProps {
   minValue?: string;
   /** form field name */
   name: string;
+  /** Prevents changes while keeping the date picker focusable and its value in validation and submission */
+  readOnly?: boolean;
   /** HTML data-testid attribute used in e2e tests */
   testId?: string;
   /**
@@ -119,12 +129,13 @@ const DatePicker = ({
     field: { onBlur, onChange, ref, value },
     invalid,
     label,
+    readOnly,
     required,
     testId,
   } = useUniformField({ name, ...uniformFieldProps });
 
   // classNames from slots
-  const variants = datePickerVariants();
+  const variants = datePickerVariants({ readOnly });
   const classNames = variantsToClassNames(variants, _className, 'base');
   const resolvedTimeZone = resolveDatePickerTimeZone(withTime, timeZone);
 
@@ -150,6 +161,12 @@ const DatePicker = ({
 
   // Normalize DatePicker output into the configured storage format before writing to form state.
   const handleChange = (nextValue: DatePickerValue) => {
+    // read-only values ignore edits, e.g. from a calendar popover that was
+    // already open when the field became read-only
+    if (readOnly) {
+      return;
+    }
+
     if (nextValue == null) {
       onChange(null);
       return;
@@ -193,6 +210,7 @@ const DatePicker = ({
       id={testId}
       isDisabled={disabled}
       isInvalid={invalid}
+      isReadOnly={readOnly}
       isRequired={required}
       label={label}
       labelPlacement="outside"
@@ -203,6 +221,8 @@ const DatePicker = ({
       onChange={handleChange}
       placeholderValue={placeholderValue}
       radius="sm"
+      // HeroUI does not forward isReadOnly to the popover's time input
+      timeInputProps={{ isReadOnly: readOnly }}
       value={parsedValue}
       variant="bordered"
     />

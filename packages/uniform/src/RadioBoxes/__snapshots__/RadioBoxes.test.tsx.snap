@@ -203,7 +203,7 @@ exports[`Story Snapshots > DisabledCompletely 1`] = `
           role="presentation"
         >
           <label
-            class="group inline-flex flex-auto cursor-pointer items-center justify-between gap-4 rounded-lg border-2 border-default p-4 hover:bg-content2 data-[selected=true]:border-focus pointer-events-none opacity-disabled"
+            class="group inline-flex flex-auto items-center justify-between gap-4 rounded-lg border-2 border-default p-4 data-[selected=true]:border-focus **:cursor-not-allowed cursor-not-allowed opacity-disabled hover:bg-transparent"
             data-disabled="true"
             data-testid="radioboxesfield_option_morning"
           >
@@ -246,7 +246,7 @@ exports[`Story Snapshots > DisabledCompletely 1`] = `
             </div>
           </label>
           <label
-            class="group inline-flex flex-auto cursor-pointer items-center justify-between gap-4 rounded-lg border-2 border-default p-4 hover:bg-content2 data-[selected=true]:border-focus pointer-events-none opacity-disabled"
+            class="group inline-flex flex-auto items-center justify-between gap-4 rounded-lg border-2 border-default p-4 data-[selected=true]:border-focus **:cursor-not-allowed cursor-not-allowed opacity-disabled hover:bg-transparent"
             data-disabled="true"
             data-testid="radioboxesfield_option_night"
           >
@@ -289,7 +289,7 @@ exports[`Story Snapshots > DisabledCompletely 1`] = `
             </div>
           </label>
           <label
-            class="group inline-flex flex-auto cursor-pointer items-center justify-between gap-4 rounded-lg border-2 border-default p-4 hover:bg-content2 data-[selected=true]:border-focus pointer-events-none opacity-disabled"
+            class="group inline-flex flex-auto items-center justify-between gap-4 rounded-lg border-2 border-default p-4 data-[selected=true]:border-focus **:cursor-not-allowed cursor-not-allowed opacity-disabled hover:bg-transparent"
             data-disabled="true"
             data-testid="radioboxesfield_option_insomniac"
           >
@@ -422,7 +422,7 @@ exports[`Story Snapshots > DisabledOption 1`] = `
             </div>
           </label>
           <label
-            class="group inline-flex flex-auto cursor-pointer items-center justify-between gap-4 rounded-lg border-2 border-default p-4 hover:bg-content2 data-[selected=true]:border-focus pointer-events-none opacity-disabled"
+            class="group inline-flex flex-auto items-center justify-between gap-4 rounded-lg border-2 border-default p-4 data-[selected=true]:border-focus **:cursor-not-allowed cursor-not-allowed opacity-disabled hover:bg-transparent"
             data-disabled="true"
             data-testid="radioboxesfield_option_books"
           >
@@ -1073,6 +1073,185 @@ exports[`Story Snapshots > NumberValues 1`] = `
                 class="text-foreground opacity-70 text-small"
               >
                 Premium tier with all features unlocked.
+              </div>
+            </div>
+          </label>
+        </div>
+      </div>
+      <div
+        class="mt-4 flex justify-end"
+      >
+        <button
+          aria-label="Submit form"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
+          data-react-aria-pressable="true"
+          data-testid="form_submit_button"
+          tabindex="0"
+          type="submit"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`Story Snapshots > ReadOnly 1`] = `
+<div>
+  <div
+    class="flex w-full flex-row justify-between gap-6"
+  >
+    <form
+      class="grow min-w-60"
+      data-form-is-valid="true"
+      data-testid=""
+      novalidate=""
+    >
+      <div
+        aria-label="radioBoxesField"
+        aria-orientation="vertical"
+        aria-readonly="true"
+        class="relative gap-2 group flex w-full flex-col gap-y-1.5 **:cursor-not-allowed cursor-not-allowed opacity-disabled"
+        data-invalid="false"
+        data-required="false"
+        data-testid="radioboxesfield"
+        id="react-aria-«replaced-aria-id»"
+        role="radiogroup"
+      >
+        <div
+          class="flex flex-col flex-wrap gap-2 data-[orientation=horizontal]:flex-row"
+          data-orientation="vertical"
+          role="presentation"
+        >
+          <label
+            class="group inline-flex flex-auto cursor-pointer items-center justify-between gap-4 rounded-lg border-2 border-default p-4 data-[selected=true]:border-focus hover:bg-transparent"
+            data-testid="radioboxesfield_option_morning"
+          >
+            <div
+              style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+            >
+              <input
+                aria-describedby="«replaced-aria-id» react-aria-«replaced-aria-id»"
+                aria-labelledby="«replaced-aria-id»"
+                class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
+                data-react-aria-pressable="true"
+                name="radioBoxesField"
+                tabindex="-1"
+                title=""
+                type="radio"
+                value="morning"
+              />
+            </div>
+            <span
+              aria-hidden="true"
+              class="relative inline-flex items-center justify-center shrink-0 overflow-hidden border-solid border-medium box-border border-default rounded-full group-data-[hover-unselected=true]:bg-default-100 outline-solid outline-transparent group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:border-primary w-5 h-5 group-data-[pressed=true]:scale-95 transition-transform-colors motion-reduce:transition-none"
+            >
+              <span
+                class="z-10 opacity-0 scale-0 origin-center rounded-full group-data-[selected=true]:opacity-100 group-data-[selected=true]:scale-100 bg-primary text-primary-foreground w-2 h-2 transition-transform-opacity motion-reduce:transition-none"
+              />
+            </span>
+            <div
+              class="flex flex-col ml-1 ms-2 grow"
+            >
+              <span
+                class="relative select-none text-medium transition-colors motion-reduce:transition-none"
+                id="«replaced-aria-id»"
+              >
+                Morning Person
+              </span>
+              <div
+                class="text-foreground opacity-70 text-small"
+              >
+                Early birds get worms, but also need alarms.
+              </div>
+            </div>
+          </label>
+          <label
+            class="group inline-flex flex-auto cursor-pointer items-center justify-between gap-4 rounded-lg border-2 border-default p-4 data-[selected=true]:border-focus hover:bg-transparent"
+            data-selected="true"
+            data-testid="radioboxesfield_option_night"
+          >
+            <div
+              style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+            >
+              <input
+                aria-describedby="«replaced-aria-id» react-aria-«replaced-aria-id»"
+                aria-labelledby="«replaced-aria-id»"
+                checked=""
+                class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
+                data-react-aria-pressable="true"
+                name="radioBoxesField"
+                tabindex="0"
+                title=""
+                type="radio"
+                value="night"
+              />
+            </div>
+            <span
+              aria-hidden="true"
+              class="relative inline-flex items-center justify-center shrink-0 overflow-hidden border-solid border-medium box-border border-default rounded-full group-data-[hover-unselected=true]:bg-default-100 outline-solid outline-transparent group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:border-primary w-5 h-5 group-data-[pressed=true]:scale-95 transition-transform-colors motion-reduce:transition-none"
+            >
+              <span
+                class="z-10 opacity-0 scale-0 origin-center rounded-full group-data-[selected=true]:opacity-100 group-data-[selected=true]:scale-100 bg-primary text-primary-foreground w-2 h-2 transition-transform-opacity motion-reduce:transition-none"
+              />
+            </span>
+            <div
+              class="flex flex-col ml-1 ms-2 grow"
+            >
+              <span
+                class="relative select-none text-medium transition-colors motion-reduce:transition-none"
+                id="«replaced-aria-id»"
+              >
+                Night Owl
+              </span>
+              <div
+                class="text-foreground opacity-70 text-small"
+              >
+                Peak productivity at 2 AM.
+              </div>
+            </div>
+          </label>
+          <label
+            class="group inline-flex flex-auto cursor-pointer items-center justify-between gap-4 rounded-lg border-2 border-default p-4 data-[selected=true]:border-focus hover:bg-transparent"
+            data-testid="radioboxesfield_option_insomniac"
+          >
+            <div
+              style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+            >
+              <input
+                aria-describedby="«replaced-aria-id» react-aria-«replaced-aria-id»"
+                aria-labelledby="«replaced-aria-id»"
+                class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
+                data-react-aria-pressable="true"
+                name="radioBoxesField"
+                tabindex="-1"
+                title=""
+                type="radio"
+                value="insomniac"
+              />
+            </div>
+            <span
+              aria-hidden="true"
+              class="relative inline-flex items-center justify-center shrink-0 overflow-hidden border-solid border-medium box-border border-default rounded-full group-data-[hover-unselected=true]:bg-default-100 outline-solid outline-transparent group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:border-primary w-5 h-5 group-data-[pressed=true]:scale-95 transition-transform-colors motion-reduce:transition-none"
+            >
+              <span
+                class="z-10 opacity-0 scale-0 origin-center rounded-full group-data-[selected=true]:opacity-100 group-data-[selected=true]:scale-100 bg-primary text-primary-foreground w-2 h-2 transition-transform-opacity motion-reduce:transition-none"
+              />
+            </span>
+            <div
+              class="flex flex-col ml-1 ms-2 grow"
+            >
+              <span
+                class="relative select-none text-medium transition-colors motion-reduce:transition-none"
+                id="«replaced-aria-id»"
+              >
+                Insomniac
+              </span>
+              <div
+                class="text-foreground opacity-70 text-small"
+              >
+                Sleep? What sleep?
               </div>
             </div>
           </label>

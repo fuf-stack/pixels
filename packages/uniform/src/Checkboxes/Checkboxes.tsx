@@ -31,7 +31,14 @@ export const checkboxesVariants = tv({
     // e.g.: https://github.com/heroui-inc/heroui/blob/main/packages/core/theme/src/components/select.ts
     label:
       'inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger',
-    optionBase: '',
+    optionBase: [
+      // HeroUI disables pointer events on disabled options, which hides the
+      // cursor; re-enable them (the disabled input still blocks changes).
+      'data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed',
+      // The hidden native input covers the option and keeps the browser's
+      // default cursor, so override every descendant too.
+      'data-[disabled=true]:**:cursor-not-allowed',
+    ],
     optionIcon: '',
     optionLabel: '',
     optionLabelSubline: 'text-foreground-400 !text-small',
@@ -47,6 +54,12 @@ export const checkboxesVariants = tv({
       },
       ...heroCheckboxVariants.variants.color,
     } as const,
+    readOnly: {
+      true: {
+        // Inner controls set their own cursors, so override every descendant.
+        base: '**:cursor-not-allowed cursor-not-allowed opacity-disabled',
+      },
+    },
     lineThrough: {
       true: {
         optionLabel: [
@@ -116,6 +129,8 @@ export interface CheckboxesProps extends VariantProps {
   /** Checkboxes that should be displayed. */
   options: CheckboxOption[];
 
+  /** Prevents changes while keeping the checkboxes focusable and its value in validation and submission */
+  readOnly?: boolean;
   /** HTML data-testid attribute used in e2e tests */
   testId?: string;
   /** allows disentangled display and form values for a field */
@@ -142,6 +157,7 @@ const Checkboxes = ({
     field: { onChange, value: fieldValue, ref, onBlur },
     invalid,
     label,
+    readOnly,
     required,
     testId,
   } = useUniformField({
@@ -155,7 +171,7 @@ const Checkboxes = ({
   const value = Array.isArray(fieldValue) ? (fieldValue as string[]) : [];
 
   // classNames from slots
-  const variants = checkboxesVariants({ lineThrough });
+  const variants = checkboxesVariants({ lineThrough, readOnly });
   const classNames = variantsToClassNames(variants, className, 'base');
 
   // map slots to HeroUI class names
@@ -240,6 +256,7 @@ const Checkboxes = ({
       errorMessage={errorMessage}
       isDisabled={disabled}
       isInvalid={invalid}
+      isReadOnly={readOnly}
       isRequired={required}
       label={label ? <legend>{label}</legend> : null}
       name={name}

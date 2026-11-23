@@ -38,7 +38,7 @@ exports[`Story Snapshots > CustomOptionsRendering 1`] = `
             <div>
               <label
                 aria-label="Treasure Hunt 🗺️"
-                class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none my-0 mx-2 w-full"
+                class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed data-[disabled=true]:**:cursor-not-allowed my-0 mx-2 w-full"
                 data-invalid="true"
                 data-testid="checkboxfield_option_treasure_hunt"
               >
@@ -100,7 +100,7 @@ exports[`Story Snapshots > CustomOptionsRendering 1`] = `
             <div>
               <label
                 aria-label="Potion Brewing 🧪"
-                class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none my-0 mx-2 w-full"
+                class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed data-[disabled=true]:**:cursor-not-allowed my-0 mx-2 w-full"
                 data-invalid="true"
                 data-testid="checkboxfield_option_potion_brewing"
               >
@@ -162,7 +162,7 @@ exports[`Story Snapshots > CustomOptionsRendering 1`] = `
             <div>
               <label
                 aria-label="Dragon Negotiation 🐉"
-                class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none my-0 mx-2 w-full"
+                class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed data-[disabled=true]:**:cursor-not-allowed my-0 mx-2 w-full"
                 data-invalid="true"
                 data-testid="checkboxfield_option_dragon_negotiation"
               >
@@ -297,7 +297,7 @@ exports[`Story Snapshots > DangerColor 1`] = `
         >
           <label
             aria-label="🌋 Live in a volcano"
-            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
+            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed data-[disabled=true]:**:cursor-not-allowed"
             data-invalid="false"
             data-selected="true"
             data-testid="checkboxfield_option_volcano_life"
@@ -346,7 +346,7 @@ exports[`Story Snapshots > DangerColor 1`] = `
           </label>
           <label
             aria-label="🦈 Swim with sharks"
-            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
+            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed data-[disabled=true]:**:cursor-not-allowed"
             data-invalid="false"
             data-testid="checkboxfield_option_shark_swimming"
           >
@@ -392,7 +392,7 @@ exports[`Story Snapshots > DangerColor 1`] = `
           </label>
           <label
             aria-label="🚀 One-way trip to Mars"
-            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
+            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed data-[disabled=true]:**:cursor-not-allowed"
             data-invalid="false"
             data-selected="true"
             data-testid="checkboxfield_option_mars_one_way"
@@ -486,7 +486,7 @@ exports[`Story Snapshots > Default 1`] = `
         >
           <label
             aria-label="🍕 Pizza for breakfast"
-            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
+            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed data-[disabled=true]:**:cursor-not-allowed"
             data-invalid="false"
             data-testid="checkboxfield_option_pizza_breakfast"
           >
@@ -532,7 +532,7 @@ exports[`Story Snapshots > Default 1`] = `
           </label>
           <label
             aria-label="🦄 Unicorns are real"
-            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
+            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed data-[disabled=true]:**:cursor-not-allowed"
             data-invalid="false"
             data-testid="checkboxfield_option_unicorns_real"
           >
@@ -578,7 +578,7 @@ exports[`Story Snapshots > Default 1`] = `
           </label>
           <label
             aria-label="🧦 Socks with sandals"
-            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
+            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed data-[disabled=true]:**:cursor-not-allowed"
             data-invalid="false"
             data-testid="checkboxfield_option_socks_sandals"
           >
@@ -669,7 +669,7 @@ exports[`Story Snapshots > DisabledCompletely 1`] = `
         >
           <label
             aria-label="💤 Sleep 8 hours nightly"
-            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none opacity-disabled pointer-events-none"
+            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none opacity-disabled pointer-events-none data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed data-[disabled=true]:**:cursor-not-allowed"
             data-disabled="true"
             data-invalid="false"
             data-testid="checkboxfield_option_sleep_8_hours"
@@ -715,7 +715,7 @@ exports[`Story Snapshots > DisabledCompletely 1`] = `
           </label>
           <label
             aria-label="🏃 Exercise daily"
-            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none opacity-disabled pointer-events-none"
+            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none opacity-disabled pointer-events-none data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed data-[disabled=true]:**:cursor-not-allowed"
             data-disabled="true"
             data-invalid="false"
             data-testid="checkboxfield_option_exercise_daily"
@@ -761,7 +761,7 @@ exports[`Story Snapshots > DisabledCompletely 1`] = `
           </label>
           <label
             aria-label="🥗 Eat vegetables"
-            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none opacity-disabled pointer-events-none"
+            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none opacity-disabled pointer-events-none data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed data-[disabled=true]:**:cursor-not-allowed"
             data-disabled="true"
             data-invalid="false"
             data-testid="checkboxfield_option_eat_vegetables"
@@ -852,7 +852,7 @@ exports[`Story Snapshots > DisabledOption 1`] = `
         >
           <label
             aria-label="🎮 Play games all day"
-            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
+            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed data-[disabled=true]:**:cursor-not-allowed"
             data-invalid="false"
             data-testid="checkboxfield_option_play_games"
           >
@@ -898,7 +898,7 @@ exports[`Story Snapshots > DisabledOption 1`] = `
           </label>
           <label
             aria-label="📚 Read documentation"
-            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none opacity-disabled pointer-events-none"
+            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none opacity-disabled pointer-events-none data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed data-[disabled=true]:**:cursor-not-allowed"
             data-disabled="true"
             data-invalid="false"
             data-testid="checkboxfield_option_read_docs"
@@ -944,7 +944,7 @@ exports[`Story Snapshots > DisabledOption 1`] = `
           </label>
           <label
             aria-label="🍰 Cake for dinner"
-            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
+            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed data-[disabled=true]:**:cursor-not-allowed"
             data-invalid="false"
             data-testid="checkboxfield_option_cake_dinner"
           >
@@ -1035,7 +1035,7 @@ exports[`Story Snapshots > Inline 1`] = `
         >
           <label
             aria-label="🎯 Procrastinate productively"
-            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
+            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed data-[disabled=true]:**:cursor-not-allowed"
             data-invalid="false"
             data-testid="checkboxfield_option_productive_procrastination"
           >
@@ -1081,7 +1081,7 @@ exports[`Story Snapshots > Inline 1`] = `
           </label>
           <label
             aria-label="☕ Coffee is a vegetable"
-            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
+            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed data-[disabled=true]:**:cursor-not-allowed"
             data-invalid="false"
             data-testid="checkboxfield_option_coffee_vegetable"
           >
@@ -1127,7 +1127,7 @@ exports[`Story Snapshots > Inline 1`] = `
           </label>
           <label
             aria-label="🐱 Cats rule the internet"
-            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
+            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed data-[disabled=true]:**:cursor-not-allowed"
             data-invalid="false"
             data-testid="checkboxfield_option_cats_rule_internet"
           >
@@ -1226,7 +1226,7 @@ exports[`Story Snapshots > Invalid 1`] = `
         >
           <label
             aria-label="🎭 Become a mime"
-            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
+            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed data-[disabled=true]:**:cursor-not-allowed"
             data-invalid="true"
             data-testid="checkboxfield_option_become_mime"
           >
@@ -1274,7 +1274,7 @@ exports[`Story Snapshots > Invalid 1`] = `
           </label>
           <label
             aria-label="🌙 Howl at the moon"
-            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
+            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed data-[disabled=true]:**:cursor-not-allowed"
             data-focus="true"
             data-hover="true"
             data-invalid="true"
@@ -1326,7 +1326,7 @@ exports[`Story Snapshots > Invalid 1`] = `
           </label>
           <label
             aria-label="🦸 Save the world"
-            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
+            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed data-[disabled=true]:**:cursor-not-allowed"
             data-invalid="true"
             data-testid="checkboxfield_option_save_world"
           >
@@ -1447,7 +1447,7 @@ exports[`Story Snapshots > OnlyOneCheckbox 1`] = `
         >
           <label
             aria-label="🤖 I am definitely not a robot"
-            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
+            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed data-[disabled=true]:**:cursor-not-allowed"
             data-invalid="false"
             data-testid="checkboxfield_option_definitely_not_robot"
           >
@@ -1512,6 +1512,195 @@ exports[`Story Snapshots > OnlyOneCheckbox 1`] = `
 </div>
 `;
 
+exports[`Story Snapshots > ReadOnly 1`] = `
+<div>
+  <div
+    class="flex w-full flex-row justify-between gap-6"
+  >
+    <form
+      class="grow min-w-60"
+      data-form-is-valid="true"
+      data-testid=""
+      novalidate=""
+    >
+      <div
+        aria-label="checkboxField"
+        class="relative gap-2 group flex w-full flex-col gap-y-1.5 **:cursor-not-allowed cursor-not-allowed opacity-disabled"
+        data-invalid="false"
+        data-testid="checkboxfield"
+        id="react-aria-«replaced-aria-id»"
+        role="group"
+      >
+        <div
+          class="flex flex-col flex-wrap gap-2 data-[orientation=horizontal]:flex-row"
+          data-orientation="vertical"
+          role="presentation"
+        >
+          <label
+            aria-label="💤 Sleep 8 hours nightly"
+            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed data-[disabled=true]:**:cursor-not-allowed"
+            data-invalid="false"
+            data-testid="checkboxfield_option_sleep_8_hours"
+          >
+            <input
+              aria-label="💤 Sleep 8 hours nightly"
+              aria-labelledby="«replaced-aria-id»"
+              aria-readonly="true"
+              class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
+              data-react-aria-pressable="true"
+              name="checkboxField"
+              tabindex="0"
+              title=""
+              type="checkbox"
+              value="sleep-8-hours"
+            />
+            <span
+              aria-hidden="true"
+              class="relative inline-flex items-center justify-center shrink-0 overflow-hidden before:content-[''] before:absolute before:inset-0 before:border-solid before:border-2 before:box-border before:border-default after:content-[''] after:absolute after:inset-0 after:scale-50 after:opacity-0 after:origin-center group-data-[selected=true]:after:scale-100 group-data-[selected=true]:after:opacity-100 group-data-[hover=true]:before:bg-default-100 outline-solid outline-transparent group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background after:bg-primary after:text-primary-foreground text-primary-foreground w-5 h-5 me-2 rounded-[calc(var(--heroui-radius-medium)*0.6)] before:rounded-[calc(var(--heroui-radius-medium)*0.6)] after:rounded-[calc(var(--heroui-radius-medium)*0.6)] before:transition-colors group-data-[pressed=true]:scale-95 transition-transform after:transition-transform-opacity after:!ease-linear after:!duration-200 motion-reduce:transition-none"
+            >
+              <svg
+                aria-hidden="true"
+                class="z-10 opacity-0 group-data-[selected=true]:opacity-100 pointer-events-none w-4 h-3 transition-opacity motion-reduce:transition-none"
+                fill="none"
+                role="presentation"
+                stroke="currentColor"
+                stroke-dasharray="22"
+                stroke-dashoffset="66"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 17 18"
+              >
+                <polyline
+                  points="1 9 7 14 15 4"
+                />
+              </svg>
+            </span>
+            <span
+              class="relative text-foreground select-none text-medium transition-colors-opacity before:transition-width motion-reduce:transition-none"
+              id="«replaced-aria-id»"
+            >
+              💤 Sleep 8 hours nightly
+            </span>
+          </label>
+          <label
+            aria-label="🏃 Exercise daily"
+            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed data-[disabled=true]:**:cursor-not-allowed"
+            data-invalid="false"
+            data-selected="true"
+            data-testid="checkboxfield_option_exercise_daily"
+          >
+            <input
+              aria-label="🏃 Exercise daily"
+              aria-labelledby="«replaced-aria-id»"
+              aria-readonly="true"
+              checked=""
+              class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
+              data-react-aria-pressable="true"
+              name="checkboxField"
+              tabindex="0"
+              title=""
+              type="checkbox"
+              value="exercise-daily"
+            />
+            <span
+              aria-hidden="true"
+              class="relative inline-flex items-center justify-center shrink-0 overflow-hidden before:content-[''] before:absolute before:inset-0 before:border-solid before:border-2 before:box-border before:border-default after:content-[''] after:absolute after:inset-0 after:scale-50 after:opacity-0 after:origin-center group-data-[selected=true]:after:scale-100 group-data-[selected=true]:after:opacity-100 group-data-[hover=true]:before:bg-default-100 outline-solid outline-transparent group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background after:bg-primary after:text-primary-foreground text-primary-foreground w-5 h-5 me-2 rounded-[calc(var(--heroui-radius-medium)*0.6)] before:rounded-[calc(var(--heroui-radius-medium)*0.6)] after:rounded-[calc(var(--heroui-radius-medium)*0.6)] before:transition-colors group-data-[pressed=true]:scale-95 transition-transform after:transition-transform-opacity after:!ease-linear after:!duration-200 motion-reduce:transition-none"
+            >
+              <svg
+                aria-hidden="true"
+                class="z-10 opacity-0 group-data-[selected=true]:opacity-100 pointer-events-none w-4 h-3 transition-opacity motion-reduce:transition-none"
+                fill="none"
+                role="presentation"
+                stroke="currentColor"
+                stroke-dasharray="22"
+                stroke-dashoffset="44"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                style="transition: stroke-dashoffset 250ms linear 0.2s;"
+                viewBox="0 0 17 18"
+              >
+                <polyline
+                  points="1 9 7 14 15 4"
+                />
+              </svg>
+            </span>
+            <span
+              class="relative text-foreground select-none text-medium transition-colors-opacity before:transition-width motion-reduce:transition-none"
+              id="«replaced-aria-id»"
+            >
+              🏃 Exercise daily
+            </span>
+          </label>
+          <label
+            aria-label="🥗 Eat vegetables"
+            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed data-[disabled=true]:**:cursor-not-allowed"
+            data-invalid="false"
+            data-testid="checkboxfield_option_eat_vegetables"
+          >
+            <input
+              aria-label="🥗 Eat vegetables"
+              aria-labelledby="«replaced-aria-id»"
+              aria-readonly="true"
+              class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
+              data-react-aria-pressable="true"
+              name="checkboxField"
+              tabindex="0"
+              title=""
+              type="checkbox"
+              value="eat-vegetables"
+            />
+            <span
+              aria-hidden="true"
+              class="relative inline-flex items-center justify-center shrink-0 overflow-hidden before:content-[''] before:absolute before:inset-0 before:border-solid before:border-2 before:box-border before:border-default after:content-[''] after:absolute after:inset-0 after:scale-50 after:opacity-0 after:origin-center group-data-[selected=true]:after:scale-100 group-data-[selected=true]:after:opacity-100 group-data-[hover=true]:before:bg-default-100 outline-solid outline-transparent group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background after:bg-primary after:text-primary-foreground text-primary-foreground w-5 h-5 me-2 rounded-[calc(var(--heroui-radius-medium)*0.6)] before:rounded-[calc(var(--heroui-radius-medium)*0.6)] after:rounded-[calc(var(--heroui-radius-medium)*0.6)] before:transition-colors group-data-[pressed=true]:scale-95 transition-transform after:transition-transform-opacity after:!ease-linear after:!duration-200 motion-reduce:transition-none"
+            >
+              <svg
+                aria-hidden="true"
+                class="z-10 opacity-0 group-data-[selected=true]:opacity-100 pointer-events-none w-4 h-3 transition-opacity motion-reduce:transition-none"
+                fill="none"
+                role="presentation"
+                stroke="currentColor"
+                stroke-dasharray="22"
+                stroke-dashoffset="66"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 17 18"
+              >
+                <polyline
+                  points="1 9 7 14 15 4"
+                />
+              </svg>
+            </span>
+            <span
+              class="relative text-foreground select-none text-medium transition-colors-opacity before:transition-width motion-reduce:transition-none"
+              id="«replaced-aria-id»"
+            >
+              🥗 Eat vegetables
+            </span>
+          </label>
+        </div>
+      </div>
+      <div
+        class="mt-4 flex justify-end"
+      >
+        <button
+          aria-label="Submit form"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
+          data-react-aria-pressable="true"
+          data-testid="form_submit_button"
+          tabindex="0"
+          type="submit"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
 exports[`Story Snapshots > Required 1`] = `
 <div>
   <div
@@ -1545,7 +1734,7 @@ exports[`Story Snapshots > Required 1`] = `
         >
           <label
             aria-label="🎪 Join the circus"
-            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
+            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed data-[disabled=true]:**:cursor-not-allowed"
             data-invalid="false"
             data-testid="checkboxfield_option_join_circus"
           >
@@ -1592,7 +1781,7 @@ exports[`Story Snapshots > Required 1`] = `
           </label>
           <label
             aria-label="🧙 Learn magic tricks"
-            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
+            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed data-[disabled=true]:**:cursor-not-allowed"
             data-invalid="false"
             data-testid="checkboxfield_option_learn_magic"
           >
@@ -1639,7 +1828,7 @@ exports[`Story Snapshots > Required 1`] = `
           </label>
           <label
             aria-label="🐉 Befriend a dragon"
-            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
+            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed data-[disabled=true]:**:cursor-not-allowed"
             data-invalid="false"
             data-testid="checkboxfield_option_befriend_dragon"
           >
@@ -1731,7 +1920,7 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
         >
           <label
             aria-label="🌮 Tacos solve everything"
-            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
+            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed data-[disabled=true]:**:cursor-not-allowed"
             data-invalid="false"
             data-testid="checkboxfield_option_tacos_solve_all"
           >
@@ -1777,7 +1966,7 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
           </label>
           <label
             aria-label="🎵 Sing in the shower"
-            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
+            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed data-[disabled=true]:**:cursor-not-allowed"
             data-invalid="false"
             data-selected="true"
             data-testid="checkboxfield_option_sing_shower"
@@ -1826,7 +2015,7 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
           </label>
           <label
             aria-label="🚀 Mars vacation planner"
-            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
+            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed data-[disabled=true]:**:cursor-not-allowed"
             data-invalid="false"
             data-testid="checkboxfield_option_mars_vacation"
           >
@@ -1924,7 +2113,7 @@ exports[`Story Snapshots > WithLabel 1`] = `
         >
           <label
             aria-label="🍕 Pizza for breakfast"
-            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
+            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed data-[disabled=true]:**:cursor-not-allowed"
             data-invalid="false"
             data-testid="checkboxfield_option_pizza_breakfast"
           >
@@ -1970,7 +2159,7 @@ exports[`Story Snapshots > WithLabel 1`] = `
           </label>
           <label
             aria-label="🦄 Unicorns are real"
-            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
+            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed data-[disabled=true]:**:cursor-not-allowed"
             data-invalid="false"
             data-testid="checkboxfield_option_unicorns_real"
           >
@@ -2016,7 +2205,7 @@ exports[`Story Snapshots > WithLabel 1`] = `
           </label>
           <label
             aria-label="🧦 Socks with sandals"
-            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
+            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed data-[disabled=true]:**:cursor-not-allowed"
             data-invalid="false"
             data-testid="checkboxfield_option_socks_sandals"
           >
@@ -2114,7 +2303,7 @@ exports[`Story Snapshots > WithLineThrough 1`] = `
         >
           <label
             aria-label="🧽 Wash the dishes"
-            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
+            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed data-[disabled=true]:**:cursor-not-allowed"
             data-invalid="false"
             data-selected="true"
             data-testid="checkboxfield_option_wash_dishes"
@@ -2176,7 +2365,7 @@ exports[`Story Snapshots > WithLineThrough 1`] = `
           </label>
           <label
             aria-label="🐕 Walk the dog"
-            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
+            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed data-[disabled=true]:**:cursor-not-allowed"
             data-invalid="false"
             data-selected="true"
             data-testid="checkboxfield_option_walk_dog"
@@ -2225,7 +2414,7 @@ exports[`Story Snapshots > WithLineThrough 1`] = `
           </label>
           <label
             aria-label="📧 Reply to emails"
-            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
+            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed data-[disabled=true]:**:cursor-not-allowed"
             data-invalid="false"
             data-testid="checkboxfield_option_reply_emails"
           >
@@ -2271,7 +2460,7 @@ exports[`Story Snapshots > WithLineThrough 1`] = `
           </label>
           <label
             aria-label="🛒 Buy groceries"
-            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
+            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed data-[disabled=true]:**:cursor-not-allowed"
             data-invalid="false"
             data-testid="checkboxfield_option_buy_groceries"
           >
@@ -2362,7 +2551,7 @@ exports[`Story Snapshots > WithOptionLabelSubline 1`] = `
         >
           <label
             aria-label="Pizza for breakfast 🍕"
-            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
+            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed data-[disabled=true]:**:cursor-not-allowed"
             data-invalid="false"
             data-testid="checkboxfield_option_pizza_breakfast"
           >
@@ -2419,7 +2608,7 @@ exports[`Story Snapshots > WithOptionLabelSubline 1`] = `
           </label>
           <label
             aria-label="Unicorns are real 🦄"
-            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
+            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed data-[disabled=true]:**:cursor-not-allowed"
             data-invalid="false"
             data-testid="checkboxfield_option_unicorns_real"
           >
@@ -2476,7 +2665,7 @@ exports[`Story Snapshots > WithOptionLabelSubline 1`] = `
           </label>
           <label
             aria-label="Socks with sandals 🧦"
-            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
+            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed data-[disabled=true]:**:cursor-not-allowed"
             data-invalid="false"
             data-testid="checkboxfield_option_socks_sandals"
           >
@@ -2585,7 +2774,7 @@ exports[`Story Snapshots > WithTransformComplexObjects 1`] = `
         >
           <label
             aria-label="🍕 Pizza"
-            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
+            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed data-[disabled=true]:**:cursor-not-allowed"
             data-invalid="false"
             data-selected="true"
             data-testid="selectedfoods_option_pizza"
@@ -2634,7 +2823,7 @@ exports[`Story Snapshots > WithTransformComplexObjects 1`] = `
           </label>
           <label
             aria-label="🍔 Burger"
-            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
+            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed data-[disabled=true]:**:cursor-not-allowed"
             data-invalid="false"
             data-testid="selectedfoods_option_burger"
           >
@@ -2680,7 +2869,7 @@ exports[`Story Snapshots > WithTransformComplexObjects 1`] = `
           </label>
           <label
             aria-label="🍣 Sushi"
-            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
+            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed data-[disabled=true]:**:cursor-not-allowed"
             data-invalid="false"
             data-selected="true"
             data-testid="selectedfoods_option_sushi"
@@ -2729,7 +2918,7 @@ exports[`Story Snapshots > WithTransformComplexObjects 1`] = `
           </label>
           <label
             aria-label="🌮 Taco"
-            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
+            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed data-[disabled=true]:**:cursor-not-allowed"
             data-invalid="false"
             data-testid="selectedfoods_option_taco"
           >
@@ -2827,7 +3016,7 @@ exports[`Story Snapshots > WithTransformSingleValue 1`] = `
         >
           <label
             aria-label="I accept the terms and conditions"
-            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
+            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed data-[disabled=true]:**:cursor-not-allowed"
             data-invalid="false"
             data-testid="acceptterms_option_accepted"
           >

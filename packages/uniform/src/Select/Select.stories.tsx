@@ -173,6 +173,16 @@ export const Disabled: Story = {
   },
 };
 
+export const ReadOnly: Story = {
+  parameters: {
+    formProps: { initialValues: { selectField: 'chocolate' } },
+  },
+  args: {
+    ...args,
+    readOnly: true,
+  },
+};
+
 export const OptionDisabled: Story = {
   args: {
     ...args,

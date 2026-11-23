@@ -23,15 +23,21 @@ export const switchBoxVariants = tv({
     thumbIcon: '',
   },
   variants: {
-    isDisabled: {
+    disabled: {
       true: {
         box: 'pointer-events-none opacity-disabled',
       },
     },
-    isInvalid: {
+    invalid: {
       true: {
         box: '!border-danger',
         label: '!text-danger',
+      },
+    },
+    readOnly: {
+      true: {
+        // Inner controls set their own cursors, so override every descendant.
+        box: '**:cursor-not-allowed cursor-not-allowed opacity-disabled hover:bg-transparent',
       },
     },
     size: {
@@ -72,6 +78,8 @@ export interface SwitchBoxProps {
   label?: ReactNode;
   /** name the field is registered under */
   name: string;
+  /** Prevents changes while keeping the switch focusable and its value in validation and submission */
+  readOnly?: boolean;
   /** whether the field is required */
   required?: boolean;
   /* Size of the switch */
@@ -105,6 +113,7 @@ const SwitchBox = ({
     label,
     onBlur,
     onChange,
+    readOnly,
     ref,
     required,
     testId,
@@ -127,6 +136,7 @@ const SwitchBox = ({
   } = useSwitch({
     defaultSelected: !!defaultValue,
     isDisabled: disabled,
+    isReadOnly: readOnly,
     isSelected: !!field.value,
     name: `${name}_switch`,
     onValueChange: onChange,
@@ -136,8 +146,9 @@ const SwitchBox = ({
 
   // classNames from slots
   const variants = switchBoxVariants({
-    isDisabled: disabled,
-    isInvalid: invalid,
+    disabled,
+    invalid,
+    readOnly,
     size,
   });
   const classNames = variantsToClassNames(variants, className, 'box');
@@ -158,7 +169,9 @@ const SwitchBox = ({
             checked={!!field.value}
             name={name}
             onChange={(e) => {
-              onChange(e.target.checked);
+              if (!readOnly) {
+                onChange(e.target.checked);
+              }
             }}
             onFocus={() => {
               // When RHF focuses this hidden input (e.g., on validation error),

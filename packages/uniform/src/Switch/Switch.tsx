@@ -26,6 +26,14 @@ export const switchVariants = tv({
     thumbIcon: '',
     wrapper: '',
   },
+  variants: {
+    readOnly: {
+      true: {
+        // Inner controls set their own cursors, so override every descendant.
+        base: '**:cursor-not-allowed cursor-not-allowed opacity-disabled',
+      },
+    },
+  },
 });
 
 type VariantProps = TVProps<typeof switchVariants>;
@@ -44,6 +52,8 @@ export interface SwitchProps extends VariantProps {
   label?: ReactNode;
   /** name the field is registered under */
   name: string;
+  /** Prevents changes while keeping the switch focusable and its value in validation and submission */
+  readOnly?: boolean;
   /* Size of the switch */
   size?: 'sm' | 'md' | 'lg';
   /** Icon to be displayed at the start of the switch (when disabled) */
@@ -78,6 +88,7 @@ const Switch = ({
     label,
     onBlur,
     onChange,
+    readOnly,
     ref,
     required,
     testId,
@@ -90,7 +101,7 @@ const Switch = ({
   const visualSwitchRef = useRef<HTMLInputElement>(null);
 
   // classNames from slots
-  const variants = switchVariants();
+  const variants = switchVariants({ readOnly });
   const classNames = variantsToClassNames(variants, className, 'outerWrapper');
 
   return (
@@ -104,7 +115,9 @@ const Switch = ({
           name={name}
           onBlur={onBlur}
           onChange={(e) => {
-            onChange(e.target.checked);
+            if (!readOnly) {
+              onChange(e.target.checked);
+            }
           }}
           onFocus={() => {
             // When RHF focuses this hidden input (e.g., on validation error),
@@ -125,6 +138,7 @@ const Switch = ({
         defaultSelected={!!defaultValue}
         endContent={endContent}
         isDisabled={disabled}
+        isReadOnly={readOnly}
         isSelected={!!field.value}
         name={`${name}_switch`}
         onValueChange={onChange}

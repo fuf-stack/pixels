@@ -2,6 +2,8 @@
 
 Uniform omits disabled field values before schema validation and submission.
 The stored value is retained and restored when the field is re-enabled.
+To lock a value that should still be validated and submitted, use `readOnly`
+instead; see [Read-only fields](./read-only-fields.md).
 
 The Veto schema remains authoritative: a required disabled field produces a
 missing-field error and blocks submission. Mark a field optional when its value

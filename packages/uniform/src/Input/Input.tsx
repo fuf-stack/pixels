@@ -24,6 +24,14 @@ export const inputVariants = tv({
     /** inner wrapper (HeroUI inputWrapper slot) */
     inputWrapper: 'bg-content1 group-data-[focus=true]:border-focus',
   },
+  variants: {
+    readOnly: {
+      true: {
+        // Inner controls set their own cursors, so override every descendant.
+        base: '**:cursor-not-allowed cursor-not-allowed opacity-disabled',
+      },
+    },
+  },
 });
 
 type VariantProps = TVProps<typeof inputVariants>;
@@ -52,6 +60,8 @@ export interface InputProps extends VariantProps {
   onClear?: () => void;
   /** Sets the placeholder text */
   placeholder?: string;
+  /** Prevents changes while keeping the input focusable and its value in validation and submission */
+  readOnly?: boolean;
   /** Redacts the value from Uniform debug output; password inputs are always redacted */
   sensitive?: boolean;
   /** Sets the input size */
@@ -95,6 +105,7 @@ const Input = ({
     errorMessage,
     invalid,
     label,
+    readOnly,
     required,
     testId,
     resetField,
@@ -115,10 +126,12 @@ const Input = ({
     onClear?.();
   };
 
+  // Read-only inputs keep their value, so they never offer clearing.
+  const isClearable = clearable && !readOnly;
   const clearableProps: Pick<HeroInputProps, 'isClearable' | 'onClear'> =
-    clearable ? { isClearable: true, onClear: clearValue } : {};
+    isClearable ? { isClearable: true, onClear: clearValue } : {};
 
-  const variants = inputVariants();
+  const variants = inputVariants({ readOnly });
   const classNames = variantsToClassNames(variants, _className, 'base');
 
   // Common props for both Input and NumberInput
@@ -143,6 +156,7 @@ const Input = ({
     id: testId,
     isDisabled: disabled,
     isInvalid: invalid,
+    isReadOnly: readOnly,
     isRequired: required,
     label,
     labelPlacement: 'outside' as const,
@@ -194,7 +208,7 @@ const Input = ({
     return (
       <InputPassword
         {...commonProps}
-        clearable={clearable}
+        clearable={isClearable}
         hidePasswordToggle={hidePasswordToggle}
         onChange={onChange}
         onClear={clearValue}

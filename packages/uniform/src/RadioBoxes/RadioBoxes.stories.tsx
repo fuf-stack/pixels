@@ -155,6 +155,33 @@ export const DisabledCompletely: Story = {
   },
 };
 
+export const ReadOnly: Story = {
+  parameters: {
+    formProps: { initialValues: { radioBoxesField: 'night' } },
+  },
+  args: {
+    name: 'radioBoxesField',
+    readOnly: true,
+    options: [
+      {
+        description: 'Early birds get worms, but also need alarms.',
+        label: 'Morning Person',
+        value: 'morning',
+      },
+      {
+        description: 'Peak productivity at 2 AM.',
+        label: 'Night Owl',
+        value: 'night',
+      },
+      {
+        description: 'Sleep? What sleep?',
+        label: 'Insomniac',
+        value: 'insomniac',
+      },
+    ],
+  },
+};
+
 export const DisabledOption: Story = {
   args: {
     name: 'radioBoxesField',

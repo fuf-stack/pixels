@@ -53,9 +53,15 @@ export const radioTabsVariants = tv({
         tabWrapper: 'w-full',
       },
     },
-    isInvalid: {
+    invalid: {
       true: {
         tabWrapper: 'rounded-medium border-2 !border-danger',
+      },
+    },
+    readOnly: {
+      true: {
+        // Inner controls set their own cursors, so override every descendant.
+        base: '**:cursor-not-allowed cursor-not-allowed opacity-disabled',
       },
     },
   },
@@ -79,7 +85,10 @@ export interface RadioTabOption {
   value: string | number | boolean;
 }
 
-export interface RadioTabsProps extends Omit<VariantProps, 'hasContent'> {
+export interface RadioTabsProps extends Omit<
+  VariantProps,
+  'hasContent' | 'invalid'
+> {
   /** Custom aria-label for accessibility. If not provided, falls back to field name when no visible label exists */
   ariaLabel?: string;
   /** CSS class name */
@@ -96,6 +105,8 @@ export interface RadioTabsProps extends Omit<VariantProps, 'hasContent'> {
   name: string;
   /** Radio button configuration. */
   options: RadioTabOption[];
+  /** Prevents changes while keeping the tabs focusable and its value in validation and submission */
+  readOnly?: boolean;
   /** Id to grab element in internal tests. */
   testId?: string;
   /** How the RadioTabs should look like. */
@@ -122,6 +133,7 @@ const RadioTabs = ({
     field: { onBlur, onChange, ref, value },
     invalid,
     label,
+    readOnly,
     required,
     testId,
   } = useUniformField({
@@ -162,7 +174,8 @@ const RadioTabs = ({
   const variants = radioTabsVariants({
     fullWidth,
     hasContent,
-    isInvalid: invalid,
+    invalid,
+    readOnly,
   });
   const classNames = variantsToClassNames(variants, className, 'base');
 
@@ -176,7 +189,9 @@ const RadioTabs = ({
           name={name}
           onBlur={onBlur}
           onChange={(e) => {
-            onChange(convertToOriginalType(e.target.value));
+            if (!readOnly) {
+              onChange(convertToOriginalType(e.target.value));
+            }
           }}
           onFocus={() => {
             // Forward focus to the first tab when RHF focuses this input
@@ -205,6 +220,7 @@ const RadioTabs = ({
         errorMessage={errorMessage}
         isDisabled={disabled}
         isInvalid={invalid}
+        isReadOnly={readOnly}
         isRequired={required}
         label={label ? <legend>{label}</legend> : null}
         name={`${name}_radiotabs`}
@@ -221,8 +237,10 @@ const RadioTabs = ({
             tabWrapper: classNames.tabWrapper,
           }}
           disabledKeys={disabled ? disabledAllKeys : undefined}
+          // Tabs have no read-only mode: selection stays controlled and
+          // changes are ignored, while tabs remain focusable.
           onSelectionChange={(key) => {
-            if (key != null) {
+            if (key != null && !readOnly) {
               onChange(convertToOriginalType(key));
             }
           }}

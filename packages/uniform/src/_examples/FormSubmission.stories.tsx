@@ -5,7 +5,9 @@ import { useState } from 'react';
 import { action } from 'storybook/actions';
 import { expect, userEvent, waitFor, within } from 'storybook/test';
 
+import { Button } from '@fuf-stack/pixels/Button';
 import { Card } from '@fuf-stack/pixels/Card';
+import { Json } from '@fuf-stack/pixels/Json';
 import { string, veto } from '@fuf-stack/veto';
 
 import Form from '../Form';
@@ -65,51 +67,83 @@ const FormStateReadout = () => {
   );
 };
 
-const disabledFieldValidation = veto({
-  accountCode: string()
-    .min(3, 'Account code needs at least 3 characters')
+/**
+ * Shows the data `onSubmit` received, so omitted (disabled) and submitted
+ * (read-only) values are visible in the story and assertable in tests.
+ */
+const SubmittedValuesReadout = ({
+  values,
+}: {
+  values: Record<string, unknown> | null;
+}) => {
+  return (
+    <Card className="mt-6" header="Submitted values">
+      {/* data-submitted exposes the exact payload to play functions */}
+      <div
+        data-submitted={values ? JSON.stringify(values) : ''}
+        data-testid="submitted_values"
+      >
+        {values ? (
+          <Json value={values} />
+        ) : (
+          <span className="text-default-500 text-small">
+            Nothing submitted yet
+          </span>
+        )}
+      </div>
+    </Card>
+  );
+};
+
+const couponValidation = veto({
+  couponCode: string()
+    .min(3, 'Coupon codes have at least 3 characters')
     .optional(),
   name: string(),
 });
-const requiredDisabledFieldValidation = veto({
-  accountCode: string().min(3, 'Account code needs at least 3 characters'),
+const requiredCouponValidation = veto({
+  couponCode: string().min(3, 'Coupon codes have at least 3 characters'),
   name: string(),
 });
 
 const DisabledFieldsExample = ({
-  requireAccountCode = false,
+  requireCouponCode = false,
 }: {
-  requireAccountCode?: boolean;
+  requireCouponCode?: boolean;
 }) => {
   const [disabled, setDisabled] = useState(true);
   const [submitted, setSubmitted] = useState<Record<string, unknown> | null>(
     null,
   );
-  const validation = requireAccountCode
-    ? requiredDisabledFieldValidation
-    : disabledFieldValidation;
 
   return (
     <Form
-      initialValues={{ accountCode: 'ab', name: 'Ada' }}
+      className={{ form: 'min-w-lg' }}
+      initialValues={{ couponCode: 'ab', name: 'Ada' }}
       onSubmit={(data) => {
         setSubmitted(data);
       }}
-      validation={validation}
+      validation={
+        requireCouponCode ? requiredCouponValidation : couponValidation
+      }
       validationTrigger="onSubmit"
     >
-      <Input disabled={disabled} label="Account code" name="accountCode" />
-      <Input label="Name" name="name" />
-      <button
-        onClick={() => {
-          setDisabled(!disabled);
-        }}
-        type="button"
-      >
-        {disabled ? 'Enable field' : 'Disable field'}
-      </button>
-      <SubmitButton>Submit</SubmitButton>
-      <pre data-testid="submitted_values">{JSON.stringify(submitted)}</pre>
+      <Grid>
+        <Input disabled={disabled} label="🎟️ Coupon code" name="couponCode" />
+        <Input label="Name for the order" name="name" />
+      </Grid>
+      <div className="mt-6 flex justify-end gap-2">
+        <Button
+          onClick={() => {
+            setDisabled(!disabled);
+          }}
+          variant="bordered"
+        >
+          {disabled ? 'Enable field' : 'Disable field'}
+        </Button>
+        <SubmitButton>Submit</SubmitButton>
+      </div>
+      <SubmittedValuesReadout values={submitted} />
       <FormStateReadout />
     </Form>
   );
@@ -122,11 +156,12 @@ export const DisabledFields: Story = {
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    const input = canvas.getByRole('textbox', { name: /Account code/ });
+    const input = canvas.getByRole('textbox', { name: /Coupon code/ });
     expect(input).toBeDisabled();
     await userEvent.click(canvas.getByRole('button', { name: 'Submit form' }));
     await waitFor(async () => {
-      return expect(canvas.getByTestId('submitted_values')).toHaveTextContent(
+      return expect(canvas.getByTestId('submitted_values')).toHaveAttribute(
+        'data-submitted',
         '{"name":"Ada"}',
       );
     });
@@ -137,15 +172,16 @@ export const DisabledFields: Story = {
     await userEvent.click(canvas.getByRole('button', { name: 'Submit form' }));
     await waitFor(async () => {
       return expect(
-        canvas.getByText('Account code needs at least 3 characters'),
+        canvas.getByText('Coupon codes have at least 3 characters'),
       ).toBeVisible();
     });
     await userEvent.type(input, 'c');
     await userEvent.tab();
     await userEvent.click(canvas.getByRole('button', { name: 'Submit form' }));
     await waitFor(async () => {
-      return expect(canvas.getByTestId('submitted_values')).toHaveTextContent(
-        '{"accountCode":"abc","name":"Ada"}',
+      return expect(canvas.getByTestId('submitted_values')).toHaveAttribute(
+        'data-submitted',
+        '{"couponCode":"abc","name":"Ada"}',
       );
     });
   },
@@ -154,7 +190,7 @@ export const DisabledFields: Story = {
 /** Disabling a field does not relax a schema that requires its value. */
 export const RequiredDisabledField: Story = {
   render: () => {
-    return <DisabledFieldsExample requireAccountCode />;
+    return <DisabledFieldsExample requireCouponCode />;
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
@@ -163,18 +199,76 @@ export const RequiredDisabledField: Story = {
       await expect(canvas.getByText('Field is required')).toBeVisible();
     });
     await expect(canvas.getByTestId('submitted_values')).toHaveTextContent(
-      'null',
+      'Nothing submitted yet',
     );
 
     await userEvent.click(canvas.getByRole('button', { name: 'Enable field' }));
-    const input = canvas.getByRole('textbox', { name: /Account code/ });
+    const input = canvas.getByRole('textbox', { name: /Coupon code/ });
     await expect(input).toHaveValue('ab');
     await userEvent.type(input, 'c');
     await userEvent.tab();
     await userEvent.click(canvas.getByRole('button', { name: 'Submit form' }));
     await waitFor(async () => {
-      await expect(canvas.getByTestId('submitted_values')).toHaveTextContent(
-        '{"accountCode":"abc","name":"Ada"}',
+      await expect(canvas.getByTestId('submitted_values')).toHaveAttribute(
+        'data-submitted',
+        '{"couponCode":"abc","name":"Ada"}',
+      );
+    });
+  },
+};
+
+const ReadOnlyVsDisabledFieldsExample = () => {
+  const [submitted, setSubmitted] = useState<Record<string, unknown> | null>(
+    null,
+  );
+
+  return (
+    <Form
+      className={{ form: 'min-w-lg' }}
+      initialValues={{ couponCode: 'SUMMER', flavor: 'pistachio', name: 'Ada' }}
+      onSubmit={(data) => {
+        setSubmitted(data);
+      }}
+      validation={veto({
+        couponCode: string().optional(),
+        flavor: string(),
+        name: string(),
+      })}
+    >
+      <Grid>
+        <Input
+          label="🍦 Flavor of the day (read-only)"
+          name="flavor"
+          readOnly
+        />
+        <Input disabled label="🎟️ Coupon code (disabled)" name="couponCode" />
+        <Input label="Name for the order" name="name" />
+      </Grid>
+      <div className="mt-6 flex justify-end">
+        <SubmitButton>Submit</SubmitButton>
+      </div>
+      <SubmittedValuesReadout values={submitted} />
+    </Form>
+  );
+};
+
+/** Compares read-only and disabled fields: both block changes, but only the read-only value is validated and submitted. */
+export const ReadOnlyVsDisabledFields: Story = {
+  render: () => {
+    return <ReadOnlyVsDisabledFieldsExample />;
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const flavor = canvas.getByRole('textbox', { name: /Flavor of the day/ });
+    await expect(flavor).toBeEnabled();
+    await expect(flavor).toHaveAttribute('readonly');
+    await userEvent.type(flavor, 'changed');
+    await expect(flavor).toHaveValue('pistachio');
+    await userEvent.click(canvas.getByRole('button', { name: 'Submit form' }));
+    await waitFor(async () => {
+      return expect(canvas.getByTestId('submitted_values')).toHaveAttribute(
+        'data-submitted',
+        '{"flavor":"pistachio","name":"Ada"}',
       );
     });
   },

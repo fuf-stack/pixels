@@ -40,7 +40,7 @@ exports[`Story Snapshots > CheckboxesWithInitialValues 1`] = `
             >
               <label
                 aria-label="Email 📧"
-                class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
+                class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed data-[disabled=true]:**:cursor-not-allowed"
                 data-invalid="false"
                 data-selected="true"
                 data-testid="notifications_option_email"
@@ -89,7 +89,7 @@ exports[`Story Snapshots > CheckboxesWithInitialValues 1`] = `
               </label>
               <label
                 aria-label="SMS 📱"
-                class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
+                class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed data-[disabled=true]:**:cursor-not-allowed"
                 data-invalid="false"
                 data-selected="true"
                 data-testid="notifications_option_sms"
@@ -138,7 +138,7 @@ exports[`Story Snapshots > CheckboxesWithInitialValues 1`] = `
               </label>
               <label
                 aria-label="Push 🔔"
-                class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
+                class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed data-[disabled=true]:**:cursor-not-allowed"
                 data-invalid="false"
                 data-testid="notifications_option_push"
               >
@@ -416,7 +416,7 @@ exports[`Story Snapshots > CheckboxesWithoutInitialValues 1`] = `
             >
               <label
                 aria-label="Email 📧"
-                class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
+                class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed data-[disabled=true]:**:cursor-not-allowed"
                 data-invalid="false"
                 data-testid="notifications_option_email"
               >
@@ -463,7 +463,7 @@ exports[`Story Snapshots > CheckboxesWithoutInitialValues 1`] = `
               </label>
               <label
                 aria-label="SMS 📱"
-                class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
+                class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed data-[disabled=true]:**:cursor-not-allowed"
                 data-invalid="false"
                 data-testid="notifications_option_sms"
               >
@@ -509,7 +509,7 @@ exports[`Story Snapshots > CheckboxesWithoutInitialValues 1`] = `
               </label>
               <label
                 aria-label="Push 🔔"
-                class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
+                class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed data-[disabled=true]:**:cursor-not-allowed"
                 data-invalid="false"
                 data-testid="notifications_option_push"
               >
@@ -1918,7 +1918,7 @@ exports[`Story Snapshots > RadiosWithInitialValues 1`] = `
               role="presentation"
             >
               <label
-                class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
+                class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed data-[disabled=true]:**:cursor-not-allowed"
                 data-selected="true"
                 data-testid="radiosfield_option_pizza"
               >
@@ -1954,7 +1954,7 @@ exports[`Story Snapshots > RadiosWithInitialValues 1`] = `
                 </div>
               </label>
               <label
-                class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
+                class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed data-[disabled=true]:**:cursor-not-allowed"
                 data-testid="radiosfield_option_tacos"
               >
                 <input
@@ -1988,7 +1988,7 @@ exports[`Story Snapshots > RadiosWithInitialValues 1`] = `
                 </div>
               </label>
               <label
-                class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
+                class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed data-[disabled=true]:**:cursor-not-allowed"
                 data-testid="radiosfield_option_sushi"
               >
                 <input
@@ -2377,7 +2377,7 @@ exports[`Story Snapshots > RadiosWithoutInitialValues 1`] = `
               role="presentation"
             >
               <label
-                class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
+                class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed data-[disabled=true]:**:cursor-not-allowed"
                 data-testid="radiosfield_option_pizza"
               >
                 <input
@@ -2411,7 +2411,7 @@ exports[`Story Snapshots > RadiosWithoutInitialValues 1`] = `
                 </div>
               </label>
               <label
-                class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
+                class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed data-[disabled=true]:**:cursor-not-allowed"
                 data-testid="radiosfield_option_tacos"
               >
                 <input
@@ -2445,7 +2445,7 @@ exports[`Story Snapshots > RadiosWithoutInitialValues 1`] = `
                 </div>
               </label>
               <label
-                class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
+                class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed data-[disabled=true]:**:cursor-not-allowed"
                 data-testid="radiosfield_option_sushi"
               >
                 <input

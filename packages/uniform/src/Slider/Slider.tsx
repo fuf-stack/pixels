@@ -2,7 +2,7 @@ import type { TVClassName, TVProps } from '@fuf-stack/pixel-utils';
 import type { ReactNode } from 'react';
 import type { InputValueTransform } from '../hooks/useInputValueTransform';
 
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 
 import { Slider as HeroUISlider } from '@heroui/slider';
 import { VisuallyHidden } from '@react-aria/visually-hidden';
@@ -43,6 +43,14 @@ export const sliderVariants = tv({
     trackWrapper: '',
     value: '',
   },
+  variants: {
+    readOnly: {
+      true: {
+        // Inner controls set their own cursors, so override every descendant.
+        base: '**:cursor-not-allowed cursor-not-allowed opacity-disabled',
+      },
+    },
+  },
 });
 
 type VariantProps = TVProps<typeof sliderVariants>;
@@ -73,6 +81,8 @@ export interface SliderProps extends VariantProps {
   minValue?: number;
   /** form field name */
   name: string;
+  /** Prevents changes while keeping the slider focusable and its value in validation and submission */
+  readOnly?: boolean;
   /**
    * Whether to show step dots on the slider
    * @default false
@@ -122,6 +132,7 @@ const Slider = ({
     label,
     onBlur,
     onChange,
+    readOnly,
     ref,
     required,
     errorMessage,
@@ -143,9 +154,34 @@ const Slider = ({
     }
   };
 
+  // HeroUI renders the thumb's range input internally and offers no prop for
+  // it, so mark it read-only directly; screen readers announce this state when
+  // keyboard focus reaches the thumb.
+  useEffect(() => {
+    visualSliderRef.current
+      ?.querySelectorAll<HTMLInputElement>(
+        '[data-slot="thumb"] input[type="range"]',
+      )
+      .forEach((input) => {
+        if (readOnly) {
+          input.setAttribute('aria-readonly', 'true');
+        } else {
+          input.removeAttribute('aria-readonly');
+        }
+      });
+  }, [readOnly]);
+
   // classNames from slots
-  const variants = sliderVariants();
+  const variants = sliderVariants({ readOnly });
   const classNames = variantsToClassNames(variants, className, 'base');
+
+  // HeroUI Slider has no read-only mode: it stays focusable and controlled,
+  // and changes are ignored so the thumb keeps the stored value.
+  const handleChange = (nextValue: number | number[]) => {
+    if (!readOnly) {
+      onChange(nextValue);
+    }
+  };
 
   // Get the current value, defaulting to minValue if null/undefined
   const currentValue = field.value != null ? Number(field.value) : minValue;
@@ -169,13 +205,14 @@ const Slider = ({
         <input
           ref={ref}
           aria-label={ariaLabel}
+          aria-readonly={readOnly || undefined}
           disabled={disabled}
           max={maxValue}
           min={minValue}
           name={name}
           onBlur={onBlur}
           onChange={(e) => {
-            onChange(Number(e.target.value));
+            handleChange(Number(e.target.value));
           }}
           // RHF error focus must reach the interactive input as well.
           onFocus={focusSliderInput}
@@ -211,7 +248,7 @@ const Slider = ({
         minValue={minValue}
         name={`${name}_slider`}
         onBlur={onBlur}
-        onChange={onChange}
+        onChange={handleChange}
         showSteps={showSteps}
         size={size}
         startContent={startContent}

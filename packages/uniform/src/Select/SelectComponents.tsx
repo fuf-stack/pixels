@@ -2,12 +2,21 @@ import { components } from 'react-select';
 
 import { slugify } from '@fuf-stack/pixel-utils';
 
-/** Mirrors the select test id onto the underlying react-select input element. */
+/** Mirrors the select test id and read-only state onto the underlying react-select input element. */
 export const InputComponent: typeof components.Input = (props) => {
   // @ts-expect-error data-testid is not a default prop
   // eslint-disable-next-line react/destructuring-assignment
   const testId = `${props.selectProps['data-testid']}`;
-  return <components.Input data-testid={testId} {...props} />;
+  // @ts-expect-error aria-readonly is not a default prop
+  // eslint-disable-next-line react/destructuring-assignment
+  const ariaReadOnly = props.selectProps['aria-readonly'] as true | undefined;
+  return (
+    <components.Input
+      aria-readonly={ariaReadOnly}
+      data-testid={testId}
+      {...props}
+    />
+  );
 };
 
 /** Wraps the control root to expose a stable `*_select` test id hook. */

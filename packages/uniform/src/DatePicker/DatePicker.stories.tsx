@@ -90,6 +90,18 @@ export const Disabled: Story = {
   },
 };
 
+export const ReadOnly: Story = {
+  parameters: {
+    formProps: { initialValues: { dateTimeField: '2026-03-14T09:30:00Z' } },
+  },
+  args: {
+    label: 'Read-only Date & Time',
+    name: 'dateTimeField',
+    readOnly: true,
+    withTime: true,
+  },
+};
+
 export const Invalid: Story = {
   parameters: {
     formProps: {

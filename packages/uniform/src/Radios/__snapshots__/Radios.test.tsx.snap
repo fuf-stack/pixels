@@ -42,7 +42,7 @@ exports[`Story Snapshots > CustomOptionsRendering 1`] = `
             <div>
               <label
                 aria-required="true"
-                class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 select-none m-2 w-full"
+                class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 select-none data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed data-[disabled=true]:**:cursor-not-allowed m-2 w-full"
                 data-invalid="true"
                 data-testid="radiosfield_option_treasure_hunt"
               >
@@ -81,7 +81,7 @@ exports[`Story Snapshots > CustomOptionsRendering 1`] = `
             <div>
               <label
                 aria-required="true"
-                class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 select-none m-2 w-full"
+                class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 select-none data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed data-[disabled=true]:**:cursor-not-allowed m-2 w-full"
                 data-invalid="true"
                 data-testid="radiosfield_option_potion_brewing"
               >
@@ -120,7 +120,7 @@ exports[`Story Snapshots > CustomOptionsRendering 1`] = `
             <div>
               <label
                 aria-required="true"
-                class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 select-none m-2 w-full"
+                class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 select-none data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed data-[disabled=true]:**:cursor-not-allowed m-2 w-full"
                 data-invalid="true"
                 data-testid="radiosfield_option_dragon_negotiation"
               >
@@ -211,7 +211,7 @@ exports[`Story Snapshots > Default 1`] = `
       novalidate=""
     >
       <div
-        aria-label="radiosField"
+        aria-label="Favorite ice cream"
         aria-orientation="vertical"
         class="relative gap-2 group flex w-full flex-col gap-y-1.5"
         data-invalid="false"
@@ -220,14 +220,21 @@ exports[`Story Snapshots > Default 1`] = `
         id="react-aria-«replaced-aria-id»"
         role="radiogroup"
       >
+        <span
+          class="relative mb-2 inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger"
+        >
+          <legend>
+            Favorite ice cream
+          </legend>
+        </span>
         <div
           class="flex flex-col flex-wrap gap-2 data-[orientation=horizontal]:flex-row"
           data-orientation="vertical"
           role="presentation"
         >
           <label
-            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
-            data-testid="radiosfield_option_1"
+            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed data-[disabled=true]:**:cursor-not-allowed"
+            data-testid="radiosfield_option_vanilla"
           >
             <input
               aria-describedby="«replaced-aria-id» react-aria-«replaced-aria-id»"
@@ -238,7 +245,7 @@ exports[`Story Snapshots > Default 1`] = `
               tabindex="-1"
               title=""
               type="radio"
-              value="1"
+              value="vanilla"
             />
             <span
               aria-hidden="true"
@@ -255,13 +262,13 @@ exports[`Story Snapshots > Default 1`] = `
                 class="relative text-foreground select-none transition-colors motion-reduce:transition-none text-sm"
                 id="«replaced-aria-id»"
               >
-                option 1
+                🍦 Vanilla
               </span>
             </div>
           </label>
           <label
-            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
-            data-testid="radiosfield_option_2"
+            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed data-[disabled=true]:**:cursor-not-allowed"
+            data-testid="radiosfield_option_chocolate"
           >
             <input
               aria-describedby="«replaced-aria-id» react-aria-«replaced-aria-id»"
@@ -272,7 +279,7 @@ exports[`Story Snapshots > Default 1`] = `
               tabindex="-1"
               title=""
               type="radio"
-              value="2"
+              value="chocolate"
             />
             <span
               aria-hidden="true"
@@ -289,13 +296,13 @@ exports[`Story Snapshots > Default 1`] = `
                 class="relative text-foreground select-none transition-colors motion-reduce:transition-none text-sm"
                 id="«replaced-aria-id»"
               >
-                option 2
+                🍫 Chocolate
               </span>
             </div>
           </label>
           <label
-            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
-            data-testid="radiosfield_option_3"
+            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed data-[disabled=true]:**:cursor-not-allowed"
+            data-testid="radiosfield_option_strawberry"
           >
             <input
               aria-describedby="«replaced-aria-id» react-aria-«replaced-aria-id»"
@@ -306,7 +313,7 @@ exports[`Story Snapshots > Default 1`] = `
               tabindex="-1"
               title=""
               type="radio"
-              value="3"
+              value="strawberry"
             />
             <span
               aria-hidden="true"
@@ -323,7 +330,7 @@ exports[`Story Snapshots > Default 1`] = `
                 class="relative text-foreground select-none transition-colors motion-reduce:transition-none text-sm"
                 id="«replaced-aria-id»"
               >
-                option 3
+                🍓 Strawberry
               </span>
             </div>
           </label>
@@ -360,7 +367,7 @@ exports[`Story Snapshots > DisabledCompletely 1`] = `
       novalidate=""
     >
       <div
-        aria-label="radiosField"
+        aria-label="Favorite ice cream"
         aria-orientation="vertical"
         class="relative gap-2 group flex w-full flex-col gap-y-1.5"
         data-invalid="false"
@@ -369,25 +376,34 @@ exports[`Story Snapshots > DisabledCompletely 1`] = `
         id="react-aria-«replaced-aria-id»"
         role="radiogroup"
       >
+        <span
+          class="relative mb-2 inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger"
+        >
+          <legend>
+            Favorite ice cream
+          </legend>
+        </span>
         <div
           class="flex flex-col flex-wrap gap-2 data-[orientation=horizontal]:flex-row"
           data-orientation="vertical"
           role="presentation"
         >
           <label
-            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none opacity-disabled pointer-events-none"
+            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none opacity-disabled pointer-events-none data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed data-[disabled=true]:**:cursor-not-allowed"
             data-disabled="true"
-            data-testid="radiosfield_option_option_1"
+            data-selected="true"
+            data-testid="radiosfield_option_vanilla"
           >
             <input
               aria-describedby="«replaced-aria-id» react-aria-«replaced-aria-id»"
               aria-labelledby="«replaced-aria-id»"
+              checked=""
               class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
               data-react-aria-pressable="true"
               disabled=""
               name="radiosField"
               type="radio"
-              value="option 1"
+              value="vanilla"
             />
             <span
               aria-hidden="true"
@@ -404,14 +420,14 @@ exports[`Story Snapshots > DisabledCompletely 1`] = `
                 class="relative text-foreground select-none transition-colors motion-reduce:transition-none text-sm"
                 id="«replaced-aria-id»"
               >
-                option 1
+                🍦 Vanilla
               </span>
             </div>
           </label>
           <label
-            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none opacity-disabled pointer-events-none"
+            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none opacity-disabled pointer-events-none data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed data-[disabled=true]:**:cursor-not-allowed"
             data-disabled="true"
-            data-testid="radiosfield_option_option_2"
+            data-testid="radiosfield_option_chocolate"
           >
             <input
               aria-describedby="«replaced-aria-id» react-aria-«replaced-aria-id»"
@@ -421,7 +437,7 @@ exports[`Story Snapshots > DisabledCompletely 1`] = `
               disabled=""
               name="radiosField"
               type="radio"
-              value="option 2"
+              value="chocolate"
             />
             <span
               aria-hidden="true"
@@ -438,14 +454,14 @@ exports[`Story Snapshots > DisabledCompletely 1`] = `
                 class="relative text-foreground select-none transition-colors motion-reduce:transition-none text-sm"
                 id="«replaced-aria-id»"
               >
-                option 2
+                🍫 Chocolate
               </span>
             </div>
           </label>
           <label
-            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none opacity-disabled pointer-events-none"
+            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none opacity-disabled pointer-events-none data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed data-[disabled=true]:**:cursor-not-allowed"
             data-disabled="true"
-            data-testid="radiosfield_option_option_3"
+            data-testid="radiosfield_option_strawberry"
           >
             <input
               aria-describedby="«replaced-aria-id» react-aria-«replaced-aria-id»"
@@ -455,7 +471,7 @@ exports[`Story Snapshots > DisabledCompletely 1`] = `
               disabled=""
               name="radiosField"
               type="radio"
-              value="option 3"
+              value="strawberry"
             />
             <span
               aria-hidden="true"
@@ -472,7 +488,7 @@ exports[`Story Snapshots > DisabledCompletely 1`] = `
                 class="relative text-foreground select-none transition-colors motion-reduce:transition-none text-sm"
                 id="«replaced-aria-id»"
               >
-                option 3
+                🍓 Strawberry
               </span>
             </div>
           </label>
@@ -509,7 +525,7 @@ exports[`Story Snapshots > DisabledOption 1`] = `
       novalidate=""
     >
       <div
-        aria-label="radiosField"
+        aria-label="Favorite ice cream"
         aria-orientation="vertical"
         class="relative gap-2 group flex w-full flex-col gap-y-1.5"
         data-invalid="false"
@@ -518,14 +534,21 @@ exports[`Story Snapshots > DisabledOption 1`] = `
         id="react-aria-«replaced-aria-id»"
         role="radiogroup"
       >
+        <span
+          class="relative mb-2 inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger"
+        >
+          <legend>
+            Favorite ice cream
+          </legend>
+        </span>
         <div
           class="flex flex-col flex-wrap gap-2 data-[orientation=horizontal]:flex-row"
           data-orientation="vertical"
           role="presentation"
         >
           <label
-            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
-            data-testid="radiosfield_option_option_1"
+            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed data-[disabled=true]:**:cursor-not-allowed"
+            data-testid="radiosfield_option_vanilla"
           >
             <input
               aria-describedby="«replaced-aria-id» react-aria-«replaced-aria-id»"
@@ -536,7 +559,7 @@ exports[`Story Snapshots > DisabledOption 1`] = `
               tabindex="-1"
               title=""
               type="radio"
-              value="option 1"
+              value="vanilla"
             />
             <span
               aria-hidden="true"
@@ -553,14 +576,14 @@ exports[`Story Snapshots > DisabledOption 1`] = `
                 class="relative text-foreground select-none transition-colors motion-reduce:transition-none text-sm"
                 id="«replaced-aria-id»"
               >
-                option 1
+                🍦 Vanilla
               </span>
             </div>
           </label>
           <label
-            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none opacity-disabled pointer-events-none"
+            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none opacity-disabled pointer-events-none data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed data-[disabled=true]:**:cursor-not-allowed"
             data-disabled="true"
-            data-testid="radiosfield_option_disabled_option"
+            data-testid="radiosfield_option_chocolate"
           >
             <input
               aria-describedby="«replaced-aria-id» react-aria-«replaced-aria-id»"
@@ -570,7 +593,7 @@ exports[`Story Snapshots > DisabledOption 1`] = `
               disabled=""
               name="radiosField"
               type="radio"
-              value="disabled option"
+              value="chocolate"
             />
             <span
               aria-hidden="true"
@@ -587,13 +610,13 @@ exports[`Story Snapshots > DisabledOption 1`] = `
                 class="relative text-foreground select-none transition-colors motion-reduce:transition-none text-sm"
                 id="«replaced-aria-id»"
               >
-                disabled option
+                🍫 Chocolate (sold out)
               </span>
             </div>
           </label>
           <label
-            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
-            data-testid="radiosfield_option_option_3"
+            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed data-[disabled=true]:**:cursor-not-allowed"
+            data-testid="radiosfield_option_strawberry"
           >
             <input
               aria-describedby="«replaced-aria-id» react-aria-«replaced-aria-id»"
@@ -604,7 +627,7 @@ exports[`Story Snapshots > DisabledOption 1`] = `
               tabindex="-1"
               title=""
               type="radio"
-              value="option 3"
+              value="strawberry"
             />
             <span
               aria-hidden="true"
@@ -621,7 +644,7 @@ exports[`Story Snapshots > DisabledOption 1`] = `
                 class="relative text-foreground select-none transition-colors motion-reduce:transition-none text-sm"
                 id="«replaced-aria-id»"
               >
-                option 3
+                🍓 Strawberry
               </span>
             </div>
           </label>
@@ -658,7 +681,7 @@ exports[`Story Snapshots > Inline 1`] = `
       novalidate=""
     >
       <div
-        aria-label="radiosField"
+        aria-label="Favorite ice cream"
         aria-orientation="horizontal"
         class="relative gap-2 group flex w-full flex-col gap-y-1.5"
         data-invalid="false"
@@ -667,14 +690,21 @@ exports[`Story Snapshots > Inline 1`] = `
         id="react-aria-«replaced-aria-id»"
         role="radiogroup"
       >
+        <span
+          class="relative mb-2 inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger"
+        >
+          <legend>
+            Favorite ice cream
+          </legend>
+        </span>
         <div
           class="flex flex-col flex-wrap gap-2 data-[orientation=horizontal]:flex-row"
           data-orientation="horizontal"
           role="presentation"
         >
           <label
-            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
-            data-testid="radiosfield_option_option_1"
+            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed data-[disabled=true]:**:cursor-not-allowed"
+            data-testid="radiosfield_option_vanilla"
           >
             <input
               aria-describedby="«replaced-aria-id» react-aria-«replaced-aria-id»"
@@ -685,7 +715,7 @@ exports[`Story Snapshots > Inline 1`] = `
               tabindex="-1"
               title=""
               type="radio"
-              value="option 1"
+              value="vanilla"
             />
             <span
               aria-hidden="true"
@@ -702,13 +732,13 @@ exports[`Story Snapshots > Inline 1`] = `
                 class="relative text-foreground select-none transition-colors motion-reduce:transition-none text-sm"
                 id="«replaced-aria-id»"
               >
-                option 1
+                🍦 Vanilla
               </span>
             </div>
           </label>
           <label
-            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
-            data-testid="radiosfield_option_option_2"
+            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed data-[disabled=true]:**:cursor-not-allowed"
+            data-testid="radiosfield_option_chocolate"
           >
             <input
               aria-describedby="«replaced-aria-id» react-aria-«replaced-aria-id»"
@@ -719,7 +749,7 @@ exports[`Story Snapshots > Inline 1`] = `
               tabindex="-1"
               title=""
               type="radio"
-              value="option 2"
+              value="chocolate"
             />
             <span
               aria-hidden="true"
@@ -736,13 +766,13 @@ exports[`Story Snapshots > Inline 1`] = `
                 class="relative text-foreground select-none transition-colors motion-reduce:transition-none text-sm"
                 id="«replaced-aria-id»"
               >
-                option 2
+                🍫 Chocolate
               </span>
             </div>
           </label>
           <label
-            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
-            data-testid="radiosfield_option_option_3"
+            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed data-[disabled=true]:**:cursor-not-allowed"
+            data-testid="radiosfield_option_strawberry"
           >
             <input
               aria-describedby="«replaced-aria-id» react-aria-«replaced-aria-id»"
@@ -753,7 +783,7 @@ exports[`Story Snapshots > Inline 1`] = `
               tabindex="-1"
               title=""
               type="radio"
-              value="option 3"
+              value="strawberry"
             />
             <span
               aria-hidden="true"
@@ -770,7 +800,7 @@ exports[`Story Snapshots > Inline 1`] = `
                 class="relative text-foreground select-none transition-colors motion-reduce:transition-none text-sm"
                 id="«replaced-aria-id»"
               >
-                option 3
+                🍓 Strawberry
               </span>
             </div>
           </label>
@@ -809,7 +839,7 @@ exports[`Story Snapshots > Invalid 1`] = `
       <div
         aria-describedby="react-aria-«replaced-aria-id»"
         aria-invalid="true"
-        aria-label="radiosField"
+        aria-label="Pizza topping"
         aria-orientation="vertical"
         aria-required="true"
         class="relative gap-2 group flex w-full flex-col gap-y-1.5"
@@ -823,7 +853,7 @@ exports[`Story Snapshots > Invalid 1`] = `
           class="relative after:content-['*'] after:text-danger after:ml-0.5 mb-2 inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger"
         >
           <legend>
-            radiosField
+            Pizza topping
           </legend>
         </span>
         <div
@@ -833,9 +863,9 @@ exports[`Story Snapshots > Invalid 1`] = `
         >
           <label
             aria-required="true"
-            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
+            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed data-[disabled=true]:**:cursor-not-allowed"
             data-invalid="true"
-            data-testid="radiosfield_option_one"
+            data-testid="radiosfield_option_cheese"
           >
             <input
               aria-describedby="«replaced-aria-id»"
@@ -847,7 +877,7 @@ exports[`Story Snapshots > Invalid 1`] = `
               tabindex="-1"
               title=""
               type="radio"
-              value="one"
+              value="cheese"
             />
             <span
               aria-hidden="true"
@@ -864,18 +894,18 @@ exports[`Story Snapshots > Invalid 1`] = `
                 class="relative select-none text-danger transition-colors motion-reduce:transition-none text-sm"
                 id="«replaced-aria-id»"
               >
-                one
+                🧀 Extra cheese
               </span>
             </div>
           </label>
           <label
             aria-required="true"
-            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
+            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed data-[disabled=true]:**:cursor-not-allowed"
             data-focus="true"
             data-hover="true"
             data-invalid="true"
             data-selected="true"
-            data-testid="radiosfield_option_two"
+            data-testid="radiosfield_option_pineapple"
           >
             <input
               aria-describedby="«replaced-aria-id»"
@@ -887,7 +917,7 @@ exports[`Story Snapshots > Invalid 1`] = `
               tabindex="0"
               title=""
               type="radio"
-              value="two"
+              value="pineapple"
             />
             <span
               aria-hidden="true"
@@ -904,15 +934,15 @@ exports[`Story Snapshots > Invalid 1`] = `
                 class="relative select-none text-danger transition-colors motion-reduce:transition-none text-sm"
                 id="«replaced-aria-id»"
               >
-                two
+                🍍 Pineapple
               </span>
             </div>
           </label>
           <label
             aria-required="true"
-            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
+            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed data-[disabled=true]:**:cursor-not-allowed"
             data-invalid="true"
-            data-testid="radiosfield_option_three"
+            data-testid="radiosfield_option_mushrooms"
           >
             <input
               aria-describedby="«replaced-aria-id»"
@@ -924,7 +954,7 @@ exports[`Story Snapshots > Invalid 1`] = `
               tabindex="-1"
               title=""
               type="radio"
-              value="three"
+              value="mushrooms"
             />
             <span
               aria-hidden="true"
@@ -941,7 +971,7 @@ exports[`Story Snapshots > Invalid 1`] = `
                 class="relative select-none text-danger transition-colors motion-reduce:transition-none text-sm"
                 id="«replaced-aria-id»"
               >
-                three
+                🍄 Mushrooms
               </span>
             </div>
           </label>
@@ -960,7 +990,7 @@ exports[`Story Snapshots > Invalid 1`] = `
               <div
                 class="px-1 pt-1"
               >
-                Please use another option
+                Pineapple on pizza? Please pick another topping
               </div>
             </li>
           </ul>
@@ -1012,7 +1042,7 @@ exports[`Story Snapshots > NumberValues 1`] = `
           role="presentation"
         >
           <label
-            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
+            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed data-[disabled=true]:**:cursor-not-allowed"
             data-testid="radiosfield_option_1"
           >
             <input
@@ -1046,7 +1076,7 @@ exports[`Story Snapshots > NumberValues 1`] = `
             </div>
           </label>
           <label
-            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
+            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed data-[disabled=true]:**:cursor-not-allowed"
             data-testid="radiosfield_option_2"
           >
             <input
@@ -1080,7 +1110,7 @@ exports[`Story Snapshots > NumberValues 1`] = `
             </div>
           </label>
           <label
-            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
+            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed data-[disabled=true]:**:cursor-not-allowed"
             data-testid="radiosfield_option_3"
           >
             <input
@@ -1134,6 +1164,165 @@ exports[`Story Snapshots > NumberValues 1`] = `
 </div>
 `;
 
+exports[`Story Snapshots > ReadOnly 1`] = `
+<div>
+  <div
+    class="flex w-full flex-row justify-between gap-6"
+  >
+    <form
+      class="grow min-w-60"
+      data-form-is-valid="true"
+      data-testid=""
+      novalidate=""
+    >
+      <div
+        aria-label="Favorite ice cream"
+        aria-orientation="vertical"
+        aria-readonly="true"
+        class="relative gap-2 group flex w-full flex-col gap-y-1.5 **:cursor-not-allowed cursor-not-allowed opacity-disabled"
+        data-invalid="false"
+        data-required="false"
+        data-testid="radiosfield"
+        id="react-aria-«replaced-aria-id»"
+        role="radiogroup"
+      >
+        <span
+          class="relative mb-2 inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger"
+        >
+          <legend>
+            Favorite ice cream
+          </legend>
+        </span>
+        <div
+          class="flex flex-col flex-wrap gap-2 data-[orientation=horizontal]:flex-row"
+          data-orientation="vertical"
+          role="presentation"
+        >
+          <label
+            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed data-[disabled=true]:**:cursor-not-allowed"
+            data-testid="radiosfield_option_vanilla"
+          >
+            <input
+              aria-describedby="«replaced-aria-id» react-aria-«replaced-aria-id»"
+              aria-labelledby="«replaced-aria-id»"
+              class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
+              data-react-aria-pressable="true"
+              name="radiosField"
+              tabindex="-1"
+              title=""
+              type="radio"
+              value="vanilla"
+            />
+            <span
+              aria-hidden="true"
+              class="relative inline-flex items-center justify-center shrink-0 overflow-hidden border-solid border-medium box-border border-default rounded-full group-data-[hover-unselected=true]:bg-default-100 outline-solid outline-transparent group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:border-primary w-5 h-5 group-data-[pressed=true]:scale-95 transition-transform-colors motion-reduce:transition-none group-data-[invalid=true]:border-danger! [&:not(group-data-[invalid="true"]):not(group-data-[selected="false"])]:border-focus"
+            >
+              <span
+                class="z-10 opacity-0 scale-0 origin-center rounded-full group-data-[selected=true]:opacity-100 group-data-[selected=true]:scale-100 text-primary-foreground w-2 h-2 transition-transform-opacity motion-reduce:transition-none bg-focus group-data-[invalid=true]:bg-danger"
+              />
+            </span>
+            <div
+              class="flex flex-col ms-2 ml-2"
+            >
+              <span
+                class="relative text-foreground select-none transition-colors motion-reduce:transition-none text-sm"
+                id="«replaced-aria-id»"
+              >
+                🍦 Vanilla
+              </span>
+            </div>
+          </label>
+          <label
+            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed data-[disabled=true]:**:cursor-not-allowed"
+            data-selected="true"
+            data-testid="radiosfield_option_chocolate"
+          >
+            <input
+              aria-describedby="«replaced-aria-id» react-aria-«replaced-aria-id»"
+              aria-labelledby="«replaced-aria-id»"
+              checked=""
+              class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
+              data-react-aria-pressable="true"
+              name="radiosField"
+              tabindex="0"
+              title=""
+              type="radio"
+              value="chocolate"
+            />
+            <span
+              aria-hidden="true"
+              class="relative inline-flex items-center justify-center shrink-0 overflow-hidden border-solid border-medium box-border border-default rounded-full group-data-[hover-unselected=true]:bg-default-100 outline-solid outline-transparent group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:border-primary w-5 h-5 group-data-[pressed=true]:scale-95 transition-transform-colors motion-reduce:transition-none group-data-[invalid=true]:border-danger! [&:not(group-data-[invalid="true"]):not(group-data-[selected="false"])]:border-focus"
+            >
+              <span
+                class="z-10 opacity-0 scale-0 origin-center rounded-full group-data-[selected=true]:opacity-100 group-data-[selected=true]:scale-100 text-primary-foreground w-2 h-2 transition-transform-opacity motion-reduce:transition-none bg-focus group-data-[invalid=true]:bg-danger"
+              />
+            </span>
+            <div
+              class="flex flex-col ms-2 ml-2"
+            >
+              <span
+                class="relative text-foreground select-none transition-colors motion-reduce:transition-none text-sm"
+                id="«replaced-aria-id»"
+              >
+                🍫 Chocolate
+              </span>
+            </div>
+          </label>
+          <label
+            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed data-[disabled=true]:**:cursor-not-allowed"
+            data-testid="radiosfield_option_strawberry"
+          >
+            <input
+              aria-describedby="«replaced-aria-id» react-aria-«replaced-aria-id»"
+              aria-labelledby="«replaced-aria-id»"
+              class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
+              data-react-aria-pressable="true"
+              name="radiosField"
+              tabindex="-1"
+              title=""
+              type="radio"
+              value="strawberry"
+            />
+            <span
+              aria-hidden="true"
+              class="relative inline-flex items-center justify-center shrink-0 overflow-hidden border-solid border-medium box-border border-default rounded-full group-data-[hover-unselected=true]:bg-default-100 outline-solid outline-transparent group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background group-data-[selected=true]:border-primary w-5 h-5 group-data-[pressed=true]:scale-95 transition-transform-colors motion-reduce:transition-none group-data-[invalid=true]:border-danger! [&:not(group-data-[invalid="true"]):not(group-data-[selected="false"])]:border-focus"
+            >
+              <span
+                class="z-10 opacity-0 scale-0 origin-center rounded-full group-data-[selected=true]:opacity-100 group-data-[selected=true]:scale-100 text-primary-foreground w-2 h-2 transition-transform-opacity motion-reduce:transition-none bg-focus group-data-[invalid=true]:bg-danger"
+              />
+            </span>
+            <div
+              class="flex flex-col ms-2 ml-2"
+            >
+              <span
+                class="relative text-foreground select-none transition-colors motion-reduce:transition-none text-sm"
+                id="«replaced-aria-id»"
+              >
+                🍓 Strawberry
+              </span>
+            </div>
+          </label>
+        </div>
+      </div>
+      <div
+        class="mt-4 flex justify-end"
+      >
+        <button
+          aria-label="Submit form"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent transform-gpu data-[pressed=true]:scale-[0.97] cursor-pointer outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success data-[hover=true]:opacity-hover text-white"
+          data-react-aria-pressable="true"
+          data-testid="form_submit_button"
+          tabindex="0"
+          type="submit"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
 exports[`Story Snapshots > Required 1`] = `
 <div>
   <div
@@ -1146,7 +1335,7 @@ exports[`Story Snapshots > Required 1`] = `
       novalidate=""
     >
       <div
-        aria-label="radiosField"
+        aria-label="Favorite ice cream"
         aria-orientation="vertical"
         aria-required="true"
         class="relative gap-2 group flex w-full flex-col gap-y-1.5"
@@ -1160,7 +1349,7 @@ exports[`Story Snapshots > Required 1`] = `
           class="relative after:content-['*'] after:text-danger after:ml-0.5 mb-2 inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger"
         >
           <legend>
-            radiosField
+            Favorite ice cream
           </legend>
         </span>
         <div
@@ -1170,8 +1359,8 @@ exports[`Story Snapshots > Required 1`] = `
         >
           <label
             aria-required="true"
-            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
-            data-testid="radiosfield_option_1"
+            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed data-[disabled=true]:**:cursor-not-allowed"
+            data-testid="radiosfield_option_vanilla"
           >
             <input
               aria-describedby="«replaced-aria-id» react-aria-«replaced-aria-id»"
@@ -1183,7 +1372,7 @@ exports[`Story Snapshots > Required 1`] = `
               tabindex="-1"
               title=""
               type="radio"
-              value="1"
+              value="vanilla"
             />
             <span
               aria-hidden="true"
@@ -1200,14 +1389,14 @@ exports[`Story Snapshots > Required 1`] = `
                 class="relative text-foreground select-none transition-colors motion-reduce:transition-none text-sm"
                 id="«replaced-aria-id»"
               >
-                1
+                🍦 Vanilla
               </span>
             </div>
           </label>
           <label
             aria-required="true"
-            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
-            data-testid="radiosfield_option_2"
+            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed data-[disabled=true]:**:cursor-not-allowed"
+            data-testid="radiosfield_option_chocolate"
           >
             <input
               aria-describedby="«replaced-aria-id» react-aria-«replaced-aria-id»"
@@ -1219,7 +1408,7 @@ exports[`Story Snapshots > Required 1`] = `
               tabindex="-1"
               title=""
               type="radio"
-              value="2"
+              value="chocolate"
             />
             <span
               aria-hidden="true"
@@ -1236,14 +1425,14 @@ exports[`Story Snapshots > Required 1`] = `
                 class="relative text-foreground select-none transition-colors motion-reduce:transition-none text-sm"
                 id="«replaced-aria-id»"
               >
-                2
+                🍫 Chocolate
               </span>
             </div>
           </label>
           <label
             aria-required="true"
-            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
-            data-testid="radiosfield_option_3"
+            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed data-[disabled=true]:**:cursor-not-allowed"
+            data-testid="radiosfield_option_strawberry"
           >
             <input
               aria-describedby="«replaced-aria-id» react-aria-«replaced-aria-id»"
@@ -1255,7 +1444,7 @@ exports[`Story Snapshots > Required 1`] = `
               tabindex="-1"
               title=""
               type="radio"
-              value="3"
+              value="strawberry"
             />
             <span
               aria-hidden="true"
@@ -1272,7 +1461,7 @@ exports[`Story Snapshots > Required 1`] = `
                 class="relative text-foreground select-none transition-colors motion-reduce:transition-none text-sm"
                 id="«replaced-aria-id»"
               >
-                3
+                🍓 Strawberry
               </span>
             </div>
           </label>
@@ -1309,7 +1498,7 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
       novalidate=""
     >
       <div
-        aria-label="radiosField"
+        aria-label="Favorite ice cream"
         aria-orientation="vertical"
         class="relative gap-2 group flex w-full flex-col gap-y-1.5"
         data-invalid="false"
@@ -1318,14 +1507,21 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
         id="react-aria-«replaced-aria-id»"
         role="radiogroup"
       >
+        <span
+          class="relative mb-2 inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger"
+        >
+          <legend>
+            Favorite ice cream
+          </legend>
+        </span>
         <div
           class="flex flex-col flex-wrap gap-2 data-[orientation=horizontal]:flex-row"
           data-orientation="vertical"
           role="presentation"
         >
           <label
-            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
-            data-testid="radiosfield_option_option_1"
+            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed data-[disabled=true]:**:cursor-not-allowed"
+            data-testid="radiosfield_option_vanilla"
           >
             <input
               aria-describedby="«replaced-aria-id» react-aria-«replaced-aria-id»"
@@ -1336,7 +1532,7 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
               tabindex="-1"
               title=""
               type="radio"
-              value="option 1"
+              value="vanilla"
             />
             <span
               aria-hidden="true"
@@ -1353,14 +1549,14 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
                 class="relative text-foreground select-none transition-colors motion-reduce:transition-none text-sm"
                 id="«replaced-aria-id»"
               >
-                option 1
+                🍦 Vanilla
               </span>
             </div>
           </label>
           <label
-            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
+            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed data-[disabled=true]:**:cursor-not-allowed"
             data-selected="true"
-            data-testid="radiosfield_option_option_2"
+            data-testid="radiosfield_option_chocolate"
           >
             <input
               aria-describedby="«replaced-aria-id» react-aria-«replaced-aria-id»"
@@ -1372,7 +1568,7 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
               tabindex="0"
               title=""
               type="radio"
-              value="option 2"
+              value="chocolate"
             />
             <span
               aria-hidden="true"
@@ -1389,13 +1585,13 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
                 class="relative text-foreground select-none transition-colors motion-reduce:transition-none text-sm"
                 id="«replaced-aria-id»"
               >
-                option 2
+                🍫 Chocolate
               </span>
             </div>
           </label>
           <label
-            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
-            data-testid="radiosfield_option_option_3"
+            class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none data-[disabled=true]:pointer-events-auto data-[disabled=true]:cursor-not-allowed data-[disabled=true]:**:cursor-not-allowed"
+            data-testid="radiosfield_option_strawberry"
           >
             <input
               aria-describedby="«replaced-aria-id» react-aria-«replaced-aria-id»"
@@ -1406,7 +1602,7 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
               tabindex="-1"
               title=""
               type="radio"
-              value="option 3"
+              value="strawberry"
             />
             <span
               aria-hidden="true"
@@ -1423,7 +1619,7 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
                 class="relative text-foreground select-none transition-colors motion-reduce:transition-none text-sm"
                 id="«replaced-aria-id»"
               >
-                option 3
+                🍓 Strawberry
               </span>
             </div>
           </label>
