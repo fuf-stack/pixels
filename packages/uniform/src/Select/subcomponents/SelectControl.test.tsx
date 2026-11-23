@@ -34,6 +34,7 @@ const createField = () => ({
   name: 'standalone',
   onBlur: vi.fn(),
   onChange: vi.fn(),
+  readOnly: false,
   ref: vi.fn(),
   required: false,
   testId: 'standalone',

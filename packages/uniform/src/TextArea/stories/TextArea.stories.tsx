@@ -117,6 +117,24 @@ export const Disabled: Story = {
   args: { name: 'textareaField', label: 'Text Area', disabled: true },
 };
 
+export const ReadOnly: Story = {
+  parameters: {
+    formProps: {
+      initialValues: { textareaField: 'This value is submitted unchanged.' },
+    },
+  },
+  args: { name: 'textareaField', label: 'Read-only text', readOnly: true },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const textarea = canvas.getByRole('textbox');
+
+    await userEvent.type(textarea, ' changed');
+
+    await expect(textarea).toHaveAttribute('readonly');
+    await expect(textarea).toHaveValue('This value is submitted unchanged.');
+  },
+};
+
 // -----------------------------------------------------------------------------
 // Composition
 // -----------------------------------------------------------------------------

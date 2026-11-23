@@ -56,6 +56,8 @@ export interface SelectProps {
   options: SelectOption[];
   /** Placeholder text */
   placeholder?: string;
+  /** Prevents changes while keeping the selection in validation and submission */
+  readOnly?: boolean;
   /** Render custom content when no options match the current search input. */
   renderEmptyOptions?: Props['noOptionsMessage'];
   /** Format the label of the option */

@@ -559,6 +559,96 @@ exports[`Story Snapshots > Invalid 1`] = `
 </body>
 `;
 
+exports[`Story Snapshots > ReadOnly 1`] = `
+<body>
+  <div>
+    <div
+      class="flex w-full flex-row justify-between gap-6"
+      data-component="form"
+    >
+      <form
+        class="grow min-w-60"
+        data-form-is-valid="true"
+        data-testid=""
+        novalidate=""
+      >
+        <div
+          class="group relative flex w-full flex-col cursor-not-allowed opacity-disabled **:cursor-not-allowed is-filled"
+          data-component="text-area"
+          data-filled="true"
+          data-focus="true"
+          data-hover="true"
+          data-readonly="true"
+          data-slot="base"
+        >
+          <label
+            class="block pb-1.5 text-foreground text-small"
+            data-slot="label"
+            for="uniform-«replaced-aria-id»"
+            id="uniform-«replaced-aria-id»-label"
+          >
+            Read-only text
+          </label>
+          <div
+            class="shadow-xs relative inline-flex w-full cursor-text items-start rounded-medium border-medium border-default-200 bg-content1 px-3 py-2 text-foreground transition-colors data-[hover=true]:border-default-400 group-data-[focus=true]:border-focus group-data-[focus=true]:data-[hover=true]:border-default-foreground motion-reduce:transition-none is-filled"
+            data-focus="true"
+            data-focus-within="true"
+            data-hover="true"
+            data-hovered="true"
+            data-rac=""
+            data-slot="input-wrapper"
+            role="presentation"
+          >
+            <div
+              class="inline-flex w-full items-start"
+              data-slot="inner-wrapper"
+            >
+              <textarea
+                aria-labelledby="uniform-«replaced-aria-id»-label"
+                class="w-full min-w-0 resize-none bg-transparent bg-clip-text font-normal text-inherit outline-none duration-100 transition-height text-small placeholder:text-foreground-500 autofill:bg-transparent data-[hide-scroll=true]:[scrollbar-width:none] motion-reduce:transition-none dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] data-[hide-scroll=true]:[&::-webkit-scrollbar]:hidden is-filled"
+                data-filled="true"
+                data-hide-scroll="true"
+                data-slot="input"
+                data-testid="textareafield"
+                id="uniform-«replaced-aria-id»"
+                name="textareaField"
+                placeholder=" "
+                readonly=""
+                tabindex="0"
+              >
+                This value is submitted unchanged.
+              </textarea>
+            </div>
+          </div>
+        </div>
+        <div
+          class="mt-4 flex justify-end"
+        >
+          <button
+            aria-label="Submit form"
+            class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
+            data-component="submit-button"
+            data-rac=""
+            data-react-aria-pressable="true"
+            data-testid="form_submit_button"
+            id="react-aria-«replaced-aria-id»"
+            tabindex="0"
+            type="submit"
+          >
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <textarea
+    aria-hidden="true"
+    style="min-height: 0px !important; max-height: none !important; height: 0px !important; visibility: hidden !important; overflow: hidden !important; position: absolute !important; z-index: -1000 !important; top: 0px !important; right: 0px !important; display: block !important; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-top-width: 0px; box-sizing: content-box; font-family: "depends on user agent"; font-size: 16px; font-style: normal; font-weight: 400; letter-spacing: normal; line-height: normal; tab-size: 8; text-indent: 0px; text-rendering: auto; text-transform: none; width: auto; word-break: normal; word-spacing: normal; scrollbar-gutter: auto; padding: 0px;"
+    tabindex="-1"
+  />
+</body>
+`;
+
 exports[`Story Snapshots > Required 1`] = `
 <body>
   <div>

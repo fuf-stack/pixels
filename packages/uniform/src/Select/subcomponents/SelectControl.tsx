@@ -29,12 +29,17 @@ const SelectControl = ({ className, field, ...props }: SelectControlProps) => {
     ids,
     invalid,
     label,
+    readOnly,
     required,
     testId,
   } = field;
 
   // classNames from slots
-  const variants = styling.resolve(selectVariants, { disabled, invalid });
+  const variants = styling.resolve(selectVariants, {
+    disabled,
+    invalid,
+    readOnly,
+  });
   const classNames = styling.variantsToClassNames(variants, className, 'base');
 
   return (

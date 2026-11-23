@@ -34,6 +34,8 @@ export interface SliderProps {
   minValue?: number;
   /** Field name */
   name: string;
+  /** Prevents changes while keeping the value in validation and submission */
+  readOnly?: boolean;
   /**
    * Whether to show step dots on the slider
    * @default false

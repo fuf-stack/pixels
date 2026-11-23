@@ -265,7 +265,7 @@ exports[`Story Snapshots > DisabledCompletely 1`] = `
             data-rac=""
           >
             <label
-              class="group inline-flex flex-auto cursor-pointer items-center justify-between gap-4 rounded-lg border-2 border-default p-4 hover:bg-content2 data-[selected=true]:border-focus pointer-events-none opacity-disabled"
+              class="group inline-flex flex-auto items-center justify-between gap-4 rounded-lg border-2 border-default p-4 data-[selected=true]:border-focus cursor-not-allowed opacity-disabled **:cursor-not-allowed hover:bg-transparent"
               data-disabled="true"
               data-rac=""
               data-react-aria-pressable="true"
@@ -324,7 +324,7 @@ exports[`Story Snapshots > DisabledCompletely 1`] = `
             data-rac=""
           >
             <label
-              class="group inline-flex flex-auto cursor-pointer items-center justify-between gap-4 rounded-lg border-2 border-default p-4 hover:bg-content2 data-[selected=true]:border-focus pointer-events-none opacity-disabled"
+              class="group inline-flex flex-auto items-center justify-between gap-4 rounded-lg border-2 border-default p-4 data-[selected=true]:border-focus cursor-not-allowed opacity-disabled **:cursor-not-allowed hover:bg-transparent"
               data-disabled="true"
               data-rac=""
               data-react-aria-pressable="true"
@@ -383,7 +383,7 @@ exports[`Story Snapshots > DisabledCompletely 1`] = `
             data-rac=""
           >
             <label
-              class="group inline-flex flex-auto cursor-pointer items-center justify-between gap-4 rounded-lg border-2 border-default p-4 hover:bg-content2 data-[selected=true]:border-focus pointer-events-none opacity-disabled"
+              class="group inline-flex flex-auto items-center justify-between gap-4 rounded-lg border-2 border-default p-4 data-[selected=true]:border-focus cursor-not-allowed opacity-disabled **:cursor-not-allowed hover:bg-transparent"
               data-disabled="true"
               data-rac=""
               data-react-aria-pressable="true"
@@ -554,7 +554,7 @@ exports[`Story Snapshots > DisabledOption 1`] = `
             data-rac=""
           >
             <label
-              class="group inline-flex flex-auto cursor-pointer items-center justify-between gap-4 rounded-lg border-2 border-default p-4 hover:bg-content2 data-[selected=true]:border-focus pointer-events-none opacity-disabled"
+              class="group inline-flex flex-auto items-center justify-between gap-4 rounded-lg border-2 border-default p-4 data-[selected=true]:border-focus cursor-not-allowed opacity-disabled **:cursor-not-allowed hover:bg-transparent"
               data-disabled="true"
               data-rac=""
               data-react-aria-pressable="true"
@@ -1309,7 +1309,7 @@ exports[`Story Snapshots > KeyboardAndRequired 1`] = `
             data-required="true"
           >
             <label
-              class="group inline-flex flex-auto cursor-pointer items-center justify-between gap-4 rounded-lg border-2 border-default p-4 hover:bg-content2 data-[selected=true]:border-focus pointer-events-none opacity-disabled"
+              class="group inline-flex flex-auto items-center justify-between gap-4 rounded-lg border-2 border-default p-4 data-[selected=true]:border-focus cursor-not-allowed opacity-disabled **:cursor-not-allowed hover:bg-transparent"
               data-disabled="true"
               data-rac=""
               data-react-aria-pressable="true"
@@ -1643,6 +1643,243 @@ exports[`Story Snapshots > NumberValues 1`] = `
                   id="«replaced-aria-id»-description"
                 >
                   Premium tier with all features unlocked.
+                </div>
+              </div>
+            </label>
+          </div>
+        </div>
+      </div>
+      <div
+        class="mt-4 flex justify-end"
+      >
+        <button
+          aria-label="Submit form"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
+          data-component="submit-button"
+          data-rac=""
+          data-react-aria-pressable="true"
+          data-testid="form_submit_button"
+          id="react-aria-«replaced-aria-id»"
+          tabindex="0"
+          type="submit"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`Story Snapshots > ReadOnly 1`] = `
+<div>
+  <div
+    class="flex w-full flex-row justify-between gap-6"
+    data-component="form"
+  >
+    <form
+      class="grow min-w-60"
+      data-form-is-valid="true"
+      data-testid=""
+      novalidate=""
+    >
+      <div
+        aria-label="radioBoxesField"
+        aria-orientation="vertical"
+        aria-readonly="true"
+        class="relative group flex w-full flex-col gap-y-1.5 cursor-not-allowed opacity-disabled **:cursor-not-allowed"
+        data-component="radio-boxes"
+        data-invalid="false"
+        data-orientation="vertical"
+        data-rac=""
+        data-readonly="true"
+        data-required="false"
+        data-slot="base"
+        data-testid="radioboxesfield"
+        id="uniform-«replaced-aria-id»"
+        role="radiogroup"
+      >
+        <div
+          class="flex flex-col flex-wrap gap-2 data-[orientation=horizontal]:flex-row"
+          data-orientation="vertical"
+          data-slot="wrapper"
+        >
+          <div
+            class="contents"
+            data-rac=""
+            data-readonly="true"
+          >
+            <label
+              class="group inline-flex flex-auto cursor-pointer items-center justify-between gap-4 rounded-lg border-2 border-default p-4 data-[selected=true]:border-focus hover:bg-transparent"
+              data-rac=""
+              data-react-aria-pressable="true"
+              data-readonly="true"
+              data-slot="base"
+              data-testid="radioboxesfield_option_morning"
+              for="«replaced-aria-id»-control"
+            >
+              <span
+                style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+              >
+                <input
+                  aria-describedby="«replaced-aria-id»-description"
+                  aria-labelledby="«replaced-aria-id»-label"
+                  data-react-aria-pressable="true"
+                  id="«replaced-aria-id»-control"
+                  name="radioBoxesField"
+                  tabindex="-1"
+                  type="radio"
+                  value="morning"
+                />
+              </span>
+              <span
+                aria-hidden="true"
+                class="relative box-border inline-flex h-5 w-5 shrink-0 items-center justify-center overflow-hidden rounded-full border-2 border-solid border-default transition-transform-colors group-data-[pressed=true]:scale-95 group-data-[invalid=true]:border-danger group-data-[invalid=true]:group-data-[selected=true]:border-danger group-data-[selected=true]:border-primary group-data-[hover-unselected=true]:bg-default-100 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background motion-reduce:transition-none"
+                data-slot="wrapper"
+              >
+                <span
+                  class="z-10 h-2 w-2 origin-center scale-0 rounded-full bg-primary text-primary-foreground opacity-0 transition-transform-opacity group-data-[selected=true]:scale-100 group-data-[invalid=true]:bg-danger group-data-[invalid=true]:text-danger-foreground group-data-[selected=true]:opacity-100 motion-reduce:transition-none"
+                  data-slot="control"
+                />
+              </span>
+              <div
+                class="ml-1 ms-2 flex flex-col grow"
+                data-slot="label-wrapper"
+              >
+                <span
+                  class="relative select-none text-foreground transition-colors text-medium motion-reduce:transition-none"
+                  data-slot="label"
+                  id="«replaced-aria-id»-label"
+                >
+                  Morning Person
+                </span>
+                <div
+                  class="text-foreground opacity-70 text-small"
+                  data-slot="description"
+                  id="«replaced-aria-id»-description"
+                >
+                  Early birds get worms, but also need alarms.
+                </div>
+              </div>
+            </label>
+          </div>
+          <div
+            class="contents"
+            data-rac=""
+            data-readonly="true"
+            data-selected="true"
+          >
+            <label
+              class="group inline-flex flex-auto cursor-pointer items-center justify-between gap-4 rounded-lg border-2 border-default p-4 data-[selected=true]:border-focus hover:bg-transparent"
+              data-rac=""
+              data-react-aria-pressable="true"
+              data-readonly="true"
+              data-selected="true"
+              data-slot="base"
+              data-testid="radioboxesfield_option_night"
+              for="«replaced-aria-id»-control"
+            >
+              <span
+                style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+              >
+                <input
+                  aria-describedby="«replaced-aria-id»-description"
+                  aria-labelledby="«replaced-aria-id»-label"
+                  checked=""
+                  data-react-aria-pressable="true"
+                  id="«replaced-aria-id»-control"
+                  name="radioBoxesField"
+                  tabindex="0"
+                  type="radio"
+                  value="night"
+                />
+              </span>
+              <span
+                aria-hidden="true"
+                class="relative box-border inline-flex h-5 w-5 shrink-0 items-center justify-center overflow-hidden rounded-full border-2 border-solid border-default transition-transform-colors group-data-[pressed=true]:scale-95 group-data-[invalid=true]:border-danger group-data-[invalid=true]:group-data-[selected=true]:border-danger group-data-[selected=true]:border-primary group-data-[hover-unselected=true]:bg-default-100 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background motion-reduce:transition-none"
+                data-slot="wrapper"
+              >
+                <span
+                  class="z-10 h-2 w-2 origin-center scale-0 rounded-full bg-primary text-primary-foreground opacity-0 transition-transform-opacity group-data-[selected=true]:scale-100 group-data-[invalid=true]:bg-danger group-data-[invalid=true]:text-danger-foreground group-data-[selected=true]:opacity-100 motion-reduce:transition-none"
+                  data-slot="control"
+                />
+              </span>
+              <div
+                class="ml-1 ms-2 flex flex-col grow"
+                data-slot="label-wrapper"
+              >
+                <span
+                  class="relative select-none text-foreground transition-colors text-medium motion-reduce:transition-none"
+                  data-slot="label"
+                  id="«replaced-aria-id»-label"
+                >
+                  Night Owl
+                </span>
+                <div
+                  class="text-foreground opacity-70 text-small"
+                  data-slot="description"
+                  id="«replaced-aria-id»-description"
+                >
+                  Peak productivity at 2 AM.
+                </div>
+              </div>
+            </label>
+          </div>
+          <div
+            class="contents"
+            data-rac=""
+            data-readonly="true"
+          >
+            <label
+              class="group inline-flex flex-auto cursor-pointer items-center justify-between gap-4 rounded-lg border-2 border-default p-4 data-[selected=true]:border-focus hover:bg-transparent"
+              data-rac=""
+              data-react-aria-pressable="true"
+              data-readonly="true"
+              data-slot="base"
+              data-testid="radioboxesfield_option_insomniac"
+              for="«replaced-aria-id»-control"
+            >
+              <span
+                style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+              >
+                <input
+                  aria-describedby="«replaced-aria-id»-description"
+                  aria-labelledby="«replaced-aria-id»-label"
+                  data-react-aria-pressable="true"
+                  id="«replaced-aria-id»-control"
+                  name="radioBoxesField"
+                  tabindex="-1"
+                  type="radio"
+                  value="insomniac"
+                />
+              </span>
+              <span
+                aria-hidden="true"
+                class="relative box-border inline-flex h-5 w-5 shrink-0 items-center justify-center overflow-hidden rounded-full border-2 border-solid border-default transition-transform-colors group-data-[pressed=true]:scale-95 group-data-[invalid=true]:border-danger group-data-[invalid=true]:group-data-[selected=true]:border-danger group-data-[selected=true]:border-primary group-data-[hover-unselected=true]:bg-default-100 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background motion-reduce:transition-none"
+                data-slot="wrapper"
+              >
+                <span
+                  class="z-10 h-2 w-2 origin-center scale-0 rounded-full bg-primary text-primary-foreground opacity-0 transition-transform-opacity group-data-[selected=true]:scale-100 group-data-[invalid=true]:bg-danger group-data-[invalid=true]:text-danger-foreground group-data-[selected=true]:opacity-100 motion-reduce:transition-none"
+                  data-slot="control"
+                />
+              </span>
+              <div
+                class="ml-1 ms-2 flex flex-col grow"
+                data-slot="label-wrapper"
+              >
+                <span
+                  class="relative select-none text-foreground transition-colors text-medium motion-reduce:transition-none"
+                  data-slot="label"
+                  id="«replaced-aria-id»-label"
+                >
+                  Insomniac
+                </span>
+                <div
+                  class="text-foreground opacity-70 text-small"
+                  data-slot="description"
+                  id="«replaced-aria-id»-description"
+                >
+                  Sleep? What sleep?
                 </div>
               </div>
             </label>

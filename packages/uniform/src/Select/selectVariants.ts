@@ -71,8 +71,31 @@ export const selectVariants = tv({
     valueContainer: 'gap-1 p-1',
   },
   variants: {
-    disabled: { true: { base: 'pointer-events-none opacity-disabled' } },
+    disabled: {
+      true: {
+        // inner controls set their own cursors, override every descendant
+        base: 'cursor-not-allowed opacity-disabled **:cursor-not-allowed',
+        // drop hover feedback on the locked control and its actions
+        clearIndicator:
+          'hover:cursor-not-allowed hover:bg-transparent hover:text-foreground-500',
+        control: 'hover:border-default-200',
+        dropdownIndicator:
+          'hover:cursor-not-allowed hover:bg-transparent hover:text-foreground-500',
+      },
+    },
     invalid: { true: { selectedValue: 'text-danger!' } },
+    readOnly: {
+      true: {
+        // inner controls set their own cursors, override every descendant
+        base: 'cursor-not-allowed opacity-disabled **:cursor-not-allowed',
+        // drop hover feedback on the locked control and its actions
+        clearIndicator:
+          'hover:cursor-not-allowed hover:bg-transparent hover:text-foreground-500',
+        control: 'hover:border-default-200',
+        dropdownIndicator:
+          'hover:cursor-not-allowed hover:bg-transparent hover:text-foreground-500',
+      },
+    },
   },
 });
 

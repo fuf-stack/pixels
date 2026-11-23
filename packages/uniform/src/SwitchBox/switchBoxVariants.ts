@@ -29,15 +29,21 @@ export const switchBoxVariants = tv({
     wrapper: '',
   },
   variants: {
-    isDisabled: {
+    disabled: {
       true: {
         box: 'pointer-events-none opacity-disabled',
       },
     },
-    isInvalid: {
+    invalid: {
       true: {
         box: '!border-danger',
         label: '!text-danger',
+      },
+    },
+    readOnly: {
+      true: {
+        // inner controls set their own cursors, override every descendant
+        box: 'cursor-not-allowed opacity-disabled **:cursor-not-allowed hover:bg-transparent',
       },
     },
     size: {

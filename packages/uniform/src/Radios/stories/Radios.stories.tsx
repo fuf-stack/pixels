@@ -105,6 +105,21 @@ export const DisabledCompletely: Story = {
   },
 };
 
+export const ReadOnly: Story = {
+  parameters: {
+    formProps: { initialValues: { radiosField: 'option 2' } },
+  },
+  args: {
+    name: 'radiosField',
+    options: [
+      { value: 'option 1' },
+      { value: 'option 2' },
+      { value: 'option 3' },
+    ],
+    readOnly: true,
+  },
+};
+
 export const DisabledOption: Story = {
   tags: ['visual'],
   parameters: { visual: { target: '[data-component="radios"]' } },

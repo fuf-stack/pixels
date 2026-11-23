@@ -89,6 +89,7 @@ const InputControl = (props: InputControlProps) => {
     disabled,
     invalid,
     label,
+    readOnly,
     required,
     ids,
     description,
@@ -98,14 +99,18 @@ const InputControl = (props: InputControlProps) => {
   // treat empty and nullish values as cleared, preserve numeric zero
   const hasValue = value !== '' && value != null;
 
+  // read-only values are never cleared
+  const isClearable = clearable && !readOnly;
+
   // classNames from slots
   const variants = styling.resolve(inputVariants, {
-    clearable,
+    clearable: isClearable,
     disabled,
     filled: hasValue,
     invalid,
     number: type === 'number',
     password: type === 'password',
+    readOnly,
     size,
   });
   const classNames = styling.variantsToClassNames(variants, className, 'base');
@@ -152,6 +157,7 @@ const InputControl = (props: InputControlProps) => {
       <InputWrapper
         {...props}
         className={classNames}
+        clearable={isClearable}
         focusProps={focusProps}
         focused={focused}
         hasValue={hasValue}

@@ -24,6 +24,8 @@ export interface SwitchProps {
   label?: ReactNode;
   /** Field name */
   name: string;
+  /** Prevents toggling while keeping the value in validation and submission */
+  readOnly?: boolean;
   /** Control size */
   size?: 'sm' | 'md' | 'lg';
   /** Icon to be displayed at the start of the switch (when disabled) */

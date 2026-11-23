@@ -49,6 +49,7 @@ const SwitchControl = ({
     name,
     onBlur,
     onChange: onValueChange,
+    readOnly,
     required,
     testId,
     value,
@@ -60,6 +61,7 @@ const SwitchControl = ({
   const styling = useStyling();
   const controlRef = useObjectRef<HTMLInputElement>(inputRef);
   const state = useToggleState({
+    isReadOnly: readOnly,
     isSelected: !!value,
     onChange: onValueChange,
   });
@@ -69,6 +71,7 @@ const SwitchControl = ({
       children: label,
       isDisabled: disabled,
       isInvalid: invalid,
+      isReadOnly: readOnly,
       isRequired: required,
       name,
       onBlur,
@@ -81,7 +84,11 @@ const SwitchControl = ({
   const { hoverProps, isHovered } = useHover({ isDisabled: disabled });
 
   // classNames from slots
-  const variants = styling.resolve(switchVariants, { size, disabled });
+  const variants = styling.resolve(switchVariants, {
+    disabled,
+    readOnly,
+    size,
+  });
   const classNames = styling.variantsToClassNames(
     variants,
     className,
@@ -103,6 +110,7 @@ const SwitchControl = ({
         data-hover={isHovered || undefined}
         data-invalid={invalid}
         data-pressed={isPressed || undefined}
+        data-readonly={readOnly || undefined}
         data-required={required}
         data-selected={state.isSelected || undefined}
         data-slot="base"

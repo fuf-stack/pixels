@@ -61,6 +61,8 @@ export interface CheckboxesProps {
   name: string;
   /** Available options */
   options: CheckboxOption[];
+  /** Prevents changes while keeping the selection in validation and submission */
+  readOnly?: boolean;
   /** HTML data-testid attribute for e2e tests */
   testId?: string;
   /** allows disentangled display and form values for a field */

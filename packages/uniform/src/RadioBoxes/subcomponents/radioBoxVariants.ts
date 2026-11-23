@@ -31,12 +31,13 @@ export const radioBoxVariants = tv({
     wrapper: radioControlVariants.slots.wrapper,
   },
   variants: {
-    isDisabled: {
+    disabled: {
       true: {
-        base: 'pointer-events-none opacity-disabled',
+        // keep pointer events so the disabled cursor shows, the input blocks changes
+        base: 'cursor-not-allowed opacity-disabled **:cursor-not-allowed hover:bg-transparent',
       },
     },
-    isInvalid: {
+    invalid: {
       true: {
         base: '!border-danger',
         control: radioControlVariants.variants.invalid.true.control,

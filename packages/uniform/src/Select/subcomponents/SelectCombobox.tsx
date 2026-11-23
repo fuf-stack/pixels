@@ -2,7 +2,7 @@ import type { UniformField } from '../../hooks/useUniformField/types';
 import type { SelectOption as SelectOptionData, SelectProps } from '../Select';
 import type { SelectClassNames } from '../selectVariants';
 
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import ReactSelect from 'react-select';
 
 import { useStyling } from '@fuf-stack/pixels/StylingProvider';
@@ -30,6 +30,16 @@ const selectComponents = {
   DropdownIndicator: SelectDropdownIndicator,
   Input: SelectInput,
   Option: SelectOption,
+};
+
+/** Hides React Select actions that would change a read-only selection */
+const HiddenSelectAction = () => {
+  return null;
+};
+
+const readOnlySelectComponents = {
+  ...selectComponents,
+  MultiValueRemove: HiddenSelectAction,
 };
 
 interface SelectComboboxProps extends Omit<
@@ -76,11 +86,21 @@ const SelectCombobox = ({
     name,
     onBlur,
     onChange: onValueChange,
+    readOnly,
     ref: inputRef,
     testId,
     value,
   } = field;
   const controlProps = getFieldControlProps(field);
+
+  // react-select has no read-only mode, the input announces the state while
+  // the menu, search, clearing and value removal are blocked below
+  const inputAssociations = useMemo(() => {
+    return { ...controlProps, 'aria-readonly': readOnly || undefined };
+  }, [controlProps, readOnly]);
+
+  // read-only selections are never cleared
+  const isClearable = !!clearable && !readOnly;
   const { convertToOriginalType } = createOptionValueConverter(options);
 
   const reactSelectClassNames = getSelectClassNames(
@@ -107,6 +127,10 @@ const SelectCombobox = ({
 
   // convert React Select options into the original value types
   const handleChange = (option: unknown) => {
+    if (readOnly) {
+      return;
+    }
+
     if (multiSelect) {
       onValueChange(
         (option as SelectOptionData[])?.map((selectedOption) => {
@@ -130,6 +154,14 @@ const SelectCombobox = ({
     }
   };
 
+  // read-only selects never open their menu
+  let menuIsOpen: boolean | undefined;
+  if (readOnly) {
+    menuIsOpen = false;
+  } else if (debugMenuOpen) {
+    menuIsOpen = true;
+  }
+
   // update focus state and notify the field on blur
   const handleBlur = () => {
     setIsFocused(false);
@@ -142,7 +174,7 @@ const SelectCombobox = ({
   };
 
   return (
-    <SelectControlContext.Provider value={controlProps}>
+    <SelectControlContext.Provider value={inputAssociations}>
       <SelectSlotContext.Provider value={classNames}>
         <ReactSelect<unknown, boolean>
           ref={inputRef}
@@ -150,19 +182,21 @@ const SelectCombobox = ({
           aria-invalid={invalid}
           aria-label={controlProps['aria-label']}
           aria-labelledby={controlProps['aria-labelledby']}
+          backspaceRemovesValue={!readOnly}
           classNames={reactSelectClassNames}
-          components={selectComponents}
+          components={readOnly ? readOnlySelectComponents : selectComponents}
           data-testid={testId}
           filterOption={filterOption}
           formatOptionLabel={renderOptionLabel}
           inputId={ids.control}
           inputValue={inputValue}
           instanceId={ids.control}
-          isClearable={clearable}
+          isClearable={isClearable}
           isDisabled={disabled}
           isLoading={loading}
           isMulti={multiSelect}
-          menuIsOpen={debugMenuOpen ? true : undefined}
+          isSearchable={!readOnly}
+          menuIsOpen={menuIsOpen}
           // set menuPosition to fixed so that menu can be rendered
           // inside Card / Modal components, menuShouldBlockScroll
           // prevents container scroll when menu is open

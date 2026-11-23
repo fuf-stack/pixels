@@ -28,6 +28,10 @@ import { useInputValueTransform } from '../useInputValueTransform/useInputValueT
  * messages and label content, including the test ID action in debug mode
  * Stable IDs and accessible-name metadata support associations in controls
  * Form operations remain separate from the field bundle
+ *
+ * Only `disabled` reaches the form controller, so disabled values are omitted
+ * from validation and submission. Read-only fields stay registered, controls
+ * prevent changes while their value is still validated and submitted
  */
 const useUniformField = <
   TFieldValues extends FieldValues = FieldValues,
@@ -45,6 +49,7 @@ const useUniformField = <
     testId: explicitTestId,
     label,
     placeholder,
+    readOnly = false,
     sensitive = false,
     type,
     transform,
@@ -168,6 +173,7 @@ const useUniformField = <
     name: controllerField.name,
     onBlur,
     onChange: transformedOnChange,
+    readOnly,
     ref,
     required,
     testId,

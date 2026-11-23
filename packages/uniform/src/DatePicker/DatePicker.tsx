@@ -33,6 +33,8 @@ export interface DatePickerProps {
   minValue?: string;
   /** form field name */
   name: string;
+  /** Prevents changes while keeping the value in validation and submission */
+  readOnly?: boolean;
   /** HTML data-testid attribute used in e2e tests */
   testId?: string;
   /**

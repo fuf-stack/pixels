@@ -33,6 +33,8 @@ interface RadioGroupFieldProps {
   onBlur: () => void;
   /** Callback with the selected option's string value */
   onChange: (value: string) => void;
+  /** Prevents selection changes while options stay focusable */
+  readOnly?: boolean;
   /** Marks the group as required */
   required: boolean;
   /** HTML data-testid attribute */
@@ -61,6 +63,7 @@ const RadioGroupField = ({
   name,
   onBlur,
   onChange,
+  readOnly = undefined,
   required,
   testId,
   value,
@@ -106,6 +109,7 @@ const RadioGroupField = ({
       id={controlProps.id}
       isDisabled={disabled}
       isInvalid={invalid}
+      isReadOnly={readOnly}
       isRequired={required}
       name={name}
       onBlur={onBlur}

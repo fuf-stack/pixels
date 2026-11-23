@@ -49,6 +49,7 @@ const SwitchBoxControl = ({
     name,
     onBlur,
     onChange: onValueChange,
+    readOnly,
     required,
     testId,
     value,
@@ -60,6 +61,7 @@ const SwitchBoxControl = ({
   const styling = useStyling();
   const controlRef = useObjectRef<HTMLInputElement>(inputRef);
   const state = useToggleState({
+    isReadOnly: readOnly,
     isSelected: !!value,
     onChange: onValueChange,
   });
@@ -69,6 +71,7 @@ const SwitchBoxControl = ({
       children: label,
       isDisabled: disabled,
       isInvalid: invalid,
+      isReadOnly: readOnly,
       isRequired: required,
       name,
       onBlur,
@@ -82,8 +85,9 @@ const SwitchBoxControl = ({
 
   // classNames from slots
   const variants = styling.resolve(switchBoxVariants, {
-    isDisabled: disabled,
-    isInvalid: invalid,
+    disabled,
+    invalid,
+    readOnly,
     size,
   });
   const classNames = styling.variantsToClassNames(variants, className, 'box');
@@ -106,6 +110,7 @@ const SwitchBoxControl = ({
         data-hover={isHovered || undefined}
         data-invalid={invalid}
         data-pressed={isPressed || undefined}
+        data-readonly={readOnly || undefined}
         data-required={required}
         data-selected={state.isSelected || undefined}
         data-testid={testId}

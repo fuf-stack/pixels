@@ -44,6 +44,7 @@ const TextAreaControl = ({
     ids,
     invalid,
     label,
+    readOnly,
     required,
     value,
   } = field;
@@ -56,6 +57,7 @@ const TextAreaControl = ({
     disabled,
     invalid,
     filled: hasValue,
+    readOnly,
   });
   const classNames = styling.variantsToClassNames(variants, className, 'base');
 

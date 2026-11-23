@@ -61,6 +61,7 @@ const DatePickerControl = ({
     name,
     onBlur,
     onChange: onValueChange,
+    readOnly,
     required,
   } = field;
 
@@ -78,7 +79,7 @@ const DatePickerControl = ({
   const placeholderValue = getDatePickerPlaceholderValue(withTime, timeZone);
 
   // classNames from slots
-  const variants = styling.resolve(datePickerVariants, { disabled });
+  const variants = styling.resolve(datePickerVariants, { disabled, readOnly });
   const classNames = styling.variantsToClassNames(variants, className, 'base');
 
   // route form focus to the first enabled date segment
@@ -113,6 +114,7 @@ const DatePickerControl = ({
       id={controlProps.id}
       isDisabled={disabled}
       isInvalid={invalid}
+      isReadOnly={readOnly}
       isRequired={required}
       maxValue={parsedMaxValue ?? undefined}
       minValue={parsedMinValue ?? undefined}

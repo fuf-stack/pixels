@@ -45,6 +45,7 @@ const CheckboxesControl = ({
     name,
     onBlur,
     onChange: onValueChange,
+    readOnly,
     required,
     testId,
   } = field;
@@ -61,6 +62,7 @@ const CheckboxesControl = ({
   const variants = styling.resolve(checkboxesVariants, {
     lineThrough,
     invalid,
+    readOnly,
   });
   const classNames = styling.variantsToClassNames(variants, className, 'base');
 
@@ -141,6 +143,7 @@ const CheckboxesControl = ({
         id: associations.id,
         isDisabled: disabled,
         isInvalid: invalid,
+        isReadOnly: readOnly,
         isRequired: required,
         name,
         onBlur,

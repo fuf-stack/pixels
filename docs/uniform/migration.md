@@ -116,7 +116,7 @@ authoritative and use `aria-required` without competing native validation.
 
 Input, TextArea and Select share a private
 [getFieldDataAttributes helper](../../packages/uniform/src/helpers/fieldProps/fieldProps.ts) for `data-disabled`,
-`data-invalid` and `data-required`, with inactive flags omitted. Focus and hover
+`data-invalid`, `data-readonly` and `data-required`, with inactive flags omitted. Focus and hover
 remain owned by each control. Input and TextArea use `data-filled` only when a
 value is present, including numeric zero, without counting placeholder text.
 
@@ -164,3 +164,19 @@ The thumb callback retains its declared `width`, `height`, `className`,
 required marker is hidden from the accessible name. Optional `description` and
 visible errors describe the actual input. Use its field name or switch role
 rather than the old visual input's internal `*_switch` name.
+
+## Read-only fields and variant names
+
+All fields accept `readOnly`. Read-only values stay registered, validated and
+submitted, while `disabled` values are omitted. See
+[disabled and read-only fields](./disabled-and-read-only-fields.md).
+
+Style variants use plain state names. Code calling the exported recipes directly
+needs to rename these keys:
+
+- `switchBoxVariants`: `isDisabled` / `isInvalid` become `disabled` / `invalid`
+- `radioTabsVariants`: `isInvalid` becomes `invalid`, and `RadioTabs` no longer
+  exposes the unused variant prop
+
+Disabled options and the disabled Select keep pointer events and show the
+`not-allowed` cursor; the disabled control still blocks changes.

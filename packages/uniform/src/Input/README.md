@@ -98,4 +98,4 @@ Password inputs include separate clear and visibility actions. `hidePasswordTogg
 keeps them masked without the reveal button. Clearing, resetting, changing the
 field name or switching the input type restores masking. Declared password fields
 remain redacted in diagnostics while revealed; ordinary inputs can set `sensitive`.
-See [password fields](../../docs/password-fields.md) for diagnostic guarantees.
+See [password fields](../../../../docs/uniform/password-fields.md) for diagnostic guarantees.

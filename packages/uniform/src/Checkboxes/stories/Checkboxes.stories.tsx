@@ -199,6 +199,21 @@ export const DisabledCompletely: Story = {
   },
 };
 
+export const ReadOnly: Story = {
+  parameters: {
+    formProps: { initialValues: { checkboxField: ['exercise-daily'] } },
+  },
+  args: {
+    name: 'checkboxField',
+    options: [
+      { label: '💤 Sleep 8 hours nightly', value: 'sleep-8-hours' },
+      { label: '🏃 Exercise daily', value: 'exercise-daily' },
+      { label: '🥗 Eat vegetables', value: 'eat-vegetables' },
+    ],
+    readOnly: true,
+  },
+};
+
 export const DisabledOption: Story = {
   tags: ['visual'],
   parameters: { visual: { target: '[data-component="checkboxes"]' } },

@@ -20,6 +20,8 @@ export interface SwitchBoxProps {
   label?: ReactNode;
   /** Field name */
   name: string;
+  /** Prevents toggling while keeping the value in validation and submission */
+  readOnly?: boolean;
   /** whether the field is required */
   required?: boolean;
   /* Size of the switch */

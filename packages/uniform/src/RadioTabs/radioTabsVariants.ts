@@ -95,9 +95,15 @@ export const radioTabsVariants = tv({
         tabWrapper: 'w-full',
       },
     },
-    isInvalid: {
+    invalid: {
       true: {
         tabWrapper: 'rounded-medium border-2 !border-danger',
+      },
+    },
+    readOnly: {
+      true: {
+        // inner controls set their own cursors, override every descendant
+        base: 'cursor-not-allowed opacity-disabled **:cursor-not-allowed',
       },
     },
     appearance: {

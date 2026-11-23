@@ -54,6 +54,7 @@ const TimeControl = ({
     name,
     onBlur,
     onChange: onValueChange,
+    readOnly,
     required,
   } = field;
 
@@ -72,7 +73,11 @@ const TimeControl = ({
   const placeholderValue = getTimeFieldPlaceholderValue(timeZone);
 
   // classNames from slots
-  const variants = styling.resolve(timeVariants, { disabled, invalid });
+  const variants = styling.resolve(timeVariants, {
+    disabled,
+    invalid,
+    readOnly,
+  });
   const classNames = styling.variantsToClassNames(variants, className, 'base');
 
   // route form focus to the first enabled segment
@@ -107,6 +112,7 @@ const TimeControl = ({
       id={controlProps.id}
       isDisabled={disabled}
       isInvalid={invalid}
+      isReadOnly={readOnly}
       isRequired={required}
       name={name}
       onBlur={onBlur}

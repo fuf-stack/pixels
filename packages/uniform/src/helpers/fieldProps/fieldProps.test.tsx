@@ -64,6 +64,16 @@ describe('Field state attributes in the DOM', () => {
     },
   );
 
+  it('marks read-only fields without implying disabled', () => {
+    const { container } = render(
+      <div {...getFieldDataAttributes({ readOnly: true })} />,
+    );
+
+    expect(container.firstElementChild?.getAttributeNames()).toEqual([
+      'data-readonly',
+    ]);
+  });
+
   it.each([
     {},
     { disabled: undefined, invalid: undefined, required: undefined },
@@ -117,6 +127,7 @@ describe('Styling-only boundary', () => {
     expect(Object.keys(attributes).sort()).toEqual([
       'data-disabled',
       'data-invalid',
+      'data-readonly',
       'data-required',
     ]);
     expect(attributes).not.toHaveProperty('name');

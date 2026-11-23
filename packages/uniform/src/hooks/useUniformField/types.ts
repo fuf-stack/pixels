@@ -22,6 +22,8 @@ export interface UseUniformFieldParams<
   name: Path<TFieldValues> & string;
   /** Placeholder text used as the accessible name when no visible label exists */
   placeholder?: string;
+  /** Prevents changes while keeping the value in validation and submission */
+  readOnly?: boolean;
   /** Redacts the field value from Uniform diagnostics */
   sensitive?: boolean;
   /** Optional explicit test id used to build stable test ids */
@@ -64,6 +66,8 @@ export interface UniformField<TValue = unknown, TChange = TValue> {
   onBlur: () => void;
   /** Callback with the edited display value */
   onChange: (value: TChange) => void;
+  /** Prevents changes, the value stays in validation and submission */
+  readOnly: boolean;
   /** Connects form focus requests to the editable control */
   ref: (control: Pick<HTMLElement, 'focus'> | null) => void;
   /** Marks the field as required */

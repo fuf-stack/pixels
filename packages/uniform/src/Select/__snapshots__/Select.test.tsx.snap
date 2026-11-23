@@ -154,7 +154,7 @@ exports[`Story Snapshots > Disabled 1`] = `
       novalidate=""
     >
       <div
-        class="group flex w-full flex-col gap-y-1.5 leading-normal pointer-events-none opacity-disabled"
+        class="group flex w-full flex-col gap-y-1.5 leading-normal cursor-not-allowed opacity-disabled **:cursor-not-allowed"
         data-component="select"
         data-disabled="true"
         data-slot="base"
@@ -187,7 +187,7 @@ exports[`Story Snapshots > Disabled 1`] = `
           >
             <div
               aria-disabled="true"
-              class="duration-150! min-h-10 rounded-lg border-2 border-default-200 bg-content1 transition-background hover:border-default-400 group-data-[invalid=true]:border-danger group-data-[invalid=true]:hover:border-danger motion-reduce:transition-none css-cp01gg-control"
+              class="duration-150! min-h-10 rounded-lg border-2 border-default-200 bg-content1 transition-background group-data-[invalid=true]:border-danger group-data-[invalid=true]:hover:border-danger motion-reduce:transition-none hover:border-default-200 css-cp01gg-control"
             >
               <div
                 class="gap-1 p-1 css-14oxtc6"
@@ -237,7 +237,7 @@ exports[`Story Snapshots > Disabled 1`] = `
                 >
                   <div
                     aria-hidden="true"
-                    class="rounded-md p-1 text-foreground-500 hover:cursor-pointer hover:bg-default-200 hover:text-black css-g56vrd-indicatorContainer"
+                    class="rounded-md p-1 text-foreground-500 hover:cursor-not-allowed hover:bg-transparent hover:text-foreground-500 css-g56vrd-indicatorContainer"
                   >
                     <svg
                       aria-hidden="true"
