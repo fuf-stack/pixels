@@ -2,6 +2,7 @@ import type { Story } from './Tooltip.storySetup';
 
 import { expect, waitFor, within } from 'storybook/test';
 
+import { Label } from '../../Label';
 import Tooltip from '../Tooltip';
 import {
   meta as sharedMeta,
@@ -123,6 +124,14 @@ export const DefaultOpen: Story = {
     await new Promise((resolve) => {
       setTimeout(resolve, 500);
     });
+  },
+};
+
+export const LabelTrigger: Story = {
+  args: {
+    // a label neither forwards a ref nor is interactive, hover still opens
+    children: <Label color="success">Active</Label>,
+    content: 'This thing is in use',
   },
 };
 

@@ -4,14 +4,17 @@ import { useRef } from 'react';
 import { useFocusable } from 'react-aria';
 
 interface TooltipTextTriggerProps {
-  /** Non-focusable trigger content */
+  /** Text or other non-interactive trigger content */
   children: ReactNode;
   /** CSS class name */
   className: string;
 }
 
 /**
- * Hover bridge for the existing plain-text trigger wrapper
+ * Hover wrapper for text and non-interactive trigger content
+ *
+ * Components such as labels or icons often neither forward a ref nor have an
+ * interactive role, so the wrapper receives the hover props instead
  *
  * @see https://react-aria.adobe.com/Tooltip
  */

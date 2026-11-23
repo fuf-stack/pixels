@@ -8,7 +8,9 @@ Supporting information shown beside a trigger on hover or focus.
 </Tooltip>
 ```
 
-Use a focusable child for keyboard access. Focus opens the tooltip immediately,
+Use a focusable child for keyboard access: an interactive element such as a
+button or link, or a component that forwards its ref to one. Other content,
+such as text, labels or icons, gets a hover wrapper. Focus opens the tooltip immediately,
 Escape or blur closes it, and hovering the content keeps it visible.
 `delay` and `closeDelay` control hover timing. Optional `header` and `footer`
 surround the scrollable body, `size` limits section widths.

@@ -237,6 +237,27 @@ exports[`Story Snapshots > KeyboardFocus 1`] = `
 </div>
 `;
 
+exports[`Story Snapshots > LabelTrigger 1`] = `
+<div>
+  <span
+    class="z-10 subpixel-antialiased aria-expanded:scale-[0.97] aria-expanded:opacity-70 cursor-pointer"
+  >
+    <div
+      class="relative box-border inline-flex min-w-min max-w-fit items-center justify-between whitespace-nowrap rounded-full h-7 px-1 text-small bg-success text-success-foreground"
+      data-component="label"
+      data-slot="base"
+    >
+      <span
+        class="flex-1 font-normal text-inherit flex items-center gap-2 px-2"
+        data-slot="content"
+      >
+        Active
+      </span>
+    </div>
+  </span>
+</div>
+`;
+
 exports[`Story Snapshots > Sizes 1`] = `
 <div>
   <div
