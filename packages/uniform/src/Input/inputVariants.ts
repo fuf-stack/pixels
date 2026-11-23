@@ -2,8 +2,12 @@ import type { TVClassName, TVProps } from '@fuf-stack/pixel-utils';
 
 import { tv } from '@fuf-stack/pixel-utils';
 
+import { fieldHelperVariants } from '../partials/FieldHelper/fieldHelperVariants';
+import { fieldLabelVariants } from '../partials/FieldLabel/fieldLabelVariants';
+
 /** Default styles for all public Input slots */
 export const inputVariants = tv({
+  extend: fieldHelperVariants,
   slots: {
     /** Container grouping the label, control and hints */
     base: 'group relative flex w-full flex-col',
@@ -14,12 +18,6 @@ export const inputVariants = tv({
       // hover and keyboard focus
       'hover:opacity-100 focus-visible:outline-2 focus-visible:outline-focus',
     ],
-    /** Supporting text below the input */
-    description: 'text-tiny text-foreground-500',
-    /** Container for validation messages */
-    errorMessage: 'text-tiny text-danger',
-    /** Container for help text and validation messages */
-    helperWrapper: 'relative flex flex-col p-0',
     /** Row containing the input, addons and actions */
     innerWrapper: 'inline-flex h-full w-full items-center gap-0',
     /** Native input for text or numeric entry */
@@ -47,8 +45,7 @@ export const inputVariants = tv({
       'motion-reduce:transition-none',
     ],
     /** Label above the input */
-    label:
-      'block cursor-default pb-1 text-small text-foreground group-data-[invalid=true]:text-danger',
+    label: [fieldLabelVariants.base, 'block'],
     /** Button for revealing or masking a password */
     passwordToggle:
       'shrink-0 rounded-sm p-1 text-default-400 outline-none focus-visible:ring-2 focus-visible:ring-focus',

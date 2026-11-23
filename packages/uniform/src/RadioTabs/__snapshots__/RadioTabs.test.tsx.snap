@@ -14,7 +14,7 @@ exports[`Story Snapshots > BooleanValuesWithConditionalField 1`] = `
     >
       <div
         aria-labelledby="uniform-«replaced-aria-id»-label"
-        class="group flex w-full flex-col gap-y-1.5 relative"
+        class="group flex w-full flex-col relative"
         data-component="radio-tabs"
         data-invalid="false"
         data-required="false"
@@ -24,7 +24,7 @@ exports[`Story Snapshots > BooleanValuesWithConditionalField 1`] = `
         role="group"
       >
         <div
-          class="mb-2 inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger relative"
+          class="cursor-default pb-1.5 text-small text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger inline-flex relative"
           data-slot="label"
           id="uniform-«replaced-aria-id»-label"
         >
@@ -150,7 +150,7 @@ exports[`Story Snapshots > CustomStyling 1`] = `
         aria-describedby="uniform-«replaced-aria-id»-description uniform-«replaced-aria-id»-error uniform-«replaced-aria-id»-required"
         aria-invalid="true"
         aria-labelledby="uniform-«replaced-aria-id»-label"
-        class="group flex w-full flex-col gap-y-1.5 relative"
+        class="group flex w-full flex-col relative"
         data-component="radio-tabs"
         data-invalid="true"
         data-required="true"
@@ -160,7 +160,7 @@ exports[`Story Snapshots > CustomStyling 1`] = `
         role="group"
       >
         <div
-          class="mb-2 inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger relative"
+          class="cursor-default pb-1.5 text-small text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger inline-flex relative"
           data-slot="label"
           id="uniform-«replaced-aria-id»-label"
         >
@@ -277,18 +277,18 @@ exports[`Story Snapshots > CustomStyling 1`] = `
           </div>
         </div>
         <div
-          class="flex flex-col gap-2"
+          class="relative p-0 flex flex-col gap-2"
           data-slot="helper-wrapper"
         >
           <div
-            class="text-primary text-small"
+            class="pt-1 text-primary text-small"
             data-slot="description"
             id="uniform-«replaced-aria-id»-description"
           >
             Choose an available option
           </div>
           <div
-            class="text-danger text-tiny font-semibold"
+            class="text-tiny text-danger font-semibold"
             data-slot="error-message"
             id="uniform-«replaced-aria-id»-error"
           >
@@ -301,7 +301,7 @@ exports[`Story Snapshots > CustomStyling 1`] = `
                 style="overflow: hidden;"
               >
                 <div
-                  class="px-1 pt-1"
+                  class="pt-1"
                 >
                   Field is required
                 </div>
@@ -348,7 +348,7 @@ exports[`Story Snapshots > Default 1`] = `
     >
       <div
         aria-label="radioTabsField"
-        class="group flex w-full flex-col gap-y-1.5 relative"
+        class="group flex w-full flex-col relative"
         data-component="radio-tabs"
         data-invalid="false"
         data-required="false"
@@ -486,7 +486,7 @@ exports[`Story Snapshots > DisabledCompletely 1`] = `
     >
       <div
         aria-label="radioTabsField"
-        class="group flex w-full flex-col gap-y-1.5 relative"
+        class="group flex w-full flex-col relative"
         data-component="radio-tabs"
         data-invalid="false"
         data-required="false"
@@ -624,7 +624,7 @@ exports[`Story Snapshots > DisabledOption 1`] = `
     >
       <div
         aria-label="radioTabsField"
-        class="group flex w-full flex-col gap-y-1.5 relative"
+        class="group flex w-full flex-col relative"
         data-component="radio-tabs"
         data-invalid="false"
         data-required="false"
@@ -762,7 +762,7 @@ exports[`Story Snapshots > FullWidth 1`] = `
     >
       <div
         aria-labelledby="uniform-«replaced-aria-id»-label"
-        class="group flex w-full flex-col gap-y-1.5 relative"
+        class="group flex w-full flex-col relative"
         data-component="radio-tabs"
         data-invalid="false"
         data-required="false"
@@ -772,7 +772,7 @@ exports[`Story Snapshots > FullWidth 1`] = `
         role="group"
       >
         <div
-          class="mb-2 inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger relative"
+          class="cursor-default pb-1.5 text-small text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger inline-flex relative"
           data-slot="label"
           id="uniform-«replaced-aria-id»-label"
         >
@@ -918,7 +918,7 @@ exports[`Story Snapshots > Invalid 1`] = `
         aria-describedby="uniform-«replaced-aria-id»-error uniform-«replaced-aria-id»-required"
         aria-invalid="true"
         aria-labelledby="uniform-«replaced-aria-id»-label"
-        class="group flex w-full flex-col gap-y-1.5 relative"
+        class="group flex w-full flex-col relative"
         data-component="radio-tabs"
         data-invalid="true"
         data-required="true"
@@ -928,7 +928,7 @@ exports[`Story Snapshots > Invalid 1`] = `
         role="group"
       >
         <div
-          class="mb-2 inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger relative"
+          class="cursor-default pb-1.5 text-small text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger inline-flex relative"
           data-slot="label"
           id="uniform-«replaced-aria-id»-label"
         >
@@ -1056,10 +1056,11 @@ exports[`Story Snapshots > Invalid 1`] = `
           </div>
         </div>
         <div
+          class="relative flex flex-col p-0"
           data-slot="helper-wrapper"
         >
           <div
-            class="text-danger text-tiny"
+            class="text-tiny text-danger"
             data-slot="error-message"
             id="uniform-«replaced-aria-id»-error"
           >
@@ -1072,7 +1073,7 @@ exports[`Story Snapshots > Invalid 1`] = `
                 style="overflow: hidden;"
               >
                 <div
-                  class="px-1 pt-1"
+                  class="pt-1"
                 >
                   Please use another option
                 </div>
@@ -1119,7 +1120,7 @@ exports[`Story Snapshots > InvalidWithContent 1`] = `
         aria-describedby="uniform-«replaced-aria-id»-error uniform-«replaced-aria-id»-required"
         aria-invalid="true"
         aria-labelledby="uniform-«replaced-aria-id»-label"
-        class="group flex w-full flex-col gap-y-1.5 relative"
+        class="group flex w-full flex-col relative"
         data-component="radio-tabs"
         data-invalid="true"
         data-required="true"
@@ -1129,7 +1130,7 @@ exports[`Story Snapshots > InvalidWithContent 1`] = `
         role="group"
       >
         <div
-          class="mb-2 inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger relative"
+          class="cursor-default pb-1.5 text-small text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger inline-flex relative"
           data-slot="label"
           id="uniform-«replaced-aria-id»-label"
         >
@@ -1269,10 +1270,11 @@ exports[`Story Snapshots > InvalidWithContent 1`] = `
           </div>
         </div>
         <div
+          class="relative flex flex-col p-0"
           data-slot="helper-wrapper"
         >
           <div
-            class="text-danger text-tiny"
+            class="text-tiny text-danger"
             data-slot="error-message"
             id="uniform-«replaced-aria-id»-error"
           >
@@ -1285,7 +1287,7 @@ exports[`Story Snapshots > InvalidWithContent 1`] = `
                 style="overflow: hidden;"
               >
                 <div
-                  class="px-1 pt-1"
+                  class="pt-1"
                 >
                   This option is not allowed
                 </div>
@@ -1330,7 +1332,7 @@ exports[`Story Snapshots > NumberValues 1`] = `
     >
       <div
         aria-label="radioTabsField"
-        class="group flex w-full flex-col gap-y-1.5 relative"
+        class="group flex w-full flex-col relative"
         data-component="radio-tabs"
         data-invalid="false"
         data-required="false"
@@ -1469,7 +1471,7 @@ exports[`Story Snapshots > Required 1`] = `
       <div
         aria-describedby="uniform-«replaced-aria-id»-required"
         aria-labelledby="uniform-«replaced-aria-id»-label"
-        class="group flex w-full flex-col gap-y-1.5 relative"
+        class="group flex w-full flex-col relative"
         data-component="radio-tabs"
         data-invalid="false"
         data-required="true"
@@ -1479,7 +1481,7 @@ exports[`Story Snapshots > Required 1`] = `
         role="group"
       >
         <div
-          class="mb-2 inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger relative"
+          class="cursor-default pb-1.5 text-small text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger inline-flex relative"
           data-slot="label"
           id="uniform-«replaced-aria-id»-label"
         >
@@ -1629,7 +1631,7 @@ exports[`Story Snapshots > WithContent 1`] = `
     >
       <div
         aria-label="radioTabsField"
-        class="group flex w-full flex-col gap-y-1.5 relative"
+        class="group flex w-full flex-col relative"
         data-component="radio-tabs"
         data-invalid="false"
         data-required="false"
@@ -1788,7 +1790,7 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
     >
       <div
         aria-label="radioTabsField"
-        class="group flex w-full flex-col gap-y-1.5 relative"
+        class="group flex w-full flex-col relative"
         data-component="radio-tabs"
         data-invalid="false"
         data-required="false"

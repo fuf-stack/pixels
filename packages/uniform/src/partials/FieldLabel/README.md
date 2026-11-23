@@ -6,10 +6,12 @@ their own field markup.
 ## Usage
 
 ```tsx
-import FieldLabel from '@fuf-stack/uniform/partials/FieldLabel';
+import FieldLabel, {
+  fieldLabelVariants,
+} from '@fuf-stack/uniform/partials/FieldLabel';
 
 <FieldLabel
-  className="block pb-1.5 text-small text-foreground"
+  className={fieldLabelVariants({ className: 'block' })}
   htmlFor={controlId}
   id={labelId}
   required={required}
@@ -22,7 +24,8 @@ import FieldLabel from '@fuf-stack/uniform/partials/FieldLabel';
 
 - Renders nothing without children. The required `*` is hidden from the
   accessible name.
-- Unstyled by default, the caller supplies the label classes. `requiredClassName`
+- Unstyled by default, the caller supplies the label classes, usually
+  `fieldLabelVariants()`. `requiredClassName`
   styles the indicator (default `ml-0.5 text-danger`).
 - Renders a native `label` with `htmlFor`. Use `as` for React Aria `Label` inside
   a React Aria field, or `span`/`div` when another element names the control.

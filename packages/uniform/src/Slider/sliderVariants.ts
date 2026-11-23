@@ -2,25 +2,26 @@ import type { TVClassName, TVProps } from '@fuf-stack/pixel-utils';
 
 import { tv } from '@fuf-stack/pixel-utils';
 
+import { fieldHelperVariants } from '../partials/FieldHelper/fieldHelperVariants';
+import { fieldLabelVariants } from '../partials/FieldLabel/fieldLabelVariants';
+
 export const sliderVariants = tv({
+  extend: fieldHelperVariants,
   slots: {
     base: [
       // Enables group-data selectors used by slider slots.
       'group',
       // Match shared field wrapper layout.
       'flex w-full flex-col',
-      // Keep spacing between label/track consistent.
-      'gap-y-1.5',
     ],
-    description: 'text-foreground-500 text-tiny',
     endContent: '',
-    errorMessage: ['ml-1 mt-1', 'm-0 text-danger text-tiny'],
     filler: ['', 'absolute h-full bg-primary'],
-    helperWrapper: 'relative ml-0 block p-0',
+    // clears the thumb focus outline below the track row
+    helperWrapper: 'pt-2',
     // Field-level invalid styling is supplied by the owning group.
-    label:
-      'cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger',
-    labelWrapper: ['mb-1', 'flex w-full items-center justify-between'],
+    // the label row carries the spacing to the track
+    label: [fieldLabelVariants.base, 'pb-0'],
+    labelWrapper: 'flex w-full items-center justify-between pb-1.5',
     mark: '',
     startContent: '',
     step: [

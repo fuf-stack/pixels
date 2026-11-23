@@ -253,7 +253,7 @@ exports[`Story Snapshots > ConsumerFontSize 1`] = `
         data-slot="base"
       >
         <label
-          class="block cursor-default pb-1 text-small text-foreground group-data-[invalid=true]:text-danger"
+          class="cursor-default pb-1.5 text-small text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger block"
           data-slot="label"
           for="uniform-«replaced-aria-id»"
           id="uniform-«replaced-aria-id»-label"
@@ -424,7 +424,7 @@ exports[`Story Snapshots > CustomStyling 1`] = `
         data-slot="base"
       >
         <label
-          class="block cursor-default pb-1 text-small group-data-[invalid=true]:text-danger text-danger font-semibold"
+          class="cursor-default pb-1.5 text-small subpixel-antialiased group-data-[invalid=true]:text-danger block text-danger font-semibold"
           data-slot="label"
           for="uniform-«replaced-aria-id»"
           id="uniform-«replaced-aria-id»-label"
@@ -566,7 +566,7 @@ exports[`Story Snapshots > CustomStyling 1`] = `
           data-slot="helper-wrapper"
         >
           <div
-            class="text-foreground-500 text-small"
+            class="pt-1 text-foreground-500 text-small"
             data-slot="description"
             id="uniform-«replaced-aria-id»-description"
           >
@@ -586,7 +586,7 @@ exports[`Story Snapshots > CustomStyling 1`] = `
                 style="overflow: hidden;"
               >
                 <div
-                  class="px-1 pt-1"
+                  class="pt-1"
                 >
                   Choose at least one
                 </div>
@@ -711,7 +711,7 @@ exports[`Story Snapshots > Disabled 1`] = `
         data-slot="base"
       >
         <label
-          class="block cursor-default pb-1 text-small text-foreground group-data-[invalid=true]:text-danger"
+          class="cursor-default pb-1.5 text-small text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger block"
           data-slot="label"
           for="uniform-«replaced-aria-id»"
           id="uniform-«replaced-aria-id»-label"
@@ -790,7 +790,7 @@ exports[`Story Snapshots > HelpAndRequired 1`] = `
         data-slot="base"
       >
         <label
-          class="block cursor-default pb-1 text-small group-data-[invalid=true]:text-danger text-danger"
+          class="cursor-default pb-1.5 text-small subpixel-antialiased group-data-[invalid=true]:text-danger block text-danger"
           data-slot="label"
           for="uniform-«replaced-aria-id»"
           id="uniform-«replaced-aria-id»-label"
@@ -841,7 +841,7 @@ exports[`Story Snapshots > HelpAndRequired 1`] = `
           data-slot="helper-wrapper"
         >
           <div
-            class="text-tiny text-foreground-500"
+            class="pt-1 text-tiny text-foreground-500"
             data-slot="description"
             id="uniform-«replaced-aria-id»-description"
           >
@@ -861,7 +861,7 @@ exports[`Story Snapshots > HelpAndRequired 1`] = `
                 style="overflow: hidden;"
               >
                 <div
-                  class="px-1 pt-1"
+                  class="pt-1"
                 >
                   Field is required
                 </div>
@@ -916,7 +916,7 @@ exports[`Story Snapshots > Invalid 1`] = `
         data-slot="base"
       >
         <label
-          class="block cursor-default pb-1 text-small group-data-[invalid=true]:text-danger text-danger"
+          class="cursor-default pb-1.5 text-small subpixel-antialiased group-data-[invalid=true]:text-danger block text-danger"
           data-slot="label"
           for="uniform-«replaced-aria-id»"
           id="uniform-«replaced-aria-id»-label"
@@ -974,7 +974,7 @@ exports[`Story Snapshots > Invalid 1`] = `
                 style="overflow: hidden;"
               >
                 <div
-                  class="px-1 pt-1"
+                  class="pt-1"
                 >
                   Must only contain alphanumeric characters and spaces.
                 </div>
@@ -1041,7 +1041,7 @@ exports[`Story Snapshots > NullishNumber 1`] = `
           data-slot="base"
         >
           <label
-            class="block cursor-default pb-1 text-small text-foreground group-data-[invalid=true]:text-danger"
+            class="cursor-default pb-1.5 text-small text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger block"
             data-slot="label"
             for="uniform-«replaced-aria-id»"
             id="uniform-«replaced-aria-id»-label"
@@ -1213,7 +1213,7 @@ exports[`Story Snapshots > Number 1`] = `
           data-slot="base"
         >
           <label
-            class="block cursor-default pb-1 text-small text-foreground group-data-[invalid=true]:text-danger"
+            class="cursor-default pb-1.5 text-small text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger block"
             data-slot="label"
             for="uniform-«replaced-aria-id»"
             id="uniform-«replaced-aria-id»-label"
@@ -1372,7 +1372,7 @@ exports[`Story Snapshots > Password 1`] = `
         data-slot="base"
       >
         <label
-          class="block cursor-default pb-1 text-small group-data-[invalid=true]:text-danger text-danger"
+          class="cursor-default pb-1.5 text-small subpixel-antialiased group-data-[invalid=true]:text-danger block text-danger"
           data-slot="label"
           for="uniform-«replaced-aria-id»"
           id="uniform-«replaced-aria-id»-label"
@@ -1464,7 +1464,7 @@ exports[`Story Snapshots > Password 1`] = `
                 style="overflow: hidden;"
               >
                 <div
-                  class="px-1 pt-1"
+                  class="pt-1"
                 >
                   String must contain at least 20 character(s)
                 </div>
@@ -1515,7 +1515,7 @@ exports[`Story Snapshots > PasswordClearable 1`] = `
         data-slot="base"
       >
         <label
-          class="block cursor-default pb-1 text-small text-foreground group-data-[invalid=true]:text-danger"
+          class="cursor-default pb-1.5 text-small text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger block"
           data-slot="label"
           for="uniform-«replaced-aria-id»"
           id="uniform-«replaced-aria-id»-label"
@@ -1637,7 +1637,7 @@ exports[`Story Snapshots > PasswordDisabled 1`] = `
         data-slot="base"
       >
         <label
-          class="block cursor-default pb-1 text-small text-foreground group-data-[invalid=true]:text-danger"
+          class="cursor-default pb-1.5 text-small text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger block"
           data-slot="label"
           for="uniform-«replaced-aria-id»"
           id="uniform-«replaced-aria-id»-label"
@@ -1745,7 +1745,7 @@ exports[`Story Snapshots > PasswordVisibility 1`] = `
         data-slot="base"
       >
         <label
-          class="block cursor-default pb-1 text-small text-foreground group-data-[invalid=true]:text-danger"
+          class="cursor-default pb-1.5 text-small text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger block"
           data-slot="label"
           for="uniform-«replaced-aria-id»"
           id="uniform-«replaced-aria-id»-label"
@@ -1855,7 +1855,7 @@ exports[`Story Snapshots > PasswordWithoutToggle 1`] = `
         data-slot="base"
       >
         <label
-          class="block cursor-default pb-1 text-small text-foreground group-data-[invalid=true]:text-danger"
+          class="cursor-default pb-1.5 text-small text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger block"
           data-slot="label"
           for="uniform-«replaced-aria-id»"
           id="uniform-«replaced-aria-id»-label"
@@ -1933,7 +1933,7 @@ exports[`Story Snapshots > ReadOnly 1`] = `
         data-slot="base"
       >
         <label
-          class="block cursor-default pb-1 text-small text-foreground group-data-[invalid=true]:text-danger"
+          class="cursor-default pb-1.5 text-small text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger block"
           data-slot="label"
           for="uniform-«replaced-aria-id»"
           id="uniform-«replaced-aria-id»-label"
@@ -2016,7 +2016,7 @@ exports[`Story Snapshots > Required 1`] = `
         data-slot="base"
       >
         <label
-          class="block cursor-default pb-1 text-small text-foreground group-data-[invalid=true]:text-danger"
+          class="cursor-default pb-1.5 text-small text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger block"
           data-slot="label"
           for="uniform-«replaced-aria-id»"
           id="uniform-«replaced-aria-id»-label"
@@ -2116,7 +2116,7 @@ exports[`Story Snapshots > ValidationAfterClear 1`] = `
           data-slot="base"
         >
           <label
-            class="block cursor-default pb-1 text-small group-data-[invalid=true]:text-danger text-danger"
+            class="cursor-default pb-1.5 text-small subpixel-antialiased group-data-[invalid=true]:text-danger block text-danger"
             data-slot="label"
             for="uniform-«replaced-aria-id»"
             id="uniform-«replaced-aria-id»-label"
@@ -2180,7 +2180,7 @@ exports[`Story Snapshots > ValidationAfterClear 1`] = `
                   style="overflow: hidden;"
                 >
                   <div
-                    class="px-1 pt-1"
+                    class="pt-1"
                   >
                     Field is required
                   </div>
@@ -2300,7 +2300,7 @@ exports[`Story Snapshots > WithLabel 1`] = `
         data-slot="base"
       >
         <label
-          class="block cursor-default pb-1 text-small text-foreground group-data-[invalid=true]:text-danger"
+          class="cursor-default pb-1.5 text-small text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger block"
           data-slot="label"
           for="uniform-«replaced-aria-id»"
           id="uniform-«replaced-aria-id»-label"
@@ -2465,7 +2465,7 @@ exports[`Story Snapshots > WithTransformComplexObject 1`] = `
         data-slot="base"
       >
         <label
-          class="block cursor-default pb-1 text-small text-foreground group-data-[invalid=true]:text-danger"
+          class="cursor-default pb-1.5 text-small text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger block"
           data-slot="label"
           for="uniform-«replaced-aria-id»"
           id="uniform-«replaced-aria-id»-label"
@@ -2542,7 +2542,7 @@ exports[`Story Snapshots > WithValueTransform 1`] = `
         data-slot="base"
       >
         <label
-          class="block cursor-default pb-1 text-small text-foreground group-data-[invalid=true]:text-danger"
+          class="cursor-default pb-1.5 text-small text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger block"
           data-slot="label"
           for="uniform-«replaced-aria-id»"
           id="uniform-«replaced-aria-id»-label"

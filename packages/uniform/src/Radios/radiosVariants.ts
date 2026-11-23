@@ -13,11 +13,7 @@ export const radiosVariants = tv({
       'group',
       // Match shared field wrapper layout.
       'flex w-full flex-col',
-      // Keep spacing between label/group consistent.
-      'gap-y-1.5',
     ],
-    /** Container for validation messages */
-    errorMessage: 'text-danger text-tiny',
     /** Clickable radio option */
     itemBase: '',
     /** Indicator marking the selected option */
@@ -31,9 +27,6 @@ export const radiosVariants = tv({
     /** Outline around the selection indicator */
     itemWrapper:
       'group-data-[invalid=true]:border-danger! [&:not(group-data-[invalid="true"]):not(group-data-[selected="false"])]:border-focus',
-    /** Visible field label */
-    label:
-      'mb-2 inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger',
     /** Container arranging the selectable content */
     wrapper:
       'flex flex-col flex-wrap gap-2 data-[orientation=horizontal]:flex-row',

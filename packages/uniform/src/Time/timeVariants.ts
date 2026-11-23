@@ -2,20 +2,21 @@ import type { TVClassName, TVProps } from '@fuf-stack/pixel-utils';
 
 import { tv } from '@fuf-stack/pixel-utils';
 
+import { fieldHelperVariants } from '../partials/FieldHelper/fieldHelperVariants';
+import { fieldLabelVariants } from '../partials/FieldLabel/fieldLabelVariants';
+
 /** Shared segmented input defaults, also extended by DatePicker */
 export const segmentedInputVariants = tv({
+  // reference slots instead of extending, tv types follow only one extend level
   slots: {
-    /** Field container with space for supporting text */
-    base: 'group flex w-full flex-col gap-y-1.5 pb-5',
-    /** Field description text */
-    description: 'text-foreground-500 text-tiny',
-    /** Validation message text */
-    errorMessage: 'text-danger text-tiny',
-    /** Supporting text below the input surface */
-    helperWrapper: [
-      'absolute start-0 top-[calc(100%_+_2px)] flex flex-col gap-1.5',
-      'p-0',
-    ],
+    /** Field container */
+    base: 'group flex w-full flex-col',
+    /** Help text below the control */
+    description: fieldHelperVariants.slots.description,
+    /** Validation message container */
+    errorMessage: fieldHelperVariants.slots.errorMessage,
+    /** Container for help text and validation messages */
+    helperWrapper: fieldHelperVariants.slots.helperWrapper,
     /** Row containing segments and optional controls */
     innerWrapper: 'flex h-6 w-full items-center gap-x-2 text-default-400',
     /** Editable date or time segment group */
@@ -36,10 +37,7 @@ export const segmentedInputVariants = tv({
       'bg-content1 focus-within:border-focus',
     ],
     /** Label above the segmented input */
-    label: [
-      'block w-full text-foreground subpixel-antialiased text-small',
-      'cursor-default',
-    ],
+    label: [fieldLabelVariants.base, 'block w-full'],
     /** Individual editable value or separator */
     segment: [
       // segment focus outline and shadow

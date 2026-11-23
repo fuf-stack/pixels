@@ -1,15 +1,21 @@
 import { tv } from '@fuf-stack/pixel-utils';
 
+import { fieldHelperVariants } from '../FieldHelper/fieldHelperVariants';
+import { fieldLabelVariants } from '../FieldLabel/fieldLabelVariants';
+
 const radioGroupFieldVariants = tv({
+  // reference slots instead of extending, tv types follow only one extend level
   slots: {
     /** Container grouping the label, options and hints */
     base: 'relative',
-    /** Supporting text below the options */
-    description: 'text-foreground-400 text-tiny',
-    /** Container for validation messages */
-    errorMessage: '',
+    /** Help text below the control */
+    description: fieldHelperVariants.slots.description,
+    /** Validation message container */
+    errorMessage: fieldHelperVariants.slots.errorMessage,
+    /** Container for help text and validation messages */
+    helperWrapper: fieldHelperVariants.slots.helperWrapper,
     /** Label above the options */
-    label: 'relative',
+    label: [fieldLabelVariants.base, 'relative inline-flex'],
     /** Container around the selectable options */
     wrapper: '',
   },

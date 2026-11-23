@@ -60,11 +60,6 @@ export const datePickerVariants = tv({
       'flex w-8 items-center justify-center font-medium text-default-400 text-small',
     /** Viewport around the calendar grid */
     gridWrapper: 'relative flex h-auto max-w-full overflow-hidden pb-2',
-    /** Supporting text below the input surface */
-    helperWrapper: [
-      // set padding to 0 for error message exit animation
-      'p-0',
-    ],
     /** Invalid color for content beside segments */
     innerWrapper: 'group-data-[invalid=true]:text-danger',
     /** Input surface with a focus indicator */
@@ -73,7 +68,6 @@ export const datePickerVariants = tv({
       'group-data-[invalid=true]:border-danger group-data-[invalid=true]:focus-within:border-danger group-data-[invalid=true]:hover:border-danger group-data-[invalid=true]:focus-within:hover:border-danger',
     ],
     /** Label above the date input */
-    label: ['cursor-default', 'group-data-[invalid=true]:text-danger'],
     /** Floating surface around the calendar */
     popoverContent: [
       '',

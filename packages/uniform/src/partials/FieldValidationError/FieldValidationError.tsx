@@ -15,8 +15,8 @@ const fieldValidationErrorVariants = tv({
     base: '',
     /** Animated entry for one validation message */
     item: '',
-    /** Padded content inside an animated entry */
-    message: 'px-1 pt-1',
+    /** Content inside an animated entry, padded so the entry animates its spacing */
+    message: 'pt-1',
     /** Associated error container rendered when an ID is supplied */
     wrapper: '',
   },

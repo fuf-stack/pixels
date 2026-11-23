@@ -2,7 +2,11 @@ import type { TVClassName, TVProps } from '@fuf-stack/pixel-utils';
 
 import { tv } from '@fuf-stack/pixel-utils';
 
+import { fieldHelperVariants } from '../partials/FieldHelper/fieldHelperVariants';
+import { fieldLabelVariants } from '../partials/FieldLabel/fieldLabelVariants';
+
 export const radioTabsVariants = tv({
+  extend: fieldHelperVariants,
   slots: {
     /** Container grouping the label, tabs and hints */
     base: [
@@ -10,8 +14,6 @@ export const radioTabsVariants = tv({
       'group',
       // Match shared field wrapper layout.
       'flex w-full flex-col',
-      // Keep spacing between label/tabs consistent.
-      'gap-y-1.5',
       'relative',
     ],
     /** Highlight behind the selected tab */
@@ -24,15 +26,10 @@ export const radioTabsVariants = tv({
       // dark theme surface
       'dark:bg-default',
     ],
-    /** Supporting text below the selection */
-    description: 'text-foreground-400 text-tiny',
-    /** Container for validation messages */
-    errorMessage: 'text-danger text-tiny',
-    /** Container grouping help text and validation messages */
-    helperWrapper: '',
     /** Label above the selection */
     label: [
-      'mb-2 inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger',
+      fieldLabelVariants.base,
+      'inline-flex',
       'relative',
     ],
     /** Selectable tab button */

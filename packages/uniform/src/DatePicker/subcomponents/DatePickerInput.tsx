@@ -39,31 +39,33 @@ const DatePickerInput = ({
   const { description, errorMessage, ids, invalid, testId } = field;
 
   return (
-    <Group
-      className={classNames.inputWrapper}
-      data-slot="input-wrapper"
-      data-testid={testId}
-    >
-      <div className={classNames.innerWrapper} data-slot="inner-wrapper">
-        <DateField className="flex h-full w-full">
-          {children}
-          <DateInput className={classNames.input} data-slot="input-field">
-            {(segment) => {
-              return (
-                <DateSegment
-                  className={classNames.segment}
-                  data-editable={segment.isEditable || undefined}
-                  data-slot="segment"
-                  segment={segment}
-                />
-              );
-            }}
-          </DateInput>
-        </DateField>
-        <DatePickerTrigger className={classNames} />
-      </div>
+    <>
+      <Group
+        className={classNames.inputWrapper}
+        data-slot="input-wrapper"
+        data-testid={testId}
+      >
+        <div className={classNames.innerWrapper} data-slot="inner-wrapper">
+          <DateField className="flex h-full w-full">
+            {children}
+            <DateInput className={classNames.input} data-slot="input-field">
+              {(segment) => {
+                return (
+                  <DateSegment
+                    className={classNames.segment}
+                    data-editable={segment.isEditable || undefined}
+                    data-slot="segment"
+                    segment={segment}
+                  />
+                );
+              }}
+            </DateInput>
+          </DateField>
+          <DatePickerTrigger className={classNames} />
+        </div>
+      </Group>
 
-      {/* help text and validation messages */}
+      {/* help text and validation messages, below the input surface */}
       <FieldHelper
         className={classNames}
         description={description}
@@ -71,7 +73,7 @@ const DatePickerInput = ({
         ids={ids}
         invalid={invalid}
       />
-    </Group>
+    </>
   );
 };
 

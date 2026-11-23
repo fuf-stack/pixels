@@ -2,12 +2,14 @@ import type { TVClassName, TVProps } from '@fuf-stack/pixel-utils';
 
 import { tv } from '@fuf-stack/pixel-utils';
 
+import { fieldHelperVariants } from '../partials/FieldHelper/fieldHelperVariants';
+import { fieldLabelVariants } from '../partials/FieldLabel/fieldLabelVariants';
+
 export const switchVariants = tv({
+  extend: fieldHelperVariants,
   slots: {
     /** Container for the field control and supporting text */
     base: 'group relative inline-flex max-w-fit cursor-pointer touch-none select-none items-center justify-start tap-highlight-transparent',
-    /** Supporting text for the field */
-    description: 'text-foreground-500 text-tiny',
     /** Content at the end of the control */
     endContent: [
       // end icon position and fade transition
@@ -17,13 +19,12 @@ export const switchVariants = tv({
       // reduced motion
       'motion-reduce:transition-none',
     ],
-    /** Container for validation messages */
-    errorMessage: 'text-danger text-tiny',
-    /** Container for help text and validation messages */
-    helperWrapper: 'relative ml-0 block p-0',
     /** Visible field label */
-    label:
-      'group-data-[invalid=true]:text-danger! relative ms-2 select-none text-sm text-foreground subpixel-antialiased',
+    label: [
+      fieldLabelVariants.base,
+      // beside the control, without the spacing below a stacked label
+      'relative ms-2 cursor-pointer select-none pb-0',
+    ],
     /** Container grouping the toggle and field messages */
     outerWrapper: 'place-content-center',
     /** Content at the start of the control */

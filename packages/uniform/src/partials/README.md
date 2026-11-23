@@ -5,6 +5,10 @@ field or reading form state. Most are private, `FieldLabel`, `FieldHelper`,
 `FieldValidationError` and `FieldCopyTestIdButton` are also exported for custom controls. Their props live beside their implementations.
 Each partial has colocated stories and tests for its presentation and semantics.
 Shared control associations and IDs live in `types.ts`.
+Shared label, help text and error styles live in
+`fieldLabelVariants` and `fieldHelperVariants`, next to `FieldLabel` and
+`FieldHelper`. Field recipes compose them and add only structural differences.
+Both are exported with their partial for custom controls.
 
 - [FieldLayout](./FieldLayout/README.md) provides the default label → children →
   supporting messages arrangement, owning the base element by default. Fields

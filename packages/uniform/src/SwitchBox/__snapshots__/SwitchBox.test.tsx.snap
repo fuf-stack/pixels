@@ -60,7 +60,7 @@ exports[`Story Snapshots > AllSizes 1`] = `
               Small Switch Box
             </div>
             <div
-              class="text-foreground opacity-70 text-xs"
+              class="pt-0 text-foreground opacity-70 text-xs"
               id="uniform-«replaced-aria-id»-description"
             >
               This is a small switch box
@@ -112,7 +112,7 @@ exports[`Story Snapshots > AllSizes 1`] = `
               Medium Switch Box
             </div>
             <div
-              class="text-foreground opacity-70 text-small"
+              class="pt-0 text-foreground opacity-70 text-small"
               id="uniform-«replaced-aria-id»-description"
             >
               This is a medium switch box
@@ -164,7 +164,7 @@ exports[`Story Snapshots > AllSizes 1`] = `
               Large Switch Box
             </div>
             <div
-              class="text-foreground opacity-70 text-small"
+              class="pt-0 text-foreground opacity-70 text-small"
               id="uniform-«replaced-aria-id»-description"
             >
               This is a large switch box
@@ -251,7 +251,7 @@ exports[`Story Snapshots > Default 1`] = `
             Enable notifications
           </div>
           <div
-            class="text-foreground opacity-70 text-small"
+            class="pt-0 text-foreground opacity-70 text-small"
             id="uniform-«replaced-aria-id»-description"
           >
             Receive email notifications about your account activity
@@ -337,7 +337,7 @@ exports[`Story Snapshots > Disabled 1`] = `
             Pro features
           </div>
           <div
-            class="text-foreground opacity-70 text-small"
+            class="pt-0 text-foreground opacity-70 text-small"
             id="uniform-«replaced-aria-id»-description"
           >
             Upgrade to unlock premium features
@@ -434,7 +434,7 @@ exports[`Story Snapshots > Invalid 1`] = `
             </span>
           </div>
           <div
-            class="text-foreground opacity-70 text-small"
+            class="pt-0 text-foreground opacity-70 text-small"
             id="uniform-«replaced-aria-id»-description"
           >
             Warning: This will break everything
@@ -442,11 +442,11 @@ exports[`Story Snapshots > Invalid 1`] = `
         </div>
       </label>
       <div
-        class="relative ml-0 block p-0"
+        class="relative flex flex-col p-0"
         data-slot="helper-wrapper"
       >
         <div
-          class="text-danger text-tiny"
+          class="text-tiny text-danger"
           data-slot="error-message"
           id="uniform-«replaced-aria-id»-error"
         >
@@ -459,7 +459,7 @@ exports[`Story Snapshots > Invalid 1`] = `
               style="overflow: hidden;"
             >
               <div
-                class="px-1 pt-1"
+                class="pt-1"
               >
                 You must disable this option to continue
               </div>
@@ -553,7 +553,7 @@ exports[`Story Snapshots > KeyboardAndRequired 1`] = `
             </span>
           </div>
           <div
-            class="text-foreground opacity-70 text-small"
+            class="pt-0 text-foreground opacity-70 text-small"
             id="uniform-«replaced-aria-id»-description"
           >
             Toggle with Space.
@@ -648,7 +648,7 @@ exports[`Story Snapshots > ReadOnly 1`] = `
             Pro features
           </div>
           <div
-            class="text-foreground opacity-70 text-small"
+            class="pt-0 text-foreground opacity-70 text-small"
             id="uniform-«replaced-aria-id»-description"
           >
             Upgrade to unlock premium features
@@ -741,7 +741,7 @@ exports[`Story Snapshots > Required 1`] = `
             </span>
           </div>
           <div
-            class="text-foreground opacity-70 text-small"
+            class="pt-0 text-foreground opacity-70 text-small"
             id="uniform-«replaced-aria-id»-description"
           >
             You must accept the terms and conditions to continue
@@ -826,7 +826,7 @@ exports[`Story Snapshots > WithIcon 1`] = `
             Phone notifications
           </div>
           <div
-            class="text-foreground opacity-70 text-small"
+            class="pt-0 text-foreground opacity-70 text-small"
             id="uniform-«replaced-aria-id»-description"
           >
             Receive push notifications on your mobile device
@@ -924,7 +924,7 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
             Dark mode
           </div>
           <div
-            class="text-foreground opacity-70 text-small"
+            class="pt-0 text-foreground opacity-70 text-small"
             id="uniform-«replaced-aria-id»-description"
           >
             Toggle dark mode for better visibility at night
@@ -1018,7 +1018,7 @@ exports[`Story Snapshots > WithThumbIcon 1`] = `
             Developer mode
           </div>
           <div
-            class="text-foreground opacity-70 text-small"
+            class="pt-0 text-foreground opacity-70 text-small"
             id="uniform-«replaced-aria-id»-description"
           >
             Enable advanced developer tools and debugging

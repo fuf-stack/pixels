@@ -18,18 +18,26 @@ import { createStyling } from '@fuf-stack/pixel-utils';
 import { datePickerVariants } from '@fuf-stack/uniform/DatePicker';
 import { useController } from '@fuf-stack/uniform/hooks/useController';
 import { useFormContext } from '@fuf-stack/uniform/hooks/useFormContext';
+import { fieldHelperVariants } from '@fuf-stack/uniform/partials/FieldHelper';
+import { fieldLabelVariants } from '@fuf-stack/uniform/partials/FieldLabel';
 
 type OptionNode = ReturnType<NonNullable<RadiosProps['children']>>;
 
 export const requiredLabel: FieldLabelProps = {
+  className: fieldLabelVariants({ className: 'block' }),
   children: 'Email',
   htmlFor: 'email-control',
   id: 'email-label',
   required: true,
 };
 
+const fieldClassNames = fieldHelperVariants();
+
 export const helperMessages: FieldHelperProps = {
-  className: { errorMessage: 'text-danger', helperWrapper: 'flex flex-col' },
+  className: {
+    errorMessage: fieldClassNames.errorMessage(),
+    helperWrapper: fieldClassNames.helperWrapper(),
+  },
   description: 'Use your work email',
   errorMessage: 'Required',
   ids: { description: 'email-description', error: 'email-error' },

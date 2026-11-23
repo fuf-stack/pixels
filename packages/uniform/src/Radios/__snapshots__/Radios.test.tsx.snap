@@ -18,7 +18,7 @@ exports[`Story Snapshots > ConsumerOptionFont 1`] = `
       <div
         aria-labelledby="uniform-«replaced-aria-id»-label"
         aria-orientation="vertical"
-        class="relative group flex w-full flex-col gap-y-1.5"
+        class="relative group flex w-full flex-col"
         data-component="radios"
         data-invalid="false"
         data-orientation="vertical"
@@ -30,7 +30,7 @@ exports[`Story Snapshots > ConsumerOptionFont 1`] = `
         role="radiogroup"
       >
         <span
-          class="relative mb-2 inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger"
+          class="cursor-default pb-1.5 text-small text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger relative inline-flex"
           data-slot="label"
           id="uniform-«replaced-aria-id»-label"
         >
@@ -132,7 +132,7 @@ exports[`Story Snapshots > CustomOptionsRendering 1`] = `
         aria-labelledby="uniform-«replaced-aria-id»-label"
         aria-orientation="vertical"
         aria-required="true"
-        class="relative group flex w-full flex-col gap-y-1.5"
+        class="relative group flex w-full flex-col"
         data-component="radios"
         data-invalid="true"
         data-orientation="vertical"
@@ -144,7 +144,7 @@ exports[`Story Snapshots > CustomOptionsRendering 1`] = `
         role="radiogroup"
       >
         <span
-          class="relative mb-2 inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger"
+          class="cursor-default pb-1.5 text-small text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger relative inline-flex"
           data-slot="label"
           id="uniform-«replaced-aria-id»-label"
         >
@@ -337,10 +337,11 @@ exports[`Story Snapshots > CustomOptionsRendering 1`] = `
           </div>
         </div>
         <div
+          class="relative flex flex-col p-0"
           data-slot="helper-wrapper"
         >
           <div
-            class="text-danger text-tiny"
+            class="text-tiny text-danger"
             data-slot="error-message"
             id="uniform-«replaced-aria-id»-error"
           >
@@ -353,7 +354,7 @@ exports[`Story Snapshots > CustomOptionsRendering 1`] = `
                 style="overflow: hidden;"
               >
                 <div
-                  class="px-1 pt-1"
+                  class="pt-1"
                 >
                   Field is required
                 </div>
@@ -401,7 +402,7 @@ exports[`Story Snapshots > Default 1`] = `
       <div
         aria-label="radiosField"
         aria-orientation="vertical"
-        class="relative group flex w-full flex-col gap-y-1.5"
+        class="relative group flex w-full flex-col"
         data-component="radios"
         data-invalid="false"
         data-orientation="vertical"
@@ -604,7 +605,7 @@ exports[`Story Snapshots > DisabledCompletely 1`] = `
         aria-disabled="true"
         aria-label="radiosField"
         aria-orientation="vertical"
-        class="relative group flex w-full flex-col gap-y-1.5"
+        class="relative group flex w-full flex-col"
         data-component="radios"
         data-disabled="true"
         data-invalid="false"
@@ -813,7 +814,7 @@ exports[`Story Snapshots > DisabledOption 1`] = `
       <div
         aria-label="radiosField"
         aria-orientation="vertical"
-        class="relative group flex w-full flex-col gap-y-1.5"
+        class="relative group flex w-full flex-col"
         data-component="radios"
         data-invalid="false"
         data-orientation="vertical"
@@ -1017,7 +1018,7 @@ exports[`Story Snapshots > Inline 1`] = `
       <div
         aria-label="radiosField"
         aria-orientation="horizontal"
-        class="relative group flex w-full flex-col gap-y-1.5"
+        class="relative group flex w-full flex-col"
         data-component="radios"
         data-invalid="false"
         data-orientation="horizontal"
@@ -1222,7 +1223,7 @@ exports[`Story Snapshots > Invalid 1`] = `
         aria-labelledby="uniform-«replaced-aria-id»-label"
         aria-orientation="vertical"
         aria-required="true"
-        class="relative group flex w-full flex-col gap-y-1.5"
+        class="relative group flex w-full flex-col"
         data-component="radios"
         data-invalid="true"
         data-orientation="vertical"
@@ -1234,7 +1235,7 @@ exports[`Story Snapshots > Invalid 1`] = `
         role="radiogroup"
       >
         <span
-          class="relative mb-2 inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger"
+          class="cursor-default pb-1.5 text-small text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger relative inline-flex"
           data-slot="label"
           id="uniform-«replaced-aria-id»-label"
         >
@@ -1421,10 +1422,11 @@ exports[`Story Snapshots > Invalid 1`] = `
           </div>
         </div>
         <div
+          class="relative flex flex-col p-0"
           data-slot="helper-wrapper"
         >
           <div
-            class="text-danger text-tiny"
+            class="text-tiny text-danger"
             data-slot="error-message"
             id="uniform-«replaced-aria-id»-error"
           >
@@ -1437,7 +1439,7 @@ exports[`Story Snapshots > Invalid 1`] = `
                 style="overflow: hidden;"
               >
                 <div
-                  class="px-1 pt-1"
+                  class="pt-1"
                 >
                   Please use another option
                 </div>
@@ -1485,7 +1487,7 @@ exports[`Story Snapshots > KeyboardAndRequired 1`] = `
         aria-labelledby="uniform-«replaced-aria-id»-label"
         aria-orientation="vertical"
         aria-required="true"
-        class="relative group flex w-full flex-col gap-y-1.5"
+        class="relative group flex w-full flex-col"
         data-component="radios"
         data-invalid="false"
         data-orientation="vertical"
@@ -1497,7 +1499,7 @@ exports[`Story Snapshots > KeyboardAndRequired 1`] = `
         role="radiogroup"
       >
         <span
-          class="relative mb-2 inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger"
+          class="cursor-default pb-1.5 text-small text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger relative inline-flex"
           data-slot="label"
           id="uniform-«replaced-aria-id»-label"
         >
@@ -1679,10 +1681,11 @@ exports[`Story Snapshots > KeyboardAndRequired 1`] = `
           </div>
         </div>
         <div
+          class="relative flex flex-col p-0"
           data-slot="helper-wrapper"
         >
           <div
-            class="text-foreground-400 text-tiny"
+            class="pt-1 text-tiny text-foreground-500"
             data-slot="description"
             id="uniform-«replaced-aria-id»-description"
           >
@@ -1729,7 +1732,7 @@ exports[`Story Snapshots > NumberValues 1`] = `
       <div
         aria-label="radiosField"
         aria-orientation="vertical"
-        class="relative group flex w-full flex-col gap-y-1.5"
+        class="relative group flex w-full flex-col"
         data-component="radios"
         data-invalid="false"
         data-orientation="vertical"
@@ -1932,7 +1935,7 @@ exports[`Story Snapshots > ReadOnly 1`] = `
         aria-label="radiosField"
         aria-orientation="vertical"
         aria-readonly="true"
-        class="relative group flex w-full flex-col gap-y-1.5 cursor-not-allowed opacity-disabled **:cursor-not-allowed"
+        class="relative group flex w-full flex-col cursor-not-allowed opacity-disabled **:cursor-not-allowed"
         data-component="radios"
         data-invalid="false"
         data-orientation="vertical"
@@ -2145,7 +2148,7 @@ exports[`Story Snapshots > Required 1`] = `
         aria-labelledby="uniform-«replaced-aria-id»-label"
         aria-orientation="vertical"
         aria-required="true"
-        class="relative group flex w-full flex-col gap-y-1.5"
+        class="relative group flex w-full flex-col"
         data-component="radios"
         data-invalid="false"
         data-orientation="vertical"
@@ -2157,7 +2160,7 @@ exports[`Story Snapshots > Required 1`] = `
         role="radiogroup"
       >
         <span
-          class="relative mb-2 inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger"
+          class="cursor-default pb-1.5 text-small text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger relative inline-flex"
           data-slot="label"
           id="uniform-«replaced-aria-id»-label"
         >
@@ -2366,7 +2369,7 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
       <div
         aria-label="radiosField"
         aria-orientation="vertical"
-        class="relative group flex w-full flex-col gap-y-1.5"
+        class="relative group flex w-full flex-col"
         data-component="radios"
         data-invalid="false"
         data-orientation="vertical"

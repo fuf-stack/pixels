@@ -13,8 +13,6 @@ export const radioBoxesVariants = tv({
       'group',
       // Match shared field wrapper layout.
       'flex w-full flex-col',
-      // Keep spacing between label/radio boxes consistent.
-      'gap-y-1.5',
     ],
     /** Clickable option box */
     boxBase: '',
@@ -26,11 +24,6 @@ export const radioBoxesVariants = tv({
     boxLabel: '',
     /** Container grouping option text */
     boxLabelWrapper: '',
-    /** Container for validation messages */
-    errorMessage: 'text-danger text-tiny',
-    /** Visible field label */
-    label:
-      'mb-2 inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger',
     /** Container arranging the selectable content */
     wrapper:
       'flex flex-col flex-wrap gap-2 data-[orientation=horizontal]:flex-row',

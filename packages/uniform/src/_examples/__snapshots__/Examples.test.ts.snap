@@ -41,7 +41,7 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                     data-slot="base"
                   >
                     <label
-                      class="block cursor-default pb-1 text-small text-foreground group-data-[invalid=true]:text-danger"
+                      class="cursor-default pb-1.5 text-small text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger block"
                       data-slot="label"
                       for="uniform-«replaced-aria-id»"
                       id="uniform-«replaced-aria-id»-label"
@@ -90,7 +90,7 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                     data-slot="base"
                   >
                     <label
-                      class="block cursor-default pb-1 text-small text-foreground group-data-[invalid=true]:text-danger"
+                      class="cursor-default pb-1.5 text-small text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger block"
                       data-slot="label"
                       for="uniform-«replaced-aria-id»"
                       id="uniform-«replaced-aria-id»-label"
@@ -202,14 +202,14 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                     value=""
                   />
                   <div
-                    class="group flex w-full flex-col gap-y-1.5 leading-normal"
+                    class="group flex w-full flex-col leading-normal"
                     data-component="select"
                     data-required="true"
                     data-slot="base"
                     data-testid="selectfield_wrapper"
                   >
                     <label
-                      class="pointer-events-auto inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger"
+                      class="cursor-default pb-1.5 text-small text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger pointer-events-auto inline-flex"
                       data-slot="label"
                       for="uniform-«replaced-aria-id»"
                       id="uniform-«replaced-aria-id»-label"
@@ -324,7 +324,7 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                     data-slot="base"
                   >
                     <label
-                      class="block cursor-default pb-1 text-small text-foreground group-data-[invalid=true]:text-danger"
+                      class="cursor-default pb-1.5 text-small text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger block"
                       data-slot="label"
                       for="uniform-«replaced-aria-id»"
                       id="uniform-«replaced-aria-id»-label"
@@ -393,14 +393,14 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                     </div>
                   </div>
                   <div
-                    class="group flex w-full flex-col gap-y-1.5 pb-5"
+                    class="group flex w-full flex-col"
                     data-component="date-picker"
                     data-rac=""
                     data-required="true"
                     data-slot="base"
                   >
                     <span
-                      class="block w-full text-foreground subpixel-antialiased text-small cursor-default group-data-[invalid=true]:text-danger"
+                      class="cursor-default pb-1.5 text-small text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger block w-full"
                       data-slot="label"
                       id="uniform-«replaced-aria-id»-label"
                     >
@@ -610,14 +610,14 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                     />
                   </div>
                   <div
-                    class="group flex w-full flex-col gap-y-1.5 pb-5"
+                    class="group flex w-full flex-col"
                     data-component="time"
                     data-rac=""
                     data-required="true"
                     data-slot="base"
                   >
                     <span
-                      class="block w-full text-foreground subpixel-antialiased text-small cursor-default"
+                      class="cursor-default pb-1.5 text-small text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger block w-full"
                       data-slot="label"
                       id="uniform-«replaced-aria-id»-label"
                     >
@@ -801,7 +801,7 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                     data-slot="base"
                   >
                     <label
-                      class="block pb-1.5 text-foreground text-small"
+                      class="cursor-default pb-1.5 text-small text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger block"
                       data-slot="label"
                       for="uniform-«replaced-aria-id»"
                       id="uniform-«replaced-aria-id»-label"
@@ -840,7 +840,7 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                     </div>
                   </div>
                   <div
-                    class="group flex w-full flex-col gap-y-1.5 md:col-span-2"
+                    class="group flex w-full flex-col md:col-span-2"
                     data-component="slider"
                     data-invalid="false"
                     data-required="true"
@@ -864,11 +864,11 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                       role="group"
                     >
                       <div
-                        class="mb-1 flex w-full items-center justify-between"
+                        class="flex w-full items-center justify-between pb-1.5"
                         data-slot="labelWrapper"
                       >
                         <label
-                          class="cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger"
+                          class="cursor-default text-small text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger pb-0"
                           data-slot="label"
                           id="uniform-«replaced-aria-id»-label"
                         >
@@ -983,7 +983,7 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                         />
                       </span>
                       <span
-                        class="group-data-[invalid=true]:text-danger! relative ms-2 select-none text-sm text-foreground subpixel-antialiased"
+                        class="text-small text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger relative ms-2 cursor-pointer select-none pb-0"
                         data-slot="label"
                         id="uniform-«replaced-aria-id»-label"
                       >
@@ -1049,7 +1049,7 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                         </span>
                       </div>
                       <div
-                        class="text-foreground opacity-70 text-small"
+                        class="pt-0 text-foreground opacity-70 text-small"
                         id="uniform-«replaced-aria-id»-description"
                       >
                         Enable advanced features for your account
@@ -1059,7 +1059,7 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                   <div
                     aria-describedby="uniform-«replaced-aria-id»-required"
                     aria-labelledby="uniform-«replaced-aria-id»-label"
-                    class="group flex w-full flex-col gap-y-1.5 relative"
+                    class="group flex w-full flex-col relative"
                     data-component="checkboxes"
                     data-invalid="false"
                     data-rac=""
@@ -1070,7 +1070,7 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                     role="group"
                   >
                     <span
-                      class="inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger relative"
+                      class="cursor-default pb-1.5 text-small text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger relative inline-flex"
                       data-slot="label"
                       id="uniform-«replaced-aria-id»-label"
                     >
@@ -1282,7 +1282,7 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                     aria-labelledby="uniform-«replaced-aria-id»-label"
                     aria-orientation="horizontal"
                     aria-required="true"
-                    class="relative group flex w-full flex-col gap-y-1.5"
+                    class="relative group flex w-full flex-col"
                     data-component="radios"
                     data-invalid="false"
                     data-orientation="horizontal"
@@ -1294,7 +1294,7 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                     role="radiogroup"
                   >
                     <span
-                      class="relative mb-2 inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger"
+                      class="cursor-default pb-1.5 text-small text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger relative inline-flex"
                       data-slot="label"
                       id="uniform-«replaced-aria-id»-label"
                     >
@@ -1470,7 +1470,7 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                     aria-labelledby="uniform-«replaced-aria-id»-label"
                     aria-orientation="vertical"
                     aria-required="true"
-                    class="relative group flex w-full flex-col gap-y-1.5 md:col-span-2"
+                    class="relative group flex w-full flex-col md:col-span-2"
                     data-component="radio-boxes"
                     data-invalid="false"
                     data-orientation="vertical"
@@ -1482,7 +1482,7 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                     role="radiogroup"
                   >
                     <span
-                      class="relative mb-2 inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger"
+                      class="cursor-default pb-1.5 text-small text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger relative inline-flex"
                       data-slot="label"
                       id="uniform-«replaced-aria-id»-label"
                     >
@@ -1657,7 +1657,7 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                   <div
                     aria-describedby="uniform-«replaced-aria-id»-required"
                     aria-labelledby="uniform-«replaced-aria-id»-label"
-                    class="group flex w-full flex-col gap-y-1.5 relative md:col-span-2"
+                    class="group flex w-full flex-col relative md:col-span-2"
                     data-component="radio-tabs"
                     data-invalid="false"
                     data-required="true"
@@ -1667,7 +1667,7 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                     role="group"
                   >
                     <div
-                      class="mb-2 inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger relative"
+                      class="cursor-default pb-1.5 text-small text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger inline-flex relative"
                       data-slot="label"
                       id="uniform-«replaced-aria-id»-label"
                     >
@@ -1784,7 +1784,7 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                   <div
                     aria-describedby="uniform-«replaced-aria-id»-required"
                     aria-labelledby="uniform-«replaced-aria-id»-label"
-                    class="group flex w-full flex-col gap-y-1.5 relative md:col-span-2"
+                    class="group flex w-full flex-col relative md:col-span-2"
                     data-component="radio-tabs"
                     data-invalid="false"
                     data-required="true"
@@ -1794,7 +1794,7 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                     role="group"
                   >
                     <div
-                      class="mb-2 inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger relative"
+                      class="cursor-default pb-1.5 text-small text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger inline-flex relative"
                       data-slot="label"
                       id="uniform-«replaced-aria-id»-label"
                     >
@@ -1998,7 +1998,7 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                                 data-slot="base"
                               >
                                 <label
-                                  class="block cursor-default pb-1 text-small text-foreground group-data-[invalid=true]:text-danger"
+                                  class="cursor-default pb-1.5 text-small text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger block"
                                   data-slot="label"
                                   for="uniform-«replaced-aria-id»"
                                   id="uniform-«replaced-aria-id»-label"
@@ -2101,7 +2101,7 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                           data-slot="base"
                         >
                           <label
-                            class="block cursor-default pb-1 text-small text-foreground group-data-[invalid=true]:text-danger"
+                            class="cursor-default pb-1.5 text-small text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger block"
                             data-slot="label"
                             for="uniform-«replaced-aria-id»"
                             id="uniform-«replaced-aria-id»-label"
@@ -2150,7 +2150,7 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                           data-slot="base"
                         >
                           <label
-                            class="block cursor-default pb-1 text-small text-foreground group-data-[invalid=true]:text-danger"
+                            class="cursor-default pb-1.5 text-small text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger block"
                             data-slot="label"
                             for="uniform-«replaced-aria-id»"
                             id="uniform-«replaced-aria-id»-label"
@@ -2197,7 +2197,7 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                       style="overflow: hidden;"
                     >
                       <div
-                        class="relative flex-col gap-1.5 p-0 border-t block px-3 pb-2 pt-1 transition-colors duration-150 motion-reduce:transition-none border-divider"
+                        class="relative flex-col p-0 border-t block px-3 pb-2 pt-1 transition-colors duration-150 motion-reduce:transition-none border-divider"
                         data-slot="helper-wrapper"
                       >
                         <div
@@ -2214,7 +2214,7 @@ exports[`Story Snapshots > AllFieldRenderers 1`] = `
                               style="overflow: hidden;"
                             >
                               <div
-                                class="px-1 pt-1"
+                                class="pt-1"
                               >
                                 Both Field A and Field B are required
                               </div>
@@ -2297,7 +2297,7 @@ exports[`Story Snapshots > DebugModeDisabled 1`] = `
                 data-slot="base"
               >
                 <label
-                  class="block cursor-default pb-1 text-small text-foreground group-data-[invalid=true]:text-danger"
+                  class="cursor-default pb-1.5 text-small text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger block"
                   data-slot="label"
                   for="uniform-«replaced-aria-id»"
                   id="uniform-«replaced-aria-id»-label"

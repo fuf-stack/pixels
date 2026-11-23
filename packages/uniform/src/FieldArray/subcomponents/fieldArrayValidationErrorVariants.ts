@@ -1,11 +1,12 @@
 import { tv } from '@fuf-stack/pixel-utils';
 
+import { fieldHelperVariants } from '../../partials/FieldHelper/fieldHelperVariants';
+
 const fieldArrayValidationErrorVariants = tv({
+  extend: fieldHelperVariants,
   slots: {
-    /** Container for array-level validation messages */
-    errorMessage: 'text-danger text-tiny',
     /** Padded footer containing array-level validation */
-    helperWrapper: ['relative flex-col gap-1.5', 'block px-3 pb-2 pt-1'],
+    helperWrapper: 'px-3 pb-2 pt-1',
   },
 });
 

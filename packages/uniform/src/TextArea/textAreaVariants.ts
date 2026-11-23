@@ -2,19 +2,17 @@ import type { TVClassName, TVProps } from '@fuf-stack/pixel-utils';
 
 import { tv } from '@fuf-stack/pixel-utils';
 
+import { fieldHelperVariants } from '../partials/FieldHelper/fieldHelperVariants';
+import { fieldLabelVariants } from '../partials/FieldLabel/fieldLabelVariants';
+
 /** Textarea slot styles with disabled, filled and invalid states */
 export const textAreaVariants = tv({
+  extend: fieldHelperVariants,
   slots: {
     /** Container for the label, input and messages */
     base: 'group relative flex w-full flex-col',
     /** Reserved clear action slot */
     clearButton: '',
-    /** Supporting text below the textarea */
-    description: 'text-foreground-500 text-tiny',
-    /** Validation message container */
-    errorMessage: 'text-danger text-tiny',
-    /** Container for help text and validation messages */
-    helperWrapper: 'relative flex flex-col p-0',
     /** Container around the autosizing textarea */
     innerWrapper: 'inline-flex w-full items-start',
     /** Editable multiline text */
@@ -44,7 +42,7 @@ export const textAreaVariants = tv({
       'motion-reduce:transition-none',
     ],
     /** Label above the textarea */
-    label: 'block pb-1.5 text-foreground text-small',
+    label: [fieldLabelVariants.base, 'block'],
   },
   variants: {
     disabled: { true: { base: 'pointer-events-none opacity-disabled' } },

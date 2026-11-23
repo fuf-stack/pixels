@@ -24,7 +24,7 @@ exports[`Story Snapshots > CheckboxesWithInitialValues 1`] = `
         >
           <div
             aria-labelledby="uniform-«replaced-aria-id»-label"
-            class="group flex w-full flex-col gap-y-1.5 relative"
+            class="group flex w-full flex-col relative"
             data-component="checkboxes"
             data-invalid="false"
             data-rac=""
@@ -35,7 +35,7 @@ exports[`Story Snapshots > CheckboxesWithInitialValues 1`] = `
             role="group"
           >
             <span
-              class="inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger relative"
+              class="cursor-default pb-1.5 text-small text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger relative inline-flex"
               data-slot="label"
               id="uniform-«replaced-aria-id»-label"
             >
@@ -278,7 +278,7 @@ exports[`Story Snapshots > CheckboxesWithInitialValues 1`] = `
                   />
                 </span>
                 <span
-                  class="group-data-[invalid=true]:text-danger! relative ms-2 select-none text-sm text-foreground subpixel-antialiased"
+                  class="text-small text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger relative ms-2 cursor-pointer select-none pb-0"
                   data-slot="label"
                   id="uniform-«replaced-aria-id»-label"
                 >
@@ -325,7 +325,7 @@ exports[`Story Snapshots > CheckboxesWithInitialValues 1`] = `
                   />
                 </span>
                 <span
-                  class="group-data-[invalid=true]:text-danger! relative ms-2 select-none text-sm text-foreground subpixel-antialiased"
+                  class="text-small text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger relative ms-2 cursor-pointer select-none pb-0"
                   data-slot="label"
                   id="uniform-«replaced-aria-id»-label"
                 >
@@ -381,7 +381,7 @@ exports[`Story Snapshots > CheckboxesWithInitialValues 1`] = `
                 Enable Feature 🧪
               </div>
               <div
-                class="text-foreground opacity-70 text-small"
+                class="pt-0 text-foreground opacity-70 text-small"
                 id="uniform-«replaced-aria-id»-description"
               >
                 Enable experimental features
@@ -460,7 +460,7 @@ exports[`Story Snapshots > CheckboxesWithoutInitialValues 1`] = `
         >
           <div
             aria-labelledby="uniform-«replaced-aria-id»-label"
-            class="group flex w-full flex-col gap-y-1.5 relative"
+            class="group flex w-full flex-col relative"
             data-component="checkboxes"
             data-invalid="false"
             data-rac=""
@@ -471,7 +471,7 @@ exports[`Story Snapshots > CheckboxesWithoutInitialValues 1`] = `
             role="group"
           >
             <span
-              class="inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger relative"
+              class="cursor-default pb-1.5 text-small text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger relative inline-flex"
               data-slot="label"
               id="uniform-«replaced-aria-id»-label"
             >
@@ -706,7 +706,7 @@ exports[`Story Snapshots > CheckboxesWithoutInitialValues 1`] = `
                   />
                 </span>
                 <span
-                  class="group-data-[invalid=true]:text-danger! relative ms-2 select-none text-sm text-foreground subpixel-antialiased"
+                  class="text-small text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger relative ms-2 cursor-pointer select-none pb-0"
                   data-slot="label"
                   id="uniform-«replaced-aria-id»-label"
                 >
@@ -753,7 +753,7 @@ exports[`Story Snapshots > CheckboxesWithoutInitialValues 1`] = `
                   />
                 </span>
                 <span
-                  class="group-data-[invalid=true]:text-danger! relative ms-2 select-none text-sm text-foreground subpixel-antialiased"
+                  class="text-small text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger relative ms-2 cursor-pointer select-none pb-0"
                   data-slot="label"
                   id="uniform-«replaced-aria-id»-label"
                 >
@@ -807,7 +807,7 @@ exports[`Story Snapshots > CheckboxesWithoutInitialValues 1`] = `
                 Enable Feature 🧪
               </div>
               <div
-                class="text-foreground opacity-70 text-small"
+                class="pt-0 text-foreground opacity-70 text-small"
                 id="uniform-«replaced-aria-id»-description"
               >
                 Enable experimental features
@@ -917,7 +917,7 @@ exports[`Story Snapshots > FieldArrayFlatWithInitialValues 1`] = `
                     data-slot="base"
                   >
                     <label
-                      class="block cursor-default pb-1 text-small text-foreground group-data-[invalid=true]:text-danger"
+                      class="cursor-default pb-1.5 text-small text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger block"
                       data-slot="label"
                       for="uniform-«replaced-aria-id»"
                       id="uniform-«replaced-aria-id»-label"
@@ -1086,7 +1086,7 @@ exports[`Story Snapshots > FieldArrayFlatWithoutInitialValues 1`] = `
                     data-slot="base"
                   >
                     <label
-                      class="block cursor-default pb-1 text-small text-foreground group-data-[invalid=true]:text-danger"
+                      class="cursor-default pb-1.5 text-small text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger block"
                       data-slot="label"
                       for="uniform-«replaced-aria-id»"
                       id="uniform-«replaced-aria-id»-label"
@@ -1238,7 +1238,7 @@ exports[`Story Snapshots > FieldArrayWithInitialValues 1`] = `
                     data-slot="base"
                   >
                     <label
-                      class="block cursor-default pb-1 text-small text-foreground group-data-[invalid=true]:text-danger"
+                      class="cursor-default pb-1.5 text-small text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger block"
                       data-slot="label"
                       for="uniform-«replaced-aria-id»"
                       id="uniform-«replaced-aria-id»-label"
@@ -1407,7 +1407,7 @@ exports[`Story Snapshots > FieldArrayWithoutInitialValues 1`] = `
                     data-slot="base"
                   >
                     <label
-                      class="block cursor-default pb-1 text-small text-foreground group-data-[invalid=true]:text-danger"
+                      class="cursor-default pb-1.5 text-small text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger block"
                       data-slot="label"
                       for="uniform-«replaced-aria-id»"
                       id="uniform-«replaced-aria-id»-label"
@@ -1535,7 +1535,7 @@ exports[`Story Snapshots > InputsWithInitialValues 1`] = `
               data-slot="base"
             >
               <label
-                class="block cursor-default pb-1 text-small text-foreground group-data-[invalid=true]:text-danger"
+                class="cursor-default pb-1.5 text-small text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger block"
                 data-slot="label"
                 for="uniform-«replaced-aria-id»"
                 id="uniform-«replaced-aria-id»-label"
@@ -1577,7 +1577,7 @@ exports[`Story Snapshots > InputsWithInitialValues 1`] = `
               data-slot="base"
             >
               <label
-                class="block pb-1.5 text-foreground text-small"
+                class="cursor-default pb-1.5 text-small text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger block"
                 data-slot="label"
                 for="uniform-«replaced-aria-id»"
                 id="uniform-«replaced-aria-id»-label"
@@ -1612,7 +1612,7 @@ exports[`Story Snapshots > InputsWithInitialValues 1`] = `
               </div>
             </div>
             <div
-              class="group flex w-full flex-col gap-y-1.5"
+              class="group flex w-full flex-col"
               data-component="slider"
               data-invalid="false"
               data-required="false"
@@ -1630,11 +1630,11 @@ exports[`Story Snapshots > InputsWithInitialValues 1`] = `
                 role="group"
               >
                 <div
-                  class="mb-1 flex w-full items-center justify-between"
+                  class="flex w-full items-center justify-between pb-1.5"
                   data-slot="labelWrapper"
                 >
                   <label
-                    class="cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger"
+                    class="cursor-default text-small text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger pb-0"
                     data-slot="label"
                     id="uniform-«replaced-aria-id»-label"
                   >
@@ -1787,7 +1787,7 @@ exports[`Story Snapshots > InputsWithoutInitialValues 1`] = `
               data-slot="base"
             >
               <label
-                class="block cursor-default pb-1 text-small text-foreground group-data-[invalid=true]:text-danger"
+                class="cursor-default pb-1.5 text-small text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger block"
                 data-slot="label"
                 for="uniform-«replaced-aria-id»"
                 id="uniform-«replaced-aria-id»-label"
@@ -1827,7 +1827,7 @@ exports[`Story Snapshots > InputsWithoutInitialValues 1`] = `
               data-slot="base"
             >
               <label
-                class="block pb-1.5 text-foreground text-small"
+                class="cursor-default pb-1.5 text-small text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger block"
                 data-slot="label"
                 for="uniform-«replaced-aria-id»"
                 id="uniform-«replaced-aria-id»-label"
@@ -1859,7 +1859,7 @@ exports[`Story Snapshots > InputsWithoutInitialValues 1`] = `
               </div>
             </div>
             <div
-              class="group flex w-full flex-col gap-y-1.5"
+              class="group flex w-full flex-col"
               data-component="slider"
               data-invalid="false"
               data-required="false"
@@ -1877,11 +1877,11 @@ exports[`Story Snapshots > InputsWithoutInitialValues 1`] = `
                 role="group"
               >
                 <div
-                  class="mb-1 flex w-full items-center justify-between"
+                  class="flex w-full items-center justify-between pb-1.5"
                   data-slot="labelWrapper"
                 >
                   <label
-                    class="cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger"
+                    class="cursor-default text-small text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger pb-0"
                     data-slot="label"
                     id="uniform-«replaced-aria-id»-label"
                   >
@@ -2029,7 +2029,7 @@ exports[`Story Snapshots > RadiosWithInitialValues 1`] = `
           <div
             aria-labelledby="uniform-«replaced-aria-id»-label"
             aria-orientation="horizontal"
-            class="relative group flex w-full flex-col gap-y-1.5"
+            class="relative group flex w-full flex-col"
             data-component="radios"
             data-invalid="false"
             data-orientation="horizontal"
@@ -2041,7 +2041,7 @@ exports[`Story Snapshots > RadiosWithInitialValues 1`] = `
             role="radiogroup"
           >
             <span
-              class="relative mb-2 inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger"
+              class="cursor-default pb-1.5 text-small text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger relative inline-flex"
               data-slot="label"
               id="uniform-«replaced-aria-id»-label"
             >
@@ -2207,7 +2207,7 @@ exports[`Story Snapshots > RadiosWithInitialValues 1`] = `
           <div
             aria-labelledby="uniform-«replaced-aria-id»-label"
             aria-orientation="vertical"
-            class="relative group flex w-full flex-col gap-y-1.5"
+            class="relative group flex w-full flex-col"
             data-component="radio-boxes"
             data-invalid="false"
             data-orientation="vertical"
@@ -2219,7 +2219,7 @@ exports[`Story Snapshots > RadiosWithInitialValues 1`] = `
             role="radiogroup"
           >
             <span
-              class="relative mb-2 inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger"
+              class="cursor-default pb-1.5 text-small text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger relative inline-flex"
               data-slot="label"
               id="uniform-«replaced-aria-id»-label"
             >
@@ -2408,7 +2408,7 @@ exports[`Story Snapshots > RadiosWithInitialValues 1`] = `
           </div>
           <div
             aria-labelledby="uniform-«replaced-aria-id»-label"
-            class="group flex w-full flex-col gap-y-1.5 relative"
+            class="group flex w-full flex-col relative"
             data-component="radio-tabs"
             data-invalid="false"
             data-required="false"
@@ -2418,7 +2418,7 @@ exports[`Story Snapshots > RadiosWithInitialValues 1`] = `
             role="group"
           >
             <div
-              class="mb-2 inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger relative"
+              class="cursor-default pb-1.5 text-small text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger inline-flex relative"
               data-slot="label"
               id="uniform-«replaced-aria-id»-label"
             >
@@ -2599,7 +2599,7 @@ exports[`Story Snapshots > RadiosWithoutInitialValues 1`] = `
           <div
             aria-labelledby="uniform-«replaced-aria-id»-label"
             aria-orientation="horizontal"
-            class="relative group flex w-full flex-col gap-y-1.5"
+            class="relative group flex w-full flex-col"
             data-component="radios"
             data-invalid="false"
             data-orientation="horizontal"
@@ -2611,7 +2611,7 @@ exports[`Story Snapshots > RadiosWithoutInitialValues 1`] = `
             role="radiogroup"
           >
             <span
-              class="relative mb-2 inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger"
+              class="cursor-default pb-1.5 text-small text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger relative inline-flex"
               data-slot="label"
               id="uniform-«replaced-aria-id»-label"
             >
@@ -2774,7 +2774,7 @@ exports[`Story Snapshots > RadiosWithoutInitialValues 1`] = `
           <div
             aria-labelledby="uniform-«replaced-aria-id»-label"
             aria-orientation="vertical"
-            class="relative group flex w-full flex-col gap-y-1.5"
+            class="relative group flex w-full flex-col"
             data-component="radio-boxes"
             data-invalid="false"
             data-orientation="vertical"
@@ -2786,7 +2786,7 @@ exports[`Story Snapshots > RadiosWithoutInitialValues 1`] = `
             role="radiogroup"
           >
             <span
-              class="relative mb-2 inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger"
+              class="cursor-default pb-1.5 text-small text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger relative inline-flex"
               data-slot="label"
               id="uniform-«replaced-aria-id»-label"
             >
@@ -2972,7 +2972,7 @@ exports[`Story Snapshots > RadiosWithoutInitialValues 1`] = `
           </div>
           <div
             aria-labelledby="uniform-«replaced-aria-id»-label"
-            class="group flex w-full flex-col gap-y-1.5 relative"
+            class="group flex w-full flex-col relative"
             data-component="radio-tabs"
             data-invalid="false"
             data-required="false"
@@ -2982,7 +2982,7 @@ exports[`Story Snapshots > RadiosWithoutInitialValues 1`] = `
             role="group"
           >
             <div
-              class="mb-2 inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger relative"
+              class="cursor-default pb-1.5 text-small text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger inline-flex relative"
               data-slot="label"
               id="uniform-«replaced-aria-id»-label"
             >
@@ -3152,13 +3152,13 @@ exports[`Story Snapshots > SelectWithInitialValues 1`] = `
           data-slot="body"
         >
           <div
-            class="group flex w-full flex-col gap-y-1.5 leading-normal"
+            class="group flex w-full flex-col leading-normal"
             data-component="select"
             data-slot="base"
             data-testid="planet_wrapper"
           >
             <label
-              class="pointer-events-auto inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger"
+              class="cursor-default pb-1.5 text-small text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger pointer-events-auto inline-flex"
               data-slot="label"
               for="uniform-«replaced-aria-id»"
               id="uniform-«replaced-aria-id»-label"
@@ -3274,13 +3274,13 @@ exports[`Story Snapshots > SelectWithInitialValues 1`] = `
             </div>
           </div>
           <div
-            class="group flex w-full flex-col gap-y-1.5 leading-normal"
+            class="group flex w-full flex-col leading-normal"
             data-component="select"
             data-slot="base"
             data-testid="flavors_wrapper"
           >
             <label
-              class="pointer-events-auto inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger"
+              class="cursor-default pb-1.5 text-small text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger pointer-events-auto inline-flex"
               data-slot="label"
               for="uniform-«replaced-aria-id»"
               id="uniform-«replaced-aria-id»-label"
@@ -3522,13 +3522,13 @@ exports[`Story Snapshots > SelectWithoutInitialValues 1`] = `
           data-slot="body"
         >
           <div
-            class="group flex w-full flex-col gap-y-1.5 leading-normal"
+            class="group flex w-full flex-col leading-normal"
             data-component="select"
             data-slot="base"
             data-testid="planet_wrapper"
           >
             <label
-              class="pointer-events-auto inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger"
+              class="cursor-default pb-1.5 text-small text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger pointer-events-auto inline-flex"
               data-slot="label"
               for="uniform-«replaced-aria-id»"
               id="uniform-«replaced-aria-id»-label"
@@ -3629,13 +3629,13 @@ exports[`Story Snapshots > SelectWithoutInitialValues 1`] = `
             </div>
           </div>
           <div
-            class="group flex w-full flex-col gap-y-1.5 leading-normal"
+            class="group flex w-full flex-col leading-normal"
             data-component="select"
             data-slot="base"
             data-testid="flavors_wrapper"
           >
             <label
-              class="pointer-events-auto inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger"
+              class="cursor-default pb-1.5 text-small text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger pointer-events-auto inline-flex"
               data-slot="label"
               for="uniform-«replaced-aria-id»"
               id="uniform-«replaced-aria-id»-label"

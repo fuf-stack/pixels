@@ -2,7 +2,10 @@ import type { TVClassName } from '@fuf-stack/pixel-utils';
 
 import { tv } from '@fuf-stack/pixel-utils';
 
+import { fieldHelperVariants } from '../partials/FieldHelper/fieldHelperVariants';
+
 export const switchBoxVariants = tv({
+  extend: fieldHelperVariants,
   slots: {
     /** Selectable box containing the toggle and text */
     box: [
@@ -12,11 +15,8 @@ export const switchBoxVariants = tv({
       'hover:bg-content2 data-[selected=true]:border-focus',
     ],
     /** Supporting text for the field */
-    description: 'text-foreground opacity-70',
-    /** Container for validation messages */
-    errorMessage: 'text-danger text-tiny',
-    /** Container below the switch for validation messages */
-    helperWrapper: 'relative ml-0 block p-0',
+    // inside the box, without the spacing below a control
+    description: 'pt-0 text-foreground opacity-70',
     /** Decorative icon beside the option text */
     icon: '',
     /** Visible field label */

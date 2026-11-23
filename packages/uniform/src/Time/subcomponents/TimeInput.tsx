@@ -14,7 +14,7 @@ interface TimeInputProps {
 }
 
 /**
- * Editable time segments and supporting messages inside a TimeField
+ * Editable time segments and supporting messages below them, inside a TimeField
  *
  * @see https://react-aria.adobe.com/TimeField
  */
@@ -22,28 +22,30 @@ const TimeInput = ({ className: classNames, field }: TimeInputProps) => {
   const { description, errorMessage, ids, invalid, testId } = field;
 
   return (
-    <div className={classNames.inputWrapper} data-slot="input-wrapper">
-      <div className={classNames.innerWrapper} data-slot="inner-wrapper">
-        <DateInput
-          className={classNames.input}
-          data-slot="input"
-          data-testid={testId}
-        >
-          {(segment) => {
-            return (
-              <DateSegment
-                className={classNames.segment}
-                data-editable={segment.isEditable || undefined}
-                data-slot="segment"
-                data-type={segment.type}
-                segment={segment}
-              />
-            );
-          }}
-        </DateInput>
+    <>
+      <div className={classNames.inputWrapper} data-slot="input-wrapper">
+        <div className={classNames.innerWrapper} data-slot="inner-wrapper">
+          <DateInput
+            className={classNames.input}
+            data-slot="input"
+            data-testid={testId}
+          >
+            {(segment) => {
+              return (
+                <DateSegment
+                  className={classNames.segment}
+                  data-editable={segment.isEditable || undefined}
+                  data-slot="segment"
+                  data-type={segment.type}
+                  segment={segment}
+                />
+              );
+            }}
+          </DateInput>
+        </div>
       </div>
 
-      {/* help text and validation messages */}
+      {/* help text and validation messages, below the input surface */}
       <FieldHelper
         className={classNames}
         description={description}
@@ -51,7 +53,7 @@ const TimeInput = ({ className: classNames, field }: TimeInputProps) => {
         ids={ids}
         invalid={invalid}
       />
-    </div>
+    </>
   );
 };
 

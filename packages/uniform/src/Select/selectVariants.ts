@@ -2,15 +2,17 @@ import type { TVClassName, TVProps } from '@fuf-stack/pixel-utils';
 
 import { tv } from '@fuf-stack/pixel-utils';
 
+import { fieldHelperVariants } from '../partials/FieldHelper/fieldHelperVariants';
+import { fieldLabelVariants } from '../partials/FieldLabel/fieldLabelVariants';
+
 export const selectVariants = tv({
+  extend: fieldHelperVariants,
   slots: {
     base: [
       // Enables group-data selectors used by child slots.
       'group',
       // Make field wrappers align with other form controls.
       'flex w-full flex-col',
-      // Keep label/control vertical rhythm consistent.
-      'gap-y-1.5',
       // Preserve existing text flow for select content.
       'leading-normal',
     ],
@@ -26,23 +28,15 @@ export const selectVariants = tv({
     ],
     control_focused: 'border-focus',
     crossIcon: '',
-    description: 'text-foreground-500 text-tiny',
     downChevron: '',
     dropdownIndicator:
       'rounded-md p-1 text-foreground-500 hover:cursor-pointer hover:bg-default-200 hover:text-black',
-    errorMessage: 'text-danger text-tiny',
     group: '',
     groupHeading: 'mb-1 ml-3 mt-2 text-sm text-foreground-500',
-    helperWrapper: 'relative flex flex-col gap-1.5 p-0',
     indicatorSeparator: 'bg-default-300',
     indicatorsContainer: 'gap-1 p-1',
     input: 'py-0.5 pl-1',
-    label: [
-      // label interaction and typography
-      'pointer-events-auto inline-flex cursor-default text-sm text-foreground subpixel-antialiased',
-      // validation color
-      'group-data-[invalid=true]:!text-danger',
-    ],
+    label: [fieldLabelVariants.base, 'pointer-events-auto inline-flex'],
     loadingIndicator: '',
     loadingMessage: 'rounded-sm p-2 text-foreground-500',
     menu: 'mt-2 rounded-xl border border-default-200 bg-content1 p-1 shadow-lg',

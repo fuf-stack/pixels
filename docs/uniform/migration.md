@@ -28,7 +28,8 @@ For custom controls, use the existing public
 `@fuf-stack/uniform/hooks/useFormContext` APIs for registration and form state.
 Own the label, description and error markup, using the public
 `@fuf-stack/uniform/partials/FieldLabel`, `FieldHelper` and `FieldValidationError`
-partials for matching labels, help text and errors. Create stable IDs with React's `useId`, and apply accessible associations and the registered ref to the actual
+partials for matching labels, help text and errors, styled with
+the `fieldLabelVariants` and `fieldHelperVariants` recipes exported with them. Create stable IDs with React's `useId`, and apply accessible associations and the registered ref to the actual
 editable element. For CodeMirror, use editor content attributes and route the
 ref to its focus method. The Markdown editor's old `useInput` import must be
 replaced before adopting this breaking release; its external source is not
@@ -181,3 +182,29 @@ needs to rename these keys:
 
 Disabled options and the disabled Select keep pointer events and show the
 `not-allowed` cursor; the disabled control still blocks changes.
+
+## Unified field text styles
+
+All fields now share one style for labels, help text, validation messages and
+the helper wrapper (`fieldLabelVariants`, `fieldHelperVariants`). Previously
+each field carried the styles of its former HeroUI counterpart. Visible changes:
+
+- Labels use `text-small` everywhere and sit 6px (`pb-1.5`) above their
+  control. Radios, RadioBoxes and RadioTabs labels lose their extra 8px margin.
+- Help text and validation messages sit 4px (`pt-1`) below the control. Field
+  bases no longer use `gap-y-1.5`, so a message animates in without a jump.
+- Validation messages are no longer indented (`px-1` removed from
+  `FieldValidationError`) and align with the label and help text.
+- Help text uses `text-foreground-500 text-tiny`. Checkboxes, Radios,
+  RadioBoxes and RadioTabs previously used `text-foreground-400`, Checkboxes
+  also `text-small`.
+- Validation messages use `text-danger text-tiny`. Checkboxes previously used
+  `text-small`, Slider had extra margins.
+- Time and DatePicker render help text and errors below the input surface
+  instead of positioning them absolutely inside it, and no longer reserve
+  20px (`pb-5`) below every field. The field grows while a message is shown,
+  like other fields.
+
+Option-level text (option descriptions, SwitchBox and RadioBox content) and
+FieldCard and FieldArray headers keep their own styles. Override slots through
+`className` as before.

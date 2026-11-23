@@ -7403,7 +7403,7 @@ exports[`Story Snapshots > UniformCheckboxField 1`] = `
     >
       <div
         aria-labelledby="uniform-«replaced-aria-id»-label"
-        class="group flex w-full flex-col gap-y-1.5 relative"
+        class="group flex w-full flex-col relative"
         data-component="checkboxes"
         data-invalid="false"
         data-rac=""
@@ -7414,7 +7414,7 @@ exports[`Story Snapshots > UniformCheckboxField 1`] = `
         role="group"
       >
         <span
-          class="inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger relative"
+          class="cursor-default pb-1.5 text-small text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger relative inline-flex"
           data-slot="label"
           id="uniform-«replaced-aria-id»-label"
         >
@@ -7791,7 +7791,7 @@ exports[`Story Snapshots > UniformRadioField 1`] = `
       <div
         aria-labelledby="uniform-«replaced-aria-id»-label"
         aria-orientation="vertical"
-        class="relative group flex w-full flex-col gap-y-1.5"
+        class="relative group flex w-full flex-col"
         data-component="radios"
         data-invalid="false"
         data-orientation="vertical"
@@ -7803,7 +7803,7 @@ exports[`Story Snapshots > UniformRadioField 1`] = `
         role="radiogroup"
       >
         <span
-          class="relative mb-2 inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger"
+          class="cursor-default pb-1.5 text-small text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger relative inline-flex"
           data-slot="label"
           id="uniform-«replaced-aria-id»-label"
         >

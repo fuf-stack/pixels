@@ -2,6 +2,9 @@ import type { TVClassName, TVProps } from '@fuf-stack/pixel-utils';
 
 import { tv } from '@fuf-stack/pixel-utils';
 
+import { fieldHelperVariants } from '../partials/FieldHelper/fieldHelperVariants';
+import { fieldLabelVariants } from '../partials/FieldLabel/fieldLabelVariants';
+
 const checkboxColorVariants = tv({
   slots: { wrapper: '' },
   variants: {
@@ -41,18 +44,15 @@ export const checkboxesVariants = tv({
   extend: checkboxColorVariants,
   slots: {
     /** Container for the field control and supporting text */
-    base: ['group flex w-full flex-col gap-y-1.5', 'relative'],
+    base: ['group flex w-full flex-col', 'relative'],
     /** Supporting text for the field */
-    description: 'text-foreground-400 text-small',
+    description: fieldHelperVariants.slots.description,
     /** Container for validation messages */
-    errorMessage: ['text-tiny', 'text-danger text-small'],
+    errorMessage: fieldHelperVariants.slots.errorMessage,
     /** Container for help text and validation messages */
-    helperWrapper: 'relative block p-0',
+    helperWrapper: fieldHelperVariants.slots.helperWrapper,
     /** Visible field label */
-    label: [
-      'inline-flex cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger',
-      'relative',
-    ],
+    label: [fieldLabelVariants.base, 'relative inline-flex'],
     /** Clickable checkbox option */
     optionBase: [
       '',

@@ -19,7 +19,7 @@ exports[`Story Snapshots > Autosizing 1`] = `
           data-slot="base"
         >
           <label
-            class="block pb-1.5 text-foreground text-small"
+            class="cursor-default pb-1.5 text-small text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger block"
             data-slot="label"
             for="uniform-«replaced-aria-id»"
             id="uniform-«replaced-aria-id»-label"
@@ -100,7 +100,7 @@ exports[`Story Snapshots > ConsumerFontSize 1`] = `
           data-slot="base"
         >
           <label
-            class="block pb-1.5 text-foreground text-small"
+            class="cursor-default pb-1.5 text-small text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger block"
             data-slot="label"
             for="uniform-«replaced-aria-id»"
             id="uniform-«replaced-aria-id»-label"
@@ -249,7 +249,7 @@ exports[`Story Snapshots > Disabled 1`] = `
           data-slot="base"
         >
           <label
-            class="block pb-1.5 text-foreground text-small"
+            class="cursor-default pb-1.5 text-small text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger block"
             data-slot="label"
             for="uniform-«replaced-aria-id»"
             id="uniform-«replaced-aria-id»-label"
@@ -331,7 +331,7 @@ exports[`Story Snapshots > HelpAndRequired 1`] = `
           data-slot="base"
         >
           <label
-            class="block pb-1.5 text-small text-danger"
+            class="cursor-default pb-1.5 text-small subpixel-antialiased group-data-[invalid=true]:text-danger block text-danger"
             data-slot="label"
             for="uniform-«replaced-aria-id»"
             id="uniform-«replaced-aria-id»-label"
@@ -377,14 +377,14 @@ exports[`Story Snapshots > HelpAndRequired 1`] = `
             data-slot="helper-wrapper"
           >
             <div
-              class="text-foreground-500 text-tiny"
+              class="pt-1 text-tiny text-foreground-500"
               data-slot="description"
               id="uniform-«replaced-aria-id»-description"
             >
               Enter multiple lines.
             </div>
             <div
-              class="text-danger text-tiny"
+              class="text-tiny text-danger"
               data-slot="error-message"
               id="uniform-«replaced-aria-id»-error"
             >
@@ -397,7 +397,7 @@ exports[`Story Snapshots > HelpAndRequired 1`] = `
                   style="overflow: hidden;"
                 >
                   <div
-                    class="px-1 pt-1"
+                    class="pt-1"
                   >
                     Field is required
                   </div>
@@ -460,7 +460,7 @@ exports[`Story Snapshots > Invalid 1`] = `
           data-slot="base"
         >
           <label
-            class="block pb-1.5 text-small text-danger"
+            class="cursor-default pb-1.5 text-small subpixel-antialiased group-data-[invalid=true]:text-danger block text-danger"
             data-slot="label"
             for="uniform-«replaced-aria-id»"
             id="uniform-«replaced-aria-id»-label"
@@ -509,7 +509,7 @@ exports[`Story Snapshots > Invalid 1`] = `
             data-slot="helper-wrapper"
           >
             <div
-              class="text-danger text-tiny"
+              class="text-tiny text-danger"
               data-slot="error-message"
               id="uniform-«replaced-aria-id»-error"
             >
@@ -522,7 +522,7 @@ exports[`Story Snapshots > Invalid 1`] = `
                   style="overflow: hidden;"
                 >
                   <div
-                    class="px-1 pt-1"
+                    class="pt-1"
                   >
                     Must only contain alphanumeric characters and spaces.
                   </div>
@@ -582,7 +582,7 @@ exports[`Story Snapshots > ReadOnly 1`] = `
           data-slot="base"
         >
           <label
-            class="block pb-1.5 text-foreground text-small"
+            class="cursor-default pb-1.5 text-small text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger block"
             data-slot="label"
             for="uniform-«replaced-aria-id»"
             id="uniform-«replaced-aria-id»-label"
@@ -669,7 +669,7 @@ exports[`Story Snapshots > Required 1`] = `
           data-slot="base"
         >
           <label
-            class="block pb-1.5 text-foreground text-small"
+            class="cursor-default pb-1.5 text-small text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger block"
             data-slot="label"
             for="uniform-«replaced-aria-id»"
             id="uniform-«replaced-aria-id»-label"

@@ -16,7 +16,7 @@ exports[`Story Snapshots > AllSizes 1`] = `
         class="flex flex-col gap-8"
       >
         <div
-          class="group flex w-full flex-col gap-y-1.5"
+          class="group flex w-full flex-col"
           data-component="slider"
           data-invalid="false"
           data-required="false"
@@ -34,11 +34,11 @@ exports[`Story Snapshots > AllSizes 1`] = `
             role="group"
           >
             <div
-              class="mb-1 flex w-full items-center justify-between"
+              class="flex w-full items-center justify-between pb-1.5"
               data-slot="labelWrapper"
             >
               <label
-                class="cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger"
+                class="cursor-default text-small text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger pb-0"
                 data-slot="label"
                 id="uniform-«replaced-aria-id»-label"
               >
@@ -108,7 +108,7 @@ exports[`Story Snapshots > AllSizes 1`] = `
           </div>
         </div>
         <div
-          class="group flex w-full flex-col gap-y-1.5"
+          class="group flex w-full flex-col"
           data-component="slider"
           data-invalid="false"
           data-required="false"
@@ -126,11 +126,11 @@ exports[`Story Snapshots > AllSizes 1`] = `
             role="group"
           >
             <div
-              class="mb-1 flex w-full items-center justify-between"
+              class="flex w-full items-center justify-between pb-1.5"
               data-slot="labelWrapper"
             >
               <label
-                class="cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger"
+                class="cursor-default text-small text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger pb-0"
                 data-slot="label"
                 id="uniform-«replaced-aria-id»-label"
               >
@@ -200,7 +200,7 @@ exports[`Story Snapshots > AllSizes 1`] = `
           </div>
         </div>
         <div
-          class="group flex w-full flex-col gap-y-1.5"
+          class="group flex w-full flex-col"
           data-component="slider"
           data-invalid="false"
           data-required="false"
@@ -218,11 +218,11 @@ exports[`Story Snapshots > AllSizes 1`] = `
             role="group"
           >
             <div
-              class="mb-1 flex w-full items-center justify-between"
+              class="flex w-full items-center justify-between pb-1.5"
               data-slot="labelWrapper"
             >
               <label
-                class="cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger"
+                class="cursor-default text-small text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger pb-0"
                 data-slot="label"
                 id="uniform-«replaced-aria-id»-label"
               >
@@ -327,7 +327,7 @@ exports[`Story Snapshots > CustomRange 1`] = `
       novalidate=""
     >
       <div
-        class="group flex w-full flex-col gap-y-1.5"
+        class="group flex w-full flex-col"
         data-component="slider"
         data-invalid="false"
         data-required="false"
@@ -345,11 +345,11 @@ exports[`Story Snapshots > CustomRange 1`] = `
           role="group"
         >
           <div
-            class="mb-1 flex w-full items-center justify-between"
+            class="flex w-full items-center justify-between pb-1.5"
             data-slot="labelWrapper"
           >
             <label
-              class="cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger"
+              class="cursor-default text-small text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger pb-0"
               data-slot="label"
               id="uniform-«replaced-aria-id»-label"
             >
@@ -453,7 +453,7 @@ exports[`Story Snapshots > Default 1`] = `
       novalidate=""
     >
       <div
-        class="group flex w-full flex-col gap-y-1.5"
+        class="group flex w-full flex-col"
         data-component="slider"
         data-invalid="false"
         data-required="false"
@@ -557,7 +557,7 @@ exports[`Story Snapshots > Disabled 1`] = `
       novalidate=""
     >
       <div
-        class="group flex w-full flex-col gap-y-1.5"
+        class="group flex w-full flex-col"
         data-component="slider"
         data-invalid="false"
         data-required="false"
@@ -575,11 +575,11 @@ exports[`Story Snapshots > Disabled 1`] = `
           role="group"
         >
           <div
-            class="mb-1 flex w-full items-center justify-between"
+            class="flex w-full items-center justify-between pb-1.5"
             data-slot="labelWrapper"
           >
             <label
-              class="cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger"
+              class="cursor-default text-small text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger pb-0"
               data-slot="label"
               id="uniform-«replaced-aria-id»-label"
             >
@@ -707,7 +707,7 @@ exports[`Story Snapshots > EdgeCaseDisabledFocusByTestId 1`] = `
           class="flex w-80 flex-col gap-8"
         >
           <div
-            class="group flex w-full flex-col gap-y-1.5"
+            class="group flex w-full flex-col"
             data-component="slider"
             data-invalid="false"
             data-required="false"
@@ -725,11 +725,11 @@ exports[`Story Snapshots > EdgeCaseDisabledFocusByTestId 1`] = `
               role="group"
             >
               <div
-                class="mb-1 flex w-full items-center justify-between"
+                class="flex w-full items-center justify-between pb-1.5"
                 data-slot="labelWrapper"
               >
                 <label
-                  class="cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger"
+                  class="cursor-default text-small text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger pb-0"
                   data-slot="label"
                   id="uniform-«replaced-aria-id»-label"
                 >
@@ -811,7 +811,7 @@ exports[`Story Snapshots > EdgeCaseDisabledFocusByTestId 1`] = `
             data-slot="base"
           >
             <label
-              class="block cursor-default pb-1 text-small text-foreground group-data-[invalid=true]:text-danger"
+              class="cursor-default pb-1.5 text-small text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger block"
               data-slot="label"
               for="uniform-«replaced-aria-id»"
               id="uniform-«replaced-aria-id»-label"
@@ -904,7 +904,7 @@ exports[`Story Snapshots > EdgeCaseDragThenSubmit 1`] = `
           class="flex w-80 flex-col gap-8"
         >
           <div
-            class="group flex w-full flex-col gap-y-1.5"
+            class="group flex w-full flex-col"
             data-component="slider"
             data-invalid="false"
             data-required="false"
@@ -922,11 +922,11 @@ exports[`Story Snapshots > EdgeCaseDragThenSubmit 1`] = `
               role="group"
             >
               <div
-                class="mb-1 flex w-full items-center justify-between"
+                class="flex w-full items-center justify-between pb-1.5"
                 data-slot="labelWrapper"
               >
                 <label
-                  class="cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger"
+                  class="cursor-default text-small text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger pb-0"
                   data-slot="label"
                   id="uniform-«replaced-aria-id»-label"
                 >
@@ -1002,7 +1002,7 @@ exports[`Story Snapshots > EdgeCaseDragThenSubmit 1`] = `
             data-slot="base"
           >
             <label
-              class="block cursor-default pb-1 text-small text-foreground group-data-[invalid=true]:text-danger"
+              class="cursor-default pb-1.5 text-small text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger block"
               data-slot="label"
               for="uniform-«replaced-aria-id»"
               id="uniform-«replaced-aria-id»-label"
@@ -1092,7 +1092,7 @@ exports[`Story Snapshots > EdgeCaseFocusByTestId 1`] = `
           class="flex w-80 flex-col gap-8"
         >
           <div
-            class="group flex w-full flex-col gap-y-1.5"
+            class="group flex w-full flex-col"
             data-component="slider"
             data-invalid="false"
             data-required="false"
@@ -1110,11 +1110,11 @@ exports[`Story Snapshots > EdgeCaseFocusByTestId 1`] = `
               role="group"
             >
               <div
-                class="mb-1 flex w-full items-center justify-between"
+                class="flex w-full items-center justify-between pb-1.5"
                 data-slot="labelWrapper"
               >
                 <label
-                  class="cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger"
+                  class="cursor-default text-small text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger pb-0"
                   data-slot="label"
                   id="uniform-«replaced-aria-id»-label"
                 >
@@ -1190,7 +1190,7 @@ exports[`Story Snapshots > EdgeCaseFocusByTestId 1`] = `
             data-slot="base"
           >
             <label
-              class="block cursor-default pb-1 text-small text-foreground group-data-[invalid=true]:text-danger"
+              class="cursor-default pb-1.5 text-small text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger block"
               data-slot="label"
               for="uniform-«replaced-aria-id»"
               id="uniform-«replaced-aria-id»-label"
@@ -1281,7 +1281,7 @@ exports[`Story Snapshots > EdgeCaseRequiredSubmitFocus 1`] = `
         novalidate=""
       >
         <div
-          class="group flex w-full flex-col gap-y-1.5"
+          class="group flex w-full flex-col"
           data-component="slider"
           data-invalid="false"
           data-required="true"
@@ -1305,11 +1305,11 @@ exports[`Story Snapshots > EdgeCaseRequiredSubmitFocus 1`] = `
             role="group"
           >
             <div
-              class="mb-1 flex w-full items-center justify-between"
+              class="flex w-full items-center justify-between pb-1.5"
               data-slot="labelWrapper"
             >
               <label
-                class="cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger"
+                class="cursor-default text-small text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger pb-0"
                 data-slot="label"
                 id="uniform-«replaced-aria-id»-label"
               >
@@ -1440,7 +1440,7 @@ exports[`Story Snapshots > EdgeCaseRequiredTouchedViaTab 1`] = `
         novalidate=""
       >
         <div
-          class="group flex w-full flex-col gap-y-1.5"
+          class="group flex w-full flex-col"
           data-component="slider"
           data-invalid="true"
           data-required="true"
@@ -1464,11 +1464,11 @@ exports[`Story Snapshots > EdgeCaseRequiredTouchedViaTab 1`] = `
             role="group"
           >
             <div
-              class="mb-1 flex w-full items-center justify-between"
+              class="flex w-full items-center justify-between pb-1.5"
               data-slot="labelWrapper"
             >
               <label
-                class="cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger"
+                class="cursor-default text-small text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger pb-0"
                 data-slot="label"
                 id="uniform-«replaced-aria-id»-label"
               >
@@ -1544,11 +1544,11 @@ exports[`Story Snapshots > EdgeCaseRequiredTouchedViaTab 1`] = `
             </div>
           </div>
           <div
-            class="relative ml-0 block p-0"
+            class="relative flex flex-col p-0 pt-2"
             data-slot="helper-wrapper"
           >
             <div
-              class="m-0 text-danger text-tiny"
+              class="text-tiny text-danger"
               data-slot="error-message"
               id="uniform-«replaced-aria-id»-error"
             >
@@ -1561,7 +1561,7 @@ exports[`Story Snapshots > EdgeCaseRequiredTouchedViaTab 1`] = `
                   style="overflow: hidden;"
                 >
                   <div
-                    class="px-1 pt-1"
+                    class="pt-1"
                   >
                     Field is required
                   </div>
@@ -1609,7 +1609,7 @@ exports[`Story Snapshots > Invalid 1`] = `
       novalidate=""
     >
       <div
-        class="group flex w-full flex-col gap-y-1.5"
+        class="group flex w-full flex-col"
         data-component="slider"
         data-invalid="true"
         data-required="true"
@@ -1633,11 +1633,11 @@ exports[`Story Snapshots > Invalid 1`] = `
           role="group"
         >
           <div
-            class="mb-1 flex w-full items-center justify-between"
+            class="flex w-full items-center justify-between pb-1.5"
             data-slot="labelWrapper"
           >
             <label
-              class="cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger"
+              class="cursor-default text-small text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger pb-0"
               data-slot="label"
               id="uniform-«replaced-aria-id»-label"
             >
@@ -1717,11 +1717,11 @@ exports[`Story Snapshots > Invalid 1`] = `
           </div>
         </div>
         <div
-          class="relative ml-0 block p-0"
+          class="relative flex flex-col p-0 pt-2"
           data-slot="helper-wrapper"
         >
           <div
-            class="m-0 text-danger text-tiny"
+            class="text-tiny text-danger"
             data-slot="error-message"
             id="uniform-«replaced-aria-id»-error"
           >
@@ -1734,7 +1734,7 @@ exports[`Story Snapshots > Invalid 1`] = `
                 style="overflow: hidden;"
               >
                 <div
-                  class="px-1 pt-1"
+                  class="pt-1"
                 >
                   Value must be at least 50
                 </div>
@@ -1778,7 +1778,7 @@ exports[`Story Snapshots > Required 1`] = `
       novalidate=""
     >
       <div
-        class="group flex w-full flex-col gap-y-1.5"
+        class="group flex w-full flex-col"
         data-component="slider"
         data-invalid="false"
         data-required="true"
@@ -1802,11 +1802,11 @@ exports[`Story Snapshots > Required 1`] = `
           role="group"
         >
           <div
-            class="mb-1 flex w-full items-center justify-between"
+            class="flex w-full items-center justify-between pb-1.5"
             data-slot="labelWrapper"
           >
             <label
-              class="cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger"
+              class="cursor-default text-small text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger pb-0"
               data-slot="label"
               id="uniform-«replaced-aria-id»-label"
             >
@@ -1916,7 +1916,7 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
       novalidate=""
     >
       <div
-        class="group flex w-full flex-col gap-y-1.5"
+        class="group flex w-full flex-col"
         data-component="slider"
         data-invalid="false"
         data-required="false"
@@ -1934,11 +1934,11 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
           role="group"
         >
           <div
-            class="mb-1 flex w-full items-center justify-between"
+            class="flex w-full items-center justify-between pb-1.5"
             data-slot="labelWrapper"
           >
             <label
-              class="cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger"
+              class="cursor-default text-small text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger pb-0"
               data-slot="label"
               id="uniform-«replaced-aria-id»-label"
             >
@@ -2042,7 +2042,7 @@ exports[`Story Snapshots > WithLabel 1`] = `
       novalidate=""
     >
       <div
-        class="group flex w-full flex-col gap-y-1.5"
+        class="group flex w-full flex-col"
         data-component="slider"
         data-invalid="false"
         data-required="false"
@@ -2060,11 +2060,11 @@ exports[`Story Snapshots > WithLabel 1`] = `
           role="group"
         >
           <div
-            class="mb-1 flex w-full items-center justify-between"
+            class="flex w-full items-center justify-between pb-1.5"
             data-slot="labelWrapper"
           >
             <label
-              class="cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger"
+              class="cursor-default text-small text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger pb-0"
               data-slot="label"
               id="uniform-«replaced-aria-id»-label"
             >
@@ -2168,7 +2168,7 @@ exports[`Story Snapshots > WithStartAndEndContent 1`] = `
       novalidate=""
     >
       <div
-        class="group flex w-full flex-col gap-y-1.5"
+        class="group flex w-full flex-col"
         data-component="slider"
         data-invalid="false"
         data-required="false"
@@ -2186,11 +2186,11 @@ exports[`Story Snapshots > WithStartAndEndContent 1`] = `
           role="group"
         >
           <div
-            class="mb-1 flex w-full items-center justify-between"
+            class="flex w-full items-center justify-between pb-1.5"
             data-slot="labelWrapper"
           >
             <label
-              class="cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger"
+              class="cursor-default text-small text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger pb-0"
               data-slot="label"
               id="uniform-«replaced-aria-id»-label"
             >
@@ -2330,7 +2330,7 @@ exports[`Story Snapshots > WithStep 1`] = `
       novalidate=""
     >
       <div
-        class="group flex w-full flex-col gap-y-1.5"
+        class="group flex w-full flex-col"
         data-component="slider"
         data-invalid="false"
         data-required="false"
@@ -2348,11 +2348,11 @@ exports[`Story Snapshots > WithStep 1`] = `
           role="group"
         >
           <div
-            class="mb-1 flex w-full items-center justify-between"
+            class="flex w-full items-center justify-between pb-1.5"
             data-slot="labelWrapper"
           >
             <label
-              class="cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger"
+              class="cursor-default text-small text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger pb-0"
               data-slot="label"
               id="uniform-«replaced-aria-id»-label"
             >
@@ -2456,7 +2456,7 @@ exports[`Story Snapshots > WithSteps 1`] = `
       novalidate=""
     >
       <div
-        class="group flex w-full flex-col gap-y-1.5"
+        class="group flex w-full flex-col"
         data-component="slider"
         data-invalid="false"
         data-required="false"
@@ -2474,11 +2474,11 @@ exports[`Story Snapshots > WithSteps 1`] = `
           role="group"
         >
           <div
-            class="mb-1 flex w-full items-center justify-between"
+            class="flex w-full items-center justify-between pb-1.5"
             data-slot="labelWrapper"
           >
             <label
-              class="cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger"
+              class="cursor-default text-small text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger pb-0"
               data-slot="label"
               id="uniform-«replaced-aria-id»-label"
             >
@@ -2674,7 +2674,7 @@ exports[`Story Snapshots > WithValueTransform 1`] = `
       novalidate=""
     >
       <div
-        class="group flex w-full flex-col gap-y-1.5"
+        class="group flex w-full flex-col"
         data-component="slider"
         data-invalid="false"
         data-required="true"
@@ -2698,11 +2698,11 @@ exports[`Story Snapshots > WithValueTransform 1`] = `
           role="group"
         >
           <div
-            class="mb-1 flex w-full items-center justify-between"
+            class="flex w-full items-center justify-between pb-1.5"
             data-slot="labelWrapper"
           >
             <label
-              class="cursor-default text-sm text-foreground subpixel-antialiased group-data-[invalid=true]:!text-danger"
+              class="cursor-default text-small text-foreground subpixel-antialiased group-data-[invalid=true]:text-danger pb-0"
               data-slot="label"
               id="uniform-«replaced-aria-id»-label"
             >
