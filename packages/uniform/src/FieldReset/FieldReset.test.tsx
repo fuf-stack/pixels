@@ -795,7 +795,8 @@ describe('FieldReset', () => {
     const save = vi.fn();
     const UnregisteredField = () => {
       const { field } = useController({ name: 'cpu', shouldUnregister: true });
-      return <input aria-label="cpu" {...field} />;
+      // stay controlled while the value is still undefined
+      return <input aria-label="cpu" {...field} value={field.value ?? ''} />;
     };
     const Example = ({ visible = true }) => (
       <Form name="settings" onSubmit={save}>

@@ -676,7 +676,9 @@ let mockUniformContextValue: MockUniformContextValue = {
 
 let mockFormState = { isDirty: false, isSubmitted: false };
 
-vi.mock('react-hook-form', () => ({
+// keep the real helpers such as get, only replace the form context
+vi.mock('react-hook-form', async (importOriginal) => ({
+  ...(await importOriginal<object>()),
   useFormContext: () => ({
     getValues: mockGetValues,
     watch: mockWatch,

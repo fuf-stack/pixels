@@ -294,6 +294,33 @@ describe('Form', () => {
   });
 
   describe('disabled field submission', () => {
+    it('does not update the form while a field renders when disabled changes', async () => {
+      const consoleError = vi.spyOn(console, 'error');
+      const validation = veto({ city: string().optional() });
+      const Example = ({ disabled }: { disabled: boolean }) => (
+        <Form
+          initialValues={{ city: 'Berlin' }}
+          onSubmit={vi.fn()}
+          validation={validation}
+        >
+          <Input disabled={disabled} label="City" name="city" />
+        </Form>
+      );
+      const { rerender } = render(<Example disabled={false} />);
+      await screen.findByRole('textbox', { name: 'City' });
+
+      rerender(<Example disabled />);
+      rerender(<Example disabled={false} />);
+
+      await waitFor(() =>
+        expect(screen.getByRole('textbox', { name: 'City' })).toBeEnabled(),
+      );
+      const renderUpdates = consoleError.mock.calls.filter(([message]) =>
+        String(message).includes('Cannot update a component'),
+      );
+      expect(renderUpdates).toEqual([]);
+    });
+
     it.each([false, true])(
       'omits populated disabled fields and preserves enabled fields (schema: %s)',
       async (withSchema) => {

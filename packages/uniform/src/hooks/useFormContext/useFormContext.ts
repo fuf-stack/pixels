@@ -10,7 +10,7 @@ import type {
 } from 'react-hook-form';
 
 import { useContext } from 'react';
-import { useFormContext as useHookFormContext } from 'react-hook-form';
+import { get, useFormContext as useHookFormContext } from 'react-hook-form';
 
 import { UniformContext } from '../../Form/subcomponents/FormContext';
 import { flatArrayKey, nameToTestId, toValidationFormat } from '../../helpers';
@@ -132,7 +132,6 @@ export const useFormContext = <
   const {
     formState,
     // some methods that will be enhanced below
-    getFieldState: getFieldStateOrig,
     getValues: getValuesOrig,
     watch: watchOrig,
     subscribe: subscribeOrig,
@@ -186,15 +185,19 @@ export const useFormContext = <
       name,
     );
 
-    // Get everything but the error from the original field state
-    const fieldState = getFieldStateOrig(name, formState);
-
     return {
-      ...fieldState,
       error,
       invalid: !!error,
+      isDirty: !!get(formState.dirtyFields, name),
+      isTouched: !!get(formState.touchedFields, name),
       required,
       testId: nameToTestId(testId ?? name),
+      // Read lazily like React Hook Form's useController: reading
+      // validatingFields subscribes to it, and React Hook Form then updates
+      // the form while a field renders when its disabled state changes.
+      get isValidating() {
+        return !!get(formState.validatingFields, name);
+      },
     };
   };
 
