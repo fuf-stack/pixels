@@ -11,16 +11,16 @@ export const fieldArrayVariants = tv({
       // fixed height/no round corners/center align
       'h-full rounded-none',
       // focus styles - inset ring
-      'outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-focus',
+      'outline-none focus-visible:ring-2 focus-visible:ring-focus focus-visible:ring-inset',
     ],
     /** class for the append button */
     appendButton: [
       // base styles
-      'w-full justify-start rounded-b-small rounded-t-none font-semibold',
+      'w-full justify-start rounded-t-none rounded-b-small font-semibold',
       // match label height (p-3 = 12px vertical padding + text-base line height)
       '!h-[48px] !min-h-0',
       // focus styles - inset ring with rounded bottom corners to match container
-      'outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-focus',
+      'outline-none focus-visible:ring-2 focus-visible:ring-focus focus-visible:ring-inset',
     ],
     /** base class for the field array wrapper */
     base: [
@@ -38,7 +38,7 @@ export const fieldArrayVariants = tv({
       // reset any transforms or translations
       'translate-x-0! translate-y-0! transform-none!',
       // card header styling - use text-medium (16px) instead of text-base for correct 48px height
-      'rounded-t-small p-3 font-semibold text-medium',
+      'rounded-t-small p-3 text-medium font-semibold',
     ],
     /** class for the list */
     list: ['overflow-hidden'],
@@ -54,7 +54,7 @@ export const fieldArrayVariants = tv({
       // base styles
       'flex w-full flex-row items-stretch divide-divider bg-content1',
       // x division and borders
-      'divide-x divide-solid border-b border-t border-divider',
+      'divide-x divide-solid border-t border-b border-divider',
     ],
     /** class for the list wrapper */
     listWrapper: ['overflow-hidden'],
@@ -65,16 +65,16 @@ export const fieldArrayVariants = tv({
       // fixed height/no round corners
       '!h-full !min-h-0 !rounded-none px-3',
       // focus styles - inset ring
-      'outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-focus',
+      'outline-none focus-visible:ring-2 focus-visible:ring-focus focus-visible:ring-inset',
     ],
     /** class for the sort drag handle */
     sortDragHandle: [
       // base styles
       'flex cursor-grab items-center justify-center px-2 text-default-600 transition-colors',
       // hover and  dragging state
-      'hover:bg-default-100 active:cursor-grabbing group-data-[dragging=true]:bg-default-100',
+      'group-data-[dragging=true]:bg-default-100 hover:bg-default-100 active:cursor-grabbing',
       // focus styles - inset ring
-      'outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-focus',
+      'outline-none focus-visible:ring-2 focus-visible:ring-focus focus-visible:ring-inset',
     ],
   },
   variants: {

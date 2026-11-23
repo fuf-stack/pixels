@@ -8,9 +8,9 @@ export const badgeVariants = tv({
     /** Badge content positioned over the wrapped element */
     badge: [
       // centered content inside the floating pill
-      'font-regular absolute z-10 box-border flex origin-center select-none flex-wrap place-content-center items-center whitespace-nowrap rounded-full subpixel-antialiased',
+      'font-regular absolute z-10 box-border flex origin-center flex-wrap place-content-center items-center rounded-full whitespace-nowrap subpixel-antialiased select-none',
       // retain appearance changes without animating reduced-motion users
-      'scale-100 opacity-100 !duration-300 !ease-soft-spring transition-transform-opacity motion-reduce:transition-none',
+      'scale-100 opacity-100 transition-transform-opacity !duration-300 !ease-soft-spring motion-reduce:transition-none',
     ],
     /** Positioning container around the wrapped element */
     base: 'relative inline-flex shrink-0',
@@ -32,13 +32,13 @@ export const badgeVariants = tv({
     },
     placement: {
       'top-right': {
-        badge: 'right-[5%] top-[5%] -translate-y-1/2 translate-x-1/2',
+        badge: 'top-[5%] right-[5%] translate-x-1/2 -translate-y-1/2',
       },
       'top-left': {
-        badge: 'left-[5%] top-[5%] -translate-x-1/2 -translate-y-1/2',
+        badge: 'top-[5%] left-[5%] -translate-x-1/2 -translate-y-1/2',
       },
       'bottom-right': {
-        badge: 'bottom-[5%] right-[5%] translate-x-1/2 translate-y-1/2',
+        badge: 'right-[5%] bottom-[5%] translate-x-1/2 translate-y-1/2',
       },
       'bottom-left': {
         badge: 'bottom-[5%] left-[5%] -translate-x-1/2 translate-y-1/2',

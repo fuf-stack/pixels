@@ -288,7 +288,7 @@ export const WithErrorModal: Story = {
 };
 
 const errorDetails = (
-  <pre className="whitespace-pre-wrap text-xs">
+  <pre className="text-xs whitespace-pre-wrap">
     {`[PIZZA-TRACKER] Pineapple paradox detected.
 
 ToppingConflictError: Cannot apply "ADD_PINEAPPLE" and "REMOVE_PINEAPPLE" in the same transaction.

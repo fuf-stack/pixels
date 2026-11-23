@@ -19,7 +19,7 @@ export const drawerVariants = tv({
   },
   variants: {
     backdrop: {
-      opaque: { backdrop: 'bg-overlay/50 backdrop-opacity-disabled' },
+      opaque: { backdrop: 'backdrop-opacity-disabled bg-overlay/50' },
       transparent: { backdrop: 'hidden' },
       blur: {
         backdrop:

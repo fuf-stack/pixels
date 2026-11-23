@@ -20,11 +20,11 @@ export const segmentedInputVariants = tv({
     /** Row containing segments and optional controls */
     innerWrapper: 'flex h-6 w-full items-center gap-x-2 text-default-400',
     /** Editable date or time segment group */
-    input: 'flex h-full w-full gap-x-0.5 font-normal text-small',
+    input: 'flex h-full w-full gap-x-0.5 text-small font-normal',
     /** Bordered surface around the editable segments */
     inputWrapper: [
       // segmented control frame and layout
-      'shadow-xs relative inline-flex h-10 min-h-10 w-full cursor-text flex-row items-center gap-3',
+      'relative inline-flex h-10 min-h-10 w-full cursor-text flex-row items-center gap-3 shadow-xs',
       // border and padding
       'rounded-small border-2 border-default-200 px-3',
       // color transitions
@@ -43,13 +43,13 @@ export const segmentedInputVariants = tv({
       // segment focus outline and shadow
       'outline-solid focus:shadow-xs',
       // segment spacing and typography
-      'group my-auto box-content inline-block rounded-md px-0.5 text-start tabular-nums text-foreground-500 outline-transparent',
+      'group my-auto box-content inline-block rounded-md px-0.5 text-start text-foreground-500 tabular-nums outline-transparent',
       // color transition
       'transition-colors',
       // first segment alignment and focus background
       'first:-ml-0.5 focus:bg-default-400/50',
       // editable values and empty placeholders
-      'data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:focus:text-default-foreground',
+      'data-[editable=true]:text-foreground data-[editable=true]:focus:text-default-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500',
       // reduced motion
       'motion-reduce:transition-none',
       // spacing between subsequent segments
@@ -78,7 +78,7 @@ export const timeVariants = tv({
           // invalid text and focus background
           'text-danger-300 focus:bg-danger-400/50',
           // editable values and empty placeholders
-          'data-[editable=true]:data-[placeholder=true]:text-danger data-[editable=true]:text-danger data-[editable=true]:focus:text-danger',
+          'data-[editable=true]:text-danger data-[editable=true]:focus:text-danger data-[editable=true]:data-[placeholder=true]:text-danger',
           // dark theme focus background
           'dark:focus:bg-danger-400/20',
         ],

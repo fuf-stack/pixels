@@ -18,7 +18,7 @@ export const radioBoxVariants = tv({
     /** Dot marking the selected option */
     control: radioControlVariants.slots.control,
     /** Supporting text for the field */
-    description: 'text-foreground opacity-70 text-small',
+    description: 'text-small text-foreground opacity-70',
     /** Option state boundary without an additional layout box */
     field: radioControlVariants.slots.field,
     /** Decorative icon beside the option text */

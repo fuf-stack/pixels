@@ -1,5 +1,3 @@
-
-
 import { mergeConfig } from 'vitest/config';
 
 import projectConfig from '@fuf-stack/vitest-config/project';

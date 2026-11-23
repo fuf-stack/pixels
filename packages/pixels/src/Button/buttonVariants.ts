@@ -8,11 +8,11 @@ export const buttonVariants = tv({
     // position and inline layout
     'group relative z-0 box-border inline-flex items-center justify-center',
     // native appearance and text
-    'outline-solid min-w-max select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased outline-transparent',
+    'min-w-max appearance-none font-normal whitespace-nowrap subpixel-antialiased outline-transparent outline-solid select-none',
     // clipped press feedback
     'transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97]',
     // keyboard focus ring
-    'outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus',
+    'outline-transparent outline-solid data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus',
   ],
   variants: {
     variant: {
@@ -427,7 +427,7 @@ export const buttonVariants = tv({
     {
       color: 'info',
       variant: 'shadow',
-      class: 'shadow-info/40 bg-info text-info-foreground shadow-lg',
+      class: 'bg-info text-info-foreground shadow-lg shadow-info/40',
     },
     {
       color: 'info',

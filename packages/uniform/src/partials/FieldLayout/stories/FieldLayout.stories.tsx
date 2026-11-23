@@ -29,13 +29,13 @@ const storyVariants = tv({
     /** Editable control supplied as children */
     control: 'rounded-small border border-default-300 bg-transparent px-3 py-2',
     /** Supporting text below the control */
-    description: 'text-foreground-500 text-small',
+    description: 'text-small text-foreground-500',
     /** Container for validation messages */
-    errorMessage: 'text-danger text-small',
+    errorMessage: 'text-small text-danger',
     /** Container grouping help text and validation messages */
     helperWrapper: 'flex flex-col gap-1',
     /** Label above the control */
-    label: 'font-medium text-small',
+    label: 'text-small font-medium',
     /** Buttons for increasing or decreasing the value */
     stepperButton: 'rounded-small border border-default-300 px-2 py-1',
   },

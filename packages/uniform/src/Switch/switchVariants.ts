@@ -9,11 +9,11 @@ export const switchVariants = tv({
   extend: fieldHelperVariants,
   slots: {
     /** Container for the field control and supporting text */
-    base: 'group relative inline-flex max-w-fit cursor-pointer touch-none select-none items-center justify-start tap-highlight-transparent',
+    base: 'group relative inline-flex max-w-fit cursor-pointer touch-none items-center justify-start select-none tap-highlight-transparent',
     /** Content at the end of the control */
     endContent: [
       // end icon position and fade transition
-      'absolute end-1.5 z-0 text-default-600 opacity-100 transition-transform-opacity text-small',
+      'absolute end-1.5 z-0 text-small text-default-600 opacity-100 transition-transform-opacity',
       // move and hide the selected end icon
       'group-data-[selected=true]:translate-x-3 group-data-[selected=true]:opacity-0',
       // reduced motion
@@ -23,14 +23,14 @@ export const switchVariants = tv({
     label: [
       fieldLabelVariants.base,
       // beside the control, without the spacing below a stacked label
-      'relative ms-2 cursor-pointer select-none pb-0',
+      'relative ms-2 cursor-pointer pb-0 select-none',
     ],
     /** Container grouping the toggle and field messages */
     outerWrapper: 'place-content-center',
     /** Content at the start of the control */
     startContent: [
       // start icon position and fade transition
-      'absolute start-1.5 z-0 scale-50 text-current opacity-0 transition-transform-opacity text-small',
+      'absolute start-1.5 z-0 scale-50 text-small text-current opacity-0 transition-transform-opacity',
       // reveal the selected start icon
       'group-data-[selected=true]:scale-100 group-data-[selected=true]:opacity-100',
       // reduced motion
@@ -39,9 +39,9 @@ export const switchVariants = tv({
     /** Movable indicator showing the current value */
     thumb: [
       // thumb layout and surface
-      'pointer-events-none z-10 flex h-5 w-5 origin-right items-center justify-center rounded-full bg-white shadow-small transition-all text-small',
+      'pointer-events-none z-10 flex h-5 w-5 origin-right items-center justify-center rounded-full bg-white text-small shadow-small transition-all',
       // selected position and pressed width
-      'group-data-[selected=true]:group-data-[pressed=true]:ms-4 group-data-[selected=true]:ms-5 group-data-[pressed=true]:w-6',
+      'group-data-[pressed=true]:w-6 group-data-[selected=true]:ms-5 group-data-[selected=true]:group-data-[pressed=true]:ms-4',
       // reduced motion
       'motion-reduce:transition-none',
     ],
@@ -65,7 +65,7 @@ export const switchVariants = tv({
         endContent: 'text-medium',
         startContent: 'text-medium',
         thumb:
-          'h-6 w-6 text-medium group-data-[selected=true]:group-data-[pressed=true]:ms-5 group-data-[selected=true]:ms-6 group-data-[pressed=true]:w-7',
+          'h-6 w-6 text-medium group-data-[pressed=true]:w-7 group-data-[selected=true]:ms-6 group-data-[selected=true]:group-data-[pressed=true]:ms-5',
         wrapper: 'h-8 w-14',
       },
       md: {},
@@ -73,7 +73,7 @@ export const switchVariants = tv({
         endContent: 'text-tiny',
         startContent: 'text-tiny',
         thumb:
-          'h-4 w-4 text-tiny group-data-[selected=true]:group-data-[pressed=true]:ms-3 group-data-[selected=true]:ms-4 group-data-[pressed=true]:w-5',
+          'h-4 w-4 text-tiny group-data-[pressed=true]:w-5 group-data-[selected=true]:ms-4 group-data-[selected=true]:group-data-[pressed=true]:ms-3',
         wrapper: 'h-6 w-10',
       },
     },

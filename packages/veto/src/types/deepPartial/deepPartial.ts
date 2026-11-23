@@ -73,15 +73,13 @@ type DiscriminatorKey<TSchema> = TSchema extends {
 
 /** Output type produced by the deep-partial schema. */
 type DeepPartialOutput<TSchema extends VetoTypeAny> = TSchema extends
-  | z.ZodDiscriminatedUnion
-  | { readonly _vetoDiscriminator: PropertyKey }
+  z.ZodDiscriminatedUnion | { readonly _vetoDiscriminator: PropertyKey }
   ? DeepPartialWithRequiredKey<Output<TSchema>, DiscriminatorKey<TSchema>>
   : DeepPartial<Output<TSchema>>;
 
 /** Input type accepted by the deep-partial schema. */
 type DeepPartialInput<TSchema extends VetoTypeAny> = TSchema extends
-  | z.ZodDiscriminatedUnion
-  | { readonly _vetoDiscriminator: PropertyKey }
+  z.ZodDiscriminatedUnion | { readonly _vetoDiscriminator: PropertyKey }
   ? DeepPartialWithRequiredKey<Input<TSchema>, DiscriminatorKey<TSchema>>
   : DeepPartial<Input<TSchema>>;
 

@@ -57,7 +57,7 @@ export const checkboxesVariants = tv({
     optionBase: [
       '',
       // option layout and pointer behavior
-      'group relative -m-2 inline-flex max-w-fit cursor-pointer select-none items-center justify-start p-2 tap-highlight-transparent',
+      'group relative -m-2 inline-flex max-w-fit cursor-pointer items-center justify-start p-2 select-none tap-highlight-transparent',
       // disabled cursor and opacity, the native input covers the option
       'data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-disabled data-[disabled=true]:**:cursor-not-allowed',
     ],
@@ -74,7 +74,7 @@ export const checkboxesVariants = tv({
     /** Primary option text */
     optionLabel: '',
     /** Additional text below the option label */
-    optionLabelSubline: 'text-foreground-400 !text-small',
+    optionLabelSubline: '!text-small text-foreground-400',
     /** Outline and fill around the checkmark */
     optionWrapper: [
       '',
@@ -83,7 +83,7 @@ export const checkboxesVariants = tv({
       // unselected border layer
       "before:absolute before:inset-0 before:box-border before:rounded-[inherit] before:border-2 before:border-solid before:border-default before:transition-colors before:content-['']",
       // animated selection layer
-      "after:absolute after:inset-0 after:origin-center after:scale-50 after:rounded-[inherit] after:opacity-0 after:duration-200 after:ease-linear after:content-[''] after:transition-transform-opacity",
+      "after:absolute after:inset-0 after:origin-center after:scale-50 after:rounded-[inherit] after:opacity-0 after:transition-transform-opacity after:duration-200 after:ease-linear after:content-['']",
       // pressed scale
       'group-data-[pressed=true]:scale-95',
       // keyboard focus ring
@@ -140,7 +140,7 @@ export const checkboxOptionVariants = tv({
     field: 'contents',
     /** Container for the option label and optional subline */
     label:
-      'relative select-none text-foreground transition-colors-opacity text-medium before:transition-width motion-reduce:transition-none',
+      'relative text-medium text-foreground transition-colors-opacity select-none before:transition-width motion-reduce:transition-none',
   },
   variants: { invalid: { true: { label: 'text-danger' } } },
 });

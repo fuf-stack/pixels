@@ -10,25 +10,25 @@ export const modalVariants = tv({
       // cover the viewport
       'fixed inset-0 z-50 h-screen w-screen',
       // dim the page behind the dialog
-      'bg-overlay/50 backdrop-opacity-disabled',
+      'backdrop-opacity-disabled bg-overlay/50',
     ],
     /** Rounded dialog containing the content sections */
     base: [
       'relative z-50 box-border flex w-full flex-col',
       // surface and viewport spacing
       'mx-1 my-1 rounded-large bg-content1 shadow-small sm:mx-6 sm:my-16',
-      'outline-solid max-h-[calc(100%_-_8rem)] outline-transparent',
+      'max-h-[calc(100%_-_8rem)] outline-transparent outline-solid',
     ],
     /** Scrollable body between the heading and footer */
     body: 'flex flex-1 flex-col gap-3 overflow-y-auto px-6 py-4',
     /** Button dismissing the dialog */
     closeButton: [
       // position and hit area
-      'absolute end-1 top-1 select-none appearance-none rounded-full p-2',
+      'absolute end-1 top-1 appearance-none rounded-full p-2 select-none',
       // pointer feedback
       'text-foreground-500 tap-highlight-transparent hover:bg-default-100 active:bg-default-200',
       // keyboard focus ring
-      'outline-solid outline-transparent',
+      'outline-transparent outline-solid',
       'data-[focus-visible]:z-10 data-[focus-visible]:outline-2',
       'data-[focus-visible]:outline-offset-2 data-[focus-visible]:outline-focus',
     ],
@@ -37,11 +37,11 @@ export const modalVariants = tv({
       'flex flex-row justify-end gap-2 border-t border-t-divider px-6 py-4',
     /** Title above the dialog body */
     header:
-      'flex flex-initial border-b border-b-divider px-6 py-4 font-semibold text-large',
+      'flex flex-initial border-b border-b-divider px-6 py-4 text-large font-semibold',
     /** Viewport container centering the dialog */
     wrapper: [
       // use the visible viewport when a mobile keyboard is open
-      'h-(--visual-viewport-height) fixed inset-0 z-50 w-screen overflow-x-auto',
+      'fixed inset-0 z-50 h-(--visual-viewport-height) w-screen overflow-x-auto',
       // center the dialog surface
       'flex items-center justify-center',
     ],

@@ -122,9 +122,7 @@ export const vetoErrorMap: VetoErrorMap = (issue) => {
         return undefined;
       }
       const inputObj = issue.input as
-        | Record<string, unknown>
-        | null
-        | undefined;
+        Record<string, unknown> | null | undefined;
       if (inputObj?.[discriminator] === undefined) {
         const options = collectDiscriminatorOptions(issue.inst, discriminator);
         return encodeMeta('Field is required', {

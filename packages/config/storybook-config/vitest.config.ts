@@ -44,7 +44,9 @@ export default {
             // Storybook sets its own cache, override it after the addon config hook
             name: 'isolated-storybook-test-cache',
             enforce: 'post' as const,
-            config: () => ({ cacheDir }),
+            config: () => {
+              return { cacheDir };
+            },
           },
         ],
         test: {

@@ -97,21 +97,21 @@ const SearchInput = ({
             }}
             clearable
             debounceDelay={0}
-            placeholder={placeholder}
-            size="sm"
             name="search"
             // submit on clear
             onClear={handleClear}
+            placeholder={placeholder}
+            size="sm"
           />
           <SubmitButton
+            // eslint-disable-next-line react/no-children-prop
+            children={null}
+            ariaLabel="Submit search"
             className={classNames.searchSubmitButton}
             color="primary"
             icon={<FaSearch />}
             size="sm"
             testId="submit_search_button"
-            ariaLabel="Submit search"
-            // eslint-disable-next-line react/no-children-prop
-            children={null}
           />
         </motion.div>
       ) : null}

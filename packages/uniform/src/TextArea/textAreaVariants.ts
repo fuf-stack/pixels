@@ -20,7 +20,7 @@ export const textAreaVariants = tv({
       // editable text and transparent surface
       'w-full min-w-0 resize-none bg-transparent bg-clip-text font-normal text-inherit outline-none',
       // autosize transition
-      'duration-100 transition-height text-small',
+      'text-small transition-height duration-100',
       // placeholder and autofill
       'placeholder:text-foreground-500 autofill:bg-transparent',
       // scrollbar visibility and reduced motion
@@ -31,13 +31,13 @@ export const textAreaVariants = tv({
     /** Bordered surface around the textarea */
     inputWrapper: [
       // textarea frame and layout
-      'shadow-xs relative inline-flex w-full cursor-text items-start',
+      'relative inline-flex w-full cursor-text items-start shadow-xs',
       // bordered surface and text
       'rounded-medium border-medium border-default-200 bg-content1 px-3 py-2 text-foreground',
       // interaction transitions
       'transition-colors',
       // hover and focus borders
-      'data-[hover=true]:border-default-400 group-data-[focus=true]:border-focus group-data-[focus=true]:data-[hover=true]:border-default-foreground',
+      'group-data-[focus=true]:border-focus data-[hover=true]:border-default-400 group-data-[focus=true]:data-[hover=true]:border-default-foreground',
       // reduced motion
       'motion-reduce:transition-none',
     ],
@@ -63,7 +63,7 @@ export const textAreaVariants = tv({
       true: {
         input: 'text-danger placeholder:text-danger',
         inputWrapper:
-          'border-danger data-[hover=true]:border-danger group-data-[focus=true]:border-danger group-data-[focus=true]:data-[hover=true]:border-danger',
+          'border-danger group-data-[focus=true]:border-danger data-[hover=true]:border-danger group-data-[focus=true]:data-[hover=true]:border-danger',
         label: 'text-danger',
       },
     },

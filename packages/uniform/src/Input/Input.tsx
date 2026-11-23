@@ -84,11 +84,11 @@ const Input = ({
   return (
     <InputControl
       key={`${name}-${type}-${hidePasswordToggle}`}
-      hidePasswordToggle={hidePasswordToggle}
       className={className}
       clearable={clearable}
       endContent={endContent}
       field={{ ...field, onBlur, onChange, value }}
+      hidePasswordToggle={hidePasswordToggle}
       onClear={onClear}
       onReset={clear}
       placeholder={placeholder}

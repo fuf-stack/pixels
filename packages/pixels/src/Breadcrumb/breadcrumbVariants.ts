@@ -12,7 +12,7 @@ export const breadcrumbVariants = tv({
       // inline content and focus target
       'flex cursor-pointer items-center gap-1 whitespace-nowrap tap-highlight-transparent',
       // keyboard focus
-      'outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus',
+      'outline-transparent outline-solid data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus',
       // hover and press feedback
       'hover:opacity-hover active:opacity-disabled',
     ],
@@ -97,7 +97,7 @@ export const breadcrumbVariants = tv({
     variant: {
       solid: { list: 'max-w-fit bg-default-100' },
       bordered: {
-        list: 'shadow-xs max-w-fit border-medium border-default-200',
+        list: 'max-w-fit border-medium border-default-200 shadow-xs',
       },
       light: {},
     },

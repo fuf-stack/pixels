@@ -28,13 +28,13 @@ type Simplify<T> = { [K in keyof T]: T[K] };
  */
 type InferRawShape<T extends Record<string, unknown>> = Simplify<
   {
-    [K in keyof T as undefined extends InferRawValue<T[K]>
-      ? never
-      : K]: InferRawValue<T[K]>;
+    [
+      K in keyof T as undefined extends InferRawValue<T[K]> ? never : K
+    ]: InferRawValue<T[K]>;
   } & {
-    [K in keyof T as undefined extends InferRawValue<T[K]>
-      ? K
-      : never]?: InferRawValue<T[K]>;
+    [
+      K in keyof T as undefined extends InferRawValue<T[K]> ? K : never
+    ]?: InferRawValue<T[K]>;
   }
 >;
 

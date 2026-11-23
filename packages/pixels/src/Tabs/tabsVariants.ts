@@ -18,7 +18,7 @@ export const tabsVariants = tv({
       // panel spacing and hidden retained content
       'px-1 py-3 data-[inert=true]:hidden',
       // visible keyboard focus
-      'outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus',
+      'outline-transparent outline-solid data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus',
     ],
     /** Focusable control for selecting a section */
     tab: [
@@ -27,7 +27,7 @@ export const tabsVariants = tv({
       // disabled and pointer feedback
       'cursor-pointer transition-opacity tap-highlight-transparent data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 data-[hover-unselected=true]:opacity-100',
       // visible keyboard focus
-      'outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus',
+      'outline-transparent outline-solid data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus',
     ],
     /** Label and optional icon inside a tab */
     tabContent: [
@@ -39,7 +39,7 @@ export const tabsVariants = tv({
     tabList: [
       // wrapping layout and overflow
       'relative flex h-fit flex-nowrap items-center gap-2 p-1',
-      'overflow-x-scroll bg-default-100 scrollbar-hide',
+      'scrollbar-hide overflow-x-scroll bg-default-100',
     ],
     /** Layout positioning the tab list and its panels */
     tabWrapper: '',
@@ -50,12 +50,12 @@ export const tabsVariants = tv({
       light: { tabList: 'bg-transparent dark:bg-transparent' },
       underlined: {
         cursor:
-          'bottom-0 left-[10%] top-auto h-[2px] w-[80%] shadow-[0_1px_0px_0_rgba(0,0,0,0.05)]',
+          'top-auto bottom-0 left-[10%] h-[2px] w-[80%] shadow-[0_1px_0px_0_rgba(0,0,0,0.05)]',
         tabList: 'bg-transparent dark:bg-transparent',
       },
       bordered: {
         tabList:
-          'shadow-xs border-medium border-default-200 bg-transparent dark:bg-transparent',
+          'border-medium border-default-200 bg-transparent shadow-xs dark:bg-transparent',
       },
     },
     size: {

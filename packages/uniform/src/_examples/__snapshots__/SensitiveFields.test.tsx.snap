@@ -140,7 +140,7 @@ exports[`Story Snapshots > CompactedArrays 1`] = `
         </div>
         <button
           aria-label="Submit form"
-          class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center appearance-none font-normal whitespace-nowrap subpixel-antialiased select-none transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-transparent outline-solid data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
           data-component="submit-button"
           data-focus="true"
           data-focused="true"
@@ -161,7 +161,7 @@ exports[`Story Snapshots > CompactedArrays 1`] = `
         data-testid="compacted-debug-panel"
       >
         <div
-          class="relative box-border flex h-auto w-full flex-col overflow-hidden rounded-small border border-divider bg-content1 text-foreground shadow-none outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus transition-transform-background motion-reduce:transition-none"
+          class="relative box-border flex h-auto w-full flex-col overflow-hidden rounded-small border border-divider bg-content1 text-foreground shadow-none outline-transparent outline-solid data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus transition-transform-background motion-reduce:transition-none"
           data-component="card"
           data-slot="base"
           tabindex="-1"
@@ -176,7 +176,7 @@ exports[`Story Snapshots > CompactedArrays 1`] = `
               Debug Mode
             </span>
             <button
-              class="group tap-highlight-transparent [&>svg]:max-w-[theme(spacing.8)] data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus gap-2 rounded-small text-tiny !gap-0 px-0 transition-transform-colors-opacity motion-reduce:transition-none bg-transparent text-danger data-[hover=true]:bg-danger/20 h-8 w-8 min-w-8"
+              class="group tap-highlight-transparent [&>svg]:max-w-[theme(spacing.8)] data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center appearance-none font-normal whitespace-nowrap subpixel-antialiased select-none transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-transparent outline-solid data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus gap-2 rounded-small text-tiny !gap-0 px-0 transition-transform-colors-opacity motion-reduce:transition-none bg-transparent text-danger data-[hover=true]:bg-danger/20 h-8 w-8 min-w-8"
               data-component="button"
               data-rac=""
               data-react-aria-pressable="true"
@@ -195,11 +195,11 @@ exports[`Story Snapshots > CompactedArrays 1`] = `
             class="my-0 h-divider w-full shrink-0 border-none border-divider bg-divider"
           />
           <div
-            class="relative flex h-auto w-full flex-auto flex-col p-3 place-content-inherit align-items-inherit overflow-y-auto break-words text-left subpixel-antialiased"
+            class="relative flex h-auto w-full flex-auto flex-col p-3 place-content-inherit align-items-inherit overflow-y-auto text-left break-words subpixel-antialiased"
             data-slot="body"
           >
             <button
-              class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-transparent text-default-foreground data-[hover=true]:bg-default/40 mb-4 ml-auto mr-auto"
+              class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center appearance-none font-normal whitespace-nowrap subpixel-antialiased select-none transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-transparent outline-solid data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-transparent text-default-foreground data-[hover=true]:bg-default/40 mr-auto mb-4 ml-auto"
               data-component="button"
               data-rac=""
               data-react-aria-pressable="true"
@@ -1107,7 +1107,7 @@ exports[`Story Snapshots > PasswordAndToken 1`] = `
     class="flex flex-col gap-6"
   >
     <div
-      class="relative box-border flex h-auto w-full flex-col overflow-hidden rounded-small border border-divider bg-content1 text-foreground shadow-none outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus transition-transform-background motion-reduce:transition-none max-w-3xl"
+      class="relative box-border flex h-auto w-full flex-col overflow-hidden rounded-small border border-divider bg-content1 text-foreground shadow-none outline-transparent outline-solid data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus transition-transform-background motion-reduce:transition-none max-w-3xl"
       data-component="card"
       data-slot="base"
       tabindex="-1"
@@ -1126,7 +1126,7 @@ exports[`Story Snapshots > PasswordAndToken 1`] = `
         class="my-0 h-divider w-full shrink-0 border-none border-divider bg-divider"
       />
       <div
-        class="relative flex h-auto w-full flex-auto flex-col p-3 place-content-inherit align-items-inherit overflow-y-auto break-words text-left subpixel-antialiased"
+        class="relative flex h-auto w-full flex-auto flex-col p-3 place-content-inherit align-items-inherit overflow-y-auto text-left break-words subpixel-antialiased"
         data-slot="body"
       >
         <div
@@ -1308,7 +1308,7 @@ exports[`Story Snapshots > PasswordAndToken 1`] = `
         </div>
         <button
           aria-label="Submit form"
-          class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center appearance-none font-normal whitespace-nowrap subpixel-antialiased select-none transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-transparent outline-solid data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
           data-component="submit-button"
           data-rac=""
           data-react-aria-pressable="true"
@@ -1325,7 +1325,7 @@ exports[`Story Snapshots > PasswordAndToken 1`] = `
         data-testid="sensitive-debug-panel"
       >
         <div
-          class="relative box-border flex h-auto w-full flex-col overflow-hidden rounded-small border border-divider bg-content1 text-foreground shadow-none outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus transition-transform-background motion-reduce:transition-none"
+          class="relative box-border flex h-auto w-full flex-col overflow-hidden rounded-small border border-divider bg-content1 text-foreground shadow-none outline-transparent outline-solid data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus transition-transform-background motion-reduce:transition-none"
           data-component="card"
           data-slot="base"
           tabindex="-1"
@@ -1340,7 +1340,7 @@ exports[`Story Snapshots > PasswordAndToken 1`] = `
               Debug Mode
             </span>
             <button
-              class="group tap-highlight-transparent [&>svg]:max-w-[theme(spacing.8)] data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus gap-2 rounded-small text-tiny !gap-0 px-0 transition-transform-colors-opacity motion-reduce:transition-none bg-transparent text-danger data-[hover=true]:bg-danger/20 h-8 w-8 min-w-8"
+              class="group tap-highlight-transparent [&>svg]:max-w-[theme(spacing.8)] data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center appearance-none font-normal whitespace-nowrap subpixel-antialiased select-none transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-transparent outline-solid data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus gap-2 rounded-small text-tiny !gap-0 px-0 transition-transform-colors-opacity motion-reduce:transition-none bg-transparent text-danger data-[hover=true]:bg-danger/20 h-8 w-8 min-w-8"
               data-component="button"
               data-rac=""
               data-react-aria-pressable="true"
@@ -1359,11 +1359,11 @@ exports[`Story Snapshots > PasswordAndToken 1`] = `
             class="my-0 h-divider w-full shrink-0 border-none border-divider bg-divider"
           />
           <div
-            class="relative flex h-auto w-full flex-auto flex-col p-3 place-content-inherit align-items-inherit overflow-y-auto break-words text-left subpixel-antialiased"
+            class="relative flex h-auto w-full flex-auto flex-col p-3 place-content-inherit align-items-inherit overflow-y-auto text-left break-words subpixel-antialiased"
             data-slot="body"
           >
             <button
-              class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-transparent text-default-foreground data-[hover=true]:bg-default/40 mb-4 ml-auto mr-auto"
+              class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center appearance-none font-normal whitespace-nowrap subpixel-antialiased select-none transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-transparent outline-solid data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-transparent text-default-foreground data-[hover=true]:bg-default/40 mr-auto mb-4 ml-auto"
               data-component="button"
               data-rac=""
               data-react-aria-pressable="true"

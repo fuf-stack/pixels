@@ -125,7 +125,6 @@ const TextAreaInput = ({
           {...inputProps}
           {...controlProps}
           ref={controlRef}
-          style={inputStyle}
           className={classNames.input}
           data-filled={hasValue || undefined}
           data-hide-scroll={!limitReached || undefined}
@@ -135,6 +134,7 @@ const TextAreaInput = ({
           minRows={3}
           onHeightChange={handleHeightChange}
           placeholder={placeholder}
+          style={inputStyle}
         />
       </div>
     </Group>

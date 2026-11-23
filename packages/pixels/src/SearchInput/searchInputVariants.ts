@@ -10,9 +10,9 @@ export const inputVariants = tv({
     /** Action for clearing the search text */
     clearButton: [
       // placement and hit target
-      'pointer-events-none absolute end-3 start-auto z-10 -m-2 rounded-full p-2',
+      'pointer-events-none absolute start-auto end-3 z-10 -m-2 rounded-full p-2',
       // appearance and keyboard focus
-      'outline-solid cursor-pointer select-none appearance-none outline-transparent text-large data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus',
+      'cursor-pointer appearance-none text-large outline-transparent outline-solid select-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus',
       // visibility follows the adjacent input's value
       'scale-90 opacity-0 peer-data-[filled=true]:pointer-events-auto peer-data-[filled=true]:block peer-data-[filled=true]:scale-100 peer-data-[filled=true]:opacity-70',
       // pointer feedback and transitions
@@ -23,9 +23,9 @@ export const inputVariants = tv({
     /** Editable search text */
     input: [
       // editable text and transparent surface
-      'peer w-full bg-transparent bg-clip-text pe-6 font-normal text-small',
+      'peer w-full bg-transparent bg-clip-text pe-6 text-small font-normal',
       // focus and placeholder appearance
-      '!outline-solid focus-visible:outline-solid outline-transparent placeholder:text-foreground-500',
+      'outline-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid',
       // spacing around surrounding content
       'data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5',
       // browser-specific input appearance
@@ -34,11 +34,11 @@ export const inputVariants = tv({
     /** Bordered surface around the search controls */
     inputWrapper: [
       // surface dimensions and layout
-      'shadow-xs relative inline-flex h-10 min-h-10 w-full cursor-text flex-row items-center gap-3 px-3 tap-highlight-transparent',
+      'relative inline-flex h-10 min-h-10 w-full cursor-text flex-row items-center gap-3 px-3 shadow-xs tap-highlight-transparent',
       // border and background
       'rounded-small border-medium border-default-200 bg-content1',
       // hover, focus and transitions
-      'transition-colors !duration-150 data-[hover=true]:border-default-400 group-data-[focus=true]:border-focus group-data-[focus=true]:data-[hover=true]:border-default-foreground motion-reduce:transition-none',
+      'transition-colors !duration-150 group-data-[focus=true]:border-focus data-[hover=true]:border-default-400 group-data-[focus=true]:data-[hover=true]:border-default-foreground motion-reduce:transition-none',
     ],
     /** Container sizing the search surface */
     mainWrapper: 'flex h-full flex-col',

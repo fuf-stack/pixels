@@ -40,7 +40,7 @@ export const atelierFrameVariants = tv({
       'mt-3 border-t border-default-200 pt-3 text-xs text-default-600',
     sidebarSection: 'mb-3',
     sidebarSectionLabel:
-      'mb-1 text-xs font-semibold uppercase text-default-500',
+      'mb-1 text-xs font-semibold text-default-500 uppercase',
     topBarActions: 'ml-auto flex items-center gap-2',
   },
 });

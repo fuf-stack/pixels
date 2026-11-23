@@ -27,18 +27,14 @@ export const radioTabsVariants = tv({
       'dark:bg-default',
     ],
     /** Label above the selection */
-    label: [
-      fieldLabelVariants.base,
-      'inline-flex',
-      'relative',
-    ],
+    label: [fieldLabelVariants.base, 'inline-flex', 'relative'],
     /** Selectable tab button */
     tab: [
       '',
       // tab dimensions and appearance
-      'outline-solid group relative z-0 flex h-8 w-full cursor-pointer items-center justify-center rounded-small px-3 py-1 outline-transparent transition-opacity text-small',
+      'group relative z-0 flex h-8 w-full cursor-pointer items-center justify-center rounded-small px-3 py-1 text-small outline-transparent transition-opacity outline-solid',
       // focus stacking and disabled state
-      'data-[focus-visible=true]:z-10 data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30',
+      'data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 data-[focus-visible=true]:z-10',
       // keyboard focus outline
       'data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus',
       // reduced motion
@@ -67,7 +63,7 @@ export const radioTabsVariants = tv({
     /** Content associated with the selected tab */
     tabPanel: [
       'p-3',
-      'outline-solid p-3 outline-transparent data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus',
+      'p-3 outline-transparent outline-solid data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus',
     ],
     /** Container grouping the tab list and active panel */
     tabWrapper: '',
@@ -106,7 +102,7 @@ export const radioTabsVariants = tv({
     appearance: {
       bordered: {
         tabList:
-          'shadow-xs border-2 border-default-200 bg-transparent dark:bg-transparent',
+          'border-2 border-default-200 bg-transparent shadow-xs dark:bg-transparent',
       },
       light: { tabList: 'bg-transparent dark:bg-transparent' },
       solid: {},

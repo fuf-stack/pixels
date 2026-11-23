@@ -6,14 +6,14 @@ import { tv } from '@fuf-stack/pixel-utils';
 export const labelVariants = tv({
   slots: {
     /** Surface around the label content and optional controls */
-    base: 'relative box-border inline-flex min-w-min max-w-fit items-center justify-between whitespace-nowrap',
+    base: 'relative box-border inline-flex max-w-fit min-w-min items-center justify-between whitespace-nowrap',
     /** Dismiss action at the end of the label */
     closeButton: [
       // reset the native button and retain the compact hit target
-      'z-10 cursor-pointer select-none appearance-none tap-highlight-transparent',
+      'z-10 cursor-pointer appearance-none select-none tap-highlight-transparent',
       // interaction feedback and keyboard focus
       'opacity-70 transition-opacity hover:opacity-100 active:opacity-disabled motion-reduce:transition-none',
-      'outline-solid outline-transparent data-[focus-visible=true]:rounded-full data-[focus-visible=true]:ring-1 data-[focus-visible=true]:ring-focus data-[focus-visible=true]:ring-offset-2 data-[focus-visible=true]:ring-offset-background',
+      'outline-transparent outline-solid data-[focus-visible=true]:rounded-full data-[focus-visible=true]:ring-1 data-[focus-visible=true]:ring-focus data-[focus-visible=true]:ring-offset-2 data-[focus-visible=true]:ring-offset-background',
     ],
     /** Text and optional leading icon */
     content: 'flex-1 font-normal text-inherit',

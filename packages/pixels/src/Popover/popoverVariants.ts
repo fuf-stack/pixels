@@ -17,19 +17,19 @@ export const popoverVariants = tv({
       // arrow on the top side of the trigger
       'data-[placement=top]:before:-bottom-[calc(theme(spacing.5)/4_-_1.5px)] data-[placement=top]:before:left-1/2 data-[placement=top]:before:-translate-x-1/2',
       'data-[placement=top-start]:before:-bottom-[calc(theme(spacing.5)/4_-_1.5px)] data-[placement=top-start]:before:left-3',
-      'data-[placement=top-end]:before:-bottom-[calc(theme(spacing.5)/4_-_1.5px)] data-[placement=top-end]:before:right-3',
+      'data-[placement=top-end]:before:right-3 data-[placement=top-end]:before:-bottom-[calc(theme(spacing.5)/4_-_1.5px)]',
       // arrow on the bottom side of the trigger
       'data-[placement=bottom]:before:-top-[calc(theme(spacing.5)/4_-_1.5px)] data-[placement=bottom]:before:left-1/2 data-[placement=bottom]:before:-translate-x-1/2',
       'data-[placement=bottom-start]:before:-top-[calc(theme(spacing.5)/4_-_1.5px)] data-[placement=bottom-start]:before:left-3',
       'data-[placement=bottom-end]:before:-top-[calc(theme(spacing.5)/4_-_1.5px)] data-[placement=bottom-end]:before:right-3',
       // arrow on the left side of the trigger
-      'data-[placement=left]:before:-right-[calc(theme(spacing.5)/4_-_2px)] data-[placement=left]:before:top-1/2 data-[placement=left]:before:-translate-y-1/2',
-      'data-[placement=left-start]:before:-right-[calc(theme(spacing.5)/4_-_3px)] data-[placement=left-start]:before:top-1/4',
+      'data-[placement=left]:before:top-1/2 data-[placement=left]:before:-right-[calc(theme(spacing.5)/4_-_2px)] data-[placement=left]:before:-translate-y-1/2',
+      'data-[placement=left-start]:before:top-1/4 data-[placement=left-start]:before:-right-[calc(theme(spacing.5)/4_-_3px)]',
       'data-[placement=left-end]:before:-right-[calc(theme(spacing.5)/4_-_3px)] data-[placement=left-end]:before:bottom-1/4',
       // arrow on the right side of the trigger
-      'data-[placement=right]:before:-left-[calc(theme(spacing.5)/4_-_2px)] data-[placement=right]:before:top-1/2 data-[placement=right]:before:-translate-y-1/2',
-      'data-[placement=right-start]:before:-left-[calc(theme(spacing.5)/4_-_3px)] data-[placement=right-start]:before:top-1/4',
-      'data-[placement=right-end]:before:-left-[calc(theme(spacing.5)/4_-_3px)] data-[placement=right-end]:before:bottom-1/4',
+      'data-[placement=right]:before:top-1/2 data-[placement=right]:before:-left-[calc(theme(spacing.5)/4_-_2px)] data-[placement=right]:before:-translate-y-1/2',
+      'data-[placement=right-start]:before:top-1/4 data-[placement=right-start]:before:-left-[calc(theme(spacing.5)/4_-_3px)]',
+      'data-[placement=right-end]:before:bottom-1/4 data-[placement=right-end]:before:-left-[calc(theme(spacing.5)/4_-_3px)]',
     ],
     /** Scrollable content between the header and footer */
     body: 'w-full px-4 py-2',
@@ -38,7 +38,7 @@ export const popoverVariants = tv({
       // section layout and viewport limit
       'relative z-10 box-border flex max-h-[80vh] w-full flex-col items-center justify-center p-0',
       // surface and typography
-      'outline-solid rounded-small bg-content1 subpixel-antialiased shadow-medium outline-transparent text-small',
+      'rounded-small bg-content1 text-small subpixel-antialiased shadow-medium outline-transparent outline-solid',
     ],
     /** Separator between sections */
     divider: 'm-0 w-full border-divider p-0',
@@ -47,7 +47,7 @@ export const popoverVariants = tv({
     /** Footer and its separator */
     footerWrapper: 'w-full',
     /** Title above the body */
-    header: 'w-full px-4 pb-1 pt-2 font-semibold',
+    header: 'w-full px-4 pt-2 pb-1 font-semibold',
     /** Header and its separator */
     headerWrapper: 'w-full',
     /** Positioned overlay with entry and exit feedback */

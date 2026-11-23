@@ -13,7 +13,7 @@ exports[`Story Snapshots > AllSizes 1`] = `
       data-slot="main-wrapper"
     >
       <div
-        class="shadow-xs relative inline-flex w-full cursor-text flex-row items-center gap-3 tap-highlight-transparent rounded-small border-medium border-default-200 bg-content1 transition-colors !duration-150 data-[hover=true]:border-default-400 group-data-[focus=true]:border-focus group-data-[focus=true]:data-[hover=true]:border-default-foreground motion-reduce:transition-none h-8 min-h-8 px-2"
+        class="relative inline-flex w-full cursor-text flex-row items-center gap-3 shadow-xs tap-highlight-transparent rounded-small border-medium border-default-200 bg-content1 transition-colors !duration-150 group-data-[focus=true]:border-focus data-[hover=true]:border-default-400 group-data-[focus=true]:data-[hover=true]:border-default-foreground motion-reduce:transition-none h-8 min-h-8 px-2"
         data-slot="input-wrapper"
       >
         <div
@@ -37,7 +37,7 @@ exports[`Story Snapshots > AllSizes 1`] = `
           <input
             aria-label="sm"
             autocomplete="off"
-            class="peer w-full bg-transparent bg-clip-text pe-6 font-normal !outline-solid focus-visible:outline-solid outline-transparent placeholder:text-foreground-500 data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 input-search-cancel-button-none file:cursor-pointer file:border-0 file:bg-transparent autofill:bg-transparent data-[type=color]:rounded-none dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden text-small"
+            class="peer w-full bg-transparent bg-clip-text pe-6 font-normal outline-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 input-search-cancel-button-none file:cursor-pointer file:border-0 file:bg-transparent autofill:bg-transparent data-[type=color]:rounded-none dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden text-small"
             data-has-start-content="true"
             data-rac=""
             data-slot="input"
@@ -50,7 +50,7 @@ exports[`Story Snapshots > AllSizes 1`] = `
           />
           <button
             aria-label="clear input"
-            class="pointer-events-none absolute end-3 start-auto z-10 -m-2 rounded-full p-2 outline-solid cursor-pointer select-none appearance-none outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus scale-90 opacity-0 peer-data-[filled=true]:pointer-events-auto peer-data-[filled=true]:block peer-data-[filled=true]:scale-100 peer-data-[filled=true]:opacity-70 transition-[opacity,transform] duration-150 ease-out hover:!opacity-100 active:!opacity-70 motion-reduce:scale-100 motion-reduce:transition-none text-medium"
+            class="pointer-events-none absolute start-auto end-3 z-10 -m-2 rounded-full p-2 cursor-pointer appearance-none outline-transparent outline-solid select-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus scale-90 opacity-0 peer-data-[filled=true]:pointer-events-auto peer-data-[filled=true]:block peer-data-[filled=true]:scale-100 peer-data-[filled=true]:opacity-70 transition-[opacity,transform] duration-150 ease-out hover:!opacity-100 active:!opacity-70 motion-reduce:scale-100 motion-reduce:transition-none text-medium"
             data-rac=""
             data-react-aria-pressable="true"
             data-slot="clear-button"
@@ -86,7 +86,7 @@ exports[`Story Snapshots > AllSizes 1`] = `
       data-slot="main-wrapper"
     >
       <div
-        class="shadow-xs relative inline-flex h-10 min-h-10 w-full cursor-text flex-row items-center gap-3 px-3 tap-highlight-transparent rounded-small border-medium border-default-200 bg-content1 transition-colors !duration-150 data-[hover=true]:border-default-400 group-data-[focus=true]:border-focus group-data-[focus=true]:data-[hover=true]:border-default-foreground motion-reduce:transition-none"
+        class="relative inline-flex h-10 min-h-10 w-full cursor-text flex-row items-center gap-3 px-3 shadow-xs tap-highlight-transparent rounded-small border-medium border-default-200 bg-content1 transition-colors !duration-150 group-data-[focus=true]:border-focus data-[hover=true]:border-default-400 group-data-[focus=true]:data-[hover=true]:border-default-foreground motion-reduce:transition-none"
         data-slot="input-wrapper"
       >
         <div
@@ -110,7 +110,7 @@ exports[`Story Snapshots > AllSizes 1`] = `
           <input
             aria-label="md"
             autocomplete="off"
-            class="peer w-full bg-transparent bg-clip-text pe-6 font-normal text-small !outline-solid focus-visible:outline-solid outline-transparent placeholder:text-foreground-500 data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 input-search-cancel-button-none file:cursor-pointer file:border-0 file:bg-transparent autofill:bg-transparent data-[type=color]:rounded-none dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden"
+            class="peer w-full bg-transparent bg-clip-text pe-6 text-small font-normal outline-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 input-search-cancel-button-none file:cursor-pointer file:border-0 file:bg-transparent autofill:bg-transparent data-[type=color]:rounded-none dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden"
             data-has-start-content="true"
             data-rac=""
             data-slot="input"
@@ -123,7 +123,7 @@ exports[`Story Snapshots > AllSizes 1`] = `
           />
           <button
             aria-label="clear input"
-            class="pointer-events-none absolute end-3 start-auto z-10 -m-2 rounded-full p-2 outline-solid cursor-pointer select-none appearance-none outline-transparent text-large data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus scale-90 opacity-0 peer-data-[filled=true]:pointer-events-auto peer-data-[filled=true]:block peer-data-[filled=true]:scale-100 peer-data-[filled=true]:opacity-70 transition-[opacity,transform] duration-150 ease-out hover:!opacity-100 active:!opacity-70 motion-reduce:scale-100 motion-reduce:transition-none"
+            class="pointer-events-none absolute start-auto end-3 z-10 -m-2 rounded-full p-2 cursor-pointer appearance-none text-large outline-transparent outline-solid select-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus scale-90 opacity-0 peer-data-[filled=true]:pointer-events-auto peer-data-[filled=true]:block peer-data-[filled=true]:scale-100 peer-data-[filled=true]:opacity-70 transition-[opacity,transform] duration-150 ease-out hover:!opacity-100 active:!opacity-70 motion-reduce:scale-100 motion-reduce:transition-none"
             data-rac=""
             data-react-aria-pressable="true"
             data-slot="clear-button"
@@ -159,7 +159,7 @@ exports[`Story Snapshots > AllSizes 1`] = `
       data-slot="main-wrapper"
     >
       <div
-        class="shadow-xs relative inline-flex w-full cursor-text flex-row items-center gap-3 px-3 tap-highlight-transparent rounded-small border-medium border-default-200 bg-content1 transition-colors !duration-150 data-[hover=true]:border-default-400 group-data-[focus=true]:border-focus group-data-[focus=true]:data-[hover=true]:border-default-foreground motion-reduce:transition-none h-12 min-h-12"
+        class="relative inline-flex w-full cursor-text flex-row items-center gap-3 px-3 shadow-xs tap-highlight-transparent rounded-small border-medium border-default-200 bg-content1 transition-colors !duration-150 group-data-[focus=true]:border-focus data-[hover=true]:border-default-400 group-data-[focus=true]:data-[hover=true]:border-default-foreground motion-reduce:transition-none h-12 min-h-12"
         data-slot="input-wrapper"
       >
         <div
@@ -183,7 +183,7 @@ exports[`Story Snapshots > AllSizes 1`] = `
           <input
             aria-label="lg"
             autocomplete="off"
-            class="peer w-full bg-transparent bg-clip-text pe-6 font-normal !outline-solid focus-visible:outline-solid outline-transparent placeholder:text-foreground-500 data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 input-search-cancel-button-none file:cursor-pointer file:border-0 file:bg-transparent autofill:bg-transparent data-[type=color]:rounded-none dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden text-medium"
+            class="peer w-full bg-transparent bg-clip-text pe-6 font-normal outline-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 input-search-cancel-button-none file:cursor-pointer file:border-0 file:bg-transparent autofill:bg-transparent data-[type=color]:rounded-none dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden text-medium"
             data-has-start-content="true"
             data-rac=""
             data-slot="input"
@@ -196,7 +196,7 @@ exports[`Story Snapshots > AllSizes 1`] = `
           />
           <button
             aria-label="clear input"
-            class="pointer-events-none absolute end-3 start-auto z-10 -m-2 rounded-full p-2 outline-solid cursor-pointer select-none appearance-none outline-transparent text-large data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus scale-90 opacity-0 peer-data-[filled=true]:pointer-events-auto peer-data-[filled=true]:block peer-data-[filled=true]:scale-100 peer-data-[filled=true]:opacity-70 transition-[opacity,transform] duration-150 ease-out hover:!opacity-100 active:!opacity-70 motion-reduce:scale-100 motion-reduce:transition-none"
+            class="pointer-events-none absolute start-auto end-3 z-10 -m-2 rounded-full p-2 cursor-pointer appearance-none text-large outline-transparent outline-solid select-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus scale-90 opacity-0 peer-data-[filled=true]:pointer-events-auto peer-data-[filled=true]:block peer-data-[filled=true]:scale-100 peer-data-[filled=true]:opacity-70 transition-[opacity,transform] duration-150 ease-out hover:!opacity-100 active:!opacity-70 motion-reduce:scale-100 motion-reduce:transition-none"
             data-rac=""
             data-react-aria-pressable="true"
             data-slot="clear-button"
@@ -239,7 +239,7 @@ exports[`Story Snapshots > Clearable 1`] = `
       data-slot="main-wrapper"
     >
       <div
-        class="shadow-xs relative inline-flex h-10 min-h-10 w-full cursor-text flex-row items-center gap-3 px-3 tap-highlight-transparent rounded-small border-medium border-default-200 bg-content1 transition-colors !duration-150 data-[hover=true]:border-default-400 group-data-[focus=true]:border-focus group-data-[focus=true]:data-[hover=true]:border-default-foreground motion-reduce:transition-none is-filled"
+        class="relative inline-flex h-10 min-h-10 w-full cursor-text flex-row items-center gap-3 px-3 shadow-xs tap-highlight-transparent rounded-small border-medium border-default-200 bg-content1 transition-colors !duration-150 group-data-[focus=true]:border-focus data-[hover=true]:border-default-400 group-data-[focus=true]:data-[hover=true]:border-default-foreground motion-reduce:transition-none is-filled"
         data-hover="true"
         data-slot="input-wrapper"
       >
@@ -264,7 +264,7 @@ exports[`Story Snapshots > Clearable 1`] = `
           <input
             aria-label="Search"
             autocomplete="off"
-            class="peer w-full bg-transparent bg-clip-text pe-6 font-normal text-small !outline-solid focus-visible:outline-solid outline-transparent placeholder:text-foreground-500 data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 input-search-cancel-button-none file:cursor-pointer file:border-0 file:bg-transparent autofill:bg-transparent data-[type=color]:rounded-none dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden is-filled"
+            class="peer w-full bg-transparent bg-clip-text pe-6 text-small font-normal outline-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 input-search-cancel-button-none file:cursor-pointer file:border-0 file:bg-transparent autofill:bg-transparent data-[type=color]:rounded-none dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden is-filled"
             data-filled="true"
             data-focused="true"
             data-has-start-content="true"
@@ -280,7 +280,7 @@ exports[`Story Snapshots > Clearable 1`] = `
           />
           <button
             aria-label="clear input"
-            class="pointer-events-none absolute end-3 start-auto z-10 -m-2 rounded-full p-2 outline-solid cursor-pointer select-none appearance-none outline-transparent text-large data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus scale-90 opacity-0 peer-data-[filled=true]:pointer-events-auto peer-data-[filled=true]:block peer-data-[filled=true]:scale-100 peer-data-[filled=true]:opacity-70 transition-[opacity,transform] duration-150 ease-out hover:!opacity-100 active:!opacity-70 motion-reduce:scale-100 motion-reduce:transition-none"
+            class="pointer-events-none absolute start-auto end-3 z-10 -m-2 rounded-full p-2 cursor-pointer appearance-none text-large outline-transparent outline-solid select-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus scale-90 opacity-0 peer-data-[filled=true]:pointer-events-auto peer-data-[filled=true]:block peer-data-[filled=true]:scale-100 peer-data-[filled=true]:opacity-70 transition-[opacity,transform] duration-150 ease-out hover:!opacity-100 active:!opacity-70 motion-reduce:scale-100 motion-reduce:transition-none"
             data-rac=""
             data-react-aria-pressable="true"
             data-slot="clear-button"
@@ -321,7 +321,7 @@ exports[`Story Snapshots > CustomStyling 1`] = `
       data-slot="main-wrapper"
     >
       <div
-        class="shadow-xs relative inline-flex h-10 min-h-10 w-full cursor-text flex-row items-center gap-3 tap-highlight-transparent !duration-150 group-data-[focus=true]:data-[hover=true]:border-default-foreground motion-reduce:transition-none min-w-sm rounded-2xl px-4 transition-colors duration-500 bg-gradient-to-r from-fuchsia-100 via-rose-100 to-amber-100 dark:from-fuchsia-900 dark:via-rose-900 dark:to-amber-900 data-[hover=true]:bg-gradient-to-r data-[hover=true]:from-emerald-50 data-[hover=true]:via-teal-50 data-[hover=true]:to-lime-50 dark:data-[hover=true]:from-emerald-900 dark:data-[hover=true]:via-teal-900 dark:data-[hover=true]:to-lime-900 border-2 border-fuchsia-400 data-[hover=true]:border-emerald-400 group-data-[focus=true]:border-amber-400 text-fuchsia-700 group-hover:text-emerald-500 dark:text-fuchsia-300"
+        class="relative inline-flex h-10 min-h-10 w-full cursor-text flex-row items-center gap-3 shadow-xs tap-highlight-transparent !duration-150 group-data-[focus=true]:data-[hover=true]:border-default-foreground motion-reduce:transition-none min-w-sm rounded-2xl px-4 transition-colors duration-500 bg-gradient-to-r from-fuchsia-100 via-rose-100 to-amber-100 dark:from-fuchsia-900 dark:via-rose-900 dark:to-amber-900 data-[hover=true]:bg-gradient-to-r data-[hover=true]:from-emerald-50 data-[hover=true]:via-teal-50 data-[hover=true]:to-lime-50 dark:data-[hover=true]:from-emerald-900 dark:data-[hover=true]:via-teal-900 dark:data-[hover=true]:to-lime-900 border-2 border-fuchsia-400 data-[hover=true]:border-emerald-400 group-data-[focus=true]:border-amber-400 text-fuchsia-700 group-hover:text-emerald-500 dark:text-fuchsia-300"
         data-slot="input-wrapper"
       >
         <div
@@ -345,7 +345,7 @@ exports[`Story Snapshots > CustomStyling 1`] = `
           <input
             aria-label="Search with party vibes..."
             autocomplete="off"
-            class="peer w-full bg-transparent bg-clip-text pe-6 font-normal text-small !outline-solid focus-visible:outline-solid outline-transparent data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 input-search-cancel-button-none file:cursor-pointer file:border-0 file:bg-transparent autofill:bg-transparent data-[type=color]:rounded-none dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden placeholder:text-fuchsia-400/70 dark:placeholder:text-fuchsia-500/60"
+            class="peer w-full bg-transparent bg-clip-text pe-6 text-small font-normal outline-transparent !outline-solid focus-visible:outline-solid data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 input-search-cancel-button-none file:cursor-pointer file:border-0 file:bg-transparent autofill:bg-transparent data-[type=color]:rounded-none dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden placeholder:text-fuchsia-400/70 dark:placeholder:text-fuchsia-500/60"
             data-has-start-content="true"
             data-rac=""
             data-slot="input"
@@ -359,7 +359,7 @@ exports[`Story Snapshots > CustomStyling 1`] = `
           />
           <button
             aria-label="clear input"
-            class="pointer-events-none absolute end-3 start-auto z-10 -m-2 rounded-full p-2 outline-solid cursor-pointer select-none appearance-none outline-transparent text-large data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus scale-90 opacity-0 peer-data-[filled=true]:pointer-events-auto peer-data-[filled=true]:block peer-data-[filled=true]:scale-100 peer-data-[filled=true]:opacity-70 ease-out hover:!opacity-100 active:!opacity-70 motion-reduce:scale-100 motion-reduce:transition-none text-fuchsia-500 transition-colors duration-500 hover:text-emerald-500"
+            class="pointer-events-none absolute start-auto end-3 z-10 -m-2 rounded-full p-2 cursor-pointer appearance-none text-large outline-transparent outline-solid select-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus scale-90 opacity-0 peer-data-[filled=true]:pointer-events-auto peer-data-[filled=true]:block peer-data-[filled=true]:scale-100 peer-data-[filled=true]:opacity-70 ease-out hover:!opacity-100 active:!opacity-70 motion-reduce:scale-100 motion-reduce:transition-none text-fuchsia-500 transition-colors duration-500 hover:text-emerald-500"
             data-rac=""
             data-react-aria-pressable="true"
             data-slot="clear-button"
@@ -400,7 +400,7 @@ exports[`Story Snapshots > Default 1`] = `
       data-slot="main-wrapper"
     >
       <div
-        class="shadow-xs relative inline-flex h-10 min-h-10 w-full cursor-text flex-row items-center gap-3 px-3 tap-highlight-transparent rounded-small border-medium border-default-200 bg-content1 transition-colors !duration-150 data-[hover=true]:border-default-400 group-data-[focus=true]:border-focus group-data-[focus=true]:data-[hover=true]:border-default-foreground motion-reduce:transition-none"
+        class="relative inline-flex h-10 min-h-10 w-full cursor-text flex-row items-center gap-3 px-3 shadow-xs tap-highlight-transparent rounded-small border-medium border-default-200 bg-content1 transition-colors !duration-150 group-data-[focus=true]:border-focus data-[hover=true]:border-default-400 group-data-[focus=true]:data-[hover=true]:border-default-foreground motion-reduce:transition-none"
         data-slot="input-wrapper"
       >
         <div
@@ -424,7 +424,7 @@ exports[`Story Snapshots > Default 1`] = `
           <input
             aria-label="Search"
             autocomplete="off"
-            class="peer w-full bg-transparent bg-clip-text pe-6 font-normal text-small !outline-solid focus-visible:outline-solid outline-transparent placeholder:text-foreground-500 data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 input-search-cancel-button-none file:cursor-pointer file:border-0 file:bg-transparent autofill:bg-transparent data-[type=color]:rounded-none dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden"
+            class="peer w-full bg-transparent bg-clip-text pe-6 text-small font-normal outline-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 input-search-cancel-button-none file:cursor-pointer file:border-0 file:bg-transparent autofill:bg-transparent data-[type=color]:rounded-none dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden"
             data-has-start-content="true"
             data-rac=""
             data-slot="input"
@@ -437,7 +437,7 @@ exports[`Story Snapshots > Default 1`] = `
           />
           <button
             aria-label="clear input"
-            class="pointer-events-none absolute end-3 start-auto z-10 -m-2 rounded-full p-2 outline-solid cursor-pointer select-none appearance-none outline-transparent text-large data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus scale-90 opacity-0 peer-data-[filled=true]:pointer-events-auto peer-data-[filled=true]:block peer-data-[filled=true]:scale-100 peer-data-[filled=true]:opacity-70 transition-[opacity,transform] duration-150 ease-out hover:!opacity-100 active:!opacity-70 motion-reduce:scale-100 motion-reduce:transition-none"
+            class="pointer-events-none absolute start-auto end-3 z-10 -m-2 rounded-full p-2 cursor-pointer appearance-none text-large outline-transparent outline-solid select-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus scale-90 opacity-0 peer-data-[filled=true]:pointer-events-auto peer-data-[filled=true]:block peer-data-[filled=true]:scale-100 peer-data-[filled=true]:opacity-70 transition-[opacity,transform] duration-150 ease-out hover:!opacity-100 active:!opacity-70 motion-reduce:scale-100 motion-reduce:transition-none"
             data-rac=""
             data-react-aria-pressable="true"
             data-slot="clear-button"
@@ -479,7 +479,7 @@ exports[`Story Snapshots > Disabled 1`] = `
       data-slot="main-wrapper"
     >
       <div
-        class="shadow-xs relative inline-flex h-10 min-h-10 w-full cursor-text flex-row items-center gap-3 px-3 tap-highlight-transparent rounded-small border-medium border-default-200 bg-content1 transition-colors !duration-150 data-[hover=true]:border-default-400 group-data-[focus=true]:border-focus group-data-[focus=true]:data-[hover=true]:border-default-foreground motion-reduce:transition-none"
+        class="relative inline-flex h-10 min-h-10 w-full cursor-text flex-row items-center gap-3 px-3 shadow-xs tap-highlight-transparent rounded-small border-medium border-default-200 bg-content1 transition-colors !duration-150 group-data-[focus=true]:border-focus data-[hover=true]:border-default-400 group-data-[focus=true]:data-[hover=true]:border-default-foreground motion-reduce:transition-none"
         data-slot="input-wrapper"
       >
         <div
@@ -503,7 +503,7 @@ exports[`Story Snapshots > Disabled 1`] = `
           <input
             aria-label="Search"
             autocomplete="off"
-            class="peer w-full bg-transparent bg-clip-text pe-6 font-normal text-small !outline-solid focus-visible:outline-solid outline-transparent placeholder:text-foreground-500 data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 input-search-cancel-button-none file:cursor-pointer file:border-0 file:bg-transparent autofill:bg-transparent data-[type=color]:rounded-none dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden"
+            class="peer w-full bg-transparent bg-clip-text pe-6 text-small font-normal outline-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 input-search-cancel-button-none file:cursor-pointer file:border-0 file:bg-transparent autofill:bg-transparent data-[type=color]:rounded-none dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden"
             data-disabled="true"
             data-has-start-content="true"
             data-rac=""
@@ -516,7 +516,7 @@ exports[`Story Snapshots > Disabled 1`] = `
           />
           <button
             aria-label="clear input"
-            class="pointer-events-none absolute end-3 start-auto z-10 -m-2 rounded-full p-2 outline-solid cursor-pointer select-none appearance-none outline-transparent text-large data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus scale-90 opacity-0 peer-data-[filled=true]:pointer-events-auto peer-data-[filled=true]:block peer-data-[filled=true]:scale-100 peer-data-[filled=true]:opacity-70 transition-[opacity,transform] duration-150 ease-out hover:!opacity-100 active:!opacity-70 motion-reduce:scale-100 motion-reduce:transition-none"
+            class="pointer-events-none absolute start-auto end-3 z-10 -m-2 rounded-full p-2 cursor-pointer appearance-none text-large outline-transparent outline-solid select-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus scale-90 opacity-0 peer-data-[filled=true]:pointer-events-auto peer-data-[filled=true]:block peer-data-[filled=true]:scale-100 peer-data-[filled=true]:opacity-70 transition-[opacity,transform] duration-150 ease-out hover:!opacity-100 active:!opacity-70 motion-reduce:scale-100 motion-reduce:transition-none"
             data-disabled="true"
             data-rac=""
             data-react-aria-pressable="true"
@@ -561,7 +561,7 @@ exports[`Story Snapshots > DisabledWithValue 1`] = `
       data-slot="main-wrapper"
     >
       <div
-        class="shadow-xs relative inline-flex h-10 min-h-10 w-full cursor-text flex-row items-center gap-3 px-3 tap-highlight-transparent rounded-small border-medium border-default-200 bg-content1 transition-colors !duration-150 data-[hover=true]:border-default-400 group-data-[focus=true]:border-focus group-data-[focus=true]:data-[hover=true]:border-default-foreground motion-reduce:transition-none is-filled"
+        class="relative inline-flex h-10 min-h-10 w-full cursor-text flex-row items-center gap-3 px-3 shadow-xs tap-highlight-transparent rounded-small border-medium border-default-200 bg-content1 transition-colors !duration-150 group-data-[focus=true]:border-focus data-[hover=true]:border-default-400 group-data-[focus=true]:data-[hover=true]:border-default-foreground motion-reduce:transition-none is-filled"
         data-slot="input-wrapper"
       >
         <div
@@ -585,7 +585,7 @@ exports[`Story Snapshots > DisabledWithValue 1`] = `
           <input
             aria-label="Search"
             autocomplete="off"
-            class="peer w-full bg-transparent bg-clip-text pe-6 font-normal text-small !outline-solid focus-visible:outline-solid outline-transparent placeholder:text-foreground-500 data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 input-search-cancel-button-none file:cursor-pointer file:border-0 file:bg-transparent autofill:bg-transparent data-[type=color]:rounded-none dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden is-filled"
+            class="peer w-full bg-transparent bg-clip-text pe-6 text-small font-normal outline-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 input-search-cancel-button-none file:cursor-pointer file:border-0 file:bg-transparent autofill:bg-transparent data-[type=color]:rounded-none dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden is-filled"
             data-disabled="true"
             data-filled="true"
             data-has-start-content="true"
@@ -599,7 +599,7 @@ exports[`Story Snapshots > DisabledWithValue 1`] = `
           />
           <button
             aria-label="clear input"
-            class="pointer-events-none absolute end-3 start-auto z-10 -m-2 rounded-full p-2 outline-solid cursor-pointer select-none appearance-none outline-transparent text-large data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus scale-90 opacity-0 peer-data-[filled=true]:pointer-events-auto peer-data-[filled=true]:block peer-data-[filled=true]:scale-100 peer-data-[filled=true]:opacity-70 transition-[opacity,transform] duration-150 ease-out hover:!opacity-100 active:!opacity-70 motion-reduce:scale-100 motion-reduce:transition-none"
+            class="pointer-events-none absolute start-auto end-3 z-10 -m-2 rounded-full p-2 cursor-pointer appearance-none text-large outline-transparent outline-solid select-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus scale-90 opacity-0 peer-data-[filled=true]:pointer-events-auto peer-data-[filled=true]:block peer-data-[filled=true]:scale-100 peer-data-[filled=true]:opacity-70 transition-[opacity,transform] duration-150 ease-out hover:!opacity-100 active:!opacity-70 motion-reduce:scale-100 motion-reduce:transition-none"
             data-disabled="true"
             data-rac=""
             data-react-aria-pressable="true"
@@ -643,7 +643,7 @@ exports[`Story Snapshots > KeyboardClear 1`] = `
       data-slot="main-wrapper"
     >
       <div
-        class="shadow-xs relative inline-flex h-10 min-h-10 w-full cursor-text flex-row items-center gap-3 px-3 tap-highlight-transparent rounded-small border-medium border-default-200 bg-content1 transition-colors !duration-150 data-[hover=true]:border-default-400 group-data-[focus=true]:border-focus group-data-[focus=true]:data-[hover=true]:border-default-foreground motion-reduce:transition-none"
+        class="relative inline-flex h-10 min-h-10 w-full cursor-text flex-row items-center gap-3 px-3 shadow-xs tap-highlight-transparent rounded-small border-medium border-default-200 bg-content1 transition-colors !duration-150 group-data-[focus=true]:border-focus data-[hover=true]:border-default-400 group-data-[focus=true]:data-[hover=true]:border-default-foreground motion-reduce:transition-none"
         data-hover="true"
         data-slot="input-wrapper"
       >
@@ -668,7 +668,7 @@ exports[`Story Snapshots > KeyboardClear 1`] = `
           <input
             aria-label="Search"
             autocomplete="off"
-            class="peer w-full bg-transparent bg-clip-text pe-6 font-normal text-small !outline-solid focus-visible:outline-solid outline-transparent placeholder:text-foreground-500 data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 input-search-cancel-button-none file:cursor-pointer file:border-0 file:bg-transparent autofill:bg-transparent data-[type=color]:rounded-none dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden"
+            class="peer w-full bg-transparent bg-clip-text pe-6 text-small font-normal outline-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 input-search-cancel-button-none file:cursor-pointer file:border-0 file:bg-transparent autofill:bg-transparent data-[type=color]:rounded-none dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden"
             data-focused="true"
             data-has-start-content="true"
             data-hovered="true"
@@ -683,7 +683,7 @@ exports[`Story Snapshots > KeyboardClear 1`] = `
           />
           <button
             aria-label="clear input"
-            class="pointer-events-none absolute end-3 start-auto z-10 -m-2 rounded-full p-2 outline-solid cursor-pointer select-none appearance-none outline-transparent text-large data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus scale-90 opacity-0 peer-data-[filled=true]:pointer-events-auto peer-data-[filled=true]:block peer-data-[filled=true]:scale-100 peer-data-[filled=true]:opacity-70 transition-[opacity,transform] duration-150 ease-out hover:!opacity-100 active:!opacity-70 motion-reduce:scale-100 motion-reduce:transition-none"
+            class="pointer-events-none absolute start-auto end-3 z-10 -m-2 rounded-full p-2 cursor-pointer appearance-none text-large outline-transparent outline-solid select-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus scale-90 opacity-0 peer-data-[filled=true]:pointer-events-auto peer-data-[filled=true]:block peer-data-[filled=true]:scale-100 peer-data-[filled=true]:opacity-70 transition-[opacity,transform] duration-150 ease-out hover:!opacity-100 active:!opacity-70 motion-reduce:scale-100 motion-reduce:transition-none"
             data-rac=""
             data-react-aria-pressable="true"
             data-slot="clear-button"
@@ -724,7 +724,7 @@ exports[`Story Snapshots > NoPlaceholder 1`] = `
       data-slot="main-wrapper"
     >
       <div
-        class="shadow-xs relative inline-flex h-10 min-h-10 w-full cursor-text flex-row items-center gap-3 px-3 tap-highlight-transparent rounded-small border-medium border-default-200 bg-content1 transition-colors !duration-150 data-[hover=true]:border-default-400 group-data-[focus=true]:border-focus group-data-[focus=true]:data-[hover=true]:border-default-foreground motion-reduce:transition-none"
+        class="relative inline-flex h-10 min-h-10 w-full cursor-text flex-row items-center gap-3 px-3 shadow-xs tap-highlight-transparent rounded-small border-medium border-default-200 bg-content1 transition-colors !duration-150 group-data-[focus=true]:border-focus data-[hover=true]:border-default-400 group-data-[focus=true]:data-[hover=true]:border-default-foreground motion-reduce:transition-none"
         data-slot="input-wrapper"
       >
         <div
@@ -748,7 +748,7 @@ exports[`Story Snapshots > NoPlaceholder 1`] = `
           <input
             aria-label="Search"
             autocomplete="off"
-            class="peer w-full bg-transparent bg-clip-text pe-6 font-normal text-small !outline-solid focus-visible:outline-solid outline-transparent placeholder:text-foreground-500 data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 input-search-cancel-button-none file:cursor-pointer file:border-0 file:bg-transparent autofill:bg-transparent data-[type=color]:rounded-none dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden"
+            class="peer w-full bg-transparent bg-clip-text pe-6 text-small font-normal outline-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 input-search-cancel-button-none file:cursor-pointer file:border-0 file:bg-transparent autofill:bg-transparent data-[type=color]:rounded-none dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden"
             data-has-start-content="true"
             data-rac=""
             data-slot="input"
@@ -761,7 +761,7 @@ exports[`Story Snapshots > NoPlaceholder 1`] = `
           />
           <button
             aria-label="clear input"
-            class="pointer-events-none absolute end-3 start-auto z-10 -m-2 rounded-full p-2 outline-solid cursor-pointer select-none appearance-none outline-transparent text-large data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus scale-90 opacity-0 peer-data-[filled=true]:pointer-events-auto peer-data-[filled=true]:block peer-data-[filled=true]:scale-100 peer-data-[filled=true]:opacity-70 transition-[opacity,transform] duration-150 ease-out hover:!opacity-100 active:!opacity-70 motion-reduce:scale-100 motion-reduce:transition-none"
+            class="pointer-events-none absolute start-auto end-3 z-10 -m-2 rounded-full p-2 cursor-pointer appearance-none text-large outline-transparent outline-solid select-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus scale-90 opacity-0 peer-data-[filled=true]:pointer-events-auto peer-data-[filled=true]:block peer-data-[filled=true]:scale-100 peer-data-[filled=true]:opacity-70 transition-[opacity,transform] duration-150 ease-out hover:!opacity-100 active:!opacity-70 motion-reduce:scale-100 motion-reduce:transition-none"
             data-rac=""
             data-react-aria-pressable="true"
             data-slot="clear-button"
@@ -803,7 +803,7 @@ exports[`Story Snapshots > PointerClear 1`] = `
       data-slot="main-wrapper"
     >
       <div
-        class="shadow-xs relative inline-flex h-10 min-h-10 w-full cursor-text flex-row items-center gap-3 px-3 tap-highlight-transparent rounded-small border-medium border-default-200 bg-content1 transition-colors !duration-150 data-[hover=true]:border-default-400 group-data-[focus=true]:border-focus group-data-[focus=true]:data-[hover=true]:border-default-foreground motion-reduce:transition-none"
+        class="relative inline-flex h-10 min-h-10 w-full cursor-text flex-row items-center gap-3 px-3 shadow-xs tap-highlight-transparent rounded-small border-medium border-default-200 bg-content1 transition-colors !duration-150 group-data-[focus=true]:border-focus data-[hover=true]:border-default-400 group-data-[focus=true]:data-[hover=true]:border-default-foreground motion-reduce:transition-none"
         data-hover="true"
         data-slot="input-wrapper"
       >
@@ -828,7 +828,7 @@ exports[`Story Snapshots > PointerClear 1`] = `
           <input
             aria-label="Search"
             autocomplete="off"
-            class="peer w-full bg-transparent bg-clip-text pe-6 font-normal text-small !outline-solid focus-visible:outline-solid outline-transparent placeholder:text-foreground-500 data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 input-search-cancel-button-none file:cursor-pointer file:border-0 file:bg-transparent autofill:bg-transparent data-[type=color]:rounded-none dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden"
+            class="peer w-full bg-transparent bg-clip-text pe-6 text-small font-normal outline-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 input-search-cancel-button-none file:cursor-pointer file:border-0 file:bg-transparent autofill:bg-transparent data-[type=color]:rounded-none dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden"
             data-focused="true"
             data-has-start-content="true"
             data-rac=""
@@ -842,7 +842,7 @@ exports[`Story Snapshots > PointerClear 1`] = `
           />
           <button
             aria-label="clear input"
-            class="pointer-events-none absolute end-3 start-auto z-10 -m-2 rounded-full p-2 outline-solid cursor-pointer select-none appearance-none outline-transparent text-large data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus scale-90 opacity-0 peer-data-[filled=true]:pointer-events-auto peer-data-[filled=true]:block peer-data-[filled=true]:scale-100 peer-data-[filled=true]:opacity-70 transition-[opacity,transform] duration-150 ease-out hover:!opacity-100 active:!opacity-70 motion-reduce:scale-100 motion-reduce:transition-none"
+            class="pointer-events-none absolute start-auto end-3 z-10 -m-2 rounded-full p-2 cursor-pointer appearance-none text-large outline-transparent outline-solid select-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus scale-90 opacity-0 peer-data-[filled=true]:pointer-events-auto peer-data-[filled=true]:block peer-data-[filled=true]:scale-100 peer-data-[filled=true]:opacity-70 transition-[opacity,transform] duration-150 ease-out hover:!opacity-100 active:!opacity-70 motion-reduce:scale-100 motion-reduce:transition-none"
             data-hovered="true"
             data-rac=""
             data-react-aria-pressable="true"
@@ -885,7 +885,7 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
       data-slot="main-wrapper"
     >
       <div
-        class="shadow-xs relative inline-flex h-10 min-h-10 w-full cursor-text flex-row items-center gap-3 px-3 tap-highlight-transparent rounded-small border-medium border-default-200 bg-content1 transition-colors !duration-150 data-[hover=true]:border-default-400 group-data-[focus=true]:border-focus group-data-[focus=true]:data-[hover=true]:border-default-foreground motion-reduce:transition-none is-filled"
+        class="relative inline-flex h-10 min-h-10 w-full cursor-text flex-row items-center gap-3 px-3 shadow-xs tap-highlight-transparent rounded-small border-medium border-default-200 bg-content1 transition-colors !duration-150 group-data-[focus=true]:border-focus data-[hover=true]:border-default-400 group-data-[focus=true]:data-[hover=true]:border-default-foreground motion-reduce:transition-none is-filled"
         data-slot="input-wrapper"
       >
         <div
@@ -909,7 +909,7 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
           <input
             aria-label="Search"
             autocomplete="off"
-            class="peer w-full bg-transparent bg-clip-text pe-6 font-normal text-small !outline-solid focus-visible:outline-solid outline-transparent placeholder:text-foreground-500 data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 input-search-cancel-button-none file:cursor-pointer file:border-0 file:bg-transparent autofill:bg-transparent data-[type=color]:rounded-none dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden is-filled"
+            class="peer w-full bg-transparent bg-clip-text pe-6 text-small font-normal outline-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 input-search-cancel-button-none file:cursor-pointer file:border-0 file:bg-transparent autofill:bg-transparent data-[type=color]:rounded-none dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden is-filled"
             data-filled="true"
             data-has-start-content="true"
             data-rac=""
@@ -923,7 +923,7 @@ exports[`Story Snapshots > WithInitialValue 1`] = `
           />
           <button
             aria-label="clear input"
-            class="pointer-events-none absolute end-3 start-auto z-10 -m-2 rounded-full p-2 outline-solid cursor-pointer select-none appearance-none outline-transparent text-large data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus scale-90 opacity-0 peer-data-[filled=true]:pointer-events-auto peer-data-[filled=true]:block peer-data-[filled=true]:scale-100 peer-data-[filled=true]:opacity-70 transition-[opacity,transform] duration-150 ease-out hover:!opacity-100 active:!opacity-70 motion-reduce:scale-100 motion-reduce:transition-none"
+            class="pointer-events-none absolute start-auto end-3 z-10 -m-2 rounded-full p-2 cursor-pointer appearance-none text-large outline-transparent outline-solid select-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus scale-90 opacity-0 peer-data-[filled=true]:pointer-events-auto peer-data-[filled=true]:block peer-data-[filled=true]:scale-100 peer-data-[filled=true]:opacity-70 transition-[opacity,transform] duration-150 ease-out hover:!opacity-100 active:!opacity-70 motion-reduce:scale-100 motion-reduce:transition-none"
             data-rac=""
             data-react-aria-pressable="true"
             data-slot="clear-button"
@@ -964,7 +964,7 @@ exports[`Story Snapshots > WithPlaceholder 1`] = `
       data-slot="main-wrapper"
     >
       <div
-        class="shadow-xs relative inline-flex h-10 min-h-10 w-full cursor-text flex-row items-center gap-3 px-3 tap-highlight-transparent rounded-small border-medium border-default-200 bg-content1 transition-colors !duration-150 data-[hover=true]:border-default-400 group-data-[focus=true]:border-focus group-data-[focus=true]:data-[hover=true]:border-default-foreground motion-reduce:transition-none"
+        class="relative inline-flex h-10 min-h-10 w-full cursor-text flex-row items-center gap-3 px-3 shadow-xs tap-highlight-transparent rounded-small border-medium border-default-200 bg-content1 transition-colors !duration-150 group-data-[focus=true]:border-focus data-[hover=true]:border-default-400 group-data-[focus=true]:data-[hover=true]:border-default-foreground motion-reduce:transition-none"
         data-slot="input-wrapper"
       >
         <div
@@ -988,7 +988,7 @@ exports[`Story Snapshots > WithPlaceholder 1`] = `
           <input
             aria-label="Search something..."
             autocomplete="off"
-            class="peer w-full bg-transparent bg-clip-text pe-6 font-normal text-small !outline-solid focus-visible:outline-solid outline-transparent placeholder:text-foreground-500 data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 input-search-cancel-button-none file:cursor-pointer file:border-0 file:bg-transparent autofill:bg-transparent data-[type=color]:rounded-none dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden"
+            class="peer w-full bg-transparent bg-clip-text pe-6 text-small font-normal outline-transparent !outline-solid placeholder:text-foreground-500 focus-visible:outline-solid data-[has-end-content=true]:pe-1.5 data-[has-start-content=true]:ps-1.5 input-search-cancel-button-none file:cursor-pointer file:border-0 file:bg-transparent autofill:bg-transparent data-[type=color]:rounded-none dark:autofill:[-webkit-text-fill-color:var(--pixel-color-foreground)] [&::-ms-reveal]:hidden"
             data-has-start-content="true"
             data-rac=""
             data-slot="input"
@@ -1002,7 +1002,7 @@ exports[`Story Snapshots > WithPlaceholder 1`] = `
           />
           <button
             aria-label="clear input"
-            class="pointer-events-none absolute end-3 start-auto z-10 -m-2 rounded-full p-2 outline-solid cursor-pointer select-none appearance-none outline-transparent text-large data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus scale-90 opacity-0 peer-data-[filled=true]:pointer-events-auto peer-data-[filled=true]:block peer-data-[filled=true]:scale-100 peer-data-[filled=true]:opacity-70 transition-[opacity,transform] duration-150 ease-out hover:!opacity-100 active:!opacity-70 motion-reduce:scale-100 motion-reduce:transition-none"
+            class="pointer-events-none absolute start-auto end-3 z-10 -m-2 rounded-full p-2 cursor-pointer appearance-none text-large outline-transparent outline-solid select-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus scale-90 opacity-0 peer-data-[filled=true]:pointer-events-auto peer-data-[filled=true]:block peer-data-[filled=true]:scale-100 peer-data-[filled=true]:opacity-70 transition-[opacity,transform] duration-150 ease-out hover:!opacity-100 active:!opacity-70 motion-reduce:scale-100 motion-reduce:transition-none"
             data-rac=""
             data-react-aria-pressable="true"
             data-slot="clear-button"

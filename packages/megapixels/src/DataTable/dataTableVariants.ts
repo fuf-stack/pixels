@@ -55,7 +55,7 @@ export const dataTableVariants = tv({
     placeholderCell:
       'h-10 animate-pulse bg-default-100/60 p-3 dark:bg-default-100/10',
     /** Scroll container in virtualized/infinite mode */
-    scrollContainer: 'overflow-y-auto overflow-x-hidden',
+    scrollContainer: 'overflow-x-hidden overflow-y-auto',
     /** Optional styling slot for ScrollShadow wrapper behavior */
     scrollShadow: '',
     /** Built-in text search input(s) rendered in the toolbar */
@@ -63,7 +63,7 @@ export const dataTableVariants = tv({
       // input dimensions and surface
       'h-10 w-full max-w-sm rounded-small border-2 border-default-200 bg-transparent px-3 text-sm text-foreground',
       // focus outline and transitions
-      'outline-none transition-colors',
+      'transition-colors outline-none',
       // placeholder and interaction colors
       'placeholder:text-default-500 hover:border-default-400 data-[focused=true]:border-focus dark:border-default-100',
     ],

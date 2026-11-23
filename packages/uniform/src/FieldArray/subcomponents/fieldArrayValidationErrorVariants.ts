@@ -6,7 +6,7 @@ const fieldArrayValidationErrorVariants = tv({
   extend: fieldHelperVariants,
   slots: {
     /** Padded footer containing array-level validation */
-    helperWrapper: 'px-3 pb-2 pt-1',
+    helperWrapper: 'px-3 pt-1 pb-2',
   },
 });
 

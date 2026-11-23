@@ -787,8 +787,7 @@ describe('clientValidationSchemaByName helper', () => {
 
       const receivedSchema = mockSetClientValidationSchema.mock
         .calls[0]?.[1] as
-        | ReturnType<typeof clientValidationSchemaByName>
-        | undefined;
+        ReturnType<typeof clientValidationSchemaByName> | undefined;
 
       expect(mockSetClientValidationSchema).toHaveBeenCalledWith(
         'test-id',

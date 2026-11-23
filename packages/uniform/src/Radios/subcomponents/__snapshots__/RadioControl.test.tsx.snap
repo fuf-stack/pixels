@@ -17,7 +17,7 @@ exports[`Story Snapshots > Default 1`] = `
       data-selected="true"
     >
       <label
-        class="group relative -m-2 inline-flex max-w-fit cursor-pointer select-none items-center justify-start p-2 tap-highlight-transparent data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-disabled data-[disabled=true]:**:cursor-not-allowed"
+        class="group relative -m-2 inline-flex max-w-fit cursor-pointer items-center justify-start p-2 select-none tap-highlight-transparent data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-disabled data-[disabled=true]:**:cursor-not-allowed"
         data-focus="true"
         data-focused="true"
         data-hover="true"
@@ -43,20 +43,20 @@ exports[`Story Snapshots > Default 1`] = `
         </span>
         <span
           aria-hidden="true"
-          class="relative box-border inline-flex h-5 w-5 shrink-0 items-center justify-center overflow-hidden rounded-full border-2 border-solid border-default transition-transform-colors group-data-[pressed=true]:scale-95 group-data-[invalid=true]:border-danger group-data-[invalid=true]:group-data-[selected=true]:border-danger group-data-[selected=true]:border-primary group-data-[hover-unselected=true]:bg-default-100 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background motion-reduce:transition-none"
+          class="relative box-border inline-flex h-5 w-5 shrink-0 items-center justify-center overflow-hidden rounded-full border-2 border-solid border-default transition-transform-colors group-data-[hover-unselected=true]:bg-default-100 group-data-[invalid=true]:border-danger group-data-[pressed=true]:scale-95 group-data-[selected=true]:border-primary group-data-[invalid=true]:group-data-[selected=true]:border-danger group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background motion-reduce:transition-none"
           data-slot="wrapper"
         >
           <span
-            class="z-10 h-2 w-2 origin-center scale-0 rounded-full bg-primary text-primary-foreground opacity-0 transition-transform-opacity group-data-[selected=true]:scale-100 group-data-[invalid=true]:bg-danger group-data-[invalid=true]:text-danger-foreground group-data-[selected=true]:opacity-100 motion-reduce:transition-none"
+            class="z-10 h-2 w-2 origin-center scale-0 rounded-full bg-primary text-primary-foreground opacity-0 transition-transform-opacity group-data-[invalid=true]:bg-danger group-data-[invalid=true]:text-danger-foreground group-data-[selected=true]:scale-100 group-data-[selected=true]:opacity-100 motion-reduce:transition-none"
             data-slot="control"
           />
         </span>
         <div
-          class="ml-1 ms-2 flex flex-col"
+          class="ms-2 ml-1 flex flex-col"
           data-slot="label-wrapper"
         >
           <span
-            class="relative select-none text-foreground transition-colors text-medium motion-reduce:transition-none"
+            class="relative text-medium text-foreground transition-colors select-none motion-reduce:transition-none"
             data-slot="label"
             id="«replaced-aria-id»-label"
           >
@@ -86,7 +86,7 @@ exports[`Story Snapshots > Disabled 1`] = `
       data-rac=""
     >
       <label
-        class="group relative -m-2 inline-flex max-w-fit cursor-pointer select-none items-center justify-start p-2 tap-highlight-transparent data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-disabled data-[disabled=true]:**:cursor-not-allowed"
+        class="group relative -m-2 inline-flex max-w-fit cursor-pointer items-center justify-start p-2 select-none tap-highlight-transparent data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-disabled data-[disabled=true]:**:cursor-not-allowed"
         data-disabled="true"
         data-rac=""
         data-react-aria-pressable="true"
@@ -108,20 +108,20 @@ exports[`Story Snapshots > Disabled 1`] = `
         </span>
         <span
           aria-hidden="true"
-          class="relative box-border inline-flex h-5 w-5 shrink-0 items-center justify-center overflow-hidden rounded-full border-2 border-solid border-default transition-transform-colors group-data-[pressed=true]:scale-95 group-data-[invalid=true]:border-danger group-data-[invalid=true]:group-data-[selected=true]:border-danger group-data-[selected=true]:border-primary group-data-[hover-unselected=true]:bg-default-100 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background motion-reduce:transition-none"
+          class="relative box-border inline-flex h-5 w-5 shrink-0 items-center justify-center overflow-hidden rounded-full border-2 border-solid border-default transition-transform-colors group-data-[hover-unselected=true]:bg-default-100 group-data-[invalid=true]:border-danger group-data-[pressed=true]:scale-95 group-data-[selected=true]:border-primary group-data-[invalid=true]:group-data-[selected=true]:border-danger group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background motion-reduce:transition-none"
           data-slot="wrapper"
         >
           <span
-            class="z-10 h-2 w-2 origin-center scale-0 rounded-full bg-primary text-primary-foreground opacity-0 transition-transform-opacity group-data-[selected=true]:scale-100 group-data-[invalid=true]:bg-danger group-data-[invalid=true]:text-danger-foreground group-data-[selected=true]:opacity-100 motion-reduce:transition-none"
+            class="z-10 h-2 w-2 origin-center scale-0 rounded-full bg-primary text-primary-foreground opacity-0 transition-transform-opacity group-data-[invalid=true]:bg-danger group-data-[invalid=true]:text-danger-foreground group-data-[selected=true]:scale-100 group-data-[selected=true]:opacity-100 motion-reduce:transition-none"
             data-slot="control"
           />
         </span>
         <div
-          class="ml-1 ms-2 flex flex-col"
+          class="ms-2 ml-1 flex flex-col"
           data-slot="label-wrapper"
         >
           <span
-            class="relative select-none text-foreground transition-colors text-medium motion-reduce:transition-none"
+            class="relative text-medium text-foreground transition-colors select-none motion-reduce:transition-none"
             data-slot="label"
             id="«replaced-aria-id»-label"
           >
@@ -153,7 +153,7 @@ exports[`Story Snapshots > Invalid 1`] = `
       data-rac=""
     >
       <label
-        class="group relative -m-2 inline-flex max-w-fit cursor-pointer select-none items-center justify-start p-2 tap-highlight-transparent data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-disabled data-[disabled=true]:**:cursor-not-allowed"
+        class="group relative -m-2 inline-flex max-w-fit cursor-pointer items-center justify-start p-2 select-none tap-highlight-transparent data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-disabled data-[disabled=true]:**:cursor-not-allowed"
         data-invalid="true"
         data-rac=""
         data-react-aria-pressable="true"
@@ -175,20 +175,20 @@ exports[`Story Snapshots > Invalid 1`] = `
         </span>
         <span
           aria-hidden="true"
-          class="relative box-border inline-flex h-5 w-5 shrink-0 items-center justify-center overflow-hidden rounded-full border-2 border-solid transition-transform-colors group-data-[pressed=true]:scale-95 group-data-[invalid=true]:border-danger group-data-[invalid=true]:group-data-[selected=true]:border-danger group-data-[hover-unselected=true]:bg-default-100 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background motion-reduce:transition-none border-danger group-data-[selected=true]:border-danger"
+          class="relative box-border inline-flex h-5 w-5 shrink-0 items-center justify-center overflow-hidden rounded-full border-2 border-solid transition-transform-colors group-data-[hover-unselected=true]:bg-default-100 group-data-[invalid=true]:border-danger group-data-[pressed=true]:scale-95 group-data-[invalid=true]:group-data-[selected=true]:border-danger group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background motion-reduce:transition-none border-danger group-data-[selected=true]:border-danger"
           data-slot="wrapper"
         >
           <span
-            class="z-10 h-2 w-2 origin-center scale-0 rounded-full opacity-0 transition-transform-opacity group-data-[selected=true]:scale-100 group-data-[invalid=true]:bg-danger group-data-[invalid=true]:text-danger-foreground group-data-[selected=true]:opacity-100 motion-reduce:transition-none bg-danger text-danger-foreground"
+            class="z-10 h-2 w-2 origin-center scale-0 rounded-full opacity-0 transition-transform-opacity group-data-[invalid=true]:bg-danger group-data-[invalid=true]:text-danger-foreground group-data-[selected=true]:scale-100 group-data-[selected=true]:opacity-100 motion-reduce:transition-none bg-danger text-danger-foreground"
             data-slot="control"
           />
         </span>
         <div
-          class="ml-1 ms-2 flex flex-col"
+          class="ms-2 ml-1 flex flex-col"
           data-slot="label-wrapper"
         >
           <span
-            class="relative select-none transition-colors text-medium motion-reduce:transition-none text-danger"
+            class="relative text-medium transition-colors select-none motion-reduce:transition-none text-danger"
             data-slot="label"
             id="«replaced-aria-id»-label"
           >
@@ -218,7 +218,7 @@ exports[`Story Snapshots > WithDescription 1`] = `
       data-selected="true"
     >
       <label
-        class="group relative -m-2 inline-flex max-w-fit cursor-pointer select-none items-center justify-start p-2 tap-highlight-transparent data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-disabled data-[disabled=true]:**:cursor-not-allowed"
+        class="group relative -m-2 inline-flex max-w-fit cursor-pointer items-center justify-start p-2 select-none tap-highlight-transparent data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-disabled data-[disabled=true]:**:cursor-not-allowed"
         data-focus="true"
         data-focused="true"
         data-hover="true"
@@ -245,27 +245,27 @@ exports[`Story Snapshots > WithDescription 1`] = `
         </span>
         <span
           aria-hidden="true"
-          class="relative box-border inline-flex h-5 w-5 shrink-0 items-center justify-center overflow-hidden rounded-full border-2 border-solid border-default transition-transform-colors group-data-[pressed=true]:scale-95 group-data-[invalid=true]:border-danger group-data-[invalid=true]:group-data-[selected=true]:border-danger group-data-[selected=true]:border-primary group-data-[hover-unselected=true]:bg-default-100 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background motion-reduce:transition-none"
+          class="relative box-border inline-flex h-5 w-5 shrink-0 items-center justify-center overflow-hidden rounded-full border-2 border-solid border-default transition-transform-colors group-data-[hover-unselected=true]:bg-default-100 group-data-[invalid=true]:border-danger group-data-[pressed=true]:scale-95 group-data-[selected=true]:border-primary group-data-[invalid=true]:group-data-[selected=true]:border-danger group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background motion-reduce:transition-none"
           data-slot="wrapper"
         >
           <span
-            class="z-10 h-2 w-2 origin-center scale-0 rounded-full bg-primary text-primary-foreground opacity-0 transition-transform-opacity group-data-[selected=true]:scale-100 group-data-[invalid=true]:bg-danger group-data-[invalid=true]:text-danger-foreground group-data-[selected=true]:opacity-100 motion-reduce:transition-none"
+            class="z-10 h-2 w-2 origin-center scale-0 rounded-full bg-primary text-primary-foreground opacity-0 transition-transform-opacity group-data-[invalid=true]:bg-danger group-data-[invalid=true]:text-danger-foreground group-data-[selected=true]:scale-100 group-data-[selected=true]:opacity-100 motion-reduce:transition-none"
             data-slot="control"
           />
         </span>
         <div
-          class="ml-1 ms-2 flex flex-col"
+          class="ms-2 ml-1 flex flex-col"
           data-slot="label-wrapper"
         >
           <span
-            class="relative select-none text-foreground transition-colors text-medium motion-reduce:transition-none"
+            class="relative text-medium text-foreground transition-colors select-none motion-reduce:transition-none"
             data-slot="label"
             id="«replaced-aria-id»-label"
           >
             Email
           </span>
           <div
-            class="relative text-foreground-400 transition-colors text-small motion-reduce:transition-none"
+            class="relative text-small text-foreground-400 transition-colors motion-reduce:transition-none"
             data-slot="description"
             id="«replaced-aria-id»-description"
           >
@@ -294,7 +294,7 @@ exports[`Story Snapshots > WithIcon 1`] = `
       data-rac=""
     >
       <label
-        class="group relative -m-2 inline-flex max-w-fit cursor-pointer select-none items-center justify-start p-2 tap-highlight-transparent data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-disabled data-[disabled=true]:**:cursor-not-allowed"
+        class="group relative -m-2 inline-flex max-w-fit cursor-pointer items-center justify-start p-2 select-none tap-highlight-transparent data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-disabled data-[disabled=true]:**:cursor-not-allowed"
         data-rac=""
         data-react-aria-pressable="true"
         data-slot="base"
@@ -321,11 +321,11 @@ exports[`Story Snapshots > WithIcon 1`] = `
           </span>
         </div>
         <div
-          class="ml-1 ms-2 flex flex-col"
+          class="ms-2 ml-1 flex flex-col"
           data-slot="label-wrapper"
         >
           <span
-            class="relative select-none text-foreground transition-colors text-medium motion-reduce:transition-none"
+            class="relative text-medium text-foreground transition-colors select-none motion-reduce:transition-none"
             data-slot="label"
             id="«replaced-aria-id»-label"
           >
@@ -334,11 +334,11 @@ exports[`Story Snapshots > WithIcon 1`] = `
         </div>
         <span
           aria-hidden="true"
-          class="relative box-border inline-flex h-5 w-5 shrink-0 items-center justify-center overflow-hidden rounded-full border-2 border-solid border-default transition-transform-colors group-data-[pressed=true]:scale-95 group-data-[invalid=true]:border-danger group-data-[invalid=true]:group-data-[selected=true]:border-danger group-data-[selected=true]:border-primary group-data-[hover-unselected=true]:bg-default-100 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background motion-reduce:transition-none"
+          class="relative box-border inline-flex h-5 w-5 shrink-0 items-center justify-center overflow-hidden rounded-full border-2 border-solid border-default transition-transform-colors group-data-[hover-unselected=true]:bg-default-100 group-data-[invalid=true]:border-danger group-data-[pressed=true]:scale-95 group-data-[selected=true]:border-primary group-data-[invalid=true]:group-data-[selected=true]:border-danger group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background motion-reduce:transition-none"
           data-slot="wrapper"
         >
           <span
-            class="z-10 h-2 w-2 origin-center scale-0 rounded-full bg-primary text-primary-foreground opacity-0 transition-transform-opacity group-data-[selected=true]:scale-100 group-data-[invalid=true]:bg-danger group-data-[invalid=true]:text-danger-foreground group-data-[selected=true]:opacity-100 motion-reduce:transition-none"
+            class="z-10 h-2 w-2 origin-center scale-0 rounded-full bg-primary text-primary-foreground opacity-0 transition-transform-opacity group-data-[invalid=true]:bg-danger group-data-[invalid=true]:text-danger-foreground group-data-[selected=true]:scale-100 group-data-[selected=true]:opacity-100 motion-reduce:transition-none"
             data-slot="control"
           />
         </span>

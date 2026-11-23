@@ -44,7 +44,7 @@ const FieldArrayLabel = ({
       aria-level={3}
       as="div"
       className={cn(
-        'block max-w-full overflow-hidden text-ellipsis subpixel-antialiased text-small',
+        'block max-w-full overflow-hidden text-small text-ellipsis subpixel-antialiased',
         hasErrors ? 'text-danger!' : undefined,
         className,
         {

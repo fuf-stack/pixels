@@ -15,9 +15,9 @@ export const tableVariants = tv({
     /** Reserved indicator slot for column sorting */
     sortIcon: [
       // layout and appearance
-      'mb-px ms-2 inline-block text-inherit opacity-0 transition-transform-opacity',
+      'ms-2 mb-px inline-block text-inherit opacity-0 transition-transform-opacity',
       // interaction states
-      'data-[direction=ascending]:rotate-180 data-[visible=true]:opacity-100 group-data-[hover=true]/th:opacity-100',
+      'group-data-[hover=true]/th:opacity-100 data-[direction=ascending]:rotate-180 data-[visible=true]:opacity-100',
     ],
     /** Native grid containing the header and body */
     table: 'h-auto w-full min-w-full table-auto',
@@ -26,22 +26,22 @@ export const tableVariants = tv({
     /** Data cell or row heading */
     td: [
       // cell spacing and content
-      '[&>*]:z-1 relative whitespace-normal px-3 py-2 text-start align-middle font-normal text-small [&>*]:relative',
+      'relative px-3 py-2 text-start align-middle text-small font-normal whitespace-normal [&>*]:relative [&>*]:z-1',
       // visible keyboard focus
-      'outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus',
+      'outline-transparent outline-solid data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus',
       // background layer follows row selection and striping
       "before:pointer-events-none before:absolute before:inset-0 before:z-0 before:bg-default/60 before:opacity-0 before:content-[''] first:before:rounded-s-lg last:before:rounded-e-lg data-[selected=true]:before:opacity-100",
       // disabled and selected text
-      'data-[selected=true]:text-default-foreground group-data-[disabled=true]/tr:cursor-not-allowed group-data-[disabled=true]/tr:text-foreground-300',
+      'group-data-[disabled=true]/tr:cursor-not-allowed group-data-[disabled=true]/tr:text-foreground-300 data-[selected=true]:text-default-foreground',
     ],
     /** Reserved footer row-group slot */
     tfoot: '',
     /** Column heading and focus target */
     th: [
       // heading dimensions and typography
-      'group/th h-10 whitespace-nowrap bg-content2 px-3 text-start align-middle font-semibold text-foreground-500 text-tiny first:rounded-s-lg last:rounded-e-lg',
+      'group/th h-10 bg-content2 px-3 text-start align-middle text-tiny font-semibold whitespace-nowrap text-foreground-500 first:rounded-s-lg last:rounded-e-lg',
       // pointer and keyboard feedback
-      'outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus',
+      'outline-transparent outline-solid data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus data-[hover=true]:text-foreground-400 data-[sortable=true]:cursor-pointer',
     ],
     /** Group of column headings */
     thead: [
@@ -53,7 +53,7 @@ export const tableVariants = tv({
     /** Header or data row */
     tr: [
       // layout and appearance
-      'group/tr outline-solid outline-transparent',
+      'group/tr outline-transparent outline-solid',
       // interaction states
       'data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus',
     ],
@@ -76,12 +76,12 @@ export const tableVariants = tv({
         tr: 'rounded-lg border-b data-[last=true]:border-none [&:first-child:not([data-first="true"])]:border-none',
       },
       'striped-divider-x': {
-        td: 'border-divider first:rounded-s-lg last:rounded-e-lg group-data-[odd=true]:bg-content2 group-data-[odd=true]/tr:before:-z-10 group-data-[odd=true]/tr:before:bg-default-100 group-data-[odd=true]/tr:before:opacity-100',
+        td: 'border-divider group-data-[odd=true]:bg-content2 group-data-[odd=true]/tr:before:-z-10 group-data-[odd=true]/tr:before:bg-default-100 group-data-[odd=true]/tr:before:opacity-100 first:rounded-s-lg last:rounded-e-lg',
         th: 'border-divider',
         tr: 'divide-x',
       },
       striped: {
-        td: 'first:rounded-s-lg last:rounded-e-lg group-data-[odd=true]:bg-content2 group-data-[odd=true]/tr:before:-z-10 group-data-[odd=true]/tr:before:bg-default-100 group-data-[odd=true]/tr:before:opacity-100',
+        td: 'group-data-[odd=true]:bg-content2 group-data-[odd=true]/tr:before:-z-10 group-data-[odd=true]/tr:before:bg-default-100 group-data-[odd=true]/tr:before:opacity-100 first:rounded-s-lg last:rounded-e-lg',
       },
       none: {},
     },

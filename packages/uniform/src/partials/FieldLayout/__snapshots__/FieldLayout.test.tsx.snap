@@ -10,7 +10,7 @@ exports[`Story Snapshots > BaseInteractions 1`] = `
     tabindex="0"
   >
     <label
-      class="font-medium text-small"
+      class="text-small font-medium"
       data-slot="label"
       for="email"
       id="email-label"
@@ -28,7 +28,7 @@ exports[`Story Snapshots > BaseInteractions 1`] = `
       data-slot="helper-wrapper"
     >
       <div
-        class="text-foreground-500 text-small"
+        class="text-small text-foreground-500"
         data-slot="description"
         id="email-description"
       >
@@ -46,7 +46,7 @@ exports[`Story Snapshots > Default 1`] = `
     data-slot="base"
   >
     <label
-      class="font-medium text-small"
+      class="text-small font-medium"
       data-slot="label"
       for="email"
       id="email-label"
@@ -64,7 +64,7 @@ exports[`Story Snapshots > Default 1`] = `
       data-slot="helper-wrapper"
     >
       <div
-        class="text-foreground-500 text-small"
+        class="text-small text-foreground-500"
         data-slot="description"
         id="email-description"
       >
@@ -82,7 +82,7 @@ exports[`Story Snapshots > ErrorOnly 1`] = `
     data-slot="base"
   >
     <label
-      class="font-medium text-small"
+      class="text-small font-medium"
       data-slot="label"
       for="email"
       id="email-label"
@@ -101,7 +101,7 @@ exports[`Story Snapshots > ErrorOnly 1`] = `
       data-slot="helper-wrapper"
     >
       <div
-        class="text-danger text-small"
+        class="text-small text-danger"
         data-slot="error-message"
         id="email-error"
       >
@@ -154,7 +154,7 @@ exports[`Story Snapshots > InNumberField 1`] = `
       data-slot="base"
     >
       <label
-        class="font-medium text-small"
+        class="text-small font-medium"
         data-slot="label"
         for="email"
         id="email-label"
@@ -213,7 +213,7 @@ exports[`Story Snapshots > InNumberField 1`] = `
         data-slot="helper-wrapper"
       >
         <div
-          class="text-foreground-500 text-small"
+          class="text-small text-foreground-500"
           data-slot="description"
           id="email-description"
         >
@@ -238,7 +238,7 @@ exports[`Story Snapshots > InRadioGroup 1`] = `
     role="radiogroup"
   >
     <span
-      class="font-medium text-small"
+      class="text-small font-medium"
       data-slot="label"
       id="email-label"
     >
@@ -288,7 +288,7 @@ exports[`Story Snapshots > InRadioGroup 1`] = `
       data-slot="helper-wrapper"
     >
       <div
-        class="text-foreground-500 text-small"
+        class="text-small text-foreground-500"
         data-slot="description"
         id="email-description"
       >
@@ -307,7 +307,7 @@ exports[`Story Snapshots > InTextField 1`] = `
     data-slot="base"
   >
     <label
-      class="font-medium text-small"
+      class="text-small font-medium"
       data-slot="label"
       for="email"
       id="email-label"
@@ -331,7 +331,7 @@ exports[`Story Snapshots > InTextField 1`] = `
       data-slot="helper-wrapper"
     >
       <div
-        class="text-foreground-500 text-small"
+        class="text-small text-foreground-500"
         data-slot="description"
         id="email-description"
       >
@@ -349,7 +349,7 @@ exports[`Story Snapshots > Invalid 1`] = `
     data-slot="base"
   >
     <label
-      class="font-medium text-small"
+      class="text-small font-medium"
       data-slot="label"
       for="email"
       id="email-label"
@@ -368,14 +368,14 @@ exports[`Story Snapshots > Invalid 1`] = `
       data-slot="helper-wrapper"
     >
       <div
-        class="text-foreground-500 text-small"
+        class="text-small text-foreground-500"
         data-slot="description"
         id="email-description"
       >
         Use your work email
       </div>
       <div
-        class="text-danger text-small"
+        class="text-small text-danger"
         data-slot="error-message"
         id="email-error"
       >
@@ -407,7 +407,7 @@ exports[`Story Snapshots > Required 1`] = `
     data-slot="base"
   >
     <label
-      class="font-medium text-small"
+      class="text-small font-medium"
       data-slot="label"
       for="email"
       id="email-label"
@@ -432,7 +432,7 @@ exports[`Story Snapshots > Required 1`] = `
       data-slot="helper-wrapper"
     >
       <div
-        class="text-foreground-500 text-small"
+        class="text-small text-foreground-500"
         data-slot="description"
         id="email-description"
       >
@@ -460,7 +460,7 @@ exports[`Story Snapshots > WithoutLabel 1`] = `
       data-slot="helper-wrapper"
     >
       <div
-        class="text-foreground-500 text-small"
+        class="text-small text-foreground-500"
         data-slot="description"
         id="email-description"
       >

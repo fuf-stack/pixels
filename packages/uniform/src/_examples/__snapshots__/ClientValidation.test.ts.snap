@@ -24,7 +24,7 @@ exports[`Story Snapshots > ArrayPathValidation 1`] = `
         >
           <div
             aria-level="3"
-            class="block max-w-full overflow-hidden text-ellipsis subpixel-antialiased pointer-events-auto! static! z-auto! block! w-full! translate-x-0! translate-y-0! transform-none! rounded-t-small p-3 font-semibold text-medium text-foreground!"
+            class="block max-w-full overflow-hidden text-ellipsis subpixel-antialiased pointer-events-auto! static! z-auto! block! w-full! translate-x-0! translate-y-0! transform-none! rounded-t-small p-3 text-medium font-semibold text-foreground!"
             data-slot="label"
             id="«replaced-aria-id»"
             role="heading"
@@ -50,7 +50,7 @@ exports[`Story Snapshots > ArrayPathValidation 1`] = `
                 data-testid="items_0_element"
               >
                 <div
-                  class="flex w-full flex-row items-stretch divide-divider bg-content1 divide-x divide-solid border-b border-t border-divider"
+                  class="flex w-full flex-row items-stretch divide-divider bg-content1 divide-x divide-solid border-t border-b border-divider"
                 >
                   <div
                     class="grid gap-6 w-full grow p-3"
@@ -153,7 +153,7 @@ exports[`Story Snapshots > ArrayPathValidation 1`] = `
             </ul>
           </div>
           <button
-            class="group tap-highlight-transparent transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center select-none appearance-none whitespace-nowrap subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-8 min-w-16 gap-2 rounded-small px-3 text-tiny [&>svg]:max-w-[theme(spacing.8)] !transition-none data-[pressed=true]:scale-100 bg-transparent text-default-foreground data-[hover=true]:bg-default/40 w-full justify-start rounded-b-small rounded-t-none font-semibold !h-[48px] !min-h-0 outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-focus"
+            class="group tap-highlight-transparent transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center appearance-none whitespace-nowrap subpixel-antialiased select-none transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-8 min-w-16 gap-2 rounded-small px-3 text-tiny [&>svg]:max-w-[theme(spacing.8)] !transition-none data-[pressed=true]:scale-100 bg-transparent text-default-foreground data-[hover=true]:bg-default/40 w-full justify-start rounded-t-none rounded-b-small font-semibold !h-[48px] !min-h-0 outline-none focus-visible:ring-2 focus-visible:ring-focus focus-visible:ring-inset"
             data-component="button"
             data-rac=""
             data-react-aria-pressable="true"
@@ -178,7 +178,7 @@ exports[`Story Snapshots > ArrayPathValidation 1`] = `
       >
         <button
           aria-label="Submit form"
-          class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center appearance-none font-normal whitespace-nowrap subpixel-antialiased select-none transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-transparent outline-solid data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
           data-component="submit-button"
           data-rac=""
           data-react-aria-pressable="true"
@@ -250,7 +250,7 @@ exports[`Story Snapshots > Default 1`] = `
               data-testid="teamid_select"
             >
               <div
-                class="duration-150! min-h-10 rounded-lg border-2 border-default-200 bg-content1 transition-background hover:border-default-400 group-data-[invalid=true]:border-danger group-data-[invalid=true]:hover:border-danger motion-reduce:transition-none css-cp01gg-control"
+                class="min-h-10 rounded-lg border-2 border-default-200 bg-content1 transition-background duration-150! group-data-[invalid=true]:border-danger hover:border-default-400 group-data-[invalid=true]:hover:border-danger motion-reduce:transition-none css-cp01gg-control"
               >
                 <div
                   class="gap-1 p-1 css-14oxtc6"
@@ -446,7 +446,7 @@ exports[`Story Snapshots > Default 1`] = `
       >
         <button
           aria-label="Submit form"
-          class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center appearance-none font-normal whitespace-nowrap subpixel-antialiased select-none transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-transparent outline-solid data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
           data-component="submit-button"
           data-rac=""
           data-react-aria-pressable="true"
@@ -487,7 +487,7 @@ exports[`Story Snapshots > FlatArrayValidation 1`] = `
         >
           <div
             aria-level="3"
-            class="block max-w-full overflow-hidden text-ellipsis subpixel-antialiased pointer-events-auto! static! z-auto! block! w-full! translate-x-0! translate-y-0! transform-none! rounded-t-small p-3 font-semibold text-medium text-foreground!"
+            class="block max-w-full overflow-hidden text-ellipsis subpixel-antialiased pointer-events-auto! static! z-auto! block! w-full! translate-x-0! translate-y-0! transform-none! rounded-t-small p-3 text-medium font-semibold text-foreground!"
             data-slot="label"
             id="«replaced-aria-id»"
             role="heading"
@@ -513,7 +513,7 @@ exports[`Story Snapshots > FlatArrayValidation 1`] = `
                 data-testid="tags_0_element"
               >
                 <div
-                  class="flex w-full flex-row items-stretch divide-divider bg-content1 divide-x divide-solid border-b border-t border-divider"
+                  class="flex w-full flex-row items-stretch divide-divider bg-content1 divide-x divide-solid border-t border-b border-divider"
                 >
                   <div
                     class="grid gap-6 w-full grow p-3"
@@ -575,7 +575,7 @@ exports[`Story Snapshots > FlatArrayValidation 1`] = `
             </ul>
           </div>
           <button
-            class="group tap-highlight-transparent transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center select-none appearance-none whitespace-nowrap subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-8 min-w-16 gap-2 rounded-small px-3 text-tiny [&>svg]:max-w-[theme(spacing.8)] !transition-none data-[pressed=true]:scale-100 bg-transparent text-default-foreground data-[hover=true]:bg-default/40 w-full justify-start rounded-b-small rounded-t-none font-semibold !h-[48px] !min-h-0 outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-focus"
+            class="group tap-highlight-transparent transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center appearance-none whitespace-nowrap subpixel-antialiased select-none transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-8 min-w-16 gap-2 rounded-small px-3 text-tiny [&>svg]:max-w-[theme(spacing.8)] !transition-none data-[pressed=true]:scale-100 bg-transparent text-default-foreground data-[hover=true]:bg-default/40 w-full justify-start rounded-t-none rounded-b-small font-semibold !h-[48px] !min-h-0 outline-none focus-visible:ring-2 focus-visible:ring-focus focus-visible:ring-inset"
             data-component="button"
             data-rac=""
             data-react-aria-pressable="true"
@@ -600,7 +600,7 @@ exports[`Story Snapshots > FlatArrayValidation 1`] = `
       >
         <button
           aria-label="Submit form"
-          class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center appearance-none font-normal whitespace-nowrap subpixel-antialiased select-none transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-transparent outline-solid data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
           data-component="submit-button"
           data-rac=""
           data-react-aria-pressable="true"
@@ -672,13 +672,13 @@ exports[`Story Snapshots > InteractiveDemo 1`] = `
               data-testid="teamid_select"
             >
               <div
-                class="duration-150! min-h-10 rounded-lg border-2 border-default-200 bg-content1 transition-background hover:border-default-400 group-data-[invalid=true]:border-danger group-data-[invalid=true]:hover:border-danger motion-reduce:transition-none css-cp01gg-control"
+                class="min-h-10 rounded-lg border-2 border-default-200 bg-content1 transition-background duration-150! group-data-[invalid=true]:border-danger hover:border-default-400 group-data-[invalid=true]:hover:border-danger motion-reduce:transition-none css-cp01gg-control"
               >
                 <div
                   class="gap-1 p-1 css-14oxtc6"
                 >
                   <div
-                    class="w-full truncate text-start font-normal text-small ml-1! leading-7! css-w54w9q-singleValue"
+                    class="w-full truncate text-start text-small font-normal ml-1! leading-7! css-w54w9q-singleValue"
                   >
                     Frontend Team
                   </div>
@@ -928,7 +928,7 @@ exports[`Story Snapshots > InteractiveDemo 1`] = `
       >
         <button
           aria-label="Submit form"
-          class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center appearance-none font-normal whitespace-nowrap subpixel-antialiased select-none transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-transparent outline-solid data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
           data-component="submit-button"
           data-rac=""
           data-react-aria-pressable="true"
@@ -1065,7 +1065,7 @@ exports[`Story Snapshots > NestedPathValidation 1`] = `
       >
         <button
           aria-label="Submit form"
-          class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center appearance-none font-normal whitespace-nowrap subpixel-antialiased select-none transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-transparent outline-solid data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
           data-component="submit-button"
           data-rac=""
           data-react-aria-pressable="true"
@@ -1137,13 +1137,13 @@ exports[`Story Snapshots > WithInitialData 1`] = `
               data-testid="teamid_select"
             >
               <div
-                class="duration-150! min-h-10 rounded-lg border-2 border-default-200 bg-content1 transition-background hover:border-default-400 group-data-[invalid=true]:border-danger group-data-[invalid=true]:hover:border-danger motion-reduce:transition-none css-cp01gg-control"
+                class="min-h-10 rounded-lg border-2 border-default-200 bg-content1 transition-background duration-150! group-data-[invalid=true]:border-danger hover:border-default-400 group-data-[invalid=true]:hover:border-danger motion-reduce:transition-none css-cp01gg-control"
               >
                 <div
                   class="gap-1 p-1 css-14oxtc6"
                 >
                   <div
-                    class="w-full truncate text-start font-normal text-small ml-1! leading-7! css-w54w9q-singleValue"
+                    class="w-full truncate text-start text-small font-normal ml-1! leading-7! css-w54w9q-singleValue"
                   >
                     Frontend Team
                   </div>
@@ -1352,7 +1352,7 @@ exports[`Story Snapshots > WithInitialData 1`] = `
       >
         <button
           aria-label="Submit form"
-          class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center appearance-none font-normal whitespace-nowrap subpixel-antialiased select-none transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-transparent outline-solid data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
           data-component="submit-button"
           data-rac=""
           data-react-aria-pressable="true"

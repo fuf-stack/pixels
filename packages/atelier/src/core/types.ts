@@ -4,10 +4,7 @@ import type { ReactNode } from 'react';
  * High-level auth lifecycle used by the app shell.
  */
 export type AtelierAuthStatus =
-  | 'loading'
-  | 'anonymous'
-  | 'authenticated'
-  | 'error';
+  'loading' | 'anonymous' | 'authenticated' | 'error';
 
 /**
  * Minimal user shape consumed by navigation and shell presentation.

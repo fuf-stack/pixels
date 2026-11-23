@@ -19,9 +19,9 @@ export const accordionVariants = tv({
     /** Leading content before the title */
     startContent: 'shrink-0',
     /** Supporting text below the title */
-    subtitle: 'font-normal text-foreground-500 text-small',
+    subtitle: 'text-small font-normal text-foreground-500',
     /** Main text naming the panel */
-    title: 'text-foreground text-medium',
+    title: 'text-medium text-foreground',
     /** Container grouping the title and subtitle */
     titleWrapper: 'flex flex-1 flex-col text-start',
     /** Button that expands or collapses the panel */
@@ -29,7 +29,7 @@ export const accordionVariants = tv({
       // heading layout and hit target
       'flex h-full w-full cursor-pointer items-center gap-3 py-4 tap-highlight-transparent',
       // interaction feedback and keyboard focus
-      'outline-solid outline-transparent transition-opacity motion-reduce:transition-none',
+      'outline-transparent transition-opacity outline-solid motion-reduce:transition-none',
       'data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus',
     ],
     /** Container arranging the expandable items */

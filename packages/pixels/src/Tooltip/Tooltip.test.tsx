@@ -20,18 +20,14 @@ import { isFocusableTrigger } from './subcomponents/TooltipTriggerElement';
 import Tooltip from './Tooltip';
 
 // like a label or icon component: neither forwards a ref nor spreads props
-const Chip = ({ children }: { children: ReactNode }) => {
-  return <span>{children}</span>;
-};
+const Chip = ({ children }: { children: ReactNode }) => <span>{children}</span>;
 
 const RefButton = forwardRef<HTMLButtonElement, { children: ReactNode }>(
-  ({ children }, ref) => {
-    return (
-      <button ref={ref} type="button">
-        {children}
-      </button>
-    );
-  },
+  ({ children }, ref) => (
+    <button ref={ref} type="button">
+      {children}
+    </button>
+  ),
 );
 
 describe('Story Snapshots', () => {

@@ -31,7 +31,7 @@ const storyVariants = tv({
     /** Group label, options and supporting messages */
     base: 'group flex w-72 flex-col gap-2',
     /** Validation messages below the options */
-    errorMessage: 'text-danger text-tiny',
+    errorMessage: 'text-tiny text-danger',
     /** Options arranged in the requested direction */
     wrapper: 'flex flex-col gap-2 data-[orientation=horizontal]:flex-row',
   },

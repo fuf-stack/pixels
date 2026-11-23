@@ -49,7 +49,7 @@ const CustomEditor = () => {
         {description}
       </div>
       {invalid ? (
-        <div className="text-danger text-tiny" id={ids.error}>
+        <div className="text-tiny text-danger" id={ids.error}>
           {errorMessage}
         </div>
       ) : null}

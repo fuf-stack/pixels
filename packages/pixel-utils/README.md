@@ -108,7 +108,7 @@ styling.cn('text-sm text-danger', 'text-body');
 // => 'text-danger text-body'
 
 // Resolve an existing module-level recipe before merging slot overrides.
-const input = tv({ slots: { input: 'text-danger text-sm' } });
+const input = tv({ slots: { input: 'text-sm text-danger' } });
 styling.variantsToClassNames(styling.resolve(input), { input: 'text-body' });
 // => { base: undefined, input: 'text-danger text-body' }
 ```

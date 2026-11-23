@@ -300,8 +300,7 @@ export interface VArrayRefinements<TElement = unknown> {
  * - optional-wrapped array schemas
  */
 type RefineArrayInputArray =
-  | ReturnType<VArray>
-  | VetoOptional<ReturnType<VArray>>;
+  ReturnType<VArray> | VetoOptional<ReturnType<VArray>>;
 
 // Extract the element type by handling both direct array schema and VetoOptional wrapped schema
 type ExtractElement<T> =

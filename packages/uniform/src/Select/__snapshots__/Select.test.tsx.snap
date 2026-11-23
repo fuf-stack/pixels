@@ -44,7 +44,7 @@ exports[`Story Snapshots > Default 1`] = `
             data-testid="selectfield_select"
           >
             <div
-              class="duration-150! min-h-10 rounded-lg border-2 border-default-200 bg-content1 transition-background hover:border-default-400 group-data-[invalid=true]:border-danger group-data-[invalid=true]:hover:border-danger motion-reduce:transition-none css-cp01gg-control"
+              class="min-h-10 rounded-lg border-2 border-default-200 bg-content1 transition-background duration-150! group-data-[invalid=true]:border-danger hover:border-default-400 group-data-[invalid=true]:hover:border-danger motion-reduce:transition-none css-cp01gg-control"
             >
               <div
                 class="gap-1 p-1 css-14oxtc6"
@@ -124,7 +124,7 @@ exports[`Story Snapshots > Default 1`] = `
       >
         <button
           aria-label="Submit form"
-          class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center appearance-none font-normal whitespace-nowrap subpixel-antialiased select-none transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-transparent outline-solid data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
           data-component="submit-button"
           data-rac=""
           data-react-aria-pressable="true"
@@ -187,7 +187,7 @@ exports[`Story Snapshots > Disabled 1`] = `
           >
             <div
               aria-disabled="true"
-              class="duration-150! min-h-10 rounded-lg border-2 border-default-200 bg-content1 transition-background group-data-[invalid=true]:border-danger group-data-[invalid=true]:hover:border-danger motion-reduce:transition-none hover:border-default-200 css-cp01gg-control"
+              class="min-h-10 rounded-lg border-2 border-default-200 bg-content1 transition-background duration-150! group-data-[invalid=true]:border-danger group-data-[invalid=true]:hover:border-danger motion-reduce:transition-none hover:border-default-200 css-cp01gg-control"
             >
               <div
                 class="gap-1 p-1 css-14oxtc6"
@@ -263,7 +263,7 @@ exports[`Story Snapshots > Disabled 1`] = `
       >
         <button
           aria-label="Submit form"
-          class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center appearance-none font-normal whitespace-nowrap subpixel-antialiased select-none transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-transparent outline-solid data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
           data-component="submit-button"
           data-rac=""
           data-react-aria-pressable="true"
@@ -309,7 +309,7 @@ exports[`Story Snapshots > EdgeCaseMenuIsVisibleInCard 1`] = `
         novalidate=""
       >
         <div
-          class="relative box-border flex h-auto w-full flex-col overflow-hidden rounded-small border border-divider bg-content1 text-foreground shadow-none outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus transition-transform-background motion-reduce:transition-none"
+          class="relative box-border flex h-auto w-full flex-col overflow-hidden rounded-small border border-divider bg-content1 text-foreground shadow-none outline-transparent outline-solid data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus transition-transform-background motion-reduce:transition-none"
           data-component="card"
           data-slot="base"
           tabindex="-1"
@@ -324,7 +324,7 @@ exports[`Story Snapshots > EdgeCaseMenuIsVisibleInCard 1`] = `
             class="my-0 h-divider w-full shrink-0 border-none border-divider bg-divider"
           />
           <div
-            class="relative flex h-auto w-full flex-auto flex-col p-3 place-content-inherit align-items-inherit overflow-y-auto break-words text-left subpixel-antialiased"
+            class="relative flex h-auto w-full flex-auto flex-col p-3 place-content-inherit align-items-inherit overflow-y-auto text-left break-words subpixel-antialiased"
             data-slot="body"
           >
             <div
@@ -376,7 +376,7 @@ exports[`Story Snapshots > EdgeCaseMenuIsVisibleInCard 1`] = `
                   data-testid="selectfield_select"
                 >
                   <div
-                    class="duration-150! min-h-10 rounded-lg border-2 bg-content1 transition-background hover:border-default-400 group-data-[invalid=true]:border-danger group-data-[invalid=true]:hover:border-danger motion-reduce:transition-none border-focus css-cp01gg-control"
+                    class="min-h-10 rounded-lg border-2 bg-content1 transition-background duration-150! group-data-[invalid=true]:border-danger hover:border-default-400 group-data-[invalid=true]:hover:border-danger motion-reduce:transition-none border-focus css-cp01gg-control"
                   >
                     <div
                       class="gap-1 p-1 css-14oxtc6"
@@ -687,7 +687,7 @@ exports[`Story Snapshots > EdgeCaseMenuIsVisibleInCard 1`] = `
         >
           <button
             aria-label="Submit form"
-            class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
+            class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center appearance-none font-normal whitespace-nowrap subpixel-antialiased select-none transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-transparent outline-solid data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
             data-component="submit-button"
             data-rac=""
             data-react-aria-pressable="true"
@@ -734,7 +734,7 @@ exports[`Story Snapshots > EdgeCaseMenuIsVisibleInModal 1`] = `
         novalidate=""
       >
         <button
-          class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center appearance-none font-normal whitespace-nowrap subpixel-antialiased select-none transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-transparent outline-solid data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
           data-component="button"
           data-focus="true"
           data-focus-visible="true"
@@ -753,7 +753,7 @@ exports[`Story Snapshots > EdgeCaseMenuIsVisibleInModal 1`] = `
         >
           <button
             aria-label="Submit form"
-            class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
+            class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center appearance-none font-normal whitespace-nowrap subpixel-antialiased select-none transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-transparent outline-solid data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
             data-component="submit-button"
             data-rac=""
             data-react-aria-pressable="true"
@@ -815,13 +815,13 @@ exports[`Story Snapshots > InitialValue 1`] = `
             data-testid="selectfield_select"
           >
             <div
-              class="duration-150! min-h-10 rounded-lg border-2 border-default-200 bg-content1 transition-background hover:border-default-400 group-data-[invalid=true]:border-danger group-data-[invalid=true]:hover:border-danger motion-reduce:transition-none css-cp01gg-control"
+              class="min-h-10 rounded-lg border-2 border-default-200 bg-content1 transition-background duration-150! group-data-[invalid=true]:border-danger hover:border-default-400 group-data-[invalid=true]:hover:border-danger motion-reduce:transition-none css-cp01gg-control"
             >
               <div
                 class="gap-1 p-1 css-14oxtc6"
               >
                 <div
-                  class="w-full truncate text-start font-normal text-small ml-1! leading-7! css-w54w9q-singleValue"
+                  class="w-full truncate text-start text-small font-normal ml-1! leading-7! css-w54w9q-singleValue"
                 >
                   Vanilla
                 </div>
@@ -910,7 +910,7 @@ exports[`Story Snapshots > InitialValue 1`] = `
       >
         <button
           aria-label="Submit form"
-          class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center appearance-none font-normal whitespace-nowrap subpixel-antialiased select-none transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-transparent outline-solid data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
           data-component="submit-button"
           data-rac=""
           data-react-aria-pressable="true"
@@ -972,13 +972,13 @@ exports[`Story Snapshots > Invalid 1`] = `
             data-testid="selectfield_select"
           >
             <div
-              class="duration-150! min-h-10 rounded-lg border-2 border-default-200 bg-content1 transition-background hover:border-default-400 group-data-[invalid=true]:border-danger group-data-[invalid=true]:hover:border-danger motion-reduce:transition-none css-cp01gg-control"
+              class="min-h-10 rounded-lg border-2 border-default-200 bg-content1 transition-background duration-150! group-data-[invalid=true]:border-danger hover:border-default-400 group-data-[invalid=true]:hover:border-danger motion-reduce:transition-none css-cp01gg-control"
             >
               <div
                 class="gap-1 p-1 css-14oxtc6"
               >
                 <div
-                  class="w-full truncate text-start font-normal text-small text-danger! ml-1! leading-7! css-w54w9q-singleValue"
+                  class="w-full truncate text-start text-small font-normal text-danger! ml-1! leading-7! css-w54w9q-singleValue"
                 >
                   Vanilla
                 </div>
@@ -1095,7 +1095,7 @@ exports[`Story Snapshots > Invalid 1`] = `
       >
         <button
           aria-label="Submit form"
-          class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center appearance-none font-normal whitespace-nowrap subpixel-antialiased select-none transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-transparent outline-solid data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
           data-component="submit-button"
           data-rac=""
           data-react-aria-pressable="true"
@@ -1171,7 +1171,7 @@ exports[`Story Snapshots > Loading 1`] = `
             data-testid="selectfield_select"
           >
             <div
-              class="duration-150! min-h-10 rounded-lg border-2 bg-content1 transition-background hover:border-default-400 group-data-[invalid=true]:border-danger group-data-[invalid=true]:hover:border-danger motion-reduce:transition-none border-focus css-cp01gg-control"
+              class="min-h-10 rounded-lg border-2 bg-content1 transition-background duration-150! group-data-[invalid=true]:border-danger hover:border-default-400 group-data-[invalid=true]:hover:border-danger motion-reduce:transition-none border-focus css-cp01gg-control"
             >
               <div
                 class="gap-1 p-1 css-14oxtc6"
@@ -1283,7 +1283,7 @@ exports[`Story Snapshots > Loading 1`] = `
       >
         <button
           aria-label="Submit form"
-          class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center appearance-none font-normal whitespace-nowrap subpixel-antialiased select-none transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-transparent outline-solid data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
           data-component="submit-button"
           data-rac=""
           data-react-aria-pressable="true"
@@ -1344,16 +1344,16 @@ exports[`Story Snapshots > MultiSelect 1`] = `
             data-testid="selectfield_select"
           >
             <div
-              class="duration-150! min-h-10 rounded-lg border-2 border-default-200 bg-content1 transition-background hover:border-default-400 group-data-[invalid=true]:border-danger group-data-[invalid=true]:hover:border-danger motion-reduce:transition-none css-cp01gg-control"
+              class="min-h-10 rounded-lg border-2 border-default-200 bg-content1 transition-background duration-150! group-data-[invalid=true]:border-danger hover:border-default-400 group-data-[invalid=true]:hover:border-danger motion-reduce:transition-none css-cp01gg-control"
             >
               <div
                 class="gap-1 p-1 css-pl07w5"
               >
                 <div
-                  class="h-6 items-center gap-1.5 rounded bg-default-100 pl-2 pr-1 css-x2yrli-multiValue"
+                  class="h-6 items-center gap-1.5 rounded bg-default-100 pr-1 pl-2 css-x2yrli-multiValue"
                 >
                   <div
-                    class="w-full truncate text-start font-normal text-small py-0 leading-5 css-zztcs7"
+                    class="w-full truncate text-start text-small font-normal py-0 leading-5 css-zztcs7"
                   >
                     Vanilla
                   </div>
@@ -1377,10 +1377,10 @@ exports[`Story Snapshots > MultiSelect 1`] = `
                   </div>
                 </div>
                 <div
-                  class="h-6 items-center gap-1.5 rounded bg-default-100 pl-2 pr-1 css-x2yrli-multiValue"
+                  class="h-6 items-center gap-1.5 rounded bg-default-100 pr-1 pl-2 css-x2yrli-multiValue"
                 >
                   <div
-                    class="w-full truncate text-start font-normal text-small py-0 leading-5 css-zztcs7"
+                    class="w-full truncate text-start text-small font-normal py-0 leading-5 css-zztcs7"
                   >
                     Chocolate
                   </div>
@@ -1495,7 +1495,7 @@ exports[`Story Snapshots > MultiSelect 1`] = `
       >
         <button
           aria-label="Submit form"
-          class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center appearance-none font-normal whitespace-nowrap subpixel-antialiased select-none transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-transparent outline-solid data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
           data-component="submit-button"
           data-rac=""
           data-react-aria-pressable="true"
@@ -1556,16 +1556,16 @@ exports[`Story Snapshots > MultiSelectInitialValue 1`] = `
             data-testid="selectfield_select"
           >
             <div
-              class="duration-150! min-h-10 rounded-lg border-2 border-default-200 bg-content1 transition-background hover:border-default-400 group-data-[invalid=true]:border-danger group-data-[invalid=true]:hover:border-danger motion-reduce:transition-none css-cp01gg-control"
+              class="min-h-10 rounded-lg border-2 border-default-200 bg-content1 transition-background duration-150! group-data-[invalid=true]:border-danger hover:border-default-400 group-data-[invalid=true]:hover:border-danger motion-reduce:transition-none css-cp01gg-control"
             >
               <div
                 class="gap-1 p-1 css-pl07w5"
               >
                 <div
-                  class="h-6 items-center gap-1.5 rounded bg-default-100 pl-2 pr-1 css-x2yrli-multiValue"
+                  class="h-6 items-center gap-1.5 rounded bg-default-100 pr-1 pl-2 css-x2yrli-multiValue"
                 >
                   <div
-                    class="w-full truncate text-start font-normal text-small py-0 leading-5 css-zztcs7"
+                    class="w-full truncate text-start text-small font-normal py-0 leading-5 css-zztcs7"
                   >
                     Vanilla
                   </div>
@@ -1589,10 +1589,10 @@ exports[`Story Snapshots > MultiSelectInitialValue 1`] = `
                   </div>
                 </div>
                 <div
-                  class="h-6 items-center gap-1.5 rounded bg-default-100 pl-2 pr-1 css-x2yrli-multiValue"
+                  class="h-6 items-center gap-1.5 rounded bg-default-100 pr-1 pl-2 css-x2yrli-multiValue"
                 >
                   <div
-                    class="w-full truncate text-start font-normal text-small py-0 leading-5 css-zztcs7"
+                    class="w-full truncate text-start text-small font-normal py-0 leading-5 css-zztcs7"
                   >
                     Chocolate
                   </div>
@@ -1616,10 +1616,10 @@ exports[`Story Snapshots > MultiSelectInitialValue 1`] = `
                   </div>
                 </div>
                 <div
-                  class="h-6 items-center gap-1.5 rounded bg-default-100 pl-2 pr-1 css-x2yrli-multiValue"
+                  class="h-6 items-center gap-1.5 rounded bg-default-100 pr-1 pl-2 css-x2yrli-multiValue"
                 >
                   <div
-                    class="w-full truncate text-start font-normal text-small py-0 leading-5 css-zztcs7"
+                    class="w-full truncate text-start text-small font-normal py-0 leading-5 css-zztcs7"
                   >
                     Strawberry
                   </div>
@@ -1739,7 +1739,7 @@ exports[`Story Snapshots > MultiSelectInitialValue 1`] = `
       >
         <button
           aria-label="Submit form"
-          class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center appearance-none font-normal whitespace-nowrap subpixel-antialiased select-none transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-transparent outline-solid data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
           data-component="submit-button"
           data-rac=""
           data-react-aria-pressable="true"
@@ -1817,7 +1817,7 @@ exports[`Story Snapshots > NoResults 1`] = `
             data-testid="selectfield_select"
           >
             <div
-              class="duration-150! min-h-10 rounded-lg border-2 bg-content1 transition-background hover:border-default-400 group-data-[invalid=true]:border-danger group-data-[invalid=true]:hover:border-danger motion-reduce:transition-none border-focus css-cp01gg-control"
+              class="min-h-10 rounded-lg border-2 bg-content1 transition-background duration-150! group-data-[invalid=true]:border-danger hover:border-default-400 group-data-[invalid=true]:hover:border-danger motion-reduce:transition-none border-focus css-cp01gg-control"
             >
               <div
                 class="gap-1 p-1 css-14oxtc6"
@@ -1915,7 +1915,7 @@ exports[`Story Snapshots > NoResults 1`] = `
       >
         <button
           aria-label="Submit form"
-          class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center appearance-none font-normal whitespace-nowrap subpixel-antialiased select-none transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-transparent outline-solid data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
           data-component="submit-button"
           data-rac=""
           data-react-aria-pressable="true"
@@ -1991,7 +1991,7 @@ exports[`Story Snapshots > NoResultsCustomRenderer 1`] = `
             data-testid="selectfield_select"
           >
             <div
-              class="duration-150! min-h-10 rounded-lg border-2 bg-content1 transition-background hover:border-default-400 group-data-[invalid=true]:border-danger group-data-[invalid=true]:hover:border-danger motion-reduce:transition-none border-focus css-cp01gg-control"
+              class="min-h-10 rounded-lg border-2 bg-content1 transition-background duration-150! group-data-[invalid=true]:border-danger hover:border-default-400 group-data-[invalid=true]:hover:border-danger motion-reduce:transition-none border-focus css-cp01gg-control"
             >
               <div
                 class="gap-1 p-1 css-14oxtc6"
@@ -2091,7 +2091,7 @@ exports[`Story Snapshots > NoResultsCustomRenderer 1`] = `
                       data-slot="iconWrapper"
                     >
                       <svg
-                        class="absolute left-1/2 top-1/2 w-6 -translate-x-1/2 -translate-y-1/2 fill-current"
+                        class="absolute top-1/2 left-1/2 w-6 -translate-x-1/2 -translate-y-1/2 fill-current"
                         data-slot="icon"
                         fill="none"
                         height="24"
@@ -2112,7 +2112,7 @@ exports[`Story Snapshots > NoResultsCustomRenderer 1`] = `
                       data-slot="mainWrapper"
                     >
                       <div
-                        class="pl-[1px] font-normal text-foreground text-small"
+                        class="pl-[1px] text-small font-normal text-foreground"
                         data-slot="description"
                       >
                         There is nothing to select here
@@ -2135,7 +2135,7 @@ exports[`Story Snapshots > NoResultsCustomRenderer 1`] = `
       >
         <button
           aria-label="Submit form"
-          class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center appearance-none font-normal whitespace-nowrap subpixel-antialiased select-none transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-transparent outline-solid data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
           data-component="submit-button"
           data-rac=""
           data-react-aria-pressable="true"
@@ -2196,7 +2196,7 @@ exports[`Story Snapshots > NumberValues 1`] = `
             data-testid="selectfield_select"
           >
             <div
-              class="duration-150! min-h-10 rounded-lg border-2 border-default-200 bg-content1 transition-background hover:border-default-400 group-data-[invalid=true]:border-danger group-data-[invalid=true]:hover:border-danger motion-reduce:transition-none css-cp01gg-control"
+              class="min-h-10 rounded-lg border-2 border-default-200 bg-content1 transition-background duration-150! group-data-[invalid=true]:border-danger hover:border-default-400 group-data-[invalid=true]:hover:border-danger motion-reduce:transition-none css-cp01gg-control"
             >
               <div
                 class="gap-1 p-1 css-14oxtc6"
@@ -2276,7 +2276,7 @@ exports[`Story Snapshots > NumberValues 1`] = `
       >
         <button
           aria-label="Submit form"
-          class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center appearance-none font-normal whitespace-nowrap subpixel-antialiased select-none transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-transparent outline-solid data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
           data-component="submit-button"
           data-rac=""
           data-react-aria-pressable="true"
@@ -2354,7 +2354,7 @@ exports[`Story Snapshots > OptionDisabled 1`] = `
             data-testid="selectfield_select"
           >
             <div
-              class="duration-150! min-h-10 rounded-lg border-2 bg-content1 transition-background hover:border-default-400 group-data-[invalid=true]:border-danger group-data-[invalid=true]:hover:border-danger motion-reduce:transition-none border-focus css-cp01gg-control"
+              class="min-h-10 rounded-lg border-2 bg-content1 transition-background duration-150! group-data-[invalid=true]:border-danger hover:border-default-400 group-data-[invalid=true]:hover:border-danger motion-reduce:transition-none border-focus css-cp01gg-control"
             >
               <div
                 class="gap-1 p-1 css-14oxtc6"
@@ -2445,7 +2445,7 @@ exports[`Story Snapshots > OptionDisabled 1`] = `
                   <div
                     aria-disabled="true"
                     aria-selected="false"
-                    class="rounded px-3 py-2 hover:cursor-pointer cursor-not-allowed! hover:cursor-not-allowed! opacity-disabled bg-default-100 active:bg-default-200 css-bio7mv-option"
+                    class="rounded px-3 py-2 hover:cursor-pointer cursor-not-allowed! opacity-disabled hover:cursor-not-allowed! bg-default-100 active:bg-default-200 css-bio7mv-option"
                     id="react-select-uniform-«replaced-aria-id»-option-0"
                     role="option"
                     tabindex="-1"
@@ -2496,7 +2496,7 @@ exports[`Story Snapshots > OptionDisabled 1`] = `
       >
         <button
           aria-label="Submit form"
-          class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center appearance-none font-normal whitespace-nowrap subpixel-antialiased select-none transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-transparent outline-solid data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
           data-component="submit-button"
           data-rac=""
           data-react-aria-pressable="true"
@@ -2564,7 +2564,7 @@ exports[`Story Snapshots > Required 1`] = `
             data-testid="selectfield_select"
           >
             <div
-              class="duration-150! min-h-10 rounded-lg border-2 border-default-200 bg-content1 transition-background hover:border-default-400 group-data-[invalid=true]:border-danger group-data-[invalid=true]:hover:border-danger motion-reduce:transition-none css-cp01gg-control"
+              class="min-h-10 rounded-lg border-2 border-default-200 bg-content1 transition-background duration-150! group-data-[invalid=true]:border-danger hover:border-default-400 group-data-[invalid=true]:hover:border-danger motion-reduce:transition-none css-cp01gg-control"
             >
               <div
                 class="gap-1 p-1 css-14oxtc6"
@@ -2645,7 +2645,7 @@ exports[`Story Snapshots > Required 1`] = `
       >
         <button
           aria-label="Submit form"
-          class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center appearance-none font-normal whitespace-nowrap subpixel-antialiased select-none transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-transparent outline-solid data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
           data-component="submit-button"
           data-rac=""
           data-react-aria-pressable="true"
@@ -2706,16 +2706,16 @@ exports[`Story Snapshots > TransformMultiSelectSorted 1`] = `
             data-testid="selectfield_select"
           >
             <div
-              class="duration-150! min-h-10 rounded-lg border-2 border-default-200 bg-content1 transition-background hover:border-default-400 group-data-[invalid=true]:border-danger group-data-[invalid=true]:hover:border-danger motion-reduce:transition-none css-cp01gg-control"
+              class="min-h-10 rounded-lg border-2 border-default-200 bg-content1 transition-background duration-150! group-data-[invalid=true]:border-danger hover:border-default-400 group-data-[invalid=true]:hover:border-danger motion-reduce:transition-none css-cp01gg-control"
             >
               <div
                 class="gap-1 p-1 css-pl07w5"
               >
                 <div
-                  class="h-6 items-center gap-1.5 rounded bg-default-100 pl-2 pr-1 css-x2yrli-multiValue"
+                  class="h-6 items-center gap-1.5 rounded bg-default-100 pr-1 pl-2 css-x2yrli-multiValue"
                 >
                   <div
-                    class="w-full truncate text-start font-normal text-small py-0 leading-5 css-zztcs7"
+                    class="w-full truncate text-start text-small font-normal py-0 leading-5 css-zztcs7"
                   >
                     Chocolate
                   </div>
@@ -2739,10 +2739,10 @@ exports[`Story Snapshots > TransformMultiSelectSorted 1`] = `
                   </div>
                 </div>
                 <div
-                  class="h-6 items-center gap-1.5 rounded bg-default-100 pl-2 pr-1 css-x2yrli-multiValue"
+                  class="h-6 items-center gap-1.5 rounded bg-default-100 pr-1 pl-2 css-x2yrli-multiValue"
                 >
                   <div
-                    class="w-full truncate text-start font-normal text-small py-0 leading-5 css-zztcs7"
+                    class="w-full truncate text-start text-small font-normal py-0 leading-5 css-zztcs7"
                   >
                     Vanilla
                   </div>
@@ -2857,7 +2857,7 @@ exports[`Story Snapshots > TransformMultiSelectSorted 1`] = `
       >
         <button
           aria-label="Submit form"
-          class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center appearance-none font-normal whitespace-nowrap subpixel-antialiased select-none transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-transparent outline-solid data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-success text-white data-[hover=true]:opacity-hover"
           data-component="submit-button"
           data-rac=""
           data-react-aria-pressable="true"

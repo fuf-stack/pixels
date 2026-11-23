@@ -22,7 +22,7 @@ export const fieldCardVariants = tv({
     errorFooter: [
       'border-t',
       // force helper to be visible and add padding (pt-1 to compensate for inner content's top padding)
-      'block px-3 pb-2 pt-1',
+      'block px-3 pt-1 pb-2',
       // animate border color change, respect reduced motion
       'transition-colors duration-150 motion-reduce:transition-none',
     ],
@@ -35,7 +35,7 @@ export const fieldCardVariants = tv({
       // reset any transforms or translations
       'translate-x-0! translate-y-0! transform-none!',
       // card header styling - use text-medium (16px) for proper header size
-      'rounded-t-small border-b p-3 font-semibold text-medium',
+      'rounded-t-small border-b p-3 text-medium font-semibold',
       // animate border and text color change, respect reduced motion
       'transition-colors duration-150 motion-reduce:transition-none',
     ],
@@ -45,13 +45,13 @@ export const fieldCardVariants = tv({
       false: {
         base: 'border-divider',
         errorFooter: 'border-divider',
-        errorText: '!text-foreground-500 text-tiny',
+        errorText: 'text-tiny !text-foreground-500',
         label: 'border-divider text-foreground',
       },
       true: {
         base: 'border-danger-200',
         errorFooter: 'border-danger-200',
-        errorText: '!text-danger text-tiny',
+        errorText: 'text-tiny !text-danger',
         label: 'border-danger-200 text-danger',
       },
     },

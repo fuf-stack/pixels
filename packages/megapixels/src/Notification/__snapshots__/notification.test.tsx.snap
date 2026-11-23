@@ -15,7 +15,7 @@ exports[`Story Snapshots > CloseAll 1`] = `
     class="flex gap-2"
   >
     <button
-      class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
+      class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center appearance-none font-normal whitespace-nowrap subpixel-antialiased select-none transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-transparent outline-solid data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
       data-component="button"
       data-rac=""
       data-react-aria-pressable="true"
@@ -26,7 +26,7 @@ exports[`Story Snapshots > CloseAll 1`] = `
       Show notifications
     </button>
     <button
-      class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
+      class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center appearance-none font-normal whitespace-nowrap subpixel-antialiased select-none transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-transparent outline-solid data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
       data-component="button"
       data-focus="true"
       data-focused="true"
@@ -115,7 +115,7 @@ exports[`Story Snapshots > CustomWidth 1`] = `
                 data-slot="iconWrapper"
               >
                 <svg
-                  class="absolute left-1/2 top-1/2 w-6 -translate-x-1/2 -translate-y-1/2 fill-current"
+                  class="absolute top-1/2 left-1/2 w-6 -translate-x-1/2 -translate-y-1/2 fill-current"
                   data-slot="icon"
                   fill="none"
                   height="24"
@@ -133,13 +133,13 @@ exports[`Story Snapshots > CustomWidth 1`] = `
                 data-slot="mainWrapper"
               >
                 <div
-                  class="block w-full font-medium text-inherit text-small"
+                  class="block w-full text-small leading-5 font-medium text-inherit"
                   data-slot="title"
                 >
                   width: 600
                 </div>
                 <div
-                  class="pl-[1px] font-normal text-foreground text-small"
+                  class="pl-[1px] text-small font-normal text-foreground"
                   data-slot="description"
                 >
                   Short message.
@@ -163,7 +163,7 @@ exports[`Story Snapshots > CustomWidth 1`] = `
         Toaster width:
       </span>
       <button
-        class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
+        class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center appearance-none font-normal whitespace-nowrap subpixel-antialiased select-none transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-transparent outline-solid data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
         data-component="button"
         data-rac=""
         data-react-aria-pressable="true"
@@ -174,7 +174,7 @@ exports[`Story Snapshots > CustomWidth 1`] = `
         default (600x)
       </button>
       <button
-        class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
+        class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center appearance-none font-normal whitespace-nowrap subpixel-antialiased select-none transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-transparent outline-solid data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
         data-component="button"
         data-rac=""
         data-react-aria-pressable="true"
@@ -185,7 +185,7 @@ exports[`Story Snapshots > CustomWidth 1`] = `
         40rem
       </button>
       <button
-        class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
+        class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center appearance-none font-normal whitespace-nowrap subpixel-antialiased select-none transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-transparent outline-solid data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
         data-component="button"
         data-rac=""
         data-react-aria-pressable="true"
@@ -196,7 +196,7 @@ exports[`Story Snapshots > CustomWidth 1`] = `
         30em
       </button>
       <button
-        class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
+        class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center appearance-none font-normal whitespace-nowrap subpixel-antialiased select-none transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-transparent outline-solid data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
         data-component="button"
         data-rac=""
         data-react-aria-pressable="true"
@@ -211,7 +211,7 @@ exports[`Story Snapshots > CustomWidth 1`] = `
       class="flex flex-wrap gap-2"
     >
       <button
-        class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
+        class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center appearance-none font-normal whitespace-nowrap subpixel-antialiased select-none transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-transparent outline-solid data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
         data-component="button"
         data-focus="true"
         data-focused="true"
@@ -226,7 +226,7 @@ exports[`Story Snapshots > CustomWidth 1`] = `
         Short notification
       </button>
       <button
-        class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
+        class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center appearance-none font-normal whitespace-nowrap subpixel-antialiased select-none transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-transparent outline-solid data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
         data-component="button"
         data-rac=""
         data-react-aria-pressable="true"
@@ -312,7 +312,7 @@ exports[`Story Snapshots > Simple 1`] = `
                 data-slot="iconWrapper"
               >
                 <svg
-                  class="absolute left-1/2 top-1/2 w-6 -translate-x-1/2 -translate-y-1/2 fill-current"
+                  class="absolute top-1/2 left-1/2 w-6 -translate-x-1/2 -translate-y-1/2 fill-current"
                   data-slot="icon"
                   fill="none"
                   height="24"
@@ -330,7 +330,7 @@ exports[`Story Snapshots > Simple 1`] = `
                 data-slot="mainWrapper"
               >
                 <div
-                  class="pl-[1px] font-normal text-foreground text-small"
+                  class="pl-[1px] text-small font-normal text-foreground"
                   data-slot="description"
                 >
                   This is an info notification
@@ -338,7 +338,7 @@ exports[`Story Snapshots > Simple 1`] = `
               </div>
               <button
                 aria-label="Close"
-                class="group relative z-0 box-border inline-flex h-8 w-8 min-w-8 items-center justify-center !gap-0 gap-2 overflow-hidden whitespace-nowrap rounded-full px-0 -translate-y-1 translate-x-1 transform-gpu cursor-pointer select-none appearance-none bg-transparent font-normal subpixel-antialiased tap-highlight-transparent text-tiny transition-transform-colors-opacity data-[pressed=true]:scale-[0.97] motion-reduce:transition-none outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus data-[hover=true]:bg-info/20 text-info-500"
+                class="group relative z-0 box-border inline-flex h-8 w-8 min-w-8 items-center justify-center !gap-0 gap-2 overflow-hidden rounded-full px-0 whitespace-nowrap translate-x-1 -translate-y-1 transform-gpu cursor-pointer appearance-none bg-transparent text-tiny font-normal subpixel-antialiased select-none tap-highlight-transparent transition-transform-colors-opacity data-[pressed=true]:scale-[0.97] motion-reduce:transition-none outline-transparent outline-solid data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus text-info-500 data-[hover=true]:bg-info/20"
                 data-rac=""
                 data-react-aria-pressable="true"
                 data-slot="closeButton"
@@ -371,7 +371,7 @@ exports[`Story Snapshots > Simple 1`] = `
     </ol>
   </section>
   <button
-    class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
+    class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center appearance-none font-normal whitespace-nowrap subpixel-antialiased select-none transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-transparent outline-solid data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
     data-component="button"
     data-focus="true"
     data-focused="true"
@@ -478,7 +478,7 @@ exports[`Story Snapshots > StackingOverModal 1`] = `
                     data-slot="iconWrapper"
                   >
                     <svg
-                      class="absolute left-1/2 top-1/2 w-6 -translate-x-1/2 -translate-y-1/2 fill-current"
+                      class="absolute top-1/2 left-1/2 w-6 -translate-x-1/2 -translate-y-1/2 fill-current"
                       data-slot="icon"
                       fill="none"
                       height="20"
@@ -496,13 +496,13 @@ exports[`Story Snapshots > StackingOverModal 1`] = `
                     data-slot="mainWrapper"
                   >
                     <div
-                      class="block w-full font-medium text-inherit text-small"
+                      class="block w-full text-small leading-5 font-medium text-inherit"
                       data-slot="title"
                     >
                       Notification
                     </div>
                     <div
-                      class="pl-[1px] font-normal text-foreground text-small"
+                      class="pl-[1px] text-small font-normal text-foreground"
                       data-slot="description"
                     >
                       A notification on top of the modal.
@@ -510,7 +510,7 @@ exports[`Story Snapshots > StackingOverModal 1`] = `
                   </div>
                   <button
                     aria-label="Close"
-                    class="group relative z-0 box-border inline-flex h-8 w-8 min-w-8 items-center justify-center !gap-0 gap-2 overflow-hidden whitespace-nowrap rounded-full px-0 -translate-y-1 translate-x-1 transform-gpu cursor-pointer select-none appearance-none bg-transparent font-normal subpixel-antialiased tap-highlight-transparent text-tiny transition-transform-colors-opacity data-[pressed=true]:scale-[0.97] motion-reduce:transition-none outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus text-danger-500 data-[hover=true]:bg-danger/20 data-[hover]:bg-danger-200"
+                    class="group relative z-0 box-border inline-flex h-8 w-8 min-w-8 items-center justify-center !gap-0 gap-2 overflow-hidden rounded-full px-0 whitespace-nowrap translate-x-1 -translate-y-1 transform-gpu cursor-pointer appearance-none bg-transparent text-tiny font-normal subpixel-antialiased select-none tap-highlight-transparent transition-transform-colors-opacity data-[pressed=true]:scale-[0.97] motion-reduce:transition-none outline-transparent outline-solid data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus text-danger-500 data-[hover]:bg-danger-200 data-[hover=true]:bg-danger/20"
                     data-rac=""
                     data-react-aria-pressable="true"
                     data-slot="closeButton"
@@ -583,7 +583,7 @@ exports[`Story Snapshots > StackingOverModal 1`] = `
                     data-slot="iconWrapper"
                   >
                     <svg
-                      class="absolute left-1/2 top-1/2 w-6 -translate-x-1/2 -translate-y-1/2 fill-current"
+                      class="absolute top-1/2 left-1/2 w-6 -translate-x-1/2 -translate-y-1/2 fill-current"
                       data-slot="icon"
                       fill="none"
                       height="24"
@@ -604,13 +604,13 @@ exports[`Story Snapshots > StackingOverModal 1`] = `
                     data-slot="mainWrapper"
                   >
                     <div
-                      class="block w-full font-medium text-inherit text-small"
+                      class="block w-full text-small leading-5 font-medium text-inherit"
                       data-slot="title"
                     >
                       Notification
                     </div>
                     <div
-                      class="pl-[1px] font-normal text-foreground text-small"
+                      class="pl-[1px] text-small font-normal text-foreground"
                       data-slot="description"
                     >
                       A notification beneath the modal.
@@ -620,7 +620,7 @@ exports[`Story Snapshots > StackingOverModal 1`] = `
                     data-slot="endContent"
                   >
                     <button
-                      class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-8 min-w-16 gap-2 rounded-small px-3 text-tiny [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default/40 text-default-700 data-[hover=true]:opacity-hover"
+                      class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center appearance-none font-normal whitespace-nowrap subpixel-antialiased select-none transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-transparent outline-solid data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-8 min-w-16 gap-2 rounded-small px-3 text-tiny [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default/40 text-default-700 data-[hover=true]:opacity-hover"
                       data-component="button"
                       data-hover="true"
                       data-hovered="true"
@@ -635,7 +635,7 @@ exports[`Story Snapshots > StackingOverModal 1`] = `
                   </div>
                   <button
                     aria-label="Close"
-                    class="group relative z-0 box-border inline-flex h-8 w-8 min-w-8 items-center justify-center !gap-0 gap-2 overflow-hidden whitespace-nowrap rounded-full px-0 -translate-y-1 translate-x-1 transform-gpu cursor-pointer select-none appearance-none bg-transparent font-normal subpixel-antialiased tap-highlight-transparent text-tiny transition-transform-colors-opacity data-[pressed=true]:scale-[0.97] motion-reduce:transition-none outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus text-warning-500 data-[hover=true]:bg-warning/20 data-[hover]:bg-warning-200"
+                    class="group relative z-0 box-border inline-flex h-8 w-8 min-w-8 items-center justify-center !gap-0 gap-2 overflow-hidden rounded-full px-0 whitespace-nowrap translate-x-1 -translate-y-1 transform-gpu cursor-pointer appearance-none bg-transparent text-tiny font-normal subpixel-antialiased select-none tap-highlight-transparent transition-transform-colors-opacity data-[pressed=true]:scale-[0.97] motion-reduce:transition-none outline-transparent outline-solid data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus text-warning-500 data-[hover]:bg-warning-200 data-[hover=true]:bg-warning/20"
                     data-rac=""
                     data-react-aria-pressable="true"
                     data-slot="closeButton"
@@ -672,7 +672,7 @@ exports[`Story Snapshots > StackingOverModal 1`] = `
         class="flex flex-wrap gap-2"
       >
         <button
-          class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center appearance-none font-normal whitespace-nowrap subpixel-antialiased select-none transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-transparent outline-solid data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
           data-component="button"
           data-rac=""
           data-react-aria-pressable="true"
@@ -683,7 +683,7 @@ exports[`Story Snapshots > StackingOverModal 1`] = `
           Open modal
         </button>
         <button
-          class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
+          class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center appearance-none font-normal whitespace-nowrap subpixel-antialiased select-none transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-transparent outline-solid data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
           data-component="button"
           data-rac=""
           data-react-aria-pressable="true"
@@ -703,13 +703,13 @@ exports[`Story Snapshots > StackingOverModal 1`] = `
   />
   <div
     aria-hidden="true"
-    class="fixed inset-0 z-50 h-screen w-screen bg-overlay/50 backdrop-opacity-disabled"
+    class="fixed inset-0 z-50 h-screen w-screen backdrop-opacity-disabled bg-overlay/50"
     data-slot="backdrop"
     style="opacity: 1;"
   />
   <div
     aria-hidden="true"
-    class="h-(--visual-viewport-height) fixed inset-0 z-50 w-screen overflow-x-auto flex items-center justify-center"
+    class="fixed inset-0 z-50 h-(--visual-viewport-height) w-screen overflow-x-auto flex items-center justify-center"
     data-component="modal"
     data-slot="wrapper"
     style="--visual-viewport-height: 768px;"
@@ -718,7 +718,7 @@ exports[`Story Snapshots > StackingOverModal 1`] = `
       aria-describedby="modal_body-«replaced-aria-id»"
       aria-labelledby="react-aria-«replaced-aria-id»"
       aria-modal="true"
-      class="relative z-50 box-border flex w-full flex-col mx-1 my-1 rounded-large bg-content1 shadow-small sm:mx-6 sm:my-16 outline-solid max-h-[calc(100%_-_8rem)] outline-transparent max-w-md"
+      class="relative z-50 box-border flex w-full flex-col mx-1 my-1 rounded-large bg-content1 shadow-small sm:mx-6 sm:my-16 max-h-[calc(100%_-_8rem)] outline-transparent outline-solid max-w-md"
       data-dismissable="true"
       data-open="true"
       data-placement="center"
@@ -739,7 +739,7 @@ exports[`Story Snapshots > StackingOverModal 1`] = `
       </div>
       <button
         aria-label="Close"
-        class="absolute end-1 top-1 select-none appearance-none rounded-full p-2 text-foreground-500 tap-highlight-transparent hover:bg-default-100 active:bg-default-200 outline-solid outline-transparent data-[focus-visible]:z-10 data-[focus-visible]:outline-2 data-[focus-visible]:outline-offset-2 data-[focus-visible]:outline-focus"
+        class="absolute end-1 top-1 appearance-none rounded-full p-2 select-none text-foreground-500 tap-highlight-transparent hover:bg-default-100 active:bg-default-200 outline-transparent outline-solid data-[focus-visible]:z-10 data-[focus-visible]:outline-2 data-[focus-visible]:outline-offset-2 data-[focus-visible]:outline-focus"
         data-rac=""
         data-react-aria-pressable="true"
         id="react-aria-«replaced-aria-id»"
@@ -766,7 +766,7 @@ exports[`Story Snapshots > StackingOverModal 1`] = `
         </svg>
       </button>
       <header
-        class="flex flex-initial border-b border-b-divider px-6 py-4 font-semibold text-large"
+        class="flex flex-initial border-b border-b-divider px-6 py-4 text-large font-semibold"
         data-slot="header"
         id="react-aria-«replaced-aria-id»"
       >
@@ -784,7 +784,7 @@ exports[`Story Snapshots > StackingOverModal 1`] = `
             I am a normal modal (z-50).
           </p>
           <button
-            class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
+            class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center appearance-none font-normal whitespace-nowrap subpixel-antialiased select-none transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-transparent outline-solid data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
             data-component="button"
             data-focus="true"
             data-focused="true"
@@ -822,12 +822,12 @@ exports[`Story Snapshots > StackingOverModal 1`] = `
   />
   <div
     aria-hidden="true"
-    class="fixed inset-0 h-screen w-screen bg-overlay/50 backdrop-opacity-disabled z-[70]"
+    class="fixed inset-0 h-screen w-screen backdrop-opacity-disabled bg-overlay/50 z-[70]"
     data-slot="backdrop"
     style="opacity: 1;"
   />
   <div
-    class="h-(--visual-viewport-height) fixed inset-0 w-screen overflow-x-auto flex items-center justify-center z-[70]"
+    class="fixed inset-0 h-(--visual-viewport-height) w-screen overflow-x-auto flex items-center justify-center z-[70]"
     data-component="modal"
     data-slot="wrapper"
     style="--visual-viewport-height: 768px;"
@@ -836,7 +836,7 @@ exports[`Story Snapshots > StackingOverModal 1`] = `
       aria-describedby="modal_body-«replaced-aria-id»"
       aria-labelledby="react-aria-«replaced-aria-id»"
       aria-modal="true"
-      class="relative z-50 box-border flex w-full flex-col mx-1 my-1 rounded-large bg-content1 shadow-small sm:mx-6 sm:my-16 outline-solid max-h-[calc(100%_-_8rem)] outline-transparent max-w-md"
+      class="relative z-50 box-border flex w-full flex-col mx-1 my-1 rounded-large bg-content1 shadow-small sm:mx-6 sm:my-16 max-h-[calc(100%_-_8rem)] outline-transparent outline-solid max-w-md"
       data-dismissable="true"
       data-open="true"
       data-placement="center"
@@ -857,7 +857,7 @@ exports[`Story Snapshots > StackingOverModal 1`] = `
       </div>
       <button
         aria-label="Close"
-        class="absolute end-1 top-1 select-none appearance-none rounded-full p-2 text-foreground-500 tap-highlight-transparent hover:bg-default-100 active:bg-default-200 outline-solid outline-transparent data-[focus-visible]:z-10 data-[focus-visible]:outline-2 data-[focus-visible]:outline-offset-2 data-[focus-visible]:outline-focus"
+        class="absolute end-1 top-1 appearance-none rounded-full p-2 select-none text-foreground-500 tap-highlight-transparent hover:bg-default-100 active:bg-default-200 outline-transparent outline-solid data-[focus-visible]:z-10 data-[focus-visible]:outline-2 data-[focus-visible]:outline-offset-2 data-[focus-visible]:outline-focus"
         data-rac=""
         data-react-aria-pressable="true"
         id="react-aria-«replaced-aria-id»"
@@ -884,7 +884,7 @@ exports[`Story Snapshots > StackingOverModal 1`] = `
         </svg>
       </button>
       <header
-        class="flex flex-initial border-b border-b-divider px-6 py-4 font-semibold text-large"
+        class="flex flex-initial border-b border-b-divider px-6 py-4 text-large font-semibold"
         data-slot="header"
         id="react-aria-«replaced-aria-id»"
       >
@@ -990,7 +990,7 @@ exports[`Story Snapshots > Variants 1`] = `
                 data-slot="iconWrapper"
               >
                 <svg
-                  class="absolute left-1/2 top-1/2 w-6 -translate-x-1/2 -translate-y-1/2 fill-current"
+                  class="absolute top-1/2 left-1/2 w-6 -translate-x-1/2 -translate-y-1/2 fill-current"
                   data-slot="icon"
                   fill="none"
                   height="20"
@@ -1008,7 +1008,7 @@ exports[`Story Snapshots > Variants 1`] = `
                 data-slot="mainWrapper"
               >
                 <div
-                  class="pl-[1px] font-normal text-foreground text-small"
+                  class="pl-[1px] text-small font-normal text-foreground"
                   data-slot="description"
                 >
                   This is an error notification
@@ -1016,7 +1016,7 @@ exports[`Story Snapshots > Variants 1`] = `
               </div>
               <button
                 aria-label="Close"
-                class="group relative z-0 box-border inline-flex h-8 w-8 min-w-8 items-center justify-center !gap-0 gap-2 overflow-hidden whitespace-nowrap rounded-full px-0 -translate-y-1 translate-x-1 transform-gpu cursor-pointer select-none appearance-none bg-transparent font-normal subpixel-antialiased tap-highlight-transparent text-tiny transition-transform-colors-opacity data-[pressed=true]:scale-[0.97] motion-reduce:transition-none outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus text-danger-500 data-[hover=true]:bg-danger/20 data-[hover]:bg-danger-200"
+                class="group relative z-0 box-border inline-flex h-8 w-8 min-w-8 items-center justify-center !gap-0 gap-2 overflow-hidden rounded-full px-0 whitespace-nowrap translate-x-1 -translate-y-1 transform-gpu cursor-pointer appearance-none bg-transparent text-tiny font-normal subpixel-antialiased select-none tap-highlight-transparent transition-transform-colors-opacity data-[pressed=true]:scale-[0.97] motion-reduce:transition-none outline-transparent outline-solid data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus text-danger-500 data-[hover]:bg-danger-200 data-[hover=true]:bg-danger/20"
                 data-rac=""
                 data-react-aria-pressable="true"
                 data-slot="closeButton"
@@ -1087,7 +1087,7 @@ exports[`Story Snapshots > Variants 1`] = `
                 data-slot="iconWrapper"
               >
                 <svg
-                  class="absolute left-1/2 top-1/2 w-6 -translate-x-1/2 -translate-y-1/2 fill-current"
+                  class="absolute top-1/2 left-1/2 w-6 -translate-x-1/2 -translate-y-1/2 fill-current"
                   data-slot="icon"
                   fill="none"
                   height="24"
@@ -1110,7 +1110,7 @@ exports[`Story Snapshots > Variants 1`] = `
                 data-slot="mainWrapper"
               >
                 <div
-                  class="pl-[1px] font-normal text-foreground text-small"
+                  class="pl-[1px] text-small font-normal text-foreground"
                   data-slot="description"
                 >
                   This is a success notification
@@ -1162,7 +1162,7 @@ exports[`Story Snapshots > Variants 1`] = `
                 data-slot="iconWrapper"
               >
                 <svg
-                  class="absolute left-1/2 top-1/2 w-6 -translate-x-1/2 -translate-y-1/2 fill-current"
+                  class="absolute top-1/2 left-1/2 w-6 -translate-x-1/2 -translate-y-1/2 fill-current"
                   data-slot="icon"
                   fill="none"
                   height="24"
@@ -1183,7 +1183,7 @@ exports[`Story Snapshots > Variants 1`] = `
                 data-slot="mainWrapper"
               >
                 <div
-                  class="pl-[1px] font-normal text-foreground text-small"
+                  class="pl-[1px] text-small font-normal text-foreground"
                   data-slot="description"
                 >
                   This is a warning notification
@@ -1191,7 +1191,7 @@ exports[`Story Snapshots > Variants 1`] = `
               </div>
               <button
                 aria-label="Close"
-                class="group relative z-0 box-border inline-flex h-8 w-8 min-w-8 items-center justify-center !gap-0 gap-2 overflow-hidden whitespace-nowrap rounded-full px-0 -translate-y-1 translate-x-1 transform-gpu cursor-pointer select-none appearance-none bg-transparent font-normal subpixel-antialiased tap-highlight-transparent text-tiny transition-transform-colors-opacity data-[pressed=true]:scale-[0.97] motion-reduce:transition-none outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus text-warning-500 data-[hover=true]:bg-warning/20 data-[hover]:bg-warning-200"
+                class="group relative z-0 box-border inline-flex h-8 w-8 min-w-8 items-center justify-center !gap-0 gap-2 overflow-hidden rounded-full px-0 whitespace-nowrap translate-x-1 -translate-y-1 transform-gpu cursor-pointer appearance-none bg-transparent text-tiny font-normal subpixel-antialiased select-none tap-highlight-transparent transition-transform-colors-opacity data-[pressed=true]:scale-[0.97] motion-reduce:transition-none outline-transparent outline-solid data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus text-warning-500 data-[hover]:bg-warning-200 data-[hover=true]:bg-warning/20"
                 data-rac=""
                 data-react-aria-pressable="true"
                 data-slot="closeButton"
@@ -1262,7 +1262,7 @@ exports[`Story Snapshots > Variants 1`] = `
                 data-slot="iconWrapper"
               >
                 <svg
-                  class="absolute left-1/2 top-1/2 w-6 -translate-x-1/2 -translate-y-1/2 fill-current"
+                  class="absolute top-1/2 left-1/2 w-6 -translate-x-1/2 -translate-y-1/2 fill-current"
                   data-slot="icon"
                   fill="none"
                   height="24"
@@ -1280,7 +1280,7 @@ exports[`Story Snapshots > Variants 1`] = `
                 data-slot="mainWrapper"
               >
                 <div
-                  class="pl-[1px] font-normal text-foreground text-small"
+                  class="pl-[1px] text-small font-normal text-foreground"
                   data-slot="description"
                 >
                   This is an info notification
@@ -1331,7 +1331,7 @@ exports[`Story Snapshots > Variants 1`] = `
                 data-slot="iconWrapper"
               >
                 <svg
-                  class="absolute left-1/2 top-1/2 w-6 -translate-x-1/2 -translate-y-1/2 fill-current"
+                  class="absolute top-1/2 left-1/2 w-6 -translate-x-1/2 -translate-y-1/2 fill-current"
                   data-slot="icon"
                   fill="none"
                   height="24"
@@ -1349,7 +1349,7 @@ exports[`Story Snapshots > Variants 1`] = `
                 data-slot="mainWrapper"
               >
                 <div
-                  class="pl-[1px] font-normal text-foreground text-small"
+                  class="pl-[1px] text-small font-normal text-foreground"
                   data-slot="description"
                 >
                   This is a default notification
@@ -1365,7 +1365,7 @@ exports[`Story Snapshots > Variants 1`] = `
     class="flex flex-wrap gap-2"
   >
     <button
-      class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
+      class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center appearance-none font-normal whitespace-nowrap subpixel-antialiased select-none transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-transparent outline-solid data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
       data-component="button"
       data-rac=""
       data-react-aria-pressable="true"
@@ -1376,7 +1376,7 @@ exports[`Story Snapshots > Variants 1`] = `
       Default
     </button>
     <button
-      class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
+      class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center appearance-none font-normal whitespace-nowrap subpixel-antialiased select-none transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-transparent outline-solid data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
       data-component="button"
       data-rac=""
       data-react-aria-pressable="true"
@@ -1387,7 +1387,7 @@ exports[`Story Snapshots > Variants 1`] = `
       Info
     </button>
     <button
-      class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
+      class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center appearance-none font-normal whitespace-nowrap subpixel-antialiased select-none transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-transparent outline-solid data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
       data-component="button"
       data-rac=""
       data-react-aria-pressable="true"
@@ -1398,7 +1398,7 @@ exports[`Story Snapshots > Variants 1`] = `
       Warn
     </button>
     <button
-      class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
+      class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center appearance-none font-normal whitespace-nowrap subpixel-antialiased select-none transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-transparent outline-solid data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
       data-component="button"
       data-rac=""
       data-react-aria-pressable="true"
@@ -1409,7 +1409,7 @@ exports[`Story Snapshots > Variants 1`] = `
       Success
     </button>
     <button
-      class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
+      class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center appearance-none font-normal whitespace-nowrap subpixel-antialiased select-none transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-transparent outline-solid data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
       data-component="button"
       data-focus="true"
       data-focused="true"
@@ -1499,7 +1499,7 @@ exports[`Story Snapshots > WithActionButton 1`] = `
                 data-slot="iconWrapper"
               >
                 <svg
-                  class="absolute left-1/2 top-1/2 w-6 -translate-x-1/2 -translate-y-1/2 fill-current"
+                  class="absolute top-1/2 left-1/2 w-6 -translate-x-1/2 -translate-y-1/2 fill-current"
                   data-slot="icon"
                   fill="none"
                   height="24"
@@ -1520,13 +1520,13 @@ exports[`Story Snapshots > WithActionButton 1`] = `
                 data-slot="mainWrapper"
               >
                 <div
-                  class="block w-full font-medium text-inherit text-small"
+                  class="block w-full text-small leading-5 font-medium text-inherit"
                   data-slot="title"
                 >
                   Session expiring
                 </div>
                 <div
-                  class="pl-[1px] font-normal text-foreground text-small"
+                  class="pl-[1px] text-small font-normal text-foreground"
                   data-slot="description"
                 >
                   Your session is about to expire.
@@ -1536,7 +1536,7 @@ exports[`Story Snapshots > WithActionButton 1`] = `
                 data-slot="endContent"
               >
                 <button
-                  class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-8 min-w-16 gap-2 rounded-small px-3 text-tiny [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-warning/20 text-warning-700 dark:text-warning data-[hover=true]:opacity-hover"
+                  class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center appearance-none font-normal whitespace-nowrap subpixel-antialiased select-none transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-transparent outline-solid data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-8 min-w-16 gap-2 rounded-small px-3 text-tiny [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-warning/20 text-warning-700 dark:text-warning data-[hover=true]:opacity-hover"
                   data-component="button"
                   data-rac=""
                   data-react-aria-pressable="true"
@@ -1549,7 +1549,7 @@ exports[`Story Snapshots > WithActionButton 1`] = `
               </div>
               <button
                 aria-label="Close"
-                class="group relative z-0 box-border inline-flex h-8 w-8 min-w-8 items-center justify-center !gap-0 gap-2 overflow-hidden whitespace-nowrap rounded-full px-0 -translate-y-1 translate-x-1 transform-gpu cursor-pointer select-none appearance-none bg-transparent font-normal subpixel-antialiased tap-highlight-transparent text-tiny transition-transform-colors-opacity data-[pressed=true]:scale-[0.97] motion-reduce:transition-none outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus text-warning-500 data-[hover=true]:bg-warning/20 data-[hover]:bg-warning-200"
+                class="group relative z-0 box-border inline-flex h-8 w-8 min-w-8 items-center justify-center !gap-0 gap-2 overflow-hidden rounded-full px-0 whitespace-nowrap translate-x-1 -translate-y-1 transform-gpu cursor-pointer appearance-none bg-transparent text-tiny font-normal subpixel-antialiased select-none tap-highlight-transparent transition-transform-colors-opacity data-[pressed=true]:scale-[0.97] motion-reduce:transition-none outline-transparent outline-solid data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus text-warning-500 data-[hover]:bg-warning-200 data-[hover=true]:bg-warning/20"
                 data-rac=""
                 data-react-aria-pressable="true"
                 data-slot="closeButton"
@@ -1582,7 +1582,7 @@ exports[`Story Snapshots > WithActionButton 1`] = `
     </ol>
   </section>
   <button
-    class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
+    class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center appearance-none font-normal whitespace-nowrap subpixel-antialiased select-none transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-transparent outline-solid data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
     data-component="button"
     data-focus="true"
     data-focused="true"
@@ -1672,7 +1672,7 @@ exports[`Story Snapshots > WithErrorModal 1`] = `
                   data-slot="iconWrapper"
                 >
                   <svg
-                    class="absolute left-1/2 top-1/2 w-6 -translate-x-1/2 -translate-y-1/2 fill-current"
+                    class="absolute top-1/2 left-1/2 w-6 -translate-x-1/2 -translate-y-1/2 fill-current"
                     data-slot="icon"
                     fill="none"
                     height="20"
@@ -1690,13 +1690,13 @@ exports[`Story Snapshots > WithErrorModal 1`] = `
                   data-slot="mainWrapper"
                 >
                   <div
-                    class="block w-full font-medium text-inherit text-small"
+                    class="block w-full text-small leading-5 font-medium text-inherit"
                     data-slot="title"
                   >
                     Request failed
                   </div>
                   <div
-                    class="pl-[1px] font-normal text-foreground text-small"
+                    class="pl-[1px] text-small font-normal text-foreground"
                     data-slot="description"
                   >
                     A request failed.
@@ -1706,7 +1706,7 @@ exports[`Story Snapshots > WithErrorModal 1`] = `
                   data-slot="endContent"
                 >
                   <button
-                    class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-8 min-w-16 gap-2 rounded-small px-3 text-tiny [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-danger/20 text-danger-600 dark:text-danger-500 data-[hover=true]:opacity-hover"
+                    class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center appearance-none font-normal whitespace-nowrap subpixel-antialiased select-none transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-transparent outline-solid data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-8 min-w-16 gap-2 rounded-small px-3 text-tiny [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-danger/20 text-danger-600 dark:text-danger-500 data-[hover=true]:opacity-hover"
                     data-component="button"
                     data-hover="true"
                     data-hovered="true"
@@ -1721,7 +1721,7 @@ exports[`Story Snapshots > WithErrorModal 1`] = `
                 </div>
                 <button
                   aria-label="Close"
-                  class="group relative z-0 box-border inline-flex h-8 w-8 min-w-8 items-center justify-center !gap-0 gap-2 overflow-hidden whitespace-nowrap rounded-full px-0 -translate-y-1 translate-x-1 transform-gpu cursor-pointer select-none appearance-none bg-transparent font-normal subpixel-antialiased tap-highlight-transparent text-tiny transition-transform-colors-opacity data-[pressed=true]:scale-[0.97] motion-reduce:transition-none outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus text-danger-500 data-[hover=true]:bg-danger/20 data-[hover]:bg-danger-200"
+                  class="group relative z-0 box-border inline-flex h-8 w-8 min-w-8 items-center justify-center !gap-0 gap-2 overflow-hidden rounded-full px-0 whitespace-nowrap translate-x-1 -translate-y-1 transform-gpu cursor-pointer appearance-none bg-transparent text-tiny font-normal subpixel-antialiased select-none tap-highlight-transparent transition-transform-colors-opacity data-[pressed=true]:scale-[0.97] motion-reduce:transition-none outline-transparent outline-solid data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus text-danger-500 data-[hover]:bg-danger-200 data-[hover=true]:bg-danger/20"
                   data-rac=""
                   data-react-aria-pressable="true"
                   data-slot="closeButton"
@@ -1755,7 +1755,7 @@ exports[`Story Snapshots > WithErrorModal 1`] = `
     </section>
     <button
       aria-hidden="true"
-      class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
+      class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center appearance-none font-normal whitespace-nowrap subpixel-antialiased select-none transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-transparent outline-solid data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
       data-component="button"
       data-focus="true"
       data-focused="true"
@@ -1775,12 +1775,12 @@ exports[`Story Snapshots > WithErrorModal 1`] = `
   />
   <div
     aria-hidden="true"
-    class="fixed inset-0 h-screen w-screen bg-overlay/50 backdrop-opacity-disabled z-[70]"
+    class="fixed inset-0 h-screen w-screen backdrop-opacity-disabled bg-overlay/50 z-[70]"
     data-slot="backdrop"
     style="opacity: 1;"
   />
   <div
-    class="h-(--visual-viewport-height) fixed inset-0 w-screen overflow-x-auto flex items-center justify-center z-[70]"
+    class="fixed inset-0 h-(--visual-viewport-height) w-screen overflow-x-auto flex items-center justify-center z-[70]"
     data-component="modal"
     data-slot="wrapper"
     style="--visual-viewport-height: 768px;"
@@ -1789,7 +1789,7 @@ exports[`Story Snapshots > WithErrorModal 1`] = `
       aria-describedby="modal_body-«replaced-aria-id»"
       aria-labelledby="react-aria-«replaced-aria-id»"
       aria-modal="true"
-      class="relative z-50 box-border flex w-full flex-col mx-1 my-1 rounded-large bg-content1 shadow-small sm:mx-6 sm:my-16 outline-solid max-h-[calc(100%_-_8rem)] outline-transparent max-w-md"
+      class="relative z-50 box-border flex w-full flex-col mx-1 my-1 rounded-large bg-content1 shadow-small sm:mx-6 sm:my-16 max-h-[calc(100%_-_8rem)] outline-transparent outline-solid max-w-md"
       data-dismissable="true"
       data-open="true"
       data-placement="center"
@@ -1810,7 +1810,7 @@ exports[`Story Snapshots > WithErrorModal 1`] = `
       </div>
       <button
         aria-label="Close"
-        class="absolute end-1 top-1 select-none appearance-none rounded-full p-2 text-foreground-500 tap-highlight-transparent hover:bg-default-100 active:bg-default-200 outline-solid outline-transparent data-[focus-visible]:z-10 data-[focus-visible]:outline-2 data-[focus-visible]:outline-offset-2 data-[focus-visible]:outline-focus"
+        class="absolute end-1 top-1 appearance-none rounded-full p-2 select-none text-foreground-500 tap-highlight-transparent hover:bg-default-100 active:bg-default-200 outline-transparent outline-solid data-[focus-visible]:z-10 data-[focus-visible]:outline-2 data-[focus-visible]:outline-offset-2 data-[focus-visible]:outline-focus"
         data-rac=""
         data-react-aria-pressable="true"
         id="react-aria-«replaced-aria-id»"
@@ -1837,7 +1837,7 @@ exports[`Story Snapshots > WithErrorModal 1`] = `
         </svg>
       </button>
       <header
-        class="flex flex-initial border-b border-b-divider px-6 py-4 font-semibold text-large"
+        class="flex flex-initial border-b border-b-divider px-6 py-4 text-large font-semibold"
         data-slot="header"
         id="react-aria-«replaced-aria-id»"
       >
@@ -1849,7 +1849,7 @@ exports[`Story Snapshots > WithErrorModal 1`] = `
         id="modal_body-«replaced-aria-id»"
       >
         <pre
-          class="whitespace-pre-wrap text-xs"
+          class="text-xs whitespace-pre-wrap"
         >
           [PIZZA-TRACKER] Pineapple paradox detected.
 
@@ -1954,7 +1954,7 @@ exports[`Story Snapshots > WithLargeMoreContentModal 1`] = `
                   data-slot="iconWrapper"
                 >
                   <svg
-                    class="absolute left-1/2 top-1/2 w-6 -translate-x-1/2 -translate-y-1/2 fill-current"
+                    class="absolute top-1/2 left-1/2 w-6 -translate-x-1/2 -translate-y-1/2 fill-current"
                     data-slot="icon"
                     fill="none"
                     height="24"
@@ -1972,13 +1972,13 @@ exports[`Story Snapshots > WithLargeMoreContentModal 1`] = `
                   data-slot="mainWrapper"
                 >
                   <div
-                    class="block w-full font-medium text-inherit text-small"
+                    class="block w-full text-small leading-5 font-medium text-inherit"
                     data-slot="title"
                   >
                     Daily report
                   </div>
                   <div
-                    class="pl-[1px] font-normal text-foreground text-small"
+                    class="pl-[1px] text-small font-normal text-foreground"
                     data-slot="description"
                   >
                     Report is ready.
@@ -1988,7 +1988,7 @@ exports[`Story Snapshots > WithLargeMoreContentModal 1`] = `
                   data-slot="endContent"
                 >
                   <button
-                    class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-8 min-w-16 gap-2 rounded-small px-3 text-tiny [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover bg-info/20 text-info-600 whitespace-nowrap"
+                    class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center appearance-none font-normal subpixel-antialiased select-none transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-transparent outline-solid data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-8 min-w-16 gap-2 rounded-small px-3 text-tiny [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover bg-info/20 text-info-600 whitespace-nowrap"
                     data-component="button"
                     data-hover="true"
                     data-hovered="true"
@@ -2009,7 +2009,7 @@ exports[`Story Snapshots > WithLargeMoreContentModal 1`] = `
     </section>
     <button
       aria-hidden="true"
-      class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center select-none appearance-none whitespace-nowrap font-normal subpixel-antialiased transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
+      class="group tap-highlight-transparent data-[hover=true]:opacity-hover group relative z-0 box-border inline-flex items-center justify-center appearance-none font-normal whitespace-nowrap subpixel-antialiased select-none transform-gpu cursor-pointer overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-transparent outline-solid data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus h-10 min-w-20 gap-2 rounded-medium px-4 text-small [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover"
       data-component="button"
       data-focus="true"
       data-focused="true"
@@ -2029,12 +2029,12 @@ exports[`Story Snapshots > WithLargeMoreContentModal 1`] = `
   />
   <div
     aria-hidden="true"
-    class="fixed inset-0 h-screen w-screen bg-overlay/50 backdrop-opacity-disabled z-[70]"
+    class="fixed inset-0 h-screen w-screen backdrop-opacity-disabled bg-overlay/50 z-[70]"
     data-slot="backdrop"
     style="opacity: 1;"
   />
   <div
-    class="h-(--visual-viewport-height) fixed inset-0 w-screen overflow-x-auto flex items-center justify-center z-[70]"
+    class="fixed inset-0 h-(--visual-viewport-height) w-screen overflow-x-auto flex items-center justify-center z-[70]"
     data-component="modal"
     data-slot="wrapper"
     style="--visual-viewport-height: 768px;"
@@ -2043,7 +2043,7 @@ exports[`Story Snapshots > WithLargeMoreContentModal 1`] = `
       aria-describedby="modal_body-«replaced-aria-id»"
       aria-labelledby="react-aria-«replaced-aria-id»"
       aria-modal="true"
-      class="relative z-50 box-border flex w-full flex-col mx-1 my-1 rounded-large bg-content1 shadow-small sm:mx-6 sm:my-16 outline-solid max-h-[calc(100%_-_8rem)] outline-transparent max-w-5xl"
+      class="relative z-50 box-border flex w-full flex-col mx-1 my-1 rounded-large bg-content1 shadow-small sm:mx-6 sm:my-16 max-h-[calc(100%_-_8rem)] outline-transparent outline-solid max-w-5xl"
       data-dismissable="true"
       data-open="true"
       data-placement="center"
@@ -2064,7 +2064,7 @@ exports[`Story Snapshots > WithLargeMoreContentModal 1`] = `
       </div>
       <button
         aria-label="Close"
-        class="absolute end-1 top-1 select-none appearance-none rounded-full p-2 text-foreground-500 tap-highlight-transparent hover:bg-default-100 active:bg-default-200 outline-solid outline-transparent data-[focus-visible]:z-10 data-[focus-visible]:outline-2 data-[focus-visible]:outline-offset-2 data-[focus-visible]:outline-focus"
+        class="absolute end-1 top-1 appearance-none rounded-full p-2 select-none text-foreground-500 tap-highlight-transparent hover:bg-default-100 active:bg-default-200 outline-transparent outline-solid data-[focus-visible]:z-10 data-[focus-visible]:outline-2 data-[focus-visible]:outline-offset-2 data-[focus-visible]:outline-focus"
         data-rac=""
         data-react-aria-pressable="true"
         id="react-aria-«replaced-aria-id»"
@@ -2091,7 +2091,7 @@ exports[`Story Snapshots > WithLargeMoreContentModal 1`] = `
         </svg>
       </button>
       <header
-        class="flex flex-initial border-b border-b-divider px-6 py-4 font-semibold text-large"
+        class="flex flex-initial border-b border-b-divider px-6 py-4 text-large font-semibold"
         data-slot="header"
         id="react-aria-«replaced-aria-id»"
       >

@@ -12,7 +12,7 @@ export const cardVariants = tv({
       // border and background
       'rounded-small border border-divider bg-content1 text-foreground shadow-none',
       // focus feedback for programmatic focus
-      'outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus',
+      'outline-transparent outline-solid data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus',
       'transition-transform-background motion-reduce:transition-none',
     ],
     /** Scrollable main content between the optional sections */
@@ -20,7 +20,7 @@ export const cardVariants = tv({
       // flexible content area
       'relative flex h-auto w-full flex-auto flex-col p-3',
       // inherited alignment and text wrapping
-      'place-content-inherit align-items-inherit overflow-y-auto break-words text-left subpixel-antialiased',
+      'place-content-inherit align-items-inherit overflow-y-auto text-left break-words subpixel-antialiased',
     ],
     /** Horizontal rule between adjacent sections */
     divider:

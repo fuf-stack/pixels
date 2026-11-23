@@ -1,6 +1,5 @@
 /* eslint-disable react/no-array-index-key */
 
-
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { useEffect, useMemo, useState } from 'react';

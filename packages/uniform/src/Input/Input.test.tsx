@@ -312,7 +312,7 @@ describe('Production React Aria input', () => {
 const PasswordResetButton = () => {
   const { reset } = useFormContext();
   return (
-    <button type="button" onClick={() => reset()}>
+    <button onClick={() => reset()} type="button">
       Reset
     </button>
   );
@@ -329,8 +329,8 @@ const setupPassword = (props: Partial<InputProps> = {}) => {
     >
       <Input
         debounceDelay={0}
-        name="password"
         label="Password"
+        name="password"
         type="password"
         {...props}
       />
@@ -479,7 +479,11 @@ describe('Component markers', () => {
     (type) => {
       const { container } = render(
         <Form onSubmit={() => {}}>
-          <Input label="Value" name="value" type={type === 'text' ? undefined : type} />
+          <Input
+            label="Value"
+            name="value"
+            type={type === 'text' ? undefined : type}
+          />
         </Form>,
       );
 

@@ -17,8 +17,7 @@ const decode = (raw: string | { message: string } | undefined) => {
   return {
     message: raw.slice(0, sentinelIndex),
     meta: JSON.parse(raw.slice(sentinelIndex + VETO_META_SENTINEL.length)) as
-      | Record<string, unknown>
-      | undefined,
+      Record<string, unknown> | undefined,
   };
 };
 

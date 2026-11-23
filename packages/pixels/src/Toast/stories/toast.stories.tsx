@@ -405,7 +405,7 @@ export const WithLongContent: Story = {
       <Button
         onClick={() => {
           toast.error(
-            <pre className="whitespace-pre-wrap text-xs">{LONG_CONTENT}</pre>,
+            <pre className="text-xs whitespace-pre-wrap">{LONG_CONTENT}</pre>,
             {
               title: 'Snack machine complained',
               duration: 60000,

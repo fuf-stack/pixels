@@ -20,13 +20,13 @@ export const formDebugViewerVariants = tv({
     /** class of the debug card */
     base: '',
     /** class of the button that toggles the field copy testid buttons */
-    copyButtonToggle: 'mb-4 ml-auto mr-auto',
+    copyButtonToggle: 'mr-auto mb-4 ml-auto',
     /** class of the debug card header */
     header: 'justify-between',
     /** class of the json viewer */
     json: '',
     /** class of the button that enables debug mode */
-    triggerButton: 'fixed bottom-2.5 right-2.5 w-5 text-default-400',
+    triggerButton: 'fixed right-2.5 bottom-2.5 w-5 text-default-400',
   },
 });
 

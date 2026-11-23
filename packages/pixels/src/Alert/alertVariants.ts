@@ -15,20 +15,20 @@ export const alertVariants = tv({
     /** Button for dismissing the message */
     closeButton: [
       // compact layout and hit target
-      'group relative z-0 box-border inline-flex h-8 w-8 min-w-8 items-center justify-center !gap-0 gap-2 overflow-hidden whitespace-nowrap rounded-full px-0',
+      'group relative z-0 box-border inline-flex h-8 w-8 min-w-8 items-center justify-center !gap-0 gap-2 overflow-hidden rounded-full px-0 whitespace-nowrap',
       // appearance and positioning
-      '-translate-y-1 translate-x-1 transform-gpu cursor-pointer select-none appearance-none bg-transparent font-normal subpixel-antialiased tap-highlight-transparent text-tiny',
+      'translate-x-1 -translate-y-1 transform-gpu cursor-pointer appearance-none bg-transparent text-tiny font-normal subpixel-antialiased select-none tap-highlight-transparent',
       // press feedback and reduced motion
       'transition-transform-colors-opacity data-[pressed=true]:scale-[0.97] motion-reduce:transition-none',
       // visible keyboard focus
-      'outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus',
+      'outline-transparent outline-solid data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus',
     ],
     /** Supporting message below the title */
-    description: 'pl-[1px] font-normal text-foreground text-small',
+    description: 'pl-[1px] text-small font-normal text-foreground',
     /** Trailing content beside the message */
     endContent: '',
     /** Symbol identifying the message type */
-    icon: 'absolute left-1/2 top-1/2 w-6 -translate-x-1/2 -translate-y-1/2 fill-current',
+    icon: 'absolute top-1/2 left-1/2 w-6 -translate-x-1/2 -translate-y-1/2 fill-current',
     /** Container around the message symbol */
     iconWrapper:
       'relative h-9 w-9 flex-none place-items-center rounded-full border-1 shadow-small',
@@ -36,7 +36,7 @@ export const alertVariants = tv({
     mainWrapper:
       'ms-0 box-border flex h-full min-h-10 flex-grow flex-col items-stretch justify-center gap-1.5 text-inherit',
     /** Heading above the supporting message */
-    title: 'block w-full font-medium leading-5 text-inherit text-small',
+    title: 'block w-full text-small leading-5 font-medium text-inherit',
   },
   variants: {
     hasTitleAndChildren: { true: { iconWrapper: 'self-start' } },
@@ -49,27 +49,27 @@ export const alertVariants = tv({
       },
       info: {
         base: 'border-info-200 bg-info-50 text-info-600 dark:border-info-100 dark:bg-info-50',
-        closeButton: 'data-[hover=true]:bg-info/20 text-info-500',
+        closeButton: 'text-info-500 data-[hover=true]:bg-info/20',
         iconWrapper: 'grid border-info-100 bg-info-50 dark:bg-info-100',
       },
       success: {
         base: 'border-success-300 bg-success-50 text-success-700 dark:border-success-100 dark:bg-success-50 dark:text-success',
         closeButton:
-          'text-success-500 data-[hover=true]:bg-success/20 data-[hover]:bg-success-200',
+          'text-success-500 data-[hover]:bg-success-200 data-[hover=true]:bg-success/20',
         iconWrapper:
           'grid border-success-100 bg-success-50 dark:bg-success-100',
       },
       warning: {
         base: 'border-warning-300 bg-warning-50 text-warning-700 dark:border-warning-100 dark:bg-warning-50 dark:text-warning',
         closeButton:
-          'text-warning-500 data-[hover=true]:bg-warning/20 data-[hover]:bg-warning-200',
+          'text-warning-500 data-[hover]:bg-warning-200 data-[hover=true]:bg-warning/20',
         iconWrapper:
           'grid border-warning-100 bg-warning-50 dark:bg-warning-100',
       },
       danger: {
         base: 'border-danger-200 bg-danger-50 text-danger-600 dark:border-danger-100 dark:bg-danger-50 dark:text-danger-500',
         closeButton:
-          'text-danger-500 data-[hover=true]:bg-danger/20 data-[hover]:bg-danger-200',
+          'text-danger-500 data-[hover]:bg-danger-200 data-[hover=true]:bg-danger/20',
         iconWrapper: 'grid border-danger-100 bg-danger-50 dark:bg-danger-100',
       },
     },

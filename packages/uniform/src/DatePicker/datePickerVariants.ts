@@ -17,7 +17,7 @@ export const datePickerVariants = tv({
     /** Previous or next month button */
     calendarButton: [
       // navigation button layout and appearance
-      'outline-solid flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-default-400 outline-transparent',
+      'flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-default-400 outline-transparent outline-solid',
       // hover and disabled states
       'hover:bg-default/40 data-[disabled=true]:opacity-disabled',
       // keyboard focus outline
@@ -29,17 +29,17 @@ export const datePickerVariants = tv({
     calendarHeader:
       'flex items-center justify-between gap-2 bg-content1 px-4 py-2',
     /** Currently displayed month and year */
-    calendarTitle: 'flex-1 text-center font-medium text-default-500 text-small',
+    calendarTitle: 'flex-1 text-center text-small font-medium text-default-500',
     /** Selectable date with interaction states */
     cell: [
       // day cell layout and appearance
-      'outline-solid flex h-8 w-8 cursor-pointer select-none items-center justify-center rounded-full text-foreground outline-transparent transition-colors',
+      'flex h-8 w-8 cursor-pointer items-center justify-center rounded-full text-foreground outline-transparent transition-colors outline-solid select-none',
       // focus stacking and unavailable cursors
-      'data-[focus-visible=true]:z-10 data-[disabled=true]:cursor-default data-[unavailable=true]:cursor-default',
+      'data-[disabled=true]:cursor-default data-[focus-visible=true]:z-10 data-[unavailable=true]:cursor-default',
       // hover and selection backgrounds
       'data-[hovered=true]:bg-primary-50 data-[selected=true]:bg-primary data-[selected=true]:data-[hovered=true]:bg-primary',
       // day text states
-      'data-[disabled=true]:text-default-300 data-[hovered=true]:text-primary-400 data-[selected=true]:data-[hovered=true]:text-primary-foreground data-[selected=true]:text-primary-foreground data-[unavailable=true]:text-default-300 data-[unavailable=true]:line-through',
+      'data-[disabled=true]:text-default-300 data-[hovered=true]:text-primary-400 data-[selected=true]:text-primary-foreground data-[selected=true]:data-[hovered=true]:text-primary-foreground data-[unavailable=true]:text-default-300 data-[unavailable=true]:line-through',
       // keyboard focus outline
       'data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus',
       // reduced motion
@@ -51,13 +51,13 @@ export const datePickerVariants = tv({
     grid: 'z-0 w-full border-collapse',
     /** Rows containing calendar dates */
     gridBody:
-      '[&>tr:first-child]:mt-2 [&>tr>td]:px-0 [&>tr>td]:py-0.5 [&>tr]:flex [&>tr]:items-center [&>tr]:justify-center',
+      '[&>tr]:flex [&>tr]:items-center [&>tr]:justify-center [&>tr:first-child]:mt-2 [&>tr>td]:px-0 [&>tr>td]:py-0.5',
     /** Row containing weekday headings */
     gridHeader:
       'bg-content1 shadow-[0px_20px_20px_0px_rgb(0_0_0/0.05)] [&>tr]:flex [&>tr]:justify-center [&>tr]:px-4 [&>tr]:pb-2',
     /** Individual weekday heading */
     gridHeaderCell:
-      'flex w-8 items-center justify-center font-medium text-default-400 text-small',
+      'flex w-8 items-center justify-center text-small font-medium text-default-400',
     /** Viewport around the calendar grid */
     gridWrapper: 'relative flex h-auto max-w-full overflow-hidden pb-2',
     /** Invalid color for content beside segments */
@@ -71,16 +71,16 @@ export const datePickerVariants = tv({
     /** Floating surface around the calendar */
     popoverContent: [
       '',
-      'z-50 rounded-large bg-content1 shadow-medium outline-none text-small',
+      'z-50 rounded-large bg-content1 text-small shadow-medium outline-none',
     ],
     /** Invalid editable value and separator states */
     segment:
-      'data-[invalid=true]:data-[editable=true]:data-[placeholder=true]:text-danger data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:text-danger-300 data-[invalid=true]:focus:bg-danger-400/50 data-[invalid=true]:data-[editable=true]:focus:text-danger dark:data-[invalid=true]:focus:bg-danger-400/20',
+      'data-[invalid=true]:text-danger-300 data-[invalid=true]:focus:bg-danger-400/50 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:data-[editable=true]:focus:text-danger data-[invalid=true]:data-[editable=true]:data-[placeholder=true]:text-danger dark:data-[invalid=true]:focus:bg-danger-400/20',
     /** Button opening the calendar popup */
     selectorButton: [
       '',
       // calendar trigger layout and appearance
-      'outline-solid relative -mx-2 inline-flex h-8 min-h-8 w-8 min-w-8 shrink-0 items-center justify-center rounded-full text-inherit outline-transparent text-tiny',
+      'relative -mx-2 inline-flex h-8 min-h-8 w-8 min-w-8 shrink-0 items-center justify-center rounded-full text-tiny text-inherit outline-transparent outline-solid',
       // hover background
       'hover:bg-default/40',
       // keyboard focus outline
@@ -94,11 +94,11 @@ export const datePickerVariants = tv({
       'group flex w-full flex-row flex-wrap items-center gap-x-6 px-5 pb-4',
     ],
     /** Label beside the calendar time input */
-    timeInputLabel: ['', 'relative font-medium text-foreground text-tiny'],
+    timeInputLabel: ['', 'relative text-tiny font-medium text-foreground'],
     /** Surface around the calendar time segments */
     timeInputWrapper: [
       // time input frame and surface
-      'shadow-xs relative inline-flex h-8 min-h-8 w-full flex-1 items-center rounded-small bg-default-100 px-2',
+      'relative inline-flex h-8 min-h-8 w-full flex-1 items-center rounded-small bg-default-100 px-2 shadow-xs',
       // hover and focus backgrounds
       'hover:bg-default-200 focus-within:hover:bg-default-100',
     ],

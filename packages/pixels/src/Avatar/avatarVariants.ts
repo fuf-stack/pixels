@@ -10,20 +10,20 @@ export const avatarVariants = tv({
       // centered content and clipping
       'relative z-0 box-border flex items-center justify-center overflow-hidden bg-default align-middle text-default-foreground',
       // keyboard focus when focused programmatically
-      'outline-solid outline-transparent data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus',
+      'outline-transparent outline-solid data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus',
     ],
     /** Custom content shown while the image is unavailable */
     fallback:
-      'absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center',
+      'absolute top-1/2 left-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center',
     /** Placeholder person icon */
-    icon: 'absolute left-1/2 top-1/2 flex h-full w-full -translate-x-1/2 -translate-y-1/2 items-center justify-center text-inherit',
+    icon: 'absolute top-1/2 left-1/2 flex h-full w-full -translate-x-1/2 -translate-y-1/2 items-center justify-center text-inherit',
     /** Image fading in after loading */
     img: [
       'flex h-full w-full object-cover',
       'opacity-0 transition-opacity !duration-500 data-[loaded=true]:opacity-100 motion-reduce:transition-none',
     ],
     /** Text used by the group overflow count */
-    name: 'absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center font-normal text-inherit',
+    name: 'absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center font-normal text-inherit',
   },
   variants: {
     bordered: {

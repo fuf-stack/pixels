@@ -39,13 +39,13 @@ export const sliderVariants = tv({
       'group-data-[invalid=true]:data-[focused=true]:outline-focus',
       'group-data-[invalid=true]:data-[focused=true]:outline-offset-2',
       // thumb layout and surface
-      'outline-solid top-1/2 flex h-6 w-6 cursor-grab items-center justify-center rounded-full border-0 bg-primary shadow-small outline-transparent ring-transparent',
+      'top-1/2 flex h-6 w-6 cursor-grab items-center justify-center rounded-full border-0 bg-primary shadow-small ring-transparent outline-transparent outline-solid',
       // expanded pointer target
       "before:absolute before:h-11 before:w-11 before:rounded-full before:content-['']",
       // inner thumb surface
       "after:h-5 after:w-5 after:rounded-full after:bg-background after:shadow-small after:transition-all after:content-['']",
       // focus and drag stacking
-      'data-[focus-visible=true]:z-10 data-[focused=true]:z-10 data-[dragging=true]:cursor-grabbing',
+      'data-[dragging=true]:cursor-grabbing data-[focus-visible=true]:z-10 data-[focused=true]:z-10',
       // keyboard focus outline
       'data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus',
       // pressed thumb and reduced motion
