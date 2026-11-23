@@ -2,18 +2,30 @@
   // validate with (see: https://docs.renovatebot.com/config-validation/):
   // npx --yes --package renovate -- renovate-config-validator renovate.json5 --strict
 
-  dependencyDashboardLabels: ['effort | ongoing', 'scope | dependencies'],
-  dependencyDashboardOSVVulnerabilitySummary: 'all',
+  dependencyDashboard: {
+    labels: ['effort | ongoing', 'scope | dependencies'],
+    osvVulnerabilitySummary: 'all',
+  },
   extends: [
-    // Includes recommended defaults and GitHub Action SHA pinning.
+    // Recommended defaults and action SHA pinning
     'config:best-practices',
+    // Exact action versions (# v6.1.1) so minimumReleaseAge can pass
+    'helpers:pinGitHubActionDigestsToSemver',
+    // Automerge digest updates
     ':automergeDigest',
+    // Automerge minor and patch updates
     ':automergeMinor',
+    // One PR for patch and minor updates
     ':combinePatchMinorReleases',
+    // Dependency dashboard issue
     ':dependencyDashboard',
+    // Update Docker images
     ':docker',
+    // Security PRs labeled "renovate | alert"
     ':enableVulnerabilityAlertsWithLabel(renovate | alert)',
+    // Refresh lockfiles weekly
     ':maintainLockFilesWeekly',
+    // At most 4 PRs per hour
     ':prHourlyLimit4',
   ],
   ignorePaths: ['/node_modules/'],
@@ -24,6 +36,19 @@
   // immediately rather than waiting for branch checks.
   internalChecksFilter: 'strict',
   prCreation: 'immediate',
+  // Also create security PRs from osv.dev data, independent of whether
+  // GitHub Dependabot alerts are enabled and readable by the Renovate app.
+  // Vulnerability fixes skip minimumReleaseAge and the schedule; fixes younger
+  // than 14 days still need a minimumReleaseAgeExclude in pnpm-workspace.yaml.
+  // see: https://docs.renovatebot.com/configuration-options/#osvvulnerabilityalerts
+  osvVulnerabilityAlerts: true,
+  // Commit security updates as fix, also for dev dependencies (otherwise
+  // chore), so release-please lists them in the changelog. Applies to OSV and
+  // GitHub alert PRs and merges with the label from the preset above.
+  // see: https://docs.renovatebot.com/configuration-options/#vulnerabilityalerts
+  vulnerabilityAlerts: {
+    semanticCommitType: 'fix',
+  },
   // see: https://docs.renovatebot.com/configuration-options/#prconcurrentlimit
   prConcurrentLimit: 20,
   // only rebase merge requests when they become conflicted
@@ -45,16 +70,11 @@
       prCreation: 'immediate',
     },
 
-    // Keep the browser image and its npm runtime in the same update PR.
+    // Lock file maintenance has no release age; pnpm still enforces its own
+    // minimumReleaseAge when it rewrites the lockfile. Keep after the npm rule.
     {
-      matchDatasources: ['npm', 'docker'],
-      matchPackageNames: [
-        '@playwright/test',
-        'playwright',
-        'playwright-core',
-        'mcr.microsoft.com/playwright',
-      ],
-      groupName: 'Playwright runtime',
+      matchUpdateTypes: ['lockFileMaintenance'],
+      minimumReleaseAge: null,
     },
 
     // @dnd-kit monorepo
@@ -67,6 +87,12 @@
     {
       matchPackageNames: ['/^@fuf-stack/'],
       minimumReleaseAge: null,
+    },
+
+    // @heroui monorepo
+    {
+      matchPackageNames: ['/^@heroui/'],
+      groupName: '@heroui monorepo',
     },
 
     // framer-motion: weekly only (rate-limiting)
