@@ -8,7 +8,7 @@ CSS-first Tailwind 4 entry for Storybook and workspace UI builds.
 
 - `tailwind.css` imports Tailwind and the shared semantic tokens
 - Explicit `@source` globs include `.ts` recipes and `.tsx` components from all four UI packages
-- Colors, dark mode and custom utilities come from `@fuf-stack/pixel-utils/tokens.css`
+- Colors, dark mode and custom utilities come from `@fuf-stack/pixels-theme/theme.css`
 - Prettier uses this entry through `tailwindStylesheet`
 
 Add new workspace sources here. Keep theme changes with the token stylesheet,

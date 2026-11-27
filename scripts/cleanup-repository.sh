@@ -24,7 +24,6 @@ rm -rf ./.turbo-cache
 
 echo "$(date) - Removing other files..."
 find . -name ".pnpm-debug.log" -type f -prune -exec rm -rf "{}" \;
-find . -name "lerna-debug.log" -type f -prune -exec rm -rf "{}" \;
 find . -name "yarn-error.log" -type f -prune -exec rm -rf "{}" \;
 
 echo "$(date) - Repository cleaning successful"

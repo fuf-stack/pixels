@@ -3,15 +3,16 @@
 Pixels is a pnpm monorepo for independently released React UI, form,
 validation, motion, and utility packages published under `@fuf-stack`.
 
-| Package        | Responsibility                                                |
-| -------------- | ------------------------------------------------------------- |
-| `pixel-utils`  | Shared styling and small framework utilities                  |
-| `pixel-motion` | Shared motion primitives                                      |
-| `pixels`       | Base React components and hooks                               |
-| `veto`         | Framework-independent validation built on Zod                 |
-| `uniform`      | Form components integrating Pixels, Veto, and React Hook Form |
-| `atelier`      | Application-shell and rendering utilities                     |
-| `megapixels`   | Higher-level data and application components                  |
+| Package        | Responsibility                                                            |
+| -------------- | ------------------------------------------------------------------------- |
+| `pixels-theme` | Tailwind tokens, utilities, and the Vite class-merge configuration plugin |
+| `pixel-utils`  | Shared styling and small framework utilities                              |
+| `pixel-motion` | Shared motion primitives                                                  |
+| `pixels`       | Base React components and hooks                                           |
+| `veto`         | Framework-independent validation built on Zod                             |
+| `uniform`      | Form components integrating Pixels, Veto, and React Hook Form             |
+| `atelier`      | Application-shell and rendering utilities                                 |
+| `megapixels`   | Higher-level data and application components                              |
 
 Private packages in `packages/config` contain shared build, Vite, Tailwind, and
 Storybook configuration. Dependency direction and package-specific conventions

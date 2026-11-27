@@ -1,0 +1,13 @@
+@theme inline {
+  --text-body: 1.0625rem;
+}
+
+@utility prose-compact {
+  /* @merge-group prose-size */
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+@utility prose-brand {
+  --tw-prose-links: var(--color-brand);
+}

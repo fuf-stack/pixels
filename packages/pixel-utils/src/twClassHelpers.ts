@@ -7,8 +7,8 @@ import { extendTailwindMerge, mergeConfigs } from 'tailwind-merge';
 import { tv as unmergedTV } from 'tailwind-variants/lite';
 
 import { proseTwMergeClassGroups } from './proseTwMerge';
-import semanticMergeConfig from './semanticMergeConfig';
 import variantsToClassNames from './slotClassNames';
+import twClassMergeConfig from './twClassMergeConfig.js';
 
 // Preserve the full callable signature and recipe metadata (including generics).
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -53,7 +53,7 @@ export const createStyling = (config: StylingConfig = {}): Styling => {
   const merge = extendTailwindMerge<string, string>(
     { extend: { classGroups: proseTwMergeClassGroups } },
     (defaults) => {
-      return mergeConfigs(defaults, semanticMergeConfig);
+      return mergeConfigs(defaults, twClassMergeConfig);
     },
     (defaults) => {
       return mergeConfigs(defaults, instanceConfig);
@@ -86,8 +86,11 @@ export const createStyling = (config: StylingConfig = {}): Styling => {
 
   // The generic TV signature is unchanged; only its final class resolution is
   // replaced. The lite engine retains metadata for extension without merging.
-  const tv = ((options, recipeConfig?: TVConfig) => {
-    const raw = unmergedTV(options, { twMerge: false, twMergeConfig: {} });
+  const tv = ((
+    options: Parameters<typeof unmergedTV>[0],
+    recipeConfig?: TVConfig,
+  ) => {
+    const raw = unmergedTV(options);
     const mergeConfig = copyConfig(recipeConfig?.twMergeConfig);
     const shouldMerge = recipeConfig?.twMerge !== false;
     // Keep the legacy top-level config fields accepted by Tailwind Variants.
@@ -109,7 +112,7 @@ export const createStyling = (config: StylingConfig = {}): Styling => {
       ? extendTailwindMerge<string, string>(
           { extend: { classGroups: proseTwMergeClassGroups } },
           (defaults) => {
-            return mergeConfigs(defaults, semanticMergeConfig);
+            return mergeConfigs(defaults, twClassMergeConfig);
           },
           (defaults) => {
             return mergeConfigs(defaults, instanceConfig);
@@ -142,10 +145,10 @@ export const createStyling = (config: StylingConfig = {}): Styling => {
     },
     tv,
     variantsToClassNames,
-    resolve: (recipe, ...props) => {
-      return resolveWith(recipe, props, merge);
+    resolve: <T extends Recipe>(recipe: T, ...props: Parameters<T>) => {
+      return resolveWith(recipe, props, merge) as ReturnType<T>;
     },
   });
 };
 
-export const defaultStyling: Styling = createStyling();
+export const defaultClassHelpers: Styling = createStyling();

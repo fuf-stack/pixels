@@ -1,6 +1,6 @@
 # Package Release Workflow
 
-This repository uses [Release Please](https://github.com/googleapis/release-please) to open and maintain release PRs, and uses `lerna publish from-package` in CI to publish packages to npm.
+This repository uses [Release Please](https://github.com/googleapis/release-please) to open and maintain release PRs, and publishes each released package with `npm publish` in CI.
 
 ## Release Please setup
 
@@ -70,31 +70,24 @@ To recover:
 3. Re-run the `release-please` workflow run of the merge commit. It creates the
    missing tags and releases and publishes the packages.
 
-## Why we publish with Lerna
+## Publishing the released packages
 
-`pnpm publish` does not currently support npm trusted publishing (OIDC) in the way we need for this workflow, so release publishing is performed with Lerna (Lerna-Lite), which delegates to npm.
+CI reads `paths_released` from Release Please and packs those directories with
+`pnpm pack`, which replaces workspace dependency ranges with publishable versions.
+A private package or a placeholder version of `0.0.0` stops the batch before
+publication. CI publishes the resulting tarballs through npm trusted publishing,
+dependencies before their dependents. If a package fails to publish, CI skips
+every later package that depends on it, publishes the rest and then fails the
+job. On retry, it skips package versions already present in the registry.
 
-## Security and supply chain choices
-
-To reduce supply chain risk in CI, publishing uses the workspace-pinned `@lerna-lite/cli` dependency via:
-
-- `./node_modules/.bin/lerna ...`
-
-We explicitly avoid `npx lerna ...` in release jobs, because `npx` may install packages at runtime and can execute install scripts from newly resolved artifacts.
-We also avoid `pnpm exec lerna ...` in this workflow to prevent dependency verification from triggering install behavior before execution.
-
-Pinning `@lerna-lite/cli` in root `devDependencies` gives us:
-
-- deterministic CLI versioning
-- lockfile-backed dependency resolution
-- no ad-hoc runtime package downloads in the publish step
+Trusted publishing only works for packages that already exist on npm. Publish a
+new package once manually and configure its trusted publisher before its first
+release.
 
 ## Branch behavior
 
-- `main`: publish with default npm dist-tag (`latest`)
-- `next`: publish with prerelease dist-tag (`next`)
-
-The workflow conditionally sets `--dist-tag next` on the `next` branch.
+- `main` publishes with the npm dist-tag `latest`.
+- `next` publishes with the npm dist-tag `next`. The first Pixels theme preview targets `1.0.0-next.1`.
 
 The next config must set `"versioning": "prerelease"` as well as
 `"prerelease": true` and `"prerelease-type": "next"`. The strategy generates

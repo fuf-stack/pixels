@@ -46,35 +46,69 @@ jobs:
         if: steps.release.outputs.releases_created == 'true'
 
       - name: Publish to npm
-        run: |
-          # Use npm publish via Lerna for trusted publishing support
-          # pnpm doesn't support npm's trusted publishing (OIDC) yet, so we use npm directly
-          # Lerna detects changed packages and publishes them using npm.
-          # During publish, Lerna rewrites workspace dependency specifiers in
-          # package manifests (workspace:* -> release versions). That makes the
-          # lockfile temporarily out of sync while prepack scripts run, so
-          # frozen-lockfile must be disabled for this step.
-          # We run the installed workspace binary directly to avoid runtime installs.
-          # Use 'next' dist-tag for prerelease branch, default (latest) for main
-          if [ "${{ github.ref_name }}" = "next" ]; then
-            ./node_modules/.bin/lerna publish from-package --yes --no-verify-access --dist-tag next
-          else
-            ./node_modules/.bin/lerna publish from-package --yes --no-verify-access
-          fi
+        shell: bash
         if: steps.release.outputs.releases_created == 'true'
         env:
-          # pnpm reads either form depending on invocation context.
-          PNPM_CONFIG_FROZEN_LOCKFILE: 'false'
-          NPM_CONFIG_FROZEN_LOCKFILE: 'false'
-          # We build once in workspace context above. Disable publish-time lifecycle
-          # scripts (`prepack`) to avoid package-local installs resolving newly bumped
-          # internal versions before they are published.
-          NPM_CONFIG_IGNORE_SCRIPTS: 'true'
+          RELEASE_PATHS: ${{ steps.release.outputs.paths_released }}
+          DIST_TAG: ${{ github.ref_name == 'next' && 'next' || 'latest' }}
+          PNPM_CONFIG_IGNORE_SCRIPTS: 'true'
           NPM_CONFIG_PROVENANCE: 'true'
-        # Note: If you have private npm dependencies, you may need NODE_AUTH_TOKEN
-        # for installing dependencies only (not for publishing)
-        # env:
-        #   NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          # Pack only the released paths. pnpm resolves workspace:* in each tarball.
+          paths=$(jq -er 'select(type == "array" and length > 0 and all(.[]; test("^packages/[a-z0-9-]+$"))) | .[]' <<< "$RELEASE_PATHS")
+          artifacts=$(mktemp -d)
+          filters=()
+          for pkg in $paths; do
+            jq -e '(.private != true) and (.version | type == "string" and length > 0 and . != "0.0.0")' "$pkg/package.json" >/dev/null
+            filters+=(--filter "./$pkg")
+          done
+          # Publish dependencies before their dependents, so a released
+          # package never points at a version that is not on npm yet.
+          mapfile -t ordered < <(pnpm --recursive --workspace-concurrency=1 "${filters[@]}" exec pwd)
+          if (( ${#ordered[@]} * 2 != ${#filters[@]} )); then
+            echo "::error::pnpm ordered ${#ordered[@]} of $(( ${#filters[@]} / 2 )) packages"
+            exit 1
+          fi
+          archives=()
+          for pkg in "${ordered[@]}"; do
+            archives+=("$(pnpm --dir "$pkg" pack --pack-destination "$artifacts" --json | jq -er .filename)")
+          done
+
+          # Keep publishing packages that do not depend on a failed one, then
+          # fail the job. Trusted publishing only works for packages that
+          # already exist on npm, so a new package needs one manual publish
+          # before its first release.
+          failed=()
+          failed_names=()
+          for archive in "${archives[@]}"; do
+            manifest=$(tar -xOf "$archive" package/package.json)
+            name=$(jq -r .name <<< "$manifest")
+            spec="$name@$(jq -r .version <<< "$manifest")"
+            # A retry can encounter versions already published by this run.
+            if [[ "$(npm view "$spec" version 2>/dev/null || true)" == "${spec##*@}" ]]; then
+              continue
+            fi
+            # A dependent would point at a version that is missing on npm.
+            dependencies=$(jq -r '(.dependencies // {}) + (.peerDependencies // {}) | keys[]' <<< "$manifest")
+            blocked=""
+            for failed_name in "${failed_names[@]}"; do
+              if grep -qxF "$failed_name" <<< "$dependencies"; then
+                blocked=$failed_name
+                break
+              fi
+            done
+            if [[ -n "$blocked" ]]; then
+              echo "::error::Skipping $spec because $blocked failed to publish"
+            elif npm publish "$archive" --tag "$DIST_TAG" --access public; then
+              continue
+            fi
+            failed+=("$spec")
+            failed_names+=("$name")
+          done
+          if (( ${#failed[@]} > 0 )); then
+            echo "::error::Failed to publish: ${failed[*]}"
+            exit 1
+          fi
 
   # update other conflicting prs after package merge
   # see: https://github.com/googleapis/release-please/issues/1870#issuecomment-1748390833

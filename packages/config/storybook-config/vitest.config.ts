@@ -1,8 +1,8 @@
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
+import sharedConfig from '@repo/vite-config';
 import { storybookTest } from '@storybook/addon-vitest/vitest-plugin';
-import tailwindcss from '@tailwindcss/vite';
 import { playwright } from '@vitest/browser-playwright';
 
 const storybookRoot = path.dirname(fileURLToPath(import.meta.url));
@@ -14,17 +14,17 @@ const cacheDir = path.join(
 );
 
 export default {
+  plugins: sharedConfig.plugins,
   root: storybookRoot,
-  // Browser tests need the same utility compilation as the Storybook server.
-  plugins: [tailwindcss()],
   // Do not share optimizer metadata with an open Storybook development server.
   cacheDir,
   optimizeDeps: {
-    // Discover all story dependencies before executing browser tests, including
-    // renderer prototypes that introduce a new interaction foundation.
-    entries: ['atelier', 'megapixels', 'pixels', 'uniform'].map((name) => {
-      return path.resolve(storybookRoot, `../../${name}/src/**/*.stories.tsx`);
-    }),
+    // The theme plugin keeps Pixels packages out of the optimizer. Scan their
+    // compiled modules as well as the stories so their dependencies are ready.
+    entries: [
+      '../../{atelier,megapixels,pixel-utils,pixels,uniform}/dist/**/*.mjs',
+      '../../{atelier,megapixels,pixels,uniform}/src/**/*.stories.tsx',
+    ],
   },
   test: {
     projects: [

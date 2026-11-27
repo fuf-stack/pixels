@@ -14,8 +14,9 @@ cross-referenced documentation. Preserve the user's current review/commit flow.
 
 ## Architecture
 
-- Foundations: `pixel-utils`, `pixel-motion`, and the independent validation
+- Foundations: `pixels-theme`, `pixel-motion`, and the independent validation
   package `veto` must not depend on other published workspace packages.
+- Styling helpers: `pixel-utils` reads theme CSS at build time and has no runtime dependency on a published workspace package.
 - Components: `pixels` may depend on `pixel-utils` and `pixel-motion`.
 - Form components: `uniform` may depend on the foundations and `pixels`.
 - Applications: `atelier` may depend on `pixels` and `pixel-utils`;
@@ -63,6 +64,8 @@ request and update `scripts/check-dependency-boundaries.mjs` in the same change.
 - `dist/`, coverage, Storybook output, and TypeScript build info are generated
   and must not be committed. Veto owns `src/__generated__/zodTypes.ts`; regenerate
   it with `pnpm --filter @fuf-stack/veto build:zod` and commit genuine changes.
+- Pixel-utils owns `src/twClassMergeConfig.ts`, generated from the theme CSS by
+  `pnpm --filter @fuf-stack/pixel-utils build`. Commit genuine generated changes.
 - A source change that affects usage, styling, compatibility, or migration must
   update the relevant README or `docs/` page. Component behavior needs tests and
   a story; visual changes need before/after evidence and an accessibility check.

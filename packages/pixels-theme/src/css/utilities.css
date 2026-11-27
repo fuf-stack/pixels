@@ -1,0 +1,162 @@
+/* Interaction states */
+@utility opacity-disabled {
+  opacity: var(--pixel-disabled-opacity);
+}
+
+@utility opacity-hover {
+  opacity: var(--pixel-hover-opacity);
+}
+
+@utility tap-highlight-transparent {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Transitions use the application’s default duration and easing. */
+@utility transition-background {
+  transition-property: background-color;
+  transition-timing-function: var(--default-transition-timing-function);
+  transition-duration: var(--default-transition-duration);
+}
+
+@utility transition-colors-opacity {
+  transition-property:
+    color, background-color, border-color, text-decoration-color, fill, stroke,
+    opacity;
+  transition-timing-function: var(--default-transition-timing-function);
+  transition-duration: var(--default-transition-duration);
+}
+
+@utility transition-width {
+  transition-property: width;
+  transition-timing-function: var(--default-transition-timing-function);
+  transition-duration: var(--default-transition-duration);
+}
+
+@utility transition-height {
+  transition-property: height;
+  transition-timing-function: var(--default-transition-timing-function);
+  transition-duration: var(--default-transition-duration);
+}
+
+@utility transition-size {
+  transition-property: width, height;
+  transition-timing-function: var(--default-transition-timing-function);
+  transition-duration: var(--default-transition-duration);
+}
+
+@utility transition-left {
+  transition-property: left;
+  transition-timing-function: var(--default-transition-timing-function);
+  transition-duration: var(--default-transition-duration);
+}
+
+@utility transition-transform-opacity {
+  transition-property: transform, translate, scale, rotate, opacity;
+  transition-timing-function: var(--default-transition-timing-function);
+  transition-duration: var(--default-transition-duration);
+}
+
+@utility transition-transform-background {
+  transition-property: transform, translate, scale, rotate, background-color;
+  transition-timing-function: var(--default-transition-timing-function);
+  transition-duration: var(--default-transition-duration);
+}
+
+@utility transition-transform-colors {
+  transition-property:
+    transform, translate, scale, rotate, color, background-color, border-color,
+    text-decoration-color, fill, stroke;
+  transition-timing-function: var(--default-transition-timing-function);
+  transition-duration: var(--default-transition-duration);
+}
+
+@utility transition-transform-colors-opacity {
+  transition-property:
+    transform, translate, scale, rotate, color, background-color, border-color,
+    text-decoration-color, fill, stroke, opacity;
+  transition-timing-function: var(--default-transition-timing-function);
+  transition-duration: var(--default-transition-duration);
+}
+
+/* Striped backgrounds pair a gradient with a repeating tile size. */
+@utility bg-stripe-size {
+  background-size: 1.25rem 1.25rem;
+}
+
+@utility bg-stripe-gradient-default {
+  background-image: linear-gradient(
+    45deg,
+    var(--pixel-color-default-200) 25%,
+    var(--pixel-color-default-400) 25%,
+    var(--pixel-color-default-400) 50%,
+    var(--pixel-color-default-200) 50%,
+    var(--pixel-color-default-200) 75%,
+    var(--pixel-color-default-400) 75%,
+    var(--pixel-color-default-400)
+  );
+}
+
+@utility bg-stripe-gradient-primary {
+  background-image: linear-gradient(
+    45deg,
+    var(--pixel-color-primary-200) 25%,
+    var(--pixel-color-primary) 25%,
+    var(--pixel-color-primary) 50%,
+    var(--pixel-color-primary-200) 50%,
+    var(--pixel-color-primary-200) 75%,
+    var(--pixel-color-primary) 75%,
+    var(--pixel-color-primary)
+  );
+}
+
+@utility bg-stripe-gradient-secondary {
+  background-image: linear-gradient(
+    45deg,
+    var(--pixel-color-secondary-200) 25%,
+    var(--pixel-color-secondary) 25%,
+    var(--pixel-color-secondary) 50%,
+    var(--pixel-color-secondary-200) 50%,
+    var(--pixel-color-secondary-200) 75%,
+    var(--pixel-color-secondary) 75%,
+    var(--pixel-color-secondary)
+  );
+}
+
+@utility bg-stripe-gradient-success {
+  background-image: linear-gradient(
+    45deg,
+    var(--pixel-color-success-200) 25%,
+    var(--pixel-color-success) 25%,
+    var(--pixel-color-success) 50%,
+    var(--pixel-color-success-200) 50%,
+    var(--pixel-color-success-200) 75%,
+    var(--pixel-color-success) 75%,
+    var(--pixel-color-success)
+  );
+}
+
+@utility bg-stripe-gradient-warning {
+  background-image: linear-gradient(
+    45deg,
+    var(--pixel-color-warning-200) 25%,
+    var(--pixel-color-warning) 25%,
+    var(--pixel-color-warning) 50%,
+    var(--pixel-color-warning-200) 50%,
+    var(--pixel-color-warning-200) 75%,
+    var(--pixel-color-warning) 75%,
+    var(--pixel-color-warning)
+  );
+}
+
+@utility bg-stripe-gradient-danger {
+  background-image: linear-gradient(
+    45deg,
+    var(--pixel-color-danger-200) 25%,
+    var(--pixel-color-danger) 25%,
+    var(--pixel-color-danger) 50%,
+    var(--pixel-color-danger-200) 50%,
+    var(--pixel-color-danger-200) 75%,
+    var(--pixel-color-danger) 75%,
+    var(--pixel-color-danger)
+  );
+}

@@ -1,7 +1,7 @@
 import { describe, expect, expectTypeOf, it } from 'vitest';
 
-import { createStyling, defaultStyling } from './styling';
 import { tv, variantsToClassNames } from './tv';
+import { createStyling, defaultClassHelpers } from './twClassHelpers';
 
 const bodyStyling = createStyling({
   extend: { classGroups: { 'font-size': [{ text: ['body'] }] } },
@@ -9,19 +9,19 @@ const bodyStyling = createStyling({
 
 describe('isolated styling instances', () => {
   it('preserves the existing semantic utility roles without a theme dependency', () => {
-    expect(defaultStyling.cn('text-tiny text-danger', 'text-small')).toBe(
+    expect(defaultClassHelpers.cn('text-tiny text-danger', 'text-small')).toBe(
       'text-danger text-small',
     );
     expect(
-      defaultStyling.cn('border-medium border-danger', 'border-small'),
+      defaultClassHelpers.cn('border-medium border-danger', 'border-small'),
     ).toBe('border-danger border-small');
     expect(
-      defaultStyling.cn(
+      defaultClassHelpers.cn(
         'rounded-small shadow-small opacity-100',
         'rounded-medium shadow-large opacity-disabled',
       ),
     ).toBe('rounded-medium shadow-large opacity-disabled');
-    expect(defaultStyling.cn('text-tiny text-danger', 'text-body')).toBe(
+    expect(defaultClassHelpers.cn('text-tiny text-danger', 'text-body')).toBe(
       'text-tiny text-body',
     );
   });
@@ -116,7 +116,7 @@ describe('isolated styling instances', () => {
     for (let i = 0; i < 3; i += 1) {
       expect(body({ class: 'text-body' })).toBe('text-danger text-body');
       expect(color({ class: 'text-body' })).toBe('text-sm text-body');
-      expect(defaultStyling.cn('text-sm text-danger', 'text-body')).toBe(
+      expect(defaultClassHelpers.cn('text-sm text-danger', 'text-body')).toBe(
         'text-sm text-body',
       );
     }

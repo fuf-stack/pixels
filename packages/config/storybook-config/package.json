@@ -11,6 +11,7 @@
     "test:visual": "playwright test --config playwright.config.mjs"
   },
   "devDependencies": {
+    "@fuf-stack/pixel-utils": "workspace:*",
     "@playwright/test": "1.65.0",
     "@repo/tailwind-config": "workspace:*",
     "@repo/vite-config": "workspace:*",
@@ -19,11 +20,9 @@
     "@storybook/addon-links": "10.6.6",
     "@storybook/addon-vitest": "10.6.6",
     "@storybook/react-vite": "10.6.6",
-    "@tailwindcss/vite": "4.3.3",
     "@testing-library/react": "16.3.3",
     "@types/react": "19.3.0",
     "@types/react-dom": "19.3.0",
-    "@vitejs/plugin-react": "6.3.0",
     "@vitest/browser-playwright": "5.1.0",
     "@vueless/storybook-dark-mode": "10.0.8",
     "playwright": "1.65.0",

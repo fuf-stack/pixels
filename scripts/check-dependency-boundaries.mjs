@@ -1,5 +1,3 @@
-/* eslint-disable n/no-sync */
-
 import { readdirSync, readFileSync, statSync } from 'node:fs';
 import path from 'node:path';
 
@@ -41,6 +39,7 @@ const allowedRuntimeDependencies = {
   ]),
   '@fuf-stack/pixel-motion': new Set(),
   '@fuf-stack/pixel-utils': new Set(),
+  '@fuf-stack/pixels-theme': new Set(),
   '@fuf-stack/pixels': new Set([
     '@fuf-stack/pixel-motion',
     '@fuf-stack/pixel-utils',
@@ -58,10 +57,14 @@ const failures = [];
 const manifests = new Map();
 
 for (const entry of readdirSync(packagesDir, { withFileTypes: true })) {
-  if (!entry.isDirectory() || entry.name === 'config') continue;
+  if (!entry.isDirectory() || entry.name === 'config') {
+    continue;
+  }
   const file = path.join(packagesDir, entry.name, 'package.json');
   const manifest = JSON.parse(readFileSync(file, 'utf8'));
-  if (manifest.private) continue;
+  if (manifest.private) {
+    continue;
+  }
   manifests.set(manifest.name, { directory: entry.name, file, manifest });
 }
 
@@ -86,7 +89,9 @@ for (const [name, { directory, manifest }] of manifests) {
         `${name}: private tooling ${dependency} is a runtime dependency`,
       );
     }
-    if (!publishedNames.has(dependency)) continue;
+    if (!publishedNames.has(dependency)) {
+      continue;
+    }
     if (!allowed.has(dependency)) {
       failures.push(
         `${name}: dependency on ${dependency} reverses the package boundary`,
@@ -102,7 +107,9 @@ for (const [name, { directory, manifest }] of manifests) {
   const sourceDir = path.join(packagesDir, directory, 'src');
   if (statExists(sourceDir)) {
     for (const file of walk(sourceDir)) {
-      if (!/\.[cm]?[jt]sx?$/.test(file)) continue;
+      if (!/\.[cm]?[jt]sx?$/.test(file)) {
+        continue;
+      }
       const source = readFileSync(file, 'utf8');
       const deepImport = /['"](@fuf-stack\/[^/'"]+)\/(?:src|dist)(?:\/|['"])/g;
       for (const match of source.matchAll(deepImport)) {
@@ -118,7 +125,9 @@ detectCycles();
 
 if (failures.length) {
   console.error('Dependency boundary violations:\n');
-  for (const failure of failures) console.error(`- ${failure}`);
+  for (const failure of failures) {
+    console.error(`- ${failure}`);
+  }
   process.exit(1);
 }
 
@@ -138,17 +147,23 @@ function detectCycles() {
       );
       return;
     }
-    if (visited.has(name)) return;
+    if (visited.has(name)) {
+      return;
+    }
     visiting.add(name);
     const dependencies = manifests.get(name)?.manifest.dependencies ?? {};
     for (const dependency of Object.keys(dependencies)) {
-      if (publishedNames.has(dependency)) visit(dependency, [...chain, name]);
+      if (publishedNames.has(dependency)) {
+        visit(dependency, [...chain, name]);
+      }
     }
     visiting.delete(name);
     visited.add(name);
   }
 
-  for (const name of publishedNames) visit(name, []);
+  for (const name of publishedNames) {
+    visit(name, []);
+  }
 }
 
 /** Return whether `file` exists and is a directory without throwing. */
@@ -164,7 +179,10 @@ function statExists(file) {
 function* walk(directory) {
   for (const entry of readdirSync(directory, { withFileTypes: true })) {
     const file = path.join(directory, entry.name);
-    if (entry.isDirectory()) yield* walk(file);
-    else yield file;
+    if (entry.isDirectory()) {
+      yield* walk(file);
+    } else {
+      yield file;
+    }
   }
 }

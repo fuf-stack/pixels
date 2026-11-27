@@ -1,0 +1,59 @@
+{
+  "name": "@fuf-stack/pixels-theme",
+  "description": "Pixels semantic design tokens and Tailwind utilities",
+  "author": "Fröhlich ∧ Frei",
+  "version": "0.0.0",
+  "type": "module",
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "exports": {
+    "./package.json": "./package.json",
+    "./theme.css": "./dist/theme.css",
+    "./vite": "./dist/vite/index.mjs"
+  },
+  "files": [
+    "./dist"
+  ],
+  "homepage": "https://github.com/fuf-stack/pixels/tree/main/packages/pixels-theme",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "pixels",
+    "theme",
+    "tailwind"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fuf-stack/pixels.git",
+    "directory": "packages/pixels-theme"
+  },
+  "bugs": {
+    "url": "https://github.com/fuf-stack/pixels/issues"
+  },
+  "scripts": {
+    "build": "tsdown",
+    "prepack": "pnpm build"
+  },
+  "dependencies": {
+    "@tailwindcss/node": "4.3.5",
+    "enhanced-resolve": "5.26.1",
+    "postcss": "8.5.32",
+    "tailwindcss": "4.3.5",
+    "tailwind-merge": "3.7.0"
+  },
+  "devDependencies": {
+    "tsdown": "0.23.7",
+    "vite": "8.3.7"
+  },
+  "peerDependencies": {
+    "vite": ">=6 <9"
+  },
+  "peerDependenciesMeta": {
+    "vite": {
+      "optional": true
+    }
+  }
+}

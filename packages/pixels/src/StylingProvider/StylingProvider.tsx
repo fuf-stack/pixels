@@ -3,9 +3,9 @@ import type { ReactNode } from 'react';
 
 import { createContext, useContext } from 'react';
 
-import { defaultStyling } from '@fuf-stack/pixel-utils';
+import { defaultClassHelpers } from '@fuf-stack/pixel-utils';
 
-const StylingContext = createContext<Styling>(defaultStyling);
+const StylingContext = createContext<Styling>(defaultClassHelpers);
 
 export interface StylingProviderProps {
   children: ReactNode;

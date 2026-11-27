@@ -1,5 +1,6 @@
 import { spawnSync } from 'node:child_process';
 import {
+  cpSync,
   mkdirSync,
   mkdtempSync,
   readdirSync,
@@ -7,6 +8,7 @@ import {
   rmSync,
   writeFileSync,
 } from 'node:fs';
+import { createRequire } from 'node:module';
 import os from 'node:os';
 import path from 'node:path';
 
@@ -141,15 +143,19 @@ async function verifyWorkspaceTailwind() {
     }
   }
   if (
-    scanner.files.some(
-      (file) => file.endsWith('.snap') || file.includes('/dist/'),
-    )
+    scanner.files.some((file) => {
+      return file.endsWith('.snap') || file.includes('/dist/');
+    })
   ) {
     throw new Error(
       'Workspace Tailwind must not scan snapshots or generated output.',
     );
   }
-  if (dependencies.some((file) => /tailwind\.config\.[cm]?[jt]s$/.test(file))) {
+  if (
+    dependencies.some((file) => {
+      return /tailwind\.config\.[cm]?[jt]s$/.test(file);
+    })
+  ) {
     throw new Error('Workspace Tailwind must not load a legacy config.');
   }
   for (const expected of [
@@ -173,10 +179,9 @@ async function verifyWorkspaceTailwind() {
 
 /** Verify token imports and built-package source discovery without HeroUI's plugin. */
 async function verifyTokenConsumer() {
-  const tokensPath = path.join(
-    fixtureDirectory,
-    'node_modules/@fuf-stack/pixel-utils/dist/tokens.css',
-  );
+  const tokensPath = createRequire(
+    path.join(fixtureDirectory, 'package.json'),
+  ).resolve('@fuf-stack/pixels-theme/theme.css');
   const tokens = readFileSync(tokensPath, 'utf8');
   if (tokens.includes('--heroui') || tokens.includes('@repo/')) {
     throw new Error(
@@ -189,7 +194,7 @@ async function verifyTokenConsumer() {
   );
   const compiler = await compile(
     '@import "tailwindcss" source(none);\n' +
-      '@import "@fuf-stack/pixel-utils/tokens.css";\n' +
+      '@import "@fuf-stack/pixels-theme/theme.css";\n' +
       '@source "./consumer-styles.html";\n' +
       '@source "./node_modules/@fuf-stack/pixels/dist";\n' +
       '@theme { --text-body: 1.125rem; }\n',
@@ -371,7 +376,13 @@ function installAndTestConsumer(tarballs) {
           'react-dom': '18.3.1',
         },
         // Consumer build tooling; no HeroUI theme plugin/configuration is loaded.
-        devDependencies: { tailwindcss: '4.3.3' },
+        devDependencies: {
+          astro: '6.4.0',
+          '@astrojs/react': '5.0.0',
+          '@tailwindcss/vite': '4.3.5',
+          tailwindcss: '4.3.5',
+          vite: '7.3.2',
+        },
       },
       null,
       2,
@@ -476,6 +487,44 @@ function installAndTestConsumer(tarballs) {
     ['install', '--prefer-offline', '--ignore-scripts', '--no-frozen-lockfile'],
     fixtureDirectory,
     { PNPM_CONFIG_MINIMUM_RELEASE_AGE: '0' },
+  );
+
+  const viteDirectory = path.join(fixtureDirectory, 'vite-class-helpers');
+  cpSync(path.join(root, 'tests/fixtures/vite-class-helpers'), viteDirectory, {
+    recursive: true,
+  });
+  run('pnpm', ['exec', 'vite', 'build'], viteDirectory);
+  run('node', ['verify.mjs'], viteDirectory);
+  console.log('Verified CSS-derived class merging in a plain Vite build.');
+
+  cpSync(
+    path.join(root, 'tests/fixtures/astro-class-helpers'),
+    fixtureDirectory,
+    {
+      recursive: true,
+    },
+  );
+  run('pnpm', ['exec', 'astro', 'build'], fixtureDirectory);
+  const html = readFileSync(
+    path.join(fixtureDirectory, 'dist/index.html'),
+    'utf8',
+  );
+  const buttonClass =
+    html.match(/<button\b[^>]*\bclass="([^"]+)"/)?.[1]?.split(/\s+/) ?? [];
+  if (
+    !html.includes('class="prose prose-compact prose-brand"') ||
+    !html.includes('<p class="text-danger text-body"') ||
+    !html.includes('<span class="text-danger text-body"') ||
+    !buttonClass.includes('text-body') ||
+    !buttonClass.includes('text-brand') ||
+    buttonClass.includes('text-small')
+  ) {
+    throw new Error(
+      `Unexpected packed Astro markup: ${html.match(/<(?:article|p|button|span)\b[^>]*>/g)?.join(' ')}`,
+    );
+  }
+  console.log(
+    'Verified CSS-derived class merging in an Astro page and a hydrated island build.',
   );
 
   // exercise the packed component with the oldest supported React major

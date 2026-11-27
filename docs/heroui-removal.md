@@ -218,7 +218,7 @@ must accompany each renderer migration, with before/after browser evidence.
 Additional coupling:
 
 - The old pixel-utils `heroui` export, declaration bundling rules, Tailwind
-  plugin and HeroUI source globs are removed. `tokens.css` supplies the semantic
+  plugin and HeroUI source globs are removed. `theme.css` supplies the semantic
   theme in both workspace previews and packaged consumers.
 - Pixels Toast uses Sonner already; retain its behavior and test interoperability
   with replacement overlays. Megapixels selection checkboxes now use React Aria,

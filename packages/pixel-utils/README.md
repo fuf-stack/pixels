@@ -2,14 +2,8 @@
 
 Shared helper utilities for the fuf pixels component library.
 
-## Token stylesheet
-
-Import `@fuf-stack/pixel-utils/tokens.css` after Tailwind in your global CSS entry.
-It provides owned semantic tokens and utilities in light/dark themes, including
-`bg-content1`, `text-danger`, `text-small`, `border-small` and `rounded-small`.
-Override `--pixel-*` variables in theme scopes. See [styling](../../docs/styling.md)
-for source detection and theme customization. CSS is marked side-effectful
-and is never imported through the JavaScript entry.
+The class helpers ship with merge rules generated from the Pixels theme CSS.
+See the [theme package](../pixels-theme/README.md) for the global stylesheet.
 
 ## Exports
 
@@ -85,13 +79,40 @@ const classes = variantsToClassNames(
 // => { base: 'shadow-lg', content: 'p-4 max-w-sm', trigger: 'cursor-pointer' }
 ```
 
-`tv` includes the same prose merge rules as `cn`. Owned recipes additionally
-classify existing semantic sizes, radii, borders, shadows and transitions.
-The legacy standalone `cn` keeps its previous semantic classification for compatibility; use instance helpers for semantic utility classes. Recipes use the unmerged
-Tailwind Variants engine, then resolve conflicts with an isolated instance.
-Compound variants and recipe extension retain their classes until final merging.
+### Project theme in Vite and Astro
 
-### `createStyling(config?)`, `defaultStyling`
+Register the plugin once in Vite’s `plugins` array, or in Astro’s `vite.plugins`.
+Point it at the same CSS entry your application imports.
+
+```ts
+import { pixelsTwClassMergeConfig } from '@fuf-stack/pixels-theme/vite';
+
+pixelsTwClassMergeConfig({ tailwindConfig: './src/theme.css' });
+```
+
+```css
+@import 'tailwindcss';
+@import '@fuf-stack/pixels-theme/theme.css';
+
+@theme {
+  --text-body: 1.0625rem;
+  --color-brand: #3254cd;
+}
+
+@utility prose-compact {
+  /* @merge-group prose-size */
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+```
+
+`cn('text-sm text-brand', 'text-body')` returns `'text-brand text-body'`.
+The same rules apply to `tv` recipes and component overrides, including during
+Astro prerendering and hydration. Relative and package CSS imports participate.
+Use a merge-group comment inside a named utility when its intended conflicts are
+ambiguous, as with a custom prose size. The plugin reads CSS at build time.
+
+### `createStyling(config?)`, `defaultClassHelpers`
 
 Create an immutable set of `cn`, `tv`, `resolve`, and `variantsToClassNames`
 helpers using Tailwind Merge's `extend`/`override` configuration format. Custom
@@ -141,7 +162,7 @@ Tailwind plugin with the token stylesheet and scan the built component packages:
 
 ```css
 @import 'tailwindcss';
-@import '@fuf-stack/pixel-utils/tokens.css';
+@import '@fuf-stack/pixels-theme/theme.css';
 @source '../node_modules/@fuf-stack/pixels/dist';
 @source '../node_modules/@fuf-stack/uniform/dist';
 ```
@@ -149,3 +170,7 @@ Tailwind plugin with the token stylesheet and scan the built component packages:
 Paths are relative to the stylesheet. Add Megapixels when used. Replace custom
 `--heroui-*` variables with the corresponding `--pixel-*` variables. The default
 palette and semantic utilities remain available without a plugin.
+
+The build generates `src/twClassMergeConfig.ts` from the theme CSS. Class helpers
+use a normal relative import of this configuration; the Vite plugin replaces
+that module with the application theme configuration.

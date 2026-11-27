@@ -1,0 +1,9 @@
+---
+import { cn } from '@fuf-stack/pixel-utils';
+import ExampleButton from '../ExampleButton.jsx';
+import '../theme.css';
+---
+<article class={cn('prose prose-lg prose-slate', 'prose-compact prose-brand')}>
+  <p class={cn('text-sm text-danger', 'text-body')}>Project typography</p>
+  <ExampleButton client:load />
+</article>

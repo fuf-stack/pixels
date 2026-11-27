@@ -20,7 +20,7 @@ this same entry through `tailwindStylesheet` to recognize semantic utilities.
 
 ```css
 @import 'tailwindcss' source(none);
-@import '@fuf-stack/pixel-utils/tokens.css';
+@import '@fuf-stack/pixels-theme/theme.css';
 
 @source '../../pixels/src/**/*.{js,ts,jsx,tsx}';
 ```
@@ -32,10 +32,14 @@ adding a package. Snapshots, generated output and dependencies are not scanned.
 `source(none)` disables implicit discovery, add new workspace sources explicitly.
 
 Semantic colors, sizes, utilities and the class/data-attribute dark variant
-live in `pixel-utils/src/tokens.css`, using `@theme`, `@utility` and
-`@custom-variant`. Do not duplicate their defaults in the workspace entry.
+are defined by `pixels-theme/src/css/theme.css` and its `utilities.css` import, using
+`@theme`, `@utility` and `@custom-variant`. Do not duplicate their defaults in the workspace entry.
 Applications outside this repository use the [published token setup](#semantic-tokens)
 and register the built packages they consume.
+
+Keep theme CSS sources under `packages/pixels-theme/src/css/`, alongside the Vite plugin in `src/vite/`.
+The build copies `src/css/theme.css` and `src/css/utilities.css` to `dist/`; applications
+import the public `@fuf-stack/pixels-theme/theme.css` export.
 
 ## Recipe file ownership
 
@@ -394,20 +398,18 @@ function Control() {
 Create instances outside rendering and reuse them in application helpers.
 The provider follows the React tree through portals and allows nested providers,
 independent roots, and separate server requests. With no provider, `useStyling`
-returns `defaultStyling`. String, array, and per-slot record overrides keep their
+returns `defaultClassHelpers`. String, array, and per-slot record overrides keep their
 existing meaning. For module-level recipes, call `resolve` before slot functions
 are evaluated; applying a custom merge after default resolution cannot recover
 discarded classes.
 
-The standalone `cn` export retains its historical merge behavior for compatibility.
-Use `defaultStyling.cn` or an instance’s `cn` for semantic utilities such as
-`text-medium`. All workspace component recipes resolve through their styling
-instance. Tailwind must generate custom classes such as `text-body` separately,
-for example through a `--text-body` theme token.
+Standalone `cn`, `tv`, and component recipes share the same default merge rules.
+For project-wide extensions, configure the [Vite or Astro plugin](../packages/pixel-utils/README.md#project-theme-in-vite-and-astro)
+with the project's CSS entry. Use a styling instance for overrides scoped to a React tree.
 
 ## Semantic tokens
 
-The public stylesheet `@fuf-stack/pixel-utils/tokens.css` preserves the default
+Install `@fuf-stack/pixels-theme` as a direct dependency. Its stylesheet provides the
 semantic color palettes, layout sizes, radii, shadows, opacity and transition
 utilities. It contains owned `--pixel-*` variables and Tailwind v4 directives;
 it does not load the HeroUI plugin or reference HeroUI variables. Import it
@@ -415,7 +417,7 @@ after Tailwind in the application's global CSS entry:
 
 ```css
 @import 'tailwindcss';
-@import '@fuf-stack/pixel-utils/tokens.css';
+@import '@fuf-stack/pixels-theme/theme.css';
 
 /* Tailwind normally excludes node_modules from automatic source discovery. */
 @source '../node_modules/@fuf-stack/pixels/dist';
@@ -433,8 +435,8 @@ after Tailwind in the application's global CSS entry:
 Paths in `@source` are relative to this stylesheet. Add Megapixels when used.
 The tokens follow `.light`/`.dark` classes and `data-theme="light"`/`"dark"`,
 including nested theme scopes. Theme overrides can target those same scopes.
-Configure merge rules separately when a custom utility such as `text-body`
-needs to conflict with a built-in utility; token generation alone is insufficient.
+With the `pixelsTwClassMergeConfig` Vite plugin, a token such as `--text-body` also registers
+its generated utility as a font size for class merging.
 
 The HeroUI plugin and its source scanning are removed. The old `heroui` export
 from pixel-utils is removed as a breaking change. Consumers must replace plugin

@@ -291,6 +291,11 @@ Input/
     InputStepper.tsx              # Number increment and decrement controls
 ```
 
+Name internal declarations and bindings after their responsibility, without
+repeating the package brand. For example, `twClassMergeConfig.ts` defines
+`twClassMergeConfig`; the public Vite plugin factory can use the package-prefixed
+name `pixelsTwClassMergeConfig`.
+
 Shared pure functions belong in `helpers/<responsibility>/<responsibility>.ts`,
 with colocated tests. Related functions can share one module with named exports. Keep `partials/` for React presentation shared across field families and
 its supporting contracts.

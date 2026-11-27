@@ -1,6 +1,6 @@
 import type { TV, VariantProps } from 'tailwind-variants';
 
-import { defaultStyling } from './styling';
+import { defaultClassHelpers } from './twClassHelpers';
 
 /**
  * Represents a class value which can be either a string or an array of strings
@@ -12,7 +12,7 @@ export type ClassValue = string | string[];
  * Tailwind Variants recipe factory with isolated semantic class merging
  * Used to create variant definitions with slots and variants
  */
-export const tv: TV = defaultStyling.tv;
+export const tv: TV = defaultClassHelpers.tv;
 
 /**
  * Extracts variant props from a tailwind-variants component

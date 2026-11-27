@@ -372,11 +372,11 @@ Pixel Motion still owns its actual animation dependency. The shared Tailwind
 configuration scans workspace source only, and pixel-utils no longer exports
 `heroui` or bundles its types. The lockfile is pruned of HeroUI packages.
 
-This completes the repository migration. The setup change is intentionally
-breaking: applications must import `@fuf-stack/pixel-utils/tokens.css` after
-Tailwind and scan the built packages they use. Replace custom `--heroui-*`
-overrides with `--pixel-*` variables. See the [styling setup](../styling.md#semantic-tokens)
-and [pixel-utils migration](../../packages/pixel-utils/README.md#migration-from-the-heroui-plugin).
+Install `@fuf-stack/pixels-theme` as a direct dependency and import
+`@fuf-stack/pixels-theme/theme.css` after Tailwind. Applications on an earlier
+2.0 prerelease must replace the old `@fuf-stack/pixel-utils/tokens.css` import.
+Scan the built component packages you use and replace custom `--heroui-*`
+overrides with `--pixel-*` variables. See the [styling setup](../styling.md#semantic-tokens).
 
 All published tarballs are checked for HeroUI dependencies, runtime imports,
 declaration references and CSS variables. Application and Uniform stories run
