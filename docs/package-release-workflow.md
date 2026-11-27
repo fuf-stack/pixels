@@ -84,6 +84,16 @@ Trusted publishing only works for packages that already exist on npm. Publish a
 new package once manually and configure its trusted publisher before its first
 release.
 
+## Why npm publishes the packed archives
+
+`pnpm pack` replaces workspace dependency ranges, and npm publishes the
+resulting archive. npm supports trusted publishing (OIDC) directly, which needs
+npm 11.5.1 or newer; the Node version pinned in `.nvmrc` ships with one.
+
+To reduce supply chain risk, the publish step downloads nothing at runtime:
+npm comes with the pinned Node version, there is no `npx`, and `pnpm pack`
+runs with install scripts disabled (`PNPM_CONFIG_IGNORE_SCRIPTS`).
+
 ## Branch behavior
 
 - `main` publishes with the npm dist-tag `latest`.
