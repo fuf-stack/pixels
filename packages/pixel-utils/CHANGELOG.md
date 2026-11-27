@@ -1,5 +1,19 @@
 # Changelog
 
+## [2.0.0-next.3](https://github.com/fuf-stack/pixels/compare/pixel-utils-v2.0.0-next.2...pixel-utils-v2.0.0-next.3) (2026-11-27)
+
+
+### Features
+
+* **pixels-theme:** derive class merging from the project's Tailwind theme ([a0c7413](https://github.com/fuf-stack/pixels/commit/a0c74136be6468837d204e8c7ea06048fdf54675))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * devDependencies
+    * @fuf-stack/pixels-theme bumped to 1.0.0-next.1
+
 ## [2.0.0-next.2](https://github.com/fuf-stack/pixels/compare/pixel-utils-v2.0.0-next.1...pixel-utils-v2.0.0-next.2) (2026-11-23)
 
 

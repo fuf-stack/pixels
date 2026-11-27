@@ -1,5 +1,21 @@
 # Changelog
 
+## [2.0.0-next.4](https://github.com/fuf-stack/pixels/compare/megapixels-v2.0.0-next.3...megapixels-v2.0.0-next.4) (2026-11-27)
+
+
+### Features
+
+* **pixels-theme:** derive class merging from the project's Tailwind theme ([a0c7413](https://github.com/fuf-stack/pixels/commit/a0c74136be6468837d204e8c7ea06048fdf54675))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @fuf-stack/pixel-utils bumped to 2.0.0-next.3
+    * @fuf-stack/pixels bumped to 2.0.0-next.5
+    * @fuf-stack/uniform bumped to 2.0.0-next.6
+
 ## [2.0.0-next.3](https://github.com/fuf-stack/pixels/compare/megapixels-v2.0.0-next.2...megapixels-v2.0.0-next.3) (2026-11-23)
 
 
